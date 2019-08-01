@@ -3,13 +3,14 @@ title: Conversation Learner default configuration - Microsoft Cognitive Services
 titleSuffix: Azure
 description: Learn about the default Conversation Learner configuration.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
+ROBOTS: NOINDEX
 ---
 
 # Default values and boundaries
@@ -30,8 +31,8 @@ Authoring API, max HTTP calls per month | 5M
 Authoring API, max HTTP calls per second | 25
 Session API, max HTTP calls per month | 500K
 Session API, max HTTP calls per second | 10
-Max number of custom (non-programmatic) entities per model | See [LUIS boundaries doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); in practice, actual number may be slightly smaller
-Max number of pre-built entities per model | See [LUIS boundaries doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Max number of custom (non-programmatic) entities per model | See [LUIS boundaries doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); in practice, actual number may be slightly smaller
+Max number of pre-built entities per model | See [LUIS boundaries doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
 Max number of entities (in total) per model | 100
 Max number of actions per model | 32
 Max number of train dialogs per model | 1000

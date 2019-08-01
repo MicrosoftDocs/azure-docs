@@ -25,10 +25,10 @@ Register Python and, R extensions assemblies for your ADL account.
 3. Select **Install U-SQL Extensions**. 
 4. Confirmation message is displayed after the U-SQL extensions are installed. 
 
-  ![Set up the environment for python and R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+   ![Set up the environment for python and R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
-  > [!Note]
-  > For best experiences on Python and R language service, please install VSCode Python and R extension. 
+   > [!Note]
+   > For best experiences on Python and R language service, please install VSCode Python and R extension. 
 
 ## Develop Python file
 1. Click the **New File** in your workspace.

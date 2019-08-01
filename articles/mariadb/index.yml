@@ -1,0 +1,58 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Database for MariaDB Documentation
+metadata:
+  title: Azure MariaDB Documentation - Tutorials, API Reference
+  description: Azure Database for MariaDB is a relational database service in the Microsoft cloud built for developers based on the open-source MariaDB database engine.
+  author: ajlam
+  ms.author: andrela
+  ms.service: mariadb
+  ms.topic: landing-page
+  ms.date: 03/25/2019
+abstract:
+  description: Azure Database for MariaDB is a relational database service based on the open-source MariaDB Server engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance and dynamic scalability. Develop applications with Azure Database for MariaDB leveraging the open-source tools and platform of your choice. Learn how to use Azure Database for MariaDB with our quickstarts, tutorials, and samples.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to create a MariaDB database on Azure using:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/portal.svg
+      text: Azure Portal
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-portal
+    - image: 
+        src: /azure/virtual-machines/linux/media/index/cli.svg
+      text: Azure CLI
+      href: /azure/mariadb/quickstart-create-mariadb-server-database-using-azure-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to design your database and develop apps:'
+  - type: list
+    style: unordered
+    items:
+    - html: Design a Database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Find scripts to manage common tasks.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/mariadb/sample-scripts-azure-cli">Azure CLI</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/cli/azure/mariadb">Azure CLI</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/mariadb/">REST API</a></p>
+    - title: Azure Resource Manager
+      html: <p><a href="/azure/templates/microsoft.dbformariadb/allversions">Resource Manager templates</a></p>

@@ -1,18 +1,19 @@
 ---
-title: Java Quickstart for Microsoft QnA Maker API (v4) - Azure Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+title: "REST API (V4) - Java - QnA Maker"
+titleSuffix: Azure Cognitive Services 
+description: Get Java REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: nitinme
 
 ms.service: cognitive-services
-ms.technology: qna-maker
-ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-
+ms.subservice: qna-maker
+ms.topic: quickstart
+ms.date: 02/13/2019
+ms.author: diberry
+ms.custom: seodec18
 ---
-# Quickstart for Microsoft QnA Maker API with Java 
+# How to use the QnA Maker REST API with Java 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Java to do the following.
@@ -29,12 +30,14 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Delete a knowledge base.](#Delete)
 - [Get the current endpoint keys.](#GetKeys)
 - [Re-generate the current endpoint keys.](#PutKeys)
-- [Get the current set of word alterations.](#GetAlterations)
-- [Replace the current set of word alterations.](#PutAlterations)
+- [Get the current set of case-insensitive word alterations.](#GetAlterations)
+- [Replace the current set of case-insensitive word alterations.](#PutAlterations)
+
+[!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -42,7 +45,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Create knowledge base
 
-The following code creates a new knowledge base, using the [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) method.
+The following code creates a new knowledge base, using the [Create](https://go.microsoft.com/fwlink/?linkid=2092179) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -95,7 +98,7 @@ public class CreateKB {
 
 // We'll serialize these classes into JSON for our request to the server.
 // For the JSON request schema, see:
-// https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
+// https://go.microsoft.com/fwlink/?linkid=2092179
 	public static class KB {
 		String name;
 		Question[] qnaList;
@@ -206,7 +209,7 @@ public class CreateKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -217,7 +220,8 @@ public class CreateKB {
 
 		kb.qnaList = new Question[]{q};
 
-		kb.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+		kb.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+
 
 		return kb;
 	}
@@ -292,7 +296,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Update knowledge base
 
-The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+The following code updates an existing knowledge base, using the [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -324,7 +328,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -367,7 +371,7 @@ public class UpdateKB {
 
 // We'll serialize these classes into JSON for our request to the server.
 // For the JSON request schema, see:
-// https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600
+// https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update
 	public static class Request {
 		Add add;
 		Delete delete;
@@ -451,13 +455,13 @@ public class UpdateKB {
 		HttpPatch patch = new HttpPatch(url.toString());
 		// HttpPatch implements HttpMessage, which includes addHeader. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
 		patch.addHeader("Content-Type", "application/json");
 		// Note: Adding the Content-Length header causes the exception:
 		// "Content-Length header already present."
 		patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 		// HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
 		HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -467,8 +471,8 @@ public class UpdateKB {
 		// CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
 		// Header implements NameValuePair. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
 		Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		for (Header header : response.getAllHeaders()) {
 			List<String> list = new ArrayList<String>() {
@@ -480,9 +484,9 @@ public class UpdateKB {
 		}
 
 		// CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
 		// HttpEntity implements getContent, which returns an InputStream. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
 		StringBuilder output = new StringBuilder ();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 		String line;
@@ -515,7 +519,7 @@ public class UpdateKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -526,7 +530,8 @@ public class UpdateKB {
 
 		req.add = new Add ();
 		req.add.qnaList = new Question[]{q};
-		req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+		req.add.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+
 
 		return req;
 	}
@@ -594,7 +599,7 @@ Press any key to continue.
 
 ## Get request status
 
-You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) method to check the status of a request to create or update a knowledge base. To see how this method is used, please see the sample code for the [Create](#Create) or [Update](#Update) method.
+You can call the [Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) method to check the status of a request to create or update a knowledge base. To see how this method is used, please see the sample code for the [Create](#Create) or [Update](#Update) method.
 
 [Back to top](#HOLTop)
 
@@ -602,7 +607,7 @@ You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ## Publish knowledge base
 
-The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+The following code publishes an existing knowledge base, using the [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -731,7 +736,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Replace knowledge base
 
-The following code replaces the contents of the specified knowledge base, using the [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) method.
+The following code replaces the contents of the specified knowledge base, using the [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -787,7 +792,7 @@ public class ReplaceKB {
 
 // We'll serialize these classes into JSON for our request to the server.
 // For the JSON request schema, see:
-// https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish
+// https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace
 	public static class Request {
 		Question[] qnaList;
 	}
@@ -859,7 +864,7 @@ public class ReplaceKB {
 
 		Question q = new Question();
 		q.id = 0;
-		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600";
+		q.answer = "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update";
 		q.source = "Custom Editorial";
 		q.questions = new String[]{"How do I programmatically update my Knowledge Base?"};
 
@@ -901,7 +906,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Download the contents of a knowledge base
 
-The following code downloads the contents of the specified knowledge base, using the [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) method.
+The following code downloads the contents of the specified knowledge base, using the [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1013,7 +1018,7 @@ A successful response is returned in JSON, as shown in the following example:
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -1028,7 +1033,7 @@ A successful response is returned in JSON, as shown in the following example:
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -1174,7 +1179,7 @@ A successful response is returned in JSON, as shown in the following example:
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -1188,7 +1193,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get information about a knowledge base
 
-The following code gets information about the specified knowledge base, using the [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) method.
+The following code gets information about the specified knowledge base, using the [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1300,8 +1305,8 @@ A successful response is returned in JSON, as shown in the following example:
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1315,7 +1320,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get all knowledge bases for a user
 
-The following code gets information about all knowledge bases for a specified user, using the [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) method.
+The following code gets information about all knowledge bases for a specified user, using the [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1436,8 +1441,8 @@ A successful response is returned in JSON, as shown in the following example:
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1455,7 +1460,7 @@ Press any key to continue.
 
 ## Delete a knowledge base
 
-The following code deletes the specified knowledge base, using the [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) method.
+The following code deletes the specified knowledge base, using the [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1576,7 +1581,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get endpoint keys
 
-The following code gets the current endpoint keys, using the [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) method.
+The following code gets the current endpoint keys, using the [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1689,7 +1694,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Refresh endpoint keys
 
-The following code regenerates the current endpoint keys, using the [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) method.
+The following code regenerates the current endpoint keys, using the [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1721,7 +1726,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -1774,13 +1779,13 @@ public class RefreshKeys {
 		HttpPatch patch = new HttpPatch(url.toString());
 		// HttpPatch implements HttpMessage, which includes addHeader. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
 		patch.addHeader("Content-Type", "application/json");
 		// Note: Adding the Content-Length header causes the exception:
 		// "Content-Length header already present."
 		patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 		// HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
 		HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -1790,8 +1795,8 @@ public class RefreshKeys {
 		// CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
 		// Header implements NameValuePair. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
 		Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		for (Header header : response.getAllHeaders()) {
 			List<String> list = new ArrayList<String>() {
@@ -1803,9 +1808,9 @@ public class RefreshKeys {
 		}
 
 		// CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
 		// HttpEntity implements getContent, which returns an InputStream. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
 		StringBuilder output = new StringBuilder ();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 		String line;
@@ -1853,7 +1858,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get word alterations
 
-The following code gets the current word alterations, using the [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) method.
+The following code gets the current word alterations, using the [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -1972,7 +1977,7 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Replace word alterations
 
-The following code replaces the current word alterations, using the [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) method.
+The following code replaces the current word alterations, using the [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) method.
 
 1. Create a new Java project in your favorite IDE.
 2. Add the code provided below.
@@ -2025,7 +2030,7 @@ public class PutAlterations {
 
 // We'll serialize these classes into JSON for our request to the server.
 // For the JSON request schema, see:
-// https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd
+// https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace
 	public static class Request {
 		Alteration[] wordAlterations;
 	}
@@ -2121,7 +2126,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## See also 
 

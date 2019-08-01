@@ -5,7 +5,7 @@ services: app-service\mobile
 documentationcenter: javascript
 manager: crdun
 editor: ''
-author: conceptdev
+author: elamalani
 
 ms.assetid: 92c596a9-875c-4840-b0e1-69198817576f
 ms.service: app-service-mobile
@@ -13,12 +13,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/30/2016
-ms.author: crdun
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Add push notifications to your Apache Cordova app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-push) today.
+>
 
 ## Overview
 
@@ -299,7 +303,7 @@ attribute value in the widget element, and then copy it for later use. In the fo
 
 ```xml
 <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
-    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
+    version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="https://www.w3.org/ns/widgets"
     xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 ```
 
@@ -427,17 +431,17 @@ Learn how to use the following SDKs:
 
 <!-- URLs -->
 [1]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[2]: http://www.visualstudio.com/
+[2]: https://www.visualstudio.com/
 [3]: https://azure.microsoft.com/pricing/free-trial/
 [4]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
 [5]: app-service-mobile-cordova-get-started.md
-[6]: http://go.microsoft.com/fwlink/p/?LinkId=268302
+[6]: https://go.microsoft.com/fwlink/p/?LinkId=268302
 [7]: https://developer.apple.com/programs/
 [8]: https://developer.microsoft.com/en-us/store/register
 [9]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub
 [10]: https://www.npmjs.com/
 [11]: https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM
-[12]: http://taco.visualstudio.com/en-us/docs/ios-guide/
+[12]: https://taco.visualstudio.com/en-us/docs/ios-guide/
 [13]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-6-Set-up-wns-for-push
 [14]: app-service-mobile-cordova-get-started-users.md
 [15]: app-service-mobile-cordova-how-to-use-client-library.md
@@ -446,4 +450,4 @@ Learn how to use the following SDKs:
 [18]: https://console.developers.google.com/home/dashboard
 [19]: https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/INSTALLATION.md
 [20]: https://www.mobizen.com/
-[21]: http://taco.visualstudio.com/en-us/docs/build_ios_cloud/
+[21]: https://taco.visualstudio.com/en-us/docs/build_ios_cloud/

@@ -1,21 +1,18 @@
 ---
-title: Load balancing on multiple IP configurations using Azure CLI | Microsoft Docs
+title: Load balancing on multiple IP configurations using Azure CLI
+titlesuffix: Azure Load Balancer
 description: Learn how to assign multiple IP addresses to a virtual machine using Azure CLI.
 services: virtual-network
 documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid:
+author: asudbring
+ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Load balancing on multiple IP configurations using Azure CLI
@@ -28,7 +25,7 @@ This article describes how to use Azure Load Balancer with multiple IP addresses
 
 To achieve the scenario outlined in this article complete the following steps:
 
-1. [Install and Configure the Azure CLI]((https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)) by following the steps in the linked article and log into your Azure account.
+1. [Install and Configure the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) by following the steps in the linked article and log into your Azure account.
 2. [Create a resource group](../virtual-machines/linux/create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-group) called *contosofabrikam* as follows:
 
     ```azurecli

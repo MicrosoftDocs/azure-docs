@@ -2,13 +2,13 @@
 title: Partitioning tables in Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and examples for using table partitions in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-ms.date: 04/17/2018
-ms.author: rortloff
+ms.subservice: development
+ms.date: 03/18/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
@@ -104,27 +104,6 @@ GROUP BY    s.[name]
 ;
 ```
 
-## Workload management
-One final consideration to factor in to your table partition decision is [workload management](resource-classes-for-workload-management.md). Workload management in SQL Data Warehouse is primarily the management of memory and concurrency. In SQL Data Warehouse, the maximum memory allocated to each distribution during query execution is governed by resource classes. Ideally your partitions are sized in consideration of other factors like the memory needs of building clustered columnstore indexes. Clustered columnstore indexes benefit greatly when they are allocated more memory. Therefore, you want to ensure that a partition index rebuild is not starved of memory. Increasing the amount of memory available to your query can be achieved by switching from the default role, smallrc, to one of the other roles such as largerc.
-
-Information on the allocation of memory per distribution is available by querying the Resource Governor dynamic management views. In reality, your memory grant is less than the results of the following query. However, this query provides a level of guidance that you can use when sizing your partitions for data management operations. Try to avoid sizing your partitions beyond the memory grant provided by the extra large resource class. If your partitions grow beyond this figure, you run the risk of memory pressure, which in turn leads to less optimal compression.
-
-```sql
-SELECT  rp.[name]                                AS [pool_name]
-,       rp.[max_memory_kb]                        AS [max_memory_kb]
-,       rp.[max_memory_kb]/1024                    AS [max_memory_mb]
-,       rp.[max_memory_kb]/1048576                AS [mex_memory_gb]
-,       rp.[max_memory_percent]                    AS [max_memory_percent]
-,       wg.[name]                                AS [group_name]
-,       wg.[importance]                            AS [group_importance]
-,       wg.[request_max_memory_grant_percent]    AS [request_max_memory_grant_percent]
-FROM    sys.dm_pdw_nodes_resource_governor_workload_groups    wg
-JOIN    sys.dm_pdw_nodes_resource_governor_resource_pools    rp ON wg.[pool_id] = rp.[pool_id]
-WHERE   wg.[name] like 'SloDWGroup%'
-AND     rp.[name]    = 'SloDWPool'
-;
-```
-
 ## Partition switching
 SQL Data Warehouse supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) statement.
 
@@ -161,15 +140,7 @@ INSERT INTO dbo.FactInternetSales
 VALUES (1,19990101,1,1,1,1,1,1);
 INSERT INTO dbo.FactInternetSales
 VALUES (1,20000101,1,1,1,1,1,1);
-
-
-CREATE STATISTICS Stat_dbo_FactInternetSales_OrderDateKey ON dbo.FactInternetSales(OrderDateKey);
 ```
-
-> [!NOTE]
-> By creating the statistic object, the table metadata is more accurate. If you omit statistics, then SQL Data Warehouse will use default values. For details on statistics, please review [statistics](sql-data-warehouse-tables-statistics.md).
-> 
-> 
 
 The following query finds the row count by using the `sys.partitions` catalog view:
 
@@ -248,6 +219,31 @@ Once you have completed the movement of the data, it is a good idea to refresh t
 
 ```sql
 UPDATE STATISTICS [dbo].[FactInternetSales];
+```
+
+### Load new data into partitions that contain data in one step
+Loading data into partitions with partition switching is a convenient way stage new data in a table that is not visible to users the switch in the new data.  It can be challenging on busy systems to deal with the locking contention associated with partition switching.  To clear out the existing data in a partition, an `ALTER TABLE` used to be required to switch out the data.  Then another `ALTER TABLE` was required to switch in the new data.  In SQL Data Warehouse, the `TRUNCATE_TARGET` option is supported in the `ALTER TABLE` command.  With `TRUNCATE_TARGET` the `ALTER TABLE` command overwrites existing data in the partition with new data.  Below is an example which uses `CTAS` to create a new table with the existing data, inserts new data, then switches all the data back into the target table, overwriting the existing data.
+
+```sql
+CREATE TABLE [dbo].[FactInternetSales_NewSales]
+    WITH    (   DISTRIBUTION = HASH([ProductKey])
+            ,   CLUSTERED COLUMNSTORE INDEX
+            ,   PARTITION   (   [OrderDateKey] RANGE RIGHT FOR VALUES
+                                (20000101,20010101
+                                )
+                            )
+            )
+AS
+SELECT  *
+FROM    [dbo].[FactInternetSales]
+WHERE   [OrderDateKey] >= 20000101
+AND     [OrderDateKey] <  20010101
+;
+
+INSERT INTO dbo.FactInternetSales_NewSales
+VALUES (1,20000101,2,2,2,2,2,2);
+
+ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInternetSales PARTITION 2 WITH (TRUNCATE_TARGET = ON);  
 ```
 
 ### Table partitioning source control

@@ -1,25 +1,22 @@
 ---
 title: Azure Active Directory Identity Protection Glossary | Microsoft Docs
 description: Azure Active Directory Identity Protection Glossary
+
 services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy, glossary
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-
-ms.assetid: 833119a5-33d6-4482-adda-fa35218c72c3
 ms.service: active-directory
-ms.component: conditional-access
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.subservice: identity-protection
+ms.topic: reference
 ms.date: 01/15/2018
-ms.author: markvi
-ms.reviewer: nigu
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sahandle
+
+ms.collection: M365-identity-device-management
 ---
 # Azure Active Directory Identity Protection Glossary
+
 ### At risk (User)
 A user with one or more active risk events. 
 
@@ -29,8 +26,8 @@ A sign-in from a geographic location that is not typical for the specific user, 
 ### Azure AD Identity Protection
 A security module of Azure Active Directory that provides a consolidated view into risk events and potential vulnerabilities affecting an organization’s identities.
 
-### Conditional access
-A policy for securing access to resources. Conditional access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
+### Conditional Access
+A policy for securing access to resources. Conditional Access rules are stored in the Azure Active Directory and are evaluated by Azure AD before granting access to the resource.  Example rules include restricting access based on user location, device health, or user authentication method.
 
 ### Credentials
 Information that includes identification and proof of identification that is used to gain access to local and network resources. Examples of credentials are user names and passwords, smart cards, and certificates.
@@ -141,7 +138,7 @@ A risk event triggered when a user successfully signs in from a new location (IP
 See Risk level (sign-in)
 
 ### Sign-in risk policy
-A conditional access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
+A Conditional Access policy that evaluates the risk to a specific sign-in and applies mitigations based on predefined conditions and rules.
 
 ### User compromise risk
 See Risk level (user compromise)
@@ -150,7 +147,7 @@ See Risk level (user compromise)
 See Risk level (user compromise).
 
 ### User risk policy
-A conditional access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
+A Conditional Access policy that considers the sign-in and applies mitigations based on predefined conditions and rules.
 
 ### Users flagged for risk
 Users that have risk events, which are either active or remediated
@@ -160,4 +157,3 @@ A configuration or condition in Azure Active Directory, which makes the director
 
 ## See also
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-

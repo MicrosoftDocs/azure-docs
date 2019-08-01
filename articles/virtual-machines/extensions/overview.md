@@ -1,10 +1,10 @@
 ---
 title: Azure virtual machine extensions and features | Microsoft Docs
-description: Learn what Azure VM extensions anre how to use them with Azure virtual machines
+description: Learn what Azure VM extensions are and how to use them with Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
-author: zroiy
-manager: jeconnoc
+author: roiyz-msft
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -37,7 +37,7 @@ Extensions can be bundled with a new VM deployment. For example, they can be par
 You can view available extensions in the VM blade in the Portal, under extensions, this represents just a small amount, for the full list, you can use the CLI tools, see [Discovering VM Extensions for Linux](features-linux.md) and [Discovering VM Extensions for Windows](features-windows.md).
 
 ## How can I install an extension?
-Azure VM extensions can be managed using either the Azure CLI 2.0, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, you can go to the Azure portal, select the Custom Script Extension, then pass in a command / script and run the extensions.
+Azure VM extensions can be managed using either the Azure CLI, Azure PowerShell, Azure Resource Manager templates, and the Azure portal. To try an extension, you can go to the Azure portal, select the Custom Script Extension, then pass in a command / script and run the extensions.
 
 If you want to same extension you added in the portal by CLI or Resource Manager template, see different extension documentation, such as [Windows Custom Script Extension](custom-script-windows.md) and [Linux Custom Script Extension](custom-script-linux.md).
 
@@ -50,6 +50,6 @@ Extensions install applications, like any applications there are some requiremen
 ## Next steps
 * For more information about how the Linux Agent and Extensions work, see [Azure VM extensions and features for Linux](features-linux.md).
 * For more information about how the Windows Guest Agent and Extensions work, see [Azure VM extensions and features for Windows](features-windows.md).  
-* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview ](agent-windows.md).  
-* To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview ](agent-linux.md).  
+* To install the Windows Guest Agent, see [Azure Windows Virtual Machine Agent Overview](agent-windows.md).  
+* To install the Linux Agent, see [Azure Linux Virtual Machine Agent Overview](agent-linux.md).  
 

@@ -1,34 +1,42 @@
-﻿---
+---
 
 title: Leave an organization as a guest user - Azure Active Directory | Microsoft Docs
 description: Shows how an Azure AD B2B guest user can leave an organization by using the Access Panel.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
-ms.topic: article
-ms.date: 05/11/2018
+ms.subservice: B2B
+ms.topic: conceptual
+ms.date: 06/13/2019
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 
+ms.collection: M365-identity-device-management
 ---
 
 # Leave an organization as a guest user
 
 An Azure Active Directory (Azure AD) B2B guest user can decide to leave an organization at any time if they no longer need to use apps from that organization or maintain any association. A user can leave an organization on their own, without having to contact an administrator.
 
+> [!NOTE]
+> A guest user can't leave an organization if their account is disabled in either the home tenant or the resource tenant. If their account is disabled, the guest user will need to contact the tenant admin, who can either delete the guest account or enable the guest account so the user can leave the organization.
+
 ## Leave an organization
 
-To leave an organization, as a user signed in to the [Access Panel](https://myapps.microsoft.com), do the following:
+To leave an organization, follow these steps.
 
-1. If you’re not already signed in to the organization that you want to leave, select your name in the upper-right corner, and click the organization you want to leave.
-2. In the upper-right corner, select your name.
-3. Next to **Organizations**, select the settings icon (gear).
+1. Go to your Access Panel Profile page by doing one of the following steps:
+   
+   - In the [Azure portal](https://portal.azure.com), click your name in the upper right and select **View account**.
+   - Open your [Access Panel](https://myapps.microsoft.com), click your name in the upper right, and next to **Organizations**, select the settings icon (gear).
  
    ![Screenshot showing user settings in Access Panel](media/leave-the-organization/UserSettings.png) 
+
+   > [!NOTE]
+   > If you’re not already signed in to the organization you want to leave, under **Organizations**, click the **Sign in to leave organization** link next to the organization’s name. After you’re signed in, click your name again in the upper right and next to **Organizations**, select the settings icon (gear).
 
 3. Under **Organizations**, find the organization that you want to leave, and select **Leave organization**.
 
@@ -38,7 +46,7 @@ To leave an organization, as a user signed in to the [Access Panel](https://myap
 
 ## Account removal
 
-When a user leaves an organization, the user account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD but is not permanently deleted for 30 days. This soft deletion enables the administrator to restore the user account (including groups and permissions), if the user makes a request to restore the account within the 30-day period.
+When a user leaves an organization, the user account is "soft deleted" in the directory. By default, the user object moves to the **Deleted users** area in Azure AD but isn't permanently deleted for 30 days. This soft deletion enables the administrator to restore the user account (including groups and permissions), if the user makes a request to restore the account within the 30-day period.
 
 If desired, a tenant administrator can permanently delete the account at any time during the 30-day period. To do this:
 

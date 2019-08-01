@@ -1,23 +1,25 @@
 ---
-title: Configure sign-in auto-acceleration for an application using a Home Realm Discovery policy | Microsoft Docs
-description: Explains what an Azure AD tenant is, and how to manage Azure through Azure Active Directory.
+title: Configure sign-in auto-acceleration using Home Realm Discovery policy | Microsoft Docs
+description: Learn how to configure Home Realm Discovery policy for Azure Active Directory authentication for federated users, including auto-acceleration and domain hints.
 services: active-directory
 documentationcenter: 
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
-ms.author: barbkess
+ms.date: 04/08/2019
+ms.author: mimart
+ms.custom: seoapril2019
+ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy
 
-The following document provides an introduction to configuring Azure Active Directory authentication behavior for federated users.   It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
+This article provides an introduction to configuring Azure Active Directory authentication behavior for federated users. It covers configuration of auto-acceleration and authentication restrictions for users in federated domains.
 
 ## Home Realm Discovery
 Home Realm Discovery (HRD) is the process that allows Azure Active Directory (Azure AD) to determine where a user needs to authenticate at sign-in time.  When a user signs in to an Azure AD tenant to access a resource, or to the Azure AD common sign-in page, they type a user name (UPN). Azure AD uses that to discover where the user needs to sign in. 
@@ -202,7 +204,13 @@ To apply the HRD policy after you have created it, you can assign it to multiple
 #### Step 2: Locate the service principal to which to assign the policy  
 You need the **ObjectID** of the service principals to which you want to assign the policy. There are several ways to find the **ObjectID** of service principals.    
 
-You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. Because you are using PowerShell, you can use the get-AzureADServicePrincipal cmdlet to list the service principals and their IDs.
+You can use the portal, or you can query [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity). You can also go to the [Graph Explorer Tool](https://developer.microsoft.com/graph/graph-explorer) and sign in to your Azure AD account to see all your organization's service principals. 
+
+Because you are using PowerShell, you can use the following cmdlet to list the service principals and their IDs.
+
+``` powershell
+Get-AzureADServicePrincipal
+```
 
 #### Step 3: Assign the policy to your service principal  
 After you have the **ObjectID** of the service principal of the application for which you want to configure auto-acceleration, run the following command. This command associates the HRD policy that you created in step 1 with the service principal that you located in step 2.
@@ -219,7 +227,7 @@ In the case where an application already has a HomeRealmDiscovery policy assigne
 To check which applications have HRD policy configured, use the **Get-AzureADPolicyAppliedObject** cmdlet. Pass it the **ObjectID** of the policy that you want to check on.
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 #### Step 5: You're done!
 Try the application to check that the new policy is working.
@@ -237,7 +245,7 @@ Note the **ObjectID** of the policy that you want to list assignments for.
 #### Step 2: List the service principals to which the policy is assigned  
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 
 ### Example: Remove an HRD policy for an application
@@ -247,15 +255,15 @@ Use the previous example to get the **ObjectID** of the policy, and that of the 
 #### Step 2: Remove the policy assignment from the application service principal  
 
 ``` powershell
-Remove-AzureADApplicationPolicy -ObjectId <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
+Remove-AzureADApplicationPolicy -id <ObjectId of the Service Principal>  -PolicyId <ObjectId of the policy>
 ```
 
 #### Step 3: Check removal by listing the service principals to which the policy is assigned 
 
 ``` powershell
-Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
+Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## Next steps
 - For more information about how authentication works in Azure AD, see [Authentication scenarios for Azure AD](../develop/authentication-scenarios.md).
-- For more information about user single sign-on, see [Application access and single sign-on with Azure Active Directory](configure-single-sign-on-portal.md).
-- Visit the [Active Directory developer's guide](../develop/azure-ad-developers-guide.md) for an overview of all developer-related content.
+- For more information about user single sign-on, see [Single sign-on to applications in Azure Active Directory](what-is-single-sign-on.md).
+- Visit the [Active Directory developer's guide](../develop/v1-overview.md) for an overview of all developer-related content.

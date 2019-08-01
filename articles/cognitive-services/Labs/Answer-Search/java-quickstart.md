@@ -1,30 +1,33 @@
 ---
-title: Project Answer Search Java quick start - Microsoft Cognitive Services | Microsoft Docs
+title: "Quickstart: Project Answer Search, Java"
+titlesuffix: Azure Cognitive Services
 description: Start using Project Answer Search in Java.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: nitinme
+
 ms.service: cognitive-services
-ms.technology: project-answer-search
-ms.topic: article
+ms.subservice: answer-search
+ms.topic: quickstart
 ms.date: 04/13/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
-# Project Answer Search query in Java
+# Quickstart: Project Answer Search query in Java
 This article uses Java to demonstrate the Bing Answer Search API, part of Microsoft Cognitive Services on Azure. The API is a REST Web service compatible with any programming language that can make HTTP requests and parse JSON.
  
 The example code uses Java with minimal external dependencies.  You can also run it on Linux or Mac OS X using Mono.
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Request 
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "Gibraltar".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     static String host = "https://api.labs.cognitive.microsoft.com";
     static String path = "/answerSearch/v7.0/search";
 
@@ -40,7 +43,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 	// construct result object for return
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## Complete code
 
@@ -51,7 +54,7 @@ The Bing Answer Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-````
+```
 package knowledgeAPI;
 import java.io.InputStream;
 import java.net.*;
@@ -142,7 +145,7 @@ public class KnowledgeSrch {
 	    }
 }
 
-````
+```
 
 ## Next steps
 - [C# quickstart](c-sharp-quickstart.md)

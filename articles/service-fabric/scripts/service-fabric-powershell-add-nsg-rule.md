@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Add a network security group rule | Micr
 description: Azure PowerShell Script Sample - Adds a network security group to allow inbound traffic on a specific port.
 services: service-fabric
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: azure-service-management
 
@@ -14,13 +14,15 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 11/28/2017
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
 # Add an inbound network security group rule
 
 This sample script creates a network security group rule to allow inbound traffic on port 8081.  The script gets the `Microsoft.Network/networkSecurityGroups` resource that the cluster is located in, creates a new network security configuration rule, and updates the network security group. Customize the parameters as needed.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 If needed, install the Azure PowerShell using the instructions found in the [Azure PowerShell guide](/powershell/azure/overview). 
 
@@ -34,10 +36,10 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Gets the `Microsoft.Network/networkSecurityGroups` resource. |
-|[Get-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/get-azurermnetworksecuritygroup)| Gets the network security group by name.|
-|[Add-AzureRmNetworkSecurityRuleConfig](/powershell/module/azurerm.network/add-azurermnetworksecurityruleconfig)| Adds a network security rule configuration to a network security group. |
-|[Set-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/set-azurermnetworksecuritygroup)| Sets the goal state for a network security group.|
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Gets the `Microsoft.Network/networkSecurityGroups` resource. |
+|[Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup)| Gets the network security group by name.|
+|[Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| Adds a network security rule configuration to a network security group. |
+|[Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup)| Sets the goal state for a network security group.|
 
 ## Next steps
 

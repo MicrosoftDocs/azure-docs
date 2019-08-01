@@ -1,5 +1,5 @@
 ---
-title: "Azure App Service Hybrid Connections | Microsoft Docs" 
+title: "Hybrid connections - Azure App Service | Microsoft Docs" 
 description: "How to create and use Hybrid Connections to access resources in disparate networks" 
 services: app-service
 documentationcenter: ''
@@ -13,8 +13,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 06/06/2019
 ms.author: ccompy
+ms.custom: seodec18
 
 ---
 
@@ -37,7 +38,6 @@ When your app makes a DNS request that matches a configured Hybrid Connection en
 > [!NOTE]
 > This means that you should try to always use a DNS name for your Hybrid Connection. Some client software does not do a DNS lookup if the endpoint uses an IP address instead.
 >
-
 
 ### App Service Hybrid Connection benefits ###
 
@@ -133,10 +133,10 @@ When you start the HCM UI, the first thing you see is a table that lists all the
 To add one or more Hybrid Connections to your HCM:
 
 1. Start the HCM UI.
-1. Select **Configure another Hybrid Connection**.
+2. Select **Configure another Hybrid Connection**.
 ![Screenshot of Configure New Hybrid Connections][8]
 
-1. Sign in with your Azure account.
+1. Sign in with your Azure account to get your Hybrid Connections available with your subscriptions. The HCM does not continue to use your Azure account beyond that. 
 1. Choose a subscription.
 1. Select the Hybrid Connections that you want the HCM to relay.
 ![Screenshot of Hybrid Connections][9]
@@ -173,7 +173,7 @@ There are periodic updates to the Hybrid Connection Manager to fix issues or pro
 
 ## Adding a Hybrid Connection to your app programmatically ##
 
-The APIs noted below can be used directly to manage the Hybrid Connections connected to your web apps. 
+The APIs noted below can be used directly to manage the Hybrid Connections connected to your apps. 
 
     /subscriptions/[subscription name]/resourceGroups/[resource group name]/providers/Microsoft.Web/sites/[app name]/hybridConnectionNamespaces/[relay namespace name]/relays/[hybrid connection name]?api-version=2016-08-01
 
@@ -194,7 +194,7 @@ The JSON object associated with a Hybrid Connection looks like:
       }
     }
 
-One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] github project. Here is an example on attaching a pre-existing Hybrid Connection to your web app. 
+One way to use this information is with the armclient, which you can get from the [ARMClient][armclient] GitHub project. Here is an example on attaching a pre-existing Hybrid Connection to your app. 
 Create a JSON file per the above schema like:
 
     {
@@ -223,11 +223,13 @@ The status of "Connected" means that at least one HCM is configured with that Hy
 
 The primary reason that clients cannot connect to their endpoint is because the endpoint was specified by using an IP address instead of a DNS name. If your app cannot reach the desired endpoint and you used an IP address, switch to using a DNS name that is valid on the host where the HCM is running. Also check that the DNS name resolves properly on the host where the HCM is running. Confirm that there is connectivity from the host where the HCM is running to the Hybrid Connection endpoint.  
 
-In App Service, the tcpping tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
+In App Service, the **tcpping** command line tool can be invoked from the Advanced Tools (Kudu) console. This tool can tell you if you have access to a TCP endpoint, but it does not tell you if you have access to a Hybrid Connection endpoint. When you use the tool in the console against a Hybrid Connection endpoint, you are only confirming that it uses a host:port combination.  
+
+If you have a command line client for your endpoint, you can test connectivity from the app console. For example, you can test access to web server endpoints by using curl.
 
 ## BizTalk Hybrid Connections ##
 
-The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all web apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager, then you will see a status of Discontinued and display an End of Life statement at the bottom.
+The early form of this feature was called BizTalk Hybrid Connections. This capability went End of Life on May 31, 2018 and ceased operations. BizTalk hybrid connections have been removed from all apps and are not accessible through the portal or API. If you still have these older connections configured in the Hybrid Connection Manager, then you will see a status of Discontinued and display an End of Life statement at the bottom.
 
 ![BizTalk Hybrid Connections in the HCM][12]
 
@@ -247,8 +249,8 @@ The early form of this feature was called BizTalk Hybrid Connections. This capab
 [12]: ./media/app-service-hybrid-connections/hybridconn-bt.png
 
 <!--Links-->
-[HCService]: http://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
-[portal]: http://portal.azure.com/
-[oldhc]: http://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
-[sbpricing]: http://azure.microsoft.com/pricing/details/service-bus/
+[HCService]: https://docs.microsoft.com/azure/service-bus-relay/relay-hybrid-connections-protocol/
+[portal]: https://portal.azure.com/
+[oldhc]: https://docs.microsoft.com/azure/biztalk-services/integration-hybrid-connection-overview/
+[sbpricing]: https://azure.microsoft.com/pricing/details/service-bus/
 [armclient]: https://github.com/projectkudu/ARMClient/

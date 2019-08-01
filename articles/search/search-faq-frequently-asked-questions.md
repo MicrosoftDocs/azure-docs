@@ -1,6 +1,6 @@
 ---
-title: Frequently asked questions (FAQ) about Azure Search | Microsoft Docs
-description: Get answers to common questions about Microsoft Azure Search Service
+title: Frequently asked questions (FAQ) - Azure Search
+description: Get answers to common questions about Microsoft Azure Search Service, a cloud hosted search service on Microsoft Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -8,6 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/03/2017
 ms.author: heidist
+ms.custom: seodec2018
 ---
 
 # Azure Search - frequently asked questions (FAQ)
@@ -42,6 +43,12 @@ Although you can [get an index definition](https://docs.microsoft.com/rest/api/s
 
 Indexes are built and populated from code that you write, and run only on Azure Search in the cloud. Typically, customers who want to move an index to another service do so by editing their code to use a new endpoint, and then rerun indexing. If you want the ability to take a snapshot or backup an index, cast a vote on [User Voice](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
+### Can I restore my index or service once it is deleted?
+
+No, you cannot restore indexes or services. If you delete an Azure Search index, the operation is final and the index cannot be recovered. When you delete an Azure Search service, all indexes in the service are deleted permanently. Also, if you delete an Azure resource group that contains one or more Azure Search services, all services are deleted permanently.  
+
+Restoring resources such as indexes, indexers, data sources, and skillsets requires that you recreate them from code. In the case of indexes, you must reindex data from external sources. For this reason, it is strongly recommended that you retain a master copy or backup of the original data in another data store, such as Azure SQL Database or Cosmos DB.
+
 ### Can I index from SQL database replicas (Applies to [Azure SQL Database indexers](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
 
 There are no restrictions on the use of primary or secondary replicas as a data source when building an index from scratch. However, refreshing an index with incremental updates (based on changed records) requires the primary replica. This requirement comes from SQL Database, which guarantees change tracking on primary replicas only. If you try using secondary replicas for an index refresh workload, there is no guarantee you get all of the data.
@@ -52,7 +59,7 @@ There are no restrictions on the use of primary or secondary replicas as a data 
 
 No, this operation is not supported. Search is always scoped to a single index.
 
-### Can I restrict search corpus access by user identity?
+### Can I restrict search index access by user identity?
 
 You can implement [security filters](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) with `search.in()` filter. The filter composes well with [identity management services like Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) to trim search results based on defined user group membership.
 

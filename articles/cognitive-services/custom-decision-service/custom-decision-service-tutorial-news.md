@@ -1,16 +1,20 @@
 ---
-title: Article personalization - Azure Cognitive Services | Microsoft Docs
-description: A tutorial for article personalization with Azure Custom Decision Service, a cloud-based API for contextual decision-making.
+title: "Tutorial: Article personalization - Custom Decision Service"
+titlesuffix: Azure Cognitive Services
+description: A tutorial for article personalization for contextual decision-making.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: nitinme
+
 ms.service: cognitive-services
-ms.topic: article
+ms.subservice: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
+ms.author: slivkins
+ROBOTS: NOINDEX
 ---
 
-# Article personalization
+# Tutorial: Article personalization for contextual decision making
 
 This tutorial focuses on personalizing the selection of articles on the front page of a website. The Custom Decision Service affects *multiple* lists of articles on the front page, for instance. Perhaps the page is a news website that covers only politics and sports. It would show three ranked lists of articles: politics, sports, and recent.
 
@@ -38,13 +42,13 @@ Each feed provides a list of articles. In RSS, each one is specified by an `<ite
 </channel></rss>
 ```
 
-The order of articles matters. It specifies the default ranking, which is your best guess for how the articles should be ordered. The default ranking is then used for performance comparison on the [dashboard](#performance-dashboard).
+The order of articles matters. It specifies the default ranking, which is your best guess for how the articles should be ordered. The default ranking is then used for performance comparison on the dashboard.
 
 For more information on the feed format, see the [API reference](custom-decision-service-api-reference.md#action-set-api-customer-provided).
 
 ## Register a new app
 
-1. Sign in with your [Microsoft account](https://account.microsoft.com/account). On the ribbon, click **My Portal**.
+1. Sign in with your [Microsoft account](https://portal.ds.microsoft.com/). On the ribbon, click **My Portal**.
 
 2. To register a new application, click the **New App** button.
 

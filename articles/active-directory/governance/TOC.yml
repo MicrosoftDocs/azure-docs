@@ -1,0 +1,82 @@
+- name: Azure AD Identity Governance documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: What is Identity Governance?
+    href: identity-governance-overview.md
+  - name: What is entitlement management? (Preview)
+    href: entitlement-management-overview.md
+  - name: What are access reviews?
+    href: access-reviews-overview.md
+- name: Tutorials
+  expanded: true
+  items:
+    - name: Create your first access package
+      href: entitlement-management-access-package-first.md
+- name: Concepts
+  expanded: true
+  items:
+  - name: Entitlement management
+    items:
+    - name: Request process and emails
+      href: entitlement-management-process.md
+  - name: Access reviews
+    items:
+    - name: Manage guest access with reviews
+      href: manage-guest-access-with-access-reviews.md
+    - name: Manage user access with reviews
+      href: manage-user-access-with-access-reviews.md
+    - name: Manage users excluded from Conditional Access
+      href: conditional-access-exclusion.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Entitlement management
+    items:
+    - name: Common scenarios
+      href: entitlement-management-scenarios.md
+    - name: Create a new access package
+      href: entitlement-management-access-package-create.md
+    - name: Edit an access package
+      href: entitlement-management-access-package-edit.md
+    - name: Create a catalog
+      href: entitlement-management-catalog-create.md
+    - name: Request access
+      href: entitlement-management-request-access.md
+    - name: Approve requests
+      href: entitlement-management-request-approve.md
+    - name: Delegate tasks
+      href: entitlement-management-delegate.md
+    - name: View reports and logs
+      href: entitlement-management-reports.md
+    - name: Troubleshoot
+      href: entitlement-management-troubleshoot.md
+  - name: Access reviews
+    items:
+    - name: Groups and apps
+      items:
+      - name: Create an access review
+        href: create-access-review.md
+      - name: Review access
+        href: perform-access-review.md
+      - name: Review access for yourself
+        href: review-your-access.md
+      - name: Complete an access review
+        href: complete-access-review.md
+    - name: Azure AD roles
+      items:
+      - name: Create an access review
+        href: ../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Review access
+        href: ../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Complete an access review
+        href: ../privileged-identity-management/pim-how-to-complete-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+    - name: Azure resource roles
+      items:
+      - name: Create an access review
+        href: ../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Review access
+        href: ../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json
+      - name: Complete an access review
+        href: ../privileged-identity-management/pim-resource-roles-complete-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json

@@ -2,16 +2,19 @@
 title: Cross-Origin Resource Sharing (CORS) Support | Microsoft Docs
 description: Learn how to enable CORS Support for the Microsoft Azure Storage Services.
 services: storage
-author: cbrooksmsft
+author: tamram
+
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 2/22/2017
-ms.author: cbrooks
-ms.component: common
+ms.author: tamram
+ms.reviewer: cbrooks
+ms.subservice: common
 ---
+
 # Cross-Origin Resource Sharing (CORS) Support for the Azure Storage Services
-Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, Queue, and File services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](http://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](http://www.w3.org/TR/cors/) for details on CORS.
+Beginning with version 2013-08-15, the Azure storage services support Cross-Origin Resource Sharing (CORS) for the Blob, Table, Queue, and File services. CORS is an HTTP feature that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. See the [CORS specification](https://www.w3.org/TR/cors/) for details on CORS.
 
 You can set CORS rules individually for each of the storage services, by calling [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Once you set the CORS rules for the service, then a properly authorized request made against the service from a different domain will be evaluated to determine whether it is allowed according to the rules you have specified.
 
@@ -23,7 +26,7 @@ You can set CORS rules individually for each of the storage services, by calling
 ## Understanding CORS requests
 A CORS request from an origin domain may consist of two separate requests:
 
-* A preflight request, which queries the CORS restrictions imposed by the service. The preflight request is required unless the request method is a [simple method](http://www.w3.org/TR/cors/), meaning GET, HEAD, or POST.
+* A preflight request, which queries the CORS restrictions imposed by the service. The preflight request is required unless the request method is a [simple method](https://www.w3.org/TR/cors/), meaning GET, HEAD, or POST.
 * The actual request, made against the desired resource.
 
 ### Preflight request
@@ -61,7 +64,7 @@ Here is a sample of a single CORS rule, specified via a Set Service Properties o
 
 Each element included in the CORS rule is described below:
 
-* **AllowedOrigins**: The origin domains that are permitted to make a request against the storage service via CORS. The origin domain is the domain from which the request originates. Note that the origin must be an exact case-sensitive match with the origin that the user age sends to the service. You can also use the wildcard character '*' to allow all origin domains to make requests via CORS. In the example above, the domains [http://www.contoso.com](http://www.contoso.com) and [http://www.fabrikam.com](http://www.fabrikam.com) can make requests against the service using CORS.
+* **AllowedOrigins**: The origin domains that are permitted to make a request against the storage service via CORS. The origin domain is the domain from which the request originates. Note that the origin must be an exact case-sensitive match with the origin that the user age sends to the service. You can also use the wildcard character '*' to allow all origin domains to make requests via CORS. In the example above, the domains http:\//www.contoso.com and http:\//www.fabrikam.com can make requests against the service using CORS.
 * **AllowedMethods**: The methods (HTTP request verbs) that the origin domain may use for a CORS request. In the example above, only PUT and GET requests are permitted.
 * **AllowedHeaders**: The request headers that the origin domain may specify on the CORS request. In the example above, all metadata headers starting with x-ms-meta-data, x-ms-meta-target, and x-ms-meta-abc are permitted. Note that the wildcard character '*' indicates that any header beginning with the specified prefix is allowed.
 * **ExposedHeaders**: The response headers that may be sent in the response to the CORS request and exposed by the browser to the request issuer. In the example above, the browser is instructed to expose any header beginning with x-ms-meta.
@@ -124,9 +127,9 @@ Next, consider the following CORS requests:
 | Request |  |  | Response |  |
 | --- | --- | --- | --- | --- |
 | **Method** |**Origin** |**Request Headers** |**Rule Match** |**Result** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |First rule |Success |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Second rule |Success |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Second rule |Failure |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |First rule |Success |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Second rule |Success |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Second rule |Failure |
 
 The first request matches the first rule – the origin domain matches the allowed origins, the method matches the allowed methods, and the header matches the allowed headers – and so succeeds.
 
@@ -140,7 +143,7 @@ The third request matches the second rule in its origin domain and method, so no
 > 
 
 ## Understanding how the Vary header is set
-The *Vary* header is a standard HTTP/1.1 header consisting of a set of request header fields that advise the browser or user agent about the criteria that were selected by the server to process the request. The *Vary* header is mainly used for caching by proxies, browsers, and CDNs, which use it to determine how the response should be cached. For details, see the specification for the [Vary header](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+The *Vary* header is a standard HTTP/1.1 header consisting of a set of request header fields that advise the browser or user agent about the criteria that were selected by the server to process the request. The *Vary* header is mainly used for caching by proxies, browsers, and CDNs, which use it to determine how the response should be cached. For details, see the specification for the [Vary header](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 When the browser or another user agent caches the response from a CORS request, the origin domain is cached as the allowed origin. When a second domain issues the same request for a storage resource while the cache is active, the user agent retrieves the cached origin domain. The second domain does not match the cached domain, so the request fails when it would otherwise succeed. In certain cases, Azure Storage sets the Vary header to **Origin** to instruct the user agent to send the subsequent CORS request to the service when the requesting domain differs from the cached origin.
 
@@ -156,7 +159,7 @@ Note that for requests using methods other than GET/HEAD, the storage services w
 The following table indicates how Azure storage will respond to GET/HEAD requests based on the previously mentioned cases:
 
 | Request | Account setting and result of rule evaluation |  |  | Response |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Origin header present on request** |**CORS rule(s) specified for this service** |**Matching rule exists that allows all origins(*)** |**Matching rule exists for exact origin match** |**Response includes Vary header set to Origin** |**Response includes Access-Control-Allowed-Origin: "*"** |**Response includes Access-Control-Exposed-Headers** |
 | No |No |No |No |No |No |No |
 | No |Yes |No |No |Yes |No |No |
@@ -178,5 +181,5 @@ Unsuccessful preflight requests will not be billed.
 
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[W3C Cross-Origin Resource Sharing Specification](http://www.w3.org/TR/cors/)
+[W3C Cross-Origin Resource Sharing Specification](https://www.w3.org/TR/cors/)
 

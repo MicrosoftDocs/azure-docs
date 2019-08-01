@@ -3,19 +3,20 @@ title: Translate links and URLs Azure AD App Proxy | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/04/2018
-ms.author: barbkess
+ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Redirect hardcoded links for apps published with Azure AD Application Proxy
@@ -27,7 +28,7 @@ The best way to make sure that links work the same both inside and outside of yo
 
 If you can't use custom domains in your tenant, there are several other options for providing this functionality. All of these are also compatible with custom domains and each other, so you can configure custom domains and other solutions if needed. 
 
-**Option 1: Use the Managed Browser** – This solution is only applicable if you plan to recommend or require that users access the application through the Intune Managed Browser. It will handle all published URLs. 
+**Option 1: Use the Managed Browser or Microsoft Edge** – This solution is only applicable if you plan to recommend or require that users access the application through the Intune Managed Browser or Microsoft Edge Browser. It will handle all published URLs. 
 
 **Option 2: Use the MyApps Extension** – This solution requires users to install a client-side browser extension, but it will handle all published URLs and works with most popular browsers. 
 
@@ -38,13 +39,13 @@ These three features keep your links working no matter where your users are. Whe
  
 > [!NOTE]
 > The last option is only for tenants that, for whatever reason, can't use custom domains to have the same  internal and external URLs for their apps. Before you enable this feature, see if [custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md) can work for you. 
-
->Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) for another approach to mapping links. 
+> 
+> Or, if the application you need to configure with link translation is SharePoint, see [Configure alternate access mappings for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx) for another approach to mapping links. 
 
  
-### Option 1: Intune Managed Browser Integration 
+### Option 1: Intune Managed Browser and Microsoft Edge Integration 
 
-You can use the Intune Managed Browser to further protect your application and content. To use this solution, you need to require/recommend users access the application through the Intune Managed Browser. All internal URLs published with Application Proxy will be recognized by the Managed Browser and redirected to the corresponding external URL. This ensures that all the hard-coded internal URLs work, and if a user goes to the browser and directly types the internal URL, it works even if the user is remote.  
+You can use the Intune Managed Browser or Microsoft Edge to further protect your application and content. To use this solution, you need to require/recommend users access the application through the Intune Managed Browser. All internal URLs published with Application Proxy will be recognized by the Managed Browser and redirected to the corresponding external URL. This ensures that all the hard-coded internal URLs work, and if a user goes to the browser and directly types the internal URL, it works even if the user is remote.  
 
 To learn more, including how to configure this option, please see the [Managed Browser](https://docs.microsoft.com/intune/app-configuration-managed-browser) documentation.  
 
@@ -54,13 +55,14 @@ With the MyApps Browser Extension, all internal URLs published with Application 
 
 To use this feature, the user needs to download the extension and be logged in. There is no other configuration needed for admins or the users. 
 
- 
+To learn more, including how to configure this option, please see the [MyApps Browser Extension](https://docs.microsoft.com/azure/active-directory/user-help/my-apps-portal-end-user-access#download-and-install-the-my-apps-secure-sign-in-extension) documentation.
 
 ### Option 3: Link Translation Setting 
 
-When link translation is enabled, the Application Proxy service searches through HTML and CSS for published internal links and translates them so that your users get an uninterrupted experience. 
+When link translation is enabled, the Application Proxy service searches through HTML and CSS for published internal links and translates them so that your users get an uninterrupted experience. Using the MyApps Browser Extension is preferred to the Link Translation Setting since it gives a more performant experience to users.
 
-
+> [!NOTE]
+> If you are using option 2 or 3, only one of these should be enabled at a time.
 
 ## How link translation works
 
@@ -76,6 +78,31 @@ There are two common types of internal links in on-premises applications:
 
 - **Relative internal links** that point to a shared resource in a local file structure like `/claims/claims.html`. These links automatically work in apps that are published through Application Proxy, and continue to work with or without link translation. 
 - **Hardcoded internal links** to other on-premises apps like `http://expenses` or published files like `http://expenses/logo.jpg`. The link translation feature works on hardcoded internal links, and changes them to point to the external URLs that remote users need to go through.
+
+The complete list of HTML code tags that Application Proxy supports link translation for include:
+* a
+* audio
+* base
+* button
+* div
+* embed
+* form
+* frame
+* head
+* html
+* iframe
+* img
+* input
+* link
+* menuitem
+* meta
+* object
+* script
+* source
+* track
+* video
+
+Additionally, within CSS the URL attribute is also translated.
 
 ### How do apps link to each other?
 
@@ -93,6 +120,7 @@ To improve performance and security, some links aren't translated:
 
 - Links not inside of code tags. 
 - Links not in HTML or CSS. 
+- Links in URL-encoded format.
 - Internal links opened from other programs. Links sent through email or instant message, or included in other documents, won't be translated. The users need to know to go to the external URL.
 
 If you need to support one of these two scenarios, use the same internal and external URLs instead of link translation.  
@@ -105,7 +133,7 @@ Getting started with link translation is as easy as clicking a button:
 2. Go to **Azure Active Directory** > **Enterprise applications** > **All applications** > select the app you want to manage > **Application proxy**.
 3. Turn **Translate URLs in application body** to **Yes**.
 
-   ![Select Yes to translate URLs in application body](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png).
+   ![Select Yes to translate URLs in application body](./media/application-proxy-configure-hard-coded-link-translation/select_yes.png)
 4. Select **Save** to apply your changes.
 
 Now, when your users access this application, the proxy will automatically scan for internal URLs that have been published through Application Proxy on your tenant.

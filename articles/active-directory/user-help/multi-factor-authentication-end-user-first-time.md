@@ -4,16 +4,17 @@ description: When your company configures Azure Multi-Factor Authentication, you
 services: active-directory
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 author: eross-msft
-manager: mtillman
+manager: daveba
 ms.reviewer: richagi
 ms.assetid: 46f83a6a-dbdd-4375-8dc4-e7ea77c16357
 
 ms.workload: identity
 ms.service: active-directory
-ms.component: user-help
+ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: lizross
+ms.collection: M365-identity-device-management
 ---
 
 # Set up my account for two-step verification
@@ -37,12 +38,15 @@ The first question in the enrollment process is how you want us to contact you. 
 
 | Contact method | Description |
 | --- | --- |
-| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594) and [iOS](https://go.microsoft.com/fwlink/?linkid=866594).|
 | [Mobile phone call or text](#use-your-mobile-phone-as-the-contact-method) |- **Phone call** places an automated voice call to the phone number you provide. Answer the call and press # in the phone keypad to authenticate.<br>- **Text message** ends a text message containing a verification code. Following the prompt in the text, either reply to the text message or enter the verification code provided into the sign-in interface. |
 | [Office Phone Call](#use-your-office-phone-as-the-contact-method) |Places an automated voice call to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate. |
 
 ## Use a mobile app as the contact method
-Using this method requires that you install an authenticator app on your phone or tablet. The steps in this article are based on the Microsoft Authenticator app, which is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Using this method requires that you install an authenticator app on your phone or tablet. The steps in this article are based on the Microsoft Authenticator app, which is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072) and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
 
 1. Select **Mobile app** from the drop-down list.
 2. Select either **Receive notifications for verification** or **Use verification code**, then select **Set up**.
@@ -61,7 +65,7 @@ Using this method requires that you install an authenticator app on your phone o
    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
-9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
+9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country/region from the drop-down list, and enter your mobile phone number in the box next to the country/region name. Select **Next**.
 10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 11. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
 12. Click **Done**.
@@ -79,7 +83,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
 1. Select **Authentication Phone** from the drop-down list.  
 
     ![Setup](./media/multi-factor-authentication-end-user-first-time/phone.png)  
-2. Choose your country from the drop-down list, and enter your mobile phone number.
+2. Choose your country/region from the drop-down list, and enter your mobile phone number.
 3. Select the method you would prefer to use with your mobile phone - text or call.
 4. Select **Contact me** to verify your phone number. Depending on the mode you selected, we send you a text or call you. Follow the instructions provided on the screen, then select **Verify**.
 5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
@@ -99,4 +103,4 @@ If you want to add an account to the mobile app manually, instead of using the Q
 ## Next steps
 * Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
 * Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
-* Check out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.
+* Check out the [Microsoft Authenticator app](user-help-auth-app-download-install.md) for fast, secure authentication even when you don't have cell service.

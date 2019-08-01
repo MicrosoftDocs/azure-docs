@@ -3,18 +3,12 @@ title: Node.js application using Socket.io - Azure
 description: Learn how to use socket.io in a node.js application hosted on Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 
@@ -23,7 +17,7 @@ ms.author: jeconnoc
 Socket.IO provides realtime communication between your node.js
 server and clients. This tutorial walks you through hosting a
 socket.IO based chat application on Azure. For more information
-on Socket.IO, see [socket.io](http://socket.io).
+on Socket.IO, see [socket.io](https://socket.io).
 
 A screenshot of the completed application is below:
 
@@ -64,7 +58,7 @@ and add it to the project you previously created.
 
 1. Create a local copy of the repository by using the **Clone** button. You may also use the **ZIP** button to download the project.
    
-   ![A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted][chat-example-view]
+   ![A browser window viewing https://github.com/LearnBoost/socket.io/tree/master/examples/chat, with the ZIP download icon highlighted](./media/cloud-services-nodejs-chat-app-socketio/socketio-22.png)
 2. Navigate the directory structure of the local repository until you arrive at the **examples\\chat**
    directory. Copy the contents of this directory to the
    **C:\\node\\chatapp\\WorkerRole1** directory created earlier.
@@ -92,8 +86,8 @@ server.js file:
    server.js in Notepad or your favorite editor, and then change the
    following line by replacing **3000** with **process.env.port** as shown below:
    
-       //app.listen(3000, function () {            //Original
-       app.listen(process.env.port, function () {  //Updated
+       //app.listen(3000, function () {            //Original
+       app.listen(process.env.port, function () {  //Updated
          var addr = app.address();
          console.log('   app listening on http://' + addr.address + ':' + addr.port);
        });
@@ -125,12 +119,9 @@ Azure emulator:
    
    > [!NOTE]
    > If you encounter issues with launching emulator, eg.:
-      Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
-   
-      reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
-   >
-   >
-
+   >    Start-AzureEmulator : An unexpected failure occurred.  Details: Encountered an unexpected error The communication object,  System.ServiceModel.Channels.ServiceChannel, cannot be used for communication because it is in the Faulted state.
+   > 
+   > Reinstall AzureAuthoringTools v 2.7.1 and AzureComputeEmulator v 2.7 - make sure that version matches.
 
 2. Open a browser and navigate to **http://127.0.0.1**.
 3. When the browser window opens, enter a nickname and then hit enter.
@@ -177,7 +168,7 @@ For more information, see also the [Node.js Developer Center](https://docs.micro
 
 [chatwebsite]: https://docs.microsoft.com/azure/cloud-services/cloud-services-nodejs-develop-deploy-app
 
-[Azure SLA]: http://www.windowsazure.com/support/sla/
+[Azure SLA]: https://www.windowsazure.com/support/sla/
 [Azure SDK for Node.js GitHub repository]: https://github.com/WindowsAzure/azure-sdk-for-node
 [completed-app]: ./media/cloud-services-nodejs-chat-app-socketio/socketio-10.png
 [Azure SDK for Node.js]: https://www.windowsazure.com/develop/nodejs/

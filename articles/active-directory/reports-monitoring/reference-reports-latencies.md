@@ -3,8 +3,8 @@ title: Azure Active Directory reporting latencies | Microsoft Docs
 description: Learn about the amount of time it takes for reporting events to show up in your Azure portal
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,45 +13,46 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 12/15/2017
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 05/13/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
+
 # Azure Active Directory reporting latencies
 
-With [reporting](../active-directory-preview-explainer.md) in the Azure Active Directory, you get all the information you need to determine how your environment is doing. The amount of time it takes for reporting data to show up in the Azure portal is also known as latency. 
-
-This topic lists the latency information for the all reporting categories in the Azure portal. 
-
+Latency is the amount of time it takes for Azure Active Directory (Azure AD) reporting data to show up in the [Azure portal](https://portal.azure.com). This article lists the expected latency for the different types of reports. 
 
 ## Activity reports
 
-There are two areas of activity reporting:
+There are two types of activity reports:
 
-- **Sign-in activities** – Information about the usage of managed applications and user sign-in activities
-- **Audit logs** - System activity information about users and group management, your managed applications and directory activities
+- [Sign-ins](concept-sign-ins.md) – Provides information about the usage of managed applications and user sign-in activities
+- [Audit logs](concept-audit-logs.md) - Provides system activity information about users and groups, managed applications and directory activities
 
-The following table lists the latency information for activity reports.
+The following table lists the latency information for activity reports. 
 
-| Report | Latency (P95) |Latency (P99)|
-| :-- | --- | --- | 
+> [!NOTE]
+> **Latency (95th percentile)** refers to the time by which 95% of the logs will be reported, and **Latency (99th percentile)** refers to the time by which 99% of the logs will be reported. 
+>
+
+| Report | Latency (95th percentile) |Latency (99th percentile)|
+| :-- | --- | --- |
 | Audit logs | 2 mins  | 5 mins  |
 | Sign-ins | 2 mins  | 5 mins |
 
+### How soon can I see activities data after getting a premium license?
 
-
-
-
-
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
 
 ## Security reports
 
-There are two areas of security reporting:
+There are two types of security reports:
 
-- **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
-- **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. 
+- [Risky sign-ins](concept-risky-sign-ins.md) - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+- [Users flagged for risk](concept-user-at-risk.md) - A risky user is an indicator for a user account that might have been compromised. 
 
 The following table lists the latency information for security reports.
 
@@ -62,7 +63,7 @@ The following table lists the latency information for security reports.
 
 ## Risk events
 
-Azure Active Directory uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called risk event.
+Azure AD uses adaptive machine learning algorithms and heuristics to detect suspicious actions that are related to your user accounts. Each detected suspicious action is stored in a record called a **risk event**.
 
 The following table lists the latency information for risk events.
 
@@ -76,17 +77,8 @@ The following table lists the latency information for risk events.
 | Sign-ins from IP addresses with suspicious activity |2 hours |4 hours |8 hours  |
 
 
-
 ## Next steps
 
-If you want to know more about the activity reports in the Azure portal, see:
-
-- [Sign-in activity reports in the Azure Active Directory portal](concept-sign-ins.md)
-- [Audit activity reports in the Azure Active Directory portal](concept-audit-logs.md)
-
-If you want to know more about the security reports in the Azure portal, see:
-
-- [Users at risk security report in the Azure Active Directory portal](concept-user-at-risk.md)
-- [Risky sign-ins report in the Azure Active Directory portal](concept-risky-sign-ins.md)
-
-If you want to know more about risk events, see [Azure Active Directory risk events](concept-risk-events.md).
+* [Azure AD reports overview](overview-reports.md)
+* [Programmatic access to Azure AD reports](concept-reporting-api.md)
+* [Azure Active Directory risk events](concept-risk-events.md)

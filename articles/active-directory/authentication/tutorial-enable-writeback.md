@@ -4,16 +4,17 @@ description: In this tutorial, you will enable password writeback to get cloud i
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable password writeback to get password changes in the cloud back to on-premises AD DS
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Enabling password writeback
 
@@ -27,7 +28,7 @@ In this tutorial, you will enable password writeback for your hybrid environment
 
 * Access to a working Azure AD tenant with at least a trial license assigned.
 * An account with Global Administrator privileges in your Azure AD tenant.
-* An existing server configured running a current version of [Azure AD Connect](../connect/active-directory-aadconnect-get-started-express.md).
+* An existing server configured running a current version of [Azure AD Connect](../hybrid/how-to-connect-install-express.md).
 * Previous self-service password reset (SSPR) tutorials have been completed.
 
 ## Enable password writeback option in Azure AD Connect
@@ -58,4 +59,4 @@ Enabling the password writeback feature in Azure AD Connect is only half of the 
 In this tutorial, you have enabled password writeback for self-service password reset. Leave the Azure portal window open and continue to the next tutorial to configure additional settings related to self-service password reset before you roll out the solution in a pilot.
 
 > [!div class="nextstepaction"]
-> [Enabling SSPR at the Windows logon screen](tutorial-sspr-windows.md)
+> [Evaluate risk at sign in](tutorial-risk-based-sspr-mfa.md)

@@ -1,10 +1,10 @@
 ---
 title: Tutorial - High availability for Linux VMs in Azure | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to deploy highly available virtual machines in Availability Sets
+description: In this tutorial, you learn how to use the Azure CLI to deploy highly available virtual machines in Availability Sets
 documentationcenter: ''
 services: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about high availability in Azure so that I can deploy a highly-available and redundant infrastructure.
 ---
 
-# Tutorial: Create and deploy highly available virtual machines with the Azure CLI 2.0
+# Tutorial: Create and deploy highly available virtual machines with the Azure CLI
 
 In this tutorial, you learn how to increase the availability and reliability of your Virtual Machine solutions on Azure using a capability called Availability Sets. Availability sets ensure that the VMs you deploy on Azure are distributed across multiple isolated hardware clusters. Doing this ensures that if a hardware or software failure within Azure happens, only a subset of your VMs is impacted and that your overall solution remains available and operational.
 
@@ -34,7 +34,7 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Availability set overview
 
@@ -47,7 +47,7 @@ Use Availability Sets when you want to deploy reliable VM-based solutions within
 
 ## Create an availability set
 
-You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
+You can create an availability set using [az vm availability-set create](/cli/azure/vm/availability-set). In this example, the number of update and fault domains is set to *2* for the availability set named *myAvailabilitySet* in the *myResourceGroupAvailability* resource group.
 
 First, create a resource group with [az group create](/cli/azure/group#az-group-create), then create the availability set:
 
@@ -68,7 +68,7 @@ Availability Sets allow you to isolate resources across fault domains and update
 
 VMs must be created within the availability set to make sure they are correctly distributed across the hardware. An existing VM cannot be added to an availability set after it is created.
 
-When a VM is created with [az vm create](/cli/azure/vm#az_vm_create), use the `--availability-set` parameter to specify the name of the availability set.
+When a VM is created with [az vm create](/cli/azure/vm), use the `--availability-set` parameter to specify the name of the availability set.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

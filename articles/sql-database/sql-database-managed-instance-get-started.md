@@ -1,125 +1,114 @@
 ---
-title: 'Azure portal: Create a SQL Managed Instance | Microsoft Docs'
-description: Create a SQL Managed Instance, network environment, and client VM for access.
-keywords: sql database tutorial, create a sql managed instance
+title: 'Azure portal: Create a SQL Database managed instance | Microsoft Docs'
+description: Create a SQL Database managed instance, network environment, and client VM for access.
 services: sql-database
-author: jovanpop-msft
-manager: craigg
 ms.service: sql-database
-ms.custom: DBs & servers
+ms.subservice: managed-instance
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 08/31/2018
-ms.author: jovanpop-msft
-
+author: jovanpop-msft
+ms.author: jovanpop
+ms.reviewer: sstein, carlrab
+ms.date: 05/07/2019
 ---
-# Create an Azure SQL Managed Instance
+# Quickstart: Create an Azure SQL Database managed instance
 
-This quickstart walks through how to create a SQL Managed Instance in Azure. Azure SQL Database Managed Instance is a Platform-as-a-Service (PaaS) SQL Server Database Engine Instance that enables you to run and scale highly available SQL Server databases in the Azure cloud. This quickstart shows you how to get started by creating a SQL Managed Instance.
+This quickstart walks you through how to create an Azure SQL Database [managed instance](sql-database-managed-instance.md) in the Azure portal.
 
-If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+> [!IMPORTANT]
+> For limitations, see [Supported regions](sql-database-managed-instance-resource-limits.md#supported-regions) and [Supported subscription types](sql-database-managed-instance-resource-limits.md#supported-subscription-types).
 
 ## Sign in to the Azure portal
 
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+
 Sign in to the [Azure portal](https://portal.azure.com/).
 
-## Prepare network environment
+## Create a managed instance
 
-SQL Managed Instance is a secure service that is placed in your own Azure Virtual Network (VNet). In order to create a Managed Instance, you would need to prepare the Azure network environment, which includes:
- - Azure VNet where your Managed Instance will be placed.
- - Subnet in your Azure VNet where Managed Instances will be placed.
- - User-defined route that will enable Managed Instance to communicate with the Azure services that control and manage the instance.
+The following steps show you how to create a managed instance.
 
-The subnet is dedicated to Managed Instances and you cannot create any other resources (for example Azure Virtual Machines) in that subnet. In this quick-start will be creaed two subnets in your Azure VNet so you can place Managed Instances in the subnet dedicated to Managed Instances, and other the resources in the default subnet.
+1. Select **Create a resource** in the upper-left corner of the Azure portal.
+2. Locate **managed instance**, and then select **Azure SQL Managed Instance**.
+3. Select **Create**.
 
-1. Deploy Azure network environment prepared for Azure SQL Database Managed Instance by clicking on the following button:
+   ![Create a managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
-    <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener"> <img src="http://azuredeploy.net/deploybutton.png"> </a>
-
-    This button will open a form in Azure portal where you can configure your network environment before you deploy it.
-
-2. Optionally, change the names of VNet and subnets and adjust IP ranges associated to your networking resources. Then press "Purchase" button to create and configure your environment:
-
-    ![create managed instance environment](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
-
-    > [!Note]
-    > This Azure Resource Manager depoment will create two subnets in the VNet - one for Managed Instances called **ManagedInstances**, and the other called **Default** for other resources such as client virtual machine that can be used to connect to Managed Instance. If you don't need two subnets, you can delete the default one later; however, in that case you would not be able to complete step 3 in this quick-start guide - [prepare client machine](#prepare-client-machine).
-
-    > [!Note]
-    > If you change the names of VNet and subnets, make sure that you remember the new names because they will be needed in the following sections. In the rest of the tutorial will be assumed that you have created VNet called **MyNewVNet**, **ManagedInstances** subnet for SQL Managed Instances and **Default** subnet for Virtual machines and other resources.
-
-## Create a Managed Instance
-
-The following steps show you how to create your Managed Instance after your preview has been approved.
-
-1. Click **Create a resource** in the upper left-hand corner of the Azure portal.
-2. Locate **Managed Instance** and then select **Azure SQL Database Managed Instance (preview)**.
-3. Click **Create**.
-
-   ![Create managed instance](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
-
-4. Select your subscription and verify that the preview terms show **Accepted**.
-
-   ![managed instance preview accepted](./media/sql-database-managed-instance-tutorial/preview-accepted.png)
-
-5. Fill out the Managed Instance form with the requested information, using the information in the following table:
+4. Fill out the **SQL managed instance** form with the requested information by using the information in the following table.
 
    | Setting| Suggested value | Description |
    | ------ | --------------- | ----------- |
-   |**Managed instance name**|Any valid name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Managed instance admin login**|Any valid user name|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Do not use "serveradmin" as that is a reserved server-level role.| 
-   |**Password**|Any valid password|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Resource Group**|The resource group that you created earlier||
-   |**Location**|The location that you previously selected|For information about regions, see [Azure Regions](https://azure.microsoft.com/regions/).|
-   |**Virtual network**|The virtual network that you created earlier| Choose **MyNewVNet/ManagedInstances** item if you have not changed the names in the previous step. Otherwise, choose the VNet name and managed instance subnet that you have entered in the previous section. **Do not use default subnet because it is not configured to host Managed Instances**. |
+   | **Subscription** | Your subscription. | A subscription that gives you permission to create new resources. |
+   |**Managed instance name**|Any valid name.|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   |**Managed instance admin login**|Any valid username.|For valid names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Don't use "serveradmin" because that's a reserved server-level role.|
+   |**Password**|Any valid password.|The password must be at least 16 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
+   |**Time zone**|The time zone to be observed by your managed instance.|For more information, see [Time zones](sql-database-managed-instance-timezone.md).|
+   |**Collation**|The collation that you want to use for your managed instance.|If you migrate databases from SQL Server, check the source collation by using `SELECT SERVERPROPERTY(N'Collation')` and use that value. For information about collations, see [Set or change the server collation](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
+   |**Location**|The location in which you want to create the managed instance.|For information about regions, see [Azure regions](https://azure.microsoft.com/regions/).|
+   |**Virtual network**|Select either **Create new virtual network** or a valid virtual network and subnet.| If a network or subnet is unavailable, it must be [modified to satisfy the network requirements](sql-database-managed-instance-configure-vnet-subnet.md) before you select it as a target for the new managed instance. For information about the requirements for configuring the network environment for a managed instance, see [Configure a virtual network for a managed instance](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Enable public endpoint**   |Check this option to enable public endpoint   |For managed instance to be accessible through the public data endpoint, **Enable public endpoint** needs to be checked.| 
+   |**Allow access from**   |Select one of the options: <ul> <li>**Azure services**</li> <li>**Internet**</li> <li>**No access**</li></ul>   |Portal experience enables configuring security group with public endpoint. </br> </br> Based on your scenario, select one of the following options: </br> <ul> <li>Azure services - recommended when connecting from Power BI or other multi-tenant service. </li> <li> Internet - use for test purposes when you want to quickly spin up a managed instance. It’s not recommended for use in production environments. </li> <li> No access - this option creates a deny security rule. You’ll need to modify this rule in order to make managed instance accessible through public endpoint. </li> </ul> </br> For more information on public endpoint security, see [using Azure SQL Database managed instance securely with public endpoint](sql-database-managed-instance-public-endpoint-securely.md).|
+   |**Connection type**|Choose between a Proxy and a Redirect connection type.|For more information about connection types, see [Azure SQL Database connection policy](sql-database-connectivity-architecture.md#connection-policy).|
+   |**Resource group**|A new or existing resource group.|For valid resource group names, see [Naming rules and restrictions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
-   ![managed instance create form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
+   ![Managed instance form](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
-6. Click **Pricing tier** to size compute and storage resources as well as review the pricing tier options. By default, your instance gets 32 GB of storage space free of charge, **which may not be sufficient for your applications**.
-7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores. 
-   ![managed instance pricing tier](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
+5. To use the managed instance as an instance failover group secondary, select the checkout and specify the DnsAzurePartner managed instance. This feature is in preview and isn't shown in the following screenshot.
+6. Select **Pricing tier** to size compute and storage resources and to review the pricing tier options. The General Purpose pricing tier with 32 GB of memory and 16 vCores is the default value.
+7. Use the sliders or text boxes to specify the amount of storage and the number of virtual cores.
+8. When you're finished, select **Apply** to save your selection. 
+9. Select **Create** to deploy the managed instance.
+10. Select the **Notifications** icon to view the status of the deployment.
 
-8. When complete, click **Apply** to save your selection.  
-9. Click **Create** to deploy the Managed Instance.
-10. Click the **Notifications** icon to view the status of deployment.
-11. Click **Deployment in progress** to open the Managed Instance window to further monitor the deployment progress.
+    ![Managed instance deployment progress](./media/sql-database-managed-instance-get-started/deployment-progress.png)
 
-While deployment occurs, continue to the next procedure.
+11. Select **Deployment in progress** to open the managed instance window to further monitor the deployment progress. 
 
 > [!IMPORTANT]
-> For the first instance in a subnet, deployment time is typically much longer than in case of the subsequent instances. Do not cancel deployment operation because it lasts longer than you expected. Creating the second Managed Instance in the subnet will take a couple of minutes.
+> For the first instance in a subnet, deployment time is typically much longer than in subsequent instances. Don't cancel the deployment operation because it lasts longer than you expected.
 
-## Prepare client machine
+## Review resources and retrieve your fully qualified server name
 
-Since SQL Managed Instance is placed in your private Virtual Network, you need to create an Azure VM with some installed SQL client tool like SQL Server Management Studio or SQL Operations Studio to connect to the Managed Instance and execute queries.
+After the deployment is successful, review the resources that were created and retrieve the fully qualified server name for use in later quickstarts.
 
-> [!Note]
-> Instead of client Azure Virtual machine, you can configure [Point-to-Site](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) connection and connect to the Managed Instance from your local computer.
+1. Open the resource group for your managed instance. View its resources that were created for you in the [create a managed instance](#create-a-managed-instance) quickstart.
 
-The easiest way to create a client virtual machine with all nesseccary tools is to use the Azure Resource Manager templates.
+   ![Managed instance resources](./media/sql-database-managed-instance-get-started/resources.png)
 
-1. Click on the following button (make sure that you are signed-in to the Azure portal in another browser tab):
+2. Select the route table to review the user-defined route (UDR) table that was created for you.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fjovanpop-msft%2Fazure-quickstart-templates%2Fsql-win-vm-w-tools%2F201-vm-win-vnet-sql-tools%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   ![Route table](./media/sql-database-managed-instance-get-started/route-table.png)
 
-2. On the form that will be opened, enter the name of virtual machine, administrator username, and password that you will use to connect to the VM.
+3. In the route table, review the entries to route traffic from and within the managed instance virtual network. If you create or configure your route table manually, you must be sure to create these entries in the route table.
 
-    ![create client VM](./media/sql-database-managed-instance-get-started/create-client-sql-vm.png)
+   ![Entry for a managed instance subnet to local](./media/sql-database-managed-instance-get-started/udr.png)
 
-    If you have not changed VNet name and the default subnet, you don't need to change last two parameters, otherwise you should change these values to the values that you entered when you set up the network environment.
+4. Return to the resource group, and select the network security group to review the security rules.
 
-3. Click on the "Purchase" button and Azure VM will be deployed in the network that you prepared.
+   ![Network security group](./media/sql-database-managed-instance-get-started/network-security-group.png)
 
-4. Connect to your VM using Remote Desktop connection and find SQL Server Management Studio or SQL Operation Studio that are automatically installed on VM.
+5. Review the inbound and outbound security rules. If you have configured public endpoints for your managed instance, see the article [Configure public endpoint](sql-database-managed-instance-public-endpoint-configure.md#allow-public-endpoint-traffic-on-the-network-security-group) for more information.
 
-5. Open SSMS and enter the **host name** for your Managed Instance in the **Server name** box, select **SQL Server Authentication**, provide your login and password in the **Connect to Server** dialog box, and then click **Connect**.
+   ![Security rules](./media/sql-database-managed-instance-get-started/security-rules.png)
 
-    ![ssms connect](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
+6. Return to the resource group, and select your managed instance.
 
-After you connect, you can view your system and user databases in the Databases node, and various objects in the Security, Server Objects, Replication, Management, SQL Server Agent, and XEvent Profiler nodes.
+   ![Managed instance](./media/sql-database-managed-instance-get-started/managed-instance.png)
+
+7. On the **Overview** tab, locate the **Host** property. Copy the fully qualified host address for the managed instance for use in the next quickstart.
+
+   ![Host name](./media/sql-database-managed-instance-get-started/host-name.png)
+
+   The name is similar to **your_machine_name.a1b2c3d4e5f6.database.windows.net**.
 
 ## Next steps
 
- - [Connect your applications to Managed Instance](sql-database-managed-instance-connect-app.md).
- - [Migrate your databases from on-premises to Managed Instance](sql-database-managed-instance-migrate.md).
-
-
+- To learn about how to connect to a managed instance:
+  - For an overview of the connection options for applications, see [Connect your applications to a managed instance](sql-database-managed-instance-connect-app.md).
+  - For a quickstart that shows how to connect to a managed instance from an Azure virtual machine, see [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md).
+  - For a quickstart that shows how to connect to a managed instance from an on-premises client computer by using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md).
+- To restore an existing SQL Server database from on-premises to a managed instance: 
+    - Use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file. 
+    - Use the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
+- For advanced monitoring of managed instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database by using Azure SQL Analytics](../azure-monitor/insights/azure-sql.md).

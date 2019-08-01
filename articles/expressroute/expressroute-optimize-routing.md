@@ -1,24 +1,49 @@
 ---
-title: 'Optimize ExpressRoute routing: Azure | Microsoft Docs'
+title: 'Optimize routing - ExpressRoute circuits: Azure | Microsoft Docs'
 description: This page provides details on how to optimize routing when you have more than one ExpressRoute circuits that connect between Microsoft and your corp network.
-documentationcenter: na
 services: expressroute
 author: charwen
-manager: carmonm
-editor: ''
 
-ms.assetid: fca53249-d9c3-4cff-8916-f8749386a4dd
 ms.service: expressroute
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/06/2017
+ms.topic: conceptual
+ms.date: 07/11/2019
 ms.author: charwen
+ms.custom: seodec18
 
 ---
 # Optimize ExpressRoute Routing
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing may happen - that is, your traffic may take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path, the higher the latency. Latency has direct impact on application performance and user experience. This article will illustrate this problem and explain how to optimize routing using the standard routing technologies.
+
+## Path Selection on Microsoft and Public peerings
+It's important to ensure that when utilizing Microsoft or Public peering that traffic flows over the desired path if you have one or more ExpressRoute circuits, as well as paths to the Internet via an Internet Exchange (IX) or Internet Service Provider (ISP). BGP utilizes a best path selection algorithm based on a number of factors including longest prefix match (LPM). To ensure that traffic destined for Azure via Microsoft or Public peering traverses the ExpressRoute path, customers must implement the *Local Preference* attribute to ensure that the path is always preferred on ExpressRoute. 
+
+> [!NOTE]
+> The default local preference is typically 100. Higher local preferences are more preferred. 
+>
+>
+
+Consider the following example scenario:
+
+![ExpressRoute Case 1 problem - suboptimal routing from customer to Microsoft](./media/expressroute-optimize-routing/expressroute-localPreference.png)
+
+In the above example, to prefer ExpressRoute paths configure Local Preference as follows. 
+
+**Cisco IOS-XE configuration from R1 perspective:**
+
+    R1(config)#route-map prefer-ExR permit 10
+    R1(config-route-map)#set local-preference 150
+
+    R1(config)#router BGP 345
+    R1(config-router)#neighbor 1.1.1.2 remote-as 12076
+    R1(config-router)#neighbor 1.1.1.2 activate
+    R1(config-router)#neighbor 1.1.1.2 route-map prefer-ExR in
+
+**Junos configuration from R1 perspective:**
+
+    user@R1# set protocols bgp group ibgp type internal
+    user@R1# set protocols bgp group ibgp local-preference 150
+
+
 
 ## Suboptimal routing from customer to Microsoft
 Let's take a close look at the routing problem by an example. Imagine you have two offices in the US, one in Los Angeles and one in New York. Your offices are connected on a Wide Area Network (WAN), which can be either your own backbone network or your service provider's IP VPN. You have two ExpressRoute circuits, one in US West and one in US East, that are also connected on the WAN. Obviously, you have two paths to connect to the Microsoft network. Now imagine you have Azure deployment (for example, Azure App Service) in both US West and US East. Your intention is to connect your users in Los Angeles to Azure US West and your users in New York to Azure US East because your service admin advertises that users in each office access the nearby Azure services for optimal experiences. Unfortunately, the plan works out well for the east coast users but not for the west coast users. The cause of the problem is the following. On each ExpressRoute circuit, we advertise to you both the prefix in Azure US East (23.100.0.0/16) and the prefix in Azure US West (13.100.0.0/16). If you don't know which prefix is from which region, you are not able to treat it differently. Your WAN network may think both of the prefixes are closer to US East than US West and therefore route both office users to the ExpressRoute circuit in US East. In the end, you will have many unhappy users in the Los Angeles office.

@@ -1,27 +1,31 @@
 ---
-title: Java quickstart for Project URL Preview - Microsoft Cognitive Services | Microsoft Docs
-description: Script sample to get started using the Project URL Preview in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Project URL Preview, Java"
+titlesuffix: Azure Cognitive Services
+description: Script sample to get started using the Project URL Preview with Java.
 services: cognitive-services
 author: mikedodaro
+manager: nitinme
+
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.subservice: url-preview
+ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
-# URL Preview Java quickstart
+# Quickstart: URL Preview with Java
 
 The following Java example creates a Url Preview for the SwiftKey Web site: https://swiftkey.com/en.
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Request 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https://swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
+The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https:\//swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 
     static String host = "https://api.labs.cognitive.microsoft.com";
@@ -39,7 +43,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 	// construct result object for return
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## Complete code
 
@@ -50,7 +54,7 @@ The Bing Answer Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-````
+```
 package UrlPreviewpkg;
 
 import java.net.*;
@@ -157,7 +161,7 @@ class SearchResults{
  }
 }
 
-````
+```
 
 ## Next steps
 - [C# quickstart](csharp.md)

@@ -1,18 +1,19 @@
 ---
-title: Configure SaaS apps for B2B collaboration in Azure Active Directory | Microsoft Docs
+title: Configure SaaS apps for B2B collaboration - Azure Active Directory | Microsoft Docs
 description: Code and PowerShell samples for Azure Active Directory B2B collaboration
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
-ms.topic: article
+ms.subservice: B2B
+ms.topic: conceptual
 ms.date: 05/23/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
-
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Configure SaaS apps for B2B collaboration
@@ -34,37 +35,37 @@ To enable users to sign in using their organization account, you must manually c
 
 1. To add the Dropbox Business app into Azure AD, select **Enterprise applications** in the left pane, and then click **Add**.
 
-  ![The "Add" button on the Enterprise applications page](media/configure-saas-apps/add-dropbox.png)
+   ![The "Add" button on the Enterprise applications page](media/configure-saas-apps/add-dropbox.png)
 
 2. In the **Add an application** window, enter **dropbox** in the search box, and then select **Dropbox for Business** in the results list.
 
-  ![Search for "dropbox" on the Add an application page](media/configure-saas-apps/add-app-dialog.png)
+   ![Search for "dropbox" on the Add an application page](media/configure-saas-apps/add-app-dialog.png)
 
 3. On the **Single sign-on** page, select **Single sign-on** in the left pane, and then enter **user.mail** in the **User Identifier** box. (It's set as UPN by default.)
 
-  ![Configuring single sign-on for the app](media/configure-saas-apps/configure-app-sso.png)
+   ![Configuring single sign-on for the app](media/configure-saas-apps/configure-app-sso.png)
 
 4. To download the certificate to use for Dropbox configuration, select **Configure DropBox**, and then select **SAML Single Sign On Service URL** in the list.
 
-  ![Downloading the certificate for Dropbox configuration](media/configure-saas-apps/download-certificate.png)
+   ![Downloading the certificate for Dropbox configuration](media/configure-saas-apps/download-certificate.png)
 
 5. Sign in to Dropbox with the sign-on URL from the **Single sign-on** page.
 
-  ![The Dropbox sign-in page](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Screenshot showing the Dropbox sign-in page](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. On the menu, select **Admin Console**.
 
-  ![The "Admin Console" link on the Dropbox menu](media/configure-saas-apps/dropbox-menu.png)
+   ![The "Admin Console" link on the Dropbox menu](media/configure-saas-apps/dropbox-menu.png)
 
 7. In the **Authentication** dialog box, select **More**, upload the certificate and then, in the **Sign in URL** box, enter the SAML single sign-on URL.
 
-  ![The "More" link in the collapsed Authentication dialog box](media/configure-saas-apps/dropbox-auth-01.png)
+   ![The "More" link in the collapsed Authentication dialog box](media/configure-saas-apps/dropbox-auth-01.png)
 
-  ![The "Sign in URL" in the expanded Authentication dialog box](media/configure-saas-apps/paste-single-sign-on-URL.png)
+   ![The "Sign in URL" in the expanded Authentication dialog box](media/configure-saas-apps/paste-single-sign-on-URL.png)
 
 8. To configure automatic user setup in the Azure portal, select **Provisioning** in the left pane, select **Automatic** in the **Provisioning Mode** box, and then select **Authorize**.
 
-  ![Configuring automatic user provisioning in the Azure portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
+   ![Configuring automatic user provisioning in the Azure portal](media/configure-saas-apps/set-up-automatic-provisioning.png)
 
 After guest or member users have been set up in the Dropbox app, they receive a separate invitation from Dropbox. To use Dropbox single sign-on, invitees must accept the invitation by clicking a link in it.
 
@@ -75,22 +76,22 @@ You can enable users to authenticate Box guest users with their Azure AD account
 
 2. Configure single sign-on in the following order:
 
-  ![Configure Box single sign-on](media/configure-saas-apps/configure-box-sso.png)
+   ![Screenshot showing the single sign-on configuration settings](media/configure-saas-apps/configure-box-sso.png)
 
- a. In the **Sign on URL** box, ensure that the sign-on URL is set appropriately for Box in the Azure portal. This URL is the URL of your Box.com tenant. It should follow the naming convention *https://.box.com*.  
- The **Identifier** does not apply to this app, but it still appears as a mandatory field.
+   a. In the **Sign on URL** box, ensure that the sign-on URL is set appropriately for Box in the Azure portal. This URL is the URL of your Box.com tenant. It should follow the naming convention *https://.box.com*.  
+   The **Identifier** does not apply to this app, but it still appears as a mandatory field.
 
- b. In the **User identifier** box, enter **user.mail** (for SSO for guest accounts).
+   b. In the **User identifier** box, enter **user.mail** (for SSO for guest accounts).
 
- c. Under **SAML Signing Certificate**, click **Create new certificate**.
+   c. Under **SAML Signing Certificate**, click **Create new certificate**.
 
- d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the metadata file and then save it to your local drive.
+   d. To begin configuring your Box.com tenant to use Azure AD as an identity provider, download the metadata file and then save it to your local drive.
 
- e. Forward the metadata file to the Box support team, which configures single sign-on for you.
+   e. Forward the metadata file to the Box support team, which configures single sign-on for you.
 
 3. For Azure AD automatic user setup, in the left pane, select **Provisioning**, and then select **Authorize**.
 
-  ![Authorize Azure AD to connect to Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
+   ![Authorize Azure AD to connect to Box](media/configure-saas-apps/auth-azure-ad-to-connect-to-box.png)
 
 Like Dropbox invitees, Box invitees must redeem their invitation from the Box app.
 

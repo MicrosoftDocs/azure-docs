@@ -1,21 +1,21 @@
 ---
 title: 'Migrate TDE certificate - Azure SQL Database Managed Instance | Microsoft Docs'
-description: Migrate certificate protecting Database Encryption Key of a database with transparent Data Encryption to Azure SQL Managed instance
-keywords: sql database tutorial, sql database managed instance, migrate TDE certificate
+description: Migrate certificate protecting Database Encryption Key of a database with transparent Data Encryption to Azure SQL Database Managed Instance
 services: sql-database
-author: MladjoA
-ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
-ms.custom: managed instance
-ms.topic: tutorial
-ms.date: 08/09/2018
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
+ms.topic: conceptual
+author: MladjoA
 ms.author: mlandzic
-manager: craigg
+ms.reviewer: carlrab, jovanpop
+ms.date: 04/25/2019
 ---
 
-# Migrate certificate of TDE protected database to Azure SQL Managed Instance
+# Migrate certificate of TDE protected database to Azure SQL Database Managed Instance
 
-When migrating a database protected by [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. This article walks you through the process of manual migration of the certificate to Azure SQL Database Managed Instance:
+When migrating a database protected by [Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption) to Azure SQL Database Managed Instance using native restore option, the corresponding certificate from the on-premises or IaaS SQL Server needs to be migrated before database restore. This article walks you through the process of manual migration of the certificate to Azure SQL Database Managed Instance:
 
 > [!div class="checklist"]
 > * Export certificate to a Personal Information Exchange (.pfx) file
@@ -25,21 +25,25 @@ When migrating a database protected by [Transparent Data Encryption](https://doc
 For an alternative option using fully managed service for seamless migration of both TDE protected database and corresponding certificate, see [How to migrate your on-premises database to Managed Instance using Azure Database Migration Service](../dms/tutorial-sql-server-to-managed-instance.md).
 
 > [!IMPORTANT]
-> Transparent Data Encryption for Azure SQL Managed Instance works in service-managed mode. Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different, system-managed certificate.
+> Migrated certificate is used for restore of the TDE protected database only. Soon after restore is done, the migrated certificate gets replaced by a different protector, either service-managed certificate or asymmetric key from the key vault, depending on the type of the transparent data encryption you set on the instance.
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 To complete the steps in this article, you need the following prerequisites:
 
 - [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) command-line tool installed on the on-premises server or other computer with access to the certificate exported as a file. Pvk2Pfx tool is part of the [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), a standalone self-contained command-line environment.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) version 5.0 or higher installed.
-- AzureRM PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
-- [AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) version 4.10.0 or higher.
+- Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
   Run the following commands in PowerShell to install/update the PowerShell module:
 
    ```powershell
-   Install-Module -Name AzureRM.Sql
-   Update-Module -Name AzureRM.Sql
+   Install-Module -Name Az.Sql
+   Update-Module -Name Az.Sql
    ```
 
 ## Export TDE certificate to a Personal Information Exchange (.pfx) file
@@ -104,19 +108,19 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
 
 4. Follow the wizard to export certificate and private key to a Personal Information Exchange format
 
-## Upload certificate to Azure SQL Managed Instance using Azure PowerShell cmdlet
+## Upload certificate to Azure SQL Database Managed Instance using Azure PowerShell cmdlet
 
 1. Start with preparation steps in PowerShell:
 
    ```powershell
    # Import the module into the PowerShell session
-   Import-Module AzureRM
+   Import-Module Az
    # Connect to Azure with an interactive dialog for sign-in
-   Connect-AzureRmAccount
+   Connect-AzAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
-   Get-AzureRmSubscription
+   Get-AzSubscription
    # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
-   Select-AzureRmSubscription Guid_Subscription_Id
+   Select-AzSubscription Guid_Subscription_Id
    ```
 
 2. Once all preparation steps are done, run the following commands to upload base-64 encoded certificate to the target Managed Instance:
@@ -127,13 +131,13 @@ If certificate is kept in SQL Server’s local machine certificate store, it can
    $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
-   Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
+   Add-AzSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword
    ```
 
 The certificate is now available to the specified Managed Instance and backup of corresponding TDE protected database can be restored successfully.
 
 ## Next steps
 
-In this article, you learned how to migrate certificate protecting encryption key of database with Transparent Data Encryption, from the on-premises or IaaS SQL Server to Azure SQL Managed Instance.
+In this article, you learned how to migrate certificate protecting encryption key of database with Transparent Data Encryption, from the on-premises or IaaS SQL Server to Azure SQL Database Managed Instance.
 
-See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-restore-from-backup-tutorial.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.
+See [Restore a database backup to an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started-restore.md) to learn how to restore a database backup to an Azure SQL Database Managed Instance.

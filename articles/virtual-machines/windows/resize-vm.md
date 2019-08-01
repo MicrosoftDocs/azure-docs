@@ -4,7 +4,7 @@ description: Resize a Windows virtual machine created in the Resource Manager de
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -26,6 +26,8 @@ After you create a virtual machine (VM), you can scale the VM up or down by chan
 
 If your VM uses Premium Storage, make sure that you choose an **s** version of the size to get Premium Storage support. For example, choose Standard_E4**s**_v3 instead of Standard_E4_v3.
 
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+
 ## Resize a Windows VM not in an availability set
 
 Set some variables. Replace the values with your own information.
@@ -38,25 +40,25 @@ $vmName = "myVM"
 List the VM sizes that are available on the hardware cluster where the VM is hosted. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 If the size you want is listed, run the following commands to resize the VM. If the desired size is not listed, go on to step 3.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMsize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-If the size you want is not listed, run the following commands to deallocate the VM, resize it, and restart the VM. Replace **<newVMsize>** with the size you want.
+If the size you want is not listed, run the following commands to deallocate the VM, resize it, and restart the VM. Replace **\<newVMsize>** with the size you want.
    
 ```powershell
-Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
+Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName
 $vm.HardwareProfile.VmSize = "<newVMSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
-Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
+Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
@@ -76,15 +78,15 @@ $vmName = "myVM"
 List the VM sizes that are available on the hardware cluster where the VM is hosted. 
    
 ```powershell
-Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
+Get-AzVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
 If the desired size is listed, run the following commands to resize the VM. If it is not listed, go to the next section.
    
 ```powershell
-$vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -VMName $vmName 
 $vm.HardwareProfile.VmSize = "<newVmSize>"
-Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 	
 If the size you want is not listed, continue with the following steps to deallocate all VMs in the availability set, resize VMs, and restart them.
@@ -92,12 +94,12 @@ If the size you want is not listed, continue with the following steps to dealloc
 Stop all VMs in the availability set.
    
 ```powershell
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
 foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
+    Stop-AzVM -ResourceGroupName $resourceGroup -Name $vmName -Force
     } 
 ```
 
@@ -105,15 +107,15 @@ Resize and restart the VMs in the availability set.
    
 ```powershell
 $newSize = "<newVmSize>"
-$as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
+$as = Get-AzAvailabilitySet -ResourceGroupName $resourceGroup
 $vmIds = $as.VirtualMachinesReferences
   foreach ($vmId in $vmIDs){
     $string = $vmID.Id.Split("/")
     $vmName = $string[8]
-    $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    $vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     $vm.HardwareProfile.VmSize = $newSize
-    Update-AzureRmVM -ResourceGroupName $resourceGroup -VM $vm
-    Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
+    Update-AzVM -ResourceGroupName $resourceGroup -VM $vm
+    Start-AzVM -ResourceGroupName $resourceGroup -Name $vmName
     }
 ```
 

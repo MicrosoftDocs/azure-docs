@@ -1,24 +1,24 @@
 ---
-title: Collaborating on your knowledge base - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
-description: How to collaborate on your QnA Maker knowledge base
+title: Collaborating on knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure Role-Based Access Control. 
 services: cognitive-services
-author: nstulasi
-manager: sangitap
+author: diberry
+manager: nitinme
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
+ms.date: 01/14/2019
+ms.author: diberry
 ---
 
 # Collaborate on your knowledge base
 
-QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure). 
+QnA Maker allows multiple people to collaborate on a knowledge base. This feature is provided with the Azure [Role-Based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure). 
 
 Perform the following steps to share your QnA Maker service with someone:
 
-1. Log in to the Azure portal, and go to your QnA Maker resource.
+1. Sign in to the Azure portal, and go to your QnA Maker resource.
 
     ![QnA Maker resource list](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-resource-list.PNG)
 
@@ -30,7 +30,7 @@ Perform the following steps to share your QnA Maker service with someone:
 
     ![QnA Maker IAM add](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add.PNG)
 
-4. Select the **Owner** or the **Contributor** role.
+4. Select the **Owner** or the **Contributor** role. You cannot grant read-only access through Role-Based Access Control. Owner and Contributor role has read-write access right to QnA Maker service.
 
     ![QnA Maker IAM add role](../media/qnamaker-how-to-collaborate-knowledge-base/qnamaker-iam-add-role.PNG)
 

@@ -1,0 +1,77 @@
+- name: Azure NetApp Files Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure NetApp Files
+    href: azure-netapp-files-introduction.md
+  - name: Understand the storage hierarchy
+    href: azure-netapp-files-understand-storage-hierarchy.md
+- name: Quickstarts
+  expanded: true 
+  items:
+  - name: Set up Azure NetApp Files and create an NFS volume
+    href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
+# - name: Tutorials
+# - name: Samples
+- name: Concepts
+  items:
+  - name: Service levels for Azure NetApp Files
+    href: azure-netapp-files-service-levels.md
+  - name: Resource limits for Azure NetApp Files
+    href: azure-netapp-files-resource-limits.md
+  - name: Metrics for Azure NetApp Files
+    href: azure-netapp-files-metrics.md
+  - name: Performance
+    items:
+    - name: Performance benchmarks for Azure NetApp Files
+      href: azure-netapp-files-performance-benchmarks.md
+    - name: Performance considerations for Azure NetApp Files
+      href: azure-netapp-files-performance-considerations.md    
+    - name: Benchmark testing for volume performance and metrics using Azure NetApp Files
+      href: azure-netapp-files-performance-metrics-volumes.md 
+  - name: Cost model for Azure NetApp Files
+    href: azure-netapp-files-cost-model.md
+  - name: Guidelines for Azure NetApp Files network planning 
+    href: azure-netapp-files-network-topologies.md
+  - name: Solution architectures using Azure NetApp Files
+    href: azure-netapp-files-solution-architectures.md
+  - name: FAQs about Azure NetApp Files
+    href: azure-netapp-files-faqs.md
+- name: How-to guides
+  items:
+  - name: Register for Azure NetApp Files
+    href: azure-netapp-files-register.md
+  - name: Create a NetApp account
+    href: azure-netapp-files-create-netapp-account.md
+  - name: Set up a capacity pool
+    href: azure-netapp-files-set-up-capacity-pool.md
+  - name: Delegate a subnet to Azure NetApp Files
+    href: azure-netapp-files-delegate-subnet.md
+  - name: Create an NFS volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes.md
+  - name: Create an SMB volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes-smb.md
+  - name: Configure export policy for an NFS volume
+    href: azure-netapp-files-configure-export-policy.md
+  - name: Manage volumes
+    href: azure-netapp-files-manage-volumes.md
+  - name: Mount or unmount a volume for Windows or Linux virtual machines
+    href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
+  - name: Manage snapshots
+    href: azure-netapp-files-manage-snapshots.md
+  - name: Resize a capacity pool or a volume
+    href: azure-netapp-files-resize-capacity-pools-or-volumes.md
+  - name: Develop
+    items:
+    - name: REST
+      href: azure-netapp-files-develop-with-rest-api.md
+    - name: Azure NetApp Files SDKs 
+      href: azure-netapp-files-sdk-cli.md
+    - name: Troubleshoot Azure NetApp Files Resource Provider errors
+      href: azure-netapp-files-troubleshoot-resource-provider-errors.md
+- name: Reference
+  items:
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/netapp/ 
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.netapp/allversions

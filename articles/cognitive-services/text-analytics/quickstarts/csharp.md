@@ -1,161 +1,229 @@
 ---
-title: C# quickstart for Cognitive Services, Text Analytics API | Microsoft Docs
-description: Get information and code samples to help you quickly get started with using the Text Analytics API in Microsoft Cognitive Services on Azure.
+title: 'Quickstart: Call the Text Analytics service by using the Azure SDK for .NET and C#'
+titleSuffix: Azure Cognitive Services
+description: Information and code samples to help you start using the Text Analytics service and C#.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: raymondl
+manager: nitinme
+
 ms.service: cognitive-services
-ms.component: text-analytics
-ms.topic: article
-ms.date: 09/20/2017
-ms.author: ashmaka
+ms.subservice: text-analytics
+ms.topic: quickstart
+ms.date: 07/30/2019
+ms.author: assafi
 ---
 
-# Quickstart for the Text Analytics API with C# 
+# Quickstart: Use the .NET SDK and C# to call the Text Analytics service
 <a name="HOLTop"></a>
 
-This article shows you how to detect language, analyze sentiment, and extract key phrases by using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with C#. The code was written to work on a .NET Core application, with minimal references to external libraries, so you can also run it on Linux or MacOS.
+This quickstart helps you begin using the Azure SDK for .NET and C# to analyze language. Although the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications.
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+> [!NOTE]
+> The demo code in this article uses the synchronous methods of the Text Analytics .NET SDK for simplicity. However, for production scenarios, we recommend using the batched asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use `SentimentBatchAsync`  instead of `Sentiment`.
+>
+> A batched asynchronous version of this example can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/samples/TextAnalytics).
+
+For technical details, refer to the SDK for .NET [Text Analytics reference](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet).
 
 ## Prerequisites
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with the Text Analytics API. You can use the *free tier for 5,000 transactions/month* to complete this quickstart.
+* Any edition of Visual Studio 2017 or later
+* The Text Analytics [SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that were generated for you during sign-up. 
+[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
+## Create the Visual Studio solution and install the SDK
 
-## Install the NuGet SDK package
-1. Create a new console solution in Visual Studio.
+1. Create a new console app (.NET Core) project. [Access Visual Studio](https://visualstudio.microsoft.com/vs/).
 1. Right-click the solution and select **Manage NuGet Packages for Solution**.
-1. Select the **Include Prerelease** check box.
-1. Select the **Browse** tab, and search for **Microsoft.Azure.CognitiveServices.Language**.
-1. Select the NuGet package and install it.
+1. Select the **Browse** tab. Search for **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**.
 
-> [!Tip]
-> Although you can call the [HTTP endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) directly from C#, the Microsoft.Azure.CognitiveServices.Language SDK makes it much easier to call the service without having to worry about serializing and deserializing JSON.
->
-> Here are useful links:
-> - [SDK NuGet page](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
-> - [SDK code](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
+## Authenticate your credentials
 
+1. Add the following `using` statements to the main class file (which is Program.cs by default).
 
-## Call the Text Analytics API by using the SDK
-1. Replace Program.cs with the following code. This program demonstrates the capabilities of the Text Analytics API in three sections (language extraction, key-phrase extraction, and sentiment analysis).
-1. Replace the `Ocp-Apim-Subscription-Key` header value with an access key that's valid for your subscription.
-1. Replace the location in `Endpoint` to the endpoint that you signed up for. You can find the endpoint on the Azure portal resource. The endpoint typically starts with "https://[region].api.cognitive.microsoft.com." Include only the protocol and host name.
-1. Run the program.
+    ```csharp
+    using System;
+    using System.Collections.Generic;
+    using System.Net.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
+    using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
+    using Microsoft.Rest;
+    ```
 
-```csharp
-using System;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
-using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
-using System.Collections.Generic;
-using Microsoft.Rest;
-using System.Net.Http;
-using System.Threading;
-using System.Threading.Tasks;
+2. Create a new `ApiKeyServiceClientCredentials` class to store the credentials and add them for each request.
 
-namespace ConsoleApp1
-{
-    class Program
+    ```csharp
+    class ApiKeyServiceClientCredentials : ServiceClientCredentials
     {
-        /// <summary>
-        /// Container for subscription credentials. Make sure to enter your valid key.
-        /// </summary>
-        class ApiKeyServiceClientCredentials : ServiceClientCredentials
+        private readonly string apiKey;
+
+        public ApiKeyServiceClientCredentials(string apiKey)
         {
-            public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
-            {
-                request.Headers.Add("Ocp-Apim-Subscription-Key", "ENTER KEY HERE");
-                return base.ProcessHttpRequestAsync(request, cancellationToken);
-            }
+            this.apiKey = apiKey;
         }
 
-        static void Main(string[] args)
+        public override Task ProcessHttpRequestAsync(HttpRequestMessage request, CancellationToken cancellationToken)
         {
-
-            // Create a client.
-            ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials())
+            if (request == null)
             {
-                Endpoint = "https://westus.api.cognitive.microsoft.com"
-            };
-
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            // Extracting language.
-            Console.WriteLine("===== LANGUAGE EXTRACTION ======");
-
-            var result =  client.DetectLanguageAsync(new BatchInput(
-                    new List<Input>()
-                        {
-                          new Input("1", "This is a document written in English."),
-                          new Input("2", "Este es un document escrito en Español."),
-                          new Input("3", "这是一个用中文写的文件")
-                    })).Result;
-
-            // Printing language results.
-            foreach (var document in result.Documents)
-            {
-                Console.WriteLine("Document ID: {0} , Language: {1}", document.Id, document.DetectedLanguages[0].Name);
+                throw new ArgumentNullException("request");
             }
-
-            // Getting key phrases.
-            Console.WriteLine("\n\n===== KEY-PHRASE EXTRACTION ======");
-
-            KeyPhraseBatchResult result2 = client.KeyPhrasesAsync(new MultiLanguageBatchInput(
-                        new List<MultiLanguageInput>()
-                        {
-                          new MultiLanguageInput("ja", "1", "猫は幸せ"),
-                          new MultiLanguageInput("de", "2", "Fahrt nach Stuttgart und dann zum Hotel zu Fu."),
-                          new MultiLanguageInput("en", "3", "My cat is stiff as a rock."),
-                          new MultiLanguageInput("es", "4", "A mi me encanta el fútbol!")
-                        })).Result;
-
-            // Printing key phrases.
-            foreach (var document in result2.Documents)
-            {
-                Console.WriteLine("Document ID: {0} ", document.Id);
-
-                Console.WriteLine("\t Key phrases:");
-
-                foreach (string keyphrase in document.KeyPhrases)
-                {
-                    Console.WriteLine("\t\t" + keyphrase);
-                }
-            }
-
-            // Extracting sentiment.
-            Console.WriteLine("\n\n===== SENTIMENT ANALYSIS ======");
-
-            SentimentBatchResult result3 = client.SentimentAsync(
-                    new MultiLanguageBatchInput(
-                        new List<MultiLanguageInput>()
-                        {
-                          new MultiLanguageInput("en", "0", "I had the best day of my life."),
-                          new MultiLanguageInput("en", "1", "This was a waste of my time. The speaker put me to sleep."),
-                          new MultiLanguageInput("es", "2", "No tengo dinero ni nada que dar..."),
-                          new MultiLanguageInput("it", "3", "L'hotel veneziano era meraviglioso. È un bellissimo pezzo di architettura."),
-                        })).Result;
-
-
-            // Printing sentiment results.
-            foreach (var document in result3.Documents)
-            {
-                Console.WriteLine("Document ID: {0} , Sentiment Score: {1:0.00}", document.Id, document.Score);
-            }
+            request.Headers.Add("Ocp-Apim-Subscription-Key", this.apiKey);
+            return base.ProcessHttpRequestAsync(request, cancellationToken);
         }
     }
-}
+    ```
+
+3. Update the `Program` class. Add a constant member for your Text Analytics API key, and another for the service endpoint. Remember to use the correct Azure location for your Text Analytics resource.
+
+    ```csharp
+    //Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
+    private const string ApiKey = "enter-your-textanalytics-api-key-here";
+    //You can get the resource location from Azure Portal -> your TA resource -> Overview
+    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://<your-location>.api.cognitive.microsoft.com";
+    ```
+
+> [!Tip]
+> To boost the security of secrets in production systems, we recommend that you use [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
+>
+
+## Create a Text Analytics client
+
+In the `Main` function of your project, call the sample method that you want to invoke. Pass the `Endpoint` and `ApiKey` parameters that you defined.
+
+```csharp
+    public static void Main(string[] args)
+    {
+        var credentials = new ApiKeyServiceClientCredentials(ApiKey);
+        var client = new TextAnalyticsClient(credentials)
+        {
+            Endpoint = Endpoint
+        };
+
+        // Change the console encoding to display non-ASCII characters.
+        Console.OutputEncoding = System.Text.Encoding.UTF8;
+        SentimentAnalysisExample(client);
+        // DetectLanguageExample(client);
+        // RecognizeEntitiesExample(client);
+        // KeyPhraseExtractionExample(client);
+        Console.ReadLine();
+    }
+```
+
+The following sections describe how to call each service feature.
+
+## Perform sentiment analysis
+
+1. Create a new function `SentimentAnalysisExample()` that takes the client that you created earlier.
+2. In the same function, call `client.Sentiment()` and get the result. The result will contain the sentiment `Score` if successful, and an `errorMessage` if not. A score that's close to 0 indicates a negative sentiment, while a score that's closer to 1 indicates a positive sentiment.
+
+    ```csharp
+    var result = client.Sentiment("I had the best day of my life.", "en");
+
+    // Printing sentiment results
+    Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
+    ```
+
+### Output
+
+```console
+Sentiment Score: 0.87
+```
+
+## Perform language detection
+
+1. Create a new function `DetectLanguageExample()` that takes the client that you created earlier.
+2. In the same function, call `client.DetectLanguage()` and get the result. The result will contain the list of detected languages in `DetectedLanguages` if successful, and an `errorMessage` if not. Then print the first returned language.
+
+    ```csharp
+    var result = client.DetectLanguage("This is a document written in English.");
+
+    // Printing detected languages
+    Console.WriteLine($"Language: {result.DetectedLanguages[0].Name}");
+    ```
+
+> [!Tip]
+> In some cases it may be hard to disambiguate languages based on the input. You can use the `countryHint` parameter to specify a 2-letter country code. By default the API is using the "US" as the default countryHint, to remove this behavior you can reset this parameter by setting this value to empty string `countryHint = ""` .
+
+### Output
+
+```console
+Language: English
+```
+
+## Perform entity recognition
+
+1. Create a new function `RecognizeEntitiesExample()` that takes the client that you created earlier.
+2. In the same function, call `client.Entities()` and get the result. Then iterate through the results. The result will contain the list of detected entities in `Entities` if successful, and an `errorMessage` if not. For each detected entity, print its Type, Sub-Type, Wikipedia name (if they exist) as well as the locations in the original text.
+
+    ```csharp
+    var result = client.Entities("Microsoft was founded by Bill Gates and Paul Allen on April 4, 1975, to develop and sell BASIC interpreters for the Altair 8800.");
+
+    // Printing recognized entities
+    Console.WriteLine("Entities:");
+    foreach (var entity in result.Entities)
+    {
+        Console.WriteLine($"\tName: {entity.Name},\tType: {entity.Type ?? "N/A"},\tSub-Type: {entity.SubType ?? "N/A"}");
+        foreach (var match in entity.Matches)
+        {
+            Console.WriteLine($"\t\tOffset: {match.Offset},\tLength: {match.Length},\tScore: {match.EntityTypeScore:F3}");
+        }
+    }
+    ```
+
+### Output
+
+```console
+Entities:
+    Name: Microsoft,        Type: Organization,     Sub-Type: N/A
+        Offset: 0,      Length: 9,      Score: 1.000
+    Name: Bill Gates,       Type: Person,   Sub-Type: N/A
+        Offset: 25,     Length: 10,     Score: 1.000
+    Name: Paul Allen,       Type: Person,   Sub-Type: N/A
+        Offset: 40,     Length: 10,     Score: 0.999
+    Name: April 4,  Type: Other,    Sub-Type: N/A
+        Offset: 54,     Length: 7,      Score: 0.800
+    Name: April 4, 1975,    Type: DateTime, Sub-Type: Date
+        Offset: 54,     Length: 13,     Score: 0.800
+    Name: BASIC,    Type: Other,    Sub-Type: N/A
+        Offset: 89,     Length: 5,      Score: 0.800
+    Name: Altair 8800,      Type: Other,    Sub-Type: N/A
+        Offset: 116,    Length: 11,     Score: 0.800
+```
+
+## Perform key phrase extraction
+
+1. Create a new function `KeyPhraseExtractionExample()` that takes the client that you created earlier.
+2. In the same function, call `client.KeyPhrases()` and get the result. The result will contain the list of detected key phrases in `KeyPhrases` if successful, and an `errorMessage` if not. Then print any detected key phrases.
+
+    ```csharp
+    var result = client.KeyPhrases("My cat might need to see a veterinarian.");
+
+    // Printing key phrases
+    Console.WriteLine("Key phrases:");
+
+    foreach (string keyphrase in result.KeyPhrases)
+    {
+        Console.WriteLine($"\t{keyphrase}");
+    }
+    ```
+
+### Output
+
+```console
+Key phrases:
+    cat
+    veterinarian
 ```
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Text Analytics with Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## See also 
 
- [Text Analytics overview](../overview.md)  
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
-
+* [Text Analytics overview](../overview.md)
+* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)

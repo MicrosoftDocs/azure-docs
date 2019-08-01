@@ -45,7 +45,7 @@ This connector supports the following logic app actions:
 ## List tables
 Creating a logic app for any operation is comprised of many steps performed through the Microsoft Azure portal.
 
-Within the logic app, you can add an action to list tables in a Informix database. This action instructs the connector to process a Informix schema statement, such as `CALL SYSIBM.SQLTABLES`.
+Within the logic app, you can add an action to list tables in an Informix database. This action instructs the connector to process an Informix schema statement, such as `CALL SYSIBM.SQLTABLES`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -152,7 +152,7 @@ You can create a logic app action to fetch all rows in the Informix table. This 
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## Add one row using INSERT
-You can create a logic app action to add one row in a Informix table. This action instructs the connector to process a Informix INSERT statement, such as `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+You can create a logic app action to add one row in an Informix table. This action instructs the connector to process an Informix INSERT statement, such as `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -179,7 +179,7 @@ You can create a logic app action to add one row in a Informix table. This actio
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## Fetch one row using SELECT
-You can create a logic app action to fetch one row in a Informix table. This action instructs the connector to process a Informix SELECT WHERE statement, such as `SELECT FROM AREA WHERE AREAID = '99999'`.
+You can create a logic app action to fetch one row in an Informix table. This action instructs the connector to process an Informix SELECT WHERE statement, such as `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -207,7 +207,7 @@ You can create a logic app action to fetch one row in a Informix table. This act
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## Change one row using UPDATE
-You can create a logic app action to change one row in a Informix table. This action instructs the connector to process a Informix UPDATE statement, such as `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+You can create a logic app action to change one row in an Informix table. This action instructs the connector to process an Informix UPDATE statement, such as `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.
@@ -234,7 +234,7 @@ You can create a logic app action to change one row in a Informix table. This ac
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## Remove one row using DELETE
-You can create a logic app action to remove one row in a Informix table. This action instructs the connector to process a Informix DELETE statement, such as `DELETE FROM AREA WHERE AREAID = '99999'`.
+You can create a logic app action to remove one row in an Informix table. This action instructs the connector to process an Informix DELETE statement, such as `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### Create a logic app
 1. In the **Azure start board**, select **+** (plus sign), **Web + Mobile**, and then **Logic App**.

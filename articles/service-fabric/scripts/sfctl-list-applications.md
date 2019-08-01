@@ -3,8 +3,8 @@ title: Service Fabric CLI Script Sample - List applications on a cluster
 description: Service Fabric CLI Script Sample - List the applications provisioned on a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
-author: TylerMSFT
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: 
 
@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 04/13/2018
-ms.author: twhitney
+ms.author: atsenthi
 ms.custom: 
 ---
 

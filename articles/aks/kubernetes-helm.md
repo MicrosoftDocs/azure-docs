@@ -1,15 +1,15 @@
 ---
 title: Deploy containers with Helm in Kubernetes on Azure
-description: Use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
+description: Learn how to use the Helm packaging tool to deploy containers in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
-manager: jeconnoc
+author: zr-msft
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/13/2018
-ms.author: iainfou
-ms.custom: mvc
+ms.date: 05/23/2019
+ms.author: zarhoads
+
+#Customer intent: As a cluster operator or developer, I want to learn how to deploy Helm into an AKS cluster and then install and manage applications using Helm charts.
 ---
 
 # Install applications with Helm in Azure Kubernetes Service (AKS)
@@ -20,34 +20,16 @@ This article shows you how to configure and use Helm in a Kubernetes cluster on 
 
 ## Before you begin
 
-The steps detailed in this document assume that you have created an AKS cluster and have established a `kubectl` connection with the cluster. If you need these items see, the [AKS quickstart][aks-quickstart].
+This article assumes that you have an existing AKS cluster. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
 
-## Install Helm CLI
+You also need the Helm CLI installed, which is the client that runs on your development system. It allows you to start, stop, and manage applications with Helm. If you use the Azure Cloud Shell, the Helm CLI is already installed. For installation instructions on your local platform see, [Installing Helm][helm-install].
 
-The Helm CLI is a client that runs on your development system and allows you to start, stop, and manage applications with Helm.
-
-If you use the Azure Cloud Shell, the Helm CLI is already installed. To install the Helm CLI on a Mac, use `brew`. For additional installation options see, [Installing Helm][helm-install-options].
-
-```console
-brew install kubernetes-helm
-```
-
-Output:
-
-```
-==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-######################################################################## 100.0%
-==> Pouring kubernetes-helm-2.9.1.high_sierra.bottle.tar.gz
-==> Caveats
-Bash completion has been installed to:
-  /usr/local/etc/bash_completion.d
-==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.9.1: 50 files, 66.2MB
-```
+> [!IMPORTANT]
+> Helm is intended to run on Linux nodes. If you have Windows Server nodes in your cluster, you must ensure that Helm pods are only scheduled to run on Linux nodes. You also need to ensure that any Helm charts you install are also scheduled to run on the correct nodes. The commands in this article use [node-selectors][k8s-node-selector] to make sure pods are scheduled to the correct nodes, but not all Helm charts may expose a node selector. You can also consider using other options on your cluster, such as [taints][taints].
 
 ## Create a service account
 
-Before you can deploy Helm in an RBAC-enabled cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your cluster is not RBAC enabled, skip this step.
+Before you can deploy Helm in an RBAC-enabled AKS cluster, you need a service account and role binding for the Tiller service. For more information on securing Helm / Tiller in an RBAC enabled cluster, see [Tiller, Namespaces, and RBAC][tiller-rbac]. If your AKS cluster is not RBAC enabled, skip this step.
 
 Create a file named `helm-rbac.yaml` and copy in the following YAML:
 
@@ -58,7 +40,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -72,10 +54,10 @@ subjects:
     namespace: kube-system
 ```
 
-Create the service account and role binding with the `kubectl create` command:
+Create the service account and role binding with the `kubectl apply` command:
 
 ```console
-kubectl create -f helm-rbac.yaml
+kubectl apply -f helm-rbac.yaml
 ```
 
 ## Secure Tiller and Helm
@@ -89,10 +71,10 @@ With an RBAC-enabled Kubernetes cluster, you can control the level of access Til
 To deploy a basic Tiller into an AKS cluster, use the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value. If you configured TLS/SSL for Tiller and Helm, skip this basic initialization step and instead provide the required `--tiller-tls-` as shown in the next example.
 
 ```console
-helm init --service-account tiller
+helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
-If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-` parameters and names of your own certificates, as shown in the following example:
+If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-*` parameters and names of your own certificates, as shown in the following example:
 
 ```console
 helm init \
@@ -101,7 +83,8 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
-    --service-account tiller
+    --service-account tiller \
+    --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 ## Find Helm charts
@@ -118,7 +101,6 @@ The following condensed example output shows some of the Helm charts available f
 $ helm search
 
 NAME                           CHART VERSION	APP VERSION  DESCRIPTION
-stable/acs-engine-autoscaler   2.2.0         	2.1.1        Scales worker nodes within agent pools
 stable/aerospike               0.1.7        	v3.14.1.2    A Helm chart for Aerospike in Kubernetes
 stable/anchore-engine          0.1.7        	0.1.10       Anchore container analysis and policy evaluatio...
 stable/apm-server              0.1.0        	6.2.4        The server receives data from the Elastic APM a...
@@ -153,7 +135,7 @@ To update the list of charts, use the [helm repo update][helm-repo-update] comma
 ```console
 $ helm repo update
 
-Hang tight while we grab the latest from your chart repositories...
+Hold tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete. ⎈ Happy Helming!⎈
@@ -161,68 +143,62 @@ Update Complete. ⎈ Happy Helming!⎈
 
 ## Run Helm charts
 
-To install charts with Helm, use the [helm install][helm-install] command and specify the name of the chart to install. To see this in action, let's install a basic Wordpress deployment using a Helm chart. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
+To install charts with Helm, use the [helm install][helm-install] command and specify the name of the chart to install. To see installing a Helm chart in action, let's install a basic nginx deployment using a Helm chart. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
 ```console
-helm install stable/wordpress
+helm install stable/nginx-ingress \
+    --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux \
+    --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
 The following condensed example output shows the deployment status of the Kubernetes resources created by the Helm chart:
 
 ```
-$ helm install stable/wordpress
+$ helm install stable/nginx-ingress --set controller.nodeSelector."beta\.kubernetes\.io/os"=linux --set defaultBackend.nodeSelector."beta\.kubernetes\.io/os"=linux
 
-NAME:   wishful-mastiff
-LAST DEPLOYED: Thu Jul 12 15:53:56 2018
+NAME:   flailing-alpaca
+LAST DEPLOYED: Thu May 23 12:55:21 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
-==> v1beta1/Deployment
-NAME                       DESIRED  CURRENT  UP-TO-DATE  AVAILABLE  AGE
-wishful-mastiff-wordpress  1        1        1           0          1s
-
-==> v1beta1/StatefulSet
-NAME                     DESIRED  CURRENT  AGE
-wishful-mastiff-mariadb  1        1        1s
+==> v1/ConfigMap
+NAME                                      DATA  AGE
+flailing-alpaca-nginx-ingress-controller  1     0s
 
 ==> v1/Pod(related)
-NAME                                        READY  STATUS   RESTARTS  AGE
-wishful-mastiff-wordpress-6f96f8fdf9-q84sz  0/1    Pending  0         1s
-wishful-mastiff-mariadb-0                   0/1    Pending  0         1s
-
-==> v1/Secret
-NAME                       TYPE    DATA  AGE
-wishful-mastiff-mariadb    Opaque  2     2s
-wishful-mastiff-wordpress  Opaque  2     2s
-
-==> v1/ConfigMap
-NAME                           DATA  AGE
-wishful-mastiff-mariadb        1     2s
-wishful-mastiff-mariadb-tests  1     2s
-
-==> v1/PersistentVolumeClaim
-NAME                       STATUS   VOLUME   CAPACITY  ACCESS MODES  STORAGECLASS  AGE
-wishful-mastiff-wordpress  Pending  default  2s
+NAME                                                            READY  STATUS             RESTARTS  AGE
+flailing-alpaca-nginx-ingress-controller-56666dfd9f-bq4cl       0/1    ContainerCreating  0         0s
+flailing-alpaca-nginx-ingress-default-backend-66bc89dc44-m87bp  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME                       TYPE          CLUSTER-IP   EXTERNAL-IP  PORT(S)                     AGE
-wishful-mastiff-mariadb    ClusterIP     10.1.116.54  <none>       3306/TCP                    2s
-wishful-mastiff-wordpress  LoadBalancer  10.1.217.64  <pending>    80:31751/TCP,443:31264/TCP  2s
+NAME                                           TYPE          CLUSTER-IP  EXTERNAL-IP  PORT(S)                     AGE
+flailing-alpaca-nginx-ingress-controller       LoadBalancer  10.0.109.7  <pending>    80:31219/TCP,443:32421/TCP  0s
+flailing-alpaca-nginx-ingress-default-backend  ClusterIP     10.0.44.97  <none>       80/TCP                      0s
 ...
 ```
 
-It takes a minute or two for the *EXTERNAL-IP* address of the Wordpress service to be populated and allow you to access it with a web browser.
+It takes a minute or two for the *EXTERNAL-IP* address of the nginx-ingress-controller service to be populated and allow you to access it with a web browser.
 
 ## List Helm releases
 
-To see a list of releases installed on your cluster, use the [helm list][helm-list] command. The following example shows the Wordpress release deployed in the previous step. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
+To see a list of releases installed on your cluster, use the [helm list][helm-list] command. The following example shows the nginx-ingress release deployed in the previous step. If you configured TLS/SSL, add the `--tls` parameter to use your Helm client certificate.
 
 ```console
 $ helm list
 
-NAME             REVISION	 UPDATED                 	 STATUS  	 CHART          	NAMESPACE
-wishful-mastiff  1       	 Thu Jul 12 15:53:56 2018	 DEPLOYED	 wordpress-2.1.3  default
+NAME        	    REVISION	UPDATED                 	STATUS  	CHART          	      APP VERSION	NAMESPACE
+flailing-alpaca	  1       	Thu May 23 12:55:21 2019	DEPLOYED	nginx-ingress-1.6.13	0.24.1     	default
+```
+
+## Clean up resources
+
+When you deploy a Helm chart, a number of Kubernetes resources are created. These resources include pods, deployments, and services. To clean up these resources, use the `helm delete` command and specify your release name, as found in the previous `helm list` command. The following example deletes the release named *flailing-alpaca*:
+
+```console
+$ helm delete flailing-alpaca
+
+release "flailing-alpaca" deleted
 ```
 
 ## Next steps
@@ -236,7 +212,7 @@ For more information about managing Kubernetes application deployments with Helm
 [helm]: https://github.com/kubernetes/helm/
 [helm-documentation]: https://docs.helm.sh/
 [helm-init]: https://docs.helm.sh/helm/#helm-init
-[helm-install]: https://docs.helm.sh/helm/#helm-install
+[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 [helm-install-options]: https://github.com/kubernetes/helm/blob/master/docs/install.md
 [helm-list]: https://docs.helm.sh/helm/#helm-list
 [helm-rbac]: https://docs.helm.sh/using_helm/#role-based-access-control
@@ -246,4 +222,8 @@ For more information about managing Kubernetes application deployments with Helm
 [helm-ssl]: https://docs.helm.sh/using_helm/#using-ssl-between-helm-and-tiller
 
 <!-- LINKS - internal -->
-[aks-quickstart]: ./kubernetes-walkthrough.md
+[aks-quickstart-cli]: kubernetes-walkthrough.md
+[aks-quickstart-portal]: kubernetes-walkthrough-portal.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[k8s-node-selector]: concepts-clusters-workloads.md#node-selectors
+[taints]: operator-best-practices-advanced-scheduler.md

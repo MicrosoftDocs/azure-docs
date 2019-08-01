@@ -73,7 +73,7 @@ format on the mobile client, you can define a local store that uses SQLCipher fo
 ## What is a sync context?
 A *sync context* is associated with a mobile client object (such as `IMobileServiceClient` or `MSClient`)
 and tracks changes that are made with sync tables. The sync context maintains an *operation queue*, which
-keeps an ordered list of CUD operations (Create, Update, Delete) that is later be sent to the server.
+keeps an ordered list of CUD operations (Create, Update, Delete) that is later sent to the server.
 
 A local store is associated with the sync context using an initialize method such as
 `IMobileServicesSyncContext.InitializeAsync(localstore)` in the [.NET client SDK].

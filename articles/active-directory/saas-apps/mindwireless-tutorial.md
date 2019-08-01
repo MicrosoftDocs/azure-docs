@@ -1,246 +1,226 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with mindWireless | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and mindWireless.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: bd00a339-27c9-4904-b66f-a95bf597ac3c
 ms.service: active-directory
-ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/11/2018
+ms.topic: tutorial
+ms.date: 02/25/2019
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with mindWireless
 
 In this tutorial, you learn how to integrate mindWireless with Azure Active Directory (Azure AD).
-
 Integrating mindWireless with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to mindWireless.
-- You can enable your users to automatically get signed-on to mindWireless (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to mindWireless.
+* You can enable your users to be automatically signed-in to mindWireless (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with mindWireless, you need the following items:
 
-- An Azure AD subscription
-- A mindWireless single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* mindWireless single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding mindWireless from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* mindWireless supports **IDP** initiated SSO
 
 ## Adding mindWireless from the gallery
+
 To configure the integration of mindWireless into Azure AD, you need to add mindWireless from the gallery to your list of managed SaaS apps.
 
 **To add mindWireless from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![The New application button][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **mindWireless**, select **mindWireless** from result panel then click **Add** button to add the application.
+	![The New application button](common/add-new-app.png)
 
-	![mindWireless in the results list](./media/mindwireless-tutorial/tutorial_mindwireless_addfromgallery.png)
+4. In the search box, type **mindWireless**, select **mindWireless** from result panel then click **Add** button to add the application.
+
+	 ![mindWireless in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with mindWireless based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in mindWireless is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in mindWireless needs to be established.
+In this section, you configure and test Azure AD single sign-on with mindWireless based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in mindWireless needs to be established.
 
 To configure and test Azure AD single sign-on with mindWireless, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a mindWireless test user](#create-a-mindwireless-test-user)** - to have a counterpart of Britta Simon in mindWireless that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Configure mindWireless Single Sign-On](#configure-mindwireless-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create mindWireless test user](#create-mindwireless-test-user)** - to have a counterpart of Britta Simon in mindWireless that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your mindWireless application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with mindWireless, perform the following steps:**
+To configure Azure AD single sign-on with mindWireless, perform the following steps:
 
-1. In the Azure portal, on the **mindWireless** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **mindWireless** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-	![Single sign-on dialog box](./media/mindwireless-tutorial/tutorial_mindwireless_samlbase.png)
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-1. On the **mindWireless Domain and URLs** section, perform the following steps:
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-	![mindWireless Domain and URLs single sign-on information](./media/mindwireless-tutorial/tutorial_mindwireless_url.png)
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<subdomain>.mwsmart.com/`
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
+    ![mindWireless Domain and URLs single sign-on information](common/idp-intiated.png)
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [mindWireless support team](mailto:sdulloor@mindwireless.com) to get these values.
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<subdomain>.mwsmart.com/`
 
-1. The mindWireless application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration.
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<subdomain>.mwsmart.com/SAML/AssertionConsumerService.aspx`
 
-1. The following screenshot shows an example for it. The claim name always be **Employee ID** and the value of which we have mapped to user.employeeid, which contains the EmployeeID of the user. Here the user mapping from Azure AD to mindWireless is done on the EmployeeID but you can map it to a different value also based on your application settings. You can work with the [mindWireless support team](mailto:sdulloor@mindwireless.com) first to use the correct identifier of a user and map that value with the **Employee ID** claim.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [mindWireless Client support team](mailto:sdulloor@mindwireless.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute.png)
+5. mindWireless application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. The claim name always be **Employee ID** and the value of which we have mapped to **user.employeeid**, which contains the EmployeeID of the user. Here the user mapping from Azure AD to mindWireless is done on the EmployeeID but you can map it to a different value also based on your application settings. You can work with the [mindWireless support team](mailto:sdulloor@mindwireless.com) first to use the correct identifier of a user and map that value with the **Employee ID** claim.
 
-1. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
-	| Attribute Name | Attribute Value | Namespace Value |
+	![image](common/edit-attribute.png)
+
+6. In addition to above, mindWireless application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+
+	| Name | Namespace  |  Source Attribute|
 	| -------------- | --------------- | ----------------|
-	| Employee ID | user.employeeid | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
-	
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+	| Employee ID | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`| user.employeeid |
 
-	![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute_04.png)
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![Configure Single Sign-On](./media/mindwireless-tutorial/tutorial_attribute_05.png)
+	![image](common/new-save-attribute.png)
+
+	![image](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
+	c. In the **Namespace** textbox, type the attribute namespace shown for that row.
 
-	d. In the **Namespace** textbox, type the namespace value shown for that row.
-	
-	e. Click **Ok**.
-	
-1. On the **SAML Signing Certificate** section, click **Certificate(Base64)** and then save the certificate file on your computer.
+	d. Select Source as **Attribute**.
 
-	![The Certificate download link](./media/mindwireless-tutorial/tutorial_mindwireless_certificate.png) 
+	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-1. Click **Save** button.
+	f. Click **Ok**
 
-	![Configure Single Sign-On Save button](./media/mindwireless-tutorial/tutorial_general_400.png)
+	g. Click **Save**.
 
-1. On the **mindWireless Configuration** section, click **Configure mindWireless** to open **Configure sign-on** window. Copy the **Sign-Out URL, SAML Entity ID, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
-	![mindWireless Configuration](./media/mindwireless-tutorial/tutorial_mindwireless_configure.png) 
+	![The Certificate download link](common/certificatebase64.png)
 
-1. To configure single sign-on on **mindWireless** side, you need to send the downloaded **Certificate(Base64), SAML Single Sign-On Service URL**, and **SAML Entity ID** to [mindWireless support team](mailto:sdulloor@mindwireless.com). They set this setting to have the SAML SSO connection set properly on both sides.
+8. On the **Set up mindWireless** section, copy the appropriate URL(s) as per your requirement.
 
-### Create an Azure AD test user
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure mindWireless Single Sign-On
+
+To configure single sign-on on **mindWireless** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [mindWireless support team](mailto:sdulloor@mindwireless.com). They set this setting to have the SAML SSO connection set properly on both sides.
+
+### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/mindwireless-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/mindwireless-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/mindwireless-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/mindwireless-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
-
-### Create a mindWireless test user
-
-In this section, you create a user called Britta Simon in mindWireless. Work with [mindWireless support team](mailto:sdulloor@mindwireless.com) to add the users in the mindWireless platform. Users must be created and activated before you use single sign-on. 
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to mindWireless.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **mindWireless**.
 
-**To assign Britta Simon to mindWireless, perform the following steps:**
+	![Enterprise applications blade](common/enterprise-applications.png)
 
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
+2. In the applications list, select **mindWireless**.
 
-	![Assign User][201] 
+	![The mindWireless link in the Applications list](common/all-applications.png)
 
-1. In the applications list, select **mindWireless**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The mindWireless link in the Applications list](./media/mindwireless-tutorial/tutorial_mindwireless_app.png)  
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-1. In the menu on the left, click **Users and groups**.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The "Users and groups" link][202]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-	![The Add Assignment pane][203]
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+7. In the **Add Assignment** dialog click the **Assign** button.
 
-1. Click **Select** button on **Users and groups** dialog.
+### Create mindWireless test user
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+In this section, you create a user called Britta Simon in mindWireless. Work with [mindWireless support team](mailto:sdulloor@mindwireless.com) to add the users in the mindWireless platform. Users must be created and activated before you use single sign-on.
+
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the mindWireless tile in the Access Panel, you should get automatically signed-on to your mindWireless application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the mindWireless tile in the Access Panel, you should be automatically signed in to the mindWireless for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/mindwireless-tutorial/tutorial_general_01.png
-[2]: ./media/mindwireless-tutorial/tutorial_general_02.png
-[3]: ./media/mindwireless-tutorial/tutorial_general_03.png
-[4]: ./media/mindwireless-tutorial/tutorial_general_04.png
-
-[100]: ./media/mindwireless-tutorial/tutorial_general_100.png
-
-[200]: ./media/mindwireless-tutorial/tutorial_general_200.png
-[201]: ./media/mindwireless-tutorial/tutorial_general_201.png
-[202]: ./media/mindwireless-tutorial/tutorial_general_202.png
-[203]: ./media/mindwireless-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

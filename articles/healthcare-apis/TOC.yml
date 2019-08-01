@@ -1,0 +1,55 @@
+- name: Azure API for FHIR
+  href: index.yml
+- name: Overview
+  items:
+  - name: About Azure API for FHIR
+    href: overview.md
+  - name: About FHIR Server for Azure
+    href: overview-open-source-server.md
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Deploy Azure API for FHIR - Portal
+    href: fhir-paas-portal-quickstart.md
+  - name: Deploy Azure API for FHIR - PowerShell
+    href: fhir-paas-powershell-quickstart.md
+  - name: Deploy Azure API for FHIR - CLI
+    href: fhir-paas-cli-quickstart.md
+  - name: Deploy FHIR Server for Azure - Portal
+    href: fhir-oss-portal-quickstart.md
+  - name: Deploy FHIR Server for Azure - PowerShell
+    href: fhir-oss-powershell-quickstart.md
+  - name: Deploy FHIR Server for Azure - CLI
+    href: fhir-oss-cli-quickstart.md
+  - name: Configure CORS
+    href: configure-cross-origin-resource-sharing.md
+  - name: Configure Cosmos DB
+    href: configure-cosmos-db.md
+- name: Tutorials
+  expanded: false
+  items:
+  - name: Access FHIR API with Postman
+    href: access-fhir-postman-tutorial.md
+  - name: Use SMART on FHIR proxy
+    href: use-smart-on-fhir-proxy.md
+- name: How-to guides
+  expanded: false
+  items:
+  - name: Register a resource application
+    href: register-resource-azure-ad-client-app.md
+  - name: Register a confidential client application
+    href: register-confidential-azure-ad-client-app.md
+  - name: Register a public client application
+    href: register-public-azure-ad-client-app.md
+  - name: Register a service client application
+    href: register-service-azure-ad-client-app.md
+  - name: Get a token for Azure API for FHIR - CLI
+    href: get-healthcare-apis-access-token-cli.md
+  - name: Find identity object IDs
+    href: find-identity-object-ids.md
+- name: Resources
+  items:
+  - name: FAQ
+    href: fhir-faq.md
+  - name: Supported features
+    href: fhir-features-supported.md

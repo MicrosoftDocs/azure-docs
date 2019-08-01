@@ -1,21 +1,19 @@
 ---
-title: Overview of IPv6 for Azure Load Balancer | Microsoft Docs
+title: Overview of IPv6 for Azure Load Balancer
+titlesuffix: Azure Load Balancer
 description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
 services: load-balancer
 documentationcenter: na
-author: KumudD
-manager: jeconnoc
-editor: ''
+author: asudbring
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-
-ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
+ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Overview of IPv6 for Azure Load Balancer

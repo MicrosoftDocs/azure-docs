@@ -6,23 +6,18 @@ documentationcenter: na
 author: jeffhollan
 manager: jpconnock
 keywords: azure functions, functions, event processing, compute, serverless architecture, java
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
+ms.topic: conceptual
 ms.devlang: java
-ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ---
 
-# Create your first function with Java and Eclipse (Preview)
+# Create your first function with Java and Eclipse 
 
-> [!NOTE] 
-> Java for Azure Functions is currently in preview.
-
-This article shows you how to create a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with the Eclipse IDE and Apache Maven, test and debug it, then deploy it to Azure Functions. 
+This article shows you how to create a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with the Eclipse IDE and Apache Maven, test and debug it, then deploy it to Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
@@ -44,15 +39,15 @@ It's highly recommended to also install [Azure Functions Core Tools, version 2](
 
 ## Create a Functions project
 
-1. In Eclipse, select the **File** menu, then select **Project**. 
-1. Open the **Java Project** folder in the **New Project** window and select **Maven Project**, then select **Next**.
+1. In Eclipse, select the **File** menu, then select **New -&gt; Maven Project**. 
 1. Accept the defaults in the **New Maven Project** dialogue and select **Next**.
 1. Select **Add Archetype** and add the entries for the [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID: com.microsoft.azure
     - Archetype Artifact ID: azure-functions-archetype
-    - Version: Use latest version from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    - Version: Use latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
     ![Eclipse Maven create](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
-1. Click **OK** and enter details for current project, and eventually **Finish**.
+1. Click **OK** and then click **Next** to enter values like the following snapshot(please use a different appName other than **fabrikam-function-20170920120101928**), and eventually **Finish**.
+    ![Eclipse Maven create2](media/functions-create-first-java-eclipse/functions-create-eclipse2.png)  
 
 Maven creates the project files in a new folder with a name of _artifactId_. The generated code in the project is a simple [HTTP triggered](/azure/azure-functions/functions-bindings-http-webhook) function that echoes the body of the triggering HTTP request.
 
@@ -69,13 +64,13 @@ Terminate the runtime in the console window when you're done testing your functi
 
 ### Debug the function in Eclipse
 
-In your **Run As** configuration set up in the previous step, change `azure-functions:run` to `mvn azure-functions:run -DenableDebug` and run the updated configuration to start the function app in debug mode.
+In your **Run As** configuration set up in the previous step, change `azure-functions:run` to `azure-functions:run -DenableDebug` and run the updated configuration to start the function app in debug mode.
 
 Select the **Run** menu and open **Debug Configurations**. Choose **Remote Java Application** and create a new one. Give your configuration a name and fill in the settings. The port should be consistent with the debug port opened by function host, which by default is `5005`. After setup, click on `Debug` to start debugging.
 
 ![Debug functions in Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
-Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at at time.
+Set breakpoints and inspect objects in your function using the IDE. When finished, stop the debugger and the running function host. Only one function host can be active and running locally at a time.
 
 ## Deploy the function to Azure
 

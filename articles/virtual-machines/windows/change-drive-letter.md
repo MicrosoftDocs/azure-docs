@@ -4,7 +4,7 @@ description: 'Describes how to change drive letters for a Windows VM so that you
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -60,5 +60,5 @@ First, you'll need to attach the data disk to the virtual machine. To do this us
 9. Restart the virtual machine.
 
 ## Next steps
-* You can increase the storage available to your virtual machine by [attaching a additional data disk](attach-managed-disk-portal.md).
+* You can increase the storage available to your virtual machine by [attaching an additional data disk](attach-managed-disk-portal.md).
 

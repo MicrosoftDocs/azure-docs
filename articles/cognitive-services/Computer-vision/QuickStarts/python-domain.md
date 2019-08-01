@@ -1,51 +1,50 @@
 ---
-title: Computer Vision Python quickstart domain model | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you use domain models to identify celebrities and landmarks in  an image using Computer Vision with Python in Cognitive Services.
+title: "Quickstart: Domain-specific content - REST, Python"
+titleSuffix: "Azure Cognitive Services"
+description: In this quickstart, you use domain models to identify celebrities and landmarks in  an image using the Computer Vision API with Python.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: PatrickFarley
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
+ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 04/17/2019
+ms.author: pafarley
+ms.custom: seodec18
 ---
-# Quickstart: Use a domain model - REST, Python
+# Quickstart: Use a domain model using the REST API and Python in Computer Vision
 
-In this quickstart, you use domain models to identify celebrities and landmarks in an image using Computer Vision.
+In this quickstart, you use a domain model to identify landmarks or, optionally, celebrities in a remotely stored image by using Computer Vision's REST API. With the [Recognize Domain Specific Content](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) method, you can apply a domain-specific model to recognize content within an image.
 
 You can run this quickstart in a step-by step fashion using a Jupyter notebook on [MyBinder](https://mybinder.org). To launch Binder, select the following button:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/try/cognitive-services/) before you begin.
+
 ## Prerequisites
 
-To use Computer Vision, you need a subscription key; see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- You must have [Python](https://www.python.org/downloads/) installed if you want to run the sample locally.
+- You must have a subscription key for Computer Vision. You can get a free trial key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Computer Vision and get your key.
 
-## Identify celebrities and landmarks
+## Create and run the landmarks sample
 
-With the [Recognize Domain Specific Content method](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200), you can identify a specific set of objects in an image. The two domain-specific models that are currently available are _celebrities_ and _landmarks_.
+To create and run the landmark sample, do the following steps:
 
-To run the sample, do the following steps:
-
-1. Copy the following code to a new Python script file.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `vision_base_url` value to the location where you obtained your subscription keys, if necessary.
-1. Optionally, change the `image_url` value to another image.
-1. Run the script.
-
-The following code uses the Python `requests` library to call the Computer Vision Analyze Image API. It returns the results as a JSON object. The API key is passed in via the `headers` dictionary. The model to use is passed in via the `params` dictionary.
-
-## Landmark identification
-
-### Recognize Landmark request
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscription_key` with your subscription key.
+    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of `image_url` with the URL of a different image in which you want to detect landmarks.
+1. Save the code as a file with an `.py` extension. For example, `get-landmarks.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python get-landmarks.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -58,7 +57,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the westcentralus region.
+# Free trial subscription keys are generated in the "westus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"
@@ -70,8 +69,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/f/f6/" + \
     "Bunker_Hill_Monument_2005.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'landmarks'}
-data    = {'url': image_url}
+params = {'model': 'landmarks'}
+data = {'url': image_url}
 response = requests.post(
     landmark_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -90,9 +89,9 @@ plt.axis("off")
 _ = plt.title(landmark_name, size="x-large", y=-0.1)
 ```
 
-### Recognize Landmark response
+## Examine the response for the landmarks sample
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the command prompt window, similar to the following example:
 
 ```json
 {
@@ -113,14 +112,23 @@ A successful response is returned in JSON, for example:
 }
 ```
 
-## Celebrity identification
+## Create and run the celebrities sample
 
-### Recognize Celebrity request
+To create and run the landmark sample, do the following steps:
+
+1. Copy the following code into a text editor.
+1. Make the following changes in code where needed:
+    1. Replace the value of `subscription_key` with your subscription key.
+    1. Replace the value of `vision_base_url` with the endpoint URL for the Computer Vision resource in the Azure region where you obtained your subscription keys, if necessary.
+    1. Optionally, replace the value of `image_url` with the URL of a different image in which you want to detect celebrities.
+1. Save the code as a file with an `.py` extension. For example, `get-celebrities.py`.
+1. Open a command prompt window.
+1. At the prompt, use the `python` command to run the sample. For example, `python get-celebrities.py`.
 
 ```python
 import requests
 # If you are using a Jupyter notebook, uncomment the following line.
-#%matplotlib inline
+# %matplotlib inline
 import matplotlib.pyplot as plt
 from PIL import Image
 from io import BytesIO
@@ -138,8 +146,8 @@ image_url = "https://upload.wikimedia.org/wikipedia/commons/d/d9/" + \
     "Bill_gates_portrait.jpg"
 
 headers = {'Ocp-Apim-Subscription-Key': subscription_key}
-params  = {'model': 'celebrities'}
-data    = {'url': image_url}
+params = {'model': 'celebrities'}
+data = {'url': image_url}
 response = requests.post(
     celebrity_analyze_url, headers=headers, params=params, json=data)
 response.raise_for_status()
@@ -158,9 +166,10 @@ plt.axis("off")
 _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 ```
 
-### Recognize Celebrity response
+## Examine the response for the celebrities sample
 
-A successful response is returned in JSON, for example:
+A successful response is returned in JSON. The sample webpage parses and displays a successful response in the command prompt window, similar to the following example:
+
 
 ```json
 {
@@ -187,9 +196,13 @@ A successful response is returned in JSON, for example:
 }
 ```
 
+## Clean up resources
+
+When no longer needed, delete the files for both samples.
+
 ## Next steps
 
-Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision APIs, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore a Python application that uses Computer Vision to perform optical character recognition (OCR); create smart-cropped thumbnails; plus detect, categorize, tag, and describe visual features, including faces, in an image. To rapidly experiment with the Computer Vision API, try the [Open API testing console](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Computer Vision API Python Tutorial](../Tutorials/PythonTutorial.md)

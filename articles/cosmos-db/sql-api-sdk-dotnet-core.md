@@ -1,53 +1,129 @@
 ---
-title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources | Microsoft Docs'
+title: 'Azure Cosmos DB: SQL .NET Core API, SDK & resources'
 description: Learn all about the SQL .NET Core API and SDK including release dates, retirement dates, and changes made between each version of the Azure Cosmos DB .NET Core SDK.
-services: cosmos-db
-author: rnagpal
-manager: kfile
-editor: cgronlun
-
+author: SnehaGunda
 ms.service: cosmos-db
-ms.component: cosmosdb-sql
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
-ms.author: rnagpal
-ms.custom: H1Hack27Feb2017
+ms.author: sngun
+
 
 ---
 # Azure Cosmos DB .NET Core SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
-> * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [SQL](sql-api-query-reference.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## Release Notes
 
-The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+> [!NOTE]
+> If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
+
+### <a name="2.4.1"/>2.4.1
+
+* Fixes tracing race condition for queries which caused empty pages
+
+### <a name="2.4.0"/>2.4.0
+
+* SDK’s System.Net.Http version matches what is defined in the NuGet package
+* Increased decimal precision size for LINQ queries.
+* Added new classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType and PartitionKeyDefinitionVersion
+* Added TimeToLivePropertyPath to DocumentCollection
+* Added CompositeIndexes and SpatialIndexes to IndexPolicy
+* Added Version to PartitionKeyDefinition
+* Added None to PartitionKey
+
+### <a name="2.3.0"/>2.3.0
+
+ * Added IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection and MaxTcpConnectionsPerEndpoint to ConnectionPolicy.
+ 
+### <a name="2.2.3"/>2.2.3
+
+* Diagnostics improvements
+
+### <a name="2.2.2"/>2.2.2
+
+* Added environment variable setting “POCOSerializationOnly”.
+
+* Removed DocumentDB.Spatial.Sql.dll and now included in Microsoft.Azure.Documents.ServiceInterop.dll
+
+### <a name="2.2.1"/>2.2.1
+
+* Improvement in retry logic during failover for StoredProcedure execute calls.
+
+* Made DocumentClientEventSource singleton. 
+
+* Fix GatewayAddressCache timeout not honoring ConnectionPolicy RequestTimeout.
+
+### <a name="2.2.0"/>2.2.0
+
+* For direct/TCP transport diagnostics, added TransportException, an internal exception type of the SDK. When present in exception messages, this type prints additional information for troubleshooting client connectivity problems.
+
+* Added new constructor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
+
+* Fix bug where header with null values were not being handled properly.
+
+* Improved collection cache validation.
+
+### <a name="2.1.3"/>2.1.3
+
+* Updated System.Net.Security to 4.3.2.
+
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements.
+
+### <a name="2.1.1"/>2.1.1
+
+* Added more resilience to Multi-region request transient failures.
+
+### <a name="2.1.0"/>2.1.0
+
+* Added Multi-region write support.
+* Cross partition query performance improvements with TOP and MaxBufferedItemCount.
+
+### <a name="2.0.0"/>2.0.0
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
+
+### <a name="2.0.0-preview2"/>2.0.0-preview2
+
+* Added request cancellation support.
+* Added SetCurrentLocation to ConnectionPolicy, which automatically populates the preferred locations based on the region.
+* Fixed Bug in Cross Partition Queries with Min/Max and a filter that matches no documents on an individual partition.
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+
+* DocumentClient methods now have parity with IDocumentClient.
+* Updated direct TCP transport stack to reduce the number of connections established.
+* Added support for Direct Mode TCP for non-Windows clients.
 
 ### <a name="1.10.0"/>1.10.0
 
@@ -58,11 +134,11 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 ### <a name="1.9.1"/>1.9.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.8.2"/>1.8.2
 
-* Fixed bug that is hit under certain race conditions, that results in intermittent “Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token” errors when using Session consistency level.
+* Fixed bug that is hit under certain race conditions, that results in intermittent "Microsoft.Azure.Documents.NotFoundException: The read session is not available for the input session token" errors when using Session consistency level.
 
 ### <a name="1.8.1"/>1.8.1
 
@@ -79,7 +155,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.7.0"/>1.7.0
  
- * Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package. 
+ * Branding change from Azure DocumentDB to Azure Cosmos DB in the API Reference documentation, metadata information in assemblies, and the NuGet package.
  * Expose diagnostic information and latency from the response of requests sent with direct connectivity mode. The property names are RequestDiagnosticsString and RequestLatency on ResourceResponse class.
  * This SDK version requires the latest version of Azure Cosmos DB Emulator available for download from https://aka.ms/cosmosdb-emulator.
  
@@ -93,8 +169,8 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.5.0"/>1.5.0 
 
-* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value. 
-* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time. 
+* Added support for PartitionKeyRangeId as a FeedOption for scoping query results to a specific partition key range value.
+* Added support for StartTime as a ChangeFeedOption to start looking for the changes after that time.
 
 ### <a name="1.4.1"/>1.4.1
 
@@ -147,7 +223,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.1.0"/>1.1.0
 
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-api-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.0.0"/>1.0.0
@@ -159,17 +235,29 @@ The Azure Cosmos DB .NET Core SDK enables you to build fast, cross-platform [ASP
 The Azure Cosmos DB .NET Core Preview SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux.
 
 The Azure Cosmos DB .NET Core Preview SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md) and supports the following:
-* All [connection modes](performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs. 
+* All [connection modes](performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs.
 * All [consistency levels](consistency-levels.md): Strong, Session, Bounded Staleness, and Eventual.
-* [Partitioned collections](partition-data.md). 
+* [Partitioned collections](partition-data.md).
 * [Multi-region database accounts and geo-replication](distribute-data-globally.md).
 
-If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
+If you have questions related to this SDK, post to [StackOverflow](https://stackoverflow.com/questions/tagged/azure-documentdb), or file an issue in the [GitHub repository](https://github.com/Azure/azure-documentdb-dotnet/issues).
 
 ## Release & Retirement Dates
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |June  20, 2019 |--- |
+| [2.4.0](#2.4.0) |May  05, 2019 |--- |
+| [2.3.0](#2.3.0) |April  04, 2019 |--- |
+| [2.2.3](#2.2.3) |March  11, 2019 |--- |
+| [2.2.2](#2.2.2) |February  06, 2019 |--- |
+| [2.2.1](#2.2.1) |December 24, 2018 |--- |
+| [2.2.0](#2.2.0) |December 07, 2018 |--- |
+| [2.1.3](#2.1.3) |October 15, 2018 |--- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
+| [2.1.1](#2.1.1) |September 27, 2018 |--- |
+| [2.1.0](#2.1.0) |September 21, 2018 |--- |
+| [2.0.0](#2.0.0) |September 07, 2018 |--- |
 | [1.9.1](#1.9.1) |March 09, 2018 |--- |
 | [1.8.2](#1.8.2) |February 21, 2018 |--- |
 | [1.8.1](#1.8.1) |February 05, 2018 |--- |
@@ -193,5 +281,5 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 | [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |December 31, 2016 |
 
 ## See Also
-To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page. 
+To learn more about Cosmos DB, see [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) service page.
 

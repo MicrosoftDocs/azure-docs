@@ -4,24 +4,22 @@ description: Provides general guidance for handling errors that occur in when yo
 services: functions
 cloud: 
 documentationcenter: 
-author: ggailey777
-manager: cfowler
+author: craigshoemaker
+manager: gwallace
 
 ms.assetid:
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: multiple
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/01/2018
-ms.author: glenga; cfowler
+ms.author: cshoe
 ---
 
 # Azure Functions error handling
 
 This topic provides general guidance for handling errors that occur when your functions execute. It also provides links to the topics that describe binding-specific errors that may occur. 
 
-## Handing errors in functions
+## Handling errors in functions
 [!INCLUDE [bindings errors intro](../../includes/functions-bindings-errors-intro.md)]
 
  

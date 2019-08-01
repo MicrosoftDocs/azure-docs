@@ -1,91 +1,68 @@
 ---
-title: 'Quickstart: Recognize speech in Java (Windows or Linux)'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in Java (Windows or Linux)
+title: 'Quickstart: Recognize speech, Java (Windows, Linux) - Speech Service'
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you'll learn to create a simple Java application that captures and transcribes user speech from your computer's microphone.
 services: cognitive-services
 author: fmegen
-
+manager: nitinme
 ms.service: cognitive-services
-ms.technology: Speech
-ms.topic: article
-ms.date: 08/16/2018
+ms.subservice: speech-service
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in Java (Windows or Linux)
+# Quickstart: Recognize speech with the Speech SDK for Java
 
+Quickstarts are also available for [speech-to-speech-translation](quickstart-translate-speech-java-jre.md) and [voice-first virtual assistant](quickstart-virtual-assistant-java-jre.md).
+
+If desired, choose a different programming language and/or environment:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-This document describes how to create a Java-based console application for the Java Run-Time Environment (JRE) that makes use of the Speech SDK.
-The application is based on the Microsoft Cognitive Services SDK Maven Package.
-We use Eclipse as an Integrated Development Environment (IDE).
+In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or on macOS 10.13 or later. It runs on a 64-bit Java 8 runtime environment (JRE).
+
+> [!NOTE]
+> For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
-* A PC (Windows x64, Ubuntu 16.04 x64) capable to run Eclipse, with a working microphone.
-* 64-bit JRE/JDK for Java 8.
-* Version 4.8 of [Eclipse](https://www.eclipse.org), 64-bit version.
-* On Ubuntu 16.04, run the following commands for the installation of required packages:
+This quickstart requires:
+
+* Operating System: 64-bit Windows, 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9), or macOS 10.13 or later
+* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
+
+If you're running Linux, make sure these dependencies are installed before starting Eclipse.
+
+* On Ubuntu:
 
   ```sh
   sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2 wget
+  sudo apt-get install libssl1.0.0 libasound2
   ```
 
-## Create and configure your project
+* On Debian 9:
 
-1. Start Eclipse.
+  ```sh
+  sudo apt-get update
+  sudo apt-get install libssl1.0.2 libasound2
+  ```
 
-1. In the Eclipse Launcher, enter the name of a new directory into the **Workspace** field.
-   Then click **Launch**.
+If you're running Windows (64-bit), ensure you have installed Microsoft Visual C++ Redistributable for your platform.
+* [Download Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
-   ![Create Eclipse workspace](media/sdk/qs-java-jre-01-create-new-eclipse-workspace.png)
+## Create and configure project
 
-1. After a while, the main window of the Eclipse IDE shows up.
-   If there's a Welcome screen in it, close it.
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-1. Select **File** \> **New** \> **Project**.
+## Add sample code
 
-1. In the **New Project** wizard that appears select **Java Project**, and click **Next**.
+1. To add a new empty class to your Java project, select **File** > **New** > **Class**.
 
-   ![Select a wizard](media/sdk/qs-java-jre-02-select-wizard.png)
+1. In the **New Java Class** window, enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
 
-1. In the next window, enter **quickstart** as a project name and choose **JavaSE-1.8** (or up) as execution environment.
-   Click **Finish**.
-
-   ![Select a wizard](media/sdk/qs-java-jre-03-create-java-project.png)
-
-1. If a window titled **Open Associated Perspective?** pops up, select **Open Perspective**.
-
-1. In the **Package explorer**, right-click the **quickstart** project, and select **Configure** \> **Convert to Maven Project**.
-
-   ![Convert to Maven project](media/sdk/qs-java-jre-04-convert-to-maven-project.png)
-
-1. In the window that pops up, enter **com.microsoft.cognitiveservices.speech.samples** as **Group Id** and **quickstart** as **Artifact Id**.
-   Select **Finish**.
-
-   ![Configure Maven POM](media/sdk/qs-java-jre-05-configure-maven-pom.png)
-
-1. Edit the **pom.xml** file.
-
-  * At the end of the file, before the closing tag `</project>`, create a repositories section with a reference to the Maven repository for the Speech SDK:
-
-    [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
-
-  * Also, add afterwards a dependencies section with the Speech SDK version 0.6.0 as a dependency:
-
-    [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
-
-  * Save the changes.
-
-## Add the sample code
-
-1. Select **File** \> **New** \> **Class** to add a new empty class to your Java project.
-
-1. In the window **New Java Class** enter **speechsdk.quickstart** into the **Package** field, and **Main** into the **Name** field.
-
-   ![Creating a Main class](media/sdk/qs-java-jre-06-create-main-java.png)
+   ![Screenshot of New Java Class window](media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. Replace all code in `Main.java` with the following snippet:
 
@@ -97,16 +74,22 @@ We use Eclipse as an Integrated Development Environment (IDE).
 
 1. Save changes to the project.
 
-## Build and run the sample
+## Build and run the app
 
-Press F11, or select **Run** \> **Debug**.
+Press F11, or select **Run** > **Debug**.
 The next 15 seconds of speech input from your microphone will be recognized and logged in the console window.
 
-![Console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
-
-[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/java-jre` folder.
+![Screenshot of console output after successful recognition](media/sdk/qs-java-jre-07-console-output.png)
 
 ## Next steps
 
-* [Get our samples](speech-sdk.md#get-the-samples)
+Additional samples, such as how to read speech from an audio file, are available on GitHub.
+
+> [!div class="nextstepaction"]
+> [Explore Java samples on GitHub](https://aka.ms/csspeech/samples)
+
+## See also
+
+- [Quickstart: Translate speech, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Customize acoustic models](how-to-customize-acoustic-models.md)
+- [Customize language models](how-to-customize-language-model.md)

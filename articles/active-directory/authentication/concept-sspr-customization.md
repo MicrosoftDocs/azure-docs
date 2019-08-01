@@ -1,18 +1,19 @@
 ---
-title: Customizing Azure AD self-service password reset
+title: Customizing Azure AD self-service password reset - Azure Active Directory
 description: Customization options for Azure AD self-service password reset
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # Customize the Azure AD functionality for self-service password reset
 
@@ -20,14 +21,22 @@ IT professionals who want to deploy self-service password reset (SSPR) in Azure 
 
 ## Customize the "Contact your administrator" link
 
-Even if SSPR is not enabled, users still have a "Contact your administrator" link on the password reset portal. If a user selects this link, it either:
+Self-service password reset users have a "Contact your administrator" link available to them in the password reset portal. If a user selects this link, it will do one of two things:
 
-   * Emails your administrators and asks them for assistance in changing the user's password.
-   * Sends your users to a URL that you specify for assistance.
+* If left in the default state:
+   * Email is sent to your administrators and asks them to provide assistance in changing the user's password. See the [sample email](#sample-email) below.
+* If customized:
+   * Sends your user to a webpage or email address specified by the administrator for assistance.
 
-We recommend that you set this contact to something like an email address or website that your users already use for support questions.
+> [!TIP]
+> If you customize this, we recommend setting this to something users are already familiar with for support
 
-![Contact][Contact]
+> [!WARNING]
+> If you customize this setting with an email address and account that needs a password reset the user may be unable to ask for assistance.
+
+### Sample email
+
+![Sample request to reset email sent to Administrator][Contact]
 
 The contact email is sent to the following recipients in the following order:
 
@@ -52,7 +61,9 @@ Active Directory Federation Services (AD FS) administrators can add a link to th
 
 To add a link to the AD FS sign-in page, use the following command on your AD FS server. Users can use this page to enter the SSPR workflow.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## Customize the sign-in page and access panel look and feel
 
@@ -62,8 +73,8 @@ The graphics you choose are shown in the following circumstances:
 
 * After a user enters their username
 * If the user accesses the customized URL:
-    * By passing the *whr* parameter to the password reset page, like "https://login.microsoftonline.com/?whr=contoso.com"
-    * By passing the *username* parameter to the password reset page, like "https://login.microsoftonline.com/?username=admin@contoso.com"
+   * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
+   * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Find details on how to configure company branding in the article [Add company branding to your sign-in page in Azure AD](../fundamentals/customize-branding.md).
 
@@ -89,4 +100,4 @@ You can change the directory name attribute under **Azure Active Directory** > *
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help resetting your password email example"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help with resetting your password email example"

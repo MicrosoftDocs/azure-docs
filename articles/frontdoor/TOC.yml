@@ -1,0 +1,115 @@
+- name: Front Door Service Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Front Door Service?
+    href: front-door-overview.md    
+- name: Quickstarts
+  items:
+  - name: Create a Front Door
+    href: quickstart-create-front-door.md
+- name: Tutorials
+  items:
+  - name: Add a custom domain to your Front Door
+    href: front-door-custom-domain.md
+  - name: Enable HTTPS for a custom domain
+    href: front-door-custom-domain-https.md
+  - name: Set up a geo-filtering policy for your Front Door
+    href: front-door-tutorial-geo-filtering.md
+- name: Samples
+  items:
+  - name: Resource Manager Templates
+    href: front-door-quickstart-template-samples.md
+- name: Concepts
+  items:
+  - name: Backends and backend pools
+    href: front-door-backend-pool.md
+  - name: Caching with Front Door
+    href: front-door-caching.md
+  - name: Geo-filtering
+    href: front-door-geo-filtering.md
+  - name: Health probes
+    href: front-door-health-probes.md
+  - name: How Front Door matches routing for a request
+    href: front-door-route-matching.md
+  - name: HTTP/2 support
+    href: front-door-http2.md
+  - name: HTTP headers protocol support
+    href: front-door-http-headers-protocol.md
+  - name: Load-balancing with Azure’s application delivery suite
+    href: front-door-lb-with-azure-app-delivery-suite.md
+  - name: Monitoring
+    href: front-door-diagnostics.md
+  - name: Routing architecture
+    href: front-door-routing-architecture.md
+  - name: Traffic routing methods
+    href: front-door-routing-methods.md
+  - name: URL rewrite
+    href: front-door-url-rewrite.md
+  - name: URL redirect
+    href: front-door-url-redirect.md
+  - name: WAF
+    items:
+    - name: Overview
+      href: waf-overview.md
+    - name: Custom rules
+      href: waf-front-door-custom-rules.md
+    - name: Policy settings
+      href: waf-front-door-policy-settings.md
+    - name: Monitoring and logging
+      href: waf-front-door-monitor.md  
+- name: How-to guides
+  items:
+  - name: Redirect Traffic
+    items:
+    - name: Configure a Front Door with HTTP to HTTPS redirect
+      href: front-door-how-to-redirect-https.md
+  - name: Onboarding custom domains
+    items:
+    - name: Onboard a root or apex domain
+      href: front-door-how-to-onboard-apex-domain.md
+  - name: Troubleshoot
+    items:
+    - name: Troubleshoot routing issues
+      href: front-door-troubleshoot-routing.md
+    - name: Allowed certificate authorities
+      href: front-door-troubleshoot-allowed-ca.md
+  - name: Configure WAF
+    items:
+    - name: Configure WAF policy - portal
+      href: waf-front-door-create-portal.md
+    - name: Configure WAF policy - Azure PowerShell
+      href: waf-front-door-custom-rules-powershell.md  
+    - name: Configure bot protection
+      href: waf-front-door-policy-configure-bot-protection.md
+    - name: Configure custom response code
+      href: waf-front-door-configure-custom-response-code.md
+    - name: Configure IP restrictions
+      href: waf-front-door-configure-ip-restriction.md  
+    - name: Configure rate limit - Azure PowerShell
+      href: waf-front-door-rate-limit-powershell.md
+- name: FAQ
+  items:
+  - name: Front Door FAQ
+    href: front-door-faq.md
+  - name: WAF FAQ
+    href: waf-faq.md
+- name: Reference
+  items:
+  - name: Azure CLI
+    href: /cli/azure/ext/front-door/
+  - name: Azure PowerShell
+    href: /powershell/module/az.frontdoor
+  - name: REST API
+    href: /rest/api/frontdoor
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/frontdoor/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=frontdoor
+

@@ -4,15 +4,11 @@ description: Azure CLI Script Sample - Map a custom domain to a function app in 
 services: functions
 documentationcenter: 
 author: ggailey777   
-manager: cfowler
-editor: 
-tags: azure-service-management
+manager: jeconnoc
 
 ms.assetid: d127e347-7581-47d7-b289-e0f51f2fbfbc
-ms.service: functions
-ms.workload: na
+ms.service: azure-functions
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 07/04/2018
 ms.author: glenga
@@ -20,7 +16,7 @@ ms.custom: mvc
 ---
 # Map a custom domain to a function app
 
-This sample script creates a function app in an App Service plan and then maps it to a custom domain that you provide. When your function app is hosted in an [App Service plan](../functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](../functions-scale.md#consumption-plan), only the CNAME option is supported. This sample creates an App Service plan and requires an A record to map the domain. 
+This sample script creates a function app in an App Service plan and then maps it to a custom domain that you provide. When your function app is hosted in a [Premium plan](../functions-scale.md#premium-plan) or an [App Service plan](../functions-scale.md#app-service-plan), you can map a custom domain using either a CNAME or an A record. For function apps in a [Consumption plan](../functions-scale.md#consumption-plan), only the CNAME option is supported. This sample creates an App Service plan and requires an A record to map the domain. 
 
 To run this sample script, you must have already configured an A record in your custom domain that points to your web app's default domain name. For more information, see the [Map custom domain instructions for Azure App Service](https://aka.ms/appservicecustomdns). 
 
@@ -28,7 +24,7 @@ To run this sample script, you must have already configured an A record in your 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you must use the Azure CLI version 2.0 or a later version. To find the version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, you must use the Azure CLI version 2.0 or a later version. To find the version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 ## Sample script

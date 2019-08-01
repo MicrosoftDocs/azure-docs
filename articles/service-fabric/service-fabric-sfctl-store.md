@@ -4,7 +4,7 @@ description: Describes the Service Fabric CLI sfctl store commands.
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 
@@ -13,10 +13,11 @@ ms.devlang: cli
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 07/31/2018
+ms.date: 12/06/2018
 ms.author: bikang
 
 ---
+
 # sfctl store
 Perform basic file level operations on the cluster image store.
 
@@ -31,7 +32,7 @@ Perform basic file level operations on the cluster image store.
 ## sfctl store delete
 Deletes existing image store content.
 
-Deletes existing image store content being found within the given image store relative path. This can be used to delete uploaded application packages once they are provisioned.
+Deletes existing image store content being found within the given image store relative path. This command can be used to delete uploaded application packages once they are provisioned.
 
 ### Arguments
 

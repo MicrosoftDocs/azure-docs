@@ -2,13 +2,13 @@
 title: Using transactions in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for implementing transactions in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.subservice: development
+ms.date: 03/22/2019
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
@@ -29,7 +29,30 @@ In the table below the following assumptions have been made:
 * An even distribution of data has occurred 
 * The average row length is 250 bytes
 
-| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GiB) | Number of Distributions | MAX transaction size (GiB) | # Rows per distribution | Max Rows per transaction |
+## Gen2
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
+| --- | --- | --- | --- | --- | --- |
+| DW100c |1 |60 |60 |4,000,000 |240,000,000 |
+| DW200c |1.5 |60 |90 |6,000,000 |360,000,000 |
+| DW300c |2.25 |60 |135 |9,000,000 |540,000,000 |
+| DW400c |3 |60 |180 |12,000,000 |720,000,000 |
+| DW500c |3.75 |60 |225 |15,000,000 |900,000,000 |
+| DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
+| DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
+| DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
+| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
+| DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
+| DW5000c |37.5 |60 |2,250 |150,000,000 |9,000,000,000 |
+| DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
+| DW7500c |56.25 |60 |3,375 |225,000,000 |13,500,000,000 |
+| DW10000c |75 |60 |4,500 |300,000,000 |18,000,000,000 |
+| DW15000c |112.5 |60 |6,750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13,500 |900,000,000 |54,000,000,000 |
+
+## Gen1
+
+| [DWU](sql-data-warehouse-overview-what-is.md) | Cap per distribution (GB) | Number of Distributions | MAX transaction size (GB) | # Rows per distribution | Max Rows per transaction |
 | --- | --- | --- | --- | --- | --- |
 | DW100 |1 |60 |60 |4,000,000 |240,000,000 |
 | DW200 |1.5 |60 |90 |6,000,000 |360,000,000 |
@@ -85,8 +108,8 @@ BEGIN TRAN
 
         IF @@TRANCOUNT > 0
         BEGIN
-            PRINT 'ROLLBACK';
             ROLLBACK TRAN;
+            PRINT 'ROLLBACK';
         END
 
     END CATCH;

@@ -1,4 +1,3 @@
-
 ---
 title: Azure Data Factory - Customer case studies | Microsoft Docs
 description: Learn about how some of our customers have been using Azure Data Factory.
@@ -12,7 +11,7 @@ ms.assetid: 5474d9a1-e278-429f-bc31-db34551d3881
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
@@ -23,10 +22,10 @@ robots: noindex
 Data Factory is a cloud-based information management service that automates the movement and transformation of data. Customers across many industries use Data Factory and other Azure services to build their analytics pipelines and solve their business problems.  Learn directly from our customers how and why they are using Data Factory.
 
 ## Milliman
-[Top Actuarial firm transforms the insurance industry](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20096)
+[Top Actuarial firm transforms the insurance industry](https://customers.microsoft.com/en-us/story/732463-top-actuarial-firm-transforms-the-insurance-industry-w)
 
 ## Rockwell Automation
-[Industrial Automation Firm Cuts Costs up to 90 Percent with big data Solutions](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18356)
+[Industrial Automation Firm Cuts Costs up to 90 Percent with big data Solutions](https://customers.microsoft.com/en-us/story/726192-industrial-automation-firm-cuts-costs-up-to-90-percent)
 
 ## Ziosk
 [What game you want to go with that burger? Ziosk may already know.](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18294)

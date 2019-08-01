@@ -1,20 +1,21 @@
 ---
-title: Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
+title: Error handling best practices for Azure AD Authentication Library (ADAL) clients
 description: Provides error handling guidance and best practices for ADAL client applications.
 services: active-directory
 documentationcenter: ''
-author: danieldobalian
-manager: mtillman
-ms.author: CelesteDG
+author: rwike77
+manager: CelesteDG
+ms.author: ryanwi
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
+ms.custom: aaddev 
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
-ms.author: celested
-ms.custom: 
+ms.author: ryanwi
+ms.collection: M365-identity-device-management
 ---
 
 # Error handling best practices for Azure Active Directory Authentication Library (ADAL) clients
@@ -178,7 +179,7 @@ The operating system can also generate a set of errors, which require error hand
 
 - Native client applications (iOS, Android, .NET Desktop, or Xamarin)
 - Web applications that call a resource API (.NET)
-- Single Page Applications (JavaScript)
+- Single-page applications (JavaScript)
 - Service-to-Service applications (.NET, Java)
   - All scenarios, including on-behalf-of
   - On-Behalf-of specific scenarios
@@ -361,9 +362,9 @@ catch (AdalException e) {
 }
 ```
 
-### Error cases and actionable steps: Single Page Applications (adal.js)
+### Error cases and actionable steps: Single-page applications (adal.js)
 
-If you're building a single page application using adal.js with AcquireToken, the error handling code is similar to that of a typical silent call. Specifically in adal.js, AcquireToken never shows a UI. 
+If you're building a single-page application using adal.js with AcquireToken, the error handling code is similar to that of a typical silent call. Specifically in adal.js, AcquireToken never shows a UI. 
 
 A failed AcquireToken has the following cases:
 
@@ -582,8 +583,9 @@ window.Logging = {
 
 Use the comments section that follows, to provide feedback and help us refine and shape our content.
 
-[![Sign in button][AAD-Sign-In]][AAD-Sign-In]
+[![Shows the "Sign in with Microsoft" button][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
+
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
 [AAD-Auth-Scenarios]:authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md

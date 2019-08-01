@@ -2,13 +2,12 @@
 title: Kubernetes on Azure tutorial  - Prepare an application
 description: In this Azure Kubernetes Service (AKS) tutorial, you learn how to prepare and build a multi-container app with Docker Compose that you can then deploy to AKS.
 services: container-service
-author: iainfoulds
-manager: jeconnoc
+author: mlearned
 
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 08/14/2018
-ms.author: iainfou
+ms.date: 12/19/2018
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer, I want to learn how to build a container-based application so that I can deploy the app to Azure Kubernetes Service.
@@ -27,13 +26,13 @@ Once completed, the following application runs in your local development environ
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
-In subsequent tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
+In additional tutorials, the container image is uploaded to an Azure Container Registry, and then deployed into an AKS cluster.
 
 ## Before you begin
 
 This tutorial assumes a basic understanding of core Docker concepts such as containers, container images, and `docker` commands. For a primer on container basics, see [Get started with Docker][docker-get-started].
 
-To complete this tutorial, you need a local Docker development environment. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
+To complete this tutorial, you need a local Docker development environment running Linux containers. Docker provides packages that configure Docker on a [Mac][docker-for-mac], [Windows][docker-for-windows], or [Linux][docker-for-linux] system.
 
 Azure Cloud Shell does not include the Docker components required to complete every step in these tutorials. Therefore, we recommend using a full Docker development environment.
 
@@ -47,7 +46,7 @@ Use [git][] to clone the sample application to your development environment:
 git clone https://github.com/Azure-Samples/azure-voting-app-redis.git
 ```
 
-Change directories so that you are working from the cloned directory.
+Change into the cloned directory.
 
 ```console
 cd azure-voting-app-redis
@@ -88,7 +87,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## Test application locally
 
-To see the running application, enter http://localhost:8080 in a local web browser. The sample application loads, as shown in the following example:
+To see the running application, enter `http://localhost:8080` in a local web browser. The sample application loads, as shown in the following example:
 
 ![Image of Kubernetes cluster on Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 

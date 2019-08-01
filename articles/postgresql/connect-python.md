@@ -1,19 +1,16 @@
 ---
-title: Connect to Azure Database for PostgreSQL from Python
-description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL.
-services: postgresql
+title: Use Python to connect to Azure Database for PostgreSQL - Single Server
+description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
-editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Azure Database for PostgreSQL: Use Python to connect and query data
+# Azure Database for PostgreSQL - Single Server: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL. It also demonstrates how to use SQL statements to query, insert, update, and delete data in the database from macOS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites
@@ -26,7 +23,7 @@ You also need:
 - [pip](https://pip.pypa.io/en/stable/installing/) package installed (pip is already installed if you're working with Python 2 >=2.7.9 or Python 3 >=3.4 binaries downloaded from [python.org](https://python.org).
 
 ## Install the Python connection libraries for PostgreSQL
-Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enables you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](http://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows). Use pip install to get the binary version of the module including all the dependencies.
+Install the [psycopg2](http://initd.org/psycopg/docs/install.html) package, which enables you to connect and query the database. psycopg2 is [available on PyPI](https://pypi.python.org/pypi/psycopg2/) in the form of [wheel](https://pythonwheels.com/) packages for the most common platforms (Linux, OSX, Windows). Use pip install to get the binary version of the module including all the dependencies.
 
 1. On your own computer, launch a command-line interface:
     - On Linux, launch the Bash shell.

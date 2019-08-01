@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure AD Identity Protection
+metadata:
+  document_id: 
+  title: Azure Active Directory Identity Protection Documentation - Quickstarts, concepts, references | Microsoft Docs
+  description: Learn how to configure and test Azure Active Directory Identity Protection.
+  services: active-directory
+  ms.subservice: identity-protection
+  author: MicrosoftGuyJFlo
+  manager: daveba
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/14/2018
+  ms.author: joflore
+abstract:
+  description: "Learn how the detection of potentially compromised identities works and how to implement automated responses to address them. Azure Active Directory Identity Protection is a feature of the Azure AD Premium P2 edition that enables you to:<ul><li>Detect potential vulnerabilities affecting your organization's identities</li><li>Configure Conditional Access policies to automatically respond to suspicious actions that are related to your organization's identities</li><li>Investigate suspicious incidents and take appropriate action to resolve them</li></ul><br>
+The following resources help you to quickly get started."
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246  
+    title: Introduction to Azure AD Identity Protection
+    href: https://www.youtube.com/watch?v=zI3jn_G0_Ns
+    width: 246
+sections:
+- title: 5-minute quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to configure a sign-in risk Conditional Access policies for common access scenarios.'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: ./media/index/i_security-management.png
+      text: Block access when a session risk is detected
+      href: quickstart-sign-in-risk-policy.md

@@ -3,10 +3,10 @@ title: Compiling configurations in Azure Automation State Configuration
 description: This article describes how to compile Desired State Configuration (DSC) configurations for Azure Automation.
 services: automation
 ms.service: automation
-ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
-ms.date: 08/08/2018
+ms.subservice: dsc
+author: bobbytreed
+ms.author: robreed
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -169,7 +169,7 @@ Then you can call the **Composite Resource** into your configuration like so:
 ```powershell
 Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 {
-    JoinDomain DomainJoin
+    DomainConfig myCompositeConfig
     {
         DomainName = $DomainName
         Admincreds = $Admincreds
@@ -177,7 +177,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 
     PSWAWebServer InstallPSWAWebServer
     {
-        DependsOn = '[JoinDomain]DomainJoin'
+        DependsOn = '[DomainConfig]myCompositeConfig'
     }
 }
 ```
@@ -185,7 +185,7 @@ Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
 ## ConfigurationData
 
 **ConfigurationData** allows you to separate structural configuration from any environment-specific
-configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
+configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
 to learn more about **ConfigurationData**.
 
 > [!NOTE]
@@ -255,9 +255,9 @@ following for more information:
 
 ### Credential Assets
 
-DSC configurations in Azure Automation can reference Automation credential assets using
-`Get-AzureRmAutomationCredential`. If a configuration has a parameter that has a **PSCredential**
-type, then you can use the `Get-AutomationRmAutomationCredential` cmdlet by passing the string name
+DSC configurations in Azure Automation can reference Automation credential assets using the 
+`Get-AutomationPSCredential` cmdlet. If a configuration has a parameter that has a **PSCredential**
+type, then you can use the `Get-AutomationPSCredential` cmdlet by passing the string name
 of an Azure Automation credential asset to the cmdlet to retrieve the credential. You can then use
 that object for the parameter requiring the **PSCredential** object. Behind the scenes, the Azure
 Automation credential asset with that name is retrieved and passed to the configuration. The
@@ -319,6 +319,18 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > When compilation is complete you may receive an error stating: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.** This warning can safely be ignored.
+
+## Partial Configuration
+
+Azure Automation State Configuration supports usage of
+[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
+In this scenario, DSC is configured to manage multiple configurations independently,
+and each configuration is retreieved from Azure Automation.
+However, only one configuration can be assigned to a node per automation account.
+This means if you are using two configurations for a node you will require two automation accounts.
+For more information about how teams can work together to collaboratively manage servers
+using configuration as code see
+[Understanding DSC's role in a CI/CD Pipeline](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
 
 ## Importing node configurations
 

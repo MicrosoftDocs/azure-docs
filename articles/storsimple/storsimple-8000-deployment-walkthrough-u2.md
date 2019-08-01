@@ -10,7 +10,7 @@ editor: ''
 ms.assetid:
 ms.service: storsimple
 ms.devlang: NA
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/23/2018
@@ -62,7 +62,7 @@ Perform these required steps to configure your StorSimple device and connect it 
 ## Deployment configuration checklist
 Before you deploy your device, you need to collect information to configure the software on your StorSimple device. Preparing some of this information ahead of time helps streamline the process of deploying the StorSimple device in your environment. Download and use this checklist to note down the configuration details as you deploy your device.
 
-* [Download StorSimple deployment configuration checklist](http://www.microsoft.com/download/details.aspx?id=49159)
+* [Download StorSimple deployment configuration checklist](https://www.microsoft.com/download/details.aspx?id=49159)
 
 ## Deployment prerequisites
 The following sections explain the configuration prerequisites for your StorSimple Device Manager service and your StorSimple device.

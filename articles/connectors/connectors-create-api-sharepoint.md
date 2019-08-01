@@ -100,7 +100,7 @@ Under the triggers list, select the trigger you want.
 1. When you're prompted to sign in, 
 provide the necessary connection information. 
 If you're using SharePoint Server, 
-make sure you select **Connect via on-premise data gateway**. 
+make sure you select **Connect via on-premises data gateway**. 
 When you're done, choose **Create**.
 
 1. Provide the necessary details for your selected trigger 
@@ -115,7 +115,7 @@ review the connector's [reference page](/connectors/sharepoint/).
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

@@ -8,7 +8,7 @@ manager: erikre
 editor: ''
 
 ms.assetid: 8cc596a7-3e01-4f76-af7b-a05a1421517e
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -51,7 +51,7 @@ This dashboard consists of:
     ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     The CDN management portal opens.
-2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **Dashboard**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Click on **Dashboard**.
    
     The edge node analytics dashboard is displayed.
 
@@ -139,7 +139,7 @@ Each report in this module contains a chart and statistics on bandwidth and traf
     ![CDN profile blade manage button](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     The CDN management portal opens.
-2. Hover over the **Analytics** tab, then hover over the **Edge Perfomance Analytics** flyout.  Click on **HTTP Large Object**.
+2. Hover over the **Analytics** tab, then hover over the **Edge Performance Analytics** flyout.  Click on **HTTP Large Object**.
    
     The edge node analytics reports screen is displayed.
 

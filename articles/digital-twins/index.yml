@@ -1,0 +1,31 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Digital Twins Preview Documentation
+metadata:
+  title: Azure Digital Twins Preview Documentation - Tutorials, API Reference | Microsoft Docs
+  description: Use Azure Digital Twins to create smart spatial solutions.
+  author: dsk-2015
+  manager: timlt
+  ms.service: digital-twins
+  services: digital-twins
+  ms.topic: landing-page
+  ms.date: 10/15/2018
+  ms.author: dkshir
+abstract:
+  description: Learn how to use Azure Digital Twins to connect people, places, and things, and to build IoT solutions with spatial intelligence. Walk through the Quickstart and Tutorials to monitor an imaginary smart building, learn in-depth concepts, and create a next generation IoT solution that models your physical environment.
+sections:
+- title: 5-Minute Quickstart
+  items:
+  - type: paragraph
+    text: Learn how to <a href="quickstart-view-occupancy-dotnet">find available rooms with good air quality by using Azure Digital Twins .NET samples</a>.
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to customize and use your Azure Digital Twins solution to monitor your facilities.
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/digital-twins/tutorial-facilities-setup">Provision a sample building</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-udf">Monitor conditions in your building</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-events">Receive notifications from your building</a>
+    - html: <a href="/azure/digital-twins/tutorial-facilities-analyze">Analyze events from your building</a>

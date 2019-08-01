@@ -11,7 +11,7 @@ ms.assetid: cec68cb5-ca0d-473b-8ae8-35de949a009e
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: na
+
 ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
@@ -131,7 +131,6 @@ For an example, let's assume that your compute environments such as Azure HDInsi
 ## Get started with creating a pipeline
 You can use one of these tools or APIs to create data pipelines in Azure Data Factory: 
 
-- Azure portal
 - Visual Studio
 - PowerShell
 - .NET API

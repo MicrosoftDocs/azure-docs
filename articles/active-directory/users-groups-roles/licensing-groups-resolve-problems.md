@@ -1,23 +1,22 @@
 ---
 
-  title: Resolve license problems for a group in Azure Active Directory | Microsoft Docs
-  description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
-  services: active-directory
-  keywords: Azure AD licensing
-  documentationcenter: ''
-  author: curtand
-  manager: mtillman
-  editor: ''
+title: Resolve license assignment problems for a group - Azure Active Directory | Microsoft Docs
+description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
+services: active-directory
+keywords: Azure AD licensing
+documentationcenter: ''
+author: curtand
+manager: mtillman
 
-  ms.service: active-directory
-  ms.component: users-groups-roles
-  ms.topic: article
-  ms.workload: identity
-  ms.date: 06/05/2017
-  ms.author: curtand
-
-  ms.custom: H1Hack27Feb2017
-
+ms.service: active-directory
+ms.subservice: users-groups-roles
+ms.topic: article
+ms.workload: identity
+ms.date: 03/18/2019
+ms.author: curtand
+ms.reviewer: sumitp
+ms.custom: it-pro
+ms.collection: M365-identity-device-management
 ---
 
 # Identify and resolve license assignment problems for a group in Azure Active Directory
@@ -31,21 +30,21 @@ When you're using group-based licensing, the same errors can occur, but they hap
 ## How to find license assignment errors
 **To find license assignment errors**
 
-   1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
+1. To find users in an error state in a specific group, open the pane for the group. Under **Licenses**, a notification appears if there are any users in an error state.
 
-   ![Group, error notification](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Group and error notifications message](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-   2. Select the notification to open a list of all affected users. You can select each user individually to see more details.
+2. Select the notification to open a list of all affected users. You can select each user individually to see more details.
 
-   ![Group, list of users in error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![list of users in group licensing error state](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-   3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses**, and then select **Overview**. An information box is displayed when groups require your attention.
+3. To find all groups that contain at least one error, on the **Azure Active Directory** blade select **Licenses**, and then select **Overview**. An information box is displayed when groups require your attention.
 
-   ![Overview, information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Overview and information about groups in error state](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-   4. Select the box to see a list of all groups with errors. You can select each group for more details.
+4. Select the box to see a list of all groups with errors. You can select each group for more details.
 
-   ![Overview, list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Overview and list of groups with errors](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 The following sections give a description of each potential problem and the way to resolve it.
@@ -97,6 +96,26 @@ To solve this problem, remove users from nonsupported locations from the license
 > [!NOTE]
 > When Azure AD assigns group licenses, any users without a specified usage location inherit the location of the directory. We recommend that administrators set the correct usage location values on users before using group-based licensing to comply with local laws and regulations.
 
+## Duplicate proxy addresses
+
+If you use Exchange Online, some users in your tenant might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and shows  “Proxy address is already being used”.
+
+> [!TIP]
+> To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
+> ```
+> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> ```
+> For more information about this problem, see ["Proxy address 
+> is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
+
+After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
+
+## Azure AD Mail and ProxyAddresses attribute change
+
+**Problem:** While updating license assignment on a user or a group, you might see that the Azure AD Mail and ProxyAddresses attribute of some users are changed.
+
+Updating license assignment on a user causes the proxy address calculation to be triggered, which can change user attributes. To understand the exact reason of the change and solve the problem, see this article on [how the proxyAddresses attribute is populated in Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
 ## What happens when there's more than one product license on a group?
 
 You can assign more than one product license to a group. For example, you can assign Office 365 Enterprise E3 and Enterprise Mobility + Security to a group to easily enable all included services for users.
@@ -104,6 +123,12 @@ You can assign more than one product license to a group. For example, you can as
 Azure AD attempts to assign all licenses that are specified in the group to each user. If Azure AD can't assign one of the products because of business logic problems, it won't assign the other licenses in the group either. An example is if there aren't enough licenses for all, or if there are conflicts with other services that are enabled on the user.
 
 You can see the users who failed to get assigned and check which products are affected by this problem.
+
+## What happens when a group with licenses assigned is deleted?
+
+You must remove all licenses assigned to a group before you can delete the group. However, removing licenses from all the users in the group may take time. While removing license assignments from a group, there can be failures if user has a dependent license assigned or if there is a proxy address conflict issue which prohibits the license removal. If a user has a license that is dependent on a license which is being removed due to group deletion, the license assignment to the user is converted from inherited to direct.
+
+For example, consider a group that has Office 365 E3/E5 assigned with a Skype for Business service plan enabled. Also imagine that a few members of the group have Audio Conferencing licenses assigned directly. When the group is deleted, group-based licensing will try to remove Office 365 E3/E5 from all users. Because Audio Conferencing is dependent on Skype for Business, for any users with Audio Conferencing assigned, group-based licensing converts the Office 365 E3/E5 licenses to direct license assignment.
 
 ## How do you manage licenses for products with prerequisites?
 
@@ -134,32 +159,25 @@ From now on, any users added to this group consume one license of the E3 product
 > [!TIP]
 > You can create multiple groups for each prerequisite service plan. For example, if you use both Office 365 Enterprise E1 and Office 365 Enterprise E3 for your users, you can create two groups to license Microsoft Workplace Analytics: one that uses E1 as a prerequisite and the other that uses E3. This lets you distribute the add-on to E1 and E3 users without consuming additional licenses.
 
-## License assignment fails silently for a user due to duplicate proxy addresses in Exchange Online
-
-If you use Exchange Online, some users in your tenant might be incorrectly configured with the same proxy address value. When group-based licensing tries to assign a license to such a user, it fails and does not record an error. The failure to record the error in this instance is a limitation in the preview version of this feature, and we are going to address it before *General Availability*.
-
-> [!TIP]
-> If you notice that some users did not receive a license and there is no error recorded for those users, first check if they have a duplicate proxy address.
-> To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> For more information about this problem, see ["Proxy address 
-is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).
-
-After you resolve any proxy address problems for the affected users, make sure to force license processing on the group to make sure that the licenses can now be applied.
-
 ## How do you force license processing in a group to resolve errors?
 
 Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a group to update the user state.
 
 For example, if you free up some licenses by removing direct license assignments from users, you need to trigger the processing of groups that previously failed to fully license all user members. To reprocess a group, go to the group pane, open **Licenses**, and then select the **Reprocess** button on the toolbar.
 
+## How do you force license processing on a user to resolve errors?
+
+Depending on what steps you've taken to resolve the errors, it might be necessary to manually trigger the processing of a user to update the users state.
+
+For example, after you resolve duplicate proxy address problem for an affected user, you need to trigger the processing of the user. To reprocess a user, go to the user pane, open **Licenses**, and then select the **Reprocess** button on the toolbar.
+
 ## Next steps
 
 To learn more about other scenarios for license management through groups, see the following:
 
-* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [What is group-based licensing in Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Assigning licenses to a group in Azure Active Directory](licensing-groups-assign.md)
 * [How to migrate individual licensed users to group-based licensing in Azure Active Directory](licensing-groups-migrate-users.md)
+* [How to migrate users between product licenses using group-based licensing in Azure Active Directory](licensing-groups-change-licenses.md)
 * [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)

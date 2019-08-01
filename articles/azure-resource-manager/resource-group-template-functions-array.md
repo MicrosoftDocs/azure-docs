@@ -1,23 +1,14 @@
 ---
 title: Azure Resource Manager template functions - arrays and objects | Microsoft Docs
 description: Describes the functions to use in an Azure Resource Manager template for working with arrays and objects.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: reference
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/05/2017
+ms.date: 07/31/2019
 ms.author: tomfitz
 
 ---
-# Array and object functions for Azure Resource Manager templates 
+# Array and object functions for Azure Resource Manager templates
 
 Resource Manager provides several functions for working with arrays and objects.
 
@@ -42,6 +33,8 @@ Resource Manager provides several functions for working with arrays and objects.
 To get an array of string values delimited by a value, see [split](resource-group-template-functions-string.md#split).
 
 <a id="array" />
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## array
 `array(convertToArray)`
@@ -115,8 +108,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
 <a id="coalesce" />
@@ -203,8 +196,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
 <a id="concat" />
@@ -277,8 +270,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/concat-string.json) shows how to combine two string values and return a concatenated string.
@@ -317,8 +310,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
 <a id="contains" />
@@ -326,7 +319,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## contains
 `contains(container, itemToFind)`
 
-Checks whether an array contains a value, an object contains a key, or a string contains a substring.
+Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
 ### Parameters
 
@@ -411,8 +404,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
 <a id="createarray" />
@@ -491,8 +484,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
 <a id="empty" />
@@ -570,8 +563,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
 <a id="first" />
@@ -635,8 +628,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
 <a id="intersection" />
@@ -714,8 +707,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
 ## json
@@ -734,6 +727,10 @@ Returns a JSON object.
 
 The JSON object from the specified string, or an empty object when **null** is specified.
 
+### Remarks
+
+If you need to include a parameter value or variable in the JSON object, use the [concat](resource-group-template-functions-string.md#concat) function to create the string that you pass to the function.
+
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function with arrays and objects:
@@ -742,6 +739,12 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -752,6 +755,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -763,6 +770,7 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolean | True |
+| paramOutput | Object | {"a": "demo value"}
 
 To deploy this example template with Azure CLI, use:
 
@@ -772,8 +780,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
 <a id="last" />
@@ -837,8 +845,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
 <a id="length" />
@@ -846,13 +854,13 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## length
 `length(arg1)`
 
-Returns the number of elements in an array, or characters in a string.
+Returns the number of elements in an array, characters in a string, or root-level properties in an object.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The array to use for getting the number of elements, or the string to use for getting the number of characters. |
+| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
@@ -878,6 +886,18 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "stringToTest": {
             "type": "string",
             "defaultValue": "One Two Three"
+        },
+        "objectToTest": {
+            "type": "object",
+            "defaultValue": {
+                "propA": "one",
+                "propB": "two",
+                "propC": "three",
+                "propD": {
+                    "propD-1": "sub",
+                    "propD-2": "sub"
+                }
+            }
         }
     },
     "resources": [],
@@ -889,6 +909,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "stringLength": {
             "type": "int",
             "value": "[length(parameters('stringToTest'))]"
+        },
+        "objectLength": {
+            "type": "int",
+            "value": "[length(parameters('objectToTest'))]"
         }
     }
 }
@@ -900,6 +924,7 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | arrayLength | Int | 3 |
 | stringLength | Int | 13 |
+| objectLength | Int | 4 |
 
 To deploy this example template with Azure CLI, use:
 
@@ -909,8 +934,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
@@ -984,8 +1009,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
 <a id="min" />
@@ -1048,8 +1073,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
 <a id="range" />
@@ -1112,8 +1137,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
 <a id="skip" />
@@ -1193,8 +1218,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
 <a id="take" />
@@ -1274,8 +1299,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
 <a id="union" />
@@ -1353,8 +1378,8 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
+```azurepowershell-interactive
+New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
 ## Next steps

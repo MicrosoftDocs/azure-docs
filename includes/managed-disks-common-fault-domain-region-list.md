@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+---
 ### Number of Fault Domains per region
 
 | Region              | Max # of Fault Domains  |
@@ -27,9 +34,12 @@
 | West India          | 2                       |
 | Korea Central       | 2                       |
 | Korea South         | 2                       |
+| UAE North           | 2                       |
 |                     |                         |
 | Australia East      | 2                       |
 | Australia Southeast | 2                       |
+| Australia Central   | 2                       |
+| Australia Central 2 | 2                       |
 |                     |                         |
 | Brazil South        | 2                       |
 |                     |                         |

@@ -1,20 +1,14 @@
 ---
-title: 'Connect to different data sources from Azure Databricks | Microsoft Docs'
+title: 'Connect to different data sources from Azure Databricks '
 description: Learn how to connect to different data sources from Azure Databricks.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
-ms.author: nitinme
-
+ms.author: mamccrea
 ---
 
 # Connect to data sources from Azure Databricks
@@ -32,7 +26,7 @@ The following list provides the data sources in Azure that you can use with Azur
 - [Azure SQL database](https://docs.azuredatabricks.net/spark/latest/data-sources/sql-databases.html)
 
     This link provides the DataFrame API for connecting to SQL databases using JDBC and how to control the parallelism of reads through the JDBC interface. This topic provides detailed examples using the Scala API, with abbreviated Python and Spark SQL examples at the end.
-- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake.html)
+- [Azure Data Lake Store](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)
 
     This link provides examples on how to use the Azure Active Directory service principal to authenticate with Data Lake Store. It also provides instructions on how to access the data in Data Lake Store from Azure Databricks.
 

@@ -3,8 +3,8 @@ title: Service Fabric CLI Script Sample - Update an application on a cluster
 description: Service Fabric CLI Script Sample - Update an application with a new version. This example also upgrades a deployed application with the new bits.
 services: service-fabric
 documentationcenter: 
-author: TylerMSFT
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: 
 
@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 12/06/2017
-ms.author: twhitney
+ms.author: atsenthi
 ms.custom: 
 ---
 

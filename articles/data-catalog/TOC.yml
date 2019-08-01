@@ -1,0 +1,82 @@
+- name: Data Catalog Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Data Catalog?
+    href: overview.md
+- name: Quickstart
+  items:
+  - name: Create an Azure Data Catalog
+    href: data-catalog-get-started.md
+- name: Tutorials
+  items:
+  - name: Register data assets
+    href: register-data-assets-tutorial.md
+- name: Concepts
+  items:
+  - name: Common scenarios
+    href: data-catalog-common-scenarios.md
+  - name: Supported data sources
+    href: data-catalog-dsr.md
+  - name: Adopting Azure Data Catalog
+    href: data-catalog-adopting-data-catalog.md
+  - name: Prerequisites
+    href: data-catalog-prerequisites.md
+  - name: FAQ
+    href: data-catalog-frequently-asked-questions.md
+- name: How To
+  items:
+  - name: Register data sources
+    href: data-catalog-how-to-register.md
+  - name: Discover data sources
+    href: data-catalog-how-to-discover.md
+  - name: Annotate data sources
+    href: data-catalog-how-to-annotate.md
+  - name: Document data sources
+    href: data-catalog-how-to-documentation.md
+  - name: Connect to data sources
+    href: data-catalog-how-to-connect.md
+  - name: Work with big data sources
+    href: data-catalog-how-to-big-data.md
+  - name: Data profile data sources
+    href: data-catalog-how-to-data-profile.md
+  - name: Manage data assets
+    href: data-catalog-how-to-manage.md
+  - name: Save searches and pin data assets
+    href: data-catalog-how-to-save-pin.md
+  - name: Set up the business glossary
+    href: data-catalog-how-to-business-glossary.md
+  - name: Secure access to data catalog
+    href: data-catalog-how-to-secure-catalog.md
+  - name: View related data assets
+    href: data-catalog-how-to-view-related-data-assets.md
+  - name: Troubleshoot 
+    href: troubleshoot-policy-configuration.md
+- name: Reference
+  items:
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?service=data-catalog
+  - name: REST
+    href: /rest/api/datacatalog/
+  - name: Search syntax reference
+    href: /rest/api/datacatalog/data-catalog-search-syntax-reference
+  - name: Developer concepts
+    href: data-catalog-developer-concepts.md
+- name: Resources
+  items:
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Keyboard shortcuts for Azure Data Catalog
+    href: data-catalog-keyboard-shortcuts.md
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/data-catalog/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service updates
+    href: https://azure.microsoft.com/updates/?product=data-catalog
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-data-catalog
+  - name: Terminology
+    href: data-catalog-terminology.md

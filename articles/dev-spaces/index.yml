@@ -1,0 +1,57 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Dev Spaces
+metadata:
+  title: Azure Dev Spaces Documentation - Quickstarts
+  meta.description: Rapid Kubernetes development with containers and microservices on Azure.
+  services: azure-dev-spaces
+  author: zr-msft
+  ms.service: azure-dev-spaces
+  ms.topic: landing-page
+  ms.date: 07/08/2019
+  ms.author: zarhoads
+  manager: gwallace
+abstract:
+  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared Azure Kubernetes Service (AKS) cluster as well as running and debugging containers directly in AKS. Learn how to use Azure Dev Spaces using these quickstarts.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to use Azure Dev Spaces in AKS:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Develop as part of a team
+      href: quickstart-team-development.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Run an application
+      href: quickstart-cli.md
+    - image: 
+        src: https://docs.microsoft.com/media/common/i_cligeneric.svg
+      text: Run an application with a Dockerfile
+      href: quickstart-cli-dockerfile.md
+  - type: paragraph
+    text: 'Learn how to iteratively develop and debug directly in AKS with Azure Dev Spaces:'
+  - type: list
+    style: icon48
+    items:
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_java.svg
+      text: Develop with Java
+      href: quickstart-java.md
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Develop with .NET and VS Code
+      href: quickstart-netcore.md
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Develop with .NET and Visual Studio
+      href: quickstart-netcore-visualstudio.md
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
+      text: Develop with Node.js
+      href: quickstart-nodejs.md
+      

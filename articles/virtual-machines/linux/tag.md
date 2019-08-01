@@ -4,7 +4,7 @@ description: Learn about tagging an Azure Linux virtual machine created in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: mmccrory
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -24,7 +24,8 @@ This article describes different ways to tag a Linux virtual machine in Azure th
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
 ## Tagging with Azure CLI
-To begin, you need the latest [Azure CLI 2.0](/cli/azure/install-azure-cli) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az-login).
+
+To begin, you need the latest [Azure CLI](/cli/azure/install-azure-cli) installed and logged in to an Azure account using [az login](/cli/azure/reference-index#az-login).
 
 You can view all properties for a given Virtual Machine, including the tags, using this command:
 

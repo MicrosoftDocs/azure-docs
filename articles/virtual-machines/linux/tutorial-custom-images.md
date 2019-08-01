@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Create custom VM images with the Azure CLI | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create a custom virtual machine image in Azure
+description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about how to create custom VM images to minimize the number of post-deployment configuration tasks.
 ---
 
-# Tutorial: Create a custom image of an Azure VM with the Azure CLI 2.0
+# Tutorial: Create a custom image of an Azure VM with the Azure CLI
 
 Custom images are like marketplace images, but you create them yourself. Custom images can be used to bootstrap configurations such as preloading applications, application configurations, and other OS configurations. In this tutorial, you create your own custom image of an Azure virtual machine. You learn how to:
 
@@ -34,7 +34,7 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Before you begin
 
@@ -71,13 +71,13 @@ exit
 
 ### Deallocate and mark the VM as generalized
 
-To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm#deallocate). 
+To create an image, the VM needs to be deallocated. Deallocate the VM using [az vm deallocate](/cli//azure/vm). 
    
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroup --name myVM
 ```
 
-Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm#generalize) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
+Finally, set the state of the VM as generalized with [az vm generalize](/cli//azure/vm) so the Azure platform knows the VM has been generalized. You can only create an image from a generalized VM.
    
 ```azurecli-interactive 
 az vm generalize --resource-group myResourceGroup --name myVM
@@ -85,7 +85,7 @@ az vm generalize --resource-group myResourceGroup --name myVM
 
 ### Create the image
 
-Now you can create an image of the VM by using [az image create](/cli//azure/image#create). The following example creates an image named *myImage* from a VM named *myVM*.
+Now you can create an image of the VM by using [az image create](/cli//azure/image). The following example creates an image named *myImage* from a VM named *myVM*.
    
 ```azurecli-interactive 
 az image create \
@@ -96,7 +96,7 @@ az image create \
  
 ## Create VMs from the image
 
-Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
+Now that you have an image, you can create one or more new VMs from the image using [az vm create](/cli/azure/vm). The following example creates a VM named *myVMfromImage* from the image named *myImage*.
 
 ```azurecli-interactive 
 az vm create \

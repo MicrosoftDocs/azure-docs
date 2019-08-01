@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 05/31/2019
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -46,12 +46,41 @@ To resolve this problem, follow these steps:
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
+3. Go to C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
 > [!NOTE]
 > When you import the client certificate, do not select the **Enable strong private key protection** option.
+
+## The network connection between your computer and the VPN server could not be established because the remote server is not responding
+
+### Symptom
+
+When you try and connect to an Azure virtual network gateway using IKEv2 on Windows, you get the following error message:
+
+**The network connection between your computer and the VPN server could not be established because the remote server is not responding**
+
+### Cause
+ 
+ The problem occurs if the version of Windows does not have support for IKE fragmentation
+ 
+### Solution
+
+IKEv2 is supported on Windows 10 and Server 2016. However, in order to use IKEv2, you must install updates and set a registry key value locally. OS versions prior to Windows 10 are not supported and can only use SSTP.
+
+To prepare Windows 10 or Server 2016 for IKEv2:
+
+1. Install the update.
+
+   | OS version | Date | Number/Link |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 Version 1607 | January 17, 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 Version 1703 | January 17, 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 Version 1709 | March 22, 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Set the registry key value. Create or set “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” REG_DWORD key in the registry to 1.
 
 ## VPN client error: The message received was unexpected or badly formatted
 
@@ -212,11 +241,11 @@ If the certificate is more than 50 percent through its lifetime, the certificate
 
 ### Solution
 
-To resolve this problem, redeploy the Point to Site package on all clients.
+To resolve this problem, re-download and redeploy the Point to Site package on all clients.
 
 ## Too many VPN clients connected at once
 
-For each VPN gateway, the maximum number of allowable connections is 128. You can see the total number of connected clients in the Azure portal.
+The maximum number of allowable connections is reached. You can see the total number of connected clients in the Azure portal.
 
 ## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
 
@@ -271,13 +300,13 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 
 ### Solution
 
-To resolve the problem, delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
+To resolve the problem, delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
 
 ## Point-to-site VPN client cannot resolve the FQDN of the resources in the local domain
 
 ### Symptom
 
-When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQND of the resources in your local domain.
+When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQDN of the resources in your local domain.
 
 ### Cause
 
@@ -295,7 +324,7 @@ This problem may occur if VPN client does not get the routes from Azure VPN gate
 
 ### Solution
 
-To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md).
+To resolve this problem, [reset Azure VPN gateway](vpn-gateway-resetgw-classic.md). To make sure that the new routes are being used, the Point-to-Site VPN clients must be downloaded again after virtual network peering has been successfully configured.
 
 ## Error: "The revocation function was unable to check revocation because the revocation server was offline.(Error 0x80092013)"
 
@@ -356,7 +385,7 @@ This problem can be caused by the previous VPN client installations.
 
 ### Solution
 
-Delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
+Delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
 
 ## The VPN client hibernates or sleep after some time
 

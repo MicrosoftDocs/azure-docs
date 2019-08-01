@@ -4,15 +4,11 @@ description: Azure CLI Script Sample - Bind a custom SSL certificate to a functi
 services: functions
 documentationcenter: 
 author: ggailey777
-manager: cfowler
-editor: 
-tags: azure-service-management
+manager: jeconnoc
 
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
-ms.service: functions
-ms.workload: na
+ms.service: azure-functions
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 07/03/2013
 ms.author: glenga
@@ -26,13 +22,13 @@ This sample script creates a function app in App Service with its related resour
 * A valid .PFX file and its password for the SSL certificate you want to upload and bind.
 * Have configured an A record in your custom domain that points to your web app's default domain name. For more information, see the [Map custom domain instructions for Azure App Service](https://aka.ms/appservicecustomdns).
 
-To bind an SSL certificate, your function app must be created in an App Service plan and not in a consumption plan.
+To bind an SSL certificate, your function app must be created in a Premium plan or an App Service plan and not in a Consumption plan.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, you must be running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, you must be running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 

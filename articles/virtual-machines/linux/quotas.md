@@ -5,7 +5,7 @@ keywords: ''
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -26,7 +26,7 @@ The vCPU quotas for virtual machines and virtual machine scale sets are arranged
 
 ## Check usage
 
-You can check your quota usage using [az vm list-usage](/cli/azure/vm#az_vm_list_usage).
+You can check your quota usage using [az vm list-usage](/cli/azure/vm).
 
 ```azurecli-interactive
 az vm list-usage --location "East US" -o table

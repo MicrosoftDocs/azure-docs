@@ -11,10 +11,10 @@ tags: azure-resource-manager
 ms.assetid: 
 ms.service: vpn-gateway
 ms.devlang: na
-ms.topic: 
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/13/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---
@@ -48,18 +48,18 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
 ### Step 2 Configure the NPS for Azure MFA
 
 1. On the NPS server, [install the NPS extension for Azure MFA](../active-directory/authentication/howto-mfa-nps-extension.md#install-the-nps-extension).
-2. Open the NSP console, right-click **RADUIS Clients**, and then select **New**. Create the RADUIS client by specifying the following settings:
+2. Open the NPS console, right-click **RADIUS Clients**, and then select **New**. Create the RADIUS client by specifying the following settings:
 
     - **Friendly Name**: Type any name.
     - **Address (IP or DNS)**: Type the gateway subnet that you created in the Step 1.
     - **Shared secret**: type any secret key, and remember it for later use.
 
-    ![The image about RADUIS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
+      ![The image about RADIUS client settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client1.png)
 
  
 3.  On the **Advanced** tab, set the vendor name to **RADIUS Standard** and make sure that the **Additional Options** check box is not selected.
 
-    ![The image about RADUIS client Advanced settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
+    ![The image about RADIUS client Advanced settings](./media/vpn-gateway-radiuis-mfa-nsp/create-radius-client2.png)
 
 4. Go to **Policies** > **Network Policies**, double-click **Connections to Microsoft Routing and Remote Access server** policy, select **Grant access**, and then click **OK**.
 
@@ -73,7 +73,7 @@ To enable MFA, the users must be in Azure Active Directory (Azure AD), which mus
     - **Authentication type**: Select **RADIUS authentication**.
     - **Server IP address**: Type the IP address of the NPS server.
 
-    ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
+      ![The image about point to site settings](./media/vpn-gateway-radiuis-mfa-nsp/configure-p2s.png)
 
 ## Next steps
 

@@ -1,21 +1,22 @@
 ---
-title: Conditional access for Azure Active Directory B2B collaboration users | Microsoft Docs
+title: Conditional Access for B2B collaboration users - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory B2B collaboration supports multi-factor authentication (MFA) for selective access to your corporate applications
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
-ms.topic: article
+ms.subservice: B2B
+ms.topic: conceptual
 ms.date: 09/11/2017
 
 ms.author: mimart
 author: msmimart
-manager: mtillman
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: elisolMS
 
+ms.collection: M365-identity-device-management
 ---
 
-# Conditional access for B2B collaboration users
+# Conditional Access for B2B collaboration users
 
 ## Multi-factor authentication for B2B users
 With Azure AD B2B collaboration, organizations can enforce multi-factor authentication (MFA) policies for B2B users. These policies can be enforced at the tenant, app, or individual user level, the same way that they are enabled for full-time employees and members of the organization. MFA policies are enforced at the resource organization.
@@ -45,26 +46,26 @@ Currently, the admin can require B2B collaboration users to proof up again only 
 
 1. Connect to Azure AD
 
-  ```
-  $cred = Get-Credential
-  Connect-MsolService -Credential $cred
-  ```
+   ```
+   $cred = Get-Credential
+   Connect-MsolService -Credential $cred
+   ```
 2. Get all users with proof up methods
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
-  Here is an example:
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
+   Here is an example:
 
-  ```
-  Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
-  ```
+   ```
+   Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
+   ```
 
 3. Reset the MFA method for a specific user to require the B2B collaboration user to set proof-up methods again. Example:
 
-  ```
-  Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
-  ```
+   ```
+   Reset-MsolStrongAuthenticationMethodByUpn -UserPrincipalName gsamoogle_gmail.com#EXT#@ WoodGroveAzureAD.onmicrosoft.com
+   ```
 
 ### Why do we perform MFA at the resource tenancy?
 
@@ -84,17 +85,21 @@ Finally, resource tenant MFA also works for MSAs and social IDs and for partner 
 
 Therefore, the recommendation for MFA for B2B users is to always require MFA in the inviting tenant. This requirement could lead to double MFA in some cases, but whenever accessing the inviting tenant, the end-users experience is predictable: Sally must register for MFA with the inviting tenant.
 
-### Device-based, location-based, and risk-based conditional access for B2B users
+### Device-based, location-based, and risk-based Conditional Access for B2B users
 
-When Contoso enables device-based conditional access policies for their corporate data, access is prevented from devices that are not managed by Contoso and not compliant with the Contoso device policies.
+When Contoso enables device-based Conditional Access policies for their corporate data, access is prevented from devices that are not managed by Contoso and not compliant with the Contoso device policies.
 
-If the B2B user’s device isn't managed by Contoso, access of B2B users from the partner organizations is blocked in whatever context these policies are enforced. However, Contoso can create exclusion lists containing specific partner users to exclude them from the device-based conditional access policy.
+If the B2B user’s device isn't managed by Contoso, access of B2B users from the partner organizations is blocked in whatever context these policies are enforced. However, Contoso can create exclusion lists containing specific partner users to exclude them from the device-based Conditional Access policy.
 
-#### Location-based conditional access for B2B
+#### Mobile application management policies for B2B
 
-Location-based conditional access policies can be enforced for B2B users if the inviting organization is able to create a trusted IP address range that defines their partner organizations.
+Conditional Access app protection policies cannot be applied to B2B users because the inviting organization has no visibility into the B2B user's home organization.
 
-#### Risk-based conditional access for B2B
+#### Location-based Conditional Access for B2B
+
+Location-based Conditional Access policies can be enforced for B2B users if the inviting organization is able to create a trusted IP address range that defines their partner organizations.
+
+#### Risk-based Conditional Access for B2B
 
 Currently, risk-based sign-in policies cannot be applied to B2B users because the risk evaluation is performed at the B2B user’s home organization.
 

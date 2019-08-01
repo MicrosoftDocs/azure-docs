@@ -1,5 +1,5 @@
 ---
-title: Configure Azure resource role settings in PIM | Microsoft Docs
+title: Configure Azure resource role settings in PIM - Azure Active Directory | Microsoft Docs
 description: Learn how to configure Azure resource role settings in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -10,15 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: pim
-ms.date: 08/30/2018
+ms.subservice: pim
+ms.date: 04/09/2019
 ms.author: rolyon
 ms.custom: pim
+ms.collection: M365-identity-device-management
 ---
 
 # Configure Azure resource role settings in PIM
 
-When you configure Azure resource role settings, you define the default settings that are applied to Azure resource role assignments in Azure AD Privileged Identity Management (PIM). Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
+When you configure Azure resource role settings, you define the default settings that are applied to Azure resource role assignments in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Use the following procedures to configure the approval workflow and specify who can approve or deny requests.
 
 ## Open role settings
 
@@ -32,19 +33,19 @@ Follow these steps to open the settings for an Azure resource role.
 
 1. Click the resource you want to manage, such as a subscription or management group.
 
-    ![List of Azure resources to manage](./media/pim-resource-roles-configure-role-settings/resources-list.png)
+    ![Azure resources page listing resources that can be managed](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
 1. Click **Role settings**.
 
-    ![Role settings](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Role settings page listing Azure resource roles](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
 1. Click the role whose settings you want to configure.
 
-    ![Role setting details](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![Role setting details page listing several assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
 1. Click **Edit** to open the Role settings pane.
 
-    ![Edit role settings](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![Edit role settings page with options to update assignment and activation settings](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
 
     On the Role setting pane for each role, there are several settings you can configure.
 
@@ -85,6 +86,8 @@ You can require eligible members of a role to run MFA before they can activate. 
 
 To require an eligible member to run MFA before activation, check the **Require Multi-Factor Authentication on activation** box.
 
+For more information, see [Multi-factor authentication (MFA) and PIM](pim-how-to-require-mfa.md).
+
 ## Activation maximum duration
 
 Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be between 1 and 24 hours.
@@ -101,7 +104,7 @@ If you want to require approval to activate a role, follow these steps.
 
 1. Click **Select approvers** to open the Select a member or group pane.
 
-    ![Select a member or group](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
+    ![Select a member or group pane to select approvers](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
 1. Select at least one member or group and then click **Select**. You can add any combination of members and groups. You must select at least one approver. There are no default approvers.
 

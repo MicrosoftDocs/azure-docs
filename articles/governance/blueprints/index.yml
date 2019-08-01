@@ -1,0 +1,44 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentation for the Azure Blueprints service
+metadata:
+  title: Azure Blueprints Documentation - Tutorials, API Reference
+  description: Azure Blueprints is a service in Azure, that you use to create, define, and deploy artifacts in your Azure environment.
+  author: DCtheGeek
+  manager: carmonm
+  ms.service: blueprints
+  ms.topic: landing-page
+  ms.date: 03/26/2019
+  ms.author: dacoulte
+abstract:
+  description: Azure Blueprints helps you deploy and update cloud environments in a repeatable manner using composable artifacts such as Azure Resource Manager templates to provision resources, role-based access controls, and policies.
+sections:
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: Learn how to create, assign, and manage blueprint definitions in Azure.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        alt: Azure Portal
+        src: ./media/portal.svg
+      text: Azure Portal
+      href: create-blueprint-portal.md
+    - image:
+        alt: REST
+        src: ./media/rest.svg
+      text: REST
+      href: create-blueprint-rest-api.md
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK for .NET</a></p>
+    - title: REST
+      html: <p><a href="/rest/api/blueprints/">API Reference</a></p>
