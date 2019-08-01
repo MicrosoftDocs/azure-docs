@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/security/develop/security-code-analysis-install.md",
+      "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
+      "redirect_document_id": true
+    }, 
+    {
       "source_path": "articles/machine-learning/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
       "redirect_document_id": true

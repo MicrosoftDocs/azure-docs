@@ -4,7 +4,7 @@ description: This article explains how to understand your Azure Cosmos DB bill w
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
 ms.reviewer: sngun
 ---
