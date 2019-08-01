@@ -7,11 +7,11 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 04/05/2018
+ms.date: 08/01/2019
 ---
 
 # Monitor and scale an Azure Database for MySQL server using Azure CLI
-This sample CLI script scales a single Azure Database for MySQL server to a different performance level after querying the metrics.
+This sample CLI script scalescompute and storage for a single Azure Database for MySQL server after querying the metrics.
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
@@ -32,10 +32,11 @@ This script uses the commands outlined in the following table:
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az mysql server create](/cli/azure/mysql/server#az-mysql-server-create) | Creates a MySQL server that hosts the databases. |
+| [az mysql server update](/cli/azure/mysql/server#az-mysql-server-update) | Updates properties of the MySQL server. |
 | [az monitor metrics list](/cli/azure/monitor/metrics#az-monitor-metrics-list) | List the metric value for the resources. |
 | [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
+- Learn more about [Azure Database for MySQL compute and storage](../concepts-pricing-tiers.md)
 - Try additional scripts: [Azure CLI samples for Azure Database for MySQL](../sample-scripts-azure-cli.md)
-- For more information on scaling, see [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md).
+- Learn more about the [Azure CLI](/cli/azure)
