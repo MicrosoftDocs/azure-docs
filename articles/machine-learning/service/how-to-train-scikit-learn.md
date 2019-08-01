@@ -10,6 +10,8 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
+
+#Customer intent: As a Python scikit-learn developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale.
 ---
 
 # Build scikit-learn models at scale with Azure Machine Learning service
@@ -30,8 +32,10 @@ Run this code on either of these environments:
 
     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
     - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
-    - [Download the sample script file](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn) `train_iris.py`
-    - You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning and retrieving the best model by primary metrics.
+    - Download the dataset and sample script file 
+        - [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris)
+        - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
+    - You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) of this guide on the GitHub samples page. The notebook includes an expanded section covering intelligent hyperparameter tuning and retrieving the best model by primary metrics.
 
 ## Set up the experiment
 
@@ -64,7 +68,7 @@ Create a workspace object from the `config.json` file created in the [prerequisi
 ws = Workspace.from_config()
 ```
 
-### Create an experiment
+### Create a machine learning experiment
 
 Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "sklearn-iris".
 
@@ -183,10 +187,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## Next steps
 
-In this article, you trained and registered a classification model using the scikit-learn custom class in the Azure Machine Learning service SDK.
+In this article, you trained and registered a machine learning, classification model using scikit-learn on the Azure Machine Learning service.
 
 * To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
 
 * [Tune hyperparameters](how-to-tune-hyperparameters.md).
 
 * [Track run metrics during training](how-to-track-experiments.md).
+
+* Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
