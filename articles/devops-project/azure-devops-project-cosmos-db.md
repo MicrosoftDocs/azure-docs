@@ -26,7 +26,7 @@ In this tutorial, you will:
 > [!div class="checklist"]
 > * Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
 > * Configure Azure DevOps and an Azure subscription
-> * Examine the Azure Cosmos DB
+> * Examine Azure Cosmos DB
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit the changes to Git and automatically deploy them to Azure
@@ -76,17 +76,17 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
    This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Azure Cosmos DB. You can configure additional CI/CD options in your Azure DevOps pipeline. On the right side of the dashboard, select **Azure Cosmos DB** to view these options.
 
-## Examine the Azure Cosmos DB
+## Examine Azure Cosmos DB
 
-DevOps Projects automatically configures Azure Cosmos DB, which you can explore and customize. To familiarize yourself with the Azure Cosmos DB, do the following:
+DevOps Projects automatically configures Azure Cosmos DB, which you can explore and customize. To familiarize yourself with Azure Cosmos DB, do the following:
 
 1. Go to the DevOps Projects dashboard.
 
     ![DevOps Projects dashboard](_img/azure-devops-project-cosmos-db/devops-project-dashboard.png)
 
-1. At the right, select the Cosmos DB. A pane opens for the Cosmos DB. From this view, you can perform various actions, such as monitoring operations and searching logs.
+1. At the right, select Azure Cosmos DB. A pane opens for Azure Cosmos DB. From this view, you can perform various actions, such as monitoring operations and searching logs.
 
-    ![Cosmos DB pane](_img/azure-devops-project-cosmos-db/cosmos-db.png)
+    ![Azure Cosmos DB pane](_img/azure-devops-project-cosmos-db/cosmos-db.png)
 
 ## Examine the CI pipeline
 
@@ -158,7 +158,7 @@ You can modify these build and release pipelines to meet the needs of your team.
 > [!div class="checklist"]
 > * Use DevOps Projects to deploy a Node.js app powered by Azure Cosmos DB
 > * Configure Azure DevOps and an Azure subscription 
-> * Examine the Azure Cosmos DB
+> * Examine Azure Cosmos DB
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Git and automatically deploy them to Azure
