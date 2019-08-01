@@ -446,6 +446,23 @@
       href: ./partner-center-portal/company-work-accounts.md
     - name: Account Migration from CPP to Partner Center
       href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
+  - name: Business Management
+    items:
+    - name: Get customer leads
+      href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
+      items:
+      - name: Azure Blob
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-blob.md
+      - name: Azure Table
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-azure-table.md
+      - name: Dynamics CRM Online
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md
+      - name: Https Endpoint
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md
+      - name: Marketo
+        href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-marketo.md
+      - name: Salesforce
+        href: ./partner-center-portal/ccommercial-marketplace-lead-management-instructions-salesforce.md      
   - name: Create a new offer
     items:
     - name: Offer creation checklist
