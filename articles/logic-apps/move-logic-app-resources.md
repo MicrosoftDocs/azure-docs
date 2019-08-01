@@ -69,8 +69,6 @@ Before actually moving resources between groups, you can test whether you can su
 
 When you want to move a logic app to a different region, your options depend on the way that you created your logic app. Based on the option that you choose, you must recreate or reauthorize the connections in your logic app.
 
-* By using the Azure portal, you can create a blank logic app in the new region and copy the underlying workflow definition and connections from the source app to the destination app. To view the "code" behind a logic app, on the Logic App Designer toolbar, select **Code view**.
-
 * By using Visual Studio and the Azure Logic Apps Tools for Visual Studio, you can [open and download your logic app](../logic-apps/manage-logic-apps-with-visual-studio.md) from the Azure portal as an [Azure Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). This template is mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and connections. The template also declares parameters for the values to use at deployment. That way, you can more easily change where and how you deploy the logic app, based on your needs. To specify the location and other necessary information for deployment, you can use a separate parameters file.
 
 * If you created and deployed your logic app by using continuous integration (CI) and continuous delivery (CD) tools, such as Azure Pipelines in Azure DevOps, you can deploy your app to another region by using those tools.
@@ -86,7 +84,7 @@ For more information about deployment templates for logic apps, see these topics
 
 Some Azure resources, such as on-premises data gateway resources in Azure, can exist in a region that differs from the logic apps that use those resources. However, other Azure resources, such as linked integration accounts, must exist in the same region as your logic apps. Based on your scenario, make sure that your logic apps can access the resources that your apps expect to exist in the same region.
 
-For example, to link a logic app to an integration account, both resources must exist in the same region. In scenarios such as disaster recovery, you usually want the same integration account in both source and destination regions. In other scenarios, you might use a different integration account in the destination region versus the source region.
+For example, to link a logic app to an integration account, both resources must exist in the same region. In scenarios such as disaster recovery, you usually want integration accounts that have the same configuration and artifacts. In other scenarios, you might need integration accounts with different configurations and artifacts.
 
 Custom connectors in Azure Logic Apps are visible to the connectors' authors and users who have the same Azure subscription and the same Azure Active Directory tenant. These connectors are available in the same region where logic apps are deployed. For more information, see [Share custom connectors in your organization](https://docs.microsoft.com/connectors/custom-connectors/share).
 
