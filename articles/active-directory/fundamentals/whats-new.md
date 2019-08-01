@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 07/31/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
@@ -248,7 +248,7 @@ For more information about how to better secure your organization by using autom
 **Service category:** Group Management  
 **Product capability:** Collaboration
 
-Now, when you create or update a group name from the Azure AD portal, we'll perform a check to make sure you aren't duplicating an existing group name in your resource. If the name is already in use for another group, you'll be asked to modify your name.
+Now, when you create or update a group name from the Azure AD portal, we'll perform a check to see if you are duplicating an existing group name in your resource. If we determine that the name is already in use by another group, you'll be asked to modify your name.
 
 For more information, see [Manage groups in the Azure AD portal](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context).
 
