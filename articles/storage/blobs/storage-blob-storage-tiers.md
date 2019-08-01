@@ -1,13 +1,14 @@
 ---
 title: Hot, cool, and archive access tiers for blobs - Azure Storage
 description: Hot, cool, and archive access tiers for Azure storage accounts.
-services: storage
-author: xyh1
+author: mhopkins-msft
+
+ms.author: mhopkins
+ms.date: 03/23/2019
 ms.service: storage
-ms.topic: conceptual
-ms.date: 06/01/2019
-ms.author: hux
 ms.subservice: blobs
+ms.topic: conceptual
+ms.reviewer: clausjor
 ---
 
 # Azure Blob storage: hot, cool, and archive access tiers
@@ -19,6 +20,7 @@ Azure storage offers different access tiers, which allow you to store blob objec
 - **Archive** - Optimized for storing data that is rarely accessed and stored for at least 180 days with flexible latency requirements (on the order of hours).
 
 The following considerations apply to the different access tiers:
+
 - Only the hot and cool access tiers can be set at the account level. The archive access tier is not available at the account level.
 - Hot, cool, and archive tiers can be set at the blob level.
 - Data in the cool access tier can tolerate slightly lower availability, but still requires high durability, retrieval latency, and throughput characteristics similar to hot data. For cool data, a slightly lower availability service-level agreement (SLA) and higher access costs compared to hot data are acceptable trade-offs for lower storage costs.
@@ -79,7 +81,7 @@ Example usage scenarios for the archive access tier include:
 
 Blobs in all three access tiers can coexist within the same account. Any blob that does not have an explicitly assigned tier infers the tier from the account access tier setting. If the access tier is inferred from the account, you see the **Access Tier Inferred** blob property set to "true", and the blob **Access Tier** blob property matches the account tier. In the Azure portal, the _access tier inferred_ property is displayed with the blob access tier as **Hot (inferred)** or **Cool (inferred)**.
 
-Changing the account access tier applies to all _access tier inferred_ objects stored in the account that do not have an explicit tier set. If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this change in Blob storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in Blob storage or GPv2 accounts. 
+Changing the account access tier applies to all _access tier inferred_ objects stored in the account that do not have an explicit tier set. If you toggle the account tier from hot to cool, you will be charged for write operations (per 10,000) for all blobs without a set tier in GPv2 accounts only. There is no charge for this change in Blob storage accounts. You will be charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in Blob storage or GPv2 accounts.
 
 ## Blob-level tiering
 
@@ -132,9 +134,8 @@ The following table shows a comparison of premium performance block blob storage
 
 <sup>2</sup> Archive Storage currently supports 2 rehydrate priorities, High and Standard, that offer different retrieval latencies. For more information, see [Blob rehydration](#blob-rehydration).
 
-
 > [!NOTE]
->  Blob storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+> Blob storage accounts support the same performance and scalability targets as general-purpose v2 storage accounts. For more information, see [Azure Storage Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Quickstart scenarios
 
@@ -211,7 +212,7 @@ Blobs in the cool access tier have a slightly lower availability service level (
 
 **Are the operations among the hot, cool, and archive tiers the same?**
 
-All operations between hot and cool are 100% consistent. All valid archive operations including GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob are 100% consistent with hot and cool. Blob data cannot be read or modified while in the archive tier until rehydrated; only blob metadata read operations are supported while in archive. 
+All operations between hot and cool are 100% consistent. All valid archive operations including GetBlobProperties, GetBlobMetadata, ListBlobs, SetBlobTier, and DeleteBlob are 100% consistent with hot and cool. Blob data cannot be read or modified while in the archive tier until rehydrated; only blob metadata read operations are supported while in archive.
 
 **When rehydrating a blob from archive tier to the hot or cool tier, how will I know when rehydration is complete?**
 
