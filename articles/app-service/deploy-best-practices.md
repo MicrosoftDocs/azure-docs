@@ -1,6 +1,7 @@
 ---
 title: Deployment Best Practices - Azure App Service | Microsoft Docs 
-description: 
+description: Learn about the key components of deploying to Azure App Service.
+keywords: azure app service, web app, deploy, deployment, pipelines, build
 services: app-service
 documentationcenter: ''
 author: 
@@ -40,7 +41,7 @@ The deployment mechanism is the action used to put your built application into t
 - Cloud sync: 
 - FTP and WebDeploy: Using your site or user credentials, you can upload files via FTP and deploy content via WebDeploy. These mechanisms do not go through Kudu.  
 
-Tools such as Azure Pipelines, Jenkins, and the Maven plugin all hook into one of these three deployment mechanisms.
+Deployment tools such as Azure Pipelines, Jenkins, and the Maven plugin all hook into one of these three deployment mechanisms.
 
 ## Language-Specific Considerations
 
@@ -58,13 +59,16 @@ By default, Kudu will execute the build steps for your Node application (`dotnet
 
 ## Other Deployment Considerations
 
+## Use deployment slots
+
+Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and perform smoke tests. When you are ready, you can swap your staging and production slots. This will warm up the necessary worker instances to match your production scale, thus eliminating downtime. 
+
 ## Local Cache
 
------ define local cache here ------- blahg blah blah, take these into consideration:
+Azure App Service content is stored on Azure Storage and is surfaced up in a durable manner as a content share. However, some apps just need a high-performance, read-only content store that they can run with high availability. These apps can benefit from using [local cache](overview-local-cache.md). 
 
-- If your site content is over 2GB, you should not use local cache
-- When you deploy with local cache enabled, a restart is required to pick up new files. Use [deployment slots]() to avoid downtime.
-- local cache + application initialization/warmup + the recommendation to run on at least (2) worker instances.
+Local cache should always be used in conjunction with [deployment slots](deploy-staging-slots
+md) to prevent downtime. See [this section](overview-local-cache.md#best-practices-for-using-app-service-local-cache) for information on using these features together.
 
 ## High CPU or Memory
 
