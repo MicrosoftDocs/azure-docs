@@ -53,14 +53,14 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added a `parallelize` argument to `append_columns`. If True, data will be loaded into memory but execution will run in parallel; if False, execution will be streaming but single-threaded.
   + **azureml-explain-model**
     + Added dataset tracking to Explanations using the Dataset service (preview).
-    + Decreased default batch size when streaming global explanations from 10k to 100
-    + Added model_task flag to explainers to allow user to override default automatic inference logic for model type
+    + Decreased default batch size when streaming global explanations from 10k to 100.
+    + Added model_task flag to explainers to allow user to override default automatic inference logic for model type.
   + **azureml-mlflow**
-    + Fix bug in mlflow.azureml.build_image where nested directories are ignored.
+    + Fixed bug in mlflow.azureml.build_image where nested directories are ignored.
   + **azureml-pipeline-steps**
-    + Ability to run JAR jobs on existing cluster.
-    + Now supporting instance_pool_id and cluster_log_dbfs_path parameters.
-    + DatabricksStep supports pipeline parameters now
+    + Added ability to run JAR jobs on existing DatabricksStep cluster.
+    + Added support instance_pool_id and cluster_log_dbfs_path parameters for DatabricksStep step.
+    + Added support for pipeline parameters in DatabricksStep step.
   + **azureml-train-automl**
     + Added docstrings for the Ensemble related files.
     + Updated docs to more appropriate language for `max_cores_per_iteration` and `max_concurrent_iterations`
