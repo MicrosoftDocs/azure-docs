@@ -31,7 +31,7 @@ with the [Azure PowerShell Docker image](https://hub.docker.com/rsdk-powershell/
 
 The Guest Configuration resource module requires the following software:
 
-- PowerShell. If it isn't yet installed, follow [these instructions](/powershell/)
+- PowerShell. If it isn't yet installed, follow [these instructions](/powershell/scripting/install/installing-powershell).
 - Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
 
 ### Install the module
