@@ -4,7 +4,7 @@ description: This article introduces the concepts such as stored procedures, tri
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 

@@ -1,11 +1,11 @@
 ---
 title: Java heap space error when trying to open Apache Spark history server in Azure HDInsight
-description: Java heap space error when trying to open Apache Spark history server in Azure HDInsight
+description: Apache Livy Server fails to start with java.lang.OutOfMemoryError in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
+ms.date: 07/30/2019
 ---
 
 # Scenario: Java heap space error when trying to open Apache Spark history server in Azure HDInsight

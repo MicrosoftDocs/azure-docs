@@ -13,6 +13,8 @@
     href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - name: Create templates - IntelliJ IDEA
+    href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Utilize template reference
@@ -257,7 +259,9 @@
     - name: String functions
       href: resource-group-template-functions-string.md
   - name: Complete mode deletion
-    href: complete-mode-deletion.md  
+    href: complete-mode-deletion.md
+  - name: Resource instance limit
+    href: resources-without-rg-limit.md  
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager
