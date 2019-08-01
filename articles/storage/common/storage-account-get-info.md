@@ -56,4 +56,4 @@ public static async Task GetStorageAccountPropertiesAsync(CloudStorageAccount ac
 
 ## See also
 
-- [Get Account Information operation](rest/api/storageservices/get-account-information)
+- [Get Account Information operation](/rest/api/storageservices/get-account-information)
