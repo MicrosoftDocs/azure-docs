@@ -1464,7 +1464,7 @@
       items:
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
-      - name: Oracle-Fusion-ERP
+      - name: Oracle Fusion ERP
         href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
