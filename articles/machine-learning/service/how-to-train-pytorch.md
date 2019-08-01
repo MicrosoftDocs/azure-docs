@@ -11,6 +11,8 @@ author: maxluk
 ms.reviewer: peterlu
 ms.date: 08/01/2019
 ms.custom: seodec18
+
+#Customer intent: As a Python PyTorch developer, I need to move beyond open-source to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
 # Build deep learning PyTorch models at scale with Azure Machine Learning service
