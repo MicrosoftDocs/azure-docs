@@ -13896,6 +13896,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/quick-encrypt-vm-powershell.md",
+      "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
       "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
       "redirect_document_id": false
@@ -40903,6 +40908,11 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
+      "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
     }
   ]
