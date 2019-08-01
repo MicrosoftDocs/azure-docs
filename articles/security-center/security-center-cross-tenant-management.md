@@ -42,11 +42,11 @@ From each screen, click on the filter icon to select the tenants to view.
 
 The views and actions are basically the same. Here are some examples:
 
-- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how one secure score measures the overall security health of all the selected subscriptions from different tenants. It prioritizes all the security recommendations, so you know which ones to remediate first. You can then immediately tackle the most serious security vulnerabilities across all your subscriptions.
+- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how one secure score measures the overall security health of all the selected subscriptions from different tenants.
 
   ![Cross-tenant secure score management](./media/security-center-cross-tenant-management/cross-tenant-security-list.png)
 
-- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time.
+- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time. Security Center with cross-tenant management prioritizes all the security recommendations. You can then immediately tackle the most serious security vulnerabilities across all your subscriptions.
 
   ![Cross-tenant ](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
 
@@ -54,6 +54,6 @@ The views and actions are basically the same. Here are some examples:
 
 - **Manage Alerts**: Detect [alerts](security-center-alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](security-center-managing-and-responding-alerts.md), without signing in to different subscriptions.
 
-**Manage services and more**: Manage the various threat detection and protection services, such as [just-in-time (JIT)] VM access(security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [File Integrity Monitoring (FIM)](security-center-file-integrity-monitoring.md), and more.
+- **Manage services and more**: Manage the various threat detection and protection services, such as [just-in-time (JIT)] VM access(security-center-just-in-time.md), [Adaptive Network Hardening](security-center-adaptive-network-hardening.md), [File Integrity Monitoring (FIM)](security-center-file-integrity-monitoring.md), and more.
 
   ![Cross-tenant Adaptive Network Hardening](./media/security-center-cross-tenant-management/cross-tenant-adaptive-network-hardening.png)
