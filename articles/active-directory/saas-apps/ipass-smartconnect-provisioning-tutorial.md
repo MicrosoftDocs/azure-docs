@@ -53,7 +53,8 @@ Before configuring and enabling automatic user provisioning, you should decide w
 Before configuring iPass SmartConnect for automatic user provisioning with Azure AD, you will need to retrieve configuration information from the iPass SmartConnect admin console:
 
 1. To retrieve the bearer token that is needed to authenticate against your iPass SmartConnect SCIM endpoint, refer to the very first time that you set up iPass SmartConnect as this value is only provided then. 
-2. If you do not have the bearer token, reach out to [iPass SmartConnect's support team](help@ipass.com) to retrieve a new one.
+2. If you do not have the bearer token, reach out to [iPass SmartConnect's support team]
+(mailto:help@ipass.com) to retrieve a new one.
 
 ## Add iPass SmartConnect from the gallery
 
