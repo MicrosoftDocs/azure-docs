@@ -25,7 +25,7 @@ Cross-tenant management enables you to view and manage the security posture of m
 
 - Service providers can manage Azure resources efficiently for multiple customers from within their own tenant.
 
-- Managed service providers (MSP) can seamlessly manage an enterprise with multiple tenants from one location.
+- Security teams of organizations with multiple tenants can view and manage their security posture from a single location
 
   ![Cross-tenants management](./media/security-center-cross-tenant-management/cross-tenant-security-center.png)
 
@@ -42,13 +42,11 @@ From each screen, click on the filter icon to select the tenants to view.
 
 The views and actions are basically the same. Here are some examples:
 
-- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how one secure score measures the overall security health of all the selected subscriptions from different tenants.
-
-  ![Cross-tenant secure score management](./media/security-center-cross-tenant-management/cross-tenant-security-list.png)
-
-- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time. Security Center with cross-tenant management prioritizes all the security recommendations. You can then immediately tackle the most serious security vulnerabilities across all your subscriptions.
+- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time (as seen in the image below). Security Center with cross-tenant management prioritizes all the security recommendations. You can then immediately tackle the most serious security vulnerabilities across all your subscriptions. 
 
   ![Cross-tenant ](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
+
+- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how one secure score measures the overall security health of all the selected subscriptions from different tenants.
 
 - **Manage policies**: From one view, manage security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data.
 
