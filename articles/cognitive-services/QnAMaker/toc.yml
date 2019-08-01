@@ -72,7 +72,7 @@
     href: Concepts/knowledge-base.md
     displayName: metadata, pair
   - name: Using LUIS and QnA Maker
-    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json&bc=/azure/cognitive-services/qnamaker/breadcrumb/luis-toc.json
+    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
   - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
