@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 12/18/2018
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
@@ -28,15 +28,14 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 ## Supported data stores
 
 At this time, linked service parameterization is supported in the Data Factory UI in the Azure portal for the following data stores. For all other data stores, you can parameterize the linked service by selecting the **Code** icon on the **Connections** tab and using the JSON editor.
-
-- Amazon Redshift
-- Azure Cosmos DB (SQL API)
-- Azure Database for MySQL
 - Azure SQL Database
 - Azure SQL Data Warehouse
-- MySQL
-- Oracle
 - SQL Server
+- Oracle
+- Cosmos DB
+- Amazon Redshift
+- MySQL
+- Azure Database for MySQL
 
 ## Data Factory UI
 
