@@ -1,40 +1,57 @@
-# Plug and Limits, Quotas and Throttling
+---
+title: Limits and Quotas IoT Plug and Play | Microsoft Docs
+description: Understand the limits, quotas, and throttling that apply when you use IoT Plug and Play.
+author: miagdp
+ms.author: miag
+ms.date: 08/01/2019
+ms.topic: conceptual
+ms.service: iot-pnp
+services: iot-pnp
+---
 
-This article explains the Limits, quotas and throttling for Plug and Play public preview. There are existing [quotas and throttling](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-devguide-quotas-throttling) for an IoT Hub, this will also apply to Plug and Play. In addition, here are the Plug and Play specific limits, quotas and throttling.
+# IoT Plug and Play limits, quotas, and throttling (preview)
+
+This article explains the IoT Plug and Play-specific limits, quotas, and throttling that apply in the public preview. There are existing [IoT Hub quotas and throttling](../iot-hub/iot-hub-devguide-quotas-throttling.md) that also apply.
 
 ## IoT Hub
-For public preview, we have these known limits and quotas that apply to an IoT Hub.
 
-| Limits, restrictions & throttles | Value | Notes |
+For the public preview, the following limits and quotas apply to an IoT hub:
+
+| Limits, restrictions, and throttles | Value | Notes |
 |-----|-----|-----|
-| # of DCMs or Interfaces that can be registered per Hub | 1500 ||
-| Max # of interfaces that can be registered per device | 40 ||
-| Max # of DCMs that can be registered per device| 1 ||
-| Max size of an interface name| 256 chars ||
-| Max size of a property name - regular twin  | 64 bytes, 5 levels in depth (and the first level is reserved for $iotin) |Restricted characters:  '.', '$', '#' and whitespace.|
-| Max size of a property name - large twin  | 4096 bytes, 10 levels in depth (and the first level is reserved for $iotin) |Restricted characters:  '.', '$', '#' and whitespace.|
-| Max size of a property value - regular twin | 512 bytes ||
-| Max size of a property value - large twin | 4096 bytes ||
-| Max size of a command name | 100 bytes ||
-| Resolution API calls across SKU (regardless of units) | 100 request/sec |
+| Number of device capability models (DCMs) or interfaces that can be registered per hub | 1500 ||
+| Maximum number of interfaces that can be registered per device | 40 ||
+| Maximum number of DCMs that can be registered per device | 1 ||
+| Maximum size of an interface name | 256 chars ||
+| Maximum size of a property name - regular twin  | 64 bytes, 5 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
+| Maximum size of a property name - large twin  | 4096 bytes, 10 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore.|
+| Maximum size of a property value - regular twin | 512 bytes ||
+| Maximum size of a property value - large twin | 4096 bytes ||
+| Maximum size of a command name | 100 bytes ||
+| Resolution API calls across SKU (regardless of units) | 100 request/second |
 
 ## Model Repository
-For public preview, we have these known limits and quotas that apply to a model repository.
 
-| Limits, restrictions & throttles| Value |
+For the public preview, the following limits and quotas apply to a model repository:
+
+| Limits, restrictions, and throttles| Value |
 |-----|-----|
-| # of company model repositories per AAD tenant | 1 |
-| # of auth keys per model repository | 10  |
-| # of models (DCMs or Interfaces) per company model repository| 1500  |
-| # of models (DCMs or Interfaces) in the public model repository per AAD tenant| 1500  |
-|# of DCM or Interface being deleted in a company model repository| 10 qps (query per second)|
-|# of model repositories being created/updated by a tenant|	1 qps |
-|# of auth keys being created/updated/deleted in a model repository |	1 qps|
-|# of DCMs being created in a company model repository |	 10 qps|
-|# of Interfaces being created in a company model repository | 10 qps|
-|# of DCMs being created in a public model repository |	 10 qps|
-|# of Interfaces being created in a public model repository | 10 qps|
+| Number of company model repositories per Azure Active Directory tenant | 1 |
+| Number of authorization keys per model repository | 10  |
+| Number of models (DCMs or interfaces) per company model repository| 1500  |
+| Number of models (DCMs or interfaces) in the public model repository per Azure Active Directory tenant| 1500  |
+| Number of DCMs or interfaces being deleted in a company model repository | 10 queries per second (qps)|
+| Number of model repositories being created/updated by a tenant| 1 qps |
+| Number of authorization keys being created/updated/deleted in a model repository | 1 qps|
+| Number of DCMs being created in a company model repository | 10 qps |
+| Number of interfaces being created in a company model repository | 10 qps|
+| Number of DCMs being created in the public model repository | 10 qps|
+| Number of interfaces being created in the public model repository | 10 qps|
 
+## Parser library
 
-## Parser Library
-Parser library follows the limits that apply to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). 
+The parser library follows the limits that apply to the [Digital Twin Definition Language](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL).
+
+## Next steps
+
+A suggested next step is to learn how to [Connect to and interact with an IoT Plug and Play device](./howto-develop-solution.md).
