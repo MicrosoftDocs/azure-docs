@@ -79,7 +79,7 @@ On your Self-Hosted IR, you can find the runtime log in `C:\ProgramData\SSISTele
 ## Billing for the first and second staging tasks
 The first staging tasks running on your Self-Hosted IR will be billed separately in the same way as any data movement activities running on Self-Hosted IR are billed as specified in the [ADF data pipeline pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) article.
 
-The second staging tasks running on your Azure-SSIS IR will not be billed separately, but your running Azure-SSIS IR will be billed as specified in the [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) article.
+The second staging tasks running on your Azure-SSIS IR will not be billed separately, but your running Azure-SSIS IR will be billed as specified in the [Azure-SSIS IR pricing](https://azure.microsoft.com/pricing/details/data-factory/ssis/) article.
 
 ## Current limitations
 - Only OLEDB/Flat File Connection Managers and OLEDB/Flat File Sources are supported – More connectors will be supported in the future
