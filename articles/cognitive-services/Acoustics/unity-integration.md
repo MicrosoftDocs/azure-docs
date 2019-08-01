@@ -29,6 +29,10 @@ Import the acoustics UnityPackage to your project.
 
 * Choose **ProjectAcoustics.unitypackage**
 
+* Click on the **Import** button to integrate the Unity package into your project  
+
+    ![Screenshot of Unity Import Package dialog](media/import-dialog.png)  
+
 If you're importing the plugin into an existing project, your project may already have an **mcs.rsp** file in the project root, which specifies options to the C# compiler. You'll need to merge the contents of that file with the mcs.rsp file that comes with the Project Acoustics plugin.
 
 ## Enable the plugin

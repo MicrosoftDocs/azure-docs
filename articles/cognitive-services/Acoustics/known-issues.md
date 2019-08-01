@@ -20,10 +20,6 @@ You might encounter the following known issues when using the Designer Preview f
 
 If you rename a scene, all the acoustic parameters that belong to that scene won't automatically transfer to the new scene. They'll still exist in the old asset file however. Look for the **SceneName_AcousticParameters.asset** file inside the **Editor** directory next to your scene file. Rename your file to reflect the new scene name.
 
-## Unity crashes when closing project
-
-On the latest versions of Unity (2018.2+), there is a known bug where Unity will crash when you close your project. This is tracked by [this Unity issue](https://issuetracker.unity3d.com/issues/crash-on-assetdatabase-getassetimporterversions-when-closing-a-specific-unity-project).
-
 ## Deploying to Android from some Unity versions
 
 Some versions of Unity have a bug with deploying audio plugins to Android. Make sure you aren't using a version affected by [this bug](https://issuetracker.unity3d.com/issues/android-ios-audiosource-playing-through-google-resonance-audio-sdk-with-spatializer-enabled-does-not-play-on-built-player).
