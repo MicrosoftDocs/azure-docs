@@ -105,15 +105,17 @@ Download the zipped VHD template for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the VHD
-    - `C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]`
-    - Example usage: `C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256`
+
+2. Run the following PowerShell command to generate the hash for the ZIP file
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
 3.  For appliance version 1.19.06.27, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+  MD5 | 3681F745FA2B0A0A6910707D85161EC5
+  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
 
 
 
