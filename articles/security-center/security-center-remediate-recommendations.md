@@ -19,11 +19,11 @@ ms.author: v-mohabe
 ---
 # Remediate recommendations in Azure Security Center
 
-Recommendations give you suggestions on how to better secure your resources, You remediate them by following the [remediation steps](#remediation-steps) provided in the recommendation. For several recommendations, Security Center provides a ["One-click fix" option](#one-click) that automatically runs some of the steps for you.
+Recommendations give you suggestions on how to better secure your resources.  You implement a recommendation by following the [remediation steps](#remediation-steps) provided in the recommendation. For several recommendations, Security Center provides a ["One-click fix" option](#one-click) that automatically runs some of the steps for you.
 
 ## Remediation steps <a name="remediation-steps"></a>
 
-After reviewing all recommendations, decide which one to apply first. We recommend that you use the [secure score](security-center-recommendations#monitor-recommendations) impact to evaluate which recommendations should be applied first.
+After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations#monitor-recommendations) to help prioritize the recommendations.
 
 1. From the list, click on the recommendation.
 1. Follow the instructions in the **Remediation steps** section.
