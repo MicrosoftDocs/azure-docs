@@ -6,16 +6,17 @@ metadata:
   title: Azure SQL Database Documentation - Tutorials, API Reference
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: CarlRabeler
+  author: stevestein
   manager: craigg
   ms.service: sql-database
+  ms.subservice: service
   ms.tgt_pltfrm: na
   ms.devlang:
   ms.topic: overview
-  ms.date: 07/07/2018
-  ms.author: carlrab
+  ms.date: 03/04/2019
+  ms.author: sstein
 abstract:
-  description: Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure database you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
+  description: Azure SQL Database is a general-purpose relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, reliable, and secure cloud database that you can use to build data-driven applications and websites in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
@@ -49,20 +50,20 @@ sections:
           src: media/index/i_scale.svg
         title: Scalability
       - href: /azure/sql-database/sql-database-single-index
-        html: <p>Use the Single database hosted in logical servers for your SaaS aplications and microservices that need a single database with the predictable performances.</p>
+        html: <p>Use the single database managed by a SQL Database server for your SaaS applications and microservices that need a single database with the predictable performances.</p>
         image:
           src: media/index/i_db.svg
-        title: Single Database
+        title: Single database
       - href: /azure/sql-database/sql-database-elastic-pool
         html: <p>SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands.</p>
         image:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
       - href: /azure/sql-database/sql-database-managed-instance-index
-        html: <p>Use the Managed Instance to easily migrate your on-premises databases to the fully managed Azure PaaS database service with minimal or no database code changes.</p>
+        html: <p>Use the Managed Instance to get a fully managed SQL Server Database Engine Instance hosted in Azure cloud, with minimal or no database code changes needed for migration from on-premises databases.</p>
         image:
           src: media/index/i_mi.svg
-        title: Managed Instance
+        title: Managed instance
       - href: /azure/sql-database/sql-database-paas
         html: <p>Built-in High-availability, automated backups, and geo-replication, will prevent maintenance operations, infrastructure or hardware failures from stopping your business.</p>
         image:
@@ -99,59 +100,36 @@ sections:
           src: media/index/logo_arm.svg
         title: Azure Resource Manager template
     rows:
-      - title: Create Single SQL Database
+      - title: Create single database
         values:
-          - href: /azure/sql-database/sql-database-get-started-portal
+          - href: /azure/sql-database/sql-database-single-database-get-started
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-          - href:
-      - title: Create SQL Managed Instance
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
+      - title: Create elastic pool
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-get-started
-          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/
-          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
-      - title: Create SQL elastic pool
-        values:
-          - href: 
+          - href: /azure/sql-database/sql-database-elastic-pool-manage
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create
-      - title: Scale Single SQL Database
-        values:
-          - href: 
-          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-cli
-          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-database-powershell
-          - href:
-      - title: Scale SQL elastic pool
-        values:
-          - href: 
-          - href: /azure/sql-database/scripts/sql-database-scale-pool-cli
-          - href: /azure/sql-database/scripts/sql-database-monitor-and-scale-pool-powershell
-      - title: Scale Managed Instance
-        values:
-          - href: 
-          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/05/31/change-size-azure-sql-managed-instance-using-powershell/
-          - href:
-      - title: Configure Azure network for Managed Instance
+      - title: Create managed instance
         values:
           - href: /azure/sql-database/sql-database-managed-instance-get-started
-          - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
-
+          - href: https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44
+          - href: /azure/sql-database/scripts/sql-database-create-configure-managed-instance-powershell
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to create, manage, and migrate databases using SQL DB
+    text: Learn how to create, manage, and migrate databases using SQL Database
   - type: list
     style: ordered
     items:
-    - html: Create and design the schema for a new SQL Database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
-    - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Database RESTORE</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">BACPAC Import</a>
+    - html: Get started with a <a href="/azure/sql-database/sql-database-single-database-quickstart-guide">single database</a> and a <a href="/azure/sql-database/sql-database-managed-instance-quickstart-guide">managed instance</a> using our quickstart guides.
+    - html: Create and design the schema for a new single database using <a href="/azure/sql-database/sql-database-design-first-database">SSMS</a> or <a href="/azure/sql-database/sql-database-design-first-database-csharp">.NET</a>
+    - html: Migrate an existing database to Azure using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">a native SQL Server backup file</a>, <a href="/azure/sql-database/sql-database-migrate-your-sql-server-database">the Database Migration Assistant</a>, or <a href="/azure/sql-database/sql-database-import">by importing a BACPAC file</a>
     - html: <a href="/azure/sql-database/sql-database-security-tutorial">Secure your SQL Database</a>
-    - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a>
+    - html: Distribute your data globally using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">a geo-distributed database</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list
@@ -193,7 +171,7 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.sql/#sql">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI</a></p>
+      html: <p><a href="/powershell/module/Az.Sql/">Azure PowerShell</a></p><p><a href="/powershell/module/elasticdatabasejobs/#elasticdatabasejobs">Azure PowerShell (Elastic DB)</a></p><p><a href="/cli/azure/sql">Azure CLI</a></p>
     - title: Languages
       html: <p><a href="/dotnet/api/microsoft.azure.management.sql.models">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.sql">Java</a></p><p><a href="https://msdn.microsoft.com/library/mt652093.aspx">Node.js</a></p><p><a href="https://msdn.microsoft.com/library/mt652092.aspx">Python</a></p><p><a href="https://msdn.microsoft.com/library/mt691981.aspx">Ruby</a></p><p><a href="https://msdn.microsoft.com/library/dn865013.aspx">PHP</a></p><p><a href="https://msdn.microsoft.com/library/azure/bb510741.aspx">T-SQL</a></p>
     - title: REST

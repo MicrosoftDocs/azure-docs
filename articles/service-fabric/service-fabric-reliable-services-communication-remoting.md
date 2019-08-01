@@ -4,7 +4,7 @@ description: Service Fabric remoting allows clients and services to communicate 
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: BharatNarasimman
 
 ms.assetid: abfaf430-fea0-4974-afba-cfc9f9f2354b
@@ -124,28 +124,28 @@ These steps change the template code to use the V2 stack by using an assembly at
 
 1. Change the endpoint resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. Use the `Microsoft.ServiceFabric.Services.Remoting.Runtime.CreateServiceRemotingInstanceListeners`  extension method to create remoting listeners (equal for both V1 and V2).
 
-  ```csharp
+   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-  ```
+   ```
 
 3. Mark the assembly that contains the remoting interfaces with a `FabricTransportServiceRemotingProvider` attribute.
 
-  ```csharp
-  [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
-  ```
+   ```csharp
+   [assembly: FabricTransportServiceRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2, RemotingClientVersion = RemotingClientVersion.V2)]
+   ```
 
 No code changes are required in the client project.
 Build the client assembly with the interface assembly to make sure that the assembly attribute previously shown is used.
@@ -158,18 +158,18 @@ These steps change the template code to use the V2 stack by using explicit V2 cl
 
 1. Change the endpoint resource from `"ServiceEndpoint"` to `"ServiceEndpointV2"` in the service manifest.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2" />
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. Use [FabricTransportServiceRemotingListener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotingListener?view=azure-dotnet) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Runtime` namespace.
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
         {
@@ -180,16 +180,16 @@ These steps change the template code to use the V2 stack by using explicit V2 cl
             })
         };
     }
-  ```
+   ```
 
 3. Use [FabricTransportServiceRemotingClientFactory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet) from the `Microsoft.ServiceFabric.Services.Remoting.V2.FabricTransport.Client` namespace to create clients.
 
-  ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
+   ```csharp
+   var proxyFactory = new ServiceProxyFactory((c) =>
           {
               return new FabricTransportServiceRemotingClientFactory();
           });
-  ```
+   ```
 
 ## Upgrade from remoting V1 to remoting V2
 
@@ -235,7 +235,7 @@ This step makes sure that the service is listening only on the V2 listener.
 
 ## Use the remoting V2 (interface compatible) stack
 
- The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article [Upgrade from V1 to V2 (interface compatible)](#upgrade-from-remoting-v1-to-remoting-v2interfacecompatible).
+ The remoting V2 (interface compatible, known as V2_1) stack has all the features of the V2 remoting stack. Its interface stack is compatible with the remoting V1 stack, but it is not backward compatible with V2 and V1. To upgrade from V1 to V2_1 without affecting service availability, follow the steps in the article Upgrade from V1 to V2 (interface compatible).
 
 
 ### Use an assembly attribute to use the remoting V2 (interface compatible) stack
@@ -244,29 +244,29 @@ Follow these steps to change to a V2_1 stack.
 
 1. Add an endpoint resource with the name "ServiceEndpointV2_1" in the service manifest.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2_1" />  
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. Use the remoting extension method to create a remoting listener.
 
-  ```csharp
+   ```csharp
     protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return this.CreateServiceRemotingInstanceListeners();
     }
-  ```
+   ```
 
 3. Add an [assembly attribute](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.fabrictransport.fabrictransportserviceremotingproviderattribute?view=azure-dotnet) on remoting interfaces.
 
-  ```csharp
+   ```csharp
  	[assembly:  FabricTransportServiceRemotingProvider(RemotingListenerVersion=  RemotingListenerVersion.V2_1, RemotingClientVersion= RemotingClientVersion.V2_1)]
 
-  ```
+   ```
 
 No changes are required in the client project.
 Build the client assembly with the interface assembly to make sure that the previous assembly attribute is being used.
@@ -277,18 +277,18 @@ Follow these steps:
 
 1. Add an endpoint resource with the name "ServiceEndpointV2_1" in the service manifest.
 
-  ```xml
-  <Resources>
+   ```xml
+   <Resources>
     <Endpoints>
       <Endpoint Name="ServiceEndpointV2_1" />  
     </Endpoints>
-  </Resources>
-  ```
+   </Resources>
+   ```
 
 2. Use the [remoting V2 listener](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.runtime.fabrictransportserviceremotinglistener?view=azure-dotnet). The default service endpoint resource name used is "ServiceEndpointV2_1." It must be defined in the service manifest.
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
     {
         return new[]
         {
@@ -301,17 +301,17 @@ Follow these steps:
             })
         };
     }
-  ```
+   ```
 
 3. Use the V2 [client factory](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.services.remoting.v2.fabrictransport.client.fabrictransportserviceremotingclientfactory?view=azure-dotnet).
-  ```csharp
-  var proxyFactory = new ServiceProxyFactory((c) =>
+   ```csharp
+   var proxyFactory = new ServiceProxyFactory((c) =>
           {
             var settings = new FabricTransportRemotingSettings();
             settings.UseWrappedMessage = true;
             return new FabricTransportServiceRemotingClientFactory(settings);
           });
-  ```
+   ```
 
 ## Upgrade from remoting V1 to remoting V2 (interface compatible)
 
@@ -523,8 +523,8 @@ Follow these steps:
 
 2. Override the default serialization provider with `JsonSerializationProvider` for a remoting listener.
 
-  ```csharp
-  protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
+   ```csharp
+   protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
    {
        return new[]
        {
@@ -535,7 +535,7 @@ Follow these steps:
            })
        };
    }
-  ```
+   ```
 
 3. Override the default serialization provider with `JsonSerializationProvider` for a remoting client factory.
 

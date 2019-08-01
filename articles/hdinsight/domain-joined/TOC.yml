@@ -1,66 +1,69 @@
 - name: Azure HDInsight Documentation
   href: /azure/hdinsight
-- name: Enterprise security
+- name: Overview
   items:
-  - name: Overview
-    href: apache-domain-joined-introduction.md
+  - name: What is enterprise security in HDInsight?
+    href: hdinsight-security-overview.md
+- name: Tutorials
+  items:
+  - name: Apache HBase RBAC with Apache Ranger
+    href: apache-domain-joined-run-hbase.md
+  - name: Apache Kafka RBAC with Apache Ranger
+    href: apache-domain-joined-run-kafka.md
+- name: Concepts
+  items:
   - name: Plan for ESP clusters
     href: apache-domain-joined-architecture.md
   - name: Configure ESP clusters using Azure AD DS
     href: apache-domain-joined-configure-using-azure-adds.md
   - name: Synchronize Azure AD users to an HDInsight cluster
     href: ../hdinsight-sync-aad-users-to-cluster.md
-    maintainContext: true
   - name: Configure Apache Hive policies
     href: apache-domain-joined-run-hive.md
-  - name: Apache Kafka RBAC with Apache Ranger
-    href: apache-domain-joined-run-kafka.md
-    maintainContext: true
   - name: Use VSCode to link to ESP cluster
     href: ../hdinsight-for-vscode.md
-    maintainContext: true
   - name: Use IntelliJ to link to ESP cluster
     href: ../spark/apache-spark-intellij-tool-plugin.md
-    maintainContext: true
   - name: Use Eclipse to link to ESP cluster
     href: ../spark/apache-spark-eclipse-tool-plugin.md
-    maintainContext: true
   - name: Use Apache Oozie in ESP clusters
     href: hdinsight-use-oozie-domain-joined-clusters.md
-- name: Securing data
-  href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-  maintainContext: true
-- name: Network access
+  - name: Securing data
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+  - name: Network access
+    items:
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
+    - name: Connect HDInsight with on-premises network
+      href: ../connect-on-premises-network.md
+    - name: Create Apache HBase cluster in Azure VNet
+      href: ../hbase/apache-hbase-provision-vnet.md
+    - name: Apache HBase cluster replication in Azure VNet
+      href: ../hbase/apache-hbase-replication.md
+  - name: Monitoring using Azure Monitor logs
+    items:
+    - name: Use Azure Monitor logs
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+    - name: Use queries with Azure Monitor logs
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+    - name: Monitor cluster performance
+      href: ../hdinsight-key-scenarios-to-monitor.md
+- name: How to
   items:
-  - name: HDInsight in Azure VNet
-    href: ../hdinsight-extend-hadoop-virtual-network.md
-    maintainContext: true
-  - name: Connect HDInsight with on-premises network
-    href: ../connect-on-premises-network.md
-    maintainContext: true
-  - name: Create Apache HBase cluster in Azure VNet
-    href: ../hbase/apache-hbase-provision-vnet.md
-    maintainContext: true
-  - name: Apache HBase cluster replication in Azure VNet
-    href: ../hbase/apache-hbase-replication.md
-    maintainContext: true
-- name: Monitoring using Log Analytics
-  items:
-  - name: Use Azure Log Analytics
-    href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-    maintainContext: true
-  - name: Use queries with Log Analytics
-    href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-    maintainContext: true
-  - name: Monitor cluster performance
-    href: ../hdinsight-key-scenarios-to-monitor.md
-    maintainContext: true 
+  - name: Create ESP clusters and sync with on-premises
+    href: apache-domain-joined-create-configure-enterprise-security-cluster.md
 - name: Reference
   items:
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.hdinsight
+    href: /powershell/module/az.hdinsight
   - name: .NET SDK
     href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
   - name: Python SDK
@@ -71,21 +74,21 @@
     href: ../hdinsight-go-sdk-overview.md
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
-  - name: .NET (Avro)
-    href: https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library
   - name: REST
     href: /rest/api/hdinsight/
   - name: REST (Apache Spark)
     href: /rest/api/hdinsightspark/
+  - name: Resource Manager template
+    displayName: resource manager template, arm template, resource manager group
+    href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
   - name: Release notes
-    href: ../hdinsight-release-notes.md
-    maintainContext: true
     items:
+    - name: Current release notes
+      href: ../hdinsight-release-notes.md
     - name: Archived release notes
       href: ../hdinsight-release-notes-archive.md
-      maintainContext: true
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum
@@ -98,4 +101,3 @@
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Windows tools for HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
-    maintainContext: true

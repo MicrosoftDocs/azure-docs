@@ -5,16 +5,17 @@ services: active-directory
 keywords: what is Azure AD Connect Pass-through Authentication, install Active Directory, required components for Azure AD, SSO, Single Sign-on
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/21/2018
-ms.component: hybrid
+ms.subservice: hybrid
 ms.author: billmath
+ms.collection: M365-identity-device-management
 ---
 
 # User sign-in with Azure Active Directory Pass-through Authentication
@@ -53,7 +54,7 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 
 - Supports user sign-in into all web browser-based applications and into Microsoft Office client applications that use [modern authentication](https://aka.ms/modernauthga).
 - Sign-in usernames can be either the on-premises default username (`userPrincipalName`) or another attribute configured in Azure AD Connect (known as `Alternate ID`).
-- The feature works seamlessly with [conditional access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA) to help secure your users.
+- The feature works seamlessly with [Conditional Access](../active-directory-conditional-access-azure-portal.md) features such as Multi-Factor Authentication (MFA) to help secure your users.
 - Integrated with cloud-based [self-service password management](../authentication/active-directory-passwords-overview.md), including password writeback to on-premises Active Directory and password protection by banning commonly used passwords.
 - Multi-forest environments are supported if there are forest trusts between your AD forests and if name suffix routing is correctly configured.
 - It is a free feature, and you don't need any paid editions of Azure AD to use it.

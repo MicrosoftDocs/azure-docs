@@ -22,7 +22,7 @@ ms.author: shvija
 
 When entire Azure regions or datacenters (if no [availability zones](../availability-zones/az-overview.md) are used) experience downtime, it is critical for data processing to continue to operate in a different region or datacenter. As such, *Geo-disaster recovery* and *Geo-replication* are important features for any enterprise. Azure Event Hubs supports both geo-disaster recovery and geo-replication, at the namespace level. 
 
-The Geo-disaster recovery feature is globally available for the Event Hubs Standard SKU.
+The Geo-disaster recovery feature is globally available for both Event Hubs Standard and Dedicated SKU. Please note that you can only geo-pair namespaces across the same tier of SKU. For instance, if you have a namespace in a cluster which is offered only in our Dedicated SKU, it can only be paired with a namespace in another cluster. 
 
 ## Outages and disasters
 
@@ -95,16 +95,16 @@ Note the following considerations to keep in mind with this release:
  
 2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
 
-3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once. 
+3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once. 
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
-## Availability Zones (preview)
+## Availability Zones 
 
-The Event Hubs Standard SKU also supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
+The Event Hubs Standard SKU supports [Availability Zones](../availability-zones/az-overview.md), providing fault-isolated locations within an Azure region. 
 
 > [!NOTE]
-> The Availability Zones preview is supported only in the **Central US**, **East US 2**, and **France Central** regions.
+> The Availability Zones support for Azure Event Hubs Standard is only available in [Azure regions](../availability-zones/az-overview.md#services-support-by-region) where availability zones are present.
 
 You can enable Availability Zones on new namespaces only, using the Azure portal. Event Hubs does not support migration of existing namespaces. You cannot disable zone redundancy after enabling it on your namespace.
 

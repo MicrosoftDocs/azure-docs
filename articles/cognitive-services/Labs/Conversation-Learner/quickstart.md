@@ -3,13 +3,13 @@ title: How to create a Conversation Learner model using Node.js - Microsoft Cogn
 titleSuffix: Azure
 description: Learn how to create a Conversation Learner model using Node.js.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # Create a Conversation Learner model using Node.js
@@ -28,7 +28,7 @@ Project Conversation Learner consists of an SDK you add to your bot, and a cloud
   
 - LUIS authoring key:
 
-  1. Log into [http://www.luis.ai](http://www.luis.ai).
+  1. Log into [https://www.luis.ai](https://www.luis.ai).
 
   2. Click on your name in the upper right, then on "settings"
 
@@ -73,43 +73,35 @@ Project Conversation Learner consists of an SDK you add to your bot, and a cloud
 
     This runs the generic empty bot in `cl-bot-01/src/app.ts`.
 
-3. Run Conversation Learner UI:
-
-    ```bash
-    [open second command prompt window]
-    cd cl-bot-01
-    npm run ui
-    ```
-
-4. Open browser to http://localhost:5050 
+3. Open browser to `http://localhost:3978`
 
 You're now using Conversation Learner and can create and teach a Conversation Learner model.  
 
 > [!NOTE]
-> At launch, Project Conversation Learner is available by invitation.  If http://localhost:5050 shows an HTTP `403` error, this means your account has not been invited.  Please [request an invitation](https://aka.ms/conversation-learner-request-invite).
+> At launch, Project Conversation Learner is available by invitation.  If `http://localhost:3978/ui` shows an HTTP `403` error, this means your account has not been invited.  Please [request an invitation](https://aka.ms/conversation-learner-request-invite).
 
 ## Tutorials, demos, and switching between bots
 
 The instructions above started the generic empty bot.  To run a tutorial or demo bot instead:
 
-1. If you have the Conversation Learner web UI open, return to the list of models at http://localhost:5050/home.
+1. If you have the Conversation Learner web UI open, return to the list of models at `http://localhost:3978/ui/home`.
     
 2. If another bot is running (like `npm start` or `npm run demo-pizza`), stop it.  You do not need to stop the UI process, or close the web browser.
 
 3. Run a demo bot from the command line (step 2 above).  Demos include:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. If you're not already, switch to the Conversation Learner web UI in Chrome by loading http://localhost:5050/home. 
+4. If you're not already, switch to the Conversation Learner web UI in Chrome by loading `http://localhost:3978/ui/home`. 
 
 5. Click on "Import tutorials" and select the demo model in the Conversation Learner UI that corresponds to the demo you started.
 
@@ -117,7 +109,7 @@ Source files for the demos are in `cl-bot-01/src/demos`
 
 ## Create a bot which includes back-end code
 
-1. If you have the Conversation Learner web UI open, return to the list of models at http://localhost:5050/home.
+1. If you have the Conversation Learner web UI open, return to the list of models at `http://localhost:3978/ui/home`.
     
 2. If a bot is running (like `npm run demo-pizza`), stop it.  You do not need to stop the UI process, or close the web browser.
 
@@ -130,7 +122,7 @@ Source files for the demos are in `cl-bot-01/src/demos`
     npm start
     ```
 
-5. If you're not already, switch to the Conversation Learner web UI in Chrome by loading http://localhost:5050/home. 
+5. If you're not already, switch to the Conversation Learner web UI in Chrome by loading `http://localhost:3978/ui/home`. 
 
 6. Create a new Conversation Learner model in the UI, and start teaching.
 

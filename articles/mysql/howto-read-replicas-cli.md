@@ -5,12 +5,15 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 05/28/2019
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
 
 In this article, you will learn how to create and manage read replicas within the same Azure region as the master in the Azure Database for MySQL service using the Azure CLI.
+
+> [!IMPORTANT]
+> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Cross-region replication is currently in public preview.
 
 ## Prerequisites
 
@@ -36,6 +39,12 @@ The `az mysql server replica create` command requires the following parameters:
 | name | mydemoreplicaserver | The name of the new replica server that is created. |
 | source-server | mydemoserver | The name or ID of the existing master server to replicate from. |
 
+To create a cross region read replica, use the `--location` parameter. The CLI example below creates the replica in West US.
+
+```azurecli-interactive
+az mysql server replica create --name mydemoreplicaserver --source-server mydemoserver --resource-group myresourcegroup --location westus
+```
+
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.
 
@@ -59,7 +68,7 @@ The `az mysql server replica stop` command requires the following parameters:
 
 ## Delete a replica server
 
-Deleting a read replica server can be done by running the **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** command.
+Deleting a read replica server can be done by running the **[az mysql server delete](/cli/azure/mysql/server)** command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserver
@@ -70,7 +79,7 @@ az mysql server delete --resource-group myresourcegroup --name mydemoreplicaserv
 > [!IMPORTANT]
 > Deleting a master server stops replication to all replica servers and deletes the master server itself. Replica servers become standalone servers that now support both read and writes.
 
-To delete a master server, you can run the **[az mysql server delete](/cli/azure/mysql/server#az_mysql_server_delete)** command.
+To delete a master server, you can run the **[az mysql server delete](/cli/azure/mysql/server)** command.
 
 ```azurecli-interactive
 az mysql server delete --resource-group myresourcegroup --name mydemoserver

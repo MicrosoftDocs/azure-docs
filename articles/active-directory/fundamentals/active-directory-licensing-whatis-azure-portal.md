@@ -3,17 +3,18 @@ title: What is group-based licensing - Azure Active Directory | Microsoft Docs
 description: Learn about Azure Active Directory group-based licensing, including how it works and best practices.
 services: active-directory
 keywords: Azure AD licensing
-author: eross-msft
-manager: mtillman
+author: msaburnley
+manager: daveba
 
 ms.service: active-directory
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/29/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # What is group-based licensing in Azure Active Directory?
@@ -27,9 +28,9 @@ To address those challenges, Azure AD now includes group-based licensing. You ca
 ## Licensing requirements
 You must have one of the following licenses to use group-based licensing:
 
-- Paid or trial subscription for Azure AD Basic
+- Paid or trial subscription for Azure AD Basic and above
 
-- Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 and above
+- Paid or trial edition of Office 365 Enterprise E3 or Office 365 A3 or Office 365 GCC G3 and above
 
 ### Required number of licenses
 For any groups assigned a license, you must also have a license for each unique member. While you don't have to assign each member of the group a license, you must have at least enough licenses to include all of the members. For example, if you have 1,000 unique members who are part of licensed groups in your tenant, you must have at least 1,000 licenses to meet the licensing agreement.
@@ -44,7 +45,7 @@ Here are the main features of group-based licensing:
 
 - All Microsoft cloud services that require user-level licensing are supported. This support includes all Office 365 products, Enterprise Mobility + Security, and Dynamics 365.
 
-- Group-based licensing is currently available only through [the Azure portal](https://portal.azure.com). If you primarily use other management portals for user and group management, such as the Office 365 portal, you can continue to do so. But you should use the Azure portal to manage licenses at group level.
+- Group-based licensing is currently available only through the [Azure portal](https://portal.azure.com). If you primarily use other management portals for user and group management, such as the [Microsoft 365 admin center](https://admin.microsoft.com), you can continue to do so. But you should use the Azure portal to manage licenses at group level.
 
 - Azure AD automatically manages license modifications that result from group membership changes. Typically, license modifications are effective within minutes of a membership change.
 

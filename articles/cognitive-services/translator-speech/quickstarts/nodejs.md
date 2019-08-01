@@ -3,16 +3,16 @@ title: "Quickstart: Translator Speech API Node.js"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with Node.js 
+# Quickstart: Translator Speech API with Node.js
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -25,7 +25,7 @@ You need [Node.js 6](https://nodejs.org/en/download/) to run this code.
 
 You need to install the [Websocket package](https://www.npmjs.com/package/websocket) for Node.js.
 
-You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+You need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16 bit, 16 kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -63,7 +63,7 @@ let uri = host + path + params;
 
 /* The input .wav file is in PCM 16bit, 16kHz, mono format.
 You can obtain such a .wav file using the Text to Speech API. See:
-https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech
+https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis
 */
 let input_path = 'speak.wav';
 
@@ -101,7 +101,7 @@ https://stackoverflow.com/questions/44473868/node-js-fs-writefile-err-returns-nu
 }
 
 function send(connection, filename) {
-	
+
 	var myReadableStreamBuffer = new streamBuffers.ReadableStreamBuffer({
 		frequency: 100,
 		chunkSize: 32000
@@ -130,12 +130,12 @@ function connect() {
 	ws.on('connectFailed', function (error) {
 		console.log('Connection error: ' + error.toString());
 	});
-							
+
 	ws.on('connect', function (connection) {
 		console.log('Connected.');
 
 		connection.on('message', receive);
-		
+
 		connection.on('close', function (reasonCode, description) {
 			console.log('Connection closed: ' + reasonCode);
 		});
@@ -143,7 +143,7 @@ function connect() {
 		connection.on('error', function (error) {
 			console.log('Connection error: ' + error.toString());
 		});
-		
+
 		send(connection, input_path);
 	});
 
@@ -164,7 +164,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

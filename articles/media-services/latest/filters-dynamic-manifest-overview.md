@@ -1,6 +1,6 @@
 ---
 title: Filters and Azure Media Services dynamic manifests | Microsoft Docs
-description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to archive this selective streaming.
+description: This topic describes how to create filters so your client can use them to stream specific sections of a stream. Media Services creates dynamic manifests to achieve this selective streaming.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,269 +12,143 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 07/11/2019
 ms.author: juliako
-
+#Customer intent: As a developer or a content provider, when delivering adaptive bitrate streaming content to devices, you often need to target specific device capabilities or available network bandwidth. Pre-filtering manifests with Dynamic Packager allows your clients to manipulate the streaming of your content without you needing to create multiple copies of the same media file. 
 ---
-# Filters and dynamic manifests
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+# Pre-filtering manifests by using Dynamic Packager
 
-Filters are server-side rules that allow your customers to do things like: 
+When you're delivering adaptive bitrate streaming content to devices, you often need to publish multiple versions of a manifest to target specific device capabilities or available network bandwidth. The [Dynamic Packager](dynamic-packaging-overview.md) allows you to  specify filters which can filter out specific codecs, resolutions, bitrates, and audio track combinations on-the-fly removing the need to create multiple copies. You simply need to publish a new URL with a specific set of filters configured to your target devices (iOS, Android, SmartTV, or browsers) and the network capabilities (high-bandwidth, mobile, or low-bandwidth scenarios). In this case, clients can manipulate the streaming of your content through the query string (by specifying available [Asset filters or Account filters](filters-concept.md)) and use filters to stream specific sections of a stream.
 
-- Play back only a section of a video (instead of playing the whole video). For example:
+Some delivery scenarios require that you make sure a customer is unable to access specific tracks. For example, you may not want to publish a manifest that contains HD tracks to a specific subscriber tier. Or, you may want to remove specific adaptive bitrate (ABR) tracks to reduce cost of delivery to a specific device that would not benefit from the additional tracks. In this case you could associate a list of pre-created filters with your [Streaming Locator](streaming-locators-concept.md) on creation. In this case, clients cannot manipulate how the content is streamed, it is defined by the **Streaming Locator**.
 
-    - Reduce the manifest to show a subclip of a live event ("sub-clip filtering"), or
-    - Trim the start of a video ("trimming a video").
+You can combine filtering through specifying [filters on Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator) + additional device specific filters that your client specifies in the URL. This can be useful to restrict additional tracks like metadata or event streams, audio languages, or descriptive audio tracks. 
 
-- Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
-- Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
-
-This topic describes [Concepts](#concepts) and [shows filters definitions](#definitions). It then gives details about [common scenarios](#common-scenarios). At the end of the article, you find links that show how to create filters programmatically.  
-
-## Concepts
-
-### Dynamic manifests
-
-Media Services offers **Dynamic Manifests** based on pre-defined [filters](#filters). Once you define filters, your clients could use them to stream a specific rendition or sub-clips of your video. They would specify filter(s) in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming. 
-
-The following table shows some examples of URLs with filters:
-
-|Protocol|Example|
-|---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl,filter=myAccountFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3,filter=myAccountFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
+This ability to specify different filters on your stream, provides a powerful **Dynamic Manifest** manipulation solution to target multiple use-case scenarios for your target devices. This topic explains concepts related to **Dynamic Manifests** and gives examples of scenarios in which you might want to use this feature.
 
 > [!NOTE]
-> Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
+> Dynamic Manifests do not change the asset and the default manifest for that asset. 
 > 
-> 
 
-### Manifest files
+##  Overview of manifests
 
-When you encode an asset for adaptive bitrate streaming, a **manifest** (playlist) file is created (the file is text-based or XML-based). The **manifest** file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
-
-Here is an example of an HLS manifest file: 
-
-```
-#EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
-#EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
-QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d",URI="QualityLevels(380658)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015,mp4a.40.2",AUDIO="audio"
-QualityLevels(721426)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=884474,RESOLUTION=480x270,CODECS="avc1.640015",URI="QualityLevels(721426)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e,mp4a.40.2",AUDIO="audio"
-QualityLevels(1155246)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=1327838,RESOLUTION=640x360,CODECS="avc1.64001e",URI="QualityLevels(1155246)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f,mp4a.40.2",AUDIO="audio"
-QualityLevels(2218559)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=2414544,RESOLUTION=960x540,CODECS="avc1.64001f",URI="QualityLevels(2218559)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020,mp4a.40.2",AUDIO="audio"
-QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
-#EXT-X-I-FRAME-STREAM-INF:BANDWIDTH=3805301,RESOLUTION=1280x720,CODECS="avc1.640020",URI="QualityLevels(3579378)/Manifest(video,format=m3u8-aapl,type=keyframes)"
-#EXT-X-STREAM-INF:BANDWIDTH=139017,CODECS="mp4a.40.2",AUDIO="audio"
-QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
-```
+Azure Media Services supports HLS, MPEG DASH, and Smooth Streaming protocols. As part of [Dynamic Packaging](dynamic-packaging-overview.md), the streaming client manifests (HLS Master Playlist, DASH Media Presentation Description [MPD], and Smooth Streaming) are dynamically generated based on the format selector in the URL. See the delivery protocols in [Common on-demand workflow](dynamic-packaging-overview.md#delivery-protocols). 
 
 ### Get and examine manifest files
 
-You specify a list of filter track property conditions based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
+You specify a list of filter track property conditions based on which tracks of your stream (live or video on demand [VOD]) should be included in a dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
 
-The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md) tutorial shows you how to build the streaming URLs with .NET (see, the [building URLs](stream-files-tutorial-with-api.md#get-streaming-urls) section). If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/>Copy and paste the URL into the address bar of a browser. The file will be downloaded. You can open it in a text editor of your choice.
+The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md#get-streaming-urls) tutorial shows you how to build the streaming URLs with .NET. If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`.<br/> Copy and paste the URL into the address bar of a browser. The file will be downloaded. You can open it in a text editor of your choice.
 
-For the REST example, see [Upload, encode, and stream files with REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
+For a REST example, see [Upload, encode, and stream files with REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls).
 
 ### Monitor the bitrate of a video stream
 
-You can use the [Azure Media Player demo page](http://aka.ms/amp) to monitor the bitrate of a video stream. The demo page displays diagnostics info in the **Diagnostics** tab:
+You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) to monitor the bitrate of a video stream. The demo page displays diagnostics info on the **Diagnostics** tab:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
+ 
+### Examples: URLs with filters in query string
 
-## Defining filters
+You can apply filters to ABR streaming protocols: HLS, MPEG-DASH, and Smooth Streaming. The following table shows some examples of URLs with filters:
 
-There are two types of asset filters: 
-
-* [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
-* [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
-
-[Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters) types have exactly the same properties for defining/describing the filter. Except when creating the **Asset Filter**, you need to specify the asset name with which you want to associate the filter.
-
-Depending on your scenario, you decide what type of a filter is more suitable (Asset Filter or Account Filter). Account Filters are suitable for device profiles (rendition filtering) where Asset Filters could be used to trim a specific asset.
-
-You use the following properties to describe the filters. 
-
-|Name|Description|
+|Protocol|Example|
 |---|---|
-|firstQuality|The first quality bitrate of the filter.|
-|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more information, see [PresentationTimeRange](#PresentationTimeRange).|
-|tracks|The tracks selection conditions. For more information, see [tracks](#tracks)|
-
-### PresentationTimeRange
-
-Use this property with **Asset Filters**. It is not recommended to set the property with **Account Filters**.
-
-|Name|Description|
-|---|---|
-|**endTimestamp**|The absolute end time boundary. Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.<br/><br/>Also, see the **forceEndTimestamp** definition that follows.|
-|**forceEndTimestamp**|Applies to Live filters.<br/><br/>**forceEndTimestamp** is a boolean that indicates whether or not **endTimestamp** was set to a valid value. <br/><br/>If the value is **true**, the **endTimestamp** value should be specified. If it is not specified, then a bad request is returned.<br/><br/>If for example, you want to define a filter that starts at 5 minutes into the input video, and lasts until the end of the stream, you would set **forceEndTimestamp** to false and omit setting **endTimestamp**.|
-|**liveBackoffDuration**|Applies to Live only. The property is used to define live playback position. Using this rule, you can delay live playback position and create a server-side buffer for players. LiveBackoffDuration is relative to the live position. The maximum live backoff duration is 60 seconds.|
-|**presentationWindowDuration**|Applies to Live. Use **presentationWindowDuration** to apply a sliding window to the playlist. For example, set presentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist. The minimum presentation window duration is 120 seconds.|
-|**startTimestamp**|Applies to VoD or Live streams. The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use **startTimestamp** and **endTimestamp** to trim the playlist (manifest). For example, startTimestamp=40000000 and endTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|**timescale**|Applies to VoD or Live streams. The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used. Default is 10000000 HNS (hundred nanosecond).|
-
-### Tracks
-
-You specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
-
-Filter track property conditions describe track types, values (described in the following table), and operations (Equal, NotEqual). 
-
-|Name|Description|
-|---|---|
-|**Bitrate**|Use the bitrate of the track for filtering.<br/><br/>The recommended value is a range of bitrates, in bits per second. For example, "0-2427000".<br/><br/>Note: while you can use a specific bitrate value, like 250000 (bits per second), this approach is not recommended, as the exact bitrates can fluctuate from one Asset to another.|
-|**FourCC**|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in [RFC 6381](https://tools.ietf.org/html/rfc6381). Currently, the following codecs are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).|
-|**Language**|Use the language of the track for filtering.<br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, "en".|
-|**Name**|Use the name of the track for filtering.|
-|**Type**|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
-
-### Example
-
-```json
-{
-  "properties": {
-    "presentationTimeRange": {
-      "startTimestamp": 0,
-      "endTimestamp": 170000000,
-      "presentationWindowDuration": 9223372036854776000,
-      "liveBackoffDuration": 0,
-      "timescale": 10000000,
-      "forceEndTimestamp": false
-    },
-    "firstQuality": {
-      "bitrate": 128000
-    },
-    "tracks": [
-      {
-        "trackSelections": [
-          {
-            "property": "Type",
-            "operation": "Equal",
-            "value": "Audio"
-          },
-          {
-            "property": "Language",
-            "operation": "NotEqual",
-            "value": "en"
-          },
-          {
-            "property": "FourCC",
-            "operation": "NotEqual",
-            "value": "EC-3"
-          }
-        ]
-      },
-      {
-        "trackSelections": [
-          {
-            "property": "Type",
-            "operation": "Equal",
-            "value": "Video"
-          },
-          {
-            "property": "Bitrate",
-            "operation": "Equal",
-            "value": "3000000-5000000"
-          }
-        ]
-      }
-    ]
-  }
-}
-```
+|HLS|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=m3u8-aapl,filter=myAccountFilter)`|
+|MPEG DASH|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`https://amsv3account-usw22.streaming.media.azure.net/fecebb23-46f6-490d-8b70-203e86b0df58/bigbuckbunny.ism/manifest(filter=myAssetFilter)`|
 
 ## Rendition filtering
 
-You may choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates. However, not all client devices will support all your asset's profiles and bitrates. For example, older Android devices only support H.264 Baseline+AACL. Sending higher bitrates to a device, which cannot get the benefits, wastes bandwidth, and device computation. Such device must decode all the given information, only to scale it down for display.
+You can choose to encode your asset to multiple encoding profiles (H.264 Baseline, H.264 High, AACL, AACH, Dolby Digital Plus) and multiple quality bitrates. However, not all client devices will support all your asset's profiles and bitrates. For example, older Android devices support only H.264 Baseline+AACL. Sending higher bitrates to a device that can't get the benefits wastes bandwidth and device computation. Such a device must decode all the given information, only to scale it down for display.
 
-With Dynamic Manifest, you can create device profiles such as mobile, console, HD/SD, etc. and include the tracks and qualities, which you want to be a part of each profile.
+With Dynamic Manifest, you can create device profiles (such as mobile, console, or HD/SD) and include the tracks and qualities that you want to be a part of each profile. That's called rendition filtering. The following diagram shows an example of it.
 
-![Rendition filtering example][renditions2]
+![Example of rendition filtering][renditions2]
 
-In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, MPEG DASH, and Smooth.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1 Mbps, which resulted in the bottom two quality levels being stripped off in the response. In the bottom right, the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
+In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be [dynamically packaged](dynamic-packaging-overview.md) into any of the following streaming protocols: HLS, MPEG DASH, and Smooth. 
+
+The top of the following diagram shows the HLS manifest for the asset with no filters. (It contains all seven renditions.)  In the lower left, the diagram shows an HLS manifest to which a filter named "ott" was applied. The "ott" filter specifies the removal of all bitrates below 1 Mbps, so the bottom two quality levels were stripped off in the response. In the lower right, the diagram shows the HLS manifest to which a filter named "mobile" was applied. The "mobile" filter specifies the removal of renditions where the resolution is larger than 720p, so the two 1080p renditions were stripped off.
 
 ![Rendition filtering][renditions1]
 
 ## Removing language tracks
-Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection. It is challenging to develop such Player SDKs, it requires different implementations across device-specific player-frameworks. Also, on some platforms, Player APIs are limited and do not include audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
+Your assets might include multiple audio languages such as English, Spanish, French, etc. Usually, the Player SDK managers default audio track selection and available audio tracks per user selection.
 
-![Language tracks filtering][language_filter]
+Developing such Player SDKs is challenging, because it requires different implementations across device-specific player frameworks. Also, on some platforms, Player APIs are limited and do not include the audio selection feature where users cannot select or change the default audio track. With asset filters, you can control the behavior by creating filters that only include desired audio languages.
 
-## Trimming start of an asset
-In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily". If the program is archiving, the test and slate data are also archived and included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
+![Filtering of language tracks][language_filter]
+
+## Trimming the start of an asset
+
+In most live streaming events, operators run some tests before the actual event. For example, they might include a slate like this before the start of the event: "Program will begin momentarily." 
+
+If the program is archiving, the test and slate data are also archived and included in the presentation. However, this information should not be shown to the clients. With Dynamic Manifest, you can create a start time filter and remove the unwanted data from the manifest.
 
 ![Trimming start][trim_filter]
 
 ## Creating subclips (views) from a live archive
-Many live events are long running and live archive might include multiple events. After the live event ends, broadcasters may want to break up the live archive into logical program start and stop sequences. Next, publish these virtual programs separately without post processing the live archive and not creating separate assets (which does not get the benefit of the existing cached fragments in the CDNs). Examples of such virtual programs are the quarters of a football or basketball game, innings in baseball, or individual events of any sports program.
 
-With Dynamic Manifest, you can create filters using start/end times and create virtual views over the top of your live archive. 
+Many live events are long running and live archive might include multiple events. After the live event ends, broadcasters may want to break up the live archive into logical program start and stop sequences. 
+
+You can publish these virtual programs separately without post processing the live archive and not creating separate assets (which does not get the benefit of the existing cached fragments in the CDNs). Examples of such virtual programs are the quarters of a football or basketball game, innings in baseball, or individual events of any sports program.
+
+With Dynamic Manifest, you can create filters by using start/end times and create virtual views over the top of your live archive. 
 
 ![Subclip filter][subclip_filter]
 
-Filtered Asset:
+Here's the filtered asset:
 
 ![Skiing][skiing]
 
-## Adjusting Presentation Window (DVR)
-Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes - 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don't handle large DVR windows (you can have a 2-minute DVR window for mobile devices and one hour for desktop clients).
+## Adjusting the presentation window (DVR)
+
+Currently, Azure Media Services offers circular archive where the duration can be configured between 5 minutes and 25 hours. Manifest filtering can be used to create a rolling DVR window over the top of the archive, without deleting media. There are many scenarios where broadcasters want to provide a limited DVR window to move with the live edge and at the same time keep a bigger archiving window. A broadcaster may want to use the data that is out of the DVR window to highlight clips, or they may want to provide different DVR windows for different devices. For example, most of the mobile devices don't handle large DVR windows (you can have a 2-minute DVR window for mobile devices and 1 hour for desktop clients).
 
 ![DVR window][dvr_filter]
 
 ## Adjusting LiveBackoff (live position)
-Manifest filtering can be used to remove several seconds from the live edge of a live program. Filtering allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (backed-off by 30 seconds). Broadcasters can then push these advertisements to their client frameworks in time for them to received and process the information before the advertisement opportunity.
 
-In addition to the advertisement support, the LiveBackoff setting can be used to adjusting the viewers position so that when clients drift and hit the live edge they can still get fragments from server instead of getting an HTTP 404 or 412 error.
+Manifest filtering can be used to remove several seconds from the live edge of a live program. Filtering allows broadcasters to watch the presentation on the preview publication point and create advertisement insertion points before the viewers receive the stream (backed off by 30 seconds). Broadcasters can then push these advertisements to their client frameworks in time for them to receive and process the information before the advertisement opportunity.
 
-![livebackoff_filter][livebackoff_filter]
+In addition to the advertisement support, the live back-off setting can be used to adjust the viewers' position so that when clients drift and hit the live edge, they can still get fragments from the server. That way, clients won't get an HTTP 404 or 412 error.
+
+![Filter for live back-off][livebackoff_filter]
 
 ## Combining multiple rules in a single filter
-You can combine multiple filtering rules in a single filter. As an example you can define a "range rule" to remove slates from a live archive and also filter out available bitrates. When applying multiple filtering rules, the end result is the intersection of all rules.
 
-![multiple-rules][multiple-rules]
+You can combine multiple filtering rules in a single filter. As an example you can define a "range rule" to remove slates from a live archive and also filter out available bitrates. When you're applying multiple filtering rules, the end result is the intersection of all rules.
+
+![Multiple filtering rules][multiple-rules]
 
 ## Combining multiple filters (filter composition)
 
-You can also combine multiple filters in a single URL. 
+You can also combine multiple filters in a single URL. The following scenario demonstrates why you might want to combine filters:
 
-The following scenario demonstrates why you might want to combine filters:
+1. You need to filter your video qualities for mobile devices such as Android or iPad (in order to limit video qualities). To remove the unwanted qualities, you'll create an account filter suitable for the device profiles. You can use account filters for all your assets under the same Media Services account without any further association.
+1. You also want to trim the start and end time of an asset. To achieve this, you'll create an asset filter and set the start/end time. 
+1. You want to combine both of these filters. Without combination, you would need to add quality filtering to the trimming filter, which would make filter usage more difficult.
 
-1. You need to filter your video qualities for mobile devices such as Android or iPAD (in order to limit video qualities). To remove the unwanted qualities, you would create an Account filter suitable for the device profiles. Account filters can be used for all your assets under the same media services account without any further association. 
-2. You also want to trim the start and end time of an asset. To achieve this, you would create an Asset filter and set the start/end time. 
-3. You want to combine both of these filters (without combination, you need to add quality filtering to the trimming filter, which makes filter usage more difficult).
 
-To combine filters, you need to set the filter names to the manifest/playlist URL with semicolon delimited. Let’s assume you have a filter named *MyMobileDevice* that filters qualities and you have another named *MyStartTime* to set a specific start time. You can combine them like this:
+To combine filters, you need to set the filter names to the manifest/playlist URL in semicolon-delimited format. Let’s assume you have a filter named *MyMobileDevice* that filters qualities, and you have another named *MyStartTime* to set a specific start time. You can combine up to three filters. 
 
-You can combine up to three filters. 
-
-For more information, see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
+For more information, see [this blog post](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/).
 
 ## Considerations and limitations
 
-- The values for **forceEndTimestamp**, **presentationWindowDuration**, and **liveBackoffDuration** should not be set for a VoD filter. They are only used for live filter scenarios. 
-- Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
-- You can use same filter name for Account and Asset filters. Asset filters have higher precedence and will override Account filters.
-- If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
-- Customers need to manually download the manifest and parse the exact startTimestamp and time scale.
+- The values for **forceEndTimestamp**, **presentationWindowDuration**, and **liveBackoffDuration** should not be set for a VOD filter. They're used only for live filter scenarios. 
+-  A dynamic manifest operates in GOP boundaries (key frames), so trimming has GOP accuracy.
+-  You can use the same filter name for account and asset filters. Asset filters have higher precedence and will override account filters.
+- If you update a filter, it can take up to 2 minutes for the streaming endpoint to refresh the rules. If you used filters to serve the content (and you cached the content in proxies and CDN caches), updating these filters can result in player failures. We recommend that you clear the cache after updating the filter. If this option isn't possible, consider using a different filter.
+- Customers need to manually download the manifest and parse the exact start time stamp and time scale.
     
-    - To determine properties of the tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files).
-    - The formula to set the asset filter timestamp properties: <br/>startTimestamp = &lt;start time in the manifest&gt; +  &lt;expected filter start time in seconds&gt;*timescale
-
+    - To determine properties of the tracks in an asset, [get and examine the manifest file](#get-and-examine-manifest-files).
+    - The formula to set the asset filter time-stamp properties is: <br/>startTimestamp = &lt;start time in the manifest&gt; +  &lt;expected filter start time in seconds&gt; * timescale
 
 ## Next steps
 
-The following articles show how to create filters programmatically.  
+The following articles show how to create filters programmatically:  
 
 - [Create filters with REST APIs](filters-dynamic-manifest-rest-howto.md)
 - [Create filters with .NET](filters-dynamic-manifest-dotnet-howto.md)

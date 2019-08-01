@@ -2,17 +2,18 @@
 title: Edit your group information - Azure Active Directory | Microsoft Docs
 description: Instructions about how to edit your group's information using Azure Active Directory.
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: msaburnley
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"
+ms.collection: M365-identity-device-management
 ---
 
 # Edit your group information using Azure Active Directory
@@ -34,7 +35,7 @@ Using Azure Active Directory (Azure AD), you can edit a group's settings, includ
 
 4. Select the group **MDM policy - West**, and then select **Properties** from the **Manage** area.
 
-    ![Group Overview page with number and members and Member option highlighted](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
+    ![Group Overview page, with Member option and information highlighted](media/active-directory-groups-settings-azure-portal/group-overview-blade.png)
 
 5. Update the **General settings** information as needed, including:
 

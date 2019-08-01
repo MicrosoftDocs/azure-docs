@@ -17,7 +17,7 @@ U-SQL is a language that combines declarative SQL with imperative C# to let you 
 ## Learning resources
 
 * The [U-SQL Tutorial](https://aka.ms/usqltutorial) provides a guided walkthrough of most of the U-SQL language. This document is recommended reading for all developers wanting to learn U-SQL.
-* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](https://go.microsoft.com/fwlink/p/?LinkId=691348).
+* For detailed information about the **U-SQL language syntax**, see the [U-SQL Language Reference](https://docs.microsoft.com/u-sql/).
 * To understand the **U-SQL design philosophy**, see the Visual Studio blog post [Introducing U-SQL – A Language that makes Big Data Processing Easy](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 ## Prerequisites
@@ -112,7 +112,7 @@ Use **SELECT** to transform rowsets:
         TO "/output/SearchLog-transform-rowsets.csv"
         USING Outputters.Csv();
 
-The WHERE clause uses a [C# Boolean expression](https://msdn.microsoft.com/library/6a71f45d.aspx). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
+The WHERE clause uses a [C# Boolean expression](/dotnet/csharp/language-reference/operators/index). You can use the C# expression language to do your own expressions and functions. You can even perform more complex filtering by combining them with logical conjunctions (ANDs) and disjunctions (ORs).
 
 The following script uses the DateTime.Parse() method and a conjunction.
 
@@ -217,7 +217,7 @@ The U-SQL HAVING clause can be used to restrict the output to groups that satisf
         ORDER BY TotalDuration DESC
         USING Outputters.Csv();
 
-For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](https://msdn.microsoft.com/library/azure/mt621335.aspx)
+For advanced aggregation scenarios, see the U-SQL reference documentation for [aggregate, analytic, and reference functions](/u-sql/built-in-functions)
 
 ## Next steps
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

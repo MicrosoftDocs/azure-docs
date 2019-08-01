@@ -1,7 +1,6 @@
 ---
 title: Deep dive - advanced analytics - Azure HDInsight
 description: Learn how advanced analytics uses algorithms to process big data.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -51,10 +50,10 @@ Along with selecting the best-fitting algorithm(s), you need to consider whether
 
 HDInsight has several machine learning options for an advanced analytics workflow:
 
-* [Machine Learning and Apache Spark](#machine-learning-and-spark)
-* [R and ML Services](#r-and-r-server)
-* [Azure Machine Learning and Apache Hive](#azure-machine-learning-and-hive)
-* [Apache Spark and Deep learning](#spark-and-deep-learning)
+* Machine Learning and Apache Spark
+* R and ML Services
+* Azure Machine Learning and Apache Hive
+* Apache Spark and Deep learning
 
 ### Machine Learning and Apache Spark
 
@@ -128,6 +127,5 @@ Apache Spark and MLLib
 
 Deep Learning, Cognitive Toolkit, and others
 
-* [Embarrassingly parallel image classification, using Cognitive Toolkit and TensorFlow on Azure HDInsight Spark](https://blogs.technet.microsoft.com/machinelearning/2017/04/12/embarrassingly-parallel-image-classification-using-cognitive-toolkit-tensorflow-on-azure-hdinsight-spark/)
 * [Data Science Azure Virtual Machine](../../machine-learning/data-science-virtual-machine/overview.md)
 * [Introducing H2O.ai on Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

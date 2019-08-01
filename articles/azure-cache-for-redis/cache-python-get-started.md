@@ -1,38 +1,32 @@
 ---
 title: Quickstart to create a Python app that uses Azure Cache for Redis | Microsoft Docs
 description: In this quickstart, you learn how to create an Python App that uses Azure Cache for Redis
-services: azure-cache-for-redis
+services: cache
 documentationcenter: ''
-author: wesmc7777
-manager: cfowler
+author: yegu-ms
+manager: jhubbard
 editor: v-lincan
 
 ms.assetid: f186202c-fdad-4398-af8c-aee91ec96ba3
 ms.service: cache
 ms.devlang: python
-ms.topic: hero-article
-ms.tgt_pltfrm: azure-cache-for-redis
+ms.topic: conceptual
+ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.topic: quickstart
 ms.date: 05/11/2018
-ms.author: wesmc
+ms.author: yegu
 ms.custom: mvc
 #Customer intent: As a Python developer, new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
 # Quickstart: Use Azure Cache for Redis with Python
 
-
-## Introduction
-
-This quickstart shows how to connect to an Azure Cache for Redis with Python to read and write to a cache. 
-
-![Python test completed](./media/cache-python-get-started/cache-python-completed.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+In this quickstart, you incorporate Azure Cache for Redis into a Python app to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Prerequisites
 
-* [Python 2 or Python 3 environment](https://www.python.org/downloads/) installed with [pip](https://pypi.org/project/pip/). 
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- [Python 2 or 3](https://www.python.org/downloads/)
 
 ## Create an Azure Cache for Redis on Azure
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -43,9 +37,11 @@ This quickstart shows how to connect to an Azure Cache for Redis with Python to 
 
 [Redis-py](https://github.com/andymccurdy/redis-py) is a Python interface to Azure Cache for Redis. Use the Python packages tool, *pip*, to install the redis-py package. 
 
-The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2017 Developer Command prompt running with elevated Administrator privileges.
+The following example uses *pip3* for Python3 to install the redis-py package on Windows 10 using a Visual Studio 2019 Developer Command prompt running with elevated Administrator privileges.
 
+```python
     pip3 install redis
+```
 
 ![Install redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
@@ -64,6 +60,9 @@ True
 b'bar'
 ```
 
+> [!IMPORTANT]
+> For Redis version is 3.0 or higher, SSL certificate check is enforced. ssl_ca_certs must be explicitly set when connecting to Redis. In case of RH Linux, ssl_ca_certs can be found in the "/etc/pki/tls/certs/ca-bundle.crt" certificate module.
+
 ## Create a Python script
 
 Create a new script text file named *PythonApplication1.py*.
@@ -76,7 +75,8 @@ import redis
 myHostname = "<Your Host Name>.redis.cache.windows.net"
 myPassword = "<Your Access Key>"
 
-r = redis.StrictRedis(host=myHostname, port=6380,password=myPassword,ssl=True)
+r = redis.StrictRedis(host=myHostname, port=6380,
+                      password=myPassword, ssl=True)
 
 result = r.ping()
 print("Ping returned : " + str(result))
@@ -88,9 +88,9 @@ result = r.get("Message")
 print("GET Message returned : " + result.decode("utf-8"))
 
 result = r.client_list()
-print("CLIENT LIST returned : ") 
+print("CLIENT LIST returned : ")
 for c in result:
-	print("id : " + c['id'] + ", addr : " + c['addr'])
+    print("id : " + c['id'] + ", addr : " + c['addr'])
 ```
 
 Run the script with Python.
@@ -118,13 +118,10 @@ You will be asked to confirm the deletion of the resource group. Type the name o
 
 After a few moments, the resource group and all of its contained resources are deleted.
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
-
-
 
 <!--Image references-->
 [1]: ./media/cache-python-get-started/redis-cache-new-cache-menu.png

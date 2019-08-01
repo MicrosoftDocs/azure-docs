@@ -1,23 +1,19 @@
 ---
 title: Windows 10 roaming settings reference | Microsoft Docs
 description: A complete list of all the settings that will be roamed or backed up in Windows 10.
+
 services: active-directory
-keywords: enterprise state roaming, windows cloud
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
-editor: curtand
-
-ms.component: devices
-ms.assetid: 17cffc3e-2928-4235-91f7-a685bd6bdcbf
 ms.service: active-directory
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 10/25/2018
-ms.author: markvi
+ms.subservice: devices
+ms.topic: troubleshooting
+ms.date: 06/28/2019
 
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: na
+
+ms.collection: M365-identity-device-management
 ---
 # Windows 10 roaming settings reference
 The following is a complete list of all the settings that will be roamed or backed up in Windows 10. 
@@ -46,15 +42,15 @@ The following settings groups are available for end-users to enable/disable sett
 * Other Windows Settings: see Windows Settings details
 * Microsoft Edge browser setting: Microsoft Edge favorites, reading list, and other settings
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
+![Sync your settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
 Microsoft Edge browser setting group (favorites, reading list) syncing can be enabled or disabled by end users through Microsoft Edge browser Settings menu option.
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
+![Account](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-edge.png)
 
 For Windows 10 version 1803 or later, Internet Explorer setting group (favorites, typed URLs) syncing can be enabled or disabled by end users through Internet Explorer Settings menu option. 
 
-![](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
+![Settings](./media/enterprise-state-roaming-windows-settings-reference/active-directory-enterprise-state-roaming-ie.png)
 
 ## Windows Settings details
 In the following table, Other entries in the Settings Group column refers to settings that can be disabled by going to Settings > Accounts > Sync your settings > Other Windows settings. 
@@ -179,4 +175,3 @@ Minimum supported OS version of Windows Creators Update (Build 15063).
 ## Next steps
 
 For an overview, see [enterprise state roaming overview](enterprise-state-roaming-overview.md).
-

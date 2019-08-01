@@ -5,19 +5,19 @@ description: Learn about the program languages and related tools that are pre-in
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
@@ -142,7 +142,7 @@ The default Python environments on the DSVM are global environment readable by a
 | ------------- | ------------- |
 | Language versions Supported | Microsoft R Open 3.x (100% compatible with CRAN-R<br /> Microsoft R Server 9.x Developer edition (A Scalable Enterprise ready R platform)|
 | Supported DSVM Editions      | Linux, Windows     |
-| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| How is it configured / installed on the DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Links to Samples      | Sample Jupyter notebooks for R are included     |
 | Related Tools on the DSVM      | SparkR, Python, Julia      |
 ### How to use / run it?    
@@ -219,7 +219,7 @@ The default Julia location is a global environment readable by all users. But on
 Open terminal and just run `julia`. 
 * Using in an IDE
 
-Use `Juno` the Julia IDE installed on the DSVM and available as a Application menu shortcut.
+Use `Juno` the Julia IDE installed on the DSVM and available as an Application menu shortcut.
 
 * Using in Jupyter
 

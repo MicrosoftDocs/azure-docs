@@ -28,7 +28,7 @@ you can include logic app definitions as
 [Azure resources](../azure-resource-manager/resource-group-overview.md) 
 inside [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md#template-deployment). 
 To create, manage, and deploy logic apps, you can then use 
-[Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.logicapp), 
+[Azure PowerShell](https://docs.microsoft.com/powershell/module/az.logicapp), 
 [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md), 
 or the [Azure Logic Apps REST APIs](https://docs.microsoft.com/rest/api/logic/).
 
@@ -40,9 +40,9 @@ If you're new to logic apps, review
 [how to create your first logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 > [!NOTE]
-> Some Azure Logic Apps capabilities, such as defining 
-> parameters and multiple triggers in logic app definitions, 
-> are available only in JSON, not the Logic Apps Designer. 
+> Some Azure Logic Apps capabilities, such as defining
+> parameters and multiple triggers in logic app definitions,
+> are available only in JSON, not the Logic Apps Designer.
 > So for these tasks, you must work in Code View or another editor.
 
 ## Edit JSON - Azure portal
@@ -89,6 +89,9 @@ Select **Open With Logic App Designer**.
 
    ![Open logic app in a Visual Studio solution](./media/logic-apps-author-definitions/open-logic-app-designer.png)
 
+   > [!TIP]
+   > If you don't have this command in Visual Studio 2019, check that you have the latest updates for Visual Studio.
+
 4. At the bottom of the designer, choose **Code View**. 
 
    The Code View editor opens and shows 
@@ -100,128 +103,21 @@ choose **Design**.
 
 ## Parameters
 
-Parameters let you reuse values throughout your logic app 
-and are good for replacing values that you might change often. 
-For example, if you have an email address that you want use in multiple places, 
-you should define that email address as a parameter. 
+The deployment lifecycle usually has different environments for development, test, staging, and production. When you have values that you want to reuse throughout your logic app without hardcoding or that vary based on your deployment needs, you can create an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md) for your workflow definition so that you can also automate logic app deployment. 
 
-Parameters are also useful when you need to override parameters in different environments, 
-Learn more about [parameters for deployment](#deployment-parameters) and the 
-[REST API for Azure Logic Apps documentation](https://docs.microsoft.com/rest/api/logic).
+Follow these general steps to *parameterize*, or define and use parameters for, those values instead. You can then provide the values in a separate parameter file that passes those values to your template. That way, you can change those values more easily without having to update and redeploy your logic app. For full details, see [Overview: Automate deployment for logic apps with Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md).
 
-> [!NOTE]
-> Parameters are only available in code view.
+1. In your template, define template parameters and workflow definition parameters for accepting the values to use at deployment and runtime, respectively.
 
-In the [first example logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md), 
-you created a workflow that sends emails when new posts appear in a website's RSS feed. 
-The feed's URL is hardcoded, so this example shows how to replace the query value with a parameter so that you can change feed's URL more easily.
+   Template parameters are defined in a parameters section that's outside your workflow definition, while workflow definition parameters are defined in a parameters section that's inside your workflow definition.
 
-1. In code view, find the `parameters : {}` object, 
-and add a `currentFeedUrl` object:
+1. Replace the hardcoded values with expressions that reference these parameters. Template expressions use syntax that differs from workflow definition expressions.
 
-   ``` json
-	 "currentFeedUrl" : {
-      "type" : "string",
-			"defaultValue" : "http://rss.cnn.com/rss/cnn_topstories.rss"
-   }
-   ```
+   Avoid complicating your code by not using template expressions, which are evaluated at deployment, inside workflow definition expressions, which are evaluated at runtime. Use only template expressions outside your workflow definition. Use only workflow definition expressions inside your workflow definition.
 
-2. In the `When_a_feed-item_is_published` action, 
-find the `queries` section, and replace the query value 
-with `"feedUrl": "#@{parameters('currentFeedUrl')}"`. 
+   When you specify the values for your workflow definition parameters, you can reference template parameters by using the parameters section that's outside your workflow definition but still inside the resource definition for your logic app. That way, you can pass template parameter values into your workflow definition parameters.
 
-   **Before**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "https://s.ch9.ms/Feeds/RSS"
-       }
-   },   
-   ```
-
-   **After**
-   ``` json
-   }
-      "queries": {
-          "feedUrl": "#@{parameters('currentFeedUrl')}"
-       }
-   },   
-   ```
-
-   To join two or more strings, you can also use the `concat` function. 
-   For example, `"@concat('#',parameters('currentFeedUrl'))"` works the same 
-   as the previous example.
-
-3.	When you're done, choose **Save**. 
-
-Now you can change the website's RSS feed by passing a different URL 
-through the `currentFeedURL` object.
-
-<a name="deployment-parameters"></a>
-
-## Deployment parameters for different environments
-
-Usually, deployment lifecycles have environments for development, staging, and production. 
-For example, you might use the same logic app definition in all these environments 
-but use different databases. Likewise, you might want to use the same definition 
-across different regions for high availability but want each logic app instance 
-to use that region's database. 
-
-> [!NOTE] 
-> This scenario differs from taking parameters at *runtime* 
-> where you should use the `trigger()` function instead.
-
-Here's a basic definition:
-
-``` json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "uri": {
-            "type": "string"
-        }
-    },
-    "triggers": {
-        "request": {
-          "type": "request",
-          "kind": "http"
-        }
-    },
-    "actions": {
-        "readData": {
-            "type": "Http",
-            "inputs": {
-                "method": "GET",
-                "uri": "@parameters('uri')"
-            }
-        }
-    },
-    "outputs": {}
-}
-```
-In the actual `PUT` request for the logic apps, you can provide the parameter `uri`. 
-In each environment, you can provide a different value for the `connection` parameter. 
-Because a default value no longer exists, the logic app payload requires this parameter:
-
-``` json
-{
-    "properties": {},
-        "definition": {
-          /// Use the definition from above here
-        },
-        "parameters": {
-            "connection": {
-                "value": "https://my.connection.that.is.per.enviornment"
-            }
-        }
-    },
-    "location": "westus"
-}
-``` 
-
-To learn more, see the 
-[REST API for Azure Logic Apps documentation](https://docs.microsoft.com/rest/api/logic/).
+1. Store the values for your parameters in a separate [parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) and include that file with your deployment.
 
 ## Process strings with functions
 
@@ -230,7 +126,7 @@ For example, suppose you want to pass a company name from an order to another sy
 However, you're not sure about proper handling for character encoding. 
 You could perform base64 encoding on this string, but to avoid escapes in the URL, 
 you can replace several characters instead. Also, you only need a substring for 
-the company name because the first five characters are not used. 
+the company name because the first five characters are not used.
 
 ``` json
 {
@@ -257,7 +153,7 @@ the company name because the first five characters are not used.
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+        "uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
       }
     }
   },
@@ -268,8 +164,8 @@ the company name because the first five characters are not used.
 These steps describe how this example processes this string, 
 working from the inside to the outside:
 
-``` 
-"uri": "http://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
+```
+"uri": "https://www.example.com/?id=@{replace(replace(base64(substring(parameters('order').companyName,5,sub(length(parameters('order').companyName), 5) )),'+','-') ,'/' ,'_' )}"
 ```
 
 1. Get the [`length()`](../logic-apps/logic-apps-workflow-definition-language.md) 
@@ -292,7 +188,7 @@ all the `/` characters with `_` characters.
 
 To get different results based a property's value, 
 you can create a map that matches each property value to a result, 
-then use that map as a parameter. 
+then use that map as a parameter.
 
 For example, this workflow defines some categories as parameters 
 and a map that matches those categories with a specific URL. 
@@ -322,7 +218,7 @@ using square brackets: `parameters[...]`
     },
     "destinationMap": {
       "defaultValue": {
-        "science": "http://www.nasa.gov",
+        "science": "https://www.nasa.gov",
         "microsoft": "https://www.microsoft.com/en-us/default.aspx",
         "google": "https://www.google.com",
         "robots": "https://en.wikipedia.org/wiki/Robot",
@@ -342,7 +238,7 @@ using square brackets: `parameters[...]`
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=http://feeds.wired.com/wired/index"
+        "uri": "https://ajax.googleapis.com/ajax/services/feed/load?v=1.0&q=https://feeds.wired.com/wired/index"
       }
     },
     "forEachArticle": {
@@ -384,13 +280,13 @@ working from the inside to the outside:
 "expression": "@less(actions('order').startTime,addseconds(utcNow(),-1))",
 ```
 
-1. From the `order` action, extract the `startTime`. 
+1. From the `order` action, extract the `startTime`.
 2. Get the current time with `utcNow()`.
 3. Subtract one second:
 
    [`addseconds(..., -1)`](../logic-apps/logic-apps-workflow-definition-language.md) 
 
-   You can use other units of time, like `minutes` or `hours`. 
+   You can use other units of time, like `minutes` or `hours`.
 
 3. Now, you can compare these two values. 
 
@@ -425,7 +321,7 @@ Learn more about [date formatting](../logic-apps/logic-apps-workflow-definition-
       "type": "Http",
       "inputs": {
         "method": "GET",
-        "uri": "http://www.example.com/?id=@{parameters('order').id}"
+        "uri": "https://www.example.com/?id=@{parameters('order').id}"
       }
     },
     "ifTimingWarning": {
@@ -436,7 +332,7 @@ Learn more about [date formatting](../logic-apps/logic-apps-workflow-definition-
           "type": "Http",
           "inputs": {
             "method": "GET",
-            "uri": "http://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
+            "uri": "https://www.example.com/?recordLongOrderTime=@{parameters('order').id}&currentTime=@{utcNow('r')}"
           }
         }
       },
@@ -450,7 +346,6 @@ Learn more about [date formatting](../logic-apps/logic-apps-workflow-definition-
   "outputs": {}
 }
 ```
-
 
 ## Next steps
 

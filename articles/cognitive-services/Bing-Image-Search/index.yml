@@ -4,19 +4,19 @@ title: Bing Image Search API Documentation
 metadata:
   document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
   title: Bing Image Search API Documentation - Tutorials, quickstarts, API references | Microsoft Docs
-  description: Learn how to use Bing Image Search API to obtain images from the Web relevant to user queries. Tutorials show you how to build apps that use the service.
+  description: Learn how to use the Bing Image Search API to search the web for images. 
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
-  ms.component: bing-image-search
+  ms.subservice: bing-image-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 9/24/2018
+  ms.date: 7/25/2019
   ms.author: nitinme
 abstract:
-  description: Bing Image Search API provides an experience similar to Bing.com/images by returning images that Bing determines are relevant to a user's query.
+  description: The Bing Image Search API enables you to integrate Bing's image search capabilities in your applications. By sending user search queries with the API, you can get and display relevant and high-quality images similar to bing.com/images.  
 sections:
 - items:
     - type: list
@@ -28,35 +28,35 @@ sections:
           html: <p>Learn about the Bing Image Search API</p>
           image:
             src: ../media/index/i_overview.svg
-          title: What is Bing Image Search?
+          title: What is the Bing Image Search API?
         - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-sending-queries
-          html: <p>Learn how to send Image search queries to Bing</p>
+          html: <p>Learn how to send image search queries to the Bing Image Search API</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: Image Search queries
         - href: /azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images
-          html: <p>Understand the Image Search response</p>
+          html: <p>Understand the Bing Image Search API response</p>
           image:
             src: ../media/index/i_guidelines.svg
           title: Image Search response
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: 'Get started using the Bing Image Search API by making a query and viewing the JSON response:'
+    text: 'Search the web for images using:'
   - type: list
     style: icon48
     items:
       - image:
           src: media/index/logo_csharp.svg
-        href: quickstarts/csharp
+        href: image-search-sdk-quickstart
         text: "C&#35;"
       - image:
           src: media/index/logo_java.svg
-        href: quickstarts/java
+        href: image-sdk-java-quickstart
         text: "Java"
       - image:
           src: media/index/logo_nodejs.svg
-        href: quickstarts/nodejs
+        href: image-search-sdk-node-quickstart
         text: "Node.js"
       - image:
           src: media/index/logo_php.svg
@@ -64,7 +64,7 @@ sections:
         text: "PHP"
       - image:
           src: media/index/logo_python.svg
-        href: quickstarts/python
+        href: image-sdk-python-quickstart
         text: "Python"
       - image:
           src: media/index/logo_ruby.svg
@@ -94,14 +94,14 @@ sections:
     className: cardsD
     items:
     - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference/">Bing Image Search API v5</p>
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference">Bing Image Search API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v5-reference/">Bing Image Search API v5</p>
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-dotnet">.NET</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/imagesearch?view=azure-java-stable">Java</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingimagesearch?view=azure-java-stable">Java</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/imagesearch?view=azure-python">Python</a></p>
-            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/imagesearch?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-imagesearch?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/imagesearch">Go</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

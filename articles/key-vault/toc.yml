@@ -17,6 +17,9 @@
     href: quick-create-net.md
   - name: Set and retrieve a secret - Node.js
     href: quick-create-node.md
+  - name: Set and retrieve a secret - Resource Manager Template
+    displayName: resource manager, resource manager template, arm
+    href: quick-create-template.md
 - name: Tutorials
   items:
   - name: Azure Web Apps
@@ -37,6 +40,12 @@
           href: tutorial-net-windows-virtual-machine.md
         - name: Python
           href: tutorial-python-windows-virtual-machine.md
+  - name: Storage Account Keys 
+    items:
+      - name: Managed storage account keys using Azure CLI
+        href: key-vault-ovw-storage-keys.md
+      - name: Managed storage account keys using PowerShell
+        href: key-vault-overview-storage-keys-powershell.md
   - name: Azure Containers
     href: ../container-instances/container-instances-managed-identity.md
   - name: Azure Resource Manager Template
@@ -49,18 +58,20 @@
     href: https://azure.microsoft.com/resources/samples/?service=key-vault
 - name: Concepts
   items:
+  - name: Security
+    items: 
+      - name: Security overview
+        href: overview-security.md
+      - name: Common security attributes
+        href: key-vault-security-attributes.md
+      - name: Security worlds
+        href: key-vault-ovw-security-worlds.md
+      - name: Secure your key vault
+        href: key-vault-secure-your-key-vault.md
   - name: What is Key Vault?
     href: key-vault-whatis.md
-  - name: Secure your key vault
-    href: key-vault-secure-your-key-vault.md
-  - name: Security worlds
-    href: key-vault-ovw-security-worlds.md
   - name: Soft-delete
     href: key-vault-ovw-soft-delete.md
-  - name: Managed storage account keys - Azure CLI
-    href: key-vault-ovw-storage-keys.md
-  - name: Managed storage account keys - PowerShell
-    href: key-vault-overview-storage-keys-powershell.md
   - name: Throttling
     href: key-vault-ovw-throttling.md
   - name: Virtual Network Service Endpoints
@@ -69,15 +80,18 @@
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
     href: common-parameters-and-headers.md
-  - name: About keys, secrets and certificates
-    href: about-keys-secrets-and-certificates.md
+  - name: Certificates
     items:
+    - name: About keys, secrets and certificates
+      href: about-keys-secrets-and-certificates.md
     - name: Get started with certificates
       href: certificate-scenarios.md
     - name: Certificate creation methods
       href: create-certificate.md
     - name: Monitor and manage certificate creation
       href: create-certificate-scenarios.md
+  - name: Azure Common Security Attributes
+    href: key-vault-security-attributes.md  
 - name: How-to guides
   items:
   - name: Azure Key Vault logging
@@ -98,10 +112,14 @@
     href: key-vault-group-permissions-for-apps.md
   - name: Configure firewalls and virtual networks
     href: key-vault-network-security.md
+  - name: Java development
+    items:
+    - name: Use the Spring Boot Starter
+      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.keyvault
+    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
   - name: Azure CLI
     href: /cli/azure/keyvault
   - name: .NET
@@ -114,6 +132,10 @@
     href: /python/api/overview/azure/key-vault?view=azure-python
   - name: REST
     href: /rest/api/keyvault
+  - name: Best Practices
+    href: key-vault-best-practices.md
+  - name: Resource Manager template
+    href: /azure/templates/microsoft.keyvault/allversions
   - name: Authentication, requests and responses
     href: authentication-requests-and-responses.md
   - name: Common parameters and headers
@@ -142,8 +164,6 @@
     href: common-parameters-and-headers.md
   - name: Customer Data 
     href: key-vault-customer-data.md
-  - name: Release Notes
-    href: key-vault-versions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/key-vault/
   - name: Region availability
@@ -157,7 +177,7 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=key-vault
   - name: Blog
-    href: http://blogs.technet.com/b/kv/
-- name: Product Feedback
-  href: https://feedback.azure.com/forums/906355-azure-key-vault
+    href: https://blogs.technet.com/b/kv/
+  - name: Product Feedback
+    href: https://feedback.azure.com/forums/906355-azure-key-vault
 

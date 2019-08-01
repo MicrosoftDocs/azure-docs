@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -33,7 +33,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-1. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
+1. In the **New** page, under **Popular**, select **Windows Server 2016 Datacenter**.
 
 1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type *myResourceGroup* for the name. 
 
@@ -91,7 +91,7 @@ In the portal, select the VM and in the overview of the VM, use the **Click to c
 
 ## Clean up resources
 
-When no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine, select **Delete**, then confirm the name of the resource group to delete.
+When no longer needed, you can delete the resource group, virtual machine, and all related resources. Select the resource group for the virtual machine, then select **Delete**. Confirm the name of the resource group to finish deleting the resources.
 
 ## Next steps
 

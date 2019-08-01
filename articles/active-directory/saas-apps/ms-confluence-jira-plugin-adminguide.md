@@ -4,7 +4,7 @@ description: Admin guide to use Atlassian Jira and Confluence with Azure Active 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: joflore
 
 ms.service: active-directory
@@ -15,6 +15,7 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Atlassian Jira and Confluence admin guide for Azure Active Directory
 
@@ -105,33 +106,33 @@ The following image shows the configuration screen in both Jira and Confluence:
 
 ![Plug-in configuration screen](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata URL**: The URL to get federation metadata from Azure AD.
+* **Metadata URL**: The URL to get federation metadata from Azure AD.
 
-*   **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/.
+* **Identifiers**: The URL that Azure AD uses to validate the source of the request. It maps to the **Identifier** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/.
 
-*   **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/plugins/servlet/saml/auth.
+* **Reply URL**: The reply URL in your identity provider (IdP) that initiates the SAML sign-in. It maps to the **Reply URL** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
-*   **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*<domain:port>*/plugins/servlet/saml/auth.
+* **Sign On URL**: The sign-on URL in your IdP that initiates the SAML sign-in. It maps to the **Sign On** element in Azure AD. The plug-in automatically derives this URL as https://*\<domain:port>*/plugins/servlet/saml/auth.
 
-*   **IdP Entity ID**: The entity ID that your IdP uses. This box is populated when the metadata URL is resolved.
+* **IdP Entity ID**: The entity ID that your IdP uses. This box is populated when the metadata URL is resolved.
 
-*   **Login URL**: The sign-in URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
+* **Login URL**: The sign-in URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
 
-*   **Logout URL**: The logout URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
+* **Logout URL**: The logout URL from your IdP. This box is populated from Azure AD when the metadata URL is resolved.
 
-*   **X.509 Certificate**: Your IdP’s X.509 certificate. This box is populated from Azure AD when the metadata URL is resolved.
+* **X.509 Certificate**: Your IdP’s X.509 certificate. This box is populated from Azure AD when the metadata URL is resolved.
 
-*   **Login Button Name**: The name of the sign-in button that your organization wants users to see on the sign-in page.
+* **Login Button Name**: The name of the sign-in button that your organization wants users to see on the sign-in page.
 
-*   **SAML User ID Locations**: The location where the Jira or Confluence user ID is expected in the SAML response. It can be in **NameID** or in a custom attribute name.
+* **SAML User ID Locations**: The location where the Jira or Confluence user ID is expected in the SAML response. It can be in **NameID** or in a custom attribute name.
 
-*   **Attribute Name**: The name of the attribute where the user ID is expected.
+* **Attribute Name**: The name of the attribute where the user ID is expected.
 
-*   **Enable Home Realm Discovery**: The selection to make if the company is using Active Directory Federation Services (AD FS)-based sign-in.
+* **Enable Home Realm Discovery**: The selection to make if the company is using Active Directory Federation Services (AD FS)-based sign-in.
 
-*   **Domain Name**: The domain name if sign-in is AD FS based.
+* **Domain Name**: The domain name if sign-in is AD FS based.
 
-*   **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
+* **Enable Single Signout**: The selection to make if you want to sign out from Azure AD when a user signs out from Jira or Confluence.
 
 ## Troubleshooting
 

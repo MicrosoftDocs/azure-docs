@@ -6,14 +6,14 @@ metadata:
   title: Bing Local Business Search API Documentation
   description: The Bing Local Business Search API is a RESTful service that enables your applications to find local businesses based on search queries.
   services: cognitive-services
-  author: mikedodaro
-  manager: rosh
-  ms.component: bing-local-business
+  author: aahill
+  manager: nitinme
+  ms.subservice: bing-local-business
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 08/02/2018
-  ms.author: rosh, v-gedod
+  ms.author: rosh
 abstract:
   description: The Bing Local Business Search API enables your applications to find contact and location information about local businesses based on search queries.
 sections:
@@ -51,7 +51,7 @@ sections:
         <p><a href="local-search-reference.md">REST API reference</a></p>
     - title: PowerShell
       html: |
-        <p><a href=https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+        <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
       html: |
-        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p> 
+        <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p> 

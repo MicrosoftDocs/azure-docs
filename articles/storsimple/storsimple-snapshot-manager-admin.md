@@ -44,7 +44,7 @@ You can use the StorSimple Snapshot Manager to monitor and manage current, sched
 
 | IF YOU WANT TO DO THIS... | USE THIS TUTORIAL... |
 |:--- |:--- |
-| Learn more about StorSimple Snapshot Manager |[What is StorSimple Snapshot Manager? ](storsimple-what-is-snapshot-manager.md) |
+| Learn more about StorSimple Snapshot Manager |[What is StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md) |
 | Install StorSimple Snapshot Manager<br>Reinstall StorSimple Snapshot Manager<br>Remove StorSimple Snapshot Manager |[Deploy StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md) |
 | Use StorSimple Snapshot Manager menus and features:<ul><li>Menu bar</li><li>Tool bar</li><li>Scope pane</li><li>Results pane</li><li>Actions pane</li><li>Keyboard navigation and shortcuts</li></ul> |[StorSimple Snapshot Manager user interface](storsimple-use-snapshot-manager.md) |
 | Use the common MMC features included in StorSimple Snapshot Manager:<ul><li>View</li><li>New Window from Here</li><li>Refresh</li><li>Export List</li><li>Help</li></ul> |[Use the MMC menu actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md) |

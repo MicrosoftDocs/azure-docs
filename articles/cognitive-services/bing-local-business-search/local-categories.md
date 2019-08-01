@@ -1,16 +1,14 @@
 ---
-title: Search categories for the Bing Local Business Search API | Microsoft Docs
+title: Search categories for the Bing Local Business Search API
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to specify search categories for the Bing Local Business search API endpoint.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Search categories for the Bing Local Business Search API
@@ -95,7 +93,7 @@ The following query limits the number of 'hospital' results to first three retur
 
 The following example JSON response includes three hospitals in the greater Seattle area:
 
-````json
+```json
 BingAPIs-TraceId: 68AFB51807C6485CAB8AAF20E232EFFF
 BingAPIs-SessionId: F89E7B8539B34BF58AAF811485E83B20
 X-MSEdge-ClientID: 1C44E64DBFAA6BCA1270EADDBE7D6A22
@@ -210,7 +208,7 @@ X-MSEdge-Ref: Ref A: 68AFB51807C6485CAB8AAF20E232EFFF Ref B: CO1EDGE0108 Ref C: 
       }
    }
 }
-````
+```
 
 ## Next steps
 - [Geographic search boundaries](specify-geographic-search.md)

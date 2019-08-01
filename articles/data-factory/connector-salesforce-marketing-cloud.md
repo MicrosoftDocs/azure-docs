@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 06/10/2019
 ms.author: jingwang
 
 ---
@@ -27,7 +27,10 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 
 You can copy data from Salesforce Marketing Cloud to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
-Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+The Salesforce Marketing Cloud connector supports OAuth 2 authentication. It is built on top of the [Salesforce Marketing Cloud REST API](https://developer.salesforce.com/docs/atlas.en-us.mc-apis.meta/mc-apis/index-api.htm).
+
+>[!NOTE]
+>This connector doesn't support retrieving custom objects or custom data extensions.
 
 ## Getting started
 
@@ -43,7 +46,7 @@ The following properties are supported for Salesforce Marketing Cloud linked ser
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SalesforceMarketingCloud** | Yes |
 | clientId | The client ID associated with the Salesforce Marketing Cloud application.  | Yes |
-| clientSecret | The client secret associated with the Salesforce Marketing Cloud application. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy acitivty pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
+| clientSecret | The client secret associated with the Salesforce Marketing Cloud application. You can choose to mark this field as a SecureString to store it securely in ADF, or store password in Azure Key Vault and let ADF copy activity pull from there when performing data copy - learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
 | useHostVerification | Specifies whether to require the host name in the server's certificate to match the host name of the server when connecting over SSL. The default value is true.  | No |
 | usePeerVerification | Specifies whether to verify the identity of the server when connecting over SSL. The default value is true.  | No |

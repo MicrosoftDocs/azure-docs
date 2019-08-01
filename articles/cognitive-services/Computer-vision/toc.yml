@@ -53,7 +53,17 @@
         href: QuickStarts/python-thumb.md
       - name: Ruby
         href: QuickStarts/ruby-thumb.md
-    - name: Extract printed text
+    - name: Extract text (Read API)
+      items:
+      - name: C#
+        href: QuickStarts/CSharp-hand-text.md
+      - name: Java
+        href: QuickStarts/java-hand-text.md
+      - name: JavaScript
+        href: QuickStarts/javascript-hand-text.md
+      - name: Python
+        href: QuickStarts/python-hand-text.md
+    - name: Extract printed text (OCR)
       items:
       - name: C#
         href: QuickStarts/CSharp-print-text.md
@@ -73,16 +83,6 @@
         href: QuickStarts/python-print-text.md
       - name: Ruby
         href: QuickStarts/ruby-print-text.md
-    - name: Extract handwritten text
-      items:
-      - name: C#
-        href: QuickStarts/CSharp-hand-text.md
-      - name: Java
-        href: QuickStarts/java-hand-text.md
-      - name: JavaScript
-        href: QuickStarts/javascript-hand-text.md
-      - name: Python
-        href: QuickStarts/python-hand-text.md
     - name: Use a domain model
       items:
       - name: PHP
@@ -97,16 +97,20 @@
       href: quickstarts-sdk/csharp-thumb-sdk.md
     - name: Extract text
       href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: Using the Python SDK
+    href: quickstarts-sdk/python-sdk.md
 - name: Tutorials
   items:
-  - name: Build an image processing app
-    href: Tutorials/CSharpTutorial.md
+  - name: Generate metadata for images
+    href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
   - name: Tagging images
     href: concept-tagging-images.md
   - name: Detecting objects
     href: concept-object-detection.md
+  - name: Detecting brands
+    href: concept-brand-detection.md
   - name: Categorizing images
     href: concept-categorizing-images.md
   - name: Describing images
@@ -121,9 +125,7 @@
     href: concept-detecting-color-schemes.md
   - name: Generating thumbnails
     href: concept-generating-thumbnails.md
-  - name: Extracting text with OCR
-    href: concept-extracting-text-ocr.md
-  - name: Recognizing printed and handwritten text
+  - name: Recognize printed and handwritten text
     href: concept-recognizing-text.md
   - name: Detecting adult and racy content
     href: concept-detecting-adult-content.md
@@ -135,10 +137,6 @@
       href: Tutorials/java-tutorial.md
     - name: JavaScript
       href: Tutorials/javascript-tutorial.md
-    - name: Python
-      href: Tutorials/PythonTutorial.md
-  - name: Obtain subscription keys
-    href: Vision-API-How-to-Topics/HowToSubscribe.md
   - name: Call the Computer Vision API
     href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
   - name: Use containers
@@ -147,6 +145,8 @@
       href: computer-vision-how-to-install-containers.md
     - name: Configure containers
       href: computer-vision-resource-container-config.md
+    - name: Use container instances
+      href: deploy-computer-vision-on-container-instances.md
   - name: Use the Computer Vision Connected Service
     href: vs-computer-vision-connected-service.md
   - name: Analyze videos in real time
@@ -177,19 +177,27 @@
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: Resources
   items: 
-  - name: Samples
-    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Samples  
+    items:  
+    - name: Explore an image processing app
+      href: Tutorials/CSharpTutorial.md
+    - name: Other Computer Vision samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: FAQ
     href: FAQ.md
+  - name: Category taxonomy
+    href: Category-Taxonomy.md
+  - name: Language support
+    href: language-support.md
   - name: Pricing and limits
     href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
-  - name: Category taxonomy
-    href: Category-Taxonomy.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
     href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Compliance
+    href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/

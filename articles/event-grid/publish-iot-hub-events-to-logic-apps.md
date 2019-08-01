@@ -158,14 +158,14 @@ In this section, you configure your IoT Hub to publish events as they occur.
    ![Create new event subscription](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Create the event subscription with the following values: 
-    * **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
-    * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
+   * **Event Type**: Uncheck Subscribe to all event types and select **Device Created** from the menu.
+   * **Endpoint Details**: Select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-    ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![select endpoint url](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
+   * **Event Subscription Details**: Provide a descriptive name and select **Event Grid Schema**
 
-  When you're done, the form should look like the following example: 
+   When you're done, the form should look like the following example: 
 
     ![Sample event subscription form](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -173,8 +173,8 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 6. Create the following filters:
 
-  * **Subject Begins With**: Enter `devices/Building1_` to filter for device events in building 1.
-  * **Subject Ends With**: Enter `_Temperature` to filter for device events related to temperature.
+   * **Subject Begins With**: Enter `devices/Building1_` to filter for device events in building 1.
+   * **Subject Ends With**: Enter `_Temperature` to filter for device events related to temperature.
 
 5. Select **Create** to save the event subscription.
 

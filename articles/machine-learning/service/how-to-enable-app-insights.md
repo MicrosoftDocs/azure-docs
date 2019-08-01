@@ -1,16 +1,16 @@
 ---
-title: Monitor models with Application Insights
+title: Set up Azure Application Insights to monitor ML models
 titleSuffix: Azure Machine Learning service
-description: Use Application Insights to monitor web services deployed through Azure Machine Learning service 
+description: Monitor web services deployed with Azure Machine Learning service using Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 10/01/2018
-ms.custom: seodec18
+ms.date: 07/12/2019
+ms.custom: seoapril2019
 ---
 # Monitor your Azure Machine Learning models with Application Insights
 
@@ -24,13 +24,13 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 
 ## Prerequisites
 
-* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree) today.
+* If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS) or Azure Container Instance (ACI). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 
 
-## Enable and disable from the SDK
+## Use SDK to configure 
 
 ### Update a deployed service
 1. Identify the service in your workspace. The value for `ws` is the name of your workspace.
@@ -71,7 +71,7 @@ To disable Application Insights, use the following code:
 <service_name>.update(enable_app_insights=False)
 ```
 	
-## Enable and disable in the portal
+## Use portal to configure
 
 You can enable and disable Application Insights in the Azure portal.
 
@@ -125,13 +125,11 @@ To learn more about how to use Application Insights, see [What is Application In
 
 ## Example notebook
 
-The [how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article. 
+The [enable-app-insights-in-production-service.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) notebook demonstrates concepts in this article. 
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 
 ## Next steps
 You can also collect data on your models in production. Read the article  [Collect data for models in production](how-to-enable-data-collection.md). 
 
-
-## Other references
-* [Azure Monitor for containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+Also read [Azure Monitor for containers](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

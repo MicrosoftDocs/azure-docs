@@ -4,11 +4,11 @@ description: Storing and using Service Fabric Mesh Secrets.
 services: service-fabric-mesh
 keywords: secrets
 author: v-steg
-ms.author: v-steg
+ms.author: jeconnoc
 ms.date: 10/25/2018
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.service: service-fabric-mesh
-manager: jeanpaul.connock
+manager: jeconnoc
 #Customer intent: As a developer, I need to securely deploy Secrets to my Service Fabric Mesh application.
 ---
 
@@ -21,10 +21,6 @@ Service Fabric Mesh supports Secrets as Azure resources. A Service Fabric Mesh s
 A Mesh application Secret consists of:
 * A **Secrets** resource, which is a container that stores text secrets. Secrets contained within the **Secrets** resource are stored and transmitted securely.
 * One or more **Secrets/Values** resources that are stored in the **Secrets** resource container. Each **Secrets/Values** resource is distinguished by a version number.
-
-## Inline or stored in Azure Key Vault
-- Mesh applications and service resources include Managed Service Identity (MSI) with Azure Active Directory (AAD) in order to be able to access Secrets in Azure Key Vault.
-- Secrets and certificates can be auto rolled-over with policies.
 
 ## Next steps 
 To learn more about Service Fabric Mesh Secrets, see:

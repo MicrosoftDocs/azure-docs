@@ -1,22 +1,23 @@
 ---
-title: "Quickstart: Analyze text content for objectionable material in C#"
-titlesuffix: Azure Cognitive Services
-description: How to analyze text content for various objectionable material using the Content Moderator SDK for .NET
+title: "Quickstart: Analyze text content in C# - Content Moderator"
+titleSuffix: Azure Cognitive Services
+description: How to analyze text content for various objectionable materials using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 07/03/2019
 ms.author: sajagtap
+
 #As a C# developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Analyze text content for objectionable material in C# 
+# Quickstart: Analyze text content for objectionable material in C#
 
-This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You'll learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -32,9 +33,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. In Visual Studio, create a new **Console app (.NET Framework)** project and name it **TextModeration**. 
 1. If there are other projects in your solution, select this one as the single startup project.
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
-    - Microsoft.Azure.CognitiveServices.ContentModerator
-    - Microsoft.Rest.ClientRuntime
-    - Newtonsoft.Json
+    - `Microsoft.Azure.CognitiveServices.ContentModerator`
+    - `Microsoft.Rest.ClientRuntime`
+    - `Newtonsoft.Json`
 
 ## Add text moderation code
 
@@ -54,11 +55,11 @@ Add the following code to your *Program.cs* file to create a Content Moderator c
 
 ### Set up input and output targets
 
-Add the following static fields to the **Program** class in _Program.cs_. These specify the files for input text content and output JSON content.
+Add the following static fields to the **Program** class in _Program.cs_. These fields specify the files for input text content and output JSON content.
 
 [!code-csharp[](~/cognitive-services-content-moderator-samples/documentation-samples/csharp/text-moderation-quickstart-dotnet.cs?range=15-19)]
 
-You will need to create the *TextFile.txt* input file and update its path accordingly (relative paths are relative to the execution directory). Open _TextFile.txt_ and add the text to moderate. This quickstart uses the following sample text:
+You will need to create the *TextFile.txt* input file and update its path (paths are relative to the execution directory). Open _TextFile.txt_ and add the text to moderate. This quickstart uses the following sample text:
 
 ```
 Is this a grabage or crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
@@ -71,7 +72,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Add the following code to the **Main** method. The **ScreenText** method is the essential operation. Its parameters specify which content moderation operations will be done. In this example, the method is configured to:
 - Detect potential profanity in the text.
 - Normalize the text and autocorrect typos.
-- Detect personally identifiable information (PII) such as US and UK phone numbers, email addresses, and US mailing addresses.
+- Detect personal data such as US and UK phone numbers, email addresses, and US mailing addresses.
 - Use machine-learning-based models to classify the text into three categories.
 
 If you want to learn more about what these operations do, follow the link in the [Next steps](#next-steps) section.

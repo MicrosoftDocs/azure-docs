@@ -3,9 +3,9 @@ title: Azure Service Fabric cluster scaling | Microsoft Docs
 description: Learn about scaling Azure Service Fabric clusters in or out and up or down.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: aljo
+author: athinanthny
+manager: chackdan
+
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # Scaling Azure Service Fabric clusters
@@ -43,7 +43,7 @@ Since the Service Fabric node types in your cluster are made up of virtual machi
 ### Programmatic scaling
 In many scenarios, [Scaling a cluster manually or with autoscale rules](service-fabric-cluster-scale-up-down.md) are good solutions. For more advanced scenarios, though, they may not be the right fit. Potential drawbacks to these approaches include:
 
-- Manually scaling requires you to log in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
+- Manually scaling requires you to sign in and explicitly request scaling operations. If scaling operations are required frequently or at unpredictable times, this approach may not be a good solution.
 - When auto-scale rules remove an instance from a virtual machine scale set, they do not automatically remove knowledge of that node from the associated Service Fabric cluster unless the node type has a durability level of Silver or Gold. Because auto-scale rules work at the scale set level (rather than at the Service Fabric level), auto-scale rules can remove Service Fabric nodes without shutting them down gracefully. This rude node removal will leave 'ghost' Service Fabric node state behind after scale-in operations. An individual (or a service) would need to periodically clean up removed node state in the Service Fabric cluster.
 - A node type with a durability level of Gold or Silver automatically cleans up removed nodes, so no additional clean-up is needed.
 - Although there are [many metrics](../azure-monitor/platform/autoscale-common-metrics.md) supported by auto-scale rules, it is still a limited set. If your scenario calls for scaling based on some metric not covered in that set, then auto-scale rules may not be a good option.
@@ -77,7 +77,7 @@ When scaling an Azure cluster, keep the following guideline in mind:
 The process of scaling a node type up or down is different depending on whether it is a non-primary or primary node type.
 
 ### Scaling non-primary node types
-Create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommisioned.
+Create a new node type with the resources you need.  Update the placement constraints of running services to include the new node type.  Gradually (one at a time), reduce the instance count of the old node type instance count to zero so that the reliability of the cluster is not affected.  Services will gradually migrate to the new node type as the old node type is decommissioned.
 
 ### Scaling the primary node type
 We recommend that you do not change the VM SKU of the primary node type. If you need more cluster capacity, we recommend adding more instances. 
@@ -88,5 +88,5 @@ If that not possible, you can create a new cluster and [restore application stat
 * Learn about [application scalability](service-fabric-concepts-scalability.md).
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
-* [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Scale a standalone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

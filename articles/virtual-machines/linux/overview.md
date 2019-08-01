@@ -4,7 +4,7 @@ description: Describes Azure Compute, Storage, and Networking services with Linu
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: rickstercdn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 7965a80f-ea24-4cc2-bc43-60b574101902
@@ -55,7 +55,7 @@ To achieve a proper DevOps culture, all infrastructure must be code.  When all t
 * [Azure Templates](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure is rolling out support for [cloud-init](http://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by Red Hat do not currently have cloud-init installed.  To use cloud-init on a Red Hat family OS, you must create a custom image with cloud-init installed.
+Azure is rolling out support for [cloud-init](https://cloud-init.io/) across most Linux Distros that support it.  Currently Canonical's Ubuntu VMs are deployed with cloud-init enabled by default.  Red Hat's RHEL, CentOS, and Fedora support cloud-init, however the Azure images maintained by Red Hat do not currently have cloud-init installed.  To use cloud-init on a Red Hat family OS, you must create a custom image with cloud-init installed.
 
 * [Using cloud-init on Azure Linux VMs](using-cloud-init.md)
 
@@ -68,7 +68,7 @@ Each Azure Subscription has default quota limits in place that could impact the 
 Microsoft works closely with partners to ensure the images available are updated and optimized for an Azure runtime.  For more information on Azure partners, see the following links:
 
 * Linux on Azure - [Endorsed Distributions](endorsed-distros.md)
-* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
+* SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES?tab=Overview)
 * Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)

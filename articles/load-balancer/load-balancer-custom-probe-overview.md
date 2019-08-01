@@ -4,15 +4,16 @@ titlesuffix: Azure Load Balancer
 description: Learn how to use health probes to monitor instances behind Load Balancer
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
+manager: twooley
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/14/2018
-ms.author: kumud
+ms.date: 05/07/2019
+ms.author: allensu
 ---
 
 # Load Balancer health probes
@@ -24,7 +25,7 @@ Health probes support multiple protocols. The availability of a specific type of
 | | Standard SKU | Basic SKU |
 | --- | --- | --- |
 | [Probe types](#types) | TCP, HTTP, HTTPS | TCP, HTTP |
-| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows terminate. | 
+| [Probe down behavior](#probedown) | All probes down, all TCP flows continue. | All probes down, all TCP flows expire. | 
 
 > [!IMPORTANT]
 > Load Balancer health probes originate from the IP address 168.63.129.16 and must not be blocked for probes to mark up your instance.  Review [probe source IP address](#probesource) for details.
@@ -172,7 +173,7 @@ Load Balancer uses a distributed probing service for its internal health model. 
 
 The AzureLoadBalancer service tag identifies this source IP address in your [network security groups](../virtual-network/security-overview.md) and permits health probe traffic by default.
 
-In addition to Load Balancer health probes, the following operations use this IP address:
+In addition to Load Balancer health probes, the [following operations use this IP address](../virtual-network/what-is-ip-address-168-63-129-16.md):
 
 - Enables the VM Agent to communicating with the platform to signal it is in a “Ready” state
 - Enables communication with the DNS virtual server to provide filtered name resolution to customers that do not define custom DNS servers.  This filtering ensures that customers can only resolve the hostnames of their deployment.
@@ -206,9 +207,9 @@ Do not enable [TCP timestamps](https://tools.ietf.org/html/rfc1323).  Enabling T
 
 ## Monitoring
 
-Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend instance health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or third-arty applications. 
+Both public and internal [Standard Load Balancer](load-balancer-standard-overview.md) expose per endpoint and backend instance health probe status as multi-dimensional metrics through Azure Monitor. These metrics can be consumed by other Azure services or partner applications. 
 
-Basic public Load Balancer exposes health probe status summarized per backend pool via Log Analytics.  Log Analytics are not available for internal Basic Load Balancers.  You can use [log analytics](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
+Basic public Load Balancer exposes health probe status summarized per backend pool via Azure Monitor logs.  Azure Monitor logs are not available for internal Basic Load Balancers.  You can use [Azure Monitor logs](load-balancer-monitor-log.md) to check on the public load balancer probe health status and probe count. Logging can be used with Power BI or Azure Operational Insights to provide statistics about load balancer health status.
 
 ## Limitations
 

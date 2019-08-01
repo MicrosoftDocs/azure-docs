@@ -76,7 +76,7 @@ HIPAA and HITRUST (through the Common Security Framework
 -   **Architectural diagram.** The diagram shows the reference
     architecture used for the blueprint and the example use case scenario.
 
--   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premise SQL based solution to Azure, and to implement a Privieged Access Workstation to securely manage cloud-bsed services and solutions. 
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md)   This solution will demonstrate how to migrate an on-premises SQL based solution to Azure, and to implement a Privileged Access Workstation to securely manage cloud-based services and solutions. 
 
 ## Solution components
 
@@ -147,7 +147,7 @@ They have no access to patient records.
 
 -   Scope: ResourceGroup
 
- ### Data Scientist
+### Data Scientist
 
 
 The data scientist operates the Azure Machine Learning Studio. They can
@@ -405,7 +405,7 @@ When using the demo script. .\\HealthcareDemo.ps1 with the **BulkPatientadmissio
 
 **2. Key Vault** requested for a secret that is associated to the requested token.
 
-**3. Azure Roles validate the request, and authorize access request to the Key Vault.
+**3. Azure Roles** validate the request, and authorize access request to the Key Vault.
 
 **4. Key Vault** returns the secret, in this case the SQL DB Connection string.
 
@@ -518,10 +518,10 @@ routing of all events from any source to any destination, providing:
 - [Application Insights](/azure/application-insights/app-insights-overview) is an extensible Application Performance Management (APM) service for web developers on multiple platforms. Use it to monitor your live web application. It detects performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability.
 
 ### Azure Alerts
-- [Alerts offer a method of monitoring Azure services and allow you to configure conditions over data. Alerts also provide notifications when an alert condition matches the monitoring data.
+- [Alerts](/azure/azure-monitor/platform/alerts-metric) offer a method of monitoring Azure services and allow you to configure conditions over data. Alerts also provide notifications when an alert condition matches the monitoring data.
 
-### Log Analytics
-[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) is a collection of management services.
+### Azure Monitor logs
+[Azure Monitor logs](/azure/operations-management-suite/operations-management-suite-overview) is a collection of management services.
 
 -   Workspace is enabled for Security Center
 

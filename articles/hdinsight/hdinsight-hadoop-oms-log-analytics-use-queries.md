@@ -1,7 +1,6 @@
 ---
-title: Query Azure Log Analytics to monitor Azure HDInsight clusters 
-description: Learn how to run queries on Azure Log Analytics to monitor jobs running in an HDInsight cluster.
-services: hdinsight
+title: Query Azure Monitor logs to monitor Azure HDInsight clusters 
+description: Learn how to run queries on Azure Monitor logs to monitor jobs running in an HDInsight cluster.
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -12,17 +11,19 @@ ms.date: 11/05/2018
 ms.author: hrasheed
 
 ---
-# Query Azure Log Analytics to monitor HDInsight clusters
+# Query Azure Monitor logs to monitor HDInsight clusters
 
-Learn some basic scenarios on how to use Azure Log Analytics to monitor Azure HDInsight clusters:
+Learn some basic scenarios on how to use Azure Monitor logs to monitor Azure HDInsight clusters:
 
 * [Analyze HDInsight cluster metrics](#analyze-hdinsight-cluster-metrics)
 * [Search for specific log messages](#search-for-specific-log-messages)
 * [Create event alerts](#create-alerts-for-tracking-events)
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Prerequisites
 
-* You must have configured an HDInsight cluster to use Azure Log Analytics, and added the HDInsight cluster-specific Log Analytics management solutions to the workspace. For instructions, see [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
+* You must have configured an HDInsight cluster to use Azure Monitor logs, and added the HDInsight cluster-specific Azure Monitor logs monitoring solutions to the workspace. For instructions, see [Use Azure Monitor logs with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md).
 
 ## Analyze HDInsight cluster metrics
 
@@ -30,7 +31,7 @@ Learn how to look for specific metrics for your HDInsight cluster.
 
 1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Log Search** tile.
-3. Type the following query in the search box to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Log Analytics, and then select **RUN**.
+3. Type the following query in the search box to search for all metrics for all available metrics for all HDInsight clusters configured to use Azure Monitor logs, and then select **RUN**.
 
         search *
 
@@ -63,7 +64,7 @@ Learn how to  look error messages during a specific time window. The steps here 
 
 1. Open the Log Analytics workspace that is associated to your HDInsight cluster from the Azure portal.
 2. Select the **Log Search** tile.
-3. Type the following query to search for all error messages for all HDInsight clusters configured to use Azure Log Analytics, and then select **RUN**. 
+3. Type the following query to search for all error messages for all HDInsight clusters configured to use Azure Monitor logs, and then select **RUN**. 
 
          search "Error"
 
@@ -113,11 +114,11 @@ To edit or delete an existing alert:
 3. Select the alert you want to edit or delete.
 4. You have the following options: **Save**, **Discard**, **Disable**, and **Delete**.
 
-    ![HDInsight Log Analytics alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
+    ![HDInsight Azure Monitor logs alert delete edit](media/hdinsight-hadoop-oms-log-analytics-use-queries/hdinsight-log-analytics-edit-alert.png)
 
-For more information, see [Working with alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md).
+For more information, see [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md).
 
 ## See also
 
-* [Working with Log Analytics](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
-* [Create alert rules in Log Analytics](../log-analytics/log-analytics-alerts-creating.md)
+* [Create custom views by using View Designer in Azure Monitor](../azure-monitor/platform/view-designer.md)
+* [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/platform/alerts-metric.md)

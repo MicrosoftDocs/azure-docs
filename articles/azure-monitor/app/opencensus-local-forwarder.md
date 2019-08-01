@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights OpenCensus distributed tracing local forwarder  | Microsoft docs
+title: Azure Application Insights OpenCensus distributed tracing local forwarder (Preview)  | Microsoft docs
 description: Forward OpenCensus distributed traces and spans from languages like Python and Go to Azure Application Insights
 services: application-insights
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.reviewer: nimolnar
 ms.author: mbullwin
 ---
 
-# Local forwarder
+# Local forwarder (Preview)
 
 Local forwarder is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and routes it to Application Insights. It's capable of running under Windows and Linux. You may also be able to run it under macOS, but that is not officially supported at this time.
 
@@ -74,14 +74,14 @@ https://www.microsoft.com/net/download/dotnet-framework-runtime/net472?utm_sourc
 
 For certain use cases, it might be beneficial to run local forwarder as a console application. The release comes with the following executable versions of the console host:
 * a framework-dependent .NET Core binary */ConsoleHost/publish/Microsoft.LocalForwarder.ConsoleHost.dll*. Running this binary requires a .NET Core runtime to be installed; refer to this download [page](https://www.microsoft.com/net/download/dotnet-core/2.1) for details.
-```batchfile
-E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\publish>dotnet Microsoft.LocalForwarder.ConsoleHost.dll
+  ```
 * a self-contained .NET Core set of binaries for x86 and x64 platforms. These don't require .NET Core runtime to run. */ConsoleHost/win-x86/publish/Microsoft.LocalForwarder.ConsoleHost.exe*, */ConsoleHost/win-x64/publish/Microsoft.LocalForwarder.ConsoleHost.exe*.
-```batchfile
-E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
-```
+  ```batchfile
+  E:\uncdrop\ConsoleHost\win-x86\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  E:\uncdrop\ConsoleHost\win-x64\publish>Microsoft.LocalForwarder.ConsoleHost.exe
+  ```
 
 ### Linux
 
@@ -149,7 +149,7 @@ Local forwarder may work with macOS, but it is currently not officially supporte
 ### Self-hosting
 Local forwarder is also distributed as a .NET Standard NuGet package, allowing you to host it inside your own .NET application.
 
-```C#
+```csharp
 using Library;
 ...
 Host host = new Host();

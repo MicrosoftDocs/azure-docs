@@ -3,13 +3,13 @@ title: "Quickstart: Detect text language, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll learn how to detect the language of provided text using Java and the Translator Text REST API.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to detect text language using Java
@@ -17,6 +17,9 @@ ms.author: erhopf
 In this quickstart, you'll learn how to detect the language of provided text using Java and the Translator Text REST API.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java).
 
 ## Prerequisites
 
@@ -104,6 +107,8 @@ String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0";
 ```
 
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
 ## Create a client and build a request
 
 Add this line to the `Detect` class to instantiate the `OkHttpClient`:
@@ -168,7 +173,15 @@ That's it, you're ready to run your sample app. From the command line (or termin
 gradle build
 ```
 
+When the build completes, run:
+
+```console
+gradle run
+```
+
 ## Sample response
+
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [
@@ -197,10 +210,10 @@ gradle build
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including translation and transliteration, as well as other sample Translator Text projects on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore Java examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

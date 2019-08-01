@@ -6,14 +6,15 @@ metadata:
   title: Azure SQL Database documentation - tutorials, API reference
   meta.description: Learn how to use Azure SQL databases.
   services: sql-database
-  author: jovanpop-msft
-  manager: craigg
+  requires-business-manager-approval: false
   ms.service: sql-database
-  ms.tgt_pltfrm: na
-  ms.devlang:
+  ms.subservice: single-database
   ms.topic: overview
-  ms.date: 12/01/2018
+  author: jovanpop-msft
   ms.author: jovanpop-msft
+  ms.reviewer: carlrab
+  manager: craigg
+  ms.date: 04/26/2019
 abstract:
   description: Azure SQL Database is a relational database as a service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine. SQL Database is a high-performance, easy-to-use, reliable, and secure database that you can use to build new applications, websites, and microservices in the programming language of your choice, without needing to manage infrastructure. Learn how to use SQL Database with our quickstarts, tutorials, and samples.
   aside:
@@ -38,9 +39,9 @@ sections:
         html: <p>SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands.</p>
         image:
           src: media/index/i_elasticpool.svg
-      - title: Logical server
-        href: /azure/sql-database/sql-database-logical-servers
-        html: <p>A logical server is a central administration point for configuring security, tuning, backup policy, and other configuration properties on a set of databases within the server.</p>
+      - title: SQL Database server
+        href: /azure/sql-database/sql-database-servers
+        html: <p>A SQL Database server is a central administration point for configuring security, tuning, backup policy, and other configuration properties on a set of single or pooled databases within the server.</p>
         image:
           src: media/index/i_mi.svg 
       - title: Price and service tiers
@@ -74,6 +75,8 @@ sections:
     - html: (Preview) New SQL Server 2019 <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">intelligent query processing</a> features, such as <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#table-variable-deferred-compilation">table variable deferred compilation</a>, <a href="https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#batch-mode-on-rowstore">batch mode on rowstore tables</a>, and <a href="https://docs.microsoft.com/sql/relational-databases/user-defined-functions/scalar-udf-inlining?view=azuresqldb-current&toc=%2Fazure%2Fsql-database%2Ftoc.json">scalar UDF inlining</a>. 
     - html: (Preview) New Transact-SQL language functionalities, such as <a href="https://docs.microsoft.com/sql/t-sql/functions/approx-count-distinct-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">APPROX_COUNT_DISTINCT aggregate</a> and <a href="https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017">bulk import from Azure Blob storage</a>. 
     - html: (Preview) New SQL Server 2019 Online <a href="https://docs.microsoft.com/sql/t-sql/statements/create-columnstore-index-transact-sql?toc=%2Fazure%2Fsql-database%2Ftoc.json&view=sql-server-2017#online--on--off">build</a> and rebuild clustered columnstore index operations.
+    - html: (Preview) New <a href="https://docs.microsoft.com/azure/sql-database/sql-database-machine-learning-services-overview">Azure SQL Database Machine Learning Services (with R)</a>.
+    - html: (Preview) New <a href="https://docs.microsoft.com/azure/sql-database/sql-database-serverless">serverless compute tier</a> provides compute auto-scaling and bills per second for compute used.
 - title: Five-minute quickstarts 
   items:
   - type: paragraph
@@ -96,13 +99,13 @@ sections:
     rows:
       - title: Create a database
         values:
-          - href: /azure/sql-database/sql-database-get-started-portal
+          - href: /azure/sql-database/sql-database-single-database-get-started
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-cli
           - href: /azure/sql-database/scripts/sql-database-create-and-configure-database-powershell
-          - href:
+          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-database-transparent-encryption-create
       - title: Create an elastic pool
         values:
-          - href: 
+          - href: /azure/sql-database/sql-database-elastic-pool-manage
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-cli
           - href: /azure/sql-database/scripts/sql-database-move-database-between-pools-powershell
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create

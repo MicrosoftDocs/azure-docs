@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
+ms.date: 01/31/2018
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps
 
 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 
 helps you orchestrate and integrate different services 
-by providing [100+ ready-to-use connectors](../connectors/apis-list.md), 
-ranging from on-premises SQL Server or SAP to Microsoft Cognitive Services. 
+by providing [hundreds of ready-to-use connectors](../connectors/apis-list.md), 
+ranging from on-premises SQL Server or SAP to Azure Cognitive Services. 
 The Logic Apps service is "serverless", so you don't have to worry about scale or instances. 
 All you have to do is define the workflow with a trigger and the actions that the workflow performs. 
 The underlying platform handles scale, availability, and performance. 
@@ -117,7 +117,7 @@ which you can check in to source control for versioning.
 
 * [Create and deploy logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
-* [Create an automated deployment template](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 
 ## Content types, conversions, and transformations within a run
 
@@ -144,7 +144,7 @@ for example, REST and SOAP.
 * [Call Azure Functions from logic apps](../logic-apps/logic-apps-azure-functions.md)
 * [Tutorial: Trigger logic apps with Azure Functions](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
 * [Tutorial: Monitor virtual machine changes with Azure Event Grid and Logic Apps](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [Tutorial: Create a function that integrates with Azure Logic Apps and Microsoft Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
+* [Tutorial: Create a function that integrates with Azure Logic Apps and Azure Cognitive Services to analyze Twitter post sentiment](../azure-functions/functions-twitter-email.md)
 * [Tutorial: IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 * [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 

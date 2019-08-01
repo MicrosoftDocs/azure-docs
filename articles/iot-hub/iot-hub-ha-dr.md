@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure IoT Hub high availability and disaster recovery | Microsoft Docs
 description: Describes the Azure and IoT Hub features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
 author: rkmanda
@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.author: rkmanda
+ms.author: philmea
 ---
 
 # IoT Hub high availability and disaster recovery
@@ -27,7 +27,7 @@ Depending on the uptime goals you define for your IoT solutions, you should dete
 
 ## Intra-region HA
 
-The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premise solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
+The IoT Hub service provides intra-region HA by implementing redundancies in almost all layers of the service. The [SLA published by the IoT Hub service](https://azure.microsoft.com/support/legal/sla/iot-hub) is achieved by making use of these redundancies. No additional work is required by the developers of an IoT solution to take advantage of these HA features. Although IoT Hub offers a reasonably high uptime guarantee, transient failures can still be expected as with any distributed computing platform. If you're just getting started with migrating your solutions to the cloud from an on-premises solution, your focus needs to shift from optimizing "mean time between failures" to "mean time to recover". In other words, transient failures are to be considered normal while operating with the cloud in the mix. Appropriate [retry policies](iot-hub-reliability-features-in-sdks.md) must be built in to the components interacting with a cloud application to deal with transient failures.
 
 > [!NOTE]
 > Some Azure services also provide additional layers of availability within a region by integrating with [Availability Zones (AZs)](../availability-zones/az-overview.md). AZs are currently not supported by the IoT Hub service.
@@ -59,6 +59,7 @@ Once the failover operation for the IoT hub completes, all operations from the d
 >
 > - After failover, the events emitted via Event Grid can be consumed via the same subscription(s) configured earlier as long as those Event Grid subscriptions continue to be available.
 >
+> - When routing to blob storage, we recommend enlisting the blobs and then iterating over them, to ensure all containers are read without making any assumptions of partition. The partition range could potentially change during a Microsoft-initiated failover or manual failover. To learn how to enumerate the list of blobs see [routing to blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### Microsoft-initiated failover
 
@@ -76,8 +77,6 @@ The manual failover option is always available for use irrespective of whether t
 > - Test drills should not be performed on IoT hubs that are being used in your production environments.
 >
 > - Manual failover should not be used as a mechanism to permanently migrate your hub between the Azure geo paired regions. Doing so would cause an increased latency for the operations being performed against the hub from devices homed in the old primary region.
->
-> - Manual failover is currently in preview and is not available in the following Azure regions. East US, West US, North Europe, West Europe, Brazil South, South Central US.
 
 ### Failback
 
@@ -122,7 +121,7 @@ To simplify this step, you should use idempotent operations. Idempotent operatio
 Here's a summary of the HA/DR options presented in this article that can be used as a frame of reference to choose the right option that works for your solution.
 
 | HA/DR option | RTO | RPO | Requires manual intervention? | Implementation complexity | Additional cost impact|
-| --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- |
 | Microsoft-initiated failover |2 - 26 hours|Refer RPO table above|No|None|None|
 | Manual failover |10 min - 2 hours|Refer RPO table above|Yes|Very low. You only need to trigger this operation from the portal.|None|
 | Cross region HA |< 1 min|Depends on the replication frequency of your custom HA solution|No|High|> 1x the cost of 1 IoT hub|

@@ -3,11 +3,11 @@ title: This quickstart shows you how to enroll X.509 device to the Azure Device 
 description: This quickstart uses group enrollments. In this quickstart, you will enroll X.509 devices to the Azure IoT Hub Device Provisioning Service using C#.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/21/2018
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps 
-manager: timlt
+manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
 ---
@@ -29,7 +29,7 @@ Although the steps in this article work on both Windows and Linux machines, this
 ## Prerequisites
 
 * Install [Visual Studio 2017](https://www.visualstudio.com/vs/).
-* Install [.Net Core SDK](https://www.microsoft.com/net/download/windows).
+* Install [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Install [Git](https://git-scm.com/download/).
 
 
@@ -48,13 +48,13 @@ To use this test tooling to generate certificates, perform the following steps:
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+   You should expect this operation to take several minutes to complete.
 
    The test tooling is located in the *azure-iot-sdk-c/tools/CACertificates* of the repository you cloned.    
 
 2. Follow the steps in [Managing test CA certificates for samples and tutorials](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md). 
 
-In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/provisioning/service/samples/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to perform proof-of-possession in C# with an existing X.509 intermediate or root CA certificate. 
+In addition to the tooling in the C SDK, the [Group certificate verification sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/service/GroupCertificateVerificationSample) in the *Microsoft Azure IoT SDK for .NET* shows how to perform proof-of-possession in C# with an existing X.509 intermediate or root CA certificate. 
 
 
 ## Get the connection string for your provisioning service

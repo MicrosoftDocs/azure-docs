@@ -30,7 +30,11 @@ The maximum pods-per-node setting is 110 by default if you deploy an AKS cluster
 
 ## I'm getting an insufficientSubnetSize error while deploying an AKS cluster with advanced networking. What should I do?
 
-In the custom Azure Virtual Network option for networking during AKS creation, the Azure Container Network Interface (CNI) is used for IP Address Management (IPAM). The number of nodes in an AKS cluster can be anywhere between 1 and 100. Based on the preceding section, the subnet size should be greater than the product of the number of nodes and the maximum pods per node. The relationship can be expressed in this way: subnet size > number of nodes in the cluster * maximum pods per node.
+If Azure CNI (advanced networking) is used, AKS preallocates IP addressed based on the "max-pods" per node configured. The number of nodes in an AKS cluster can be anywhere between 1 and 110. Based upon the configured max pods per node, the subnet size should be greater than the "product of the number of nodes and the max pod per node". The following basic equation outlines this:
+
+Subnet size > number of nodes in the cluster (taking into consideration the future scaling requirements) * max pods per node.
+
+For more information, see [Plan IP addressing for your cluster](configure-azure-cni.md#plan-ip-addressing-for-your-cluster).
 
 ## My pod is stuck in CrashLoopBackOff mode. What should I do?
 
@@ -55,35 +59,70 @@ The easiest way to access your service outside the cluster is to run `kubectl pr
 
 If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod is running in the `kube-system` namespace. If it isn't in a running state, delete the pod and it will restart.
 
-## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting “Error from server: error dialing backend: dial tcp…” What should I do?
+## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
-Make sure that the default network security group (NSG) isn't modified and that port 22 is open for connection to the API server. Check whether the `tunnelfront` pod is running in the `kube-system` namespace. If it isn't, force deletion of the pod and it will restart.
+Make sure that the default network security group isn't modified and that both port 22 and 9000 are open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
-## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error.  How do I fix this problem?
+## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error. How do I fix this problem?
 
 You might be getting this error because you've modified the tags in the agent nodes inside the AKS cluster. Modifying and deleting tags and other properties of resources in the MC_* resource group can lead to unexpected results. Modifying the resources under the MC_* group in the AKS cluster breaks the service-level objective (SLO).
 
-## How do I renew the service principal secret on my AKS cluster?
+## I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed
 
-By default, AKS clusters are created with a service principal that has a one-year expiration time. As you near the expiration date, you can reset the credentials to extend the service principal for an additional period of time.
+*This troubleshooting assistance is directed from https://aka.ms/aks-cluster-failed*
 
-The following example performs these steps:
+This error occurs when clusters enter a failed state for multiple reasons. Follow the steps below to resolve your cluster failed state before retrying the previously failed operation:
 
-1. Gets the service principal ID of your cluster by using the [az aks show](/cli/azure/aks#az-aks-show) command.
-1. Lists the service principal client secret by using the [az ad sp credential list](/cli/azure/ad/sp/credential#az-ad-sp-credential-list).
-1. Extends the service principal for another one year by using the [az ad sp credential-reset](/cli/azure/ad/sp/credential#az-ad-sp-credential-reset) command. The service principal client secret must remain the same for the AKS cluster to run correctly.
+1. Until the cluster is out of `failed` state, `upgrade` and `scale` operations won't succeed. Common root issues and resolutions include:
+    * Scaling with **insufficient compute (CRP) quota**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow these [steps to request a compute quota increase](../azure-supportability/resource-manager-core-quotas-request.md) before trying to scale up again beyond initial quota limits.
+    * Scaling a cluster with advanced networking and **insufficient subnet (networking) resources**. To resolve, first scale your cluster back to a stable goal state within quota. Then follow [these steps to request a resource quota increase](../azure-resource-manager/resource-manager-quota-errors.md#solution) before trying to scale up again beyond initial quota limits.
+2. Once the underlying cause for upgrade failure is resolved, your cluster should be in a succeeded state. Once a succeeded state is verified, retry the original operation.
 
-```azurecli
-# Get the service principal ID of your AKS cluster.
-sp_id=$(az aks show -g myResourceGroup -n myAKSCluster \
-    --query servicePrincipalProfile.clientId -o tsv)
+## I'm receiving errors when trying to upgrade or scale that state my cluster is being currently being upgraded or has failed upgrade
 
-# Get the existing service principal client secret.
-key_secret=$(az ad sp credential list --id $sp_id --query [].keyId -o tsv)
+*This troubleshooting assistance is directed from https://aka.ms/aks-pending-upgrade*
 
-# Reset the credentials for your AKS service principal and extend for one year.
-az ad sp credential reset \
-    --name $sp_id \
-    --password $key_secret \
-    --years 1
-```
+Cluster operations are limited when active upgrade operations are occurring or an upgrade was attempted, but subsequently failed. To diagnose the issue run `az aks show -g myResourceGroup -n myAKSCluster -o table` to retrieve detailed status on your cluster. Based on the result:
+
+* If cluster is actively upgrading, wait until the operation terminates. If it succeeded, try the previously failed operation again.
+* If cluster has failed upgrade, follow steps outlined above
+
+## Can I move my cluster to a different subscription or my subscription with my cluster to a new tenant?
+
+If you have moved your AKS cluster to a different subscription or the cluster owning subscription to a new tenant, the cluster will lose functionality due to losing role assignments and service principals rights. **AKS does not support moving clusters across subscriptions or tenants** due to the this constraint.
+
+## I'm receiving errors trying to use features that require virtual machine scale sets
+
+*This troubleshooting assistance is directed from aka.ms/aks-vmss-enablement*
+
+You may receive errors that indicate your AKS cluster is not on a virtual machine scale set, such as the following example:
+
+**AgentPool 'agentpool' has set auto scaling as enabled but is not on Virtual Machine Scale Sets**
+
+To use features such as the cluster autoscaler or multiple node pools, AKS clusters must be created that use virtual machine scale sets. Errors are returned if you try to use features that depend on virtual machine scale sets and you target a regular, non-virtual machine scale set AKS cluster. Virtual machine scale set support is currently in preview in AKS.
+
+Follow the *Before you begin* steps in the appropriate doc to correctly register for the virtual machine scale set feature preview and create an AKS cluster:
+
+* [Use the cluster autoscaler](cluster-autoscaler.md)
+* [Create and use multiple node pools](use-multiple-node-pools.md)
+ 
+## What naming restrictions are enforced for AKS resources and parameters?
+
+*This troubleshooting assistance is directed from aka.ms/aks-naming-rules*
+
+Naming restrictions are implemented by both the Azure platform and AKS. If a resource name or parameter breaks one of these restrictions, an error is returned that asks you provide a different input. The following common naming guidelines apply:
+
+* The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
+* The *dnsPrefix* must start and end with alphanumeric values. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
+
+## I’m receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
+
+*This troubleshooting assistance is directed from aka.ms/aks-pending-operation*
+
+Cluster operations are limited when a previous operation is still in progress. To retrieve a detailed status of your cluster, use the `az aks show -g myResourceGroup -n myAKSCluster -o table` command. Use your own resource group and AKS cluster name as needed.
+
+Based on the output of the cluster status:
+
+* If the cluster is in any provisioning state other than *Succeeded* or *Failed*, wait until the operation (*Upgrading / Updating / Creating / Scaling / Deleting / Migrating*) terminates. When the previous operation has completed, re-try your latest cluster operation.
+
+* If the cluster has a failed upgrade, follow the steps outlined [I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

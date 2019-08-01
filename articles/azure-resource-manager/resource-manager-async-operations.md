@@ -1,16 +1,9 @@
 ---
 title: Status of asynchronous operations - Azure Resource Manager
 description: Describes how to track asynchronous operations in Azure. It shows the values you use to get the status of a long-running operation.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 12/09/2018
 ms.author: tomfitz
 ms.custom: seodec18

@@ -1,5 +1,3 @@
-- name: Azure IoT Fundamentals
-  href: ../iot-fundamentals/index.yml
 - name: IoT solution accelerators documentation
   href: index.md
 
@@ -17,7 +15,7 @@
   - name: Overview
     href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     items:
-    - name: Architecural choices
+    - name: Architectural choices
       href: iot-accelerators-remote-monitoring-architectural-choices.md
 
   - name: Quickstarts
@@ -50,9 +48,13 @@
         href: iot-accelerators-remote-monitoring-deploy-cli.md
       - name: Deploy locally with Visual Studio
         href: iot-accelerators-remote-monitoring-deploy-local.md
+      - name: Deploy locally with VS Code
+        href: iot-accelerators-remote-monitoring-deploy-local-vscode.md
+      - name: Deploy locally with IntelliJ
+        href: iot-accelerators-remote-monitoring-deploy-local-java.md
       - name: Deploy locally with Docker
         href: iot-accelerators-remote-monitoring-deploy-local-docker.md
-    - name: Connect a physical device
+    - name: Connect a real device
       items:
       - name: C on Windows
         href: iot-accelerators-connecting-devices.md
@@ -65,7 +67,7 @@
       - name: Node.js on Raspberry Pi
         href: iot-accelerators-connecting-pi-node.md
       - name: MXChip IoT DevKit
-        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+        href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoring-v2.md
     - name: Simulate a device
       items:
       - name: Create a simulated device
@@ -101,7 +103,7 @@
       href: iot-accelerators-remote-monitoring-rbac.md
     - name: Explore telemetry
       items:
-      - name: Visualize telemetry with PowerBI
+      - name: Visualize telemetry with Power BI
         href: iot-accelerators-integrate-data-powerbi.md
       - name: Integrate Azure Time Series Insights with Remote Monitoring
         href: iot-accelerators-remote-monitoring-integrate-time-series-insights.md
@@ -134,39 +136,69 @@
     - name: Remote Monitoring FAQ
       href: iot-accelerators-faq-rm-v2.md
 
-- name: Connected Factory
+- name: Industrial IoT
   items:
   - name: Overview
-    href: iot-accelerators-connected-factory-features.md
-    items:
-    - name: Architecture
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
-
+    items: 
+    - name: What is industrial IoT
+      href: overview-iot-industrial.md 
+    - name: What is OPC Twin
+      href: overview-opc-twin.md
+    - name: What is OPC Vault
+      href: overview-opc-vault.md 
+    - name: What is OPC Publisher
+      href: overview-opc-publisher.md 
+    - name: What is Connected Factory
+      href: iot-accelerators-connected-factory-features.md
   - name: Quickstarts
     items:
     - name: Try a connected factory solution
       href: quickstart-connected-factory-deploy.md
-
+  - name: Concepts
+    items:
+    - name: OPC Twin Architecture
+      href: overview-opc-twin-architecture.md
   - name: How-to guides
     items:
-    - name: Use the dashboard
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Deploy a gateway
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Use the OPC publisher
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configure the solution accelerator
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Customize the solution accelerator
-      href: iot-accelerators-connected-factory-customize.md
-
+    - name: Connected Factory
+      items:
+      - name: Use the dashboard
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Configure the solution accelerator
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Customize the solution accelerator
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC Twin
+      items:
+      - name: Deploy OPC Twin services
+        href: howto-opc-twin-deploy-existing.md
+      - name: Deploy OPC Twin module to IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: Deploy OPC Twin dependencies only
+        href: howto-opc-twin-deploy-dependencies.md 
+    - name: OPC Vault
+      items:
+      - name: Deploy OPC Vault to an existing project
+        items: 
+        - name: Secure communication of OPC client and OPC PLC
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: Secure OPC UA client and OPC UA server applications
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: Deploy OPC Vault from scratch
+        href: howto-opc-vault-deploy-scratch.md
+    - name: OPC Publisher
+      items:
+      - name: Configure OPC Publisher
+        href: howto-opc-publisher-configure.md
+      - name: Run OPC Publisher
+        href: howto-opc-publisher-run.md
   - name: Resources
     items:
     - name: GitHub repository
       href: https://github.com/Azure/azure-iot-connected-factory
     - name: Connected Factory FAQ
       href: iot-accelerators-faq-cf.md
-
+      
 - name: Device Simulation
   items:
   - name: Overview
@@ -192,7 +224,7 @@
       href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualize telemetry with Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Serialize telemetry using Protbuf
+    - name: Serialize telemetry using Protobuf
       href: iot-accelerators-device-simulation-protobuf.md
     - name: Deploy a custom docker image
       href: iot-accelerators-device-simulation-deploy-image.md

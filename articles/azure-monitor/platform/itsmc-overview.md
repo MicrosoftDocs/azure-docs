@@ -39,7 +39,7 @@ With ITSMC, you can
 You can start using the ITSM Connector using the following steps:
 
 1.	[Add the ITSM Connector Solution](#adding-the-it-service-management-connector-solution)
-2.	[Create an ITSM connection](#creating-an-itsm-connection)
+2.	Create an ITSM connection
 3.	[Use the connection](#using-the-solution)
 
 
@@ -47,24 +47,26 @@ You can start using the ITSM Connector using the following steps:
 
 Before you can create a connection, you need to add the ITSM Connector Solution.
 
-1.	In Azure portal, click **+ New** icon.
+1. In Azure portal, click **+ New** icon.
 
-    ![Azure new resource](media/itsmc-overview/azure-add-new-resource.png)
+   ![Azure new resource](media/itsmc-overview/azure-add-new-resource.png)
 
-2.	Search for **IT Service Management Connector** in the Marketplace and click **Create**.
+2. Search for **IT Service Management Connector** in the Marketplace and click **Create**.
 
-    ![Add ITSMC solution](media/itsmc-overview/add-itsmc-solution.png)
+   ![Add ITSMC solution](media/itsmc-overview/add-itsmc-solution.png)
 
-3.	In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
+3. In the **OMS Workspace** section, select the Azure Log Analytics workspace where you want to install the solution.
+   >[!NOTE]
+   > * As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
+   > * The ITSM Connector can only be installed in Log Analytics workspaces in the following regions: East US, West Europe, Southeast Asia, Southeast Australia, West Central US, East Japan, South UK, Central India, Central Canada.
+
+4. In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
+
+   ![ITSMC workspace](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
-4.	In the **OMS Workspace Settings** section, select the ResourceGroup where you want to create the solution resource.
 
-    ![ITSMC workspace](media/itsmc-overview/itsmc-solution-workspace.png)
-    >[!NOTE]
-    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS Workspaces are now referred to as Log Analytics workspaces.
-
-5.	Click **Create**.
+5. Click **Create**.
 
 When the solution resource is deployed, a notification appears at the top right of the window.
 
@@ -84,22 +86,22 @@ Depending on the ITSM product you are connecting to, use the following steps :
 
 Once you have prepped your ITSM tools, follow the steps below to create a connection:
 
-1.	Go to **All Resources**, look for **ServiceDesk(YourWorkspaceName)**.
-2.	Under **WORKSPACE DATA SOURCES** in the left pane, click **ITSM Connections**.
-    ![ITSM connections](media/itsmc-overview/itsm-connections.png)
+1. Go to **All Resources**, look for **ServiceDesk(YourWorkspaceName)**.
+2. Under **WORKSPACE DATA SOURCES** in the left pane, click **ITSM Connections**.
+   ![ITSM connections](media/itsmc-overview/itsm-connections.png)
 
-    This page displays the list of connections.
-3.  Click **Add Connection**.
+   This page displays the list of connections.
+3. Click **Add Connection**.
 
-    ![Add ITSM connection](media/itsmc-overview/add-new-itsm-connection.png)
+   ![Add ITSM connection](media/itsmc-overview/add-new-itsm-connection.png)
 
-4.	Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](../../azure-monitor/platform/itsmc-connections.md).
+4. Specify the connection settings as described in [Configuring the ITSMC connection with your ITSM products/services article](../../azure-monitor/platform/itsmc-connections.md).
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
 
-    > By default, ITSMC refreshes the connection's configuration data once in every 24 hours. To refresh your connection's data instantly for any edits or template updates that you make, click the **Sync** button on your connection's blade.
-
-    ![Connection refresh](media/itsmc-overview/itsmc-connections-refresh.png)
+   ![Connection refresh](media/itsmc-overview/itsmc-connections-refresh.png)
 
 
 ## Using the solution
@@ -133,8 +135,8 @@ Use the following procedure:
 
 When creating/editing an Azure alert rule, use an Action group, which has an ITSM Action. When the alert triggers, work item is created/updated in the ITSM tool.
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > For information on pricing of ITSM Action, see the [pricing page](https://azure.microsoft.com/pricing/details/monitor/) for Action Groups.
 
 
@@ -167,7 +169,7 @@ Incidents and change requests are synced from your ITSM product to your Log Anal
 The following information shows examples of data gathered by ITSMC:
 
 > [!NOTE]
-
+> 
 > Depending on the work item type imported into Log Analytics, **ServiceDesk_CL** contains the following fields:
 
 **Work item:** **Incidents**  
@@ -254,7 +256,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## Output data for a ServiceNow change request
 
-| Log Analytics | ServieNow field |
+| Log Analytics | ServiceNow field |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
 | CreatedBy_s | Requested by |
@@ -279,17 +281,17 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## Troubleshoot ITSM connections
-1.	If connection fails from connected source's UI with an **Error in saving connection** message, take the following steps:
- - For ServiceNow, Cherwell and Provance connections,  
-    - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.  
-    - check if you have sufficient privileges in the corresponding ITSM product to make the connection.  
- - For Service Manager connections,  
-    - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on-prem Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
+1. If connection fails from connected source's UI with an **Error in saving connection** message, take the following steps:
+   - For ServiceNow, Cherwell and Provance connections,  
+   - ensure you correctly entered  the username, password, client ID, and client secret  for each of the connections.  
+   - check if you have sufficient privileges in the corresponding ITSM product to make the connection.  
+   - For Service Manager connections,  
+   - ensure that the Web app is successfully deployed and hybrid connection is created. To verify the connection is successfully established with the on premises Service Manager machine, visit the  Web app URL as detailed in the documentation for making the [hybrid connection](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection).  
 
-2.	If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
-3.	If Log Analytics alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
- -  ITSMC: The solution shows a summary of connections/work items/computers etc. Click the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
- - **Log Search** page: view the errors/related information directly using the query `*`ServiceDeskLog_CL`*`.
+2. If data from ServiceNow is not getting synced to Log Analytics, ensure that the ServiceNow instance is not sleeping. ServiceNow Dev Instances sometimes go to sleep when idle for a long period. Else, report the issue.
+3. If Log Analytics alerts fire but work items are not created in ITSM product or configuration items are not created/linked to work items or for any other generic information, look in the following places:
+   -  ITSMC: The solution shows a summary of connections/work items/computers etc. Click the tile showing **Connector Status**, which takes you to **Log Search**  with the relevant query. Look at the log records with LogType_S as ERROR for more information.
+   - **Log Search** page: view the errors/related information directly using the query `*`ServiceDeskLog_CL`*`.
 
 ## Troubleshoot Service Manager Web App deployment
 1.	In case of any issues with web app deployment, ensure you have sufficient permissions in the subscription mentioned to create/deploy resources.

@@ -4,13 +4,13 @@ description: This article introduces the concepts such as stored procedures, tri
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/11/2018
+ms.date: 06/14/2019
 ms.author: mjbrown
 ms.reviewer: sngun
 
 ---
 
-# Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions
+# Stored procedures, triggers, and user-defined functions
 
 Azure Cosmos DB provides language-integrated, transactional execution of JavaScript. When using the SQL API in Azure Cosmos DB, you can write **stored procedures**, **triggers**, and **user-defined functions (UDFs)** in the JavaScript language. You can write your logic in JavaScript that executed inside the database engine. You can create and execute triggers, stored procedures, and UDFs by using [Azure portal](https://portal.azure.com/), the [JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) or the [Cosmos DB SQL API client SDKs](how-to-use-stored-procedures-triggers-udfs.md).
 
@@ -22,7 +22,7 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
 * **Atomic transactions:** Azure Cosmos DB guarantees that the database operations that are performed within a single stored procedure or a trigger are atomic. This atomic functionality lets an application combine related operations into a single batch, so that either all of the operations succeed or none of them succeed.
 
-- **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
+* **Performance:** The JSON data is intrinsically mapped to the JavaScript language type system. This mapping allows for a number of optimizations like lazy materialization of JSON documents in the buffer pool and making them available on-demand to the executing code. There are other performance benefits associated with shipping business logic to the database, which includes:
 
    * *Batching:* You can group operations like inserts and submit them in bulk. The network traffic latency costs and the store overhead to create separate transactions are reduced significantly.
 
@@ -30,10 +30,10 @@ Writing stored procedures, triggers, and user-defined functions (UDFs) in JavaSc
 
    * *Sequencing:* Sometimes operations need a triggering mechanism that may perform one or additional updates to the data. In addition to Atomicity, there are also performance benefits when executing on the server side.
 
-- **Encapsulation:** Stored procedures can be used to group logic in one place. Encapsulation adds an abstraction layer on top of the data, which enables you to evolve your applications independently from the data. This layer of abstraction is helpful when the data is schema-less and you don't have to manage adding additional logic directly into your application. The abstraction lets your keep the data secure by streamlining the access from the scripts.
+* **Encapsulation:** Stored procedures can be used to group logic in one place. Encapsulation adds an abstraction layer on top of the data, which enables you to evolve your applications independently from the data. This layer of abstraction is helpful when the data is schema-less and you don't have to manage adding additional logic directly into your application. The abstraction lets your keep the data secure by streamlining the access from the scripts.
 
 > [!TIP]
-> Stored procedures are best suited for operations that are write heavy. When deciding where to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read operations so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit.
+> Stored procedures are best suited for operations that are write-heavy and require a transaction across a partition key value. When deciding whether to use stored procedures, optimize around encapsulating the maximum amount of writes possible. Generally speaking, stored procedures are not the most efficient means for doing large numbers of read or query operations, so using stored procedures to batch large numbers of reads to return to the client will not yield the desired benefit. For best performance, these read-heavy operations should be done on the client-side, using the Cosmos SDK. 
 
 ## Transactions
 
@@ -71,7 +71,7 @@ JavaScript functions are also subject to [provisioned throughput capacity](reque
 
 ## Triggers
 
-This section describes the two types of triggers:
+Azure Cosmos DB supports two types of triggers:
 
 ### Pre-triggers
 
@@ -80,6 +80,9 @@ Azure Cosmos DB provides triggers that can be invoked by performing an operation
 ### Post-triggers
 
 Similar to pre-triggers, post-triggers, are also associated with an operation on an Azure Cosmos DB item and they don’t require any input parameters. They run *after* the operation has completed and have access to the response message that is sent to the client. For examples, see [How to write triggers](how-to-write-stored-procedures-triggers-udfs.md#triggers) article.
+
+> [!NOTE]
+> Registered triggers don't run automatically when their corresponding operations (create / delete / replace / update) happen. They have to be explicitly called when executing these operations. To learn more, see [how to run triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) article.
 
 ## <a id="udfs"></a>User-defined functions
 

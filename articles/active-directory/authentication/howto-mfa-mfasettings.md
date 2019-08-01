@@ -1,24 +1,25 @@
 ---
-title: Configure Azure Multi-Factor Authentication
+title: Configure Azure Multi-Factor Authentication - Azure Active Directory
 description: This article describes how to configure Azure Multi-Factor Authentication settings in the Azure portal
 
 services: multi-factor-authentication
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/26/2018
+ms.date: 06/03/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: michmcla
 
+ms.collection: M365-identity-device-management
 ---
 # Configure Azure Multi-Factor Authentication settings
 
-This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every [version of Azure Multi-Factor Authentication](concept-mfa-whichversion.md#what-features-do-i-need).
+This article helps you to manage Multi-Factor Authentication settings in the Azure portal. It covers various topics that help you to get the most out of Azure Multi-Factor Authentication. Not all of the features are available in every version of Azure Multi-Factor Authentication.
 
-You can access settings related to Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
+You can access settings related to Azure Multi-Factor Authentication from the Azure portal by browsing to **Azure Active Directory** > **MFA**.
 
 ![Azure portal - Azure AD Multi-Factor Authentication settings](./media/howto-mfa-mfasettings/multi-factor-authentication-settings-portal.png)
 
@@ -29,9 +30,9 @@ Some of these settings apply to MFA Server, Azure MFA, or both.
 | Feature | Description |
 | ------- | ----------- |
 | Account lockout | Temporarily lock accounts in the multi-factor authentication service if there are too many denied authentication attempts in a row. This feature only applies to users who enter a PIN to authenticate. (MFA Server) |
-| [Block/unblock users](#block-and-unblock-users) | Used to block specific users on MFA Server (on-premises) from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
-| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests from MFA Server. |
-| Notifications | Enable notifications of events from MFA Server. |
+| [Block/unblock users](#block-and-unblock-users) | Used to block specific users from being able to receive Multi-Factor Authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. |
+| [Fraud alert](#fraud-alert) | Configure settings related to users ability to report fraudulent verification requests |
+| [Notifications](#notifications) | Enable notifications of events from MFA Server. |
 | [OATH tokens](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Used in cloud-based Azure MFA environments to manage OATH tokens for users. |
 | [Phone call settings](#phone-call-settings) | Configure settings related to phone calls and greetings for cloud and on-premises environments. |
 | Providers | This will show any existing authentication providers that you may have associated with your account. New authentication providers may not be created as of September 1, 2018 |
@@ -53,14 +54,14 @@ The reporting available here is specific to MFA Server (on-premises). For Azure 
 
 ## Block and unblock users
 
-Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked. This feature is specific to MFA Server (on-premises).
+Use the _block and unblock users_ feature to prevent users from receiving authentication requests. Any authentication attempts for blocked users are automatically denied. Users remain blocked for 90 days from the time that they are blocked.
 
 ### Block a user
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as an administrator.
 2. Browse to **Azure Active Directory** > **MFA** > **Block/unblock users**.
 3. Select **Add** to block a user.
-4. Select the **Replication Group**. Enter the username for the blocked user as **username@domain.com**. Enter a comment in the **Reason** field.
+4. Select the **Replication Group**. Enter the username for the blocked user as **username\@domain.com**. Enter a comment in the **Reason** field.
 5. Select **Add** to finish blocking the user.
 
 ### Unblock a user
@@ -73,7 +74,7 @@ Use the _block and unblock users_ feature to prevent users from receiving authen
 
 ## Fraud alert
 
-Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone. This feature is specific to MFA Server (on-premises).
+Configure the _fraud alert_ feature so that your users can report fraudulent attempts to access their resources. Users can report fraud attempts by using the mobile app or through their phone.
 
 ### Turn on fraud alerts
 
@@ -95,6 +96,12 @@ Configure the _fraud alert_ feature so that your users can report fraudulent att
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Select **Azure Active Directory** > **Sign-ins**. The fraud report is now part of the standard Azure AD Sign-ins report.
+
+## Notifications
+
+Configure email addresses here for users who will receive fraud alert emails.
+
+![Notification fraud alert email sample](./media/howto-mfa-mfasettings/multi-factor-authentication-fraud-alert-email.png)
 
 ## Phone call settings
 
@@ -140,6 +147,31 @@ For example, if there is only one custom message, with a language of German:
 1. Select an .mp3 or .wav sound file to upload.
 1. Select **Add**.
 
+### Custom voice message defaults
+
+Sample scripts for creating custom messages.
+
+| Message name | Script |
+| --- | --- |
+| Authentication successful | Your sign in was successfully verified. Goodbye. |
+| Extension prompt | Thank you for using Microsoft's sign-in verification system. Please press pound key to continue. |
+| Fraud Confirmation | A fraud alert has been submitted. To unblock your account, please contact your company's IT help desk. |
+| Fraud greeting (Standard) | Thank you for using Microsoft's sign-in verification system. Please press the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Fraud reported	A fraud alert has been submitted. | To unblock your account, please contact your company's IT help desk. |
+| Activation | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Authentication denied retry | Verification denied. |
+| Retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Fraud greeting (PIN) | Thank you for using Microsoft's sign-in verification system.  Please enter your PIN followed by the pound key to finish your verification. If you did not initiate this verification, someone may be trying to access your account. Please press zero pound to submit a fraud alert. This will notify your company's IT team and block further verification attempts. |
+| Retry(PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt after digits | If already at this extension, press the pound key to continue. |
+| Authentication denied | I'm sorry, we cannot sign you in at this time. Please try again later. |
+| Activation greeting (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Activation retry (Standard) | Thank you for using the Microsoft's sign-in verification system. Please press the pound key to finish your verification. |
+| Activation greeting (PIN) | Thank you for using Microsoft's sign-in verification system. Please enter your PIN followed by the pound key to finish your verification. |
+| Extension prompt before digits | Thank you for using Microsoft's sign-in verification system. Please transfer this call to extension … |
+
 ## One-time bypass
 
 The _one-time bypass_ feature allows a user to authenticate a single time without performing two-step verification. The bypass is temporary and expires after a specified number of seconds. In situations where the mobile app or phone is not receiving a notification or phone call, you can allow a one-time bypass so the user can access the desired resource.
@@ -150,7 +182,7 @@ The _one-time bypass_ feature allows a user to authenticate a single time withou
 2. Browse to **Azure Active Directory** > **MFA** > **One-time bypass**.
 3. Select **Add**.
 4. If necessary, select the replication group for the bypass.
-5. Enter the username as **username@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
+5. Enter the username as **username\@domain.com**. Enter the number of seconds that the bypass should last. Enter the reason for the bypass.
 6. Select **Add**. The time limit goes into effect immediately. The user needs to sign in before the one-time bypass expires.
 
 ### View the one-time bypass report
@@ -187,7 +219,7 @@ Some applications, like Office 2010 or earlier and Apple Mail before iOS 11, don
 Modern authentication is supported for the Microsoft Office 2013 clients and later. Office 2013 clients including Outlook, support modern authentication protocols and can be enabled to work with two-step verification. After the client is enabled, app passwords aren't required for the client.
 
 >[!NOTE]
->App passwords do not work with conditional access based multi-factor authentication policies and modern authentication.
+>App passwords do not work with Conditional Access based multi-factor authentication policies and modern authentication.
 
 ### Considerations about app passwords
 
@@ -248,14 +280,14 @@ By default, users can't create app passwords. The app passwords feature must be 
 
 Users can create app passwords during their initial registration. The user has the option to create app passwords at the end of the registration process.
 
-Users can also create app passwords after registration. The app passwords can be changed via the settings in the Azure portal or the Office 365 portal. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Users can also create app passwords after registration. For more information and detailed steps for your users, see [What are app passwords in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## Trusted IPs
 
 The _Trusted IPs_ feature of Azure Multi-Factor Authentication is used by administrators of a managed or federated tenant. The feature bypasses two-step verification for users who sign in from the company intranet. The feature is available with the full version of Azure Multi-Factor Authentication, and not the free version for administrators. For details on how to get the full version of Azure Multi-Factor Authentication, see [Azure Multi-Factor Authentication](multi-factor-authentication.md).
 
 > [!NOTE]
-> MFA trusted IPs and conditional access named locations only work with IPV4 addresses.
+> MFA trusted IPs and Conditional Access named locations only work with IPV4 addresses.
 
 If your organization deploys the NPS extension to provide MFA to on-premises applications note the source IP address will always appear to be the NPS server the authentication attempt flows through.
 
@@ -276,20 +308,20 @@ When the Trusted IPs feature is enabled, two-step verification is *not* required
 
 Regardless of whether the Trusted IPs feature is enabled, two-step verification is required for browser flows. App passwords are required for older rich client applications.
 
-### Enable named locations by using conditional access
+### Enable named locations by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
 3. Select **New location**.
 4. Enter a name for the location.
 5. Select **Mark as trusted location**.
 6. Enter the IP Range in CIDR notation like **192.168.1.1/24**.
 7. Select **Create**.
 
-### Enable the Trusted IPs feature by using conditional access
+### Enable the Trusted IPs feature by using Conditional Access
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the left, select **Azure Active Directory** > **Conditional access** > **Named locations**.
+2. On the left, select **Azure Active Directory** > **Conditional Access** > **Named locations**.
 3. Select **Configure MFA trusted IPs**.
 4. On the **Service Settings** page, under **Trusted IPs**, choose from any of the following two options:
 
@@ -363,7 +395,7 @@ The remember Multi-Factor Authentication feature sets a persistent cookie on the
 
 The **Don't ask again for X days** option isn't shown on non-browser applications, regardless of whether the app supports modern authentication. These apps use _refresh tokens_ that provide new access tokens every hour. When a refresh token is validated, Azure AD checks that the last two-step verification occurred within the specified number of days.
 
-The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with conditional access policies.
+The feature reduces the number of authentications on web apps, which normally prompt every time. The feature increases the number of authentications for modern authentication clients that normally prompt every 90 days. May also increase the number of authentications when combined with Conditional Access policies.
 
 >[!IMPORTANT]
 >The **remember Multi-Factor Authentication** feature is not compatible with the **keep me signed in** feature of AD FS, when users perform two-step verification for AD FS through Azure Multi-Factor Authentication Server or a third-party multi-factor authentication solution.

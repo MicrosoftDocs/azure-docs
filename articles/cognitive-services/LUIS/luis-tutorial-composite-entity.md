@@ -1,22 +1,22 @@
 ---
-title: Composite entity"
+title: Composite entity tutorial - LUIS
 titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 07/29/2019
 ms.author: diberry
---- 
+---
 
 # Tutorial: Group and extract related data
 In this tutorial, add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 
-The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. It is similar to an hierarchical entity but can contain different types of entities. 
+The purpose of the composite entity is to group related entities into a parent category entity. The information exists as separate entities before a composite is created. 
 
 The composite entity is a good fit for this type of data because the data:
 
@@ -80,18 +80,19 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select **TransferEmployeeToDepartment** from the intents list.
 
-1. In the first utterance, select the personName entity, `John Jackson`, then select **Start wrapping composite entity** in the pop-up menu list for the following utterance:
+1. In the utterance `place John Jackson in engineering`, select the personName entity, `John Jackson`, then select **Wrap in composite entity** in the pop-up menu list for the following utterance. 
 
-    `place John Jackson in engineering`
+    ![Screenshot of selecting wrap composite in drop down dialog](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Then immediately select the last entity, `engineering` in the utterance. A green bar is drawn under the selected words indicating a composite entity. In the pop-up menu, enter the composite name `TransferEmployeeInfo` then select enter. 
 
-1. In **What type of entity do you want to create?**, all the fields required are in the list: `personName` and `Department`. Select **Done**. 
+    ![Screenshot of entering composite name in drop down dialog](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Notice that the prebuilt entity, personName, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
+1. In **What type of entity do you want to create?**, all the fields required are in the list: `personName` and `Department`. Select **Done**. Notice that the prebuilt entity, personName, was added to the composite entity. If you could have a prebuilt entity appear between the beginning and ending tokens of a composite entity, the composite entity must contain those prebuilt entities. If the prebuilt entities are not included, the composite entity is not correctly predicted but each individual element is.
+
+    ![Screenshot of entering composite name in drop down dialog](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## Label example utterances with composite entity
-
 
 1. In each example utterance, select the left-most entity that should be in the composite. Then select **Wrap in composite entity**.
 
@@ -177,7 +178,7 @@ LUIS provides several prebuilt entities for common data extraction.
     }
     ```
 
-  This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
+   This utterance returns a composite entities array. Each entity is given a type and value. To find more precision for each child entity, use the combination of type and value from the composite array item to find the corresponding item in the entities array.  
 
 ## Clean up resources
 

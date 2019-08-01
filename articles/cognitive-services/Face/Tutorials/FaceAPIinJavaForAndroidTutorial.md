@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, you will create a simple Android app that uses the Face API to detect and frame faces in an image. 
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 11/12/2018
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a developer of an image management app, I want to learn how to detect faces and display face data on the UI, so that I can follow a similar process for my specific features and needs.
 ---
@@ -97,7 +97,7 @@ In the **Project** pane, expand **app**, then **manifests**, and open *AndroidMa
 
 ## Upload image and detect faces
 
-Your app will detect faces by calling the **FaceServiceClient.detect** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of **Face** instances.
+Your app will detect faces by calling the **faceClient.Face.DetectWithStreamAsync** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of **Face** instances.
 
 Each returned **Face** includes a rectangle to indicate its location, combined with a series of optional face attributes. In this example, only the face rectangles are requested.
 

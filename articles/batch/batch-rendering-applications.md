@@ -2,9 +2,10 @@
 title: Rendering applications - Azure Batch
 description: Pre-installed Batch rendering applications
 services: batch
+ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 12/11/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ---
 
@@ -16,7 +17,9 @@ Where applicable, pay-per-use licensing is available for the pre-installed rende
 
 Some applications only support Windows, but most are supported on both Windows and Linux.
 
-## Applications on CentOS 7 rendering nodes
+## Applications on CentOS 7 rendering images
+
+The following list applies to CentOS 7.6, version 1.1.5 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (cut 201708032230)
 * Autodesk Maya I/O 2018 Update 2 (cut 201711281015)
@@ -26,7 +29,29 @@ Some applications only support Windows, but most are supported on both Windows a
 * Chaos Group V-Ray for Maya 2018 (version 3.60.04)
 * Blender (2.68)
 
-## Applications on Windows Server 2016 rendering nodes
+## Applications on latest Windows Server 2016 rendering images
+
+The following list applies to Windows Server 2016, version 1.3.4 rendering images.
+
+* Autodesk Maya I/O 2017 Update 5 (version 17.4.5459)
+* Autodesk Maya I/O 2018 Update 4 (version 18.4.0.7622)
+* Autodesk 3ds Max I/O 2019 Update 1 (version 21.2.0.2219)
+* Autodesk 3ds Max I/O 2018 Update 4 (version 20.4.0.4254)
+* Autodesk Arnold for Maya 2017 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold for Maya 2018 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2018
+* Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4)(version 1.2.926)
+* Chaos Group V-Ray for Maya 2018 (version 3.52.03)
+* Chaos Group V-Ray for 3ds Max 2018 (version 3.60.02)
+* Chaos Group V-Ray for Maya 2019 (version 3.52.03)
+* Chaos Group V-Ray for 3ds Max 2019 (version 4.10.01)
+* Blender (2.79)
+
+> [!NOTE]
+> Chaos Group V-Ray for 3ds Max 2019 (version 4.10.01) introduces breaking changes to V-ray. To use the previous version (version 3.60.02), use Windows Server 2016, version 1.3.2 rendering nodes.
+
+## Applications on previous Windows Server 2016 rendering images
+
+The following list applies to Windows Server 2016, version 1.3.2 rendering images.
 
 * Autodesk Maya I/O 2017 Update 5 (version 17.4.5459)
 * Autodesk Maya I/O 2018 Update 4 (version 18.4.0.7622)  
@@ -35,8 +60,8 @@ Some applications only support Windows, but most are supported on both Windows a
 * Autodesk Arnold for Maya 2017 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2017
 * Autodesk Arnold for Maya 2018 (Arnold version 5.2.0.1) MtoA-3.1.0.1-2018
 * Autodesk Arnold for 3ds Max (Arnold version 5.0.2.4)(version 1.2.926)
-* Chaos Group V-Ray for Maya (version 3.52.03)
-* Chaos Group V-Ray for 3ds Max (version 3.60.02)
+* Chaos Group V-Ray for Maya 2019 (version 3.52.03)
+* Chaos Group V-Ray for 3ds Max 2018 (version 3.60.02)
 * Blender (2.79)
 
 ## Next steps

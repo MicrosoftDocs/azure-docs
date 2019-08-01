@@ -3,8 +3,8 @@ title: Networking patterns for Azure Service Fabric | Microsoft Docs
 description: Describes common networking patterns for Service Fabric and how to create a cluster by using Azure networking features.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor:
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # Service Fabric networking patterns
@@ -30,6 +30,9 @@ Service Fabric runs in a standard virtual machine scale set. Any functionality t
 Service Fabric is unique from other networking features in one aspect. The [Azure portal](https://portal.azure.com) internally uses the Service Fabric resource provider to call to a cluster to get information about nodes and applications. The Service Fabric resource provider requires publicly accessible inbound access to the HTTP gateway port (port 19080, by default) on the management endpoint. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) uses the management endpoint to manage your cluster. The Service Fabric resource provider also uses this port to query information about your cluster, to display in the Azure portal. 
 
 If port 19080 is not accessible from the Service Fabric resource provider, a message like *Nodes Not Found* appears in the portal, and your node and application list appears empty. If you want to see your cluster in the Azure portal, your load balancer must expose a public IP address, and your network security group must allow incoming port 19080 traffic. If your setup does not meet these requirements, the Azure portal does not display the status of your cluster.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Templates
 
@@ -47,7 +50,7 @@ In the following example, we start with an existing virtual network named Existi
 A static public IP address generally is a dedicated resource that's managed separately from the VM or VMs it's assigned to. It's provisioned in a dedicated networking resource group (as opposed to in the Service Fabric cluster resource group itself). Create a static public IP address named staticIP1 in the same ExistingRG resource group, either in the Azure portal or by using PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -77,7 +80,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 
 1. Change the subnet parameter to the name of the existing subnet, and then add two new parameters to reference the existing virtual network:
 
-    ```
+    ```json
         "subnet0Name": {
                 "type": "string",
                 "defaultValue": "default"
@@ -104,26 +107,26 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 
 2. Comment out `nicPrefixOverride` attribute of `Microsoft.Compute/virtualMachineScaleSets`, because you are using existing subnet and you have disabled this variable in step 1.
 
-    ```
+    ```json
             /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
     ```
 
 3. Change the `vnetID` variable to point to the existing virtual network:
 
-    ```
+    ```json
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
 4. Remove `Microsoft.Network/virtualNetworks` from your resources, so Azure does not create a new virtual network:
 
-    ```
+    ```json
     /*{
     "apiVersion": "[variables('vNetApiVersion')]",
     "type": "Microsoft.Network/virtualNetworks",
     "name": "[parameters('virtualNetworkName')]",
     "location": "[parameters('computeLocation')]",
-    "properities": {
+    "properties": {
         "addressSpace": {
             "addressPrefixes": [
                 "[parameters('addressPrefix')]"
@@ -147,7 +150,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 
 5. Comment out the virtual network from the `dependsOn` attribute of `Microsoft.Compute/virtualMachineScaleSets`, so you don't depend on creating a new virtual network:
 
-    ```
+    ```json
     "apiVersion": "[variables('vmssApiVersion')]",
     "type": "Microsoft.Computer/virtualMachineScaleSets",
     "name": "[parameters('vmNodeType0Name')]",
@@ -162,8 +165,8 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 6. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     After deployment, your virtual network should include the new scale set VMs. The virtual machine scale set node type should show the existing virtual network and subnet. You also can use Remote Desktop Protocol (RDP) to access the VM that was already in the virtual network, and to ping the new scale set VMs:
@@ -181,7 +184,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 1. Add parameters for the name of the existing static IP resource group, name, and fully qualified domain name (FQDN):
 
-    ```
+    ```json
     "existingStaticIPResourceGroup": {
                 "type": "string"
             },
@@ -195,7 +198,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 2. Remove the `dnsName` parameter. (The static IP address already has one.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -205,13 +208,13 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 3. Add a variable to reference the existing static IP address:
 
-    ```
+    ```json
     "existingStaticIP": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingStaticIPResourceGroup'), '/providers/Microsoft.Network/publicIPAddresses/', parameters('existingStaticIPName'))]",
     ```
 
 4. Remove `Microsoft.Network/publicIPAddresses` from your resources, so Azure does not create a new IP address:
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -233,7 +236,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 5. Comment out the IP address from the `dependsOn` attribute of `Microsoft.Network/loadBalancers`, so you don't depend on creating a new IP address:
 
-    ```
+    ```json
     "apiVersion": "[variables('lbIPApiVersion')]",
     "type": "Microsoft.Network/loadBalancers",
     "name": "[concat('LB', '-', parameters('clusterName'), '-', parameters('vmNodeType0Name'))]",
@@ -247,7 +250,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 6. In the `Microsoft.Network/loadBalancers` resource, change the `publicIPAddress` element of `frontendIPConfigurations` to reference the existing static IP address instead of a newly created one:
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -263,7 +266,7 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 
 7. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to the DNS FQDN of the static IP address. If you are using a secure cluster, make sure you change *http://* to *https://*. (Note that this step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',parameters('existingStaticIPDnsFQDN'),':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -272,13 +275,13 @@ For another example, see [one that is not specific to Service Fabric](https://gi
 8. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 After deployment, you can see that your load balancer is bound to the public static IP address from the other resource group. The Service Fabric client connection endpoint and [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint point to the DNS FQDN of the static IP address.
@@ -290,7 +293,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 
 1. Remove the `dnsName` parameter. (It's not needed.)
 
-    ```
+    ```json
     /*
     "dnsName": {
         "type": "string"
@@ -300,7 +303,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 
 2. Optionally, if you use a static allocation method, you can add a static IP address parameter. If you use a dynamic allocation method, you do not need to do this step.
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -309,7 +312,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 
 3. Remove `Microsoft.Network/publicIPAddresses` from your resources, so Azure does not create a new IP address:
 
-    ```
+    ```json
     /*
     {
         "apiVersion": "[variables('publicIPApiVersion')]",
@@ -331,7 +334,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 
 4. Remove the IP address `dependsOn` attribute of `Microsoft.Network/loadBalancers`, so you don't depend on creating a new IP address. Add the virtual network `dependsOn` attribute because the load balancer now depends on the subnet from the virtual network:
 
-    ```
+    ```json
                 "apiVersion": "[variables('lbApiVersion')]",
                 "type": "Microsoft.Network/loadBalancers",
                 "name": "[concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'))]",
@@ -344,7 +347,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 
 5. Change the load balancer's `frontendIPConfigurations` setting from using a `publicIPAddress`, to using a subnet and `privateIPAddress`. `privateIPAddress` uses a predefined static internal IP address. To use a dynamic IP address, remove the `privateIPAddress` element, and then change `privateIPAllocationMethod` to **Dynamic**.
 
-    ```
+    ```json
                 "frontendIPConfigurations": [
                         {
                             "name": "LoadBalancerIPConfig",
@@ -365,7 +368,7 @@ This scenario replaces the external load balancer in the default Service Fabric 
 
 6. In the `Microsoft.ServiceFabric/clusters` resource, change `managementEndpoint` to point to the internal load balancer address. If you use a secure cluster, make sure you change *http://* to *https://*. (Note that this step applies only to Service Fabric clusters. If you are using a virtual machine scale set, skip this step.)
 
-    ```
+    ```json
                     "fabricSettings": [],
                     /*"managementEndpoint": "[concat('http://',reference(concat(parameters('lbIPName'),'-','0')).dnsSettings.fqdn,':',parameters('nt0fabricHttpGatewayPort'))]",*/
                     "managementEndpoint": "[concat('http://',reference(variables('lbID0')).frontEndIPConfigurations[0].properties.privateIPAddress,':',parameters('nt0fabricHttpGatewayPort'))]",
@@ -374,9 +377,9 @@ This scenario replaces the external load balancer in the default Service Fabric 
 7. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 After deployment, your load balancer uses the private static 10.0.0.250 IP address. If you have another machine in that same virtual network, you can go to the internal [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) endpoint. Note that it connects to one of the nodes behind the load balancer.
@@ -390,7 +393,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 
 1. Add the static internal load balancer IP address parameter. (For notes related to using a dynamic IP address, see earlier sections of this article.)
 
-    ```
+    ```json
             "internalLBAddress": {
                 "type": "string",
                 "defaultValue": "10.0.0.250"
@@ -401,7 +404,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 
 3. To add internal versions of the existing networking variables, copy and paste them, and add "-Int" to the name:
 
-    ```
+    ```json
     /* Add internal load balancer networking variables */
             "lbID0-Int": "[resourceId('Microsoft.Network/loadBalancers', concat('LB','-', parameters('clusterName'),'-',parameters('vmNodeType0Name'), '-Internal'))]",
             "lbIPConfig0-Int": "[concat(variables('lbID0-Int'),'/frontendIPConfigurations/LoadBalancerIPConfig')]",
@@ -414,7 +417,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 
 4. If you start with the portal-generated template that uses application port 80, the default portal template adds AppPort1 (port 80) on the external load balancer. In this case, remove AppPort1 from the external load balancer `loadBalancingRules` and probes, so you can add it to the internal load balancer:
 
-    ```
+    ```json
     "loadBalancingRules": [
         {
             "name": "LBHttpRule",
@@ -491,7 +494,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 
 5. Add a second `Microsoft.Network/loadBalancers` resource. It looks similar to the internal load balancer created in the [Internal-only load balancer](#internallb) section, but it uses the "-Int" load balancer variables, and implements only the application port 80. This also removes `inboundNatPools`, to keep RDP endpoints on the public load balancer. If you want RDP on the internal load balancer, move `inboundNatPools` from the external load balancer to this internal load balancer:
 
-    ```
+    ```json
             /* Add a second load balancer, configured with a static privateIPAddress and the "-Int" load balancer variables. */
             {
                 "apiVersion": "[variables('lbApiVersion')]",
@@ -576,7 +579,7 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 
 6. In `networkProfile` for the `Microsoft.Compute/virtualMachineScaleSets` resource, add the internal back-end address pool:
 
-    ```
+    ```json
     "loadBalancerBackendAddressPools": [
                                                         {
                                                             "id": "[variables('lbPoolID0')]"
@@ -591,12 +594,15 @@ In a two-node-type cluster, one node type is on the external load balancer. The 
 7. Deploy the template:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
     ```
 
 After deployment, you can see two load balancers in the resource group. If you browse the load balancers, you can see the public IP address and management endpoints (ports 19000 and 19080) assigned to the public IP address. You also can see the static internal IP address and application endpoint (port 80) assigned to the internal load balancer. Both load balancers use the same virtual machine scale set back-end pool.
 
 ## Next steps
 [Create a cluster](service-fabric-cluster-creation-via-arm.md)
+
+After deployment, you can see two load balancers in the resource group. If you browse the load balancers, you can see the public IP address and management endpoints (ports 19000 and 19080) assigned to the public IP address. You also can see the static internal IP address and application endpoint (port 80) assigned to the internal load balancer. Both load balancers use the same virtual machine scale set back-end pool.
+

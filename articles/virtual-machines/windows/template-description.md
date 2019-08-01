@@ -4,7 +4,7 @@ description: Learn more about how the virtual machine resource is defined in an 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -24,6 +24,8 @@ ms.author: cynthn
 This article describes aspects of an Azure Resource Manager template that apply to virtual machines. This article doesn’t describe a complete template for creating a virtual machine; for that you need resource definitions for storage accounts, network interfaces, public IP addresses, and virtual networks. For more information about how these resources can be defined together, see the [Resource Manager template walkthrough](../../azure-resource-manager/resource-manager-template-walkthrough.md).
 
 There are many [templates in the gallery](https://azure.microsoft.com/documentation/templates/?term=VM) that include the VM resource. Not all elements that can be included in a template are described here.
+
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 This example shows a typical resource section of a template for creating a specified number of VMs:
 
@@ -159,9 +161,10 @@ The version of the API you specify in your template affects which properties you
 
 Use these opportunities for getting the latest API versions:
 
-- REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers#Providers_List)
-- PowerShell - [Get-AzureRmResourceProvider](/powershell/module/azurerm.resources/get-azurermresourceprovider)
-- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider#az_provider_show)
+- REST API - [List all resource providers](https://docs.microsoft.com/rest/api/resources/providers)
+- PowerShell - [Get-AzResourceProvider](https://docs.microsoft.com/powershell/module/az.resources/get-azresourceprovider)
+- Azure CLI - [az provider show](https://docs.microsoft.com/cli/azure/provider)
+
 
 ## Parameters and variables
 
@@ -284,7 +287,7 @@ Several profile elements are used when defining a virtual machine resource. Some
 
 ## Disks and images
    
-In Azure, vhd files can represent [disks or images](about-disks-and-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
+In Azure, vhd files can represent [disks or images](managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When the operating system in a vhd file is specialized to be a specific VM, it's referred to as a disk. When the operating system in a vhd file is generalized to be used to create many VMs, it's referred to as an image.   
     
 ### Create new virtual machines and new disks from a platform image
 
@@ -439,7 +442,7 @@ You can see the status of the installed extensions from the Extensions settings 
 
 ![Get extension status](./media/template-description/virtual-machines-show-extensions.png)
 
-You can also get extension information by using the **Get-AzureRmVMExtension** PowerShell command, the **vm extension get** Azure CLI command, or the **Get extension information** REST API.
+You can also get extension information by using the **Get-AzVMExtension** PowerShell command, the **vm extension get** Azure CLI command, or the **Get extension information** REST API.
 
 ## Deployments
 

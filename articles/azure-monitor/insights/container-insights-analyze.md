@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2018
+ms.date: 07/22/2019
 ms.author: magoedte
 ---
 
@@ -22,21 +22,32 @@ This article will help you understand the experience between the two perspective
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  ​
-​
+Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
+
+The main differences monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
+
+- Memory RSS metric is not available for Windows node and containers.
+- Disk storage capacity information is not available for Windows nodes.
+- Live logs support is available with the exception of Windows container logs.
+- Only pod environments are monitored, not Docker environments.
+- With the preview release, a maximum of 30 Windows Server containers are supported. This limitation does not apply to Linux containers.  
+
 ## Sign in to the Azure portal
+
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-## Multi-cluster view from Azure Monitor 
+## Multi-cluster view from Azure Monitor
+
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section, select **Containers**.  
 
-![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview-1018.png)
+![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
 
 On the **Monitored clusters** tab, you are able to learn the following:
 
 1. How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an unknown state)?
-1. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
-1. How many nodes, user and system pods are deployed per cluster.  
+2. Are all of my [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments healthy?
+3. How many nodes, user and system pods are deployed per cluster?
+4. How much disk space is available and is there a capacity issue?
 
 The health statuses included are: 
 
@@ -47,10 +58,10 @@ The health statuses included are:
 * **Not found** - Either the workspace, the resource group, or subscription containing the workspace for this solution has been deleted.
 * **Unauthorized** - User doesn’t have required permissions to read the data in the workspace.
 * **Error** - Error occurred while attempting to read data from the workspace.
-* **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
+* **Misconfigured** - Azure Monitor for containers was not configured correctly in the specified workspace.
 * **No data** - Data has not reported to the workspace in the last 30 minutes.
 
-Health state calculates overall cluster status as *worst of*” the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
+Health state calculates overall cluster status as *worst of* the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
 
 The following table provides a breakdown of the calculation controlling the health states for a monitored cluster on the multi-cluster view.
 
@@ -75,6 +86,7 @@ The following table provides a breakdown of the calculation controlling the heal
 From the list of clusters, you can drill down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
+
 Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
 
 - Cluster
@@ -93,15 +105,43 @@ The performance chart displays four performance metrics:
 - **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are *All*, *Ready*, and *Not Ready* and can be filtered individually or combined in the selector above the chart. 
 - **Activity pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are *All*, *Pending*, *Running*, and *Unknown* and can be filtered individually or combined in the selector above the chart. 
 
-You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines.
+You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines. Clicking on the pin icon at the upper right-hand corner of any one of the charts will pin the selected chart to the last Azure dashboard you last viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will redirect you to Azure Monitor for containers and load the correct scope and view.
 
-When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane.  It shows the properties of the item selected, including labels you define to organize Kubernetes objects. Click on the **>>** link in the pane to view\hide the pane.  
+Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you can also use the criteria you have set to visualize your metrics as the basis of a [metric based alert rule](../platform/alerts-metric.md).  
+
+## View container metrics in metrics explorer
+
+In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
+
+|Namespace | Metric |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+You can apply [splitting](../platform/metrics-charts.md#apply-splitting-to-a-chart) of a metric to view it by dimension and visualize how different segments of it compare to each other. For a node, you can segment the chart by the *host* dimension, and from a pod you can segment it by the following dimensions:
+
+* Controller
+* Kubernetes namespace
+* Node
+* Phase
+
+## Analyze nodes, controllers, and container health
+
+When you switch to **Nodes**, **Controllers**, and **Containers** tab, automatically displayed on the right-side of the page is the property pane. It shows the properties of the item-selected, including labels you define to organize Kubernetes objects. When a Linux node is selected, it also shows under the section **Local Disk Capacity** available disk space and percent used for each disk presented to the node. Click on the **>>** link in the pane to view\hide the pane. 
 
 ![Example Kubernetes perspectives properties pane](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
-As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](#search-logs-to-analyze-data). While you are reviewing your containers in the **Containers** view, you can see container logs in real time. For more information about this feature and the configuration required to grant and control access, see [How to view container logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
+As you expand the objects in the hierarchy, the properties pane updates based on the object selected. From the pane, you can also view Kubernetes events with pre-defined log searches by clicking on the **View Kubernetes event logs** link at the top of the pane. For more information about viewing Kubernetes log data, see [Search logs to analyze data](container-insights-log-search.md). While you are reviewing cluster resources, you can see container logs and events in real time. For more information about this feature and the configuration required to grant and control access, see [How to view logs real time with Azure Monitor for containers](container-insights-live-logs.md). 
 
-Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, or **Namespace** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
+Use the **+ Add Filter** option from the top of the page to filter the results for the view by **Service**, **Node**, **Namespace**, or **Node Pool** and after selecting the filter scope, you then select from one of the values shown in the **Select value(s)** field.  After the filter is configured, it is applied globally while viewing any perspective of the AKS cluster.  The formula only supports the equal sign.  You can add additional filters on top of the first one to further narrow your results.  For example, if you specified a filter by **Node**, your second filter would only allow you to select **Service** or **Namespace**.  
 
 ![Example using the filter to narrow down results](./media/container-insights-analyze/add-filter-option-01.png)
 
@@ -111,6 +151,10 @@ Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object 
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/container-insights-analyze/containers-nodes-view.png)
 
+Windows Server containers running the Windows Server 2019 OS are shown after all of the Linux-based nodes in the list. When you expand a Windows Server node, you can view one or more pods and containers running on the node. When a node is selected, the properties pane shows version information, excluding agent information since Windows Server nodes do not have an agent installed.  
+
+![Example Node hierarchy with Windows Server nodes listed](./media/container-insights-analyze/nodes-view-windows.png) 
+
 Azure Container Instances Virtual Nodes running the Linux OS are shown after the last AKS cluster node in the list.  When you expand an ACI Virtual Node, you can view one or more ACI pods and containers running on the node.  Metrics are not collected and reported for nodes, only pods.
 
 ![Example Node hierarchy with Container Instances listed](./media/container-insights-analyze/nodes-view-aci.png)
@@ -118,7 +162,9 @@ Azure Container Instances Virtual Nodes running the Linux OS are shown after the
 From an expanded node, you can drill down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
 
-You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
+You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
+
+Memory working set shows both the resident memory and virtual memory (cache) included, and is a total of what the application is using. Memory RSS shows only main memory, which is the resident memory. This metric is showing the actual capacity of available memory.
 
 ![Container nodes performance view](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -128,7 +174,7 @@ By default, Performance data is based on the last six hours, but you can change 
 
 When you mouse over the bar graph under the **Trend** column, each bar shows either CPU or memory usage, depending on which metric is selected, within a sample period of 15 minutes. After you select the trend chart through a keyboard, you can use the Alt+PageUp or Alt+PageDown keys to cycle through each bar individually and get the same details as you would on mouseover.
 
-![Trend bar chart hover example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Trend bar chart hover over example](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 In the next example, note for the first in the list - node *aks-nodepool1-*, the value for **Containers** is 9, which is a rollup of the total number of containers deployed.
 
@@ -155,7 +201,7 @@ In the selector, select **Controllers**.
 
 Here you can view the performance health of your controllers and ACI Virtual Node controllers or Virtual Node pods not connected to a controller.
 
-![<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
+![\<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
 
 The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
 
@@ -171,10 +217,10 @@ The information that's displayed when you view controllers is described in the f
 |--------|-------------|
 | Name | The name of the controller.|
 | Status | The rollup status of the containers when it has completed running with status, such as *OK*, *Terminated*, *Failed* *Stopped*, or *Paused*. If the container is running, but the status was either not properly displayed or was not picked up by the agent and has not responded more than 30 minutes, the status is *Unknown*. Additional details of the status icon are provided in the table below.|
-| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Rollup average of the average percentage of each entity for the selected metric and percentile. |
-| Avg, Min, Max, 50th, 90th  | Rollup of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
+| Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Roll up average of the average percentage of each entity for the selected metric and percentile. |
+| Avg, Min, Max, 50th, 90th  | Roll up of the average CPU millicore or memory performance of the container for the selected percentile. The average value is measured from the CPU/Memory limit set for a pod. |
 | Containers | Total number of containers for the controller or pod. |
-| Restarts | Rollup of the restart count from containers. |
+| Restarts | Roll up of the restart count from containers. |
 | Uptime | Represents the time since a container started. |
 | Node | Only for containers and pods. It shows which controller it is residing. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;%| Bar graph trend represents the average percentile metric of the controller. |
@@ -196,7 +242,7 @@ In the selector, select **Containers**.
 
 Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers.  
 
-![<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
+![\<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
 
@@ -226,49 +272,36 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
+## Workbooks
 
-## Container data-collection details
-Container Insights collects various performance metrics and log data from container hosts and containers. Data is collected every three minutes.
+Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
-### Container records
+Azure Monitor for containers includes four workbooks to get you started:
 
-Examples of records that are collected by Azure Monitor for containers and the data types that appear in log search results are displayed in the following table:
+- **Disk capacity**: Presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
 
-| Data type | Data type in Log Search | Fields |
-| --- | --- | --- |
-| Performance for hosts and containers | `Perf` | Computer, ObjectName, CounterName &#40;%Processor Time, Disk Reads MB, Disk Writes MB, Memory Usage MB, Network Receive Bytes, Network Send Bytes, Processor Usage sec, Network&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem |
-| Container inventory | `ContainerInventory` | TimeGenerated, Computer, container name, ContainerHostname, Image, ImageTag, ContainerState, ExitCode, EnvironmentVar, Command, CreatedTime, StartedTime, FinishedTime, SourceSystem, ContainerID, ImageID |
-| Container image inventory | `ContainerImageInventory` | TimeGenerated, Computer, Image, ImageTag, ImageSize, VirtualSize, Running, Paused, Stopped, Failed, SourceSystem, ImageID, TotalContainer |
-| Container log | `ContainerLog` | TimeGenerated, Computer, image ID, container name, LogEntrySource, LogEntry, SourceSystem, ContainerID |
-| Container service log | `ContainerServiceLog`  | TimeGenerated, Computer, TimeOfCommand, Image, Command, SourceSystem, ContainerID |
-| Container node inventory | `ContainerNodeInventory_CL`| TimeGenerated, Computer, ClassName_s, DockerVersion_s, OperatingSystem_s, Volume_s, Network_s, NodeRole_s, OrchestratorType_s, InstanceID_g, SourceSystem|
-| Container process | `ContainerProcess_CL` | TimeGenerated, Computer, Pod_s, Namespace_s, ClassName_s, InstanceID_s, Uid_s, PID_s, PPID_s, C_s, STIME_s, Tty_s, TIME_s, Cmd_s, Id_s, Name_s, SourceSystem |
-| Inventory of pods in a Kubernetes cluster | `KubePodInventory` | TimeGenerated, Computer, ClusterId, ContainerCreationTimeStamp, PodUid, PodCreationTimeStamp, ContainerRestartCount, PodRestartCount, PodStartTime, ContainerStartTime, ServiceName, ControllerKind, ControllerName, ContainerStatus, ContainerID, ContainerName, Name, PodLabel, Namespace, PodStatus, ClusterName, PodIp, SourceSystem |
-| Inventory of nodes part of a Kubernetes cluster | `KubeNodeInventory` | TimeGenerated, Computer, ClusterName, ClusterId, LastTransitionTimeReady, Labels, Status, KubeletVersion, KubeProxyVersion, CreationTimeStamp, SourceSystem | 
-| Kubernetes Events | `KubeEvents_CL` | TimeGenerated, Computer, ClusterId_s, FirstSeen_t, LastSeen_t, Count_d, ObjectKind_s, Namespace_s, Name_s, Reason_s, Type_s, TimeGenerated_s, SourceComponent_s, ClusterName_s, Message,  SourceSystem | 
-| Services in the Kubernetes cluster | `KubeServices_CL` | TimeGenerated, ServiceName_s, Namespace_s, SelectorLabels_s, ClusterId_s, ClusterName_s, ClusterIP_s, ServiceType_s, SourceSystem | 
-| Performance metrics for nodes part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SNode” | Computer, ObjectName, CounterName &#40;cpuUsageNanoCores, , memoryWorkingSetBytes, memoryRssBytes, networkRxBytes, networkTxBytes, restartTimeEpoch, networkRxBytesPerSec, networkTxBytesPerSec, cpuAllocatableNanoCores, memoryAllocatableBytes, cpuCapacityNanoCores, memoryCapacityBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
-| Performance metrics for containers part of the Kubernetes cluster | Perf &#124; where ObjectName == “K8SContainer” | CounterName &#40;cpuUsageNanoCores, memoryWorkingSetBytes, memoryRssBytes, restartTimeEpoch, cpuRequestNanoCores, memoryRequestBytes, cpuLimitNanoCores, memoryLimitBytes&#41;,CounterValue, TimeGenerated, CounterPath, SourceSystem | 
+    - Disk % usage for all disks
+    - Free disk space for all disks
+    - A grid showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
 
-## Search logs to analyze data
-Log Analytics can help you look for trends, diagnose bottlenecks, forecast, or correlate data that can help you determine whether the current cluster configuration is performing optimally. Pre-defined log searches are provided for you to immediately start using or to customize to return the information the way you want. 
+- **Disk IO**: Presents interactive disk utilization charts for each disk presented to the node within a container by the following perspectives:
 
-You can perform interactive analysis of data in the workspace by selecting the **View Kubernetes event logs** or **View container logs** option in the preview pane. The **Log Search** page appears to the right of the Azure portal page that you were on.
+    - Disk I/O summarized across all disks by read bytes/sec, writes bytes/sec, and read and write bytes/sec trends 
+    - Eight performance charts showing key performance indicators to help measure and identify disk I/O bottlenecks.
 
-![Analyze data in Log Analytics](./media/container-insights-analyze/container-health-log-search-example.png)   
+- **Kubelet**: Includes two grids that show key node operating statistics:
 
-The container logs output that's forwarded to Log Analytics are STDOUT and STDERR. Because Azure Monitor is monitoring Azure-managed Kubernetes (AKS), Kube-system is not collected today because of the large volume of generated data. 
+    - Overview by node grid summarizes total operation, total errors, and successful operations by percent and trend for each node.
+    - Overview by operation type summarizes for each operation the total operation, total errors, and successful operations by percent and trend.
 
-### Example log search queries
-It's often useful to build queries that start with an example or two and then modify them to fit your requirements. To help build more advanced queries, you can experiment with the following sample queries:
+- **Network**: Presents interactive network utilization charts for each nodes network adapter and a grid presenting the key performance indicators to help measure the performance of your network adapters.  
 
-| Query | Description | 
-|-------|-------------|
-| ContainerInventory<br> &#124; project Computer, Name, Image, ImageTag, ContainerState, CreatedTime, StartedTime, FinishedTime<br> &#124; render table | List all of a container's lifecycle information| 
-| KubeEvents_CL<br> &#124; where not(isempty(Namespace_s))<br> &#124; sort by TimeGenerated desc<br> &#124; render table | Kubernetes events|
-| ContainerImageInventory<br> &#124; summarize AggregatedValue = count() by Image, ImageTag, Running | Image inventory | 
-| **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "cpuUsageNanoCores" &#124; summarize AvgCPUUsageNanoCores = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container CPU | 
-| **Select the Line chart display option**:<br> Perf<br> &#124; where ObjectName == "K8SContainer" and CounterName == "memoryRssBytes" &#124; summarize AvgUsedRssMemoryBytes = avg(CounterValue) by bin(TimeGenerated, 30m), InstanceName | Container memory |
+You access these workbooks by selecting each one from the **View Workbooks** drop-down list.  
 
-## Alerting
-Azure Monitor for containers does not include a predefined set of alerts that you can copy and modify according to your supporting processes and procedures. In the meantime, check out [create log alerts with Azure Monitor](../../azure-monitor/platform/alerts-log.md?toc=/azure/azure-monitor/toc.json) and learn how to create your own set of alerts.  
+![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
+## Next steps
+
+- Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 
+
+- View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

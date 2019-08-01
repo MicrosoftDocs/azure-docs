@@ -9,7 +9,7 @@ ms.service: search
 ms.devlang: NA
 ms.workload: search
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 05/02/2019
 ms.author: luisca
 ms.custom: seodec2018
 ---
@@ -25,11 +25,11 @@ This article covers image processing in more detail and provides guidance for wo
 
 As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
 
-You cannot turn off image normalization. Skills that iterate over images expect normalized images.
+You cannot turn off image normalization. Skills that iterate over images expect normalized images. Enabling image normalization on an indexer requires that a skillset be attached to that indexer.
 
 | Configuration Parameter | Description |
 |--------------------|-------------|
-| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking. These images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." |
+| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking.<br/>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types.<br/>For any option that is not "none", the images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." <br/>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
 |  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000.|
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000.|
 
@@ -57,7 +57,7 @@ You specify the imageAction in your [indexer definition](https://docs.microsoft.
 }
 ```
 
-When the *imageAction* is set to "generateNormalizedImages", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
+When the *imageAction* is set to a value other then "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
 
 | Image member       | Description                             |
 |--------------------|-----------------------------------------|
@@ -97,8 +97,6 @@ The [Image Analysis skill](cognitive-search-skill-image-analysis.md) extracts a 
 ### OCR skill
 
 The [OCR skill](cognitive-search-skill-ocr.md) extracts text from image files such as JPGs, PNGs, and bitmaps. It can extract text as well as layout information. The layout  information provides bounding boxes for each of the strings identified.
-
-The OCR skill allows you to select the algorithm to use for detecting text in your images. Currently it supports two algorithms, one for printed text and another for handwritten text.
 
 ## Embedded image scenario
 

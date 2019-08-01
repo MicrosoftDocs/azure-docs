@@ -3,8 +3,8 @@ title: Tutorial - Load balance Linux virtual machines in Azure | Microsoft Docs
 description: In this tutorial, you learn how to use the Azure CLI to create a load balancer for a highly available and secure application across three Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: zr-msft
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 11/13/2017
-ms.author: zarhoads
+ms.author: cynthn
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn how to load balance virtual machines in Azure so that I can deploy a redundant application with traffic automatically distributed to available VMs.
@@ -51,14 +51,14 @@ If you followed the previous tutorial to [create a virtual machine scale set](tu
 
 
 ## Create Azure load balancer
-This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
+This section details how you can create and configure each component of the load balancer. Before you can create your load balancer, create a resource group with [az group create](/cli/azure/group). The following example creates a resource group named *myResourceGroupLoadBalancer* in the *eastus* location:
 
 ```azurecli-interactive 
 az group create --name myResourceGroupLoadBalancer --location eastus
 ```
 
 ### Create a public IP address
-To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip#az_network_public_ip_create). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
+To access your app on the Internet, you need a public IP address for the load balancer. Create a public IP address with [az network public-ip create](/cli/azure/network/public-ip). The following example creates a public IP address named *myPublicIP* in the *myResourceGroupLoadBalancer* resource group:
 
 ```azurecli-interactive 
 az network public-ip create \
@@ -67,7 +67,7 @@ az network public-ip create \
 ```
 
 ### Create a load balancer
-Create a load balancer with [az network lb create](/cli/azure/network/lb#az_network_lb_create). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration:
+Create a load balancer with [az network lb create](/cli/azure/network/lb). The following example creates a load balancer named *myLoadBalancer* and assigns the *myPublicIP* address to the front-end IP configuration:
 
 ```azurecli-interactive 
 az network lb create \
@@ -83,7 +83,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
 
 The following example creates a TCP probe. You can also create custom HTTP probes for more fine grained health checks. When using a custom HTTP probe, you must create the health check page, such as *healthcheck.js*. The probe must return an **HTTP 200 OK** response for the load balancer to keep the host in rotation.
 
-To create a TCP health probe, you use [az network lb probe create](/cli/azure/network/lb/probe#az_network_lb_probe_create). The following example creates a health probe named *myHealthProbe*:
+To create a TCP health probe, you use [az network lb probe create](/cli/azure/network/lb/probe). The following example creates a health probe named *myHealthProbe*:
 
 ```azurecli-interactive 
 az network lb probe create \
@@ -97,7 +97,7 @@ az network lb probe create \
 ### Create a load balancer rule
 A load balancer rule is used to define how traffic is distributed to the VMs. You define the front-end IP configuration for the incoming traffic and the back-end IP pool to receive the traffic, along with the required source and destination port. To make sure only healthy VMs receive traffic, you also define the health probe to use.
 
-Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule#az_network_lb_rule_create). The following example creates a rule named *myLoadBalancerRule*, uses the *myHealthProbe* health probe, and balances traffic on port *80*:
+Create a load balancer rule with [az network lb rule create](/cli/azure/network/lb/rule). The following example creates a rule named *myLoadBalancerRule*, uses the *myHealthProbe* health probe, and balances traffic on port *80*:
 
 ```azurecli-interactive 
 az network lb rule create \
@@ -117,7 +117,7 @@ az network lb rule create \
 Before you deploy some VMs and can test your balancer, create the supporting virtual network resources. For more information about virtual networks, see the [Manage Azure Virtual Networks](tutorial-virtual-network.md) tutorial.
 
 ### Create network resources
-Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
+Create a virtual network with [az network vnet create](/cli/azure/network/vnet). The following example creates a virtual network named *myVnet* with a subnet named *mySubnet*:
 
 ```azurecli-interactive 
 az network vnet create \
@@ -126,7 +126,7 @@ az network vnet create \
     --subnet-name mySubnet
 ```
 
-To add a network security group, you use [az network nsg create](/cli/azure/network/nsg#az_network_nsg_create). The following example creates a network security group named *myNetworkSecurityGroup*:
+To add a network security group, you use [az network nsg create](/cli/azure/network/nsg). The following example creates a network security group named *myNetworkSecurityGroup*:
 
 ```azurecli-interactive 
 az network nsg create \
@@ -134,7 +134,7 @@ az network nsg create \
     --name myNetworkSecurityGroup
 ```
 
-Create a network security group rule with [az network nsg rule create](/cli/azure/network/nsg/rule#az_network_nsg_rule_create). The following example creates a network security group rule named *myNetworkSecurityGroupRule*:
+Create a network security group rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a network security group rule named *myNetworkSecurityGroupRule*:
 
 ```azurecli-interactive 
 az network nsg rule create \
@@ -146,7 +146,7 @@ az network nsg rule create \
     --destination-port-range 80
 ```
 
-Virtual NICs are created with [az network nic create](/cli/azure/network/nic#az_network_nic_create). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
+Virtual NICs are created with [az network nic create](/cli/azure/network/nic). The following example creates three virtual NICs. (One virtual NIC for each VM you create for your app in the following steps). You can create additional virtual NICs and VMs at any time and add them to the load balancer:
 
 ```bash
 for i in `seq 1 3`; do
@@ -216,7 +216,7 @@ runcmd:
 ### Create virtual machines
 To improve the high availability of your app, place your VMs in an availability set. For more information about availability sets, see the previous [How to create highly available virtual machines](tutorial-availability-sets.md) tutorial.
 
-Create an availability set with [az vm availability-set create](/cli/azure/vm/availability-set#az_vm_availability_set_create). The following example creates an availability set named *myAvailabilitySet*:
+Create an availability set with [az vm availability-set create](/cli/azure/vm/availability-set). The following example creates an availability set named *myAvailabilitySet*:
 
 ```azurecli-interactive 
 az vm availability-set create \
@@ -224,7 +224,7 @@ az vm availability-set create \
     --name myAvailabilitySet
 ```
 
-Now you can create the VMs with [az vm create](/cli/azure/vm#az_vm_create). The following example creates three VMs and generates SSH keys if they do not already exist:
+Now you can create the VMs with [az vm create](/cli/azure/vm). The following example creates three VMs and generates SSH keys if they do not already exist:
 
 ```bash
 for i in `seq 1 3`; do
@@ -245,7 +245,7 @@ There are background tasks that continue to run after the Azure CLI returns you 
 
 
 ## Test load balancer
-Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip#az_network_public_ip_show). The following example obtains the IP address for *myPublicIP* created earlier:
+Obtain the public IP address of your load balancer with [az network public-ip show](/cli/azure/network/public-ip). The following example obtains the IP address for *myPublicIP* created earlier:
 
 ```azurecli-interactive 
 az network public-ip show \
@@ -266,7 +266,7 @@ To see the load balancer distribute traffic across all three VMs running your ap
 You may need to perform maintenance on the VMs running your app, such as installing OS updates. To deal with increased traffic to your app, you may need to add additional VMs. This section shows you how to remove or add a VM from the load balancer.
 
 ### Remove a VM from the load balancer
-You can remove a VM from the backend address pool with [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_remove). The following example removes the virtual NIC for **myVM2** from *myLoadBalancer*:
+You can remove a VM from the backend address pool with [az network nic ip-config address-pool remove](/cli/azure/network/nic/ip-config/address-pool). The following example removes the virtual NIC for **myVM2** from *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool remove \
@@ -279,7 +279,7 @@ az network nic ip-config address-pool remove \
 
 To see the load balancer distribute traffic across the remaining two VMs running your app you can force-refresh your web browser. You can now perform maintenance on the VM, such as installing OS updates or performing a VM reboot.
 
-To view a list of VMs with virtual NICs connected to the load balancer, use [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show). Query and filter on the ID of the virtual NIC as follows:
+To view a list of VMs with virtual NICs connected to the load balancer, use [az network lb address-pool show](/cli/azure/network/lb/address-pool). Query and filter on the ID of the virtual NIC as follows:
 
 ```azurecli-interactive
 az network lb address-pool show \
@@ -298,7 +298,7 @@ The output is similar to the following example, which shows that the virtual NIC
 ```
 
 ### Add a VM to the load balancer
-After performing VM maintenance, or if you need to expand capacity, you can add a VM to the backend address pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool#az_network_nic_ip_config_address_pool_add). The following example adds the virtual NIC for **myVM2** to *myLoadBalancer*:
+After performing VM maintenance, or if you need to expand capacity, you can add a VM to the backend address pool with [az network nic ip-config address-pool add](/cli/azure/network/nic/ip-config/address-pool). The following example adds the virtual NIC for **myVM2** to *myLoadBalancer*:
 
 ```azurecli-interactive 
 az network nic ip-config address-pool add \
@@ -309,7 +309,7 @@ az network nic ip-config address-pool add \
     --address-pool myBackEndPool
 ```
 
-To verify that the virtual NIC is connected to the backend address pool, use [az network lb address-pool show](/cli/azure/network/lb/address-pool#az_network_lb_address_pool_show) again from the preceding step.
+To verify that the virtual NIC is connected to the backend address pool, use [az network lb address-pool show](/cli/azure/network/lb/address-pool) again from the preceding step.
 
 
 ## Next steps

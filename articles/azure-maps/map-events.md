@@ -3,7 +3,7 @@ title: Handle mouse events with Azure Maps | Microsoft Docs
 description: How to make an interactive Javascript map with map events
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/29/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Interact with the map - mouse events
 
-This article shows you how to use [map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
+This article shows you how to use [map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) [events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 
@@ -46,7 +46,7 @@ Learn more about the classes and methods used in this article:
 See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
-> [Show search results](./map-search-location.md)
+> [Using the Azure Maps Services module](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
 > [Code sample page](https://aka.ms/AzureMapsSamples)

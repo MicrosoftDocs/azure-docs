@@ -33,7 +33,7 @@ sections:
       columns:
         - image:
             src: media/index/Azure Active Directory_COLOR.svg
-          title: Azure AD directory roles
+          title: Azure AD roles
         - image:
             src: media/index/Cubes.svg
           title: Azure resources
@@ -49,7 +49,7 @@ sections:
       columns:
         - image:
             src: media/index/Azure Active Directory_COLOR.svg
-          title: Azure AD directory roles
+          title: Azure AD roles
         - image:
             src: media/index/Cubes.svg
           title: Azure resources

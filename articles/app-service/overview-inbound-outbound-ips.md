@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/20/2018
+ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
 
@@ -32,9 +32,17 @@ Regardless of the number of scaled-out instances, each app has a single inbound 
 - Delete the last app in a resource group _and_ region combination and recreate it.
 - Delete an existing SSL binding, such as during certificate renewal (see [Renew certificates](app-service-web-tutorial-custom-ssl.md#renew-certificates)).
 
-## Get static inbound IP
+## Find the inbound IP
 
-Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to configure an [IP-based SSL binding](app-service-web-tutorial-custom-ssl.md#bind-your-ssl-certificate). If you don't actually need SSL functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based SSL binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
+Just run the following command in a local terminal:
+
+```bash
+nslookup <app-name>.azurewebsites.net
+```
+
+## Get a static inbound IP
+
+Sometimes you might want a dedicated, static IP address for your app. To get a static inbound IP address, you need to configure an [IP-based SSL binding](app-service-web-tutorial-custom-ssl.md#secure-a-custom-domain). If you don't actually need SSL functionality to secure your app, you can even upload a self-signed certificate for this binding. In an IP-based SSL binding, the certificate is bound to the IP address itself, so App Service provisions a static IP address to make it happen. 
 
 ## When outbound IPs change
 
@@ -42,11 +50,11 @@ Regardless of the number of scaled-out instances, each app has a set number of o
 
 The set of outbound IP addresses for your app changes when you scale your app between the lower tiers (**Basic**, **Standard**, and **Premium**) and the **Premium V2** tier.
 
-You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIPAddresses` property. See [Find outbound IPs](#find-outbound-ips).
+You can find the set of all possible outbound IP addresses your app can use, regardless of pricing tiers, by looking for the `possibleOutboundIPAddresses` property or in the **Additional Outbound IP Addresses** field in the **Properties** blade in the Azure portal. See [Find outbound IPs](#find-outbound-ips).
 
 ## Find outbound IPs
 
-To find the outbound IP addresses currently used by your app in the Azure portal, click **Properties** in your app's left-hand navigation. 
+To find the outbound IP addresses currently used by your app in the Azure portal, click **Properties** in your app's left-hand navigation. They are listed in the **Outbound IP Addresses** field.
 
 You can find the same information by running the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
 
@@ -54,10 +62,20 @@ You can find the same information by running the following command in the [Cloud
 az webapp show --resource-group <group_name> --name <app_name> --query outboundIpAddresses --output tsv
 ```
 
-To find all possible outbound IP addresses for your app, regardless of pricing tiers, run the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).OutboundIpAddresses
+```
+
+To find _all_ possible outbound IP addresses for your app, regardless of pricing tiers, click **Properties** in your app's left-hand navigation. They are listed in the **Additional Outbound IP Addresses** field.
+
+You can find the same information by running the following command in the [Cloud Shell](../cloud-shell/quickstart.md).
 
 ```azurecli-interactive
 az webapp show --resource-group <group_name> --name <app_name> --query possibleOutboundIpAddresses --output tsv
+```
+
+```azurepowershell
+(Get-AzWebApp -ResourceGroup <group_name> -name <app_name>).PossibleOutboundIpAddresses
 ```
 
 ## Next steps

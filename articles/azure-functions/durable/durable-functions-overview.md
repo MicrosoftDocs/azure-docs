@@ -9,13 +9,14 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: overview
 ms.date: 12/22/2018
-ms.author: azfuncdf, glenga
+ms.author: glenga
+ms.reviewer: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 
-# What is Durable Functions?
+# What are Durable Functions?
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+*Durable Functions* are an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 ## Benefits
 
@@ -45,7 +46,7 @@ Durable Functions currently supports the following languages:
 
 Durable Functions has a goal of supporting all [Azure Functions languages](../supported-languages.md). See the [Durable Functions issues list](https://github.com/Azure/azure-functions-durable-extension/issues) for the latest status of work to support additional languages.
 
-Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2017](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
+Like Azure Functions, there are templates to help you develop Durable Functions using [Visual Studio 2019](durable-functions-create-first-csharp.md), [Visual Studio Code](quickstart-js-vscode.md), and the [Azure portal](durable-functions-create-portal.md).
 
 ## Billing
 
@@ -55,7 +56,7 @@ Durable Functions are billed the same as Azure Functions. For more information, 
 
 You can get started with Durable Functions in under 10 minutes by completing one of these language-specific quickstart tutorials:
 
-* [C# using Visual Studio 2017](durable-functions-create-first-csharp.md)
+* [C# using Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript using Visual Studio Code](quickstart-js-vscode.md)
 
 In both quickstarts, you locally create and test a "hello world" durable function. You then publish the function code to Azure. The function you create orchestrates and chains together calls to other functions.

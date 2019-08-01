@@ -10,11 +10,11 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 12/18/2018
 
 ---
 # Report across scaled-out cloud databases (preview)
+
 You can create reports from multiple Azure SQL databases from a single connection point using an [elastic query](sql-database-elastic-query-overview.md). The databases must be horizontally partitioned (also known as "sharded").
 
 If you have an existing database, see [Migrating existing databases to scaled-out databases](sql-database-elastic-convert-to-use-elastic-tools.md).
@@ -22,6 +22,7 @@ If you have an existing database, see [Migrating existing databases to scaled-ou
 To understand the SQL objects needed to query, see [Query across horizontally partitioned databases](sql-database-elastic-query-horizontal-partitioning.md).
 
 ## Prerequisites
+
 Download and run the [Getting started with Elastic Database tools sample](sql-database-elastic-scale-get-started.md).
 
 ## Create a shard map manager using the sample app

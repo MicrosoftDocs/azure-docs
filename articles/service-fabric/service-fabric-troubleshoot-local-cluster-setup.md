@@ -4,7 +4,7 @@ description: This article covers a set of suggestions for troubleshooting your l
 services: service-fabric
 documentationcenter: .net
 author: mikkelhegn
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 97f4feaa-bba0-47af-8fdd-07f811fe2202

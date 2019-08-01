@@ -3,8 +3,8 @@ title: Submit a large number of tasks - Azure Batch | Microsoft Docs
 description: How to efficiently submit a very large number of tasks in a single Azure Batch job
 services: batch
 documentationcenter: 
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: ''
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 08/24/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: 
 
 ---
@@ -33,8 +33,8 @@ The maximum size of the task collection that you can add in a single call depend
 * The following Batch APIs limit the collection to **100 tasks**. The limit could be smaller depending on the size of the tasks - for example, if the tasks have a large number of resource files or environment variables.
 
     * [REST API](/rest/api/batchservice/task/addcollection)
-    * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#azure_batch_operations_TaskOperations_add_collection)
-    * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest#addcollection)
+    * [Python API](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
+    * [Node.js API](/javascript/api/azure-batch/task?view=azure-node-latest)
 
   When using these APIs, you need to provide logic to divide the number of tasks to meet the collection limit, and to handle errors and retries in case addition of tasks fails. If a task collection is too large to add, the request generates an error and should be retried again with fewer tasks.
 
@@ -51,7 +51,7 @@ It can take some time to add a large collection of tasks to a job - for example,
 
 * **Task size** - Adding large tasks takes longer than adding smaller ones. To reduce the size of each task in a collection, you can simplify the task command line, reduce the number of environment variables, or handle requirements for task execution more efficiently. For example, instead of using a large number of resource files, install task dependencies using a [start task](batch-api-basics.md#start-task) on the pool or use an [application package](batch-application-packages.md) or [Docker container](batch-docker-container-workloads.md).
 
-* **Number of parallel operations** - Depending on the Batch API, increase throughput by increasing the maximum number of concurrent operations by the Batch client. Configure this setting using the [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property in the .NET API, or the `threads` parameter of methods such as [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection) in the Batch Python SDK extension. (This property is not available in the native Batch Python SDK.) By default, this property is set to 1, but set it higher to improve throughput of operations. You trade off increased throughput by consuming network bandwidth and some CPU performance. Task throughput increases by up to 100 times the `MaxDegreeOfParallelism` or `threads`. In practice, you should set the number of concurrent operations below 100. 
+* **Number of parallel operations** - Depending on the Batch API, increase throughput by increasing the maximum number of concurrent operations by the Batch client. Configure this setting using the [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property in the .NET API, or the `threads` parameter of methods such as [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python) in the Batch Python SDK extension. (This property is not available in the native Batch Python SDK.) By default, this property is set to 1, but set it higher to improve throughput of operations. You trade off increased throughput by consuming network bandwidth and some CPU performance. Task throughput increases by up to 100 times the `MaxDegreeOfParallelism` or `threads`. In practice, you should set the number of concurrent operations below 100. 
  
   The Azure Batch CLI extension with Batch templates increases the number of concurrent operations automatically based on the number of available cores, but this property is not configurable in the CLI. 
 
@@ -61,7 +61,7 @@ It can take some time to add a large collection of tasks to a job - for example,
 
 The following C# snippets show settings to configure when adding a large number of tasks using the Batch .NET API.
 
-To increase task throughput, increase the value of the [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). For example:
+To increase task throughput, increase the value of the [MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) property of the [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). For example:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -137,7 +137,8 @@ Set up a `BatchExtensionsClient` that uses the SDK extension:
 
 ```python
 
-client = batch.BatchExtensionsClient(base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
+client = batch.BatchExtensionsClient(
+    base_url=BATCH_ACCOUNT_URL, resource_group=RESOURCE_GROUP_NAME, batch_account=BATCH_ACCOUNT_NAME)
 ...
 ```
 
@@ -145,13 +146,12 @@ Create a collection of tasks to add to a job. For example:
 
 
 ```python
-tasks=list()
+tasks = list()
 # Populate the list with your tasks
 ...
-
 ```
 
-Add the task collection using [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python#add-collection). Set the `threads` parameter to increase the number of concurrent operations:
+Add the task collection using [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Set the `threads` parameter to increase the number of concurrent operations:
 
 ```python
 try:
@@ -160,7 +160,7 @@ except Exception as e:
     raise e
 ```
 
-The Batch Python SDK extension also supports adding task parameters to job using a JSON specification for a task factory. For example, configure job parameters for a parametric sweep similar to the one in the preceding [Batch CLI template](#example-batch-cli-template) example:
+The Batch Python SDK extension also supports adding task parameters to job using a JSON specification for a task factory. For example, configure job parameters for a parametric sweep similar to the one in the preceding Batch CLI template example:
 
 ```python
 parameter_sweep = {
@@ -184,7 +184,7 @@ parameter_sweep = {
                 "repeatTask": {
                     "commandLine": "/bin/bash -c 'echo Hello world from task {0}'",
                     "constraints": {
-                        "retentionTime":"PT1H"
+                        "retentionTime": "PT1H"
                     }
                 }
             },

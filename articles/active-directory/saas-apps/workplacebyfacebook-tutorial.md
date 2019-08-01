@@ -4,18 +4,19 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 30f2ee64-95d3-44ef-b832-8a0a27e2967c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/31/2018
+ms.date: 02/12/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Workplace by Facebook
 
@@ -140,31 +141,38 @@ To configure Azure AD single sign-on with Workplace by Facebook, perform the fol
 
 1. In a different web browser window, login to your Workplace by Facebook company site as an administrator.
   
-   > [!NOTE]
-   > As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
+	> [!NOTE]
+	> As part of the SAML authentication process, Workplace may utilize query strings of up to 2.5 kilobytes in size in order to pass parameters to Azure AD.
 
-2. In the **Admin Panel**, go to the **Security** tab, then **Authentication**.
+2. In the **Admin Panel**, go to the **Security** tab.
 
-3. Under **SAML Authentication**, select **SSO Only** from the drop-down list.
+	![Admin Panel](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure01.png)
 
-4. Input the values copied from **Workplace by Facebook Configuration** section of the Azure portal into the corresponding fields:
+3. Under **Authentication** tab, select **Single-Sign On (SSO)** and perform the following steps:
 
-	* In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
-	* In **SAML Issuer URL textbox**, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
-	* In **SAML Logout Redirect** (Optional), paste the value of **Logout URL**, which you have copied from Azure portal.
-	* Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
+	![Authentication Tab](./media/workplacebyfacebook-tutorial/tutorial-workplace-by-facebook-configure02.png)
 
-5. You may need to enter the Audience URL, Recipient URL, and ACS (Assertion Consumer Service) URL listed under the **Basic SAML Configuration** section.
+	a. In **SAML URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-6. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
+	b. In **SAML Issuer URI textbox**, paste the value of **Azure Ad Identifier**, which you have copied from Azure portal.
+
+	c. In **SAML Logout Redirect** (Optional), paste the value of **Logout URL**, which you have copied from Azure portal.
+
+	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **SAML Certificate** textbox.
+
+	e. Copy the **Audience URL** for your instance and paste it in **Identifier (Entity ID)** textbox in **Basic SAML Configuration** section on Azure portal.
+
+	f. Copy the **Recipient URL** for your instance and paste it in **Sign on URL** textbox in **Basic SAML Configuration** section on Azure portal.
+
+	g. Scroll to the bottom of the section and click the **Test SSO** button. This results in a popup window appearing with Azure AD login page presented. Enter your credentials in as normal to authenticate.
 
 	**Troubleshooting:** Ensure the email address being returned back from Azure AD is the same as the Workplace account you are logged in with.
 
-7. Once the test has been completed successfully, scroll to the bottom of the page and click the **Save** button.
+	h. Once the test has been completed successfully, scroll to the bottom of the page and click the **Save** button.
 
-8. All users using Workplace will now be presented with Azure AD login page for authentication.
+	i. All users using Workplace will now be presented with Azure AD login page for authentication.
 
-9. **SAML Logout Redirect (optional)** -
+4. **SAML Logout Redirect (optional)** -
 
 	You can choose to optionally configure a SAML Logout Url, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the url that was added in the SAML Logout Redirect setting.
 
@@ -195,7 +203,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -245,10 +253,10 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configure User Provisioning](workplacebyfacebook-provisioning-tutorial.md)

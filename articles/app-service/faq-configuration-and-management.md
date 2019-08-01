@@ -26,7 +26,7 @@ This article has answers to frequently asked questions (FAQs) about configuratio
 
 ## Are there limitations I should be aware of if I want to move App Service resources?
 
-If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+If you plan to move App Service resources to a new resource group or subscription, there are a few limitations to be aware of. For more information, see [App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## How do I use a custom domain name for my web app?
 
@@ -52,11 +52,11 @@ To learn how to purchase and set up an SSL certificate for your App Service web 
 
 Currently, Azure Application Insights doesn't support the move operation. If your original resource group includes an Application Insights resource, you cannot move that resource. If you include the Application Insights resource when you try to move an App Service app, the entire move operation fails. However, Application Insights and the App Service plan do not need to be in the same resource group as the app for the app to function correctly.
 
-For more information, see [App Service limitations](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations).
+For more information, see [App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md).
 
 ## Where can I find a guidance checklist and learn more about resource move operations?
 
-[App Service limitations](../azure-resource-manager/resource-group-move-resources.md#app-service-limitations) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
+[App Service limitations](../azure-resource-manager/move-limitations/app-service-move-limitations.md) shows you how to move resources to either a new subscription or to a new resource group in the same subscription. You can get information about the resource move checklist, learn which services support the move operation, and learn more about App Service limitations and other topics.
 
 ## How do I set the server time zone for my web app?
 
@@ -148,12 +148,9 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 The exception was caused by an issue with the Hybrid Connection Manager that has since been fixed. Be sure to [update your Hybrid Connection Manager](https://go.microsoft.com/fwlink/?LinkID=841308) to resolve this issue.
 
-## How do I add or edit a URL rewrite rule?
+## How do I add a URL rewrite rule?
 
-To add or edit a URL rewrite rule:
-
-1. Set up Internet Information Services (IIS) Manager so that it connects to your App Service web app. To learn how to connect IIS Manager to App Service, see [Remote administration of Azure websites by using IIS Manager](https://azure.microsoft.com/blog/remote-administration-of-windows-azure-websites-using-iis-manager/).
-2. In IIS Manager, add or edit a URL rewrite rule. To learn how to add or edit a URL rewrite rule, see [Create rewrite rules for the URL rewrite module](https://www.iis.net/learn/extensions/url-rewrite-module/creating-rewrite-rules-for-the-url-rewrite-module).
+To add a URL rewrite rule, create a web.config file with the relevant config entries in the **wwwroot** folder. For more information, see [Azure App Services: Understanding URL rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
 
 ## How do I control inbound traffic to App Service?
 
@@ -240,7 +237,7 @@ You can create a scheduled WebJob by using Cron expressions:
 
 1. Create a settings.job file.
 2. In this JSON file, include a schedule property by using a Cron expression: 
-    ```
+    ```json
     { "schedule": "{second}
     {minute} {hour} {day}
     {month} {day of the week}" }
@@ -258,6 +255,8 @@ To learn how to use a custom domain name with an App Service app that uses Azure
 
 ## My App Service certificate is flagged for fraud. How do I resolve this?
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 During the domain verification of an App Service certificate purchase, you might see the following message:
 
 “Your certificate has been flagged for possible fraud. The request is currently under review. If the certificate does not become usable within 24 hours, please contact Azure Support.”
@@ -266,13 +265,13 @@ As the message indicates, this fraud verification process might take up to 24 ho
 
 If your App Service certificate continues to show this message after 24 hours, please run the following PowerShell script. The script contacts the [certificate provider](https://www.godaddy.com/) directly to resolve the issue.
 
-```
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <subId>
+```powershell
+Connect-AzAccount
+Set-AzContext -SubscriptionId <subId>
 $actionProperties = @{
     "Name"= "<Customer Email Address>"
     };
-Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
+Invoke-AzResourceAction -ResourceGroupName "<App Service Certificate Resource Group Name>" -ResourceType Microsoft.CertificateRegistration/certificateOrders -ResourceName "<App Service Certificate Resource Name>" -Action resendRequestEmails -Parameters $actionProperties -ApiVersion 2015-08-01 -Force   
 ```
 
 ## How do authentication and authorization work in App Service?
@@ -308,10 +307,10 @@ If none of these conditions apply and the problem persists, submit a support req
 
 To turn on compression both for static and dynamic content types, add the following code to the application-level web.config file:
 
-```
+```xml
 <system.webServer>
-<urlCompression doStaticCompression="true" doDynamicCompression="true" />
-< /system.webServer>
+    <urlCompression doStaticCompression="true" doDynamicCompression="true" />
+</system.webServer>
 ```
 
 You also can specify the specific dynamic and static MIME types that you want to compress. For more information, see our response to a forum question in [httpCompression settings on a simple Azure website](https://social.msdn.microsoft.com/Forums/azure/890b6d25-f7dd-4272-8970-da7798bcf25d/httpcompression-settings-on-a-simple-azure-website?forum=windowsazurewebsitespreview).

@@ -1,7 +1,6 @@
 ---
 title: Use the HBase .NET SDK - Azure HDInsight 
 description: Use the HBase .NET SDK to create and delete tables, and to read and write data.
-services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
 
@@ -11,7 +10,7 @@ ms.topic: conceptual
 ms.date: 12/13/2017
 ms.author: ashishth
 ---
-# Use the .Net SDK for Apache HBase
+# Use the .NET SDK for Apache HBase
 
 [Apache HBase](apache-hbase-overview.md) provides two primary choices to work with your data: [Apache Hive queries, and calls to HBase's RESTful API](apache-hbase-tutorial-get-started-linux.md). You can work directly with the REST API using the `curl` command or a similar utility.
 

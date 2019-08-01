@@ -6,8 +6,8 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 11/15/2018
-ms.author: mialdrid
+ms.date: 07/23/2019
+ms.author: cherylmc
 ms.custom: seodec18
 
 ---
@@ -18,7 +18,7 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 
 ## Azure account
 * A valid and active Microsoft Azure account. This account is required to set up the ExpressRoute circuit. ExpressRoute circuits are resources within Azure subscriptions. An Azure subscription is a requirement even if connectivity is limited to non-Azure Microsoft cloud services, such as Office 365 services and Dynamics 365.
-* An active Office 365 subscription (if using Office 365 services). For more information, see the [Office 365 specific requirements](#office-365-specific-requirements) section of this article.
+* An active Office 365 subscription (if using Office 365 services). For more information, see the Office 365 specific requirements section of this article.
 
 ## Connectivity provider
 
@@ -26,7 +26,8 @@ To connect to Microsoft cloud services using ExpressRoute, you need to verify th
 * If your provider is not an ExpressRoute connectivity partner, you can still connect to the Microsoft cloud through a [cloud exchange provider](expressroute-locations.md#connectivity-through-exchange-providers).
 
 ## Network requirements
-* **Redundant connectivity**: there is no redundancy requirement on physical connectivity between you and your provider. Microsoft does require redundant BGP sessions to be set up between Microsoft’s routers and the peering routers, even when you have just [one physical connection to a cloud exchange](expressroute-faqs.md#onep2plink).
+* **Redundancy at each peering location**: Microsoft requires redundant BGP sessions to be set up between Microsoft’s routers and the peering routers on each ExpressRoute circuit (even when you have just [one physical connection to a cloud exchange](expressroute-faqs.md#onep2plink)).
+* **Redundancy for Disaster Recovery**: Microsoft strongly recommends you set up at least two ExpressRoute circuits in different peering locations to avoid a single point of failure.
 * **Routing**: depending on how you connect to the Microsoft Cloud, you or your provider needs to set up and manage the BGP sessions for [routing domains](expressroute-circuit-peerings.md). Some Ethernet connectivity providers or cloud exchange providers may offer BGP management as a value-add service.
 * **NAT**: Microsoft only accepts public IP addresses through Microsoft peering. If you are using private IP addresses in your on-premises network, you or your provider needs to translate the private IP addresses to the public IP addresses [using the NAT](expressroute-nat.md).
 * **QoS**: Skype for Business has various services (for example; voice, video, text) that require differentiated QoS treatment. You and your provider should follow the [QoS requirements](expressroute-qos.md).
@@ -45,10 +46,7 @@ If you plan to enable Office 365 on ExpressRoute, review the following documents
 * [ExpressRoute on Office 365 advanced training videos](https://channel9.msdn.com/series/aer/)
 
 ## Dynamics 365
-If you plan to enable Dynamics 365 on ExpressRoute, review the following documents for more information about Dynamics 365
-
-* [Dynamics 365 and ExpressRoute whitepaper](https://download.microsoft.com/download/B/2/8/B2896B38-9832-417B-9836-9EF240C0A212/Microsoft%20Dynamics%20365%20and%20ExpressRoute.pdf)
-* [Dynamics 365 URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473)
+If you plan to enable Dynamics 365 on ExpressRoute, review [Dynamics 365 URLs](https://support.microsoft.com/kb/2655102) and [IP address ranges](https://support.microsoft.com/kb/2728473).
 
 ## Next steps
 * For more information about ExpressRoute, see the [ExpressRoute FAQ](expressroute-faqs.md).

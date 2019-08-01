@@ -1,17 +1,18 @@
 ---
-title: On-premises password writeback integration with Azure AD SSPR
+title: On-premises password writeback integration with Azure AD SSPR - Azure Active Directory
 description: Get cloud passwords written back to on-premises AD infratstructure
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 05/06/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
+ms.collection: M365-identity-device-management
 ---
 # What is password writeback?
 
@@ -37,9 +38,8 @@ Password writeback provides:
 * **Supports password writeback when an admin resets them from the Azure portal**: Whenever an admin resets a user’s password in the [Azure portal](https://portal.azure.com), if that user is federated or password hash synchronized, the password is written back to on-premises. This functionality is currently not supported in the Office admin portal.
 * **Doesn’t require any inbound firewall rules**: Password writeback uses an Azure Service Bus relay as an underlying communication channel. All communication is outbound over port 443.
 
-> [!Note]
-> User accounts that exist within protected groups in on-premises Active Directory cannot be used with password writeback. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
->
+> [!NOTE]
+> Administrator accounts that exist within protected groups in on-premises AD can be used with password writeback. Administrators can change their password in the cloud but cannot use password reset to reset a forgotten password. For more information about protected groups, see [Protected accounts and groups in Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory).
 
 ## Licensing requirements for password writeback
 
@@ -54,10 +54,10 @@ To use password writeback, you must have one of the following licenses assigned 
 * Microsoft 365 E3 or A3
 * Microsoft 365 E5 or A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
->
 
 ## How password writeback works
 
@@ -80,21 +80,17 @@ When a federated or password hash synchronized user attempts to reset or change 
    
    When the call comes in from the cloud, the synchronization engine uses the **cloudAnchor** attribute to look up the Azure Active Directory connector space object. It then follows the link back to the MV object, and then follows the link back to the Active Directory object. Because there can be multiple Active Directory objects (multi-forest) for the same user, the sync engine relies on the `Microsoft.InfromADUserAccountEnabled.xxx` link to pick the correct one.
 
-   > [!Note]
-   > As a result of this logic, for password writeback to work Azure AD Connect must be able to communicate with the primary domain controller (PDC) emulator. If you need to enable this manually, you can connect Azure AD Connect to the PDC emulator. Right-click the **properties** of the Active Directory synchronization connector, then select **configure directory partitions**. From there, look for the **domain controller connection settings** section and select the box titled **only use preferred domain controllers**. Even if the preferred domain controller is not a PDC emulator, Azure AD Connect attempts to connect to the PDC for password writeback.
-
 1. After the user account is found, an attempt to reset the password directly in the appropriate Active Directory forest is made.
 1. If the password set operation is successful, the user is told their password has been changed.
    > [!NOTE]
    > If the user's password hash is synchronized to Azure AD by using password hash synchronization, there is a chance that the on-premises password policy is weaker than the cloud password policy. In this case, the on-premises policy is enforced. This policy ensures that your on-premises policy is enforced in the cloud, no matter if you use password hash synchronization or federation to provide single sign-on.
-   >
 
 1. If the password set operation fails, an error prompts the user to try again. The operation might fail because:
-   * The service was down.
-   * The password they selected did not meet the organization's policies.
-   * Unable to find the user in local Active Directory.
+    * The service was down.
+    * The password they selected did not meet the organization's policies.
+    * Unable to find the user in local Active Directory.
 
-    The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
+      The error messages provide guidance to users so they can attempt to resolve without administrator intervention.
 
 ## Password writeback security
 
@@ -160,8 +156,11 @@ Passwords are *not* written back in any of the following situations:
 * **Unsupported end-user operations**
    * Any end user resetting their own password by using PowerShell version 1, version 2, or the Azure AD Graph API
 * **Unsupported administrator operations**
-   * Any administrator-initiated end-user password reset from the [Office management portal](https://portal.office.com)
    * Any administrator-initiated end-user password reset from PowerShell version 1, version 2, or the Azure AD Graph API
+   * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
+
+> [!WARNING]
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is not supported. When changing a password on-premises do not check this option.
 
 ## Next steps
 

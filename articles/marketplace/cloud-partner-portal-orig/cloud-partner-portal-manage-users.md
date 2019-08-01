@@ -1,22 +1,14 @@
 ---
-title: Managing users on cloud partner portal
+title: Managing users on cloud partner portal  | Azure Marketplace
 description: Managing users on cloud partner portal
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: qianw211
 manager: pbutlerm  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 09/13/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
-
 
 Managing users on cloud partner portal
 ======================================
@@ -30,14 +22,12 @@ below:
 Step 1. To add users and assign roles, click the Users tab on the left side navigation pane.
 --------------------------------------------------------------------------------------------
 
-![Users
-Tab](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
+![Users Tab](./media/cloud-partner-portal-how-to-manage-users/userstab.png)
 
 Step 2. Click Add User.
 -----------------------
 
-![Select
-Adducer](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
+![Select Add user](./media/cloud-partner-portal-how-to-manage-users/adduser.png)
 
 Step 3. Type email address and select a role assignment.
 --------------------------------------------------------
@@ -57,20 +47,18 @@ monitored for any communication from Microsoft.
 **Role**: Refer to the table below to identify the appropriate user role
 type.
 
-![Assign
-Role](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
-![Roles
-Level](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
+![Assign Role](./media/cloud-partner-portal-how-to-manage-users/assignrole.png)
+![Roles Level](./media/cloud-partner-portal-how-to-manage-users/roleaccesslevel.png)
 
 Currently, only owners can access the Azure Payouts and Azure Customer tabs in Insights.
 
 Step 4. Select the Publisher Name you want to add to the new user then click Add to complete user addition.
 ----------------------------------------------------------------------------------------------------------------------------
 
-> `NOTE: The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
+> [!NOTE]
+> The ‘publisher names’ for which your email is added as an owner or contributor will show up in the drop-down list of Publisher for selection.`
 
-![Assign
-Role - select publisher](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
+![Assign Role - select publisher](./media/cloud-partner-portal-how-to-manage-users/assignselectpublisher.png)
 
 If you need to remove a user that has been added, all you need to do is
 search for their email on the Users tab, and then press the delete

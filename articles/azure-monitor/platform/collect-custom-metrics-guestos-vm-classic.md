@@ -7,10 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: ""
+ms.subservice: ""
 ---
 
 # Send Guest OS metrics to the Azure Monitor data store for a Windows virtual machine (classic)
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 The Azure Monitor [Diagnostics extension](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) (known as "WAD" or "Diagnostics") allows you to collect metrics and logs from the guest operating system (Guest OS) running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -24,9 +26,9 @@ The process that's outlined in this article only works on classic virtual machin
 
 - You must be a [service administrator or co-administrator](../../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- You need to have either  [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+- You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
 ## Create a classic virtual machine and storage account
 
@@ -140,7 +142,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 1. Launch PowerShell and sign in.
 
     ```powershell
-    Login-AzureRmAccount
+    Login-AzAccount
     ```
 
 1. Start by setting the context for your classic VM.
@@ -152,7 +154,7 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 1. Set the context of the classic storage account that was created with the VM.
 
     ```powershell
-    $StorageContext = New-AzureStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
+    $StorageContext = New-AzStorageContext -StorageAccountName <name of your storage account from earlier steps> -storageaccountkey "<storage account key from earlier steps>"
     ```
 
 1.	Set the Diagnostics file path to a variable by using the following command:
@@ -196,3 +198,4 @@ Give this app “Monitoring Metrics Publisher” permissions to the resource tha
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+

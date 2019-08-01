@@ -3,9 +3,9 @@ title: Azure Service Fabric standalone cluster scaling | Microsoft Docs
 description: Learn about scaling Service Fabric standalone clusters in or out and up or down.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
-editor: aljo
+author: dkkapur
+manager: chackdan
+
 
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/13/2018
-ms.author: ryanwi
+ms.author: dekapur
 
 ---
 # Scaling Service Fabric standalone clusters
@@ -33,7 +33,7 @@ Standalone clusters allow you to deploy Service Fabric cluster on-premises or in
 Removal of nodes may initiate multiple upgrades. Some nodes are marked with `IsSeedNode=”true”` tag and can be identified by querying the cluster manifest using [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). Removal of such nodes may take longer than others since the seed nodes will have to be moved around in such scenarios. The cluster must maintain a minimum of three primary node type nodes.
 
 > [!WARNING]
-> We recommend that you do not lower the node count below the [Cluster Size of the Reliability Tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) for the cluster. This will interfere with the ablility of the Service Fabric System Services to be replicated across the cluster, and will destabilize or possibly destroy the cluster.
+> We recommend that you do not lower the node count below the [Cluster Size of the Reliability Tier](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) for the cluster. This will interfere with the ability of the Service Fabric System Services to be replicated across the cluster, and will destabilize or possibly destroy the cluster.
 >
 
 When scaling a standalone cluster, keep the following guidelines in mind:
@@ -51,5 +51,5 @@ Changes the resources (CPU, memory, or storage) of nodes in the cluster.
 * Learn about [application scalability](service-fabric-concepts-scalability.md).
 * [Scale an Azure cluster in or out](service-fabric-tutorial-scale-cluster.md).
 * [Scale an Azure cluster programmatically](service-fabric-cluster-programmatic-scaling.md) using the fluent Azure compute SDK.
-* [Scale a standaone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
+* [Scale a standalone cluster in or out](service-fabric-cluster-windows-server-add-remove-nodes.md).
 

@@ -4,19 +4,19 @@ description: Learn how to use the Geo AI Data Science Virtual Machine to analyze
 keywords: deep learning, AI, data science tools, data science virtual machine, Geospatial analytics
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
@@ -28,7 +28,7 @@ Use the Geo AI Data Science VM to fetch data for analysis, perform data wranglin
 
 ## Configuration details
 
-The Python library, [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), which is used to interface with ArcGIS is installed in the global root conda environment of the Data Science VM that is found at ```c:\anaconda```. 
+The Python library, [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm), which is used to interface with ArcGIS is installed in the global root conda environment of the Data Science VM that is found at ```c:\anaconda```. 
 
 - If you are running Python in a command prompt, run ```activate``` to activate into the conda root Python environment. 
 - If you are using an IDE or Jupyter notebook, you can select the environment or kernel to ensure you are in the correct conda environment. 
@@ -41,7 +41,7 @@ The R-bridge to ArcGIS is installed as an R library named [arcgisbinding](https:
 In addition to the ML and deep learning framework-based samples from the base Data Science VM, a set of geospatial samples is also provided as part of the Geo AI Data Science VM. These samples can help you jump-start your development of AI applications using Geospatial data and the ArcGIS software. 
 
 
-1. [Getting stated with Geospatial analytics with Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample showing how to work with Geospatial data using the Python interface to ArcGIS provided by the [arcpy](http://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) library. It also shows how you can combine traditional machine learning with geospatial data and visualize the result on a map in ArcGIS. 
+1. [Getting stated with Geospatial analytics with Python](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/Python%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample showing how to work with Geospatial data using the Python interface to ArcGIS provided by the [arcpy](https://pro.arcgis.com/en/pro-app/arcpy/main/arcgis-pro-arcpy-reference.htm) library. It also shows how you can combine traditional machine learning with geospatial data and visualize the result on a map in ArcGIS. 
 
 2. [Getting stated with Geospatial analytics with R](https://github.com/Azure/DataScienceVM/blob/master/Notebooks/ArcGIS/R%20walkthrough%20ArcGIS%20Data%20analysis%20and%20ML.ipynb): An introductory sample that shows how to work with Geospatial data using the R interface to ArcGIS provided by the [arcgisbinding](https://github.com/R-ArcGIS/r-bridge) library. 
 

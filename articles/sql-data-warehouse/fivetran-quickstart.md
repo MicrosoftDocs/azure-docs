@@ -2,14 +2,14 @@
 title: Fivetran quickstart for Azure SQL Data Warehouse | Microsoft Docs
 description: Get started quickly with Fivetran and Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: hirokib
-manager: jrj
+author: mlee3gsd 
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: integration
 ms.date: 10/12/2018
-ms.author: elbutter
-ms.reviewer: craigg
+ms.author: martinle
+ms.reviewer: igorstan
 ---
 
 # Get started quickly with Fivetran and SQL Data Warehouse
@@ -75,5 +75,5 @@ To sign in to Fivetran, enter the credentials that you use to access SQL Data Wa
 * Host (your server name).
 * Port.
 * Database.
-* User (the user name should be **fivetran@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
+* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
 * Password.

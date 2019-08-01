@@ -2,15 +2,15 @@
 title: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C  | Microsoft Docs
 description: Date claims transformation examples for the Identity Experience Framework Schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Date claims transformations
@@ -19,7 +19,7 @@ ms.component: B2C
 
 This article provides examples for using the date claims transformations of the Identity Experience Framework  schema in Azure Active Directory (Azure AD) B2C. For more information, see [ClaimsTransformations](claimstransformations.md).
 
-## AssertDateTimeIsGreaterThan 
+## AssertDateTimeIsGreaterThan
 
 Checks that one date and time claim (string data type) is later than a second date and time claim (string data type), and throws an exception.
 
@@ -81,7 +81,6 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Result: Error thrown
 
-
 ## ConvertDateToDateTimeClaim
 
 Converts a **Date** ClaimType to a **DateTime** ClaimType. The claims transformation converts the time format and adds 12:00:00 AM to the date.
@@ -94,7 +93,7 @@ Converts a **Date** ClaimType to a **DateTime** ClaimType. The claims transforma
 The following example demonstrates the conversion of the claim `dateOfBirth` (date data type) to another claim `dateOfBirthWithTime` (dateTime data type).
 
 ```XML
-<ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
+  <ClaimsTransformation Id="ConvertToDateTime" TransformationMethod="ConvertDateToDateTimeClaim">
     <InputClaims>
       <InputClaim ClaimTypeReferenceId="dateOfBirth" TransformationClaimType="inputClaim" />
     </InputClaims>
@@ -159,7 +158,7 @@ To run the claim transformation, you first need to get the current dateTime and 
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="isLastTOSAcceptedGreaterThanNow" TransformationClaimType="result" />
-  </OutputClaims>      
+  </OutputClaims>
 </ClaimsTransformation>
 ```
 
@@ -171,6 +170,5 @@ To run the claim transformation, you first need to get the current dateTime and 
 - Input parameters:
     - **operator**: later than
     - **timeSpanInSeconds**: 7776000 (90 days)
-- Output claims: 
+- Output claims:
     - **result**: true
-

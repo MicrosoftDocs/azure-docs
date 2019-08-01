@@ -4,7 +4,7 @@ description: How to use Visual Studio subscription benefits to deploy Windows 7,
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 91c3880a-cede-44f1-ae25-f8f9f5b6eaa4
@@ -55,7 +55,7 @@ If you do not know your offer ID, you can obtain it through the Azure portal in 
 
 - Or, click **Billing** and then click your subscription ID. The offer ID appears in the *Billing* window.
 
-You can also view the offer ID from the ['Subscriptions' tab](http://account.windowsazure.com/Subscriptions) of the Azure Account portal:
+You can also view the offer ID from the ['Subscriptions' tab](https://account.windowsazure.com/Subscriptions) of the Azure Account portal:
 
 ![Offer ID details from the Azure Account portal](./media/client-images/offer-id-azure-account-portal.png) 
 

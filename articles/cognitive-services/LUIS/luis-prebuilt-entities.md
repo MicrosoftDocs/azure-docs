@@ -1,15 +1,15 @@
 ---
-title: Prebuilt entities 
+title: Prebuilt entities for Language Understanding
 titleSuffix: Azure Cognitive Services
 description: LUIS includes a set of prebuilt entities for recognizing common types of information, like dates, times, numbers, measurements and currency. Prebuilt entity support varies by the culture of your LUIS app. 
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/11/2019
 ms.author: diberry
 ---
 

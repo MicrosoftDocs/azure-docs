@@ -2,8 +2,8 @@
 title: "Azure Batch pool create event | Microsoft Docs"
 description: Reference for Batch pool create event.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Pool create event
@@ -55,7 +55,7 @@ ms.author: danlep
 |targetDedicated|Int32|The number of compute nodes that are requested for the pool.|
 |enableAutoScale|Bool|Specifies whether the pool size automatically adjusts over time.|
 |enableInterNodeCommunication|Bool|Specifies whether the pool is set up for direct communication between nodes.|
-|isAutoPool|Bool|Speficies whether the pool was created via a job's AutoPool mechanism.|
+|isAutoPool|Bool|Specifies whether the pool was created via a job's AutoPool mechanism.|
 |maxTasksPerNode|Int32|The maximum number of tasks that can run concurrently on a single compute node in the pool.|
 |vmFillType|String|Defines how the Batch service distributes tasks between compute nodes in the pool. Valid values are Spread or Pack.|
 

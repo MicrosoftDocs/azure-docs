@@ -5,12 +5,12 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 4/12/2018
+ms.date: 1/16/2019
 ms.author: dukek
-ms.component: logs
+ms.subservice: logs
 ---
 # Azure Activity Log event schema
-The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](./tutorial-dashboards.md) is provided at the end of the article.
+The **Azure Activity Log** is a log that provides insight into any subscription-level events that have occurred in Azure. This article describes the event schema per category of data. The schema of the data differs depending on if you are reading the data in the portal, PowerShell, CLI, or directly via the REST API versus [streaming the data to storage or Event Hubs using a Log Profile](activity-log-export.md). The examples below show the schema as made available via the portal, PowerShell, CLI, and REST API. A mapping of those properties to the [Azure diagnostic logs schema](diagnostic-logs-schema.md) is provided at the end of the article.
 
 ## Administrative
 This category contains the record of all create, update, delete, and action operations performed through Resource Manager. Examples of the types of events you would see in this category include "create virtual machine" and "delete network security group" Every action taken by a user or application using Resource Manager is modeled as an operation on a particular resource type. If the operation type is Write, Delete, or Action, the records of both the start and success or fail of that operation are recorded in the Administrative category. The Administrative category also includes any changes to role-based access control in a subscription.
@@ -113,10 +113,13 @@ This category contains the record of all create, update, delete, and action oper
 | correlationId |Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
 | description |Static text description of an event. |
 | eventDataId |Unique identifier of an event. |
+| eventName | Friendly name of the Administrative event. |
+| category | Always "Administrative" |
 | httpRequest |Blob describing the Http Request. Usually includes the “clientRequestId”, “clientIpAddress” and “method” (HTTP method. For example, PUT). |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
 | resourceGroupName |Name of the resource group for the impacted resource. |
 | resourceProviderName |Name of the resource provider for the impacted resource |
+| resourceType | The type of resource that was affected by an Administrative event. |
 | resourceId |Resource ID of the impacted resource. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
@@ -207,7 +210,7 @@ This category contains the record of any resource health events that have occurr
         "localizedValue": "Resource Health"
     },
     "eventTimestamp": "2018-09-04T15:33:43.65Z",
-    "id": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
+    "id": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>/events/a80024e1-883d-42a5-8b01-7591a1befccb/ticks/636716720236500000",
     "level": "Critical",
     "operationId": "",
     "operationName": {
@@ -223,7 +226,7 @@ This category contains the record of any resource health events that have occurr
         "value": "Microsoft.Compute/virtualMachines",
         "localizedValue": "Microsoft.Compute/virtualMachines"
     },
-    "resourceId": "/subscriptions/<subscription Id>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
+    "resourceId": "/subscriptions/<subscription ID>/resourceGroups/<resource group>/providers/Microsoft.Compute/virtualMachines/<resource name>",
     "status": {
         "value": "Active",
         "localizedValue": "Active"
@@ -233,7 +236,7 @@ This category contains the record of any resource health events that have occurr
         "localizedValue": ""
     },
     "submissionTimestamp": "2018-09-04T15:36:24.2240867Z",
-    "subscriptionId": "<subscription Id>",
+    "subscriptionId": "<subscription ID>",
     "properties": {
         "stage": "Active",
         "title": "Virtual Machine health status changed to unavailable",
@@ -266,10 +269,10 @@ This category contains the record of any resource health events that have occurr
 | status |String describing the status of the health event. Values can be: Active, Resolved, InProgress, Updated. |
 | subStatus | Usually null for alerts. |
 | submissionTimestamp |Timestamp when the event became available for querying. |
-| subscriptionId |Azure Subscription Id. |
+| subscriptionId |Azure Subscription ID. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event.|
-| properties.title | A user friendly string that describes the health status of the resource. |
-| properties.details | A user friendly string that describes further details about the event. |
+| properties.title | A user-friendly string that describes the health status of the resource. |
+| properties.details | A user-friendly string that describes further details about the event. |
 | properties.currentHealthStatus | The current health status of the resource. One of the following values: "Available", "Unavailable", "Degraded", and "Unknown". |
 | properties.previousHealthStatus | The previous health status of the resource. One of the following values: "Available", "Unavailable", "Degraded", and "Unknown". |
 | properties.type | A description of the type of resource health event. |
@@ -349,10 +352,11 @@ This category contains the record of all activations of Azure alerts. An example
 | correlationId | A GUID in the string format. |
 | description |Static text description of the alert event. |
 | eventDataId |Unique identifier of the alert event. |
+| category | Always "Alert" |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, and “Informational” |
-| resourceGroupName |Name of the resource group for the impacted resource if it is a metric alert. For other alert types, this is the name of the resource group that contains the alert itself. |
-| resourceProviderName |Name of the resource provider for the impacted resource if it is a metric alert. For other alert types, this is the name of the resource provider for the alert itself. |
-| resourceId | Name of the resource ID for the impacted resource if it is a metric alert. For other alert types, this is the resource ID of the alert resource itself. |
+| resourceGroupName |Name of the resource group for the impacted resource if it is a metric alert. For other alert types, it is the name of the resource group that contains the alert itself. |
+| resourceProviderName |Name of the resource provider for the impacted resource if it is a metric alert. For other alert types, it is the name of the resource provider for the alert itself. |
+| resourceId | Name of the resource ID for the impacted resource if it is a metric alert. For other alert types, it is the resource ID of the alert resource itself. |
 | operationId |A GUID shared among the events that correspond to a single operation. |
 | operationName |Name of the operation. |
 | properties |Set of `<Key, Value>` pairs (that is, a Dictionary) describing the details of the event. |
@@ -547,6 +551,7 @@ This category contains the record any alerts generated by Azure Security Center.
 | description |Static text description of the security event. |
 | eventDataId |Unique identifier of the security event. |
 | eventName |Friendly name of the security event. |
+| category | Always "Security" |
 | id |Unique resource identifier of the security event. |
 | level |Level of the event. One of the following values: “Critical”, “Error”, “Warning”, or “Informational” |
 | resourceGroupName |Name of the resource group for the resource. |
@@ -564,7 +569,7 @@ This category contains the record any alerts generated by Azure Security Center.
 | subscriptionId |Azure Subscription ID. |
 
 ## Recommendation
-This category contains the record of any new recommendations that are generated for your services. An example of a recommendation would be "Use availability sets for improved fault tolerance." There are 4 types of Recommendation events that can be generated: High Availability, Performance, Security, and Cost Optimization. 
+This category contains the record of any new recommendations that are generated for your services. An example of a recommendation would be "Use availability sets for improved fault tolerance." There are four types of Recommendation events that can be generated: High Availability, Performance, Security, and Cost Optimization. 
 
 ### Sample event
 ```json
@@ -643,9 +648,129 @@ This category contains the record of any new recommendations that are generated 
 | properties.recommendationImpact| Impact of the recommendation. Possible values are "High", "Medium", "Low" |
 | properties.recommendationRisk| Risk of the recommendation. Possible values are "Error", "Warning", "None" |
 
+## Policy
+
+This category contains records of all effect action operations performed by [Azure
+Policy](../../governance/policy/overview.md). Examples of the types of events you would see in this
+category include _Audit_ and _Deny_. Every action taken by Policy is modeled as an operation on a
+resource.
+
+### Sample Policy event
+
+```json
+{
+    "authorization": {
+        "action": "Microsoft.Resources/checkPolicyCompliance/read",
+        "scope": "/subscriptions/<subscriptionID>"
+    },
+    "caller": "33a68b9d-63ce-484c-a97e-94aef4c89648",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.azure.com/",
+        "iss": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "iat": "1234567890",
+        "nbf": "1234567890",
+        "exp": "1234567890",
+        "aio": "A3GgTJdwK4vy7Fa7l6DgJC2mI0GX44tML385OpU1Q+z+jaPnFMwB",
+        "appid": "1d78a85d-813d-46f0-b496-dd72f50a3ec0",
+        "appidacr": "2",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "https://sts.windows.net/1114444b-7467-4144-a616-e3a5d63e147b/",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "f409edeb-4d29-44b5-9763-ee9348ad91bb",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "b-24Jf94A3FH2sHWVIFqO3-RSJEiv24Jnif3gj7s",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "1114444b-7467-4144-a616-e3a5d63e147b",
+        "uti": "IdP3SUJGtkGlt7dDQVRPAA",
+        "ver": "1.0"
+    },
+    "correlationId": "b5768deb-836b-41cc-803e-3f4de2f9e40b",
+    "description": "",
+    "eventDataId": "d0d36f97-b29c-4cd9-9d3d-ea2b92af3e9d",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Policy",
+        "localizedValue": "Policy"
+    },
+    "eventTimestamp": "2019-01-15T13:19:56.1227642Z",
+    "id": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy/events/13bbf75f-36d5-4e66-b693-725267ff21ce/ticks/636831551961227642",
+    "level": "Warning",
+    "operationId": "04e575f8-48d0-4c43-a8b3-78c4eb01d287",
+    "operationName": {
+        "value": "Microsoft.Authorization/policies/audit/action",
+        "localizedValue": "Microsoft.Authorization/policies/audit/action"
+    },
+    "resourceGroupName": "myResourceGroup",
+    "resourceProviderName": {
+        "value": "Microsoft.Sql",
+        "localizedValue": "Microsoft SQL"
+    },
+    "resourceType": {
+        "value": "Microsoft.Resources/checkPolicyCompliance",
+        "localizedValue": "Microsoft.Resources/checkPolicyCompliance"
+    },
+    "resourceId": "/subscriptions/<subscriptionID>/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/contososqlpolicy",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-01-15T13:20:17.1077672Z",
+    "subscriptionId": "<subscriptionID>",
+    "properties": {
+        "isComplianceCheck": "True",
+        "resourceLocation": "westus2",
+        "ancestors": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+        "policies": "[{\"policyDefinitionId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.
+            Authorization/policyDefinitions/5775cdd5-d3d3-47bf-bc55-bb8b61746506/\",\"policyDefiniti
+            onName\":\"5775cdd5-d3d3-47bf-bc55-bb8b61746506\",\"policyDefinitionEffect\":\"Deny\",\"
+            policyAssignmentId\":\"/subscriptions/<subscriptionID>/providers/Microsoft.Authorization
+            /policyAssignments/991a69402a6c484cb0f9b673/\",\"policyAssignmentName\":\"991a69402a6c48
+            4cb0f9b673\",\"policyAssignmentScope\":\"/subscriptions/<subscriptionID>\",\"policyAssig
+            nmentParameters\":{}}]"
+    },
+    "relatedEvents": []
+}
+```
+
+### Policy event property descriptions
+
+| Element Name | Description |
+| --- | --- |
+| authorization | Array of RBAC properties of the event. For new resources, this is the action and scope of the request that triggered evaluation. For existing resources, the action is "Microsoft.Resources/checkPolicyCompliance/read". |
+| caller | For new resources, the identity that initiated a deployment. For existing resources, the GUID of the Microsoft Azure Policy Insights RP. |
+| channels | Policy events use only the "Operation" channel. |
+| claims | The JWT token used by Active Directory to authenticate the user or application to perform this operation in Resource Manager. |
+| correlationId | Usually a GUID in the string format. Events that share a correlationId belong to the same uber action. |
+| description | This field is blank for Policy events. |
+| eventDataId | Unique identifier of an event. |
+| eventName | Either "BeginRequest" or "EndRequest". "BeginRequest" is used for delayed auditIfNotExists and deployIfNotExists evaluations and when a deployIfNotExists effect starts a template deployment. All other operations return "EndRequest". |
+| category | Declares the activity log event as belonging to "Policy". |
+| eventTimestamp | Timestamp when the event was generated by the Azure service processing the request corresponding the event. |
+| id | Unique identifier of the event on the specific resource. |
+| level | Level of the event. Audit uses "Warning" and Deny uses "Error". An auditIfNotExists or deployIfNotExists error can generate "Warning" or "Error" depending on severity. All other Policy events use "Informational". |
+| operationId | A GUID shared among the events that correspond to a single operation. |
+| operationName | Name of the operation and directly correlates to the Policy effect. |
+| resourceGroupName | Name of the resource group for the evaluated resource. |
+| resourceProviderName | Name of the resource provider for the evaluated resource. |
+| resourceType | For new resources, it is the type being evaluated. For existing resources, returns "Microsoft.Resources/checkPolicyCompliance". |
+| resourceId | Resource ID of the evaluated resource. |
+| status | String describing the status of the Policy evaluation result. Most Policy evaluations return "Succeeded", but a Deny effect returns "Failed". Errors in auditIfNotExists or deployIfNotExists also return "Failed". |
+| subStatus | Field is blank for Policy events. |
+| submissionTimestamp | Timestamp when the event became available for querying. |
+| subscriptionId | Azure Subscription ID. |
+| properties.isComplianceCheck | Returns "False" when a new resource is deployed or an existing resource's Resource Manager properties are updated. All other [evaluation triggers](../../governance/policy/how-to/get-compliance-data.md#evaluation-triggers) result in "True". |
+| properties.resourceLocation | The Azure region of the resource being evaluated. |
+| properties.ancestors | A comma-separated list of parent management groups ordered from direct parent to farthest grandparent. |
+| properties.policies | Includes details about the policy definition, assignment, effect, and parameters that this Policy evaluation is a result of. |
+| relatedEvents | This field is blank for Policy events. |
+
 ## Mapping to diagnostic logs schema
 
-When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure diagnostic logs schema](./tutorial-dashboards.md). Here is the mapping of properties from the schema above to the diagnostic logs schema:
+When streaming the Azure Activity Log to a storage account or Event Hubs namespace, the data follows the [Azure diagnostic logs schema](./diagnostic-logs-schema.md). Here is the mapping of properties from the schema above to the diagnostic logs schema:
 
 | Diagnostic logs schema property | Activity Log REST API schema property | Notes |
 | --- | --- | --- |
@@ -670,5 +795,6 @@ When streaming the Azure Activity Log to a storage account or Event Hubs namespa
 
 
 ## Next steps
-* [Learn more about the Activity Log (formerly Audit Logs)](../../azure-monitor/platform/activity-logs-overview.md)
-* [Stream the Azure Activity Log to Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)
+* [Learn more about the Activity Log](activity-logs-overview.md)
+* [Export the Activity Log to Azure Storage or Event Hubs](activity-log-export.md)
+

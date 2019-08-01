@@ -62,7 +62,7 @@ Add the management endpoint as shown in the following image to configure your Ba
 
 ![Add Management Endpoint][AddManagementEndpoint]
 
-Use a browser to browse to the management endpoint on your Cloud Service. If your Cloud Service is called test.cloudapp.net, you would access this endpoint by browsing to http://test.cloudapp.net:8000. You should see a login page like the following image that you can log in using credentials you specified in the WAF VM setup phase.
+Use a browser to browse to the management endpoint on your Cloud Service. If your Cloud Service is called test.cloudapp.net, you would access this endpoint by browsing to `http://test.cloudapp.net:8000`. You should see a login page like the following image that you can log in using credentials you specified in the WAF VM setup phase.
 
 ![Management Login Page][ManagementLoginPage]
 

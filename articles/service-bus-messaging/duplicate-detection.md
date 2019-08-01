@@ -3,17 +3,17 @@ title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: Detect duplicate Service Bus messages
 services: service-bus-messaging
 documentationcenter: ''
-author: clemensv
+author: axisc
 manager: timlt
-editor: ''
+editor: spelluru
 
 ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
-ms.author: spelluru
+ms.date: 01/23/2019
+ms.author: aschhab
 
 ---
 
@@ -32,6 +32,9 @@ Application control of the identifier is essential, because only that allows the
 For a business process in which multiple messages are sent in the course of handling some application context, the *MessageId* may be a composite of the application-level context identifier, such as a purchase order number, and the subject of the message, for example, **12345.2017/payment**.
 
 The *MessageId* can always be some GUID, but anchoring the identifier to the business process yields predictable repeatability, which is desired for leveraging the duplicate detection feature effectively.
+
+> [!NOTE]
+> If the duplicate detection is enabled and session ID or partition key are not set, the message ID is used as the partition key. If the message ID is also not set, .NET and AMQP libraries automatically generate a message ID for the message. For more information, see [Use of partition keys](service-bus-partitioning.md#use-of-partition-keys).
 
 ## Enable duplicate detection
 

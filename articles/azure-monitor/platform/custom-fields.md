@@ -1,6 +1,6 @@
 ---
-title: Custom fields in Azure Log Analytics | Microsoft Docs
-description: The Custom Fields feature of Log Analytics allows you to create your own searchable fields from Log Analytics records that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
+title: Custom fields in Azure Monitor | Microsoft Docs
+description: The Custom Fields feature of Azure Monitor allows you to create your own searchable fields from records in a Log Analytics workspace that add to the properties of a collected record.  This article describes the process to create a custom field and provides a detailed walkthrough with a sample event.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,50 +11,48 @@ ms.service: log-analytics
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.author: bwren
 ---
 
-# Create custom fields in Log Analytics
+# Create custom fields in a Log Analytics workspace in Azure Monitor
 
 > [!NOTE]
-> This article describes how to parse text data in Log Analytics as it's collected. There are advantages to parsing text datain a query after it's collected as described in [Parse text data in Log Analytics](../log-query/parse-text.md).
+> This article describes how to parse text data in a Log Analytics workspace as it's collected. There are advantages to parsing text data in a query after it's collected as described in [Parse text data in Azure Monitor](../log-query/parse-text.md).
 
-The **Custom Fields** feature of Log Analytics allows you to extend existing records in Log Analytics by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
+The **Custom Fields** feature of Azure Monitor allows you to extend existing records in your Log Analytics workspace by adding your own searchable fields.  Custom fields are automatically populated from data extracted from other properties in the same record.
 
-![Custom Fields overview](media/custom-fields/overview.png)
+![Overview](media/custom-fields/overview.png)
 
-For example, the sample record below has useful data buried in the event description.  Extracting this data into separate properties makes it available for such actions as sorting and filtering.
+For example, the sample record below has useful data buried in the event description. Extracting this data into a separate property makes it available for such actions as sorting and filtering.
 
-![Log Search button](media/custom-fields/sample-extract.png)
+![Sample extract](media/custom-fields/sample-extract.png)
 
 > [!NOTE]
 > In the Preview, you are limited to 100 custom fields in your workspace.  This limit will be expanded when this feature reaches general availability.
-> 
-> 
 
 ## Creating a custom field
-When you create a custom field, Log Analytics must understand which data to use to populate its value.  It uses a technology from Microsoft Research called FlashExtract to quickly identify this data.  Rather than requiring you to provide explicit instructions, Log Analytics learns about the data you want to extract from examples that you provide.
+When you create a custom field, Log Analytics must understand which data to use to populate its value.  It uses a technology from Microsoft Research called FlashExtract to quickly identify this data.  Rather than requiring you to provide explicit instructions, Azure Monitor learns about the data you want to extract from examples that you provide.
 
 The following sections provide the procedure for creating a custom field.  At the bottom of this article is a walkthrough of a sample extraction.
 
 > [!NOTE]
-> The custom field is populated as records matching the specified criteria are added to Log Analytics, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
+> The custom field is populated as records matching the specified criteria are added to the Log Analytics workspace, so it will only appear on records collected after the custom field is created.  The custom field will not be added to records that are already in the data store when it’s created.
 > 
 
 ### Step 1 – Identify records that will have the custom field
-The first step is to identify the records that will get the custom field.  You start with a [standard log query](../log-query/log-query-overview.md) and then select a record to act as the model that Log Analytics will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
+The first step is to identify the records that will get the custom field.  You start with a [standard log query](../log-query/log-query-overview.md) and then select a record to act as the model that Azure Monitor will learn from.  When you specify that you are going to extract data into a custom field, the **Field Extraction Wizard** is opened where you validate and refine the criteria.
 
-1. Go to **Log Search** and use a [query to retrieve the records](../log-query/log-query-overview.md) that will have the custom field.
+1. Go to **Logs** and use a [query to retrieve the records](../log-query/log-query-overview.md) that will have the custom field.
 2. Select a record that Log Analytics will use to act as a model for extracting data to populate the custom field.  You will identify the data that you want to extract from this record, and Log Analytics will use this information to determine the logic to populate the custom field for all similar records.
-3. Click the button to the left of any text property of the record and select **Extract fields from**.
-4. The **Field Extraction Wizard is opened**, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
+3. Expand the record properties, click the ellipse to the left of the top property of the record, and select **Extract fields from**.
+4. The **Field Extraction Wizard** is opened, and the record you selected is displayed in the **Main Example** column.  The custom field will be defined for those records with the same values in the properties that are selected.  
 5. If the selection is not exactly what you want, select additional fields to narrow the criteria.  In order to change the field values for the criteria, you must cancel and select a different record matching the criteria you want.
 
 ### Step 2 - Perform initial extract.
 Once you’ve identified the records that will have the custom field, you identify the data that you want to extract.  Log Analytics will use this information to identify similar patterns in similar records.  In the step after this you will be able to validate the results and provide further details for Log Analytics to use in its analysis.
 
-1. Highlight the text in the sample record that you want to populate the custom field.  You will then be presented with a dialog box to provide a name for the field and to perform the initial extract.  The characters **\_CF** will automatically be appended.
+1. Highlight the text in the sample record that you want to populate the custom field.  You will then be presented with a dialog box to provide a name and data type for the field and to perform the initial extract.  The characters **\_CF** will automatically be appended.
 2. Click **Extract** to perform an analysis of collected records.  
 3. The **Summary** and **Search Results** sections display the results of the extract so you can inspect its accuracy.  **Summary** displays the criteria used to identify records and a count for each of the data values identified.  **Search Results** provides a detailed list of records matching the criteria.
 
@@ -78,17 +76,17 @@ You can view a list of all custom fields in your management group from the **Adv
 There are two ways to remove a custom field.  The first is the **Remove** option for each field when viewing the complete list as described above.  The other method is to retrieve a record and click the button to the left of the field.  The menu will have an option to remove the custom field.
 
 ## Sample walkthrough
-The following section walks through a complete example of creating a custom field.  This example extracts the service name in Windows events that indicate a service changing state.  This relies on events created by Service Control Manager in the System log on Windows computers.  If you want to follow this example, you must be [collecting Information events for the System log](data-sources-windows-events.md).
+The following section walks through a complete example of creating a custom field.  This example extracts the service name in Windows events that indicate a service changing state.  This relies on events created by Service Control Manager during system startup on Windows computers.  If you want to follow this example, you must be [collecting Information events for the System log](data-sources-windows-events.md).
 
 We enter the following query to return all events from Service Control Manager that have an Event ID of 7036 which is the event that indicates a service starting or stopping.
 
 ![Query](media/custom-fields/query.png)
 
-We then select any record with event ID 7036.
+We then select and expand any record with event ID 7036.
 
 ![Source record](media/custom-fields/source-record.png)
 
-We want the service name that appears in the **RenderedDescription** property and select the button next to this property.
+We define custom fields by clicking the ellipse next to the top property.
 
 ![Extract fields](media/custom-fields/extract-fields.png)
 
@@ -96,11 +94,11 @@ The **Field Extraction Wizard** is opened, and the **EventLog** and **EventID** 
 
 ![Main example](media/custom-fields/main-example.png)
 
-We highlight the name of the service in the **RenderedDescription** property and use **Service** to identify the service name.  The custom field will be called **Service_CF**.
+We highlight the name of the service in the **RenderedDescription** property and use **Service** to identify the service name.  The custom field will be called **Service_CF**. The field type in this case is a string, so we can leave that unchanged.
 
 ![Field Title](media/custom-fields/field-title.png)
 
-We see that the service name is identified properly for some records but not for others.   The **Search Results** show that part of the name for the **WMI Performance Adapter** wasn’t selected.  The **Summary** shows that four records with **DPRMA** service incorrectly included an extra word, and two records identified **Modules Installer** instead of **Windows Modules Installer**.  
+We see that the service name is identified properly for some records but not for others.   The **Search Results** show that part of the name for the **WMI Performance Adapter** wasn’t selected.  The **Summary** shows that one record identified **Modules Installer** instead of **Windows Modules Installer**.  
 
 ![Search results](media/custom-fields/search-results-01.png)
 
@@ -108,23 +106,15 @@ We start with the **WMI Performance Adapter** record.  We click its edit icon an
 
 ![Modify highlight](media/custom-fields/modify-highlight.png)
 
-We increase    the highlight to include the word **WMI** and then rerun the extract.  
+We increase the highlight to include the word **WMI** and then rerun the extract.  
 
 ![Additional example](media/custom-fields/additional-example-01.png)
 
-We can see that the entries for **WMI Performance Adapter** have been corrected, and Log Analytics also used that information to correct the records for **Windows Module Installer**.  We can see in the **Summary** section though that **DPMRA** is still not being identified correctly.
+We can see that the entries for **WMI Performance Adapter** have been corrected, and Log Analytics also used that information to correct the records for **Windows Module Installer**.
 
 ![Search results](media/custom-fields/search-results-02.png)
 
-We scroll to a record with the DPMRA service and use the same process to correct that record.
-
-![Additional example](media/custom-fields/additional-example-02.png)
-
- When we run the extraction, we can see that all of our results are now accurate.
-
-![Search results](media/custom-fields/search-results-03.png)
-
-We can see that **Service_CF** is created but is not yet added to any records.
+We can now run a query that verifies **Service_CF** is created but is not yet added to any records. That's because the custom field doesn't work against existing records so we need to wait for new records to be collected.
 
 ![Initial count](media/custom-fields/initial-count.png)
 
@@ -137,6 +127,6 @@ We can now use the custom field like any other record property.  To illustrate t
 ![Group by query](media/custom-fields/query-group.png)
 
 ## Next steps
-* Learn about [log searches](../log-query/log-query-overview.md) to build queries using custom fields for criteria.
+* Learn about [log queries](../log-query/log-query-overview.md) to build queries using custom fields for criteria.
 * Monitor [custom log files](data-sources-custom-logs.md) that you parse using custom fields.
 

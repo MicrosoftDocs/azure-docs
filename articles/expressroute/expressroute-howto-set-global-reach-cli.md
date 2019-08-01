@@ -2,72 +2,68 @@
 title: 'Configure ExpressRoute Global Reach: Azure CLI | Microsoft Docs'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 services: expressroute
-author: cherylmc
+author: jaredr80
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/12/2018
-ms.author: cherylmc
+ms.author: jaredro
 ms.custom: seodec18
 
 ---
 
-# Configure ExpressRoute Global Reach Using Azure CLI (Preview)
-This article helps you configure ExpressRoute Global Reach using Azure CLI. For more information, see [ExpressRouteRoute Global Reach](expressroute-global-reach.md).
+# Configure ExpressRoute Global Reach by using the Azure CLI
+
+This article helps you configure Azure ExpressRoute Global Reach by using the Azure CLI. For more information, see [ExpressRoute Global Reach](expressroute-global-reach.md).
  
-## Before you begin
-> [!IMPORTANT]
-> This public preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
-> 
+Before you start configuration, complete the following requirements:
 
-
-Before you start configuration, you need to check the following requirements.
-
-* Install the latest version of Azure CLI. See [Install Azure CLI](/cli/azure/install-azure-cli) and [Get Started with Azure CLI](/cli/azure/get-started-with-azure-cli).
-* Understand the ExpressRoute circuit provisioning [workflows](expressroute-workflows.md).
-* Make sure your ExpressRoute circuits are in Provisioned state.
+* Install the latest version of the Azure CLI. See [Install the Azure CLI](/cli/azure/install-azure-cli) and [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli).
+* Understand the ExpressRoute circuit-provisioning [workflows](expressroute-workflows.md).
+* Make sure your ExpressRoute circuits are in the Provisioned state.
 * Make sure Azure private peering is configured on your ExpressRoute circuits.  
 
-### Log into your Azure account
-To start the configuration, you must log into your Azure account. The command will open your default browser and prompt you for the login credential for your Azure account.  
+### Sign in to your Azure account
+
+To start configuration, sign in to your Azure account. The following command opens your default browser and prompts you for the sign-in credentials for your Azure account:  
 
 ```azurecli
 az login
 ```
 
-If you have multiple Azure subscriptions, check the subscriptions for the account.
+If you have multiple Azure subscriptions, check the subscriptions for the account:
 
 ```azurecli
 az account list
 ```
 
-Specify the subscription that you want to use.
+Specify the subscription that you want to use:
 
 ```azurecli
 az account set --subscription <your subscription ID>
 ```
 
 ### Identify your ExpressRoute circuits for configuration
-You can enable ExpressRoute Global Reach between any two ExpressRoute circuits as long as they're located in the supported countries and they're created at different peering locations. If your subscription owns both circuits you can choose either circuit to run the configuration in the sections below. If the two circuits are in different Azure subscriptions, you will need authorization from one Azure subscription and pass in the authorization key when you run the configuration command in the other Azure subscription.
+
+You can enable ExpressRoute Global Reach between any two ExpressRoute circuits, as long as they're located in supported countries/regions and were created at different peering locations. If your subscription owns both circuits, you can choose either circuit to run the configuration as explained later in this article. If the two circuits are in different Azure subscriptions, you must have authorization from one Azure subscription and must pass in its authorization key when you run the configuration command in the other Azure subscription.
 
 ## Enable connectivity between your on-premises networks
 
-When running the command to enable connectivity, consider the following values:
+When running the command to enable connectivity, note the following requirements for parameter values:
 
-* *peer-circuit* should be the full resource ID. For example: 
+* *peer-circuit* should be the full resource ID. For example:
 
-  ```
-  /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
-  ```
-* *-AddressPrefix* must be a /29 IPv4 subnet, e.g. "10.0.0.0/29". We will use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure VNets or in your on-premises networks.
+  > /subscriptions/{your_subscription_id}/resourceGroups/{your_resource_group}/providers/Microsoft.Network/expressRouteCircuits/{your_circuit_name}
 
-Run the following CLI to connect two ExpressRoute circuits. Use the following example command:
+* *address-prefix* must be a "/29" IPv4 subnet (for example, "10.0.0.0/29"). We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. You must not use addresses in this subnet in your Azure virtual networks or in your on-premises networks.
+
+Run the following CLI command to connect two ExpressRoute circuits:
 
 ```azurecli
 az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29>
 ```
 
-The CLI output looks like the following example:
+The CLI output looks like this:
 
 ```azurecli
 {
@@ -91,67 +87,67 @@ The CLI output looks like the following example:
 }
 ```
 
-When the above operation is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
+When this operation is complete, you'll have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
-### ExpressRoute circuits in different Azure subscriptions
+## Enable connectivity between ExpressRoute circuits in different Azure subscriptions
 
-If the two circuits are not in the same Azure subscription, you will need authorization. In the following configuration, authorization is generated in circuit 2's subscription and the authorization key is passed to circuit 1.
+If the two circuits aren't in the same Azure subscription, you need authorization. In the following configuration, you generate authorization in circuit 2's subscription and pass the authorization key to circuit 1.
 
-Generate an authorization key. 
-```azurecli
-az network express-route auth create --circuit-name <Circuit2Name> -g <Circuit2ResourceGroupName> -n <AuthorizationName>
-```
+1. Generate an authorization key:
 
-The CLI output looks like the following.
+   ```azurecli
+   az network express-route auth create --circuit-name <Circuit2Name> -g <Circuit2ResourceGroupName> -n <AuthorizationName>
+   ```
 
-```azurecli
-{
-  "authorizationKey": "<authorizationKey>",
-  "authorizationUseStatus": "Available",
-  "etag": "W/\"cfd15a2f-43a1-4361-9403-6a0be00746ed\"",
-  "id": "/subscriptions/<SubscriptionID>/resourceGroups/<Circuit2ResourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<Circuit2Name>/authorizations/<AuthorizationName>",
-  "name": "<AuthorizationName>",
-  "provisioningState": "Succeeded",
-  "resourceGroup": "<Circuit2ResourceGroupName>",
-  "type": "Microsoft.Network/expressRouteCircuits/authorizations"
-}
-```
+   The CLI output looks like this:
 
-Make a note of circuit 2's resource Id as well as the authorization key.
+   ```azurecli
+   {
+     "authorizationKey": "<authorizationKey>",
+     "authorizationUseStatus": "Available",
+     "etag": "W/\"cfd15a2f-43a1-4361-9403-6a0be00746ed\"",
+     "id": "/subscriptions/<SubscriptionID>/resourceGroups/<Circuit2ResourceGroupName>/providers/Microsoft.Network/expressRouteCircuits/<Circuit2Name>/authorizations/<AuthorizationName>",
+     "name": "<AuthorizationName>",
+     "provisioningState": "Succeeded",
+     "resourceGroup": "<Circuit2ResourceGroupName>",
+     "type": "Microsoft.Network/expressRouteCircuits/authorizations"
+   }
+   ```
 
-Run the following command against circuit 1. Pass in circuit 2's resource Id and the authorization key 
-```azurecli
-az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
-```
+1. Make a note of both the resource ID and the authorization key for circuit 2.
 
-When the above operation is complete, you should have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
+1. Run the following command against circuit 1, passing in circuit 2's resource ID and authorization key:
+
+   ```azurecli
+   az network express-route peering connection create -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName> --peer-circuit <Circuit2ResourceID> --address-prefix <__.__.__.__/29> --authorization-key <authorizationKey>
+   ```
+
+When this operation is complete, you'll have connectivity between your on-premises networks on both sides through your two ExpressRoute circuits.
 
 ## Get and verify the configuration
 
-Use the following command to verify the configuration on the circuit where the configuration was made, i.e. circuit 1 in the above example.
+Use the following command to verify the configuration on the circuit where the configuration was made (circuit 1 in the preceding example):
 
 ```azurecli
 az network express-route show -n <CircuitName> -g <ResourceGroupName>
 ```
 
-In the CLI output you'll see *CircuitConnectionStatus*. It will tell you whether the connectivity between the two circuits is established, "Connected", or not, "Disconnected". 
+In the CLI output, you'll see *CircuitConnectionStatus*. It tells you whether the connectivity between the two circuits is established ("Connected") or not established ("Disconnected"). 
 
 ## Disable connectivity between your on-premises networks
 
-To disable it, run the commands against the circuit where the configuration was made, i.e. circuit 1 in the above example.
+To disable connectivity, run the following command against the circuit where the configuration was made (circuit 1 in the earlier example).
 
 ```azurecli
 az network express-route peering connection delete -g <ResourceGroupName> --circuit-name <Circuit1Name> --peering-name AzurePrivatePeering -n <ConnectionName>
 ```
 
-You can run the Show CLI to verify the status. 
+Use the ```show``` command to verify the status.
 
-After the above operation is complete, you will no longer have connectivity between your on-premises network through your ExpressRoute circuits. 
-
+When this operation is complete, you'll no longer have connectivity between your on-premises networks through your ExpressRoute circuits.
 
 ## Next steps
+
 * [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)
 * [Verify ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
-* [Link ExpressRoute circuit to Azure virtual network](expressroute-howto-linkvnet-arm.md)
-
-
+* [Link an ExpressRoute circuit to a virtual network](expressroute-howto-linkvnet-arm.md)

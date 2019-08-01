@@ -3,8 +3,8 @@ title: Upload large amounts of data into Azure Data Lake Storage Gen1 by using o
 description: Use the AdlCopy tool to copy data from Azure Storage blobs to Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 45321f6a-179f-4ee4-b8aa-efa7745b8eb6
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Use the Azure Import/Export service for offline copy of data to Azure Data Lake Storage Gen1
@@ -50,9 +50,9 @@ Follow the instructions in [Using the Azure Import/Export service](../storage/co
 2. Identify an Azure storage account where the data will be copied after it is shipped to the Azure datacenter.
 3. Use the [Azure Import/Export Tool](https://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), a command-line utility. Here's a sample snippet that shows how to use the tool.
 
-    ````
+    ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
-    ````
+    ```
     See [Using the Azure Import/Export service](../storage/common/storage-import-export-service.md) for more sample snippets.
 4. The preceding command creates a journal file at the specified location. Use this journal file to create an import job from the [Azure portal](https://portal.azure.com).
 
@@ -68,7 +68,7 @@ After the status of the import job shows that it's completed, you can verify whe
 In this section, we provide you with the JSON definitions that you can use to create an Azure Data Factory pipeline for copying data. You can use these JSON definitions from the [Azure portal](../data-factory/tutorial-copy-data-portal.md) or [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md).
 
 ### Source linked service (Azure Storage blob)
-````
+```
 {
     "name": "AzureStorageLinkedService",
     "properties": {
@@ -79,10 +79,10 @@ In this section, we provide you with the JSON definitions that you can use to cr
         }
     }
 }
-````
+```
 
 ### Target linked service (Azure Data Lake Storage Gen1)
-````
+```
 {
     "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
@@ -95,9 +95,9 @@ In this section, we provide you with the JSON definitions that you can use to cr
         }
     }
 }
-````
+```
 ### Input data set
-````
+```
 {
     "name": "InputDataSet",
     "properties": {
@@ -115,9 +115,9 @@ In this section, we provide you with the JSON definitions that you can use to cr
         "policy": {}
     }
 }
-````
+```
 ### Output data set
-````
+```
 {
 "name": "OutputDataSet",
 "properties": {
@@ -133,9 +133,9 @@ In this section, we provide you with the JSON definitions that you can use to cr
     }
   }
 }
-````
+```
 ### Pipeline (copy activity)
-````
+```
 {
     "name": "CopyImportedData",
     "properties": {
@@ -182,26 +182,29 @@ In this section, we provide you with the JSON definitions that you can use to cr
         "pipelineMode": "Scheduled"
     }
 }
-````
+```
 For more information, see [Move data from Azure Storage blob to Azure Data Lake Storage Gen1 using Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
 ## Reconstruct the data files in Azure Data Lake Storage Gen1
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 We started with a file that was 319 GB, and broke it down into files of smaller size so that it could be transferred by using the Azure Import/Export service. Now that the data is in Azure Data Lake Storage Gen1, we can reconstruct the file to its original size. You can use the following Azure PowerShell cmdlets to do so.
 
 ```
 # Login to our account
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # List your subscriptions
-Get-AzureRmSubscription
+Get-AzSubscription
 
 # Switch to the subscription you want to work with
-Set-AzureRmContext -SubscriptionId
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
+Set-AzContext -SubscriptionId
+Register-AzResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
-````
+Join-AzDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
+```
 
 ## Next steps
 * [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)

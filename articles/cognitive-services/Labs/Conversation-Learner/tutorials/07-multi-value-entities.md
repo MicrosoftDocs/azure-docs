@@ -3,24 +3,23 @@ title: How to use Multi-value Entities with a Conversation Learner Model - Micro
 titleSuffix: Azure
 description: Learn how to use Multi-value Entities with a Conversation Learner Model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
-
 # How to use multi-value entities with a Conversation Learner model
 This tutorial shows the Multi-value property of Entities.
 
 ## Video
 
-[![Multi Value Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Multi-value Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## Requirements
-This tutorial requires that the general tutorial bot is running
+This tutorial requires that the general tutorial Bot is running
 
 	npm run tutorial-general
 
@@ -31,65 +30,65 @@ Entities marked as Multi-value will have each recognized instance of the Entity 
 
 ## Steps
 
+Start on the home page in the Web UI.
+
 ### Create the Model
 
-1. In the Web UI, click "New Model."
-2. In the "Name" field, type "MultiValueEntities" and hit enter.
-3. Click the "Create" button.
+1. Select **New Model**.
+2. Enter **MultiValueEntities** for **Name**.
+3. Select **Create**.
 
 ### Entity Creation
 
-1. On the left panel, click "Entities", then the "New Entity" button.
-2. Select "Custom Trained" for the "Entity Type."
-3. Type "toppings" for the "Entity Name."
-4. Check the "Multi-valued" check-box.
-	- Multi-value entities accumulate one or more values in the Entity.
-5. Check the "Negatable" check-box.
-	- The "Negatable" property was covered in another tutorial.
-6. Click the "Create" button.
+1. Select **Entities** in the left panel, then **New Entity**.
+2. Select **Custom Trained** for **Entity Type**.
+3. Enter **toppings** for **Entity Name**.
+4. Check **Multi-valued** to enable the Entity accumulate one or more values.
+5. Check **Negatable**.
+6. Select **Create**.
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
 ### Create the First Action
 
-1. On the left panel, click "Actions", then the "New Action" button.
-2. In the "Bot's response..." field, type "Here are your toppings: $toppings"
-	- The leading dollar sign indicates an Entity reference
-3. Click the "Create" button.
+1. Select **Actions** in the left panel, then **New Action**.
+2. Enter **Here are your toppings: $toppings** for **Bot's Response...**. The leading dollar sign indicates an Entity reference.
+3. Select **Create**.
+
+![](../media/T07_action_create_1.png)
 
 ### Create the Second Action
 
-1. On the left panel, click "Actions", then the "New Action" button.
-2. In the "Bot's response..." field, type "What toppings would you like?"
-3. In the "Disqualifying Entitles" field, type "toppings."
-4. Click the "Create" button.
+1. Select **Actions** in the left panel, then **New Action**.
+2. Enter **What toppings would you like?** for **Bot's Response...**.
+3. Enter **toppings** for **Disqualifying Entitles**.
+4. Select **Create**.
 
 Now you have two actions.
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
 ### Train the Model
 
-1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
-2. In the chat panel, where it says "Type your message...", type in "hi."
-3. Click the "Score Actions" button.
-4. Select the response, "What toppings would you like?"
-	- The percentile is 100%, as the only valid Action based on the constraints.
-5. In the chat panel, where it says "Type your message...", type in "cheese and mushrooms"
-6. Click 'cheese', and choose the label "+toppings"
-7. Click 'mushrooms', and choose the label "+toppings"
-8. Click the "Score Actions" button.
-9. Select the response, "Here are your toppings: $toppings"
-10. In the chat panel, where it says "Type your message...", type in "add pepper"
-11. Click 'pepper', and choose the label "+toppings"
-12. Click the "Score Actions" button.
-13. Select the response, "Here are your toppings: $toppings"
-14. In the chat panel, where it says "Type your message...", type in "remove cheese"
-15. Click 'cheese', and choose the label "-toppings"
-16. Click the "Score Actions" button.
-17. Select the response, "Here are your toppings: $toppings"
+1. Select **Train Dialogs** in the left panel, then **New Train Dialog**.
+2. Enter **hi** for the user's utterance in the left chat panel.
+3. Select **Score Actions**.
+4. Select **What toppings would you like?** from the Actions list. The percentile is 100% as the only valid Action based on the constraints.
+5. Enter **cheese and mushrooms** for the user's utterance in the left chat panel.
+6. Highlight **cheese** then select **+toppings**.
+7. Highlight **mushrooms** then select **+toppings**.
+8. Select **Score Actions**.
+9. Select **Here are your toppings: $toppings** from the Actions list.
+10. Enter **add pepper** for the user's next utterance in the left chat panel.
+11. Highlight **pepper** then select **+toppings**.
+12. Select **Score Actions**.
+13. Select **Here are your toppings: $toppings** from the Actions list.
+14. Enter **remove cheese** for the user's third utterance in the left chat panel.
+15. Highlight **cheese** then select **-toppings**.
+16. Select **Score Actions**.
+17. Select **Here are your toppings: $toppings** from the Actions list.
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## Next steps
 

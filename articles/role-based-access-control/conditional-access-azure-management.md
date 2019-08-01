@@ -1,6 +1,6 @@
 ---
-title: Manage access to Azure management with conditional access in Azure Active Directory
-description: Learn about using conditional access in Azure AD to manage access to Azure management.
+title: Manage access to Azure management with Conditional Access in Azure Active Directory
+description: Learn about using Conditional Access in Azure AD to manage access to Azure management.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -12,24 +12,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
+ms.date: 07/15/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ---
 
-# Manage access to Azure management with conditional access
+# Manage access to Azure management with Conditional Access
 
-Conditional access in Azure Active Directory (Azure AD) controls access to cloud apps based on specific conditions that you specify. To allow access, you create conditional access policies that allow or block access based on whether or not the requirements in the policy are met. 
+Conditional Access in Azure Active Directory (Azure AD) controls access to cloud apps based on specific conditions that you specify. To allow access, you create Conditional Access policies that allow or block access based on whether or not the requirements in the policy are met. 
 
-Typically, you use conditional access to control access to your cloud apps. You can also set up policies to control access to Azure management based on certain conditions (such as sign-in risk, location, or device) and to enforce requirements like multi-factor authentication.
+Typically, you use Conditional Access to control access to your cloud apps. You can also set up policies to control access to Azure management based on certain conditions (such as sign-in risk, location, or device) and to enforce requirements like multi-factor authentication.
 
 To create a policy for Azure management, you select **Microsoft Azure Management** under **Cloud apps** when choosing the app to which to apply the policy.
 
-![Conditional access for Azure management](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
+![Conditional Access for Azure management](./media/conditional-access-azure-management/conditional-access-azure-mgmt.png)
 
-The policy you create applies to all Azure management endpoints, including classic Azure portal, Azure portal, Azure Resource Manager provider, classic Service Management APIs, and Azure PowerShell. Note that the policy applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), which calls Microsoft Graph.
+The policy you create applies to all Azure management endpoints, including the following:
+
+- Azure portal
+- Azure Resource Manager provider
+- Classic Service Management APIs
+- Azure PowerShell
+- Visual Studio subscriptions administrator portal
+- Azure DevOps
+
+Note that the policy applies to Azure PowerShell, which calls the Azure Resource Manager API. It does not apply to [Azure AD PowerShell](/powershell/azure/active-directory/install-adv2), which calls Microsoft Graph.
 
 > [!CAUTION]
-> Make sure you understand how conditional access works before setting up a policy to manage access to Azure management. Make sure you don't create conditions that could block your own access to the portal.
+> Make sure you understand how Conditional Access works before setting up a policy to manage access to Azure management. Make sure you don't create conditions that could block your own access to the portal.
 
-For more information on how to set up and use conditional access, see [Conditional access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).
+For more information on how to set up and use Conditional Access, see [Conditional Access in Azure Active Directory](../active-directory/active-directory-conditional-access-azure-portal.md).

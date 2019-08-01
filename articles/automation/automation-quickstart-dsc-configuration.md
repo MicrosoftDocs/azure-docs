@@ -1,9 +1,9 @@
 ---
-title: Azure Quickstart - Configure a VM with DSC | Microsoft Docs 
+title: Azure Quickstart - Configure a VM with DSC | Microsoft Docs
 description: Configure a LAMP Stack on a Linux Virtual Machine with Desired State Configuration
 services: automation
 ms.service: automation
-ms.component: dsc
+ms.subservice: dsc
 keywords: dsc, configuration, automation
 author: KrisBash
 ms.author: krbash
@@ -122,7 +122,7 @@ A compiled *Node Configuration* can be assigned to DSC Nodes. Assignment applies
 1. Click **Assign Node Configuration**
 1. Select the *Node Configuration* - **LAMPServer.localhost** -  to assign and click **OK**
 1. The compiled configuration is now be assigned to the node, and the node status changes to *Pending*. On the next periodic check, the node retrieves the configuration, apply it, and report status back. It can take up to 30 minutes for the node to retrieve the configuration, depending on the node's settings. To force an immediate check, you can run the following command locally on the Linux virtual machine:
-`sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
+   `sudo /opt/microsoft/dsc/Scripts/PerformRequiredConfigurationChecks.py`
 
 ![Assigning a Node Configuration](./media/automation-quickstart-dsc-configuration/dsc-assign-node-configuration.png)
 
@@ -140,5 +140,6 @@ In this quickstart, you onboarded a Linux VM to DSC, created a configuration for
 > [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md)
 
 * To learn more about PowerShell Desired State Configuration, see [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview).
-* To learn more about managing Automation DSC from PowerShell, see [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/?view=azurermps-5.0.0)
-* To learn how to forward DSC reports to Log Analytics for reporting and alerting, see [Forwarding DSC Reporting to Log Analytics](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+* To learn more about managing Automation DSC from PowerShell, see [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
+* To learn how to forward DSC reports to Azure Monitor logs for reporting and alerting, see [Forwarding DSC Reporting to Azure Monitor logs](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
+

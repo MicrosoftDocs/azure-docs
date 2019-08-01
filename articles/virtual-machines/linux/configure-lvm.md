@@ -4,7 +4,7 @@ description: Learn how to configure LVM on Linux in Azure.
 services: virtual-machines-linux
 documentationcenter: na
 author: szarkos
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
 
@@ -16,6 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: szark
+ms.subservice: disks
 
 ---
 # Configure LVM on a Linux VM in Azure

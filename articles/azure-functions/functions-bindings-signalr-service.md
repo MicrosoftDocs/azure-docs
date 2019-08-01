@@ -4,17 +4,17 @@ description: Understand how to use SignalR Service bindings with Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/23/2018
+ms.date: 02/28/2019
 ms.author: cshoe
 ---
 
@@ -26,12 +26,29 @@ This article explains how to authenticate and send real-time messages to clients
 
 ## Packages - Functions 2.x
 
-The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.0.0-preview1-*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
-
-> [!NOTE]
-> Azure SignalR Service is generally available. However, SignalR Service bindings for Azure Functions are currently in preview.
+The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.*. Source code for the package is in the [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
+
+
+### Java annotations
+
+To use the SignalR Service annotations in Java functions, you need to add a dependency to the *azure-functions-java-library-signalr* artifact (version 1.0 or higher) to your pom.xml.
+
+```xml
+<dependency>
+    <groupId>com.microsoft.azure.functions</groupId>
+    <artifactId>azure-functions-java-library-signalr</artifactId>
+    <version>1.0.0</version>
+</dependency>
+```
+
+> [!NOTE]
+> To use the SignalR Service bindings in Java, make sure you are using version 2.4.419 or higher of the Azure Functions Core Tools (host version 2.0.12332).
+
+## Using SignalR Service with Azure Functions
+
+For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
 
 ## SignalR connection info input binding
 
@@ -39,17 +56,20 @@ Before a client can connect to Azure SignalR Service, it must retrieve the servi
 
 See the language-specific example:
 
-* [2.x C#](#2x-c-input-example)
-* [2.x JavaScript](#2x-javascript-input-example)
+* [2.x C#](#2x-c-input-examples)
+* [2.x JavaScript](#2x-javascript-input-examples)
+* [2.x Java](#2x-java-input-examples)
 
-### 2.x C# input example
+For more information on how this binding is used to create a "negotiate" function that can be consumed by a SignalR client SDK, see the [Azure Functions development and configuration article](../azure-signalr/signalr-concept-serverless-development-config.md) in the SignalR Service concepts documentation.
+
+### 2.x C# input examples
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
 
 ```cs
-[FunctionName("GetSignalRInfo")]
-public static SignalRConnectionInfo GetSignalRInfo(
-    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
+    [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req,
     [SignalRConnectionInfo(HubName = "chat")]SignalRConnectionInfo connectionInfo)
 {
     return connectionInfo;
@@ -58,14 +78,13 @@ public static SignalRConnectionInfo GetSignalRInfo(
 
 #### Authenticated tokens
 
-If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
-(../app-service/overview-authentication-authorization.md).
+If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
 
-App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 ```cs
-[FunctionName("GetSignalRInfo")]
-public static SignalRConnectionInfo GetSignalRInfo(
+[FunctionName("negotiate")]
+public static SignalRConnectionInfo Negotiate(
     [HttpTrigger(AuthorizationLevel.Anonymous)]HttpRequest req, 
     [SignalRConnectionInfo
         (HubName = "chat", UserId = "{headers.x-ms-client-principal-id}")]
@@ -76,7 +95,7 @@ public static SignalRConnectionInfo GetSignalRInfo(
 }
 ```
 
-### 2.x JavaScript input example
+### 2.x JavaScript input examples
 
 The following example shows a SignalR connection info input binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding to return the connection information.
 
@@ -97,18 +116,16 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, connectionInfo) {
-    context.res = { body: connectionInfo };
-    context.done();
+module.exports = async function (context, req, connectionInfo) {
+    context.res.body = connectionInfo;
 };
 ```
 
 #### Authenticated tokens
 
-If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication]
-(../app-service/overview-authentication-authorization.md).
+If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
 
-App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `userId` property of the binding to the value from either header using a [binding expression](functions-triggers-bindings.md#binding-expressions-and-patterns): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `userId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`. 
 
 Example function.json:
 
@@ -126,24 +143,65 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req, connectionInfo) {
-    // connectionInfo contains an access key token with a name identifier 
+module.exports = async function (context, req, connectionInfo) {
+    // connectionInfo contains an access key token with a name identifier
     // claim set to the authenticated user
-    context.res = { body: connectionInfo };
-    context.done();
+    context.res.body = connectionInfo;
 };
+```
+
+### 2.x Java input examples
+
+The following example shows a [Java function](functions-reference-java.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
+
+```java
+@FunctionName("negotiate")
+public SignalRConnectionInfo negotiate(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
+        @SignalRConnectionInfoInput(
+            name = "connectionInfo",
+            hubName = "chat") SignalRConnectionInfo connectionInfo) {
+    return connectionInfo;
+}
+```
+
+#### Authenticated tokens
+
+If the function is triggered by an authenticated client, you can add a user ID claim to the generated token. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
+
+App Service Authentication sets HTTP headers named `x-ms-client-principal-id` and `x-ms-client-principal-name` that contain the authenticated user's client principal ID and name, respectively. You can set the `UserId` property of the binding to the value from either header using a [binding expression](./functions-bindings-expressions-patterns.md): `{headers.x-ms-client-principal-id}` or `{headers.x-ms-client-principal-name}`.
+
+```java
+@FunctionName("negotiate")
+public SignalRConnectionInfo negotiate(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> req,
+        @SignalRConnectionInfoInput(
+            name = "connectionInfo",
+            hubName = "chat",
+            userId = "{headers.x-ms-client-principal-id}") SignalRConnectionInfo connectionInfo) {
+    return connectionInfo;
+}
 ```
 
 ## SignalR output binding
 
 Use the *SignalR* output binding to send one or more messages using Azure SignalR Service. You can broadcast a message to all connected clients, or you can broadcast it only to connected clients that have been authenticated to a given user.
 
+You can also use it to manage the groups that a user belongs to.
+
 See the language-specific example:
 
-* [2.x C#](#2x-c-output-example)
-* [2.x JavaScript](#2x-javascript-output-example)
+* [2.x C#](#2x-c-send-message-output-examples)
+* [2.x JavaScript](#2x-javascript-send-message-output-examples)
+* [2.x Java](#2x-java-send-message-output-examples)
 
-### 2.x C# output example
+### 2.x C# send message output examples
 
 #### Broadcast to all clients
 
@@ -177,15 +235,84 @@ public static Task SendMessage(
     return signalRMessages.AddAsync(
         new SignalRMessage 
         {
-            // the message will only be sent to these user IDs
+            // the message will only be sent to this user ID
             UserId = "userId1",
-            Target = "newMessage", 
-            Arguments = new [] { message } 
+            Target = "newMessage",
+            Arguments = new [] { message }
         });
 }
 ```
 
-### 2.x JavaScript output example
+#### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the `GroupName` property of the SignalR message.
+
+```cs
+[FunctionName("SendMessage")]
+public static Task SendMessage(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]object message,
+    [SignalR(HubName = "chat")]IAsyncCollector<SignalRMessage> signalRMessages)
+{
+    return signalRMessages.AddAsync(
+        new SignalRMessage
+        {
+            // the message will be sent to the group with this name
+            GroupName = "myGroup",
+            Target = "newMessage",
+            Arguments = new [] { message }
+        });
+}
+```
+
+### 2.x C# group management output examples
+
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalRGroupAction` class with the `SignalR` output binding to manage a user's group membership.
+
+#### Add user to a group
+
+The following example adds a user to a group.
+
+```csharp
+[FunctionName("addToGroup")]
+public static Task AddToGroup(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+    string userId,
+    [SignalR(HubName = "chat")]
+        IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userId,
+            GroupName = "myGroup",
+            Action = GroupAction.Add
+        });
+}
+```
+
+#### Remove user from a group
+
+The following example removes a user from a group.
+
+```csharp
+[FunctionName("removeFromGroup")]
+public static Task RemoveFromGroup(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "post")]HttpRequest req,
+    string userId,
+    [SignalR(HubName = "chat")]
+        IAsyncCollector<SignalRGroupAction> signalRGroupActions)
+{
+    return signalRGroupActions.AddAsync(
+        new SignalRGroupAction
+        {
+            UserId = userId,
+            GroupName = "myGroup",
+            Action = GroupAction.Remove
+        });
+}
+```
+
+### 2.x JavaScript send message output examples
 
 #### Broadcast to all clients
 
@@ -208,12 +335,11 @@ Example function.json:
 Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req) {
+module.exports = async function (context, req) {
     context.bindings.signalRMessages = [{
         "target": "newMessage",
         "arguments": [ req.body ]
     }];
-    context.done();
 };
 ```
 
@@ -224,15 +350,241 @@ You can send a message only to connections that have been authenticated to a use
 *function.json* stays the same. Here's the JavaScript code:
 
 ```javascript
-module.exports = function (context, req) {
+module.exports = async function (context, req) {
     context.bindings.signalRMessages = [{
-        // message will only be sent to these user IDs
+        // message will only be sent to this user ID
         "userId": "userId1",
         "target": "newMessage",
         "arguments": [ req.body ]
     }];
-    context.done();
 };
+```
+
+#### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the `groupName` property of the SignalR message.
+
+*function.json* stays the same. Here's the JavaScript code:
+
+```javascript
+module.exports = async function (context, req) {
+    context.bindings.signalRMessages = [{
+        // message will only be sent to this group
+        "groupName": "myGroup",
+        "target": "newMessage",
+        "arguments": [ req.body ]
+    }];
+};
+```
+
+### 2.x JavaScript group management output examples
+
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership.
+
+#### Add user to a group
+
+The following example adds a user to a group.
+
+*function.json*
+
+```json
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRGroupActions",
+      "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+      "hubName": "chat",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+*index.js*
+
+```javascript
+module.exports = async function (context, req) {
+  context.bindings.signalRGroupActions = [{
+    "userId": req.query.userId,
+    "groupName": "myGroup",
+    "action": "add"
+  }];
+};
+```
+
+#### Remove user from a group
+
+The following example removes a user from a group.
+
+*function.json*
+
+```json
+{
+  "disabled": false,
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "signalR",
+      "name": "signalRGroupActions",
+      "connectionStringSetting": "<name of setting containing SignalR Service connection string>",
+      "hubName": "chat",
+      "direction": "out"
+    }
+  ]
+}
+```
+
+*index.js*
+
+```javascript
+module.exports = async function (context, req) {
+  context.bindings.signalRGroupActions = [{
+    "userId": req.query.userId,
+    "groupName": "myGroup",
+    "action": "remove"
+  }];
+};
+```
+
+### 2.x Java send message output examples
+
+#### Broadcast to all clients
+
+The following example shows a [Java function](functions-reference-java.md) that sends a message using the output binding to all connected clients. The `target` is the name of the method to be invoked on each client. The `arguments` property is an array of zero or more objects to be passed to the client method.
+
+```java
+@FunctionName("sendMessage")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRMessage sendMessage(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+
+    SignalRMessage message = new SignalRMessage();
+    message.target = "newMessage";
+    message.arguments.add(req.getBody());
+    return message;
+}
+```
+
+#### Send to a user
+
+You can send a message only to connections that have been authenticated to a user by setting the `userId` property of the SignalR message.
+
+```java
+@FunctionName("sendMessage")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRMessage sendMessage(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+
+    SignalRMessage message = new SignalRMessage();
+    message.userId = "userId1";
+    message.target = "newMessage";
+    message.arguments.add(req.getBody());
+    return message;
+}
+```
+
+#### Send to a group
+
+You can send a message only to connections that have been added to a group by setting the `groupName` property of the SignalR message.
+
+```java
+@FunctionName("sendMessage")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRMessage sendMessage(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req) {
+
+    SignalRMessage message = new SignalRMessage();
+    message.groupName = "myGroup";
+    message.target = "newMessage";
+    message.arguments.add(req.getBody());
+    return message;
+}
+```
+
+### 2.x Java group management output examples
+
+SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalRGroupAction` class with the `SignalROutput` output binding to manage a user's group membership.
+
+#### Add user to a group
+
+The following example adds a user to a group.
+
+```java
+@FunctionName("addToGroup")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRGroupAction addToGroup(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req,
+        @BindingName("userId") String userId) {
+
+    SignalRGroupAction groupAction = new SignalRGroupAction();
+    groupAction.action = "add";
+    groupAction.userId = userId;
+    groupAction.groupName = "myGroup";
+    return action;
+}
+```
+
+#### Remove user from a group
+
+The following example removes a user from a group.
+
+```java
+@FunctionName("removeFromGroup")
+@SignalROutput(name = "$return", hubName = "chat")
+public SignalRGroupAction removeFromGroup(
+        @HttpTrigger(
+            name = "req",
+            methods = { HttpMethod.POST },
+            authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Object> req,
+        @BindingName("userId") String userId) {
+
+    SignalRGroupAction groupAction = new SignalRGroupAction();
+    groupAction.action = "remove";
+    groupAction.userId = userId;
+    groupAction.groupName = "myGroup";
+    return action;
+}
 ```
 
 ## Configuration
@@ -269,3 +621,5 @@ The following table explains the binding configuration properties that you set i
 > [!div class="nextstepaction"]
 > [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
 
+> [!div class="nextstepaction"]
+> [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md)

@@ -13,11 +13,11 @@
 
 In this section, you create a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md) 
 
-1. In your IoT hub navigation menu, open **IoT Devices**, then click **Add** to register a new device in your IoT hub.
+1. In your IoT hub navigation menu, open **IoT Devices**, then select **Add** to register a new device in your IoT hub.
 
     ![Create device identity in portal](./media/iot-hub-include-create-device/create-identity-portal.png)
 
-1. Provide a name for your new device, such as **myDeviceId**, and click **Save**. This action creates a new device identity for your IoT hub.
+1. Provide a name for your new device, such as **myDeviceId**, and select **Save**. This action creates a new device identity for your IoT hub.
 
    ![Add a new device](./media/iot-hub-include-create-device/create-a-device.png)
 

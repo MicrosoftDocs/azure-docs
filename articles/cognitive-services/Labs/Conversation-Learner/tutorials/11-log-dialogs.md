@@ -3,15 +3,14 @@ title: How to log dialogs in a Conversation Learner model - Microsoft Cognitive 
 titleSuffix: Azure
 description: Learn how to log dialogs in a Conversation Learner model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
-
 # How to log dialogs in a Conversation Learner model
 
 This tutorial demonstrates how Log Dialogs are employed to better train Conversation Learner models from recorded interactions with real world users.
@@ -50,6 +49,8 @@ This Model contains one Entity named "city", and Actions designed to respond to 
 9. Select the response, "The weather in Austin is probably sunny."
 10. Click the "Save As Train Dialog" button.
 	- Training is kicked off immediately
+
+![](../media/T11_logdialog.png)
 
 One last note. Depending on business needs, the conversation logging feature can be turned off by going to Settings and unchecking “Log Conversations.”
 

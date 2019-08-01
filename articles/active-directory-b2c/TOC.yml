@@ -18,7 +18,15 @@
   items:
   - name: 1 - Create B2C tenant
     href: tutorial-create-tenant.md
-  - name: 2 - Authenticate accounts
+  - name: 2 - Register an application
+    href: tutorial-register-applications.md
+  - name: 3 - Create user flows
+    href: tutorial-create-user-flows.md
+  - name: Add identity providers
+    href: tutorial-add-identity-providers.md
+  - name: Customize the UI
+    href: tutorial-customize-ui.md
+  - name: Authenticate accounts
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-app.md
@@ -26,7 +34,7 @@
       href: active-directory-b2c-tutorials-desktop-app.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa.md
-  - name: 3 - Grant API access
+  - name: Grant API access
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-api.md
@@ -34,26 +42,22 @@
       href: active-directory-b2c-tutorials-desktop-app-webapi.md
     - name: Single page
       href: active-directory-b2c-tutorials-spa-webapi.md
-  - name: Customize the UI
-    href: tutorial-customize-ui.md
 - name: Samples
   href: code-samples.md
 - name: Concepts
   items:
-  - name: Applications types
+  - name: Application types
     href: active-directory-b2c-apps.md
   - name: Authentication protocols
     href: active-directory-b2c-reference-protocols.md
-  - name: User flows
-    href: active-directory-b2c-reference-policies.md
   - name: Identity Experience Framework
     items:
     - name: Custom policies
       href: active-directory-b2c-overview-custom.md
     - name: User access
       href: manage-user-access.md
-    - name: User data
-      href: manage-user-data.md
+  - name: JavaScript and page layouts
+    href: user-flow-javascript-overview.md
   - name: OAuth 2.0
     href: active-directory-b2c-reference-oauth-code.md
   - name: OpenId Connect
@@ -64,16 +68,24 @@
     href: active-directory-b2c-reference-tokens.md
   - name: User accounts
     href: user-overview.md
+  - name: User data
+    href: manage-user-data.md
+  - name: User flows
+    href: active-directory-b2c-reference-policies.md
   - name: User interface customization
     href: customize-ui-overview.md
 - name: How-to guides
   items:
-  - name: Access audit logs 
+  - name: Access audit logs
     href: active-directory-b2c-reference-audit-logs.md
-  - name: Age gating
+  - name: Add a web API application
+    href: add-web-application.md
+  - name: Add a native client application
+    href: add-native-application.md
+  - name: Configure age gating
     href: basic-age-gating.md
-  - name: Configure tokens
-    href: active-directory-b2c-token-session-sso.md
+  - name: Configure session behavior
+    href: session-behavior.md
   - name: Customize language
     href: active-directory-b2c-reference-language-customization.md
   - name: Customize password
@@ -88,7 +100,7 @@
     items:
     - name: Collect logs using Application Insights
       href: active-directory-b2c-troubleshoot-custom.md
-    - name: Confgure ROPC
+    - name: Configure ROPC
       href: ropc-custom.md
     - name: Configure user input
       href: active-directory-b2c-configure-signup-self-asserted-custom.md
@@ -98,8 +110,6 @@
       href: active-directory-b2c-ui-customization-custom.md
     - name: Customize the UI dynamically
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Customize tokens
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Define custom attributes
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Enable keep me signed in
@@ -122,7 +132,7 @@
         href: setup-amazon-custom.md
       - name: Azure AD (Single-Tenant)
         href: active-directory-b2c-setup-aad-custom.md
-      - name: Azure AD (Multi-Tenant) 
+      - name: Azure AD (Multi-Tenant)
         href: active-directory-b2c-setup-commonaad-custom.md
       - name: Google
         href: active-directory-b2c-custom-setup-goog-idp.md
@@ -132,10 +142,8 @@
         href: active-directory-b2c-custom-setup-msa-idp.md
       - name: Twitter
         href: active-directory-b2c-custom-setup-twitter-idp.md
-    - name: Page contract
-      href: page-contract.md
-    - name: Pass through access token
-      href: idp-pass-through-custom.md
+    - name: Page layout
+      href: page-layout.md
     - name: Password complexity
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Password change
@@ -146,6 +154,12 @@
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Tokens
+      items:
+      - name: Customize tokens
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Pass through access token
+        href: idp-pass-through-custom.md
     - name: Track user behavior
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Reference
@@ -188,7 +202,7 @@
             href: localization.md
             items:
             - name: Localization string Ids
-              href: localization-string-ids.md 
+              href: localization-string-ids.md
         - name: ClaimsProviders
           href: claimsproviders.md
           items:
@@ -225,7 +239,7 @@
           href: relyingparty.md
       - name: JavaScript samples
         href: javascript-samples.md
-      - name: Release notes
+      - name: Developer notes
         href: active-directory-b2c-developer-notes-custom.md
       - name: Trust Framework definition
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
@@ -233,7 +247,7 @@
     items:
     - name: Amazon
       href: active-directory-b2c-setup-amzn-app.md
-    - name: Azure AD (Single Tenant) 
+    - name: Azure AD (Single Tenant)
       href: active-directory-b2c-setup-oidc-azure-active-directory.md
     - name: Microsoft Account
       href: active-directory-b2c-setup-msa-app.md
@@ -242,10 +256,10 @@
     - name: GitHub
       href: active-directory-b2c-setup-github-app.md
     - name: Google
-      href: active-directory-b2c-setup-goog-app.md  
+      href: active-directory-b2c-setup-goog-app.md
     - name: LinkedIn
       href: active-directory-b2c-setup-li-app.md
-    - name: OpenID Connect 
+    - name: OpenID Connect
       href: active-directory-b2c-setup-oidc-idp.md
     - name: Twitter
       href: active-directory-b2c-setup-twitter-app.md
@@ -259,12 +273,6 @@
       href: active-directory-b2c-devquickstarts-ios.md
     - name: Android using App Auth
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Obtain access tokens
-    href: active-directory-b2c-access-tokens.md
-  - name: Pass through access token
-    href: idp-pass-through-user-flow.md
-  - name: Register your application
-    href: active-directory-b2c-app-registration.md
   - name: Report usage
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Resource owner password credentials
@@ -273,6 +281,17 @@
     href: direct-signin.md
   - name: Set up self-serve-password reset
     href: active-directory-b2c-reference-sspr.md
+  - name: Tokens
+    items:
+    - name: Configure tokens
+      href: configure-tokens.md
+    - name: Pass through access token
+      href: idp-pass-through-user-flow.md
+    - name: Request access token
+      href: active-directory-b2c-access-tokens.md
+    - name: Support multiple token issuers
+      href: multiple-token-endpoints.md
+      displayName: migrate, b2clogin, owin, jwt
   - name: Use b2clogin.com
     href: b2clogin.md
   - name: Use the Azure AD Graph API
@@ -281,14 +300,14 @@
     items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+    - name: Cookie definitions
+      href: cookie-definitions.md
     - name: Region availability & data residency
       href: active-directory-b2c-reference-tenant-type.md
     - name: Enable billing
       href: active-directory-b2c-how-to-enable-billing.md
     - name: Threat management
       href: active-directory-b2c-reference-threat-management.md
-    - name: Issue when creating a directory
-      href: active-directory-b2c-support-create-directory.md
     - name: Extensions app
       href: active-directory-b2c-reference-extensions-app.md
     - name: User flow versions
@@ -309,7 +328,7 @@
     href: https://azure.microsoft.com/updates/?product=active-directory-b2c
   - name: Solutions and training
     href: solution-articles.md
-  - name: Stack Overflow 
+  - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-ad-b2c+identity-experience-framework
   - name: Support
     href: active-directory-b2c-support.md

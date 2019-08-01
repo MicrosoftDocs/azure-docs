@@ -1,15 +1,14 @@
 ---
 title: Sample - Allowed SKUs for storage accounts and virtual machines
-description: This sample policy requires that storage accounts and virtual machines use approved SKUs.
-services: azure-policy
+description: This sample policy definition requires that storage accounts and virtual machines use approved SKUs.
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 09/18/2018
+ms.date: 01/23/2019
 ms.author: dacoulte
 ---
-# Allowed SKUs for storage accounts and virtual machines
+# Sample - Allowed SKUs for storage accounts and virtual machines
 
 This policy requires that storage accounts and virtual machines use approved SKUs. Uses built-in policies to ensure approved SKUs. You specify an array of approved virtual machines SKUs, and an array of approved storage account SKUs.
 
@@ -23,19 +22,19 @@ You can deploy this template using the [Azure portal](#deploy-with-the-portal) o
 
 ## Deploy with the portal
 
-[![Deploy to Azure](http://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## Deploy with PowerShell
 
-[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh.md)]
+[!INCLUDE [sample-powershell-install](../../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ```azurepowershell-interactive
 $policydefinitions = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.definitions.json"
 $policysetparameters = "https://raw.githubusercontent.com/Azure/azure-policy/master/samples/PolicyInitiatives/skus-for-multiple-types/azurepolicyset.parameters.json"
 
-$policyset= New-AzureRmPolicySetDefinition -Name "skus-for-multiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters 
+$policyset= New-AzPolicySetDefinition -Name "skus-for-multiple-types" -DisplayName "Allowed SKUs for Storage Accounts and Virtual Machines" -Description "This policy allows you to speficy what skus are allowed for storage accounts and virtual machines" -PolicyDefinition $policydefinitions -Parameter $policysetparameters 
  
-New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentName> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs>
+New-AzPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentName> -Scope <scope>  -LISTOFALLOWEDSKUS_1 <VM SKUs> -LISTOFALLOWEDSKUS_2 <Storage Account SKUs>
 ```
 
 ### Clean up PowerShell deployment
@@ -43,8 +42,8 @@ New-AzureRmPolicyAssignment -PolicySetDefinition $policyset -Name <assignmentNam
 Run the following command to remove the policy assignment and definition.
 
 ```azurepowershell-interactive
-Remove-AzureRmPolicyAssignment -Name <assignmentName>
-Remove-AzureRmPolicySetDefinitions -Name "skus-for-multiple-types"
+Remove-AzPolicyAssignment -Name <assignmentName>
+Remove-AzPolicySetDefinitions -Name "skus-for-multiple-types"
 ```
 
 ## Deploy with Azure CLI

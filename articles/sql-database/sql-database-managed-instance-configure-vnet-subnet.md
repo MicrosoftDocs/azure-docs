@@ -1,26 +1,31 @@
 ---
-title: Azure SQL Database Managed Instance configuring existing VNET/subnet | Microsoft Docs
-description: This topic describes how to configure an existing virtual network (VNet) and subnet where you can deploy Azure SQL Database Managed Instance.
+title: Configure an existing virtual network for Azure SQL Database Managed Instance | Microsoft Docs
+description: This article describes how to configure an existing virtual network and subnet where you can deploy Azure SQL Database Managed Instance.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
-manager: craigg
-ms.date: 01/03/2019
+ms.reviewer: sstein, bonova, carlrab
+ms.date: 01/15/2019
 ---
-# Configure an existing VNet for Azure SQL Database Managed Instance
+# Configure an existing virtual network for Azure SQL Database Managed Instance
 
-Azure SQL Database Managed Instance must be deployed within an Azure [virtual network (VNet)](../virtual-network/virtual-networks-overview.md) and the subnet dedicated for Managed Instances only. You can use the existing VNet and subnet if it is configured according to the [Managed Instance VNet requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+Azure SQL Database Managed Instance must be deployed within an Azure [virtual network](../virtual-network/virtual-networks-overview.md) and the subnet dedicated for Managed Instances only. You can use the existing virtual network and subnet if it's configured according to the [Managed Instance virtual network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
-If you have a new subnet that is still not configured, you are not sure is the subnet aligned with the [requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements), or you want to check is the subnet still compliant with the [network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements) after some changes that you made, you can validate and modify your network using the script explained in this section.
+If one of the following cases applies to you, you can validate and modify your network by using the script explained in this article:
 
-  > [!Note]
-  > You can only create a Managed Instance in Resource Manager virtual networks. Azure VNets deployed using Classic deployment model are not suported. Make sure that you calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](sql-database-managed-instance-determine-size-vnet-subnet.md) article, becuase the subnet cannot be resized once you deploy the resources inside.
+- You have a new subnet that's still not configured.
+- You're not sure that the subnet is aligned with the [requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- You want to check that the subnet still complies with the [network requirements](sql-database-managed-instance-connectivity-architecture.md#network-requirements) after you made changes.
+
+> [!Note]
+> You can create a Managed Instance only in virtual networks created through the Azure Resource Manager deployment model. Azure virtual networks created through the classic deployment model are not supported. Calculate subnet size by following the guidelines in the [Determine the size of subnet for Managed Instances](sql-database-managed-instance-determine-size-vnet-subnet.md) article. You can't resize the subnet after you deploy the resources inside.
+>
+> After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 
 ## Validate and modify an existing virtual network
 
@@ -39,14 +44,14 @@ $parameters = @{
 Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
 ```
 
-Subnet preparation is done in three simple steps:
+The script prepares the subnet in three steps:
 
-1. Validate - Selected virtual network and subnet are validated for Managed Instance networking requirements.
-2. Confirm - User is shown a set of changes that need to be made to prepare subnet for Managed Instance deployment and asked for consent.
-3. Prepare - Virtual network and subnet are configured properly.
+1. Validate: It validates the selected virtual network and subnet for Managed Instance networking requirements.
+2. Confirm: It shows the user a set of changes that need to be made to prepare the subnet for Managed Instance deployment. It also asks for consent.
+3. Prepare: It properly configures the virtual network and subnet.
 
 ## Next steps
 
-- For an overview, see [What is a Managed Instance](sql-database-managed-instance.md)
-- For a tutorial showing how to create a VNet, create a Managed Instance, and restore a database from a database backup, see [Creating an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
-- For DNS issues, see [Configuring a Custom DNS](sql-database-managed-instance-custom-dns.md).
+- For an overview, see [What is a Managed Instance?](sql-database-managed-instance.md).
+- For a tutorial that shows how to create a virtual network, create a Managed Instance, and restore a database from a database backup, see [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-get-started.md).
+- For DNS issues, see [Configuring a custom DNS](sql-database-managed-instance-custom-dns.md).

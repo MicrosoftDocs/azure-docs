@@ -7,7 +7,7 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 12/27/2018
-ms.author: lyrana
+ms.author: lyhughes
 ---
 
 # Role-based access control in Azure Digital Twins
@@ -62,7 +62,7 @@ A role definition is a collection of permissions and other attributes that const
 The following reference documentation articles describe:
 
 - How to [Query or the object ID for a user](https://docs.microsoft.com/powershell/module/azuread/get-azureaduser?view=azureadps-2.0).
-- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/azurerm.resources/get-azurermadserviceprincipal?view=azurermps-6.8.1).
+- How to [Obtain the object ID for a service principal](https://docs.microsoft.com/powershell/module/az.resources/get-azadserviceprincipal).
 - How to [Retrieve the object ID for an Azure AD tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 ## Role assignments

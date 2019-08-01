@@ -10,24 +10,30 @@
     href: virtual-wan-site-to-site-portal.md
   - name: Create an ExpressRoute connection
     href: virtual-wan-expressroute-portal.md
-  - name: Create a point-to-site connection
-    href: virtual-wan-point-to-site-portal.md
 - name: Concepts
   items:
-  - name: Locations and partners
+  - name: About locations and partners
     href: virtual-wan-locations-partners.md
-  - name: Office 365 control plane in Virtual WAN
+  - name: About global transit network architecture
+    href: virtual-wan-global-transit-network-architecture.md
+  - name: About Office 365 control plane in Virtual WAN
     href: virtual-wan-office365-overview.md
+  - name: About IPsec policies
+    href: virtual-wan-ipsec.md
 - name: How-to guides
   items:
+  - name: Route traffic from a virtual hub to an NVA
+    items:
+      - name: Azure portal
+        href: virtual-wan-route-table-portal.md
+      - name: Azure PowerShell
+        href: virtual-wan-route-table.md
   - name: Virtual WAN partners - automation
     href: virtual-wan-configure-automation-providers.md
-  - name: Route traffic from a virtual hub to an NVA
-    href: virtual-wan-route-table.md
 - name: Reference
   items:
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network#networking
+    href: /powershell/module/az.network#networking
   - name: REST
     href: /rest/api/azure
   - name: Azure CLI

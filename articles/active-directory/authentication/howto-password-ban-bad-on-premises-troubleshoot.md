@@ -1,253 +1,141 @@
 ---
-title: Troubleshooting and logging in Azure AD password protection preview
-description: Understand Azure AD password protection preview logging and common troubleshooting
+title: Troubleshooting in Azure AD password protection - Azure Active Directory
+description: Understand Azure AD password protection common troubleshooting
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/02/2018
+ms.date: 02/01/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: jsimmons
+ms.collection: M365-identity-device-management
 ---
 
-# Preview: Azure AD password protection monitoring, reporting, and troubleshooting
+# Azure AD Password Protection troubleshooting
 
-|     |
-| --- |
-| Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+After the deployment of Azure AD Password Protection, troubleshooting may be required. This article goes into detail to help you understand some common troubleshooting steps.
 
-After the deployment of Azure AD password protection, monitoring and reporting are essential tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
+## The DC agent cannot locate a proxy in the directory
 
-## On-premises logs and events
+The main symptom of this problem is 30017 events in the DC agent Admin event log.
 
-### DC agent admin log
+The usual cause of this issue is that a proxy has not yet been registered. If a proxy has been registered, there may be some delay due to AD replication latency until a particular DC agent is able to see that proxy.
 
-On each domain controller, the DC agent service software writes the results of its password validations (and other status) to a local event log:
+## The DC agent is not able to communicate with a proxy
 
-`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
+The main symptom of this problem is 30018 events in the DC agent Admin event log. This problem may have several possible causes:
 
-Events are logged by the various DC agent components using the following ranges:
+1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
-|Component |Event ID range|
-| --- | --- |
-|DC Agent password filter dll| 10000-19999|
-|DC agent service hosting process| 20000-29999|
-|DC agent service policy validation logic| 30000-39999|
+1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 
-For a successful password validation operation, there is generally one event logged from the DC agent password filter dll. For a failing password validation operation, there are generally two events logged, one from the DC agent service, and one from the DC Agent password filter dll.
+   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to port 135. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to port 135.
 
-Discrete events to capture these situations are logged, based around the following factors:
+1. The proxy host machine is blocking access to the RPC endpoint (dynamic or static) listened on by the Proxy service
 
-* Whether a given password is being set or changed.
-* Whether validation of a given password passed or failed.
-* Whether validation failed due to the Microsoft global policy vs the organizational policy.
-* Whether audit only mode is currently on or off for the current password policy.
+   The Azure AD Password Protection Proxy installer automatically creates a Windows Firewall inbound rule that allows access to any inbound ports listened to by the Azure AD Password Protection Proxy service. If this rule is later deleted or disabled, DC agents will be unable to communicate with the Proxy service. If the builtin Windows Firewall has been disabled in lieu of another firewall product, you must configure that firewall to allow access to any inbound ports listened to by the Azure AD Password Protection Proxy service. This configuration may be made more specific if the Proxy service has been configured to listen on a specific static RPC port (using the `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet).
 
-The key password-validation-related events are as follows:
+## Proxy service is unable to communicate with Azure
 
-|   |Password change |Password set|
-| --- | :---: | :---: |
-|Pass |10014 |10015|
-|Fail (did not pass customer password policy)| 10016, 30002| 10017, 30003|
-|Fail (did not pass Microsoft password policy)| 10016, 30004| 10017, 30005|
-|Audit-only Pass (would have failed customer password policy)| 10024, 30008| 10025, 30007|
-|Audit-only Pass (would have failed Microsoft password policy)| 10024, 30010| 10025, 30009|
+1. Ensure the proxy machine has connectivity to the endpoints listed in the [deployment requirements](howto-password-ban-bad-on-premises-deploy.md).
 
-> [!TIP]
-> Incoming passwords are validated against the Microsoft global password list first; if that fails, no further processing is performed. This is the same behavior as performed on password changes in Azure.
+1. Ensure that the forest and all proxy servers are registered against the same Azure tenant.
 
-#### Sample event log message for Event ID 10014 (successful password set)
+   You can check this requirement by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation the reported tenant name must be the same across all DC agents and proxy servers.
 
-```
-The changed password for the specified user was validated as compliant with the current Azure password policy.
+   If an Azure tenant registration mismatch condition does exist, this problem can be fixed by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
- UserName: BPL_02885102771
- FullName:
-```
+## DC agent is unable to encrypt or decrypt password policy files
 
-#### Sample event log message for Event ID 10017 and 30003 (failed password set)
+This problem can manifest with a variety of symptoms but usually has a common root cause.
 
-10017:
+Azure AD Password Protection has a critical dependency on the encryption and decryption functionality supplied by the Microsoft Key Distribution Service, which is available on domain controllers running Windows Server 2012 and later. The KDS service must be enabled and functional on all Windows Server 2012 and later domain controllers in a domain.
 
-```
-The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
+By default the KDS service's service start mode is configured as Manual (Trigger Start). This configuration means that the first time a client tries to use the service, it is started on-demand. This default service start mode is acceptable for Azure AD Password Protection to work.
 
- UserName: BPL_03283841185
- FullName:
-```
+If the KDS service start mode has been configured to Disabled, this configuration must be fixed before Azure AD Password Protection will work properly.
 
-30003:
+A simple test for this issue is to manually start the KDS service, either via the Service management MMC console, or using other management tools (for example, run "net start kdssvc" from a command prompt console). The KDS service is expected to start successfully and stay running.
 
-```
-The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
+The most common root cause for the KDS service being unable to start is that the Active Directory domain controller object is located outside of the default Domain Controllers OU. This configuration is not supported by the KDS service and is not a limitation imposed by Azure AD Password Protection. The fix for this condition is to move the domain controller object to a location under the default Domain Controllers OU.
 
- UserName: BPL_03283841185
- FullName:
-```
+## Weak passwords are being accepted but should not be
 
-#### Sample event log message for Event ID 30001 (password accepted due to no policy available)
+This problem may have several causes.
 
-```
-The password for the specified user was accepted because an Azure password policy is not available yet
+1. Your DC agent(s) cannot download a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
-UserName: SomeUser
-FullName: Some User
+1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-This condition may be caused by one or more of the following reasons:%n
+1. The password policy has been disabled. If this configuration is in effect, reconfigure it to enabled using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. The forest has not yet been registered with Azure.
+1. You have not installed the DC agent software on all domain controllers in the domain. In this situation, it is difficult to ensure that remote Windows clients target a particular domain controller during a password change operation. If you have think you have successfully targeted a particular DC where the DC agent software is installed, you can verify by double-checking the DC agent admin event log: regardless of outcome, there will be at least one event to document the outcome of the password validation. If there is no event present for the user whose password is changed, then the password change was likely processed by a different domain controller.
 
-   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
+   As an alternative test, try setting\changing passwords while logged in directly to a DC where the DC agent software is installed. This technique is not recommended for production Active Directory domains.
 
-2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
+   While incremental deployment of the DC agent software is supported subject to these limitations, Microsoft strongly recommends that the DC agent software is installed on all domain controllers in a domain as soon as possible.
 
-   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
+1. The password validation algorithm may actually be working as expected. See [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated).
 
-3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
+## Ntdsutil.exe fails to set a weak DSRM password
 
-   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
+Active Directory will always validate a new Directory Services Repair Mode password to make sure it meets the domain's password complexity requirements; this validation also calls into password filter dlls like Azure AD Password Protection. If the new DSRM password is rejected, the following error message results:
 
-4. This DC does not have connectivity to other domain controllers in the domain.
-
-   Resolution steps: ensure network connectivity exists to the domain.
+```text
+C:\>ntdsutil.exe
+ntdsutil: set dsrm password
+Reset DSRM Administrator Password: reset password on server null
+Please type password for DS Restore Mode Administrator Account: ********
+Please confirm new password: ********
+Setting password failed.
+        WIN32 Error Code: 0xa91
+        Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-#### Sample event log message for Event ID 30006 (new policy being enforced)
+When Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This happens because the DSRM account is a local account that is not part of the actual Active Directory domain.  
 
-```
-The service is now enforcing the following Azure password policy.
+## Domain controller replica promotion fails because of a weak DSRM password
 
- Enabled: 1
- AuditOnly: 1
- Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
- Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
- Enforce tenant policy: 1
+During the DC promotion process, the new Directory Services Repair Mode password will be submitted to an existing DC in the domain for validation. If the new DSRM password is rejected, the following error message results:
+
+```powershell
+Install-ADDSDomainController : Verification of prerequisites for Domain Controller promotion failed. The Directory Services Restore Mode password does not meet a requirement of the password filter(s). Supply a suitable password.
 ```
 
-#### DC Agent Operational log
+Just like in the above issue, any Azure AD Password Protection password validation outcome event will have empty user names for this scenario.
 
-The DC agent service will also log operational-related events to the following log:
+## Domain controller demotion fails due to a weak local Administrator password
 
-`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
-
-#### DC Agent Trace log
-
-The DC agent service can also log verbose debug-level trace events to the following log:
-
-`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
-
-Trace logging is disabled by default.
-
-> [!WARNING]
->  When enabled, the Trace log receives a high volume of events and may impact domain controller performance. Therefore, this enhanced log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
-
-#### DC Agent text logging
-
-The DC agent service can be configured to write to a text log by setting the following registry value:
-
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
-
-Text logging is disabled by default. A restart of the DC agent service is required for changes to this value to take effect. When enabled the DC agent service will write to a log file located under:
-
-`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
-
-> [!TIP]
-> The text log receives the same debug-level entries that can be logged to the Trace log, but is generally in an easier format to review and analyze.
-
-> [!WARNING]
-> When enabled, this log receives a high volume of events and may impact domain controller performance. Therefore, this enhanced log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
-
-### Azure AD password protection proxy service
-
-#### Proxy service event logs
-
-The Proxy service emits a minimal set of events to the following event logs:
-
-`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
-
-`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
-
-The Proxy service can also log verbose debug-level trace events to the following log:
-
-`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
-
-Trace logging is disabled by default.
-
-> [!WARNING]
-> When enabled, the Trace log receives a high volume of events and this may impact performance of the proxy host. Therefore, this log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
-
-#### Proxy service text logging
-
-The Proxy service can be configured to write to a text log by setting the following registry value:
-
-HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
-
-Text logging is disabled by default. A restart of the Proxy service is required for changes to this value to take effect. When enabled the Proxy service will write to a log file located under:
-
-`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
-
-> [!TIP]
-> The text log receives the same debug-level entries that can be logged to the Trace log, but is generally in an easier format to review and analyze.
-
-> [!WARNING]
-> When enabled, this log receives a high volume of events and may impact domain controller performance. Therefore, this enhanced log should only be enabled when a problem requires deeper investigation, and then only for a minimal amount of time.
-
-#### Powershell cmdlet logging
-
-Most of the Azure AD password protection Powershell cmdlets will write to a text log located under:
-
-`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
-
-If a cmdlet error occurs and the cause and\or solution is not readily apparent, these text logs may also be consulted.
-
-### Emergency remediation
-
-If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
-
-### Performance monitoring
-
-The DC agent service software installs a performance counter object named **Azure AD Password Protection**. The following perf counters are currently available:
-
-|Perf counter name | Description|
-| --- | --- |
-|Passwords processed |This counter displays the total number of passwords processed (accepted or rejected) since last restart.|
-|Passwords accepted |This counter displays the total number of passwords that were accepted since last restart.|
-|Passwords rejected |This counter displays the total number of passwords that were rejected since last restart.|
-|Password filter requests in progress |This counter displays the number of password filter requests currently in progress.|
-|Peak password filter requests |This counter displays the peak number of concurrent password filter requests since the last restart.|
-|Password filter request errors |This counter displays the total number of password filter requests that failed due to an error since last restart. Errors can occur when the Azure AD password protection DC agent service is not running.|
-|Password filter requests/sec |This counter displays the rate at which passwords are being processed.|
-|Password filter request processing time |This counter displays the average time required to process a password filter request.|
-|Peak password filter request processing time |This counter displays the peak password filter request processing time since the last restart.|
-|Passwords accepted due to audit mode |This counter displays the total number of passwords that would normally have been rejected, but were accepted because the password policy was configured to be in audit-mode (since last restart).|
-
-## Directory Services Repair Mode
-
-If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this causing all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
-
-## Domain controller demotion
-
-It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software keeps running and continues enforcing the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure; however the validation of the new local Administrator account password by the DC agent software may be disruptive to pre-existing demotion operational procedures.
+It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software continues to enforce the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure.
 
 Once the demotion has succeeded, and the domain controller has been rebooted and is again running as a normal member server, the DC agent software reverts to running in a passive mode. It may then be uninstalled at any time.
 
+## Booting into Directory Services Repair Mode
+
+If the domain controller is booted into Directory Services Repair Mode, the DC agent service detects this condition and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration.
+
+## Emergency remediation
+
+If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
+
+Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agent service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
+
 ## Removal
 
-If it is decided to uninstall the public preview software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
+If it is decided to uninstall the Azure AD password protection software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
 
 > [!IMPORTANT]
 > It is important to perform these steps in order. If any instance of the Proxy service is left running it will periodically re-create its serviceConnectionPoint object. If any instance of the DC agent service is left running it will periodically re-create its serviceConnectionPoint object and the sysvol state.
 
-1. Uninstall the password protection Proxy software from all machines. This step does **not** require a reboot.
+1. Uninstall the Proxy software from all machines. This step does **not** require a reboot.
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
-3. Manually remove all Proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory Powershell command:
+3. Manually remove all Proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory PowerShell command:
 
-   ```Powershell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -255,11 +143,11 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
    Do not omit the asterisk (“*”) at the end of the $keywords variable value.
 
-   The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually. 
+   The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
 
-4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
+4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the software was deployed. The location of that object may be discovered with the following Active Directory PowerShell command:
 
-   ```Powershell
+   ```powershell
    $scp = "serviceConnectionPoint"
    $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
@@ -267,23 +155,27 @@ If it is decided to uninstall the public preview software and cleanup all relate
 
    The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
 
+   Do not omit the asterisk (“*”) at the end of the $keywords variable value.
+
 5. Manually remove the forest-level configuration state. The forest configuration state is maintained in a container in the Active Directory configuration naming context. It can be discovered and deleted as follows:
 
-   ```Powershell
-   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
-   Remove-ADObject -Recursive $passwordProtectonConfigContainer
+   ```powershell
+   $passwordProtectionConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   Remove-ADObject -Recursive $passwordProtectionConfigContainer
    ```
 
 6. Manually remove all sysvol related state by manually deleting the following folder and all of its contents:
 
-   `\\<domain>\sysvol\<domain fqdn>\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+   `\\<domain>\sysvol\<domain fqdn>\AzureADPasswordProtection`
 
    If necessary, this path may also be accessed locally on a given domain controller; the default location would be something like the following path:
 
-   `%windir%\sysvol\domain\Policies\{4A9AB66B-4365-4C2A-996C-58ED9927332D}`
+   `%windir%\sysvol\domain\Policies\AzureADPasswordProtection`
 
    This path is different if the sysvol share has been configured in a non-default location.
 
 ## Next steps
+
+[Frequently asked questions for Azure AD Password Protection](howto-password-ban-bad-on-premises-faq.md)
 
 For more information on the global and custom banned password lists, see the article [Ban bad passwords](concept-password-ban-bad.md)

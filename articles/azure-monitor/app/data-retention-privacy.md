@@ -5,13 +5,12 @@ services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
-
 ms.assetid: a6268811-c8df-42b5-8b1b-1d5a7e94cbca
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 05/09/2019
 ms.author: mbullwin
 
 ---
@@ -24,7 +23,7 @@ First, the short answer:
 * The standard telemetry modules that run "out of the box" are unlikely to send sensitive data to the service. The telemetry is concerned with load, performance and usage metrics, exception reports, and other diagnostic data. The main user data visible in the diagnostic reports are URLs; but your app shouldn't in any case put sensitive data in plain text in a URL.
 * You can write code that sends additional custom telemetry to help you with diagnostics and monitoring usage. (This extensibility is a great feature of Application Insights.) It would be possible, by mistake, to write this code so that it includes personal and other sensitive data. If your application works with such data, you should apply a thorough review processes to all the code you write.
 * While developing and testing your app, it's easy to inspect what's being sent by the SDK. The data appears in the debugging output windows of the IDE and browser. 
-* The data is held in [Microsoft Azure](https://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit, though not in the servers.
+* The data is held in [Microsoft Azure](https://azure.com) servers in the USA or Europe. (But your app can run anywhere.) Azure has [strong security processes and meets a broad range of compliance standards](https://azure.microsoft.com/support/trust-center/). Only you and your designated team have access to your data. Microsoft staff can have restricted access to it only under specific limited circumstances with your knowledge. It's encrypted in transit and at rest.
 
 The rest of this article elaborates more fully on these answers. It's designed to be self-contained, so that you can show it to colleagues who aren't part of your immediate team.
 
@@ -37,7 +36,7 @@ The Application Insights service stores and analyzes the telemetry. To see the a
 
 You can have data exported from the Application Insights service, for example to a database or to external tools. You provide each tool with a special key that you obtain from the service. The key can be revoked if necessary. 
 
-Application Insights SDKs are available for a range of application types: web services hosted in your own J2EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
+Application Insights SDKs are available for a range of application types: web services hosted in your own Java EE or ASP.NET servers, or in Azure; web clients - that is, the code running in a web page; desktop apps and services; device apps such as Windows Phone, iOS, and Android. They all send telemetry to the same service.
 
 ## What data does it collect?
 ### How is the data is collected?
@@ -47,7 +46,7 @@ There are three sources of data:
   
   * Each SDK has a number of [modules](../../azure-monitor/app/configuration-with-applicationinsights-config.md), which use different techniques to collect different types of telemetry.
   * If you install the SDK in development, you can use its API to send your own telemetry, in addition to the standard modules. This custom telemetry can include any data you want to send.
-* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [J2EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
+* In some web servers, there are also agents that run alongside the app and send telemetry about CPU, memory, and network occupancy. For example, Azure VMs, Docker hosts, and [Java EE servers](../../azure-monitor/app/java-agent.md) can have such agents.
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md) are processes run by Microsoft that send requests to your web app at regular intervals. The results are sent to the Application Insights service.
 
 ### What kinds of data are collected?
@@ -83,7 +82,10 @@ Raw data points (that is, items that you can query in Analytics and inspect in S
 
 Aggregated data (that is, counts, averages and other statistical data that you see in Metric Explorer) are retained at a grain of 1 minute for 90 days.
 
-[Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for seven days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
+> [!NOTE]
+> Variable retention for Application Insights is in Preview now. Learn more [here](https://feedback.azure.com/forums/357324-application-insights/suggestions/17454031). 
+
+[Debug snapshots](../../azure-monitor/app/snapshot-debugger.md) are stored for fifteen days. This retention policy is set on a per-application basis. If you need to increase this value, you can request an increase by opening a support case in the Azure portal.
 
 ## Who can access the data?
 The data is visible to you and, if you have an organization account, your team members. 
@@ -114,9 +116,7 @@ They could send additional telemetry to your account by using the instrumentatio
 If you share code with other projects, remember to remove your instrumentation key.
 
 ## Is the data encrypted?
-Not inside the servers at present.
-
-All data is encrypted as it moves between data centers.
+All data is encrypted at rest and as it moves between data centers.
 
 #### Is the data encrypted in transit from my application to Application Insights servers?
 Yes, we use https to send data to the portal from nearly all SDKs, including web servers, devices and HTTPS web pages. The only exception is data sent from plain HTTP web pages.
@@ -125,12 +125,9 @@ Yes, we use https to send data to the portal from nearly all SDKs, including web
 
 Yes, certain Telemetry Channels will persist data locally if an endpoint cannot be reached. Please review below to see which frameworks and telemetry channels are affected.
 
-
 Telemetry channels that utilize local storage create temp files in the TEMP or APPDATA directories which are restricted to the specific account running your application. This may happen when an endpoint was temporarily unavailable or you hit the throttling limit. Once this issue is resolved, the telemetry channel will resume sending all the new and persisted data.
 
-
-This persisted data is **not encrypted** and it is strongly recommended to restructure your data collection policy to disable the collection of private data. (See [How to export and delete private data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) for more information.)
-
+This persisted data is not encrypted locally. If this is a concern, review the data and restrict the collection of private data. (See [How to export and delete private data](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data) for more information.)
 
 If a customer needs to configure this directory with specific security requirements it can be configured per framework. Please make sure that the process running your application has write access to this directory, but also make sure this directory is protected to avoid telemetry being read by unintended users.
 
@@ -144,7 +141,7 @@ By default `ServerTelemetryChannel` uses the current user’s local app data fol
 
 
 Via configuration file:
-```
+```xml
 <TelemetryChannel Type="Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel,   Microsoft.AI.ServerTelemetryChannel">
     <StorageFolder>D:\NewTestFolder</StorageFolder>
 </TelemetryChannel>
@@ -154,12 +151,12 @@ Via code:
 
 - Remove ServerTelemetryChannel from configuration file
 - Add this snippet to your configuration:
-```
-ServerTelemetryChannel channel = new ServerTelemetryChannel();
-channel.StorageFolder = @"D:\NewTestFolder";
-channel.Initialize(TelemetryConfiguration.Active);
-TelemetryConfiguration.Active.TelemetryChannel = channel;
-```
+  ```csharp
+  ServerTelemetryChannel channel = new ServerTelemetryChannel();
+  channel.StorageFolder = @"D:\NewTestFolder";
+  channel.Initialize(TelemetryConfiguration.Active);
+  TelemetryConfiguration.Active.TelemetryChannel = channel;
+  ```
 
 ### NetCore
 
@@ -168,7 +165,7 @@ In a Linux environment, local storage will be disabled unless a storage folder i
 
 The following code snippet shows how to set `ServerTelemetryChannel.StorageFolder` in the `ConfigureServices()` method of your `Startup.cs` class:
 
-```
+```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
 ```
 
@@ -236,6 +233,7 @@ However, you can implement such a feature in your application. All the SDKs incl
 The SDKs vary between platforms, and there are several components that you can install. (Refer to [Application Insights - overview][start].) Each component sends different data.
 
 #### Classes of data sent in different scenarios
+
 | Your action | Data classes collected (see next table) |
 | --- | --- |
 | [Add Application Insights SDK to a .NET web project][greenbrown] |ServerContext<br/>Inferred<br/>Perf counters<br/>Requests<br/>**Exceptions**<br/>Session<br/>users |
@@ -251,6 +249,7 @@ The SDKs vary between platforms, and there are several components that you can i
 For [SDKs for other platforms][platforms], see their documents.
 
 #### The classes of collected data
+
 | Collected data class | Includes (not an exhaustive list) |
 | --- | --- |
 | **Properties** |**Any data - determined by your code** |

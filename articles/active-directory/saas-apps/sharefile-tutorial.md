@@ -4,11 +4,11 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,6 +16,7 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Citrix ShareFile
 
@@ -115,6 +116,7 @@ To configure Azure AD single sign-on with Citrix ShareFile, perform the followin
 	| |
 	
 	c. In the **Reply URL** textbox, type a URL using the following pattern:
+	
 	| |
 	|---|
 	| `https://<tenant-name>.sharefile.com/saml/acs`|
@@ -182,7 +184,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -231,7 +233,7 @@ In order to enable Azure AD users to log into Citrix ShareFile, they must be pro
    
 	![Basic Information](./media/sharefile-tutorial/IC799951.png "Basic Information")
    
-	a. In the **Email Address** textbox, type the email address of Britta Simon as **brittasimon@contoso.com**.
+	a. In the **Email Address** textbox, type the email address of Britta Simon as **brittasimon\@contoso.com**.
    
 	b. In the **First Name** textbox, type **first name** of user as **Britta**.
    
@@ -250,9 +252,9 @@ When you click the Citrix ShareFile tile in the Access Panel, you should be auto
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

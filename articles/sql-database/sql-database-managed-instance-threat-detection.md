@@ -1,30 +1,29 @@
 ---
-title: Configure Threat Detection - Azure SQL Database Managed Instance | Microsoft Docs
-description: Threat Detection detects anomalous database activities indicating potential security threats to the database in a Managed Instance. 
+title: Configure threat detection - Azure SQL Database managed instance | Microsoft Docs
+description: Threat detection detects anomalous database activities indicating potential security threats to the database in a managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-manager: craigg
-ms.date: 12/06/2018
+ms.date: 02/04/2019
 ---
-# Configure Threat Detection (Preview) in Azure SQL Database Managed Instance
+# Configure threat detection (Preview) in Azure SQL Database managed instance
 
-Azure SQL [Threat Detection](sql-database-threat-detection-overview.md) for [SQL Database Managed Instance](sql-database-managed-instance-index.yml) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat Detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [Threat Detection alerts](sql-database-threat-detection-overview.md#azure-sql-database-threat-detection-alerts).
+[Threat detection](sql-database-threat-detection-overview.md) for a [managed instance](sql-database-managed-instance-index.yml) detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases. Threat detection can identify **Potential SQL injection**, **Access from unusual location or data center**, **Access from unfamiliar principal or potentially harmful application**, and **Brute force SQL credentials** - see more details in [threat detection alerts](sql-database-threat-detection-overview.md#advanced-threat-protection-alerts).
 
-You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-threat-detection-alerts-for-your-database-in-the-azure-portal)
+You can receive notifications about the detected threats via [email notifications](sql-database-threat-detection-overview.md#explore-anomalous-database-activities-upon-detection-of-a-suspicious-event) or [Azure portal](sql-database-threat-detection-overview.md#explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal)
 
-[Threat Detection](sql-database-threat-detection-overview.md) is part of the [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) offering, which is a unified package for advanced SQL security capabilities. Threat Detection can be accessed and managed via the central SQL ATP portal. Threat detection service is charged 15$/month per Managed Instance, with first 30 days free of charge.
+[Threat detection](sql-database-threat-detection-overview.md) is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Threat detection can be accessed and managed via the central SQL ADS portal. Threat detection service is charged 15$/month per managed instance, with first 30 days free of charge.
 
-## Set up Threat Detection for your Managed Instance in the Azure portal
+## Set up threat detection for your managed instance in the Azure portal
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-2. Navigate to the configuration page of the Managed Instance you want to protect. In the **Settings** page, select **Threat Detection**.
+2. Navigate to the configuration page of the managed instance you want to protect. In the **Settings** page, select **Threat Detection**.
 3. In the Threat Detection configuration page
    - Turn **ON** Threat detection.
    - Configure the **list of emails** to receive security alerts upon detection of anomalous database activities.
@@ -35,8 +34,8 @@ You can receive notifications about the detected threats via [email notification
 
 ## Next steps
 
-- Learn more about [Threat Detection](sql-database-threat-detection-overview.md).
-- Learn about Managed Instance, see [What is a Managed Instance](sql-database-managed-instance.md).
-- Learn more about [Threat Detection for Single Database](sql-database-threat-detection.md).
-- Learn more about [Managed Instance Auditing](https://go.microsoft.com/fwlink/?linkid=869430).
-- Learn more about [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro).
+- Learn more about [threat detection](sql-database-threat-detection-overview.md).
+- Learn about managed instances, see [What is a managed instance](sql-database-managed-instance.md).
+- Learn more about [threat detection for single database](sql-database-threat-detection.md).
+- Learn more about [managed instance auditing](https://go.microsoft.com/fwlink/?linkid=869430).
+- Learn more about [Azure security center](https://docs.microsoft.com/azure/security-center/security-center-intro).

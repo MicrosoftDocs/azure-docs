@@ -2,7 +2,6 @@
 title: Use multiple HDInsight clusters with an Azure Data Lake Storage account - Azure 
 description: Learn how to use more than one HDInsight cluster with a single Data Lake Storage account
 keywords: hdinsight storage,hdfs,structured data,unstructured data, data lake store
-services: hdinsight,storage
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -26,7 +25,7 @@ This article provides recommendations to the Data Lake Storage administrator for
 The rest of this article assumes that you have a good knowledge of file and folder level ACLs in Azure Data Lake Storage, which is described in detail at [Access control in Azure Data Lake Storage](../data-lake-store/data-lake-store-access-control.md).
 
 ## Data Lake Storage setup for multiple HDInsight clusters
-Let us take a two-level folder hierarchy to explain the recommendations for using mutilple HDInsight clusters with a Data Lake Storage account. Consider you have a Data Lake Storage account with the folder structure **/clusters/finance**. With this structure, all the clusters required by the Finance organization can use /clusters/finance as the storage location. In the future, if another organization, say Marketing, wants to create HDInsight clusters using the same Data Lake Storage account, they could create /clusters/marketing. For now, let's just use **/clusters/finance**.
+Let us take a two-level folder hierarchy to explain the recommendations for using multiple HDInsight clusters with a Data Lake Storage account. Consider you have a Data Lake Storage account with the folder structure **/clusters/finance**. With this structure, all the clusters required by the Finance organization can use /clusters/finance as the storage location. In the future, if another organization, say Marketing, wants to create HDInsight clusters using the same Data Lake Storage account, they could create /clusters/marketing. For now, let's just use **/clusters/finance**.
 
 To enable this folder structure to be effectively used by HDInsight clusters, the Data Lake Storage administrator must assign appropriate permissions, as described in the table. The permissions shown in the table correspond to Access-ACLs, and not Default-ACLs. 
 
@@ -50,7 +49,7 @@ Some key points to consider.
 - The two level folder structure (**/clusters/finance/**) must be created and provisioned with appropriate permissions by the Data Lake Storage admin **before** using the storage account for clusters. This structure is not created automatically while creating clusters.
 - The example above recommends setting the owning group of **/clusters/finance** as **FINGRP** and permitting **r-x** access to FINGRP to the entire folder hierarchy starting from the root. This ensures that the members of FINGRP can navigate the folder structure starting from root.
 - In the case when different AAD Service Principals can create clusters under **/clusters/finance**, the sticky-bit (when set on the **finance** folder) ensures that folders created by one Service Principal cannot be deleted by the other.
-- Once the folder structure and permissions are in place, HDInsight cluster creation process creates a cluster-specific storage loaction under **/clusters/finance/**. For example, the storage for a cluster with the name fincluster01 could be **/clusters/finance/fincluster01**. The ownership and permissions for the folders created by HDInsight cluster is shown in the table here.
+- Once the folder structure and permissions are in place, HDInsight cluster creation process creates a cluster-specific storage location under **/clusters/finance/**. For example, the storage for a cluster with the name fincluster01 could be **/clusters/finance/fincluster01**. The ownership and permissions for the folders created by HDInsight cluster is shown in the table here.
 
     |Folder  |Permissions  |Owning user  |Owning group  | Named user | Named user permissions | Named group | Named group permissions |
     |---------|---------|---------|---------|---------|---------|---------|---------|
@@ -90,4 +89,4 @@ Set read-execute permissions for **others** through the hierarchy, for example, 
 ## See also
 
 * [Quickstart: Set up clusters in HDInsight](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)
-
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)

@@ -1,20 +1,12 @@
 ---
-title: Update an existing VM offer in the Azure Marketplace | Microsoft Docs
+title: Update an existing VM offer in the Azure Marketplace 
 description: Explains how to update an existing VM offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: Ankit.Sud
+ms.author: ansud
 ---
 
 # Update an existing VM offer on Azure Marketplace
@@ -31,6 +23,8 @@ There are a number of commonplace reasons for you to update your offer, includin
 
 To assist you in these modifications, the portal offers the **Compare** and **History** features.  
 
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](../../cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Unpermitted changes to VM offer or SKU
 
@@ -61,7 +55,7 @@ the VM image that your SKU references by using the following steps:
 
 4.  Under **Disk version**, click on **+New Disk Version** to add a new VM image.
 
-5.  Provide the new VM Images **Disk version**. The disk version needs to follow the [semantic version](http://semver.org/) format. Versions should be of the
+5.  Provide the new VM Images **Disk version**. The disk version needs to follow the [semantic version](https://semver.org/) format. Versions should be of the
     form X.Y.Z, where X, Y, and Z are integers. Verify that the new version you provide is greater than all previous versions; otherwise after republishing the new version will not display in either the portal or the Azure Marketplace.
 
 6.  For **OS VHD URL**, enter the [shared access signature (SAS) URI](./cpp-get-sas-uri.md) created for the operating system VHD. 

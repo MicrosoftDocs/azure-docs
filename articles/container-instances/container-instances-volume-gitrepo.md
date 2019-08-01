@@ -3,6 +3,7 @@ title: Mount a gitRepo volume Azure Container Instances
 description: Learn how to mount a gitRepo volume to clone a Git repository into your container instances
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -15,7 +16,7 @@ ms.author: danlep
 Learn how to mount a *gitRepo* volume to clone a Git repository into your container instances.
 
 > [!NOTE]
-> Mounting a *gitRepo* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md).
+> Mounting a *gitRepo* volume is currently restricted to Linux containers. While we are working to bring all features to Windows containers, you can find current platform differences in the [overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## gitRepo volume
 
@@ -33,13 +34,13 @@ When you mount a *gitRepo* volume, you can set three properties to configure the
 
 To mount a gitRepo volume when you deploy container instances with the [Azure CLI](/cli/azure), supply the `--gitrepo-url` and `--gitrepo-mount-path` parameters to the [az container create][az-container-create] command. You can optionally specify the directory within the volume to clone into (`--gitrepo-dir`) and the commit hash of the revision to be cloned (`--gitrepo-revision`).
 
-This example command clones the [aci-helloworld][aci-helloworld] sample application into `/mnt/aci-helloworld` in the container instance:
+This example command clones the Microsoft [aci-helloworld][aci-helloworld] sample application into `/mnt/aci-helloworld` in the container instance:
 
 ```azurecli-interactive
 az container create \
     --resource-group myResourceGroup \
     --name hellogitrepo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --dns-name-label aci-demo \
     --ports 80 \
     --gitrepo-url https://github.com/Azure-Samples/aci-helloworld \

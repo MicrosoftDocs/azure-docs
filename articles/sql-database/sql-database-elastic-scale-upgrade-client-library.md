@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 01/03/2019
 ---
 # Upgrade an app to use the latest elastic database client library
@@ -41,7 +40,7 @@ Performing these steps in order ensures that old versions of the client library 
 
 ***Option 1: Upgrade metadata using PowerShell***
 
-1. Download the latest command-line utility for NuGet from [here](http://nuget.org/nuget.exe) and save to a folder.
+1. Download the latest command-line utility for NuGet from [here](https://nuget.org/nuget.exe) and save to a folder.
 2. Open a Command Prompt, navigate to the same folder, and issue the command:
    `nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Client`
 3. Navigate to the subfolder containing the new client DLL version you have just downloaded, for example:

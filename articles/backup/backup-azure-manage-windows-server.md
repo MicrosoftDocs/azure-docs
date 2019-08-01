@@ -1,13 +1,13 @@
 ---
 title: Manage Azure Recovery Services vaults and servers
 description: Manage jobs and alerts in an Azure Recovery Services vault.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/21/2018
-ms.author: raynew
+ms.date: 07/08/2019
+ms.author: dacurwin
 ---
 # Monitor and manage Recovery Services vaults
 
@@ -24,7 +24,7 @@ The prerequisites for this article are: an Azure subscription, a Recovery Servic
 
 To monitor alerts, or view management data about a Recovery Services vault, open the vault.
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. Sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 
 2. In the portal, click **All services**.
 
@@ -34,7 +34,7 @@ To monitor alerts, or view management data about a Recovery Services vault, open
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-manage-windows-server/list-of-rs-vaults.png) <br/>
 
-4. From the list of vaults, click a vault to open its **Overview** dashboard. 
+4. From the list of vaults, click a vault to open its **Overview** dashboard.
 
     ![recovery services vault dashboard](./media/backup-azure-manage-windows-server/rs-vault-blade.png) <br/>
 
@@ -69,7 +69,7 @@ To access the Backup Alerts menu, in the Recovery Services vault menu, click **B
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts-menu.png)
 
-The Backup Alerts report lists the alerts for the vault. 
+The Backup Alerts report lists the alerts for the vault.
 
 ![Backup alerts](./media/backup-azure-manage-windows-server/backup-alerts.png)
 
@@ -118,7 +118,7 @@ By default, all details, except **Latest Occurrence Time**, appear in the report
 
 ### Change the filter in alerts report
 
-Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts. 
+Use the **Filter** menu to change the Severity, Status, Start time and End time for the alerts.
 
 > [!NOTE]
 > Editing the Backup Alerts filter doesn't change the Critical or Warning alerts in the vault Overview dashboard.
@@ -150,7 +150,7 @@ Choose the alert severity (Critical or Warning) used to generate email. Currentl
 
 ## Manage Backup items
 
-A Recovery Services vault holds many types of backup data. For a complete list of backup types, see [Which applications and workloads can be backed up](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use). To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
+A Recovery Services vault holds many types of backup data. [Learn more](backup-overview.md#what-can-i-back-up) about what you can back up. To manage the various servers, computers, databases, and workloads, click the **Backup Items** tile to view the contents of the vault.
 
 ![Backup items tile](./media/backup-azure-manage-windows-server/backup-items.png)
 
@@ -178,7 +178,7 @@ To see additional details about the jobs, click **In Progress** or **Failed** to
 
 The **Backup Jobs** menu displays information about the Item type, Operation, Status, Start Time, and Duration.  
 
-To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**. 
+To open the Backup Jobs menu, in the vault's main menu, click **Backup Jobs**.
 
 ![Backup items from settings](./media/backup-azure-manage-windows-server/backup-jobs-menu-item.png)
 
@@ -245,7 +245,7 @@ The day and time when the query ends.
 
 Use **Export jobs** to create a spreadsheet containing all Jobs menu information. The spreadsheet has one sheet that holds a summary of all jobs, and individual sheets for each job.
 
-To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a speadsheet using the name of the vault and date, but you can change the name.
+To export the jobs information to a spreadsheet, click **Export jobs**. The service creates a spreadsheet using the name of the vault and date, but you can change the name.
 
 ## Monitor Backup usage
 
@@ -254,24 +254,6 @@ The Backup Storage tile in the dashboard shows the storage consumed in Azure. St
 * Cloud LRS storage usage associated with the vault
 * Cloud GRS storage usage associated with the vault
 
-
-## Frequently asked questions
-
-**Q1. How long does it take for the Azure backup agent job status to reflect in the portal?**
-
-A1. The Azure portal can take up to 15 mins to reflect the Azure backup agent job status.
-
-**Q2. When a backup job fails, how long does it take to raise an alert?**
-
-A2. An alert is raised within 20 mins of the Azure backup failure.
-
-**Q3. Is there a case where an email won’t be sent if notifications are configured?**
-
-A3. Yes. In the following situations, notifications are not sent.
-
-* If notifications are configured hourly, and an alert is raised and resolved within the hour
-* When a job is canceled
-* If a second backup job fails because the original backup job is in progress
 
 ## Troubleshooting Monitoring Issues
 

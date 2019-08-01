@@ -3,16 +3,16 @@ title: "Quickstart: Translator Speech API C#"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Translator Speech API.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
-ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.date: 04/26/2019
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with C# 
+# Quickstart: Translator Speech API with C#
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -21,8 +21,8 @@ This article shows you how to use the Translator Speech API to translate words s
 
 ## Prerequisites
 
-You will need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
-If you use Mac OS or Linux you can also use the text editor [Visual Studio Code] (https://code.visualstudio.com/Download) as an alternative.
+You will need [Visual Studio 2019](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+If you use Mac OS or Linux you can also use the text editor [Visual Studio Code](https://code.visualstudio.com/Download) as an alternative.
 
 You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format.
 
@@ -153,7 +153,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

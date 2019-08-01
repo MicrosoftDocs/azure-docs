@@ -1,15 +1,14 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API using Java | Microsoft Docs
+title: Quickstart - Send a query to the Bing Local Business Search API using Java
 titleSuffix: Azure Cognitive Services
 description: Use this article to start using the Bing Local Business Search API in Java.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API using Java
@@ -30,7 +29,7 @@ This example application gets local response data from the query for a *hotel in
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "hotel in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     // construct URL of search request (endpoint + query string)
 	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
@@ -42,7 +41,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 	// construct result object for return
 	SearchResults results = new SearchResults(new HashMap<String, String>(), response);
-````
+```
 
 ## Run the complete application
 
@@ -53,7 +52,7 @@ The Bing Local Business Search API returns results from the Bing search engine.
 4. Replace the subscriptionKey value with an access key valid for your subscription.
 5. Run the program.
 
-````
+```
 package localSearch;
 import java.net.*;
 import java.util.*;
@@ -157,7 +156,7 @@ public class LocalSearchCls {
 	    }
 	}
 
-````
+```
 
 ## Next steps
 - [Local Business Search quickstart](local-quickstart.md)

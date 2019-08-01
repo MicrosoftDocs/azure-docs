@@ -13,20 +13,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/09/2018
+ms.date: 04/29/2019
 ms.author: cephalin
-ms.custom: mvc
-ms.custom: seodec18
+
+experimental: true
+experiment_id: 1e304dc9-5add-4b
 ---
-# Create a Python app in Azure App Service on Linux (Preview)
+# Create a Python app in Azure App Service on Linux
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This quickstart shows how to deploy a Python app on top of the built-in Python image (Preview) in App Service on Linux using the [Azure CLI](/cli/azure/install-azure-cli).
-
-You can follow the steps in this article using a Mac, Windows, or Linux machine.
+In this quickstart, you deploy a simple Python app to [App Service on Linux](app-service-linux-intro.md), which provides a highly scalable, self-patching web hosting service. You use the Azure command-line interface (the [Azure CLI](/cli/azure/install-azure-cli)) through the interactive, browser-based Azure Cloud Shell, so you can follow the steps use a Mac, Linux, or Windows computer.
 
 ![Sample app running in Azure](media/quickstart-python/hello-world-in-browser.png)
-
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -34,8 +31,9 @@ To complete this quickstart:
 
 * <a href="https://www.python.org/downloads/" target="_blank">Install Python 3.7</a>
 * <a href="https://git-scm.com/" target="_blank">Install Git</a>
+* An Azure subscription. If you don't have one already, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 
-## Download the sample
+## Download the sample locally
 
 In a terminal window, run the following commands to clone the sample application to your local machine, and navigate to the directory with the sample code.
 
@@ -43,6 +41,8 @@ In a terminal window, run the following commands to clone the sample application
 git clone https://github.com/Azure-Samples/python-docs-hello-world
 cd python-docs-hello-world
 ```
+
+The repository contains an *application.py*, which tells App Service that the repository contains a Flask app. For more information, see [Container startup process and customizations](how-to-configure-python.md).
 
 ## Run the app locally
 
@@ -73,56 +73,79 @@ In your terminal window, press **Ctrl+C** to exit the web server.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-[!INCLUDE [Configure deployment user](../../../includes/configure-deployment-user.md)]
+## Download the sample
 
-[!INCLUDE [Create resource group](../../../includes/app-service-web-create-resource-group-linux.md)]
+In the Cloud Shell, create a quickstart directory and then change to it.
 
-[!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
+```bash
+mkdir quickstart
+
+cd quickstart
+```
+
+Next, run the following command to clone the sample app repository to your quickstart directory.
+
+```bash
+git clone https://github.com/Azure-Samples/python-docs-hello-world
+```
+
+While running, it displays information similar to the following example:
+
+```bash
+Cloning into 'python-docs-hello-world'...
+remote: Enumerating objects: 43, done.
+remote: Total 43 (delta 0), reused 0 (delta 0), pack-reused 43
+Unpacking objects: 100% (43/43), done.
+Checking connectivity... done.
+```
 
 ## Create a web app
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
+Change to the directory that contains the sample code and run the `az webapp up` command.
 
-Browse to the site to see your newly created app with built-in image. Replace _&lt;app name>_ with your app name.
+In the following example, replace `<app-name>` with a globally unique app name (*valid characters are `a-z`, `0-9`, and `-`*).
 
 ```bash
-http://<app_name>.azurewebsites.net
+cd python-docs-hello-world
+
+az webapp up -n <app-name>
 ```
 
-Here is what your new app should look like:
+This command may take a few minutes to run. While running, it displays information similar to the following example:
 
-![Empty app page](media/quickstart-php/app-service-web-service-created.png)
+```json
+The behavior of this command has been altered by the following extension: webapp
+Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
+Resource group creation complete
+Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
+App service plan creation complete
+Creating app '<app-name>' ....
+Webapp creation complete
+Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
+Preparing to deploy contents to app.
+All done.
+{
+  "app_url": "https:/<app-name>.azurewebsites.net",
+  "location": "Central US",
+  "name": "<app-name>",
+  "os": "Linux",
+  "resourcegroup": "appsvc_rg_Linux_CentralUS ",
+  "serverfarm": "appsvc_asp_Linux_CentralUS",
+  "sku": "BASIC",
+  "src_path": "/home/username/quickstart/python-docs-hello-world ",
+  "version_detected": "-",
+  "version_to_create": "python|3.7"
+}
+```
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
-
-```bash
-Counting objects: 42, done.
-Delta compression using up to 8 threads.
-Compressing objects: 100% (39/39), done.
-Writing objects: 100% (42/42), 9.43 KiB | 0 bytes/s, done.
-Total 42 (delta 15), reused 0 (delta 0)
-remote: Updating branch 'master'.
-remote: Updating submodules.
-remote: Preparing deployment for commit id 'c40efbb40e'.
-remote: Generating deployment script.
-remote: Generating deployment script for python Web Site
-.
-.
-.
-remote: Finished successfully.
-remote: Running post deployment command(s)...
-remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
-To https://user2234@cephalin-python.scm.azurewebsites.net/cephalin-python.git
- * [new branch]      master -> master
- ```
+[!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## Browse to the app
 
 Browse to the deployed application using your web browser.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 The Python sample code is running in App Service on Linux with a built-in image.
@@ -133,17 +156,22 @@ The Python sample code is running in App Service on Linux with a built-in image.
 
 ## Update locally and redeploy the code
 
-In the local repository, open the `application.py` file, and make a small change to the text in the last line:
+In the Cloud Shell, type `code application.py` to open the Cloud Shell editor.
+
+![Code application.py](media/quickstart-python/code-applicationpy.png)
+
+ Make a small change to the text in the call to `return`:
 
 ```python
 return "Hello Azure!"
 ```
 
-Commit your changes in Git, and then push the code changes to Azure.
+Save your changes and exit the editor. Use the command `^S` to save and `^Q` to exit.
+
+Redeploy the app using the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command. Substitute the name of your app for `<app-name>`, and specify a location for `<location-name>` (using one of the values shown from the [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) command).
 
 ```bash
-git commit -am "updated output"
-git push azure master
+az webapp up -n <app-name> -l <location-name>
 ```
 
 Once deployment has completed, switch back to the browser window that opened in the **Browse to the app** step, and refresh the page.
@@ -168,16 +196,11 @@ The left menu provides different pages for configuring your app.
 
 ## Next steps
 
-The built-in Python image in App Service on Linux is currently in Preview, and you can customize the command used to start your app . You can also create production Python apps using a custom container instead.
+> [!div class="nextstepaction"]
+> [Tutorial: Python app with PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Python with PostgreSQL](tutorial-python-postgresql-app.md)
+> [Configure Python app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Configure a custom startup command](how-to-configure-python.md#custom-startup-command)
-
-> [!div class="nextstepaction"]
-> [Troubleshooting](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Use custom images](tutorial-custom-docker-image.md)
+> [Tutorial: Run Python app in custom container](tutorial-custom-docker-image.md)

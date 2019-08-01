@@ -4,7 +4,7 @@ description: This document helps to troubleshoot issues in Azure Security Center
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: mbaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 44462de6-2cc5-4672-b1d3-dbb4749a28cd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/26/2018
+ms.date: 3/20/2019
 ms.author: rkarlin
 
 ---
@@ -25,7 +25,7 @@ This guide is for information technology (IT) professionals, information securit
 >
 
 ## Troubleshooting guide
-This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](https://azure.microsoft.com/updates/audit-logs-in-azure-preview-portal/) records for the failed component. Through audit logs, you can determine:
+This guide explains how to troubleshoot Security Center related issues. Most of the troubleshooting done in Security Center takes place by first looking at the [Audit Log](../azure-monitor/platform/activity-logs-overview.md) records for the failed component. Through audit logs, you can determine:
 
 * Which operations were taken place
 * Who initiated the operation
@@ -36,7 +36,7 @@ This guide explains how to troubleshoot Security Center related issues. Most of 
 The audit log contains all write operations (PUT, POST, DELETE) performed on your resources, however it does not include read operations (GET).
 
 ## Microsoft Monitoring Agent
-Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Log Analytics service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
+Security Center uses the Microsoft Monitoring Agent – this is the same agent used by the Azure Monitor service – to collect security data from your Azure virtual machines. After data collection is enabled and the agent is correctly installed in the target machine, the process below should be in execution:
 
 * HealthService.exe
 
@@ -70,9 +70,9 @@ There are two installation scenarios that can produce different results when ins
 | Missing or invalid Azure VM agent | The Microsoft Monitoring Agent is not installed yet.  For Security Center to install the extension a valid Azure VM agent is required. | Install, reinstall or upgrade the Azure VM agent on the VM. |
 | VM state not ready for installation  | The Microsoft Monitoring Agent is not installed yet because the VM is not ready for installation. The VM is not ready for installation due to a problem with the VM agent or VM provisioning. | Check the status of your VM. Return to **Virtual Machines** in the portal and select the VM for status information. |
 |Installation failed - general error | The Microsoft Monitoring Agent was installed but failed due to an error. | [Manually install the extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) or uninstall the extension so Security Center will try to install again. |
-| Installation failed -  local agent already installed | Microsoft Monitoring Agent install failed. Security Center identified a local agent (Log Analytics or SCOM) already installed on the VM. To avoid multi-homing configuration, where the VM is reporting to two separate workspaces, the Microsoft Monitoring Agent installation stopped. | There are two ways to resolve: [manually install the extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) and connect it to your desired workspace. Or, set your desired workspace as your default workspace and enable automatic provisioning of the agent.  See [enable automatic provisioning](security-center-enable-data-collection.md). |
-| Agent cannot connect to workspace | Microsoft Monitoring Agent installed but failed due to network connectivity.  Check that there is  internet access or that a valid HTTP proxy has been configured for the agent. | See [monitoring agent network requirements](#troubleshooting-monitoring-agent-network-requirements). |
-| Agent connected to missing or unknown workspace | Security Center identified that the Microsoft Monitoring Agent installed on the VM is connected to a workspace which it doesn’t have access to. | This can happen in two cases. The workspace was deleted and no longer exists. Reinstall the agent with the correct workspace or uninstall the agent and allow Security Center to complete its automatic provisioning installation. The second case is where the workspace is part of a subscription that Security Center does not have permissions to. Security Center requires subscriptions to allow the Microsoft Security Resource Provider to access them. To enable, register the subscription to the Microsoft Security Resource Provider. This can be done by API, PowerShell, portal or by simply filtering on the subscription in the Security Center **Overview** dashboard. See [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#portal) for more information. |
+| Installation failed -  local agent already installed | Microsoft Monitoring Agent install failed. Security Center identified a local agent (Log Analytics or System Center Operations Manager) already installed on the VM. To avoid multi-homing configuration, where the VM is reporting to two separate workspaces, the Microsoft Monitoring Agent installation stopped. | There are two ways to resolve: [manually install the extension](../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension) and connect it to your desired workspace. Or, set your desired workspace as your default workspace and enable automatic provisioning of the agent.  See [enable automatic provisioning](security-center-enable-data-collection.md). |
+| Agent cannot connect to workspace | Microsoft Monitoring Agent installed but failed due to network connectivity.  Check that there is  internet access or that a valid HTTP proxy has been configured for the agent. | See monitoring agent network requirements. |
+| Agent connected to missing or unknown workspace | Security Center identified that the Microsoft Monitoring Agent installed on the VM is connected to a workspace which it doesn’t have access to. | This can happen in two cases. The workspace was deleted and no longer exists. Reinstall the agent with the correct workspace or uninstall the agent and allow Security Center to complete its automatic provisioning installation. The second case is where the workspace is part of a subscription that Security Center does not have permissions to. Security Center requires subscriptions to allow the Microsoft Security Resource Provider to access them. To enable, register the subscription to the Microsoft Security Resource Provider. This can be done by API, PowerShell, portal or by simply filtering on the subscription in the Security Center **Overview** dashboard. See [Resource providers and types](../azure-resource-manager/resource-manager-supported-services.md#azure-portal) for more information. |
 | Agent not responsive or missing ID | Security Center is unable to retrieve security data scanned from the VM, even though the agent is installed. | The agent is not reporting any data, including heartbeat. The agent might be damaged or something is blocking traffic. Or, the agent is reporting data but is missing an Azure resource ID so it’s impossible to match the data to the Azure VM. To troubleshoot Linux, see [Troubleshooting Guide for Log Analytics Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/Troubleshooting.md#im-not-seeing-any-linux-data-in-the-oms-portal). To troubleshoot Windows, see [Troubleshooting Windows Virtual Machines](https://github.com/MicrosoftDocs/azure-docs/blob/8c53ac4371d482eda3d85819a4fb8dac09996a89/articles/log-analytics/log-analytics-azure-vm-extension.md#troubleshooting-windows-virtual-machines). |
 | Agent not installed | Data collection is disabled. | Turn on data collection in the security policy or manually install the Microsoft Monitoring Agent. |
 
@@ -80,7 +80,7 @@ There are two installation scenarios that can produce different results when ins
 ## Troubleshooting monitoring agent network requirements <a name="mon-network-req"></a>
 For agents to connect to and register with Security Center, they must have access to network resources, including the port numbers and domain URLs.
 
-- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents#configure-proxy-settings).
+- For proxy servers, you need to ensure that the appropriate proxy server resources are configured in agent settings. Read this article for more information on [how to change the proxy settings](https://docs.microsoft.com/azure/log-analytics/log-analytics-windows-agents).
 - For firewalls that restrict access to the Internet, you need to configure your firewall to permit access to Log Analytics. No action is needed in agent settings.
 
 The following table shows resources needed for communication.
@@ -97,7 +97,7 @@ If you encounter onboarding issues with the agent, make sure to read the article
 
 ## Troubleshooting endpoint protection not working properly
 
-The guest agent is the parent process of everything the [Microsoft Antimalware](../security/azure-security-antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware that runs as a child process of the guest agent may also fail.  In scenarios like that is recommended to verify the following options:
+The guest agent is the parent process of everything the [Microsoft Antimalware](../security/fundamentals/antimalware.md) extension does. When the guest agent process fails, the Microsoft Antimalware that runs as a child process of the guest agent may also fail.  In scenarios like that is recommended to verify the following options:
 
 - If the target VM is a custom image and the creator of the VM never installed guest agent.
 - If the target is a Linux VM instead of a Windows VM then installing the Windows version of the antimalware extension on a Linux VM will fail. The Linux guest agent has specific requirements in terms of OS version and required packages, and if those requirements are not met the VM agent will not work there either.

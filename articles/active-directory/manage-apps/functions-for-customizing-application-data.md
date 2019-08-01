@@ -3,17 +3,18 @@ title: Writing Expressions for Attribute Mappings in Azure Active Directory | Mi
 description: Learn how to use expression mappings to transform attribute values into an acceptable format during automated provisioning of SaaS app objects in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
-author: barbkess
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
-ms.component: app-mgmt
+ms.subservice: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
-ms.author: barbkess
+ms.date: 07/31/2019
+ms.author: mimart
 
+ms.collection: M365-identity-device-management
 ---
 # Writing Expressions for Attribute Mappings in Azure Active Directory
 When you configure provisioning to a SaaS application, one of the types of attribute mappings that you can specify is an expression mapping. 
@@ -30,12 +31,12 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
   1. Attributes, which must be enclosed in square brackets. For example: [attributeName]
   2. String constants, which must be enclosed in double quotes. For example: "United States"
   3. Other Functions. For example: FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
+* For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \\"Contoso\\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
 
-- - -
+---
 ### Append
 **Function:**<br> 
 Append(source, suffix)
@@ -47,10 +48,10 @@ Takes a source string value and appends the suffix to the end of it.
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object |
+| **source** |Required |String |Usually name of the attribute from the source object. |
 | **suffix** |Required |String |The string that you want to append to the end of the source value. |
 
-- - -
+---
 ### FormatDateTime
 **Function:**<br> 
 FormatDateTime(source, inputFormat, outputFormat)
@@ -66,7 +67,7 @@ Takes a date string from one format and converts it into a different format.
 | **inputFormat** |Required |String |Expected format of the source value. For supported formats, see [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Required |String |Format of the output date. |
 
-- - -
+---
 ### Join
 **Function:**<br> 
 Join(separator, source1, source2, …)
@@ -74,7 +75,7 @@ Join(separator, source1, source2, …)
 **Description:**<br> 
 Join() is similar to Append(), except that it can combine multiple **source** string values into a single string, and each value will be separated by a **separator** string.
 
-If one of the source values is a multi-value attribute, then every value in that attribute will be joined together, separated the separator value.
+If one of the source values is a multi-value attribute, then every value in that attribute will be joined together, separated by the separator value.
 
 **Parameters:**<br> 
 
@@ -83,7 +84,7 @@ If one of the source values is a multi-value attribute, then every value in that
 | **separator** |Required |String |String used to separate source values when they are concatenated into one string. Can be "" if no separator is required. |
 | **source1  … sourceN** |Required, variable-number of times |String |String values to be joined together. |
 
-- - -
+---
 ### Mid
 **Function:**<br> 
 Mid(source, start, length)
@@ -99,7 +100,7 @@ Returns a substring of the source value. A substring is a string that contains o
 | **start** |Required |integer |Index in the **source** string where substring should start. First character in the string will have index of 1, second character will have index 2, and so on. |
 | **length** |Required |integer |Length of the substring. If length ends outside the **source** string, function will return substring from **start** index till end of **source** string. |
 
-- - -
+---
 ### NormalizeDiacritics
 **Function:**<br> 
 NormalizeDiacritics(source)
@@ -111,9 +112,9 @@ Requires one string argument. Returns the string, but with any diacritical chara
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String | Usually a first name or last name attribute |
+| **source** |Required |String | Usually a first name or last name attribute. |
 
-- - -
+---
 ### Not
 **Function:**<br> 
 Not(source)
@@ -125,9 +126,9 @@ Flips the boolean value of the **source**. If **source** value is "*True*", retu
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |Boolean String |Expected **source** values are "True" or "False".. |
+| **source** |Required |Boolean String |Expected **source** values are "True" or "False". |
 
-- - -
+---
 ### Replace
 **Function:**<br> 
 Replace(source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
@@ -137,31 +138,34 @@ Replaces values within a string. It works differently depending on the parameter
 
 * When **oldValue** and **replacementValue** are provided:
   
-  * Replaces all occurrences of oldValue in the source  with replacementValue
+  * Replaces all occurrences of **oldValue** in the **source**  with **replacementValue**
 * When **oldValue** and **template** are provided:
   
   * Replaces all occurrences of the **oldValue** in the **template** with the **source** value
+* When **regexPattern** and **replacementValue** are provided:
+
+  * The function applies the **regexPattern** to the **source** string and you can use the regex group names to construct the string for **replacementValue**
 * When **regexPattern**, **regexGroupName**, **replacementValue** are provided:
   
-  * Replaces all values matching oldValueRegexPattern in the source string with replacementValue
-* When **regexPattern**, **regexGroupName**, **replacementPropertyName** are provided:
+  * The function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with **replacementValue**
+* When **regexPattern**, **regexGroupName**, **replacementAttributeName** are provided:
   
   * If **source** has no value, **source** is returned
-  * If **source** has a value, uses **regexPattern** and **regexGroupName** to extract replacement value from the property with **replacementPropertyName**. Replacement value is returned as the result
+  * If **source** has a value, the function applies the **regexPattern** to the **source** string and replaces all values matching **regexGroupName** with the value associated with **replacementAttributeName**
 
 **Parameters:**<br> 
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **source** |Required |String |Usually name of the attribute from the source object. |
+| **source** |Required |String |Usually name of the attribute from the **source** object. |
 | **oldValue** |Optional |String |Value to be replaced in **source** or **template**. |
-| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when replacementPropertyName is used, pattern to extract value from replacement property. |
-| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  replacementPropertyName is used, we will extract value of this group as replacementValue from replacement property. |
+| **regexPattern** |Optional |String |Regex pattern for the value to be replaced in **source**. Or, when **replacementPropertyName** is used, pattern to extract value from **replacementPropertyName**. |
+| **regexGroupName** |Optional |String |Name of the group inside **regexPattern**. Only when  **replacementPropertyName** is used, we will extract value of this group as **replacementValue** from **replacementPropertyName**. |
 | **replacementValue** |Optional |String |New value to replace old one with. |
-| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value, when source has no value. |
-| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
+| **replacementAttributeName** |Optional |String |Name of the attribute to be used for replacement value |
+| **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with **source** value. |
 
-- - -
+---
 ### SelectUniqueValue
 **Function:**<br> 
 SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
@@ -178,16 +182,16 @@ Requires a minimum of two arguments, which are unique value generation rules def
 
 | Name | Required/ Repeating | Type | Notes |
 | --- | --- | --- | --- |
-| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
+| **uniqueValueRule1  … uniqueValueRuleN** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate. |
 
 
-- - -
+---
 ### SingleAppRoleAssignment
 **Function:**<br> 
 SingleAppRoleAssignment([appRoleAssignments])
 
 **Description:**<br> 
-Requires one string argument. Returns the string, but with any diacritical characters repalced with equivalent non-diacritical characters.
+Returns a single appRoleAssignment from the list of all appRoleAssignments assigned to a user for a given application. This function is required to convert the appRoleAssignments object into a single role name string. Note that the best practice is to ensure only one appRoleAssignment is assigned to one user at a time, and if multiple roles are assigned the role string returned may not be predictable. 
 
 **Parameters:**<br> 
 
@@ -195,7 +199,22 @@ Requires one string argument. Returns the string, but with any diacritical chara
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Required |String |**[appRoleAssignments]** object. |
 
-- - -
+---
+### Split
+**Function:**<br> 
+Split(source, delimiter)
+
+**Description:**<br> 
+Splits a string into a mulit-valued array, using the specified delimiter character.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |**source** value to update. |
+| **delimiter** |Required |String |Specifies the character that will be used to split the string (example: ",") |
+
+---
 ### StripSpaces
 **Function:**<br> 
 StripSpaces(source)
@@ -209,7 +228,7 @@ Removes all space (" ") characters from the source string.
 | --- | --- | --- | --- |
 | **source** |Required |String |**source** value to update. |
 
-- - -
+---
 ### Switch
 **Function:**<br> 
 Switch(source, defaultValue, key1, value1, key2, value2, …)
@@ -225,6 +244,36 @@ When **source** value matches a **key**, returns **value** for that **key**. If 
 | **defaultValue** |Optional |String |Default value to be used when source doesn't match any keys. Can be empty string (""). |
 | **key** |Required |String |**Key** to compare **source** value with. |
 | **value** |Required |String |Replacement value for the **source** matching the key. |
+
+---
+### ToLower
+**Function:**<br> 
+ToLower(source, culture)
+
+**Description:**<br> 
+Takes a *source* string value and converts it to lower case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |Usually name of the attribute from the source object |
+| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
+
+---
+### ToUpper
+**Function:**<br> 
+ToUpper(source, culture)
+
+**Description:**<br> 
+Takes a *source* string value and converts it to upper case using the culture rules that are specified. If there is no *culture* info specified, then it will use Invariant culture.
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **source** |Required |String |Usually name of the attribute from the source object. |
+| **culture** |Optional |String |The format for the culture name based on RFC 4646 is *languagecode2-country/regioncode2*, where *languagecode2* is the two-letter language code and *country/regioncode2* is the two-letter subculture code. Examples include ja-JP for Japanese (Japan) and en-US for English (United States). In cases where a two-letter language code is not available, a three-letter code derived from ISO 639-2 is used.|
 
 ## Examples
 ### Strip known domain name
@@ -273,8 +322,18 @@ NormalizeDiacritics([givenName])
 * **INPUT** (givenName): "Zoë"
 * **OUTPUT**:  "Zoe"
 
-### Output date as a string in a certain format
+### Split a string into a multi-valued array
+You need to take a comma-delimited list of strings, and split them into an array that can be plugged into a multi-value attribute like Salesforce's PermissionSets attribute. In this example, a list of permission sets has been populated in extensionAttribute5 in Azure AD.
 
+**Expression:** <br>
+Split([extensionAttribute5], ",")
+
+**Sample input/output:** <br>
+
+* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
+
+### Output date as a string in a certain format
 You want to send dates to a SaaS application in a certain format. <br>
 For example, you want to format dates for ServiceNow.
 
@@ -293,7 +352,6 @@ You need to define the time zone of the user based on the state code stored in A
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
 **Expression:** <br>
-
 `Switch([state], "Australia/Sydney", "NSW", "Australia/Sydney","QLD", "Australia/Brisbane", "SA", "Australia/Adelaide")`
 
 **Sample input/output:**
@@ -301,8 +359,30 @@ If the state code doesn't match any of the predefined options, use default value
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
 
-### Generate unique value for userPrincipalName (UPN) attribute
+### Replace characters using a regular expression
+You need to find characters that match a regular expression value and remove them.
 
+**Expression:** <br>
+
+Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
+
+**Sample input/output:**
+
+* **INPUT** (mailNickname: "john_doe72"
+* **OUTPUT**: "72"
+
+### Convert generated userPrincipalName (UPN) value to lower case
+In the example below, the UPN value is generated by concatenating the PreferredFirstName and PreferredLastName source fields and the ToLower function operates on the generated string to convert all characters to lower case. 
+
+`ToLower(Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"))`
+
+**Sample input/output:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "john.smith@contoso.com"
+
+### Generate unique value for userPrincipalName (UPN) attribute
 Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
 
 **Expression:** <br>
@@ -328,4 +408,3 @@ Based on the user's first name, middle name and last name, you need to generate 
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)
 * [Account Provisioning Notifications](user-provisioning.md)
 * [List of Tutorials on How to Integrate SaaS Apps](../saas-apps/tutorial-list.md)
-

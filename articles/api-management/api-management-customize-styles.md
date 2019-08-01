@@ -53,11 +53,11 @@ In this tutorial, you learn how to:
     All elements that you can customize using **Styles** appear on the page
 5. Enter "headings-color" in the **Change variable values to customize developer portal appearance:** field.
 
-    The **@headings-color** element appears on the page. This variable controls the color of the text.
+    The **\@headings-color** element appears on the page. This variable controls the color of the text.
 
     ![customize style](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Click on the field for the **@headings-color** variable. 
+6. Click on the field for the **\@headings-color** variable. 
     
     Color picker drop-down opens.
 7. From the color pickers drop-down select a new color.

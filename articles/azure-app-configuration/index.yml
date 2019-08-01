@@ -1,0 +1,81 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure App Configuration Preview documentation
+metadata:
+#  document_id: 44409b3f-ab8c-053d-cdf4-5d7e823a275f
+  title: Azure App Configuration documentation - Tutorials, API reference
+  description: Azure App Configuration is a managed service that helps developers centralize their application and feature settings and feature simply and securely.
+  author: yegu-ms
+  manager: maiye
+  ms.author: yegu
+  ms.service: azure-app-configuration
+  ms.topic: landing-page
+  ms.date: 04/19/2019
+abstract:
+  description: Azure App Configuration is a managed service that helps developers centralize their application and feature settings simply and securely.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/videos/getting-started.png
+      width: 250  
+    title: Getting started (14:41)
+    href: https://channel9.msdn.com/Shows/Azure-Friday/Getting-started-with-Azure-App-Configuration
+    width: 250
+sections:
+- title: 5-Minute quickstarts
+  items:
+  - type: paragraph
+    text: 'Learn how to develop your first application using Azure App Configuration:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+        title: ASP.NET Core
+      - image:
+          src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+        title: .NET Core
+      - image:
+          src: https://docs.microsoft.com/media/logos/logo_net.svg
+        title: .NET
+      - image:
+          src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
+        title: .NET Core
+      - image:
+          src: https://docs.microsoft.com/java/docs-ref-conceptual/media/spring.svg
+        title: Java Spring
+    rows:
+      - title: Configuration
+        values:
+          - href: /azure/azure-app-configuration/quickstart-aspnet-core-app
+          - href: /azure/azure-app-configuration/quickstart-dotnet-core-app
+          - href: /azure/azure-app-configuration/quickstart-dotnet-app
+          - href: /azure/azure-app-configuration/quickstart-azure-function-csharp
+          - href: /azure/azure-app-configuration/quickstart-java-spring-app
+      - title: Feature management
+        values:
+          - href: /azure/azure-app-configuration/quickstart-feature-flag-aspnet-core
+          - href:
+          - href:
+          - href:
+          - href:
+- title: Step-by-step tutorials
+  items:
+  - type: paragraph
+    text: Learn how to use Azure App Configuration in various scenarios
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-aspnet-core">Enable dynamic configuration in ASP.NET Core</a>
+    - html: <a href="/azure/azure-app-configuration/enable-dynamic-configuration-dotnet-core">Enable dynamic configuration in a .NET Core app</a>
+    - html: <a href="/azure/azure-app-configuration/use-feature-flags-dotnet-core">Use feature flags in a .NET Core app</a>
+    - html: <a href="/azure/azure-app-configuration/manage-feature-flags">Manage feature flags</a>
+    - html: <a href="/azure/azure-app-configuration/integrate-ci-cd-pipeline">Integrate with a CI/CD pipeline</a>
+- title: Samples
+  items:
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/azure-app-configuration/cli-samples">Azure CLI</a>

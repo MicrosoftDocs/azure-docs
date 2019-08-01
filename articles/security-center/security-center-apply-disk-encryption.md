@@ -4,7 +4,7 @@ description: This document shows you how to implement the Azure Security Center 
 services: security-center
 documentationcenter: na
 author: rkarlin
-manager: MBaldwin
+manager: barbkess
 editor: ''
 
 ms.assetid: 6cc7824a-8d6b-4a5f-ab40-e3bbaebc4a91
@@ -40,7 +40,7 @@ To encrypt Azure Virtual Machines that have been identified by Security Center a
 * Obtain and run the Azure Disk Encryption Prerequisites Azure PowerShell script.
 * Encrypt your virtual machines.
 
-[Encrypt a Windows IaaS VM with Azure PowerShell](../security/quick-encrypt-vm-powershell.md) walks you through these steps. This topic assumes you are using a Windows client machine from which you configure disk encryption.
+[Encrypt a Windows IaaS VM with Azure PowerShell](../security/fundamentals/quick-encrypt-vm-powershell.md) walks you through these steps. This topic assumes you are using a Windows client machine from which you configure disk encryption.
 
 There are many approaches that can be used for Azure Virtual Machines. If you are already well-versed in Azure PowerShell or Azure CLI, then you may prefer to use alternate approaches. To learn about these other approaches, see [Azure disk encryption](../security/azure-security-disk-encryption.md).
 

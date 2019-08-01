@@ -3,14 +3,14 @@ title: Translator Speech API Reference
 titleSuffix: Azure Cognitive Services
 description: Reference documentation for the Translator Speech API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
-ms.author: v-jansko
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 
 # Translator Speech API
@@ -86,7 +86,7 @@ Notice that the total file size (bytes 4-7) and the size of the "data" (bytes 40
 After sending the WAV (RIFF) header, the client sends chunks of the audio data. The client will typically stream fixed size chunks representing a fixed duration (e.g. stream 100ms of audio at a time).
 
 ### Signal the end of the utterance
-The Translator Speech API returns the transcript and the translation of the audio stream as you're sending the audio. The final transcript, the final translation, and the translated audio will be returned to you only after the end of the utterance. In some cases you may want to force the end of the utterance. Please send 2.5 seconds of silence to force the end of the utterance. 
+The Translator Speech API returns the transcript and the translation of the audio stream as you're sending the audio. The final transcript, the final translation, and the translated audio will be returned to you only after the end of the utterance. In some cases you may want to force the end of the utterance. Please send 2.5 seconds of silence to force the end of the utterance.
 
 ### Final result
 A final speech recognition result is generated at the end of an utterance. A result is transmitted from the service to the client using a WebSocket message of type Text. The message content is the JSON serialization of an object with the following properties:
@@ -108,7 +108,7 @@ A sample final result is as follows:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -139,7 +139,7 @@ A sample final result is as follows:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -189,46 +189,3 @@ When a client application has finished streaming audio and has received the last
 |401	|Unauthorized. Ensure that credentials are set, that they are valid and that your Azure Data Market subscription is in good standing with an available balance.|||
 |500	|An error occurred. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
 |503	|Server temporarily unavailable. Please retry the request. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
-
-	
-
-
-	
-
-
-
-
-
-	
-	
-
-
-
-
-	
-
-
-
-
-	
-
-
-
-
-	
-
-			
-
-
-
-
-		
-
-
-
-
-
-
-
-
-

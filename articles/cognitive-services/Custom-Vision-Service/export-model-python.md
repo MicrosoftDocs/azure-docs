@@ -1,32 +1,33 @@
 ---
 title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Run a TensorFlow model in Python.
 services: cognitive-services
 author: areddish
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: custom-vision
+ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 07/03/2019
 ms.author: areddish
 ---
- 
+
 # Tutorial: Run TensorFlow model in Python
 
 After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
 
-## Install required components
+> [!NOTE]
+> This tutorial applies only to models exported from image classification projects.
 
-### Prerequisites
+## Prerequisites
 
 To use the tutorial, you need to do the following:
 
 - Install either Python 2.7+ or Python 3.5+.
 - Install pip.
 
-Also you will need to install the following packages:
+Next, you will need to install the following packages:
 
 ```
 pip install tensorflow
@@ -46,8 +47,12 @@ import os
 graph_def = tf.GraphDef()
 labels = []
 
+# These are set to the default names from exported models, update as needed.
+filename = "model.pb"
+labels_filename = "labels.txt"
+
 # Import the TF graph
-with tf.gfile.FastGFile(filename, 'rb') as f:
+with tf.gfile.GFile(filename, 'rb') as f:
     graph_def.ParseFromString(f.read())
     tf.import_graph_def(graph_def, name='')
 
@@ -79,7 +84,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### Deal with images with a dimension >1600
+### Handle images with a dimension >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -103,12 +108,13 @@ max_square_image = crop_center(image, min_dim, min_dim)
 augmented_image = resize_to_256_square(max_square_image)
 ```
 
-
 ### Crop the center for the specific input size for the model
 
 ```Python
-# The compact models have a network size of 227x227, the model requires this size.
-network_input_size = 227
+# Get the input size of the model
+with tf.Session() as sess:
+    input_tensor_shape = sess.graph.get_tensor_by_name('Placeholder:0').shape.as_list()
+network_input_size = input_tensor_shape[1]
 
 # Crop the center for the specified network_input_Size
 augmented_image = crop_center(augmented_image, network_input_size, network_input_size)
@@ -120,6 +126,7 @@ The steps above use the following helper functions:
 ```Python
 def convert_to_opencv(image):
     # RGB -> BGR conversion is performed as well.
+    image = image.convert('RGB')
     r,g,b = np.array(image).T
     opencv_image = np.array([b,g,r]).transpose()
     return opencv_image
@@ -161,7 +168,7 @@ def update_orientation(image):
 
 ## Predict an image
 
-Once the image is prepared as a tensor we can send it through the model for a prediction:
+Once the image is prepared as a tensor, we can send it through the model for a prediction:
 
 ```Python
 
@@ -170,8 +177,13 @@ output_layer = 'loss:0'
 input_node = 'Placeholder:0'
 
 with tf.Session() as sess:
-    prob_tensor = sess.graph.get_tensor_by_name(output_layer)
-    predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+    try:
+        prob_tensor = sess.graph.get_tensor_by_name(output_layer)
+        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
+    except KeyError:
+        print ("Couldn't find classification output layer: " + output_layer + ".")
+        print ("Verify this a model exported from an Object Detection project.")
+        exit(-1)
 ```
 
 ## View the results
@@ -186,15 +198,15 @@ The results of running the image tensor through the model will then need to be m
 
     # Or you can print out all of the results mapping labels to probabilities.
     label_index = 0
-    for p in predictions[0]:
+    for p in predictions:
         truncated_probablity = np.float64(np.round(p,8))
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## Next steps
 
-You can also wrap the model into a mobile application:
+Next, learn how to wrap your model into a mobile application:
 * [Use your exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Use your exported CoreML model in an Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Use your exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
-

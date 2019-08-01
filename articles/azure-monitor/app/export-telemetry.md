@@ -10,38 +10,47 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/25/2019
 ms.author: mbullwin
 ---
 # Export telemetry from Application Insights
-Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
+Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
-* The Export button at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet.
+* The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
 * [Analytics](../../azure-monitor/app/analytics.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](../../azure-monitor/app/export-power-bi.md ), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
-* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/new-azurermapplicationinsightscontinuousexport?view=azurermps-5.7.0).
+* You can also access setup [continuous export via Powershell](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](../../azure-monitor/app/data-retention-privacy.md).
 
+## Continuous Export advanced storage configuration
+
+Continuous Export **does not support** the following Azure storage features/configurations:
+
+* Use of [VNET/Azure Storage firewalls](https://docs.microsoft.com/azure/storage/common/storage-network-security) in conjunction with Azure Blob storage.
+
+* [Immutable storage](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) for Azure Blob storage.
+
+* [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+
 ## <a name="setup"></a> Create a Continuous Export
-1. In the Application Insights resource for your app, open Continuous Export and choose **Add**:
+
+1. In the Application Insights resource for your app under configure on the left, open Continuous Export and choose **Add**:
 
 2. Choose the telemetry data types you want to export.
 
-3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
+3. Create or select an [Azure storage account](../../storage/common/storage-introduction.md) where you want to store the data. For more information on storage pricing options, visit the [official pricing page](https://azure.microsoft.com/pricing/details/storage/).
+
+     Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store.
 
     > [!Warning]
     > By default, the storage location will be set to the same geographical region as your Application Insights resource. If you store in a different region, you may incur transfer charges.
 
-    ![Click Add, Export Destination, Storage account, and then either create a new store or choose an existing store](./media/export-telemetry/02-add.png)
-
-4. Create or select a container in the storage:
-
-    ![Click Choose event types](./media/export-telemetry/create-container.png)
+4. Create or select a container in the storage.
 
 Once you've created your export, it starts going. You only get data that arrives after you create the export.
 
@@ -49,9 +58,7 @@ There can be a delay of about an hour before data appears in the storage.
 
 ### To edit continuous export
 
-If you want to change the event types later, just edit the export:
-
-![Click Choose event types](./media/export-telemetry/05-edit.png)
+Click on continuous export and select the storage account to edit.
 
 ### To stop continuous export
 
@@ -60,10 +67,10 @@ To stop the export, click Disable. When you click Enable again, the export will 
 To stop the export permanently, delete it. Doing so doesn't delete your data from storage.
 
 ### Can't add or change an export?
-* To add or change exports, you need Owner, Contributor or Application Insights Contributor access rights. [Learn about roles][roles].
+* To add or change exports, you need Owner, Contributor, or Application Insights Contributor access rights. [Learn about roles][roles].
 
 ## <a name="analyze"></a> What events do you get?
-The exported data is the raw telemetry we receive from your application, except that we add location data which we calculate from the client IP address.
+The exported data is the raw telemetry we receive from your application, except that we add location data, which we calculate from the client IP address.
 
 Data that has been discarded by [sampling](../../azure-monitor/app/sampling.md) is not included in the exported data.
 
@@ -77,7 +84,7 @@ The data also includes the results of any [availability web tests](../../azure-m
 >
 
 ## <a name="get"></a> Inspect the data
-You can inspect the storage directly in the portal. Click **Browse**, select your storage account, and then open **Containers**.
+You can inspect the storage directly in the portal. Click home in the leftmost menu, at the top where it says "Azure services" select **Storage accounts**, select the storage account name, on the overview page select **Blobs** under services, and finally select the container name.
 
 To inspect Azure storage in Visual Studio, open **View**, **Cloud Explorer**. (If you don't have that menu command, you need to install the Azure SDK: Open the **New Project** dialog, expand Visual C#/Cloud and choose **Get Microsoft Azure SDK for .NET**.)
 
@@ -134,14 +141,12 @@ On a small scale, you can write some code to pull apart your data, read it into 
 For a larger code sample, see [using a worker role][exportasa].
 
 ## <a name="delete"></a>Delete your old data
-Please note that you are responsible for managing your storage capacity and deleting the old data if necessary.
+You are responsible for managing your storage capacity and deleting the old data if necessary.
 
 ## If you regenerate your storage key...
 If you change the key to your storage, continuous export will stop working. You'll see a notification in your Azure account.
 
-Open the Continuous Export blade and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
-
-![Edit the continuous export, open and close thee export destination.](./media/export-telemetry/07-resetstore.png)
+Open the Continuous Export tab and edit your export. Edit the Export Destination, but just leave the same storage selected. Click OK to confirm.
 
 The continuous export will restart.
 
@@ -155,7 +160,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 ## Q & A
 * *But all I want is a one-time download of a chart.*  
 
-    Yes, you can do that. At the top of the blade, click **Export Data**.
+    Yes, you can do that. At the top of the tab, click **Export Data**.
 * *I set up an export, but there's no data in my store.*
 
     Did Application Insights receive any telemetry from your app since you set up the export? You'll only receive new data.
@@ -171,10 +176,10 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 * *How many blobs should I see in the storage?*
 
   * For every data type you selected to export, a new blob is created every minute (if data is available).
-  * In addition, for applications with high traffic, additional partition units are allocated. In this case each unit creates a blob every minute.
+  * In addition, for applications with high traffic, additional partition units are allocated. In this case, each unit creates a blob every minute.
 * *I regenerated the key to my storage or changed the name of the container, and now the export doesn't work.*
 
-    Edit the export and open the export destination blade. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
+    Edit the export and open the export destination tab. Leave the same storage selected as before, and click OK to confirm. Export will restart. If the change was within the past few days, you won't lose data.
 * *Can I pause the export?*
 
     Yes. Click Disable.

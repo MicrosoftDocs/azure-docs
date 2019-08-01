@@ -24,20 +24,23 @@ The S0 and S1 pricing tiers handle different amounts of data throughput. Before 
 
 | Capability                              |        S0           |  S1      |
 |-----------------------------------------|:-------------------:|:--------:|
-| Search                                  |        ✓           |     ✓    |
+| Search (fwd/rev geocoding, points of interest)  |        ✓           |     ✓    |
+| Batch geocoding (preview)              |                   |     ✓    |
+| Polygons from search          |                   |     ✓    |
 | Routing                                 |        ✓           |     ✓    |
+| Route range                    |                   |     ✓    |
+| Batch routing (preview)                |                   |     ✓    |
+| Matrix routing (preview)               |                   |     ✓    |
 | Render                                  |        ✓           |     ✓    |
+| Imagery plus hybrid imagery    |            |     ✓    |
 | Traffic                                 |        ✓           |     ✓    |
 | Time zones                              |        ✓           |     ✓    |
-| * Imagery plus hybrid imagery (preview)  |        ✓           |     ✓    |
-| * Route range (preview)                  |        ✓           |     ✓    |
-| * IP 2 location (preview)                |        ✓           |     ✓    |
-| * Polygons from search (preview)         |        ✓           |     ✓    |
-| * Batch geocoding (preview)              |        ✓           |     ✓    |
-| * Batch routing (preview)                |        ✓           |     ✓    |
-| * Matrix routing (preview)               |        ✓           |     ✓    |
+| Geolocation (preview)                |        ✓           |     ✓    |
+| Data  (preview)               |                   |     ✓    |
+| Spatial  (preview)               |                   |     ✓    |
+| Geofencing  (preview)               |                   |     ✓    |
 
-\* Access to these capabilities from the S0 pricing tier will be deprecated after February 4, 2019.
+
 
 These additional data points are worth considering:
 * What kind of enterprise do you have?

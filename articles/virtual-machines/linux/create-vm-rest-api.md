@@ -4,7 +4,7 @@ description: Learn how to create a Linux virtual machine in Azure that uses Mana
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -32,7 +32,7 @@ This article shows you how to use the REST API to create a Linux VM running Ubun
 Before you create and submit the request, you will need:
 
 * The `{subscription-id}` for your subscription
-  * If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions)
+  * If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)
 * A `{resourceGroupName}` you've created ahead of time
 * A [virtual network interface](../../virtual-network/virtual-network-network-interface.md) in the same resource group
 * An SSH key pair (you can [generate a new one](mac-create-ssh-keys.md) if you don't have one)
@@ -124,7 +124,7 @@ An example request body is below. Make sure you specify the VM name in the `{com
 }
 ```
 
-For a complete list of the available definitions in the request body, see [Virtual machines create or update request body defintions](/rest/api/compute/virtualmachines/createorupdate#definitions).
+For a complete list of the available definitions in the request body, see [Virtual machines create or update request body definitions](/rest/api/compute/virtualmachines/createorupdate#definitions).
 
 ## Sending the request
 

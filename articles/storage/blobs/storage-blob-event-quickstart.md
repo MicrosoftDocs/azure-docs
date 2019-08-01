@@ -2,13 +2,14 @@
 title: Send Azure Blob storage events to web endpoint - Azure CLI | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. Send the events to a Webhook. Handle the events in a web application.
 services: storage,event-grid 
-author: cbrooksmsft
+author: normesta
 
-ms.author: cbrooks
+ms.author: normesta
+ms.reviewer: cbrooks
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: storage
-ms.component: blobs
+ms.subservice: blobs
 ms.custom: seodec18
 ---
 
@@ -35,7 +36,7 @@ If you aren't using Cloud Shell, you must first sign in using `az login`.
 
 Event Grid topics are Azure resources, and must be placed in an Azure resource group. The resource group is a logical collection into which Azure resources are deployed and managed.
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
+Create a resource group with the [az group create](/cli/azure/group) command. 
 
 The following example creates a resource group named `<resource_group_name>` in the *westcentralus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
 

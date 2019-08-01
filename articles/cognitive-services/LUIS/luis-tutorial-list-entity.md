@@ -1,14 +1,14 @@
 ---
-title: Extact text match entities
+title: Extact text match entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how to add a list entity to help LUIS label variations of a word or phrase.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/21/2018
+ms.date: 07/29/2019
 ms.author: diberry 
 ---
 
@@ -18,9 +18,9 @@ This tutorial demonstrates the use of a [list entity](luis-concept-entity-types.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-* Create a list entity 
-* Add normalized values and synonyms
-* Validate improved entity identification
+> * Create a list entity 
+> * Add normalized values and synonyms
+> * Validate improved entity identification
 
 ## Prerequisites
 

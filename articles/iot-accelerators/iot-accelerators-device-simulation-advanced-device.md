@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/18/2019
 ms.author: troyhop
 
 # As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
@@ -483,7 +483,7 @@ function main(context, state) {
 
     // ...
 
-    return state;
+    return updateState;
 }
 ```
 
@@ -513,4 +513,4 @@ If your files pass validation, click **Save** and your device model is ready to 
 
 ## Next steps
 
-In this how-to guide, you learned about the device model files used in Device Simulation and how to create an advanced device model. Next, you may want to explore how to [Use Time Series Insights to visualize telemetry sent from the Device Simulation solution accelerator](about-iot-accelerators.md).
+In this how-to guide, you learned about the device model files used in Device Simulation and how to create an advanced device model. Next, you may want to explore how to [Use Time Series Insights to visualize telemetry sent from the Device Simulation solution accelerator](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-device-simulation-time-series-insights).

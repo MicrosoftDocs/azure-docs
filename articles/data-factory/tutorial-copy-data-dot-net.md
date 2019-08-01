@@ -12,10 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: tutorial
-ms.date: 01/22/2018
+ms.date: 02/20/2019
 ms.author: jingwang
 ---
 # Copy data from Azure Blob to Azure SQL Database using Azure Data Factory
+
 In this tutorial, you create a Data Factory pipeline that copies data from Azure Blob Storage to Azure SQL Database. The configuration pattern in this tutorial applies to copying from a file-based data store to a relational data store. For a list of data stores supported as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 You perform the following steps in this tutorial:
@@ -23,7 +24,7 @@ You perform the following steps in this tutorial:
 > [!div class="checklist"]
 > * Create a data factory.
 > * Create Azure Storage and Azure SQL Database linked services.
-> * Create Azure BLob and Azure SQL Database datasets.
+> * Create Azure Blob and Azure SQL Database datasets.
 > * Create a pipeline contains a Copy activity.
 > * Start a pipeline run.
 > * Monitor the pipeline and activity runs.
@@ -53,7 +54,7 @@ Now, prepare your Azure Blob and Azure SQL Database for the tutorial by performi
     Jane|Doe
 	```
 
-2. Use tools such as [Azure Storage Explorer](http://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
+2. Use tools such as [Azure Storage Explorer](https://storageexplorer.com/) to create the **adfv2tutorial** container, and to upload the **inputEmp.txt** file to the container.
 
 #### Create a sink SQL table
 
@@ -91,11 +92,11 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
 ## Install NuGet packages
 
 1. Click **Tools** -> **NuGet Package Manager** -> **Package Manager Console**.
-2. In the **Package Manager Console**, run the following commands to install packages:
+2. In the **Package Manager Console**, run the following commands to install packages. Refer to [Microsoft.Azure.Management.DataFactory nuget package](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) with details.
 
-    ```
-    Install-Package Microsoft.Azure.Management.DataFactory -Prerelease
-    Install-Package Microsoft.Azure.Management.ResourceManager -Prerelease
+    ```powershell
+    Install-Package Microsoft.Azure.Management.DataFactory
+    Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
     ```
 
@@ -113,6 +114,7 @@ Using Visual Studio 2015/2017, create a C# .NET console application.
     using Microsoft.Azure.Management.DataFactory.Models;
     using Microsoft.IdentityModel.Clients.ActiveDirectory;
     ```
+
     
 2. Add the following code to the **Main** method that sets variables. Replace place-holders with your own values. For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on the following page, and then expand **Analytics** to locate **Data Factory**: [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 
@@ -232,7 +234,7 @@ You define a dataset that represents the source data in Azure Blob. This Blob da
 - The data structure, including column names and data types which in this case map to the sink SQL table.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -270,7 +272,7 @@ Add the following code to the **Main** method that creates an **Azure SQL Databa
 You define a dataset that represents the sink data in Azure SQL Database. This dataset refers to the Azure SQL Database linked service you create in the previous step. It also specifies the SQL table that holds the copied data. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset
@@ -509,6 +511,7 @@ Press any key to exit...
 
 
 ## Next steps
+
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. You learned how to: 
 
 > [!div class="checklist"]

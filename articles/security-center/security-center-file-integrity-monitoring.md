@@ -3,9 +3,9 @@ title: File Integrity Monitoring in Azure Security Center | Microsoft Docs
 description: " Learn how to enable File Integrity Monitoring in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
-editor: ''
+author: monhaber
+manager: barbkess
+editor: monhaber
 
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
+ms.date: 03/13/2019
+ms.author: v-mohabe
 
 ---
 # File Integrity Monitoring in Azure Security Center
@@ -27,20 +27,17 @@ Security Center’s File Integrity Monitoring validates the integrity of Windows
 
 - File and Registry creation and removal
 - File modifications (changes in file size, access control lists, and hash of the content)
-- Registry modifications (changes in size, access conrol lists, type, and the content)
+- Registry modifications (changes in size, access control lists, type, and the content)
 
 Security Center recommends entities to monitor, which you can easily enable FIM on. You can also define your own FIM policies or entities to monitor. This walkthrough shows you how.
 
 > [!NOTE]
-> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
->
->
+> The File Integrity Monitoring (FIM) feature works for Windows and Linux computers and VMs and is available on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers. FIM uploads data to the Log Analytics workspace. Data charges apply, based on the amount of data you upload. See [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/) to learn more.
+
+FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type **Solution**. For data collection frequency details, see [Change Tracking data collection details](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) for Azure Change Tracking.
 
 > [!NOTE]
-> FIM uses the Azure Change Tracking solution to track and identify changes in your environment. When File Integrity Monitoring is enabled, you have a **Change Tracking** resource of type Solution. If you remove the **Change Tracking** resource, you disable the File Integrity Monitoring feature in Security Center.
->
->
+> If you remove the **Change Tracking** resource, you will also disable the File Integrity Monitoring feature in Security Center.
 
 ## Which files should I monitor?
 You should think about the files that are critical for your system and applications when choosing which files to monitor. Consider choosing files that you don’t expect to change without planning. Choosing files that are frequently changed by applications or operating system (such as log files and text files) create a lot of noise which make it difficult to identify an attack.
@@ -84,7 +81,7 @@ To enable FIM on a workspace:
 4. Select **Apply file integrity monitoring** to enable FIM.
 
 > [!NOTE]
-> You can change the settings at any time. See [Edit monitored entities](security-center-file-integrity-monitoring.md#edit-monitored-items) below to learn more.
+> You can change the settings at any time. See Edit monitored entities below to learn more.
 >
 >
 
@@ -130,15 +127,15 @@ The **Changes** tab (shown below) lists all changes for the workspace during the
 
 1. Return to the **File Integrity Monitoring dashboard** and select **Settings**.
 
-  ![Settings][11]
+   ![Settings][11]
 
-  **Workspace Configuration** opens displaying three tabs: **Windows Registry**, **Windows Files**, and **Linux Files**. Each tab lists the entities that you can edit in that category. For each entity listed, Security Center identifies if FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
+   **Workspace Configuration** opens displaying three tabs: **Windows Registry**, **Windows Files**, and **Linux Files**. Each tab lists the entities that you can edit in that category. For each entity listed, Security Center identifies if FIM is enabled (true) or not enabled (false).  Editing the entity lets you enable or disable FIM.
 
-  ![Workspace configuration][12]
+   ![Workspace configuration][12]
 
-2. Select an identityprotection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
+2. Select an identity protection. In this example, we selected an item under Windows Registry. **Edit for Change Tracking** opens.
 
-  ![Edit or change tracking][13]
+   ![Edit or change tracking][13]
 
 Under **Edit for Change Tracking** you can:
 
@@ -148,14 +145,14 @@ Under **Edit for Change Tracking** you can:
 - Delete the entity, discard the change, or save the change
 
 ## Add a new entity to monitor
-1. Return to the **File integirty monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
+1. Return to the **File integrity monitoring dashboard** and select **Settings** at the top. **Workspace Configuration** opens.
 2. Under **Workspace Configuration**, select the tab for the type of entity that you want to add: Windows Registry, Windows Files, or Linux Files. In this example, we selected **Linux Files**.
 
-  ![Add a new item to monitor][14]
+   ![Add a new item to monitor][14]
 
 3. Select **Add**. **Add for Change Tracking** opens.
 
-  ![Enter requested information][15]
+   ![Enter requested information][15]
 
 4. On the **Add** page, type the requested information and select **Save**.
 
@@ -163,29 +160,29 @@ Under **Edit for Change Tracking** you can:
 1. Return to the **File Integrity Monitoring** dashboard.
 2. Select a workspace where FIM is currently enabled. A workspace is enabled for FIM if it is missing the Enable button or Upgrade Plan button.
 
-  ![Select a workspace where FIM is enabled][16]
+   ![Select a workspace where FIM is enabled][16]
 
 3. Under File Integrity Monitoring, select **Settings**.
 
-  ![Select settings][17]
+   ![Select settings][17]
 
 4. Under **Workspace Configuration**, select a group where **Enabled** is set to true.
 
-  ![Workspace Configuration][18]
+   ![Workspace Configuration][18]
 
 5. Under **Edit for Change Tracking** window set **Enabled** to False.
 
-  ![Set Enabled to false][19]
+   ![Set Enabled to false][19]
 
 6. Select **Save**.
 
 ## Folder and path monitoring using wildcards
 
 Use wildcards to simplify tracking across directories. The following rules apply when you configure folder monitoring using wildcards:
--	Wildcards are required for tracking multiple files.
--	Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
--	If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
--	When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
+-   Wildcards are required for tracking multiple files.
+-   Wildcards can only be used in the last segment of a path, such as C:\folder\file or /etc/*.conf
+-   If an environment variable includes a path that is not valid, validation will succeed but the path will fail when inventory runs.
+-   When setting the path, avoid general paths such as c:\*.* which will result in too many folders being traversed.
 
 ## Disable FIM
 You can disable FIM. FIM uses the Azure Change Tracking solution to track and identify changes in your environment. By disabling FIM, you remove the Change Tracking solution from selected workspace.
@@ -194,7 +191,7 @@ You can disable FIM. FIM uses the Azure Change Tracking solution to track and id
 2. Select a workspace.
 3. Under **File Integrity Monitoring**, select **Disable**.
 
-  ![Disable FIM][20]
+   ![Disable FIM][20]
 
 4. Select **Remove** to disable.
 

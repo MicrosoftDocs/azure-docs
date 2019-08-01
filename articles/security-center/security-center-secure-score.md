@@ -3,8 +3,8 @@ title: Secure score in Azure Security Center | Microsoft Docs
 description: " Prioritize your security recommendations using the secure score in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: c42d02e4-201d-4a95-8527-253af903a5c6
@@ -13,16 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/5/2018
-ms.author: rkarlin
+ms.date: 1/15/2019
+ms.author: v-mohabe
 
 ---
 # Improve your secure score in Azure Security Center
 
 
 With so many services offering security benefits, it's often hard to know what steps to take first to secure and harden your workload. The Azure secure score reviews your security recommendations and prioritizes them for you, so you know which recommendations to perform first. This helps you find the most serious security vulnerabilities so you can prioritize investigation. Secure score is a tool that helps you assess your workload security posture.
-
-![Secure score dashboard](./media/security-center-secure-score/secure-score-dashboard.png)
 
 ## Secure score calculation
 
@@ -39,11 +37,25 @@ To check which recommendations impact your secure score most, you can view the t
 
 To view your overall secure score:
 
-1. In the Azure dashboard, click **Security Center** and then click **Recommendations**.
-2. At the top you can see the Secure score, which represents the score per policies, per selected subscription. 
-2. In the table below that lists the recommendations, you can see that for each recommendation there is a column that represents the **Secure score impact**. This number represents how much your overall secure score will improve if you follow the recommendations. For example, in the screen below, if you **Remediate vulnerabilities in container security configurations**, your secure score will increase by 35 points.
+1. In the Azure dashboard, click **Security Center** and then click **Secure score**.
+2. At the top you can see Secure score highlights:
+   - The **Overall secure score** represents the score per policies, per selected subscription
+   - **Secure score by category** shows you which resources need the most attention
+   - **Top recommendations by secure score impact** provides you with a list of the recommendations that will improve your secure score the most if you implement them.
+ 
+   ![secure score](./media/security-center-secure-score/secure-score-dashboard.png)
+
+3. In the table below you can see each of your subscriptions and the overall secure score for each.
+
+   > [!NOTE]
+   > The sum of the secure score of each subscription does not equal the overall secure score. The secure score is a calculation based on the ratio between your healthy resources and your total resources per recommendation, not a sum of secure scores across your subscriptions. 
+   >
+4. Click **View recommendations** to see the recommendations for that subscription that you can remediate to improve your secure score.
+4. In the list of recommendations, you can see that for each recommendation there is a column that represents the **Secure score impact**. This number represents how much your overall secure score will improve if you follow the recommendations. For example, in the screen below, if you **Remediate vulnerabilities in container security configurations**, your secure score will increase by 35 points.
 
    ![secure score](./media/security-center-secure-score/security-center-secure-score1.png)
+
+
 
 ## Individual secure score
 
@@ -56,6 +68,12 @@ The **Recommendation impact** lets you know how much your secure score improves 
 The recommendation shows which threats your workload is exposed to if the remediation steps are not taken.
 
 ![individual recommendation secure score](./media/security-center-secure-score/indiv-recommendation-secure-score.png)
+
+
+
+
+
+
 
 ## Next steps
 This article showed you how to improve your security posture using **Secure score** in Azure Security Center. To learn more about Security Center, see:

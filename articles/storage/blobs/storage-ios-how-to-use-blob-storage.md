@@ -2,14 +2,15 @@
 title: How to use object (Blob) storage from iOS - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
-author: michaelhauss
+author: mhopkins-msft
 
 ms.service: storage
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 11/20/2018
-ms.author: michaelhauss
-ms.component: blobs
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.subservice: blobs
 ---
 
 # How to use Blob storage from iOS
@@ -75,7 +76,7 @@ You can then import the framework file into your application by doing the follow
 #import <AZSClient/AZSClient.h>
 ```
 
-If you are using Swift, you will need to create a bridging header and import <AZSClient/AZSClient.h> there:
+If you are using Swift, you will need to create a bridging header and import \<AZSClient/AZSClient.h> there:
 
 1. Create a header file `Bridging-Header.h`, and add the above import statement.
 2. Go to the *Build Settings* tab, and search for *Objective-C Bridging Header*.
@@ -120,7 +121,7 @@ Every blob in Azure Storage must reside in a container. The following example sh
 }
 ```
 
-You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](http://storageexplorer.com) and verifying that *newcontainer* is in the list of containers for your Storage account.
+You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](https://storageexplorer.com) and verifying that *newcontainer* is in the list of containers for your Storage account.
 
 ## Set Container Permissions
 A container's permissions are configured for **Private** access by default. However, containers provide a few different options for container access:
@@ -158,7 +159,7 @@ The following example shows you how to create a container with **Container** acc
 ```
 
 ## Upload a blob into a container
-As mentioned in the [Blob service concepts](#blob-service-concepts) section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In most cases, block blob is the recommended type to use.
+As mentioned in the Blob service concepts section, Blob Storage offers three different types of blobs: block blobs, append blobs, and page blobs. The Azure Storage iOS library supports all three types of blobs. In most cases, block blob is the recommended type to use.
 
 The following example shows how to upload a block blob from an NSString. If a blob with the same name already exists in this container, the contents of this blob will be overwritten.
 
@@ -199,7 +200,7 @@ The following example shows how to upload a block blob from an NSString. If a bl
 }
 ```
 
-You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](http://storageexplorer.com) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this application worked by going to the blobs URI:
+You can confirm that this works by looking at the [Microsoft Azure Storage Explorer](https://storageexplorer.com) and verifying that the container, *containerpublic*, contains the blob, *sampleblob*. In this sample, we used a public container so you can also verify that this application worked by going to the blobs URI:
 
     https://nameofyourstorageaccount.blob.core.windows.net/containerpublic/sampleblob
 
@@ -374,10 +375,10 @@ The following example shows how to delete a container.
 Now that you've learned how to use Blob Storage from iOS, follow these links to learn more about the iOS library and the Storage service.
 
 * [Azure Storage Client Library for iOS](https://github.com/azure/azure-storage-ios)
-* [Azure Storage iOS Reference Documentation](http://azure.github.io/azure-storage-ios/)
+* [Azure Storage iOS Reference Documentation](https://azure.github.io/azure-storage-ios/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
 * [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage)
 
-If you have questions regarding this library, feel free to post to our [MSDN Azure forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](http://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
+If you have questions regarding this library, feel free to post to our [MSDN Azure forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=windowsazuredata) or [Stack Overflow](https://stackoverflow.com/questions/tagged/windows-azure-storage+or+windows-azure-storage+or+azure-storage-blobs+or+azure-storage-tables+or+azure-table-storage+or+windows-azure-queues+or+azure-storage-queues+or+azure-storage-emulator+or+azure-storage-files).
 If you have feature suggestions for Azure Storage, please post to [Azure Storage Feedback](https://feedback.azure.com/forums/217298-storage/).
 

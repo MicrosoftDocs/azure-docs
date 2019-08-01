@@ -3,24 +3,26 @@ title: Language support - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages supported by the Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
-ms.topic: article
-ms.date: 09/25/2018
-ms.author: v-jansko
+ms.subservice: translator-text
+ms.topic: reference
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 # Language and region support for the Translator Text API
 
-The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available. 
+The Translator Text API supports the following languages for text to text translation. Neural Machine Translation (NMT) is the new standard for high-quality AI-powered machine translations and is available as the default using V3 of the Translator Text API when a neural system is available.
 
 [Learn more about how machine translation works](https://www.microsoft.com/translator/mt.aspx)
+
+## Translation
 
 **V2 Translator API**
 
 > [!NOTE]
-> V2 was deprecated on April 30, 2018 and will be discontinued on April 30, 2019.
+> V2 was deprecated on April 30, 2018. Please migrate your applications to V3 in order to take advantage of new functionality available exclusively in V3.
 
 * Statistical only: No neural system is available for this language.
 * Neural available: A neural system is available. Use the parameter `category=generalnn` to access the neural system.
@@ -28,7 +30,10 @@ The Translator Text API supports the following languages for text to text transl
 * Neural only: Only neural translation is available.
 
 **V3 Translator API**
-The V3 Translator API is neural by default and statistical systems are only available when no neural system exists. Custom Translator can only be used with neural languages. 
+The V3 Translator API is neural by default and statistical systems are only available when no neural system exists.
+
+> [!NOTE]
+> Currently, a subset of the neural languages are available in Custom Translator and we are gradually adding additional ones. [View languages currently available in Custom Translator](#customization).
 
 |Language|	Language code|	V2 API|	V3 API|
 |:-----|:-----:|:-----|:-----|
@@ -183,77 +188,8 @@ The dictionary supports the following languages to or from English using the Loo
 
 ## Detect
 
-The following languages are supported by the Detect method. Detect may identify languages that the Microsoft Translator can't translate.
+Translator Text API detects all languages available for translation and transliteration.
 
-| Language    |
-|:----------- |
-| Afrikaans |
-| Albanian |
-| Arabic |
-| Basque |
-| Belarusian |
-| Bulgarian |
-| Catalan |
-| Chinese |
-| Chinese (Simplified) |
-| Chinese (Traditional) |
-| Croatian |
-| Czech |
-| Danish |
-| Dutch |
-| English |
-| Esperanto |
-| Estonian |
-| Finnish |
-| French |
-| Galician |
-| German |
-| Greek |
-| Haitian Creole |
-| Hebrew |
-| Hindi |
-| Hungarian |
-| Icelandic |
-| Indonesian |
-| Irish |
-| Italian |
-| Japanese |
-| Korean |
-| Kurdish (Arabic) |
-| Kurdish (Latin) |
-| Latin |
-| Latvian |
-| Lithuanian |
-| Macedonian |
-| Malay |
-| Maltese |
-| Norwegian |
-| Norwegian (Nynorsk) |
-| Pashto |
-| Persian |
-| Polish |
-| Portuguese |
-| Romanian |
-| Russian |
-| Serbian (Cyrillic) |
-| Serbian (Latin) |
-| Slovak |
-| Slovenian |
-| Somali |
-| Spanish |
-| Swahili |
-| Swedish |
-| Tagalog |
-| Telugu |
-| Thai |
-| Turkish |
-| Ukrainian |
-| Urdu |
-| Uzbek (Cyrillic) |
-| Uzbek (Latin) |
-| Vietnamese |
-| Welsh |
-| Yiddish |
 
 ## Access the Translator Text API language list programmatically
 
@@ -263,7 +199,7 @@ You can retrieve a list of supported languages for the Translator Text API v3.0 
 
 ## Customization
 
-The following languages are avaialble for customization using [Custom Translator](http://aka.ms/CustomTranslator).
+The following languages are available for customization to or from English using [Custom Translator](https://aka.ms/CustomTranslator).
 
 | Language    | Language code |
 |:----------- |:-------------:|
@@ -272,6 +208,7 @@ The following languages are avaialble for customization using [Custom Translator
 | Bosnian (Latin)      | `bs`          |
 | Bulgarian      | `bg`          |
 | Chinese Simplified      | `zh-Hans`          |
+|Chinese Traditional|	`zh-Hant`	|
 | Croatian      | `hr`          |
 | Czech      | `cs`          |
 | Danish      | `da`          |
@@ -285,16 +222,21 @@ The following languages are avaialble for customization using [Custom Translator
 | Hebrew      | `he`          |
 | Hindi      | `hi`          |
 | Hungarian      | `hu`          |
+| Icelandic | `is` |
+| Indonesian|	`id`	|
 | Italian      | `it`          |
 | Japanese      | `ja`          |
+|Kiswahili|	`sw`	|
 | Korean      | `ko`          |
 | Latvian      | `lv`          |
 | Lithuanian      | `lt`          |
+|Malagasy|	`mg`	|
 | Norwegian      | `nb`          |
 | Polish      | `pl`          |
 | Portuguese      | `pt`          |
 | Romanian      | `ro`          |
 | Russian      | `ru`          |
+|Samoan|	`sm`	|
 | Serbian (Latin)      | `sr-Latn`          |
 | Slovak     | `sk`          |
 | Slovenian      | `sl`          |
@@ -304,6 +246,7 @@ The following languages are avaialble for customization using [Custom Translator
 | Turkish      | `tr`          |
 | Ukrainian      | `uk`          |
 | Vietnamese      | `vi`          |
+| Welsh | `cy` |
 
 ## Access the list on the Microsoft Translator website
 

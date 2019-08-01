@@ -2,13 +2,13 @@
 title: What is a dictionary? - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: A dictionary is an aligned document that specifies a list of phrases or sentences (and their translations) that you always want Microsoft Translator to translate the same way. Dictionaries are sometimes also called glossaries or term bases.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: custom-translator
-ms.date: 11/13/2018
-ms.author: v-rada
-ms.topic: article
+ms.subservice: translator-text
+ms.date: 02/21/2019
+ms.author: swmachan
+ms.topic: conceptual
 #Customer intent: As a Custom Translator, I want to understand how to use a dictionary to build a custom translation model.
 ---
 
@@ -16,9 +16,9 @@ ms.topic: article
 
 A dictionary is an aligned pair of documents that specifies a list of phrases or sentences and their corresponding translations. Use a dictionary in your training, when you want Microsoft Translator to always translate any instances of the source phrase or sentence, using the translation you've provided in the dictionary. Dictionaries are sometimes called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list.
 
-Dictionaries only work for projects in language pairs that have a fully supported Microsoft neural machine translation (NMT) system behind them. See http://www.aka.ms/translatorlanguages for a complete list of languages.
+Dictionaries only work for projects in language pairs that have a fully supported Microsoft neural machine translation (NMT) system behind them. [View the complete list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
 
-## Phrase dictionary 
+## Phrase dictionary
 When you include a phrase dictionary in training your model, any word or phrase listed is translated in the way you specified. The rest of the sentence is translated as usual. You can use a phrase dictionary to specify phrases that shouldn't be translated by providing the same untranslated phrase in the source and target file in the dictionary.
 
 ## Sentence dictionary
@@ -32,9 +32,9 @@ You can train a model using only dictionary data. To do this, select only the di
 
 ## Recommendations
 
-- Dictionaries are not a substitute for a trained model with training data.  Dictionaries essentially find and replace words or sentences.  Letting the system learn from your training material in full sentences is generally a better choice than using a dictionary. 
+- Dictionaries are not a substitute for a trained model with training data.  Dictionaries essentially find and replace words or sentences.  Letting the system learn from your training material in full sentences is generally a better choice than using a dictionary.
 - The phrase dictionary should be used sparingly. When a phrase within a sentence is replaced, the context within that sentence is lost or limited for translating the rest of the sentence. The result is that while the phrase or word within the sentence will translate according to the phrase dictionary, the overall translation quality of the sentence will often suffer.
-- The phrase dictionary works well for compound nouns like product names (“Microsoft SQL Server”), proper names (“City of Hamburg”), or features of the product (“pivot table”). It does not work equally well for verbs or adjectives because these are typically highly inflected in the source or in the target language. Avoid phrase dictionary entries for anything but compound nouns. 
+- The phrase dictionary works well for compound nouns like product names (“Microsoft SQL Server”), proper names (“City of Hamburg”), or features of the product (“pivot table”). It does not work equally well for verbs or adjectives because these are typically highly inflected in the source or in the target language. Avoid phrase dictionary entries for anything but compound nouns.
 - When using a dictionary, capitalization and punctuation in your translations will reflect the capitalization and punctuation provided in your target file. Capitalization and punctuation are ignored when trying to identify matches between your input sentence and the source sentences in your dictionary file. For example, let’s say we trained an English to Spanish system that used a dictionary that specified “City of Hamburg” in the source file, and “Ciudad de hamburg” in the target file. If I requested translation of a sentence that included the phrase “city of Hamburg”, then “city of Hamburg” would match to my dictionary file for the entry “City of Hamburg”, and would map to “Ciudad de hamburg” in my final translation.
 - If a word appears more than once in a dictionary file, the system will always use the last entry provided. Your dictionary should not contain multiple translations of the same word.
 

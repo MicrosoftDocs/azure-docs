@@ -3,15 +3,15 @@ title: Capture data from Event Hubs into Azure Data Lake Storage Gen1 | Microsof
 description: Use Azure Data Lake Storage Gen1 to capture data from Event Hubs 
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Use Azure Data Lake Storage Gen1 to capture data from Event Hubs

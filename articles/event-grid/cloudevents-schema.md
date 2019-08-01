@@ -13,13 +13,15 @@ ms.author: babanisa
 
 # Use CloudEvents schema with Event Grid
 
-In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](http://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/master/spec.md) for describing event data.
+In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [CloudEvents JSON schema](https://github.com/cloudevents/spec/blob/master/json-format.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/master/spec.md) for describing event data.
 
 CloudEvents simplifies interoperability by providing a common event schema for publishing, and consuming cloud based events. This schema allows for uniform tooling, standard ways of routing & handling events, and universal ways of deserializing the outer event schema. With a common schema, you can more easily integrate work across platforms.
 
-CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Compute Foundation](https://www.cncf.io/). It's currently available as version 0.1.
+CloudEvents is being built by several [collaborators](https://github.com/cloudevents/spec/blob/master/community/contributors.md), including Microsoft, through the [Cloud Native Computing Foundation](https://www.cncf.io/). It's currently available as version 0.1.
 
 This article describes how to use the CloudEvents schema with Event Grid.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## Install preview feature
 
@@ -64,7 +66,7 @@ CloudEvents v0.1 has the following properties available:
 | source             | URI      | "/mycontext"                     | Describes the event producer                                       | topic#subject
 | eventID            | String   | "1234-1234-1234"                 | ID of the event                                                    | id
 | eventTime          | Timestamp| "2018-04-05T17:31:00Z"           | Timestamp of when the event happened (Optional)                    | eventTime
-| schemaURL          | URI      | "https://myschema.com"           | A link to the schema that the data attribute adheres to (Optional) | *not used*
+| schemaURL          | URI      | "https:\//myschema.com"           | A link to the schema that the data attribute adheres to (Optional) | *not used*
 | contentType        | String   | "application/json"               | Describe the data encoding format (Optional)                       | *not used*
 | extensions         | Map      | { "extA": "vA", "extB", "vB" }  | Any additional metadata (Optional)                                 | *not used*
 | data               | Object   | { "objA": "vA", "objB", "vB" }  | The event payload (Optional)                                       | data

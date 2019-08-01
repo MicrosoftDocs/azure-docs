@@ -4,7 +4,7 @@ description: Learn about troubleshooting Azure Windows VM extension failures
 services: virtual-machines-windows
 documentationcenter: ''
 author: kundanap
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue,azure-resource-manager
 
@@ -28,7 +28,7 @@ Here is an example:
 
 Azure PowerShell:
 
-      Get-AzureRmVM -ResourceGroupName $RGName -Name $vmName -Status
+      Get-AzVM -ResourceGroupName $RGName -Name $vmName -Status
 
 Here is the sample output:
 
@@ -61,7 +61,7 @@ If you are running scripts on the VM using Custom Script Extension, you could so
 Note: In future, this functionality would be enhanced to remove the need for uninstalling the extension.
 
 #### Remove the extension from Azure PowerShell
-    Remove-AzureRmVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
+    Remove-AzVMExtension -ResourceGroupName $RGName -VMName $vmName -Name "myCustomScriptExtension"
 
 Once the extension has been removed, the template can be re-executed to run the scripts on the VM.
 

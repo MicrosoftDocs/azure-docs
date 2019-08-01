@@ -5,10 +5,10 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 1/8/2018
+ms.date: 05/09/2019
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: mmercuri
+ms.reviewer: brendal
 manager: femila
 ---
 
@@ -111,6 +111,7 @@ The request requires the following fields:
 | requestId            | Client supplied GUID |
 | userChainIdentifier  | Address of the user that was created on the blockchain network. In Ethereum, this address is the user’s **on chain** address. |
 | applicationName      | Name of the application |
+| version              | Version of the application. Required if you have multiple versions of the application enabled. Otherwise, version is optional. For more information on application versioning, see [Azure Blockchain Workbench application versioning](version-app.md). |
 | workflowName         | Name of the workflow |
 | parameters           | Parameters input for contract creation |
 | connectionId         | Unique identifier for the blockchain connection |
@@ -123,7 +124,8 @@ Example:
 { 
     "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
-    "applicationName": "AssetTransfer", 
+    "applicationName": "AssetTransfer",
+    "version": "1.0",
     "workflowName": "AssetTransfer", 
     "parameters": [ 
         { 
@@ -164,7 +166,7 @@ Example of a submitted **create contract** response from Blockchain Workbench:
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Submitted"
+    "status": "Submitted",
     "additionalInformation": { }
 }
 ```
@@ -194,7 +196,7 @@ If the request was unsuccessful, details about the failure are included in addit
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract cannot be provisioned on connection."
@@ -213,6 +215,7 @@ The request requires the following fields:
 | requestId                | Client supplied GUID |
 | userChainIdentifier      | Address of the user that was created on the blockchain network. In Ethereum, this address is the user’s **on chain** address. |
 | contractLedgerIdentifier | Address of the contract on the ledger |
+| version                  | Version of the application. Required if you have multiple versions of the application enabled. Otherwise, version is optional. For more information on application versioning, see [Azure Blockchain Workbench application versioning](version-app.md). |
 | workflowFunctionName     | Name of the workflow function |
 | parameters               | Parameters input for contract creation |
 | connectionId             | Unique identifier for the blockchain connection |
@@ -226,6 +229,7 @@ Example:
     "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
     "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
     "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "version": "1.0",
     "workflowFunctionName": "modify",
     "parameters": [
         {
@@ -278,7 +282,7 @@ Example of a committed **create contract action** response from Blockchain Workb
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Committed"
+    "status": "Committed",
     "additionalInformation": { }
 }
 ```
@@ -292,7 +296,7 @@ If the request was unsuccessful, details about the failure are included in addit
     "connectionId": 1,
     "messageSchemaVersion": "1.0.0",
     "messageName": "CreateContractActionUpdate",
-    "status": "Failure"
+    "status": "Failure",
     "additionalInformation": {
         "errorCode": 4000,
         "errorMessage": "Contract action cannot be provisioned on connection."
@@ -368,7 +372,7 @@ this trigger.
 
 ## Notification message reference
 
-Depending on the **OperationName**, the notification messages have one of the following message types.
+Depending on the **messageName**, the notification messages have one of the following message types.
 
 ### Block message
 
@@ -408,7 +412,7 @@ Example of a *BlockMessage* from Blockchain Workbench:
 ``` json
 {
     "block": {
-        "blockId": 123
+        "blockId": 123,
         "blockNumber": 1738312,
         "blockHash": "0x03a39411e25e25b47d0ec6433b73b488554a4a5f6b1a253e0ac8a200d13fffff",
         "previousBlockHash": null,
@@ -416,14 +420,14 @@ Example of a *BlockMessage* from Blockchain Workbench:
     },
     "transactions": [
         {
-            "transactionId": 234
+            "transactionId": 234,
             "transactionHash": "0xa4d9c95b581f299e41b8cc193dd742ef5a1d3a4ddf97bd11b80d123fec27ffff",
             "from": "0xd85e7262dd96f3b8a48a8aaf3dcdda90f60dffff",
             "to": null,
             "provisioningStatus": 1
         },
         {
-            "transactionId": 235
+            "transactionId": 235,
             "transactionHash": "0x5c1fddea83bf19d719e52a935ec8620437a0a6bdaa00ecb7c3d852cf92e1ffff",
             "from": "0xadd97e1e595916e29ea94fda894941574000ffff",
             "to": "0x9a8DDaCa9B7488683A4d62d0817E965E8f24ffff",
@@ -562,7 +566,7 @@ Contains information when a contract function is invoked, such as the function n
 | contractLedgerIdentifier    | Unique identifier for the contract on the ledger |
 | functionName                | Name of the function |
 | parameters                  | [Parameter information](#parameter-information) |
-| transaction                 | [Transaction information](#eventmessage-transaction-information) |
+| transaction                 | Transaction information |
 | inTransactionSequenceNumber | The sequence number of the transaction in the block |
 | connectionId                | Unique identifier for the connection |
 | messageSchemaVersion        | Messaging schema version |
@@ -672,7 +676,7 @@ Contains information when an application is uploaded to Workbench, such as the n
 | id | Unique identifier for the application workflow inside Azure Blockchain Workbench |
 | name | Application workflow name |
 | displayName | Application workflow display name |
-| functions | Collection of [functions for the application workflow ](#workflow-function-information)|
+| functions | Collection of [functions for the application workflow](#workflow-function-information)|
 | states | Collection of [states for the application workflow](#workflow-state-information) |
 | properties | Application [workflow properties information](#workflow-property-information) |
 
@@ -709,7 +713,7 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
     "applicationName": "AssetTransfer",
     "applicationDisplayName": "Asset Transfer",
     "applicationVersion": “1.0”,
-    "applicationDefinitionLocation": "http://url"
+    "applicationDefinitionLocation": "http://url",
     "contractCodes": [
         {
             "id": 23,
@@ -799,7 +803,7 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
                 }
             ]
         }
-    ]
+    ],
     "connectionId": [ ],
     "messageSchemaVersion": "1.0.0",
     "messageName": "EventMessage",
@@ -811,7 +815,7 @@ Example of an *EventMessage ApplicationIngestion* from Blockchain Workbench:
                     "Name": "BuyerAccepted",
                     "Transitions": [
                         {
-                            "DisplayName": "Accept"
+                            "DisplayName": "Accept",
                             "AllowedRoles": [ ],
                             "AllowedInstanceRoles": [ "InstanceOwner" ],
                             "Function": "Accept",

@@ -1,10 +1,10 @@
 ---
 title: Use Azure Active Directory to authenticate Batch Management solutions | Microsoft Docs
-description: Applications built with Azure resource manager and the Batch resource provider authenticate with Azure AD.
+description: Applications built with Azure Resource Manager and the Batch resource provider authenticate with Azure AD.
 services: batch
 documentationcenter: .net
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Authenticate Batch Management solutions with Active Directory
@@ -32,7 +32,7 @@ To learn more about using the Batch Management .NET library and the AccountManag
 
 The Azure [Active Directory Authentication Library][aad_adal] (ADAL) provides a programmatic interface to Azure AD for use within your applications. To call ADAL from your application, you must register your application in an Azure AD tenant. When you register your application, you supply Azure AD with information about your application, including a name for it within the Azure AD tenant. Azure AD then provides an application ID that you use to associate your application with Azure AD at runtime. To learn more about the application ID, see [Application and service principal objects in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/quickstart-v1-add-azure-ad-app.md) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint:
+To register the AccountManagement sample application, follow the steps in the [Adding an Application](../active-directory/develop/quickstart-register-app.md) section in [Integrating applications with Azure Active Directory][aad_integrate]. Specify **Native Client Application** for the type of application. The industry standard OAuth 2.0 URI for the **Redirect URI** is `urn:ietf:wg:oauth:2.0:oob`. However, you can specify any valid URI (such as `http://myaccountmanagementsample`) for the **Redirect URI**, as it does not need to be a real endpoint:
 
 ![](./media/batch-aad-auth-management/app-registration-management-plane.png)
 
@@ -133,5 +133,5 @@ To authenticate Batch service applications using Azure AD, see [Authenticate Bat
 [aad_auth_scenarios]:../active-directory/develop/authentication-scenarios.md "Authentication Scenarios for Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrating Applications with Azure Active Directory"
 [acct_mgmt_sample]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/AccountManagement
-[azure_portal]: http://portal.azure.com
+[azure_portal]: https://portal.azure.com
 [resman_overview]: ../azure-resource-manager/resource-group-overview.md

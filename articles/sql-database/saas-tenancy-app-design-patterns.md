@@ -10,14 +10,14 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib, sstein
-manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
+ms.custom: seoapril2019
 ---
 # Multi-tenant SaaS database tenancy patterns
 
-When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
+This article describes the various tenancy models available for a multi-tenant SaaS application.
 
-This article describes alternative tenancy models.
+When designing a multi-tenant SaaS application, you must carefully choose the tenancy model that best fits the needs of your application.  A tenancy model determines how each tenant’s data is mapped to storage.  Your choice of tenancy model impacts application design and management.  Switching to a different model later is sometimes costly.
 
 ## A. SaaS concepts and terminology
 
@@ -89,11 +89,11 @@ With database-per-tenant, customizing the schema for one or more individual tena
 
 #### Elastic pools
 
-When databases are deployed in the same resource group, they can be grouped into elastic database pools.  The pools provide a cost-effective way of sharing resources across many databases.  This pool option is cheaper than requiring each database to be large enough to accommodate the usage peaks that it experiences.  Even though pooled databases share access to resources they can still achieve a high degree of performance isolation.
+When databases are deployed in the same resource group, they can be grouped into elastic pools.  The pools provide a cost-effective way of sharing resources across many databases.  This pool option is cheaper than requiring each database to be large enough to accommodate the usage peaks that it experiences.  Even though pooled databases share access to resources they can still achieve a high degree of performance isolation.
 
 ![Design of multi-tenant app with database-per-tenant, using elastic pool.][image-mt-app-db-per-tenant-pool-153p]
 
-Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Log Analytics.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
+Azure SQL Database provides the tools necessary to configure, monitor, and manage the sharing.  Both pool-level and database-level performance metrics are available in the Azure portal, and through Azure Monitor logs.  The metrics can give great insights into both aggregate and tenant-specific performance.  Individual databases can be moved between pools to provide reserved resources to a specific tenant.  These tools enable you to ensure good performance in a cost effective manner.
 
 #### Operations scale for database-per-tenant
 

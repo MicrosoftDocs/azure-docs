@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Search in Node.js - Azure Search
-description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
+title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using Node.js and the Azure Search REST APIs.
 author: jj09
 manager: jlembicz
 services: search
@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
 ---
-# Get started with Azure Search in Node.js
+# Quickstart: Create an Azure Search index in Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -26,7 +26,7 @@ To run this sample, you must have an Azure Search service, which you can sign up
 ## About the data
 This sample application uses data from the [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from an Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
 
 > [!NOTE]
 > We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Search service limits](search-limits-quotas-capacity.md).
@@ -94,7 +94,7 @@ You could also try any of these terms:
 ## Next steps
 This is the first Azure Search tutorial based on Node.js and the USGS dataset. Over time, we'll extend this tutorial to demonstrate additional search features you might want to use in your custom solutions.
 
-If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or auto-complete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. You can also improve upon the search results page by adding counts and batching documents so that users can page through the results.
 
 New to Azure Search? We recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 

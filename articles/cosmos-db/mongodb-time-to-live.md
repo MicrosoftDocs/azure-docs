@@ -49,7 +49,7 @@ The TTL value must be an int32. Alternatively, an int64 that fits in an int32, o
 
 The TTL value for the document is optional; documents without a TTL value can be inserted into the collection.  In this case, the collection's TTL value will be honored. 
 
-The following documents have valid TTL values. Once the documents are insterted, the document TTL values override the collection's TTL values. So, the documents will be removed after 20 seconds. 	
+The following documents have valid TTL values. Once the documents are inserted, the document TTL values override the collection's TTL values. So, the documents will be removed after 20 seconds. 	
 
 ```JavaScript 
 globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: 20.0}) 
@@ -68,7 +68,7 @@ globaldb:PRIMARY> db.coll.insert({id:1, location: "Paris", ttl: NumberLong(21474
 
 The per-document TTL feature can be activated with Azure Cosmos DB's API for MongoDB.
 
-![Screen shot of the Per-document TTL feature activation in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
+![Screenshot of the Per-document TTL feature activation in Portal](./media/mongodb-ttl/mongodb_portal_ttl.png) 
 
 ## Next steps
 * [Expire data in Azure Cosmos DB automatically with time to live](../cosmos-db/time-to-live.md)

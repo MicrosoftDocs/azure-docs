@@ -52,12 +52,12 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 There are two steps to add an IoT Edge device to your Remote Monitoring solution accelerator. This section shows you how to use:
 
-* Add an IoT Edge device on the **Devices** page in the Remote Monitoring web UI.
+* Add an IoT Edge device on the **Device Explorer** page in the Remote Monitoring web UI.
 * Install the IoT Edge runtime in a Linux virtual machine (VM).
 
 ### Add an IoT Edge device to your solution
 
-To add an IoT Edge device to the Remote Monitoring solution accelerator, navigate to the **Devices** page in the web UI and click **+ New device**.
+To add an IoT Edge device to the Remote Monitoring solution accelerator, navigate to the **Device Explorer** page in the web UI and click **+ New device**.
 
 In the **New device** panel, choose **IoT Edge device** and enter **oil-pump** as the device ID. You can leave the default values for the other settings. Then click **Apply**:
 
@@ -65,13 +65,13 @@ In the **New device** panel, choose **IoT Edge device** and enter **oil-pump** a
 
 Make a note of the device connection string, you need it in the next section of this tutorial.
 
-When you register a device with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Devices** page in the web UI:
+When you register a device with the IoT hub in the Remote Monitoring solution accelerator, it's listed on the **Device Explorer** page in the web UI:
 
 [![New IoT Edge device](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newedgedevice-expanded.png#lightbox)
 
 To make it easier to manage  the IoT Edge devices in the solution, create a device group and add the IoT Edge device:
 
-1. Select the **oil-pump** device in the list on the **Devices** page and then click **Jobs**.
+1. Select the **oil-pump** device in the list on the **Device Explorer** page and then click **Jobs**.
 
 1. Create a job to add the **IsEdge** tag to the device using the following settings:
 
@@ -87,7 +87,7 @@ To make it easier to manage  the IoT Edge devices in the solution, create a devi
 
 1. Click **Apply**, then **Close**.
 
-1. On the **Devices** page, click **Manage device groups**.
+1. On the **Device Explorer** page, click **Manage device groups**.
 
 1. Click **Create new device group**. Create a new device group with the following settings:
 
@@ -242,7 +242,7 @@ Next, you create an IoT Edge deployment manifest that defines the modules to run
 
 1. Click the **oil-pump-device** deployment and then click **Download IoT Edge manifest**. Save the file as **oil-pump-device.json** to a suitable location on your local machine. You need this file in the next section of this tutorial.
 
-You've now created a IoT Edge manifest to import into the Remote Monitoring solution as a package. Typically, a developer creates the IoT Edge modules and manifest file.
+You've now created an IoT Edge manifest to import into the Remote Monitoring solution as a package. Typically, a developer creates the IoT Edge modules and manifest file.
 
 ## Import a package
 
@@ -297,7 +297,7 @@ The **Deployments** page shows the following metrics:
 
 You can view the temperature telemetry from your oil pump device in the Remote Monitoring web UI:
 
-1. Navigate to the **Devices** page and select your oil pump device.
+1. Navigate to the **Device Explorer** page and select your oil pump device.
 1. In the **Telemetry** section of the **Device details** panel, click **Temperature**:
 
     [![View telemetry](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)

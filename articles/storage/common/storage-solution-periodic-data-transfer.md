@@ -5,9 +5,9 @@ services: storage
 author: alkohli
 
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 06/24/2019
 ms.author: alkohli
 ---
 
@@ -48,7 +48,7 @@ The following table summarizes the differences in key capabilities.
 
 ### Continuous data ingestion over network
 
-| Feature                                       | Data Box Gateway (preview) | Data Box Edge (preview)  | Azure Data Factory        |
+| Feature                                       | Data Box Gateway | Data Box Edge   | Azure Data Factory        |
 |----------------------------------|-----------------------------------------|--------------------------|---------------------------|
 | Form factor                                   | Virtual device             | Physical device          | Service in Azure portal, agent on-premises                                                            |
 | Hardware                                      | Your hypervisor            | Supplied by Microsoft    | NA                                                            |
@@ -62,7 +62,7 @@ The following table summarizes the differences in key capabilities.
 ## Next steps
 
 - [Transfer data with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [More information on data transfer with Storage REST APIs](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
+- [More information on data transfer with Storage REST APIs](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet).
 - Understand how to:
     - [Transfer data with Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Transform data with Data Box Edge before sending to Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).

@@ -61,7 +61,7 @@ It is important to monitor your disk utilization as your application grows. If t
 
 - The app may throw an error indicating not enough space on the disk.
 - You may see disk errors when browsing to the Kudu console.
-- Deployment from VSTS or Visual Studio may fail with `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
+- Deployment from Azure DevOps or Visual Studio may fail with `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`.
 - Your app may suffer slow performance.
 
 <a id="NetworkDrives"></a>
@@ -92,7 +92,7 @@ The home directory contains an app's content, and application code can write to 
 <a id="NetworkAccess"></a>
 
 ## Network access
-Application code can use TCP/IP and UDP-based protocols to make outbound network connections to Internet accessible endpoints that expose external services. Apps can use these same protocols to connect to services within Azure&#151;for example, by establishing HTTPS connections to SQL Database.
+Application code can use TCP/IP and UDP-based protocols to make outbound network connections to Internet accessible endpoints that expose external services. Apps can use these same protocols to connect to services within Azure, for example, by establishing HTTPS connections to SQL Database.
 
 There is also a limited capability for apps to establish one local loopback connection, and have an app listen on that local loopback socket. This feature exists primarily to enable apps that listen on local loopback sockets as part of their functionality. Each app sees a "private" loopback connection. App "A" cannot listen to a local loopback socket established by app "B".
 
@@ -124,6 +124,10 @@ Areas of diagnostics logging and tracing that aren't available to apps are Windo
 Apps have read-only access to much (though not all) of the registry of the virtual machine they are running on. In practice, this means registry keys that allow read-only access to the local Users group are accessible by apps. One area of the registry that is currently not supported for either read or write access is the HKEY\_CURRENT\_USER hive.
 
 Write-access to the registry is blocked, including access to any per-user registry keys. From the app's perspective, write access to the registry should never be relied upon in the Azure environment since apps can (and do) get migrated across different virtual machines. The only persistent writeable storage that can be depended on by an app is the per-app content directory structure stored on the App Service UNC shares. 
+
+## Remote desktop access
+
+App Service doesn't provide remote desktop access to the VM instances.
 
 ## More information
 

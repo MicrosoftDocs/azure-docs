@@ -50,7 +50,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     Jane|Doe
 	```
 
-1. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use various tools to perform these tasks, such as [Azure Storage Explorer](http://storageexplorer.com/).
+1. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
 
 #### Create a sink SQL table
 
@@ -68,7 +68,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL Server. Verify that the setting **Allow access to Azure services** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to your Azure SQL server > **Security** > **Firewalls and virtual networks** > set the **Allow access to Azure services** option to **ON**.
+2. Allow Azure services to access SQL Server. Verify that the setting **Allow access to Azure services** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to Azure SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**.
 
 ## Create a data factory
 
@@ -148,7 +148,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     ![New sink linked service](./media/tutorial-copy-data-tool/new-sink-linked-service.png)
 
-    b. Select **Azure Blob Storage** from the gallery, and then select **Next**.
+    b. Select **Azure SQL Database** from the gallery, and then select **Next**.
 
     ![Select Azure SQL DB](./media/tutorial-copy-data-tool/select-azure-sql-db.png)
 

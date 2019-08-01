@@ -3,6 +3,7 @@ title: Azure Container Registry authentication with a service principal
 description: Provide access to images in your private container registry by using an Azure Active Directory service principal.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
@@ -43,9 +44,7 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well versi
 
 ## Next steps
 
-Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for registry interaction.
-
-While configuring individual applications to use service principal credentials is outside the scope of this article, you can find instructions for some specific services and platforms here:
+Once you have a service principal that you've granted access to your container registry, you can use its credentials in your applications and services for headless registry interaction. You can use service principal credentials from any Azure service that can authenticate with an Azure container registry. Examples include:
 
 * [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](container-registry-auth-aks.md)
 * [Authenticate with Azure Container Registry from Azure Container Instances (ACI)](container-registry-auth-aci.md)

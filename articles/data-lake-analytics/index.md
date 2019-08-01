@@ -103,7 +103,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/module/azurerm.datalakeanalytics/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakeanalytics/">PowerShell</a></p>
                         <p><a href="/cli/azure/dla">Azure CLI</a></p>
                     </div>
                 </div>
@@ -119,7 +119,7 @@ Learn how to use Azure Data Lake Analytics to run big data analysis jobs that sc
                         <p><a href="/dotnet/api/microsoft.azure.management.datalake.analytics">.NET</a></p>
                         <p><a href="https://www.npmjs.com/package/azure-arm-datalake-analytics">Node​.js</a></p>
                         <p><a href="https://docs.microsoft.com/python/api/azure.mgmt.datalake.analytics.account">Python</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt591959">U-SQL</a></p>
+                        <p><a href="https://docs.microsoft.com/u-sql/">U-SQL</a></p>
                     </div>
                 </div>
             </div>

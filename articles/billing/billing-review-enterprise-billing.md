@@ -4,7 +4,7 @@ description: Learn how to use Azure REST APIs to review enterprise enrollment bi
 services: billing
 documentationcenter: na
 author: lleonard-msft
-manager: MBaldwin
+manager: 
 editor: ''
 
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2018
-ms.author: erikre
+ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
 
@@ -24,7 +24,7 @@ ms.author: erikre
 
 Azure Reporting APIs help you review and manage your Azure costs.
 
-In this article, you learn to retrieve the billing information associated with billing accounts, department, or enterprtise agreement (EA) enrollment accounts using the Azure REST APIs. 
+In this article, you learn to retrieve the billing information associated with billing accounts, department, or enterprise agreement (EA) enrollment accounts using the Azure REST APIs. 
 
 ## Individual account billing
 
@@ -77,7 +77,7 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
 }
 ```  
 
-This example is abbreviated; see [Get usage detail for a billing account](/rest/api/consumption/usagedetails/listbybillingaccount) for a complete description of each response field and error handling.
+This example is abbreviated; see [Get usage detail for a billing account](/rest/api/consumption/usagedetails/list#billingaccountusagedetailslist) for a complete description of each response field and error handling.
 
 ## Department billing 
 
@@ -133,7 +133,7 @@ The following example shows the output of the REST API for department `1234`.
 }
 ```  
 
-This example is abbreviated; see [Get usage detail for a department](/rest/api/consumption/usagedetails/listbydepartment) for a complete description of each response field and error handling.
+This example is abbreviated; see [Get usage detail for a department](/rest/api/consumption/usagedetails/list#departmentusagedetailslist) for a complete description of each response field and error handling.
 
 ## Enrollment account billing
 
@@ -186,7 +186,7 @@ The following example shows the output of the REST API for enterprise enrollment
 }
 ``` 
 
-This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/listbyenrollmentaccount) for a complete description of each response field and error handling.
+This example is abbreviated; see [Get usage detail for an enrollment account](/rest/api/consumption/usagedetails/list#enrollmentaccountusagedetailslist) for a complete description of each response field and error handling.
 
 ## Next steps 
 - Review [Enterprise reporting overview](https://docs.microsoft.com/azure/billing/billing-enterprise-api)

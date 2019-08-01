@@ -11,8 +11,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 02/11/2019
 ms.author: spelluru
+ms.reviewer: christianreddington,anthdela,juselph
 
 ---
 
@@ -42,7 +43,7 @@ Next, we highlight the Pros of each approach.
 Often the approach of one subscription is not manageable in a large enterprise. However, limiting the number of subscriptions provides the following benefits:
 
 - **Forecasting** costs for enterprise.  Budgeting becomes much easier in a single subscription because all resources are in a single pool. This approach allows for simpler decision making on when to exercise cost control measures at any given time in a billing cycle.
-- **Manageability** of VMs, artifacts, formulas, network configuration, permissions, policies, etc is easier since all the updates are only required in one subscription as opposed to making updates across many subscriptions.
+- **Manageability** of VMs, artifacts, formulas, network configuration, permissions, policies, etc. is easier since all the updates are only required in one subscription as opposed to making updates across many subscriptions.
 - **Networking** effort is greatly simplified in a single subscription for enterprises where on-premises connectivity is a requirement. Connecting virtual networks across subscriptions (hub-spoke model) is required with additional subscriptions, which requires additional configuration, management, IP address spaces, etc.
 - **Team collaboration** is easier when everyone is working in the same subscription – for example, it’s easier to reassign a VM to a co-worker, share team resources, etc.
 

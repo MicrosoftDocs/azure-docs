@@ -1,14 +1,14 @@
 ---
-title: Connect Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL
-description: Learn about connecting Azure Kubernetes Service with Azure Database for PostgreSQL
+title: Connect Azure Kubernetes Service (AKS) with Azure Database for PostgreSQL - Single Server
+description: Learn about connecting Azure Kubernetes Service with Azure Database for PostgreSQL - Single Server
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
-ms.date: 11/27/2018
+ms.date: 5/6/2019
 ms.topic: conceptual
 ---
 
-# Connecting Azure Kubernetes Service and Azure Database for PostgreSQL
+# Connecting Azure Kubernetes Service and Azure Database for PostgreSQL - Single Server
 
 Azure Kubernetes Service (AKS) provides a managed Kubernetes cluster you can use in Azure. Below are some options to consider when using AKS and Azure Database for PostgreSQL together to create an application.
 
@@ -27,6 +27,14 @@ You can confirm whether your AKS cluster has accelerated networking:
 6. Go to the VM's **Networking** tab.
 7. Confirm whether **Accelerated networking** is 'Enabled.'
 
+Or through the Azure CLI using the following two commands:
+```azurecli
+az aks show --resource-group myResourceGroup --name myAKSCluster --query "nodeResourceGroup"
+```
+The output will be the generated resource group that AKS creates containing the network interface. Take the "nodeResourceGroup" name and use it in the next command. **EnableAcceleratedNetworking** will either be true or false:
+```azurecli
+az network nic list --resource-group nodeResourceGroup -o table
+```
 
 ## Open Service Broker for Azure 
 [Open Service Broker for Azure](https://github.com/Azure/open-service-broker-azure/blob/master/README.md) (OSBA) lets you provision Azure services directly from Kubernetes or Cloud Foundry. It is an [Open Service Broker API](https://www.openservicebrokerapi.org/) implementation for Azure.

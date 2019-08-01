@@ -4,7 +4,7 @@ description: How to apply a policy to an Azure Resource Manager Windows Virtual 
 services: virtual-machines-windows
 documentationcenter: ''
 author: singhkays
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -21,7 +21,7 @@ ms.author: kasing
 # Apply policies to Windows VMs with Azure Resource Manager
 By using policies, an organization can enforce various conventions and rules throughout the enterprise. Enforcement of the desired behavior can help mitigate risk while contributing to the success of the organization. In this article, we describe how you can use Azure Resource Manager policies to define the desired behavior for your organization’s Virtual Machines.
 
-For an introduction to policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+For an introduction to policies, see [What is Azure Policy?](../../governance/policy/overview.md).
 
 ## Permitted Virtual Machines
 To ensure that virtual machines for your organization are compatible with an application, you can restrict the permitted operating systems. In the following policy example, you allow only Windows Server 2012 R2 Datacenter Virtual Machines to be created:
@@ -247,6 +247,6 @@ When you have an on-premises license, you can save the license fee on your virtu
 ```
 
 ## Next steps
-* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies, see [Use Azure portal to assign and manage resource policies](../../azure-policy/assign-policy-definition.md), [Use PowerShell to assign policies](../../azure-policy/assign-policy-definition-ps.md), or [Use Azure CLI to assign policies](../../azure-policy/assign-policy-definition-cli.md).
-* For an introduction to resource policies, see [What is Azure Policy?](../../azure-policy/azure-policy-introduction.md).
+* After defining a policy rule (as shown in the preceding examples), you need to create the policy definition and assign it to a scope. The scope can be a subscription, resource group, or resource. To assign policies, see [Use Azure portal to assign and manage resource policies](../../governance/policy/assign-policy-portal.md), [Use PowerShell to assign policies](../../governance/policy/assign-policy-powershell.md), or [Use Azure CLI to assign policies](../../governance/policy/assign-policy-azurecli.md).
+* For an introduction to resource policies, see [What is Azure Policy?](../../governance/policy/overview.md).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

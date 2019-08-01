@@ -4,21 +4,24 @@ description: Provides information about how password hash synchronization works 
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: mtillman
+manager: daveba
 ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 12/06/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 04/02/2019
+ms.subservice: hybrid
 ms.author: billmath
+search.appverid:
+- MET150
 
+ms.collection: M365-identity-device-management
 ---
 # Implement password hash synchronization with Azure AD Connect sync
 This article provides information that you need to synchronize your user passwords from an on-premises Active Directory instance to a cloud-based Azure Active Directory (Azure AD) instance.
 
 ## How password hash synchronization works
-The Active Directory domain service stores passwords in the form of a hash value representation, of the actual user password. A hash value is a result of a one-way mathematical function (the *hashing algorithm*). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
+The Active Directory domain service stores passwords in the form of a hash value representation, of the actual user password. A hash value is a result of a one-way mathematical function (the *hashing algorithm*). There is no method to revert the result of a one-way function to the plain text version of a password. 
 
 To synchronize your password, Azure AD Connect sync extracts your password hash from the on-premises Active Directory instance. Extra security processing is applied to the password hash before it is synchronized to the Azure Active Directory authentication service. Passwords are synchronized on a per-user basis and in chronological order.
 
@@ -40,7 +43,7 @@ A user must enter their corporate credentials a second time to authenticate to A
 ### Detailed description of how password hash synchronization works
 The following section describes, in-depth, how password hash synchronization works between Active Directory and Azure AD.
 
-![Detailed password flow](./media/how-to-connect-password-hash-synchronization/arch3.png)
+![Detailed password flow](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. Every two minutes, the password hash synchronization agent on the AD Connect server requests stored password hashes (the unicodePwd attribute) from a DC.  This request is via the standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) replication protocol used to synchronize data between DCs. The service account must have Replicate Directory Changes and Replicate Directory Changes All AD permissions (granted by default on installation) to obtain the password hashes.
@@ -56,7 +59,7 @@ The following section describes, in-depth, how password hash synchronization wor
 >The original MD4 hash is not transmitted to Azure AD. Instead, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained, it cannot be used in an on-premises pass-the-hash attack.
 
 ### How password hash synchronization works with Azure Active Directory Domain Services
-You can also use the password hash synchronization feature to synchronize your on-premises passwords to [Azure Active Directory Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). In this scenario, the Azure Active Directory Domain Services instance authenticates your users in the cloud with all the methods available in your on-premises Active Directory instance. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
+You can also use the password hash synchronization feature to synchronize your on-premises passwords to [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). In this scenario, the Azure Active Directory Domain Services instance authenticates your users in the cloud with all the methods available in your on-premises Active Directory instance. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
 
 ### Security considerations
 When synchronizing passwords, the plain-text version of your password is not exposed to the password hash synchronization feature, to Azure AD, or any of the associated services.

@@ -10,19 +10,18 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
-manager: craigg
 ms.date: 09/19/2018
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database
  
 As a database application evolves, changes inevitably need to be made to the database schema or reference data.  Database maintenance tasks are also needed periodically. Managing an application that uses the database per tenant pattern requires that you apply these changes or maintenance tasks across a fleet of tenant databases.
 
-This tutorial explores two scenarios - deploying reference data updates for all tenants, and rebuilding an index on the table containing the reference data. The [Elastic jobs](sql-database-elastic-jobs-overview.md) feature is used to execute these actions on all tenant databases, and on the template database used to create new tenant databases.
+This tutorial explores two scenarios - deploying reference data updates for all tenants, and rebuilding an index on the table containing the reference data. The [Elastic jobs](elastic-jobs-overview.md) feature is used to execute these actions on all tenant databases, and on the template database used to create new tenant databases.
 
 In this tutorial you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Create a job agent
 > * Cause T-SQL jobs to be run on all tenant databases
 > * Update reference data in all tenant databases
@@ -40,7 +39,7 @@ To complete this tutorial, make sure the following prerequisites are met:
 
 ## Introduction to SaaS schema management patterns
 
-The database per tenant pattern isolates tenant data effectively, but increases the number of databases to manage and maintain. [Elastic Jobs](sql-database-elastic-jobs-overview.md) facilitates administration and management of SQL databases. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) against a group of databases. Jobs can deploy schema and common reference data changes across all tenant databases in an application. Elastic Jobs can also be used to maintain a *template* database used to create new tenants, ensuring it always has the latest schema and reference data.
+The database per tenant pattern isolates tenant data effectively, but increases the number of databases to manage and maintain. [Elastic Jobs](elastic-jobs-overview.md) facilitates administration and management of SQL databases. Jobs enable you to securely and reliably, run tasks (T-SQL scripts) against a group of databases. Jobs can deploy schema and common reference data changes across all tenant databases in an application. Elastic Jobs can also be used to maintain a *template* database used to create new tenants, ensuring it always has the latest schema and reference data.
 
 ![screen](media/saas-tenancy-schema-management/schema-management-dpt.png)
 
@@ -116,16 +115,15 @@ Observe the following elements in the _OnlineReindex.sql_ script:
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Create a job agent to run across T-SQL jobs multiple databases
 > * Update reference data in all tenant databases
 > * Create an index on a table in all tenant databases
 
-Next, try the [Ad-hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md) to explore running distributed queries across tenant databases.
+Next, try the [Ad hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md) to explore running distributed queries across tenant databases.
 
 
 ## Additional resources
 
 * [Additional tutorials that build upon the Wingtip Tickets SaaS Database Per Tenant application deployment](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
-* [Managing scaled-out cloud databases](sql-database-elastic-jobs-overview.md)
-* [Create and manage scaled-out cloud databases](sql-database-elastic-jobs-create-and-manage.md)
+* [Managing scaled-out cloud databases](elastic-jobs-overview.md)

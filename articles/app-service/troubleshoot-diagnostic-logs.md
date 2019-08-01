@@ -25,23 +25,23 @@ Azure provides built-in diagnostics to assist with debugging an [App Service app
 This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
 ## <a name="whatisdiag"></a>Web server diagnostics and application diagnostics
-App Service provide diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
+App Service provides diagnostic functionality for logging information from both the web server and the web application. These are logically separated into **web server diagnostics** and **application diagnostics**.
 
 ### Web server diagnostics
 You can enable or disable the following kinds of logs:
 
-* **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). It may contain information that can help determine why the server returned the error code.
-* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It is useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
-* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
+* **Detailed Error Logging** - Detailed information for any request that results in HTTP status code 400 or greater. It may contain information that can help determine why the server returned the error code. One HTML file is generated for each error in the app's file system, and up to 50 errors (files) are retained. When the number of HTML files exceed 50, the oldest 26 files are automatically deleted.
+* **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It's useful if you want to improve site performance or isolate a specific HTTP error. One folder is generated for each error in the app's file system. File retention policies are the same as the detailed error logging above.
+* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). It's useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
 ### Application diagnostics
-Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
+Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) class to log information to the application diagnostics log. For example:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
 At runtime, you can retrieve these logs to help with troubleshooting. For more information, see [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md).
 
-App Service also log deployment information when you publish content to an app. It happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you are using a custom deployment script, you might use deployment logging to determine why the script is failing.
+App Service also logs deployment information when you publish content to an app. It happens automatically and there are no configuration settings for deployment logging. Deployment logging allows you to determine why a deployment failed. For example, if you use a custom deployment script, you might use deployment logging to determine why the script is failing.
 
 ## <a name="enablediag"></a>How to enable diagnostics
 To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the page for your app and click **Settings > Diagnostics logs**.
@@ -49,12 +49,16 @@ To enable diagnostics in the [Azure portal](https://portal.azure.com), go to the
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Logs part](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-When you enable **application diagnostics**, you also choose the **Level**. This setting allows you to filter the information captured to **informational**, **warning**, or **error** information. Setting it to **verbose** logs all information produced by the application.
+When you enable **application diagnostics**, you also choose the **Level**. The following table shows the categories of logs each level includes:
 
-> [!NOTE]
-> Unlike changing the web.config file, enabling Application diagnostics or changing diagnostic log levels does not recycle the app domain that the application runs within.
->
->
+| Level| Included log categories |
+|-|-|
+|**Disabled** | None |
+|**Error** | Error, Critical |
+|**Warning** | Warning, Error, Critical|
+|**Information** | Info, Warning, Error, Critical|
+|**Verbose** | Trace, Debug, Info, Warning, Error, Critical (all categories) |
+|-|-|
 
 For **Application logging**, you can turn on the file system option temporarily for debugging purposes. This option turns off automatically in 12 hours. You can also turn on the blob storage option to select a blob container to write logs to.
 
@@ -93,7 +97,7 @@ The directory structure that the logs are stored in is as follows:
 * **Application logs** - /LogFiles/Application/. This folder contains one or more text files containing information produced by application logging.
 * **Failed Request Traces** - /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred.
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging).
 * **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure App Service, as well as logs for Git deployments. You can also find deployment logs under D:\home\site\deployments.
 
 ### FTP
@@ -107,10 +111,10 @@ To download the log files using the Azure Command Line Interface, open a new com
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-This command saves the logs for the app named 'appname' to a file named **diagnostics.zip** in the current directory.
+This command saves the logs for the app named 'appname' to a file named **webapp_logs.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> If you haven't installed Azure CLI, or haven't configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -153,7 +157,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
     az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
+> If you haven't installed Azure CLI, or haven't configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
 >
 >
 
@@ -161,7 +165,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 ### Application diagnostics logs
 Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system or blob storage. 
 
-The base set of data stored is the same across both storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message. Using the file system for log storage is useful when you need immediate access to troubleshoot an issue because the log files are updated near instantaneously. Blob storage is use for archival purposes because the files are cached and then flushed to the storage container on a schedule.
+The base set of data stored is the same across both storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message. Using the file system for log storage is useful when you need immediate access to troubleshoot an issue because the log files are updated near instantaneously. Blob storage is used for archival purposes because the files are cached and then flushed to the storage container on a schedule.
 
 **File system**
 
@@ -197,7 +201,7 @@ The data stored in a blob would look similar to the following example:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> For ASP.NET Core, logging is accomplished using the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider This provider deposits additional log files into the blob container. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
+> For ASP.NET Core, logging is accomplished using the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider This provider deposits additional log files into the blob container. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging).
 >
 >
 
@@ -206,11 +210,15 @@ Failed request traces are stored in XML files named **fr######.xml**. To make it
 
 ![failed request viewed in the browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
+> [!NOTE]
+> An easy way to view the formatted failed request traces is to navigate to your app's page in the portal. From the left menu, select **Diagnose and solve problems**, then search for **Failed Request Tracing Logs**, then click the icon to browse and view the trace you want.
+>
+
 ### Detailed error logs
 Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred. Since they are simply HTML documents, they can be viewed using a web browser.
 
 ### Web server logs
-The web server logs are formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
+The web server logs are formatted using the [W3C extended log file format](/windows/desktop/Http/w3c-logging). This information can be read using a text editor or parsed using utilities such as [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > The logs produced by Azure App Service do not support the **s-computername**, **s-ip**, or **cs-version** fields.

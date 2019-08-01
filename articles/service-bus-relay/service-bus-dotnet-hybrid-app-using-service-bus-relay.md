@@ -12,7 +12,7 @@ ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: spelluru
 
@@ -41,7 +41,7 @@ You take the following steps in this tutorial:
 To complete this tutorial, you need the following prerequisites:
 
 - An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+- [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 - Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
 
 ## How Azure Relay helps with hybrid solutions
@@ -87,7 +87,7 @@ First, you build a simulated on-premises product catalog system.  This project i
 
    ![New Project dialog box][11]
 4. Click **OK** to create the **ProductsServer** project.
-5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then restart Visual Studio.
+5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then restart Visual Studio.
 6. In Solution Explorer, right-click the **ProductsServer** project, then click **Manage NuGet Packages**.
 7. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package.
 8. Click **Install**, and accept the terms of use.
@@ -266,7 +266,7 @@ In this section, you build a simple ASP.NET application that displays data retri
            public string Quantity { get; set; }
        }
 	}
-	```
+    ```
 2. In Solution Explorer, expand the **Controllers** folder, then double-click the **HomeController.cs** file to open it in Visual Studio.
 3. In **HomeController.cs**, replace the existing namespace definition with the following code:
 
@@ -426,14 +426,14 @@ The next step is to republish the Azure Web app **ProductsPortal** frontend. Do 
 
 1. In Solution Explorer, right-click the **ProductsPortal** project, and click **Publish**. Then, click **Publish** on the **Publish** page.
 
-  > [!NOTE]
-  > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
->
->
+   > [!NOTE]
+   > You may see an error message in the browser window when the **ProductsPortal** web project is automatically launched after the deployment. This is expected, and occurs because the **ProductsServer** application isn't running yet.
+   >
+   >
 
 2. Copy the URL of the deployed web app, as you will need the URL in the next step. You can also obtain this URL from the Azure App Service Activity window in Visual Studio:
 
-  ![URL of the deployed app][9]
+   ![URL of the deployed app][9]
 
 3. Close the browser window to stop the running application.
 
@@ -474,7 +474,7 @@ Advance to the following tutorial:
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
-[NuGet]: http://nuget.org
+[NuGet]: https://nuget.org
 
 [11]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-con-1.png
 [13]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-13.png

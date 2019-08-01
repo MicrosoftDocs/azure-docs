@@ -5,16 +5,16 @@ metadata:
   title: Data Science Virtual Machine Documentation - Azure
   description: Learn how to use the Data Science Virtual Machine, an experimental environment in the Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured to jump-start building intelligent applications for advanced analytics.
   services: machine-learning
-  author: gopitk
+  author: vijetajo
   manager: cgronlun
 
   ms.service: machine-learning
-  ms.component: data-science-vm
+  ms.subservice: data-science-vm
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 01/18/2018
-  ms.author: gokuma
+  ms.author: vijetaj
 abstract:
   description: The Data Science and Deep Learning Virtual Machines are customized VM images on Azure, loaded with data science tools used to build intelligent applications for advanced analytics. 
 sections:

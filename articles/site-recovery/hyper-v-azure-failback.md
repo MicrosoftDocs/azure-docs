@@ -50,7 +50,7 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 
 1. If you're setting up new hardware install Windows Server 2012 R2 and the Hyper-V role on the server.
 2. Create a virtual network switch with the same name that you had on the original server.
-3. Select **Protected Items** -> **Protection Group** -> <ProtectionGroupName> -> <VirtualMachineName> you want to fail back, and select **Planned Failover**.
+3. Select **Protected Items** -> **Protection Group** -> \<ProtectionGroupName> -> \<VirtualMachineName> you want to fail back, and select **Planned Failover**.
 4. In **Confirm Planned Failover** select **Create on-premises virtual machine if it does not exist**.
 5. In Host Name,** select the new Hyper-V host server on which you want to place the virtual machine.
 6. In Data Synchronization, we recommend you select  the option to synchronize the data before the failover. This minimizes downtime for virtual machines as it synchronizes without shutting them down. It does the following:
@@ -59,7 +59,7 @@ If you've deployed protection between a [Hyper-V site and Azure](site-recovery-h
 	- Phase 2: Shuts down the virtual machine in Azure so that no new changes occur there. The final set of changes is transferred to the on-premises server and the on-premises virtual machine is started up.
 	
 7. Click the checkmark to begin the failover (failback).
-8. After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click **Jobs** > <planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.
+8. After the initial synchronization finishes and you're ready to shut down the virtual machine in Azure, click **Jobs** > \<planned failover job> > **Complete Failover**. This shuts down the Azure machine, transfers the latest changes to the on-premises virtual machine, and starts it.
 9. You can log into the on-premises virtual machine to verify everything is working as expected. Then click **Commit** to finish the failover. Commit deletes the Azure virtual machine and its disks and prepares the VM to be protected again.
 10. Click **Reverse Replicate** to start protecting the on-premises virtual machine.
 

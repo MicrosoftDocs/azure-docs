@@ -1,6 +1,6 @@
 ---
 title: IoT solution accelerators reference architecture - Azure | Microsoft Docs
-description: Learn about the Azure IoT solution accelerators reference architecure. The existing solution accelerators leverage this reference architecture. You can also use the reference architecture when you build your own custom IoT solutions.
+description: Learn about the Azure IoT solution accelerators reference architecture. The existing solution accelerators leverage this reference architecture. You can also use the reference architecture when you build your own custom IoT solutions.
 author: dominicbetts
 ms.author: dobett
 ms.date: 12/04/2018
@@ -17,7 +17,7 @@ manager: philmea
 
 This article introduces the [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture) and gives examples of how the [Azure IoT solution accelerators](about-iot-accelerators.md) follow its recommendations.
 
-The open-source [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) and [Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) solution accelerators follow many of the reference architecture recommendations. You can use the solution accelerators either as a starting point for your own IoT solution or as learning tools.
+The open-source [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) and [Connected Factory](iot-accelerators-connected-factory-features.md) solution accelerators follow many of the reference architecture recommendations. You can use the solution accelerators either as a starting point for your own IoT solution or as learning tools.
 
 ## Overview
 
@@ -35,7 +35,7 @@ The [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture) is a l
 
 The reference architecture identifies the core subsystems shown in the following diagram:
 
-![Core subsystems](media/iot-accelerators-architecture-overview/CoreSubsystems.png)
+![Core subsystems](media/iot-accelerators-architecture-overview/coresubsystems1.png)
 
 The following sections describe how the components of the Remote Monitoring solution accelerator map to the core subsystems.
 
@@ -76,7 +76,7 @@ As the solution ingests telemetry, it's important to understand how the flow of 
 
 Routing can dispatch telemetry to one or more storage endpoints, analysis processes, and actions. A solution might combine the stages in different orders, and process them with concurrent parallel tasks.
 
-The Remote Monitoring solution uses [Azure Stream Analytics](/azure/stream-analytics/) for stream processing. The rules engine in the solution uses Stream Analytics queries to generate alarms and actions. For example, the solution can use a query to identify when the average temperature in a truck's storage compartment over five minutes falls below 36 degrees.
+The Remote Monitoring solution uses [Azure Stream Analytics](/azure/stream-analytics/) for stream processing. The rules engine in the solution uses Stream Analytics queries to generate alerts and actions. For example, the solution can use a query to identify when the average temperature in a truck's storage compartment over five minutes falls below 36 degrees.
 
 ### Storage
 

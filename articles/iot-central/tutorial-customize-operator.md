@@ -3,7 +3,7 @@ title: Customize the operator's views in Azure IoT Central | Microsoft Docs
 description: As a builder, customize the operator's views in your Azure IoT Central application.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 10/12/2018
+ms.date: 07/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -23,8 +23,8 @@ In this tutorial, you learn how to:
 > * Configure your device settings layout
 > * Configure your device properties layout
 > * Preview the device as an operator
-> * Configure your default home page
-> * Preview the default home page as an operator
+> * Configure your default application dashboard
+> * Preview the default application dashboard as an operator
 
 ## Prerequisites
 
@@ -35,86 +35,66 @@ Before you begin, you should complete the two previous tutorials:
 
 ## Configure your device dashboard
 
-As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner-1** dashboard.
+As a builder, you can define what information displays on a device dashboard. In the [Define a new device type in your application](tutorial-define-device-type.md) tutorial, you added a line-chart and other information to the **Connected Air Conditioner** dashboard.
 
-1. To edit the **Connected Air Conditioner** device template, choose **Explorer** on the left navigation menu:
+1. To edit the **Connected Air Conditioner** device template, choose **Device Templates** on the left navigation menu:
 
-    ![Explorer page](media/tutorial-customize-operator/explorer.png)
+    ![Device Templates page](media/tutorial-customize-operator/devicetemplates.png)
 
-2. To start customizing your connected air conditioner device dashboard, select the **Connected Air Conditioner (1.0.0)** device template. Choose the **Connected Air Conditioner-1** device you created in the [Define a new device type in your application](tutorial-define-device-type.md) tutorial:
+2. To customize your device dashboard, select the **Connected Air Conditioner (1.0.0)** device template device you created in the [Define a new device type in your application](tutorial-define-device-type.md) tutorial.
 
-    ![Select the connected air conditioner device](media/tutorial-customize-operator/selectdevice.png)
-
-    When inside a device, such as **Connected Air Conditioner-1**, you can select **Edit Template** to make a change to the underlying template. For more information, see [Create a new device template version](howto-version-devicetemplate.md).
-
-3. To edit the dashboard, choose **Dashboard**, and select **Edit      Template**:
-
-    ![Device template dashboard page](media/tutorial-customize-operator/dashboard.png)
+3. To edit the dashboard, select the **Dashboard** tab.
 
 4. To add a Key Performance Indicator (KPI) tile to the dashboard, choose **KPI**:
-
-    ![Add KPI](media/tutorial-customize-operator/addkpi.png)
 
     To define the KPI, use the information in the following table:
 
     | Setting     | Value |
     | ----------- | ----- |
     | Name        | Maximum temperature |
+    | Time range  | Past 1 week |
+    | Measurement Type | Telemetry |
     | Measurement | temperature |
     | Aggregation | Maximum |
-    | Time range  | Past 1 week |
+    | Visibility  | Enabled |
 
-5. Choose **Save**. You can now see the KPI tile on the dashboard:
+    ![Add KPI](media/tutorial-customize-operator/addkpi.png)
+
+5. Select **Save**. You can now see the KPI tile on the dashboard:
 
     ![KPI tile](media/tutorial-customize-operator/temperaturekpi.png)
 
-6. To move or resize a tile on the dashboard, move the mouse pointer over the tile. You can drag the tile to a new location or resize it:
-
-    ![Edit dashboard layout](media/tutorial-customize-operator/dashboardlayout.png)
-
-7. Click **Done** when you are finished making changes.
+6. To move or resize a tile on the dashboard, move the mouse pointer over the tile. You can drag the tile to a new location or resize it.
 
 ## Configure your settings layout
 
-As a builder, you can also configure the operator's view of the device settings. An operator uses the device settings page to configure a device. For example, an operator uses the settings page to set the target temperature for the connected air conditioner.
+As a builder, you can also configure the operator's view of the device settings. An operator uses the device settings tab to configure a device. For example, an operator uses the settings tab to set the target temperature for the connected air conditioner.
 
-1. To edit the settings layout for your connected air conditioner, choose **Settings**, and select **Edit Template**:
-
-    ![Settings page](media/tutorial-customize-operator/settings.png)
+1. To edit the settings layout for your connected air conditioner, choose the **Settings** tab.
 
 2. You can move and resize the settings tiles:
 
     ![Edit the settings layout](media/tutorial-customize-operator/settingslayout.png)
 
-3. Click **Done** when you are finished making changes.
-
-> [!NOTE]
-> In **Edit Template** mode, you can't edit the values of the settings.
-
 ## Configure your properties layout
 
-In addition to the dashboard and settings, you can also configure the operator's view of the device properties. An operator uses the device properties page to manage device metadata. For example, an operator uses the properties page to view a device serial number or update contact details for the manufacturer.
+In addition to the dashboard and settings, you can also configure the operator's view of the device properties. An operator uses the device properties tab to manage device metadata. For example, an operator uses the properties tab to view a device serial number or update contact details for the manufacturer.
 
-1. To edit the properties layout for your connected air conditioner, choose **Properties**, and select **Edit Template**:
-
-    ![Properties page](media/tutorial-customize-operator/properties.png)
+1. To edit the properties layout for your connected air conditioner, choose the **Properties** tab.
 
 2. You can move and resize the properties fields:
 
     ![Edit the properties layout](media/tutorial-customize-operator/propertieslayout.png)
 
-3. Click **Done** when you are finished making changes.
+## Preview the device
 
-> [!NOTE]
-> In **Edit Template** mode, you can't edit the values of the properties.
+You use the **Device Templates** page to customize the dashboard, settings, and properties tabs for an operator. You use the **Device Explorer** page to view and use the device template.
 
-## Preview the connected air conditioner device as an operator
+1. To view and use the connected air conditioner template as an operator, navigate to the **Device Explorer** page and choose the simulated device that IoT Central generated from your template:
 
-In **Edit Template** mode, you can customize the dashboard, settings, and properties pages for an operator. If you are not in **Edit Template** mode, you can view the application as an operator.
+    ![View and use the device template](media/tutorial-customize-operator/usetemplate.png)
 
-1. To view your connected air conditioner device as an operator, click **Done** to stop editing the template and return to the operator's view of the device.
-
-2. To update the Location of this device, edit the value  in the Location tile and choose **Save**:
+2. To update the Location of this device, choose **Properties** and edit the value in the Location tile. Then select **Save**:
 
     ![Edit a property value](media/tutorial-customize-operator/editproperty.png)
 
@@ -128,34 +108,37 @@ In **Edit Template** mode, you can customize the dashboard, settings, and proper
 
     ![Operator's view of the device dashboard](media/tutorial-customize-operator/operatordashboard.png)
 
-## Configure the default home page
+## Configure the default dashboard
 
-When a builder or operator signs in to an Azure IoT Central application, they see a home page. As a builder, you can configure the content of this home page to include the most useful and relevant content for an operator.
+When a builder or operator signs in to an Azure IoT Central application, they see the application dashboard. As a builder, you can configure the content of the default dashboard to include the most useful and relevant content for an operator.
 
-1. To customize the default home page, navigate to the **Home** page and select **Edit**, on the top right of the page. Upon selecting **Edit**, a panel will slide out from the right with a list of objects you can add to your Homepage.
+> [!NOTE]
+> Users can also create their own personal dashboards and choose one as their default.
 
-    ![Application Builder page](media/tutorial-customize-operator/builderhome.png)
+1. To customize the default application dashboard, navigate to the **Dashboard** page and select **Edit** on the top right of the page. A panel appears with a library of objects you can add to the dashboard.
 
-2. To customize the home page, add tiles from the **Library**. Choose **Link**, and add details of your organization's web site. Then choose **Save**:
+    ![Dashboard page](media/tutorial-customize-operator/builderhome.png)
 
-    ![Add link to home page](media/tutorial-customize-operator/addlink.png)
+2. To customize the dashboard, add tiles from the **Library**. Choose **Link**, and add details of your organization's web site. Then choose **Save**:
+
+    ![Add link to the dashboard](media/tutorial-customize-operator/addlink.png)
 
     > [!NOTE]
     > You can also add links to pages within your Azure IoT Central application. For example, you could add a link to a device dashboard or settings page.
 
-3. Optionally, choose **Image** and upload an image to display on your home page. An image can have a URL to which you navigate when you click on it:
+3. Optionally, choose **Image** and upload an image to display on your dashboard. An image can have a URL to which you navigate when you select it:
 
-    ![Add image to home page](media/tutorial-customize-operator/addimage.png)
+    ![Add an image to the dashboard](media/tutorial-customize-operator/addimage.png)
 
     To learn more, see [How to prepare and upload images to your Azure IoT Central application](howto-prepare-images.md).
 
-## Preview the default home page as an operator
+## Preview the dashboard
 
-To preview the home page as an operator and no longer edit, select **Done** on the top right of the page
+To preview the application dashboard as an operator, select **Done** on the top right of the page.
 
 ![Toggle Design Mode](media/tutorial-customize-operator/operatorviewhome.png)
 
-You can click on the link and image tiles to navigate to the URLs you set as a builder.
+You can select the link and image tiles to navigate to the URLs you set as a builder.
 
 ## Next steps
 

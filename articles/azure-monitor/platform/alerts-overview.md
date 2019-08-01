@@ -5,9 +5,9 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 01/28/2018
 ms.author: robb
-ms.component: alerts
+ms.subservice: alerts
 ---
 
 # Overview of alerts in Microsoft Azure 
@@ -15,10 +15,12 @@ ms.component: alerts
 This article describes what alerts are, their benefits, and how to get started using them.  
 
 
+
+
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](alerts-overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
+This article discusses the unified alert experience in Azure Monitor, which now includes alerts that were managed by Log Analytics and Application Insights. The [previous alert experience](alerts-classic.overview.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
 
 ## Overview
 
@@ -26,7 +28,7 @@ The diagram below represents the flow of alerts.
 
 ![Alert Flow](media/alerts-overview/Azure-Monitor-Alerts.svg)
 
-Alert rules are separated from alerts and the action that are taken when an alert fires. 
+Alert rules are separated from alerts and the actions that are taken when an alert fires. 
 
 **Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. 
 
@@ -58,6 +60,13 @@ You can alert on metrics and logs as described in [monitoring data sources](../.
 - Health of the underlying Azure platform
 - Tests for web site availability
 
+Previously, Azure Monitor metrics, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Over time, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
+
+| **Monitor source** | **Signal type**  | **Description** | 
+|-------------|----------------|-------------|
+| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
+| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+
 ## Manage alerts
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
 
@@ -80,6 +89,8 @@ Smart groups are aggregations of alerts based on machine learning algorithms, wh
 ## Alerts experience 
 The default Alerts page provides a summary of alerts that are created within a particular time window. It displays the total alerts for each severity with columns that identify the total number of alerts in each state for each severity. Select any of the severities to open the [All Alerts](#all-alerts-page) page filtered by that severity.
 
+Alternatively, you can [programmatically enumerate the alert instances generated on your subscription(s) by using REST APIs](#manage-your-alert-instances-programmatically).
+
 It does not show or track older [classic alerts](#classic-alerts). You can change the subscriptions or filter parameters to update the page. 
 
 ![Alerts page](media/alerts-overview/alerts-page.png)
@@ -88,7 +99,7 @@ You can filter this view by selecting values in the dropdown menus at the top of
 
 | Column | Description |
 |:---|:---|
-| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Subscription | Select the Azure subscriptions for which you wish to view the alerts. You can optionally choose to select all your subscriptions. Only alerts that you have access to in the selected subscriptions  are included in the view. |
 | Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 | Time range | Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. |
 
@@ -119,14 +130,7 @@ This simplified authoring process no longer requires you to know the monitoring 
 
 You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](../../azure-monitor/platform/alerts-metric.md).
 
-Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
-
-Previously, Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
-
-| **Monitor source** | **Signal type**  | **Description** | 
-|-------------|----------------|-------------|
-| Service health | Activity log  | Not supported. See [Create activity log alerts on service notifications](../../azure-monitor/platform/alerts-activity-log-service-notifications.md).  |
-| Application Insights | Web availability tests | Not supported. See [Web test alerts](../../azure-monitor/app/monitor-web-app-availability.md). Available to any website that's instrumented to send data to Application Insights. Receive a notification when availability or responsiveness of a website is below expectations. |
+Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../../azure-monitor/overview.md). 
 
 
 ## All alerts page 
@@ -138,7 +142,7 @@ You can filter the view by selecting the following values in the dropdown menus 
 
 | Column | Description |
 |:---|:---|
-| Subscription | Select up to five Azure subscriptions. Only alerts in the selected subscriptions are included in the view. |
+| Subscription | Select the Azure subscriptions for which you wish to view the alerts. You can optionally choose to select all your subscriptions. Only alerts that you have access to in the selected subscriptions  are included in the view. |
 | Resource group | Select a single resource group. Only alerts with targets in the selected resource group are included in the view. |
 | Resource type | Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. |
 | Resource | Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. |
@@ -150,26 +154,53 @@ You can filter the view by selecting the following values in the dropdown menus 
 
 Select **Columns** at the top of the page to select which columns to display. 
 
-## Alert detail page
+## Alert details page
 The Alert detail page is displayed when you select an alert. It provides details of the alert and enables you to change its state.
 
 ![Alert detail](media/alerts-overview/alert-detail2.png)
 
-The Alert detail page includes the following sections.
+The Alert details page includes the following sections.
 
 | Section | Description |
 |:---|:---|
-| Essentials | Displays the properties and other significant information about the alert. |
+| Summary | Displays the properties and other significant information about the alert. |
 | History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
-| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
-| More details | Displays further contextual information for the alert, which is typically specific to the type of source that created the alert. |
+| Diagnostics | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 
+## Role-based access control (RBAC) for your alert instances
+
+The consumption and management of alert instances requires the user to have the built-in RBAC roles of either [monitoring contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) or [monitoring reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader). These roles are supported at any Azure Resource Manager scope, from subscription level to granular assignments at a resource level. For example, if a user only has 'monitoring contributor' access for virtual machine 'ContosoVM1', then he can consume and manage only alerts generated on 'ContosoVM1'.
+
+## Manage your alert instances programmatically
+
+There are many scenarios where you would want to programmatically query for alerts generated against your subscription. This could be to create custom views outside of the Azure portal, or to analyze your alerts to identify patterns and trends.
+
+You can query for alerts generated against your subscriptions either by using the [Alert Management REST API](https://aka.ms/alert-management-api) or by using the [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources).
+
+The [Azure Resource Graph REST API for Alerts](https://docs.microsoft.com/rest/api/azureresourcegraph/resources/resources) allows you to query for alert instances at scale. This is recommended for scenarios where you have to manage alerts generated across many subscriptions. 
+
+The following sample request to the API returns the count of alerts within one subscription:
+
+```json
+{
+  "subscriptions": [
+    <subscriptionId>
+  ],
+  "query": "where type =~ 'Microsoft.AlertsManagement/alerts' | summarize count()",
+  "options": {
+            "dataset":"alerts"
+  }
+}
+```
+The alerts can be queried for their ['essential'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#essentials-fields) fields.
+
+The [Alert Management REST API](https://aka.ms/alert-management-api) can be used to get more information about specific alerts, including their ['alert context'](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-definitions#alert-context-fields) fields.
 
 ## Classic alerts 
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information, see [Alerts classic](./../../azure-monitor/platform/alerts-classic.overview.md)
+For more information, see [Classic alerts](./../../azure-monitor/platform/alerts-classic.overview.md)
 
 
 ## Next steps
@@ -178,6 +209,7 @@ For more information, see [Alerts classic](./../../azure-monitor/platform/alerts
 - [Learn about action groups](../../azure-monitor/platform/action-groups.md)
 - [Managing your alert instances in Azure](https://aka.ms/managing-alert-instances)
 - [Managing Smart Groups](https://aka.ms/managing-smart-groups)
+
 
 
 

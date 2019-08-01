@@ -6,10 +6,10 @@ services: cognitive-services
 author: mattm
 manager: larsliden
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 07/13/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
 
 # How to use Conversation Learner with other bot building technologies
@@ -114,11 +114,11 @@ Unlike single Conversation Leaner model bots you won’t be able to test this in
 2. Enter 'hello'.  Because `isOpen` value is not set, the bot will say "I’m sorry we’re closed" and end the session.
 
 #### Scenario 2: Store is open
-3. Enter 'open store'.  This will set the `isOpen` to true.
-4. Enter 'shop'.
-5. Enter 'hello'.  Because `isOpen` value is set to true, the bot will say "What would you like to buy?"
-6. Enter 'chair'. 'chair' will be saved into CL memory as the entity `purchaseItem`. The end session callback is invoked which copies this value out to the conversation store.
-7. Enter 'history'.  The bot will say 'You bought chair' as this was your last `purchaseItem`.
+1. Enter 'open store'.  This will set the `isOpen` to true.
+1. Enter 'shop'.
+1. Enter 'hello'.  Because `isOpen` value is set to true, the bot will say "What would you like to buy?"
+1. Enter 'chair'. 'chair' will be saved into CL memory as the entity `purchaseItem`. The end session callback is invoked which copies this value out to the conversation store.
+1. Enter 'history'.  The bot will say 'You bought chair' as this was your last `purchaseItem`.
 
 ## Conclusion
 

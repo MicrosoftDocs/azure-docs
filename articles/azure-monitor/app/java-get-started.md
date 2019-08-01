@@ -10,13 +10,12 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 05/24/2019
 ms.author: lagayhar
 ---
 # Get started with Application Insights in a Java web project
 
-
-[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](../../azure-monitor/app/detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
+[Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [automatically instrument request, track dependencies, and collect performance counters](auto-collect-dependencies.md#java), diagnose performance issues and exceptions, and [write code][api] to track what users do with your app. 
 
 ![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
@@ -27,18 +26,15 @@ You need:
 * JRE version 1.7 or 1.8
 * A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
-*If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
-
 If you prefer the Spring framework try the [configure a Spring Boot initializer app to use Application Insights guide](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
 ## 1. Get an Application Insights instrumentation key
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 2. Create an Application Insights resource. Set the application type to Java web application.
 
-    ![Fill a name, choose Java web app, and click Create](./media/java-get-started/02-create.png)
 3. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
 
-    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/03-key.png)
+    ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/java-get-started/instrumentation-key-001.png)
 
 ## 2. Add the Application Insights SDK for Java to your project
 *Choose the appropriate way for your project.*
@@ -159,9 +155,16 @@ Application Insights SDK looks for the key in this order:
 
 You can also [set it in code](../../azure-monitor/app/api-custom-events-metrics.md#ikey):
 
-```Java
-    TelemetryConfiguration.getActive().setInstrumentationKey(iKey);
+```java
+    String instrumentationKey = "00000000-0000-0000-0000-000000000000";
+
+    if (instrumentationKey != null)
+    {
+        TelemetryConfiguration.getActive().setInstrumentationKey(instrumentationKey);
+    }
 ```
+
+Please note that [Live Metrics](https://docs.microsoft.com/azure/azure-monitor/app/live-stream) does not support reading instrumentation key from code.
 
 ## 4. Add an HTTP filter
 The last configuration step allows the HTTP request component to log each web request. (Not required if you just want the bare API.)
@@ -297,13 +300,13 @@ Return to your Application Insights resource in [Microsoft Azure portal](https:/
 
 HTTP requests data appears on the overview blade. (If it isn't there, wait a few seconds and then click Refresh.)
 
-![sample data](./media/java-get-started/5-results.png)
+![Screenshot of overview sample data](./media/java-get-started/overview-graphs.png)
 
 [Learn more about metrics.][metrics]
 
 Click through any chart to see more detailed aggregated metrics.
 
-![](./media/java-get-started/6-barchart.png)
+![Application Insights failures pane with charts](./media/java-get-started/006-barcharts.png)
 
 > Application Insights assumes the format of HTTP requests for MVC applications is: `VERB controller/action`. For example, `GET Home/Product/f9anuh81`, `GET Home/Product/2dffwrf5` and `GET Home/Product/sdf96vws` are grouped into `GET Home/Product`. This grouping enables meaningful aggregations of requests, such as number of requests and average execution time for requests.
 >
@@ -312,16 +315,12 @@ Click through any chart to see more detailed aggregated metrics.
 ### Instance data
 Click through a specific request type to see individual instances.
 
-Two kinds of data are displayed in Application Insights: aggregated data, stored and displayed as averages, counts, and sums; and instance data - individual reports of HTTP requests, exceptions, page views, or custom events.
-
-When viewing the properties of a request, you can see the telemetry events associated with it such as requests and exceptions.
-
-![](./media/java-get-started/7-instance.png)
+![Drill into a specific sample view](./media/java-get-started/007-instance.png)
 
 ### Analytics: Powerful query language
 As you accumulate more data, you can run queries both to aggregate data and to find individual instances.  [Analytics](../../azure-monitor/app/analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
-![Example of Analytics](./media/java-get-started/025.png)
+![Example of Analytics](./media/java-get-started/0025.png)
 
 ## 7. Install your app on the server
 Now publish your app to the server, let people use it, and watch the telemetry show up on the portal.
@@ -339,11 +338,25 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
     (This component enables performance counters.)
 
+## Azure App Service config (Spring Boot)
+
+Spring Boot apps running on Windows require additional configuration to run on Azure App Services. Modify **web.config** and add the following:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <system.webServer>
+        <handlers>
+            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
+        </handlers>
+        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
+        </httpPlatform>
+    </system.webServer>
+</configuration>
+```
 
 ## Exceptions and request failures
-Unhandled exceptions are automatically collected:
-
-![Open Settings, Failures](./media/java-get-started/21-exceptions.png)
+Unhandled exceptions are automatically collected.
 
 To collect data on other exceptions, you have two options:
 
@@ -353,10 +366,18 @@ To collect data on other exceptions, you have two options:
 ## Monitor method calls and external dependencies
 [Install the Java Agent](java-agent.md) to log specified internal methods and calls made through JDBC, with timing data.
 
-## Performance counters
-Open **Settings**, **Servers**, to see a range of performance counters.
+## W3C distributed tracing
 
-![](./media/java-get-started/11-perf-counters.png)
+The Application Insights Java SDK now supports [W3C distributed tracing](https://w3c.github.io/trace-context/).
+
+The incoming SDK configuration is explained further in our article on [correlation](correlation.md#w3c-distributed-tracing).
+
+Outgoing SDK configuration is defined in the [AI-Agent.xml](java-agent.md) file.
+
+## Performance counters
+Open **Investigate**, **Metrics**, to see a range of performance counters.
+
+![Screenshot of metrics pane with process private bytes selected](./media/java-get-started/011-perf-counters.png)
 
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
@@ -406,36 +427,8 @@ Each [Windows performance counter](https://msdn.microsoft.com/library/windows/de
 * counterName – The name of the performance counter.
 * instanceName – The name of the performance counter category instance, or an empty string (""), if the category contains a single instance. If the categoryName is Process, and the performance counter you'd like to collect is from the current JVM process on which your app is running, specify `"__SELF__"`.
 
-Your performance counters are visible as custom metrics in [Metrics Explorer][metrics].
-
-![](./media/java-get-started/12-custom-perfs.png)
-
 ### Unix performance counters
 * [Install collectd with the Application Insights plugin](java-collectd.md) to get a wide variety of system and network data.
-
-## Local forwarder
-
-[Local forwarder](https://docs.microsoft.com/azure/application-insights/local-forwarder) is an agent that collects Application Insights or [OpenCensus](https://opencensus.io/) telemetry from a variety of SDKs and frameworks and routes it to Application Insights. It's capable of running under Windows and Linux.
-
-```xml
-<Channel type="com.microsoft.applicationinsights.channel.concrete.localforwarder.LocalForwarderTelemetryChannel">
-<DeveloperMode>false</DeveloperMode>
-<EndpointAddress><!-- put the hostname:port of your LocalForwarder instance here --></EndpointAddress>
-<!-- The properties below are optional. The values shown are the defaults for each property -->
-<FlushIntervalInSeconds>5</FlushIntervalInSeconds><!-- must be between [1, 500]. values outside the bound will be rounded to nearest bound -->
-<MaxTelemetryBufferCapacity>500</MaxTelemetryBufferCapacity><!-- units=number of telemetry items; must be between [1, 1000] -->
-</Channel>
-```
-
-If you are using SpringBoot starter, add the following to your configuration file (application.properies):
-
-```yml
-azure.application-insights.channel.local-forwarder.endpoint-address=<!--put the hostname:port of your LocalForwarder instance here-->
-azure.application-insights.channel.local-forwarder.flush-interval-in-seconds=<!--optional-->
-azure.application-insights.channel.local-forwarder.max-telemetry-buffer-capacity=<!--optional-->
-```
-
-Default values are the same for SpringBoot application.properties and applicationinsights.xml configuration.
 
 ## Get user and session data
 OK, you're sending telemetry from your web server. Now to get the full 360-degree view of your application, you can add more monitoring:
@@ -453,29 +446,18 @@ Now that you've installed the SDK, you can use the API to send your own telemetr
 * [Search events and logs][diagnostic] to help diagnose problems.
 
 ## Availability web tests
-Application Insights can test your website at regular intervals to check that it's up and responding well. [To set up][availability], click Web tests.
+Application Insights can test your website at regular intervals to check that it's up and responding well.
 
-![Click Web tests, then Add Web test](./media/java-get-started/31-config-web-test.png)
-
-You'll get charts of response times, plus email notifications if your site goes down.
-
-![Web test example](./media/java-get-started/appinsights-10webtestresult.png)
-
-[Learn more about availability web tests.][availability]
+[Learn more about how to setup availability web tests.][availability]
 
 ## Questions? Problems?
 [Troubleshooting Java](java-troubleshoot.md)
-
-## Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
 
 ## Next steps
 * [Monitor dependency calls](java-agent.md)
 * [Monitor Unix performance counters](java-collectd.md)
 * Add [monitoring to your web pages](javascript.md) to monitor page load times, AJAX calls, browser exceptions.
 * Write [custom telemetry](../../azure-monitor/app/api-custom-events-metrics.md) to track usage in the browser or at the server.
-* Create [dashboards](../../azure-monitor/app/app-insights-dashboards.md) to bring together the key charts for monitoring your system.
 * Use  [Analytics](../../azure-monitor/app/analytics.md) for powerful queries over telemetry from your app
 * For more information, visit [Azure for Java developers](/java/azure).
 

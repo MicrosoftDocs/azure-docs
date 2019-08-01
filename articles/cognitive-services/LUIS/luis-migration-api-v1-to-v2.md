@@ -1,23 +1,23 @@
 ---
-title: v1 to v2 API Migration  
+title: v1 to v2 API Migration
 titleSuffix: Azure Cognitive Services
-description: The version 1 endpoint and authoring APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
+description: The version 1 endpoint and authoring Language Understanding APIs are deprecated. Use this guide to understand how to migrate to version 2 endpoint  and authoring APIs. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/02/2019
 ms.author: diberry
 ---
 
 # API v1 to v2 Migration guide for LUIS apps
-The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+The version 1 [endpoint](https://aka.ms/v1-endpoint-api-docs) and [authoring](https://aka.ms/v1-authoring-api-docs) APIs are deprecated. Use this guide to understand how to migrate to version 2 [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
 
 ## New Azure regions
-LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different website for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
+LUIS has new [regions](https://aka.ms/LUIS-regions) provided for the LUIS APIs. LUIS provides a different portal for region groups. The application must be authored in the same region you expect to query. Applications do not automatically migrate regions. You export the app from one region then import into another for it to be available in a new region.
 
 ## Authoring route changes
 The authoring API route changed from using the **prog** route to using the **api** route.
@@ -30,7 +30,7 @@ The authoring API route changed from using the **prog** route to using the **api
 
 
 ## Endpoint route changes
-The endpoint API has new querystring parameters as well as a different response. If the verbose flag is true, all intents, regardless of score, are returned in an array named intents, in addition to the topScoringIntent.
+The endpoint API has new query string parameters as well as a different response. If the verbose flag is true, all intents, regardless of score, are returned in an array named intents, in addition to the topScoringIntent.
 
 | version | GET route |
 |--|--|
@@ -107,7 +107,7 @@ The subscription endpoint key APIs are deprecated, returning 410 GONE.
 |1|/luis/v1.0/prog/subscriptions|
 |1|/luis/v1.0/prog/subscriptions/{subscriptionKey}|
 
-Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-manage-keys.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
+Azure [endpoint keys](luis-how-to-azure-subscription.md) are generated in the Azure portal. You assign the key to a LUIS app on the **[Publish](luis-how-to-azure-subscription.md)** page. You do not need to know the actual key value. LUIS uses the subscription name to make the assignment. 
 
 ## New versioning route
 The v2 model is now contained in a [version](luis-how-to-manage-versions.md). A version name is 10 characters in the route. The default version is "0.1".
@@ -129,7 +129,7 @@ Several APIs that return LUIS metadata have new names.
 
 
 ## "Sample" renamed to "suggest"
-LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-endoint-utt.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](luis-how-to-review-endoint-utt.md)** in the LUIS website.
+LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-endpoint-utterances.md) that may enhance the model. In the previous version, this was named **sample**. In the new version, the name is changed from sample to **suggest**. This is called **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** in the LUIS website.
 
 | version | route |
 |--|--|
@@ -164,6 +164,6 @@ See [LUIS API response codes](luis-reference-response-codes.md).
 
 ## Next steps
 
-Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) and [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

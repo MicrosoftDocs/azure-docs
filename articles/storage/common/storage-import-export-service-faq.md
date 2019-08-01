@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/13/2018
+ms.date: 07/18/2019
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Azure Import/Export service: frequently asked questions 
 The following are questions and answers that you may have when you use your Azure Import/Export service to transfer data into Azure storage. Questions and answers are arranged in the following categories:
@@ -61,7 +61,7 @@ You can view the status for completed jobs for up to 90 days. Completed jobs are
 
 ### If I want to import or export more than 10 drives, what should I do?
 One import or export job can reference only 10 drives in a single job. To ship more than 10 drives, you should create multiple jobs. Drives associated with the same job must be shipped together in the same package. 
-For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft at bulkimport@microsoft.com. 
+For more information and guidance when data capacity spans multiple disk import jobs, contact Microsoft Support. 
 
 ### The uploaded blob shows status as "Lease expired". What should I do?
 You can ignore the “Lease Expired” field. Import/Export takes lease on the blob during upload to make sure that no other process can update the blob in parallel. Lease Expired implies that Import/export is no longer uploading to it and the blob is available for your use. 
@@ -82,8 +82,18 @@ You can ship drives to the Azure datacenter using any known carrier like FedEx, 
 - A FedEx account number in the US and EU, or
 - A DHL account number in the Asia and Australia regions.
 
+> [!NOTE]
+> The datacenters in India require a declaration letter on your letterhead (delivery challan) to return the drives. To arrange the required entry pass, you must also book the pick up with your selected carrier and share the details with the datacenter.
+
 ### Are there any restrictions with shipping my drive internationally?
 Please note that the physical media that you are shipping may need to cross international borders. You are responsible for ensuring that your physical media and data are imported and/or exported in accordance with the applicable laws. Before shipping the physical media, check with your advisors to verify that your media and data can legally be shipped to the identified data center. This will help to ensure that it reaches Microsoft in a timely manner.
+
+### Are there any special requirements for delivering my disks to a datacenter?
+
+The requirements depend on the specific Azure datacenter restrictions.
+- There are a few sites, that require a Microsoft datacenter Inbound ID number to be written on the parcel for security reasons. Before you ship your drives or disks to the datacenter, contact Azure DataBox Operations (adbops@microsoft.com) to get this number. Without this number, the package will be rejected.
+- The datacenters in India require the personal details of the driver, such as the Government ID Card or Proof No. (for example, PAN, AADHAR, DL), name, contact, and the car plate number to get a gate entry pass. To avoid delivery delays, inform your carrier about these requirements.
+
 
 ### When creating a job, the shipping address is a location that is different from my storage account location. What should I do?
 
@@ -123,7 +133,7 @@ No. The WAImportExport tool is only compatible with 64-bit Windows operating sys
 ### What is the maximum Block Blob and Page Blob Size supported by Azure Import/Export?
 
 Max Block Blob size is approximately 4.768TB  or 5,000,000 MB.
-Max Page Blob size is 1TB.
+Max Page Blob size is 8TB.
 
 
 ### Does Azure Import/Export support AES-256 encryption?
@@ -133,7 +143,7 @@ Azure Import/Export service uses AES-128 bitlocker encryption by default. You ca
     ```
     WAImportExport PrepImport /sk:<StorageAccountKey> /csas:<ContainerSas> /t: <TargetDriveLetter> [/format] [/silentmode] [/encrypt] [/bk:<BitLockerKey>] [/logdir:<LogDirectory>] /j:<JournalFile> /id:<SessionId> /srcdir:<SourceDirectory> /dstdir:<DestinationBlobVirtualDirectory> [/Disposition:<Disposition>] [/BlobType:<BlockBlob|PageBlob>] [/PropertyFile:<PropertyFile>] [/MetadataFile:<MetadataFile>] 
     ```
-- If using [WAImportExport V2](https://www.microsoft.com/en-us/download/details.aspx?id=55280) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
+- If using [WAImportExport V2](https://www.microsoft.com/download/details.aspx?id=55280) specify "AlreadyEncrypted" and supply the key in the driveset CSV.
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |

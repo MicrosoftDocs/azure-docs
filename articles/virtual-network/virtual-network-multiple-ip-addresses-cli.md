@@ -4,14 +4,15 @@ titlesuffix: Azure Virtual Network
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure command-line interface (CLI).
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: KumudD
+manager: twooley
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
-ms.author: jimdial
+ms.author: kumud
 
 ---
 # Assign multiple IP addresses to virtual machines using the Azure CLI
@@ -41,7 +42,7 @@ az group create --name $RgName --location $Location
 	
 # Create a public IP address resource with a static IP address using the `--allocation-method Static` option. If you
 # do not specify this option, the address is allocated dynamically. The address is assigned to the resource from a pool
-# of IP adresses unique to each Azure region. Download and view the file from
+# of IP addresses unique to each Azure region. Download and view the file from
 # https://www.microsoft.com/en-us/download/details.aspx?id=41653 that lists the ranges for each region.
 
 PipName="myPublicIP"
@@ -118,13 +119,13 @@ az network nic ip-config create \
 VmName="myVm"
 
 # Replace the value for the following **VmSize** variable with a value from the
-# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes rticle. The script fails if the VM size
-# is not supported in the location you select. Run the `azure vm sizes --location estcentralus` command to get a full list
+# https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-sizes article. The script fails if the VM size
+# is not supported in the location you select. Run the `azure vm sizes --location eastcentralus` command to get a full list
 # of VMs in US West Central, for example.
 
 VmSize="Standard_DS1"
 
-# Replace the value for the OsImage variable value with a value for *urn* from the utput returned by entering the
+# Replace the value for the OsImage variable value with a value for *urn* from the output returned by entering the
 # `az vm image list` command.
 
 OsImage="credativ:Debian:8:latest"
@@ -160,7 +161,7 @@ Add the private IP addresses to the VM operating system by completing the steps 
 
 ## <a name="add"></a>Add IP addresses to a VM
 
-You can add additional private and public IP addresses to an existing Azure network interface by completing the steps that follow. The examples build upon the [scenario](#Scenario) described in this article.
+You can add additional private and public IP addresses to an existing Azure network interface by completing the steps that follow. The examples build upon the [scenario](#scenario) described in this article.
 
 1. Open a command shell and complete the remaining steps in this section within a single session. If you don't already have Azure CLI installed and configured, complete the steps in the [Azure CLI installation](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) article and login to your Azure account with the `az-login` command.
 
@@ -176,7 +177,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 	--nic-name myNic1 \
 	--private-ip-address 10.0.0.7 \
 	--name IPConfig-4
-	```
+    ```
 	
 	Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
 
@@ -196,7 +197,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 		--location westcentralus \
 		--name myPublicIP3 \
 		--dns-name mypublicdns3
-		```
+        ```
 
  		To create a new IP configuration with a static private IP address and the associated *myPublicIP3* public IP address resource, enter the following command:
 
@@ -207,7 +208,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 		--name IPConfig-5 \
 		--private-ip-address 10.0.0.8
 		--public-ip-address myPublicIP3
-		```
+        ```
 
 	- **Associate the resource to an existing IP configuration**
 		A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether an IP configuration has an associated public IP address by entering the following command:
@@ -217,7 +218,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 		--resource-group myResourceGroup \
 		--nic-name myNic1 \
 		--query "[?provisioningState=='Succeeded'].{ Name: name, PublicIpAddressId: publicIpAddress.id }" --output table
-		```
+        ```
 
 		Returned output:
 	
@@ -236,7 +237,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 		--name myPublicIP3 \
 		--dns-name mypublicdns3 \
 		--allocation-method Static
-		```
+        ```
 	
 		Enter the following command to associate the public IP address resource to the existing IP configuration named *IPConfig-3*:
 	
@@ -246,7 +247,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 		--nic-name myNic1 \
 		--name IPConfig-3 \
 		--public-ip myPublicIP3
-		```
+        ```
 
 3. View the private IP addresses and the public IP address resource Ids assigned to the NIC by entering the following command:
 
@@ -255,7 +256,7 @@ You can add additional private and public IP addresses to an existing Azure netw
 	--resource-group myResourceGroup \
 	--nic-name myNic1 \
 	--query "[?provisioningState=='Succeeded'].{ Name: name, PrivateIpAddress: privateIpAddress, PrivateIpAllocationMethod: privateIpAllocationMethod, PublicIpAddressId: publicIpAddress.id }" --output table
-	```
+    ```
 
 	Returned output: <br>
 	

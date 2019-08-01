@@ -4,7 +4,7 @@ description: How to redeploy Windows virtual machines in Azure to mitigate RDP c
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-manager,top-support-issue
 
 ms.assetid: 0ee456ee-4595-4a14-8916-72c9110fc8bd
@@ -30,7 +30,7 @@ Make sure you have the latest Azure PowerShell 1.x installed on your machine. Fo
 The following example deploys the VM named `myVM` in the resource group named `myResourceGroup`:
 
 ```powershell
-Set-AzureRmVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
+Set-AzVM -Redeploy -ResourceGroupName "myResourceGroup" -Name "myVM"
 ```
 
 [!INCLUDE [virtual-machines-common-redeploy-to-new-node](../../../includes/virtual-machines-common-redeploy-to-new-node.md)]

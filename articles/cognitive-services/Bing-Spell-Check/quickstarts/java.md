@@ -1,89 +1,150 @@
-﻿---
-title: "Quickstart: Bing Spell Check API, Java"
-titlesuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Bing Spell Check API.
+---
+title: "Quickstart: Check spelling with the Bing Spell Check REST API and Java"
+titleSuffix: Azure Cognitive Services
+description: Get started using the Bing Spell Check REST API to check spelling and grammar.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-spell-check
+ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 09/14/2017
+ms.date: 04/11/2019
 ms.author: aahi
 ---
-# Quickstart for Bing Spell Check API with Java 
 
-This article shows you how to use the [Bing Spell Check API](https://azure.microsoft.com/services/cognitive-services/spell-check/) with Java. The Spell Check API returns a list of words it does not recognize along with suggested replacements. Typically, you would submit text to this API and then either make the suggested replacements in the text or show them to the user of your application so they can decide whether to make the replacements. This article shows how to send a request that contains the text "Hollo, wrld!". The suggested replacements will be "Hello" and "world."
+# Quickstart: Check spelling with the Bing Spell Check REST API and Java
+
+Use this quickstart to make your first call to the Bing Spell Check REST API. This simple Java application sends a request to the API and returns a list of suggested corrections. While this application is written in Java, the API is a RESTful web service compatible with most programming languages. The source code for this application is available on [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingSpellCheckv7.java).
 
 ## Prerequisites
 
-You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+* The Java Development Kit(JDK) 7 or later.
 
-You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Spell Check API v7**. The [free trial](https://azure.microsoft.com/try/cognitive-services/#lang) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
+* Import the [gson-2.8.5.jar](https://libraries.io/maven/com.google.code.gson%3Agson) or the most current [Gson](https://github.com/google/gson) version. For command line execution, add the `.jar` to your Java folder with the main class.
 
-## Get Spell Check results
+[!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
 
-1. Create a new Java project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `subscriptionKey` value with an access key valid for your subscription.
-4. Run the program.
+## Create and initialize an application
 
-```java
-import java.io.*;
-import java.net.*;
-import javax.net.ssl.HttpsURLConnection;
+1. Create a new Java Project in your favorite IDE or editor with a class name of your choosing, and then import the following packages.
 
-public class HelloWorld {
+    ```java
+    import java.io.*;
+    import java.net.*;
+    import com.google.gson.*;
+    import javax.net.ssl.HttpsURLConnection;
+    ```
 
+2. Create variables for the API endpoint's host, path, and your subscription key. Then create variables for your market, the text you want to spell check, and a string for the spell check mode.
+
+    ```java
     static String host = "https://api.cognitive.microsoft.com";
     static String path = "/bing/v7.0/spellcheck";
 
-    // NOTE: Replace this example key with a valid subscription key.
-    static String key = "ENTER KEY HERE";
+    static String key = "<ENTER-KEY-HERE>";
 
     static String mkt = "en-US";
     static String mode = "proof";
     static String text = "Hollo, wrld!";
+    ```
 
-    public static void check () throws Exception {
-		String params = "?mkt=" + mkt + "&mode=" + mode;
-        URL url = new URL(host + path + params);
-        HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
-        connection.setRequestMethod("POST");
-        connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-		connection.setRequestProperty("Content-Length", "" + text.length() + 5);
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
-        connection.setDoOutput(true);
+## Create and send an API request
 
+1. Create a function called `check()` to create and send the API request. Within it, follow these steps. Create a string for the request parameters. append the `?mkt=` parameter to your market string, and the `&mode=` parameter to your spell check mode.  
+
+   ```java
+   public static void check () throws Exception {
+	   String params = "?mkt=" + mkt + "&mode=" + mode;
+      // add the rest of the code snippets here (except prettify() and main())...
+   }
+   ```
+
+2. Create a URL by combining the endpoint host, path and parameters string. Create a new `HttpsURLConnection` object.
+
+    ```java
+    URL url = new URL(host + path + params);
+    HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
+    ```
+
+3. Open a connection to the URL. Set the request method to `POST`. Add your request parameters. Make sure to add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+    ```java
+	connection.setRequestMethod("POST");
+	connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+	connection.setRequestProperty("Ocp-Apim-Subscription-Key", key);
+	connection.setDoOutput(true);
+    ```
+
+4. Create a new `DataOutputStream` object and Send the request to the API.
+
+    ```java
         DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
         wr.writeBytes("text=" + text);
         wr.flush();
         wr.close();
+    ```
 
-        BufferedReader in = new BufferedReader(
-        new InputStreamReader(connection.getInputStream()));
-        String line;
-        while ((line = in.readLine()) != null) {
-            System.out.println(line);
-        }
-        in.close();
+## Format and read the API response
+
+1. Add this method to your class. It formats the JSON for a more readable output.
+
+    ``` java
+    // This function prettifies the json response.
+    public static String prettify(String json_text) {
+        JsonParser parser = new JsonParser();
+        JsonElement json = parser.parse(json_text);
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        return gson.toJson(json);
     }
+    ```
 
+1. Create a `BufferedReader` and read the response from the API. Print it to the console.
+    
+    ```java
+	BufferedReader in = new BufferedReader(
+	new InputStreamReader(connection.getInputStream()));
+	String line;
+	while ((line = in.readLine()) != null) {
+		System.out.println(prettify(line);
+	}
+	in.close();
+    ```
+
+## Call the API
+
+In the main function of your application, call your check() method created above.
+
+    ```java
     public static void main(String[] args) {
-        try {
-            check ();
-        }
-        catch (Exception e) {
-            System.out.println (e);
-        }
+    	try {
+    		check();
+    	}
+    	catch (Exception e) {
+    		System.out.println (e);
+    	}
     }
-}
+    ```
+
+## Run the application
+
+Build and run your project.
+
+If you're using the command line, use the following commands to build and run the application.
+
+**Build:**
+```bash
+javac -classpath .;gson-2.2.2.jar\* <CLASS_NAME>.java
 ```
 
-**Response**
+**Run:**
+```bash
+java -cp .;gson-2.2.2.jar\* <CLASS_NAME>
+```
 
-A successful response is returned in JSON, as shown in the following example: 
+## Example JSON response
+
+A successful response is returned in JSON, as shown in the following example:
 
 ```json
 {
@@ -126,9 +187,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Bing Spell Check tutorial](../tutorials/spellcheck.md)
+> [Create a single-page web app](../tutorials/spellcheck.md)
 
-## See also
-
-- [Bing Spell Check overview](../proof-text.md)
-- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+- [What is the Bing Spell Check API?](../overview.md)
+- [Bing Spell Check API v7 Reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

@@ -11,8 +11,7 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviwer: 
-manager: craigg
-ms.date: 10/05/2018
+ms.date: 03/08/2019
 ---
 # Always Encrypted: Protect sensitive data and store encryption keys in the Windows certificate store
 
@@ -31,6 +30,7 @@ Follow the steps in this article to learn how to set up Always Encrypted for an 
 * Create an application that inserts, selects, and displays data from the encrypted columns.
 
 ## Prerequisites
+
 For this tutorial, you'll need:
 
 * An Azure account and subscription. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
@@ -39,30 +39,33 @@ For this tutorial, you'll need:
 * [Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 
 ## Create a blank SQL database
+
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Click **Create a resource** > **Data + Storage** > **SQL Database**.
-3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL database](sql-database-get-started-portal.md).
-   
+3. Create a **Blank** database named **Clinic** on a new or existing server. For detailed instructions about creating a database in the Azure portal, see [Your first Azure SQL database](sql-database-single-database-get-started.md).
+
     ![Create a blank database](./media/sql-database-always-encrypted/create-database.png)
 
 You will need the connection string later in the tutorial. After the database is created, go to the new Clinic database and copy the connection string. You can get the connection string at any time, but it's easy to copy it when you're in the Azure portal.
 
 1. Click **SQL databases** > **Clinic** > **Show database connection strings**.
 2. Copy the connection string for **ADO.NET**.
-   
+
     ![Copy the connection string](./media/sql-database-always-encrypted/connection-strings.png)
 
 ## Connect to the database with SSMS
+
 Open SSMS and connect to the server with the Clinic database.
 
 1. Open SSMS. (Click **Connect** > **Database Engine** to open the **Connect to Server** window if it is not open).
 2. Enter your server name and credentials. The server name can be found on the SQL database blade and in the connection string you copied earlier. Type the complete server name including *database.windows.net*.
-   
+
     ![Copy the connection string](./media/sql-database-always-encrypted/ssms-connect.png)
 
 If the **New Firewall Rule** window opens, sign in to Azure and let SSMS create a new firewall rule for you.
 
 ## Create a table
+
 In this section, you will create a table to hold patient data. This will be a normal table initially--you will configure encryption in the next section.
 
 1. Expand **Databases**.
@@ -83,18 +86,19 @@ In this section, you will create a table to hold patient data. This will be a no
          PRIMARY KEY CLUSTERED ([PatientId] ASC) ON [PRIMARY] );
          GO
 
-
 ## Encrypt columns (configure Always Encrypted)
+
 SSMS provides a wizard to easily configure Always Encrypted by setting up the CMK, CEK, and encrypted columns for you.
 
 1. Expand **Databases** > **Clinic** > **Tables**.
 2. Right-click the **Patients** table and select **Encrypt Columns** to open the Always Encrypted wizard:
-   
+
     ![Encrypt columns](./media/sql-database-always-encrypted/encrypt-columns.png)
 
 The Always Encrypted wizard includes the following sections: **Column Selection**, **Master Key Configuration** (CMK), **Validation**, and **Summary**.
 
 ### Column Selection
+
 Click **Next** on the **Introduction** page to open the **Column Selection** page. On this page, you will select which columns you want to encrypt, [the type of encryption, and what column encryption key (CEK)](https://msdn.microsoft.com/library/mt459280.aspx#Anchor_2) to use.
 
 Encrypt **SSN** and **BirthDate** information for each patient. The **SSN** column will use deterministic encryption, which supports equality lookups, joins, and group by. The **BirthDate** column will use randomized encryption, which does not support operations.
@@ -104,6 +108,7 @@ Set the **Encryption Type** for the **SSN** column to **Deterministic** and the 
 ![Encrypt columns](./media/sql-database-always-encrypted/column-selection.png)
 
 ### Master Key Configuration
+
 The **Master Key Configuration** page is where you set up your CMK and select the key store provider where the CMK will be stored. Currently, you can store a CMK in the Windows certificate store, Azure Key Vault, or a hardware security module (HSM). This tutorial shows how to store your keys in the Windows certificate store.
 
 Verify that **Windows certificate store** is selected and click **Next**.
@@ -111,14 +116,17 @@ Verify that **Windows certificate store** is selected and click **Next**.
 ![Master key configuration](./media/sql-database-always-encrypted/master-key-configuration.png)
 
 ### Validation
+
 You can encrypt the columns now or save a PowerShell script to run later. For this tutorial, select **Proceed to finish now** and click **Next**.
 
 ### Summary
+
 Verify that the settings are all correct and click **Finish** to complete the setup for Always Encrypted.
 
 ![Summary](./media/sql-database-always-encrypted/summary.png)
 
 ### Verify the wizard's actions
+
 After the wizard is finished, your database is set up for Always Encrypted. The wizard performed the following actions:
 
 * Created a CMK.
@@ -128,12 +136,11 @@ After the wizard is finished, your database is set up for Always Encrypted. The 
 You can verify the creation of the keys in SSMS by going to **Clinic** > **Security** > **Always Encrypted Keys**. You can now see the new keys that the wizard generated for you.
 
 ## Create a client application that works with the encrypted data
+
 Now that Always Encrypted is set up, you can build an application that performs *inserts* and *selects* on the encrypted columns. To successfully run the sample application, you must run it on the same computer where you ran the Always Encrypted wizard. To run the application on another computer, you must deploy your Always Encrypted certificates to the computer running the client app.  
 
 > [!IMPORTANT]
 > Your application must use [SqlParameter](https://msdn.microsoft.com/library/system.data.sqlclient.sqlparameter.aspx) objects when passing plaintext data to the server with Always Encrypted columns. Passing literal values without using SqlParameter objects will result in an exception.
-> 
-> 
 
 1. Open Visual Studio and create a new C# console application. Make sure your project is set to **.NET Framework 4.6** or later.
 2. Name the project **AlwaysEncryptedConsoleApp** and click **OK**.
@@ -141,6 +148,7 @@ Now that Always Encrypted is set up, you can build an application that performs 
 ![New console application](./media/sql-database-always-encrypted/console-app.png)
 
 ## Modify your connection string to enable Always Encrypted
+
 This section explains how to enable Always Encrypted in your database connection string. You will modify the console app you just created in the next section, "Always Encrypted sample console application."
 
 To enable Always Encrypted, you need to add the **Column Encryption Setting** keyword to your connection string and set it to **Enabled**.
@@ -149,16 +157,15 @@ You can set this directly in the connection string, or you can set it by using a
 
 > [!NOTE]
 > This is the only change required in a client application specific to Always Encrypted. If you have an existing application that stores its connection string externally (that is, in a config file), you might be able to enable Always Encrypted without changing any code.
-> 
-> 
 
 ### Enable Always Encrypted in the connection string
+
 Add the following keyword to your connection string:
 
     Column Encryption Setting=Enabled
 
-
 ### Enable Always Encrypted with a SqlConnectionStringBuilder
+
 The following code shows how to enable Always Encrypted by setting the [SqlConnectionStringBuilder.ColumnEncryptionSetting](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectionstringbuilder.columnencryptionsetting.aspx) to [Enabled](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnectioncolumnencryptionsetting.aspx).
 
     // Instantiate a SqlConnectionStringBuilder.
@@ -169,9 +176,8 @@ The following code shows how to enable Always Encrypted by setting the [SqlConne
     connStringBuilder.ColumnEncryptionSetting =
        SqlConnectionColumnEncryptionSetting.Enabled;
 
-
-
 ## Always Encrypted sample console application
+
 This sample demonstrates how to:
 
 * Modify your connection string to enable Always Encrypted.
@@ -182,20 +188,19 @@ Replace the contents of **Program.cs** with the following code. Replace the conn
 
 Run the app to see Always Encrypted in action.
 
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using System.Data;
-    using System.Data.SqlClient;
+```cs
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
 
-    namespace AlwaysEncryptedConsoleApp
-    {
+namespace AlwaysEncryptedConsoleApp
+{
     class Program
     {
         // Update this line with your Clinic database connection string from the Azure portal.
-        static string connectionString = @"Replace with your connection string";
+        static string connectionString = @"Data Source = SPE-T640-01.sys-sqlsvr.local; Initial Catalog = Clinic; Integrated Security = true";
 
         static void Main(string[] args)
         {
@@ -218,7 +223,6 @@ Run the app to see Always Encrypted in action.
             Console.WriteLine(Environment.NewLine + "Enter server password:");
             connStringBuilder.Password = Console.ReadLine();
 
-
             // Assign the updated connection string to our global variable.
             connectionString = connStringBuilder.ConnectionString;
 
@@ -229,16 +233,42 @@ Run the app to see Always Encrypted in action.
             // Add sample data to the Patients table.
             Console.Write(Environment.NewLine + "Adding sample patient data to the database...");
 
-            InsertPatient(new Patient() {
-                SSN = "999-99-0001", FirstName = "Orlando", LastName = "Gee", BirthDate = DateTime.Parse("01/04/1964") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0002", FirstName = "Keith", LastName = "Harris", BirthDate = DateTime.Parse("06/20/1977") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0003", FirstName = "Donna", LastName = "Carreras", BirthDate = DateTime.Parse("02/09/1973") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0004", FirstName = "Janet", LastName = "Gates", BirthDate = DateTime.Parse("08/31/1985") });
-            InsertPatient(new Patient() {
-                SSN = "999-99-0005", FirstName = "Lucy", LastName = "Harrington", BirthDate = DateTime.Parse("05/06/1993") });
+            CultureInfo culture = CultureInfo.CreateSpecificCulture("en-US");
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0001",
+                FirstName = "Orlando",
+                LastName = "Gee",
+                BirthDate = DateTime.Parse("01/04/1964", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0002",
+                FirstName = "Keith",
+                LastName = "Harris",
+                BirthDate = DateTime.Parse("06/20/1977", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0003",
+                FirstName = "Donna",
+                LastName = "Carreras",
+                BirthDate = DateTime.Parse("02/09/1973", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0004",
+                FirstName = "Janet",
+                LastName = "Gates",
+                BirthDate = DateTime.Parse("08/31/1985", culture)
+            });
+            InsertPatient(new Patient()
+            {
+                SSN = "999-99-0005",
+                FirstName = "Lucy",
+                LastName = "Harrington",
+                BirthDate = DateTime.Parse("05/06/1993", culture)
+            });
 
 
             // Fetch and display all patients.
@@ -288,7 +318,7 @@ Run the app to see Always Encrypted in action.
             int returnValue = 0;
 
             string sqlCmdText = @"INSERT INTO [dbo].[Patients] ([SSN], [FirstName], [LastName], [BirthDate])
-         VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
+     VALUES (@SSN, @FirstName, @LastName, @BirthDate);";
 
             SqlCommand sqlCmd = new SqlCommand(sqlCmdText);
 
@@ -459,10 +489,11 @@ Run the app to see Always Encrypted in action.
         public string LastName { get; set; }
         public DateTime BirthDate { get; set; }
     }
-    }
-
+}
+```
 
 ## Verify that the data is encrypted
+
 You can quickly check that the actual data on the server is encrypted by querying the **Patients** data with SSMS. (Use your current connection where the column encryption setting is not yet enabled.)
 
 Run the following query on the Clinic database.
@@ -478,24 +509,21 @@ To use SSMS to access the plaintext data, you can add the **Column Encryption Se
 1. In SSMS, right-click your server in **Object Explorer**, and then click **Disconnect**.
 2. Click **Connect** > **Database Engine** to open the **Connect to Server** window, and then click **Options**.
 3. Click **Additional Connection Parameters** and type **Column Encryption Setting=enabled**.
-   
+
     ![New console application](./media/sql-database-always-encrypted/ssms-connection-parameter.png)
 4. Run the following query on the **Clinic** database.
-   
+
         SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
-   
+
      You can now see the plaintext data in the encrypted columns.
 
     ![New console application](./media/sql-database-always-encrypted/ssms-plaintext.png)
 
-
-
 > [!NOTE]
 > If you connect with SSMS (or any client) from a different computer, it will not have access to the encryption keys and will not be able to decrypt the data.
-> 
-> 
 
 ## Next steps
+
 After you create a database that uses Always Encrypted, you may want to do the following:
 
 * Run this sample from a different computer. It won't have access to the encryption keys, so it will not have access to the plaintext data and will not run successfully.
@@ -504,9 +532,9 @@ After you create a database that uses Always Encrypted, you may want to do the f
 * [Deploy Always Encrypted certificates to other client machines](https://msdn.microsoft.com/library/mt723359.aspx#Anchor_1) (see the "Making Certificates Available to Applications and Users" section).
 
 ## Related information
+
 * [Always Encrypted (client development)](https://msdn.microsoft.com/library/mt147923.aspx)
 * [Transparent Data Encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server Encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted Wizard](https://msdn.microsoft.com/library/mt459280.aspx)
 * [Always Encrypted Blog](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
-

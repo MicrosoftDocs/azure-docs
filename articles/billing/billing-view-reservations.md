@@ -1,36 +1,38 @@
 ---
 title: View reservations for Azure resources| Microsoft Docs
-description: Learn how to view Azure reservations in the Azure portal. 
-services: 'billing'
+description: Learn how to view Azure reservations in the Azure portal.
 documentationcenter: ''
 author: yashesvi
 manager: yashar
 editor: ''
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2018
-ms.author: cwatson
+ms.date: 04/13/2019
+ms.author: banders
 ---
-# View reservations for Azure in the Azure portal
+# View Azure reservations in the Azure portal
 
-Depending on your subscription type and permissions, there are a couple of ways to view reservations for Azure resources.
+Depending on your subscription type and permissions, there are a couple of ways to view reservations for Azure.
 
-## View reservations as Owner or Reader
+## View purchased reservations
 
-By default, when you buy a reservation, you and the account administrator can view the reservation. You and the account administrator automatically get the Owner role on the reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation. For more information, see [Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
- 
+By default, when you buy a reservation, you and the account administrator can view the reservation. You and the account administrator automatically get the Owner role on the reservation order and reservation. To allow other people to view the reservation, you must add them as an **Owner** or **Reader** on the Reservation order or reservation.
+
+For more information, see [Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
+
 To view a reservation as an Owner or Reader,
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Reservations**.
-
-    ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)
-
-1. You see a list of the reservations where you have the Owner or Reader role.
+2. Search for **Reservations**.
+    ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-reservation-search.png)  
+3. The list shows all the reservations where you have the Owner or Reader role. Each reservation shows the last known utilization percentage.  
+    ![Example showing a list of reservations](./media/billing-view-reservation/view-reservations.png)
+4. Select a reservation and see the utilization trend for last five days.  
+    ![Example showing reservation utilization trend](./media/billing-view-reservation/reservation-utilization.png)
+5. You can also get the [reservation utilization](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) using the Reserved Instance usage API and with the [Microsoft Azure Consumption Insights Power BI content pack](/power-bi/service-connect-to-azure-consumption-insights).
 
 If you need to change the scope of a reservation, split a reservation, or change who can manage a reservation, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
@@ -41,7 +43,7 @@ If you need to change the scope of a reservation, split a reservation, or change
 To view reservation transactions in Azure portal,
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
+1. Search for **Cost Management + Billing**.
 
     ![Screenshot that shows Azure portal search](./media/billing-view-reservation/portal-cm-billing-search.png)
 
@@ -57,15 +59,26 @@ To get the data by using an API, see [Get Reserved Instance transaction charges 
 
 To learn more about Azure reservations, see the following articles:
 
-- [What are Azure reservations?](billing-save-compute-costs-reservations.md)
+- [What are reservations for Azure?](billing-save-compute-costs-reservations.md)
+- [Manage reservations for Azure](billing-manage-reserved-vm-instance.md)
+
+Buy a service plan:
+
 - [Prepay for Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 - [Prepay for Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Manage Azure reservations](billing-manage-reserved-vm-instance.md)
+
+Buy a software plan:
+
+- [Prepay for Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Understand usage:
+
 - [Understand reservation usage for your Pay-As-You-Go subscription](billing-understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](billing-understand-reserved-instance-usage-ea.md)
 - [Understand reservation usage for CSP subscriptions](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## Need help? Contact us.
+## Need help? Contact us
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

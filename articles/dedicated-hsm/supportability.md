@@ -2,8 +2,8 @@
 title: Supportability - Azure Dedicated HSM | Microsoft Docs
 description: Support options and areas of responsibility for Azure Dedicated HSM in different scenarios
 services: dedicated-hsm
-author: barclayn
-manager: mbaldwin
+author: johndaw
+manager: barbkess
 
 ms.service: key-vault
 ms.workload: identity
@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/27/2019
 ms.author: barclayn
 
 ---
@@ -21,10 +21,14 @@ ms.author: barclayn
 The Azure Dedicated HSM Service provides a physical device for sole customer use with complete administrative control and management responsibility. The device made available is a [Gemalto SafeNet Luna 7 HSM model A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft will have no administrative access once provisioned by a customer, beyond physical serial port attachment as a monitoring role.  Without access, Microsoft can have no ongoing software level maintenance or system administration responsibilities. As a result, customers are responsible for typical operational activities.
 Customers are fully responsible for applications that use the HSMs and should work with Gemalto for support or consulting-based assistance. Due to the extent of customer ownership of operational hygiene, it is not possible for Microsoft to offer any kind of high availability guarantee for this service. It is the customer’s responsibility to ensure their applications are correctly configured to achieve high-availability. Microsoft will monitor and maintain device health and network connectivity.
 
+## Getting support
+
+Customer support for Dedicated HSM is a joint effort between Microsoft and Gemalto. Any hardware issues or network path issues will be addressed by Microsoft, and anything to do with the actual HSM, such as configuration, software, firmware and application development, will be addressed by Gemalto. This support model ensures the quickest route to the most effective support. If in doubt with a particular issue, raise a support request with Microsoft and we will ensure you are directed appropriately. Microsoft will stay engaged in all support scenarios and strive for the best support experience for our customers.
+
 ## Gemalto support
 
-Customers using the Dedicated HSM service must have a support contract in place with Gemalto. As part of their support contract, customers receive guidance, support, and services directly from Gemalto. The mechanism to get support from Gemalto is via their [customer support portal](https://supportportal.gemalto.com/csm/).
-Gemalto will provide any software components required to use the HSM (for example, client access software and SDKs). They will also support configuration, and offer consulting services for the design, development, and deployment of applications using the SafeNet Luna 7 HSM.
+Customers using the Dedicated HSM service qualify for support from Gemalto as per their Plus Support Plan. This just requires a registration process using the Gemalto support portal. A Customer ID and instructions will be provided for this as part of the initial engagement with Microsoft to gain access to the Dedicated HSM service. The mechanism to get support from Gemalto is via their [customer support portal](https://supportportal.gemalto.com/csm/).
+A key point of note is that Gemalto will provide all software and documentation required to use the HSM (for example, client access software and SDKs) via download on the customer support portal.
 
 ### Software components
 
@@ -48,7 +52,7 @@ For any assistance in the design, development and deployment of custom applicati
 
 ## Microsoft support
 
-Microsoft is responsible for ensuring physical HSM devices are reachable and in an operational state for the exclusive use of a single customer. Customers are responsible for administration and management of the device. 
+Microsoft will ensure physical HSM devices are network accessible and in an operational state for the exclusive use of a single customer. Customers are responsible for configuration, administration, and management of the device. 
 Microsoft responsibilities include:
 
 * Making sure that the device has power and cooling
@@ -70,7 +74,7 @@ After a customer has an approved registration for the Dedicated HSM service, the
 
 ### Hardware issues
 
-The HSM device has redundant and replaceable power supplies and fan units. Fan unit removal will cause a tamper event if removed when the device is powered on. When a component failure occurs, Microsoft will use the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to our customers service availability.
+The HSM device has redundant and replaceable power supplies and fan units.  However, fan unit removal will still cause a tamper event. When a component failure occurs, Microsoft will use the most appropriate process to address the component level issue in a way that causes minimal interruption and lowest risk to our customers service availability.
 Any more serious failure of the device will result in that device being replaced by a fresh one from the free pool. The customer simply includes the new device in the existing HA pair for it to synchronize and return to full operational state. The failed device will have its data bearing devices removed and shredded on site at the data center. Only the chassis will be returned to Gemalto for recycling.
 
 
@@ -91,4 +95,4 @@ It is recommended that key concepts such as high availability and security are w
 * [High Availability](high-availability.md)
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
-* [Monitoring](monitoring.md)
+

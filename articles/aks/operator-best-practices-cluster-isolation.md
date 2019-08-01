@@ -2,12 +2,12 @@
 title: Operator best practices - Cluster isolation in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for isolation in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Best practices for cluster isolation in Azure Kubernetes Service (AKS)
@@ -39,6 +39,8 @@ With logical isolation, a single AKS cluster can be used for multiple workloads,
 ![Logical isolation of a Kubernetes cluster in AKS](media/operator-best-practices-cluster-isolation/logical-isolation.png)
 
 Logical separation of clusters usually provides a higher pod density than physically isolated clusters. There's less excess compute capacity that sits idle in the cluster. When combined with the Kubernetes cluster autoscaler, you can scale the number of nodes up or down to meet demands. This best practice approach to autoscaling lets you run only the number of nodes required and minimizes costs.
+
+Kubernetes environments, in AKS or elsewhere, aren't completely safe for hostile multi-tenant usage. Additional security features such as *Pod Security Policy* and more fine-grained role-based access controls (RBAC) for nodes make exploits more difficult. However, for true security when running hostile multi-tenant workloads, a hypervisor is the only level of security that you should trust. The security domain for Kubernetes becomes the entire cluster, not an individual node. For these types of hostile multi-tenant workloads, you should use physically isolated clusters.
 
 ## Physically isolate clusters
 

@@ -2,14 +2,14 @@
 title: Azure Quickstart - Run Batch job - Portal 
 description:  Quickly learn to run a Batch job with the Azure portal.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.service: batch
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/03/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
 ---
 
@@ -30,7 +30,7 @@ Follow these steps to create a sample Batch account for test purposes. You need 
 
 1. Select **Create a resource** > **Compute** > **Batch Service**. 
 
-  ![Batch in the Marketplace][marketplace_portal]
+   ![Batch in the Marketplace][marketplace_portal]
 
 2. Enter values for **Account name** and **Resource group**. The account name must be unique within the Azure **Location** selected, use only lowercase characters or numbers, and contain 3-24 characters. 
 
@@ -38,7 +38,7 @@ Follow these steps to create a sample Batch account for test purposes. You need 
 
 4. Keep the defaults for remaining settings, and select **Create** to create the account.
 
-  ![Create a Batch account][account_portal]  
+   ![Create a Batch account][account_portal]  
 
 When the **Deployment succeeded** message appears, go to the Batch account in the portal.
 
@@ -53,23 +53,23 @@ Now that you have a Batch account, create a sample pool of Windows compute nodes
 
 3. In **Operating System**, select the following settings (you can explore other options).
   
-  |Setting  |Value  |
-  |---------|---------|
-  |**Image Type**|Marketplace (Linux/Windows)|
-  |**Publisher**     |MicrosoftWindowsServer|
-  |**Offer**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Setting  |Value  |
+   |---------|---------|
+   |**Image Type**|Marketplace (Linux/Windows)|
+   |**Publisher**     |MicrosoftWindowsServer|
+   |**Offer**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Select a pool operating system][pool_os] 
+   ![Select a pool operating system][pool_os] 
 
 4. Scroll down to enter **Node Size** and **Scale** settings. The suggested node size offers a good balance of performance versus cost for this quick example.
   
-  |Setting  |Value  |
-  |---------|---------|
-  |**Node pricing tier**     |Standard_A1|
-  |**Target dedicated nodes**     |2|
+   |Setting  |Value  |
+   |---------|---------|
+   |**Node pricing tier**     |Standard_A1|
+   |**Target dedicated nodes**     |2|
 
-  ![Select a pool size][pool_size] 
+   ![Select a pool size][pool_size] 
 
 5. Keep the defaults for remaining settings, and select **OK** to create the pool.
 
@@ -87,7 +87,7 @@ Now that you have a pool, create a job to run on it. A Batch job is a logical gr
 
 2. Enter a **Job ID** called *myjob*. In **Pool**, select *mypool*. Keep the defaults for the remaining settings, and select **OK**.
 
-  ![Create a job][job_create]
+   ![Create a job][job_create]
 
 After the job is created, the **Tasks** page opens.
 
@@ -105,7 +105,7 @@ To create the first task:
 
 3. In **Command line**, enter `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Keep the defaults for the remaining settings, and select **OK**.
 
-  ![Create a task][task_create]
+   ![Create a task][task_create]
 
 After you create a task, Batch queues it to run on the pool. When a node is available to run it, the task runs.
 

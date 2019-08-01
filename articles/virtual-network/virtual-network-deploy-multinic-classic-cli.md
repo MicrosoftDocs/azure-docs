@@ -47,7 +47,7 @@ The back-end VMs depend on the creation of the following resources:
 ### Step 1 - Start your script
 You can download the full bash script used [here](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/IaaS-Story/11-MultiNIC/classic/virtual-network-deploy-multinic-classic-cli.sh). Complete the following steps to change the script to work in your environment:
 
-1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#Prerequisites).
+1. Change the values of the variables below based on your existing resource group deployed above in [Prerequisites](#prerequisites).
 
 	```azurecli
 	location="useast2"

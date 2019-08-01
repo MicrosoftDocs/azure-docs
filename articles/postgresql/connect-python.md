@@ -1,16 +1,16 @@
 ---
-title: Connect to Azure Database for PostgreSQL from Python
-description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL.
+title: Use Python to connect to Azure Database for PostgreSQL - Single Server
+description: This quickstart provides a Python code sample that you can use to connect and query data from Azure Database for PostgreSQL - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 
-# Azure Database for PostgreSQL: Use Python to connect and query data
+# Azure Database for PostgreSQL - Single Server: Use Python to connect and query data
 This quickstart demonstrates how to use [Python](https://python.org) to connect to an Azure Database for PostgreSQL. It also demonstrates how to use SQL statements to query, insert, update, and delete data in the database from macOS, Ubuntu Linux, and Windows platforms. The steps in this article assume that you are familiar with developing using Python and are new to working with Azure Database for PostgreSQL.
 
 ## Prerequisites

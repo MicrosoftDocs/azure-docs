@@ -2,8 +2,8 @@
 title: "Azure Batch task start event | Microsoft Docs"
 description: Reference for Batch task start event.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Task start event

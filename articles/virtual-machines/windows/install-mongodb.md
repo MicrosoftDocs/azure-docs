@@ -3,8 +3,8 @@ title: Install MongoDB on a Windows VM in Azure | Microsoft Docs
 description: Learn how to install MongoDB on an Azure VM running Windows Server 2012 R2 created with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: zarhoads
+ms.author: cynthn
 
 ---
 # Install and configure MongoDB on a Windows VM in Azure
-[MongoDB](http://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2016 virtual machine (VM) in Azure. You can also [install MongoDB on a Linux VM in Azure](../linux/install-mongodb.md).
+[MongoDB](https://www.mongodb.org) is a popular open-source, high-performance NoSQL database. This article guides you through installing and configuring MongoDB on a Windows Server 2016 virtual machine (VM) in Azure. You can also [install MongoDB on a Linux VM in Azure](../linux/install-mongodb.md).
 
 ## Prerequisites
 Before you install and configure MongoDB, you need to create a VM and, ideally, add a data disk to it. See the following articles to create a VM and add a data disk:
@@ -30,7 +30,7 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
 
 ## Install MongoDB
 > [!IMPORTANT]
-> MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment. For more information, see [MongoDB Security and Authentication](http://www.mongodb.org/display/DOCS/Security+and+Authentication).
+> MongoDB security features, such as authentication and IP address binding, are not enabled by default. Security features should be enabled before deploying MongoDB to a production environment. For more information, see [MongoDB Security and Authentication](https://www.mongodb.org/display/DOCS/Security+and+Authentication).
 
 
 1. After you've connected to your VM using Remote Desktop, open Internet Explorer from the taskbar.
@@ -42,7 +42,7 @@ To begin installing and configuring MongoDB, [log on to your Windows Server VM](
    * Click the **Sites** button. Add *https://\*.mongodb.com* to the list of trusted sites, and then close the dialog box.
      
      ![Configure Internet Explorer security settings](./media/install-mongodb/configure-internet-explorer-security.png)
-4. Browse to the [MongoDB - Downloads](http://www.mongodb.com/downloads) page (http://www.mongodb.com/downloads).
+4. Browse to the [MongoDB - Downloads](https://www.mongodb.com/downloads) page (https://www.mongodb.com/downloads).
 5. If needed, select the **Community Server** edition and then select the latest current stable release for*Windows Server 2008 R2 64-bit and later*. To download the installer, click **DOWNLOAD (msi)**.
    
     ![Download MongoDB installer](./media/install-mongodb/download-mongodb.png)

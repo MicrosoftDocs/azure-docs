@@ -4,18 +4,19 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: ea555097-bf62-45dd-9b45-b75c50324a69
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 01/17/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zscaler Internet Access Administrator
 
@@ -74,8 +75,8 @@ To configure and test Azure AD single sign-on with Zscaler Internet Access Admin
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure Zscaler Internet Access Administrator Single Sign-On](#configure-zscaler-internet-access-administrator-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create Zscaler Internet Access Administrator test user](#create-zscaler-internet-access-administrator-test-user)** - to have a counterpart of Britta Simon in Zscaler Internet Access Administrator that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create Zscaler Internet Access Administrator test user](#create-zscaler-internet-access-administrator-test-user)** - to have a counterpart of Britta Simon in Zscaler Internet Access Administrator that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -101,25 +102,25 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
     ![Zscaler Internet Access Administrator Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL as per your requirement:
-    
+
 	| |
 	|--|
 	| `https://admin.zscaler.net` |
-	| `https://admin.zscalerone.net` | 
+	| `https://admin.zscalerone.net` |
 	| `https://admin.zscalertwo.net` |
 	| `https://admin.zscalerthree.net` |
 	| `https://admin.zscloud.net` |
 	| `https://admin.zscalerbeta.net` |
 
     b. In the **Reply URL** text box, type a URL as per your requirement:
-    
+
 	| |
 	|--|
 	| `https://admin.zscaler.net/adminsso.do` |
-	| `https://admin.zscalerone.net/adminsso.do` | 
-	| `https://admin.zscalertwo.net/adminsso.do` | 
-	| `https://admin.zscalerthree.net/adminsso.do` | 
-	| `https://admin.zscloud.net/adminsso.do` | 
+	| `https://admin.zscalerone.net/adminsso.do` |
+	| `https://admin.zscalertwo.net/adminsso.do` |
+	| `https://admin.zscalerthree.net/adminsso.do` |
+	| `https://admin.zscloud.net/adminsso.do` |
 	| `https://admin.zscalerbeta.net/adminsso.do` |
 
 5. Zscaler Internet Access Administrator application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML page**, click **Edit** button to open **User Attributes & Claims** dialog.
@@ -147,11 +148,11 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 	> [!NOTE]
 	> Please click [here](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) to know how to configure Role in Azure AD
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Zscaler Internet Access Administrator** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Zscaler Internet Access Administrator** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -166,13 +167,13 @@ To configure Azure AD single sign-on with Zscaler Internet Access Administrator,
 1. In a different web browser window, log in to your Zscaler Internet Access Admin UI.
 
 2. Go to **Administration > Administrator Management** and perform the following steps and click Save:
-   
+
 	![Administration](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Administration")
 
 	a. Check **Enable SAML Authentication**.
 
 	b. Click **Upload**, to  upload the Azure SAML signing certificate that you  have downloaded from Azure portal in the **Public SSL Certificate**.
-	
+
 	c. Optionally, for additional security, add the **Issuer** details to verify the Issuer of the SAML response.
 
 3. On the Admin UI, perform the following steps:
@@ -201,7 +202,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -241,7 +242,7 @@ For steps on how to create an Administrator account, refer to Zscaler documentat
 
 https://help.zscaler.com/zia/adding-admins
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -249,9 +250,8 @@ When you click the Zscaler Internet Access Administrator tile in the Access Pane
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

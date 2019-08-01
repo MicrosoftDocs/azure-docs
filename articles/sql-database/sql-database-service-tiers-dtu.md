@@ -1,35 +1,34 @@
 ---
-title: 'Azure SQL Database service tiers - DTU | Microsoft Docs'
-description: Learn about service tiers for single and pooled databases to provide compute sizes and storage sizes.  
+title: 'Azure SQL Database service tiers - DTU-based purchase model | Microsoft Docs'
+description: Learn about service tiers in the  DTU-based purchase model for single and pooled databases to provide compute and storage sizes.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: sachinpMSFT
-ms.author: sachinp
+author: stevestein
+ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 10/22/2018
+ms.date: 06/25/2019
 ---
-# DTU-based service tiers
+# Service tiers in the DTU-based purchase model
 
-DTU-based service tiers are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers provide flexibility of changing compute sizes without downtime. Single databases and elastic pools are billed hourly based on service tier and compute size.
+Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 > [!IMPORTANT]
-> SQL Database Managed Instance, currently in public preview does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
+> SQL Database managed instance does not support a DTU-based purchasing model. For more information, see [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > [!NOTE]
-> For information about vCore-based service tiers, see [vCore-based service tiers](sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-service-tiers.md).
+> For information about vCore-based service tiers, see [vCore-based service tiers](sql-database-service-tiers-vcore.md). For information about differentiating DTU-based service tiers and vCore-based service tiers, see [Azure SQL Database purchasing models](sql-database-purchase-models.md).
 
 ## Compare the DTU-based service tiers
 
 Choosing a service tier depends primarily on business continuity, storage, and performance requirements.
 
 ||Basic|Standard|Premium|
-| :-- | --: |--:| --:| --:|
-|Target workload|Development and production|Development and production|Development and production||
-|Uptime SLA|99.99%|99.99%|99.99%|N/A while in preview|
+| :-- | --: |--:| --:|
+|Target workload|Development and production|Development and production|Development and production|
+|Uptime SLA|99.99%|99.99%|99.99%|
 |Backup retention|7 days|35 days|35 days|
 |CPU|Low|Low, Medium, High|Medium, High|
 |IO throughput (approximate) |2.5 IOPS per DTU| 2.5 IOPS per DTU | 48 IOPS per DTU|
@@ -39,17 +38,17 @@ Choosing a service tier depends primarily on business continuity, storage, and p
 |||||
 
 > [!NOTE]
-> You can get a free Azure SQL database at the Basic service tier in conjunction with a Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
+> You can get a free Azure SQL database at the Basic service tier in conjunction with an Azure free account to explore Azure. For information, see [Create a managed cloud database with your Azure free account](https://azure.microsoft.com/free/services/sql-database/).
 
 ## Single database DTU and storage limits
 
-Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-service-tiers.md#dtu-based-purchasing-model)?
+Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [DTU-based purchasing model](sql-database-purchase-models.md#dtu-based-purchasing-model)?
 
 ||Basic|Standard|Premium|
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Maximum storage size | 2 GB | 1 TB | 4 TB  |
-| Maximum DTUs | 5 | 3000 | 4000 | |
-||||||
+| Maximum DTUs | 5 | 3000 | 4000 | 
+|||||
 
 > [!IMPORTANT]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
@@ -57,18 +56,18 @@ Compute sizes are expressed in terms of Database Transaction Units (DTUs) for si
 ## Elastic pool eDTU, storage, and pooled database limits
 
 | | **Basic** | **Standard** | **Premium** |
-| :-- | --: | --: | --: | --: |
+| :-- | --: | --: | --: |
 | Maximum storage size per database  | 2 GB | 1 TB | 1 TB |
 | Maximum storage size per pool | 156 GB | 4 TB | 4 TB |
 | Maximum eDTUs per database | 5 | 3000 | 4000 |
 | Maximum eDTUs per pool | 1600 | 3000 | 4000 |
 | Maximum number of databases per pool | 500  | 500 | 100 |
-||||||
+|||||
 
 > [!IMPORTANT]
-> More than 1 TB of storage in the Premium tier is currently available in all regions except the following: West Central US, China East, USDoDCentral, Germany Central, USDoDEast, US Gov Southwest, USGov Iowa, Germany Northeast,  China North. In other regions, the storage max in the Premium tier is limited to 1 TB. See [P11-P15 Current Limitations](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+> More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, Germany Northeast, West Central US, US DoD regions, and US Government Central. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).  
 > [!IMPORTANT]
-> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](sql-database-file-space-management.md).
+> Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [manage file space in Azure SQL Database](sql-database-file-space-management.md).
 
 ## DTU Benchmark
 
@@ -82,7 +81,7 @@ The benchmark and its methodology are described in more detail below.
 
 ### Benchmark summary
 
-ASDB measures the performance of a mix of basic database operations that occur most frequently in online transaction processing (OLTP) workloads. Although the benchmark is designed with cloud computing in mind, the database schema, data population, and transactions have been designed to be broadly representative of the basic elements most commonly used in OLTP workloads.
+The benchmark measures the performance of a mix of basic database operations that occur most frequently in online transaction processing (OLTP) workloads. Although the benchmark is designed with cloud computing in mind, the database schema, data population, and transactions have been designed to be broadly representative of the basic elements most commonly used in OLTP workloads.
 
 ### Schema
 

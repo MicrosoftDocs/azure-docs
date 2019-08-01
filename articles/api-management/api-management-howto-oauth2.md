@@ -47,13 +47,13 @@ This guide shows you how to configure your API Management service instance to us
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. The next section of the form contains the **Authorization code grant types**, **Authorization endpoint URL**, and **Authorization request method** settings.
+4. The next section of the form contains the **Authorization grant types**, **Authorization endpoint URL**, and **Authorization request method** settings.
 
-    Specify the **Authorization code grant types** by checking the desired types. **Authorization code** is specified by default.
+    Specify the **Authorization grant types** by checking the desired types. **Authorization code** is specified by default.
 
-    Enter the **Authorization endpoint URL**. For Azure Active Directory, this URL will be similar to the following URL, where `<client_id>` is replaced with the client id that identifies your application to the OAuth 2.0 server.
+    Enter the **Authorization endpoint URL**. For Azure Active Directory, this URL will be similar to the following URL, where `<tenant_id>` is replaced with the ID of your Azure AD tenant.
 
-    `https://login.microsoftonline.com/<client_id>/oauth2/authorize`
+    `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     The **Authorization request method** specifies how the authorization request is sent to the OAuth 2.0 server. By default **GET** is selected.
 
@@ -71,7 +71,7 @@ This guide shows you how to configure your API Management service instance to us
 
     ![OAuth 2.0 new server](./media/api-management-howto-oauth2/oauth-04.png)
 
-    If **Authorization code grant types** is set to **Resource owner password**, the **Resource owner password credentials** section is used to specify those credentials; otherwise you can leave it blank.
+    If **Authorization grant types** is set to **Resource owner password**, the **Resource owner password credentials** section is used to specify those credentials; otherwise you can leave it blank.
 
     Once the form is complete, click **Create** to save the API Management OAuth 2.0 authorization server configuration. Once the server configuration is saved, you can configure APIs to use this configuration, as shown in the next section.
 

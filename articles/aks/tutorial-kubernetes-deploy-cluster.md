@@ -2,12 +2,12 @@
 title: Kubernetes on Azure tutorial - Deploy a cluster
 description: In this Azure Kubernetes Service (AKS) tutorial, you create an AKS cluster and use kubectl to connect to the Kubernetes master node.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: mvc
 
 #Customer intent: As a developer or IT pro, I want to learn how to create an Azure Kubernetes Service (AKS) cluster so that I can deploy and run my own applications.
@@ -65,10 +65,10 @@ First, get the ACR resource ID using [az acr show][]. Update the `<acrName>` reg
 az acr show --resource-group myResourceGroup --name <acrName> --query "id" --output tsv
 ```
 
-To grant the correct access for the AKS cluster to use images stored in ACR, create a role assignment using the [az role assignment create][] command. Replace `<appId`> and `<acrId>` with the values gathered in the previous two steps.
+To grant the correct access for the AKS cluster to pull images stored in ACR, assign the `AcrPull` role using the [az role assignment create][] command. Replace `<appId`> and `<acrId>` with the values gathered in the previous two steps.
 
 ```azurecli
-az role assignment create --assignee <appId> --scope <acrId> --role Reader
+az role assignment create --assignee <appId> --scope <acrId> --role acrpull
 ```
 
 ## Create a Kubernetes cluster

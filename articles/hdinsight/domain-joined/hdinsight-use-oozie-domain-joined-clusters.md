@@ -1,14 +1,13 @@
 ---
 title: Secure Apache Oozie workflows with Enterprise Security Package - Azure HDInsight
 description: Secure Apache Oozie workflows using the Azure HDInsight Enterprise Security Package. Learn how to define an Oozie workflow and submit an Oozie job.
-services: hdinsight
 ms.service: hdinsight
 author: omidm1
 ms.author: omidm
 ms.reviewer: mamccrea
 ms.custom: hdinsightactive,seodec18
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 02/15/2019
 ---
 # Run Apache Oozie in HDInsight Hadoop clusters with Enterprise Security Package
 
@@ -32,41 +31,41 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 For more information on Secure Shell (SSH), see [Connect to HDInsight (Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 1. Connect to the HDInsight cluster by using SSH:  
- ```bash
-ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
- ```
+   ```bash
+   ssh [DomainUserName]@<clustername>-ssh.azurehdinsight.net
+   ```
 
 2. To verify successful Kerberos authentication, use the `klist` command. If not, use `kinit` to start Kerberos authentication.
 
 3. Sign in to the HDInsight gateway to register the OAuth token required to access Azure Data Lake Storage:   
      ```bash
      curl -I -u [DomainUserName@Domain.com]:[DomainUserPassword] https://<clustername>.azurehdinsight.net
-	 ```
+     ```
 
     A status response code of **200 OK** indicates successful registration. Check the username and password if an unauthorized response is received, such as 401.
 
 ## Define the workflow
 Oozie workflow definitions are written in Apache Hadoop Process Definition Language (hPDL). hPDL is an XML process definition language. Take the following steps to define the workflow:
 
-1.	Set up a domain user’s workspace:
- ```bash
-hdfs dfs -mkdir /user/<DomainUser>
-cd /home/<DomainUserPath>
-cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
-tar -xvf oozie-examples.tar.gz
-hdfs dfs -put examples /user/<DomainUser>/
- ```
-Replace `DomainUser` with the domain user name. 
-Replace `DomainUserPath` with the home directory path for the domain user. 
-Replace `ClusterVersion` with your cluster Hortonworks Data Platform (HDP) version.
+1. Set up a domain user’s workspace:
+   ```bash
+   hdfs dfs -mkdir /user/<DomainUser>
+   cd /home/<DomainUserPath>
+   cp /usr/hdp/<ClusterVersion>/oozie/doc/oozie-examples.tar.gz .
+   tar -xvf oozie-examples.tar.gz
+   hdfs dfs -put examples /user/<DomainUser>/
+   ```
+   Replace `DomainUser` with the domain user name. 
+   Replace `DomainUserPath` with the home directory path for the domain user. 
+   Replace `ClusterVersion` with your cluster Hortonworks Data Platform (HDP) version.
 
-2.	Use the following statement to create and edit a new file:
- ```bash
-nano workflow.xml
- ```
+2. Use the following statement to create and edit a new file:
+   ```bash
+   nano workflow.xml
+   ```
 
 3. After the nano editor opens, enter the following XML as the file contents:
- ```xml
+   ```xml
     <?xml version="1.0" encoding="UTF-8"?>
     <workflow-app xmlns="uri:oozie:workflow:0.4" name="map-reduce-wf">
        <credentials>
@@ -161,25 +160,25 @@ nano workflow.xml
        </kill>
        <end name="end" />
     </workflow-app>
- ```
+   ```
 4. Replace `clustername` with the name of the cluster. 
 
 5. To save the file, select Ctrl+X. Enter `Y`. Then select **Enter**.
 
     The workflow is divided into two parts:
-    *	**Credential section.** This section takes in the credentials that are used for authenticating Oozie actions:
+   * **Credential section.** This section takes in the credentials that are used for authenticating Oozie actions:
 
-       This example uses authentication for Hive actions. To learn more, see [Action Authentication](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
+     This example uses authentication for Hive actions. To learn more, see [Action Authentication](https://oozie.apache.org/docs/4.2.0/DG_ActionAuthentication.html).
 
-       The credential service allows Oozie actions to impersonate the user for accessing Hadoop services.
+     The credential service allows Oozie actions to impersonate the user for accessing Hadoop services.
 
-    *	**Action section.** This section has three actions: map-reduce, Hive server 2, and Hive server 1:
+   * **Action section.** This section has three actions: map-reduce, Hive server 2, and Hive server 1:
 
-      - The map-reduce action runs an example from an Oozie package for map-reduce that outputs the aggregated word count.
+     - The map-reduce action runs an example from an Oozie package for map-reduce that outputs the aggregated word count.
 
-       - The Hive server 2 and Hive server 1 actions run a query on a sample Hive table provided with HDInsight.
+     - The Hive server 2 and Hive server 1 actions run a query on a sample Hive table provided with HDInsight.
 
-        The Hive actions use the credentials defined in the credentials section for authentication by using the keyword `cred` in the action element.
+     The Hive actions use the credentials defined in the credentials section for authentication by using the keyword `cred` in the action element.
 
 6. Use the following command to copy the `workflow.xml` file to `/user/<domainuser>/examples/apps/map-reduce/workflow.xml`:
      ```bash
@@ -213,11 +212,12 @@ nano workflow.xml
        hiveOutputDirectory1=${nameNode}/user/${user.name}/hiveresult1
        hiveOutputDirectory2=${nameNode}/user/${user.name}/hiveresult2
    ```
-  
-   a. Replace `domainuser` with your username for the domain.  
-   b. Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
-   c. Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.      
-   d. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
+
+   * Use the `adl://home` URI for the `nameNode` property if you have Azure Data Lake Storage Gen1 as your primary cluster storage. If you are using Azure Blob Storage, then change this to `wasb://home`. If you are using Azure Data Lake Storage Gen2, then change this to `abfs://home`.
+   * Replace `domainuser` with your username for the domain.  
+   * Replace `ClusterShortName` with the short name for the cluster. For example, if the cluster name is https:// *[example link]* sechadoopcontoso.azurehdisnight.net, the `clustershortname` is the first six characters of the cluster: **sechad**.  
+   * Replace `jdbcurlvalue` with the JDBC URL from the Hive configuration. An example is jdbc:hive2://headnodehost:10001/;transportMode=http.      
+   * To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
    This properties file needs to be present locally when running Oozie jobs.
 
@@ -325,5 +325,4 @@ The Oozie web UI provides a web-based view into the status of Oozie jobs on the 
 
 ## Next steps
 * [Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight](../hdinsight-use-oozie-linux-mac.md).
-* [Use time-based Apache Oozie coordinator](../hdinsight-use-oozie-coordinator-time.md).
 * [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).

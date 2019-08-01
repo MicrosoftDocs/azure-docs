@@ -19,7 +19,7 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
-  - name: Log Analytics
+  - name: Azure Monitor logs
     href: log-analytics-samples.md
 - name: Concepts
   items:
@@ -29,18 +29,34 @@
       href: infrastructure-fqdns.md
     - name: Logs and metrics
       href: logs-and-metrics.md
+    - name: Threat intelligence
+      href: threat-intel.md
     - name: Rule processing logic
       href: rule-processing.md
+    - name: Service tags
+      href: service-tags.md
 - name: How-to guides
   items:
+    - name: Deploy using Azure PowerShell
+      href: deploy-ps.md
+    - name: Deploy using Azure CLI
+      href: deploy-cli.md
     - name: Deploy using a template
       href: deploy-template.md
+    - name: Deploy with multiple public IP
+      href: deploy-multi-public-ip-powershell.md
+    - name: Deploy with Availability Zones
+      href: deploy-availability-zone-powershell.md
+    - name: Integrate with load balancer
+      href: integrate-lb.md
+    - name: Application rules with SQL FQDNs
+      href: sql-fqdn-filtering.md
 - name: Reference
   items:
   - name: Azure CLI
-    href: /cli/azure/network
+    href: /cli/azure/ext/azure-firewall/network/firewall
   - name: Azure PowerShell
-    href: /powershell/azure/overview
+    href: /powershell/module/az.network/new-azfirewall
   - name: .NET
     href: /dotnet/api
   - name: Java

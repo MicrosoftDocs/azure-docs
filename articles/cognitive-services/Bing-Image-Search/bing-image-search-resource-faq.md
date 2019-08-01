@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: Find answers to commonly asked questions about concepts, code, and scenarios related to the Bing Image Search API.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-image-search
+ms.subservice: bing-image-search
 ms.topic: troubleshooting
-ms.date: 10/06/2017
+ms.date: 03/04/2019
 ms.author: aahi
 ---
 
@@ -20,11 +20,11 @@ Find answers to commonly asked questions about concepts, code, and scenarios rel
 
 The following headers may occur in responses from the Bing Image Search API.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|The unique ID that Bing has assigned to the user|
-|`BingAPIs-Market`|The market that was used to fulfill the request|
-|`BingAPIs-TraceId`|The log entry on the Bing API server for this request (for support)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |The unique ID that Bing has assigned to the user |
+| `BingAPIs-Market`   |The market that was used to fulfill the request |
+| `BingAPIs-TraceId`  |The log entry on the Bing API server for this request (for support) |
 
 It is particularly important to persist the client ID and return it with subsequent requests. When you do this, the search will use past context in ranking search results and also provide a consistent user experience.
 
@@ -60,4 +60,4 @@ Is your question about a missing feature or functionality? Consider requesting o
 
 ## See also
 
- [Stack Overflow: Cognitive Services](http://stackoverflow.com/questions/tagged/bing-api)
+ [Stack Overflow: Cognitive Services](https://stackoverflow.com/questions/tagged/bing-api)

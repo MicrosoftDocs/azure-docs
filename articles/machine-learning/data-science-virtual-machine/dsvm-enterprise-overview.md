@@ -4,19 +4,19 @@ description: Patterns for deploying the Data Science VM in an enterprise team en
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2018
-ms.author: gokuma
+ms.author: vijetaj
 ---
 
 # Data Science Virtual Machine-based team analytics and AI environment 
@@ -43,7 +43,7 @@ This series of articles provides guidance and pointers for each of the preceding
 * [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
 * [Logging and auditing](https://docs.microsoft.com/azure/security/azure-log-audit)
 * [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview)
-* [Policy setting and enforcement](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction)
+* [Policy setting and enforcement](../../governance/policy/overview.md)
 * [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
 * [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Data discovery and governance](https://docs.microsoft.com/azure/data-catalog/)

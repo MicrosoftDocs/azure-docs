@@ -3,26 +3,26 @@ title: "Quickstart: Get list of supported languages, Java - Translator Text API"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
-author: erhopf
-manager: cgronlun
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-text
+ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 12/03/2018
-ms.author: erhopf
+ms.date: 06/04/2019
+ms.author: swmachan
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages using Java
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
+>[!TIP]
+> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java).
 
 ## Prerequisites
 
 * [JDK 7 or later](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * [Gradle](https://gradle.org/install/)
-* An Azure subscription key for Translator Text
 
 ## Initialize a project with Gradle
 
@@ -45,7 +45,7 @@ When prompted to choose a **DSL**, select **Kotlin**.
 
 Locate `build.gradle.kts` and open it with your favorite IDE or text editor. Then copy in this build configuration:
 
-```
+```java
 plugins {
     java
     application
@@ -99,9 +99,10 @@ public class GetLanguages {
 Add these lines to the `GetLanguages` class:
 
 ```java
-String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 String url = "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0";
 ```
+
+If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Create a client and build a request
 
@@ -112,14 +113,13 @@ Add this line to the `GetLanguages` class to instantiate the `OkHttpClient`:
 OkHttpClient client = new OkHttpClient();
 ```
 
-Next, let's build the GET request.
+Next, let's build the `GET` request.
 
 ```java
 // This function performs a GET request.
 public String Get() throws IOException {
     Request request = new Request.Builder()
             .url(url).get()
-            .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
             .addHeader("Content-type", "application/json").build();
     Response response = client.newCall(request).execute();
     return response.body().string();
@@ -164,7 +164,15 @@ That's it, you're ready to run your sample app. From the command line (or termin
 gradle build
 ```
 
+When the build completes, run:
+
+```console
+gradle run
+```
+
 ## Sample response
+
+Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 A successful response is returned in JSON as shown in the following example:
 
@@ -254,10 +262,10 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including translation and transliteration, as well as other sample Translator Text projects on GitHub.
+Take a look at the API reference to understand everything you can do with the Translator Text API.
 
 > [!div class="nextstepaction"]
-> [Explore Java examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=java)
+> [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
 
 ## See also
 

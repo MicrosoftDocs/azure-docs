@@ -1,18 +1,20 @@
 ---
 title: Text Moderation - Content Moderator
+titleSuffix: Azure Cognitive Services
 description: Use text moderation for possible unwanted text, PII, and custom lists of terms.
 services: cognitive-services
 author: sanjeev3
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: content-moderator
+ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/30/2018
+ms.date: 01/10/2019
 ms.author: sajagtap
+
 ---
 
-# Text moderation
+# Learn text moderation concepts
 
 Use Content Moderator’s machine-assisted text moderation and [human review](Review-Tool-User-Guide/human-in-the-loop.md) capabilities to moderate text content.
 
@@ -22,7 +24,7 @@ The service response includes the following information:
 
 - Profanity: term-based matching with built-in list of profane terms in various languages
 - Classification: machine-assisted classification into three categories
-- Personally Identifiable Information (PII)
+- Personal data
 - Auto-corrected text
 - Original text
 - Language
@@ -71,7 +73,7 @@ The following extract in the JSON extract shows an example output:
 - `Score` is between 0 and 1. The higher the score, the higher the model is predicting that the category may be applicable. This feature relies on a statistical model rather than manually coded outcomes. We recommend testing with your own content to determine how each category aligns to your requirements.
 - `ReviewRecommended` is either true or false depending on the internal score thresholds. Customers should assess whether to use this value or decide on custom thresholds based on their content policies.
 
-## Personally Identifiable Information (PII)
+## Personal data
 
 The PII feature detects the potential presence of this information:
 

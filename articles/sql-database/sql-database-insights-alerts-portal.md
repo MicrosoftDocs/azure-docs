@@ -6,11 +6,10 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: 
 ms.devlang: 
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 11/02/2018
 ---
 # Create alerts for Azure SQL Database and Data Warehouse using Azure portal
@@ -53,7 +52,7 @@ You can configure and get information about alert rules using
 4. **Name** your alert rule, and choose a **Description**, which also shows in notification emails.
 5. Select the **Metric** you want to monitor, then choose a **Condition** and **Threshold** value for the metric. Also choose the **Period** of time that the metric rule must be satisfied before the alert triggers. So for example, if you use the period "PT5M" and your alert looks for CPU above 80%, the alert triggers when the **average** CPU has been above 80% for 5 minutes. Once the first trigger occurs, it again triggers when the average CPU is below 80% over 5 minutes. The CPU measurement occurs every 1 minute. Consult the table below for supported time windows and the aggregation type that each alert uses- not all alerts use the average value.   
 6. Check **Email owners...** if you want administrators and co-administrators to be emailed when the alert fires.
-7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email@contoso.com;email2@contoso.com*
+7. If you want additional emails to receive a notification when the alert fires, add them in the **Additional Administrator email(s)** field. Separate multiple emails with semi-colons - *email\@contoso.com;email2\@contoso.com*
 8. Put in a valid URI in the **Webhook** field if you want it called when the alert fires.
 9. Select **OK** when done to create the alert.   
 
@@ -100,7 +99,6 @@ Once you have created an alert, you can select it and:
 |||||| 	 	 	 	 
 | SQL data warehouse | cpu_percent | CPU percentage | Average | 10 minutes |
 | SQL data warehouse | physical_data_read_percent | Data IO percentage | Average | 10 minutes |
-| SQL data warehouse | storage | Total database size | Maximum | 10 minutes |
 | SQL data warehouse | connection_successful | Successful Connections | Total | 10 minutes |
 | SQL data warehouse | connection_failed | Failed Connections | Total | 10 minutes |
 | SQL data warehouse | blocked_by_firewall | Blocked by Firewall | Total | 10 minutes |

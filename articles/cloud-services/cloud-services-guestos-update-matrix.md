@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 1/7/2019
+ms.date: 7/26/2019
 ms.author: raiye
 
 ---
@@ -39,6 +39,30 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
+###### **July 26, 2019**
+The July Guest OS has released.
+
+###### **July 8, 2019**
+The June Guest OS has released.
+
+###### **June 6, 2019**
+The May Guest OS has released.
+
+###### **May 7, 2019**
+The April Guest OS has released.
+
+###### **March 26, 2019**
+The March Guest OS has released.
+
+###### **March 12, 2019**
+The February Guest OS has released.
+
+###### **February 5, 2019**
+The January Guest OS has released.
+
+###### **January 24, 2019**
+Family 6 Guest OS (Windows Server 2019) has released.
+
 ###### **January 7, 2019**
 The December Guest OS has released.
 
@@ -51,49 +75,80 @@ The October Guest OS has released.
 ###### **October 12, 2018**
 The September Guest OS has released.
 
-###### **September 12, 2018**
-The August Guest OS has released.
-
-###### **August 3, 2018**
-The July Guest OS has released.
-
-###### **July 3, 2018**
-The June Guest OS has released.
-
 ## Releases
+
+## Family 6 releases
+**Windows Server 2019**
+
+.NET Framework installed: 3.5, 4.7.2
+
+> [!NOTE]
+> The Windows Azure SDK for .NET - 3.0 can be downloaded [here][Windows Azure SDK].
+>
+>Installation steps:
+>1.	Please uninstall any older versions of MicrosoftAzureAuthoringTools*.msi
+>2. Install the [Azure SDK for .NET - 3.0][Windows Azure SDK]
+>3. Restart your machine
+>4. Create a new Cloud Service project and add a single Worker Role
+>5. Change the OS Family to 6 and build a package
+>6. Deploy the package to Azure using the Azure portal or Visual Studio
+>
+
+
+| Configuration string | Release date | Disable date |
+| --- | --- | --- |
+| WA-GUEST-OS-6.9_201907-01 |July 26, 2019 |Post 6.11 |
+| WA-GUEST-OS-6.8_201906-01 |July 8, 2019 |Post 6.10 |
+|~~WA-GUEST-OS-6.7_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-6.6_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-6.5_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-6.4_201902-01~~ |March 12, 2019 |May 7, 2019 |
+|~~WA-GUEST-OS-6.3_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-6.2_201812-01~~ |January 24, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-6.1_201811-01~~ |January 24, 2019 |February 5, 2019 |
+
 ## Family 5 releases
 **Windows Server 2016**
 
-.NET Framework installed: 3.5, 4.6.2
+.NET Framework installed: 3.5, 4.6
 
 > [!NOTE]
 > The RDP password for OS family 5 must be a minimum of 10 characters.
 >
 
+
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-5.26_201812-01 |January 7, 2019 |Post 5.28 |
-| WA-GUEST-OS-5.25_201811-01 |December 14, 2018 |Post 5.27 |
+| WA-GUEST-OS-5.33_201907-01 |July 26, 2019 |Post 5.35 |  
+| WA-GUEST-OS-5.32_201906-01 |July 8, 2019 |Post 5.34 |
+|~~WA-GUEST-OS-5.31_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-5.30_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-5.29_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-5.28_201902-01~~ |March 12, 2019 |May 7, 2019 |
+|~~WA-GUEST-OS-5.27_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-5.26_201812-01~~ |January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-5.25_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-5.24_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-5.23_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-5.22_201808-01~~ |September 12, 2018 |November 8, 2018 |
-|~~WA-GUEST-OS-5.21_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-5.20_201806-01~~ |July 3, 2018 |September 12, 2018 |
 
 ## Family 4 releases
 **Windows Server 2012 R2**
 
-.NET Framework installed: 3.5, 4.5.1
+.NET Framework installed: 3.5, 4.5.1, 4.5.2
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-4.61_201812-01 |January 7, 2019 |Post 4.63 |
-| WA-GUEST-OS-4.60_201811-01 |December 14, 2018 |Post 4.62 |
+| WA-GUEST-OS-4.68_201907-01 | July 26, 2019  |Post 4.70 |
+| WA-GUEST-OS-4.67_201906-01 |July 8, 2019 |Post 4.69 |
+|~~WA-GUEST-OS-4.66_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-4.65_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-4.64_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-4.63_201902-01~~ |March 12, 2019 |May 7, 2019 |
+|~~WA-GUEST-OS-4.62_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-4.61_201812-01~~ |January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-4.60_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-4.59_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-4.58_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-4.57_201808-01~~ |September 12, 2018 |November 8, 2018 |
-|~~WA-GUEST-OS-4.56_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-4.55_201806-01~~ |July 3, 2018 |September 12, 2018 |
 
 ## Family 3 releases
 **Windows Server 2012**
@@ -102,28 +157,36 @@ The June Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-3.68_201812-01 |January 7, 2019 |Post 3.70 |
-| WA-GUEST-OS-3.67_201811-01 |December 14, 2018 |Post 3.69 |
+| WA-GUEST-OS-3.75_201907-01 | July 26, 2019 |Post 3.77 |
+| WA-GUEST-OS-3.74_201906-01 |July 8, 2019 |Post 3.76 |
+|~~WA-GUEST-OS-3.73_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-3.72_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-3.71_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-3.70_201902-01~~ |March 12, 2019 |May 7, 2019 |
+|~~WA-GUEST-OS-3.69_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-3.68_201812-01~~ |January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-3.67_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-3.66_201810-01~~ |November 8, 2018 |January 7, 2019 |
 |~~WA-GUEST-OS-3.65_201809-01~~ |October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-3.64_201808-01~~ |September 12, 2018 |November 8, 2018 |
-|~~WA-GUEST-OS-3.63_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-3.62_201806-01~~ |July 3, 2018 |September 12, 2018 |
 
 ## Family 2 releases
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installed: 3.5 (includes 2.0 and 3.0)
+.NET Framework installed: 3.5 (includes 2.0 and 3.0), 4.5
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-| WA-GUEST-OS-2.81_201812-01 |January 7, 2019 |Post 2.83 |
-| WA-GUEST-OS-2.80_201811-01 |December 14, 2018 |Post 2.82 |
+| WA-GUEST-OS-2.88_201907-01 | July 26, 2019 |Post 2.90 |
+| WA-GUEST-OS-2.87_201906-01 |July 8, 2019 |Post 2.89 |
+|~~WA-GUEST-OS-2.86_201905-01~~ |June 6, 2019 |July 26, 2019 |
+|~~WA-GUEST-OS-2.85_201904-01~~ |May 7, 2019 |July 8, 2019 |
+|~~WA-GUEST-OS-2.84_201903-01~~ |March 26, 2019 |June 6, 2019 |
+|~~WA-GUEST-OS-2.83_201902-01~~ |March 12, 2019 |May 7, 2019 |
+|~~WA-GUEST-OS-2.82_201901-01~~ |February 5, 2019 |March 26, 2019 |
+|~~WA-GUEST-OS-2.81_201812-01~~ |January 7, 2019 |March 12, 2019 |
+|~~WA-GUEST-OS-2.80_201811-01~~ |December 14, 2018 |February 5, 2019 |
 |~~WA-GUEST-OS-2.79_201810-01~~ |November 8, 2018 |January 7, 2019 |
-|~~WA-GUEST-OS-2.78_201809-01~~|October 12, 2018 |December 14, 2018 |
-|~~WA-GUEST-OS-2.77_201808-01~~ |September 12, 2018 |November 8, 2018 |
-|~~WA-GUEST-OS-2.76_201807-02~~ |August 3, 2018 |October 12, 2018 |
-|~~WA-GUEST-OS-2.75_201806-01~~ |July 3, 2018 |September 12, 2018 |
+|~~WA-GUEST-OS-2.78_201809-01~~ |October 12, 2018 |December 14, 2018 |
 
 ## MSRC patch updates
 The list of patches that are included with each monthly Guest OS release is available [here][patches].
@@ -133,6 +196,7 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 
 | Guest OS family | Compatible SDK versions |
 | --- | --- |
+| 6 |Version 2.9.6+ |
 | 5 |Version 2.9.5.1+ |
 | 4 |Version 2.1+ |
 | 3 |Version 1.8+ |
@@ -184,20 +248,21 @@ The Guest OS supportability and retirement policy is explained [here][retirepoli
 [Guest OS Update RSS Feed]: https://raw.githubusercontent.com/MicrosoftDocs/azure-cloud-services-files/master/GuestOS/GuestOSFeed.xml
 [Install .NET on a Cloud Service Role]: https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-install-dotnet/?WT.mc_id=azurebg_email_Trans_963_RevisedNET_Update
 [Azure Guest OS Update Settings]: cloud-services-how-to-configure-portal.md
-[ssl3 announcement]: http://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
+[ssl3 announcement]: https://azure.microsoft.com/blog/2014/12/09/azure-security-ssl-3-0-update/
 [Microsoft Security Advisory 3009008]: https://technet.microsoft.com/library/security/3009008.aspx
-[ssl3-fixit]: http://go.microsoft.com/?linkid=9863266
+[ssl3-fixit]: https://go.microsoft.com/?linkid=9863266
 [MS14-066]: https://technet.microsoft.com/library/security/ms14-066.aspx
 [MS14-046]: https://technet.microsoft.com/library/security/ms14-046.aspx
 [retire policy sdk]: https://msdn.microsoft.com/library/dn479282.aspx
 [server and gos]: https://msdn.microsoft.com/library/dn775043.aspx
-[azuresupport]: http://azure.microsoft.com/support/options/
-[net install pkg]: http://www.microsoft.com/download/details.aspx?id=42643
+[azuresupport]: https://azure.microsoft.com/support/options/
+[net install pkg]: https://www.microsoft.com/download/details.aspx?id=42643
 [msrc]: https://technet.microsoft.com/security/dn440717.aspx
 [update guest os portal]: https://msdn.microsoft.com/library/gg433101.aspx
 [update guest os svc]: https://msdn.microsoft.com/library/gg456324.aspx
-[restarts]: http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
+[restarts]: https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx
 [patches]: cloud-services-guestos-msrc-releases.md
 [retirepolicy]: cloud-services-guestos-retirement-policy.md
 [fam1retire]: cloud-services-guestos-family1-retirement.md
 [fix]: https://technet.microsoft.com/library/security/ms17-010.aspx
+[Windows Azure SDK]: https://www.microsoft.com/en-us/download/details.aspx?id=54917

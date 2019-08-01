@@ -2,14 +2,14 @@
 title: Azure SQL Data Warehouse Release Notes May 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: twounder
+author: anumjs
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: manage
+ms.subservice: 
 ms.date: 07/23/2018
-ms.author: twounder
-ms.reviewer: twounder
+ms.author: anjangsh
+ms.reviewer: jrasnick
 ---
 
 # What's new in Azure SQL Data Warehouse? May 2018 
@@ -22,7 +22,7 @@ Azure SQL Data Warehouse Compute Optimized Gen2 tier sets new performance standa
 See the [Turbocharge cloud analytics with Azure SQL Data Warehouse](https://azure.microsoft.com/blog/turbocharge-cloud-analytics-with-azure-sql-data-warehouse/) blog announcement from Rohan Kumar, Corporate Vice President, Azure Data.
 
 ## Auto Statistics
-Statistics are critical to optimize query plan generation in moderl cost-based optimizers such as the engine in SQL Data Warehouse. When all queries are known in advance, determining what statistics objects need to be created is an achievable task. However, when the system is faced with ad-hoc and random queries which is typical for the data warehousing workloads, system administrators may struggle to predict what statistics need to be created leading to potentially suboptimal query execution plans and longer query response times. One way to mitigate this problem is to create statistics objects on all the table columns in advance. However, that process comes with a penalty as statistics objects need to be maintained during table loading process, causing longer loading times.
+Statistics are critical to optimize query plan generation in modern cost-based optimizers such as the engine in SQL Data Warehouse. When all queries are known in advance, determining what statistics objects need to be created is an achievable task. However, when the system is faced with ad hoc and random queries which is typical for the data warehousing workloads, system administrators may struggle to predict what statistics need to be created leading to potentially suboptimal query execution plans and longer query response times. One way to mitigate this problem is to create statistics objects on all the table columns in advance. However, that process comes with a penalty as statistics objects need to be maintained during table loading process, causing longer loading times.
 
 SQL Data Warehouse now supports automatic creation of statistics objects providing greater flexibility, productivity, and ease of use for system administrators and developers, while ensuring the system continues to offer quality execution plans and best response times.
 
@@ -40,7 +40,7 @@ As a best practice and guidance, we recommend setting `AUTO_CREATE_STATISTICS` o
 See the [ALTER DATABASE SET Options](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options) article for additional details.
 
 ## Rejected Row Support
-Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](http://azure.com/adf) as well. 
+Customers often use [PolyBase (External Tables) to load data](design-elt-data-loading.md) into SQL Data Warehouse because of the high performance, parallel nature of data loading. PolyBase is the default loading model when loading data via [Azure Data Factory](https://azure.com/adf) as well. 
 
 SQL Data Warehouse adds the ability to define a rejected row location via the `REJECTED_ROW_LOCATION` parameter with the [CREATE EXTERNAL TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) statement. After the execution of a [CREATE TABLE AS SELECT (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) from the external table, any rows that could not be loaded will be stored in a file near the source for further investigation. 
 
@@ -140,7 +140,7 @@ Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a
 [Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
 [Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
 [Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
+[Stack Overflow forum]: https://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
 [create a SQL Data Warehouse]: ./create-data-warehouse-portal.md

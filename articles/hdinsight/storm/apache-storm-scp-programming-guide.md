@@ -1,7 +1,6 @@
 ---
 title: SCP.NET programming guide for Storm in Azure HDInsight
 description: Learn how to use SCP.NET to create .NET-based Storm topologies for use with Storm running in Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -26,7 +25,7 @@ In Storm, an application topology defines a graph of computation. Each node in a
 
 SCP supports best efforts, at-least-once and exactly-once data processing. In a distributed streaming processing application, various errors may happen during data processing, such as network outage, machine failure, or user code error etc. At-least-once processing ensures all data will be processed at least once by replaying automatically the same data when error happens. At-least-once processing is simple and reliable and suits well many applications. However, when an application requires exact counting, at-least-once processing is insufficient since the same data could potentially be played in the application topology. In that case, exactly-once processing is designed to make sure the result is correct even when the data may be replayed and processed multiple times.
 
-SCP enables .NET developers to develop real time data process applications while leveraging on Java Virtual Machine (JVM) with Storm under the covers. The .NET and JVM communicate via TCP local sockets. Basically each Spout/Bolt is a .Net/Java process pair, where the user logic runs in .Net process as a plugin.
+SCP enables .NET developers to develop real time data process applications while leveraging on Java Virtual Machine (JVM) with Storm under the covers. The .NET and JVM communicate via TCP local sockets. Basically each Spout/Bolt is a .NET/Java process pair, where the user logic runs in .NET process as a plugin.
 
 To build a data processing application on top of SCP, several steps are needed:
 
@@ -65,7 +64,7 @@ ISCPSpout is the interface for non-transactional spout.
 
 When `NextTuple()` is called, the C\# user code can emit one or more tuples. If there is nothing to emit, this method should return without emitting anything. It should be noted that `NextTuple()`, `Ack()`, and `Fail()` are all called in a tight loop in a single thread in C\# process. When there are no tuples to emit, it is courteous to have NextTuple sleep for a short amount of time (such as 10 milliseconds) so as not to waste too much CPU.
 
-`Ack()` and `Fail()` are called only when ack mechanism is enabled in spec file. The `seqId` is used to identify the tuple that is acked or failed. So if ack is enabled in non-transactional topology, the following emit function should be used in Spout:
+`Ack()` and `Fail()` are called only when ack mechanism is enabled in spec file. The `seqId` is used to identify the tuple that is acknowledged or failed. So if ack is enabled in non-transactional topology, the following emit function should be used in Spout:
 
     public abstract void Emit(string streamId, List<object> values, long seqId); 
 
@@ -222,7 +221,7 @@ The `StateStore` object mainly has these methods:
     /// <summary>
     /// Retrieve all states that were previously uncommitted, excluding all aborted states 
     /// </summary>
-    /// <returns>Uncommited States</returns>
+    /// <returns>Uncommitted States</returns>
     public IEnumerable<State> GetUnCommitted();
 
     /// <summary>
@@ -243,7 +242,7 @@ The `StateStore` object mainly has these methods:
     /// List all the committed states
     /// </summary>
     /// <returns>Registries contain the Committed State </returns> 
-    public IEnumerable<Registry> Commited();
+    public IEnumerable<Registry> Committed();
 
     /// <summary>
     /// List all the Aborted State in the StateStore
@@ -425,7 +424,7 @@ Two methods in the SCP.NET Context object have been added. They are used to emit
 The emitting to a non-existing stream causes runtime exceptions.
 
 ### Fields Grouping
-The built-in Fields Grouping in Strom is not working properly in SCP.NET. On the Java Proxy side, all the fields data types are actually byte[], and the fields grouping uses the byte[] object hash code to perform the grouping. The byte[] object hash code is the address of this object in memory. So the grouping will be wrong for two byte[] objects that share the same content but not the same address.
+The built-in Fields Grouping in Storm is not working properly in SCP.NET. On the Java Proxy side, all the fields data types are actually byte[], and the fields grouping uses the byte[] object hash code to perform the grouping. The byte[] object hash code is the address of this object in memory. So the grouping will be wrong for two byte[] objects that share the same content but not the same address.
 
 SCP.NET adds a customized grouping method, and it uses the content of the byte[] to do the grouping. In **SPEC** file, the syntax is like:
 
@@ -444,7 +443,7 @@ Here,
 3. [0,1] means a hash set of field Ids, starting from 0.
 
 ### Hybrid topology
-The native Storm is written in Java. And SCP.Net has enhanced it to enable C\# developers to write C\# code to handle their business logic. But it also supports hybrid topologies, which contains not only C\# spouts/bolts, but also Java Spout/Bolts.
+The native Storm is written in Java. And SCP.NET has enhanced it to enable C\# developers to write C\# code to handle their business logic. But it also supports hybrid topologies, which contains not only C\# spouts/bolts, but also Java Spout/Bolts.
 
 ### Specify Java Spout/Bolt in spec file
 In spec file, "scp-spout" and "scp-bolt" can also be used to specify Java Spouts and Bolts, here is an example:
@@ -556,7 +555,7 @@ In host mode, user code is compiled as DLL, and is invoked by SCP platform. So S
 
 ## SCP Programming Examples
 ### HelloWorld
-**HelloWorld** is a simple example to show a taste of SCP.Net. It uses a non-transactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** randomly generates sentences, and emit these sentences to **splitter**. The bolt **splitter** splits the sentences to words and emit these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
+**HelloWorld** is a simple example to show a taste of SCP.NET. It uses a non-transactional topology, with a spout called **generator**, and two bolts called **splitter** and **counter**. The spout **generator** randomly generates sentences, and emit these sentences to **splitter**. The bolt **splitter** splits the sentences to words and emit these words to **counter** bolt. The bolt "counter" uses a dictionary to record the occurrence number of each word.
 
 There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec** for this example. In the C\# code, it can find out whether ack is enabled by getting the pluginConf from Java side.
 
@@ -567,7 +566,7 @@ There are two spec files, **HelloWorld.spec** and **HelloWorld\_EnableAck.spec**
     }
     Context.Logger.Info("enableAck: {0}", enableAck);
 
-In the spout, if ack is enabled, a dictionary is used to cache the tuples that have not been acked. If Fail() is called, the failed tuple is replayed:
+In the spout, if ack is enabled, a dictionary is used to cache the tuples that have not been acknowledged. If Fail() is called, the failed tuple is replayed:
 
     public void Fail(long seqId, Dictionary<string, Object> parms)
     {

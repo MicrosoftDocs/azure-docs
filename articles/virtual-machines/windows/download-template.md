@@ -4,7 +4,7 @@ description: Download the templatefor a VM to help with automating deployments i
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -25,7 +25,7 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 1. Log in to the [Azure portal](https://portal.azure.com/).
 2. One the left menu, select **Virtual Machines**.
 3. Select the virtual machine from the list.
-4. Select **Automation script**.
+4. Select **Export template**.
 5. Select **Download** from the menu at the top and save the .zip file to your local computer.
 6. Open the .zip file and extract the files to a folder. The .zip file contains:
    
@@ -39,10 +39,10 @@ When you create a VM in Azure using the portal or PowerShell, a Resource Manager
 The template.json file is the template.
 
 ## Download the template using PowerShell
-You can also download the .json template file using the [Export-AzureRMResourceGroup](https://msdn.microsoft.com/library/mt715427.aspx) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file. This example shows how to download the template for the resource group named **myResourceGroup** to the **C:\users\public\downloads** folder on your local computer.
+You can also download the .json template file using the [Export-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/export-azresourcegroup) cmdlet. You can use the `-path` parameter to provide the filename and path for the .json file. This example shows how to download the template for the resource group named **myResourceGroup** to the **C:\users\public\downloads** folder on your local computer.
 
 ```powershell
-    Export-AzureRmResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
+    Export-AzResourceGroup -ResourceGroupName "myResourceGroup" -Path "C:\users\public\downloads"
 ```
 
 ## Next steps

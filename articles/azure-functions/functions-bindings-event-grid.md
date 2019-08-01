@@ -4,7 +4,7 @@ description: Understand how to handle Event Grid events in Azure Functions.
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords:
 
 ms.service: azure-functions
@@ -26,29 +26,55 @@ If you prefer, you can use an HTTP trigger to handle Event Grid Events; see [Use
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## Packages - Functions 1.x
-
-The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 1.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub repository.
-
-[!INCLUDE [functions-package](../../includes/functions-package.md)]
-
 ## Packages - Functions 2.x
 
 The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 2.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/v2.x) GitHub repository.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
+## Packages - Functions 1.x
+
+The Event Grid trigger is provided in the [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.EventGrid) NuGet package, version 1.x. Source code for the package is in the [azure-functions-eventgrid-extension](https://github.com/Azure/azure-functions-eventgrid-extension/tree/master) GitHub repository.
+
+[!INCLUDE [functions-package](../../includes/functions-package.md)]
+
 ## Example
 
 See the language-specific example for an Event Grid trigger:
 
-* [C#](#c-example)
+* C#
 * [C# script (.csx)](#c-script-example)
 * [Java](#trigger---java-examples)
 * [JavaScript](#javascript-example)
 * [Python](#python-example)
 
 For an HTTP trigger example, see [How to use HTTP trigger](#use-an-http-trigger-as-an-event-grid-trigger) later in this article.
+
+### C# (2.x)
+
+The following example shows a Functions 2.x [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
+
+```cs
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
+
+namespace Company.Function
+{
+    public static class EventGridTriggerCSharp
+    {
+        [FunctionName("EventGridTest")]
+        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+        {
+            log.LogInformation(eventGridEvent.Data.ToString());
+        }
+    }
+}
+```
+
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
 
 ### C# (Version 1.x)
 
@@ -75,32 +101,6 @@ namespace Company.Function
 }
 ```
 
-### C# (2.x)
-
-The following example shows a Functions 2.x [C# function](functions-dotnet-class-library.md) that binds to `EventGridEvent`:
-
-```cs
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Extensions.Logging;
-
-namespace Company.Function
-{
-    public static class EventGridTriggerCSharp
-    {
-        [FunctionName("EventGridTest")]
-        public static void EventGridTest([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.Data.ToString());
-        }
-    }
-}
-```
-
-For more information, see [Packages](#packages), [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
-
 ### C# script example
 
 The following example shows a trigger binding in a *function.json* file and a [C# script function](functions-reference-csharp.md) that uses the binding.
@@ -120,22 +120,6 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-#### C# script (Version 1.x)
-
-Here's Functions 1.x C# script code that binds to `JObject`:
-
-```cs
-#r "Newtonsoft.Json"
-
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-
-public static void Run(JObject eventGridEvent, TraceWriter log)
-{
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
-}
-```
-
 #### C# script (Version 2.x)
 
 Here's Functions 2.x C# script code that binds to `EventGridEvent`:
@@ -151,7 +135,23 @@ public static void Run(EventGridEvent eventGridEvent, ILogger log)
 }
 ```
 
-For more information, see [Packages](#packages), [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+For more information, see Packages, [Attributes](#attributes), [Configuration](#configuration), and [Usage](#usage).
+
+#### C# script (Version 1.x)
+
+Here's Functions 1.x C# script code that binds to `JObject`:
+
+```cs
+#r "Newtonsoft.Json"
+
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+
+public static void Run(JObject eventGridEvent, TraceWriter log)
+{
+    log.Info(eventGridEvent.ToString(Formatting.Indented));
+}
+```
 
 ### JavaScript example
 
@@ -209,6 +209,7 @@ Here's the Python code:
 ```python
 import logging
 import azure.functions as func
+
 
 def main(event: func.EventGridEvent):
     logging.info("Python Event Grid function processed a request.")
@@ -310,14 +311,14 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 }
 ```
 
-For a complete example, see [C# example](#c-example).
+For a complete example, see C# example.
 
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. There are no constructor parameters or properties to set in the `EventGridTrigger` attribute.
 
 |function.json property |Description|
-|---------|---------|----------------------|
+|---------|---------|
 | **type** | Required - must be set to `eventGridTrigger`. |
 | **direction** | Required - must be set to `in`. |
 | **name** | Required - the variable name used in function code for the parameter that receives the event data. |
@@ -480,10 +481,10 @@ Alternatively, you can send an HTTP PUT to specify the key value yourself.
 
 To test an Event Grid trigger locally, you have to get Event Grid HTTP requests delivered from their origin in the cloud to your local machine. One way to do that is by capturing requests online and manually resending them on your local machine:
 
-2. [Create a viewer web app](#create-a-viewer-web-app) that captures event messages.
-3. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
-4. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
-5. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
+1. [Create a viewer web app](#create-a-viewer-web-app) that captures event messages.
+1. [Create an Event Grid subscription](#create-an-event-grid-subscription) that sends events to the viewer app.
+1. [Generate a request](#generate-a-request) and copy the request body from the viewer app.
+1. [Manually post the request](#manually-post-the-request) to the localhost URL of your Event Grid trigger function.
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
@@ -525,11 +526,18 @@ Use a tool such as [Postman](https://www.getpostman.com/) or [curl](https://curl
 * Set a `Content-Type: application/json` header.
 * Set an `aeg-event-type: Notification` header.
 * Paste the RequestBin data into the request body.
-* Post to the URL of your Event Grid trigger function, using the following pattern:
+* Post to the URL of your Event Grid trigger function.
+  * For 2.x use the following pattern:
 
-```
-http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
+    ```
+    http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
+    ```
+
+  * For 1.x use:
+
+    ```
+    http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+    ```
 
 The `functionName` parameter must be the name specified in the `FunctionName` attribute.
 
@@ -545,12 +553,12 @@ The Event Grid trigger function executes and shows logs similar to the following
 
 ## Local testing with ngrok
 
-Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with an open-source tool named [ngrok](https://ngrok.com/):
+Another way to test an Event Grid trigger locally is to automate the HTTP connection between the Internet and your development computer. You can do that with a tool like [ngrok](https://ngrok.com/):
 
-3. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
-4. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).
-5. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
-6. [Trigger an event](#trigger-an-event).
+1. [Create an ngrok endpoint](#create-an-ngrok-endpoint).
+1. [Run the Event Grid trigger function](#run-the-event-grid-trigger-function).
+1. [Create an Event Grid subscription](#create-a-subscription) that sends events to the ngrok endpoint.
+1. [Trigger an event](#trigger-an-event).
 
 When you're done testing, you can use the same subscription for production by updating the endpoint. Use the [az eventgrid event-subscription update](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-update) Azure CLI command.
 
@@ -588,19 +596,19 @@ The ngrok URL doesn't get special handling by Event Grid, so your function must 
 
 Create an Event Grid subscription of the type you want to test, and give it your ngrok endpoint.
 
-Use this endpoint pattern for Functions 1.x:
-
-```
-https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={functionname}
-```
-
 Use this endpoint pattern for Functions 2.x:
 
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
+https://{SUBDOMAIN}.ngrok.io/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
 ```
 
-The `functionName` parameter must be the name specified in the `FunctionName` attribute.
+Use this endpoint pattern for Functions 1.x:
+
+```
+https://{SUBDOMAIN}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
+```
+
+The `{FUNCTION_NAME}` parameter must be the name specified in the `FunctionName` attribute.
 
 Here's an example using the Azure CLI:
 

@@ -3,20 +3,19 @@ title: Business Critical tier - Azure SQL Database service | Microsoft Docs
 description: Learn about the Azure SQL Database Business Critical tier
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab
-manager: craigg
+ms.reviewer: sstein
 ms.date: 12/04/2018
 ---
 # Business Critical tier - Azure SQL Database
 
 > [!NOTE]
-> Business Critical tier is called Premium in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-service-tiers.md).
+> Business Critical tier is called Premium in DTU purchasing model. For a comparison of the vCore-based purchasing model with the DTU-based purchasing model, see [Azure SQL Database purchasing models and resources](sql-database-purchase-models.md).
 
 Azure SQL Database is based on SQL Server Database Engine architecture that is adjusted for the cloud environment in order to ensure 99.99% availability even in the cases of infrastructure failures. There are three architectural models that are used in Azure SQL Database:
 - General Purpose/Standard 
@@ -43,6 +42,7 @@ Business Critical service tier is designed for the applications that require low
 
 ## Next steps
 
+- Find resource characteristics (number of cores, IO, memory) of Business Critical tier in [Managed Instance](sql-database-managed-instance-resource-limits.md#service-tier-characteristics), Single database in [vCore model](sql-database-vcore-resource-limits-single-databases.md#business-critical-service-tier-for-provisioned-compute-tier) or [DTU model](sql-database-dtu-resource-limits-single-databases.md#premium-service-tier), or Elastic pool in [vCore model](sql-database-vcore-resource-limits-elastic-pools.md#business-critical-service-tier-storage-sizes-and-compute-sizes) and [DTU model](sql-database-dtu-resource-limits-elastic-pools.md#premium-elastic-pool-limits).
 - Learn about [General Purpose](sql-database-service-tier-general-purpose.md) and [Hyperscale](sql-database-service-tier-hyperscale.md) tiers.
 - Learn about [Service Fabric](../service-fabric/service-fabric-overview.md).
 - For more options for high availability and disaster recovery, see [Business Continuity](sql-database-business-continuity.md).

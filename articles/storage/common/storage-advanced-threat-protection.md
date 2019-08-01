@@ -1,27 +1,32 @@
 ---
-title: Monitoring Threats in Azure Storage
+title: Advanced Threat Protection for Azure Storage
 description: Configure Azure Storage Advanced Threat Protection to detect anomalies in account activity and notify you of potentially harmful attempts to access your account.
 services: storage
-author: rmatchoro
+author: tamram
+
 ms.service: storage
 ms.topic: article
-ms.date: 09/24/2018
-ms.author: ronmat
-ms.manager: shaik
+ms.date: 04/03/2019
+ms.author: tamram
+ms.reviewer: cbrooks
 ---
 
-# Azure Storage Advanced Threat Protection
+# Advanced Threat Protection for Azure Storage
 
-Azure Storage Advanced Threat Protection detects anomalies in account activity and notifies you of potentially harmful attempts to access your account. This layer of protection allows you to address threats without the need to be a security expert or manage security monitoring systems.
+Advanced Threat Protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without the need to be a security expert or manage security monitoring systems. 
 
-Threats are surfaced by defining security alerts that trigger when anomalies in activity occur. These alerts integrate with [Azure Security Center](https://azure.microsoft.com/services/security-center/) which include details of suspicious activity and recommendations on how to investigate and remediate threats. 
+Security alerts are triggered when anomalies in activity occur.  These security alerts are integrated with [Azure Security Center](https://azure.microsoft.com/services/security-center/), and are also sent via email to subscription administrators, with details of suspicious activity and recommendations on how to investigate and remediate threats.
 
 > [!NOTE]
-> Azure Storage Advanced Threat Protection is currently available only for the Blob service. Security alerts are integrated with Azure Security Center and are sent via email to subscription administrators.
+> * Advanced Threat Protection for Azure Storage is currently available only for the Blob storage.
+> * For pricing details, including a free 30 day trial, see the [Azure Security Center pricing page]( https://azure.microsoft.com/pricing/details/security-center/).
+> * ATP for Azure storage feature is currently not available in Azure government and sovereign cloud regions.
 
-Azure Storage Advanced Threat Protection ingests diagnostic logs of read, write and delete requests to Blob service for threat detection. To investigate the alerts from Advanced Threat Protection,  you need to [configure diagnostics logs](storage-monitor-storage-account.md#configure-logging) to enable all levels of logs for the Blob service.
+Advanced Threat Protection for Azure Storage ingests diagnostic logs of read, write, and delete requests to Blob storage for threat detection. To investigate the alerts from Advanced Threat Protection, you can view related storage activity using Storage Analytics Logging. For more information, see how to [configure Storage Analytics logging](storage-monitor-storage-account.md#configure-logging).
 
-## Set up Advanced Threat Protection in the portal
+## Set up Advanced Threat Protection 
+
+### Using the portal
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com/).
 
@@ -29,18 +34,76 @@ Azure Storage Advanced Threat Protection ingests diagnostic logs of read, write 
 
 3. In the **Advanced Threat Protection** configuration blade
 	* Turn **ON** Advanced *Threat Protection*
-	* Click **Save** to save the new or updated Advanced Threat Protection policy.
+	* Click **Save** to save the new or updated Advanced Threat Protection policy. (Prices in the image are for example purposes only.)
 
 ![Turn on Azure Storage advanced threat protection](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-## Explore anomalies
+### Using Azure Security Center
+
+When you subscribe to the Standard tier in Azure Security Center, Advanced Threat Protection is automatically set up on all of your storage accounts. You can enable or disable Advanced Threat Protection for your storage accounts under a specific subscription as follows:
+
+1. Launch **Azure Security Center** in the [Azure portal](https://portal.azure.com).
+1. From the main menu, click **Pricing & settings**.
+1. Click the subscription that you want to enable or disable threat protection for its storage accounts.
+
+    ![Select subscription](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-subscription.png)
+
+1. Click **Pricing tier**.
+1. In the **Select pricing tier by resource type** section, in the **Storage accounts** row, click **Enabled** or **Disabled**.
+
+    ![Enable ATP in Security Center](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
+1. Click **Save**.
+
+### Using Azure Resource Manager templates
+
+Use an Azure Resource Manager template to deploy an Azure Storage account with Advanced Threat Protection enabled. 
+For more information, see
+[Storage account with Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### Using Azure Policy
+
+Use an Azure Policy to enable Advanced Threat Protection across storage accounts under a specific subscription or resource group.
+
+1. Launch the Azure **Policy - Definitions** page.
+
+1. Search for the **Deploy Advanced Threat Protection on Storage Accounts** policy.
+
+     ![Search Policy](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Select an Azure subscription or resource group.
+
+    ![Select Subscription Or Group](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Assign the policy.
+
+    ![Policy Definitions Page](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
+
+### Using REST API
+Use Rest API commands to create, update, or get the Advanced Threat Protection setting for a specific storage account.
+
+* [Advanced Threat Protection - Create](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
+* [Advanced Threat Protection - Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
+
+### Using Azure PowerShell
+
+Use the following PowerShell cmdlets:
+
+  * [Enable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Get Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
+  * [Disable Advanced Threat Protection](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
+
+## Explore security anomalies
 
 When storage activity anomalies occur, you receive an email notification with information about the suspicious security event. Details of the event include:
 
-* nature of the anomaly
-* storage account name
-* storage type
-* event time
+* The nature of the anomaly
+* The storage account name
+* The event time
+* The storage type
+* The potential causes 
+* The investigation steps
+* The remediation steps
+
 
 The email also includes details on possible causes and recommended actions to investigate and mitigate the potential threat.
 
@@ -54,21 +117,63 @@ You can review and manage your current security alerts from Azure Security Cente
 
 Alerts are generated by unusual and potentially harmful attempts to access or exploit storage accounts. These events can trigger the following alerts:
 
-* **Access from unusual location**: This alert is triggered when there's a change in the access pattern to a storage account. For instance, when someone has accessed a storage account from an unusual geographical location. In some cases, the alert detects a legitimate action (a new application or developer’s maintenance operation). In other cases, the alert detects a malicious action (former employee, external attacker, etc.).
+### Anomalous access pattern alerts
 
-* **Unusual data extraction**: This alert is triggered when there's a change in the data extraction pattern from a storage account. For instance, if someone has accessed an unusual amount of data in a storage account. In some cases, the alert detects a legitimate action (maintenance activity). In other cases, the alert detects a malicious action (data exfiltration/breach, unauthorized transfer of data).
-
-* **Unusual anonymous access:** This alert is triggered when there's a change in the access pattern to a storage account. For instance, suppose someone has anonymously accessed a storage account. In some cases, the alert detects a legitimate access using public read access. In other cases, the alert detects unauthorized access that exploits public read access to a container and its blobs.
-
-* **Unexpected delete:** This alert is triggered when one or more unexpected delete operations occur in a storage account, based on historical analysis of the storage account. For instance, suppose someone performed a *DeleteBlob* operation using a new application and from a new IP address. In some cases, the alert detects a legitimate action (the administrator used a different browser while traveling on business). In other cases, the alert detects a malicious action (an attacker deleting data). 
+* **Access from unusual location**: This alert is triggered when someone has accessed a storage account from an unusual geographical location.
+Potential causes:
+   * An attacker has accessed your storage account
+   * A legitimate user has accessed your storage account from a new location
  
-* **Access permission change:** This alert is triggered when there’s an unexpected change of access permission to a storage account. For instance, suppose someone changed the access permission to a storage account using a new application and from a new IP address. In some cases, the alert detects a legitimate action (the administrator used a different browser while traveling on business). In other cases, the alert detects a malicious action (e.g., an attacker increasing the privileges of an account they have gained access to). 
+* **Application Anomaly**: This alert indicates that an unusual application has accessed this storage account. Potential causes:
+   * An attacker has accessed your storage account using a new application.
+   * A legitimate user has used a new application/browser to access your storage account.
 
-* **Upload Azure Cloud Service package:** This alert is triggered when there is an unexpected upload of an Azure Cloud Service package (*.cspkg* file) to a storage account. For instance, suppose a *.cspkg* file was uploaded from a new IP address. In some case, the alert detects a legitimate action. In other cases, the alert detects a malicious action (e.g., a Cloud Service package was uploaded in preparation for a deployment of a malicious service).    
-   
+* **Anonymous access**: This alert indicates that this account has been accessed anonymously (i.e. without any authentication), which is unexpected compared to the recent access pattern on this account.
+Potential causes:
+   * An attacker has exploited public read access to a container.
+   * A legitimate user or application has used public read access to a container.
+
+* **Tor Anomaly**: This alert indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access.
+Potential causes:
+   * An attacker has accessed your storage account using Tor.
+   * A legitimate user has accessed your storage account using Tor.
+
+
+### Anomalous extract/upload alerts
+
+* **Data Exfiltration**: This alert indicates that an unusually large amount of data has been extracted compared to recent activity on this storage container. Potential causes:
+   * An attacker has extracted a large amount of data from a container. (For example: data exfiltration/breach, unauthorized transfer of data)
+   * A legitimate user or application has extracted an unusual amount of data from a container. (For example: maintenance activity)
+
+* **Unexpected delete**: This alert indicates that one or more unexpected delete operations has occurred in a storage account, compared to recent activity on this account. Potential causes:
+   * An attacker has deleted data from your storage account.
+   * A legitimate user has performed an unusual deletion.
+
+* **Upload Azure Cloud Service package**: This alert indicates that an Azure Cloud Service package (.cspkg file) has been uploaded to a storage account in an unusual way, compared to recent activity on this account. Potential causes: 
+   * An attacker has been preparing to deploy malicious code from your storage account to an Azure cloud service.
+   * A legitimate user has been preparing for a legitimate service deployment.
+
+### Suspicious storage activities alerts
+
+* **Access permission change**: This alert indicates that the access permissions of this storage container have been changed in an unusual way. Potential causes: 
+   * An attacker has changed container permissions to weaken its security.
+   * A legitimate user has changed container permissions.
+
+* **Access Inspection**: This alert indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. Potential causes: 
+   * An attacker has performed reconnaissance for a future attack.
+   * A legitimate user has performed maintenance on the storage account.
+
+* **Data Exploration**: This alert indicates that blobs or containers in a storage account have been enumerated in an unusual way, compared to recent activity on this account. Potential causes: 
+   * An attacker has performed reconnaissance for a future attack.
+   * A legitimate user or application logic has explored data within the storage account.
+
+
+
+
+
 
 ## Next steps
 
-* Learn more about [Logs in Azure Storage accounts ](/rest/api/storageservices/About-Storage-Analytics-Logging)
+* Learn more about [Logs in Azure Storage accounts](/rest/api/storageservices/About-Storage-Analytics-Logging)
 
 * Learn more about [Azure Security Center](../../security-center/security-center-intro.md)

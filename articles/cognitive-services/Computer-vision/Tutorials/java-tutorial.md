@@ -1,20 +1,20 @@
 ---
-title: "Tutorial: Perform image operations - Java"
-titlesuffix: "Azure Cognitive Services"
+title: "Perform image operations - Java"
+titleSuffix: "Azure Cognitive Services"
 description: Explore a basic Java Swing app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
-ms.topic: tutorial
+ms.subservice: computer-vision
+ms.topic: conceptual
 ms.author: kefre
 ms.custom: seodec18
-ms.date: 09/21/2017
+ms.date: 04/30/2019
 ---
 
-# Tutorial: Computer Vision API Java
+# Use Computer Vision features with the REST API and Java
 
 This tutorial shows the features of the Azure Cognitive Services Computer Vision REST API.
 
@@ -30,7 +30,7 @@ This tutorial will cover how to use Computer Vision to:
 > * Read printed text in an image
 > * Read handwritten text in an image
 
-The Java Swing form application has already been written, but has no functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
+The Java Swing form application has already been written but has no functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
 
 ## Prerequisites
 
@@ -38,13 +38,13 @@ The Java Swing form application has already been written, but has no functionali
 
 This tutorial has been developed using the NetBeans IDE. Specifically, the **Java SE** version of NetBeans, which you can [download here](https://netbeans.org/downloads/index.html).
 
-### Subscribe to Computer Vision API and get a subscription key 
+### Subscribe to Computer Vision API and get a subscription key
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial.
 
-## Acquire the incomplete tutorial project
+## Acquire incomplete tutorial project
 
-### Download the tutorial project
+### Download the project
 
 1. Go to the [Cognitive Services Java Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial) repository.
 1. Click the **Clone or download** button.
@@ -74,7 +74,7 @@ Import the **cognitive-services-java-computer-vision-tutorial-master.zip** file 
 
 1. Exit the tutorial application.
 
-## Add the tutorial code to the project
+## Add tutorial code to the project
 
 The Java Swing application is set up with six tabs. Each tab demonstrates a different function of Computer Vision (analyze, OCR, and so on). The six tutorial sections do not have interdependencies, so you can add one section, all six sections, or any subset. You can add the sections in any order.
 
@@ -84,7 +84,7 @@ The Analyze feature of Computer Vision scans an image for more than 2,000 recogn
 
 To complete the Analyze feature of the tutorial application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the analyze button
 
 The **analyzeImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **AnalyzeImage** method to analyze the image. When **AnalyzeImage** returns, the method displays the formatted JSON response in the **Response** text area, extracts the first caption from the **JSONObject**, and displays the caption and the confidence level that the caption is correct.
 
@@ -198,7 +198,7 @@ Copy and paste the **AnalyzeImage** method to just underneath the **analyzeImage
     }
  ```
 
-#### Run the application
+#### Run the Analyze function
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
@@ -322,7 +322,7 @@ Copy and paste the **LandmarkImage** method to just underneath the **landmarkIma
     }
 ```
 
-#### Run the application
+#### Run the landmark function
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Landmark** tab, enter a URL to an image of a landmark, then click the **Analyze Image** button to analyze an image and see the result.
 
@@ -332,7 +332,7 @@ The Celebrities feature of Computer Vision analyzes an image for famous people. 
 
 To complete the Celebrities feature of the tutorial application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the celebrities button
 
 The **celebritiesImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **CelebritiesImage** method to analyze the image. When **CelebritiesImage** returns, the method displays the formatted JSON response in the **Response** text area, then extracts the first celebrity name from the **JSONObject** and displays the name on the window along with the confidence level that the celebrity was identified correctly.
 
@@ -446,17 +446,17 @@ Copy and paste the **CelebritiesImage** method to just underneath the **celebrit
     }
 ```
 
-#### Run the application
+#### Run the celebrities function
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Celebrities** tab, enter a URL to an image of a celebrity, then click the **Analyze Image** button to analyze an image and see the result.
 
 ### Intelligently generate a thumbnail
 
-The Thumbnail feature of Computer Vision generates a thumnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumnail on this area, to generate more aesthetically pleasing thumbnail images.
+The Thumbnail feature of Computer Vision generates a thumbnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumbnail on this area, to generate more aesthetically pleasing thumbnail images.
 
 To complete the Thumbnail feature of the tutorial application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the thumbnail button
 
 The **thumbnailImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **getThumbnailImage** method to create the thumbnail. When **getThumbnailImage** returns, the method displays the generated thumbnail.
 
@@ -569,7 +569,7 @@ Copy and paste the following **getThumbnailImage** method to just underneath the
     }
 ```
 
-#### Run the application
+#### Run the thumbnail function
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Thumbnail** tab, enter a URL to an image, then click the **Generate Thumbnail** button to analyze an image and see the result.
 
@@ -579,7 +579,7 @@ The Optical Character Recognition (OCR) feature of Computer Vision analyzes an i
 
 To complete the OCR feature of the tutorial application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the OCR button
 
 The **ocrImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **OcrImage** method to analyze the image. When **OcrImage** returns, the method displays the detected text as formatted JSON in the **Response** text area.
 
@@ -680,7 +680,7 @@ Copy and paste the following **OcrImage** method to just underneath the **ocrIma
     }
 ```
 
-#### Run the application
+#### Run the OCR function
 
 Press **F6** to run the application. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **OCR** tab, enter a URL to an image of printed text, then click the **Read Image** button to analyze an image and see the result.
 
@@ -690,7 +690,7 @@ The Handwriting Recognition feature of Computer Vision analyzes an image of hand
 
 To complete the Handwriting Recognition feature of the tutorial application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the handwriting button
 
 The **handwritingImageButtonActionPerformed** event handler method clears the form, displays the image specified in the URL, then calls the **HandwritingImage** method to analyze the image. When **HandwritingImage** returns, the method displays the detected text as formatted JSON in the **Response** text area.
 
@@ -838,11 +838,12 @@ Copy and paste the following **HandwritingImage** method to just underneath the 
     }
 ```
 
-#### Run the application
+#### Run the handwriting function
 
 To run the application, press **F6**. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Click the **Read Handwritten Text** tab, enter a URL to an image of handwritten text, then click the **Read Image** button to analyze an image and see the result.
 
 ## Next steps
 
-- [Computer Vision API C&#35; Tutorial](CSharpTutorial.md)
-- [Computer Vision API Python Tutorial](PythonTutorial.md)
+In this guide, you used the Computer Vision REST API with Java to test many of the available image analysis features. Next, see the reference documentation to learn more about the APIs involved.
+
+- [Computer Vision REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

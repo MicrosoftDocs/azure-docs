@@ -20,10 +20,9 @@ You can configure an alert to do the following actions when it triggers:
 * Call a webhook
 
 You can configure and get information about alert rules using:
-* [Azure portal](../monitoring-and-diagnostics/insights-alerts-portal.md)
-* [PowerShell](../monitoring-and-diagnostics/insights-alerts-powershell.md)
-* [Command-line interface (CLI)](../monitoring-and-diagnostics/insights-alerts-command-line-interface.md)
-* [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931945.aspx)
+* [Azure portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric
 1. In the [Azure portal](https://portal.azure.com/), select the Azure Database for MariaDB server you want to monitor.
@@ -44,7 +43,7 @@ You can configure and get information about alert rules using:
    
    ![Select metric](./media/howto-alert-metric/6-configure-signal-logic.png)
 
-7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes", and **Frequency**.
+7. Configure the alert logic including the **Condition** (ex. "Greater than"), **Threshold** (ex. 85 percent), **Time Aggregation**, **Period** of time the metric rule must be satisfied before the alert triggers (ex. "Over the last 30 minutes"), and **Frequency**.
    
    Select **Done** when complete.
 
@@ -56,21 +55,21 @@ You can configure and get information about alert rules using:
 
 10. Configure an **Email/SMS/Push/Voice** action type.
     
-   Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
+    Choose "Email Azure Resource Manager Role" to select subscription Owners, Contributors, and Readers to receive notifications.
    
-   Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
+    Optionally, provide a valid URI in the **Webhook** field if you want it called when the alert fires.
 
-   Select **OK** when completed.
+    Select **OK** when completed.
 
-   ![Action group](./media/howto-alert-metric/10-action-group-type.png)
+    ![Action group](./media/howto-alert-metric/10-action-group-type.png)
 
 11. Specify an Alert rule name, Description, and Severity.
 
-   ![Action group](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Action group](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Select **Create alert rule** to create the alert.
 
-   Within a few minutes, the alert is active and triggers as previously described.
+    Within a few minutes, the alert is active and triggers as previously described.
 
 ## Manage your alerts
 Once you have created an alert, you can select it and do the following actions:

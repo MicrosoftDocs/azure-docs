@@ -3,18 +3,20 @@ title: Edit a knowledge base - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience. 
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+author: diberry
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
-ms.author: tulasim
+ms.date: 05/10/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 # Edit a knowledge base in QnA Maker
 
 QnA Maker allows you to manage the content of your knowledge base by providing an easy-to-use editing experience.
+
+<a name="add-datasource"></a>
 
 ## Edit your knowledge base content
 
@@ -46,7 +48,7 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
 
 ## Add a QnA pair
 
-Select **Add QnA pair** to add a new row to the knowledge base table.
+On the **Settings** page, select **Add QnA pair** to add a new row to the knowledge base table.
 
 ![Add QnA pair](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
@@ -64,8 +66,7 @@ Add alternate questions to an existing QnA pair to improve the likelihood of a m
 
 ## Add metadata
 
-
-Add metadata pairs by selecting the metadata icon
+Add metadata pairs by first selecting **View options**, then selecting **Show metadata**. This displays the metadata column. Next, select the **+** sign to add a metadata pair. This pair consists of one key and one value.
 
 ![Add Metadata](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 

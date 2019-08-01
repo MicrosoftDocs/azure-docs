@@ -1,20 +1,12 @@
 ---
-title: HTTPS Endpoint | Microsoft Docs
+title: HTTPS Endpoint | Azure Marketplace
 description: Configure lead management for an HTTPS endpoint.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Configure lead management using an HTTPS endpoint
@@ -44,8 +36,8 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
 
 7. Use one of the following steps to configure the **Request Body JSON Schema**:
 
-   - Copy the [JSON schema](#JSON-schema) at the end of this article into the **Request Body JSON Schema** text box.
-   - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the [JSON example](#JSON-example). Select **Done** to create the schema.
+   - Copy the [JSON schema](#json-schema) at the end of this article into the **Request Body JSON Schema** text box.
+   - Select **Use sample payload to generate schema**. In the **Enter or paste a sample JSON payload** text box, paste in the [JSON example](#json-example). Select **Done** to create the schema.
 
    >[!Note]
    >At this point in the flow you can either connect to a CRM system or configure an email notification.
@@ -61,7 +53,7 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
 
     ![Select leads](./media/cloud-partner-portal-lead-management-instructions-https/https-image011.png)
 
-4. Flow shows a form for providing lead information. You can map items from the input request by choosing to add dynamic content. The following screen capture shows **LeadTitle** as an example.
+4. Flow shows a form for providing lead information. You can map items from the input request by choosing to add dynamic content. The following screen capture shows **OfferTitle** as an example.
 
     ![Add dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-image013.png)
 
@@ -84,7 +76,7 @@ You can use an HTTPS endpoint to handle Azure Marketplace and AppSource leads. T
    - **To** - Enter at least one valid email address.
    - **Subject** - Flow gives you the option of adding Dynamic content, like **LeadSource** in the following screen capture.
 
-    ![Add an email action using dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Add an email action using dynamic content](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
    - **Body** - From the Dynamic content list, add the information you want in the body of the email. For example, LastName, FirstName, Email, and Company.
 
@@ -113,7 +105,7 @@ The JSON test example uses the following schema:
 
 ``` json
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "definitions": {},
   "id": "http://example.com/example.json",
   "properties": {

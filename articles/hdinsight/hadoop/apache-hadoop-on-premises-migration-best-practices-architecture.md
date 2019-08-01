@@ -1,7 +1,6 @@
 ---
 title: Migrate on-premises Apache Hadoop clusters to Azure HDInsight - architecture best practices
 description: Learn architecture best practices for migrating on-premises Hadoop clusters to Azure HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: ashishth
 ms.service: hdinsight
@@ -99,7 +98,7 @@ Some HDInsight Hive metastore best practices are as follows:
 - Don't share the metastore created for one HDInsight cluster version with clusters of a different version. Different Hive versions use different schemas. For example, a metastore can't be shared with both Hive 1.2 and Hive 2.1 clusters.
 - Back up the custom metastore periodically.
 - Keep the metastore and HDInsight cluster in the same region.
-- Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Log Analytics.
+- Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Monitor logs.
 - Execute the **ANALYZE TABLE** command as required to generate statistics for tables and columns. For example, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## Best practices for different workloads

@@ -4,7 +4,7 @@ description: How to mount Azure File storage on Linux VMs using SMB with the Azu
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid:
@@ -15,7 +15,6 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-
 ---
 
 # Mount Azure File storage on Linux VMs using SMB
@@ -39,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account#create). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT\<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -54,7 +53,7 @@ STORAGEACCT=$(az storage account create \
 
 When you create a storage account, the account keys are created in pairs so that they can be rotated without any service interruption. When you switch to the second key in the pair, you create a new key pair. New storage account keys are always created in pairs, so you always have at least one unused storage account key ready to switch to.
 
-View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys#list). This example stores the value of key 1 in the **STORAGEKEY** variable.
+View the storage account keys using [az storage account keys list](/cli/azure/storage/account/keys). This example stores the value of key 1 in the **STORAGEKEY** variable.
 
 ```bash
 STORAGEKEY=$(az storage account keys list \
@@ -65,7 +64,7 @@ STORAGEKEY=$(az storage account keys list \
 
 ## Create a file share
 
-Create the File storage share using [az storage share create](/cli/azure/storage/share#create). 
+Create the File storage share using [az storage share create](/cli/azure/storage/share). 
 
 Share names need to be all lower case letters, numbers, and single hyphens but can't start with a hyphen. For complete details about naming file shares and files, see [Naming and Referencing Shares, Directories, Files, and Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 

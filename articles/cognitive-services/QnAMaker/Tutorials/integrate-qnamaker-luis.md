@@ -4,11 +4,11 @@ titleSuffix: Azure Cognitive Services
 description: As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -22,7 +22,7 @@ This article uses Bot Framework v3 SDK. Please see this [Bot Framework article](
 
 ## Architecture
 
-![QnA Maker luis architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker with Language Understanding architecture](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 In the above scenario, QnA Maker first gets the intent of the incoming question from a LUIS model, and then use that to route it to the correct QnA Maker knowledge base.
 
@@ -46,7 +46,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
 
 ## Web app Bot
 
-1. [Create a Web App bot](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample) with the LUIS template. Select the 3.x SDK and the C# programming language.
+1. [Create a "Basic" Web App bot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) which automatically includes a LUIS app. Select the 4.x SDK and the C# programming language.
 
 1. Once the web app bot is created, in the Azure portal, select the web app bot.
 1. Select **Application Settings** in the Web app bot service navigation, then scroll down to **Application settings** section of available settings.
@@ -132,7 +132,7 @@ In the above scenario, QnA Maker first gets the intent of the incoming question 
         public async Task<string> GetAnswer(string question)
         {
             string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
-            string questionJSON = @"{'question': '" + question + "'}";
+            string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
 

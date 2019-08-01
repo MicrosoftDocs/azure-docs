@@ -22,7 +22,6 @@ robots: noindex
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-> * [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 > * [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 > * [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 > * [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
@@ -44,10 +43,13 @@ A pipeline can have more than one activity. And, you can chain two activities (r
 > The data pipeline in this tutorial copies data from a source data store to a destination data store. For a tutorial on how to transform data using Azure Data Factory, see [Tutorial: Build a pipeline to transform data using Hadoop cluster](data-factory-build-your-first-pipeline.md).
 
 ## Prerequisites
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Go through [Tutorial Overview and Pre-requisites](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) to get an overview of the tutorial and complete the **prerequisite** steps.
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
-* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
+* Azure PowerShell. Follow instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-Az-ps) article to install Azure PowerShell on your computer. You use Azure PowerShell to create an Azure Active Directory application.
 
 ### Create an application in Azure Active Directory
 Create an Azure Active Directory application, create a service principal for the application, and assign it to the **Data Factory Contributor** role.
@@ -55,58 +57,58 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-	```PowerShell
-	Connect-AzureRmAccount
-	```
+	```powershell
+	Connect-AzAccount
+    ```
 3. Run the following command to view all the subscriptions for this account.
 
-	```PowerShell
-	Get-AzureRmSubscription
-	```
+	```powershell
+	Get-AzSubscription
+    ```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-	```PowerShell
-	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
-	```
+	```powershell
+	Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
+    ```
 
    > [!IMPORTANT]
    > Note down **SubscriptionId** and **TenantId** from the output of this command.
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-	```PowerShell
-	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
-	```
+	```powershell
+	New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    ```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
 
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-	```PowerShell
-	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
-	```
+	```powershell
+	$azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+    ```
 
     If you get the following error, specify a different URL and run the command again.
 	
-	```PowerShell
+	```powershell
 	Another object with the same value for property identifierUris already exists.
-	```
+    ```
 7. Create the AD service principal.
 
-	```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-	```
+	```powershell
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    ```
 8. Add service principal to the **Data Factory Contributor** role.
 
-	```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
-	```
+	```powershell
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    ```
 9. Get the application ID.
 
-	```PowerShell
+	```powershell
 	$azureAdApplication	
-	```
+    ```
     Note down the application ID (applicationID) from the output.
 
 You should have following four values from these steps:
@@ -504,15 +506,15 @@ You should have following four values from these steps:
 16. Build the console application. Click **Build** on the menu and click **Build Solution**.
 17. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
 
-	```
+    ```
 	John, Doe
 	Jane, Doe
-	```
+    ```
 18. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 19. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
-   * Linked service: **LinkedService_AzureStorage**
-   * Dataset: **InputDataset** and **OutputDataset**.
-   * Pipeline: **PipelineBlobSample**
+    * Linked service: **LinkedService_AzureStorage**
+    * Dataset: **InputDataset** and **OutputDataset**.
+    * Pipeline: **PipelineBlobSample**
 20. Verify that the two employee records are created in the **emp** table in the specified Azure SQL database.
 
 ## Next steps

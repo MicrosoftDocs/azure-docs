@@ -165,11 +165,12 @@ Policies affect the run-time behavior of an activity, giving configurability opt
     }
 }
 ```
+
 JSON name | Description | Allowed Values | Required
 --------- | ----------- | -------------- | --------
 timeout | Specifies the timeout for the activity to run. | Timespan | No. Default timeout is 7 days.
 retry | Maximum retry attempts | Integer | No. Default is 0
-retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 20 seconds
+retryIntervalInSeconds | The delay between retry attempts in seconds | Integer | No. Default is 30 seconds
 secureOutput | When set to true, output from activity is considered as secure and will not be logged to monitoring. | Boolean | No. Default is false.
 
 ### Control activity

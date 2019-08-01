@@ -6,10 +6,10 @@ metadata:
   description: Learn how to use Custom Vision to build, deploy, and improve custom image classifications. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
-  ms.component: custom-vision
+  ms.subservice: custom-vision
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -87,8 +87,8 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Training</a></p>
-            <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Prediction</a></p>
+      html: <p><a href="https://go.microsoft.com/fwlink/?linkid=865446">Training</a></p>
+            <p><a href="https://go.microsoft.com/fwlink/?linkid=865445">Prediction</a></p>
     - title: SDK
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/customvision?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customvision?view=azure-java-stable">Java</a></p>
@@ -96,6 +96,6 @@ sections:
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/customvision/training">Go - Training</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.1/customvision/prediction">Go - Prediction</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

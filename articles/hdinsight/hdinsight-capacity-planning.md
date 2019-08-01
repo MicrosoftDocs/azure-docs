@@ -1,15 +1,15 @@
 ---
 title: Cluster capacity planning in Azure HDInsight 
 description: 'How to specify an HDInsight cluster for capacity and performance.'
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 05/23/2019
 ms.author: hrasheed
 ---
+
 # Capacity planning for HDInsight clusters
 
 Before deploying an HDInsight cluster, plan for the desired cluster capacity by determining the needed performance and scale. This planning helps optimize both usability and costs. Some cluster capacity decisions cannot be changed after deployment. If the performance parameters change, a cluster can be dismantled and re-created without losing stored data.
@@ -80,7 +80,7 @@ A cluster's scale is determined by the quantity of its VM nodes. For all cluster
 
 Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores), but may also add to the total amount of memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically, using simulated workloads or canary queries.
 
-You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed. For more information, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
+You can scale out your cluster to meet peak load demands, then scale it back down when those extra nodes are no longer needed. The [Autoscale feature](hdinsight-autoscale-clusters.md) allows you automatically scale your cluster based upon predetermined metrics and timings. For more information on scaling your clusters manually, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md).
 
 ### Cluster lifecycle
 
@@ -102,27 +102,27 @@ To identify the issue on a single-node local cluster you can rerun failed jobs a
 
 After determining your target cluster VM size, scale, and type, check the current quota capacity limits of your subscription. When you reach a quota limit, you may not be able to deploy new clusters, or scale out existing clusters by adding more worker nodes. The only quota limit is the CPU Cores quota that exists at the region level for each subscription. For example, your subscription may have 30 core limit in the East US region. If you need to request a quota increase, do the following steps:
 
-1. Go to the Azure portal
-1. Click on **Help and Support** on the bottom-left side of the page.
-1. Click on **New support request**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Select **Help + support** on the bottom-left side of the page.
+1. Select on **New support request**.
 1. On the **New support request** page, under **Basics** tab, select the following options:
-    - **Issue type**: **Service and subscription limits (quotas)**
-    - **Subscription**: the subscription you want to modify
-    - **Quota type**: **HDInsight**
+   - **Issue type**: **Service and subscription limits (quotas)**
+   - **Subscription**: the subscription you want to modify
+   - **Quota type**: **HDInsight**
     
-    ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
+     ![Create a support request to increase HDInsight core quota](./media/hdinsight-capacity-planning/hdinsight-quota-support-request.png)
 
-1. Click **Next**.
-1. On the **Details** page, enter a description of the issue, select the severity of the issue, and select your preferred contact method.
-1. Click **Next: Review + create**.
-1. On the **Review + create** tab, click **Create**.
+1. Select **Next: Solutions >>**.
+1. On the **Details** page, enter a description of the issue, select the severity of the issue, your preferred contact method, and other required fields.
+1. Select **Next: Review + create >>**.
+1. On the **Review + create** tab, select **Create**.
 
 > [!NOTE]  
 > If you need to increase the HDInsight core quota in a private region, [submit a whitelist request](https://aka.ms/canaryintwhitelist).
 
 You can [contact support to request a quota increase](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
-However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits#limits-and-the-azure-resource-manager).
+However, there are some fixed quota limits, for example a single Azure subscription can have at most 10,000 cores. For details on these limits, see [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
 ## Next steps
 

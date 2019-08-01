@@ -2,20 +2,22 @@
 title: Assign variables in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ckarst
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.component: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: cakarst
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
 # Assigning variables in Azure SQL Data Warehouse
+
 Tips for assigning T-SQL variables in Azure SQL Data Warehouse for developing solutions.
 
 ## Setting variables with DECLARE
+
 Variables in SQL Data Warehouse are set using the `DECLARE` statement or the `SET` statement. Initializing variables with DECLARE is one of the most flexible ways to set a variable value in SQL Data Warehouse.
 
 ```sql
@@ -40,6 +42,7 @@ DECLARE @p1 int = 0
 ```
 
 ## Setting values with SET
+
 SET is a common method for setting a single variable.
 
 The following statements are all valid ways to set a variable with SET:
@@ -54,8 +57,9 @@ SET     @v +=1;
 You can only set one variable at a time with SET. However, compound operators are permissible.
 
 ## Limitations
-You cannot use SELECT or UPDATE for variable assignment.
+
+You cannot use UPDATE for variable assignment.
 
 ## Next steps
-For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
 
+For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).

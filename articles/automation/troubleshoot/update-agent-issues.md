@@ -2,12 +2,12 @@
 title: Understand the Windows agent check results in Azure Update Management
 description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 12/14/2018
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: automation
-ms.component: update-management
+ms.subservice: update-management
 manager: carmonm
 ---
 
@@ -20,6 +20,9 @@ The following list are the three readiness states a machine can be in:
 * **Ready** - The update agent is deployed and was last seen less than 1 hour ago.
 * **Disconnected** -  The update agent is deployed and was last seen over 1 hour ago.
 * **Not configured** -  The update agent isn't found or hasn't finished onboarding.
+
+> [!NOTE]
+> There may be a slight delay between what the Azure portal shows and the current state of the machine.
 
 ## Start the troubleshooter
 
@@ -34,7 +37,7 @@ On the **Troubleshoot Update Agent** page, select **Run checks** to start the tr
 
 ![Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
 
-Results are shown on the page when they're ready. The [checks sections](#prerequisiste-checks) show what's included in each check.
+Results are shown on the page when they're ready. The checks sections show what's included in each check.
 
 ![Troubleshoot Update Agent checks](../media/update-agent-issues/update-agent-checks.png)
 
@@ -114,7 +117,7 @@ CheckResultMessageArguments : {}
 
 RuleId                      : DotNetFrameworkInstalledCheck
 RuleGroupId                 : prerequisites
-RuleName                    : .Net Framework 4.5+
+RuleName                    : .NET Framework 4.5+
 RuleGroupName               : Prerequisite Checks
 RuleDescription             : .NET Framework version 4.5 or higher is required
 CheckResult                 : Passed
@@ -196,3 +199,4 @@ CheckResultMessageArguments : {}
 ## Next steps
 
 To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
+

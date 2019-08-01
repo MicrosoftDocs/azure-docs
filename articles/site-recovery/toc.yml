@@ -4,6 +4,8 @@
   items:
   - name: About Site Recovery
     href: site-recovery-overview.md
+  - name: What's new in Site Recovery
+    href: site-recovery-whats-new.md
 - name: Quickstarts
   expanded: true
   items:
@@ -17,8 +19,18 @@
       href: azure-to-azure-tutorial-enable-replication.md
     - name: Run a disaster recovery drill
       href: azure-to-azure-tutorial-dr-drill.md
-    - name: Run failover and failback
+    - name: Run failover and reprotect
       href: azure-to-azure-tutorial-failover-failback.md
+    - name: Run failback
+      href: azure-to-azure-tutorial-failback.md
+  - name: Move Azure VMs
+    items:
+    - name: Move Azure VMs to another region
+      href: azure-to-azure-tutorial-migrate.md 
+    - name: Move Azure VMs to Availability Zones
+      href: move-Azure-VMs-AVset-Azone.md
+    - name: Move Azure VMs between Government & Public regions
+      href: region-move-cross-geos.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -34,7 +46,7 @@
   - name: Hyper-V VM disaster recovery to Azure
     items:
     - name: Prepare Azure
-      href: tutorial-prepare-azure.md
+      href: tutorial-prepare-azure-for-hyperv.md
     - name: Prepare on-premises Hyper-V
       href: hyper-v-prepare-on-premises-tutorial.md
     - name: Set up replication for Hyper-V VMs
@@ -55,15 +67,11 @@
       href: migrate-tutorial-windows-server-2008.md
     - name: Migrate AWS instances to Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Move Azure VMs
-    items:
-    - name: Move Azure VMs to another region
-      href: azure-to-azure-tutorial-migrate.md 
 - name: Concepts
   items:
   - name: Common questions about Site Recovery
     href: site-recovery-faq.md
-  - name: About Azure VM disaster recovery to Azure
+  - name: About disaster recovery for Azure VMs 
     items:
     - name: Azure to Azure architecture
       href: azure-to-azure-architecture.md
@@ -71,19 +79,25 @@
       href: azure-to-azure-common-questions.md
     - name: Azure to Azure support matrix
       href: azure-to-azure-support-matrix.md
+    - name: Using Site Recovery with Azure Backup
+      href: site-recovery-backup-interoperability.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-expressroute.md
+  - name: About moving Azure VMs
+    href: azure-to-azure-move-overview.md
   - name: About VMware VM disaster recovery to Azure
     items:
     - name: VMware disaster recovery overview
       href: vmware-azure-about-disaster-recovery.md
     - name: Common questions
       href: vmware-azure-common-questions.md
-    - name: Support matrix
+    - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
-    - name: Support requirements for configuration server deployment
+    - name: About Site Recovery components (configuration/process/master target server)
+      href: vmware-physical-azure-config-process-server-overview.md
+    - name: Support requirements for configuration and process servers 
       href: vmware-azure-configuration-server-requirements.md
     - name: VMware to Azure architecture
       href: vmware-azure-architecture.md
@@ -101,7 +115,7 @@
       href: hyper-v-azure-architecture.md
   - name: About physical server disaster recovery to Azure
     items:
-    - name: Support matrix
+    - name: VMware/physical to Azure support matrix
       href: vmware-physical-azure-support-matrix.md
     - name: Physical server to Azure architecture
       href: physical-azure-architecture.md
@@ -151,6 +165,12 @@
         href: azure-to-azure-how-to-enable-replication.md
       - name: Enable Azure to Azure replication for encrypted VMs
         href: azure-to-azure-how-to-enable-replication-ade-vms.md
+      - name: Enable Azure to Azure replication for S2D VMs
+        href: azure-to-azure-how-to-enable-replication-s2d-vms.md
+      - name: Enable replication for an added disk
+        href: azure-to-azure-enable-replication-added-disk.md
+      - name: Exclude disks
+        href: azure-to-azure-exclude-disks.md
       - name: Reprotect Azure VMs after failover 
         href: azure-to-azure-how-to-reprotect.md
       - name: Set up disaster recovery for Azure VMs after migration to Azure
@@ -159,8 +179,16 @@
       items:
       - name: Update the Mobility Service for Azure VMs
         href: azure-to-azure-autoupdate.md
+      - name: Updates in Azure Site Recovery
+        href: service-updates-how-to.md
+      - name: Remove servers and disable protection
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Delete a vault
+        href: delete-vault.md
   - name: VMware to Azure disaster recovery
     items:
+    - name: Set up disaster recovery at scale
+      href: vmware-physical-large-deployment.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
@@ -175,6 +203,8 @@
         items:
         - name: Overview and prerequisites
           href: site-recovery-deployment-planner.md
+        - name: Deployment Planner version history
+          href: site-recovery-deployment-planner-history.md
         - name: Run the Deployment Planner tool
           href: site-recovery-vmware-deployment-planner-run.md
         - name: Analyze the generated report
@@ -182,7 +212,7 @@
         - name: Analyze the cost estimation report
           href: site-recovery-vmware-deployment-planner-cost-estimation.md
       - name: Scale out process servers for VMware replication
-        href: vmware-azure-set-up-process-server-scale.md
+        href: vmware-azure-set-up-process-server-scale.md 
     - name: Set up disaster recovery
       items:
       - name: Set up the source environment
@@ -195,12 +225,10 @@
         href: vmware-azure-set-up-replication.md
       - name: Deploy the Mobility service
         items:
-        - name: Mobility service installation
+        - name: Mobility service overview and installation
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation of the Mobility service
           href: vmware-azure-install-mobility-service.md
-        - name: Install the Mobility service manually
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Deploy the Mobility service with System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
       - name: Enable replication for VMware VMs
@@ -227,18 +255,24 @@
         href: vmware-azure-install-linux-master-target.md
     - name: Manage
       items: 
+      - name: Manage mobility agent for VMware 
+        href: vmware-physical-manage-mobility-service.md 
       - name: Manage the configuration server for VMware 
         href: vmware-azure-manage-configuration-server.md
       - name: Manage process servers
         href: vmware-azure-manage-process-server.md
       - name: Manage vCenter servers
         href: vmware-azure-manage-vcenter.md
+      - name: Updates in Azure Site Recovery
+        href: service-updates-how-to.md
       - name: Remove servers and disable protection
         href: site-recovery-manage-registration-and-protection.md
       - name: Delete a vault
         href: delete-vault.md
   - name: Physical to Azure disaster recovery
     items:
+    - name: Set up disaster recovery at scale
+      href: vmware-physical-large-deployment.md
     - name: Set up networking
       items:
       - name: Manage network interfaces for on-premises to Azure replication
@@ -257,8 +291,6 @@
           href: vmware-physical-mobility-service-overview.md
         - name: Prepare for push installation of the Mobility service
           href: vmware-azure-install-mobility-service.md
-        - name: Install the Mobility service manually
-          href: vmware-physical-mobility-service-install-manual.md
         - name: Deploy the Mobility service with System Center Configuration Manager
           href: vmware-azure-mobility-install-configuration-mgr.md
         - name: Walkthrough-Set up disaster recovery
@@ -267,12 +299,16 @@
       href: physical-to-azure-failover-failback.md
     - name: Manage
       items:
+      - name: Manage mobility agent for physical server 
+        href: vmware-physical-manage-mobility-service.md
       - name: Manage the configuration server for physical server replication
         href: physical-manage-configuration-server.md
       - name: Manage process servers
         href: vmware-azure-manage-process-server.md
       - name: Remove servers and disable protection
         href: site-recovery-manage-registration-and-protection.md
+      - name: Updates in Azure Site Recovery
+        href: service-updates-how-to.md
       - name: Delete a vault
         href: delete-vault.md
   - name: Azure Stack VM disaster recovery
@@ -293,6 +329,8 @@
         items:
         - name: Overview and prerequisites
           href: hyper-v-deployment-planner-overview.md
+        - name: Deployment Planner version history
+          href: site-recovery-deployment-planner-history.md
         - name: Run the Deployment Planner tool
           href: hyper-v-deployment-planner-run.md
         - name: Analyze the generated report
@@ -319,12 +357,14 @@
         href: hyper-v-azure-failback.md
     - name: Manage
       items:
-      - name: Remove servers and disable protection
-        href: site-recovery-manage-registration-and-protection.md
-      - name: Delete a vault
-        href: delete-vault.md
       - name: Upgrade Windows Servers configured with Site Recovery
         href: upgrade-2012R2-to-2016.md
+      - name: Remove servers and disable protection
+        href: site-recovery-manage-registration-and-protection.md
+      - name: Updates in Azure Site Recovery
+        href: service-updates-how-to.md
+      - name: Delete a vault
+        href: delete-vault.md
   - name: Disaster recovery for apps
     items:
     - name: Set up disaster recovery to Azure for on-premises apps
@@ -397,16 +437,24 @@
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/physical server
     items: 
+    - name: Monitor process servers
+      href: vmware-physical-azure-monitor-process-server.md
     - name: Troubleshoot VMware to Azure replication
       href: vmware-azure-troubleshoot-replication.md
     - name: Troubleshoot the configuration server
       href: vmware-azure-troubleshoot-configuration-server.md
+    - name: Troubleshoot process servers
+      href: vmware-physical-azure-troubleshoot-process-server.md
     - name: Troubleshoot push installation of the Mobility service for VMware VMs/physical servers
       href: vmware-azure-troubleshoot-push-install.md
     - name: Troubleshoot failover to Azure
       href: site-recovery-failover-to-azure-troubleshoot.md
     - name: Troubleshoot reprotection and failback of VMware VMs 
       href: vmware-azure-troubleshoot-failback-reprotect.md
+    - name: Troubleshoot Microsoft Azure Site Recovery Provider upgrade failures
+      href: vmware-azure-troubleshoot-upgrade-failures.md
+    - name: Troubleshoot vCenter discovery failures
+      href: vmware-azure-troubleshoot-vcenter-discovery-failures.md
   - name: Hyper-V
     items:
     - name: Troubleshoot Hyper-V replication
@@ -414,9 +462,9 @@
     - name: Troubleshoot failover to Azure
       href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Reference
-  items:
+  items: 
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.recoveryservices.siterecovery
+    href: /powershell/module/az.recoveryservices
   - name: Azure PowerShell classic
     href: /powershell/module/azure/?view=azuresmps-3.7.0
   - name: REST
@@ -430,7 +478,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Blog
-    href: http://azure.microsoft.com/blog/tag/azure-site-recovery/
+    href: https://azure.microsoft.com/blog/tag/azure-site-recovery/
   - name: Forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr
   - name: Learning path

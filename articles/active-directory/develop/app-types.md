@@ -3,20 +3,21 @@ title: Application types in v1.0 | Azure
 description: Describes the types of apps and scenarios supported by the Azure Active Directory v2.0 endpoint.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
+ms.collection: M365-identity-device-management
 ---
 
 # Application types in v1.0
@@ -58,7 +59,7 @@ Any application that outsources authentication to Azure AD must be registered in
   * **Key** - The key that is sent along with an Application ID when authenticating to Azure AD to call a web API.
 * Azure AD needs to ensure the application has the required permissions to access your directory data, other applications in your organization, and so on.
 
-For details, learn how to [register an app with the Azure AD v1.0 endpoint](quickstart-v1-add-azure-ad-app.md).
+For details, learn how to [register an app](quickstart-register-app.md).
 
 ## Single-tenant and multi-tenant apps
 

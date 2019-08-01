@@ -1,5 +1,5 @@
 ---
-title: Set up Microsoft Azure Data Box Disk| Microsoft Docs
+title: Tutorial to unpack, connect to, unlock Azure Data Box Disk| Microsoft Docs
 description: Use this tutorial to learn how to set up your Azure Data Box Disk
 services: databox
 author: alkohli
@@ -7,10 +7,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/31/2018
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+
+::: zone target="docs"
+
 # Tutorial: Unpack, connect, and unlock Azure Data Box Disk
 
 This tutorial describes how to unpack, connect, and unlock your Azure Data Box Disk.
@@ -85,7 +88,7 @@ Perform the following steps to connect and unlock your disks.
     PS C:\DataBoxDiskUnlockTool\DiskUnlock>
     ``` 
 
-6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
+6. Run `DataBoxDiskUnlock.exe` and supply the passkey you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). The drive letter assigned to the disk is displayed. A sample output is shown below.
 
     ```powershell
     PS C:\WINDOWS\system32> cd C:\DataBoxDiskUnlockTool\DiskUnlock
@@ -118,7 +121,9 @@ Perform the following steps to connect and unlock your disks.
     ```  
 8. Once the disk is unlocked, you can view the contents of the disk.    
 
-    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png) 
+    ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content.png)
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
 
 ## Unlock disks on Linux client
 
@@ -165,50 +170,50 @@ Perform the following steps to connect and unlock your disks.
     
  
 5. Type `y` to continue the install. The packages that the script installs are: 
-    - **epel-release** - Repository that contains the following three packages. 
-    - **dislocker and fuse-dislocker** - This utility helps decrypting BitLocker encrypted disks. 
-    - **ntfs-3g** - Package that helps mount NTFS volumes. 
+   - **epel-release** - Repository that contains the following three packages. 
+   - **dislocker and fuse-dislocker** - These utilities helps decrypting BitLocker encrypted disks. 
+   - **ntfs-3g** - Package that helps mount NTFS volumes. 
  
-    Once the packages are successfully installed, the terminal will display a notification to that effect.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Once the packages are successfully installed, the terminal will display a notification to that effect.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
-6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#Connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
+6. Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal you obtained in [Connect to disks and get the passkey](#connect-to-disks-and-get-the-passkey). Optionally specify a list of BitLocker encrypted volumes to unlock. The passkey and volume list should be specified within single quotes. 
 
     Type the following command.
  
-    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’ /Volumes:’<list of volumes>’`         
+    `sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’          
 
     The sample output is shown below. 
  
     ```
-    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’ /Volumes:’/dev/sdbl’ 
+    [user@localhost Downloads]$ sudo ./DataBoxDiskUnlock_x86_64 /Passkey:’qwerqwerqwer’  
     
     START: Mon Aug 13 14:25:49 2018 
     Volumes: /dev/sdbl 
@@ -249,6 +254,57 @@ Perform the following steps to connect and unlock your disks.
 
     ![Data Box Disk contents](media/data-box-disk-deploy-set-up/data-box-disk-content-linux.png)
 
+
+If you run into any issues while unlocking the disks, see how to [troubleshoot unlock issues](data-box-disk-troubleshoot-unlock.md). 
+
+::: zone-end
+
+::: zone target="chromeless"
+
+1. Unpack disks and use the included cable to connect the disk to the client computer.
+2. Download and extract the Data Box Disk toolset on the same computer that you will use to copy the data.
+
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)
+
+    or
+    > [!div class="nextstepaction"]
+    > [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux) 
+
+3. To unlock the disks on a Windows client, open a Command Prompt window or run Windows PowerShell as administrator on the same computer:
+
+    - Type the following command in the same folder where Data Box Disk Unlock tool is installed.
+
+        ``` 
+        .\DataBoxDiskUnlock.exe
+        ```
+    -  Supply the passkey you obtained from **General > Device details** in the Azure portal. The drive letter assigned to the disk is displayed. 
+4. To unlock the disks on a Linux client, open a terminal. Go to the folder where you downloaded the software. Type the following commands to change the file permissions so that you can execute these files: 
+
+    ```
+    chmod +x DataBoxDiskUnlock_x86_64
+    chmod +x DataBoxDiskUnlock_Prep.sh
+    ``` 
+    Execute the script to install all the required binaries.
+
+    ```
+    sudo ./DataBoxDiskUnlock_Prep.sh
+    ```
+    Run the Data Box Disk Unlock tool. Supply the passkey from the Azure portal by going to **General > Device details**. Optionally specify a list of BitLocker encrypted volumes within single quotes to unlock.
+
+    ```
+    sudo ./DataBoxDiskUnlock_x86_64 /PassKey:’<Your passkey from Azure portal>’
+    ```      
+5. Repeat the unlock steps for any future disk reinserts. Use the help command if you need help with the Data Box Disk unlock tool.
+
+After the disk is unlocked, you can view the contents of the disk.
+
+For more information on how to set up and unlock the disks, go to [Tutorial: Unpack, connect, and unlock Azure Data Box Disk](data-box-disk-deploy-set-up.md).
+
+::: zone-end
+
+::: zone target="docs"
+
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box Disk topics such as:
@@ -264,4 +320,6 @@ Advance to the next tutorial to learn how to copy data on your Data Box Disk.
 
 > [!div class="nextstepaction"]
 > [Copy data on your Data Box Disk](./data-box-disk-deploy-copy-data.md)
+
+::: zone-end
 

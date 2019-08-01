@@ -3,7 +3,7 @@ title: Add a Bubble layer to Azure Maps | Microsoft Docs
 description: How to add a Bubble layer to the Javascript map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -16,7 +16,7 @@ ms.custom: codepen
 This article shows you how you can render point data from a data source as a Bubble layer on a map. Bubble layers render points as circles on the map with fixed pixel radius. 
 
 > [!TIP]
-> Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', '$type', 'Point']`
+> Bubble layers by default will render the coordinates of all geometries in a data source. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
 
 ## Add a bubble layer
 
@@ -68,4 +68,7 @@ Learn more about the classes and methods used in this article:
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add a symbol layer](./map-add-pin.md)
+> [Add a symbol layer](map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

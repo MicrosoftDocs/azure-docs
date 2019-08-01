@@ -31,7 +31,6 @@ Some host.json settings are only used when running locally in the [local.setting
 
 The following sample *host.json* files have all possible options specified.
 
-
 ```json
 {
     "version": "2.0",
@@ -77,7 +76,10 @@ The following sample *host.json* files have all possible options specified.
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
-    "watchDirectories": [ "Shared", "Test" ]
+    "watchDirectories": [ "Shared", "Test" ],
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 
@@ -103,6 +105,9 @@ Controls the [sampling feature in Application Insights](./functions-monitoring.m
     }
 }
 ```
+
+> [!NOTE]
+> Log sampling may cause some executions to not show up in the Application Insights monitor blade.
 
 |Property  |Default | Description |
 |---------|---------|---------| 
@@ -137,7 +142,10 @@ A list of functions that the job host runs. An empty array means run all functio
 
 ## functionTimeout
 
-Indicates the timeout duration for all functions. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes. In an App Service plan, there is no overall limit and the default depends on the runtime version. In version 2.x, the default value for an App Service plan is 30 minutes. In version 1.x, it's *null*, which indicates no timeout.
+Indicates the timeout duration for all functions. It follows the timespan string format. In a serverless Consumption plan, the valid range is from 1 second to 10 minutes, and the default value is 5 minutes.  
+In a Dedicated (App Service) plan, there is no overall limit, and the default depends on the runtime version: 
++ Version 1.x: the default is *null*, which indicates no timeout.   
++ Version 2.x: the default value is 30 minutes. A value of `-1` indicates unbounded execution.
 
 ```json
 {
@@ -185,6 +193,9 @@ Controls the logging behaviors of the function app, including Application Insigh
     "logLevel": {
       "Function.MyFunction": "Information",
       "default": "None"
+    },
+    "console": {
+        ...
     },
     "applicationInsights": {
         ...
@@ -266,6 +277,18 @@ A set of [shared code directories](functions-reference-csharp.md#watched-directo
 ```json
 {
     "watchDirectories": [ "Shared" ]
+}
+```
+
+## managedDependency
+
+Managed dependency is a preview feature that is currently only supported with PowerShell based functions. It enables dependencies to be automatically managed by the service. When the enabled property is set to true, the [requirements.psd1](functions-reference-powershell.md#dependency-management) file will be processed. Dependencies will be updated when any minor versions are released.
+
+```json
+{
+    "managedDependency": {
+        "enabled": true
+    }
 }
 ```
 

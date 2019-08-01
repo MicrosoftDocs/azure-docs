@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/23/2017
+ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter
 
@@ -30,7 +30,6 @@ In this quickstart, you learn how to:
 
 * Deploy a Spring Boot application to Service Fabric
 * Deploy the application to your local cluster
-* Deploy the application to a cluster in Azure
 * Scale-out the application across multiple nodes
 * Perform failover of your service with no hit to availability
 
@@ -87,7 +86,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     java -jar gs-spring-boot-0.1.0.jar
     ```
 
-1. Add the **Endpoints** resource in the `gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml` file
+1. Add the **Endpoints** resource in the *gs-spring-boot/SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/ServiceManifest.xml* file
 
     ```xml 
         <Resources>
@@ -102,7 +101,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ServiceManifest Name="SpringGettingStartedPkg" Version="1.0.0"
-                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
+                     xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" >
 
        <ServiceTypes>
           <StatelessServiceType ServiceTypeName="SpringGettingStartedType" UseImplicitHost="true">
@@ -158,73 +157,11 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     ./install.sh
     ```
 
-1. Open your favorite web browser and access the application by accessing **http://localhost:8080**.
+1. Open your favorite web browser and access the application by accessing `http://localhost:8080`.
 
     ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
 
 You can now access the Spring Boot application that was deployed to a Service Fabric cluster.
-
-## Deploy the application to Azure
-
-### Set up your Azure Service Fabric Cluster
-
-To deploy the application to a cluster in Azure, create your own cluster.
-
-Party clusters are free, limited-time Service Fabric clusters hosted on Azure and run by the Service Fabric team. You can use party clusters to deploy applications and learn about the platform. The cluster uses a single, self-signed certificate for node-to-node and client-to-node security.
-
-Sign in and join a [Linux cluster](https://aka.ms/tryservicefabric). Download the PFX certificate to your computer by clicking the **PFX** link. Click the **ReadMe** link to find the certificate password and instructions about how to configure various environments to use the certificate. Keep both the **Welcome** page and the **ReadMe** page open, you will use some of the instructions in the following steps.
-
-> [!Note]
-> There are a limited number of party clusters available per hour. If you get an error when you try to sign up for a party cluster, you can wait for a period and try again, or you can follow these steps in [Create a Service Fabric cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) to create a cluster in your subscription.
->
-> The Spring Boot service is configured to listen on port 8080 for incoming traffic. Make sure that port is open in your cluster. If you are using the Party Cluster, this port is open.
->
-
-Service Fabric provides several tools that you can use to manage a cluster and its applications:
-
-* Service Fabric Explorer, a browser-based tool.
-* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI.
-* PowerShell commands.
-
-In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer.
-
-To use the CLI, you need to create a PEM file based on the PFX file you downloaded. To convert the file, use the following command. (For party clusters, you can copy a command specific to your PFX file from the instructions on the **ReadMe** page.)
-
-```bash
-openssl pkcs12 -in party-cluster-1486790479-client-cert.pfx -out party-cluster-1486790479-client-cert.pem -nodes -passin pass:1486790479
-``` 
-
-To use Service Fabric Explorer, you need to import the certificate PFX file you downloaded from the Party Cluster website into your certificate store (Windows or Mac) or into the browser itself (Ubuntu). You need the PFX private key password, which you can get from the **ReadMe** page.
-
-Use whatever method you are most comfortable with to import the certificate on your system. For example:
-
-* On Windows: Double-click the PFX file and follow the prompts to install the certificate in your personal store, `Certificates - Current User\Personal\Certificates`. Alternatively, you can use the PowerShell command in the **ReadMe** instructions.
-* On Mac: Double-click the PFX file and follow the prompts to install the certificate in your Keychain.
-* On Ubuntu: Mozilla Firefox is the default browser in Ubuntu 16.04. To import the certificate into Firefox, click the menu button in the upper right corner of your browser, then click **Options**. On the **Preferences** page, use the search box to search for "certificates". Click **View Certificates**, select the **Your Certificates** tab, click **Import** and follow the prompts to import the certificate.
-
-   ![Install certificate on Firefox](./media/service-fabric-quickstart-java-spring-boot/install-cert-firefox.png)
-
-### Deploy the application using CLI
-
-Now that the application and your cluster are ready, you can deploy it to the cluster directly from command line.
-
-1. Navigate to the `gs-spring-boot/SpringServiceFabric` folder.
-1. Run the following command to connect to your Azure cluster.
-
-    ```bash
-    sfctl cluster select --endpoint https://<ConnectionIPOrURL>:19080 --pem <path_to_certificate> --no-verify
-    ```
-1. Run the `install.sh` script.
-
-    ```bash
-    ./install.sh
-    ```
-
-1. Open your web browser and access the application by accessing: **http://\<ConnectionIPOrUrl>:8080**.
-
-    ![Application front-end Local](./media/service-fabric-quickstart-java-spring-boot/springbootsfazure.png)
-
-You can now access the Spring Boot application running in a Service Fabric cluster on Azure.
 
 ## Scale applications and services in a cluster
 
@@ -279,7 +216,6 @@ In this quickstart, you learned how to:
 
 * Deploy a Spring Boot application to Service Fabric
 * Deploy the application to your local cluster
-* Deploy the application to a cluster in Azure
 * Scale-out the application across multiple nodes
 * Perform failover of your service with no hit to availability
 

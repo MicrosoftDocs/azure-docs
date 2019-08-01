@@ -1,21 +1,21 @@
 ---
-title: Versioning
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Versioning - LUIS
+titleSuffix: Azure Cognitive Services
 description: Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact app, then to try to unpeel and app's intent and utterances to a previous state.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
 # Understand how and when to use a LUIS version
 
-Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact app, then to try to unpeel and app's intent and utterances to a previous state. 
+Versions, in LUIS, are similar to versions in traditional programming. Each version is a snapshot in time of the app. Before you make changes to the app, create a new version. It is easier to go back to the exact version, then to try to remove intents and utterances to a previous state.
 
 Create different models of the same app with [versions](luis-how-to-manage-versions.md). 
 
@@ -30,7 +30,7 @@ To [set a version](luis-how-to-manage-versions.md#set-active-version) as the act
 
 The name of the currently active version is displayed in the top, left panel after the app name. 
 
-[ ![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png) ](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
+[![Change active version](./media/luis-concept-version/version-in-nav-bar-inline.png)](./media/luis-concept-version/version-in-nav-bar-expanded.png#lightbox)
 
 ## Versions and publishing slots
 You publish to either the stage and product slots. Each slot can have a different version or the same version. This is useful for verifying changes between model versions via the endpoint, which is available to bots or other LUIS calling applications. 

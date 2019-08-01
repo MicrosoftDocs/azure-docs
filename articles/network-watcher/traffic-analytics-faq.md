@@ -3,8 +3,8 @@ title: Azure traffic analytics frequently asked questions | Microsoft Docs
 description: Get answers to some of the most frequently asked questions about traffic analytics.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: jeconnoc
+author: KumudD
+manager: twooley
 editor: 
 
 ms.service: network-watcher
@@ -13,16 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 03/08/2018
-ms.author: jdial
+ms.author: kumud
 ---
 
-# Traffic analytics frequently asked questions
+# Traffic Analytics frequently asked questions
 
 This article collects in one place many of the most frequently asked questions about traffic analytics in Azure Network Watcher.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## What are the prerequisites to use traffic analytics?
 
-Traffic analytics requires the following prerequisites:
+Traffic Analytics requires the following prerequisites:
 
 - A Network Watcher enabled subscription.
 - Network Security Group (NSG) flow logs enabled for the NSGs you want to monitor.
@@ -31,7 +34,6 @@ Traffic analytics requires the following prerequisites:
 
 Your account must meet one of the following to enable traffic analytics:
 
-- Your account must be assigned to one of the following roles at the subscription level: account administrator, service administrator, or co-administrator.
 - Your account must have any one of the following role-based access control (RBAC) roles at the subscription scope: owner, contributor, reader, or network contributor.
 - If your account is not assigned to one of the previously listed roles, it must be assigned to a custom role that is assigned the following actions, at the subscription level.
             
@@ -48,17 +50,17 @@ Your account must meet one of the following to enable traffic analytics:
         
 To check roles assigned to a user for a subscription:
 
-1. Sign in to Azure by using **Login-AzureRmAccount**. 
+1. Sign in to Azure by using **Login-AzAccount**. 
 
-2. Select the required subscription by using **Select-AzureRmSubscription**. 
+2. Select the required subscription by using **Select-AzSubscription**. 
 
 3. To list all the roles that are assigned to a specified user, use
-    **Get-AzureRmRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
+    **Get-AzRoleAssignment -SignInName [user email] -IncludeClassicAdministrators**. 
 
 If you are not seeing any output, contact the respective subscription admin to get access to run the commands. For more details, see [Manage role-based access control with Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
-## In which Azure regions are traffic analytics available?
+## In which Azure regions is Traffic Analytics available?
 
 You can use traffic analytics for NSGs in any of the following supported regions:
 - Canada Central
@@ -70,6 +72,7 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - Central US
 - West US
 - West US 2
+- France Central
 - West Europe
 - North Europe
 - Brazil South
@@ -77,21 +80,36 @@ You can use traffic analytics for NSGs in any of the following supported regions
 - UK South
 - Australia East
 - Australia Southeast 
+- East Asia
 - Southeast Asia
+- Korea Central
 - Central India
 - South India
 - Japan East
+- Japan West
+- US Gov Virginia
 
 The Log Analytics workspace must exist in the following regions:
 - Canada Central
 - West Central US
+- West US
+- West US 2
+- South Central US
+- Central US
 - East US
+- East US 2
+- France Central
 - West Europe
+- North Europe
 - UK South
+- Australia East
 - Australia Southeast
+- East Asia
 - Southeast Asia 
+- Korea Central
 - Central India
 - Japan East
+- US Gov Virginia
 
 ## Can the NSGs I enable flow logs for be in different regions than my workspace?
 
@@ -103,7 +121,7 @@ Yes.
 
 ## Can I use an existing workspace?
 
-Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Log Analytics upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
+Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you do not want to upgrade the workspace, you need to create a new one. For more information about the new query language, see [Azure Monitor logs upgrade to new log search](../log-analytics/log-analytics-log-search-upgrade.md).
 
 ## Can my Azure Storage Account be in one subscription and my Log Analytics workspace be in a different subscription?
 
@@ -122,8 +140,8 @@ Select a supported region. If you select a non-supported region, you receive a "
 The Microsoft.Insights provider must be registered for flow logging to work properly. If you are not sure whether the Microsoft.Insights provider is registered for your subscription, replace *xxxxx-xxxxx-xxxxxx-xxxx* in the following command, and run the following commands from PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## I have configured the solution. Why am I not seeing anything on the dashboard?
@@ -142,7 +160,7 @@ If problems persist, raise concerns in the [User voice forum](https://feedback.a
 ## What if I get this message: “Analyzing your NSG flow logs for the first time. This process may take 20-30 minutes to complete. Check back after some time. 2) If the above step doesn’t work and your workspace is under the free SKU, then check your workspace usage here to validate over quota, else refer to FAQs for further information.”?
 
 You might see this message because:
-- Traffic analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
+- Traffic Analytics was recently enabled, and might not yet have aggregated enough data for it to derive meaningful insights.
 - You are using the free version of the Log Analytics workspace, and it exceeded the quota limits. You might need to use a workspace with a larger capacity.
     
 If problems persist, raise concerns in the [User voice forum](https://feedback.azure.com/forums/217313-networking?category_id=195844).
@@ -153,7 +171,7 @@ You are seeing the resources information on the dashboard; however, no flow-rela
 
 ## Can I configure traffic analytics using PowerShell or an Azure Resource Manager template or client?
 
-You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog?view=azurermps-6.3.0). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus?view=azurermps-6.3.0).
+You can configure traffic analytics by using Windows PowerShell from version 6.2.1 onwards. To configure flow logging and traffic analytics for a specific NSG by using the Set cmdlet, see [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). To get the flow logging and traffic analytics status for a specific NSG, see [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Currently, you can't use an Azure Resource Manager template to configure traffic analytics.
 
@@ -219,20 +237,37 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 ```
 
 
+## How is Traffic Analytics priced?
 
-## How is traffic analytics priced?
-
-Traffic analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
+Traffic Analytics is metered. The metering is based on processing of flow log data by the service, and storing the resulting enhanced logs in a Log Analytics workspace. 
 
 For example, as per the [pricing plan](https://azure.microsoft.com/pricing/details/network-watcher/), considering West Central US region, if flow logs data stored in a storage account processed by Traffic Analytics is 10 GB and enhanced logs ingested in Log Analytics workspace is 1 GB then the applicable charges are:
 10 x 2.3$ + 1 x 2.76$ = 25.76$
+
+## How frequently does Traffic Analytics process data?
+
+Refer to the [data aggregation section](https://docs.microsoft.com/azure/network-watcher/traffic-analytics-schema#data-aggregation) in Traffic Analytics Schema and Data Aggregation Document
+
+## How does Traffic Analytics decide that an IP is malicious? 
+
+Traffic Analytics relies on Microsoft internal threat intelligence systems to deem an IP as malicious. These systems leverage diverse telemetry sources like Microsoft products and services,the Microsoft Digital Crimes Unit (DCU), the Microsoft Security Response Center (MSRC), and external feeds and build a lot of intelligence on top of it. 
+Some of this data is Microsoft Internal. If a known IP is getting flagged as malicious, please raise a support ticket to know the details.
+
+## How can I set alerts on Traffic Analytics data?
+
+Traffic Analytics does not have inbuilt support for alerts. However, since Traffic Analytics data is stored in Log Analytics you can write custom queries and set alerts on them. 
+Steps :
+- You can use the shortlink for Log Analytics in Traffic Analytics. 
+- Use the [schema documented here](traffic-analytics-schema.md) to write your queries 
+- Click "New alert rule" to create the alert
+- Refer to [log alerts documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) to create the alert
 
 ## How can I navigate by using the keyboard in the geo map view?
 
 The geo map page contains two main sections:
     
-- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
-- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries.
+- **Banner**: The banner at the top of the geo map provides buttons to select traffic distribution filters (for example, Deployment, Traffic from countries/regions, and Malicious). When you select a button, the respective filter is applied on the map. For example, if you select the Active button, the map highlights the active datacenters in your deployment.
+- **Map**: Below the banner, the map section shows traffic distribution among Azure datacenters and countries/regions.
     
 ### Keyboard navigation on the banner
     

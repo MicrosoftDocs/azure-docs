@@ -1,15 +1,15 @@
 ---
-title: "Quickstart: create app" 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: "Quickstart: create app - LUIS" 
+titleSuffix: Azure Cognitive Services
 description:  Create a LUIS app that uses the prebuilt domain `HomeAutomation` for turning lights and appliances on and off. This prebuilt domain provides intents, entities, and example utterances for you. When you're finished, you'll have a LUIS endpoint running in the cloud.
 services: cognitive-services
 author: diberry
 ms.custom: seodec18
-manager: cgronlun
+manager: nitinme
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/10/2018
+ms.date: 05/07/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query. 
 ---
@@ -53,6 +53,8 @@ When the domain is successfully added, the prebuilt domain box displays a **Remo
 ## Intents and entities
 
 Select **Intents** in the left-side navigation pane to review the HomeAutomation domain intents. Each intent has sample utterances.
+
+![Screenshot of HomeAutomation intents list](media/luis-quickstart-new-app/home-automation-intents.png "Screenshot of HomeAutomation intents list")]
 
 > [!NOTE]
 > **None** is an intent provided by all LUIS apps. You use it to handle utterances that don't correspond to functionality your app provides. 

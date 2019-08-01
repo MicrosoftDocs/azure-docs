@@ -4,26 +4,29 @@ description: Learn about the tools and utilities that are pre-installed on the D
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/16/2018
-ms.author: gokuma
+ms.date: 02/22/2019
+ms.author: vijetaj
 
 ---
 # Get to know your Data Science Virtual Machine
 
 The Data Science Virtual Machine (DSVM) includes an extensive list of popular data science, machine learning/AI tools, and data platforms. The tool configurations are rigorously tested by data scientists and developers at Microsoft and by the broader data science community to ensure stability and general viability.
 
-The DSVM also includes multiple code samples and walkthroughs in the form of Jupyter Notebooks that can be executed locally. There is also documentation for these samples to aid comprehension. 
+The DSVM also includes multiple code samples and walkthroughs in the form of Jupyter Notebooks that can be executed locally.There is also documentation for these samples to aid comprehension. 
+
+> [!NOTE]
+> You can use [Azure Notebooks](../../notebooks/azure-notebooks-overview.md) to create, run, and share Jupyter notebooks in the cloud. You can [attach a Data Science VM to Azure Notebooks](../../notebooks/configure-manage-azure-notebooks-projects.md#compute-tier) to expand the available compute power.
 
 The tools, platforms, utilities, and samples that are included in the Data Science VM are organized into the following sections:
 

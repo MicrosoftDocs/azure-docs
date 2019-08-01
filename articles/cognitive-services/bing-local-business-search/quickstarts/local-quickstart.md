@@ -1,15 +1,14 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in C# | Microsoft Docs
+title: Quickstart - Send a query to the Bing Local Business Search API in C#
 titleSuffix: Azure Cognitive Services
 description: Use this article to start using the Bing Local Business Search API in C#.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
-ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.topic: quickstart
+ms.date: 04/26/2019
+ms.author: rosh
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#
@@ -20,8 +19,8 @@ This example application gets local response data from the API for the search qu
 
 ## Prerequisites
 
-* Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+* Any edition of [Visual Studio 2019](https://www.visualstudio.com/downloads/).
+* If you are using Linux/MacOS, this application can be run using [Mono](https://www.mono-project.com/).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Bing Search APIs. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) is sufficient for this quickstart.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
@@ -29,7 +28,7 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 The following code creates a `WebRequest`, sets the access key header, and adds a query string for "restaurant in Bellevue".  It then sends the request and assigns the response to a string to contain the JSON text.
 
-````
+```
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
@@ -45,7 +44,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-````
+```
 
 ## Run the complete application
 
@@ -55,7 +54,7 @@ The Bing Local Business Search API returns localized search results from the Bin
 3. Replace the accessKey value with an access key valid for your subscription.
 4. Run the program.
 
-````
+```
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -201,7 +200,7 @@ namespace localSearch
     }
 }
 
-````
+```
 
 ## Next steps
 - [Local Business Search Java quickstart](local-search-java-quickstart.md)

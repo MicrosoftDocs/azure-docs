@@ -7,15 +7,14 @@ ms.subservice:
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 10/17/2018
+ms.date: 05/06/2019
 ---
 # FAQ about Azure SQL Hyperscale databases
 
-This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, commonly called a Hyperscale database (currently in public preview). This article describes the scenarios that Hyperscale supports and the cross-feature services are compatible with SQL Database Hyperscale in general.
+This article provides answers to frequently asked questions for customers considering a database in the Azure SQL Database Hyperscale service tier, commonly called a Hyperscale database. This article describes the scenarios that Hyperscale supports and the cross-feature services are compatible with SQL Database Hyperscale in general.
 
 - This FAQ is intended for readers who have a brief understanding of the Hyperscale service tier and are looking to have their specific questions and concerns answered.
 - This FAQ isn’t meant to be a guidebook or answer questions on how to use a SQL Database Hyperscale database. For that, we recommend you refer to the [Azure SQL Database Hyperscale](sql-database-service-tier-hyperscale.md) documentation.
@@ -32,7 +31,7 @@ The Hyperscale service tier is only available for single databases using the vCo
 
 ### How does the Hyperscale service tier differ from the General Purpose and Business Critical service tiers
 
-The vCore-based service tiers are primarily differentiated based upon availability, storage type and IOPs.
+The vCore-based service tiers are primarily differentiated based upon availability, storage type, and IOPs.
 
 - The General Purpose service tier is appropriate for most business workloads, offering a balanced set of compute and storage options where IO latency or failover times are not the priority.
 - The Hyperscale service tier is optimized for very large database workloads.
@@ -47,10 +46,10 @@ The vCore-based service tiers are primarily differentiated based upon availabili
 | **Storage type** | All |Premium remote storage (per instance) | De-coupled storage with local SSD cache (per instance) | Super-fast local SSD storage (per instance) |
 | **Storage size** | Single database / elastic pool | 5 GB – 4 TB | Up to 100 TB | 5 GB – 4 TB |
 | | Managed instance  | 32 GB – 8 TB | N/A | 32 GB – 4 TB |
-| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Unknown yet | 5000 IOPS with 200,000 maximum IOPS|
+| **IO throughput** | Single database** | 500 IOPS per vCore with 7000 maximum IOPS | Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload. | 5000 IOPS with 200,000 maximum IOPS|
 | | Managed instance | Depends on size of file | N/A | Managed Instance: Depends on size of file|
 |**Availability**|All|1 replica, no read-scale, no local cache | Multiple replicas, up to 15 read-scale, partial local cache | 3 replicas, 1 read-scale, zone-redundant HA, full local cache |
-|**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7-35 days (7 days by default), constant time point-in0time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
+|**Backups**|All|RA-GRS, 7-35 days (7 days by default)| RA-GRS, 7-35 days (7 days by default), constant time point-in-time recovery (PITR) | RA-GRS, 7-35 days (7 days by default) |
 
 \* Elastic pools not supported in the Hyperscale service tier
 
@@ -67,15 +66,15 @@ The Hyperscale service tier is primarily intended for customers who have large o
 
 ### What regions currently support Hyperscale
 
-Hyperscale is currently available for single databases in the following regions:  West US1, West US2, East US1, Central US, West Europe, North Europe, UK West, SouthEast Asia, Japan East, Korea Central, Australia SouthEast, and Australia East.
+The Azure SQL Database Hyperscale tier is currently available in the regions listed under [Azure SQL Database Hyperscale Overview](sql-database-service-tier-hyperscale.md#regions).
 
 ### Can I create multiple Hyperscale databases per logical server
 
 Yes. For more information and limits on the number of Hyperscale databases per logical server, see [SQL Database resource limits for single and pooled databases on a logical server](sql-database-resource-limits-logical-server.md).
 
-### What are the performance characteristic of a Hyperscale database
+### What are the performance characteristics of a Hyperscale database
 
-The SQL Database Hyperscale architecture provides high performance and throughput while supporting large database sizes. The precise performance profile and characteristics is not available during public preview.
+The SQL Database Hyperscale architecture provides high performance and throughput while supporting large database sizes. 
 
 ### What is the scalability of a Hyperscale database
 
@@ -86,13 +85,13 @@ SQL Database Hyperscale provides rapid scalability based on your workload demand
   With  Hyperscale, you can scale up the primary compute size in terms of resources like CPU, memory and then scale down, in constant time. Because the storage is shared, scaling up and scaling down is not a size of data operation.  
 - **Scaling In/Out**
 
-  With Hyperscale, you also get the ability to provision one or more additional compute nodes that you can use to serve your read requests. This means that you can use these additional compute nodes as read-only nodes to offload your read workload from the primary compute. In addition to read-only, these nodes also serve as hot-standby’s in the event of a fail over from the primary.
+  With Hyperscale, you also get the ability to provision one or more additional compute nodes that you can use to serve your read requests. This means that you can use these additional compute nodes as read-only nodes to offload your read workload from the primary compute. In addition to read-only, these nodes also serve as hot-standby’s in the event of a failover from the primary.
 
-  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.
+  Provisioning of each of these additional compute nodes can be done in constant time and is an online operation. You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.
 
 ## Deep dive questions
 
-### Can I mix Hyperscale and single databases a my logical server
+### Can I mix Hyperscale and single databases in a single logical server
 
 Yes, you can.
 
@@ -110,11 +109,11 @@ Yes, [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/)
 
 ### What kind of workloads is SQL Database Hyperscale designed for
 
-SQL Database Hyperscale supports all SQL Server workloads, but it is primarily optimized for OLTP. You can bring Hybrid and Analytical (data mart) workloads as well.
+SQL Database Hyperscale supports all SQL Server workloads, but it is primarily optimized for OLTP. You can bring Hybrid (HTAP) and Analytical (data mart) workloads as well.
 
 ### How can I choose between Azure SQL Data Warehouse and SQL Database Hyperscale
 
-If you are currently running interactive analytics queries using SQL Server as a data warehouse, SQL Database Hyperscale is a great option because you can host relatively small data warehouses (such as a few TB up to 10’s of TB) at a lower cost and you can migrate your data warehouse workload to SQL Database Hyperscale without T-SQL code changes.
+If you are currently running interactive analytics queries using SQL Server as a data warehouse, SQL Database Hyperscale is a great option because you can host relatively small data warehouses (such as a few TB up to 10s of TB) at a lower cost and you can migrate your data warehouse workload to SQL Database Hyperscale without T-SQL code changes.
 
 If you are running data analytics on a large scale with complex queries and using Parallel Data Warehouse (PDW), Teradata or other Massively Parallel Processor (MPP)) data warehouses, SQL Data Warehouse may be the best choice.
   
@@ -122,11 +121,11 @@ If you are running data analytics on a large scale with complex queries and usin
 
 ### Can I pause my compute at any time
 
-No.
+Not at this time, however you can scale your compute and number of replicas down to reduce cost during non-peak times.
 
 ### Can I provision a compute with extra RAM for my memory-intensive workload
 
-No. To get more RAM, you need to upgrade to a higher compute size. Gen4 hardware provides more RAM compared to Gen5 hardware. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier-preview).
+No. To get more RAM, you need to upgrade to a higher compute size. For more information, see [Hyperscale storage and compute sizes](sql-database-vcore-resource-limits-single-databases.md#hyperscale-service-tier).
 
 ### Can I provision multiple compute nodes of different sizes
 
@@ -134,11 +133,11 @@ No.
 
 ### How many read-scale replicas are supported
 
-In public preview, the Hyperscale databases are created with one read-scale replica (two replicas in total) by default. If you want to add or remove read-scale replicas, please file a support request using the Azure portal.
+The Hyperscale databases are created with one read-scale replica (two replicas in total) by default. You can scale the number of read-only replicas between 0 and 4 using the [Azure portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) or [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update).
 
 ### For high availability, do I need to provision additional compute nodes
 
-In Hyperscale databases, the high availability is provided at the storage level. You only need one replica to provide high availability. When the compute replica is down, a new replica is created automatically with no data loss.
+In Hyperscale databases, the resiliency is provided at the storage level. You only need one replica to provide resiliency. When the compute replica is down, a new replica is created automatically with no data loss.
 
 However, if there’s only one replica, it may take some time to build the local cache in the new replica after failover. During the cache rebuild phase, the database fetches data directly from the page servers, resulting in degraded IOPS and query performance.
 
@@ -152,7 +151,7 @@ For mission-critical apps that require high availability, you should provision a
 
 ### What is the size of the transaction log with Hyperscale
 
-The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak and average log generation rate is not yet known (still in preview).
+The transaction log with Hyperscale is practically infinite. You do not need to worry about running out of log space on a system that has a high log throughput. However, the log generation rate might be throttled for continuous aggressive workloads. The peak sustained log generation rate is approximately 100 MB/sec.
 
 ### Does my temp db scale as my database grows
 
@@ -164,7 +163,7 @@ Your database size automatically grows as you insert/ingest more data.
 
 ### What is the smallest database size that SQL Database Hyperscale supports or starts with
 
-5 GB
+10 GB
 
 ### In what increments does my database size grow
 
@@ -202,28 +201,28 @@ Yes. The data pages associated with a given table can end up in multiple data fi
 
 ### Can I move my existing Azure SQL databases to the Hyperscale service tier
 
-Yes. You can move your existing Azure SQL databases to Hyperscale. In public preview, this is a one-way migration. You can’t move databases from Hyperscale to another service tier. We recommend you make a copy of your production databases and migrate to Hyperscale for proof of concepts (POCs).
+Yes. You can move your existing Azure SQL databases to Hyperscale. This is a one-way migration. You can’t move databases from Hyperscale to another service tier. We recommend you make a copy of your production databases and migrate to Hyperscale for proof of concepts (POCs).
   
 ### Can I move my Hyperscale databases to other editions
 
-No. In public preview, you can’t move a Hyperscale database to another service tier.
+No. At this time, you can’t move a Hyperscale database to another service tier.
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to TDE and long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Some of Azure SQL Database features are not supported in Hyperscale yet, including but not limited long term retention backup. After you migrate your databases to Hyperscale, those features stop working.  We expect these limitations to be temporary.
 
 ### Can I move my  on-premises SQL Server database or my SQL Server virtual machine database to Hyperscale
 
 Yes. You can use all existing migration technologies to migrate to Hyperscale, including BACPAC, transactional replication, logical data loading. See also the [Azure Database Migration Service](../dms/dms-overview.md).
 
-### What is my downtown during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
+### What is my downtime during migration from an on-premises or virtual machine environment to Hyperscale and how can I minimize it
 
 Downtime is the same as the downtime when you migrate your databases to a single database in Azure SQL Database. You can use [transactional replication](replication-to-sql-database.md#data-migration-scenario
 ) to minimize downtime migration for databases up to few TB in size. For very large database (10+ TB), you can consider to migrate data using ADF, Spark, or other data movement technologies.
 
 ### How much time would it take to bring in X amount of data to SQL Database Hyperscale
 
-Not yet known (still in preview)
+Hyperscale is capable of consuming 100 MB/sec of new/changed data.
 
 ### Can I read data from blob storage and do fast load (like Polybase and SQL Data Warehouse)
 
@@ -237,7 +236,7 @@ No. SQL Database Hyperscale is a SMP architecture and is not an asymmetric multi
 
 ### What is the oldest SQL Server version will SQL Database Hyperscale support migration from
 
-SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-cloud-migrate.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues).
+SQL Server 2005. For more information, see [Migrate to a single database or a pooled database](sql-database-single-database-migrate.md#migrate-to-a-single-database-or-a-pooled-database). For compatibility issues, see [Resolving database migration compatibility issues](sql-database-single-database-migrate.md#resolving-database-migration-compatibility-issues).
 
 ### Does SQL Database Hyperscale support migration from other data sources such as Aurora, MySQL, Oracle, DB2, and other database platforms
 
@@ -247,7 +246,7 @@ Yes. Coming from different data sources other than SQL Server requires logical m
 
 ### What SLA’s are provided for a Hyperscale database
 
-In general, an SLA is not provided during public preview. However, Hyperscale provides the same level of high availability with current SQL DB offerings. See [SLA](https://azure.microsoft.com/support/legal/sla/).
+With the default primary plus 1 readable secondary, the SLA is 99.95% availability.  With more replicas, the SLA goes up to 99.99%.  
 
 ### Are the database backups managed for me by the Azure SQL Database service
 
@@ -263,7 +262,7 @@ Yes
 
 ### What is the Recovery Point Objective (RPO)/Recovery Time Objective (RTO) with backup/restore in SQL Database Hyperscale
 
-The RPO is 0 min. The RTO goal is  less than 10 minutes, regardless of database size. However, during public preview, you may experience longer restore time.
+The RPO is 0 min. The RTO goal is  less than 10 minutes, regardless of database size. 
 
 ### Do backups of large databases affect compute performance on my primary
 
@@ -271,15 +270,15 @@ No. Backups are managed by the storage subsystem, and leverage file snapshots. T
 
 ### Can I perform geo-restore with a SQL Database Hyperscale database
 
-No, not during public preview.
+Yes.  Geo-restore is fully supported.
 
 ### Can I setup Geo-Replication with SQL Database Hyperscale database
 
-No, not during public preview.
+Not at this time.
 
 ### Do my secondary compute nodes get geo-replicated with SQL Database Hyperscale
 
-No, not during public preview.
+Not at this time.
 
 ### Can I take a SQL Database Hyperscale database backup and restore it to my on-premises server or SQL Server in VM
 
@@ -289,7 +288,7 @@ No. The storage format for Hyperscale databases is different from traditional SQ
 
 ### Do I lose any functionality or capabilities after migration to the Hyperscale service tier
 
-Yes. Some of Azure SQL Database features are not supported in Hyperscale during public preview, including but not limited to TDE and long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
+Yes. Some of Azure SQL Database features are not supported in Hyperscale, including but not limited long term retention backup. After you migrate your databases to Hyperscale, those features stop working.
 
 ### Will Polybase work with SQL Database Hyperscale
 
@@ -307,11 +306,11 @@ No. Your database resides on a compute VM and not a container.
 
 ### How much throughput can I push on the largest SQL Database Hyperscale compute
 
-Not yet known (still in preview)
+We have seen a consistent 100 MB/sec of change data (transaction log data generation)
 
 ### How many IOPS do I get on the largest SQL Database Hyperscale compute
 
-Not yet known (still in preview)
+IOPS and IO latency will vary depending on the workload patterns.  If the data needing to be accessed is local to the compute's cache, it will be the same IO patterns as local SSD.   
 
 ### Does my throughput get affected by backups
 
@@ -319,13 +318,13 @@ No. Compute is decoupled from the storage layer to avoid impact on compute.
 
 ### Does my throughput get affected as I provision additional compute nodes
 
-Because the storage is shared and there is no direct physical replication happening between primary and secondary compute nodes, technically, the throughput on primary node will be affected by adding read-scale nodes. However, we may throttle continuous aggressive workload to allow log apply on secondary nodes and page servers to catch up, and avoid bad read performance on secondary nodes.
+Because the storage is shared and there is no direct physical replication happening between primary and secondary compute nodes, technically, the throughput on primary node will not be affected by adding read-scale nodes. However, we may throttle continuous aggressive workload to allow log apply on secondary nodes and page servers to catch up, and avoid bad read performance on secondary nodes.
 
 ## Scalability questions
 
 ### How long would it take to scale up and down a compute node
 
-Several minutes
+Scaling compute up or down should take 5-10 minutes regardless of data size.
 
 ### Is my database offline while the scaling up/down operation is in progress
 
@@ -343,7 +342,7 @@ End-user. Not automatic.
 
 Yes. Temp db will scale up automatically as the compute grows.  
 
-### Can I provision multiple primary computes such as a multi-master system where multiple primary compute heads can drive a higher level of concurrency
+### Can I provision multiple primary compute nodes such as a multi-master system where multiple primary compute heads can drive a higher level of concurrency
 
 No. Only the primary compute node accepts read/write requests. Secondary compute nodes only accept read-only requests.
 
@@ -351,27 +350,27 @@ No. Only the primary compute node accepts read/write requests. Secondary compute
 
 ### How many secondary compute nodes can I provision
 
-In public preview, we create 2 replicas for Hyperscale databases by default. If you want to adjust the number of replicas, please file a support request using the Azure portal.
+We create 2 replicas for Hyperscale databases by default. If you want to adjust the number of replicas, you can do so using [Azure portal](https://portal.azure.com).
 
 ### How do I connect to these secondary compute nodes
 
-You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `read_only`. Any connections marked with `read-only` are automatically routed to one of the additional read-only compute nodes.  
+You can connect to these additional read-only compute nodes by setting the `ApplicationIntent` argument on your connection string to `readonly`. Any connections marked with `readonly` are automatically routed to one of the additional read-only compute nodes.  
 
 ### Can I create a dedicated endpoint for the read-scale replica
 
-No. In public preview, you can only connect to read-scale replica by specifying `ApplicationIntent=ReadOnly`.
+No. You can only connect to read-scale replica by specifying `ApplicationIntent=ReadOnly`.
 
 ### Does the system do intelligent load balancing of the read workload
 
-No. In preview, the read only workload is re-directed to a random read-scale replica.
+No. The read-only workload is redirected to a random read-scale replica.
 
 ### Can I scale up/down the secondary compute nodes independently of the primary compute
 
-No, not during public preview.
+No. The secondary compute nodes are also used for HA, so they need to be the same configuration as the primary, in the case of a failover.
 
 ### Do I get different temp db sizing for my primary compute and my additional secondary compute nodes
 
-No. Your `tempdb` is configured based on the compute size provisioning, during public preview, your secondary compute nodes are the same size as the primary compute.
+No. Your `tempdb` is configured based on the compute size provisioning, your secondary compute nodes are the same size as the primary compute.
 
 ### Can I add indexes and views on my secondary compute nodes
 
@@ -383,4 +382,4 @@ From the time a transaction is committed on the primary, depending on the log ge
 
 ## Next steps
 
-For more information about the Hyperscale service tier, see [Hyperscale service tier (preview)](sql-database-service-tier-hyperscale.md).
+For more information about the Hyperscale service tier, see [Hyperscale service tier](sql-database-service-tier-hyperscale.md).

@@ -4,7 +4,7 @@ description: How to encrypt virtual disks on a Linux VM for enhanced security us
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -103,7 +103,7 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create) and attach a 5Gb dat
 az vm create \
     --resource-group $resourcegroup \
     --name myVM \
-    --image UbuntuLTS \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
     --admin-username azureuser \
     --generate-ssh-keys \
     --data-disk-sizes-gb 5
@@ -115,7 +115,7 @@ SSH to your VM using the *publicIpAddress* shown in the output of the preceding 
 ## Encrypt the virtual machine
 
 
-Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable). The following example uses the *$sp_id* and *$sp_password* variables from the preceding [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command:
+Encrypt your VM with [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryption-enable):
 
 ```azurecli-interactive
 az vm encryption enable \
@@ -158,7 +158,7 @@ az vm encryption enable \
     --name myVM \
     --disk-encryption-keyvault $keyvault_name \
     --key-encryption-key myKey \
-    --volume-type all
+    --volume-type data
 ```
 
 

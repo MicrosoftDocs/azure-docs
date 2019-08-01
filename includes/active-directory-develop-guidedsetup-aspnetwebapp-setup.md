@@ -3,8 +3,8 @@ title: include file
 description: include file
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/17/2018
-ms.author: andret
+ms.author: jmprieur
 ms.custom: include file
 ---
 
@@ -47,6 +47,7 @@ This section shows the steps to install and configure the authentication pipelin
 <!--end-collapse-->
 
 ## Configure the authentication pipeline
+
 The steps below are used to create an OWIN middleware Startup Class to configure OpenID Connect authentication. This class will be executed automatically when your IIS process starts.
 
 > [!TIP]
@@ -109,10 +110,10 @@ The steps below are used to create an OWIN middleware Startup Class to configure
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -136,6 +137,10 @@ The steps below are used to create an OWIN middleware Startup Class to configure
         }
     }
     ```
+
+> [!NOTE]
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer
+> See the samples to understand how to do that.
 
 <!--start-collapse-->
 > ### More Information

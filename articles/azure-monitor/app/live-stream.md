@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 04/22/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ---
 
 # Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
-Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](../../azure-monitor/app/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md), and [performance testing](../../azure-monitor/app/monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
+Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](../../azure-monitor/app/app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](../../azure-monitor/app/profiler.md), [Snapshot debugger](../../azure-monitor/app/snapshot-debugger.md). Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
 With Live Metrics Stream, you can:
 
@@ -31,10 +31,13 @@ With Live Metrics Stream, you can:
 
 [![Live Metrics Stream video](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
+Live Metrics are currently supported for ASP.NET, ASP.NET Core, Azure Functions, Java, and Node.js apps.
+
 ## Get started
 
-1. If you haven't yet [installed Application Insights](../../azure-monitor/app/asp-net.md) in your ASP.NET web app or [Windows server app](../../azure-monitor/app/windows-services.md), do that now. 
-2. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, check **Include prerelease**, and select all the Microsoft.ApplicationInsights.* packages.
+1. If you haven't yet [install Application Insights](../../azure-monitor/azure-monitor-app-hub.md) in your web app, do that now.
+2. In addition to the standard Application Insights packages [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) is required to enable Live Metrics stream.
+3. **Update to the latest version** of the Application Insights package. In Visual Studio, right-click your project and choose **Manage Nuget packages**. Open the **Updates** tab, and select all the Microsoft.ApplicationInsights.* packages.
 
     Redeploy your app.
 
@@ -42,13 +45,13 @@ With Live Metrics Stream, you can:
 
 4. [Secure the control channel](#secure-the-control-channel) if you might use sensitive data such as customer names in your filters.
 
+### Node.js
 
-![In the Overview blade, click Live Stream](./media/live-stream/live-stream-2.png)
+To use Live Metrics with Node.js you must update to version 1.30 or greater of the SDK. By default Live Metrics is disabled in the Node.js SDK. To enable Live Metrics add `setSendLiveMetrics(true)` to your [configuration methods](https://github.com/Microsoft/ApplicationInsights-node.js#configuration) as you initialize the SDK.
 
 ### No data? Check your server firewall
 
 Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-addresses.md#outgoing-ports) are open in the firewall of your servers. 
-
 
 ## How does Live Metrics Stream differ from Metrics Explorer and Analytics?
 
@@ -59,12 +62,11 @@ Check the [outgoing ports for Live Metrics Stream](../../azure-monitor/app/ip-ad
 |On demand|Data is streamed while you open Live Metrics|Data is sent whenever the SDK is installed and enabled|
 |Free|There is no charge for Live Stream data|Subject to [pricing](../../azure-monitor/app/pricing.md)
 |Sampling|All selected metrics and counters are transmitted. Failures and stack traces are sampled. TelemetryProcessors are not applied.|Events may be [sampled](../../azure-monitor/app/api-filtering-sampling.md)|
-|Control channel|Filter control signals are sent to the SDK. We recommend you [secure this channel](#secure-channel).|Communication is one-way, to the portal|
-
+|Control channel|Filter control signals are sent to the SDK. We recommend you secure this channel.|Communication is one-way, to the portal|
 
 ## Select and filter your metrics
 
-(Available on classic ASP.NET apps with the latest SDK.)
+(Available with ASP.NET, ASP.NET Core, and Azure Functions (v2).)
 
 You can monitor custom KPI live by applying arbitrary filters on any Application Insights telemetry from the portal. Click the filter control that shows when you mouse-over any of the charts. The following chart is plotting a custom Request count KPI with filters on URL and Duration attributes. Validate your filters with the Stream Preview section that shows a live feed of telemetry that matches the criteria you have specified at any point in time. 
 
@@ -106,7 +108,7 @@ Custom Live Metrics Stream is available with version 2.4.0-beta2 or newer of [Ap
 The custom filters criteria you specify are sent back to the Live Metrics component in the Application Insights SDK. The filters could potentially contain sensitive information such as customerIDs. You can make the channel secure with a secret API key in addition to the instrumentation key.
 ### Create an API Key
 
-![Create api key](./media/live-stream/live-metrics-apikeycreate.png)
+![Create API key](./media/live-stream/live-metrics-apikeycreate.png)
 
 ### Add API key to Configuration
 
@@ -156,22 +158,27 @@ using Microsoft.ApplicationInsights.Extensibility;
 
 ```
 
+### Azure Function Apps
+
+For Azure Function Apps (v2) securing the channel with an API key can be accomplished with an environment variable. 
+
+Create an API key from within your Application Insights resource and go to **Application Settings** for your Function App. Select **add new setting** and enter a name of `APPINSIGHTS_QUICKPULSEAUTHAPIKEY` and a value that corresponds to your API key.
+
 ### ASP.NET Core (Requires Application Insights ASP.NET Core SDK 2.3.0-beta or greater)
 
 Modify your startup.cs file as follows:
 
 First add
 
-``` C#
+```csharp
 using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector.QuickPulse;
 ```
 
 Then within the ConfigureServices method add:
 
-``` C#
+```csharp
 services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => module.AuthenticationApiKey = "YOUR-API-KEY-HERE");
 ```
-
 
 However, if you recognize and trust all the connected servers, you can try the custom filters without the authenticated channel. This option is available for six months. This override is required once every new session, or when a new server comes online.
 
@@ -180,15 +187,6 @@ However, if you recognize and trust all the connected servers, you can try the c
 >[!NOTE]
 >We strongly recommend that you set up the authenticated channel before entering potentially sensitive information like CustomerID in the filter criteria.
 >
-
-## Generating a performance test load
-
-If you want to watch the effect of a load increase, use the Performance Test blade. It simulates requests from a number of simultaneous users. It can run either "manual tests" (ping tests) of a single URL, or it can run a [multi-step web performance test](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) that you upload (in the same way as an availability test).
-
-> [!TIP]
-> After you create the performance test, open the test and the Live Stream blade in separate windows. You can see when the queued performance test starts, and watch live stream at the same time.
->
-
 
 ## Troubleshooting
 

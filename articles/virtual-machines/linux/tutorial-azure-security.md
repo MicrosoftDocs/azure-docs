@@ -4,7 +4,7 @@ description: In this tutorial, you learn about the Azure Security Center feature
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -63,7 +63,7 @@ To set up a security policy for an entire subscription:
 
 1. On the Security Center dashboard, select **Security policy** and then select your subscription.
 2. On the **Security policy** blade, select **Security policy**. 
-3. On the ** Security policy - Security policy ** blade, turn on or turn off policy items that you want to apply to the subscription.
+3. On the **Security policy - Security policy** blade, turn on or turn off policy items that you want to apply to the subscription.
 4. When you're finished selecting your settings, select **Save** at the top of the blade. 
 
 ![Unique policy](./media/tutorial-azure-security/unique-policy.png)

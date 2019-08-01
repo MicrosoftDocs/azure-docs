@@ -4,15 +4,14 @@ description: Learn how to connect to SQL Database on Azure by using Visual Studi
 keywords: connect to sql database
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom: 
 ms.devlang: 
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 12/06/2018
+ms.date: 03/25/2019
 ---
 # Quickstart: Use Visual Studio Code to connect and query an Azure SQL Database
 
@@ -20,19 +19,32 @@ ms.date: 12/06/2018
 
 ## Prerequisites
 
-To complete this tutorial, you need:
+- An Azure SQL database. You can use one of these quickstarts to create and then configure a database in Azure SQL Database:
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
+  || Single database | Managed instance |
+  |:--- |:--- |:---|
+  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
+  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
+  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md)| [Connectivity from a VM](sql-database-managed-instance-configure-vm.md)|
+  |||[Connectivity from on-site](sql-database-managed-instance-configure-p2s.md)
+  |Load data|Adventure Works loaded per quickstart|[Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md)
+  |||Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)|
+  |||
 
-#### Install Visual Studio Code
+  > [!IMPORTANT]
+  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
 
-Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-vs-code) and [mssql for Visual Studio Code
-](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql). 
+## Install Visual Studio Code
 
-## Configure Visual Studio Code 
+Make sure you have installed the latest [Visual Studio Code](https://code.visualstudio.com/Download) and loaded the [mssql extension](https://aka.ms/mssql-marketplace). For guidance on installing the mssql extension, see [Install VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) and [mssql for Visual Studio Code
+](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
+
+## Configure Visual Studio Code
 
 ### **Mac OS**
-For macOS, you need to install OpenSSL, which is a prerequisite for .Net Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**. 
+
+For macOS, you need to install OpenSSL, which is a prerequisite for .NET Core that mssql extension uses. Open your terminal and enter the following commands to install **brew** and **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -51,21 +63,27 @@ No special configuration needed.
 
 No special configuration needed.
 
-## SQL server connection information
+## Get SQL server connection information
 
-[!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
+Get the connection information you need to connect to the Azure SQL database. You'll need the fully qualified server name or host name, database name, and login information for the upcoming procedures.
+
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+2. Navigate to the **SQL databases**  or **SQL managed instances** page.
+
+3. On the **Overview** page, review the fully qualified server name next to **Server name** for a single database or the fully qualified server name next to **Host** for a managed instance. To copy the server name or host name, hover over it and select the **Copy** icon.
 
 ## Set language mode to SQL
 
 In Visual Studio Code, set the language mode to **SQL**  to enable mssql commands and T-SQL IntelliSense.
 
-1. Open a new Visual Studio Code window. 
+1. Open a new Visual Studio Code window.
 
-2. Press **Ctrl**+**N**. A new plain text file opens. 
+2. Press **Ctrl**+**N**. A new plain text file opens.
 
 3. Select **Plain Text** in the status bar's lower right-hand corner.
 
-4. In the **Select language mode** drop-down menu that opens, select **SQL**. 
+4. In the **Select language mode** drop-down menu that opens, select **SQL**.
 
 ## Connect to your database
 
@@ -73,7 +91,6 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 > [!IMPORTANT]
 > Before continuing, make sure that you have your server and sign in information ready. Once you begin entering the connection profile information, if you change your focus from Visual Studio Code, you have to restart creating the profile.
->
 
 1. In Visual Studio Code, press **Ctrl+Shift+P** (or **F1**) to open the Command Palette.
 
@@ -81,17 +98,17 @@ Use Visual Studio Code to establish a connection to your Azure SQL Database serv
 
 3. Select **Create Connection Profile**.
 
-4. Follow the prompts to specify the new profile's connection properties. After specifying each value, choose **Enter** to continue. 
+4. Follow the prompts to specify the new profile's connection properties. After specifying each value, choose **Enter** to continue.
 
    | Property       | Suggested value | Description |
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | ------------ | ------------------ | ------------------------------------------------- |
    | **Server name** | The fully qualified server name | Something like: **mynewserver20170313.database.windows.net**. |
    | **Database name** | mySampleDatabase | The database to connect to. |
    | **Authentication** | SQL Login| This tutorial uses SQL Authentication. |
    | **User name** | User name | The user name of the server admin account used to create the server. |
    | **Password (SQL Login)** | Password | The password of the server admin account used to create the server. |
    | **Save Password?** | Yes or No | Select **Yes** if you do not want to enter the password each time. |
-   | **Enter a name for this profile** | A profile name, such as **mySampleProfile** | A saved profile speeds your connection on subsequent logins. | 
+   | **Enter a name for this profile** | A profile name, such as **mySampleProfile** | A saved profile speeds your connection on subsequent logins. |
 
    If successful, a notification appears saying your profile is created and connected.
 
@@ -120,22 +137,22 @@ Run the following [INSERT](https://msdn.microsoft.com/library/ms174335.aspx) Tra
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-		   , [StandardCost]
-		   , [ListPrice]
-		   , [SellStartDate]
-		   )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-		   ,100
-		   ,100
-		   ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. Press **Ctrl**+**Shift**+**E** to insert a new row in the `Product` table.

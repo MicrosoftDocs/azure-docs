@@ -1,6 +1,6 @@
 ---
-title: "Monitor Azure SQL Data Sync with Log Analytics | Microsoft Docs"
-description: "Learn how to monitor Azure SQL Data Sync by using Log Analytics"
+title: "Monitor Azure SQL Data Sync with Azure Monitor logs | Microsoft Docs"
+description: "Learn how to monitor Azure SQL Data Sync by using Azure Monitor logs"
 services: sql-database
 ms.service: sql-database
 ms.subservice: data-movement
@@ -9,13 +9,14 @@ ms.devlang:
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
-manager: craigg
-ms.date: 04/01/2018
+ms.reviewer: carlrab
+ms.date: 12/20/2018
 ---
-# Monitor SQL Data Sync with Log Analytics 
+# Monitor SQL Data Sync with Azure Monitor logs 
 
 To check the SQL Data Sync activity log and detect errors and warnings, you previously had to check SQL Data Sync manually in the Azure portal, or use PowerShell or the REST API. Follow the steps in this article to configure a custom solution that improves the Data Sync monitoring experience. You can customize this solution to fit your scenario.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md).
 
@@ -24,27 +25,27 @@ For an overview of SQL Data Sync, see [Sync data across multiple cloud and on-pr
 
 ## Monitoring Dashboard for all your Sync Groups 
 
-You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Log Analytics view. This view surfaces the information that matters to SQL Data Sync customers.
+You no longer need to look through the logs of each Sync Group individually to look for issues. You can monitor all your Sync Groups from any of your subscriptions in one place by using a custom Azure Monitor view. This view surfaces the information that matters to SQL Data Sync customers.
 
 ![Data Sync monitoring dashboard](media/sql-database-sync-monitor-oms/sync-monitoring-dashboard.png)
 
 ## Automated Email notifications
 
-You no longer need to check the log manually in the Azure portal or through PowerShell or the REST API. With [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of the people that need to see them when an error occurs.
+You no longer need to check the log manually in the Azure portal or through PowerShell or the REST API. With [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview), you can create alerts that go directly to the email addresses of the people that need to see them when an error occurs.
 
 ![Data Sync email notifications](media/sql-database-sync-monitor-oms/sync-email-notifications.png)
 
 ## How do you set up these monitoring features? 
 
-Implement a custom Log Analytics monitoring solution for SQL Data Sync in less than an hour by doing the following things:
+Implement a custom Azure Monitor logs monitoring solution for SQL Data Sync in less than an hour by doing the following things:
 
 You need to configure three components:
 
--   A PowerShell runbook to feed SQL Data Sync log data to Log Analytics.
+-   A PowerShell runbook to feed SQL Data Sync log data to Azure Monitor logs.
 
--   A Log Analytics alert for email notifications.
+-   An Azure Monitor alert for email notifications.
 
--   A Log Analytics View for monitoring.
+-   An Azure Monitor View for monitoring.
 
 ### Samples to download
 
@@ -52,7 +53,7 @@ Download the following two samples:
 
 -   [Data Sync Log PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Data Sync Log Analytics View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Data Sync Azure Monitor View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ### Prerequisites
 
@@ -60,11 +61,11 @@ Make sure you have set up the following things:
 
 -   An Azure Automation account
 
--   Log Analytics Workspace
+-   Log Analytics workspace
 
 ## PowerShell Runbook to get SQL Data Sync Log 
 
-Use a PowerShell runbook hosted in Azure Automation to pull the SQL Data Sync log data and send it to Log Analytics. A sample script is included. As a prerequisite, you need to have an Azure Automation account. Then you need to create a runbook and schedule it to run. 
+Use a PowerShell runbook hosted in Azure Automation to pull the SQL Data Sync log data and send it to Azure Monitor logs. A sample script is included. As a prerequisite, you need to have an Azure Automation account. Then you need to create a runbook and schedule it to run. 
 
 ### Create a runbook
 
@@ -94,7 +95,7 @@ For more info about creating a runbook, see [My first PowerShell runbook](https:
 
     2.  Sync Group information.
 
-    3.  Log Analytics information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Log Analytics, see [Send data to Log Analytics with the HTTP Data Collector API (preview)](../azure-monitor/platform/data-collector-api.md).
+    3.  Azure Monitor logs information. Find this information in Azure Portal | Settings | Connected Sources. For more information about sending data to Azure Monitor logs, see [Send data to Azure Monitor logs with the HTTP Data Collector API (preview)](../azure-monitor/platform/data-collector-api.md).
 
 11. Run the runbook in the Test pane. Check to make sure it was successful.
 
@@ -114,7 +115,7 @@ To schedule the runbook:
 
 4.  Select **Create a new schedule.**
 
-5.  Set **Recurrence** to Recurring and set the interval you want. Use the same interval here, in the script, and in Log Analytics.
+5.  Set **Recurrence** to Recurring and set the interval you want. Use the same interval here, in the script, and in Azure Monitor logs.
 
 6.  Select **Create**.
 
@@ -122,9 +123,9 @@ To schedule the runbook:
 
 To monitor whether your automation is running as expected, under **Overview** for your automation account, find the **Job Statistics** view under **Monitoring**. Pin this view to your dashboard for easy viewing. Successful runs of the runbook show as "Completed" and Failed runs show as "Failed."
 
-## Create a Log Analytics Reader Alert for Email Notifications
+## Create an Azure Monitor Reader Alert for Email Notifications
 
-To create an alert that uses Log Analytics, do the following things. As a prerequisite, you need to have Log Analytics linked with a Log Analytics Workspace.
+To create an alert that uses Azure Monitor logs, do the following things. As a prerequisite, you need to have Azure Monitor logs linked with a Log Analytics workspace.
 
 1.  In the Azure portal, select **Log Search**.
 
@@ -144,9 +145,9 @@ To create an alert that uses Log Analytics, do the following things. As a prereq
 
 6.  Click **Save**. The specified recipients now receive email notifications when errors occur.
 
-## Create a Log Analytics View for Monitoring
+## Create an Azure Monitor View for Monitoring
 
-This step creates a Log Analytics view to visually monitor all the specified sync groups. The view includes several components:
+This step creates an Azure Monitor view to visually monitor all the specified sync groups. The view includes several components:
 
 -   An overview tile, which shows how many errors, successes, and warnings all the sync groups have.
 
@@ -154,9 +155,9 @@ This step creates a Log Analytics view to visually monitor all the specified syn
 
 -   A tile for each Sync Group, which shows the number of errors, successes, and warnings, and the recent error messages.
 
-To configure the Log Analytics view, do the following things:
+To configure the Azure Monitor view, do the following things:
 
-1.  On the Log Analytics home page, select the plus on the left to open the **view designer**.
+1.  On the Log Analytics workspace home page, select the plus on the left to open the **view designer**.
 
 2.  Select **Import** on the top bar of the view designer. Then select the "DataSyncLogOMSView" sample file.
 
@@ -180,7 +181,7 @@ In most cases, this solution is free.
 
 **Azure Automation:** There may be a cost incurred with the Azure Automation account, depending on your usage. The first 500 minutes of job run time per month are free. In most cases, this solution is expected to use less than 500 minutes per month. To avoid charges, schedule the runbook to run at an interval of two hours or more. For more info, see [Automation pricing](https://azure.microsoft.com/pricing/details/automation/).
 
-**Log Analytics:** There may be a cost associated with Log Analytics depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you are using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Log Analytics pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
+**Azure Monitor logs:** There may be a cost associated with Azure Monitor logs depending on your usage. The free tier includes 500 MB of ingested data per day. In most cases, this solution is expected to ingest less than 500 MB per day. To decrease the usage, use the failure-only filtering included in the runbook. If you are using more than 500 MB per day, upgrade to the paid tier to avoid the risk of analytics stopping when the limitation is reached. For more info, see [Azure Monitor logs pricing](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 ## Code samples
 
@@ -188,7 +189,7 @@ Download the code samples described in this article from the following locations
 
 -   [Data Sync Log PowerShell Runbook](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogPowerShellRunbook.ps1)
 
--   [Data Sync Log Analytics View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
+-   [Data Sync Azure Monitor View](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/DataSyncLogOmsView.omsview)
 
 ## Next steps
 For more info about SQL Data Sync, see:

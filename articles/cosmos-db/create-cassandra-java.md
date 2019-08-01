@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ---
 
-# Quickstart: Build a Cassandra app with Java and Azure Cosmos DB
+# Quickstart: Build a Cassandra app with Java SDK and Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -29,8 +29,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 
-* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
-    * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
+* [Java Development Kit (JDK) version 8](https://aka.ms/azure-jdks)
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a [Maven](https://maven.apache.org/) binary archive
     * On Ubuntu, you can run `apt-get install maven` to install Maven.
@@ -67,7 +66,7 @@ Now let's switch to working with code. Let's clone a Cassandra app from GitHub, 
 
 ## Review the code
 
-This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the `src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java` file.  
+This step is optional. If you're interested to learn how the code creates the database resources, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). These snippets are all taken from the *src/main/java/com/azure/cosmosdb/cassandra/util/CassandraUtils.java* file.  
 
 * The Cassandra host, port, user name, password, and SSL options are set. The connection string information comes from the connection string page in the Azure portal.
 
@@ -81,7 +80,7 @@ This step is optional. If you're interested to learn how the code creates the da
     return cluster.connect();
     ```
 
-The following snippets are from the `src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java` file.
+The following snippets are from the *src/main/java/com/azure/cosmosdb/cassandra/repository/UserRepository.java* file.
 
 * Create a new keyspace.
 

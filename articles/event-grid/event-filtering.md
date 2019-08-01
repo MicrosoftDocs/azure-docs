@@ -2,12 +2,12 @@
 title: Event filtering for Azure Event Grid
 description: Describes how to filter events when creating an Azure Event Grid subscription.
 services: event-grid
-author: tfitzmac
+author: spelluru
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: tomfitz
+ms.date: 01/21/2019
+ms.author: spelluru
 ---
 
 # Understand event filtering for Event Grid subscriptions
@@ -39,7 +39,7 @@ For simple filtering by subject, specify a starting or ending value for the subj
 
 When publishing events to custom topics, create subjects for your events that make it easy for subscribers to know whether they're interested in the event. Subscribers use the subject property to filter and route events. Consider adding the path for where the event happened, so subscribers can filter by segments of that path. The path enables subscribers to narrowly or broadly filter events. If you provide a three segment path like `/A/B/C` in the subject, subscribers can filter by the first segment `/A` to get a broad set of events. Those subscribers get events with subjects like `/A/B/C` or `/A/D/E`. Other subscribers can filter by `/A/B` to get a narrower set of events.
 
-The JSON syntax for filtering by event type is:
+The JSON syntax for filtering by subject is:
 
 ```json
 "filter": {
@@ -136,8 +136,6 @@ Advanced filtering has the following limitations:
 * Five advanced filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
-* The key can only have one level of nesting (like data.key1)
-* Custom event schemas can be filtered only on top-level fields
 
 The same key can be used in more than one filter.
 

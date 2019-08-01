@@ -1,16 +1,16 @@
 ---
 title: 'Tutorial: Use Apache Storm to read and write data with Apache Kafka - Azure HDInsight'
 description: Learn how to create a streaming pipeline using Apache Storm and Apache Kafka on HDInsight. In this tutorial, you use the KafkaBolt and KafkaSpout components to stream data from Kafka.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 12/06/2018
+ms.date: 06/25/2019
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
----
+--- 
+
 # Tutorial: Use Apache Storm with Apache Kafka on HDInsight
 
 This tutorial demonstrates how to use an [Apache Storm](https://storm.apache.org/) topology to read and write data with [Apache Kafka](https://kafka.apache.org/) on HDInsight. This tutorial also demonstrates how to persist data to the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) compatible storage on the Storm cluster.
@@ -54,7 +54,7 @@ The following environment variables may be set when you install Java and the JDK
 > 
 > For your convenience, this document links to a template that can create all the required Azure resources. 
 >
-> For more information on using HDInsight in a virtual network, see the [Extend HDInsight using a virtual network](hdinsight-extend-hadoop-virtual-network.md) document.
+> For more information on using HDInsight in a virtual network, see the [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md) document.
 
 ## Storm and Kafka
 
@@ -75,7 +75,7 @@ Apache Storm provides the several components for working with Apache Kafka. The 
     * `org.apache.storm.kafka.bolt.mapper.FieldNameBasedTupleToKafkaMapper`: Maps from the tuple data structure used inside the Storm topology to fields stored in Kafka.
 
 These components are available in the `org.apache.storm : storm-kafka` package. Use the package version that matches the Storm version. For HDInsight 3.6, the Storm version is 1.1.0.
-You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 0.10.0.0.
+You also need the `org.apache.kafka : kafka_2.10` package, which contains additional Kafka components. Use the package version that matches the Kafka version. For HDInsight 3.6, the Kafka version is 1.1.1.
 
 The following XML is the dependency declaration in the `pom.xml` for an [Apache Maven](https://maven.apache.org/) project:
 
@@ -90,7 +90,7 @@ The following XML is the dependency declaration in the `pom.xml` for an [Apache 
 <dependency>
     <groupId>org.apache.kafka</groupId>
     <artifactId>kafka_2.10</artifactId>
-    <version>0.10.0.0</version>
+    <version>1.1.1</version>
     <!-- Exclude components that are loaded from the Storm cluster at runtime -->
     <exclusions>
         <exclusion>
@@ -124,7 +124,7 @@ There are two topologies provided with this tutorial:
     >
     > If you do not use the template in this document to create the Storm cluster, then you must manually apply the script action to your cluster.
     >
-    > The script action is located at `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` and is applied to the supervisor and nimbus nodes of the Storm cluster. For more information on using script actions, see the [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) document.
+    > The script action is located at [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) and is applied to the supervisor and nimbus nodes of the Storm cluster. For more information on using script actions, see the [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) document.
 
 The topologies are defined using [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux was introduced in Storm 0.10.x and allows you to separate the topology configuration from the code. For Topologies that use the Flux framework, the topology is defined in a YAML file. The YAML file can be included as part of the topology. It can also be a standalone file used when you submit the topology. Flux also supports variable substitution at run-time, which is used in this example.
 
@@ -368,7 +368,7 @@ The project contains a file named `dev.properties` that is used to pass paramete
 | `kafka.broker.hosts` | The Kafka broker hosts (worker nodes). |
 | `kafka.topic` | The Kafka topic that the topologies use. |
 | `hdfs.write.dir` | The directory that the Kafka-reader topology writes to. |
-| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Storage, use a value of `adl:///`. |
+| `hdfs.url` | The file system used by the Storm cluster. For Azure Storage accounts, use a value of `wasb:///`. For Azure Data Lake Storage Gen2, use a value of `abfs:///`. For Azure Data Lake Storage Gen1, use a value of `adl:///`. |
 
 ## Create the clusters
 
@@ -395,26 +395,26 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
     * Kafka on HDInsight version 3.6 (three worker nodes)
     * Storm on HDInsight version 3.6 (three worker nodes)
 
-  > [!WARNING]  
-  > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
+   > [!WARNING]  
+   > To guarantee availability of Kafka on HDInsight, your cluster must contain at least three worker nodes. This template creates a Kafka cluster that contains three worker nodes.
 
 2. Use the following guidance to populate the entries on the **Custom deployment** section:
 
-    2. Use the following information to populate the entries on the **Customized template** section:
+   1. Use the following information to populate the entries on the **Customized template** section:
 
-    | Setting | Value |
-    | --- | --- |
-    | Subscription | Your Azure subscription |
-    | Resource group | The resource group that contains the resources. |
-    | Location | The Azure region that the resources are created in. |
-    | Kafka Cluster Name | The name of the Kafka cluster. |
-    | Storm Cluster Name | The name of the Storm cluster. |
-    | Cluster Login User Name | The admin user name for the clusters. |
-    | Cluster Login Password | The admin user password for the clusters. |
-    | SSH User Name | The SSH user to create for the clusters. |
-    | SSH Password | The password for the SSH user. |
+      | Setting | Value |
+      | --- | --- |
+      | Subscription | Your Azure subscription |
+      | Resource group | The resource group that contains the resources. |
+      | Location | The Azure region that the resources are created in. |
+      | Kafka Cluster Name | The name of the Kafka cluster. |
+      | Storm Cluster Name | The name of the Storm cluster. |
+      | Cluster Login User Name | The admin user name for the clusters. |
+      | Cluster Login Password | The admin user password for the clusters. |
+      | SSH User Name | The SSH user to create for the clusters. |
+      | SSH Password | The password for the SSH user. |
    
-    ![Picture of the template parameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Picture of the template parameters](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
@@ -429,17 +429,17 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 
 2. From the **hdinsight-storm-java-kafka** directory, use the following command to compile the project and create a package for deployment:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     The package process creates a file named `KafkaTopology-1.0-SNAPSHOT.jar` in the `target` directory.
 
 3. Use the following commands to copy the package to your Storm on HDInsight cluster. Replace `sshuser` with the SSH user name for the cluster. Replace `stormclustername` with the name of the __Storm__ cluster.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     When prompted, enter the password you used when creating the clusters.
 
@@ -513,7 +513,7 @@ To create an Azure Virtual Network, and then create the Kafka and Storm clusters
 4. Save the `dev.properties` file and then use the following command to upload it to the **Storm** cluster:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Replace **USERNAME** with the SSH user name for the cluster. Replace **BASENAME** with the base name you used when creating the cluster.
@@ -572,9 +572,9 @@ Kafka stores data into a _topic_. You must create the topic before starting the 
 
 1. From the SSH session to the Storm cluster, use the following command to start the reader topology:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Wait a minute and then use the following command to view the files created by the reader topology:
 
@@ -625,15 +625,9 @@ To remove the resource group using the Azure portal:
 2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
 3. Select __Delete resource group__, and then confirm.
 
-> [!WARNING]  
-> HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use.
-> 
-> Deleting a Kafka on HDInsight cluster deletes any data stored in Kafka.
-
 ## Next steps
 
 In this tutorial, you learned how to use an [Apache Storm](https://storm.apache.org/) topology to write to and read from [Apache Kafka](https://kafka.apache.org/) on HDInsight. You also learned how to store data to the [Apache Hadoop HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_design.html) compatible storage used by HDInsight.
 
-To learn more about using Kafka on HDInsight, see the [Use Apache Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md) document.
-
-For information on deploying and monitoring topologies on Linux-based HDInsight, see [Deploy and manage Apache Storm topologies on Linux-based HDInsight](storm/apache-storm-deploy-monitor-topology-linux.md)
+> [!div class="nextstepaction"]
+> [Use Apache Kafka Producer and Consumer API](kafka/apache-kafka-producer-consumer-api.md)

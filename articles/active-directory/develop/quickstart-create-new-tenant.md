@@ -3,22 +3,22 @@ title: Create an Azure Active Directory tenant | Microsoft Docs
 description: Learn how to create an Azure AD tenant to use for registering and building applications.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: 1f4b24eb-ab4d-4baa-a717-2a0e5b8d27cd
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.date: 02/05/2019
+ms.author: ryanwi
+ms.reviewer: jmprieur
 ms.custom: aaddev
 #Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Set up a dev environment
@@ -51,8 +51,8 @@ Many developers already have tenants through services or subscriptions that are 
 
 > [!TIP]
 > If you need to find the tenant ID, you can:
-* Hover over your account name to get the directory / tenant ID, or
-* Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
+> * Hover over your account name to get the directory / tenant ID, or
+> * Select **Azure Active Directory > Properties > Directory ID** in the Azure portal
 
 If you don't have an existing tenant associated with your account, you'll see a GUID under your account name and you won't be able to perform actions like registering apps until you follow the steps of the next section.
 
@@ -61,8 +61,11 @@ If you don't have an existing tenant associated with your account, you'll see a 
 If you don't already have an Azure AD tenant or want to create a new one for development, follow the [directory creation experience](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory). You will have to provide the following info to create your new tenant:
 
 - **Organization name**
-- **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later. 
+- **Initial domain** - this will be part of *.onmicrosoft.com. You can customize the domain more later.
 - **Country or region**
+
+> [!NOTE]
+> When naming your tenant, use alphanumeric characters. Special characters are not allowed. The name must not exceed 256 characters.
 
 ## Social and local accounts
 

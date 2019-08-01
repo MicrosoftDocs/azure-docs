@@ -4,7 +4,7 @@ description: Understand how to use Azure Mobile Apps bindings in Azure Functions
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
 ms.service: azure-functions
@@ -40,7 +40,7 @@ The Mobile Apps input binding loads a record from a mobile table endpoint and pa
 See the language-specific example:
 
 * [C# script (.csx)](#input---c-script-example)
-* [JavaScript](#input---javascript-example)
+* JavaScript
 
 ### Input - C# script example
 

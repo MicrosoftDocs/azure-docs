@@ -5,14 +5,14 @@ metadata:
   title: Translator Text Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use Translator Text to translate text in multiple languages.
   services: cognitive-services
-  author: Jann-Skotdal
+  author: swmachan
   manager: Chris.Wendt
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 11/06/18
-  ms.author: v-jansko
+  ms.date: 06/04/2019
+  ms.author: swmachan
 abstract:
   description: Translator Text is a cloud-based machine translation service you can use to translate text in near real-time through a simple REST API call. The API uses modern neural machine translation technology and offers statistical machine translation technology. Custom Translator is an extension of the Translator Text API which allows you to build neural translation systems. The customized translation system can be used to translate text with the Translator Text API or <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/"> Microsoft Speech Services</a>. For the list of supported languages, both for neural and statistical machine translation, see <a href="languages.md">Supported languages</a>.
 
@@ -39,25 +39,25 @@ sections:
             src: ../media/index/i_get-started.svg
           title: Custom Translator quickstart
 - title: 5-Minute Quickstarts
-  items: 
+  items:
   - type: paragraph
     text: 'Get started using the Translator Text API:'
   - type: table
     style: dataMatrix
-    columns: 
-    - image: 
+    columns:
+    - image:
         src: media/index/logo_csharp.svg
       title: C#
-    - image: 
+    - image:
         src: media/index/logo_java.svg
       title: Java
-    - image: 
+    - image:
         src: media/index/logo_nodejs.svg
       title: Node.js
-    - image: 
+    - image:
         src: media/index/logo_python.svg
       title: Python
-    - image: 
+    - image:
         src: media/index/logo_go.svg
       title: Go
     rows:
@@ -94,9 +94,8 @@ sections:
   - type: paragraph
     text: "Learn how to develop applications using the Translator Text API:"
   - type: paragraph
-    text: <a href="tutorial-wpf-translation-csharp.md">Write a WPF application for Translator Text using C#</a>
+    text: <li><a href="tutorial-wpf-translation-csharp.md">Create a WPF app for Translator Text, C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Create a Flask translation app, Python</a></li>
 - title: Reference
   items:
   - type: paragraph
     text: <p><a href="reference/v3-0-reference.md">API Reference</a></p>
-   

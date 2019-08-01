@@ -13,9 +13,10 @@ ms.author: sngun
 ---
 # Azure Cosmos DB .NET Core SDK for SQL API: Release notes and resources
 > [!div class="op_single_selector"]
+> * [.NET Core](sql-api-sdk-dotnet-core.md)
+> * [.NET Standard](sql-api-sdk-dotnet-standard.md)
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET Change Feed](sql-api-sdk-dotnet-changefeed.md)
-> * [.NET Core](sql-api-sdk-dotnet-core.md)
 > * [Node.js](sql-api-sdk-node.md)
 > * [Async Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
@@ -23,34 +24,50 @@ ms.author: sngun
 > * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST Resource Provider](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
-> * [BulkExecutor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
-> * [BulkExecutor - Java](sql-api-sdk-bulk-executor-java.md)
+> * [Bulk executor - .NET](sql-api-sdk-bulk-executor-dot-net.md)
+> * [Bulk executor - Java](sql-api-sdk-bulk-executor-java.md)
 
-<table>
-
-<tr><td>**SDK download**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)</td></tr>
-
-<tr><td>**API documentation**</td><td>[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)</td></tr>
-
-<tr><td>**Samples**</td><td>[.NET code samples](sql-api-dotnet-samples.md)</td></tr>
-
-<tr><td>**Get started**</td><td>[Get started with the Azure Cosmos DB .NET Core SDK](sql-api-dotnetcore-get-started.md)</td></tr>
-
-<tr><td>**Web app tutorial**</td><td>[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
-
-<tr><td>**Current supported framework**</td><td>[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)</td></tr>
-</table></br>
+| |  |
+|---|---|
+|**SDK download**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/)|
+|**API documentation**|[.NET API reference documentation](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet)|
+|**Samples**|[.NET code samples](sql-api-dotnet-samples.md)|
+|**Get started**|[Get started with the Azure Cosmos DB .NET](sql-api-sdk-dotnet.md)|
+|**Web app tutorial**|[Web application development with Azure Cosmos DB](sql-api-dotnet-application.md)|
+|**Current supported framework**|[.NET Standard 1.6 and .NET Standard 1.5](https://www.nuget.org/packages/NETStandard.Library)|
 
 ## Release Notes
 
-The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+> [!NOTE]
+> If you are using .NET Core, please see the latest version 3.x of the [.NET SDK](sql-api-sdk-dotnet-standard.md), which targets .NET Standard. 
 
-### <a name="3.0.0.1-preview"/>3.0.0.1-preview
-* Preview 1 of [Version 3.0.0](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) of the .NET SDK for public preview.
-* Target .NET Standard, which supports .NET framework 4.6.1+ and .NET Core 2.0+
-* New object model, with top-level CosmosClient and methods split across relevant CosmosDatabases, CosmosContainers and CosmosItems classes.
-* Support for streams.
-* Updated CosmosResponseMessage from server to return status code, and only throw exception when no response is returned.
+### <a name="2.4.1"/>2.4.1
+
+* Fixes tracing race condition for queries which caused empty pages
+
+### <a name="2.4.0"/>2.4.0
+
+* SDK’s System.Net.Http version matches what is defined in the NuGet package
+* Increased decimal precision size for LINQ queries.
+* Added new classes CompositePath, CompositePathSortOrder, SpatialSpec, SpatialType and PartitionKeyDefinitionVersion
+* Added TimeToLivePropertyPath to DocumentCollection
+* Added CompositeIndexes and SpatialIndexes to IndexPolicy
+* Added Version to PartitionKeyDefinition
+* Added None to PartitionKey
+
+### <a name="2.3.0"/>2.3.0
+
+ * Added IdleTcpConnectionTimeout, OpenTcpConnectionTimeout, MaxRequestsPerTcpConnection and MaxTcpConnectionsPerEndpoint to ConnectionPolicy.
+ 
+### <a name="2.2.3"/>2.2.3
+
+* Diagnostics improvements
+
+### <a name="2.2.2"/>2.2.2
+
+* Added environment variable setting “POCOSerializationOnly”.
+
+* Removed DocumentDB.Spatial.Sql.dll and now included in Microsoft.Azure.Documents.ServiceInterop.dll
 
 ### <a name="2.2.1"/>2.2.1
 
@@ -64,7 +81,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 * For direct/TCP transport diagnostics, added TransportException, an internal exception type of the SDK. When present in exception messages, this type prints additional information for troubleshooting client connectivity problems.
 
-* Added new constuctor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
+* Added new constructor overload which takes a HttpMessageHandler, a HTTP handler stack to use for sending HttpClient requests (e.g., HttpClientHandler).
 
 * Fix bug where header with null values were not being handled properly.
 
@@ -117,7 +134,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 ### <a name="1.9.1"/>1.9.1
 
 * Fixed KeyNotFoundException for cross partition order by queries in corner cases.
-* Fixed bug where JsonPropery attribute in select clause for LINQ queries was not being honored.
+* Fixed bug where JsonProperty attribute in select clause for LINQ queries was not being honored.
 
 ### <a name="1.8.2"/>1.8.2
 
@@ -206,7 +223,7 @@ The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of 
 
 ### <a name="1.1.0"/>1.1.0
 
-* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](how-to-sql-query.md#Aggregates).
+* Added support for aggregation queries (COUNT, MIN, MAX, SUM, and AVG). See [Aggregation support](sql-query-aggregates.md).
 * Lowered minimum throughput on partitioned collections from 10,100 RU/s to 2500 RU/s.
 
 ### <a name="1.0.0"/>1.0.0
@@ -229,6 +246,11 @@ If you have questions related to this SDK, post to [StackOverflow](https://stack
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.4.1](#2.4.1) |June  20, 2019 |--- |
+| [2.4.0](#2.4.0) |May  05, 2019 |--- |
+| [2.3.0](#2.3.0) |April  04, 2019 |--- |
+| [2.2.3](#2.2.3) |March  11, 2019 |--- |
+| [2.2.2](#2.2.2) |February  06, 2019 |--- |
 | [2.2.1](#2.2.1) |December 24, 2018 |--- |
 | [2.2.0](#2.2.0) |December 07, 2018 |--- |
 | [2.1.3](#2.1.3) |October 15, 2018 |--- |

@@ -1,20 +1,12 @@
 ---
-title: Deploy a VM from your VHDs for the Azure Marketplace | Microsoft Docs
+title: Deploy a VM from your VHDs for the Azure Marketplace 
 description: Explains how to register a VM from an Azure-deployed VHD.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/30/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Deploy a VM from your VHDs
@@ -28,13 +20,14 @@ To learn more about VM images, see the following blog posts:
 - [VM Image](https://azure.microsoft.com/blog/vm-image-blog-post/)
 - [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Prerequisite: install the necessary tools
 
 If you have not already done so, install Azure PowerShell and the Azure CLI, using the following instructions:
 
-- [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps)
-- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Install Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Install Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
 ## Deployment steps
@@ -47,13 +40,13 @@ You will use the following steps to create and deploy a user VM image:
 
 After your VM is deployed, you are ready to [certify your VM image](./cpp-certify-vm.md).
 
-2.  Click **New** and search for **Template Deployment**, then select **Build your own template in Editor**.  <br/>
-  ![Build VHD deployment template in Azure portal](./media/publishvm_021.png)
+1. Click **New** and search for **Template Deployment**, then select **Build your own template in Editor**.  <br/>
+   ![Build VHD deployment template in Azure portal](./media/publishvm_021.png)
 
-3. Copy and paste this [JSON template](./cpp-deploy-json-template.md) into the editor and click **Save**. <br/>
-  ![Save VHD deployment template in Azure portal](./media/publishvm_022.png)
+1. Copy and paste this [JSON template](./cpp-deploy-json-template.md) into the editor and click **Save**. <br/>
+   ![Save VHD deployment template in Azure portal](./media/publishvm_022.png)
 
-4. Provide the parameter values for the displayed **Custom deployment** property pages.
+1. Provide the parameter values for the displayed **Custom deployment** property pages.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
@@ -75,7 +68,7 @@ After your VM is deployed, you are ready to [certify your VM image](./cpp-certif
    | VHD URL                     | Complete OS Disk VHD URL                                                     |
    |  |  |
             
-5. After you supply these values, click **Purchase**. 
+1. After you supply these values, click **Purchase**. 
 
 Azure will begin deployment: it creates a new VM with the specified unmanaged VHD, in the specified storage account path.  You can track the progress in the Azure portal by clicking on **Virtual Machines** on the left-hand side of the portal.  When the VM has been created, the status will change from `Starting` to `Running`. 
 

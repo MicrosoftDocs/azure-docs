@@ -3,8 +3,8 @@ title: Azure Active Directory reporting latencies | Microsoft Docs
 description: Learn about the amount of time it takes for reporting events to show up in your Azure portal
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 9b88958d-94a2-4f4b-a18c-616f0617a24e
@@ -13,11 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 05/13/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure Active Directory reporting latencies
@@ -38,9 +39,13 @@ The following table lists the latency information for activity reports.
 >
 
 | Report | Latency (95th percentile) |Latency (99th percentile)|
-| :-- | --- | --- | 
+| :-- | --- | --- |
 | Audit logs | 2 mins  | 5 mins  |
 | Sign-ins | 2 mins  | 5 mins |
+
+### How soon can I see activities data after getting a premium license?
+
+If you already have activities data with your free license, then you can see it immediately on upgrade. If you don’t have any data, then it will take one or two days for the data to show up in the reports after you upgrade to a premium license.
 
 ## Security reports
 

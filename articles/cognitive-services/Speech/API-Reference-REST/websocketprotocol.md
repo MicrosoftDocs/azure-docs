@@ -6,10 +6,11 @@ services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
-ms.component: bing-speech
+ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
+ROBOTS: NOINDEX,NOFOLLOW
 ---
 # Bing Speech WebSocket protocol
 
@@ -85,7 +86,7 @@ Clients *must* support HTTP cookies as specified in [RFC 6265](https://tools.iet
 
 ### HTTP redirection
 
-Clients *must* support the standard redirection mechanisms specified by the [HTTP protocol specification](http://www.w3.org/Protocols/rfc2616/rfc2616.html).
+Clients *must* support the standard redirection mechanisms specified by the [HTTP protocol specification](https://www.w3.org/Protocols/rfc2616/rfc2616.html).
 
 ### Speech endpoints
 
@@ -93,9 +94,9 @@ Clients *must* use an appropriate endpoint of Speech Service. The endpoint is ba
 
 | Mode | Path | Service URI |
 | -----|-----|-----|
-| Interactive | /speech/recognition/interactive/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| Conversation | /speech/recognition/conversation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
-| Dictation | /speech/recognition/dictation/cognitiveservices/v1 |https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
+| Interactive | /speech/recognition/interactive/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| Conversation | /speech/recognition/conversation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US |
+| Dictation | /speech/recognition/dictation/cognitiveservices/v1 | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR |
 
 For more information, see the [Service URI](../GetStarted/GetStartedREST.md#service-uri) page.
 
@@ -125,13 +126,13 @@ Text WebSocket messages must specify a message path in the header *Path*. The va
 
 ### Binary WebSocket messages
 
-Binary WebSocket messages carry a binary payload. In the Speech Service protocol, audio is transmitted to and received from the service by using binary WebSocket messages. All other messages are text WebSocket messages. 
+Binary WebSocket messages carry a binary payload. In the Speech Service protocol, audio is transmitted to and received from the service by using binary WebSocket messages. All other messages are text WebSocket messages.
 
 Like text WebSocket messages, binary WebSocket messages consist of a header and a body section. The first 2 bytes of the binary WebSocket message specify, in [big-endian](https://en.wikipedia.org/wiki/Endianness) order, the 16-bit integer size of the header section. The minimum header section size is 0 bytes. The maximum size is 8,192 bytes. The text in the headers of binary WebSocket messages *must* use [US-ASCII](https://tools.ietf.org/html/rfc20) encoding.
 
 Headers in a binary WebSocket message are encoded in the same format as in text WebSocket messages. The *name:value* format is separated by a single-carriage-return newline pair. Binary WebSocket messages must specify a message path in the header *Path*. The value of this header must be one of the speech protocol message types defined later in this document.
 
-Both text and binary WebSocket messages are used in the Speech Service protocol. 
+Both text and binary WebSocket messages are used in the Speech Service protocol.
 
 ## Client-originated messages
 
@@ -181,7 +182,7 @@ Clients *must* send a `speech.config` message immediately after they establish t
 As with all client-originated messages in the Speech Service protocol, the `speech.config` message *must* include an *X-Timestamp* header that records the client UTC clock time when the message was sent to the service. The `speech.config` message *does not* require an *X-RequestId* header because this message isn't associated with a particular speech request.
 
 #### Message payload
-The payload of the `speech.config` message is a JSON structure that contains information about the application. The following example shows this information. Client and device context information is included in the *context* element of the JSON structure. 
+The payload of the `speech.config` message is a JSON structure that contains information about the application. The following example shows this information. Client and device context information is included in the *context* element of the JSON structure.
 
 ```JSON
 {
@@ -521,7 +522,7 @@ The error description should be at most 50 characters and ideally should be one 
 | ServerUnavailable | The client was unable to connect to the service because the service returned an HTTP `503 Server Unavailable` status code on the WebSocket upgrade request. |
 | ServerError | The client was unable to connect to the service because the service returned an `HTTP 500` Internal Error status code on the WebSocket upgrade request. |
 | Timeout | The client's connection request timed out without a response from the service. The *End* field contains the time when the client timed out and stopped waiting for the connection. |
-| ClientError | The client terminated the connection because of some internal client error. | 
+| ClientError | The client terminated the connection because of some internal client error. |
 
 ### Metric `Microphone`
 
@@ -630,7 +631,7 @@ If Speech Service detects any protocol violations from a client, the service ter
 
 #### Incorrect message format
 
-If a client sends a text or binary message to the service that is not encoded in the correct format given in this specification, the service closes the connection with a *1007 Invalid Payload Data* status code. 
+If a client sends a text or binary message to the service that is not encoded in the correct format given in this specification, the service closes the connection with a *1007 Invalid Payload Data* status code.
 
 The service returns this status code for a variety of reasons, as shown in the following examples:
 

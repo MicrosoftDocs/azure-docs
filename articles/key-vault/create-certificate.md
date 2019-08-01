@@ -1,19 +1,15 @@
-﻿---
+---
 title: Certificate creation methods  
 description: Ways to create a certificate in Key Vault.
 services: key-vault
-documentationcenter:
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: e17b4c9b-4ff3-472f-8c9d-d130eb443968
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -32,7 +28,7 @@ The following descriptions correspond to the green lettered steps in the precedi
 1. In the diagram above, your application is creating a certificate which internally begins by creating a key in your key vault.
 2. Key Vault returns to your application a Certificate Signing Request (CSR)
 3. Your application passes the CSR to your chosen CA.
-4. Your chosen CA responds with a an X509 Certificate.
+4. Your chosen CA responds with an X509 Certificate.
 5. Your application completes the new certificate creation with a merger of the X509 Certificate from your CA.
 
 -   **Create a certificate with a known issuer provider:** This method requires you to do a one-time task of creating an issuer object. Once an issuer object is created in you key vault, its name can be referenced in the policy of the KV certificate. A request to create such a KV certificate will create a key pair in the vault and communicate with the issuer provider service using the information in the referenced issuer object to get an x509 certificate. The x509 certificate is retrieved from the issuer service and is merged with the key pair to complete the KV certificate creation.  
@@ -83,7 +79,7 @@ Certificate creation can be completed manually or using a “Self” issuer. Key
 |Provider|Certificate type|  
 |--------------|----------------------|  
 |DigiCert|Key Vault offers OV or EV SSL certificates with DigiCert|
-|GlobalCert|Key Vault offers OV or EV SSL certificates with GlobalSign|
+|GlobalCert|Key Vault offers OV or EV SSL certificates with Globaltrust |
 
  A certificate issuer is an entity represented in Azure Key Vault (KV) as a CertificateIssuer resource. It is used to provide information about the source of a KV certificate; issuer name, provider, credentials, and other administrative details.
 
@@ -91,6 +87,6 @@ Note that when an order is placed with the issuer provider, it may honor or over
 
  Authorization: Requires the certificates/create permission.
 
- ## See Also
+## See Also
  - [About keys, secrets and certificates](about-keys-secrets-and-certificates.md)
  - [Monitor and manage certificate creation](create-certificate-scenarios.md)

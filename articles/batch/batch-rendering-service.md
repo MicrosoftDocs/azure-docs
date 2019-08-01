@@ -2,6 +2,7 @@
 title: Rendering overview - Azure Batch
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
 services: batch
+ms.service: batch
 author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
@@ -12,7 +13,7 @@ ms.topic: conceptual
 
 Rendering is the process of taking 3D models and converting them into 2D images. 3D scene files are authored in applications such as Autodesk 3ds Max, Autodesk Maya, and Blender.  Rendering applications such as Autodesk Maya, Autodesk Arnold, Chaos Group V-Ray, and Blender Cycles produce 2D images.  Sometimes single images are created from the scene files. However, it's common to model and render multiple images, and then combine them in an animation.
 
-The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry. Rendering is also used in many other industires such as advertising, retail, oil and gas, and manufacturing.
+The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry. Rendering is also used in many other industries such as advertising, retail, oil and gas, and manufacturing.
 
 The process of rendering is computationally intensive; there can be many frames/images to produce and each image can take many hours to render.  Rendering is therefore a perfect batch processing workload that can leverage Azure and Azure Batch to run many renders in parallel.
 

@@ -2,15 +2,15 @@
 title: Integrate REST API claim exchanges in your Azure Active Directory B2C user journey | Microsoft Docs
 description: Integrate REST API claim exchanges in your Azure AD B2C user journey as validation of user input.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/30/2017
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Integrate REST API claims exchanges in your Azure AD B2C user journey as validation of user input
@@ -46,7 +46,7 @@ Overview:
 * Use the RESTful service in the user journey.
 * Send input claims and read them in your code.
 * Validate the user's first name.
-* Send back a loyalty number. 
+* Send back a loyalty number.
 * Add the loyalty number to a JSON Web Token (JWT).
 
 ## Prerequisites
@@ -60,11 +60,11 @@ Complete the steps in the [Getting started with custom policies](active-director
 
 3. In the **Name** box, type a name for the application (for example, *Contoso.AADB2C.API*), and then select **OK**.
 
-    ![Create new visual studio project](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
+    ![Creating a new Visual Studio project in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-create-project.png)
 
 4. In the **New ASP.NET Web Application** window, select a **Web API** or **Azure API app** template.
 
-    ![Select web API template](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
+    ![Selecting a web API template in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-select-web-api.png)
 
 5. Make sure that authentication is set to **No Authentication**.
 
@@ -73,14 +73,14 @@ Complete the steps in the [Getting started with custom policies](active-director
 ## Step 2: Prepare the REST API endpoint
 
 ### Step 2.1: Add data models
-The models represent the input claims and output claims data in your RESTful service. Your code reads the input data by deserializing the input claims model from a JSON string to a C# object (your model). The ASP.NET web API automatically deserializes the output claims model back to JSON and then writes the serialized data to the body of the HTTP response message. 
+The models represent the input claims and output claims data in your RESTful service. Your code reads the input data by deserializing the input claims model from a JSON string to a C# object (your model). The ASP.NET web API automatically deserializes the output claims model back to JSON and then writes the serialized data to the body of the HTTP response message.
 
 Create a model that represents input claims by doing the following:
 
-1. If Solution Explorer is not already open, select **View** > **Solution Explorer**. 
+1. If Solution Explorer is not already open, select **View** > **Solution Explorer**.
 2. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**.
 
-    ![Add model](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
+    ![Add Class menu item selected in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
 3. Name the class `InputClaimsModel`, and then add the following properties to the `InputClaimsModel` class:
 
@@ -124,7 +124,7 @@ Create a model that represents input claims by doing the following:
                 this.userMessage = message;
                 this.status = (int)status;
                 this.version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            }    
+            }
         }
     }
     ```
@@ -134,15 +134,15 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 
 1. In Solution Explorer, right-click the **Controllers** folder, select **Add**, and then select **Controller**.
 
-    ![Add new controller](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
+    ![Adding a new controller in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-1.png)
 
 2. In the **Add Scaffold** window, select **Web API Controller - Empty**, and then select **Add**.
 
-    ![Select Web API 2 Controller - Empty](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
+    ![Selecting Web API 2 Controller - Empty in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-2.png)
 
 3. In the **Add Controller** window, name the controller **IdentityController**, and then select **Add**.
 
-    ![Type the controller name](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
+    ![Entering the controller name in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-controller-3.png)
 
     The scaffolding creates a file named *IdentityController.cs* in the *Controllers* folder.
 
@@ -202,22 +202,22 @@ In the web API, a _controller_ is an object that handles HTTP requests. The cont
 ## Step 3: Publish the project to Azure
 1. In Solution Explorer, right-click the **Contoso.AADB2C.API** project, and then select **Publish**.
 
-    ![Publish to Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
+    ![Publish to Microsoft Azure App Service with Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-1.png)
 
 2. In the **Publish** window, select **Microsoft Azure App Service**, and then select **Publish**.
 
-    ![Create new Microsoft Azure App Service](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
+    ![Create new Microsoft Azure App Service with Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-2.png)
 
     The **Create App Service** window opens. In it, you create all the necessary Azure resources to run the ASP.NET web app in Azure.
 
     > [!NOTE]
-    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >For more information about how to publish, see [Create an ASP.NET web app in Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet).
 
 3. In the **Web App Name** box, type a unique app name (valid characters are a-z, 0-9, and hyphens (-). The URL of the web app is http://<app_name>.azurewebsites.NET, where *app_name* is the name of your web app. You can accept the automatically generated name, which is unique.
 
-    ![Provide App Service properties](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
+    ![Configuring the App Service properties](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-publish-to-azure-3.png)
 
-4. To start creating Azure resources, select **Create**.  
+4. To start creating Azure resources, select **Create**.
     After the ASP.NET web app has been created, the wizard publishes it to Azure and then starts the app in the default browser.
 
 6. Copy the web app's URL.
@@ -237,20 +237,20 @@ The `loyaltyNumber` claim is not yet defined in our schema. Add a definition wit
 </BuildingBlocks>
 ```
 
-## Step 5: Add a claims provider 
-Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider. 
+## Step 5: Add a claims provider
+Every claims provider must have one or more technical profiles, which determine the endpoints and protocols needed to communicate with the claims provider.
 
-A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another. 
+A claims provider can have multiple technical profiles for various reasons. For example, multiple technical profiles might be defined because the claims provider supports multiple protocols, endpoints can have varying capabilities, or releases can contain claims that have a variety of assurance levels. It might be acceptable to release sensitive claims in one user journey but not in another.
 
 The following XML snippet contains a claims provider node with two technical profiles:
 
-* **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service. 
-   * `Proprietary` is described as the protocol for a RESTful-based provider. 
-   * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service. 
+* **TechnicalProfile Id="REST-API-SignUp"**: Defines your RESTful service.
+  * `Proprietary` is described as the protocol for a RESTful-based provider.
+  * `InputClaims` defines the claims that will be sent from Azure AD B2C to the REST service.
 
-   In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
+    In this example, the content of the claim `givenName` sends to the REST service as `firstName`, the content of the claim `surname` sends to the REST service as `lastName`, and `email` sends as is. The `OutputClaims` element defines the claims that are retrieved from RESTful service back to Azure AD B2C.
 
-* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user. 
+* **TechnicalProfile Id="LocalAccountSignUpWithLogonEmail"**: Adds a validation technical profile to an existing technical profile (defined in base policy). During the sign-up journey, the validation technical profile invokes the preceding technical profile. If the RESTful service returns an HTTP error 409 (a conflict error), the error message is displayed to the user.
 
 Locate the `<ClaimsProviders>` node, and then add the following XML snippet under the `<ClaimsProviders>` node:
 
@@ -258,7 +258,7 @@ Locate the `<ClaimsProviders>` node, and then add the following XML snippet unde
 <ClaimsProvider>
   <DisplayName>REST APIs</DisplayName>
   <TechnicalProfiles>
-    
+
     <!-- Custom Restful service -->
     <TechnicalProfile Id="REST-API-SignUp">
       <DisplayName>Validate user's input data and return loyaltyNumber claim</DisplayName>
@@ -325,7 +325,7 @@ After you add the new claim, the relying party code looks like this:
 
 2. Select **Identity Experience Framework**.
 
-3. Open **All Policies**. 
+3. Open **All Policies**.
 
 4. Select **Upload Policy**.
 
@@ -343,14 +343,14 @@ After you add the new claim, the relying party code looks like this:
 
 2. Open **B2C_1A_signup_signin**, the relying party (RP) custom policy that you uploaded, and then select **Run now**.
 
-    ![The B2C_1A_signup_signin window](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
+    ![The B2C_1A_signup_signin custom policy page in the Azure portal](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-run.png)
 
-3. Test the process by typing **Test** in the **Given Name** box.  
+3. Test the process by typing **Test** in the **Given Name** box.
     Azure AD B2C displays an error message at the top of the window.
 
-    ![Test your policy](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
+    ![Testing the Given Name input validation on sign-up sign-in page](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-test.png)
 
-4.  In the **Given Name** box, type a name (other than "Test").  
+4. In the **Given Name** box, type a name (other than "Test").
     Azure AD B2C signs up the user and then sends a loyaltyNumber to your application. Note the number in this JWT.
 
 ```
@@ -377,7 +377,7 @@ After you add the new claim, the relying party code looks like this:
 ## (Optional) Download the complete policy files and code
 * After you complete the [Get started with custom policies](active-directory-b2c-get-started-custom.md) walkthrough, we recommend that you build your scenario by using your own custom policy files. For your reference, we have provided [Sample policy files](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw).
 * You can download the complete code from [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/).
-	
+
 ## Next steps
 * [Secure your RESTful API with basic authentication (username and password)](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
 * [Secure your RESTful API with client certificates](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

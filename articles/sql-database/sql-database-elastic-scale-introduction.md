@@ -11,15 +11,14 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 09/14/2018
+ms.date: 01/25/2019
 ---
 # Scaling out with Azure SQL Database
 You can easily scale out Azure SQL databases using the **Elastic Database** tools. These tools and features let you use the database resources of **Azure SQL Database** to create solutions for transactional workloads, and especially Software as a Service (SaaS) applications. Elastic Database features are composed of the:
 
 * [Elastic Database client library](sql-database-elastic-database-client-library.md): The client library is a feature that allows you to create and maintain sharded databases.  See [Get started with Elastic Database tools](sql-database-elastic-scale-get-started.md).
 * [Elastic Database split-merge tool](sql-database-elastic-scale-overview-split-and-merge.md): moves data between sharded databases. This tool is useful for moving data from a multi-tenant database to a single-tenant database (or vice-versa). See [Elastic database Split-Merge tool tutorial](sql-database-elastic-scale-configure-deploy-split-and-merge.md).
-* [Elastic Database jobs](sql-database-elastic-jobs-overview.md) (preview): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
+* [Elastic Database jobs](elastic-jobs-overview.md): Use jobs to manage large numbers of Azure SQL databases. Easily perform administrative operations such as schema changes, credentials management, reference data updates, performance data collection, or tenant (customer) telemetry collection using jobs.
 * [Elastic Database query](sql-database-elastic-query-overview.md) (preview): Enables you to run a Transact-SQL query that spans multiple databases. This enables connection to reporting tools such as Excel, Power BI, Tableau, etc.
 * [Elastic transactions](sql-database-elastic-transactions-overview.md): This feature allows you to run transactions that span several databases in Azure SQL Database. Elastic database transactions are available for .NET applications using ADO .NET and integrate with the familiar programming experience using the [System.Transaction classes](https://msdn.microsoft.com/library/system.transactions.aspx).
 
@@ -62,8 +61,8 @@ Most cloud-scale database applications use a combination of these two strategies
 ## Sharding
 *Sharding* is a technique to distribute large amounts of identically structured data across a number of independent databases. It is especially popular with cloud developers creating Software as a Service (SAAS) offerings for end customers or businesses. These end customers are often referred to as “tenants”. Sharding may be required for any number of reasons:  
 
-* The total amount of data is too large to fit within the constraints of a single database
-* The transaction throughput of the overall workload exceeds the capabilities of a single database
+* The total amount of data is too large to fit within the constraints of an individual database
+* The transaction throughput of the overall workload exceeds the capabilities of an individual database
 * Tenants may require physical isolation from each other, so separate databases are needed for each tenant
 * Different sections of a database may need to reside in different geographies for compliance, performance, or geopolitical reasons.
 

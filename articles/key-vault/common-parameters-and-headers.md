@@ -2,18 +2,14 @@
 title: Common parameters and headers 
 description: The parameters and headers common to all operations that you might do related to Key Vault resources.
 services: key-vault
-documentationcenter:
-author: bryanla
-manager: mbaldwin
+author: msmbaldwin
+manager: barbkess
 tags: azure-resource-manager
 
-ms.assetid: a715d13ca9-d6e8-4e54-ac5e-0ed9400fb15b15d13ca9-d6e8-4e54-ac5e-0ed9400fb15b
 ms.service: key-vault
-ms.workload: identity
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.author: bryanla
+ms.author: mbaldwin
 
 ---
 
@@ -31,12 +27,14 @@ The following information is common to all operations that you might do related 
 ## Common error response
 The service will use HTTP status codes to indicate success or failure. In addition, failures contain a response in the following format:
 
+```
    {  
      "error": {  
      "code": "BadRequest",  
      "message": "The key vault sku is invalid."  
      }  
    }  
+```
 
 |Element name | Type | Description |
 |---|---|---|

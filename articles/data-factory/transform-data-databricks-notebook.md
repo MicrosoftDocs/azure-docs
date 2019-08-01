@@ -3,17 +3,15 @@ title: Transform data with Databricks Notebook - Azure | Microsoft Docs
 description: Learn how to process or transform data by running a Databricks notebook.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
-
 ms.assetid: 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
-
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.author: douglasl
+author: sharonlo101
+ms.author: shlo
+manager: craigg
 ---
 # Transform data by running a Databricks notebook
 
@@ -67,7 +65,7 @@ definition:
 
 ## Supported libraries for Databricks activities
 
-In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *maven*, *pypi*, *cran*.
+In the above Databricks activity definition, you specify these library types: *jar*, *egg*, *whl*, *maven*, *pypi*, *cran*.
 
 ```json
 {
@@ -77,6 +75,12 @@ In the above Databricks activity definition, you specify these library types: *j
         },
         {
             "egg": "dbfs:/mnt/libraries/library.egg"
+        },
+	{
+      	    "whl": "dbfs:/mnt/libraries/mlflow-0.0.1.dev0-py2-none-any.whl"
+        },
+        {
+            "whl": "dbfs:/mnt/libraries/wheel-libraries.wheelhouse.zip"
         },
         {
             "maven": {
@@ -93,7 +97,7 @@ In the above Databricks activity definition, you specify these library types: *j
         {
             "cran": {
                 "package": "ada",
-                "repo": "http://cran.us.r-project.org"
+                "repo": "https://cran.us.r-project.org"
             }
         }
     ]

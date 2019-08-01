@@ -1,35 +1,36 @@
 ---
-title: 'Quickstart: Ingest data from Kafka into Azure Data Explorer'
-description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer from Kafka.'
-services: data-explorer
+title: 'Ingest data from Kafka into Azure Data Explorer'
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer from Kafka.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 11/19/2018
+ms.topic: conceptual
+ms.date: 06/03/2019
  
 #Customer intent: As a database administrator, I want to ingest data into Azure Data Explorer from Kafka, so I can analyze streaming data.
 ---
  
-# Quickstart: Ingest data from Kafka into Azure Data Explorer
+# Ingest data from Kafka into Azure Data Explorer
  
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Kafka. Kafka is a distributed streaming platform that allows building of real-time streaming data pipelines that reliably move data between systems or applications. 
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer offers ingestion (data loading) from Kafka. Kafka is a distributed streaming platform that allows building of real-time streaming data pipelines that reliably move data between systems or applications.
  
 ## Prerequisites
  
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. 
  
-* [A test cluster and database](create-cluster-database-portal.md)
+* [A test cluster and database](create-cluster-database-portal.md).
  
-* [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka
+* [A sample app](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) that generates data and sends it to Kafka.
 
-* [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) to run the sample app.
  
 ## Kafka connector setup
-Kafka Connect is a tool for scalably and reliably streaming data between Apache Kafka and other systems. It makes it simple to quickly define connectors that move large collections of data into and out of Kafka. The ADX Kafka Sink serves as the connector from Kafka.
+
+Kafka Connect is a tool for scalable and reliable streaming of data between Apache Kafka and other systems. It makes it simple to quickly define connectors that move large collections of data into and out of Kafka. The ADX Kafka Sink serves as the connector from Kafka.
  
-### Bundle 
+### Bundle
+
 Kafka can load a `.jar` as a plugin that will act as a custom connector. 
 To produce such a `.jar`, we will clone the code locally and build using Maven. 
 
@@ -39,7 +40,7 @@ To produce such a `.jar`, we will clone the code locally and build using Maven.
 git clone git://github.com:Azure/kafka-sink-azure-kusto.git
 cd ./kafka-sink-azure-kusto/kafka/
 ```
- 
+
 #### Build
 
 Build locally with Maven to produce a `.jar` complete with dependencies.
@@ -53,10 +54,10 @@ Inside the root directory *kafka-sink-azure-kusto*, run:
 ```bash
 mvn clean compile assembly:single
 ```
- 
+
 ### Deploy 
- 
-Load plugin into Kafka. An deployment example using docker can be found at [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
+
+Load plugin into Kafka. A deployment example using docker can be found at [kafka-sink-azure-kusto](https://github.com/Azure/kafka-sink-azure-kusto#deploy)
  
 
 Detailed documentation on Kafka connectors and how to deploy them can be found at [Kafka Connect](https://kafka.apache.org/documentation/#connect) 
@@ -110,13 +111,16 @@ Create a table in ADX to which Kafka can send data. Create the table in the clus
 Now that the Kafka cluster is connected to ADX, use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) you downloaded to generate data.
 
 ### Clone
+
 Clone the sample app locally:
 
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
+
 ### Run the app
+
 1. Open the sample app solution in Visual Studio.
 
 1. In the `Program.cs` file, update the `connectionString` constant to your Kafka connection string.
@@ -125,11 +129,11 @@ cd ./azure-kusto-samples-dotnet/kafka/
     const string connectionString = @"<YourConnectionString>";
     ```
 
-1. Build and run the app. The app sends messages to the Kafka cluster, and it prints out its status every ten seconds.
+1. Build and run the app. The app sends messages to the Kafka cluster, and it prints out its status every 10 seconds.
 
 1. After the app has sent a few messages, move on to the next step.
  
-## Query and review the data 
+## Query and review the data
 
 1. To make sure no errors occurred during ingestion:
 
@@ -156,5 +160,4 @@ cd ./azure-kusto-samples-dotnet/kafka/
  
 ## Next steps
  
-> [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
+* [Query data in Azure Data Explorer](web-query-data.md)

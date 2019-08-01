@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 02/22/2019
 ms.author: alkohli
 ---
 # Azure Data Box Disk system requirements
@@ -24,7 +24,7 @@ Here is a list of the supported operating systems for the disk unlock and data c
 | **Operating system** | **Tested versions** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
-| Windows |7, 8, 10 |
+| Windows (64-bit) |7, 8, 10 |
 |Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
 
 ## Other required software for Windows clients
@@ -45,6 +45,10 @@ For Linux client, the Data Box Disk toolset installs the following required soft
 - dislocker
 - OpenSSL
 
+## Supported connection
+
+The client computer containing the data must have a USB 3.0 or later port. The disks connect to this client using the provided cable.
+
 ## Supported storage accounts
 
 Here is a list of the supported storage types for the Data Box Disk.
@@ -53,19 +57,22 @@ Here is a list of the supported storage types for the Data Box Disk.
 | --- | --- |
 | Classic | Standard |
 | General Purpose  |Standard; both V1 and V2 are supported. Both hot and cool tiers are supported. |
+| Blob storage account | |
 
 >[!NOTE]
 > Azure Data Lake Storage Gen 2 accounts are not supported.
 
 
-## Supported storage types
+## Supported storage types for upload
 
-Here is a list of the supported storage types for the Data Box Disk.
+Here is a list of the storage types supported for uploaded to Azure using Data Box Disk.
 
 | **File format** | **Notes** |
 | --- | --- |
 | Azure block blob | |
 | Azure page blob  | |
+| Azure Files  | |
+| Managed Disks | |
 
 
 ## Next step

@@ -1,15 +1,15 @@
 ---
 title: Search a custom view - Bing Custom Search
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describes how to search a custom view of the web.
 services: cognitive-services
 author: aahill
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: bing-custom-search
+ms.subservice: bing-custom-search
 ms.topic: conceptual
-ms.date: 09/28/2017
+ms.date: 05/09/2019
 ms.author: maheshb
 ---
 
@@ -17,12 +17,12 @@ ms.author: maheshb
 
 After you've configured your custom search experience, you can test it from within the Bing Custom Search [portal](https://customsearch.ai). 
 
-![a screenshot of the bing custom search portal](media/portal-search-screen.png)
+![a screenshot of the Bing custom search portal](media/portal-search-screen.png)
 ## Create a search query 
 
 After you've signed into the Bing Custom Search [portal](https://customsearch.ai), select your search instance and click the **Production** tab. Under **Endpoints**, select an API endpoint (for example, Web API). Your subscription determines what endpoints are shown.
 
-To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the[Custom Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters) for more information. 
+To create a search query, enter the parameter values for your endpoint. Note that the parameters displayed in the portal may change depending on the endpoint you choose. See the [Custom Search API reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) for more information. To change the subscription your search instance uses, add the appropriate subscription key, and update the appropriate market and/or language parameters.
 
 Some important parameters are below:
 
@@ -44,6 +44,10 @@ Clicking **Additional Parameters** reveals the following parameters:
 |Offset    | The number of search results to skip before returning results. Available only for Web, Image, and Video endpoints.        |
     
 After you've specified all required options, click **Call** to view the JSON response in the right pane. If you select the Hosted UI endpoint, you can test the search experience in the bottom pane.
+
+## Change your Bing Custom Search subscription
+
+You can change the subscription associated with your Bing Custom Search instance without creating a new instance. To have API calls sent and charged to a new subscription, create a new Bing Custom Search resource in the Azure portal. Use the new subscription key in your API requests, along with your instance's custom configuration ID.
 
 ## Next steps
 

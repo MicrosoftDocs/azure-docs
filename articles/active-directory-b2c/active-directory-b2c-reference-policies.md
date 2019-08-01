@@ -1,35 +1,37 @@
 ---
 title: User flows in Azure Active Directory B2C | Microsoft Docs
-description: A topic on the extensible policy framework of Azure Active Directory B2C and on how to create various user flow types.
+description: Learn more about the extensible policy framework of Azure Active Directory B2C and how to create various user flows.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
-# Azure Active Directory B2C: User flows
+# User flows in Azure Active Directory B2C
 
+The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. 
 
-The extensible policy framework of Azure Active Directory (Azure AD) B2C is the core strength of the service. Policies fully describe consumer identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called **user flows**. For instance, a sign-up user flow allows you to control behaviors by configuring the following settings:
+## What are user flows?
 
-* Account types (social accounts such as Facebook or local accounts such as email addresses) that consumers can use to sign up for the application
-* Attributes (for example, first name, postal code, and shoe size) to be collected from the consumer during sign-up
-* Use of Azure Multi-Factor Authentication
-* The look and feel of all sign-up pages
-* Information (which manifests as claims in a token) that the application receives when the user flow run finishes
+A user flow enables you to control behaviors in your applications by configuring the following settings:
 
-You can create multiple user flows of different types in your tenant and use them in your applications as needed. User flows can be reused across applications. This flexibility enables developers to define and modify consumer identity experiences with minimal or no changes to their code.
+- Account types used for sign-in, such as social accounts like a Facebook or local accounts
+- Attributes to be collected from the consumer, such as first name, postal code, and shoe size
+- Azure Multi-Factor Authentication
+- Customization of the user interface
+- Information that the application receives as claims in a token 
 
-User flows are available for use via a simple developer interface. Your application triggers a user flow by using a standard HTTP authentication request (passing a user flow parameter in the request) and receives a customized token as response. For example, the only difference between requests that invoke a sign-up user flow and requests that invoke a sign-in user flow is the user flow name that's used in the "p" query string parameter:
+You can create many user flows of different types in your tenant and use them in your applications as needed. User flows can be reused across applications. This flexibility enables you to define and modify identity experiences with minimal or no changes to your code. Your application triggers a user flow by using a standard HTTP authentication request that includes a user flow parameter. A customized [token](active-directory-b2c-reference-tokens.md) is received as a response. 
+
+The following examples show the "p" query string parameter that specifies the user flow to be used:
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -39,11 +41,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siup                                       // Your sign-up user flow
-
 ```
 
 ```
-
 https://contosob2c.b2clogin.com/contosob2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Application ID
 &redirect_uri=https%3A%2F%2Flocalhost%3A44321%2F    // Your registered Reply URL, url encoded
@@ -53,50 +53,34 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e      // Your registered Applicati
 &nonce=dummy
 &state=12345                                        // Any value provided by your application
 &p=b2c_1_siin                                       // Your sign-in user flow
-
 ```
 
-## Create a sign-up or sign-in user flow
+## User flow versions
 
-This user flow handles both consumer sign-up & sign-in experiences with a single configuration. Consumers are led down the right path (sign-up or sign-in) depending on the context. It also describes the contents of tokens that the application will receive upon successful sign-ups or sign-ins.  A code sample for the **sign-up or sign-in** user flow is [available here](active-directory-b2c-devquickstarts-web-dotnet-susi.md).  It is recommended that you use this user flow over a **sign-up** user flow or a **sign-in** user flow.  
+In the Azure portal, new [versions of user flows](user-flow-versions.md) are being added all the time. When you get started with Azure AD B2C, tested user flows are recommended for you to use. When you create a new user flow, you choose the user flow that you need from the **Recommended** tab.
 
-[!INCLUDE [active-directory-b2c-create-sign-in-sign-up-policy](../../includes/active-directory-b2c-create-sign-in-sign-up-policy.md)]
+The following user flows are currently recommended:
 
-## Create a sign-up user flow
+- **Sign up and sign in** - Handles both of the sign-up and sign-in experiences with a single configuration. Users are led down the right path depending on the context. It's recommended that you use this user flow over a **sign-up** user flow or a **sign-in** user flow.
+- **Profile editing** - Enables users to edit their profile information.
+- **Password reset** - Enables you to configure whether and how users can reset their password.
 
-[!INCLUDE [active-directory-b2c-create-sign-up-policy](../../includes/active-directory-b2c-create-sign-up-policy.md)]
+## Linking user flows
 
-## Create a sign-in user flow
+A **sign-up or sign-in** user flow with local accounts includes a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset user flow. 
 
-[!INCLUDE [active-directory-b2c-create-sign-in-policy](../../includes/active-directory-b2c-create-sign-in-policy.md)]
+Instead, the error code `AADB2C90118` is returned to your application. Your application needs to handle this error code by running a specific user flow that resets the password. To see an example, take a look at a [simple ASP.NET sample](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI) that demonstrates the linking of user flows.
 
-## Create a profile editing user flow
+## Email address storage
 
-[!INCLUDE [active-directory-b2c-create-profile-editing-policy](../../includes/active-directory-b2c-create-profile-editing-policy.md)]
-
-## Create a password reset user flow
-
-[!INCLUDE [active-directory-b2c-create-password-reset-policy](../../includes/active-directory-b2c-create-password-reset-policy.md)]
-
-## Preview user flows
-
-As we release new features, some of these may not be available on existing policies or user flows.  We plan to replace older versions with the latest of the same type once these user flows enter GA.  Your existing policies or user flows will not change and in order to take advantage of these new features you will have to create new user flows.
-
-## Frequently asked questions
-
-### How do I link a sign-up or sign-in user flow with a password reset user flow?
-When you create a **sign-up or sign-in** user flow (with local accounts), you see a **Forgot password?** link on the first page of the experience. Clicking this link doesn't automatically trigger a password reset user flow. 
-
-Instead, the error code **`AADB2C90118`** is returned to your app. Your app needs to handle this error code by invoking a specific password reset user flow. For more information, see a [sample that demonstrates the approach of linking user flows](https://github.com/AzureADQuickStarts/B2C-WebApp-OpenIDConnect-DotNet-SUSI).
-
-### Should I use a sign-up or sign-in user flow or a sign-up user flow and a sign-in user flow?
-We recommend that you use a **sign-up or sign-in** user flow over a **sign-up** user flow and a **sign-in** user flow.  
-
-The **sign-up or sign-in** user flow has more capabilities than the **sign-in** user flow. It also enables you to use page UI customization and has better support for localization. 
-
-The **sign-in** user flow is recommended if you don't need to localize your user flows, only need minor customization capabilities for branding, and want password reset built into it.
+An email address can be required as part of a user flow. If the user authenticates with a social identity provider, the email address is stored in the **otherMails** property. If a local account is based on a user name, then the email address is stored in a strong authentication detail property. If a local account is based on an email address, then the email address is stored in the **signInNames** property.
+ 
+The email address isn't guaranteed to be verified in any of these cases. A tenant administrator can disable email verification in the basic policies for local accounts. Even if email address verification is enabled, addresses aren't verified if they come from a social identity provider and they haven't been changed.
+ 
+Only the **otherMails** and **signInNames** properties are exposed through the Active Directory Graph API. The email address in the strong authentication detail property is not available.
 
 ## Next steps
-* [Token, session, and single sign-on configuration](active-directory-b2c-token-session-sso.md)
-* [Disable email verification during consumer sign-up](active-directory-b2c-reference-disable-ev.md)
+
+To create the recommended user flows, follow the instructions in [Tutorial: Create a user flow](tutorial-create-user-flows.md).
+
 

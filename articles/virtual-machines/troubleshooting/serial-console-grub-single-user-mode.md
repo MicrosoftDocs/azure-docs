@@ -4,7 +4,7 @@ description: Using Serial Console for grub in Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -13,29 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/14/2018
+ms.date: 05/08/2019
 ms.author: alsin
 ---
 
 # Use Serial Console to access GRUB and Single User Mode
-GRUB is the GRand Unified Bootloader. From GRUB you are able to modify your boot configuration to boot into single user mode, among other things.
+GRUB is the GRand Unified Bootloader, which is likely the first thing you will see when booting up a VM. Because it displays before the operating system has started, it is not accessible via SSH. From GRUB you are able to modify your boot configuration to boot into single user mode, among other things.
 
 Single user mode is a minimal environment with minimal functionality. It can be useful for investigating boot issues, filesystem issues, or network issues. Fewer services may run in the background, and, depending on the runlevel, a filesystem may not even be automatically mounted.
 
-Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication.
+Single user mode is also useful in situations where your VM may only be configured to accept SSH keys to log in. In this case, you may be able to use single user mode to create an account with password authentication. Note that the serial console service will only allow users with contributor level access or higher to access the serial console of a VM.
 
-To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. This may be done with the VM serial console.
+To enter single user mode, you will need to enter GRUB when your VM is booting up, and modify the boot configuration in GRUB. Detailed instructions for entering GRUB are below. In general, you may use the restart button within the VM serial console to restart your VM and show GRUB if your VM has been configured to show GRUB.
+
+![Linux Serial Console Restart button](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-bar.png)
 
 ## General GRUB access
 To access GRUB, you will need to reboot your VM while keeping the serial console blade open. Some distros will require keyboard input to show GRUB, while others will automatically show GRUB for a few seconds and allow user keyboard input to cancel the timeout.
 
 You will want to ensure that GRUB is enabled on your VM in order to be able to access single user mode. Depending on your distro, there may be some setup work to ensure that GRUB is enabled. Distro-specific information is available below and at [this link](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
-### Reboot your VM to access GRUB in Serial Console
-Rebooting your VM with the serial console blade open can be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled, or by clicking the Restart button in the Overview blade (open the VM in a new browser tab to reboot without closing the serial console blade). Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
+### Restart your VM to access GRUB in Serial Console
+You can restart your VM within the serial console by navigating to the power button and clicking "Restart VM". This will initiate a VM restart, and you will see a notification within the Azure portal regarding the restart.
+Restarting your VM can also be done with a SysRq `'b'` command if [SysRq](./serial-console-nmi-sysrq.md) is enabled. Follow the distro-specific instructions below to learn what to expect from GRUB when you reboot.
+
+![Linux Serial Console Restart](./media/virtual-machines-serial-console/virtual-machine-serial-console-restart-button-ubuntu.gif)
 
 ## General Single User Mode access
-Manual access to single user mode may be needed in situations where you have not configured an account with password authentication. You will need to modify the GRUB configuration to manually enter single user mode. Once you have done this, see [Use Single User Mode to reset or add a password](#-Use-Single-User-Mode-to-reset-or-add-a-password) for further instructions.
+Manual access to single user mode may be needed in situations where you have not configured an account with password authentication. You will need to modify the GRUB configuration to manually enter single user mode. Once you have done this, see Use Single User Mode to reset or add a password for further instructions.
 
 In cases where the VM is unable to boot, distros will often automatically drop you into single user mode or emergency mode. Others, however, require additional setup before they can drop you into single-user or emergency mode automatically (such as setting up a root password).
 
@@ -175,10 +180,10 @@ GRUB access in SLES requires bootloader configuration via YaST. To do this, foll
 You will be automatically dropped into emergency shell if SLES cannot boot normally. To manually enter the emergency shell, use the following instructions:
 
 1. From GRUB, press 'e' to edit your boot entry (the SLES entry)
-1. Look for the kernel line it will start with `linux`
+1. Look for the kernel line - it will start with `linux`
 1. Append `systemd.unit=emergency.target` to the end of the line
 1. Press Ctrl + X to reboot with these settings and enter emergency shell
-> Note that you will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
+   > Note that you will be dropped into emergency shell with a _read-only_ filesystem. If you want to make any edits to any files, you will need to remount the filesystem with read-write permissions. To do this, enter `mount -o remount,rw /` into the shell
 
 ## Access for Oracle Linux
 Much like Red Hat Enterprise Linux, single user mode in Oracle Linux requires GRUB and the root user to be enabled.

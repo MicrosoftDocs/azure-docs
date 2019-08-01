@@ -26,7 +26,7 @@ This article provides links to articles that show you how to do the following ta
 
 - [Send events to an event hub](#send-events-to-event-hubs)
 - [Receive events from an event hub](#receive-events-from-event-hubs)
-- [Read captured event data from an Azure storage](#capture-event-hubs-data). 
+- Read captured event data from an Azure storage. 
 
 ## Prerequisites
 - Create an event hub by following one of these quickstarts: [Azure portal](event-hubs-create.md), [Azure CLI](event-hubs-quickstart-cli.md), [Azure PowerShell](event-hubs-quickstart-powershell.md), [Azure Resource Manager template](event-hubs-resource-manager-namespace-event-hub.md). 
@@ -91,7 +91,8 @@ The following code shows you how to receive events from an event hub from a Pyth
 client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
 
 # Add a receiver to the client
-receiver = client.add_receiver(CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+receiver = client.add_receiver(
+    CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
 
 # Run the Event Hubs client
 client.run()
@@ -153,7 +154,6 @@ def startProcessing(accountName, key, container):
             os.remove(cleanName)
         block_blob_service.delete_blob(container, blob.name)
 startProcessing('YOUR STORAGE ACCOUNT NAME', 'YOUR KEY', 'capture')
-
 ```
 
 For a complete tutorial on how to read captured Event Hubs data in an Azure blob storage from an application written in Python, see [this article](event-hubs-capture-python.md)

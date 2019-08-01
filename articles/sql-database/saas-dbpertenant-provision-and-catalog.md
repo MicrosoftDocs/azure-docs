@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
-ms.date: 04/01/2018
+ms.date: 09/24/2018
 ---
 # Learn how to provision new tenants and register them in the catalog
 
@@ -20,7 +19,7 @@ In this tutorial, you learn how to provision and catalog SaaS patterns. You also
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-
+> 
 > * Provision a single new tenant.
 > * Provision a batch of additional tenants.
 
@@ -40,7 +39,7 @@ The catalog allows the name or location of the database to be changed with minim
 
 The catalog also can store additional tenant or database metadata, such as the schema version, service plan, or SLAs offered to tenants. The catalog can store other information that enables application management, customer support, or DevOps. 
 
-Beyond the SaaS application, the catalog can enable database tools. In the Wingtip Tickets SaaS database-per-tenant sample, the catalog is used to enable cross-tenant query, which is explored in the [Ad-hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md). Cross-database job management is explored in the [Schema management](saas-tenancy-schema-management.md) and [Tenant analytics](saas-tenancy-tenant-analytics.md) tutorials. 
+Beyond the SaaS application, the catalog can enable database tools. In the Wingtip Tickets SaaS database-per-tenant sample, the catalog is used to enable cross-tenant query, which is explored in the [Ad hoc reporting tutorial](saas-tenancy-cross-tenant-reporting.md). Cross-database job management is explored in the [Schema management](saas-tenancy-schema-management.md) and [Tenant analytics](saas-tenancy-tenant-analytics.md) tutorials. 
 
 In the Wingtip Tickets SaaS samples, the catalog is implemented by using the Shard Management features of the [Elastic Database client library (EDCL)](sql-database-elastic-database-client-library.md). The EDCL is available in Java and the .NET Framework. The EDCL enables an application to create, manage, and use a database-backed shard map. 
 
@@ -161,7 +160,7 @@ With the auto-provisioning pattern, a client application or script submits a pro
 In this tutorial you learned how to:
 
 > [!div class="checklist"]
-
+> 
 > * Provision a single new tenant.
 > * Provision a batch of additional tenants.
 > * Step into the details of provisioning tenants and registering them into the catalog.

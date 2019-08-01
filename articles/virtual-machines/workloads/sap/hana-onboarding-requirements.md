@@ -4,7 +4,7 @@ description: Onboarding requirements for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux
@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 01/31/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -29,7 +29,7 @@ This list assembles requirements for running SAP HANA on Azure (Larger Instances
 
 **Network connectivity**
 
-- ExpressRoute between on-premises to Azure: To connect your on-premises data center to Azure, make sure to order at least a 1-Gbps connection from your ISP. 
+- ExpressRoute between on-premises to Azure: To connect your on-premises data center to Azure, make sure to order at least a 1-Gbps connection from your ISP. Connectivity between HANA Large Instance units and Azure is using ExpressRoute technology as well. This ExpressRoute connection between the HANA Large Instance units and Azure is included in the price of the HANA Large Instance units, including all data ingress and egress charges for this specific ExpressRoute circuit. Therefore, you as customer, do not encounter additional costs beyond your ExpressRoute link between on-premises and Azure.
 
 **Operating system**
 
@@ -65,13 +65,13 @@ For the compatibility matrix of the operating system and HLI firmware/driver ver
 **Applications**
 
 - Licenses and software installation components for any SAP applications that connect to SAP HANA and related SAP support contracts.
-- Licenses and software installation components for any non-SAP applications used in relation to SAP HANA on Azure (Large Instances) environments and related support contracts.
+- Licenses and software installation components for any non-SAP applications used with SAP HANA on Azure (Large Instances) environments and related support contracts.
 
 **Skills**
 
 - Experience with and knowledge of Azure IaaS and its components.
 - Experience with and knowledge of how to deploy an SAP workload in Azure.
-- SAP HANA installation certified personnel.
+- SAP HANA installation certified personal.
 - SAP architect skills to design high availability and disaster recovery around SAP HANA.
 
 **SAP**

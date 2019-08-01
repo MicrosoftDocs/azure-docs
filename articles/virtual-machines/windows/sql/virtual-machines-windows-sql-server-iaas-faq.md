@@ -15,7 +15,7 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 07/12/2018
-ms.author: v-shysun
+ms.author: mathoma
 ---
 # Frequently asked questions for SQL Server running on Windows virtual machines in Azure
 
@@ -32,7 +32,7 @@ This article provides answers to some of the most common questions about running
 
 ## <a id="images"></a> Images
 
-1. **What SQL Server virtual machine gallery images are available?**
+1. **What SQL Server virtual machine gallery images are available?** 
 
    Azure maintains virtual machine images for all supported major releases of SQL Server on all editions for both Windows and Linux. For more information, see the complete list of [Windows VM images](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo) and [Linux VM images](../../linux/sql/sql-server-linux-virtual-machines-overview.md#create).
 
@@ -44,13 +44,19 @@ This article provides answers to some of the most common questions about running
 
    Yes. Azure only maintains one image per major version and edition. For example, when a new SQL Server service pack is released, Azure adds a new image to the gallery for that service pack. The SQL Server image for the previous service pack is immediately removed from the Azure portal. However, it is still available for provisioning from PowerShell for the next three months. After three months, the previous service pack image is no longer available. This removal policy would also apply if a SQL Server version becomes unsupported when it reaches the end of its lifecycle.
 
+
+1. **Is it possible to deploy an older image of SQL Server that is not visible in the Azure portal?**
+
+   Yes, by using PowerShell. For more information about deploying SQL Server VMs using PowerShell, see [How to provision SQL Server virtual machines with Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+
 1. **Can I create a VHD image from a SQL Server VM?**
 
-   Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not ge the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
+   Yes, but there are a few considerations. If you deploy this VHD to a new VM in Azure, you do not get the SQL Server Configuration section in the portal. You must then manage the SQL Server configuration options through PowerShell. Also, you will be charged for at the rate of the SQL VM your image was originally based on. This is true even if you remove SQL Server from the VHD before deploying. 
 
 1. **Is it possible to set up configurations not shown in the virtual machine gallery (For example Windows 2008 R2 + SQL Server 2012)?**
 
-   No. For virtual machine gallery images that include SQL Server, you must select one of the provided images.
+   No. For virtual machine gallery images that include SQL Server, you must select one of the provided images either through the Azure portal or via [PowerShell](virtual-machines-windows-ps-sql-create.md). 
+
 
 ## Creation
 
@@ -68,14 +74,16 @@ This article provides answers to some of the most common questions about running
 
    There are two ways to do this. You can provision one of the [virtual machine images that supports licenses](virtual-machines-windows-sql-server-iaas-overview.md#BYOL), which is also known as bring-your-own-license (BYOL). Another option is to copy the SQL Server installation media to a Windows Server VM, and then install SQL Server on the VM. However, if you install SQL Server manually, there is no portal integration and the SQL Server IaaS Agent Extension is not supported, so features such as Automated Backup and Automated Patching will not work in this scenario. For this reason, we recommend using one of the BYOL gallery images. To use BYOL or your own SQL Server media on an Azure VM, you must have [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). For more information, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md).
 
-
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
-   If you have Software Assurance and use License Mobility as described in Virtual Machine Licensing FAQ,](https://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
+   If you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](https://azure.microsoft.com/pricing/licensing-faq/), then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. You can move easily move between the two licensing models, regardless of the image that was originally deployed. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
+   Yes. You can move easily move between the two licensing models, if you originally started with a pay-as-you-go gallery image. However, you will not be able to switch your license to PAYG if you initially started with a BYOL image. For more information, see [How to change the licensing model for a SQL Server VM](virtual-machines-windows-sql-ahb.md).
+
+   > [!Note]
+   > Currently, this facility is available only for Public Cloud customers.
 
 1. **Should I use BYOL images or SQL VM RP to create new SQL VM?**
 
@@ -83,11 +91,11 @@ This article provides answers to some of the most common questions about running
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
-   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. 
+   No. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) does not require any downtime for SQL Server as the change is effective immediately and does not require a restart of the VM. However, to register your SQL Server VM with the SQL VM resource provider, the [SQL IaaS extension](virtual-machines-windows-sql-server-agent-extension.md) is a prerequisite and installing the SQL IaaS extension restarts the SQL Server service. As such, if the SQL IaaS extension needs to be installed, then it should be done during a maintenance window. 
 
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
-   Yes. [Changing the licensing model](virtual-machines-windows-sql-ahb.md) is available for CSP subscriptions. 
+   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.  
 
 1. **Will registering my VM with the new SQL VM resource provider bring additional costs?**
 
@@ -97,31 +105,35 @@ This article provides answers to some of the most common questions about running
  
    Yes. All customers are able to register with the new SQL VM resource provider. However, only customers with Software Assurance Benefit can activate the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (or BYOL) on a SQL Server VM. 
 
-1. **What happens to the  _*Microsoft.SqlVirtualMachine_* resource if the VM resource is moved or dropped?** 
+1. **What happens to the  _Microsoft.SqlVirtualMachine_ resource if the VM resource is moved or dropped?** 
 
    When the Microsoft.Compute/VirtualMachine resource is dropped or moved, then the associated Microsoft.SqlVirtualMachine resource is notified to asynchronously replicate the operation.
 
-1. **What happens to the VM if the  _*Microsoft.SqlVirtualMachine_* resource is dropped?**
+1. **What happens to the VM if the  _Microsoft.SqlVirtualMachine_ resource is dropped?**
 
-   The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
+    The Microsoft.Compute/VirtualMachine resource is not impacted when the Microsoft.SqlVirtualMachine resource is dropped. However, the licensing changes will default back to the original image source. 
 
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
 
-   Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.  
+    Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.
 
 ## Administration
 
 1. **Can I install a second instance of SQL Server on the same VM? Can I change installed features of the default instance?**
 
-   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance.
+   Yes. The SQL Server installation media is located in a folder on the **C** drive. Run **Setup.exe** from that location to add new SQL Server instances or to change other installed features of SQL Server on the machine. Note that some features, such as Automated Backup, Automated Patching, and Azure Key Vault Integration, only operate against the default instance, or a named instance that was configured properly (See Question 3). 
 
 1. **Can I uninstall the default instance of SQL Server?**
 
-   Yes, but there are some considerations. As stated in the previous answer, features that rely on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) only operate on the default instance. If you uninstall the default instance, the extension continues to look for it and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
+   Yes, but there are some considerations. As stated in the previous answer, there are features that rely on the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md).  If you uninstall the default instance without removing the IaaS extension also, the extension continues to look for it and may generate event log errors. These errors are from the following two sources: **Microsoft SQL Server Credential Management** and **Microsoft SQL Server IaaS Agent**. One of the errors might be similar to the following:
 
       A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible.
 
    If you do decide to uninstall the default instance, also uninstall the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) as well.
+
+1. **Can I use a named instance of SQL Server with the IaaS extension**?
+   
+   Yes, if the named instance is the only instance on the SQL Server, and if the original default instance was [uninstalled properly](../sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md#installation). If there is no default instance and there are multiple named instances on a single SQL Server VM, the IaaS extension will fail to install. 
 
 1. **Can I remove SQL Server completely from a SQL VM?**
 
@@ -129,9 +141,10 @@ This article provides answers to some of the most common questions about running
    
 ## Updating and Patching
 
-1. **How do I upgrade to a new version/edition of the SQL Server in an Azure VM?**
+1. **How do I change to a different version/edition of the SQL Server in an Azure VM?**
 
-   Currently, there is no in-place upgrade for SQL Server running in an Azure VM. Create a new Azure virtual machine with the desired SQL Server version/edition, and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md).
+   Customers can change their version/edition of SQL Server by using setup media that contains their desired version or edition of SQL Server. Once the edition has been changed, use the Azure portal to modify the edition property of the VM to accurately reflect billing for the VM. For more information, see [change edition of a SQL Server VM](virtual-machines-windows-sql-change-edition.md). 
+
 
 1. **How are updates and service packs applied on a SQL Server VM?**
 
@@ -152,7 +165,11 @@ This article provides answers to some of the most common questions about running
 
 1. **How do I install SQL Data tools on my Azure VM?**
 
-    Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=42313).
+    Download and install the SQL Data tools from [Microsoft SQL Server Data Tools - Business Intelligence for Visual Studio 2013](https://www.microsoft.com/download/details.aspx?id=42313).
+
+1. **Are distributed transactions with MSDTC supported on SQL Server VMs?**
+   
+    Yes. Local DTC is supported for SQL Server 2016 SP2 and greater. However, applications must be tested when utilizing Always On availability groups, as transactions in-flight during a failover will fail and must be retried. Clustered DTC is available starting with Windows Server 2019. 
 
 ## Resources
 

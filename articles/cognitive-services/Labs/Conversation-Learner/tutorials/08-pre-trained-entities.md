@@ -3,15 +3,14 @@ title: How to add Pre-Trained Entities to a Conversation Learner Model - Microso
 titleSuffix: Azure
 description: Learn how to add Pre-trained Entities to a Conversation Learner Model.
 services: cognitive-services
-author: v-jaswel
+author: nitinme
 manager: nolachar
 ms.service: cognitive-services
-ms.component: conversation-learner
+ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-jaswel
+ms.author: nitinme
 ---
-
 # How to add Pre-trained Entities
 This tutorial shows how to add Pre-Trained Entities to your Conversation Learner Model.
 
@@ -20,7 +19,7 @@ This tutorial shows how to add Pre-Trained Entities to your Conversation Learner
 [![Pre-Trained Entities Tutorial Preview](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## Requirements
-This tutorial requires that the general tutorial bot is running
+This tutorial requires that the general tutorial Bot is running
 
 	npm run tutorial-general
 
@@ -30,50 +29,49 @@ Pre-Trained Entities recognize common types of Entities, such as numbers, dates,
 
 ## Steps
 
+Start on the home page in the Web UI.
+
 ### Create the Model
 
-1. In the Web UI, click "New Model."
-2. In the "Name" field, type "PretrainedEntities" and hit enter.
-3. Click the "Create" button.
+1. Select **New Model**.
+2. Enter **PretrainedEntities** for **Name**.
+3. Select **Create**.
 
 ### Entity Creation
 
-1. On the left panel, click "Entities", then the "New Entity" button.
-2. Select "Pre-Trained/datetimeV2" for the "Entity Type."
-3. Check the "Multi-valued" check-box.
-	- Multi-value entities accumulate one or more values in the Entity.
-	- Negatable properties are disabled for Pre-Trained Entities.
-4. Click the "Create" button.
+1. Select **Entities** in the left panel, then **New Entity**.
+2. Select **Pre-Trained/datetimeV2** for **Entity Type**.
+3. Check **Multi-valued** to enable the Entity accumulate one or more values. Note, Pre-Trained Entities cannot be negatable.
+4. Select **Create**.
 
-![](../media/tutorial7_entities_a.PNG)
+![](../media/T08_entity_create.png)
 
-### Create the First Action
+1. Select **Actions** in the left panel, then **New Action**.
+2. Enter **The date is $builtin-datetimev2** for **Bot's Response...**.
+3. Select **Create**.
 
-1. On the left panel, click "Actions", then the "New Action" button.
-2. In the "Bot's response..." field, type "The date is $builtin-datetimev2"
-3. Click the "Create" button.
-
-![](../media/tutorial7_actions_a.PNG)
+![](../media/T08_action_create_1.png)
 
 ### Create the Second Action
 
-1. On the left panel, click "Actions", then the "New Action" button.
-2. In the "Bot's response..." field, type "What's the date?"
-	- Pre-Trained entities cannot be Required Entities as they are recognized by default for all user utterances.
-3. In the "Disqualifying Entitles" field, type "builtin-datetimev2."
-4. Click the "Create" button.
+1. Select **Actions** in the left panel, then **New Action**.
+2. Enter **What's the date?** for **Bot's Response...**. Pre-Trained entities cannot be **Required Entities** as they are recognized by default for all utterances.
+3. Enter **builtin-datetimev2** for **Disqualifying Entities**.
+4. Select **Create**.
 
-![](../media/tutorial7_actions2_a.PNG)
+![](../media/T08_action_create_2.png)
 
 ### Train the Model
 
-1. On the left panel, click "Train Dialogs", then the "New Train Dialog" button.
-2. In the chat panel, where it says "Type your message...", type in "hello."
-3. Click the "Score Actions" button.
-4. Select the response, "What's the date?"
-5. In the chat panel, where it says "Type your message...", type in "today"
-	- The today utterance is automatically recognized by pre-trained models in LUIS.
+1. Select **Train Dialogs** in the left panel, then **New Train Dialog**.
+2. Enter **hello** for the user's utterance in the left chat panel.
+3. Select **Score Actions**.
+4. Select **What's the date?** from the Actions list
+5. Enter **today** for the user's utterance in the left chat panel.
+	- The **today** utterance is automatically recognized by pre-trained models in LUIS.
 	- Hovering over values of Pre-Trained Entities shows additional data provided by LUIS.
+
+![](../media/T08_training.png)
 
 ## Next steps
 

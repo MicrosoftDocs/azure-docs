@@ -11,8 +11,16 @@
     href: quickstart-create-databricks-workspace-portal.md
   - name: Create Databricks workspace - Resource Manager template
     href: quickstart-create-databricks-workspace-resource-manager-template.md
+  - name: Create Databricks workspace - Virtual network
+    href: quickstart-create-databricks-workspace-vnet-injection.md
 - name: Tutorials
   items:
+  - name: Query SQL Server running in Docker container
+    href: vnet-injection-sql-server.md
+  - name: Access storage using Azure Key Vault
+    href: store-secrets-azure-key-vault.md
+  - name: Use Cosmos DB service endpoint
+    href: service-endpoint-cosmosdb.md
   - name: Perform ETL operations
     href: databricks-extract-load-sql-data-warehouse.md
   - name: Stream data using Event Hubs
@@ -31,6 +39,8 @@
     href: https://docs.azuredatabricks.net/user-guide/jobs.html 
   - name: Connect to data sources 
     href: databricks-connect-to-data-sources.md
+  - name: Use VNet injection
+    href: vnet-injection.md
   - name: Use with Azure Data Factory
     href: ../data-factory/transform-data-using-databricks-notebook.md
     maintainContext: true
@@ -42,6 +52,8 @@
     href: https://docs.azuredatabricks.net/user-guide/bi/index.html
   - name: Plan disaster recovery
     href: howto-regional-disaster-recovery.md
+  - name: MLflow Guide
+    href: https://docs.azuredatabricks.net/applications/mlflow/index.html
 - name: Reference
   items:
   - name: REST API

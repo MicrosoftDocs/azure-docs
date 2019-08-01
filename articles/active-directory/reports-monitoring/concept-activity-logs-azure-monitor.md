@@ -1,39 +1,42 @@
 ---
-title: Azure Active Directory activity logs in Azure Monitor (preview) | Microsoft Docs
-description: Introduction to Azure Active Directory activity logs in Azure Monitor (preview)
+title: Azure Active Directory activity logs in Azure Monitor | Microsoft Docs
+description: Introduction to Azure Active Directory activity logs in Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
 ms.service: active-directory
 ms.devlang: na
-ms.topic: concept
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 04/22/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
-# Azure AD activity logs in Azure Monitor (preview)
+# Azure AD activity logs in Azure Monitor
 
-You can now route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. The public preview of Azure AD logs in Azure Monitor allows you to:
+You can route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. This feature allows you to:
 
 * Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
 * Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
 * Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
-* Send Azure AD activity logs to Log Analytics to enable rich visualizations, monitoring and alerting on the connected data.
+* Send Azure AD activity logs to Azure Monitor logs to enable rich visualizations, monitoring and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
 ## Supported reports
 
-You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, Log Analytics or custom solution by using this feature. 
+You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, Azure Monitor logs or custom solution by using this feature. 
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
@@ -56,7 +59,7 @@ Depending on where you want to route the audit log data, you need either of the 
 
 * An Azure storage account that you have *ListKeys* permissions for. We recommend that you use a general storage account and not a Blob storage account. For storage pricing information, see the [Azure Storage pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * An Azure Event Hubs namespace to integrate with third-party solutions.
-* An Azure Log Analytics workspace to send logs to Log Analytics.
+* An Azure Log Analytics workspace to send logs to Azure Monitor logs.
 
 ## Cost considerations
 
@@ -66,14 +69,24 @@ If you already have an Azure AD license, you need an Azure subscription to set u
 
 Every audit log event uses about 2 KB of data storage. For a tenant with 100,000 users, which would incur about 1.5 million events per day, you would need about 3 GB of data storage per day. Because writes occur in approximately five-minute batches, you can anticipate approximately 9,000 write operations per month. 
 
-The following table contains a cost estimate of, depending on the size of the tenant, a general-purpose v2 storage account in West US for at least one year of retention. To create a more accurate estimate for the data volume that you anticipate for your application, use the [Azure storage pricing calculator](https://azure.microsoft.com/pricing/details/storage/blobs/). 
+
+The following table contains a cost estimate of, depending on the size of the tenant, a general-purpose v2 storage account in West US for at least one year of retention. To create a more accurate estimate for the data volume that you anticipate for your application, use the [Azure storage pricing calculator](https://azure.microsoft.com/pricing/details/storage/blobs/).
+
 
 | Log category | Number of users | Events per day | Volume of data per month (est.) | Cost per month (est.) | Cost per year (est.) |
 |--------------|-----------------|----------------------|--------------------------------------|----------------------------|---------------------------|
 | Audit | 100,000 | 1.5&nbsp;million | 90 GB | $1.93 | $23.12 |
 | Audit | 1,000 | 15,000 | 900 MB | $0.02 | $0.24 |
 | Sign-ins | 1,000 | 34,800 | 4 GB | $0.13 | $1.56 |
-| Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 | 
+| Sign-ins | 100,000 | 15&nbsp;million | 1.7 TB | $35.41 | $424.92 |
+ 
+
+
+
+
+
+
+
 
 
 ### Event hub messages for activity logs
@@ -90,9 +103,26 @@ The following table contains estimated costs per month for a basic event hub in 
 | Audit | 1,000 | 0.1 | 52 | 104 KB | 1 | 8,640 | $10.80 |
 | Sign-ins | 1,000 | 178 | 53,400 | 106.8&nbsp;MB | 418 | 3,611,520 | $11.06 |  
 
-### Log Analytics cost considerations
+### Azure Monitor logs cost considerations
 
-To review costs related to managing the Log Analytics workspace, see [Manage cost by controlling data volume and retention in Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+
+
+| Log category       | Number of users | Events per day | Events per month (30 days) | Cost per month in USD (est.) |
+| :--                | ---             | ---            | ---                        | --:                          |
+| Audit and Sign-ins | 100,000	       | 16,500,000     | 495,000,000	             |  $1093.00                       |
+| Audit	             | 100,000         | 1,500,000      | 45,000,000                 |  $246.66                     |
+| Sign-ins           | 100,000         | 15,000,000     | 450,000,000                |	$847.28                     |
+
+
+
+
+
+
+
+
+
+
+To review costs related to managing the Azure Monitor logs, see [Manage cost by controlling data volume and retention in Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
 
 ## Frequently asked questions
 
@@ -113,6 +143,12 @@ This section answers frequently asked questions and discusses known issues with 
 **Q: How soon after an action will the corresponding logs show up in my storage account?**
 
 **A**: For Azure storage accounts, the latency is anywhere from 5 to 15 minutes after the action is performed.
+
+---
+
+**Q: What happens if an Administrator changes the retention period of a diagnostic setting?**
+
+**A**: The new retention policy will be applied to logs collected after the change. Logs collected before the policy change will be unaffected.
 
 ---
 
@@ -167,4 +203,4 @@ This section answers frequently asked questions and discusses known issues with 
 
 * [Archive activity logs to a storage account](quickstart-azure-monitor-route-logs-to-storage-account.md)
 * [Route activity logs to an event hub](quickstart-azure-monitor-stream-logs-to-event-hub.md)
-* [Integrate activity logs with Log Analytics](howto-integrate-activity-logs-with-log-analytics.md)
+* [Integrate activity logs with Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md)

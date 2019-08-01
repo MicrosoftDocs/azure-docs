@@ -2,20 +2,11 @@
 title: Azure Marketplace SaaS Applications Technical Publishing Guide
 description: Step-by-step guide and publishing checklists for publishing SaaS applications to Azure Marketplace
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security, SaaS
-documentationcenter:
 author: keithcharlie
-manager: nunoc
-editor: keithcharlie
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 07/09/2018
-ms.author: keithcharlie
-
+ms.author: kevidal
 ---
 
 # SaaS applications Offer Publishing Guide
@@ -98,7 +89,7 @@ In addition, Azure Active Directory provides a site to check for Service Updates
 
 ## Using Azure Active Directory to enable trials  
 
-Microsoft authenticates all Marketplace users with Azure AD, hence when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
+Microsoft authenticates all Marketplace users with Azure AD, so when an authenticated user clicks through your Trial listing in Marketplace and is redirected to your Trial environment, you can provision the user directly into a Trial without requiring an additional sign-in step. The token that your app receives from Azure AD during authentication includes valuable user information that you can use to create a user account in your app, enabling you to automate the provisioning experience and increase the likelihood of conversion. For more information about the token, see [Sample Tokens](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims) .
 
 Using Azure AD to enable 1-click authentication to your app or Trial does the following:  
 * Streamlines the customer experience from Marketplace to Trial.  
@@ -108,7 +99,7 @@ Using Azure AD to enable 1-click authentication to your app or Trial does the fo
 
 ## Certifying your Azure AD integration for Marketplace  
 
-You can certify your Azure AD integration in a few different ways, depending on whether your application is single-tenant or multi-tenant, and whether you are new to Azure AD federated single sign-on (SSO), or already support it.  
+Certify your Azure AD integration in a few different ways, depending on whether your application is single-tenant or multi-tenant, and whether you are new to Azure AD federated single sign-on (SSO), or already support it.  
 
 **For multi-tenant applications:**  
 
@@ -137,9 +128,12 @@ Microsoft hosts the commerce transaction. Microsoft bills your customer on your 
 | Requirement | Details |  
 |:--- |:--- |  
 |Billing and metering | Your offer is priced at a monthly flat rate. Usage-based pricing and usage-based "true-up" capabilities are not supported at this time. |  
-|Cancelation | Your offer is cancelable by the customer at any time. |  
+|Cancellation | Your offer is cancelable by the customer at any time. |  
 |Transaction landing page | You host an Azure co-branded transaction landing page where users can create and manage their SaaS service account. |   
 | Subscription API | You expose a service that can interact with the SaaS Subscription to create, update, and delete a user account and service plan. Critical API changes must be supported within 24 hours. Non-critical API changes will be released periodically. |  
+
+>[!Note]
+>Cloud Solution Providers (CSP) partner channel opt-in is now available.  Please see [Cloud Solution Providers](./cloud-solution-providers.md) for more information on marketing your offer through the Microsoft CSP partner channels.
 
 ## Next steps
 If you haven't already done so,
@@ -149,4 +143,4 @@ If you haven't already done so,
 If you're registered and are creating a new offer or working on an existing one,
 
 - [Log in to Cloud Partner Portal](https://cloudpartner.azure.com) to create or complete your offer.
-- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/saas-app/cpp-saas-offer) for more information.
+- See [Azure SaaS application offer](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-saas-offer) for more information.

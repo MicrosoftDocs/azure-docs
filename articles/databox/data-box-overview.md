@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 10/23/2018
+ms.date: 07/03/2019
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -40,11 +40,11 @@ Data Box is designed to move large amounts of data to Azure with little to no im
 - **Speed** - Data Box uses 1 Gbps or 10 Gbps network interfaces to move up to 80 TB of data into Azure.
 
 - **Secure** - Data Box has built-in security protections for the device, data, and the service.
-    - The device has a rugged casing secured by tamper-resistant screws and tamper-evident stickers. 
-    - The data on the device is secured with an AES 256-bit encryption at all times.
-    - The device can only be unlocked with a password provided in the Azure portal.
-    - The service is protected by the Azure security features.
-    - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
+  - The device has a rugged casing secured by tamper-resistant screws and tamper-evident stickers. 
+  - The data on the device is secured with an AES 256-bit encryption at all times.
+  - The device can only be unlocked with a password provided in the Azure portal.
+  - The service is protected by the Azure security features.
+  - Once your data is uploaded to Azure, the disks on the device are wiped clean, in accordance with NIST 800-88r1 standards.
     
     For more information, go to [Azure Data Box security and data protection](data-box-security.md).
 
@@ -59,6 +59,7 @@ The Data Box device has the following features in this release.
 | Rack space                                              | 7 U when placed in the rack on its side (cannot be rack-mounted)|
 | Cables required                                         | 1 X power cable (included) <br> 2 RJ45 cables <br> 2 X SFP+ Twinax copper cables|
 | Storage capacity                                        | 100 TB device has 80 TB usable capacity after RAID 5 protection|
+| Power rating                                            | The power supply unit is rated for 700 W. <br> Typically, the unit draws 375 W.|
 | Network interfaces                                      | 2 X 1 GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 10 GbE <br> 2 X 10 GbE interface - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer media                                     | RJ45, SFP+ copper 10 GbE Ethernet  |
 | Security                                                | Rugged device casing with tamper-proof custom screws <br> Tamper-evident stickers placed at the bottom of the device|
@@ -71,7 +72,7 @@ The Data Box includes the following components:
 
 * **Data Box device** - a physical device that provides primary storage, manages communication with cloud storage, and helps to ensure the security and confidentiality of all data that is stored on the device. The Data Box device has a usable storage capacity of 80 TB. 
 
-    ![Front and back plane of Data Box ](media/data-box-overview/data-box-combined3.png)
+    ![Front and back plane of Data Box](media/data-box-overview/data-box-combined3.png)
 
     
 * **Data Box service** – an extension of the Azure portal that lets you manage a Data Box device from a web interface that you can access from different geographical locations. Use the Data Box service to perform daily administration of your Data Box device. The service tasks include how to create and manage orders, view and manage alerts, and manage shares.  
@@ -104,13 +105,16 @@ Throughout this process, you are notified via email on all status changes. For m
 
 ## Region availability
 
-Data Box can transfer data based on the region in which service is deployed, country to which the device is shipped, and the target Azure storage account where you transfer the data. 
+Data Box can transfer data based on the region in which service is deployed, country/region to which the device is shipped, and the target Azure storage account where you transfer the data. 
 
 - **Service availability** - For this release, the Data Box service is available in the following regions:
     - All regions in the United States - West Central US, West US2, West US, South Central US, Central US, North Central US, East US, and East US2.
     - European Union - West Europe and North Europe.
     - UK - UK South and UK West.
     - France - France Central and France South.
+    - Japan - Japan East and Japan West.
+    - Australia - Australia East and Australia Southeast.
+    - Canada - Canada East and Canada Central.
 
 - **Destination Storage accounts** - The storage accounts that store the data are available in all Azure regions where the service is available.  
 

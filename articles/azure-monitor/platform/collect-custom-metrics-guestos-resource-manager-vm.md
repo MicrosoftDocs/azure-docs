@@ -4,12 +4,14 @@ description: Send guest OS metrics to the Azure Monitor metric store using a Res
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
-ms.component: metrics
+ms.subservice: metrics
 ---
 # Send Guest OS metrics to the Azure Monitor metric store using a Resource Manager template for a Windows virtual machine
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 By using the Azure Monitor [Diagnostics extension](diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (Guest OS) that's running as part of a virtual machine, cloud service, or Service Fabric cluster. The extension can send telemetry to [many different locations.](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)
 
@@ -21,9 +23,9 @@ If you're new to Resource Manager templates, learn about [template deployments](
 
 ## Prerequisites
 
-- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal).
+- Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services).
 
-- You need to have either [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
+- You need to have either [Azure PowerShell](/powershell/azure) or [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) installed.
 
 
 ## Set up Azure Monitor as a data sink
@@ -69,8 +71,8 @@ Add this Managed Service Identity (MSI) extension to the template at the top of 
 // Add this code directly below.
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",
-        "name": "WADExtensionSetup",
-        "apiVersion": "2015-05-01-preview",
+        "name": "[concat(variables('vmName'), '/', 'WADExtensionSetup')]",
+        "apiVersion": "2017-12-01",
         "location": "[resourceGroup().location]",
         "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]" ],
@@ -138,9 +140,9 @@ Add the following configuration to enable the Diagnostics extension on a Windows
 //Start of section to add
 "resources": [
 {
-            "type": "extensions",
-            "name": "Microsoft.Insights.VMDiagnosticsSettings",
-            "apiVersion": "2015-05-01-preview",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "name": "[concat(variables('vmName'), '/', 'Microsoft.Insights.VMDiagnosticsSettings')]",
+            "apiVersion": "2017-12-01",
             "location": "[resourceGroup().location]",
             "dependsOn": [
             "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
@@ -232,17 +234,17 @@ Save and close both files.
 To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 1. Launch PowerShell.
-1. Log in to Azure using `Login-AzureRmAccount`.
-1. Get your list of subscriptions by using `Get-AzureRmSubscription`.
+1. Log in to Azure using `Login-AzAccount`.
+1. Get your list of subscriptions by using `Get-AzSubscription`.
 1. Set the subscription that you're using to create/update the virtual machine in:
 
-   ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>"
+   ```powershell
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>"
    ```
 1. To create a new resource group for the VM that's being deployed, run the following command:
 
-   ```PowerShell
-    New-AzureRmResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
+   ```powershell
+    New-AzResourceGroup -Name "<Name of Resource Group>" -Location "<Azure Region>"
    ```
    > [!NOTE]
    > Remember to [use an Azure region that is enabled for custom metrics](metrics-custom-overview.md).
@@ -251,8 +253,8 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
    > [!NOTE]
    > If you wish to update an existing VM, simply add *-Mode Incremental* to the end of the following command.
 
-   ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
+   ```powershell
+   New-AzResourceGroupDeployment -Name "<NameThisDeployment>" -ResourceGroupName "<Name of the Resource Group>" -TemplateFile "<File path of your Resource Manager template>" -TemplateParameterFile "<File path of your parameters file>"
    ```
 
 1. After your deployment succeeds, the VM should be in the Azure portal, emitting metrics to Azure Monitor.
@@ -281,3 +283,4 @@ To deploy the Resource Manager template, we leverage Azure PowerShell.
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).
+

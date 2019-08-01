@@ -4,7 +4,7 @@ description: Automate Linux VM configuration tasks by using the Custom Script Ex
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -21,7 +21,7 @@ ms.author: roiyz
 # Use the Azure Custom Script Extension Version 2 with Linux virtual machines
 The Custom Script Extension Version 2 downloads and runs scripts on Azure virtual machines. This extension is useful for post-deployment configuration, software installation, or any other configuration/management task. You can download scripts from Azure Storage or another accessible internet location, or you can provide them to the extension runtime. 
 
-The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, the Azure portal, or the Azure Virtual Machines REST API.
+The Custom Script Extension integrates with Azure Resource Manager templates. You can also run it by using Azure CLI, PowerShell, or the Azure Virtual Machines REST API.
 
 This article details how to use the Custom Script Extension from Azure CLI, and how to run the extension by using an Azure Resource Manager template. This article also provides troubleshooting steps for Linux systems.
 
@@ -72,7 +72,7 @@ These items should be treated as sensitive data and specified in the extensions 
 ```json
 {
   "name": "config-app",
-  "type": "Microsoft.Compute/virtualMachines/extensions",
+  "type": "Extensions",
   "location": "[resourceGroup().location]",
   "apiVersion": "2015-06-15",
   "dependsOn": [
@@ -110,7 +110,7 @@ These items should be treated as sensitive data and specified in the extensions 
 | type | CustomScript | string |
 | typeHandlerVersion | 2.0 | int |
 | fileUris (e.g) | https://github.com/MyProject/Archive/MyPythonScript.py | array |
-| commandToExecute (e.g) | python MyPythonScript.py <my-param1> | string |
+| commandToExecute (e.g) | python MyPythonScript.py \<my-param1> | string |
 | script | IyEvYmluL3NoCmVjaG8gIlVwZGF0aW5nIHBhY2thZ2VzIC4uLiIKYXB0IHVwZGF0ZQphcHQgdXBncmFkZSAteQo= | string |
 | skipDos2Unix  (e.g) | false | boolean |
 | timestamp  (e.g) | 123456789 | 32-bit integer |
@@ -121,7 +121,7 @@ These items should be treated as sensitive data and specified in the extensions 
 * `skipDos2Unix`: (optional, boolean) skip dos2unix conversion of script-based file URLs or script.
 * `timestamp` (optional, 32-bit integer) use this field only to trigger a re-run of the
   script by changing value of this field.  Any integer value is acceptable; it must only be different than the previous value.
- * `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
+  * `commandToExecute`: (**required** if script not set, string)  the entry point script to execute. Use
   this field instead if your command contains secrets such as passwords.
 * `script`: (**required** if commandToExecute not set, string)a base64 encoded (and optionally gzip'ed) script executed by /bin/sh.
 * `fileUris`: (optional, string array) the URLs for file(s) to be downloaded.
@@ -364,7 +364,7 @@ The Azure Script Extension produces a log, which you can find here:
 /var/log/azure/custom-script/handler.log
 ```
 
-You should look for the induvidual execution, it will look something like:
+You should look for the individual execution, it will look something like:
 ```text
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=start
 time=2018-04-26T17:47:23Z version=v2.0.6/git@1008306-clean operation=enable seq=0 event=pre-check

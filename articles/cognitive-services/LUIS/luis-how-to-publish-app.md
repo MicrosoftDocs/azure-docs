@@ -1,16 +1,16 @@
 ---
-title: Publish app
-titleSuffix: Language Understanding - Azure Cognitive Services 
+title: Publish app - LUIS
+titleSuffix: Azure Cognitive Services 
 description: When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint.
 services: cognitive-services
 titleSuffix: Azure Cognitive Services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
-ms.topic: conceptual
-ms.date: 01/08/2019
+ms.subservice: language-understanding
+ms.topic: article
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -58,6 +58,6 @@ For more information about the JSON endpoint response with sentiment analysis, s
 
 ## Next steps
 
-* See [Manage keys](./luis-how-to-manage-keys.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
+* See [Manage keys](./luis-how-to-azure-subscription.md) to add keys to Azure subscription key to LUIS and how to set the Bing Spell Check key and include all intents in results.
 * See [Train and test your app](luis-interactive-test.md) for instructions on how to test your published app in the test console.
 

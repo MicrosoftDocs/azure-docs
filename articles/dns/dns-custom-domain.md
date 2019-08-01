@@ -1,23 +1,17 @@
 ---
-title: Integrate Azure DNS with your Azure resources | Microsoft Docs
+title: Integrate Azure DNS with your Azure resources
 description: Learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-documentationcenter: na
 author: vhorne
-manager: jeconnoc
-
 ms.service: dns
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 1/19/2018
+ms.date: 7/13/2019
 ms.author: victorh
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service
 
-Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
+Azure DNS provides DNS for a custom domain for any of your Azure resources that support custom domains or that have a fully qualified domain name (FQDN). An example is you have an Azure web app and you want your users to access it by either using contoso.com, or www\.contoso.com as an FQDN. This article walks you through configuring your Azure service with Azure DNS for using custom domains.
 
 ## Prerequisites
 
@@ -29,7 +23,7 @@ You can configure a vanity or custom domain for [Azure Function Apps](#azure-fun
 
 To configure a custom domain for Azure function apps, a CNAME record is created as well as configuration on the function app itself.
  
-Navigate to **Other** > **Function App** and select your Function App. Click **Platform features** and under **NETWORKING** click **Custom domains**.
+Navigate to **Function App** and select your function app. Click **Platform features** and under **Networking** click **Custom domains**.
 
 ![function app blade](./media/dns-custom-domain/functionapp.png)
 
@@ -47,15 +41,15 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |TTL unit     | Hours        | Hours are used as the time measurement         |
 |Alias     | adatumfunction.azurewebsites.net        | The DNS name you are creating the alias for, in this example it is the adatumfunction.azurewebsites.net DNS name provided by default to the function app.        |
 
-Navigate back to your function app, click **Platform features**, and under **NETWORKING** click **Custom domains**, then under **Hostnames** click **+ Add hostname**.
+Navigate back to your function app, click **Platform features**, and under **Networking** click **Custom domains**, then under **Custom Hostnames** click **+ Add hostname**.
 
-On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record was able to be found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
+On the **Add hostname** blade, enter the CNAME record in the **hostname** text field and click **Validate**. If the record is found, the **Add hostname** button appears. Click **Add hostname** to add the alias.
 
 ![function apps add host name blade](./media/dns-custom-domain/functionaddhostname.png)
 
 ## Public IP address
 
-To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, a CNAME record used.
+To configure a custom domain for services that use a public IP address resource such as Application Gateway, Load Balancer, Cloud Service, Resource Manager VMs, and, Classic VMs, an A record is used.
 
 Navigate to **Networking** > **Public IP address**, select the Public IP resource and click **Configuration**. Notate the IP address shown.
 
@@ -70,7 +64,7 @@ Navigate to your DNS Zone and click **+ Record set**. Fill out the following inf
 |Type     | A        | Use an A record as the resource is an IP address.        |
 |TTL     | 1        | 1 is used for 1 hour        |
 |TTL unit     | Hours        | Hours are used as the time measurement         |
-|IP Address     | <your ip address>       | The public IP address.|
+|IP Address     | `<your ip address>`       | The public IP address.|
 
 ![create an A record](./media/dns-custom-domain/arecord.png)
 
@@ -82,7 +76,7 @@ Once the A record is created, run `nslookup` to validate the record resolves.
 
 The following steps take you through configuring a custom domain for an app service web app.
 
-Navigate to **Web & Mobile** > **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
+Navigate to **App Service** and select the resource you are configuring a custom domain name, and click **Custom domains**.
 
 Note the current url on the **Custom domains** blade, this address is used as the alias for the DNS record created.
 
@@ -111,6 +105,8 @@ Once the process is complete, run **nslookup** to validate name resolution is wo
 ![figure 1](./media/dns-custom-domain/finalnslookup.png)
 
 To learn more about mapping a custom domain to App Service, visit [Map an existing custom DNS name to Azure Web Apps](../app-service/app-service-web-tutorial-custom-domain.md?toc=%dns%2ftoc.json).
+
+To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
 
 If you need to purchase a custom domain, visit [Buy a custom domain name for Azure Web Apps](../app-service/manage-custom-dns-buy-domain.md) to learn more about App Service domains.
 
@@ -145,7 +141,7 @@ To learn more about mapping a custom domain to a blob storage endpoint visit [Co
 
 The following steps take you through configuring a CNAME record for a CDN endpoint using the cdnverify method. This method ensures there is no downtime.
 
-Navigate to **Networking** > **CDN Profiles**, select your CDN profile, and click **Endpoints** under **General**.
+Navigate to **Networking** > **CDN Profiles**, select your CDN profile.
 
 Select the endpoint you are working with and click **+ Custom domain**. Note the **Endpoint hostname** as this value is the record that the CNAME record points to.
 

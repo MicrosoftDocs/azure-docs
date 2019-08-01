@@ -3,22 +3,22 @@ title: Sign in users and call the Microsoft Graph API from an Android app | Micr
 description: Learn how to sign-in users and call the Microsoft Graph API from my Android app.
 services: active-directory
 documentationcenter: android
-author: CelesteDG
-manager: mtillman
-editor: ''
+author: rwike77
+manager: CelesteDG
 
 ms.assetid: da1ee39f-89d3-4d36-96f1-4eabbc662343
 ms.service: active-directory
-ms.component: develop
+ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: celested
-ms.reviewer: dadobali
+ms.date: 05/21/2019
+ms.author: ryanwi
+ms.reviewer: brandwe, jmprieur, saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to sign-in users and call the Microsoft Graph API from my Android app.
+ms.collection: M365-identity-device-management
 ---
 
 # Quickstart: Sign in users and call the Microsoft Graph API from an Android app
@@ -28,7 +28,7 @@ ms.custom: aaddev
 If you're developing an Android application, Microsoft makes it simple and straightforward to sign in Azure Active Directory (Azure AD) users. Azure AD enables your application to access user data through the Microsoft Graph or your own protected web API.
 
 The Azure AD Authentication Library (ADAL) Android library gives your app the ability to begin using the
-[Microsoft Azure Cloud](https://cloud.microsoft.com) and [Microsoft Graph API](https://developer.microsoft.com/graph) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
+[Microsoft Azure Cloud](https://azure.microsoft.com/free/cloud-services/) and [Microsoft Graph API](https://developer.microsoft.com/graph) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/services/active-directory/) using industry standard OAuth 2.0 and OpenID Connect.
 
 In this quickstart, you'll learn how to:
 
@@ -43,7 +43,7 @@ To get started, you'll need an Azure AD tenant where you can create users and re
 
 ## Scenario: Sign in users and call the Microsoft Graph
 
-![Topology](./media/quickstart-v1-android/active-directory-android-topology.png)
+![Shows the Azure AD and Android topology](./media/quickstart-v1-android/active-directory-android-topology.png)
 
 You can use this app for all Azure AD accounts. It supports both single-tenant and multi-tenant scenarios (discussed in steps). It demonstrates how you can build apps to connect with enterprise users and access their Azure + O365 data through the Microsoft Graph. During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app. The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
@@ -84,18 +84,17 @@ You will need to have a native client application registered with Microsoft usin
     - Select ***Azure Active Directory*** > ***App Registrations***.
 
 2. Create the app
-    - Select **New application registration**.
+    - Select **New registration**.
     - Enter an app name in the **Name** field.
-    - In **Application type** select **Native**.
-    - In **Redirect URI**, enter `http://localhost`.
+    - Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
+    - In **Redirect URI**, select **Public client (mobile and desktop)** from the dropdown and enter `http://localhost`.
+    - Click **Register**.
 
 3. Configure Microsoft Graph
-    - Select **Settings > Required permissions**.
-    - Select **Add**, inside **Select an API** select ***Microsoft Graph***.
-    - Select the permission **Sign in and read user profile**, then hit **Select** to save.
-        - This permission maps to the `User.Read` scope.
-    - Optional: Inside **Required permissions > Windows Azure Active Directory**, remove the selected permission **Sign in and read user profile**. This will avoid the user consent page listing the permission twice.
-
+    - Select **API permissions**.
+    - Select **Add a permission**, inside **Select an API** select ***Microsoft Graph***.
+    - Under **Delegated permissions**, select the permission **User.Read**, then hit **Add** to save.        
+    
 4. Congrats! Your app is successfully configured. In the next section, you'll need:
     - `Application ID`
     - `Redirect URI`

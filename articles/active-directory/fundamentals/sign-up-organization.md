@@ -1,18 +1,19 @@
 ---
-title: Sign up your organization to use Azure Active Directory | Microsoft Docs
+title: Sign up your organization - Azure Active Directory | Microsoft Docs
 description: Instructions about how to sign up your organization to use Azure and Azure Active Directory.
 services: active-directory
-author: eross-msft
-manager: mtillman
+author: msaburnley
+manager: daveba
 
 ms.service: active-directory
 ms.workload: identity
-ms.component: fundamentals
+ms.subservice: fundamentals
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: jeffsta
-ms.custom: "it-pro, seodec18"
+ms.custom: "it-pro, seodec18, seo-update-azuread-jan"
+ms.collection: M365-identity-device-management
 ---
 
 # Sign up your organization to use Azure Active Directory
@@ -22,8 +23,8 @@ Sign up for Azure Active Directory (Azure AD) or a new Microsoft Azure subscript
 
 - **Work or school account.** Use your work or school-related account to get access to all the small, medium, and enterprise cloud services from Microsoft, such as Azure, Microsoft Intune, or Office 365. After you sign up for one of these services as an organization, Azure AD automatically provisions a cloud-based directory that represents your organization. For more information, see [Manage your Azure AD directory](active-directory-administer.md).
 
-    >[!Note]
-    We recommend that you use your work or school account if you already have access to Azure AD. However, you should use whichever type of account is associated with your Azure subscription.
+  > [!Note]
+  >   We recommend that you use your work or school account if you already have access to Azure AD. However, you should use whichever type of account is associated with your Azure subscription.
 
 ## Next steps
 

@@ -1,15 +1,15 @@
 ---
 title: Troubleshooting - QnAMaker 
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: QnAMaker comprises of components hosted in the user's Azure account. Debugging may require users to manipulate their QnAMaker Azure resources or provide QnAMaker support team with additional information about their setup.
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+author: diberry
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim
+ms.date: 01/14/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -17,7 +17,8 @@ ms.custom: seodec18
 QnAMaker comprises of components hosted in the user's Azure account. Debugging may require users to manipulate their QnAMaker Azure resources or provide QnAMaker support team with additional information about their setup.
 
 ## How to get latest QnAMaker runtime updates
-QnAMaker runtime is part of the Azure App Service deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in Azure portal. Updates are made periodically to the runtime. To apply the latest updates to apply to your QnAMaker setup, you must restart the App Service.
+QnAMaker runtime is part of the Azure App Service deployed when you [create a QnAMaker service](./set-up-qnamaker-service-azure.md) in Azure portal. Updates are made periodically to the runtime. QnA Maker App Service is on auto update mode post our Apr 2019 site extension release (version 5+). This is already designed to take care of ZERO downtime during upgrades. You can check your current version at https://www.qnamaker.ai/UserSettings. If your version is older than version 5.x, you must restart the App Service to apply the latest updates to apply to your QnAMaker setup.
+
 1. Go to your QnAMaker service (resource group) in the [Azure portal](https://portal.azure.com)
 
     ![QnAMaker Azure resource group](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
@@ -49,4 +50,4 @@ QnAMaker service hostname is useful for debugging purposes when you contact QnAM
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Use QnAMaker API](./upgrade-qnamaker-service.md)
+> [Improve knowledge base questions with Active Learning](./improve-knowledge-base.md)

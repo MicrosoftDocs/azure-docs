@@ -4,7 +4,7 @@ description: Overview of the concept of the Azure compute units for Linux. The A
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 12/05/2017
+ms.date: 12/21/2018
 ms.author: jonbeck
 
 ---

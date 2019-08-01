@@ -1,18 +1,14 @@
 ---
 title: Use Hadoop Oozie workflows in Linux-based Azure HDInsight 
 description: Use Hadoop Oozie in Linux-based HDInsight. Learn how to define an Oozie workflow and submit an Oozie job.
-services: hdinsight
 ms.service: hdinsight
-ms.custom: hdinsightactive
 author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 05/06/2019
 ---
 # Use Apache Oozie with Apache Hadoop to define and run a workflow on Linux-based Azure HDInsight
-
-[!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
 
 Learn how to use Apache Oozie with Apache Hadoop on Azure HDInsight. Oozie is a workflow and coordination system that manages Hadoop jobs. Oozie is integrated with the Hadoop stack, and it supports the following jobs:
 
@@ -29,10 +25,14 @@ You can also use Oozie to schedule jobs that are specific to a system, like Java
 
 ## Prerequisites
 
-* **A regular HDInsight cluster**: See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **A Hadoop cluster on HDInsight**. See [Get Started with HDInsight on Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md).
 
-> [!IMPORTANT]  
-> The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* **An SSH client**. See [Connect to HDInsight (Apache Hadoop) using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).
+
+* **An Azure SQL Database**.  See [Create an Azure SQL database in the Azure portal](../sql-database/sql-database-get-started.md).  This article uses a database named `oozietest`.
+
+* The [URI scheme](./hdinsight-hadoop-linux-information.md#URI-and-scheme) for your clusters primary storage. This would be `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2 or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage or Data Lake Storage Gen2, the URI would be `wasbs://` or `abfss://`, respectively  See also, [secure transfer](../storage/common/storage-require-secure-transfer.md).
+
 
 ## Example workflow
 
@@ -40,7 +40,7 @@ The workflow used in this document contains two actions. Actions are definitions
 
 ![Workflow diagram][img-workflow-diagram]
 
-1. A Hive action runs an HiveQL script to extract records from the **hivesampletable** that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
+1. A Hive action runs an HiveQL script to extract records from the `hivesampletable` that's included with HDInsight. Each row of data describes a visit from a specific mobile device. The record format appears like the following text:
 
         8       18:54:20        en-US   Android Samsung SCH-i500        California     United States    13.9204007      0       0
         23      19:19:44        en-US   Android HTC     Incredible      Pennsylvania   United States    NULL    0       0
@@ -57,15 +57,13 @@ The workflow used in this document contains two actions. Actions are definitions
 
 ## Create the working directory
 
-Oozie expects you to store all the resources required for a job in the same directory. This example uses **wasb:///tutorials/useoozie**. To create this directory, complete the following steps:
+Oozie expects you to store all the resources required for a job in the same directory. This example uses `wasbs:///tutorials/useoozie`. To create this directory, complete the following steps:
 
-1. Connect to the HDInsight cluster by using SSH:
+1. Edit the code below to replace `sshuser` with the SSH user name for the cluster, and replace `clustername` with the name of the cluster.  Then enter the code to connect to the HDInsight cluster by [using SSH](hdinsight-hadoop-linux-use-ssh-unix.md).  
 
     ```bash
     ssh sshuser@clustername-ssh.azurehdinsight.net
     ```
-
-    Replace `sshuser` with the SSH user name for the cluster. Replace `clustername` with the name of the cluster. For more information, see [Use SSH with HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. To create the directory, use the following command:
 
@@ -73,16 +71,14 @@ Oozie expects you to store all the resources required for a job in the same dire
     hdfs dfs -mkdir -p /tutorials/useoozie/data
     ```
 
-    > [!NOTE]
-    > The `-p` parameter causes the creation of all directories in the path. The **data** directory is used to hold the data used by the **useooziewf.hql** script.
+    > [!NOTE]  
+    > The `-p` parameter causes the creation of all directories in the path. The `data` directory is used to hold the data used by the `useooziewf.hql` script.
 
-3. To make sure that Oozie can impersonate your user account, use the following command:
+3. Edit the code below to replace `username` with your SSH user name.  To make sure that Oozie can impersonate your user account, use the following command:
 
     ```bash
     sudo adduser username users
     ```
-
-    Replace `username` with your SSH user name.
 
     > [!NOTE]  
     > You can ignore errors that indicate the user is already a member of the `users` group.
@@ -92,11 +88,11 @@ Oozie expects you to store all the resources required for a job in the same dire
 Because this workflow uses Sqoop to export data to the SQL database, you must provide a copy of the JDBC driver used to interact with the SQL database. To copy the JDBC driver to the working directory, use the following command from the SSH session:
 
 ```bash
-hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc*.jar /tutorials/useoozie/
+hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc*.jar /tutorials/useoozie/
 ```
 
-> [!NOTE]  
-> You may receive a message that the file already exists.
+> [!IMPORTANT]  
+> Verify the actual JDBC driver that exists at `/usr/share/java/`.
 
 If your workflow used other resources, such as a jar that contains a MapReduce application, you need to add those resources as well.
 
@@ -121,15 +117,15 @@ Use the following steps to create a Hive query language (HiveQL) script that def
 
     There are two variables used in the script:
 
-    * `${hiveTableName}`: Contains the name of the table to be created.
+   * `${hiveTableName}`: Contains the name of the table to be created.
 
-    * `${hiveDataFolder}`: Contains the location to store the data files for the table.
+   * `${hiveDataFolder}`: Contains the location to store the data files for the table.
 
-    The workflow definition file, workflow.xml in this tutorial, passes these values to this HiveQL script at runtime.
+     The workflow definition file, workflow.xml in this article, passes these values to this HiveQL script at runtime.
 
-4. To exit the editor, select Ctrl+X. When prompted, select `Y` to save the file, enter `useooziewf.hql` as the file name, and then select **Enter**.
+4. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
 
-5. Use the following commands to copy `useooziewf.hql` to `wasb:///tutorials/useoozie/useooziewf.hql`:
+5. Use the following command to copy `useooziewf.hql` to `wasbs:///tutorials/useoozie/useooziewf.hql`:
 
     ```bash
     hdfs dfs -put useooziewf.hql /tutorials/useoozie/useooziewf.hql
@@ -190,7 +186,7 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
             <arg>1</arg>
             <arg>--input-fields-terminated-by</arg>
             <arg>"\t"</arg>
-            <archive>sqljdbc41.jar</archive>
+            <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
             </sqoop>
         <ok to="end"/>
         <error to="fail"/>
@@ -210,9 +206,9 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
 
      The workflow has several entries, such as `${jobTracker}`. You will replace these entries with the values you use in the job definition. You will create the job definition later in this document.
 
-     Also note the `<archive>sqljdbc4.jar</archive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
+     Also note the `<archive>mssql-jdbc-7.0.0.jre8.jar</archive>` entry in the Sqoop section. This entry instructs Oozie to make this archive available for Sqoop when this action runs.
 
-3. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**. 
+3. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.  
 
 4. Use the following command to copy the `workflow.xml` file to `/tutorials/useoozie/workflow.xml`:
 
@@ -220,15 +216,10 @@ Oozie workflow definitions are written in Hadoop Process Definition Language (hP
     hdfs dfs -put workflow.xml /tutorials/useoozie/workflow.xml
     ```
 
-## Create the database
-
-To create a SQL database, follow the steps in the [Create a SQL database](../sql-database/sql-database-get-started.md) document. When you create the database, use `oozietest` as the database name. Also make a note of the name of the database server.
-
-### Create the table
+## Create a table
 
 > [!NOTE]  
 > There are many ways to connect to SQL Database to create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
-
 
 1. Use the following command to install FreeTDS on the HDInsight cluster:
 
@@ -236,10 +227,10 @@ To create a SQL database, follow the steps in the [Create a SQL database](../sql
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     ```
 
-2. After FreeTDS has been installed, use the following command to connect to the SQL database server you created previously:
+2. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  Enter the command to connect to the prerequisite SQL database.  Enter the password at the prompt.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -P <sqlPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     You receive output like the following text:
@@ -261,7 +252,7 @@ To create a SQL database, follow the steps in the [Create a SQL database](../sql
     GO
     ```
 
-    When the `GO` statement is entered, the previous statements are evaluated. These statements create a table, named **mobiledata**, that's used by the workflow.
+    When the `GO` statement is entered, the previous statements are evaluated. These statements create a table, named `mobiledata`, that's used by the workflow.
 
     To verify that the table has been created, use the following commands:
 
@@ -273,9 +264,9 @@ To create a SQL database, follow the steps in the [Create a SQL database](../sql
     You see output like the following text:
 
         TABLE_CATALOG   TABLE_SCHEMA    TABLE_NAME      TABLE_TYPE
-        oozietest       dbo     mobiledata      BASE TABLE
+        oozietest       dbo             mobiledata      BASE TABLE
 
-4. To exit the tsql utility, enter `exit` at the `1>` prompt.
+4. Exit the tsql utility by entering `exit` at the `1>` prompt.
 
 ## Create the job definition
 
@@ -291,21 +282,23 @@ The job definition describes where to find the workflow.xml. It also describes w
 
     ```xml
     <name>fs.defaultFS</name>
-    <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+    <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
     ```
 
     > [!NOTE]  
-    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasb://`. If Azure Data Lake Storage is used instead, it begins with `adl://`.
+    > If the HDInsight cluster uses Azure Storage as the default storage, the `<value>` element contents begin with `wasbs://`. If Azure Data Lake Storage Gen1 is used instead, it begins with `adl://`. If Azure Data Lake Storage Gen2 is used, it begins with `abfs://`.
 
     Save the contents of the `<value>` element, as it's used in the next steps.
 
-2. To create the Oozie job definition configuration, use the following command:
+2. Edit the xml below as follows:
 
-    ```bash
-    nano job.xml
-    ```
-
-3. After the nano editor opens, use the following XML as the contents of the file:
+    |Placeholder value| Replaced value|
+    |---|---|
+    |wasbs://mycontainer\@mystorageaccount.blob.core.windows.net| Value received from step 1.|
+    |admin| Your login name for the HDInsight cluster if not admin.|
+    |serverName| Azure SQL database server name.|
+    |sqlLogin| Azure SQL database server login.|
+    |sqlPassword| Azure SQL database server login password.|
 
     ```xml
     <?xml version="1.0" encoding="UTF-8"?>
@@ -313,7 +306,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>nameNode</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net</value>
         </property>
 
         <property>
@@ -333,7 +326,7 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>hiveScript</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/useooziewf.hql</value>
         </property>
 
         <property>
@@ -343,12 +336,12 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>hiveDataFolder</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie/data</value>
         </property>
 
         <property>
         <name>sqlDatabaseConnectionString</name>
-        <value>"jdbc:sqlserver://serverName.database.windows.net;user=adminLogin;password=adminPassword;database=oozietest"</value>
+        <value>"jdbc:sqlserver://serverName.database.windows.net;user=sqlLogin;password=sqlPassword;database=oozietest"</value>
         </property>
 
         <property>
@@ -358,28 +351,25 @@ The job definition describes where to find the workflow.xml. It also describes w
 
         <property>
         <name>user.name</name>
-        <value>YourName</value>
+        <value>admin</value>
         </property>
 
         <property>
         <name>oozie.wf.application.path</name>
-        <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+        <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
     </configuration>
     ```
 
-   * Replace all instances of `wasb://mycontainer@mystorageaccount.blob.core.windows.net` with the value you received earlier for the default storage.
+    Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files, such as `${nameNode}`.  If the path is a `wasbs` path, you must use the full path. Do not shorten it to just `wasbs:///`. The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
 
-     > [!WARNING]  
-     > If the path is a `wasb` path, you must use the full path. Do not shorten it to just `wasb:///`.
+3. To create the Oozie job definition configuration, use the following command:
 
-   * Replace `YourName` with your login name for the HDInsight cluster.
-   * Replace `serverName`, `adminLogin`, and `adminPassword` with the information for your SQL database.
+    ```bash
+    nano job.xml
+    ```
 
-     Most of the information in this file is used to populate the values used in the workflow.xml or ooziewf.hql files, such as `${nameNode}`.
-
-     > [!NOTE]  
-     > The `oozie.wf.application.path` entry defines where to find the workflow.xml file. This file contains the workflow that was run by this job.
+4. After the nano editor opens, paste the edited XML as the contents of the file.
 
 5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
@@ -389,7 +379,6 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
 > [!IMPORTANT]  
 > When you use the Oozie command, you must use the FQDN for the HDInsight head node. This FQDN is only accessible from the cluster, or if the cluster is on an Azure virtual network, from other machines on the same network.
-
 
 1. To obtain the URL to the Oozie service, use the following command:
 
@@ -406,13 +395,12 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     The `http://hn0-CLUSTERNAME.randomcharacters.cx.internal.cloudapp.net:11000/oozie` portion is the URL to use with the Oozie command.
 
-2. To create an environment variable for the URL, use the following, so you don't have to enter it for every command:
+2. Edit the code to replace the URL with the one you received earlier. To create an environment variable for the URL, use the following, so you don't have to enter it for every command:
 
     ```bash
     export OOZIE_URL=http://HOSTNAMEt:11000/oozie
     ```
 
-    Replace the URL with the one you received earlier.
 3. To submit the job, use the following:
 
     ```bash
@@ -423,14 +411,11 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     After the command finishes, it should return the ID of the job, for example, `0000005-150622124850154-oozie-oozi-W`. This ID is used to manage the job.
 
-4. To view the status of the job, use the following command:
+4. Edit the code below to replace `<JOBID>` with the ID returned in the previous step.  To view the status of the job, use the following command:
 
     ```bash
     oozie job -info <JOBID>
     ```
-
-    > [!NOTE]  
-    > Replace `<JOBID>` with the ID returned in the previous step.
 
     This returns information like the following text:
 
@@ -451,21 +436,18 @@ The following steps use the Oozie command to submit and manage Oozie workflows o
 
     This job has a status of `PREP`. This status indicates that the job was created, but not started.
 
-5. To start the job, use the following command:
+5. Edit the code below to replace `<JOBID>` with the ID returned previously.  To start the job, use the following command:
 
     ```bash
-    oozie job -start JOBID
+    oozie job -start <JOBID>
     ```
 
-    > [!NOTE]  
-    > Replace `<JOBID>` with the ID returned previously.
+    If you check the status after this command, it's in a running state, and information is returned for the actions within the job.  The job will take a few minutes to complete.
 
-    If you check the status after this command, it's in a running state, and information is returned for the actions within the job.
-
-6. After the task finishes successfully, you can verify that the data was generated and exported to the SQL database table by using the following command:
+6. Edit the code below to replace `<serverName>` with your Azure SQL server name, and `<sqlLogin>` with the Azure SQL server login.  After the task finishes successfully, you can verify that the data was generated and exported to the SQL database table by using the following command.  Enter the password at the prompt.
 
     ```bash
-    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <adminLogin> -P <adminPassword> -p 1433 -D oozietest
+    TDSVER=8.0 tsql -H <serverName>.database.windows.net -U <sqlLogin> -p 1433 -D oozietest
     ```
 
     At the `1>` prompt, enter the following query:
@@ -518,7 +500,7 @@ To access the Oozie web UI, complete the following steps:
 
 1. Create an SSH tunnel to the HDInsight cluster. For more information, see [Use SSH Tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md).
 
-2. After you create a tunnel, open the Ambari web UI in your web browser. The URI for the Ambari site is `https://CLUSTERNAME.azurehdinsight.net`. Replace `CLUSTERNAME` with the name of your Linux-based HDInsight cluster.
+2. After you create a tunnel, open the Ambari web UI in your web browser using URI `http://headnodehost:8080`.
 
 3. From the left side of the page, select **Oozie** > **Quick Links** > **Oozie Web UI**.
 
@@ -587,9 +569,9 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
     hadoop fs -put coordinator.xml /tutorials/useoozie/coordinator.xml
     ```
 
-4. To modify the `job.xml` file, use the following command:
+4. To modify the `job.xml` file you created earlier, use the following command:
 
-    ```
+    ```bash
     nano job.xml
     ```
 
@@ -602,23 +584,23 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
         ```xml
         <property>
             <name>workflowPath</name>
-            <value>wasb://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
+            <value>wasbs://mycontainer@mystorageaccount.blob.core.windows.net/tutorials/useoozie</value>
         </property>
         ```
 
-       Replace the `wasb://mycontainer@mystorageaccount.blob.core.windows` text with the value used in the other entries in the job.xml file.
+       Replace the `wasbs://mycontainer@mystorageaccount.blob.core.windows` text with the value used in the other entries in the job.xml file.
 
    * To define the start, end, and frequency for the coordinator, add the following XML:
 
         ```xml
         <property>
             <name>coordStart</name>
-            <value>2017-05-10T12:00Z</value>
+            <value>2018-05-10T12:00Z</value>
         </property>
 
         <property>
             <name>coordEnd</name>
-            <value>2017-05-12T12:00Z</value>
+            <value>2018-05-12T12:00Z</value>
         </property>
 
         <property>
@@ -632,17 +614,15 @@ You can use the coordinator to specify a start, an end, and the occurrence frequ
         </property>
         ```
 
-       These values set the start time to 12:00 PM on May 10, 2017, and the end time to May 12, 2017. The interval for running this job is set to daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the time zone is set to UTC.
+       These values set the start time to 12:00 PM on May 10, 2018, and the end time to May 12, 2018. The interval for running this job is set to daily. The frequency is in minutes, so 24 hours x 60 minutes = 1440 minutes. Finally, the time zone is set to UTC.
 
 5. To save the file, select Ctrl+X, enter `Y`, and then select **Enter**.
 
-6. To run the job, use the following command:
+6. To submit and start the job, use the following command:
 
-    ```
+    ```bash
     oozie job -config job.xml -run
     ```
-
-    This command submits and starts the job.
 
 7. If you go to the Oozie web UI and select the **Coordinator Jobs** tab, you see information like in the following image:
 
@@ -677,11 +657,11 @@ The following are specific errors you might encounter and how to resolve them.
 
     JA009: Cannot initialize Cluster. Please check your configuration for map
 
-**Cause**: The Azure Blob storage addresses used in the **job.xml** file doesn't contain the storage container or storage account name. The Blob storage address format must be `wasb://containername@storageaccountname.blob.core.windows.net`.
+**Cause**: The Azure Blob storage addresses used in the **job.xml** file doesn't contain the storage container or storage account name. The Blob storage address format must be `wasbs://containername@storageaccountname.blob.core.windows.net`.
 
 **Resolution**: Change the Blob storage addresses that the job uses.
 
-### JA002: Oozie is not allowed to impersonate &lt;USER>
+### JA002: Oozie is not allowed to impersonate &lt;USER&gt;
 
 **Symptoms**: The job status changes to **SUSPENDED**. Details for the job show the `RunHiveScript` status as **START_MANUAL**. If you select the action, it shows the following error message:
 
@@ -708,23 +688,22 @@ The following are specific errors you might encounter and how to resolve them.
 
 For example, for the job in this document, you would use the following steps:
 
-1. Copy the `sqljdbc4.1.jar` file to the **/tutorials/useoozie** directory:
+1. Copy the `mssql-jdbc-7.0.0.jre8.jar` file to the **/tutorials/useoozie** directory:
 
     ```bash
-    hdfs dfs -put /usr/share/java/sqljdbc_4.1/enu/sqljdbc41.jar /tutorials/useoozie/sqljdbc41.jar
+    hdfs dfs -put /usr/share/java/sqljdbc_7.0/enu/mssql-jdbc-7.0.0.jre8.jar /tutorials/useoozie/mssql-jdbc-7.0.0.jre8.jar
     ```
 
 2. Modify the `workflow.xml` to add the following XML on a new line above `</sqoop>`:
 
     ```xml
-    <archive>sqljdbc41.jar</archive>
+    <archive>mssql-jdbc-7.0.0.jre8.jar</archive>
     ```
 
 ## Next steps
 
-In this tutorial, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
+In this article, you learned how to define an Oozie workflow and how to run an Oozie job. To learn more about how to work with HDInsight, see the following articles:
 
-* [Use the time-based Apache Oozie Coordinator with HDInsight][hdinsight-oozie-coordinator-time]
 * [Upload data for Apache Hadoop jobs in HDInsight][hdinsight-upload-data]
 * [Use Apache Sqoop with Apache Hadoop in HDInsight][hdinsight-use-sqoop]
 * [Use Apache Hive with Apache Hadoop on HDInsight][hdinsight-use-hive]
@@ -733,7 +712,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [hdinsight-cmdlets-download]: https://go.microsoft.com/fwlink/?LinkID=325563
 [azure-data-factory-pig-hive]: ../data-factory/transform-data.md
-[hdinsight-oozie-coordinator-time]: hdinsight-use-oozie-coordinator-time.md
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-use-blob-storage.md
 [hdinsight-get-started]: hdinsight-get-started.md
@@ -763,8 +741,8 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [cindygross-hive-tables]: https://blogs.msdn.com/b/cindygross/archive/2013/02/06/hdinsight-hive-internal-and-external-tables-intro.aspx
 
-[img-workflow-diagram]: ./media/hdinsight-use-oozie/HDI.UseOozie.Workflow.Diagram.png
-[img-preparation-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.Preparation.Output1.png
+[img-workflow-diagram]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Workflow.Diagram.png
+[img-preparation-output]: ./media/hdinsight-use-oozie-linux-mac/HDI.UseOozie.Preparation.Output1.png
 [img-runworkflow-output]: ./media/hdinsight-use-oozie/HDI.UseOozie.RunWF.Output.png
 
 [technetwiki-hive-error]: https://social.technet.microsoft.com/wiki/contents/articles/23047.hdinsight-hive-error-unable-to-rename.aspx

@@ -1,22 +1,22 @@
 ---
 title: "Quickstart: Detect and frame faces in an image with the Python SDK"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will create a simple Python script that uses the Face API to detect and frame faces in a remote image. 
+description: In this quickstart, you will create a Python script that uses the Face API to detect and frame faces in a remote image. 
 services: cognitive-services
 author: SteveMSFT
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/13/2018
+ms.date: 07/15/2019
 ms.author: sbowles
-#Customer intent: As a Python developer, I want to implement a simple Face detection scenario with the Python SDK, so that I can build more complex scenarios later on.
+#Customer intent: As a Python developer, I want to implement a Face detection scenario with the Python SDK, so that I can build more complex scenarios later on.
 ---
 
 # Quickstart: Create a Python script to detect and frame faces in an image
 
-In this quickstart, you will create a simple Python script that uses the Azure Face API, through the Python SDK, to detect human faces in a remote image. The application displays a selected image and draws a frame around each detected face.
+In this quickstart, you will create a Python script that uses the Azure Face API, through the Python SDK, to detect human faces in a remote image. The application displays a selected image and draws a frame around each detected face.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
@@ -36,17 +36,19 @@ pip install cognitive_face
 
 ## Detect Faces in an image
 
-Create a new Python script named _FaceQuickstart.py_ and add the following code. This is the core functionality of face detection. You will need to replace `<Subscription Key>` with the value of your key. You may also need to change the value of `BASE_URL` to use the correct region identifier for your key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). Free trial subscription keys are generated in the **westus** region. Optionally, set `img_url` to the URL of any image you'd like to use.
+Create a new Python script named _FaceQuickstart.py_ and add the following code. This code handles the core functionality of face detection. You will need to replace `<Subscription Key>` with the value of your key. You may also need to change the value of `BASE_URL` to use the correct region identifier for your key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). Free trial subscription keys are generated in the **westus** region. Optionally, set `img_url` to the URL of any image you'd like to use.
 
 The script will detect faces by calling the **cognitive_face.face.detect** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of faces.
 
 ```python
 import cognitive_face as CF
 
-KEY = '<Subscription Key>'  # Replace with a valid subscription key (keeping the quotes in place).
+# Replace with a valid subscription key (keeping the quotes in place).
+KEY = '<Subscription Key>'
 CF.Key.set(KEY)
 
-BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'  # Replace with your regional Base URL
+# Replace with your regional Base URL
+BASE_URL = 'https://westus.api.cognitive.microsoft.com/face/v1.0/'
 CF.BaseUrl.set(BASE_URL)
 
 # You can use this example JPG or replace the URL below with your own URL to a JPEG image.
@@ -59,11 +61,11 @@ print(faces)
 
 Run the app with the command `python FaceQuickstart.py`. You should get a text response in the console window, like the following:
 
-```shell
+```console
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-This is a list of detected faces. Each item in the list is a **dict** instance where `faceId` is a unique ID for the detected face and `faceRectangle` describes the position of the detected face. 
+The output represents a list of detected faces. Each item in the list is a **dict** instance where `faceId` is a unique ID for the detected face and `faceRectangle` describes the position of the detected face. 
 
 > [!NOTE]
 > Face IDs expire after 24 hours; you will need to store face data explicitly if you wish to keep it long-term.
@@ -78,10 +80,12 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Then, at the bottom of your script, add the following code. This creates a simple function for parsing the rectangle coordinates, and uses Pillow to draw rectangles on the original image. Then, it displays the image in your default image viewer.
+Then, at the bottom of your script, add the following code. This code creates a simple function for parsing the rectangle coordinates, and uses Pillow to draw rectangles on the original image. Then, it displays the image in your default image viewer.
 
 ```python
-#Convert width height to a point in a rectangle
+# Convert width height to a point in a rectangle
+
+
 def getRectangle(faceDictionary):
     rect = faceDictionary['faceRectangle']
     left = rect['left']
@@ -90,16 +94,17 @@ def getRectangle(faceDictionary):
     right = top + rect['width']
     return ((left, top), (bottom, right))
 
-#Download the image from the url
+
+# Download the image from the url
 response = requests.get(img_url)
 img = Image.open(BytesIO(response.content))
 
-#For each face returned use the face rectangle and draw a red box.
+# For each face returned use the face rectangle and draw a red box.
 draw = ImageDraw.Draw(img)
 for face in faces:
     draw.rectangle(getRectangle(face), outline='red')
 
-#Display the image in the users default image browser.
+# Display the image in the users default image browser.
 img.show()
 ```
 

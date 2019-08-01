@@ -1,64 +1,60 @@
 ---
-title: "Tutorial: Perform image operations - JavaScript"
-titlesuffix: Azure Cognitive Services
+title: "Perform image operations - JavaScript"
+titleSuffix: Azure Cognitive Services
 description: Explore a basic JavaScript app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: computer-vision
-ms.topic: tutorial
-ms.date: 09/19/2017
+ms.subservice: computer-vision
+ms.topic: conceptual
+ms.date: 04/30/2019
 ms.author: kefre
 ms.custom: seodec18
 ---
 
-# Tutorial: Computer Vision API JavaScript
+# Use Computer Vision features with the REST API and JavaScript
 
-This tutorial shows the features of the Azure Cognitive Services Computer Vision REST API.
+This guide shows the features of the Azure Cognitive Services Computer Vision REST API.
 
 Explore a JavaScript application that uses the Computer Vision REST API to perform optical character recognition (OCR), create smart-cropped thumbnails, plus detect, categorize, tag, and describe visual features, including faces, in an image. This example lets you submit an image URL for analysis or processing. You can use this open source example as a template for building your own JavaScript app to use the Computer Vision REST API.
 
-The JavaScript form application has already been written, but has no Computer Vision functionality. In this tutorial, you add the code specific to the Computer Vision REST API to complete the application's functionality.
+The JavaScript form application has already been written, but has no Computer Vision functionality. In this guide, you add the code specific to the Computer Vision REST API to complete the application's functionality.
 
 ## Prerequisites
 
 ### Platform requirements
 
-This tutorial has been developed using a simple text editor.
+You can follow the steps in this guide using a simple text editor.
 
-### Subscribe to Computer Vision API and get a subscription key 
+### Subscribe to Computer Vision API and get a subscription key
 
-Before creating the example, you must subscribe to Computer Vision API which is part of the Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this tutorial. 
+Before creating the example, you must subscribe to Computer Vision API which is part of the Azure Cognitive Services. For subscription and key management details, see [Subscriptions](https://azure.microsoft.com/try/cognitive-services/). Both the primary and secondary keys are valid to use in this guide.
 
-## Acquire the incomplete tutorial project
+## Acquire incomplete tutorial project
 
-### Download the tutorial project
+### Download the project
 
 Clone the [Cognitive Services JavaScript Computer Vision Tutorial](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial), or download the .zip file and extract it to an empty directory.
 
-If you would prefer to use the finished tutorial with all tutorial code added, you can use the files in the **Completed** folder.
+If you would prefer to use the finished project with all tutorial code added, you can use the files in the **Completed** folder.
 
-## Add the tutorial code to the project
+## Add tutorial code to the project
 
-The JavaScript application is set up with six .html files, one for each feature. Each file demonstrates a different function of Computer Vision (analyze, OCR, etc). The six tutorial sections do not have interdependencies, so you can add the tutorial code to one file, all six files, or only a couple of files. And you can add the tutorial code to the files in any order.
-
-Let's get started.
+The JavaScript application is set up with six .html files, one for each feature. Each file demonstrates a different function of Computer Vision (analyze, OCR, etc.). The six sections do not have interdependencies, so you can add the tutorial code to one file, all six files, or only a couple of files. And you can add the tutorial code to the files in any order.
 
 ### Analyze an image
 
-The Analyze feature of Computer Vision scans an image for more than 2,000 recognizable objects, living things, scenery, and actions. Once the analysis is complete, Analyze returns a JSON object that describes the image with descriptive tags, color analysis, captions, and more.
+The Analyze feature of Computer Vision scans an image for thousands of recognizable objects, living things, scenery, and actions. Once the analysis is complete, Analyze returns a JSON object that describes the image with descriptive tags, color analysis, captions, and more.
 
-To complete the Analyze feature of the tutorial application, perform the following steps:
+To complete the Analyze feature of the application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the analyze button
 
 Open the **analyze.html** file in a text editor and locate the **analyzeButtonClick** function near the bottom of the file.
 
-The **analyzeButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **AnalyzeImage** function to analyze the image.
-
-Copy and paste the following code into the **analyzeButtonClick** function.
+The **analyzeButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **AnalyzeImage** function to analyze the image. Copy and paste the following code into the **analyzeButtonClick** function.
 
 ```javascript
 function analyzeButtonClick() {
@@ -150,7 +146,7 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### Run the application
+#### Run the Analyze function
 
 Save the **analyze.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
@@ -158,15 +154,13 @@ Save the **analyze.html** file and open it in a Web browser. Put your subscripti
 
 The Landmark feature of Computer Vision analyzes an image for natural and artificial landmarks, such as mountains or famous buildings. Once the analysis is complete, Landmark returns a JSON object that identifies the landmarks found in the image.
 
-To complete the Landmark feature of the tutorial application, perform the following steps:
+To complete the Landmark feature of the application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the landmark button
 
 Open the **landmark.html** file in a text editor and locate the **landmarkButtonClick** function near the bottom of the file.
 
-The **landmarkButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **IdentifyLandmarks** function to analyze the image.
-
-Copy and paste the following code into the **landmarkButtonClick** function.
+The **landmarkButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **IdentifyLandmarks** function to analyze the image. Copy and paste the following code into the **landmarkButtonClick** function.
 
 ```javascript
 function landmarkButtonClick() {
@@ -257,7 +251,7 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### Run the application
+#### Run the landmark function
 
 Save the **landmark.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
@@ -265,15 +259,13 @@ Save the **landmark.html** file and open it in a Web browser. Put your subscript
 
 The Celebrities feature of Computer Vision analyzes an image for famous people. Once the analysis is complete, Celebrities returns a JSON object that identifies the Celebrities found in the image.
 
-To complete the Celebrities feature of the tutorial application, perform the following steps:
+To complete the Celebrities feature of the application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the celebrities button
 
 Open the **celebrities.html** file in a text editor and locate the **celebritiesButtonClick** function near the bottom of the file.
 
-The **celebritiesButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **IdentifyCelebrities** function to analyze the image.
-
-Copy and paste the following code into the **celebritiesButtonClick** function.
+The **celebritiesButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **IdentifyCelebrities** function to analyze the image. Copy and paste the following code into the **celebritiesButtonClick** function.
 
 ```javascript
 function celebritiesButtonClick() {
@@ -360,7 +352,7 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-#### Run the application
+#### Run the celebrities function
 
 Save the **celebrities.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Analyze Image** button to analyze an image and see the result.
 
@@ -368,15 +360,13 @@ Save the **celebrities.html** file and open it in a Web browser. Put your subscr
 
 The Thumbnail feature of Computer Vision generates a thumbnail from an image. By using the **Smart Crop** feature, the Thumbnail feature will identify the area of interest in an image and center the thumbnail on this area, to generate more aesthetically pleasing thumbnail images.
 
-To complete the Thumbnail feature of the tutorial application, perform the following steps:
+To complete the Thumbnail feature of the application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the thumbnail button
 
 Open the **thumbnail.html** file in a text editor and locate the **thumbnailButtonClick** function near the bottom of the file.
 
-The **thumbnailButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **getThumbnail** function twice to create two thumbnails, one smart cropped and one without smart crop.
-
-Copy and paste the following code into the **thumbnailButtonClick** function.
+The **thumbnailButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **getThumbnail** function twice to create two thumbnails, one smart cropped and one without smart crop. Copy and paste the following code into the **thumbnailButtonClick** function.
 
 ```javascript
 function thumbnailButtonClick() {
@@ -415,7 +405,7 @@ Copy and paste the following **getThumbnail** function to just underneath the **
  * @param {boolean} smartCropping Set to true to use the smart cropping feature which crops to the
  *                                more interesting area of an image; false to crop for the center
  *                                of the image.
- * @param {<img> element} imageElement The img element in the DOM which will display the thumnail image.
+ * @param {<img> element} imageElement The img element in the DOM which will display the thumbnail image.
  * @param {<textarea> element} responseTextArea - The text area to display the Response Headers returned
  *                             from the REST API call, or to display the error message if there was 
  *                             an error.
@@ -481,7 +471,7 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-#### Run the application
+#### Run the thumbnail function
 
 Save the **thumbnail.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image to analyze, then click the **Generate Thumbnails** button to analyze an image and see the result.
 
@@ -489,15 +479,13 @@ Save the **thumbnail.html** file and open it in a Web browser. Put your subscrip
 
 The Optical Character Recognition (OCR) feature of Computer Vision analyzes an image of printed text. After the analysis is complete, OCR returns a JSON object that contains the text and the location of the text in the image.
 
-To complete the OCR feature of the tutorial application, perform the following steps:
+To complete the OCR feature of the application, perform the following steps:
 
-### OCR step 1: Add the event handler code for the form button
+### Add the event handler code for the OCR button
 
 Open the **ocr.html** file in a text editor and locate the **ocrButtonClick** function near the bottom of the file.
 
-The **ocrButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **ReadOcrImage** function to analyze the image.
-
-Copy and paste the following code into the **ocrButtonClick** function.
+The **ocrButtonClick** event handler function clears the form, displays the image specified in the URL, then calls the **ReadOcrImage** function to analyze the image. Copy and paste the following code into the **ocrButtonClick** function.
 
 ```javascript
 function ocrButtonClick() {
@@ -576,17 +564,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### Run the application
+#### Run the OCR function
 
 Save the **ocr.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image of text to read, then click the **Read Image** button to analyze an image and see the result.
 
-### Read handwritten text (Handwriting Recognition)
+### Read handwritten text (handwriting recognition)
 
 The Handwriting Recognition feature of Computer Vision analyzes an image of handwritten text. After the analysis is complete, Handwriting Recognition returns a JSON object that contains the text and the location of the text in the image.
 
-To complete the Handwriting Recognition feature of the tutorial application, perform the following steps:
+To complete the Handwriting Recognition feature of the application, perform the following steps:
 
-#### Add the event handler code for the form button
+#### Add the event handler code for the handwriting button
 
 Open the **handwriting.html** file in a text editor and locate the **handwritingButtonClick** function near the bottom of the file.
 
@@ -631,7 +619,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
         "handwriting": "true",
     };
 
-    // This operation requrires two REST API calls. One to submit the image for processing,
+    // This operation requires two REST API calls. One to submit the image for processing,
     // the other to retrieve the text found in the image. 
     //
     // Perform the first REST API call to submit the image for processing.
@@ -735,11 +723,12 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-#### Run the application
+#### Run the handwriting function
 
 Save the **handwriting.html** file and open it in a Web browser. Put your subscription key into the **Subscription Key** field and verify that you are using the correct region in **Subscription Region**. Enter a URL to an image of text to read, then click the **Read Image** button to analyze an image and see the result.
 
 ## Next steps
 
-- [Computer Vision API C&#35; Tutorial](CSharpTutorial.md)
-- [Computer Vision API Python Tutorial](PythonTutorial.md)
+In this guide, you used the Computer Vision REST API with JavaScript to test many of the available image analysis features. Next, see the reference documentation to learn more about the APIs involved.
+
+- [Computer Vision REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa)

@@ -3,6 +3,7 @@ title: Deploy to Azure Container Instances from Azure Container Registry
 description: Learn how to deploy containers in Azure Container Instances using container images in an Azure container registry.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article
@@ -25,11 +26,11 @@ ms.custom: mvc
 
 In any production scenario, access to an Azure container registry should be provided by using [service principals](../container-registry/container-registry-auth-service-principal.md). Service principals allow you to provide [role-based access control](../container-registry/container-registry-roles.md) to your container images. For example, you can configure a service principal with pull-only access to a registry.
 
-In this section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault.
+In the following section, you create an Azure key vault and a service principal, and store the service principal's credentials in the vault. 
 
 ### Create key vault
 
-If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](../key-vault/key-vault-overview.md), create one with the Azure CLI using the following commands.
 
 Update the `RES_GROUP` variable with the name of an existing resource group in which to create the key vault, and `ACR_NAME` with the name of your container registry. Specify a name for your new key vault in `AKV_NAME`. The vault name must be unique within Azure and must be 3-24 alphanumeric characters in length, begin with a letter, end with a letter or digit, and cannot contain consecutive hyphens.
 
@@ -130,9 +131,11 @@ For details on referencing Azure Key Vault secrets in a Resource Manager templat
 
 ## Deploy with Azure portal
 
-If you maintain container images in the Azure Container Registry, you can easily create a container in Azure Container Instances using the Azure portal.
+If you maintain container images in an Azure container registry, you can easily create a container in Azure Container Instances using the Azure portal. When using the portal to deploy a container instance from a container registry, you must enable the registry's [admin account](../container-registry/container-registry-authentication.md#admin-account). The admin account is designed for a single user to access the registry, mainly for testing purposes. 
 
 1. In the Azure portal, navigate to your container registry.
+
+1. To confirm that the admin account is enabled, select **Access keys**, and under **Admin user** select **Enable**.
 
 1. Select **Repositories**, then select the repository that you want to deploy from, right-click the tag for the container image you want to deploy, and select **Run instance**.
 
@@ -157,7 +160,7 @@ For more information about Azure Container Registry authentication, see [Authent
 
 <!-- LINKS - External -->
 [cloud-shell-bash]: https://shell.azure.com/bash
-[cloud-shell-powershell]: https://shell.azure.com/powershell
+[cloud-shell-try-it]: https://shell.azure.com/powershell
 
 <!-- LINKS - Internal -->
 [az-acr-show]: /cli/azure/acr#az-acr-show

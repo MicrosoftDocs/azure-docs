@@ -1,33 +1,28 @@
 ---
 title: Generate recommendations using Apache Mahout and HDInsight (SSH) - Azure 
 description: Learn how to use the Apache Mahout machine learning library to generate movie recommendations with HDInsight (Hadoop).
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-
-
+ms.date: 04/24/2019
 ---
+
 # Generate movie recommendations by using Apache Mahout with Linux-based Apache Hadoop in HDInsight (SSH)
 
 [!INCLUDE [mahout-selector](../../../includes/hdinsight-selector-mahout.md)]
 
 Learn how to use the [Apache Mahout](https://mahout.apache.org) machine learning library with Azure HDInsight to generate movie recommendations.
 
-Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
+Mahout is a [machine learning](https://en.wikipedia.org/wiki/Machine_learning) library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you use a recommendation engine to generate movie recommendations that are based on movies your friends have seen.
 
 ## Prerequisites
 
-* A Linux-based HDInsight cluster. For information about creating one, see [Get started using Linux-based Hadoop in HDInsight][getstarted].
+* An Apache Hadoop cluster on HDInsight. See [Get Started with HDInsight on Linux](./apache-hadoop-linux-tutorial-get-started.md).
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-* An SSH client. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
+* An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) using SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## Apache Mahout versioning
 
@@ -47,7 +42,7 @@ The following workflow is a simplified example that uses movie data:
 
 ### Understanding the data
 
-Conveniently, [GroupLens Research][movielens] provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
+Conveniently, [GroupLens Research](https://grouplens.org/datasets/movielens/) provides rating data for movies in a format that is compatible with Mahout. This data is available on your cluster's default storage at `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 There are two files, `moviedb.txt` and `user-ratings.txt`. The `user-ratings.txt` file is used during analysis. The `moviedb.txt` is used to provide user-friendly text information when viewing the results.
 
@@ -166,23 +161,23 @@ mahout recommenditembased -s SIMILARITY_COOCCURRENCE -i /HdiSamples/HdiSamples/M
 
     This command looks at the recommendations generated for user ID 4.
 
-    * The **user-ratings.txt** file is used to retrieve movies that have been rated.
+   * The **user-ratings.txt** file is used to retrieve movies that have been rated.
 
-    * The **moviedb.txt** file is used to retrieve the names of the movies.
+   * The **moviedb.txt** file is used to retrieve the names of the movies.
 
-    * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
+   * The **recommendations.txt** is used to retrieve the movie recommendations for this user.
 
      The output from this command is similar to the following text:
 
-        Seven Years in Tibet (1997), score=5.0
-        Indiana Jones and the Last Crusade (1989), score=5.0
-        Jaws (1975), score=5.0
-        Sense and Sensibility (1995), score=5.0
-        Independence Day (ID4) (1996), score=5.0
-        My Best Friend's Wedding (1997), score=5.0
-        Jerry Maguire (1996), score=5.0
-        Scream 2 (1997), score=5.0
-        Time to Kill, A (1996), score=5.0
+       Seven Years in Tibet (1997), score=5.0
+       Indiana Jones and the Last Crusade (1989), score=5.0
+       Jaws (1975), score=5.0
+       Sense and Sensibility (1995), score=5.0
+       Independence Day (ID4) (1996), score=5.0
+       My Best Friend's Wedding (1997), score=5.0
+       Jerry Maguire (1996), score=5.0
+       Scream 2 (1997), score=5.0
+       Time to Kill, A (1996), score=5.0
 
 ## Delete temporary data
 
@@ -205,15 +200,3 @@ Now that you have learned how to use Mahout, discover other ways of working with
 * [Apache Hive with HDInsight](hdinsight-use-hive.md)
 * [Apache Pig with HDInsight](hdinsight-use-pig.md)
 * [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
-
-[build]: https://mahout.apache.org/developers/buildingmahout.html
-[movielens]: https://grouplens.org/datasets/movielens/
-[100k]: https://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]:apache-hadoop-linux-tutorial-get-started.md
-[upload]: hdinsight-upload-data.md
-[ml]: https://en.wikipedia.org/wiki/Machine_learning
-[forest]: https://en.wikipedia.org/wiki/Random_forest
-[enableremote]: ./media/hdinsight-mahout/enableremote.png
-[connect]: ./media/hdinsight-mahout/connect.png
-[hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
-[tools]: https://github.com/Blackmist/hdinsight-tools

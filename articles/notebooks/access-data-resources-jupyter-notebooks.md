@@ -7,7 +7,7 @@ author: kraigb
 manager: douge
 
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -38,7 +38,7 @@ import requests
 data_url = 'https://data.cityofnewyork.us/resource/gkne-dk5s.json'
 
 # General data request; include other API keys and credentials as needed in the data argument
-response = requests.get(data_url, data={"limit" : "20"})
+response = requests.get(data_url, data={"limit": "20"})
 
 if response.status_code == 200:
     dataframe_rest2 = pandas.DataFrame.from_records(response.json())
@@ -65,7 +65,7 @@ The sample notebook demonstrates working with both tables and blobs, including h
 Azure Cosmos DB provides a fully indexed NoSQL store for JSON documents). The following articles provide a number of different ways to work with Cosmos DB from Python:
 
 - [Build a SQL API app with Python](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-python)
-- [Build a Flask app with the Azure Cosmos DB for MongoDB API](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
+- [Build a Flask app with the Azure Cosmos DB's API for MongoDB](https://docs.microsoft.com/azure/cosmos-db/create-mongodb-flask)
 - [Create a graph database using Python and the Gremlin API](https://docs.microsoft.com/azure/cosmos-db/create-graph-python)
 - [Build a Cassandra app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cassandra-python)
 - [Build a Table API app with Python and Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-table-python)

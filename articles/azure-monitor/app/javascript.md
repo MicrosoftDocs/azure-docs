@@ -14,11 +14,11 @@ ms.date: 03/14/2017
 ms.author: mbullwin
 ---
 # Application Insights for web pages
-Find out about the performance and usage of your web page or app. If you add [Application Insights](../../azure-monitor/app/app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
+Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](../../azure-monitor/app/asp-net.md), you can integrate telemetry from your server and clients.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](asp-net.md), you can integrate telemetry from your server and clients.
 
-![In portal.azure.com, open your app's resource and click Browser](./media/javascript/03.png)
+![In portal.azure.com, open your app's resource and click Browser](media/javascript/03.png)
 
 You need a subscription to [Microsoft Azure](https://azure.com). If your team has an organizational subscription, ask the owner to add your Microsoft Account to it.
 
@@ -32,13 +32,13 @@ Sign into [Azure portal](https://portal.azure.com).
 
 If you already set up monitoring for the server side of your app, you already have a resource:
 
-![Choose Browse, Developer Services, Application Insights.](./media/javascript/01-find.png)
+![Choose Browse, Developer Services, Application Insights.](media/javascript/01-find.png)
 
 If you don't have one, create it:
 
-![Choose New, Developer Services, Application Insights.](./media/javascript/01-create.png)
+![Choose New, Developer Services, Application Insights.](media/javascript/01-create.png)
 
-*Questions already?* [More about creating a resource](../../azure-monitor/app/create-new-resource.md ).
+*Questions already?* [More about creating a resource](create-new-resource.md ).
 
 ### Add the SDK script to your app or web pages
 
@@ -51,20 +51,20 @@ and before any other scripts. Your first data will appear
 automatically in just a few seconds.
 -->
 <script type="text/javascript">
-var appInsights=window.appInsights||function(a){
-  function b(a){c[a]=function(){var b=arguments;c.queue.push(function(){c[a].apply(c,b)})}}var c={config:a},d=document,e=window;setTimeout(function(){var b=d.createElement("script");b.src=a.url||"https://az416426.vo.msecnd.net/scripts/a/ai.0.js",d.getElementsByTagName("script")[0].parentNode.appendChild(b)});try{c.cookie=d.cookie}catch(a){}c.queue=[];for(var f=["Event","Exception","Metric","PageView","Trace","Dependency"];f.length;)b("track"+f.pop());if(b("setAuthenticatedUserContext"),b("clearAuthenticatedUserContext"),b("startTrackEvent"),b("stopTrackEvent"),b("startTrackPage"),b("stopTrackPage"),b("flush"),!a.disableExceptionTracking){f="onerror",b("_"+f);var g=e[f];e[f]=function(a,b,d,e,h){var i=g&&g(a,b,d,e,h);return!0!==i&&c["_"+f](a,b,d,e,h),i}}return c
+var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
+  function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
   }({
       instrumentationKey:"<your instrumentation key>"
   });
-  
-window.appInsights=appInsights,appInsights.queue&&0===appInsights.queue.length&&appInsights.trackPageView();
+
+window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
 </script>
 ```
 
 Insert the script just before the `</head>` tag of every page you want to track. If your website has a master page, you can put the script there. For example:
 
 * In an ASP.NET MVC project, you'd put it in `View\Shared\_Layout.cshtml`
-* In a SharePoint site, on the control panel, open [Site Settings / Master Page](../../azure-monitor/app/sharepoint.md).
+* In a SharePoint site, on the control panel, open [Site Settings / Master Page](sharepoint.md).
 
 The script contains the instrumentation key that directs the data to your Application Insights resource. 
 
@@ -80,7 +80,7 @@ To set these parameters, look for this line in the code snippet, and add more co
       // Insert here
     });
 
-The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md#config) include:
+For a complete list of configuration parameters, please see the [GitHub Page](https://github.com/microsoft/applicationinsights-js#configuration). Some available parameters include:
 
     // Send telemetry immediately without batching.
     // Remember to remove this when no longer required, as it
@@ -90,17 +90,21 @@ The [available parameters](https://github.com/Microsoft/ApplicationInsights-JS/b
     // Don't log browser exceptions.
     disableExceptionTracking: boolean,
 
+    // Set false to enable autocollection of [Fetch requests](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (disabled by default)
+    disableFetchTracking: boolean, // default is true
+    
     // Don't log ajax calls.
     disableAjaxTracking: boolean,
 
     // Limit number of Ajax calls logged, to reduce traffic.
     maxAjaxCallsPerView: 10, // default is 500
-
+    
     // Time page load up to execution of first trackPageView().
     overridePageViewDuration: boolean,
 
     // Set dynamically for an authenticated user.
     accountId: string,
+    
 
 ## <a name="run"></a>Run your app
 Run your web app, use it a while to generate telemetry, and wait a few seconds. You can either run it using the **F5** key on your development machine, or publish it and let users play with it.
@@ -112,9 +116,9 @@ Open the Browser blade to show aggregated performance data from your users' brow
 
 ![In portal.azure.com, open your app's resource and click Settings, Browser](./media/javascript/03.png)
 
-No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](../../azure-monitor/app/troubleshoot-faq.md).
+No data yet? Click **Refresh** at the top of the page. Still nothing? See [Troubleshooting](troubleshoot-faq.md).
 
-The Browser blade is a [Metrics Explorer blade](../../azure-monitor/app/metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
+The Browser blade is a [Metrics Explorer blade](metrics-explorer.md) with preset filters and chart selections. You can edit the time range, filters, and chart configuration if you want, and save the result as a favorite. Click **Restore defaults** to get back to the original blade configuration.
 
 ## Page load performance
 At the top is a segmented chart of page load times. The total height of the chart represents the average time to load and display pages from your app in your users' browsers. The time is measured from when the browser sends the initial HTTP request until all synchronous load events have been processed, including layout and running scripts. It doesn't include asynchronous tasks such as loading web parts from AJAX calls.
@@ -172,7 +176,6 @@ Click any row for specific details.
 
 ![](./media/javascript/37.png)
 
-
 Click `...` for the full telemetry for an Ajax call.
 
 ### No Ajax calls reported?
@@ -196,11 +199,11 @@ In the Diagnostic Search blade, set Filters to Page View.
 Select any event to see more detail. In the details page, click "..." to see even more detail.
 
 > [!NOTE]
-> If you use [Search](../../azure-monitor/app/diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
+> If you use [Search](diagnostic-search.md), notice that you have to match whole words: "Abou" and "bout" do not match "About".
 > 
 > 
 
-You can also use the powerful [Log Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour#browser-timings-table) to search page views.
+You can also use the powerful [Log Analytics query language](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-tour) to search page views.
 
 ### Page view properties
 * **Page view duration** 
@@ -221,8 +224,8 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about the user behavior analytics tools](../../azure-monitor/app/usage-overview.md)
-* [Learn about custom events and metrics API](../../azure-monitor/app/api-custom-events-metrics.md).
+* [Learn about the user behavior analytics tools](usage-overview.md)
+* [Learn about custom events and metrics API](api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
 
@@ -232,7 +235,7 @@ Want to find out what your users do with your app?
 
 
 ## <a name="next"></a> Next steps
-* [Track usage](../../azure-monitor/app/usage-overview.md)
-* [Custom events and metrics](../../azure-monitor/app/api-custom-events-metrics.md)
-* [Build-measure-learn](../../azure-monitor/app/usage-overview.md)
+* [Track usage](usage-overview.md)
+* [Custom events and metrics](api-custom-events-metrics.md)
+* [Build-measure-learn](usage-overview.md)
 

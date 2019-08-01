@@ -1,5 +1,3 @@
-- name: Azure IoT fundamentals 
-  href: ../iot-fundamentals/index.yml
 - name: Azure Time Series Insights documentation
   href: index.yml
 - name: Overview
@@ -7,6 +5,7 @@
   - name: About Time Series Insights
     href: time-series-insights-update-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Azure Time Series Insights GA
     items:
@@ -42,6 +41,16 @@
       href: time-series-insights-explorer.md
     - name: Understand data retention
       href: time-series-insights-concepts-retention.md
+    - name: Develop
+      items:
+      - name: Authenticate and authorize
+        href: time-series-insights-authentication-and-authorization.md
+      - name: Query data by using C#
+        href: time-series-insights-query-data-csharp.md
+      - name: Manage reference data in C#
+        href: time-series-insights-manage-reference-data-csharp.md
+      - name: Share a custom view
+        href: time-series-insights-parameterized-urls.md
   - name: Azure Time Series Insights Preview
     items:
     - name: Plan your environment
@@ -54,18 +63,14 @@
       href: time-series-insights-update-tsm.md
     - name: Data querying
       href: time-series-insights-update-tsq.md
-    - name: Visualize data in the explorer update
+    - name: Visualize data in the explorer Preview
       href: time-series-insights-update-explorer.md
-  - name: Develop
-    items:
-    - name: Authenticate and authorize
-      href: time-series-insights-authentication-and-authorization.md
-    - name: Query data by using C#
-      href: time-series-insights-query-data-csharp.md
-    - name: Manage reference data in C#
-      href: time-series-insights-manage-reference-data-csharp.md
-    - name: Share a custom view
-      href: time-series-insights-parameterized-urls.md
+    - name: Develop
+      items:
+      - name: Authenticate and authorize
+        href: time-series-insights-authentication-and-authorization.md
+      - name: Query data by using C#
+        href: time-series-insights-update-query-data-csharp.md
 - name: How-to guides
   items:
   - name: Grant data access
@@ -133,6 +138,10 @@
         href: /rest/api/time-series-insights/preview-env
       - name: Time Series Expression and syntax
         href: /rest/api/time-series-insights/preview-tsx
+  - name: Client SDK
+    items:
+    - name: JavaScript Client SDK
+      href: https://github.com/microsoft/tsiclient/blob/master/docs/API.md
 - name: Related
   items:
   - name: Solutions

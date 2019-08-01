@@ -33,7 +33,7 @@ This sample takes in a source storage account name and key, a target storage acc
 The following are examples of the input for this sample:
 
 If AzCopy is installed at the default directory:
-```PowerShell
+```powershell
 srcStorageAccountName: ExampleSourceStorageAccountName
 srcStorageAccountKey: ExampleSourceStorageAccountKey
 DestStorageAccountName: ExampleTargetStorageAccountName
@@ -64,8 +64,8 @@ This script uses the following commands to copy data from one storage account to
 
 | Command | Notes |
 |---|---|
-| [Get-AzStorageContainer](/powershell/module/azure.storage/Get-AzStorageContainer) | Returns the containers associated with this Storage account. |
-| [New-AzStorageContext](/powershell/module/azure.storage/New-AzStorageContext) | Creates an Azure Storage context. |
+| [Get-AzStorageContainer](/powershell/module/az.storage/Get-AzStorageContainer) | Returns the containers associated with this Storage account. |
+| [New-AzStorageContext](/powershell/module/az.storage/New-AzStorageContext) | Creates an Azure Storage context. |
 
 ## Next steps
 

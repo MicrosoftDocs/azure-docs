@@ -1,10 +1,10 @@
 ---
 title: Connect to a Windows Server VM | Microsoft Docs
-description: Learn how to connect and log on to a Windows VM using the Azure portal and the Resource Manager deployment model.
+description: Learn how to connect and sign on to a Windows VM using the Azure portal and the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -14,23 +14,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2018
+ms.date: 11/26/2018
 ms.author: cynthn
 
 ---
-# How to connect and log on to an Azure virtual machine running Windows
-You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you log on.
+# How to connect and sign on to an Azure virtual machine running Windows
+You'll use the **Connect** button in the Azure portal to start a Remote Desktop (RDP) session from a Windows desktop. First you connect to the virtual machine, and then you sign on.
 
-To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://itunes.apple.com/app/microsoft-remote-desktop/id715768417).
+To connect to a Windows VM from a Mac, you will need to install an RDP client for Mac such as [Microsoft Remote Desktop](https://aka.ms/rdmac).
 
 ## Connect to the virtual machine
 1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/).
 2. On the left menu, select **Virtual Machines**.
 3. Select the virtual machine from the list.
 4. On the top of the page for the virtual machine, select **Connect**.
-2. On the **Connect to virtual machine** page, select the appropriate options and select **Download RDP file**.
+2. On the **Connect to virtual machine** page, select the appropriate IP address and port. In most cases, the default IP address and port should be used. Select **Download RDP file**. If the VM has a just-in-time policy set, you first need to select the **Request access** button to request access before you can download the RDP file. For more information about the just-in-time policy, see [Manage virtual machine access using the just in time policy](../../security-center/security-center-just-in-time.md).
 2. Open the downloaded RDP file and select **Connect** when prompted. 
-2. You will get a warning that the .rdp file is from an unknown publisher. This is expected. In the **Remote Desktop Connection** window, select **Connect** to continue.
+2. You will get a warning that the `.rdp` file is from an unknown publisher. This is expected. In the **Remote Desktop Connection** window, select **Connect** to continue.
    
     ![Screenshot of a warning about an unknown publisher.](./media/connect-logon/rdp-warn.png)
 3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Enter the credentials for an account on the virtual machine and then select **OK**.
@@ -52,18 +52,20 @@ To connect to a Windows VM from a Mac, you will need to install an RDP client fo
 
 ## Connect to the virtual machine using PowerShell
 
-If you are using PowerShell and have the AzureRM module installed you may also connect using the `Get-AzureRmRemoteDesktopFile` cmdlet, as shown below.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+If you are using PowerShell and have the Aure PowerShell  module installed you may also connect using the `Get-AzRemoteDesktopFile` cmdlet, as shown below.
 
 This example will immediately launch the RDP connection, taking you through similar prompts as above.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -Launch
 ```
 
 You may also save the RDP file for future use.
 
 ```powershell
-Get-AzureRmRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
+Get-AzRemoteDesktopFile -ResourceGroupName "RgName" -Name "VmName" -LocalPath "C:\Path\to\folder"
 ```
 
 ## Next steps

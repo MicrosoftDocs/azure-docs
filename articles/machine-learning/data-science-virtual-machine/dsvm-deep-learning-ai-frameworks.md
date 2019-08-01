@@ -4,19 +4,19 @@ description: Learn about the deep learning frameworks and tools supported on the
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
 ms.assetid: 
 ms.service: machine-learning
-ms.component: data-science-vm
+ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
@@ -215,8 +215,7 @@ The service takes about one minute to start. Start a web browser and navigate to
 | How is it configured / installed on the DSVM?  | PyTorch is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Links to Samples      | Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.      |
 | Related Tools on the DSVM      | Torch      |
-| How to use / run it |
-* At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
+| How to use / run it |* At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
 
 ## MXNet Model Server
 

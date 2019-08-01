@@ -1,17 +1,20 @@
 ---
-title: Customize claims emitted in tokens for a specific app in an Azure AD tenant (Public Preview)
+title: Customize claims for an app in an Azure AD tenant (Public Preview)
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev 
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
-ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.date: 03/28/2019
+ms.author: ryanwi
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
+ms.collection: M365-identity-device-management
 ---
 
 # How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)
@@ -46,189 +49,189 @@ There are certain sets of claims that define how and when they're used in tokens
 
 ### Table 1: JSON Web Token (JWT) restricted claim set
 
-|Claim type (name)|
+| Claim type (name) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|actor|
-|actortoken|
-|aio|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appid|
-|appidacr|
-|assertion|
-|at_hash|
-|aud|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|cnf|
-|code|
-|controls|
-|credential_keys|
-|csr|
-|csr_type|
-|deviceid|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|email|
-|endpoint|
-|enfpolids|
-|exp|
-|expires_on|
-|grant_type|
-|graph|
-|group_sids|
-|groups|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier|
-|iat|
-|identityprovider|
-|idp|
-|in_corp|
-|instance|
-|ipaddr|
-|isbrowserhostedapp|
-|iss|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|nonce|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|password|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|puid|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|resource|
-|role|
-|roles|
-|scope|
-|scp|
-|sid|
-|signature|
-|signin_state|
-|src1|
-|src2|
-|sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|upn|
-|user_setting_sync_url|
-|username|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| actor |
+| actortoken |
+| aio |
+| altsecid |
+| amr |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| appid |
+| appidacr |
+| assertion |
+| at_hash |
+| aud |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| cnf |
+| code |
+| controls |
+| credential_keys |
+| csr |
+| csr_type |
+| deviceid |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| email |
+| endpoint |
+| enfpolids |
+| exp |
+| expires_on |
+| grant_type |
+| graph |
+| group_sids |
+| groups |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| iat |
+| identityprovider |
+| idp |
+| in_corp |
+| instance |
+| ipaddr |
+| isbrowserhostedapp |
+| iss |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| nonce |
+| oid |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| password |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| puid |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| resource |
+| role |
+| roles |
+| scope |
+| scp |
+| sid |
+| signature |
+| signin_state |
+| src1 |
+| src2 |
+| sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| tid |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| upn |
+| user_setting_sync_url |
+| username |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### Table 2: SAML restricted claim set
 
-|Claim type (URI)|
+| Claim type (URI) |
 | ----- |
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/expired|
-|http://schemas.microsoft.com/identity/claims/accesstoken|
-|http://schemas.microsoft.com/identity/claims/openid2_id|
-|http://schemas.microsoft.com/identity/claims/identityprovider|
-|http://schemas.microsoft.com/identity/claims/objectidentifier|
-|http://schemas.microsoft.com/identity/claims/puid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] |
-|http://schemas.microsoft.com/identity/claims/tenantid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod|
-|http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groups|
-|http://schemas.microsoft.com/claims/groups.link|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/role|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/wids|
-|http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant|
-|http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown|
-|http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged|
-|http://schemas.microsoft.com/2014/03/psso|
-|http://schemas.microsoft.com/claims/authnmethodsreferences|
-|http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn|
-|http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent|
-|http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier|
-|http://schemas.microsoft.com/identity/claims/scope|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
+|`http://schemas.microsoft.com/identity/claims/accesstoken`|
+|`http://schemas.microsoft.com/identity/claims/openid2_id`|
+|`http://schemas.microsoft.com/identity/claims/identityprovider`|
+|`http://schemas.microsoft.com/identity/claims/objectidentifier`|
+|`http://schemas.microsoft.com/identity/claims/puid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
+|`http://schemas.microsoft.com/identity/claims/tenantid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
+|`http://schemas.microsoft.com/accesscontrolservice/2010/07/claims/identityprovider`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groups`|
+|`http://schemas.microsoft.com/claims/groups.link`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/role`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/wids`|
+|`http://schemas.microsoft.com/2014/09/devicecontext/claims/iscompliant`|
+|`http://schemas.microsoft.com/2014/02/devicecontext/claims/isknown`|
+|`http://schemas.microsoft.com/2012/01/devicecontext/claims/ismanaged`|
+|`http://schemas.microsoft.com/2014/03/psso`|
+|`http://schemas.microsoft.com/claims/authnmethodsreferences`|
+|`http://schemas.xmlsoap.org/ws/2009/09/identity/claims/actor`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/samlissuername`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/confirmationkey`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authorizationdecision`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/authentication`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarygroupsid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlyprimarysid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/denyonlysid`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/denyonlywindowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdeviceclaim`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsdevicegroup`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsfqbnversion`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowssubauthority`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsuserclaim`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/x500distinguishedname`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn`|
+|`http://schemas.microsoft.com/ws/2008/06/identity/claims/ispersistent`|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/privatepersonalidentifier`|
+|`http://schemas.microsoft.com/identity/claims/scope`|
 
 ## Claims mapping policy properties
 
@@ -240,7 +243,7 @@ To control what claims are emitted and where the data comes from, use the proper
 
 **Data type:** Boolean (True or False)
 
-**Summary:** This property determines whether the basic claim set is included in tokens affected by this policy. 
+**Summary:** This property determines whether the basic claim set is included in tokens affected by this policy.
 
 - If set to True, all claims in the basic claim set are emitted in tokens affected by the policy. 
 - If set to False, claims in the basic claim set are not in the tokens, unless they are individually added in the claims schema property of the same policy.
@@ -278,51 +281,51 @@ The ID element identifies which property on the source provides the value for th
 
 #### Table 3: Valid ID values per source
 
-|Source|ID|Description|
+| Source | ID | Description |
 |-----|-----|-----|
-|User|surname|Family Name|
-|User|givenname|Given Name|
-|User|displayname|Display Name|
-|User|objectid|ObjectID|
-|User|mail|Email Address|
-|User|userprincipalname|User Principal Name|
-|User|department|Department|
-|User|onpremisessamaccountname|On Premises Sam Account Name|
-|User|netbiosname|NetBios Name|
-|User|dnsdomainname|Dns Domain Name|
-|User|onpremisesecurityidentifier|on-premises Security Identifier|
-|User|companyname|Organization Name|
-|User|streetaddress|Street Address|
-|User|postalcode|Postal Code|
-|User|preferredlanguange|Preferred Language|
-|User|onpremisesuserprincipalname|on-premises UPN|
-|User|mailnickname|Mail Nickname|
-|User|extensionattribute1|Extension Attribute 1|
-|User|extensionattribute2|Extension Attribute 2|
-|User|extensionattribute3|Extension Attribute 3|
-|User|extensionattribute4|Extension Attribute 4|
-|User|extensionattribute5|Extension Attribute 5|
-|User|extensionattribute6|Extension Attribute 6|
-|User|extensionattribute7|Extension Attribute 7|
-|User|extensionattribute8|Extension Attribute 8|
-|User|extensionattribute9|Extension Attribute 9|
-|User|extensionattribute10|Extension Attribute 10|
-|User|extensionattribute11|Extension Attribute 11|
-|User|extensionattribute12|Extension Attribute 12|
-|User|extensionattribute13|Extension Attribute 13|
-|User|extensionattribute14|Extension Attribute 14|
-|User|extensionattribute15|Extension Attribute 15|
-|User|othermail|Other Mail|
-|User|country|Country|
-|User|city|City|
-|User|state|State|
-|User|jobtitle|Job Title|
-|User|employeeid|Employee ID|
-|User|facsimiletelephonenumber|Facsimile Telephone Number|
-|application, resource, audience|displayname|Display Name|
-|application, resource, audience|objected|ObjectID|
-|application, resource, audience|tags|Service Principal Tag|
-|Company|tenantcountry|Tenant’s country|
+| User | surname | Family Name |
+| User | givenname | Given Name |
+| User | displayname | Display Name |
+| User | objectid | ObjectID |
+| User | mail | Email Address |
+| User | userprincipalname | User Principal Name |
+| User | department|Department|
+| User | onpremisessamaccountname | On-premises SAM Account Name |
+| User | netbiosname| NetBios Name |
+| User | dnsdomainname | DNS Domain Name |
+| User | onpremisesecurityidentifier | On-premises Security Identifier |
+| User | companyname| Organization Name |
+| User | streetaddress | Street Address |
+| User | postalcode | Postal Code |
+| User | preferredlanguange | Preferred Language |
+| User | onpremisesuserprincipalname | On-premises UPN |
+| User | mailnickname | Mail Nickname |
+| User | extensionattribute1 | Extension Attribute 1 |
+| User | extensionattribute2 | Extension Attribute 2 |
+| User | extensionattribute3 | Extension Attribute 3 |
+| User | extensionattribute4 | Extension Attribute 4 |
+| User | extensionattribute5 | Extension Attribute 5 |
+| User | extensionattribute6 | Extension Attribute 6 |
+| User | extensionattribute7 | Extension Attribute 7 |
+| User | extensionattribute8 | Extension Attribute 8 |
+| User | extensionattribute9 | Extension Attribute 9 |
+| User | extensionattribute10 | Extension Attribute 10 |
+| User | extensionattribute11 | Extension Attribute 11 |
+| User | extensionattribute12 | Extension Attribute 12 |
+| User | extensionattribute13 | Extension Attribute 13 |
+| User | extensionattribute14 | Extension Attribute 14 |
+| User | extensionattribute15 | Extension Attribute 15 |
+| User | othermail | Other Mail |
+| User | country | Country |
+| User | city | City |
+| User | state | State |
+| User | jobtitle | Job Title |
+| User | employeeid | Employee ID |
+| User | facsimiletelephonenumber | Facsimile Telephone Number |
+| application, resource, audience | displayname | Display Name |
+| application, resource, audience | objected | ObjectID |
+| application, resource, audience | tags | Service Principal Tag |
+| Company | tenantcountry | Tenant’s country |
 
 **TransformationID:** The TransformationID element must be provided only if the Source element is set to “transformation”.
 
@@ -380,36 +383,36 @@ Based on the method chosen, a set of inputs and outputs is expected. Define the 
 
 |Source|ID|Description|
 |-----|-----|-----|
-|User|mail|Email Address|
-|User|userprincipalname|User Principal Name|
-|User|onpremisessamaccountname|On Premises Sam Account Name|
-|User|employeeid|Employee ID|
-|User|extensionattribute1|Extension Attribute 1|
-|User|extensionattribute2|Extension Attribute 2|
-|User|extensionattribute3|Extension Attribute 3|
-|User|extensionattribute4|Extension Attribute 4|
-|User|extensionattribute5|Extension Attribute 5|
-|User|extensionattribute6|Extension Attribute 6|
-|User|extensionattribute7|Extension Attribute 7|
-|User|extensionattribute8|Extension Attribute 8|
-|User|extensionattribute9|Extension Attribute 9|
-|User|extensionattribute10|Extension Attribute 10|
-|User|extensionattribute11|Extension Attribute 11|
-|User|extensionattribute12|Extension Attribute 12|
-|User|extensionattribute13|Extension Attribute 13|
-|User|extensionattribute14|Extension Attribute 14|
-|User|extensionattribute15|Extension Attribute 15|
+| User | mail|Email Address|
+| User | userprincipalname|User Principal Name|
+| User | onpremisessamaccountname|On Premises Sam Account Name|
+| User | employeeid|Employee ID|
+| User | extensionattribute1 | Extension Attribute 1 |
+| User | extensionattribute2 | Extension Attribute 2 |
+| User | extensionattribute3 | Extension Attribute 3 |
+| User | extensionattribute4 | Extension Attribute 4 |
+| User | extensionattribute5 | Extension Attribute 5 |
+| User | extensionattribute6 | Extension Attribute 6 |
+| User | extensionattribute7 | Extension Attribute 7 |
+| User | extensionattribute8 | Extension Attribute 8 |
+| User | extensionattribute9 | Extension Attribute 9 |
+| User | extensionattribute10 | Extension Attribute 10 |
+| User | extensionattribute11 | Extension Attribute 11 |
+| User | extensionattribute12 | Extension Attribute 12 |
+| User | extensionattribute13 | Extension Attribute 13 |
+| User | extensionattribute14 | Extension Attribute 14 |
+| User | extensionattribute15 | Extension Attribute 15 |
 
 #### Table 6: Transformation methods allowed for SAML NameID
 
-|TransformationMethod|Restrictions|
+| TransformationMethod | Restrictions |
 | ----- | ----- |
-|ExtractMailPrefix|None|
-|Join|The suffix being joined must be a verified domain of the resource tenant.|
+| ExtractMailPrefix | None |
+| Join | The suffix being joined must be a verified domain of the resource tenant. |
 
 ### Custom signing key
 
-A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. All tokens issued that have been impacted by the policy are signed with the custom signing key, and applications must be configured to accept tokens signed with the signing key. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors.
+A custom signing key must be assigned to the service principal object for a claims mapping policy to take effect. This ensures acknowledgment that tokens have been modified by the creator of the claims mapping policy and protects applications from claims mapping policies created by malicious actors.  Apps that have claims mapping enabled must check a special URI for their token signing keys by appending `appid={client_id}` to their [OpenID Connect metadata requests](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### Cross-tenant scenarios
 
@@ -431,83 +434,87 @@ To get started, do the following steps:
 
 1. Download the latest [Azure AD PowerShell Module public preview release](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Run the Connect command to sign in to your Azure AD admin account. Run this command each time you start a new session.
-	
-	 ``` powershell
-	Connect-AzureAD -Confirm
-	
-	```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. To see all policies that have been created in your organization, run the following command. We recommend that you run this command after most operations in the following scenarios, to check that your policies are being created as expected.
-   
-    ``` powershell
-		Get-AzureADPolicy
-    
-	```
-#### Example: Create and assign a policy to omit the basic claims from tokens issued to a service principal.
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### Example: Create and assign a policy to omit the basic claims from tokens issued to a service principal
+
 In this example, you create a policy that removes the basic claim set from tokens issued to linked service principals.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, removes the basic claim set from tokens.
-	1. To create the policy, run this command: 
+   1. To create the policy, run this command: 
 	
-	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
-	```
-	2. To see your new policy, and to get the policy ObjectId, run the following command:
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
+      ```
+   2. To see your new policy, and to get the policy ObjectId, run the following command:
 	
-	 ``` powershell
-	Get-AzureADPolicy
-	```
-1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
-	2.	When you have the ObjectId of your service principal, run the following command:  
+      ``` powershell
+      Get-AzureADPolicy
+      ```
+1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal.
+   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   2. When you have the ObjectId of your service principal, run the following command:  
 	 
-	 ``` powershell
-	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-	```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### Example: Create and assign a policy to include the EmployeeID and TenantCountry as claims in tokens issued to a service principal
 
 In this example, you create a policy that adds the EmployeeID and TenantCountry to tokens issued to linked service principals. The EmployeeID is emitted as the name claim type in both SAML tokens and JWTs. The TenantCountry is emitted as the country claim type in both SAML tokens and JWTs. In this example, we continue to include the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
-	1. To create the policy, run this command:  
+   1. To create the policy, run the following command:  
 	 
-	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
-	```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
 	
-	2. To see your new policy, and to get the policy ObjectId, run the following command:
+   2. To see your new policy, and to get the policy ObjectId, run the following command:
 	 
-	 ``` powershell  
-	Get-AzureADPolicy
-	```
+      ``` powershell  
+      Get-AzureADPolicy
+      ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
-	2.	When you have the ObjectId of your service principal, run the following command:  
+   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   2. When you have the ObjectId of your service principal, run the following command:  
 	 
-	 ``` powershell
-	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-	```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
 
 #### Example: Create and assign a policy that uses a claims transformation in tokens issued to a service principal
 
 In this example, you create a policy that emits a custom claim “JoinedData” to JWTs issued to linked service principals. This claim contains a value created by joining the data stored in the extensionattribute1 attribute on the user object with “.sandbox”. In this example, we exclude the basic claims set in the tokens.
 
 1. Create a claims mapping policy. This policy, linked to specific service principals, adds the EmployeeID and TenantCountry claims to tokens.
-	1. To create the policy, run this command: 
+   1. To create the policy, run the following command:
 	 
-	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
-	```
+      ``` powershell
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
+      ```
 	
-	2. To see your new policy, and to get the policy ObjectId, run the following command: 
+   2. To see your new policy, and to get the policy ObjectId, run the following command: 
 	 
-	 ``` powershell
-	Get-AzureADPolicy
-	```
+      ``` powershell
+      Get-AzureADPolicy
+      ```
 1. Assign the policy to your service principal. You also need to get the ObjectId of your service principal. 
-	1.	To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
-	2.	When you have the ObjectId of your service principal, run the following command: 
+   1. To see all your organization's service principals, you can query Microsoft Graph. Or, in Azure AD Graph Explorer, sign in to your Azure AD account.
+   2. When you have the ObjectId of your service principal, run the following command: 
 	 
-	 ``` powershell
-	Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
-	```
+      ``` powershell
+      Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
+      ```
+
+## See also
+
+To learn how to customize claims issued in the SAML token through the Azure portal, see [How to: Customize claims issued in the SAML token for enterprise applications](active-directory-saml-claims-customization.md)

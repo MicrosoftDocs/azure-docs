@@ -19,12 +19,12 @@ ms.author: ghogen
 ## Overview
 This article provides C# code samples that show how to use the Azure WebJobs SDK version 1.x with the Azure table storage service. The code samples use the [WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) version 1.x.
 
-The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](../cosmos-db/table-storage-how-to-use-dotnet.md#create-a-table) for more information.
+The Azure Table storage service enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.  See [Get started with Azure Table storage using .NET](../cosmos-db/tutorial-develop-table-dotnet.md#create-a-table) for more information.
 
 Some of the code snippets show the **Table** attribute used in functions that are called manually, that is, not by using one of the trigger attributes.
 
 ## How to add entities to a table
-To add entities to a table, use the **Table** attribute with an **ICollector<T>** or **IAsyncCollector<T>** parameter where **T** specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
+To add entities to a table, use the **Table** attribute with an **ICollector\<T>** or **IAsyncCollector\<T>** parameter where **T** specifies the schema of the entities you want to add. The attribute constructor takes a string parameter that specifies the name of the table.
 
 The following code sample adds **Person** entities to a table named *Ingress*.
 
@@ -73,7 +73,7 @@ When the function finishes, the **Invocation Details** page reports the number o
 ![Ingress function finished](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## How to read multiple entities from a table
-To read a table, use the **Table** attribute with an **IQueryable<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.
+To read a table, use the **Table** attribute with an **IQueryable\<T>** parameter where type **T** derives from **TableEntity** or implements **ITableEntity**.
 
 The following code sample reads and logs all rows from the **Ingress** table:
 

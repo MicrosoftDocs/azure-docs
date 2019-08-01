@@ -2,8 +2,8 @@
 title: Monitor Azure Batch | Microsoft Docs
 description: Learn about Azure monitoring services, metrics, diagnostic logs, and other monitoring features for Azure Batch.
 services: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch
@@ -11,7 +11,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: danlep
+ms.author: lahugh
 ---
 
 # Monitor Batch solutions
@@ -30,7 +30,7 @@ One way to retrieve events from your activity log is to use the Azure portal. Cl
 
 ## Batch account-level monitoring
 
-Monitor each Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and optionally [diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) for resources scoped at the level of a Batch account, such as pools, jobs, and tasks. Collect and consume this data manually or programmatically to monitor activities in your Batch account and to diagnose issues. For details, see [Batch metrics, alerts, and logs for diagnostic evaluation and monitoring](batch-diagnostics.md).
+Monitor each Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-platform-metrics.md) and optionally [diagnostic logs](../azure-monitor/platform/diagnostic-logs-overview.md) for resources scoped at the level of a Batch account, such as pools, jobs, and tasks. Collect and consume this data manually or programmatically to monitor activities in your Batch account and to diagnose issues. For details, see [Batch metrics, alerts, and logs for diagnostic evaluation and monitoring](batch-diagnostics.md).
  
 > [!NOTE]
 > Metrics are available by default in your Batch account without additional configuration, and they have a 30-day rolling history. You must enable diagnostic logging for a Batch account, and you may incur additional costs to store or process diagnostic log data. 

@@ -37,11 +37,11 @@ You can use a storage account or event hub namespace that is not in the same sub
 ### Diagnostic Settings
 Diagnostic Logs for non-compute resources are configured using diagnostic settings. Diagnostic settings for a resource control:
 
-* Where diagnostic logs are sent (Storage Account, Event Hubs, or Log Analytics).
+* Where diagnostic logs are sent (Storage Account, Event Hubs, or Azure Monitor logs).
 * Which log categories are sent.
 * How long each log category should be retained in a storage account.
 * A retention of zero days means logs are kept forever. Otherwise, the value can be any number of days between 1 and 2147483647.
-* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Log Analytics options are selected), the retention policies have no effect.
+* If retention policies are set but storing logs in a storage account is disabled (for example, only Event Hubs or Azure Monitor logs options are selected), the retention policies have no effect.
 * Retention policies are applied per-day, so at the end of a day (UTC), logs from the day that is now beyond the retention policy are deleted. For example, if you had a retention policy of one day, at the beginning of the day today the logs from the day before yesterday would be deleted.
 
 ### Enable diagnostic logs via REST APIs
@@ -56,7 +56,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Headers**
 * Replace `{api-version}` with `2016-09-01`.
-* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-portal.md).
+* Replace `{resource-id}` with the resource ID of the resource for which you would like to edit diagnostic settings. For more information [Using Resource groups to manage your Azure resources](../azure-resource-manager/manage-resource-groups-portal.md).
 * Set the `Content-Type` header to `application/json`.
 * Set the authorization header to a JSON web token that you obtain from Azure Active Directory. For more information, see [Authenticating requests](../active-directory/develop/authentication-scenarios.md).
 
@@ -231,7 +231,9 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 ## Schema of Logs & Events
 
-### Activity Run Logs Attributes
+### Azure Monitor Schema
+
+#### Activity Run Logs Attributes
 
 ```json
 {
@@ -248,7 +250,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
    "activityName":"",
    "start":"",
    "end":"",
-   "properties:"
+   "properties":
        {
           "Input": "{
               "source": {
@@ -274,7 +276,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |String | Level of the diagnostic logs. Level 4 always is the case for activity run logs. | `4`  |
 | correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Time of the event in timespan, UTC format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| String| ID of the activity run | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -286,8 +288,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Start of the activity run in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |end| String | Ends of the activity run in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
 
-
-### Pipeline Run Logs Attributes
+#### Pipeline Run Logs Attributes
 
 ```json
 {
@@ -321,7 +322,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |String | Level of the diagnostic logs. Level 4 is the case for activity run logs. | `4`  |
 | correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Time of the event in timespan, UTC format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| String| ID of the pipeline run | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` |
@@ -332,8 +333,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |end| String | End of the activity runs in timespan, UTC format. If the activity has not ended yet (diagnostic log for an activity starting), a default value of `1601-01-01T00:00:00Z` is set.  | `2017-06-26T20:55:29.5007959Z` |
 |status| String | Final status of the pipeline run (Succeeded or Failed) | `Succeeded`|
 
-
-### Trigger Run Logs Attributes
+#### Trigger Run Logs Attributes
 
 ```json
 {
@@ -366,7 +366,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |String | Level of the diagnostic logs. Set to level 4 for activity run logs. | `4`  |
 | correlationId |String | Unique ID to track a particular request end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | String | Time of the event in timespan, UTC format | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | String | Time of the event in timespan, UTC format `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| String| ID of the trigger run | `08587023010602533858661257311` |
 |resourceId| String | Associated resource ID for the data factory resource | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| String | Category of Diagnostic Logs. Set this property to "PipelineRuns" | `PipelineRuns` |
@@ -378,22 +378,44 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| String | Start of trigger fire in timespan, UTC format | `2017-06-26T20:55:29.5007959Z`|
 |status| String | Final status of whether trigger successfully fired (Succeeded or Failed) | `Succeeded`|
 
+### Log Analytics Schema
+
+Log Analytics inherits the schema from Azure Monitor with the following exceptions:
+
+* The first letter in each column name will be capitalized, for instance *correlationId* in Azure Monitor will be *CorrelationId* in Log Analytics.
+* The column *Level* will be dropped.
+* The dynamic column *properties* will be preserved as the below dynamic JSON blob type:
+
+    | Azure Monitor column | Log Analytics column | Type |
+    | --- | --- | --- |
+    | $.properties.UserProperties | UserProperties | Dynamic |
+    | $.properties.Annotations | Annotations | Dynamic |
+    | $.properties.Input | Input | Dynamic |
+    | $.properties.Output | Output | Dynamic |
+    | $.properties.Error.errorCode | ErrorCode | int |
+    | $.properties.Error.message | ErrorMessage | string |
+    | $.properties.Error | Error | Dynamic |
+    | $.properties.Predecessors | Predecessors | Dynamic |
+    | $.properties.Parameters | Parameters | Dynamic |
+    | $.properties.SystemParameters | SystemParameters | Dynamic |
+    | $.properties.Tags | Tags | Dynamic |
+    
 ## Metrics
 
 Azure Monitor enables you to consume telemetry to gain visibility into the performance and health of your workloads on Azure. The most important type of Azure telemetry data is the metrics (also called performance counters) emitted by most Azure resources. Azure Monitor provides several ways to configure and consume these metrics for monitoring and troubleshooting.
 
-ADFV2 emits the following metrics
+ADFV2 emits the following metrics:
 
-| **Metric**           | **Metric Display Name**         | **Unit** | **Aggregation Type** | **Description**                                       |
+| **Metric**           | **Metric display name**         | **Unit** | **Aggregation type** | **Description**                                       |
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
-| PipelineSucceededRun | Succeeded pipeline runs metrics | Count    | Total                | Total pipelines runs succeeded within a minute window |
+| PipelineSucceededRuns | Succeeded pipeline runs metrics | Count    | Total                | Total pipelines runs succeeded within a minute window |
 | PipelineFailedRuns   | Failed pipeline runs metrics    | Count    | Total                | Total pipelines runs failed within a minute window    |
 | ActivitySucceededRuns | Succeeded activity runs metrics | Count    | Total                | Total activity runs succeeded within a minute window  |
 | ActivityFailedRuns   | Failed activity runs metrics    | Count    | Total                | Total activity runs failed within a minute window     |
 | TriggerSucceededRuns | Succeeded trigger runs metrics  | Count    | Total                | Total trigger runs succeeded within a minute window   |
 | TriggerFailedRuns    | Failed trigger runs metrics     | Count    | Total                | Total trigger runs failed within a minute window      |
 
-To access the metrics, follow the instructions in the article - https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics
+To access the metrics, complete the instructions in [Azure Monitor data platform](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ## Monitor Data Factory Metrics with Azure Monitor
 
@@ -411,13 +433,28 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
 Enable Diagnostic Settings for your data factory.
 
-1.  Select **Azure Monitor** -> **Diagnostics settings** -> Select the data factory -> Turn on diagnostics.
+1. In the portal, navigate to Azure Monitor and click on **Diagnostic settings** in the **Settings** menu.
 
-    ![monitor-oms-image1.png](media/data-factory-monitor-oms/monitor-oms-image1.png)
+2. Select the data factory for which you would like to set a diagnostic setting.
+    
+3. If no settings exist on the data factory you have selected, you are prompted to create a setting. Click "Turn on diagnostics."
 
-2.  Provide diagnostic settings including configuration of the workspace.
+   ![Add diagnostic setting - no existing settings](media/data-factory-monitor-oms/monitor-oms-image1.png)
+
+   If there are existing settings on the data factory, you will see a list of settings already configured on this data factory. Click "Add diagnostic setting."
+
+   ![Add diagnostic setting - existing settings](media/data-factory-monitor-oms/add-diagnostic-setting.png)
+
+4. Give your setting a name and check the box for **Send to Log Analytics**, then select a Log Analytics workspace.
 
     ![monitor-oms-image2.png](media/data-factory-monitor-oms/monitor-oms-image2.png)
+
+5. Click **Save**.
+
+After a few moments, the new setting appears in your list of settings for this data factory, and diagnostic logs are streamed to that workspace as soon as new event data is generated. There may be up to 15 minutes between when an event is emitted and when it appears in Log Analytics.
+
+> [!NOTE]
+> Because of an explicit limit of any given Azure Log table not having more than 500 columns, **it is highly recommended to use Resource Specific mode**. For more information, see [Log Analytics Known Limitations](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
 ### Install Azure Data Factory Analytics from Azure Marketplace
 
@@ -461,7 +498,7 @@ You can visualize the above metrics, look at the queries behind these metrics, e
 
 ## Alerts
 
-Log in to the Azure portal and click **Monitor -&gt; Alerts** to create alerts.
+Sign in to the Azure portal and click **Monitor** > **Alerts** to create alerts.
 
 ![Alerts in the portal menu](media/monitor-using-azure-monitor/alerts_image3.png)
 

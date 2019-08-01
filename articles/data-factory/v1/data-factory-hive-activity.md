@@ -80,7 +80,7 @@ The HDInsight Hive activity in a Data Factory [pipeline](data-factory-create-pip
 | outputs |Outputs produced by the Hive activity |Yes |
 | linkedServiceName |Reference to the HDInsight cluster registered as a linked service in Data Factory |Yes |
 | script |Specify the Hive script inline |No |
-| script path |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
+| scriptPath |Store the Hive script in an Azure blob storage and provide the path to the file. Use 'script' or 'scriptPath' property. Both cannot be used together. The file name is case-sensitive. |No |
 | defines |Specify parameters as key/value pairs for referencing within the Hive script using 'hiveconf' |No |
 
 ## Example
@@ -167,7 +167,7 @@ To execute this Hive script in a Data Factory pipeline, you need to do the follo
 			]
 		}
 	}
-	```
+    ```
 6. Deploy the pipeline. See [Creating pipelines](data-factory-create-pipelines.md) article for details. 
 7. Monitor the pipeline using the data factory monitoring and management views. See [Monitoring and manage Data Factory pipelines](data-factory-monitor-manage-pipelines.md) article for details. 
 
@@ -213,10 +213,10 @@ To use parameterized Hive script, do the following
         ]
       }
     }
-	```
+    ```
 * In the Hive Script, refer to the parameter using **${hiveconf:parameterName}**. 
   
-	```
+    ```
     DROP TABLE IF EXISTS HiveSampleIn; 
     CREATE EXTERNAL TABLE HiveSampleIn 
     (
@@ -239,8 +239,8 @@ To use parameterized Hive script, do the following
         ProfileID,
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
-	```
-## See Also
+    ```
+  ## See Also
 * [Pig Activity](data-factory-pig-activity.md)
 * [MapReduce Activity](data-factory-map-reduce.md)
 * [Hadoop Streaming Activity](data-factory-hadoop-streaming-activity.md)

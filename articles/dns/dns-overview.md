@@ -2,13 +2,11 @@
 title: What is Azure DNS?
 description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
 author: vhorne
-manager: jeconnoc
-
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-#As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
+#Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
 # What is Azure DNS?
@@ -27,14 +25,17 @@ DNS domains in Azure DNS are hosted on Azure's global network of DNS name server
 
  Azure DNS is based on Azure Resource Manager, which provides features such as:
 
-* [Role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#access-control) to control who has access to specific actions for your organization.
+* [Role-based access control](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to control who has access to specific actions for your organization.
 
-* [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#activity-logs) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
+* [Activity logs](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) to monitor how a user in your organization modified a resource or to find an error when troubleshooting.
 
 * [Resource locking](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources) to lock a subscription, resource group, or resource. Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
 For more information, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md). 
 
+## DNSSEC
+
+Azure DNS does not currently support DNSSEC. In most cases, you can reduce the need for DNSSEC by consistently using HTTPS/TLS in your applications. If DNSSEC is a critical requirement for your DNS zones, you can host these zones with third party DNS hosting providers.
 
 ## Ease of use
 
@@ -52,12 +53,11 @@ For more information, see [Use Azure DNS for private domains](private-dns-overvi
 
 ## Alias records
 
-Azure DNS supports alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address or an Azure Traffic Manager profile. If the IP address of the underlying resource changes, the alias record set seamlessly updates itself during DNS resolution. The alias record set points to the service instance, and the service instance is associated with an IP address. 
+Azure DNS supports alias record sets. You can use an alias record set to refer to an Azure resource, such as an Azure public IP address, an Azure Traffic Manager profile, or an Azure Content Delivery Network (CDN) endpoint. If the IP address of the underlying resource changes, the alias record set seamlessly updates itself during DNS resolution. The alias record set points to the service instance, and the service instance is associated with an IP address.
 
-Also, you can now point your apex or naked domain to a Traffic Manager profile by using an alias record. An example is contoso.com.
+Also, you can now point your apex or naked domain to a Traffic Manager profile or CDN endpoint using an alias record. An example is contoso.com.
 
 For more information, see [Overview of Azure DNS alias records](dns-alias.md).
-
 
 ## Next steps
 

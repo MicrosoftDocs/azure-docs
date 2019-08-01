@@ -4,7 +4,7 @@ description: Deploy an application to Cloud Foundry on Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: seanmck
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags:
 keywords: ''
@@ -21,7 +21,7 @@ ms.author: seanmck
 
 # Deploy your first app to Cloud Foundry on Microsoft Azure
 
-[Cloud Foundry](http://cloudfoundry.org) is a popular open-source application platform available on Microsoft Azure. In this article, we show how to deploy and manage an application on Cloud Foundry in an Azure environment.
+[Cloud Foundry](https://cloudfoundry.org) is a popular open-source application platform available on Microsoft Azure. In this article, we show how to deploy and manage an application on Cloud Foundry in an Azure environment.
 
 ## Create a Cloud Foundry environment
 
@@ -29,7 +29,7 @@ There are several options for creating a Cloud Foundry environment on Azure:
 
 - Use the [Pivotal Cloud Foundry offer][pcf-azuremarketplace] in the Azure Marketplace to create a standard environment that includes PCF Ops Manager and the Azure Service Broker. You can find [complete instructions][pcf-azuremarketplace-pivotaldocs] for deploying the marketplace offer in the Pivotal documentation.
 - Create a customized environment by [deploying Pivotal Cloud Foundry manually][pcf-custom].
-- [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](http://bosh.io) director, a VM that coordinates the deployment of the Cloud Foundry environment.
+- [Deploy the open-source Cloud Foundry packages directly][oss-cf-bosh] by setting up a [BOSH](https://bosh.io) director, a VM that coordinates the deployment of the Cloud Foundry environment.
 
 > [!IMPORTANT] 
 > If you are deploying PCF from the Azure Marketplace, make a note of the SYSTEMDOMAINURL and the admin credentials required to access the Pivotal Apps Manager, both of which are described in the marketplace deployment guide. They are needed to complete this tutorial. For marketplace deployments, the SYSTEMDOMAINURL is in the form https://system.*ip-address*.cf.pcfazure.com.
@@ -73,7 +73,7 @@ Now, when you deploy an application, it is automatically created in the new org 
 
 ## Deploy an application
 
-Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](http://spring.io) and [Spring Boot](http://projects.spring.io/spring-boot/).
+Let's use a sample Cloud Foundry application called Hello Spring Cloud, which is written in Java and based on the [Spring Framework](https://spring.io) and [Spring Boot](https://projects.spring.io/spring-boot/).
 
 ### Clone the Hello Spring Cloud repository
 
@@ -86,7 +86,7 @@ cd hello-spring-cloud
 
 ### Build the application
 
-Build the app using [Apache Maven](http://maven.apache.org).
+Build the app using [Apache Maven](https://maven.apache.org).
 
 ```bash
 mvn clean package
@@ -154,7 +154,7 @@ Running the `cf app` command on the application shows that Cloud Foundry is crea
 [cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
-[spring-framework]: http://spring.io
+[spring-framework]: https://spring.io
 [cf-push-docs]: https://docs.cloudfoundry.org/concepts/how-applications-are-staged.html
 [cloudfoundry-docs]: https://docs.cloudfoundry.org
 [vsts-plugin]: https://github.com/Microsoft/vsts-cloudfoundry

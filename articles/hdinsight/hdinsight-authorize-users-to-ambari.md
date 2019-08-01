@@ -1,21 +1,20 @@
 ---
 title: Authorize users for Ambari Views - Azure HDInsight 
 description: 'How to manage Ambari user and group permissions for HDInsight clusters with ESP enabled.'
-services: hdinsight
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
-ms.author: maxluk
+ms.author: hrasheed
 ---
 # Authorize users for Apache Ambari Views
 
-[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/apache-domain-joined-introduction.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
+[Enterprise Security Package (ESP) enabled HDInsight clusters](./domain-joined/hdinsight-security-overview.md) provide enterprise-grade capabilities, including Azure Active Directory-based authentication. You can [synchronize new users](hdinsight-sync-aad-users-to-cluster.md) added to Azure AD groups that have been provided access to the cluster, allowing those specific users to perform certain actions. Working with users, groups, and permissions in [Apache Ambari](https://ambari.apache.org/) is supported for both ESP HDInsight clusters and standard HDInsight clusters.
 
-Active Directory users can log on to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
+Active Directory users can sign in to the cluster nodes using their domain credentials. They can also use their domain credentials to authenticate cluster interactions with other approved endpoints like [Hue](https://gethue.com/), Ambari Views, ODBC, JDBC, PowerShell, and REST APIs.
 
 > [!WARNING]  
 > Do not change the password of the Ambari watchdog (hdinsightwatchdog) on your Linux-based HDInsight cluster. Changing the password breaks the ability to use script actions or perform scaling operations with your cluster.
@@ -48,24 +47,24 @@ Ambari comes with view instances for [Apache Hive](https://hive.apache.org/) and
 **Grant permission to these groups**
     ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png)
 
-4. To add a user, select the **Add User** button.
+1. To add a user, select the **Add User** button.
 
-    * Start typing the user name and you will see a dropdown list of previously defined names.
+   * Start typing the user name and you will see a dropdown list of previously defined names.
 
-    ![User autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![User autocompletes](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * Select, or finish typing, the user name. To add this user name as a new user, select the **New** button.
+   * Select, or finish typing, the user name. To add this user name as a new user, select the **New** button.
 
-    * To save your changes, select the **blue checkbox**.
+   * To save your changes, select the **blue checkbox**.
 
-    ![User entered](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![User entered](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. To add a group, select the **Add Group** button.
+1. To add a group, select the **Add Group** button.
 
-    * Start typing the group name. The process of selecting an existing group name, or adding a new group, is the same as for adding users.
-    * To save your changes, select the **blue checkbox**.
+   * Start typing the group name. The process of selecting an existing group name, or adding a new group, is the same as for adding users.
+   * To save your changes, select the **blue checkbox**.
 
-    ![Group entered](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Group entered](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 Adding users directly to a view is useful when you want to assign permissions to a user to use that view, but do not want them to be a member of a group that has additional permissions. To reduce the amount of administrative overhead, it may be simpler to assign permissions to groups.
 

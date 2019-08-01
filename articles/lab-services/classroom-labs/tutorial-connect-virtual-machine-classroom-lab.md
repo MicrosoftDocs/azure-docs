@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 11/14/2018
+ms.date: 01/17/2019
 ms.author: spelluru
 
 ---
@@ -28,10 +28,10 @@ In this tutorial, you do the following actions:
 
 ## Use the registration link
 
-1. Navigate to the **registration URL** that you received from the professor/educator. 
-2. Sign in to the service using your school account to complete the registration. 
-3. Once registered, confirm that you see the virtual machine for the lab you have access to. 
-2. Wait until the virtual machine is ready, and then **start** the VM. This process takes some time.  
+1. Navigate to the **registration URL** that you received from the professor/educator. You don't need to use the registration URL after you complete the registration. Instead, use the URL: [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
+1. Sign in to the service using your school account to complete the registration. 
+2. Once registered, confirm that you see the virtual machine for the lab you have access to. 
+3. Wait until the virtual machine is ready, and then **start** the VM. This process takes some time.  
 
     ![Start the VM](../media/tutorial-connect-vm-in-classroom-lab/start-vm.png)
 
@@ -40,8 +40,9 @@ In this tutorial, you do the following actions:
 1. Select **Connect** on the tile for the virtual machine of the lab that you want to access. 
 
     ![Connect to VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Save the RDP file to the hard disk and open it (assuming that it's a Windows VM)
-3. Use the **user name** and **password** you get from your educator/professor for logging in to the machine. 
+2. Do one of the following steps: 
+    1. For **Windows** virtual machines, save the **RDP** file to the hard disk. Open the RDP file to connect to the virtual machine. Use the **user name** and **password** you get from your educator/professor to sign in to the machine. 
+    3. For **Linux** virtual machines, you can use **SSH** or **RDP** (if it's enabled) to connect to them. For more information, see [Enable remote desktop connection for Linux machines](how-to-enable-remote-desktop-linux.md). 
 
 ## Next steps
 In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor.

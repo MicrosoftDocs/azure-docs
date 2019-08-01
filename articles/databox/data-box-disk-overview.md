@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 01/09/2019
+ms.date: 06/18/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -72,7 +72,7 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
-| Weight                                                  | < 2 lbs. per box. Upto 5 disks in the box                |
+| Weight                                                  | < 2 lbs. per box. Up to 5 disks in the box                |
 | Dimensions                                              | Disk - 2.5" SSD |            
 | Cables                                                  | 1 USB 3.1 cable per disk|
 | Storage capacity per order                              | 40 TB (usable ~ 35 TB)|
@@ -85,24 +85,12 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 ## Region availability
 
-Currently Data Box Disk can transfer data to the following Azure regions:
-
-
-|Azure region  |Azure region  |
-|---------|---------|
-|West Central US     |Canada Central       |        
-|West US2     |Canada East         |     
-|West US     | West Europe        |      
-|South Central US   |North Europe     |         
-|Central US     |Australia East|
-|North Central US  |Australia Southeast   |
-|East US      |Australia Central |
-|East US2     |Australia Central 2|
+For information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
 
 
 ## Pricing
 
-For information on pricing, go to [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+For information on pricing, go to [Pricing page](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ## Next steps
 

@@ -1,19 +1,33 @@
 ---
 title: Upgrade your QnA Maker service - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: You can choose to upgrade individual components of the QnA Maker stack after the initial creation.
+description: Share or upgrade your QnA Maker services in order to manage the resources better. 
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+author: diberry
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim
+ms.date: 03/25/2019
+ms.author: diberry
 ---
 
-# Upgrade your QnA Maker service
+# Share or upgrade your QnA Maker service
+Share or upgrade your QnA Maker services in order to manage the resources better. 
+
 You can choose to upgrade individual components of the QnA Maker stack after the initial creation. See the details of the dependent components and SKU selection [here](https://aka.ms/qnamaker-docs-capacity).
+
+## Share existing services with QnA Maker
+
+QnA Maker creates several Azure resources. In order to reduce management and benefit from cost sharing, use the following table to understand what you can and can't share:
+
+|Service|Share|
+|--|--|
+|Cognitive Services|X|
+|App service plan|✔|
+|App service|X|
+|Application Insights|✔|
+|Search service|✔|
 
 ## Upgrade QnA Maker Management SKU
 

@@ -4,7 +4,7 @@ description: Use an HTTP request to run a non-HTTP triggered Azure Functions
 services: functions
 keywords: 
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 
 ms.service: azure-functions
 ms.topic: tutorial
@@ -32,6 +32,9 @@ To run a non HTTP-triggered function, you need to a way to send a request to Azu
 
 You use this request location in Postman along with the function's master key in the request to Azure to run the function.
 
+> [!NOTE]
+> When running locally, the function's master key is not required. You can directly [call the function](#call-the-function) omitting the `x-functions-key` header.
+
 ## Get the function's master key
 
 Navigate to your function in the Azure portal and click on **Manage** and find the **Host Keys** section. Click on the **Copy** button in the *_master* row to copy the master key to your clipboard.
@@ -47,19 +50,20 @@ After copying the master key, click on the function name to return to the code f
 
 Open Postman and follow these steps:
 
-1. Enter the **request location in the URL text box**. 
-2. **Click** on the **Headers** tab.
-3. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
-4. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
+1. Enter the **request location in the URL text box**.
+2. Ensure the HTTP method is set to **POST**.
+3. **Click** on the **Headers** tab.
+4. Enter **x-functions-key** as the first **key** and paste the master key (from the clipboard) into the **value** box.
+5. Enter **Content-Type** as the second **key** and enter **application/json** as the **value**.
 
     ![Postman headers settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-headers.png)
 
-5. **Click** on the **Body** tab.
-6. Enter **{ "input": "test" }** as the body for the request.
+6. **Click** on the **Body** tab.
+7. Enter **{ "input": "test" }** as the body for the request.
 
     ![Postman body settings](./media/functions-manually-run-non-http/functions-manually-run-non-http-body.png)
 
-7. Click **Send**.
+8. Click **Send**.
 
     ![Sending a request with Postman](./media/functions-manually-run-non-http/functions-manually-run-non-http-send.png)
 

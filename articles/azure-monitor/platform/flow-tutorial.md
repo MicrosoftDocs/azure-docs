@@ -1,5 +1,5 @@
 ---
-title: Automate Azure Log Analytics processes with Microsoft Flow
+title: Automate Azure Monitor log processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Azure Log Analytics connector.
 services: log-analytics
 documentationcenter: ''
@@ -13,12 +13,14 @@ ms.date: 09/29/2017
 ms.author: bwren
 ---
 
-# Automate Log Analytics processes with the connector for Microsoft Flow
-[Microsoft Flow](https://ms.flow.microsoft.com) allows you to create automated workflows using hundreds of actions for a variety of services. Output from one action can be used as input to another allowing you to create integration between different services.  The Azure Log Analytics connector for Microsoft Flow allow you to build workflows that include data retrieved by log searches in Log Analytics.
+# Automate Azure Monitor log processes with the connector for Microsoft Flow
+[Microsoft Flow](https://ms.flow.microsoft.com) allows you to create automated workflows using hundreds of actions for a variety of services. Output from one action can be used as input to another allowing you to create integration between different services.  The Azure Log Analytics connector for Microsoft Flow allow you to build workflows that include data retrieved by log queries from a Log Analytics workspace in Azure Monitor.
 
-For example, you can use Microsoft Flow to use Log Analytics data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-The tutorial in this article shows you how to create a flow that automatically sends the results of a Log Analytics log search by email, just one example of how you can use Log Analytics in Microsoft Flow. 
+For example, you can use Microsoft Flow to use Azure Monitor log data in an email notification from Office 365, create a bug in Azure DevOps, or post a Slack message.  You can trigger a workflow by a simple schedule or from some action in a connected service such as when a mail or a tweet is received.  
+
+The tutorial in this article shows you how to create a flow that automatically sends the results of an Azure Monitor log query by email, just one example of how you can use the Log Analytics connector in Microsoft Flow. 
 
 
 ## Step 1: Create a flow
@@ -40,14 +42,14 @@ The tutorial in this article shows you how to create a flow that automatically s
 ## Step 4: Configure the Log Analytics action
 
 1. Specify the details for your workspace including the Subscription ID, Resource Group, and Workspace Name.
-2. Add the following Log Analytics query to the **Query** window.  This is only a sample query, and you can replace with any other that returns data.
-```
+2. Add the following log query to the **Query** window.  This is only a sample query, and you can replace with any other that returns data.
+   ```
 	Event
 	| where EventLevelName == "Error" 
 	| where TimeGenerated > ago(1day)
 	| summarize count() by Computer
 	| sort by Computer
-```
+   ```
 
 2. Select **HTML Table** for the **Chart Type**.<br><br>![Log Analytics action](media/flow-tutorial/flow03.png)
 
@@ -72,7 +74,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 ## Next steps
 
-- Learn more about [log searches in Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+- Learn more about [log queries in Azure Monitor](../log-query/log-query-overview.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

@@ -1,10 +1,10 @@
 ---
 title: Install MySQL on an OpenSUSE VM in Azure | Microsoft Docs
-description: Learn to install MySQL on an OpenSUSE Linux VMirtual machine in Azure.
+description: Learn to install MySQL on an OpenSUSE Linux Virtual machine in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: zr-msft
-manager: jeconnoc
+author: cynthn
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
-ms.author: za-rhoads
+ms.author: cynthn
 
 ---
 # Install MySQL on a virtual machine running OpenSUSE Linux in Azure
 
-[MySQL](http://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
+[MySQL](https://www.mysql.com) is a popular, open-source SQL database. This tutorial shows you how to create a virtual machine running OpenSUSE Linux, then install MySQL.
 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -126,7 +126,7 @@ This switches you to the MySQL prompt where you can issue SQL statements to inte
 
 Now, create a new MySQL user.
 
-```   
+```sql
 CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
    
@@ -138,7 +138,7 @@ The semi-colon (;) at the end of the line is crucial for ending the command.
 
 Create a database and grant the `mysqluser` user permissions.
 
-```   
+```sql
 CREATE DATABASE testdatabase;
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'localhost' IDENTIFIED BY 'password';
 ```
@@ -147,7 +147,7 @@ Database user names and passwords are only used by scripts connecting to the dat
 
 Enable sign in from another computer. In this example, the IP address of the computer to allow sign in from is *10.112.113.114*.
 
-```   
+```sql
 GRANT ALL ON testdatabase.* TO 'mysqluser'@'10.112.113.114' IDENTIFIED BY 'password';
 ```
    
@@ -159,7 +159,7 @@ quit
 
 
 ## Next steps
-For details about MySQL, see the [MySQL Documentation](http://dev.mysql.com/doc/index-topic.html).
+For details about MySQL, see the [MySQL Documentation](https://dev.mysql.com/doc).
 
 
 

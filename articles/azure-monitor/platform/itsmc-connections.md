@@ -25,7 +25,7 @@ The following ITSM products/services are supported. Select the product to view d
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > ITSM Connector can only connect to cloud-based ServiceNow instances. On-premises ServiceNow instances are currently not supported.
 
 ## Connect System Center Service Manager to IT Service Management Connector in Azure
@@ -57,7 +57,7 @@ Use the following procedure to connect your System Center Service Manager instan
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -67,8 +67,8 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Server URL**   | Type the URL of the Service Manager Web app. More information about Service Manager Web app is [here](#create-and-deploy-service-manager-web-app-service).
 | **Client ID**   | Type the client ID that you generated (using the automatic script) for authenticating the Web app. More information about the automated script is [here.](../../azure-monitor/platform/itsmc-service-manager-script.md)|
 | **Client Secret**   | Type the client secret, generated for this ID.   |
-| **Data Sync Scope**   | Select the Service Manager work items that you want to sync through ITSMC.  These work items are imported into Log Analytics. **Options:**  Incidents, Change Requests.|
-| **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
+| **Sync Data**   | Select the Service Manager work items that you want to sync through ITSMC.  These work items are imported into Log Analytics. **Options:**  Incidents, Change Requests.|
+| **Data Sync Scope** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, Log Analytics creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
 ![Service manager connection](media/itsmc-connections/service-manager-connection.png)
@@ -132,14 +132,14 @@ Use the following procedure to configure the hybrid connection that connects the
 
 6. Type the following values:
 
-    - **EndPoint Name**: Specify a name for the new Hybrid connection.
-    -  **EndPoint Host**: FQDN of the Service Manager management server.
-    - **EndPoint Port**: Type 5724
-    - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
-    - **Location**: select the location.
-    -  **Name**: Specify a name to the servicebus if you are creating it.
+   - **EndPoint Name**: Specify a name for the new Hybrid connection.
+   - **EndPoint Host**: FQDN of the Service Manager management server.
+   - **EndPoint Port**: Type 5724
+   - **Servicebus namespace**: Use an existing servicebus namespace or create a new one.
+   - **Location**: select the location.
+   - **Name**: Specify a name to the servicebus if you are creating it.
 
-    ![Hybrid connection values](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Hybrid connection values](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
     Once the Hybrid connection is created, it is displayed under the blade.
@@ -166,7 +166,7 @@ Your hybrid connection is successfully connected.
 
 ![successful hybrid connection](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > After the hybrid connection is created, verify and test the connection by visiting the deployed Service Manager Web app. Ensure the connection is successful before you try to connect to ITSMC in Azure.
 
 The following sample image shows the details of a successful connection:
@@ -180,11 +180,13 @@ The following sections provide details about how to connect your ServiceNow prod
 ### Prerequisites
 Ensure the following prerequisites are met:
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- ServiceNow supported versions: Kingston, Jakarta, Istanbul, Helsinki, Geneva.
+- ServiceNow supported versions: Madrid, London, Kingston, Jakarta, Istanbul, Helsinki, Geneva.
 
 **ServiceNow Admins must do the following in their ServiceNow instance**:
 - Generate client ID and client secret for the ServiceNow product. For information on how to generate client ID and secret, see the following information as required:
 
+    - [Set up OAuth for Madrid](https://docs.servicenow.com/bundle/madrid-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Set up OAuth for London](https://docs.servicenow.com/bundle/london-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Kingston](https://docs.servicenow.com/bundle/kingston-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
 	- [Set up OAuth for Jakarta](https://docs.servicenow.com/bundle/jakarta-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
     - [Set up OAuth for Istanbul](https://docs.servicenow.com/bundle/istanbul-platform-administration/page/administer/security/task/t_SettingUpOAuth.html)
@@ -239,20 +241,20 @@ Learn more: [Create ITSM work items from Azure alerts](../../azure-monitor/platf
 
 User the following procedure:
 
-1.	Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
+1. Visit the [ServiceNow store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) and install the **User App for ServiceNow and Microsoft OMS Integration** into your ServiceNow Instance.
    
    >[!NOTE]
    >As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, OMS is now referred to as Log Analytics.     
-2.	After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
-3.	Click **Installation Checklist**.
+2. After installation, visit the left navigation bar of the ServiceNow instance, search, and select Microsoft OMS integrator.  
+3. Click **Installation Checklist**.
 
-    The status is displayed as  **Not complete** if the user role is yet to be created.
+   The status is displayed as  **Not complete** if the user role is yet to be created.
 
-4.	In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to ITSMC in Azure.
-5.	Enter the password for this user, and click **OK**.  
+4. In the text boxes, next to **Create integration user**, enter the user name for the user that can connect to ITSMC in Azure.
+5. Enter the password for this user, and click **OK**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > You use these credentials to make the ServiceNow connection in Azure.
 
 The newly created user is displayed with the default roles assigned.
@@ -268,9 +270,9 @@ The newly created user is displayed with the default roles assigned.
 Once the user is successfully created, the status of **Check Installation Checklist** moves to Completed, listing the details of the user role created for the app.
 
 > [!NOTE]
-
+> 
 > ITSM Connector can send incidents to ServiceNow without any other modules installed on your ServiceNow instance. If you are using EventManagement module in your ServiceNow instance and wish to create Events or Alerts in ServiceNow using the connector, add the following roles to the integration user:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -304,7 +306,7 @@ Use the following procedure to create a Provance connection:
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |
@@ -355,7 +357,7 @@ Use the following procedure to create a Provance connection:
 4. Provide the information as described in the following table, and click **OK** to create the connection.
 
 > [!NOTE]
-
+> 
 > All these parameters are mandatory.
 
 | **Field** | **Description** |

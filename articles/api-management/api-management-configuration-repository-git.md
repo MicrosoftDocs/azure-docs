@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 03/12/2019
 ms.author: apimpm
 ---
 # How to save and configure your API Management service configuration using Git
@@ -48,11 +48,11 @@ To view and configure your Git configuration settings, you can click the **Secur
 ![Enable GIT][api-management-enable-git]
 
 > [!IMPORTANT]
-> Any secrets that are not defined as properties will be stored in the repository and will remain in its history until you disable and re-enable Git access. Properties provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [How to use properties in Azure API Management policies](api-management-howto-properties.md).
-> 
-> 
+> Any secrets that are not defined as Named Values will be stored in the repository and will remain in its history until you disable and re-enable Git access. Named Values provide a secure place to manage constant string values, including secrets, across all API configuration and policies, so you don't have to store them directly in your policy statements. For more information, see [How to use Named Values in Azure API Management policies](api-management-howto-properties.md).
+>
+>
 
-For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+For information on enabling or disabling Git access using the REST API, see [Enable or disable Git access using the REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?EnableGit).
 
 ## To save the service configuration to the Git repository
 
@@ -64,17 +64,17 @@ After a few moments the configuration is saved, and the configuration status of 
 
 Once the configuration is saved to the repository, it can be cloned.
 
-For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+For information on performing this operation using the REST API, see [Commit configuration snapshot using the REST API](/rest/api/apimanagement/2019-01-01/tenantaccess?CommitSnapshot).
 
 ## To clone the repository to your local machine
 
-To clone a repository, you need the URL to your repository, a user name, and a password. To get user name and other credentials, click on **Access credentials** near the top of the page.  
- 
+To clone a repository, you need the URL to your repository, a user name, and a password. To get user name and other credentials, click on **Access credentials** near the top of the page.
+
 To generate a password, first ensure that the **Expiry** is set to the desired expiration date and time, and then click **Generate**.
 
 > [!IMPORTANT]
 > Make a note of this password. Once you leave this page the password will not be displayed again.
-> 
+>
 
 The following examples use the Git Bash tool from [Git for Windows](https://www.git-scm.com/downloads) but you can use any Git tool that you are familiar with.
 
@@ -138,7 +138,7 @@ git push
 
 Once your local changes are committed and pushed to the server repository, you can deploy them to your API Management service instance.
 
-For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/tenantconfiguration).
+For information on performing this operation using the REST API, see [Deploy Git changes to configuration database using the REST API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/tenantconfiguration).
 
 ## File and folder structure reference of local Git repository
 
@@ -167,12 +167,12 @@ These files can be created, deleted, edited, and managed on your local file syst
 
 > [!NOTE]
 > The following entities are not contained in the Git repository and cannot be configured using Git.
-> 
-> * Users
-> * Subscriptions
-> * Properties
+>
+> * [Users](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/user)
+> * [Subscriptions](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/subscription)
+> * [Named Values](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/property)
 > * Developer portal entities other than styles
-> 
+>
 
 ### Root api-management folder
 The root `api-management` folder contains a `configuration.json` file that contains top-level information about the service instance in the following format.
@@ -218,14 +218,14 @@ The final setting, `$ref-policy`, maps to the global policy statements file for 
 ### apis folder
 The `apis` folder contains a folder for each API in the service instance, which contains the following items.
 
-* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/rest/api/apimanagement/api/get) with `export=true` in `application/json` format.
+* `apis\<api name>\configuration.json` - this is the configuration for the API and contains information about the backend service URL and the operations. This is the same information that would be returned if you were to call [Get a specific API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/apis/get) with `export=true` in `application/json` format.
 * `apis\<api name>\api.description.html` - this is the description of the API and corresponds to the `description` property of the [API entity](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
 * `apis\<api name>\operations\` - this folder contains `<operation name>.description.html` files that map to the operations in the API. Each file contains the description of a single operation in the API, which maps to the `description` property of the [operation entity](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) in the REST API.
 
 ### groups folder
 The `groups` folder contains a folder for each group defined in the service instance.
 
-* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/rest/api/apimanagement/group/get) operation.
+* `groups\<group name>\configuration.json` - this is the configuration for the group. This is the same information that would be returned if you were to call the [Get a specific group](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/group/get) operation.
 * `groups\<group name>\description.html` - this is the description of the group and corresponds to the `description` property of the [group entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### policies folder
@@ -245,7 +245,7 @@ The `portalStyles` folder contains configuration and style sheets for developer 
 ### products folder
 The `products` folder contains a folder for each product defined in the service instance.
 
-* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/rest/api/apimanagement/product/get) operation.
+* `products\<product name>\configuration.json` - this is the configuration for the product. This is the same information that would be returned if you were to call the [Get a specific product](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/product/get) operation.
 * `products\<product name>\product.description.html` - this is the description of the product and corresponds to the `description` property of the [product entity](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) in the REST API.
 
 ### templates
@@ -261,7 +261,7 @@ For information on other ways to manage your service instance, see:
   * [Service deployment PowerShell cmdlet reference](https://docs.microsoft.com/powershell/module/wds)
   * [Service management PowerShell cmdlet reference](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Manage your service instance using the REST API
-  * [API Management REST API reference](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API reference](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

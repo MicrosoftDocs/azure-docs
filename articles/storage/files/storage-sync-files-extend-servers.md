@@ -1,13 +1,12 @@
 ---
 title: Tutorial - Extend Windows file servers with Azure File Sync | Microsoft Docs
 description: Learn how to extend Windows file servers with Azure File Sync, from start to finish.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
 ms.topic: tutorial
 ms.date: 10/23/2018
-ms.author: wgries
-ms.component: files
+ms.author: rogarana
+ms.subservice: files
 #Customer intent: As an IT Administrator, I want see how to extend Windows file servers with Azure File Sync, so I can evaluate the process for extending storage capacity of my Windows servers.
 ---
 
@@ -24,6 +23,8 @@ The article demonstrates the basic steps for extending the storage capacity of a
 > * Create a server endpoint
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## Sign in to Azure
 
@@ -177,7 +178,7 @@ Next, in the Windows Server 2016 Datacenter VM, install the Azure PowerShell mod
 1. Run the following command:
 
    ```powershell
-   Install-Module -Name Az -AllowClobber
+   Install-Module -Name Az
    ```
 
    > [!NOTE]

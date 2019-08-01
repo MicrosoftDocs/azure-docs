@@ -1,10 +1,10 @@
 ---
-title: How to integrate Azure Active Directory logs with ArcSight using Azure Monitor (preview)  | Microsoft Docs
-description: Learn how to integrate Azure Active Directory logs with ArcSight using Azure Monitor (preview)
+title: How to integrate Azure Active Directory logs with ArcSight using Azure Monitor  | Microsoft Docs
+description: Learn how to integrate Azure Active Directory logs with ArcSight using Azure Monitor
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
-manager: mtillman
+author: MarkusVi
+manager: daveba
 editor: ''
 
 ms.assetid: b37bef0d-982e-4e28-86b2-6c61ca524ae1
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.component: report-monitor
-ms.date: 12/03/2018
-ms.author: priyamo
+ms.subservice: report-monitor
+ms.date: 04/19/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
+ms.collection: M365-identity-device-management
 ---
 
-# Integrate Azure Active Directory logs with ArcSight using Azure Monitor (preview)
+# Integrate Azure Active Directory logs with ArcSight using Azure Monitor
 
 [Micro Focus ArcSight](https://software.microfocus.com/products/siem-security-information-event-management/overview) is a security information and event management (SIEM) solution that helps you detect and respond to security threats in your platform. You can now route Azure Active Directory (Azure AD) logs to ArcSight using Azure Monitor using the ArcSight connector for Azure AD. This feature allows you to monitor your tenant for security compromise using ArcSight.  
 
@@ -55,4 +56,4 @@ Download and open the [configuration guide for ArcSight SmartConnector for Azure
 
 ## Next steps
 
-* [Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)
+[Configuration guide for ArcSight SmartConnector for Azure Monitor Event Hub](https://community.softwaregrp.com/dcvta86296/attachments/dcvta86296/connector-documentation/1232/2/Microsoft%20Azure%20Monitor%20Event%20Hub.pdf)

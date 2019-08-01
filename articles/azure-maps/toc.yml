@@ -1,5 +1,3 @@
-- name: Azure IoT Fundamentals 
-  href: ../iot-fundamentals/index.yml
 - name: Azure Maps Documentation 
   href: index.yml
 - name: Overview
@@ -7,23 +5,32 @@
   - name: What is Azure Maps?
     href: about-azure-maps.md
 - name: Quickstarts
+  expanded: true
   items:
-  - name: Create a map app
+  - name: Create a web app
     href: quick-demo-map-app.md
 - name: Tutorials
   items:
-  - name: 1 - Search for point of interest
-    href: tutorial-search-location.md
-  - name: 2 - Route to a destination
-    href: tutorial-route-location.md
-  - name: 3 - Multiple routes by mode of travel
-    href: tutorial-prioritized-routes.md
-  - name: 4 - Create a store locator
-    href: tutorial-create-store-locator.md
+  - name: Web SDK Tutorials
+    items:
+    - name: Search for point of interest
+      href: tutorial-search-location.md
+    - name: Route to a destination
+      href: tutorial-route-location.md
+    - name: Multiple routes by mode of travel
+      href: tutorial-prioritized-routes.md
+    - name: Create a store locator
+      href: tutorial-create-store-locator.md
+  - name: REST API Tutorials
+    items:
+    - name: Set up a geofence
+      href: tutorial-geofence.md
 - name: Concepts
   items:
-  - name: Zoom levels and tile grid
-    href: zoom-levels-and-tile-grid.md
+  - name: Authentication with Azure Maps
+    href: azure-maps-authentication.md
+  - name: Azure Maps Event Grid integration
+    href: azure-maps-event-grid-integration.md
   - name: Choose the right pricing tier
     href: choose-pricing-tier.md
   - name: Coverage
@@ -36,16 +43,26 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
-  - name: Supported languages
+    - name: Mobility coverage
+      href: mobility-coverage.md
+  - name: Localization support
     href: supported-languages.md
-  - name: Supported Map styles
+  - name: Supported map styles
     href: supported-map-styles.md
+  - name: Web SDK supported browsers
+    href: supported-browsers.md
+  - name: Zoom levels and tile grid
+    href: zoom-levels-and-tile-grid.md
+  - name: Mobility Service data structure
+    href: mobility-service-data-structure.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
     items:
-    - name: Manage accounts and keys
+    - name: Manage accounts
       href: how-to-manage-account-keys.md
+    - name: Manage authentication
+      href: how-to-manage-authentication.md
     - name: Manage pricing tier
       href: how-to-manage-pricing-tier.md
     - name: View usage metrics
@@ -54,46 +71,72 @@
     items:
     - name: Search for an address
       href: how-to-search-for-address.md
-  - name: Create JavaScript maps
+    - name: Best practices for search
+      href: how-to-use-best-practices-for-search.md
+    - name: Render custom data on static map
+      href: how-to-render-custom-data.md
+    - name: Request public transit routes
+      href: how-to-request-transit-data.md
+    - name: Request real-time public transit data
+      href: how-to-request-real-time-data.md
+  - name: Develop with the Web SDK
     items:
-    - name: Use the map control
-      href: how-to-use-map-control.md
-    - name: Create a map
-      href: map-create.md
-    - name: Choose a map style
-      href: choose-map-style.md
-    - name: Add map controls
-      href: map-add-controls.md
-    - name: Add a symbol layer
-      href: map-add-pin.md
-    - name: Add a popup
-      href: map-add-popup.md      
-    - name: Add a bubble layer
-      href: map-add-bubble-layer.md
-    - name: Add a shape
-      href: map-add-shape.md
-    - name: Add a heat map layer
-      href: map-add-heat-map-layer.md   
-    - name: Add an image layer
-      href: map-add-image-layer.md
-    - name: Add a tile layer
-      href: map-add-tile-layer.md
-    - name: Add HTML markers
-      href: map-add-custom-html.md
-    - name: Services
-      items:  
-      - name: Show search results 
-        href: map-search-location.md  
+    - name: Map control
+      items:
+      - name: Getting started with web map control
+        href: how-to-use-map-control.md
+      - name: Create a map
+        href: map-create.md
+      - name: Change style of the map
+        href: choose-map-style.md
+      - name: Add controls to the map
+        href: map-add-controls.md
+      - name: Add a symbol layer
+        href: map-add-pin.md
+      - name: Add a popup
+        href: map-add-popup.md      
+      - name: Add a bubble layer
+        href: map-add-bubble-layer.md
+      - name: Add shapes
+        href: map-add-shape.md
+      - name: Add a heat map layer
+        href: map-add-heat-map-layer.md   
+      - name: Cluster point data
+        href: clustering-point-data-web-sdk.md
+      - name: Use data-driven style expressions
+        href: data-driven-style-expressions-web-sdk.md
+      - name: Overlay an image
+        href: map-add-image-layer.md
+      - name: Add tile layers
+        href: map-add-tile-layer.md
+      - name: HTML markers
+        href: map-add-custom-html.md
+      - name: Show traffic 
+        href: map-show-traffic.md
+      - name: Interacting with mouse events
+        href: map-events.md
+      - name: Make your app accessible
+        href: map-accessibility.md
+    - name: Services module
+      items:
+      - name: Use the services module
+        href: how-to-use-services-module.md
+      - name: Show search results
+        href: map-search-location.md
       - name: Get information from a coordinate
         href: map-get-information-from-coordinate.md
       - name: Show directions from A to B
-        href: map-route.md   
-    - name: Show traffic 
-      href: map-show-traffic.md
-    - name: Interacting with mouse events
-      href: map-events.md
-    - name: Accessible map applications
-      href: map-accessibility.md
+        href: map-route.md
+  - name: Develop with the Android SDK
+    items:
+    - name: Getting started with Android map control
+      href: how-to-use-android-map-control-library.md
+    - name: Add a symbol layer
+      href: how-to-add-symbol-to-android-map.md
+    - name: Add shapes
+      href: how-to-add-shapes-to-android-map.md
+    - name: Change the style of the map
+      href: set-android-map-styles.md
 - name: Reference
   items:
   - name: API and parameter extensions
@@ -102,18 +145,26 @@
       href: consumption-model.md
     - name: Extend GeoJSON format
       href: extend-geojson.md
+    - name: Geofence GEOJSON format
+      href: geofence-geojson.md
     - name: Supported search categories
       href: supported-search-categories.md
   - name: REST
     items:
+    - name: Data service
+      href: https://docs.microsoft.com/rest/api/maps/data
     - name: Geolocation service
       href: https://docs.microsoft.com/rest/api/maps/geolocation
+    - name: Mobility service
+      href: https://docs.microsoft.com/rest/api/maps/mobility
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
     - name: Route service
       href: https://docs.microsoft.com/rest/api/maps/route
     - name: Search service
       href: https://docs.microsoft.com/rest/api/maps/search
+    - name: Spatial service
+      href: https://docs.microsoft.com/rest/api/maps/spatial
     - name: Timezone service
       href: https://docs.microsoft.com/rest/api/maps/timezone
     - name: Traffic service
@@ -124,10 +175,38 @@
     items:
     - name: Map control
       href: https://docs.microsoft.com/javascript/api/azure-maps-javascript/
+    - name: Drawing tools
+      href: https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/
     - name: Service module
       href: https://docs.microsoft.com/javascript/api/azure-maps-rest/
   - name: Resource Manager template
     href: /azure/templates/microsoft.maps/accounts
+- name: Resources
+  items:
+  - name: Azure Maps terms of use
+    href: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31
+  - name: Azure Maps Pricing
+    href: https://azure.microsoft.com/pricing/details/azure-maps
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-maps
+  - name: MSDN forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
+  - name: Azure Maps Videos
+    href: https://aka.ms/AzureMapsVideos
+  - name: Azure Maps Glossary
+    href: glossary.md
+  - name: Service updates
+    href: https://azure.microsoft.com/updates 
+  - name: Azure IoT Developer Center
+    href: https://azure.microsoft.com/develop/iot/
+  - name: Azure Roadmap
+    href: https://azure.microsoft.com/roadmap/?category=iot    
+  - name: Technical case studies
+    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+  - name: Azure Maps on IoT School
+    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo    
 - name: Related
   items:
   - name: Solutions
@@ -148,31 +227,9 @@
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: Edge
+  - name: IoT Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
     - name: IoT Device SDKs
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks 
-- name: Resources
-  items:
-  - name: Azure IoT Developer Center
-    href: https://azure.microsoft.com/develop/iot/
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=iot
-  - name: Glossary
-    href: glossary.md
-  - name: MSDN forum
-    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/azure-maps
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-maps
-  - name: Technical case studies
-    href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
-  - name: Videos
-    href: https://iotschool.microsoft.com/learning-paths/4ZktHn3KEUIiUw64C0Aieo

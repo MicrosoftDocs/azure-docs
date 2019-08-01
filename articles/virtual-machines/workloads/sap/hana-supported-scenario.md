@@ -4,7 +4,7 @@ description: Scenarios supported and their architecture details for SAP HANA on 
 services: virtual-machines-linux
 documentationcenter:
 author: saghorpa
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
@@ -64,10 +64,10 @@ Each server provisioned comes pre-configured with the sets of ethernet interface
 | B | TYPE I | eth2.tenant | eno3.tenant | Node to node |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | STONITH |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Node to node |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 You use the interfaces based on the topology configured on the HLI unit. For example, the interface “B” is set up for node to node communication, which is useful when you have a scale-out topology configured. In the case of single node scale-up configuration, this interface is not used. Review your required scenarios (later in this document) to get more information about the interface usage. 
 
@@ -98,7 +98,7 @@ For deployment cases of HANA System Replication or HANA scale-out, a blade confi
 Storage is preconfigured based on the topology requested. The volume sizes and mountpoint vary based on the number of servers, SKUs, and topology configured. Review your required scenarios (later in this document) to get more information. If more storage is required, you can purchase it in one TB increment.
 
 >[!NOTE]
->The mountpoint /usr/sap/<SID> is a symbolic link to the /hana/shared mountpoint.
+>The mountpoint /usr/sap/\<SID> is a symbolic link to the /hana/shared mountpoint.
 
 
 ## Supported Scenarios
@@ -139,10 +139,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -174,10 +174,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -214,10 +214,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -234,7 +234,7 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
 - At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details.
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details.
 - Boot volume for **SKU Type I class** is replicated to DR node.
 
 
@@ -255,10 +255,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -283,7 +283,7 @@ The following mountpoints are preconfigured:
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 - For MCOS: Volume size distribution is based off the database size in memory. Refer the [Overview and architecture](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) section to learn what database sizes in memory are supported with multisid environment.
 - At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
 - Boot volume for **SKU Type I class** is replicated to DR node.
 
@@ -309,10 +309,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Used for STONITH |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Used for STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -357,10 +357,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Configured but not in use |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Used for STONITH |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Configured but not in use |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Used for STONITH |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Configured but not in use |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Used for STONITH |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -392,7 +392,7 @@ The following mountpoints are preconfigured:
 - STONITH: An SBD is configured for the STONITH setup. However, a use of STONITH is optional.
 - At the DR: **Two sets of storage volumes are required** for primary and secondary node replication.
 - At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
 - At the DR: The data, logbackups, log, shared volumes for QA (marked as “QA Instance installation”) are configured for the QA instance installation.
 - Boot volume for **SKU Type I class** is replicated to DR node.
 
@@ -416,10 +416,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -457,10 +457,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -493,10 +493,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -532,10 +532,10 @@ The following network interfaces are preconfigured:
 | B | TYPE I | eth2.tenant | eno3.tenant | Node to node communication |
 | C | TYPE I | eth1.tenant | eno2.tenant | Node to storage |
 | D | TYPE I | eth4.tenant | eno4.tenant | Configured but not in use |
-| A | TYPE II | vlan<tenantNo> | team0.tenant | Client to HLI |
-| B | TYPE II | vlan<tenantNo+2> | team0.tenant+2 | Node to node communication |
-| C | TYPE II | vlan<tenantNo+1> | team0.tenant+1 | Node to storage |
-| D | TYPE II | vlan<tenantNo+3> | team0.tenant+3 | Configured but not in use |
+| A | TYPE II | vlan\<tenantNo> | team0.tenant | Client to HLI |
+| B | TYPE II | vlan\<tenantNo+2> | team0.tenant+2 | Node to node communication |
+| C | TYPE II | vlan\<tenantNo+1> | team0.tenant+1 | Node to storage |
+| D | TYPE II | vlan\<tenantNo+3> | team0.tenant+3 | Configured but not in use |
 
 ### Storage
 The following mountpoints are preconfigured:
@@ -556,7 +556,7 @@ The following mountpoints are preconfigured:
 ### Key considerations
 - /usr/sap/SID is a symbolic link to /hana/shared/SID.
 -  At the DR: The volumes and mountpoints are configured (marked as “Required for HANA installation”) for the production HANA Instance installation at the DR HLI unit. 
-- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) for more details. 
+- At the DR: The data, logbackups, and shared volumes (marked as “Storage Replication”) are replicated via snapshot from the production site. These volumes are mounted during the failover time only. For more information, read the document [Disaster recovery failover procedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) for more details. 
 - Boot volume for **SKU Type I class** is replicated to DR node.
 
 

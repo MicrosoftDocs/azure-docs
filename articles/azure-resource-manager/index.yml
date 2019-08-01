@@ -51,6 +51,7 @@ sections:
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Deploy SQL extensions</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Secure template artifacts</a>.
     - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Use safe deployment practices</a>.
+    - html: <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Troubleshoot template deployments</a>.
 - title: Samples
   items:
   - type: paragraph
@@ -70,8 +71,8 @@ sections:
     - title: Templates
       html: <p><a href="/azure/templates/">Template reference</a></p><p><a href="/azure/resource-group-template-functions">Template functions</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">UI definition functions</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">UI definition elements</a></p>
     - title: Command-Line
-      html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/azurerm.resources">PowerShell</a></p>
+      html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/azure/">Python</a></p>
+      html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
     - title: REST
       html: <p><a href="/rest/api/resources/">REST API</a></p>

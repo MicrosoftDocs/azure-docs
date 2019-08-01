@@ -1,23 +1,23 @@
 ---
-title: Security when collaborating
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Security when collaborating - LUIS
+titleSuffix: Azure Cognitive Services
 description: Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/18/2018
+ms.date: 06/12/2019
 ms.author: diberry
 ---
 
 # Authoring and endpoint user access
-Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. For a public app, endpoint access is available to everyone that has their own LUIS account and has the public app's ID. 
+Authoring access is available for owners and collaborators. For a private app, endpoint access is available for owners and collaborators. For a public app, endpoint access is available to everyone that has their own Azure [Cognitive Service](../cognitive-services-apis-create-account.md) or [LUIS](luis-how-to-azure-subscription.md#create-prediction-endpoint-runtime-resource-in-the-azure-portal) resource, and has the public app's ID. 
 
 ## Access to authoring
-Access to the app from the [LUIS](luis-reference-regions.md#luis-website) website or the [authoring APIs](https://aka.ms/luis-authoring-apis) is controlled by the owner of the app. 
+Access to the app from the [LUIS](luis-reference-regions.md#luis-website) website or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087) is controlled by the owner of the app. 
 
 The owner and all collaborators have access to author the app. 
 
@@ -30,7 +30,7 @@ The owner and all collaborators have access to author the app.
 |Make app public|When an app is public, anyone with an authoring or endpoint key can query the app.|
 |Modify model|
 |Publish|
-|Review endpoint utterances for [active learning](luis-how-to-review-endoint-utt.md)|
+|Review endpoint utterances for [active learning](luis-how-to-review-endpoint-utterances.md)|
 |Train|
 
 ## Access to endpoint
@@ -48,7 +48,7 @@ Access to query the endpoint is controlled by a setting on the **Application Inf
 A private app's endpoint is only available to the following:
 
 |Key and user|Explanation|
-|--|--|--|
+|--|--|
 |Owner's authoring key| Up to 1000 endpoint hits|
 |Collaborators' authoring keys| Up to 1000 endpoint hits|
 |Any key assigned to LUIS by an author or collaborator|Based on key usage tier|

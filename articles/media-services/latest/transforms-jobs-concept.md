@@ -11,22 +11,30 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 12/20/2018
+ms.date: 05/08/2019
 ms.author: juliako
 ---
 
 # Transforms and Jobs
- 
-Use [Transforms](https://docs.microsoft.com/rest/api/media/transforms) to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. 
 
-A [Job](https://docs.microsoft.com/rest/api/media/jobs) is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Media Services Assets](https://docs.microsoft.com/rest/api/media/assets).  
+This topic gives details about [Transforms](https://docs.microsoft.com/rest/api/media/transforms) and [Jobs](https://docs.microsoft.com/rest/api/media/jobs) and explains the relationship between these entities. 
 
-## Typical workflow
+## Overview 
+
+### Transforms/Jobs workflow
+
+The following diagram shows transforms/jobs workflow.
+
+![Transforms](./media/encoding/transforms-jobs.png)
+
+#### Typical workflow
 
 1. Create a Transform 
 2. Submit Jobs under that Transform 
 3. List Transforms 
 4. Delete a Transform, if you are not planning to use it in the future. 
+
+#### Example
 
 Suppose you wanted to extract the first frame of all your videos as a thumbnail image – the steps you would take are: 
 
@@ -37,100 +45,76 @@ Suppose you wanted to extract the first frame of all your videos as a thumbnail 
 
 A **Transform** helps you create the recipe once (Step 1), and submit Jobs using that recipe (Step 2).
 
+> [!NOTE]
+> Properties of **Transform** and **Job** that are of the Datetime type are always in UTC format.
+
 ## Transforms
 
-You can create Transforms in your Media Services account using the v3 API directly, or using any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
+Use **Transforms** to configure common tasks for encoding or analyzing videos. Each **Transform** describes a recipe, or a workflow of tasks for processing your video or audio files. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform. You use presets to tell the Transform how the input media files should be processed.
 
-### Transform definition
+### Viewing schema
 
-The following table shows the Transform's properties and gives their definitions.
+In Media Services v3, presets are strongly typed entities in the API itself. You can find  the "schema" definition for these objects in [Open API Specification (or Swagger)](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01). You can also view the preset definitions (like **StandardEncoderPreset**) in the [REST API](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset), [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.standardencoderpreset?view=azure-dotnet) (or other Media Services v3 SDK reference documentation).
 
-|Name|Description|
-|---|---|
-|Id|Fully qualified resource ID for the resource.|
-|name|The name of the resource.|
-|properties.created |The UTC date and time when the Transform was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.description |An optional verbose description of the Transform.|
-|properties.lastModified |The UTC date and time when the Transform was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.outputs |An array of one or more TransformOutputs that the Transform should generate.|
-|type|The type of the resource.|
+### Creating Transforms
 
-For the full definition, see [Transforms](https://docs.microsoft.com/rest/api/media/transforms).
+You can create Transforms using REST, CLI, or use any of the published SDKs. The Media Services v3 API is driven by Azure Resource Manager, so you can also use Resource Manager templates to create and deploy Transforms in your Media Services account. Role-based access control can be used to lock down access to Transforms.
 
-As explained above, a Transform helps you create a recipe or rule for processing your videos. A single Transform can apply more than one rule. For example, a Transform could specify that each video be encoded into an MP4 file at a given bitrate, and that a thumbnail image be generated from the first frame of the video. You would add one TransformOutput entry for each rule that you want to include in your Transform.
+### Updating Transforms
 
-> [!NOTE]
-> While the Transforms definition supports an Update operation, you should take care to make sure all in-progress Jobs complete before you make a modification. Typically, you would update an existing Transform to change the description, or modify the priorities of the underlying TransformOutputs. If you wanted to rewrite the recipe, then you would create a new Transform.
+If you need to update your [Transform](https://docs.microsoft.com/rest/api/media/transforms), use the **Update** operation. It is intended for making changes to the description, or the priorities of the underlying TransformOutputs. It is recommended that such updates be performed when all in-progress jobs have completed. If you intend to rewrite the recipe, you need to create a new Transform.
+
+### Transform object diagram
+
+The following diagram shows the **Transform** object and the objects it references including the derivation relationships. The gray arrows show a type that the Job references and the green arrows show class derivation relationships.<br/>Click the image to view it full size.  
+
+<a href="./media/api-diagrams/transform-large.png" target="_blank"><img src="./media/api-diagrams/transform-small.png"></a> 
 
 ## Jobs
 
-Once a Transform has been created, you can submit Jobs using Media Services APIs, or any of the published SDKs. The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md ).
+A **Job** is the actual request to Azure Media Services to apply the **Transform** to a given input video or audio content. Once the Transform has been created, you can submit jobs using Media Services APIs, or any of the published SDKs. The **Job** specifies information such as the location of the input video, and the location for the output. You can specify the location of your input video using: HTTPS URLs, SAS URLs, or [Assets](https://docs.microsoft.com/rest/api/media/assets).  
 
-### Jobs definition
+### Job input from HTTPS
 
-The following table shows Jobs's properties and gives their definitions.
+Use [job input from HTTPS](job-input-from-http-how-to.md) if your content is already accessible via a URL and you don't need to store the source file in Azure (for example, import from S3). This method is also suitable if you have the content in Azure Blob storage but have no need for the file to be in an Asset. Currently, this method only supports a single file for input.
 
-|Name|Description|
-|---|---|
-|id|Fully qualified resource ID for the resource.|
-|name	|The name of the resource.|
-|properties.correlationData	|Customer provided correlation data (immutable) that is returned as part of Job and JobOutput state change notifications. For more information, see [Event schemas](media-services-event-schemas.md)<br/><br/>The property can also be used for multi-tenant usage of Media Services. You can put tenant IDs in the jobs. |
-|properties.created	|The UTC date and time when the Job was created, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.description	|Optional customer supplied description of the Job.|
-|properties.input|The inputs for the Job.|
-|properties.lastModified	|The UTC date and time when the Job was last updated, in 'YYYY-MM-DDThh:mm:ssZ' format.|
-|properties.outputs|The outputs for the Job.|
-|properties.priority	|Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal.|
-|properties.state	|The current state of the job.|
-|type	|The type of the resource.|
+### Asset as Job input
 
-For the full definition, see [Jobs](https://docs.microsoft.com/rest/api/media/jobs).
+Use [Asset as job input](job-input-from-local-file-how-to.md) if the input content is already in an Asset or the content is stored in local file. It is also a good option if you plan to publish the input asset for streaming or download (say you want to publish the mp4 for download but also want to do speech to text or face detection). This method supports multi-file assets (for example, MBR streaming sets that were encoded locally).
 
-> [!NOTE]
-> While the Jobs definition supports an Update operation, the only properties that can be modified after the Job is submitted are the description, and the priority. Further, a change to the priority is effective only if the Job is still in a queued state. If the job has begun processing, or has finished, changing the priority has no effect.
+### Checking Job progress
 
-### Pagination
+The progress and state of jobs can be obtained by monitoring events with Event Grid. For more information, see [Monitor events using EventGrid](job-state-events-cli-how-to.md).
 
-Jobs pagination is supported in Media Services v3.
+### Updating Jobs
 
-> [!TIP]
-> You should always use the next link to enumerate the collection and not depend on a particular page size.
+The Update operation on the [Job](https://docs.microsoft.com/rest/api/media/jobs) entity can be used to modify the *description*, and the *priority* properties after the job has been submitted. A change to the *priority* property is effective only if the job is still in a queued state. If the job has begun processing, or has finished, changing priority has no effect.
 
-If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
+### Job object diagram
 
-If Jobs are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
+The following diagram shows the **Job** object and the objects it references including the derivation relationships.<br/>Click the image to view it full size.  
 
-The following C# example shows how to enumerate through the jobs in the account.
+<a href="./media/api-diagrams/job-large.png" target="_blank"><img src="./media/api-diagrams/job-small.png"></a> 
 
-```csharp            
-List<string> jobsToDelete = new List<string>();
-var pageOfJobs = client.Jobs.List(config.ResourceGroup, config.AccountName, "Encode");
+## Configure Media Reserved Units
 
-bool exit;
-do
-{
-    foreach (Job j in pageOfJobs)
-    {
-        jobsToDelete.Add(j.Name);
-    }
+For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 Media Reserved Units (MRUs). If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
 
-    if (pageOfJobs.NextPageLink != null)
-    {
-        pageOfJobs = client.Jobs.ListNext(pageOfJobs.NextPageLink);
-        exit = false;
-    }
-    else
-    {
-        exit = true;
-    }
-}
-while (!exit);
+For details, see [Scale media processing with CLI](media-reserved-units-cli-how-to.md).
 
-```
+## Ask questions, give feedback, get updates
 
-For REST examples, see [Jobs - List](https://docs.microsoft.com/rest/api/media/jobs/list)
+Check out the [Azure Media Services community](media-services-community.md) article to see different ways you can ask questions, give feedback, and get updates about Media Services.
 
+## See also
+
+* [Error codes](https://docs.microsoft.com/rest/api/media/jobs/get#joberrorcode)
+* [Filtering, ordering, paging of Media Services entities](entities-overview.md)
 
 ## Next steps
 
-[Stream video files](stream-files-dotnet-quickstart.md)
+- Before you start developing, review [Developing with Media Services v3 APIs](media-services-apis-overview.md) (includes information on accessing APIs, naming conventions, etc.)
+- Check out these tutorials:
+
+    - [Tutorial: Upload, encode, and stream videos using .NET](stream-files-tutorial-with-api.md)
+    - [Tutorial: Analyze videos with Media Services v3 using .NET](analyze-videos-tutorial-with-api.md)

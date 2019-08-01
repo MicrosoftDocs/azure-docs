@@ -1,18 +1,18 @@
 ---
-title: Regular-expression entity
+title: Regular-expression entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 06/03/2019
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use the regular expression entity. 
---- 
+---
 
 # Tutorial: Get well-formatted data from the utterance
 In this tutorial, create an app to extract consistently-formatted data from an utterance using the **Regular Expression** entity.
@@ -78,7 +78,7 @@ A regular expression is a good choice for this type of data when:
     |author of hrf-546234?|
     |title of hrf-456234?|
 
-    [ ![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intents-regex-entity/findform-intent.png) ](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
+    [![Screenshot of Intent page with new utterances highlighted](./media/luis-quickstart-intents-regex-entity/findform-intent.png)](./media/luis-quickstart-intents-regex-entity/findform-intent.png#lightbox)
 
     [!INCLUDE [Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
@@ -121,7 +121,11 @@ Create a regular expression entity to tell LUIS what an HRF-number format is in 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
-2. Go to the end of the URL in the address and enter `When were HRF-123456 and hrf-234567 published in the last year?`. The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
+2. Go to the end of the URL in the address and enter the following utterance:
+
+    `When were HRF-123456 and hrf-234567 published in the last year?`
+
+    The last querystring parameter is `q`, the utterance **query**. This utterance is not the same as any of the labeled utterances so it is a good test and should return the `FindForm` intent with the two form numbers of `HRF-123456` and `hrf-234567`.
 
     ```json
     {

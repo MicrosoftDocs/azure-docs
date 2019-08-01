@@ -57,6 +57,8 @@
         href: api-management-error-handling-policies.md
       - name: API import restrictions
         href: api-management-api-import-restrictions.md
+      - name: Azure common security attributes
+        href: api-management-security-attributes.md
 - name: How-to guides
   items:
       - name: Define APIs
@@ -119,6 +121,8 @@
               href: api-management-howto-manage-protocols-ciphers.md
       - name: Customize the developer experience
         items:
+            - name: Access and customize the new developer portal
+              href: api-management-howto-developer-portal.md
             - name: Modify page content and layout
               href: api-management-modify-content-layout.md
             - name: Customize system pages using templates
@@ -217,27 +221,29 @@
         href: /rest/api/apimanagement/
       - name: REST (original)
         href: /rest/api/apimanagement/ApiManagementREST/api-management-REST
+      - name: Resource Manager template
+        href: /azure/templates/microsoft.apimanagement/allversions
 - name: Resources
   items:
       - name: FAQ
         href: api-management-faq.md
+      - name: Pricing
+        href: https://aka.ms/apimpricing
       - name: Regional availability
         href: https://azure.microsoft.com/regions/services/
-      - name: API design guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
-      - name: API implementation guidance
-        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Roadmap
+        href: https://aka.ms/apimroadmap
+      - name: Feature requests
+        href: https://aka.ms/apimwish
+      - name: Videos
+        href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
       - name: MSDN forum
         href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt
       - name: Stack Overflow
         href: https://stackoverflow.com/questions/tagged/azure-api-management
-      - name: Videos
-        href: https://azure.microsoft.com/documentation/videos/index/?services=api-management
-      - name: Roadmap
-        href: https://aka.ms/apimroadmap
-      - name: Power BI solution template for API Management
-        href: https://aka.ms/apimpbi
-      - name: Blog
-        href: https://aka.ms/apimblog
-      - name: Feature requests
-        href: https://aka.ms/apimwish
+      - name: API design guidance
+        href: https://docs.microsoft.com/azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: API implementation guidance
+        href: https://docs.microsoft.com/azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json
+      - name: Troubleshoot failed to update hostnames error
+        href: api-management-troubleshoot-cannot-add-custom-domain.md

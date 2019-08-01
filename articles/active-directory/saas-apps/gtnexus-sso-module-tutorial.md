@@ -1,29 +1,30 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Flex Global View | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Flex Global View.
+title: 'Tutorial: Azure Active Directory integration with GTNexus SSO System | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and GTNexus SSO System.
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: e677a161-1662-4eb3-b48a-b2835470b59e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/02/2019
+ms.date: 01/08/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
-# Tutorial: Azure Active Directory integration with Flex Global View
+# Tutorial: Azure Active Directory integration with GTNexus SSO System
 
-In this tutorial, you learn how to integrate Flex Global View with Azure Active Directory (Azure AD).
-Integrating Flex Global View with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate GTNexus SSO System with Azure Active Directory (Azure AD).
+Integrating GTNexus SSO System with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to Flex Global View.
-* You can enable your users to be automatically signed-in to Flex Global View (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to GTNexus SSO System.
+* You can enable your users to be automatically signed-in to GTNexus SSO System (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -31,22 +32,22 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with Flex Global View, you need the following items:
+To configure Azure AD integration with GTNexus SSO System, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
-* Flex Global View single sign-on enabled subscription
+* GTNexus SSO System single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* Flex Global View supports **IDP** initiated SSO
+* GTNexus SSO System supports **IDP** initiated SSO
 
-## Adding Flex Global View from the gallery
+## Adding GTNexus SSO System from the gallery
 
-To configure the integration of Flex Global View into Azure AD, you need to add Flex Global View from the gallery to your list of managed SaaS apps.
+To configure the integration of GTNexus SSO System into Azure AD, you need to add GTNexus SSO System from the gallery to your list of managed SaaS apps.
 
-**To add Flex Global View from the gallery, perform the following steps:**
+**To add GTNexus SSO System from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -60,31 +61,31 @@ To configure the integration of Flex Global View into Azure AD, you need to add 
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **Flex Global View**, select **Flex Global View** from result panel then click **Add** button to add the application.
+4. In the search box, type **GTNexus SSO System**, select **GTNexus SSO System** from result panel then click **Add** button to add the application.
 
-	 ![Flex Global View in the results list](common/search-new-app.png)
+	 ![GTNexus SSO System in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Flex Global View based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in Flex Global View needs to be established.
+In this section, you configure and test Azure AD single sign-on with GTNexus SSO System based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in GTNexus SSO System needs to be established.
 
-To configure and test Azure AD single sign-on with Flex Global View, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with GTNexus SSO System, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure Flex Global View Single Sign-On](#configure-flex-global-view-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure GTNexus SSO System Single Sign-On](#configure-gtnexus-sso-system-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create Flex Global View test user](#create-flex-global-view-test-user)** - to have a counterpart of Britta Simon in Flex Global View that is linked to the Azure AD representation of user.
+5. **[Create GTNexus SSO System test user](#create-gtnexus-sso-system-test-user)** - to have a counterpart of Britta Simon in GTNexus SSO System that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with Flex Global View, perform the following steps:
+To configure Azure AD single sign-on with GTNexus SSO System, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Flex Global View** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **GTNexus SSO System** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -106,7 +107,7 @@ To configure Azure AD single sign-on with Flex Global View, perform the followin
 
 	![image](common/browse-upload-metadata.png)
 
-	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Flex Global View section textbox:
+	c. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in GTNexus SSO System section textbox:
 
 	![image](common/idp-intiated.png)
 
@@ -117,9 +118,9 @@ To configure Azure AD single sign-on with Flex Global View, perform the followin
 
 	![The Certificate download link](common/metadataxml.png)
 
-### Configure Flex Global View single sign-on
+### Configure GTNexus SSO System Single Sign-On
 
-To configure single sign-on on **Flex Global View** side, you need to send the **Federation Metadata XML** to [Flex Global View support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **GTNexus SSO System** side, you need to send the **Federation Metadata XML** to [GTNexus SSO System support team](mailto:support@gtnexus.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
@@ -139,7 +140,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -148,15 +149,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to Flex Global View.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to GTNexus SSO System.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Flex Global View**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **GTNexus SSO System**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **Flex Global View**.
+2. In the applications list, select **GTNexus SSO System**.
 
-	![The Flex Global View link in the Applications list](common/all-applications.png)
+	![The GTNexus SSO System link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -172,20 +173,20 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create Flex Global View test user
+### Create GTNexus SSO System test user
 
-In this section, you create a user called Britta Simon in Flex Global View. Work with [Flex Global View support team](mailto:support@gtnexus.com) to add the users in the Flex Global View platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in GTNexus SSO System. Work with [GTNexus SSO System support team](mailto:support@gtnexus.com) to add the users in the GTNexus SSO System platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Flex Global View tile in the Access Panel, you should be automatically signed in to the Flex Global View for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the GTNexus SSO System tile in the Access Panel, you should be automatically signed in to the GTNexus SSO System for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

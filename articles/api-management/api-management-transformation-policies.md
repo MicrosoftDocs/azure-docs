@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 03/11/2019
 ms.author: apimpm
 ---
 # API Management transformation policies
@@ -82,7 +82,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="ConvertXMLtoJSON"></a> Convert XML to JSON
  The `xml-to-json` policy converts a request or response body from XML to JSON. This policy can be used to modernize APIs based on XML-only backend web services.
@@ -126,7 +126,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="Findandreplacestringinbody"></a> Find and replace string in body
  The `find-and-replace` policy finds a request or response substring and replaces it with a different substring.
@@ -161,7 +161,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="MaskURLSContent"></a> Mask URLs in content
  The `redirect-content-urls` policy re-writes (masks) links in the response body so that they point to the equivalent link via the gateway. Use in the outbound section to re-write response body links to make them point to the gateway. Use in the inbound section for an opposite effect.
@@ -192,7 +192,7 @@ This topic provides a reference for the following API Management policies. For i
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetBackendService"></a> Set backend service
  Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to the one specified in the policy.
@@ -202,6 +202,15 @@ This topic provides a reference for the following API Management policies. For i
 ```xml
 <set-backend-service base-url="base URL of the backend service" />
 ```
+
+or
+
+```xml
+<set-backend-service backend-id="identifier of the backend entity specifying base URL of the backend service" />
+```
+
+> [!NOTE]
+> Backend entities can be managed via management [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).
 
 ### Example
 
@@ -255,8 +264,8 @@ In this example the policy routes the request to a service fabric backend, using
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|base-url|New backend service base URL.|No|N/A|
-|backend-id|Identifier of the backend to route to.|No|N/A|
+|base-url|New backend service base URL.|One of `base-url` or `backend-id` must be present.|N/A|
+|backend-id|Identifier of the backend to route to. (Backend entities are managed via [API](https://docs.microsoft.com/rest/api/apimanagement/2019-01-01/backend) and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement).)|One of `base-url` or `backend-id` must be present.|N/A|
 |sf-partition-key|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Used to resolve a specific partition from the name resolution service.|No|N/A|
 |sf-replica-type|Only applicable when the backend is a Service Fabric service and is specified using 'backend-id'. Controls if the request should go to the primary or secondary replica of a partition. |No|N/A|
 |sf-resolve-condition|Only applicable when the backend is a Service Fabric service. Condition identifying if the call to Service Fabric backend has to be repeated with new resolution.|No|N/A|
@@ -268,7 +277,7 @@ In this example the policy routes the request to a service fabric backend, using
 
 -   **Policy sections:** inbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetBody"></a> Set body
  Use the `set-body` policy to set the message body for incoming and outgoing requests. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
@@ -278,10 +287,10 @@ In this example the policy routes the request to a service fabric backend, using
 >
 >  Please note the following considerations when using the `set-body` policy.
 >
->  -   If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
-> -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
-> -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
-> -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
+> - If you are using the `set-body` policy to return a new or updated body you don't need to set `preserveContent` to `true` because you are explicitly supplying the new body contents.
+>   -   Preserving the content of a response in the inbound pipeline doesn't make sense because there is no response yet.
+>   -   Preserving the content of a request in the outbound pipeline doesn't make sense because the request has already been sent to the backend at this point.
+>   -   If this policy is used when there is no message body, for example in an inbound GET, an exception is thrown.
 
  For more information, see the `context.Request.Body`, `context.Response.Body`, and the `IMessage` sections in the [Context variable](api-management-policy-expressions.md#ContextVariables) table.
 
@@ -371,7 +380,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 </set-body>
 ```
 
-#### Tranform JSON using a Liquid template
+#### Transform JSON using a Liquid template
 ```xml
 {
 "order": {
@@ -391,7 +400,7 @@ The `set-body` policy can be configured to use the [Liquid](https://shopify.gith
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
-|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No|liquid|
+|template|Used to change the templating mode that the set body policy will run in. Currently the only supported value is:<br /><br />- liquid - the set body policy will use the liquid templating engine |No||
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
@@ -438,7 +447,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, outbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetHTTPheader"></a> Set HTTP header
  The `set-header` policy assigns a value to an existing response and/or request header or adds a new response and/or request header.
@@ -477,7 +486,7 @@ OriginalUrl.
  For more information, see [Policy expressions](api-management-policy-expressions.md) and [Context variable](api-management-policy-expressions.md#ContextVariables).
 
 > [!NOTE]
-> Multiple values of a header are concatenated to a CSV string, for example:  
+> Multiple values of a header are concatenated to a CSV string, for example:
 > `headerName: value1,value2,value3`
 >
 > Exceptions include standardized headers, which values:
@@ -485,9 +494,9 @@ OriginalUrl.
 > - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
 > - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
 >
-> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:  
->`User-Agent: value1`  
->`User-Agent: value2`  
+> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:
+>`User-Agent: value1`
+>`User-Agent: value2`
 >`User-Agent: value3`
 
 ### Elements
@@ -509,7 +518,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="SetQueryStringParameter"></a> Set query string parameter
  The `set-query-parameter` policy adds, replaces value of, or deletes request query string parameter. Can be used to pass query parameters expected by the backend service which are optional or never present in the request.
@@ -569,16 +578,16 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, backend
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="RewriteURL"></a> Rewrite URL
  The `rewrite-uri` policy converts a request URL from its public form to the form expected by the web service, as shown in the following example.
 
--   Public URL - `http://api.example.com/storenumber/ordernumber`
+- Public URL - `http://api.example.com/storenumber/ordernumber`
 
--   Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+- Request URL - `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
+  This policy can be used when a human and/or browser-friendly URL should be transformed into the URL format expected by the web service. This policy only needs to be applied when exposing an alternative URL format, such as clean URLs, RESTful URLs, user-friendly URLs or SEO-friendly URLs that are purely structural URLs that do not contain a query string and instead contain only the path of the resource (after the scheme and the authority). This is often done for aesthetic, usability, or search engine optimization (SEO) purposes.
 
 > [!NOTE]
 >  You can only add query string parameters using the policy. You cannot add extra template path parameters in the rewrite URL.
@@ -647,7 +656,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
@@ -711,7 +720,7 @@ OriginalUrl.
 
 -   **Policy sections:** inbound, outbound
 
--   **Policy scopes:** global, product, API, operation
+-   **Policy scopes:** all scopes
 
 ## Next steps
 

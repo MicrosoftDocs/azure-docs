@@ -4,7 +4,7 @@ description: Learn how to install and configure Terraform to create Azure resour
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: echuvyrov
-manager: jeconnoc
+manager: gwallace
 editor: na
 tags: azure-resource-manager
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
-ms.author: echuvyrov
+ms.author: gwallace
 ---
 
 # Install and configure Terraform to provision VMs and other infrastructure into Azure
@@ -55,7 +55,7 @@ To use a selected subscription, set the subscription for this session with [az a
 az account set --subscription="${SUBSCRIPTION_ID}"
 ```
 
-Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac]/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
+Now you can create a service principal for use with Terraform. Use [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac), and set the *scope* to your subscription as follows:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/${SUBSCRIPTION_ID}"

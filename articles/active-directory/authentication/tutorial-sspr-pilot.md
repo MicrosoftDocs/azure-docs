@@ -4,16 +4,17 @@ description: In this tutorial, you will enable Azure AD self-service password re
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: tutorial
 ms.date: 07/11/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
 # Customer intent: How, as an Azure AD Administrator, do I enable SSPR to complete a pilot roll out.
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Complete an Azure AD self-service password reset pilot roll out
 
@@ -39,8 +40,8 @@ It is important that any testing of self-service password reset be done with non
       * Ensure the users in the group you picked have been appropriately licensed.
    * Click **Save**
 1. On the **Authentication methods** page
-   * Set the **Number of methods required to reset** to **2**
-   * Choose which **Methods available to users** your organization wants to allow. For this tutorial check the boxes to enable **Email**, **Mobile phone**, and **Office phone**.
+   * Set the **Number of methods required to reset** to **1**
+   * Choose which **Methods available to users** your organization wants to allow. For this tutorial check the boxes to enable **Email**, **Mobile phone**, **Office phone**, **Mobile app notification (preview)** and **Mobile app code (preview)**.
    * Click **Save**
 1. On the **Registration** page
    * Select **Yes** for **Require users to register when signing in**.

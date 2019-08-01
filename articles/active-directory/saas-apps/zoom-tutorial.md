@@ -4,18 +4,19 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: daveba
 ms.reviewer: barbkess
 
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/24/2018
+ms.date: 03/05/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Zoom
 
@@ -109,19 +110,23 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [Zoom Client support team](https://support.zoom.us/hc/en-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Zoom application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+5. Zoom application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 
-6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+6. In addition to above, Zoom application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
     
 	| Name | Namespace  |  Source Attribute|
 	| ---------------| --------------- | --------- |
-	| Email address  | user.mail  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail |
-	| First name  | user.givenname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname |
-	| Last name  | user.surname  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname |
-	| Phone number  | user.telephonenumber  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone |
-	| Department  | user.department  | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department |
+	| Email address  | user.mail  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail` |
+	| First name  | user.givenname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname` |
+	| Last name  | user.surname  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname` |
+	| Phone number  | user.telephonenumber  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone` |
+	| Department  | user.department  | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department` |
+	| role | 	user.assignedrole |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/role` |
+
+	> [!NOTE]
+	> Please click [here](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) to know how to configure Role in Azure AD
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -139,17 +144,20 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 
 	f. Click **Save**.
 
-4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
+	> [!NOTE]
+	> Zoom may expect group claim in SAML payload so if you have created any group then please contact [Zoom Client support team](https://support.zoom.us/hc/en-us) with the group information so that they can configure this group information at their end also. You also need to provide the Object ID to [Zoom Client support team](https://support.zoom.us/hc/en-us) so that they can configure at their end. Please follow the [document](https://support.zoom.us/hc/en-us/articles/115005887566) to get the Object ID.
+
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
-6. On the **Set up Zoom** section, copy the appropriate URL(s) as per your requirement.
+8. On the **Set up Zoom** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -158,29 +166,39 @@ To configure Azure AD single sign-on with Zoom, perform the following steps:
 1. In a different web browser window, log in to your Zoom company site as an administrator.
 
 2. Click the **Single Sign-On** tab.
-   
-    ![Single sign-on tab](./media/zoom-tutorial/IC784700.png "Single sign-on")
+
+    ![Single sign-on tab](./media/zoom-tutorial/ic784700.png "Single sign-on")
 
 3. Click the **Security Control** tab, and then go to the **Single Sign-On** settings.
 
 4. In the Single Sign-On section, perform the following steps:
-   
-    ![Single sign-on section](./media/zoom-tutorial/IC784701.png "Single sign-on")
-   
+
+    ![Single sign-on section](./media/zoom-tutorial/ic784701.png "Single sign-on")
+
     a. In the **Sign-in page URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
-   
-    b. In the **Sign-out page URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
-     
-    c. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
 
-    d. In the **Issuer** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal. 
+    b. For **Sign-out page URL** value, you need to go to the Azure portal and click on **Azure Active Directory** on the left then navigate to **App registrations**.
 
-    e. Click **Save**.
+	![The Azure Active Directory button](./media/zoom-tutorial/appreg.png)
 
-    > [!NOTE] 
+	c. Click on **Endpoints**
+
+	![The End point button](./media/zoom-tutorial/endpoint.png)
+
+	d. Copy the **SAML-P SIGN-OUT ENDPOINT** and paste it into **Sign-out page URL** textbox.
+
+	![The Copy End point button](./media/zoom-tutorial/endpoint1.png)
+
+    e. Open your base-64 encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Identity provider certificate** textbox.
+
+    f. In the **Issuer** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal. 
+
+    g. Click **Save**.
+
+    > [!NOTE]
 	> For more information, visit the zoom documentation [https://zoomus.zendesk.com/hc/articles/115005887566](https://zoomus.zendesk.com/hc/articles/115005887566)
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -198,7 +216,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon@yourcompanydomain.extension**  
+    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -238,17 +256,17 @@ In order to enable Azure AD users to log in to Zoom, they must be provisioned in
 ### To provision a user account, perform the following steps:
 
 1. Log in to your **Zoom** company site as an administrator.
- 
+
 2. Click the **Account Management** tab, and then click **User Management**.
 
 3. In the User Management section, click **Add users**.
-   
-    ![User management](./media/zoom-tutorial/IC784703.png "User management")
+
+    ![User management](./media/zoom-tutorial/ic784703.png "User management")
 
 4. On the **Add users** page, perform the following steps:
-   
-    ![Add users](./media/zoom-tutorial/IC784704.png "Add users")
-   
+
+    ![Add users](./media/zoom-tutorial/ic784704.png "Add users")
+
     a. As **User Type**, select **Basic**.
 
     b. In the **Emails** textbox, type the email address of a valid Azure AD account you want to provision.
@@ -258,7 +276,7 @@ In order to enable Azure AD users to log in to Zoom, they must be provisioned in
 > [!NOTE]
 > You can use any other Zoom user account creation tools or APIs provided by Zoom to provision Azure Active Directory user accounts.
 
-### Test single sign-on 
+### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -266,9 +284,8 @@ When you click the Zoom tile in the Access Panel, you should be automatically si
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

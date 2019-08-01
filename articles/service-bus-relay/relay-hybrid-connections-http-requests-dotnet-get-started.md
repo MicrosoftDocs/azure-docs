@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: d1386900-b942-4abf-acfc-38d2ef826253
 ms.service: service-bus-relay
 ms.devlang: tbd
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/01/2018
@@ -35,7 +35,7 @@ In this quickstart, you take the following steps:
 
 To complete this tutorial, you need the following prerequisites:
 
-* [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+* [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a namespace
@@ -64,7 +64,7 @@ In Visual Studio, write a C# console application to send messages to the relay.
 1. Run the client application. You see `hello!` in the client window. The client sent an HTTP request to the server, and server responded with a `hello!`. 
 3. Now, to close the console windows, press **ENTER** in both the console windows. 
 
-Congratulations, you have created an end-to-end Hybrid Connections application!
+Congratulations, you've created a complete Hybrid Connections application!
 
 ## Next steps
 

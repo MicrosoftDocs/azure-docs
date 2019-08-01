@@ -4,7 +4,7 @@ description: Introduction to reentrancy for Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 
 ms.assetid: be23464a-0eea-4eca-ae5a-2e1b650d365e

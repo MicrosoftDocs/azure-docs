@@ -3,8 +3,8 @@ title: Azure CLI Examples - Batch | Microsoft Docs
 description: Azure CLI Examples for Batch service
 services: batch
 documentationcenter: batch
-author: dlepow
-manager: jeconnoc
+author: laurenhughes
+manager: gwallace
 editor: 
 tags: 
 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: 
 ms.date: 01/29/2018
-ms.author: danlep
+ms.author: lahugh
 ms.custom: mvc
 
 ---

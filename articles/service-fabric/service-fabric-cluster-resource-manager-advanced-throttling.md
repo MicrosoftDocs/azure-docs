@@ -4,11 +4,11 @@ description: Learn to configure the throttles provided by the Service Fabric Clu
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 4a44678b-a5aa-4d30-958f-dc4332ebfb63
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
@@ -32,7 +32,7 @@ Most of the time we’ve seen customers use throttles it has been because they w
 
 Service Fabric has two mechanisms for throttling the number of replica movements. The default mechanism that existed before Service Fabric 5.7 represents throttling as an absolute number of moves allowed. This does not work for clusters of all sizes. In particular, for large clusters the default value can be too small, significantly slowing down balancing even when it is necessary, while having no effect in smaller clusters. This prior mechanism has been superseded by percentage-based throttling, which scales better with dynamic clusters in which the number of services and nodes change regularly.
 
-The throttles are based on a percentage of the number of replicas in the clusters. Percetage based throttles enable expressing the rule: "do not move more than 10% of replicas in a 10 minute interval", for example.
+The throttles are based on a percentage of the number of replicas in the clusters. Percentage based throttles enable expressing the rule: "do not move more than 10% of replicas in a 10 minute interval", for example.
 
 The configuration settings for percentage-based throttling are:
 

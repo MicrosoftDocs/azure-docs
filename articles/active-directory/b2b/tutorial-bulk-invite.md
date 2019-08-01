@@ -1,20 +1,22 @@
 ---
 
-title: Tutorial to bulk invite B2B collaboration users - Azure Active Directory | Microsoft Docs
+title: Tutorial for bulk inviting B2B collaboration users - Azure Active Directory | Microsoft Docs
 description: In this tutorial, you learn how to use PowerShell and a CSV file to send bulk invitations to external Azure AD B2B collaboration users.
 
 services: active-directory
 ms.service: active-directory
-ms.component: B2B
+ms.subservice: B2B
 ms.topic: tutorial
 ms.date: 08/14/2018
 
 ms.author: mimart
 author: msmimart
+manager: celestedg
 ms.reviewer: mal
 
 #customer intent: As a tenant administrator, I want to send B2B invitations to multiple external users at the same time so that I can avoid having to send individual invitations to each user.
 
+ms.collection: M365-identity-device-management
 ---
 
 # Tutorial: Bulk invite Azure AD B2B collaboration users
@@ -35,29 +37,29 @@ Make sure that you install the latest version of the Azure AD PowerShell for Gra
 
 First, check which modules you have installed. Open Windows PowerShell as an elevated user (Run as administrator), and run the following command:
  
-````powershell  
+```powershell  
 Get-Module -ListAvailable AzureAD*
-````
+```
 
 Based on the output, do one of the following:
 
 - If no results are returned, run the following command to install the AzureADPreview module:
   
-   ````powershell  
+   ```powershell  
    Install-Module AzureADPreview
-   ````
+   ```
 - If only the AzureAD module shows up in the results, run the following commands to install the AzureADPreview module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureAD 
    Install-Module AzureADPreview 
-   ````
+   ```
 - If only the AzureADPreview module shows up in the results, but you receive a message that indicates there's a later version, run the following commands to update the module: 
 
-   ````powershell 
+   ```powershell 
    Uninstall-Module AzureADPreview 
    Install-Module AzureADPreview 
-  ````
+  ```
 
 You may receive a prompt that you're installing the module from an untrusted repository. This occurs if you haven't previously set the PSGallery repository as a trusted repository. Press **Y** to install the module.
 
@@ -104,7 +106,7 @@ foreach ($email in $invitations)
    {New-AzureADMSInvitation `
       -InvitedUserEmailAddress $email.InvitedUserEmailAddress `
       -InvitedUserDisplayName $email.Name `
-      -InviteRedirectUrl https://myapps.azure.com `
+      -InviteRedirectUrl https://myapps.microsoft.com `
       -InvitedUserMessageInfo $messageInfo `
       -SendInvitationMessage $true
    }
@@ -119,7 +121,7 @@ To verify that the invited users were added to Azure AD, run the following comma
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#@*domain*. For example, *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
+You should see the users that you invited listed, with a user principal name (UPN) in the format *emailaddress*#EXT#\@*domain*. For example, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, where contoso.onmicrosoft.com is the organization from which you sent the invitations.
 
 ## Clean up resources
 

@@ -7,13 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Container Registry - CLI
+  - name: Create a container registry - CLI
     href: container-registry-get-started-azure-cli.md
-  - name: Container Registry - Portal
+  - name: Create a container registry - Portal
     href: container-registry-get-started-portal.md
-  - name: Container Registry - PowerShell
+  - name: Create a container registry - PowerShell
     href: container-registry-get-started-powershell.md
-  - name: Events with Event Grid - CLI
+  - name: Build and run image - CLI
+    href: container-registry-quickstart-task-cli.md
+  - name: Send events to Event Grid - CLI
     href: container-registry-event-grid-quickstart.md
 - name: Tutorials
   items:
@@ -21,8 +23,10 @@
     items:
     - name: 1 - Build images in Azure
       href: container-registry-tutorial-quick-task.md
-    - name: 2 - Automate image builds
+    - name: 2a - Automatic build on code commit
       href: container-registry-tutorial-build-task.md
+    - name: 2b - Multi-step task on code commit
+      href: container-registry-tutorial-multistep-task.md
     - name: 3 - Base image update builds
       href: container-registry-tutorial-base-image-update.md
   - name: Geo-replicate a registry
@@ -37,14 +41,16 @@
   items:
   - name: Container registry SKUs
     href: container-registry-skus.md
+  - name: Registries, repositories, and images
+    href: container-registry-concepts.md
   - name: Image storage
     href: container-registry-storage.md
   - name: Content formats
     href: container-registry-image-formats.md
+  - name: Tag and version images
+    href: container-registry-image-tag-version.md
   - name: Geo-replication
     href: container-registry-geo-replication.md
-  - name: Roles and permissions
-    href: container-registry-roles.md
   - name: Registry best practices
     href: container-registry-best-practices.md
 - name: How-to guides
@@ -55,34 +61,58 @@
       href: container-registry-get-started-docker-cli.md
     - name: View repositories
       href: container-registry-repositories.md
+    - name: Import container images
+      href: container-registry-import-images.md
+    - name: Lock container images
+      href: container-registry-image-lock.md
     - name: Delete container images
       href: container-registry-delete.md
-    - name: Content trust (preview)
-      href: container-registry-content-trust.md
     - name: Upgrade a Classic registry
       href: container-registry-upgrade.md
     - name: Use ACR webhooks
       href: container-registry-webhook.md
     - name: Helm chart repositories (preview)
       href: container-registry-helm-repos.md
-  - name: Authentication
+  - name: Security and authentication
     items:
-    - name: Authentication overview
-      href: container-registry-authentication.md
-    - name: Service principal authentication
-      href: container-registry-auth-service-principal.md
-    - name: Azure Container Instances
-      href: container-registry-auth-aci.md
-    - name: Azure Kubernetes Service (AKS)
-      href: container-registry-auth-aks.md
-  - name: Build and patch
+    - name: Limit access with virtual network (preview)
+      href: container-registry-vnet.md
+    - name: Access behind a firewall
+      href: container-registry-firewall-access-rules.md
+    - name: Authentication
+      items:
+      - name: Authentication overview
+        href: container-registry-authentication.md
+      - name: Service principal authentication
+        href: container-registry-auth-service-principal.md
+      - name: Managed identity authentication
+        href: container-registry-authentication-managed-identity.md
+      - name: Authenticate from Azure Container Instances
+        href: container-registry-auth-aci.md
+      - name: Authenticate from Azure Kubernetes Service (AKS)
+        href: container-registry-auth-aks.md
+    - name: Roles and permissions
+      href: container-registry-roles.md
+    - name: Content trust
+      href: container-registry-content-trust.md
+  - name: ACR Tasks
     items:
-      - name: ACR Tasks
+      - name: ACR Tasks overview
         href: container-registry-tasks-overview.md
-      - name: Multi-step tasks (preview)
+      - name: Scheduled tasks
+        href: container-registry-tasks-scheduled.md
+      - name: Multi-step tasks
         href: container-registry-tasks-multi-step.md
-      - name: Multi-step task reference (preview)
-        href: container-registry-tasks-reference-yaml.md
+      - name: Build image with Buildpacks (preview)
+        href: container-registry-tasks-pack-build.md
+      - name: Access secured resources with managed identities
+        items:
+         - name: Enable a managed identity on a task
+           href: container-registry-tasks-authentication-managed-identity.md
+         - name: Cross-registry authentication from a task
+           href: container-registry-tasks-cross-registry-authentication.md
+         - name: External authentication using a key vault
+           href: container-registry-tasks-authentication-key-vault.md
   - name: Registries and other Azure services
     items:
       - name: Azure Container Instances
@@ -91,6 +121,10 @@
         href: ../aks/tutorial-kubernetes-prepare-app.md
       - name: Service Fabric
         href: ../service-fabric/service-fabric-tutorial-create-container-images.md
+  - name: Troubleshoot
+    items:
+      - name: Diagnose common issues
+        href: container-registry-check-health.md
 - name: Reference
   items:
   - name: Azure CLI
@@ -98,7 +132,7 @@
   - name: REST
     href: /rest/api/containerregistry
   - name: PowerShell
-    href: /powershell/module/azurerm.containerregistry#container_registry
+    href: /powershell/module/az.containerregistry
   - name: .NET
     href: /dotnet/api/overview/azure/containerregistry
   - name: Python
@@ -109,10 +143,14 @@
     href: /javascript/api/overview/azure/container-registry
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: ACR Tasks YAML
+    href: container-registry-tasks-reference-yaml.md
   - name: Webhook schema
     href: container-registry-webhook-reference.md
   - name: Event Grid schema
     href: ../event-grid/event-schema-container-registry.md
+  - name: Health check errors
+    href: container-registry-health-error-reference.md
     maintainContext: true
 - name: Resources
   items:
@@ -127,6 +165,8 @@
   - name: Provide product feedback
     href: https://feedback.azure.com/forums/903958-azure-container-registry
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-container-registry
+    href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
+  - name: FAQ
+    href: container-registry-faq.md

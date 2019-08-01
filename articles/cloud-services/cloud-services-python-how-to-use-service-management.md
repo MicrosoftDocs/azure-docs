@@ -40,7 +40,7 @@ To connect to the service management endpoint, you need your Azure subscription 
 >
 
 ### Management certificates on Windows/Mac/Linux (OpenSSL)
-You can use [OpenSSL](http://www.openssl.org/) to create your management certificate. You need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute:
+You can use [OpenSSL](https://www.openssl.org/) to create your management certificate. You need to create two certificates, one for the server (a `.cer` file) and one for the client (a `.pem` file). To create the `.pem` file, execute:
 
     openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout mycert.pem -out mycert.pem
 
@@ -48,7 +48,7 @@ To create the `.cer` certificate, execute:
 
     openssl x509 -inform pem -in mycert.pem -outform der -out mycert.cer
 
-For more information about Azure certificates, see [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
+For more information about Azure certificates, see [Certificates overview for Azure Cloud Services](cloud-services-certs-create.md). For a complete description of OpenSSL parameters, see the documentation at [https://www.openssl.org/docs/apps/openssl.html](https://www.openssl.org/docs/apps/openssl.html).
 
 After you create these files, upload the `.cer` file to Azure. In the [Azure portal][management-portal], on the **Settings** tab, select **Upload**. Note where you saved the `.pem` file.
 
@@ -396,7 +396,7 @@ To learn more about how to capture a Linux virtual machine in the classic deploy
 To learn more about how to capture a Windows virtual machine in the classic deployment model, see [Capture a Windows virtual machine](../virtual-machines/windows/classic/capture-image-classic.md).
 
 ## <a name="What's Next"> </a>Next steps
-Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](http://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
+Now that you've learned the basics of service management, you can access the [Complete API reference documentation for the Azure Python SDK](https://azure-sdk-for-python.readthedocs.org/) and perform complex tasks easily to manage your Python application.
 
 For more information, see the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
@@ -419,7 +419,7 @@ For more information, see the [Python Developer Center](https://azure.microsoft.
 [Delete a virtual machine]: #DeleteVM
 [Next steps]: #NextSteps
 [management-portal]: https://portal.azure.com/
-[svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
+[svc-mgmt-rest-api]: https://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 
 [cloud service]:/azure/cloud-services/

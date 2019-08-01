@@ -21,7 +21,6 @@ robots: noindex
 # Tutorial: Build your first pipeline to transform data using Hadoop cluster
 > [!div class="op_single_selector"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
@@ -33,7 +32,7 @@ robots: noindex
 
 In this tutorial, you build your first Azure data factory with a data pipeline. The pipeline transforms input data by running Hive script on an Azure HDInsight (Hadoop) cluster to produce output data.  
 
-This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, you can do the tutorial using one of the following tools/SDKs: Azure portal, Visual Studio, PowerShell, Resource Manager template, REST API. Select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial using one of these options.    
+This article provides overview and prerequisites for the tutorial. After you complete the prerequisites, you can do the tutorial using one of the following tools/SDKs: Visual Studio, PowerShell, Resource Manager template, REST API. Select one of the options in the drop-down list at the beginning (or) links at the end of this article to do the tutorial using one of these options.    
 
 ## Tutorial overview
 In this tutorial, you perform the following steps:
@@ -85,18 +84,17 @@ Before you begin this tutorial, you must have the following prerequisites:
 3. Download and review the Hive query file (**HQL**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). This query transforms input data to produce output data. 
 4. Download and review the sample input file (**input.log**) located at: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Create a blob container named **adfgetstarted** in your Azure Blob Storage. 
-6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](http://storageexplorer.com/). 
+6. Upload **partitionweblogs.hql** file to the **script** folder in the **adfgetstarted** container. Use tools such as [Microsoft Azure Storage Explorer](https://storageexplorer.com/). 
 7. Upload **input.log** file to the **inputdata** folder in the **adfgetstarted** container. 
 
 After you complete the prerequisites, select one of the following tools/SDKs to do the tutorial: 
 
-- [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 - [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 - [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 - [Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
 - [REST API](data-factory-build-your-first-pipeline-using-rest-api.md)
 
-Azure portal and Visual Studio provide GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.
+Visual Studio provides a GUI way of building your data factories. Whereas, PowerShell, Resource Manager Template, and REST API options provides scripting/programming way of building your data factories.
 
 > [!NOTE]
 > The data pipeline in this tutorial transforms input data to produce output data. It does not copy data from a source data store to a destination data store. For a tutorial on how to copy data using Azure Data Factory, see [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).

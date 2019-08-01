@@ -4,7 +4,7 @@ description: Learn how to set up an encryption certificate and encrypt secrets o
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
@@ -51,7 +51,7 @@ The resulting base-64 encoded string contains both the secret ciphertext as well
 Learn how to [Specify encrypted secrets in an application.][secret-management-specify-encrypted-secrets-link]
 
 <!-- Links -->
-[key-vault-get-started]:../key-vault/key-vault-get-started.md
+[key-vault-get-started]:../key-vault/key-vault-overview.md
 [service-fabric-cluster-creation-via-arm]: service-fabric-cluster-creation-via-arm.md
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md
 [environment-variables-link]: service-fabric-how-to-specify-environment-variables.md

@@ -11,7 +11,7 @@ ms.author: masoucou
 
 ---
 
-# QuickStart: QuickStart: Build a Xamarin.Forms app with .NET and Azure Cosmos DB's API for MongoDB
+# QuickStart: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -30,7 +30,7 @@ This quickstart demonstrates how to create a [Cosmos account configured with Azu
 
 To run the sample, you'll need [Visual Studio](https://www.visualstudio.com/downloads/) or [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and a valid Azure CosmosDB account.
 
-If you don't already have Visual Studio, download [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) with the **Mobile development with .NET** workload installed with setup.
+If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **Mobile development with .NET** workload installed with setup.
 
 If you prefer to work on a Mac, download [Visual Studio for Mac](https://visualstudio.microsoft.com/vs/mac/) and run the setup.
 
@@ -160,7 +160,7 @@ You've now updated your app with all the info it needs to communicate with Azure
 
 ## Run the app
 
-### Visual Studio 2017
+### Visual Studio 2019
 
 1. In Visual Studio, right-click on each project in **Solution Explorer** and then click **Manage NuGet Packages**.
 2. Click **Restore all NuGet packages**.

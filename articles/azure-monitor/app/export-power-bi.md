@@ -22,10 +22,10 @@ There are three methods of exporting Application Insights data to Power BI:
 
 * [**Export Analytics queries**](#export-analytics-queries). This is the preferred method. Write any query you want and export it to Power BI. You can place this query on a dashboard, along with any other data.
 * [**Continuous export and Azure Stream Analytics**](../../azure-monitor/app/export-stream-analytics.md). This method is useful if you want to store your data for long periods of time. If you don't have an extended data retention requirement, use the export analytics query method. Continuous export and Stream Analytics involves more work to set up and additional storage overhead.
-* [**Power BI adapter**](#power-pi-adapter). The set of charts is predefined, but you can add your own queries from any other sources.
+* **Power BI adapter**. The set of charts is predefined, but you can add your own queries from any other sources.
 
 > [!NOTE]
-> The Power BI adapter is now **deprecated**. The predefined charts for this solution are populated by static uneditable queries. You do not have the ability to edit these queries and depending on certain properties of your data it is possible for the connection to Power BI to be successful, but no data is populated. This is due to exclusion criteria that are set within the hardcoded query. While this solution may still work for some customers, due to the lack of flexiblity of the adapter the recommended solution is to use the [**export Analytics query**](#export-analytics-queries) functionality.
+> The Power BI adapter is now **deprecated**. The predefined charts for this solution are populated by static uneditable queries. You do not have the ability to edit these queries and depending on certain properties of your data it is possible for the connection to Power BI to be successful, but no data is populated. This is due to exclusion criteria that are set within the hardcoded query. While this solution may still work for some customers, due to the lack of flexibility of the adapter the recommended solution is to use the [**export Analytics query**](#export-analytics-queries) functionality.
 
 ## Export Analytics queries
 This route allows you to write any Analytics query you like, or export from Usage Funnels, and then export that to a Power BI dashboard. (You can add to the dashboard created by the adapter.)
@@ -92,7 +92,7 @@ This can happen if your refresh token has not been updated. Try these steps to e
 1. Sign into the Azure portal, and make sure you can access the resource.
 2. Try to refresh the credentials for the dashboard.
 
- If you do have access and refreshing the credentials does not work, please open a support ticket.
+   If you do have access and refreshing the credentials does not work, please open a support ticket.
 
 ### Bad Gateway (502)
 This is usually caused by an Analytics query that returns too much data. Try using a smaller time range for the query. 
@@ -101,8 +101,8 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
 
 1. Create an [API key](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Update the Power BI M script that you exported from Analytics by replacing the Azure Resource Manager URL with the Application Insights API.
-   * Replace **https://management.azure.com/subscriptions/...**
-   * with, **https://api.applicationinsights.io/beta/apps/...**
+   * Replace **https:\//management.azure.com/subscriptions/...**
+   * with, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Finally, update the credentials to basic, and use your API key.
 
 **Existing script**

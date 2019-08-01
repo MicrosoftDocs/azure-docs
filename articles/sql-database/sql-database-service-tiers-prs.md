@@ -3,15 +3,14 @@ title: Azure SQL Database Premium RS service tier retirement | Microsoft Docs
 description: The Premium RS service tier is being retired and support for it is ending - see migration options.  
 services: sql-database
 ms.service: sql-database
-ms.subservice: 
+ms.subservice: service
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: 
-manager: craigg
-ms.date: 12/13/2018
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
+ms.date: 02/07/2019
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration
 
@@ -21,7 +20,7 @@ The following are the migration destinations and pricing options that may be sui
 
 - vCore service tiers
 
-  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These two service tiers are in general availablity. The vCore-based purchasing model also offers the **Hyperscale** service tier (in public preview) that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
+  The **General Purpose** and **Business Critical** service tiers in the [vCore-based purchase model](sql-database-service-tiers-vcore.md). These two service tiers are in general availability. The vCore-based purchasing model also offers the **Hyperscale** service tier that adapts on-demand to your workload's needs with auto-scaling up to 100 TB per database. The Hyperscale service tier provides IO performance comparable to the Premium service tier in the [DTU-based purchasing model](sql-database-service-tiers-dtu.md) at a price closer to the Premium RS service tier.
 - Dev/Test pricing
 
   [Dev/test pricing](https://azure.microsoft.com/pricing/dev-test/) provides savings up to 55% versus license-included rates with your Visual Studio subscription.
@@ -44,8 +43,8 @@ For your compute-intensive Premium RS workloads, we recommend migrating to our g
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS 1|General Purpose 1 vCore (Gen 4)|Standard 3|
-|Premium RS 2|General Purpose 2 vCores (Gen 4)|Standard 4|
+|Premium RS 1|General Purpose 1 vCore (Gen4)|Standard 3|
+|Premium RS 2|General Purpose 2 vCores (Gen4)|Standard 4|
 |Premium RS 4|General Purpose 4 vCores (Gen4)|Standard 6|
 |Premium RS 6|General Purpose 6 vCores (Gen4)|Standard 7|
 
@@ -53,8 +52,8 @@ For your compute-intensive Premium RS workloads, we recommend migrating to our g
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS pool 125 DTU|General Purpose 1 vCore (Gen 4)|Standard pool 100 eDTUs|
-|Premium RS pool 250 DTU|General Purpose 2 vCores (Gen 4)|Standard pool 250 eDTUs|
+|Premium RS pool 125 DTU|General Purpose 1 vCore (Gen4)|Standard pool 100 eDTUs|
+|Premium RS pool 250 DTU|General Purpose 2 vCores (Gen4)|Standard pool 250 eDTUs|
 |Premium RS pool 500 DTU|General Purpose 4 vCores (Gen4)|Standard pool 500 eDTUs|
 |Premium RS pool 1000 DTU|General Purpose 8 vCores (Gen4)|Standard pool 1000 eDTUs|
 
@@ -64,10 +63,10 @@ We recommend migrating your IO-intensive single databases to our vCore-based Hyp
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
-|Premium RS 1|(Preview) Hyperscale 1 vCore (Gen 4) or Business Critical 1 vCore (Gen 4)|Premium 1|
-|Premium RS 2|(Preview) Hyperscale 2 vCores (Gen 4) or Business Critical 2 vCores (Gen 4|Premium 2|
-|Premium RS 4|(Preview) Hyperscale 4 vCores (Gen 4) or Business Critical 4 vCores (Gen4)|Premium 4
-|Premium RS 6|(Preview) Hyperscale 6 vCores (Gen 4) or Business Critical 6 vCores (Gen4)|Premium 6|
+|Premium RS 1| Hyperscale 1 vCore (Gen4) or Business Critical 1 vCore (Gen4)|Premium 1|
+|Premium RS 2| Hyperscale 2 vCores (Gen4) or Business Critical 2 vCores (Gen4|Premium 2|
+|Premium RS 4| Hyperscale 4 vCores (Gen4) or Business Critical 4 vCores (Gen4)|Premium 4
+|Premium RS 6| Hyperscale 6 vCores (Gen4) or Business Critical 6 vCores (Gen4)|Premium 6|
 
 |**If you are currently on…**|**Migrate to comparable vCore-based…**|**Migrate to comparable DTU-based…**|
 |---|---|---|
@@ -94,5 +93,5 @@ You can copy any database with a Premium RS compute size to a database with a DT
 
 ## Next steps
 
-- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md#general-purpose-service-tier-storage-sizes-and-compute-sizes)
-- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md#general-purpose-service-tier-storage-sizes-and-compute-sizes).
+- For details on specific compute sizes and storage size choices available for single database, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md)
+- For details on specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).

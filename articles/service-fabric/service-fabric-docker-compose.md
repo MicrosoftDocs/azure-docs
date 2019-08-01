@@ -3,8 +3,8 @@ title: Azure Service Fabric Docker Compose Deployment Preview
 description: Azure Service Fabric accepts Docker Compose format to make it easier to orchestrate existing containers using Service Fabric. This support is currently in preview.
 services: service-fabric
 documentationcenter: .net
-author: TylerMSFT
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 
 ms.assetid: ab49c4b9-74a8-4907-b75b-8d2ee84c6d90
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: twhitney, subramar
+ms.author: subramar
 ---
 # Docker Compose deployment support in Azure Service Fabric (Preview)
 

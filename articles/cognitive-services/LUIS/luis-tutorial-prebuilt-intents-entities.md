@@ -1,17 +1,17 @@
 ---
-title: Prebuilt intents and entities
+title: Prebuilt intents and entities - LUIS
 titleSuffix: Azure Cognitive Services
 description: In this tutorial, add prebuilt intents and entities to an app to quickly gain intent prediction and data extraction. You do not need to label any utterances with prebuilt entities. The entity is detected automatically. 
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 07/16/2018
 ms.author: diberry
---- 
+---
 
 # Tutorial: Identify common intents and entities
 
@@ -46,17 +46,17 @@ LUIS provides several prebuilt intents to help with common user intentions.
 
 1. Search for `Utilities`. 
 
-    [ ![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
+    [![Screenshot of prebuilt intents dialog with Utilities in the search box](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png)](./media/luis-tutorial-prebuilt-intents-and-entities/prebuilt-intent-utilities.png#lightbox)
 
 1. Select the following intents and select **Done**: 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. 
+     These intents are helpful to determine where, in the conversation, the user is and what they are asking to do. These intents include usage of entities. These entities are automatically added to the LUIS app: number, ordinal, and Utilities.DirectionalReference. 
 
 
 ## Add prebuilt entities to help with common data type extraction
@@ -69,12 +69,12 @@ LUIS provides several prebuilt entities for common data extraction.
 
 1. Select the following entities from the list of prebuilt entities then select **Done**:
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Screenshot of number select in prebuilt entities dialog](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    These entities will help you add name and place recognition to your client application.
+     These entities will help you add name and place recognition to your client application.
 
 ## Add example utterances to the None intent 
 

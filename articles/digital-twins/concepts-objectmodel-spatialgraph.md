@@ -1,12 +1,12 @@
 ---
-title: Understand Digital Twins object models and spatial intelligence graph | Microsoft Docs
+title: 'Understand Digital Twins object models and spatial intelligence graph | Microsoft Docs'
 description: Use Azure Digital Twins to model relationships between people, places, and devices
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
 ---
 
@@ -94,7 +94,7 @@ For more details on how to use spatial intelligence graphs, visit the Azure Digi
 
 Learn more about [how to use Swagger](how-to-use-swagger.md).
 
-All API calls must be authenticated by using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](http://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
+All API calls must be authenticated by using [OAuth](https://docs.microsoft.com/azure/active-directory/develop/v1-protocols-oauth-code). The APIs follow [Microsoft REST API Guidelines conventions](https://github.com/Microsoft/api-guidelines/blob/master/Guidelines.md). Most of the APIs that return collections support [OData](https://www.odata.org/getting-started/basic-tutorial/#queryData) system query options.
 
 ## Next steps
 

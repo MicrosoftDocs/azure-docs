@@ -3,8 +3,8 @@ title: What is Azure Security Center?| Microsoft Docs
 description: Learn about Azure Security Center, its key capabilities, and how it works.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: MBaldwin
+author: monhaber
+manager: barbkess
 editor: ''
 
 ms.assetid: 45b9756b-6449-49ec-950b-5ed1e7c56daa
@@ -14,8 +14,8 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/5/2018
-ms.author: rkarlin
+ms.date: 6/06/2019
+ms.author: v-mohabe
 
 ---
 # What is Azure Security Center?
@@ -50,10 +50,12 @@ In addition, Security Center protects non-Azure servers and virtual machines in 
 
 The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and threat detection alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
 
+When you enable Security Center, the security policy built-in to Security Center is reflected in Azure Policy as a built in initiative under Security Center category. The built-in initiative is automatically assigned to all Security Center registered subscriptions (Free or Standard tiers). The built-in initiative contains only Audit policies. For more information about Security Center policies in Azure Policy, see [Working with security policies](tutorial-security-policy.md).
+
 ## Strengthen security posture
 
 Azure Security Center enables you to strengthen your security posture. This means it helps you identify and perform the hardening tasks recommended as security best practices and implement them across your machines, data services, and apps. This includes managing and enforcing your security policies, and making sure your Azure virtual machines, non-Azure servers, and Azure PaaS services are compliant. Security Center provides you with the tools you need to have a bird's eye view on your workloads, with focused visibility on your
-network security estate.
+network security estate. 
 
 ### Manage organization security policy and compliance
 
@@ -131,9 +133,13 @@ ranges or IP addresses, and for a limited amount of time.
 Security Center includes capabilities that help you perform automatic classification of your data in Azure SQL. You can also get assessments for potential vulnerabilities across Azure SQL and Storage services, and
 recommendations for how to mitigate them.
 
+### Protect IoT and hybrid cloud workloads (Preview)
+
+Azure Security Center for IoT (Internet of Things) simplifies hybrid workload protection by delivering unified visibility and control, adaptive threat prevention, and intelligent threat detection and response across workloads running on edge, on-premises, in Azure, and in other clouds. For more information, see [Azure Security Center for IoT (Preview)](https://docs.microsoft.com/azure/asc-for-iot/).
+
 ## Get secure faster
 
-Native Azure integration (including Azure Policy and Log Analytics) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
+Native Azure integration (including Azure Policy and Azure Monitor logs) combined with seamless integration with other Microsoft security solutions, such as Microsoft Cloud App Security and Windows Defender Advanced Threat Protection help make sure your security solution is comprehensive as well as simple to
 onboard and roll out.
 
 In addition, you can extend the full solution beyond Azure to workloads running on other clouds and in on-premises data centers.

@@ -4,7 +4,7 @@ description: Capture an image of an Azure VM to use for mass deployments by usin
 services: virtual-machines-linux
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -26,7 +26,9 @@ To create multiple copies of a virtual machine (VM) for use in Azure, capture an
 
 To create a copy of your existing Linux VM for backup or debugging, or to upload a specialized Linux VHD from an on-premises VM, see [Upload and create a Linux VM from custom disk image](upload-vhd.md).  
 
-You can also use **Packer** to create your custom configuration. For more information, see [How to use Packer to create Linux virtual machine images in Azure](build-image-with-packer.md).
+You can use the **Azure VM Image Builder (Public Preview)** service to build your custom image, no need to learn any tools, or setup build pipelines, simply providing an image configuration, and the Image Builder will create the Image. For more information, see [Getting Started with Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/linux/image-builder-overview).
+
+Additonally, use **Packer** to create your custom configuration. For more information, see [How to use Packer to create Linux virtual machine images in Azure](build-image-with-packer.md).
 
 You'll need the following items before creating an image:
 
@@ -57,7 +59,7 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 ## Step 2: Create VM image
 Use the Azure CLI to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli/azure/vm#deallocate). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*.
+1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*.
    
     ```azurecli
     az vm deallocate \
@@ -65,7 +67,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
 	  --name myVM
     ```
 
-2. Mark the VM as generalized with [az vm generalize](/cli/azure/vm#generalize). The following example marks the VM named *myVM* in the resource group named *myResourceGroup* as generalized.
+2. Mark the VM as generalized with [az vm generalize](/cli/azure/vm). The following example marks the VM named *myVM* in the resource group named *myResourceGroup* as generalized.
    
     ```azurecli
     az vm generalize \
@@ -87,7 +89,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
 
 ## Step 3: Create a VM from the captured image
-Create a VM by using the image you created with [az vm create](/cli/azure/vm#az_vm_create). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
+Create a VM by using the image you created with [az vm create](/cli/azure/vm). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
 
 ```azurecli
 az vm create \

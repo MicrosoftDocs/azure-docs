@@ -1,24 +1,25 @@
-﻿---
+---
 title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
 documentationcenter: na
-author: rkarlin
-manager: mbaldwin
+author: monhaber
+manager: barbkess
 editor: ''
-
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-
+ms.date: 05/30/2018
+ms.author: "v-mohabe"
 ---
 # Monitor identity and access in Azure Security Center (Preview)
 This article helps you use Azure Security Center to monitor users' identity and access activity.
+
+> [!NOTE]
+> The "View *classic* Identity & Access" link will be retired on July 31st, 2019. Click [here](security-center-features-retirement-july2019.md#menu_classicidentity) to learn on alternative services.
 
 > [!NOTE]
 > Monitoring identity and access is in preview and available only on the Standard tier of Security Center. See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
@@ -35,7 +36,6 @@ By monitoring identity activities, you can take proactive actions before an inci
 > [!NOTE]
 > If your subscription has more than 600 accounts, Security Center is unable to run the Identity recommendations against your subscription. Recommendations that are not run are listed under “unavailable assessments” which is discussed below.
 Security Center is unable to run the Identity recommendations against a Cloud Solution Provider (CSP) partner's admin agents.
->
 >
 
 See [Recommendations](security-center-identity-access.md#recommendations) for a list of the Identity and Access recommendations provided by Security Center.
@@ -64,11 +64,11 @@ Under **Overview**, there is a list of recommendations. The first column lists t
 
 1. Select a recommendation. The recommendation’s window opens and displays:
 
-  - Description of the recommendation
-  - List of unhealthy and healthy subscriptions
-  - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
+   - Description of the recommendation
+   - List of unhealthy and healthy subscriptions
+   - List of resources that are unscanned due to a failed assessment or the resource is under a subscription running on the Free tier and is not assessed
 
-  ![Recommendation's window][3]
+   ![Recommendation's window][3]
 
 1. Select a subscription in the list for additional detail.
 
@@ -77,51 +77,47 @@ Under **Subscriptions**, there is a list of subscriptions. The first column list
 
 ![Subscription's tab][4]
 
-1.	Select a subscription. A summary view opens with three tabs:
+1. Select a subscription. A summary view opens with three tabs:
 
-  - **Recommendations**:  based on assessments performed by Security Center that failed.
-  - **Passed assessments**: list of assessments performed by Security Center that passed.
-  - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
+   - **Recommendations**:  based on assessments performed by Security Center that failed.
+   - **Passed assessments**: list of assessments performed by Security Center that passed.
+   - **Unavailable assessments**: list of assessments that failed to run due to an error or because the subscription has more than 600 accounts.
 
-  Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
+   Under **Recommendations** is a list of the recommendations for the selected subscription and severity of each recommendation.
 
-  ![Recommendations for select subscription][5]
+   ![Recommendations for select subscription][5]
 
 1. Select a recommendation for a description of the recommendation, a list of unhealthy and healthy subscriptions, and a list of unscanned resources.
 
-  ![Description of recommendation][6]
+   ![Description of recommendation][6]
 
-  Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
+   Under **Passed assessments** is a list of passed assessments.  Severity of these assessments is always green.
 
-  ![Passed assessments][7]
+   ![Passed assessments][7]
 
 1. Select a passed assessment from the list for a description of the assessment and a list of healthy subscriptions. There is a tab for unhealthy subscriptions that lists all the subscriptions that failed.
 
-  ![Passed assessments][8]
+   ![Passed assessments][8]
 
 ## Recommendations
 Use the table below as a reference to help you understand the available Identity & Access recommendations and what each one does if you apply it.
 
 |Resource type|Secure score|Recommendation|Description|
 |----|----|----|----|
-|Subscription|50|Enable MFA for Azure Management App accounts with owner permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with administrator privileges to prevent a breach of accounts or resources.|
-|Subscription|50|Enable security center on your subscriptions |Enable Security center on all your subscriptions for advanced threat detection, JIT , application whitelisting and advanced recommendations |
-|Subscription|50|Enable security center standard tier on your subscriptions |Enable Security center Standard Tier on all your subscriptions for advanced threat detection, JIT , application whitelisting and advanced recommendations.|
-|Subscription|40|Enable MFA for Azure Management App accounts with write permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources.|
-|Subscription|30|Remove external accounts with owner permissions from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access. |
-|Subscription|30|Enable MFA for Azure Management App accounts with read permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
-|Subscription|25|Remove external accounts with write permissions from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
-|Subscription|20|Remove  deprecated accounts with owner permissions from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
-|Subscription|5|Remove deprecated accounts from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
-|Subscription|5|Designate more than one owner on your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
-|Subscription|5|Designate up to 3 owners on your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
-|Key vault|5|Enable diagnostic logs in Key Vault|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
-|Subscription|15|Remove external accounts with read permissions from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.|
-|Subscription|1|Provide security contact details|Provide security contact information for each of your subscriptions. Contact information is an email address and phone number. The information is used to contact you if our security team finds that your resources are compromised|
+|Subscription|50|MFA should be enabled on accounts with owner permissions on your subscription|Enable Multi-Factor Authentication (MFA) for all subscription accounts with administrator privileges to prevent a breach of accounts or resources.|
+|Subscription|40|MFA should be enabled on your subscription accounts with write permissions|Enable Multi-Factor Authentication (MFA) for all subscription accounts with write privileges to prevent a breach of accounts or resources.|
+|Subscription|30|External accounts with owner permissions should be removed from your subscription|Remove external accounts with owner permissions from your subscription in order to prevent unmonitored access.|
+|Subscription|30|MFA should be enabled on your subscription accounts with read permissions|Enable Multi-Factor Authentication (MFA) for all subscription accounts with read privileges to prevent a breach of accounts or resources.|
+|Subscription|25|External accounts with write permissions should be removed from your subscription|Remove external accounts with write permissions from your subscription in order to prevent unmonitored access. |
+|Subscription|20|Deprecated accounts with owner permissions should be removed from your subscription|Remove deprecated accounts with owner permissions from your subscriptions.|
+|Subscription|5|Deprecated accounts should be removed from your subscription|Remove deprecated accounts from your subscriptions to enable access to only current users. |
+|Subscription|5|There should be more than one owner assigned to your subscription|Designate more than one subscription owner in order to have administrator access redundancy.|
+|Subscription|5|A maximum of 3 owners should be designated for your subscription|Designate less than 3 subscription owners in order to reduce the potential for breach by a compromised owner.|
+|Key vault|5|Diagnostics logs in Key Vault should be enabled|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|Subscription|15|External accounts with read permissions should be removed  from your subscription|Remove external accounts with read privileges from your subscription in order to prevent unmonitored access.| 
 
-> ![NOTE]
-> If you created a conditional access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
->
+> [!NOTE]
+> If you created a Conditional Access policy that necessitates MFA but has exclusions set, the Security Center MFA recommendation assessment considers the policy non-compliant, because it enables some users to sign in to Azure without MFA.
 
 ## Next steps
 To learn more about recommendations that apply to other Azure resource types, see the following:

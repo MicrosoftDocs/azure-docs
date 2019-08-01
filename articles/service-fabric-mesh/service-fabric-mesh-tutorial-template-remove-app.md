@@ -3,7 +3,7 @@ title: Tutorial- Remove an app running in Azure Service Fabric Mesh | Microsoft 
 description: In this tutorial, learn how to remove an application running in Service Fabric Mesh and delete resources.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid:  
@@ -12,8 +12,8 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/15/2018
-ms.author: ryanwi
+ms.date: 01/11/2019
+ms.author: dekapur
 ms.custom: mvc, devcenter
 #Customer intent: As a developer, I want learn how to create a Service Fabric Mesh app that communicates with another service, and then publish it to Azure.
 ---

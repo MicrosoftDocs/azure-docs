@@ -5,7 +5,7 @@
  author: cynthn
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 11/27/2018
+ ms.date: 02/11/2019
  ms.author: cynthn
  ms.custom: include file
 ---
@@ -21,15 +21,15 @@ NVIDIA CUDA drivers for NC, NCv2, NCv3, ND, and NDv2-series VMs (optional for NV
 
 | Distribution | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> CentOS-based 7.3, 7.4, 7.5, 7.6, CentOS-based 7.4 HPC | NVIDIA CUDA 10.0, driver branch R410 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> CentOS-based 7.3, 7.4, 7.5, 7.6, CentOS-based 7.4 HPC | NVIDIA CUDA 10.1, driver branch R418 |
 
 ### NVIDIA GRID drivers
 
-Microsoft redistributes NVIDIA GRID driver installers for NV and NVv2-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up an NVIDIA vGPU software license server.
+Microsoft redistributes NVIDIA GRID driver installers for NV and NVv3-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up an NVIDIA vGPU software license server.
 
 | Distribution | Driver |
 | --- | -- |
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/>CentOS-based 7.3, 7.4, 7.5, 7.6 | NVIDIA GRID 7, driver branch R410|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.0 to 7.6<br/><br/>CentOS-based 7.0 to 7.6<br/><br/>SUSE Linux Enterprise Server 12 SP2 | NVIDIA GRID 9.0, driver branch R430|
 
 > [!WARNING] 
 > Installation of third-party software on Red Hat products can affect the Red Hat support terms. See the [Red Hat Knowledgebase article](https://access.redhat.com/articles/1067).

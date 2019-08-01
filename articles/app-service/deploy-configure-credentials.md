@@ -11,23 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 11/22/2018
+ms.date: 03/10/2019
 ms.author: cephalin
+ms.reviewer: byvinyal
 ms.custom: seodec18
 
 ---
 # Configure deployment credentials for Azure App Service
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](deploy-local-git.md) 
-and [FTP/S deployment](deploy-ftp.md). These are not the same as your Azure Active Directory credentials.
+and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as your Azure Active Directory credentials.
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. It's the default set that's surfaced in the portal GUI (such as the **Overview** and **Properties**
-of the app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources)). When a user is granted app access via Role-Based Access Control (RBAC) or coadmin permissions, that user can use his/her own user-level credentials until the access is revoked. Do not share these credentials with other Azure users.
+of the app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources)). When a user is granted app access via Role-Based Access Control (RBAC) or coadmin permissions, that user can use their own user-level credentials until the access is revoked. Do not share these credentials with other Azure users.
 
 * **App-level credentials**: one set of credentials for each app. It can be used to deploy to that app only. The credentials for each app are generated automatically at app creation. They can't be configured manually, but can be reset anytime. For a user to be granted access to app-level credentials via (RBAC), that user must be contributor or higher on the app. Readers are not allowed to publish, and can't access those credentials.
 
 ## <a name="userscope"></a>Set and reset user-level credentials
 
-You can configure your user-level credentials in any app's [resource page](../azure-resource-manager/resource-group-portal.md#manage-resources). Regardless in which app you configure these credentials, it applies to all apps and for all subscriptions in your Azure account. 
+You can configure your user-level credentials in any app's [resource page](../azure-resource-manager/manage-resources-portal.md#manage-resources). Regardless in which app you configure these credentials, it applies to all apps and for all subscriptions in your Azure account. 
 
 To configure your user-level credentials:
 
@@ -51,6 +52,13 @@ and *FTP* deployment username in your app's **Properties**.
 > Azure does not show your user-level deployment password. If you forget the password, you can reset your credentials by following the steps in this section.
 >
 >  
+
+## Use user-level credentials with FTP/FTPS
+
+Authenticating to an FTP/FTPS endpoint using user-level credentials requirers a username in the following format:
+`<app-name>\<user-name>`
+
+Since user-level credentials are linked to the user and not a specific resource, the username must be in this format to direct the sign-in action to the right app endpoint.
 
 ## <a name="appscope"></a>Get and reset app-level credentials
 To get the app-level credentials:

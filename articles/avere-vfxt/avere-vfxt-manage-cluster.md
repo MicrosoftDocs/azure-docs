@@ -4,7 +4,7 @@ description: How to manage Avere cluster - add or remove nodes, reboot, stop, or
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 01/29/2019
 ms.author: v-erkell
 ---
 
@@ -12,7 +12,7 @@ ms.author: v-erkell
 
 After creating the cluster, you might need to add cluster nodes or stop or reboot the cluster. And when your project is finished you need to know how to stop and remove the cluster permanently. 
 
-Depending on the cluster management task, you might need to use the Avere Control Panel, the vfxt.py cluster creation script, or the Azure portal to do it. 
+Depending on the cluster management task, you might need to use the Avere Control Panel, the vfxt.py command line cluster creation script, or the Azure portal to do it. 
 
 This table gives an overview of which tools can be used for each task. 
 
@@ -66,7 +66,11 @@ The **System Maintenance** settings page has commands for restarting cluster ser
 
 When a cluster is shutting down, it posts state messages to the **Dashboard** tab at first. After a few moments, the Avere Control Panel session will stop responding, which means that the cluster has shut down.
 
-## Manage the cluster with vfxt.py 
+## Manage the cluster with vfxt.py
+
+vfxt.py is a command-line tool for cluster creation and management. 
+
+vfxt.py is preinstalled on the cluster controller VM. If you want to install it on another system, refer to the documentation at <https://github.com/Azure/AvereSDK>.
 
 The vfxt.py script can be used for these cluster management tasks:
 
@@ -75,8 +79,6 @@ The vfxt.py script can be used for these cluster management tasks:
 * Destroy a cluster
 
 Like Avere Control Panel, vfxt.py operations try to make sure changed data is stored permanently on back-end storage before shutting down or destroying the cluster or node. This makes it a safer option than the Avere portal.
-
-vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to https://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
 A complete vfxt.py usage guide is available on GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
@@ -91,7 +93,7 @@ Supply the following values:
 * Resource group name for the cluster, and also for network and storage resources if they are not the same as the cluster
 * Cluster location
 * Cluster network and subnet 
-* Cluster node access role 
+* Cluster node access role (use the built-in role [Avere Operator](../role-based-access-control/built-in-roles.md#avere-operator))
 * Cluster management IP address and administrative password 
 * Number of nodes to add (1, 2, or 3)
 * Node instance type and cache size values 
@@ -106,7 +108,7 @@ If you are not using the prototype, you must construct a command like the follow
    --add-nodes --nodes NODE_COUNT \
    --management-address CLUSTER_IP --admin-password ADMIN_PASSWORD \
    --instance-type TYPE --node-cache-size SIZE \
-   --azure-role ROLE_NAME \
+   --azure-role "Avere Operator" \
    --log ~/vfxt.log
 ```
 
@@ -180,7 +182,7 @@ You can destroy node instances permanently by deleting them in the Azure portal.
 
 ### Delete additional cluster resources from the Azure portal
 
-If you created additional resources specifically for the vFXT cluster, you might want to remove them as part of tearing down the cluster. You should not destroy elements that contain data you need, or any items that are shared with other projects.
+If you created additional resources specifically for the vFXT cluster, you might want to remove them as part of tearing down the cluster. Do not destroy elements that contain data you need, or any items that are shared with other projects.
 
 In addition to deleting the cluster nodes, consider removing these components: 
 
@@ -195,7 +197,7 @@ In addition to deleting the cluster nodes, consider removing these components:
 
 ### Delete a cluster's resource group from the Azure portal
 
-If you created a resource group specifically for the cluster, you can destroy all related resources for the cluster by destroying the resource group. 
+If you created a resource group specifically to house the cluster, you can destroy all related resources for the cluster by destroying the resource group. 
 
 > [!Caution] 
 > Only destroy the resource group if you are certain that nothing of value resides in the group. For example, make sure you have moved any needed data from any storage containers within the resource group.  

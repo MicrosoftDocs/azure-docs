@@ -7,7 +7,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
-ms.component: common
+ms.subservice: common
 ---
 
 # Setting up the Azure Import/Export Tool

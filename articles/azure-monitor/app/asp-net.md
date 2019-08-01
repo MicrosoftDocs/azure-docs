@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 01/19/2018
+ms.date: 05/08/2019
 ms.author: mbullwin
 
 ---
@@ -19,13 +19,13 @@ ms.author: mbullwin
 
 This procedure configures your ASP.NET web app to send telemetry to the [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) service. It works for ASP.NET apps that are hosted either in your own IIS server on-premises or in the Cloud. You get charts and a powerful query language that help you understand the performance of your app and how people are using it, plus automatic alerts on failures or performance issues. Many developers find these features great as they are, but you can also extend and customize the telemetry if you need to.
 
-Setup takes just a few clicks in Visual Studio. You have the option to avoid charges by limiting the volume of telemetry. This allows you to experiment and debug, or to monitor a site with not many users. When you decide you want to go ahead and monitor your production site, it's easy to raise the limit later.
+Setup takes just a few clicks in Visual Studio. You have the option to avoid charges by limiting the volume of telemetry. This functionality allows you to experiment and debug, or to monitor a site with not many users. When you decide you want to go ahead and monitor your production site, it's easy to raise the limit later.
 
 ## Prerequisites
 To add Application Insights to your ASP.NET website, you need to:
 
-- Install [Visual Studio 2017 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
-	- ASP.NET and web development
+- Install [Visual Studio 2019 for Windows](https://www.visualstudio.com/downloads/) with the following workloads:
+	- ASP.NET and web development (Do not uncheck the optional components)
 	- Azure development
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
@@ -33,11 +33,11 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 ## <a name="ide"></a> Step 1: Add the Application Insights SDK
 
 > [!IMPORTANT]
-> The process to add Application Insights varies by ASP.NET template type. If you are using the **Empty** or **Azure Mobile App** template select **Project** > **Add Application Insights Telemetry**. For all other ASP.NET templates consult the instructions below. 
+> The screenshots in this example are based on Visual Studio 2017 version 15.9.9 and later. The experience to add Application Insights varies across versions of Visual Studio as well as by ASP.NET template type. Older versions may have alternate text such as "Configure Application Insights".
 
-Right-click your web app name in the Solution Explorer, and choose **Configure Application Insights**
+Right-click your web app name in the Solution Explorer, and choose **Add** > **Application Insights Telemetry**
 
-![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/asp-net/0001-configure-application-insights.png)
+![Screenshot of Solution Explorer, with Configure Application Insights highlighted](./media/asp-net/add-telemetry-new.png)
 
 (Depending on your Application Insights SDK version you may be prompted to upgrade to the latest SDK release. If prompted, select **Update SDK**.)
 
@@ -45,15 +45,15 @@ Right-click your web app name in the Solution Explorer, and choose **Configure A
 
 Application Insights Configuration screen:
 
-Select **Start Free**.
+Select **Get Started**.
 
-![Screenshot of Register your app with Application Insights page](./media/asp-net/0004-start-free.png)
+![Screenshot of Register your app with Application Insights page](./media/asp-net/00004-start-free.png)
 
 If you want to set the resource group or the location where your data is stored, click **Configure settings**. Resource groups are used to control access to data. For example, if you have several apps that form part of the same system, you might put their Application Insights data in the same resource group.
 
- Select **Register**. 
+ Select **Register**.
 
-![Screenshot of Register your app with Application Insights page](./media/asp-net/0005-register-ed.png)
+![Screenshot of Register your app with Application Insights page](./media/asp-net/00005-register-ed.png)
 
  Telemetry will be sent to the [Azure portal](https://portal.azure.com), both during debugging and after you have published your app.
 > [!NOTE]
@@ -64,7 +64,7 @@ Run your app with F5. Open different pages to generate some telemetry.
 
 In Visual Studio, you will see a count of the events that have been logged.
 
-![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/asp-net/0006-Events.png)
+![Screenshot of Visual Studio. The Application Insights button shows during debugging.](./media/asp-net/00006-Events.png)
 
 ## Step 3: See your telemetry
 You can see your telemetry either in Visual Studio or in the Application Insights web portal. Search telemetry in Visual Studio to help you debug your app. Monitor performance and usage in the web portal when your system is live. 
@@ -91,16 +91,14 @@ Open your Application Insights resource. Either sign into the [Azure portal](htt
 
 The portal opens on a view of the telemetry from your app.
 
-![Screenshot of Application Insights overview page](./media/asp-net/66.png)
+![Screenshot of Application Insights overview page](./media/asp-net/007.png)
 
 In the portal, click any tile or chart to see more detail.
-
-[Learn more about using Application Insights in the Azure portal](../../azure-monitor/app/app-insights-dashboards.md).
 
 ## Step 4: Publish your app
 Publish your app to your IIS server or to Azure. Watch [Live Metrics Stream](../../azure-monitor/app/metrics-explorer.md#live-metrics-stream) to make sure everything is running smoothly.
 
-Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry, and set up [dashboards](../../azure-monitor/app/app-insights-dashboards.md). You can also use the powerful [Log Analytics query language](https://aka.ms/LogAnalyticsLanguage) to analyze usage and performance, or to find specific events.
+Your telemetry builds up in the Application Insights portal, where you can monitor metrics, search your telemetry. You can also use the powerful [Kusto query language](/azure/kusto/query/) to analyze usage and performance, or to find specific events.
 
 You can also continue to analyze your telemetry in [Visual Studio](../../azure-monitor/app/visual-studio.md), with tools such as diagnostic search and [trends](../../azure-monitor/app/visual-studio-trends.md).
 
@@ -113,8 +111,6 @@ You can also continue to analyze your telemetry in [Visual Studio](../../azure-m
 
 Congratulations! You installed the Application Insights package in your app, and configured it to send telemetry to the Application Insights service on Azure.
 
-![Diagram of movement of telemetry](./media/asp-net/01-scheme.png)
-
 The Azure resource that receives your app's telemetry is identified by an *instrumentation key*. You'll find this key in the ApplicationInsights.config file.
 
 
@@ -125,7 +121,7 @@ If you made any customizations to ApplicationInsights.config, save a copy of it 
 
 ## Video
 
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/100/player]
+* External step-by-step video about [configuring Application Insights with a .NET application from scratch](https://www.youtube.com/watch?v=blnGAVgMAfA).
 
 ## Next steps
 
@@ -144,14 +140,13 @@ There are alternative topics to look at if you are interested in:
 ### Analysis
 
 * **[Working with Application Insights in Visual Studio](../../azure-monitor/app/visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
-* **[Working with the Application Insights portal](../../azure-monitor/app/app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
 * **[Analytics](../../azure-monitor/log-query/get-started-portal.md)** - The powerful query language.
 
 ### Alerts
 
 * [Availability tests](../../azure-monitor/app/monitor-web-app-availability.md): Create tests to make sure your site is visible on the web.
 * [Smart diagnostics](../../azure-monitor/app/proactive-diagnostics.md): These tests run automatically, so you don't have to do anything to set them up. They tell you if your app has an unusual rate of failed requests.
-* [Metric alerts](../../azure-monitor/app/alerts.md): Set these to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
+* [Metric alerts](../../azure-monitor/app/alerts.md): Set alerts to warn you if a metric crosses a threshold. You can set them on custom metrics that you code into your app.
 
 ### Automation
 

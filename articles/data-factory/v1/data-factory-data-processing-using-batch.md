@@ -24,9 +24,12 @@ robots: noindex
 
 This article describes an architecture of a sample solution that moves and processes large-scale datasets in an automatic and scheduled manner. It also provides an end-to-end walkthrough to implement the solution by using Data Factory and Azure Batch.
 
-This article is longer than a typical article because it contains a walkthrough of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the [architecture section](#architecture-of-sample-solution) of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the [walkthrough](#implementation-of-sample-solution). We invite your comments about this content and how you use it.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+This article is longer than a typical article because it contains a walkthrough of an entire sample solution. If you're new to Batch and Data Factory, you can learn about these services and how they work together. If you know something about the services and are designing/architecting a solution, you can focus on the architecture section of the article. If you're developing a prototype or a solution, you might want to try out the step-by-step instructions in the walkthrough. We invite your comments about this content and how you use it.
 
 First, let's look at how Data Factory and Batch services can help you process large datasets in the cloud.     
+
 
 ## Why Azure Batch?
  You can use Batch to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. It's a platform service that schedules compute-intensive work to run on a managed collection of virtual machines (VMs). It can automatically scale compute resources to meet the needs of your jobs.
@@ -38,7 +41,7 @@ With the Batch service, you define Azure compute resources to execute your appli
 * [Basics of Batch](../../batch/batch-technical-overview.md)
 * [Batch feature overview](../../batch/batch-api-basics.md)
 
-Optionally, to learn more about Batch, see [the Batch documentatnion](https://docs.microsoft.com/azure/batch/).
+Optionally, to learn more about Batch, see [the Batch documentation](https://docs.microsoft.com/azure/batch/).
 
 ## Why Azure Data Factory?
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. You can use Data Factory to create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store. An example is Azure Blob storage. You can use Data Factory to process/transform data by using services such as Azure HDInsight and Azure Machine Learning. You also can schedule data pipelines to run in a scheduled manner (for example, hourly, daily, and weekly). You can monitor and manage the pipelines at a glance to identify issues and take action.
@@ -91,7 +94,7 @@ If you don't have an Azure subscription, you can create a free trial account qui
 You use a storage account to store the data in this tutorial. If you don't have a storage account, see [Create a storage account](../../storage/common/storage-quickstart-create-account.md). The sample solution uses blob storage.
 
 #### Azure Batch account
-Create a Batch account by using the [Azure portal](http://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzureRmBatchAccount](https://docs.microsoft.com/powershell/module/azurerm.batch/new-azurermbatchaccount) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
+Create a Batch account by using the [Azure portal](https://portal.azure.com/). For more information, see [Create and manage a Batch account](../../batch/batch-account-create-portal.md). Note the Batch account name and account key. You also can use the [New-AzBatchAccount](https://docs.microsoft.com/powershell/module/az.batch/new-azbatchaccount) cmdlet to create a Batch account. For instructions on how to use this cmdlet, see [Get started with Batch PowerShell cmdlets](../../batch/batch-powershell-cmdlets-get-started.md).
 
 The sample solution uses Batch (indirectly via a data factory pipeline) to process data in a parallel manner on a pool of compute nodes (a managed collection of VMs).
 
@@ -119,7 +122,7 @@ Create a Batch pool with at least two compute nodes.
    f. Select **OK** to create the pool.
 
 #### Azure Storage Explorer
-You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
+You use [Azure Storage Explorer 6](https://azurestorageexplorer.codeplex.com/) or [CloudXplorer](https://clumsyleaf.com/products/cloudxplorer) (from ClumsyLeaf Software) to inspect and alter the data in your Storage projects. You also can inspect and alter the data in the logs of your cloud-hosted applications.
 
 1. Create a container named **mycontainer** with private access (no anonymous access).
 
@@ -195,12 +198,12 @@ The method has a few key components that you need to understand:
 
 	```powershell
 	Install-Package Microsoft.Azure.Management.DataFactories
-	```
+    ```
 1. Import the **Azure Storage** NuGet package into the project. You need this package because you use the Blob Storage API in this sample:
 
 	```powershell
-	Install-Package Azure.Storage
-	```
+	Install-Package Az.Storage
+    ```
 1. Add the following using directives to the source file in the project:
 
 	```csharp
@@ -214,17 +217,17 @@ The method has a few key components that you need to understand:
 	
 	using Microsoft.WindowsAzure.Storage;
 	using Microsoft.WindowsAzure.Storage.Blob;
-	```
+    ```
 1. Change the name of the namespace to **MyDotNetActivityNS**.
 
 	```csharp
 	namespace MyDotNetActivityNS
-	```
+    ```
 1. Change the name of the class to **MyDotNetActivity**, and derive it from the **IDotNetActivity** interface as shown:
 
 	```csharp
 	public class MyDotNetActivity : IDotNetActivity
-	```
+    ```
 1. Implement (add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class. Copy the following sample code to the method. For an explanation of the logic used in this method, see the [Execute method](#execute-method) section.
 
 	```csharp
@@ -306,7 +309,7 @@ The method has a few key components that you need to understand:
 	   // This feature is not implemented yet, so just return an empty dictionary.
 	   return new Dictionary<string, string>();
 	}
-	```
+    ```
 1. Add the following helper methods to the class. These methods are invoked by the **Execute** method. Most important, the **Calculate** method isolates the code that iterates through each blob.
 
 	```csharp
@@ -375,7 +378,7 @@ The method has a few key components that you need to understand:
 	   }
 	   return output;
 	}
-	```
+    ```
     The GetFolderPath method returns the path to the folder that the dataset points to and the GetFileName method returns the name of the blob/file that the dataset points to.
 
 	```csharp
@@ -387,7 +390,7 @@ The method has a few key components that you need to understand:
 	    "typeProperties": {
 	        "fileName": "file.txt",
 	        "folderPath": "mycontainer/inputfolder/{Year}-{Month}-{Day}-{Hour}",
-	```
+    ```
 
     The Calculate method calculates the number of instances of the keyword "Microsoft" in the input files (blobs in the folder). The search term "Microsoft" is hard-coded in the code.
 
@@ -404,7 +407,7 @@ The method has a few key components that you need to understand:
 #### Execute method
 This section provides more details about the code in the Execute method.
 
-1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
+1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob) namespace. To iterate through the blob collection, you're required to use the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [Use Blob storage from .NET](../../storage/blobs/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
 
 	```csharp
 	// Initialize the continuation token.
@@ -426,8 +429,8 @@ This section provides more details about the code in the Execute method.
 	
 	} while (continuationToken != null);
 
-	```
-   For more information, see the documentation for the [ListBlobsSegmented](https://msdn.microsoft.com/library/jj717596.aspx) method.
+    ```
+   For more information, see the documentation for the [ListBlobsSegmented](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._cloud_blob_container.listblobssegmented) method.
 
 1. The code for working through the set of blobs logically goes within the do-while loop. In the **Execute** method, the do-while loop passes the list of blobs to a method named **Calculate**. The method returns a string variable named **output** that is the result of having iterated through all the blobs in the segment.
 
@@ -435,38 +438,38 @@ This section provides more details about the code in the Execute method.
 
 	```csharp
 	output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
-	```
+    ```
 1. After the **Calculate** method is finished, it must be written to a new blob. For every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
 
 	```csharp
 	// Get the output dataset by using the name of the dataset matched to a name in the Activity output collection.
 	Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
-	```
+    ```
 1. The code also calls the helper method **GetFolderPath** to retrieve the folder path (the storage container name).
 
 	```csharp
 	folderPath = GetFolderPath(outputDataset);
-	```
+    ```
    The GetFolderPath method casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
 
 	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FolderPath;
-	```
+    ```
 1. The code calls the **GetFileName** method to retrieve the file name (blob name). The code is similar to the previous code that was used to get the folder path.
 
 	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FileName;
-	```
+    ```
 1. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
 
 	```csharp
 	// Write the name of the file.
 	Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
-	```
+    ```
 1. After the name of the file is written, you can write the output string from the **Calculate** method to a new blob:
 
 	```csharp
@@ -474,7 +477,7 @@ This section provides more details about the code in the Execute method.
 	CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
 	logger.Write("Writing {0} to the output blob", output);
 	outputBlob.UploadText(output);
-	```
+    ```
 
 ### Create the data factory
 In the [Create the custom activity](#create-the-custom-activity) section, you created a custom activity and uploaded the zip file with binaries and the PDB file to a blob container. In this section, you create a data factory with a pipeline that uses the custom activity.
@@ -655,7 +658,7 @@ In this step, you create datasets to represent input and output data.
 	       "policy": {}
 	   }
 	}
-	```
+    ```
 
 	You create a pipeline later in this walkthrough with the start time 2015-11-16T00:00:00Z and the end time 2015-11-16T05:00:00Z. It's scheduled to produce data hourly, so there are five input/output slices (between **00**:00:00 -\> **05**:00:00).
 
@@ -716,7 +719,7 @@ In this step, you create another dataset of the type AzureBlob to represent the 
 	       }
 	   }
 	}
-	```
+    ```
 
 	An output blob/file is generated for each input slice. Here is how an output file is named for each slice. All the output files are generated in one output folder, `mycontainer\\outputfolder`.
 
@@ -786,7 +789,7 @@ In this step, you create a pipeline with one activity, the custom activity you c
 	       "isPaused": false
 	  }
 	}
-	```
+    ```
    Note the following points:
 
    * Only one activity is in the pipeline, and it's of the type **DotNetActivity**.
@@ -798,8 +801,8 @@ In this step, you create a pipeline with one activity, the custom activity you c
    * The **linkedServiceName** property of the custom activity points to **AzureBatchLinkedService**, which tells Data Factory that the custom activity needs to run on Batch.
    * The **concurrency** setting is important. If you use the default value, which is 1, even if you have two or more compute nodes in the Batch pool, the slices are processed one after another. Therefore, you aren't taking advantage of the parallel processing capability of Batch. If you set **concurrency** to a higher value, say 2, it means that two slices (corresponds to two tasks in Batch) can be processed at the same time. In this case, both the VMs in the Batch pool are utilized. Set the concurrency property appropriately.
    * Only one task (slice) is executed on a VM at any point by default. By default, **Maximum tasks per VM** is set to 1 for a Batch pool. As part of the prerequisites, you created a pool with this property set to 2. Therefore, two data factory slices can run on a VM at the same time.
-    - The **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to **true** to pause the pipeline and set it back to **false** to restart.
-    -   The **start** and **end** times are five hours apart. Slices are produced hourly, so five slices are produced by the pipeline.
+     - The **isPaused** property is set to false by default. The pipeline runs immediately in this example because the slices start in the past. You can set this property to **true** to pause the pipeline and set it back to **false** to restart.
+     -   The **start** and **end** times are five hours apart. Slices are produced hourly, so five slices are produced by the pipeline.
 
 1. Select **Deploy** on the command bar to deploy the pipeline.
 
@@ -832,9 +835,9 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
    Five output files are listed, one for each input slice. Each of the output files has content similar to the following output:
 
-	```
+    ```
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-00/file.txt.
-	```
+    ```
    The following diagram illustrates how the data factory slices map to tasks in Batch. In this example, a slice has only one run.
 
    ![Slice mapping diagram](./media/data-factory-data-processing-using-batch/image16.png)
@@ -849,13 +852,13 @@ In this step, you test the pipeline by dropping files into the input folders. St
 
 1. After the slice runs and its status is **Ready**, verify the content in the output file for this slice (**2015-11-16-01.txt**). The output file appears under `mycontainer` in `outputfolder` in your blob storage. There should be a line for each file of the slice.
 
-	```
+    ```
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file2.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file3.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file4.txt.
 	2 occurrences(s) of the search term "Microsoft" were found in the file inputfolder/2015-11-16-01/file5.txt.
-	```
+    ```
 
 > [!NOTE]
 > If you didn't delete the output file 2015-11-16-01.txt before you tried with five input files, you see one line from the previous slice run and five lines from the current slice run. By default, the content is appended to the output file if it already exists.
@@ -896,7 +899,7 @@ Debugging consists of a few basic techniques.
 
    Check the system-0.log for any system error messages and exceptions.
 
-	```
+    ```
 	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Loading assembly file MyDotNetActivity...
 	
 	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Creating an instance of MyDotNetActivityNS.MyDotNetActivity from assembly file MyDotNetActivity...
@@ -904,7 +907,7 @@ Debugging consists of a few basic techniques.
 	Trace\_T\_D\_12/6/2015 1:43:35 AM\_T\_D\_\_T\_D\_Verbose\_T\_D\_0\_T\_D\_Executing Module
 	
 	Trace\_T\_D\_12/6/2015 1:43:38 AM\_T\_D\_\_T\_D\_Information\_T\_D\_0\_T\_D\_Activity e3817da0-d843-4c5c-85c6-40ba7424dce2 finished successfully
-	```
+    ```
 1. Include the **PDB** file in the zip file so that the error details have information such as call stack when an error occurs.
 
 1. All the files in the zip file for the custom activity must be at the top level with no subfolders.
@@ -940,13 +943,13 @@ You can extend this sample to learn more about Data Factory and Batch features. 
  
 	Autoscale formula:
 
-	``` 
+    ``` 
 	startingNumberOfVMs = 1;
 	maxNumberofVMs = 25;
 	pendingTaskSamplePercent = $PendingTasks.GetSamplePercent(180 * TimeInterval_Second);
 	pendingTaskSamples = pendingTaskSamplePercent < 70 ? startingNumberOfVMs : avg($PendingTasks.GetSample(180 * TimeInterval_Second));
 	$TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
-	```
+    ```
 
    For more information, see [Automatically scale compute nodes in a Batch pool](../../batch/batch-automatic-scaling.md).
 
@@ -976,4 +979,4 @@ After you process data, you can consume it with online tools such as Power BI. H
   * [Get started with the Batch client library for .NET](../../batch/quick-run-dotnet.md)
 
 [batch-explorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
-[batch-explorer-walkthrough]: http://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx
+[batch-explorer-walkthrough]: https://blogs.technet.com/b/windowshpc/archive/2015/01/20/azure-batch-explorer-sample-walkthrough.aspx

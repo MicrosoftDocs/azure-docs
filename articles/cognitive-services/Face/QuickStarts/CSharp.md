@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Azure Face REST API with C# to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/09/2018
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with REST calls, so that I can build more complex scenarios later on.
 ---
@@ -48,53 +48,62 @@ using System.Text;
 
 ### Add essential fields
 
-Add the following fields to the **Program** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+Add the **Program** class containing the following fields. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `uriBase` string so that it contains the correct region identifier (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
 
 
 ```csharp
-// Replace <Subscription Key> with your valid subscription key.
-const string subscriptionKey = "<Subscription Key>";
+namespace DetectFace
+{
+    class Program
+    {
 
-// NOTE: You must use the same region in your REST call as you used to
-// obtain your subscription keys. For example, if you obtained your
-// subscription keys from westus, replace "westcentralus" in the URL
-// below with "westus".
-//
-// Free trial subscription keys are generated in the "westus" region.
-// If you use a free trial subscription key, you shouldn't need to change
-// this region.
-const string uriBase =
-    "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
+        // Replace <Subscription Key> with your valid subscription key.
+        const string subscriptionKey = "<Subscription Key>";
+
+        // NOTE: You must use the same region in your REST call as you used to
+        // obtain your subscription keys. For example, if you obtained your
+        // subscription keys from westus, replace "westcentralus" in the URL
+        // below with "westus".
+        //
+        // Free trial subscription keys are generated in the "westus" region.
+        // If you use a free trial subscription key, you shouldn't need to change
+        // this region.
+        const string uriBase =
+            "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";
 ```
 
 ### Receive image input
 
-Add the following code to the **Main** method of the **Program** class. This writes a prompt to the console asking the user to enter an image URL. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
+Add the following code to the **Main** method of the **Program** class. This code writes a prompt to the console asking the user to enter an image URL. Then it calls another method, **MakeAnalysisRequest**, to process the image at that location.
 
 ```csharp
-// Get the path and filename to process from the user.
-Console.WriteLine("Detect faces:");
-Console.Write(
-    "Enter the path to an image with faces that you wish to analyze: ");
-string imageFilePath = Console.ReadLine();
+        static void Main(string[] args)
+        {
 
-if (File.Exists(imageFilePath))
-{
-    try
-    {
-        MakeAnalysisRequest(imageFilePath);
-        Console.WriteLine("\nWait a moment for the results to appear.\n");
-    }
-    catch (Exception e)
-    {
-        Console.WriteLine("\n" + e.Message + "\nPress Enter to exit...\n");
-    }
-}
-else
-{
-    Console.WriteLine("\nInvalid file path.\nPress Enter to exit...\n");
-}
-Console.ReadLine();
+            // Get the path and filename to process from the user.
+            Console.WriteLine("Detect faces:");
+            Console.Write(
+                "Enter the path to an image with faces that you wish to analyze: ");
+            string imageFilePath = Console.ReadLine();
+
+            if (File.Exists(imageFilePath))
+            {
+                try
+                {
+                    MakeAnalysisRequest(imageFilePath);
+                    Console.WriteLine("\nWait a moment for the results to appear.\n");
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("\n" + e.Message + "\nPress Enter to exit...\n");
+                }
+            }
+            else
+            {
+                Console.WriteLine("\nInvalid file path.\nPress Enter to exit...\n");
+            }
+            Console.ReadLine();
+        }
 ```
 
 ### Call the face detection REST API
@@ -104,133 +113,135 @@ Add the following method to the **Program** class. It constructs a REST call to 
 You will define the helper methods in the following steps.
 
 ```csharp
-// Gets the analysis of the specified image by using the Face REST API.
-static async void MakeAnalysisRequest(string imageFilePath)
-{
-    HttpClient client = new HttpClient();
+        // Gets the analysis of the specified image by using the Face REST API.
+        static async void MakeAnalysisRequest(string imageFilePath)
+        {
+            HttpClient client = new HttpClient();
 
-    // Request headers.
-    client.DefaultRequestHeaders.Add(
-        "Ocp-Apim-Subscription-Key", subscriptionKey);
+            // Request headers.
+            client.DefaultRequestHeaders.Add(
+                "Ocp-Apim-Subscription-Key", subscriptionKey);
 
-    // Request parameters. A third optional parameter is "details".
-    string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
-        "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
-        "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
+            // Request parameters. A third optional parameter is "details".
+            string requestParameters = "returnFaceId=true&returnFaceLandmarks=false" +
+                "&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses," +
+                "emotion,hair,makeup,occlusion,accessories,blur,exposure,noise";
 
-    // Assemble the URI for the REST API Call.
-    string uri = uriBase + "?" + requestParameters;
+            // Assemble the URI for the REST API Call.
+            string uri = uriBase + "?" + requestParameters;
 
-    HttpResponseMessage response;
+            HttpResponseMessage response;
 
-    // Request body. Posts a locally stored JPEG image.
-    byte[] byteData = GetImageAsByteArray(imageFilePath);
+            // Request body. Posts a locally stored JPEG image.
+            byte[] byteData = GetImageAsByteArray(imageFilePath);
 
-    using (ByteArrayContent content = new ByteArrayContent(byteData))
-    {
-        // This example uses content type "application/octet-stream".
-        // The other content types you can use are "application/json"
-        // and "multipart/form-data".
-        content.Headers.ContentType =
-            new MediaTypeHeaderValue("application/octet-stream");
+            using (ByteArrayContent content = new ByteArrayContent(byteData))
+            {
+                // This example uses content type "application/octet-stream".
+                // The other content types you can use are "application/json"
+                // and "multipart/form-data".
+                content.Headers.ContentType =
+                    new MediaTypeHeaderValue("application/octet-stream");
 
-        // Execute the REST API call.
-        response = await client.PostAsync(uri, content);
+                // Execute the REST API call.
+                response = await client.PostAsync(uri, content);
 
-        // Get the JSON response.
-        string contentString = await response.Content.ReadAsStringAsync();
+                // Get the JSON response.
+                string contentString = await response.Content.ReadAsStringAsync();
 
-        // Display the JSON response.
-        Console.WriteLine("\nResponse:\n");
-        Console.WriteLine(JsonPrettyPrint(contentString));
-        Console.WriteLine("\nPress Enter to exit...");
-    }
-}
+                // Display the JSON response.
+                Console.WriteLine("\nResponse:\n");
+                Console.WriteLine(JsonPrettyPrint(contentString));
+                Console.WriteLine("\nPress Enter to exit...");
+            }
+        }
 ```
 
 ### Process the input image data
 
-Add the following method to the **Program** class. This converts the image at the specified URL into a byte array.
+Add the following method to the **Program** class. This method converts the image at the specified URL into a byte array.
 
 ```csharp
-// Returns the contents of the specified file as a byte array.
-static byte[] GetImageAsByteArray(string imageFilePath)
-{
-    using (FileStream fileStream =
-        new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
-    {
-        BinaryReader binaryReader = new BinaryReader(fileStream);
-        return binaryReader.ReadBytes((int)fileStream.Length);
-    }
-}
+        // Returns the contents of the specified file as a byte array.
+        static byte[] GetImageAsByteArray(string imageFilePath)
+        {
+            using (FileStream fileStream =
+                new FileStream(imageFilePath, FileMode.Open, FileAccess.Read))
+            {
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
+        }
 ```
 
 ### Parse the JSON response
 
-Add the following method to the **Program** class. This formats the JSON input to be more easily readable. Your app will write this string data to the console.
+Add the following method to the **Program** class. This method formats the JSON input to be more easily readable. Your app will write this string data to the console. You can then close the class and namespace.
 
 ```csharp
-// Formats the given JSON string by adding line breaks and indents.
-static string JsonPrettyPrint(string json)
-{
-    if (string.IsNullOrEmpty(json))
-        return string.Empty;
-
-    json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-    StringBuilder sb = new StringBuilder();
-    bool quote = false;
-    bool ignore = false;
-    int offset = 0;
-    int indentLength = 3;
-
-    foreach (char ch in json)
-    {
-        switch (ch)
+        // Formats the given JSON string by adding line breaks and indents.
+        static string JsonPrettyPrint(string json)
         {
-            case '"':
-                if (!ignore) quote = !quote;
-                break;
-            case '\'':
-                if (quote) ignore = !ignore;
-                break;
-        }
+            if (string.IsNullOrEmpty(json))
+                return string.Empty;
 
-        if (quote)
-            sb.Append(ch);
-        else
-        {
-            switch (ch)
+            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+
+            StringBuilder sb = new StringBuilder();
+            bool quote = false;
+            bool ignore = false;
+            int offset = 0;
+            int indentLength = 3;
+
+            foreach (char ch in json)
             {
-                case '{':
-                case '[':
+                switch (ch)
+                {
+                    case '"':
+                        if (!ignore) quote = !quote;
+                        break;
+                    case '\'':
+                        if (quote) ignore = !ignore;
+                        break;
+                }
+
+                if (quote)
                     sb.Append(ch);
-                    sb.Append(Environment.NewLine);
-                    sb.Append(new string(' ', ++offset * indentLength));
-                    break;
-                case '}':
-                case ']':
-                    sb.Append(Environment.NewLine);
-                    sb.Append(new string(' ', --offset * indentLength));
-                    sb.Append(ch);
-                    break;
-                case ',':
-                    sb.Append(ch);
-                    sb.Append(Environment.NewLine);
-                    sb.Append(new string(' ', offset * indentLength));
-                    break;
-                case ':':
-                    sb.Append(ch);
-                    sb.Append(' ');
-                    break;
-                default:
-                    if (ch != ' ') sb.Append(ch);
-                    break;
+                else
+                {
+                    switch (ch)
+                    {
+                        case '{':
+                        case '[':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', ++offset * indentLength));
+                            break;
+                        case '}':
+                        case ']':
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', --offset * indentLength));
+                            sb.Append(ch);
+                            break;
+                        case ',':
+                            sb.Append(ch);
+                            sb.Append(Environment.NewLine);
+                            sb.Append(new string(' ', offset * indentLength));
+                            break;
+                        case ':':
+                            sb.Append(ch);
+                            sb.Append(' ');
+                            break;
+                        default:
+                            if (ch != ' ') sb.Append(ch);
+                            break;
+                    }
+                }
             }
+
+            return sb.ToString().Trim();
         }
     }
-
-    return sb.ToString().Trim();
 }
 ```
 

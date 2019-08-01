@@ -1,6 +1,6 @@
 ---
-title: Working with strings in Azure Log Analytics queries | Microsoft Docs
-description: This article provides a tutorial for using the Analytics portal to write queries in Log Analytics.
+title: Work with strings in Azure Monitor log queries | Microsoft Docs
+description: Describes how to edit, compare, search in and perform a variety of other operations on strings in Azure Monitor log queries. 
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,15 +15,15 @@ ms.date: 08/16/2018
 ms.author: bwren
 ---
 
-# Working with strings in Log Analytics queries
+# Work with strings in Azure Monitor log queries
 
 
 > [!NOTE]
-> You should complete [Get started with the Analytics portal](get-started-portal.md) and [Getting started with queries](get-started-queries.md) before completing this tutorial.
+> You should complete [Get started with Azure Monitor Log Analytics](get-started-portal.md) and [Getting started with Azure Monitor log queries](get-started-queries.md) before completing this tutorial.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-This article describes how to edit, compare, search in and perform a variety of other operations on strings. 
+This article describes how to edit, compare, search in and perform a variety of other operations on strings.
 
 Each character in a string has an index number, according to its location. The first character is at index 0, the next character is 1, and so one. Different string functions use index numbers as shown in the following sections. Many of the following examples use the **print** command for to demonstrate string manipulation without using a specific data source.
 
@@ -33,6 +33,10 @@ String values are wrapped with either with single or double quote characters. Ba
 
 ```Kusto
 print "this is a 'string' literal in double \" quotes"
+```
+
+```Kusto
+print 'this is a "string" literal in single \' quotes'
 ```
 
 To prevent "\\" from acting as an escape character, add "\@" as a prefix to the string:
@@ -59,9 +63,9 @@ Operator       |Description                         |Case-Sensitive|Example (yie
 `hasprefix_cs`    |Right-hand-side is a term prefix in left-hand-side         |Yes            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |Right-hand-side isn't a term prefix in left-hand-side     |Yes            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |Right-hand-side is a term suffix in left-hand-side         |No            |`"North America" hassuffix "ica"`
-`!hassuffix`   |Right-hand-side isn't a term suffix in left-hand-side     |No            |`"North America" !hassuffix "americ"
+`!hassuffix`   |Right-hand-side isn't a term suffix in left-hand-side     |No            |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |Right-hand-side is a term suffix in left-hand-side         |Yes            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |Right-hand-side isn't a term suffix in left-hand-side     |Yes            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |Right-hand-side isn't a term suffix in left-hand-side     |Yes            |`"North America" !hassuffix_cs "icA"`
 `contains`     |Right-hand-side occurs as a subsequence of left-hand-side  |No            |`"FabriKam" contains "BRik"`
 `!contains`    |Right-hand-side doesn't occur in left-hand-side           |No            |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |Right-hand-side occurs as a subsequence of left-hand-side  |Yes           |`"FabriKam" contains_cs "Kam"`
@@ -254,6 +258,7 @@ SecurityEvent
 ```
 
 Can have the following results:
+
 Activity                                        |replaced
 ------------------------------------------------|----------------------------------------------------------
 4663 - An attempt was made to access an object  |Activity ID 4663: An attempt was made to access an object.

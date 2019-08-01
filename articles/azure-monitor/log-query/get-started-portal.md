@@ -1,27 +1,22 @@
 ---
-title: Get started with Log Analytics in the Azure portal | Microsoft Docs
+title: Get started with Azure Monitor Log Analytics | Microsoft Docs
 description: This article provides a tutorial for using Log Analytics in the Azure portal to write queries.
 services: log-analytics
-documentationcenter: ''
 author: bwren
 manager: carmonm
-editor: ''
-ms.assetid: 
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
 ---
 
-# Get started with Log Analytics in the Azure portal
+# Get started with Log Analytics in Azure Monitor
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-In this tutorial you will learn how to use the Log Analytics page in the Azure portal (currently in preview) to write Log Analytics queries. It will teach you how to:
+In this tutorial you will learn how to use Log Analytics in the Azure portal to write Azure Monitor log queries. It will teach you how to:
 
-- Write simple queries
+- Use Log Analytics to write a simple query
 - Understand the schema of your data
 - Filter, sort, and group results
 - Apply a time range
@@ -29,13 +24,22 @@ In this tutorial you will learn how to use the Log Analytics page in the Azure p
 - Save and load queries
 - Export and share queries
 
+For a tutorial on writing log queries, see [Get started with log queries in Azure Monitor](get-started-queries.md).<br>
+For more details on log queries, see [Overview of log queries in Azure Monitor](log-query-overview.md).
 
-## Meet the Log Analytics page 
-The Log Analytics page is a web tool used to write and execute Azure Log Analytics queries. Open it by selecting **Logs (preview)** in the Log Analytics menu. It starts with a new blank query.
+## Meet Log Analytics
+Log Analytics is a web tool used to write and execute Azure Monitor log queries. Open it by selecting **Logs** in the Azure Monitor menu. It starts with a new blank query.
 
 ![Home page](media/get-started-portal/homepage.png)
 
+## Firewall requirements
+To use Log Analytics, your browser requires access to the following addresses. If your browser is accessing the Azure portal through a firewall, you must enable access to these addresses.
 
+| Uri | IP | Ports |
+|:---|:---|:---|
+| portal.loganalytics.io | Dynamic | 80,443 |
+| api.loganalytics.io | Dynamic | 80,443 |
+| docs.loganalytics.io | Dynamic | 80,443 |
 
 ## Basic queries
 Queries can be used to search terms, identify trends, analyze patterns, and provide many other insights based on your data. Start with a basic query:
@@ -44,9 +48,9 @@ Queries can be used to search terms, identify trends, analyze patterns, and prov
 Event | search "error"
 ```
 
-This query searches the _Event_ table for records that contain the term "error" in any property.
+This query searches the _Event_ table for records that contain the term _error_ in any property.
 
-Queries can start with either a table name or a **search** command. The above example starts with the table name _Event_, which defines the scope of the query. The pipe (|) character separates commands, so the output of the first one in the input of the following command. You can add any number of commands to a single query.
+Queries can start with either a table name or a [search](/azure/kusto/query/searchoperator) command. The above example starts with the table name _Event_, which retrieves all records from the Event table. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
 
 Another way to write that same query would be:
 
@@ -54,18 +58,18 @@ Another way to write that same query would be:
 search in (Event) "error"
 ```
 
-In this example, **search** is scoped to the _Event_ table, and all records in that table are searched for the term "error".
+In this example, **search** is scoped to the _Event_ table, and all records in that table are searched for the term _error_.
 
 ## Running a query
 Run a query by clicking the **Run** button or pressing **Shift+Enter**. Consider the following details which determine the code that will be run and the data that's returned:
 
-- Line breaks: A single break makes your query clearer. Multiple line breaks split it into separate queries.
+- Line breaks: A single break makes your query easier to read. Multiple line breaks split it into separate queries.
 - Cursor: Place your cursor somewhere inside the query to execute it. The current query is considered to be the code up until a blank line is found.
 - Time range - A time range of _last 24 hours_ is set by default. To use a different range, use the time-picker or add an explicit time range filter to your query.
 
 
 ## Understand the schema
-The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and client heartbeats.
+The schema is a collection of tables visually grouped under a logical category. Several of the categories are from monitoring solutions. The _LogManagement_ category contains common data such as Windows and Syslog events, performance data, and agent heartbeats.
 
 ![Schema](media/get-started-portal/schema.png)
 
@@ -78,7 +82,7 @@ Start by getting everything in the _Event_ table.
 Event
 ```
 
-The Log Analytics page automatically scopes results by:
+Log Analytics automatically scopes results by:
 
 - Time range:  By default, queries are limited to the last 24 hours.
 - Number of results: Results are limited to maximum of 10,000 records.
@@ -116,7 +120,7 @@ The results table often includes a lot of columns. You might find that some of t
 
 
 ## Select a time range
-By default, the Log Analytics page applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
+By default, Log Analytics applies the _last 24 hours_ time range. To use a different range, select another value through the time picker and click **Run**. In addition to the preset values, you can use the _Custom time range_ option to select an absolute range for your query.
 
 ![Time picker](media/get-started-portal/time-picker.png)
 
@@ -170,6 +174,9 @@ You can save either the entire query page, or a single query as a function. Func
 
 ![Save function](media/get-started-portal/save-function.png)
 
+>[!NOTE]
+>The following characters are supported - `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` in the **Name** field when saving or editing the saved query.
+
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 
 ## Load queries
@@ -178,12 +185,12 @@ The Query Explorer icon is at the top-right area. This lists all saved queries b
 ![Query explorer](media/get-started-portal/query-explorer.png)
 
 ## Export and share as link
-The Log Analytics page supports several exporting methods:
+Log Analytics supports several exporting methods:
 
 - Excel: Save the results as a CSV file.
-- Power BI: Export the results to power BI. See [Import Azure Log Analytics data into Power BI](../../azure-monitor/platform/powerbi.md) for details.
+- Power BI: Export the results to Power BI. See [Import Azure Monitor log data into Power BI](../../azure-monitor/platform/powerbi.md) for details.
 - Share a link: The query itself can be shared as a link which can then be sent and executed by other users that have access to the same workspace.
 
 ## Next steps
 
-- Learn more about [writing Log Analytics queries](get-started-queries.md).
+- Learn more about [writing Azure Monitor log queries](get-started-queries.md).

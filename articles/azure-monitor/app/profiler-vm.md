@@ -1,73 +1,80 @@
 ---
-title: Profile web apps running on an Azure VM with Application Insights Profiler | Microsoft Docs
-description: Profile web apps on an Azure VM with Application Insights Profiler.
+title: Profile web apps running on an Azure VM by using Application Insights Profiler | Microsoft Docs
+description: Profile web apps on an Azure VM by using Application Insights Profiler.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 
 
-# Profile web apps running on an Azure virtual machine or virtual machine scale set with Application Insights Profiler
-You can also deploy Application Insights profiler on these services:
+# Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+You can also deploy Azure Application Insights Profiler on these services:
 * [Azure App Service](../../azure-monitor/app/profiler.md?toc=/azure/azure-monitor/toc.json)
-* [Cloud Services](profiler-cloudservice.md ?toc=/azure/azure-monitor/toc.json)
-* [Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Service Fabric](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
-## Deploy Profiler on a Virtual Machine or Scale set
-This page will guide you through the steps needed to get Application Insights profiler running on your Azure VM or Azure virtual machine scale set. Application Insights Profiler is installed with the Windows Azure Diagnostics extension for VMs. The extension needs to be configured to run the profiler and the App Insights SDK must be built into your application.
+## Deploy Profiler on a virtual machine or a virtual machine scale set
+This article shows you how to get Application Insights Profiler running on your Azure virtual machine (VM) or Azure virtual machine scale set. Profiler is installed with the Azure Diagnostics extension for VMs. Configure the extension to run Profiler, and build the Application Insights SDK into your application.
 
-1. Add application Insights SDK to your [ASP.Net application](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net) or regular [.NET Application.](https://docs.microsoft.com/azure/application-insights/app-insights-windows-services?toc=/azure/azure-monitor/toc.json) You must be sending request telemetry to Application Insights see profiles for your requests.
-1. Install Windows Azure Diagnostics extension on your VM. For full Resource Manager template examples, see:  
-    * [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
-    * [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+1. Add the Application Insights SDK to your [ASP.NET application](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net).
+
+   To view profiles for your requests, you must send request telemetry to Application Insights.
+
+1. Install Azure Diagnostics extension on your VM. For full Resource Manager template examples, see:  
+   * [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
+   * [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-    The key part is the ApplicationInsightsProfilerSink in the WadCfg. Add another sink to this section to tell WAD to enable the profiler to send data to your iKey.
-    ```json
-      "SinksConfig": {
-        "Sink": [
-          {
-            "name": "ApplicationInsightsSink",
-            "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
-          },
-          {
-            "name": "MyApplicationInsightsProfilerSink",
-            "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
-          }
-        ]
-      },
-    ```
+     The key part is the ApplicationInsightsProfilerSink in the WadCfg. To have Azure Diagnostics enable Profiler to send data to your iKey, add another sink to this section.
+    
+     ```json
+     "SinksConfig": {
+       "Sink": [
+         {
+           "name": "ApplicationInsightsSink",
+           "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
+         },
+         {
+           "name": "MyApplicationInsightsProfilerSink",
+           "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
+         }
+       ]
+     },
+     ```
 
 1. Deploy the modified environment deployment definition.  
 
-   To apply the modifications, it usually involves a full template deployment or a cloud service based publish through PowerShell cmdlets or Visual Studio.  
+   Applying the modifications usually involves a full template deployment or a cloud service-based publish through PowerShell cmdlets or Visual Studio.  
 
-   The following powershell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. You just need to add the ProfilerSink as noted above to the config that is returned by the Get-AzureRmVMDiagnosticsExtension command. Then pass the updated config to the Set-AzureRmVMDiagnosticsExcension command.
+   The following PowerShell commands are an alternate approach for existing virtual machines that touch only the Azure Diagnostics extension. Add the previously mentioned ProfilerSink to the config that's returned by the Get-AzVMDiagnosticsExtension command. Then pass the updated config to the Set-AzVMDiagnosticsExtension command.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
     # After you export the currently deployed Diagnostics config to a file, edit it to include the ApplicationInsightsProfiler sink.
-    (Get-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
-    # Set-AzureRmVMDiagnosticsExtension might require the -StorageAccountName argument
+    (Get-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM").PublicSettings | Out-File -Verbose $ConfigFilePath
+    # Set-AzVMDiagnosticsExtension might require the -StorageAccountName argument
     # If your original diagnostics configuration had the storageAccountName property in the protectedSettings section (which is not downloadable), be sure to pass the same original value you had in this cmdlet call.
-    Set-AzureRmVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
+    Set-AzVMDiagnosticsExtension -ResourceGroupName "MyRG" -VMName "MyVM" -DiagnosticsConfigurationPath $ConfigFilePath
     ```
 
 1. If the intended application is running through [IIS](https://www.microsoft.com/web/downloads/platform.aspx), enable the `IIS Http Tracing` Windows feature.
 
-   a. Establish remote access to the environment, and then use the [Add Windows features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window, or run the following command in PowerShell (as administrator):  
+   a. Establish remote access to the environment, and then use the [Add Windows features]( https://docs.microsoft.com/iis/configuration/system.webserver/tracing/) window. Or run the following command in PowerShell (as administrator):  
 
     ```powershell
     Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All
     ```  
-   b. If establishing remote access is a problem, you can use [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to run the following command:  
+   b. If establishing remote access is a problem, you can use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) to run the following command:  
 
     ```powershell
     az vm run-command invoke -g MyResourceGroupName -n MyVirtualMachineName --command-id RunPowerShellScript --scripts "Enable-WindowsOptionalFeature -FeatureName IIS-HttpTracing -Online -All"
@@ -75,11 +82,40 @@ This page will guide you through the steps needed to get Application Insights pr
 
 1. Deploy your application.
 
-## Can profiler run on on-premises servers?
-We have no plans to support Application Insights Profiler for on-premises servers.
+## Set Profiler Sink using Azure Resource Explorer
+We don't yet have a way to set the Application Insights Profiler sink from the portal. Instead of using powershell like described above, you can use Azure Resource Explorer to set the sink. But note, if you deploy the VM again, the sink will be lost. You'll need to update the config you use when deploying the VM to preserve this setting.
+
+1. Check that the Windows Azure Diagnostics extension is installed by viewing the extensions installed for your virtual machine.  
+
+    ![Check if WAD extension is installed][wadextension]
+
+1. Find the VM Diagnostics extension for your VM. Expand your resource group, Microsoft.Compute virtualMachines, virtual machine name, and extensions.  
+
+    ![Navigate to WAD config in Azure Resource Explorer][azureresourceexplorer]
+
+1. Add the Application Insights Profiler sink to the SinksConfig node under WadCfg. If you don't already have a SinksConfig section, you may need to add one. Be sure to specify the proper Application Insights iKey in your settings. You'll need to switch the explorers mode to Read/Write in the upper right corner and Press the blue 'Edit' button.
+
+    ![Add Application Insights Profiler Sink][resourceexplorersinksconfig]
+
+1. When you're done editing the config, press 'Put'. If the put is successful, a green check will appear in the middle of the screen.
+
+    ![Send put request to apply changes][resourceexplorerput]
+
+
+
+
+
+
+## Can Profiler run on on-premises servers?
+We have no plan to support Application Insights Profiler for on-premises servers.
 
 ## Next steps
 
-- Generate traffic to your application (for example, launch an [availability test](https://docs.microsoft.com/azure/application-insights/app-insights-monitor-web-app-availability)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
-- See [Profiler traces](https://docs.microsoft.com/azure/application-insights/app-insights-profiler-overview?toc=/azure/azure-monitor/toc.json) in the Azure portal.
-- Get help with troubleshooting profiler issues in [Profiler troubleshooting](profiler-troubleshooting.md ?toc=/azure/azure-monitor/toc.json).
+- Generate traffic to your application (for example, launch an [availability test](monitor-web-app-availability.md)). Then, wait 10 to 15 minutes for traces to start to be sent to the Application Insights instance.
+- See [Profiler traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json) in the Azure portal.
+- For help with troubleshooting Profiler issues, see [Profiler troubleshooting](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+
+[azureresourceexplorer]: ./media/profiler-vm/azure-resource-explorer.png
+[resourceexplorerput]: ./media/profiler-vm/resource-explorer-put.png
+[resourceexplorersinksconfig]: ./media/profiler-vm/resource-explorer-sinks-config.png
+[wadextension]: ./media/profiler-vm/wad-extension.png

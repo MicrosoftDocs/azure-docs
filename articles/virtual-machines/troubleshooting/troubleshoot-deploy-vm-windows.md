@@ -1,10 +1,10 @@
-﻿---
+---
 title: Troubleshoot deploying Windows virtual machine issues in Azure | Microsoft Docs
-description: Troubleshoot deploying Windows virtual machine issues in Azurethe Resource Manager deployment model.
+description: Troubleshoot deploying Windows virtual machine issues in the Azure Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
@@ -28,7 +28,7 @@ If you need more help at any point in this article, you can contact the Azure ex
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## The cluster cannot support the requested VM size
-<properties
+\<properties
 supportTopicIds="123456789"
 resourceTags="windows"
 productPesIds="1234, 5678"
@@ -41,7 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## The cluster does not have free resources
-<properties
+\<properties
 supportTopicIds="123456789"
 resourceTags="windows"
 productPesIds="1234, 5678"
@@ -69,7 +69,7 @@ For Enterprise agreement:
 
 For more information, see the following resources:
 
- - [Azure Hybrid Use Benefit overview ](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
+ - [Azure Hybrid Use Benefit overview](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
  - [Downloadable FAQ](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
@@ -120,7 +120,7 @@ Choose a size that is supported on the availability set's cluster. It is recomme
 
 ## Can I add an existing Classic VM to an availability set?
 
-Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](../windows/classic/configure-availability-classic.md#addmachine).
+Yes. You can add an existing classic VM to a new or existing Availability Set. For more information see [Add an existing virtual machine to an availability set](/previous-versions/azure/virtual-machines/windows/classic/configure-availability-classic#addmachine).
 
 
 ## Next steps

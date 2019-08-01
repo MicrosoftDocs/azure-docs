@@ -6,7 +6,7 @@ author: iainfoulds
 manager: jeconnoc
 
 ms.service: container-service
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb201

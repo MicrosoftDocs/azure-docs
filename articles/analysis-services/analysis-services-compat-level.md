@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -13,14 +13,9 @@ ms.reviewer: minewiskan
 
 # Compatibility level for Analysis Services tabular models
 
-*Compatibility level* refers to release-specific behaviors in the Analysis Services engine. Changes to the compatibility level typically coincide with major releases of SQL Server. These changes are also implemented in Azure Analysis Services to maintain parity between both platforms. Compatibility level changes also effect features available in your tabular models. For example, DirectQuery and tabular object metadata have different implementations depending on the compatibility level. Compatibility level is specified in the tabular model project in Visual Studio (SSDT). Tabular models created in and imported from Power BI Desktop are at the 1400 compatibility level only.
+*Compatibility level* refers to release-specific behaviors in the Analysis Services engine. Changes to the compatibility level typically coincide with major releases of SQL Server. These changes are also implemented in Azure Analysis Services to maintain parity between both platforms. Compatibility level changes also effect features available in your tabular models. For example, DirectQuery and tabular object metadata have different implementations depending on the compatibility level. Compatibility level is specified in the tabular model project in Visual Studio (SSDT).
 
-Azure Analysis Services supports tabular models at the 1200 and 1400 compatibility levels. 
-
-> [!NOTE]
-> Power BI Desktop September 2018 and later releases have a .pbix compatibility level of 1465. This compatibility level is supported in Azure Analysis Services. However, importing a Power BI Desktop file is not recommended for production environments. To learn more, see [Import a Power BI Desktop file](analysis-services-import-pbix.md).
-
-The latest compatibility level is 1400. This level coincides with SQL Server 2017 Analysis Services. Major features in the 1400 compatibility level include:
+Azure Analysis Services supports tabular models at the 1200 and 1400 compatibility levels. The latest compatibility level is 1400. This level coincides with SQL Server 2017 Analysis Services. Major features in the 1400 compatibility level include:
 
 *  New features for data connectivity and import with support for TOM APIs and TMSL scripting. 
 *  Data transformation and data mashup capabilities by using Get Data and M expressions.
@@ -28,7 +23,11 @@ The latest compatibility level is 1400. This level coincides with SQL Server 201
 *  Object-level security for table and column names, in addition to the data within them.
 *  Enhanced support for ragged hierarchies.
 *  Performance and monitoring improvements.
- 
+
+> [!NOTE]
+> Azure Analysis Services supports imported Power BI Desktop files at the 1465 compatibility level. However, the Import from Power BI Desktop functionality, which had always been a preview feature, was discontinued and removed from the service in March 2019. Existing models at the 1465 compatibility level remain supported.  
+
+
 ## Set compatibility level
 
  When creating a new tabular model project in SSDT, you can specify the compatibility level on the **Tabular model designer** dialog. 
@@ -49,7 +48,9 @@ The latest compatibility level is 1400. This level coincides with SQL Server 201
   
  This property specifies the highest compatibility level of a database that will run on the server (excluding preview). The supported compatibility level cannot be changed.  
 
+> [!NOTE]
+> In SSMS, when connected to an Azure Analysis Services server, the **Supported Compatibility Level** property will show **1200**. This is a known issue and will be resolved in an upcoming SSMS update. When resolved, this property will show the highest supported compatibility level.
+
 ## Next steps
 
-  [Create a model in Azure portal](analysis-services-create-model-portal.md)   
   [Manage Analysis Services](analysis-services-manage.md)  

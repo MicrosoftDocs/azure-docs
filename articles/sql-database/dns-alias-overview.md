@@ -9,9 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
-manager: craigg
-ms.date: 02/05/2018
+ms.reviewer: genemi, ayolubek, jrasnick
+ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
 
@@ -24,6 +23,7 @@ Common uses for a DNS alias include the following cases:
 - Create an easy to remember name for an Azure SQL Server.
 - During initial development, your alias can refer to a test SQL Database server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the configurations several clients that connect to the database server.
 - Suppose the only database in your application is moved to another SQL Database server. Here you can modify the alias without having to modify the configurations of several clients.
+- During a regional outage you use geo-restore to recover your database in a different server and region. You can modify your existing alias to point to the new server so that the existing client application could re-connect to it. 
 
 ## Domain Name System (DNS) of the Internet
 
@@ -43,7 +43,7 @@ Later when the new system goes live in production, you can update the properties
 
 ### Cross-region support
 
-A disaster recovery might shift your SQL Database server to a different geographic region. For a system than was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
+A disaster recovery might shift your SQL Database server to a different geographic region. For a system that was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
 
 ## Properties of a DNS alias
 
@@ -62,13 +62,6 @@ Both REST APIs and PowerShell cmdlets are available to enable you to programmati
 
 ### REST APIs for managing your DNS aliases
 
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
-
 The documentation for the REST APIs is available near the following web location:
 
 - [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/)
@@ -81,6 +74,10 @@ Also, the REST APIs can be seen in GitHub at:
 
 #### PowerShell for managing your DNS aliases
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
 PowerShell cmdlets are available that call the REST APIs.
 
 A code example of PowerShell cmdlets being used to manage DNS aliases is documented at:
@@ -89,12 +86,10 @@ A code example of PowerShell cmdlets being used to manage DNS aliases is documen
 
 The cmdlets used in the code example are the following:
 
-- [New-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/New-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Creates a new DNS alias in the Azure SQL Database service system. The alias refers to Azure SQL Database server 1.
-- [Get-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Get-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Get and list all the DNS aliases that are assigned to SQL DB server 1.
-- [Set-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Set-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Modifies the server name that the alias is configured to refer to, from server 1 to SQL DB server 2.
-- [Remove-AzureRMSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/AzureRM.Sql/Remove-AzureRmSqlServerDnsAlias?view=azurermps-5.1.1): Remove the DNS alias from SQL DB server 2, by using the name of the alias.
-
-The preceding cmdlets were added to the **AzureRM.Sql** module starting with module version 5.1.1.
+- [New-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/New-azSqlServerDnsAlias): Creates a new DNS alias in the Azure SQL Database service system. The alias refers to Azure SQL Database server 1.
+- [Get-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Get-azSqlServerDnsAlias): Get and list all the DNS aliases that are assigned to SQL DB server 1.
+- [Set-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Set-azSqlServerDnsAlias): Modifies the server name that the alias is configured to refer to, from server 1 to SQL DB server 2.
+- [Remove-AzSqlServerDNSAlias](https://docs.microsoft.com/powershell/module/az.Sql/Remove-azSqlServerDnsAlias): Remove the DNS alias from SQL DB server 2, by using the name of the alias.
 
 ## Limitations during preview
 
@@ -103,7 +98,7 @@ Presently, a DNS alias has the following limitations:
 - *Delay of up to 2 minutes:* It takes up to 2 minutes for a DNS alias to be updated or removed.
   - Regardless of any brief delay, the alias immediately stops referring client connections to the legacy server.
 - *DNS lookup:* For now, the only authoritative way to check what server a given DNS alias refers to is by performing a [DNS lookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Table auditing is not supported](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* You cannot use a DNS alias on an Azure SQL Database server that has *table auditing* enabled on a database.
+- _Table auditing is not supported:_ You cannot use a DNS alias on an Azure SQL Database server that has *table auditing* enabled on a database.
   - Table auditing is deprecated.
   - We recommend that you move to [Blob Auditing](sql-database-auditing.md).
 

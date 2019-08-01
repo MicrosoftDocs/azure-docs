@@ -7,12 +7,12 @@ author: kraigb
 manager: douge
 
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: notebooks
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 05/13/2019
 ms.author: kraigb
 ---
 
@@ -20,15 +20,20 @@ ms.author: kraigb
 
 A project in Azure Notebooks is essentially a configuration of the underlying Linux virtual machine in which Jupyter notebooks run, along with a file folder and descriptive metadata. The project dashboard in Azure Notebooks allows you to manage files and otherwise configure the project's characteristics:
 
-- Project metadata includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.
-- You manage the project's notebook, data, and other files as you do with any other file system.
-- You configure a project's environment either through startup scripts or directly through the terminal.
-- Through the terminal, you have access to logs.
+- The compute tier on which the project runs, which can be the free tier or an Azure virtual machine.
+- Project metadata, which includes a name, description, an identifier that's used when sharing the project, and whether the project is public or private.
+- The project's notebook, data, and other files, which you manage like any other file system.
+- A project's environment, which you manage either through startup scripts or directly through the terminal.
+- Logs, which you access through the terminal.
 
 > [!Note]
-> You cannot manage project you don't own unless the project owner has made you a collaborator. Otherwise the management and configuration features described here are not available to you.
+> The management and configuration features described here are available only to the project owner who created the project initially. You can, however, clone the project into your own account, in which case you become the owner and can configure the project as desired.
 
 Azure Notebooks starts the underlying virtual machine whenever you run a notebook or other file. The server automatically saves files and shuts down after 60 minutes of inactivity. You can also stop the server at any time with the **Shutdown** command (keyboard shortcut: h).
+
+## Compute tier
+
+By default, projects run on the **Free Compute** tier, which is limited to 4GB of memory and 1GB of data to prevent abuse. You can bypass these limitations and increase compute power by using a different virtual machine that you've provisioned in an Azure subscription. For more information, see [How to use Data Science Virtual Machines](use-data-science-virtual-machine.md).
 
 ## Edit project metadata
 
@@ -37,7 +42,7 @@ On the project dashboard, select **Project Settings**, then select the **Informa
 | Setting | Description |
 | --- | --- |
 | Project name | A friendly name for your project that Azure Notebooks uses for display purposes. For example, "Hello World in Python". |
-| Project ID | A custom identifier that becomes part of the URL you use to share a project (the form is `https://notebooks.azure.com/<user_id>/projects/<project_id>`). This ID can use only letters, numbers, and hyphens, and is limited to 30 characters. If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, for example, "My Project Name" turns into "my-project-name". |
+| Project ID | A custom identifier that becomes part of the URL you use to share a project. This ID can use only letters, numbers, and hyphens, is limited to 30 characters, and cannot be a [reserved project ID](create-clone-jupyter-notebooks.md#reserved-project-ids). If you're unsure what to use, a common convention is to use a lowercase version of your project name where spaces are turned into hyphens, such as "my-notebook-project" (truncated if necessary to fit the length limit). |
 | Public project | If set, allows anyone with the link to access the project. When creating a private project, clear this option. |
 | Hide clones | If set, other users can't see a list of clones that have been made for this project. Hiding clones is useful for projects that are shared with many people who are not part of the same organization, such as when using a notebook for teaching a class. |
 

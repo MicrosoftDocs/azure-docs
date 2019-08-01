@@ -1,5 +1,6 @@
 {
   "build": {
+    "markdownEngineName": "markdig",
     "content": [
       {
         "files": [
@@ -15,7 +16,7 @@
         "dest": "."
       },
       {
-      "files": [
+        "files": [
           "**/*.md",
           "**/*.yml"
         ],
@@ -69,10 +70,51 @@
       "feedback_product_url": "https://feedback.azure.com/forums/34192--general-feedback",
       "breadcrumb_path": "/azure/bread/toc.json",
       "brand": "azure",
-      "searchScope": ["Azure"],
-      "contributors_to_exclude": ["PRMerger5", "PRMerger4", "PRMerger3", "PRMerger-2","hexiaokai", "openpublishingbuild", "tysonn", "v-anpasi", "kiwhit",
-         "ShawnJackson", "PRmerger", "DuncanmaMSFT", "Saisang", "Ja-Dunn", "jomolnar", "KatieCumming", "rjagiewich", "v-thepet", "deneha", "ktoliver",
-         "itechedit", "MattGLaBelle", "Lisaco88", "GitHubber17", "v-shils", "rmca14", "tfosmark", "sdwheeler"],
+      "searchScope": [
+        "Azure"
+      ],
+      "contributors_to_exclude": [
+        "PRMerger9",
+        "PRMerger17",
+        "PRMerger5",
+        "PRMerger4",
+        "PRMerger3",
+        "PRMerger-2",
+        "hexiaokai",
+        "openpublishingbuild",
+        "tysonn",
+        "v-anpasi",
+        "kiwhit",
+        "ShawnJackson",
+        "PRmerger",
+        "DuncanmaMSFT",
+        "Saisang",
+        "Ja-Dunn",
+        "jomolnar",
+        "KatieCumming",
+        "rjagiewich",
+        "deneha",
+        "ktoliver",
+        "itechedit",
+        "MattGLaBelle",
+        "Lisaco88",
+        "GitHubber17",
+        "v-shils",
+        "rmca14",
+        "trishamc",
+        "Jak-MS",
+        "garycentric",
+        "jborsecnik",
+        "Kellylorenebaker",
+        "ShannonLeavitt",
+        "v-albemi",
+        "v-dansch",
+        "chbain",
+        "atookey",
+        "tfosmark",
+        "sdwheeler",
+        "meganbradley"
+      ],
       "_op_documentIdPathDepotMapping": {
         "articles/iot-central/": {
           "depot_name": "MSDN.microsoft-iot-central",
@@ -147,6 +189,10 @@
       }
     },
     "fileMetadata": {
+      "feedback_system": {
+        "articles/virtual-machines/windows/classic/**/*": "None",
+        "articles/virtual-machines/linux/classic/**/*": "None"
+      },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/active-directory-b2c/**/*.md": "https://feedback.azure.com/forums/169401-azure-active-directory",
@@ -180,12 +226,12 @@
         "articles/blockchain/**/*.md": "https://feedback.azure.com/forums/586780-blockchain",
         "articles/cdn/**/*.md": "https://feedback.azure.com/forums/169397-cdn",
         "articles/chef/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/china/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",                
         "articles/cloud-partner-portal/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cloud-services/**/*.md": "https://feedback.azure.com/forums/169386-cloud-services-web-and-worker-role",
         "articles/cloud-shell/**/*.md": "https://feedback.azure.com/forums/598699-azure-cloud-shell",
         "articles/cloudfoundry/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/cognitive-services/Academic-Knowledge/**/*.md": "https://cognitive.uservoice.com/forums/555931-academic-knowledge",
+        "articles/cognitive-services/Anomaly-Detector/**/*.md": "https://cognitive.uservoice.com/forums/912196-anomaly-detector",
         "articles/cognitive-services/Bing-Autosuggest/**/*.md": "https://cognitive.uservoice.com/forums/598198-bing-autosuggest",
         "articles/cognitive-services/Bing-Custom-Search**/*.md": "https://cognitive.uservoice.com/forums/598147-bing-custom-search",
         "articles/cognitive-services/Bing-Entities-Search/**/*.md": "https://cognitive.uservoice.com/forums/601036-bing-entity-search",
@@ -218,16 +264,18 @@
         "articles/connectors/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/container-instances/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/container-registry/**/*.md": "https://feedback.azure.com/forums/903958-azure-container-registry",
-        "articles/container-service/**/*.md": "https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks",        
-        "articles/containers/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",        
+        "articles/container-service/**/*.md": "https://feedback.azure.com/forums/914020-azure-kubernetes-service-aks",
+        "articles/containers/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/cosmos-db/**/*.md": "https://feedback.azure.com/forums/263030-azure-cosmos-db",
         "articles/cost-management/**/*.md": "https://feedback.azure.com/forums/906772-cost-management",
         "articles/data-catalog/**/*.md": "https://feedback.azure.com/forums/906052-data-catalog",
         "articles/data-factory/**/*.md": "https://feedback.azure.com/forums/270578-data-factory",
         "articles/data-lake-analytics/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-lake-store/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
+        "articles/data-share/**/*.md": "https://feedback.azure.com/forums/922759-azure-data-share-public-preview",
         "articles/dev-spaces/**/*.md": "https://github.com/Azure/dev-spaces/issues",
         "articles/devtest-lab/**/*.md": "https://feedback.azure.com/forums/320373-devtest-labs",
+        "articles/digital-twins/**/*.md": "https://feedback.azure.com/forums/916621-azure-digital-twins",
         "articles/dms/**/*.md": "https://feedback.azure.com/forums/906100-azure-database-migration-service",
         "articles/dns/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",
         "articles/docker/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
@@ -235,7 +283,8 @@
         "articles/dotnet/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/event-grid/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/event-hubs/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
-        "articles/expressroute/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=86745",        
+        "articles/expressroute/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=86745",
+        "articles/frontdoor/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345025",
         "articles/genomics/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/governance/**/*.md": "https://feedback.azure.com/forums/915958-azure-governance",
         "articles/germany/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
@@ -249,6 +298,7 @@
         "articles/iot-suite/**/*.md": "https://feedback.azure.com/forums/321918-azure-iot",
         "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/key-vault/**/*.md": "https://feedback.azure.com/forums/906355-azure-key-vault",
+        "articles/lighthouse/**/*.md": "https://feedback.azure.com/forums/922753-azure-lighthouse",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
@@ -278,15 +328,17 @@
         "articles/azure-cache-for-redis/**/*.md": "https://feedback.azure.com/forums/169382-cache",
         "articles/resiliency/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/scheduler/**/*.md": "https://feedback.azure.com/forums/230896-scheduler",
-        "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",        
+        "articles/search/**/*.md": "https://feedback.azure.com/forums/263029-azure-search",
         "articles/security-center/**/*.md": "https://feedback.azure.com/forums/347535-azure-security-center",
         "articles/security/**/*.md": "https://feedback.azure.com/forums/216840-security-and-compliance",
+        "articles/sentinel/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/service-bus-messaging/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
-        "articles/service-bus-relay/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",       
-        "articles/service-bus/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",   
+        "articles/service-bus-relay/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
+        "articles/service-bus/**/*.md": "https://feedback.azure.com/forums/216926-service-bus",
         "articles/service-fabric/**/*.md": "https://feedback.azure.com/forums/293901-service-fabric",
         "articles/service-health/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/site-recovery/**/*.md": "https://feedback.azure.com/forums/256299-site-recovery",
+        "articles/spatial-anchors/**/*.md": "https://feedback.azure.com/forums/919252-azure-spatial-anchors",
         "articles/sql-data-warehouse/**/*.md": "https://feedback.azure.com/forums/307516-sql-data-warehouse",
         "articles/sql-database/**/*.md": "https://feedback.azure.com/forums/217321-sql-database",
         "articles/sql-server-stretch-database/**/*.md": "https://feedback.azure.com/forums/217321-sql-database",
@@ -296,23 +348,68 @@
         "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/time-series-insights/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",
+        "articles/virtual-desktop/**/*.md": "https://windowsvirtualdesktop.uservoice.com/forums/921118-general",
         "articles/virtual-machine-scale-sets/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
         "articles/virtual-machines/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
-        "articles/virtual-network/**/*.md":"https://feedback.azure.com/forums/217313-networking?category_id=77469",
-        "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",      
+        "articles/virtual-network/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77469",
+        "articles/visual-studio/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/vpn-gateway/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77470",
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "searchScope": {
-        "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
-        "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL","PostgreSQL"],
-        "articles/mysql/**.md": ["Azure","Azure Database for MySQL", "MySQL"],
-        "articles/stream-analytics/**/*.md": ["Azure", "Stream Analytics"]
+        "articles/data-lake-analytics/**/*.md": [
+          "Azure",
+          "Azure Data Lake Analytics"
+        ],
+        "articles/postgresql/**.md": [
+          "Azure",
+          "Azure Database for PostgreSQL",
+          "PostgreSQL"
+        ],
+        "articles/mysql/**.md": [
+          "Azure",
+          "Azure Database for MySQL",
+          "MySQL"
+        ],
+        "articles/stream-analytics/**/*.md": [
+          "Azure",
+          "Stream Analytics"
+        ],
+        "articles/data-explorer/**/*.md": [
+          "Azure",
+          "Data Explorer",
+          "Azure Data Explorer",
+          "Kusto",
+          "kusto"
+        ]
       },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
-        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
+      },
+      "manager": {
+        "articles/sql-database/**/*.md": "jroth"
+      },
+      "featureFlags": {
+        "articles/**/*.md": [
+          "show_learn_banner"
+        ]
+      },
+      "learn_banner_products": {
+        "articles/**/*.md": [
+          "azure"
+        ],
+        "articles/virtual-machines/**/*.md": [
+          "azure-virtual-machines"
+        ],
+        "articles/azure-portal/**/*.md": [
+          "azure-portal"
+        ],
+        "articles/azure-functions/**/*.md": [
+          "azure-functions"
+        ]
       }
     },
     "template": [

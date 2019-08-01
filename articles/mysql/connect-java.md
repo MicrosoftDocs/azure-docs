@@ -1,10 +1,10 @@
 ---
-title: 'Connect to Azure Database for MySQL using Java'
-description: This quickstart provides a Java code sample you can use to connect and query data from a Azure Database for MySQL database.
-author: jasonwhowell
-ms.author: jasonh
+title: 'Use Java to connect to Azure Database for MySQL'
+description: This quickstart provides a Java code sample you can use to connect and query data from an Azure Database for MySQL database.
+author: ajlam
+ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-july2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 02/28/2018

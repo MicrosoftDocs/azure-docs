@@ -6,10 +6,10 @@ metadata:
   description: Learn how to use Content Moderator to check text, image, and video content for material that is potentially offensive, risky, or otherwise undesirable.
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
-  ms.component: content-moderator
+  ms.subservice: content-moderator
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -51,7 +51,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to get started with Content Moderator by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.
+    text: Learn how to get started with Content Moderator by selecting an arrow link <img src="images/index/link.jpg" height="15" width="15"></img>.
   - type: table
     style: dataMatrix
     columns:
@@ -103,6 +103,6 @@ sections:
             <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-contentmoderator/?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/contentmoderator">Go</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

@@ -16,8 +16,6 @@
     href: tutorial-sspr-pilot.md
   - name: Enable SSPR on-premises integration
     href: tutorial-enable-writeback.md
-  - name: Enable Windows 10 password reset
-    href: tutorial-sspr-windows.md
   - name: Integrate Azure Identity Protection
     href: tutorial-risk-based-sspr-mfa.md
 - name: Concepts
@@ -25,8 +23,10 @@
   items:
   - name: Authentication methods
     href: concept-authentication-methods.md
-  - name: Converged registration
-    href: concept-registration-mfa-sspr-converged.md
+  - name: Passwordless authentication
+    href: concept-authentication-passwordless.md
+  - name: Combined registration
+    href: concept-registration-mfa-sspr-combined.md
   - name: Password reset
     items:
     - name: How password reset works
@@ -43,8 +43,6 @@
     items:
     - name: How MFA works
       href: concept-mfa-howitworks.md
-    - name: What version is right?
-      href: concept-mfa-whichversion.md
     - name: License your users
       href: concept-mfa-licensing.md
     - name: Manage an Auth Provider
@@ -52,7 +50,7 @@
     - name: Security guidance
       href: multi-factor-authentication-security-best-practices.md
     - name: MFA for Office 365
-      href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
     - name: MFA FAQ
       href: multi-factor-authentication-faq.md
   - name: Azure AD password protection
@@ -73,8 +71,8 @@
       href: howto-sspr-authenticationdata.md
     - name: Enable password writeback
       href: howto-sspr-writeback.md
-    - name: SSPR for Windows 7, 8, and 8.1
-      href: howto-sspr-windows-7-8.md
+    - name: SSPR for Windows clients
+      href: howto-sspr-windows.md
   - name: Cloud-based MFA
     items:
     - name: Deploy cloud-based MFA
@@ -99,10 +97,18 @@
         href: howto-mfa-nps-extension.md
       - name: Advanced configuration for NPS extension
         href: howto-mfa-nps-extension-advanced.md
+      - name: Azure VPN and Azure MFA
+        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
       - name: Remote Desktop Gateway
         href: howto-mfa-nps-extension-rdg.md
       - name: VPN
         href: howto-mfa-nps-extension-vpn.md
+  - name: Combined registration
+    items:
+    - name: Enable combined registration
+      href: howto-registration-mfa-sspr-combined.md
+    - name: Troubleshoot combined registration
+      href: howto-registration-mfa-sspr-combined-troubleshoot.md
   - name: Azure AD password protection
     items:
     - name: Configure the banned password list
@@ -114,6 +120,8 @@
       - name: Configure Azure AD password protection
         href: howto-password-ban-bad-on-premises-operations.md
       - name: Monitor Azure AD password protection
+        href: howto-password-ban-bad-on-premises-monitor.md
+      - name: Troubleshoot Azure AD password protection
         href: howto-password-ban-bad-on-premises-troubleshoot.md
       - name: Frequently asked questions
         href: howto-password-ban-bad-on-premises-faq.md
@@ -123,8 +131,12 @@
     href: howto-password-smart-lockout.md
   - name: Windows Hello for Business
     href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Password-less phone sign-in
-    href: howto-authentication-phone-sign-in.md
+  - name: Passwordless
+    items: 
+      - name: Enable passwordless
+        href: howto-authentication-passwordless-enable.md
+      - name: Passwordless phone sign-in
+        href: howto-authentication-phone-sign-in.md
   - name: Certificate-based authentication
     items:
     - name: Get started with certificate auth
@@ -134,12 +146,10 @@
         href: active-directory-certificate-based-authentication-android.md
       - name: CBA on iOS Devices
         href: active-directory-certificate-based-authentication-ios.md
-  - name: Develop
-    items:
-    - name: Build MFA into custom apps
-      href: howto-mfa-sdk.md
   - name: Reporting
     items:
+    - name: Usage and insights
+      href: howto-authentication-methods-usage-insights.md
     - name: SSPR Reports
       href: howto-sspr-reporting.md
     - name: MFA Reports
@@ -188,8 +198,6 @@
         href: howto-mfa-nps-extension-errors.md
   - name: Troubleshoot
     items:
-    - name: Disable converged registration
-      href: howto-registration-mfa-sspr-converged-troubleshoot.md
     - name: Troubleshoot SSPR
       href: active-directory-passwords-troubleshoot.md
     - name: SSPR FAQ

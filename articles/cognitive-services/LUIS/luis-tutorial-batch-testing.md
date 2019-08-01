@@ -1,15 +1,15 @@
 ---
-title: Batch test
+title: Batch test - LUIS
 titleSuffix: Azure Cognitive Services
 description: This tutorial demonstrates how to use batch testing to find utterance prediction issues in your app and fix them.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 03/29/2019
 ms.author: diberry
 ---
 
@@ -23,7 +23,7 @@ Requirements for batch testing:
 
 * Maximum of 1000 utterances per test. 
 * No duplicates. 
-* Entity types allowed: only machined-learned entities of simple, hierarchical (parent-only), and composite. Batch testing is only useful for machined-learned intents and entities.
+* Entity types allowed: only machined-learned entities of simple and composite. Batch testing is only useful for machined-learned intents and entities.
 
 When using an app other than this tutorial, do *not* use the example utterances already added to an intent. 
 
@@ -90,7 +90,7 @@ Use the following steps:
 
 ## Review batch results
 
-The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple, hierarchical (parent-only), and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
+The batch chart displays four quadrants of results. To the right of the chart is a filter. By default, the filter is set to the first intent in the list. The filter contains all the intents and only simple and composite entities. When you select a [section of the chart](luis-concept-batch-test.md#batch-test-results) or a point within the chart, the associated utterance(s) display below the chart. 
 
 While hovering over the chart, a mouse wheel can enlarge or reduce the display in the chart. This is useful when there are many points on the chart clustered tightly together. 
 
@@ -164,7 +164,7 @@ In order to verify that the utterances in the batch test are correctly predicted
 
 ## Create batch file with entities 
 
-In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple, hierarchical (parent-only), and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
+In order to verify entities in a batch test, the entities need to be labeled in the batch JSON file. Only the machine-learned entities are used: simple and composite entities. Do not add non-machine-learned entities because they are always found either through regular expressions, or explicit text matches.
 
 The variation of entities for total word ([token](luis-glossary.md#token)) count can impact the prediction quality. Make sure the training data supplied to the intent with labeled utterances includes a variety of lengths of entity. 
 
@@ -196,13 +196,15 @@ The value of a **Job** entity, provided in the test utterances, is usually one o
 
 7. Select **See results**.
 
+[!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
+
 ## Review entity batch results
 
-The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the erroring entity predictions. 
+The chart opens with all the intents correctly predicted. Scroll down in the right-side filter to find the entity predictions with errors. 
 
 1. Select the **Job** entity in the filter.
 
-    ![Erroring entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
+    ![Error entity predictions in filter](./media/luis-tutorial-batch-testing/hr-entities-filter-errors.png)
 
     The chart changes to display the entity predictions. 
 

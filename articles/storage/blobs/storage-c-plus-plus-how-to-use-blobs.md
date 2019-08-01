@@ -2,23 +2,24 @@
 title: How to use object (Blob) storage from C++ - Azure | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob (object) storage.
 services: storage
-author: MichaelHauss
+author: mhopkins-msft
 
 ms.service: storage
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.author: michaelhauss
-ms.component: blobs
+ms.author: mhopkins
+ms.reviewer: seguler
+ms.subservice: blobs
 ---
 
 # How to use Blob storage from C++
 
-This guide demonstrates how to perform common scenarios using Azure Blob storage. The examples show how to upload, list, download, and delete blobs. The samples are written in C++ and use the [Azure Storage Client Library for C++](http://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
+This guide demonstrates how to perform common scenarios using Azure Blob storage. The examples show how to upload, list, download, and delete blobs. The samples are written in C++ and use the [Azure Storage Client Library for C++](https://github.com/Azure/azure-storage-cpp/blob/master/README.md).   
 
 To learn more about Blob storage, see [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+> This guide targets the Azure Storage Client Library for C++ version 1.0.0 and above. Microsoft recommends using the latest version of the Storage Client Library for C++, available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
@@ -30,7 +31,7 @@ To do so, you will need to install the Azure Storage Client Library for C++ and 
 To install the Azure Storage Client Library for C++, you can use the following methods:
 
 * **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README](https://github.com/Azure/azure-storage-cpp/blob/master/README.md) page.  
-* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](http://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
+* **Windows:** In Visual Studio, click **Tools > NuGet Package Manager > Package Manager Console**. Type the following command into the [NuGet Package Manager console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) and press **ENTER**.  
   
      Install-Package wastorage
 
@@ -63,7 +64,7 @@ To start the Azure storage emulator, Select the **Start** button or press the **
 
 The following samples assume that you have used one of these two methods to get the storage connection string.  
 
-## Retrieve your connection string
+## Retrieve your storage account
 You can use the **cloud_storage_account** class to represent your Storage Account information. To retrieve your storage account information from the storage connection string, you can use the **parse** method.  
 
 ```cpp
@@ -254,7 +255,7 @@ Now that you've learned the basics of blob storage, follow these links to learn 
 * [How to use Queue Storage from C++](../storage-c-plus-plus-how-to-use-queues.md)
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [List Azure Storage Resources in C++](../storage-c-plus-plus-enumeration.md)
-* [Storage Client Library for C++ Reference](http://azure.github.io/azure-storage-cpp)
+* [Storage Client Library for C++ Reference](https://azure.github.io/azure-storage-cpp)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Transfer data with the AzCopy command-line utility](../storage-use-azcopy.md)
 

@@ -3,10 +3,11 @@ title: Azure Container Registry - roles and permissions
 description: Use Azure role-based access control (RBAC) and identity and access management (IAM) to provide fine-grained permissions to resources in an Azure container registry.
 services: container-registry
 author: dlepow
+manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 12/17/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ---
 
@@ -14,14 +15,15 @@ ms.author: danlep
 
 The Azure Container Registry service supports a set of Azure roles that provide different levels of permissions to an Azure container registry. Use Azure [role-based access control](../role-based-access-control/index.yml) (RBAC) to assign specific permissions to users or service principals that need to interact with a registry.
 
-| Role/Permission       | [Access Resource Manager](#access-resource-manage)| [Create/delete registry](#create/delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Change policies](#change-polices) |   [Sign images](#sign-images)  |
-| ---------| --------- | --------- | --------- | --------- | --------- | --------- |
-| Owner | X | X | X | X | X |  |  
-| Contributor | X | X | X | X | X |  |  
-| Reader | X |  |  | X |  |  | 
-| AcrPush |  |  | X | X |  |  |  
-| AcrPull |  |  |  | X |  |  |  
-| AcrImageSigner |  |  |  |  |  | X |
+| Role/Permission       | [Access Resource Manager](#access-resource-manager) | [Create/delete registry](#create-and-delete-registry) | [Push image](#push-image) | [Pull image](#pull-image) | [Delete image data](#delete-image-data) | [Change policies](#change-policies) |   [Sign images](#sign-images)  |
+| ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
+| Owner | X | X | X | X | X | X |  |  
+| Contributor | X | X | X |  X | X | X |  |  
+| Reader | X |  |  |  |  |  |  |
+| AcrPush |  |  | X | X | |  |  |  
+| AcrPull |  |  |  | X |  |  |  |  
+| AcrDelete |  |  |  |  | X |  |  |
+| AcrImageSigner |  |  |  |  |  |  | X |
 
 ## Differentiate users and services
 
@@ -41,19 +43,23 @@ For tools like the Visual Studio Code [Docker extension](https://code.visualstud
 
 ## Access Resource Manager
 
-Azure Resource Manager access is required for the Azure portal and [Azure CLI](/cli/azure/). For example, to get a list of registries by using the `az acr list` command, you need this permission set. 
+Azure Resource Manager access is required for the Azure portal and registry management with the [Azure CLI](/cli/azure/). For example, to get a list of registries by using the `az acr list` command, you need this permission set. 
 
-## Create/delete registry
+## Create and delete registry
 
 The ability to create and delete Azure container registries.
 
 ## Push image
 
-The ability to `docker push` an image, or push another supported artifact, to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity. 
+The ability to `docker push` an image, or push another [supported artifact](container-registry-image-formats.md) such as a Helm chart, to a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity. 
 
 ## Pull image
 
-The ability to `docker pull` a non-quarantined image, or pull another supported artifact, from a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
+The ability to `docker pull` a non-quarantined image, or pull another [supported artifact](container-registry-image-formats.md) such as a Helm chart, from a registry. Requires [authentication](container-registry-authentication.md) with the registry using the authorized identity.
+
+## Delete image data
+
+The ability to [delete container images](container-registry-delete.md), or delete other [supported artifacts](container-registry-image-formats.md) such as Helm charts, from a registry.
 
 ## Change policies
 

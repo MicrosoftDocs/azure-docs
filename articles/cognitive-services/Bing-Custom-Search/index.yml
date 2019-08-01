@@ -2,21 +2,42 @@
 documentType: LandingData
 title: Bing Custom Search Documentation 
 metadata:
-  title: Bing Custom Search Documentation - Tutorials, API reference - Microsoft Cognitive Services | Microsoft Docs
-  description: Learn how to use the Bing Custom Search portal to create custom search instances
+  title: Bing Custom Search API Documentation - Tutorials, quickstarts, API reference - Microsoft Cognitive Services | Microsoft Docs
+  description: Learn how to use the Bing Custom Search portal and API to create a custom search experience
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 05/07/2018
+  ms.date: 07/25/2019
   ms.author: v-deken
 abstract:
-  description: Learn how to use Bing Custom Search to create tailored search experiences for topics that you care about. For example, if you own a bicycle website that provides a search experience, you can specify the domains, subsites, and webpages that Bing searches. Quickstarts, tutorials, and API reference guides show you how.
+  description: Use the Bing Custom Search API to create a search instance for topics that you care about. Specify the domains and webpages to be searched and adjust search rankings to fully customize your search experience.
 sections:
+- items:
+    - type: list
+      style: cards
+      className: cardsM
+      columns: 3
+      items:
+        - href: /azure/cognitive-services/bing-custom-search/overview
+          html: <p>Learn about the Bing Custom Search API</p>
+          image:
+            src: ../media/index/i_overview.svg
+          title: What is the Bing Custom Search API?
+        - href: /azure/cognitive-services/bing-custom-search/quick-start
+          html: <p>Learn how to tailor your search experience to create a custom view of the web.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Create a custom Bing search instance
+        - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+          html: <p>Learn how to easily integrate a hosted UI into webpages and web apps.</p>
+          image:
+            src: ../media/index/i_guidelines.svg
+          title: Configure a hosted UI experience
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -26,7 +47,7 @@ sections:
     items:
       - image:
           src: media/logo_Csharp.svg
-        href: call-endpoint-csharp
+        href: sdk-csharp-quick-start
         text: "C&#35;"
       - image:
           src: media/logo_java.svg
@@ -53,19 +74,19 @@ sections:
     className: cardsD
     items:
     - title: APIs
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Custom Search API v7</a></p>
-            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Custom Autosuggest API v7</a></p>
-            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Custom Image Search API v7</a></p>
-            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Bing Custom Video Search API v7</a></p>    
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference">Custom Search API v7</a></p>
+            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference">Custom Autosuggest API v7</a></p>
+            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference">Custom Image Search API v7</a></p>
+            <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference">Custom Video Search API v7</a></p>    
     - title: SDKs
       html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable">Java - Custom Search</a></p>
-            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable">Java - Custom Image Search</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable">Java - Custom Search</a></p>
+            <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomimagesearch?view=azure-java-stable">Java - Custom Image Search</a></p>
             <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p>
-            <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest">Node.js</a></p>
+            <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest">Node.js</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go - Custom Search</a></p>
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go - Custom Image Search</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

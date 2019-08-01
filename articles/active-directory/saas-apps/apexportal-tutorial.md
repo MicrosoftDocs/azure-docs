@@ -5,246 +5,229 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: joflore
+ms.reviewer: barbkess
 
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
 ms.service: active-directory
-ms.component: saas-app-tutorial
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/07/2017
+ms.topic: tutorial
+ms.date: 04/15/2019
 ms.author: jeedes
 
+ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with Apex Portal
 
 In this tutorial, you learn how to integrate Apex Portal with Azure Active Directory (Azure AD).
-
 Integrating Apex Portal with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to Apex Portal.
-- You can enable your users to automatically get signed-on to Apex Portal (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to Apex Portal.
+* You can enable your users to be automatically signed-in to Apex Portal (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with Apex Portal, you need the following items:
 
-- An Azure AD subscription
-- A Apex Portal single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/)
+* Apex Portal single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding Apex Portal from the gallery
-2. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* Apex Portal supports **IDP** initiated SSO
+* Apex Portal supports **Just In Time** user provisioning
 
 ## Adding Apex Portal from the gallery
+
 To configure the integration of Apex Portal into Azure AD, you need to add Apex Portal from the gallery to your list of managed SaaS apps.
 
 **To add Apex Portal from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-2. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
+	![The Enterprise applications blade](common/enterprise-applications.png)
+
 3. To add new application, click **New application** button on the top of dialog.
 
-	![The New application button][3]
+	![The New application button](common/add-new-app.png)
 
 4. In the search box, type **Apex Portal**, select **Apex Portal** from result panel then click **Add** button to add the application.
 
-	![Apex Portal in the results list](./media/apexportal-tutorial/tutorial_apexonline_addfromgallery.png)
+	![Apex Portal in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with Apex Portal based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in Apex Portal is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in Apex Portal needs to be established.
-
-In Apex Portal, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with Apex Portal based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in Apex Portal needs to be established.
 
 To configure and test Azure AD single sign-on with Apex Portal, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Create an Apex Portal test user](#create-an-apex-online-test-user)** - to have a counterpart of Britta Simon in Apex Portal that is linked to the Azure AD representation of user.
+2. **[Configure Apex Portal Single Sign-On](#configure-apex-portal-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+5. **[Create Apex Portal test user](#create-apex-portal-test-user)** - to have a counterpart of Britta Simon in Apex Portal that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your Apex Portal application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with Apex Portal, perform the following steps:**
+To configure Azure AD single sign-on with Apex Portal, perform the following steps:
 
-1. In the Azure portal, on the **Apex Portal** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Apex Portal** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-2. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/apexportal-tutorial/tutorial_apexonline_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-3. On the **Apex Portal Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![Apex Portal Domain and URLs single sign-on information](./media/apexportal-tutorial/tutorial_apexonline_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+4. On the **Set up Single Sign-On with SAML** page, perform the following steps:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Apex Portal support team](mailto:support@apexanalytix.com) to get these values.
- 
-4. The Apex Portal application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. Configure the following claims for this application. You can manage the values of these attributes from the "**User Attributes**" section on application integration page. 
+    ![Apex Portal Domain and URLs single sign-on information](common/idp-intiated.png)
 
-	![Configure Single Sign-On](./media/apexportal-tutorial/attribute.png)
+    a. In the **Identifier** text box, type a URL using the following pattern:
+    `https://<customer name>.apexportal.net/saml/sso.aspx`
 
-5. In the **User Attributes** section on the **Single sign-on** dialog, configure SAML token attribute as shown in the preceding image and perform the following steps:
-	
-	| Attribute Name | Attribute Value |
-	| ------------------- | -------------------- |    
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+    `https://<customer name>.apexportal.net/saml/sso.aspx`
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier and Reply URL. Contact [Apex Portal Client support team](mailto:support@apexanalytix.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+5. Apex Portal application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+
+	![image](common/edit-attribute.png)
+
+6. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
+
+	| Name | Source Attribute|
+	| -------- | --------- |
 	| FIRSTNAME | user.givenname |
 	| LASTNAME | user.surname |
-	| MAIL | user.mail |	
+	| MAIL | user.mail |
+	| | |
 
-	a. Click **Add attribute** to open the **Add Attribute** dialog.
+	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
-	![Configure Single Sign-On](./media/apexportal-tutorial/tutorial_attribute_04.png)
+	![image](common/new-save-attribute.png)
 
-	![Configure Single Sign-On](./media/apexportal-tutorial/tutorial_attribute_05.png)
+	![image](common/new-attribute-details.png)
 
 	b. In the **Name** textbox, type the attribute name shown for that row.
 
-	c. From the **Value** list, type the attribute value shown for that row.
-	
-	d. Click **Ok**.
+	c. Leave the **Namespace** blank.
 
-6. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+	d. Select Source as **Attribute**.
 
-	![The Certificate download link](./media/apexportal-tutorial/tutorial_apexonline_certificate.png) 
+	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-7. Click **Save** button.
+	f. Click **Ok**
 
-	![Configure Single Sign-On Save button](./media/apexportal-tutorial/tutorial_general_400.png)
+	g. Click **Save**.
 
-8. To configure single sign-on on **Apex Portal** side, you need to send the downloaded **Metadata XML** to [Apex Portal support team](mailto:support@apexanalytix.com). They set this setting to have the SAML SSO connection set properly on both sides.
+7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
+	![The Certificate download link](common/metadataxml.png)
+
+8. On the **Set up Apex Portal** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure Apex Portal Single Sign-On
+
+To configure single sign-on on **Apex Portal** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Apex Portal support team](mailto:support@apexanalytix.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/apexportal-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-2. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/apexportal-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-3. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
-    ![The Add button](./media/apexportal-tutorial/create_aaduser_03.png)
-
-4. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/apexportal-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
-  
-### Create an Apex Portal test user
-
-The objective of this section is to create a user called Britta Simon in Apex Portal. Apex Portal supports just-in-time provisioning, which is by default enabled. There is no action item for you in this section. A new user is created during an attempt to access Apex Portal if it doesn't exist yet.
- 
-> [!NOTE]
-> If you need to create a user manually, you need to contact the [Apex Portal support team](mailto:support@apexanalytix.com).
 
 ### Assign the Azure AD test user
 
 In this section, you enable Britta Simon to use Azure single sign-on by granting access to Apex Portal.
 
-![Assign the user role][200] 
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **Apex Portal**.
 
-**To assign Britta Simon to Apex Portal, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
+	![Enterprise applications blade](common/enterprise-applications.png)
 
 2. In the applications list, select **Apex Portal**.
 
-	![The Apex Portal link in the Applications list](./media/apexportal-tutorial/tutorial_apexonline_app.png)  
+	![The Apex Portal link in the Applications list](common/all-applications.png)
 
-3. In the menu on the left, click **Users and groups**.
+3. In the menu on the left, select **Users and groups**.
 
-	![The "Users and groups" link][202]
+    ![The "Users and groups" link](common/users-groups-blade.png)
 
-4. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add Assignment pane][203]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-5. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. Click **Select** button on **Users and groups** dialog.
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
-7. Click **Assign** button on **Add Assignment** dialog.
-	
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create Apex Portal test user
+
+In this section, a user called Britta Simon is created in Apex Portal. Apex Portal supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Apex Portal, a new one is created after authentication.
+
+> [!NOTE]
+> If you need to create a user manually, you need to contact the [Apex Portal support team](mailto:support@apexanalytix.com).
+
 ### Test single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the Apex Portal tile in the Access Panel, you should get automatically signed-on to your Apex Portal application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the Apex Portal tile in the Access Panel, you should be automatically signed in to the Apex Portal for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/apexportal-tutorial/tutorial_general_01.png
-[2]: ./media/apexportal-tutorial/tutorial_general_02.png
-[3]: ./media/apexportal-tutorial/tutorial_general_03.png
-[4]: ./media/apexportal-tutorial/tutorial_general_04.png
-
-[100]: ./media/apexportal-tutorial/tutorial_general_100.png
-
-[200]: ./media/apexportal-tutorial/tutorial_general_200.png
-[201]: ./media/apexportal-tutorial/tutorial_general_201.png
-[202]: ./media/apexportal-tutorial/tutorial_general_202.png
-[203]: ./media/apexportal-tutorial/tutorial_general_203.png
-
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

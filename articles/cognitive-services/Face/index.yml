@@ -6,10 +6,10 @@ metadata:
   description: Learn how to use the Face API to detect and identify faces in images and return facial information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
-  ms.component: face-api
+  ms.subservice: face-api
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -99,6 +99,6 @@ sections:
             <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face">Go</a></p>
             <p><a href="https://github.com/Microsoft/Cognitive-Face-iOS">iOS</a></p>
     - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services">Azure PowerShell</a></p>
+      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
     - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list">Azure CLI</a></p>
+      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>

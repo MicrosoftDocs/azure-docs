@@ -3,24 +3,25 @@ title: 'Azure AD Connect: Configure AD DS Connector Account Permissions  | Micro
 description: This document details how to configure the AD DS Connector account with the new ADSyncConfig PowerShell module
 services: active-directory
 author: billmath
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.topic: article
-ms.date: 10/12/2018
-ms.component: hybrid
+ms.topic: conceptual
+ms.date: 04/29/2019
+ms.subservice: hybrid
 ms.author: billmath
 
+ms.collection: M365-identity-device-management
 ---
 
 # Azure AD Connect: Configure AD DS Connector Account Permissions 
 
-A new PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
+The PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
 
 ## Overview 
-The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you pretend to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
+The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you select to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
 
-![](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
+![overview of ad ds account](media/how-to-connect-configure-ad-ds-connector-account/configure1.png)
 
 For Azure AD Connect Express installation, an automatically generated account (MSOL_nnnnnnnnnn) is created in Active Directory with all the necessary permissions, so there’s no need to use this ADSyncConfig module unless you have blocked permissions inheritance on organizational units or on specific Active Directory objects that you want to synchronize to Azure AD. 
  
@@ -64,13 +65,19 @@ Get-Command -Module AdSyncConfig
 
 Each cmdlet has the same parameters to input the AD DS Connector Account and an AdminSDHolder switch. To specify your AD DS Connector Account, you can provide the account name and domain, or just the account Distinguished Name (DN),
 
-e.g.: 
+e.g.:
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName ADaccount -ADConnectorAccountDomain Contoso`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountName <ADAccountName> -ADConnectorAccountDomain <ADDomainName>
+```
 
-Or; 
+Or;
 
-`Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN 'CN=ADaccount,OU=AADconnect,DC=Contoso,DC=com'`
+```powershell
+Set-ADSyncPasswordHashSyncPermissions -ADConnectorAccountDN <ADAccountDN>
+```
+
+Make sure to replace `<ADAccountName>`, `<ADDomainName>` and `<ADAccountDN>` with the proper values for your environment.
 
 In case you don’t want to modify permissions on the AdminSDHolder container, use the switch `-SkipAdminSdHolders`. 
 
@@ -99,7 +106,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### View AD DS permissions of an object 
-You can use the cmdlet below to view the list of permissions currently set on a Active Directory object by providing its DistinguishedName: 
+You can use the cmdlet below to view the list of permissions currently set on an Active Directory object by providing its DistinguishedName: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -153,7 +160,7 @@ This cmdlet will set the following permissions:
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
-|Allow|AD DS Connector Account|Read/Write property|MS-DS-Consistency-Guid|Descendant User objects|
+|Allow|AD DS Connector Account|Read/Write property|Descendant User objects|
 
 ### Permissions for Password Hash Synchronization 
 To set permissions for the AD DS Connector account when using Password Hash Synchronization, run: 
@@ -201,21 +208,21 @@ This cmdlet will set the following permissions:
 To set permissions for the AD DS Connector account when using Group Writeback, run: 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountName <String> -ADConnectorAccountDomain <String> [-SkipAdminSdHolders] [<CommonParameters>] 
 ```
 or; 
 
 ``` powershell
-Set-ADSyncExchangeHybridPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
+Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN <String> [-ADobjectDN <String>] [<CommonParameters>]
 ```
  
 This cmdlet will set the following permissions: 
 
 |Type |Name |Access |Applies To|
 |-----|-----|-----|-----| 
-|Allow |AD DS Connector Account |Generic Read/Write |Descendant Group objects| 
-|Allow |AD DS Connector Account |Create/Delete child object |This object and all descendent objects| 
-|Allow |AD DS Connector Account |Create/Delete an object and all of it's children |This object and all descendent objects|
+|Allow |AD DS Connector Account |Generic Read/Write |All attributes of object type group and subobjects| 
+|Allow |AD DS Connector Account |Create/Delete child object |All attributes of object type group and subobjects| 
+|Allow |AD DS Connector Account |Delete/Delete tree objects|All attributes of object type group and subobjects|
 
 ### Permissions for Exchange Hybrid Deployment 
 To set permissions for the AD DS Connector account when using Exchange Hybrid deployment, run: 
@@ -266,7 +273,7 @@ This PowerShell script will tighten permissions for the AD Connector Account pro
 - Disable inheritance on the specified object 
 - Remove all ACEs on the specific object, except ACEs specific to SELF as we want to keep the default permissions intact when it comes to SELF. 
  
- The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
+  The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
@@ -276,7 +283,7 @@ For Example:
 
 ``` powershell
 $credential = Get-Credential 
-Set-ADSyncRestrictedPermissions -ObjectDN 'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
+Set-ADSyncRestrictedPermissions -ADConnectorAccountDN'CN=ADConnectorAccount,CN=Users,DC=Contoso,DC=com' -Credential $credential  
 ```
 
 This cmdlet will set the following permissions: 

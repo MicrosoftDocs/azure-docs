@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 06/06/2019
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Use the Azure Import/Export service to import data to Azure Blob Storage
 
@@ -24,9 +24,9 @@ You must:
     - For information on storage container, go to [Create a storage container](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems). 
-- Enable BitLocker on the Windows system. See [How to enable BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+- Enable BitLocker on the Windows system. See [How to enable BitLocker](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 - [Download the WAImportExport version 1](https://aka.ms/waiev1) on the Windows system. Unzip to the default folder `waimportexportv1`. For example, `C:\WaImportExportV1`.
-- Have a FedEx/DHL account.  
+- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.  
     - The account must be valid, should have balance, and must have return shipping capabilities.
     - Generate a tracking number for the export job.
     - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
@@ -42,18 +42,18 @@ Perform the following steps to prepare the drives.
 
 1.	Connect your disk drives to the Windows system via SATA connectors.
 1.  Create a single NTFS volume on each drive. Assign a drive letter to the volume. Do not use mountpoints.
-2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
+2.  Enable BitLocker encryption on the NTFS volume. If using a Windows Server system, use the instructions in [How to enable BitLocker on Windows Server 2012 R2](https://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
 3.  Copy data to encrypted volume. Use drag and drop or Robocopy or any such copy tool.
 4.	Open a PowerShell or command line window with administrative privileges. To change directory to the unzipped folder, run the following command:
     
     `cd C:\WaImportExportV1`
 5.  To get the BitLocker key of the drive, run the following command:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
+    `manage-bde -protectors -get <DriveLetter>:`
 6.	To prepare the disk, run the following command. **Depending on the data size, this may take several hours to days.** 
 
     ```
-    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
+    ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /blobtype:<BlockBlob or PageBlob> /skipwrite 
     ```
     A journal file is created in the same folder where you ran the tool. Two other files are also created - an *.xml* file (folder where you run the tool) and a *drive-manifest.xml* file (folder where data resides).
     
@@ -63,12 +63,13 @@ Perform the following steps to prepare the drives.
     |---------|---------|
     |/j:     |The name of the journal file, with the .jrn extension. A journal file is generated per drive. We recommend that you use the disk serial number as the journal file name.         |
     |/id:     |The session ID. Use a unique session number for each instance of the command.      |
-    |/sk:     |The Azure Storage account key.         |
     |/t:     |The drive letter of the disk to be shipped. For example, drive `D`.         |
-    |/bk:     |The BitLocker key for the drive. Its numerical password from output of ` manage-bde -protectors -get D: `      |
+    |/bk:     |The BitLocker key for the drive. Its numerical password from output of `manage-bde -protectors -get D:`      |
     |/srcdir:     |The drive letter of the disk to be shipped followed by `:\`. For example, `D:\`.         |
     |/dstdir:     |The name of the destination container in Azure Storage.         |
+    |/blobtype:     |This option specifies the type of blobs you want to import the data to. For block blobs, this is `BlockBlob` and for page blobs, it is `PagaBlob`.         |
     |/skipwrite:     |The option that specifies that there is no new data required to be copied and existing data on the disk is to be prepared.          |
+    |/enablecontentmd5:     |The option when enabled, ensures that MD5 is computed and set as `Content-md5` property on each blob. Use this option only if you want to use the `Content-md5` field after the data is uploaded to Azure. <br> This option does not affect the data integrity check (that occurs by default). The setting does increase the time taken to upload data to cloud.          |
 7. Repeat the previous step for each disk that needs to be shipped. A journal file with the provided name is created for every run of the command line.
     
     > [!IMPORTANT]
@@ -89,14 +90,14 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Basics**:
 
-    - Select **Import into Azure**.
-    - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-        - The name may contain only lowercase letters, numbers, and hyphens.
-        - The name must start with a letter, and may not contain spaces.
-    - Select a subscription.
-    - Enter or select a resource group.  
+   - Select **Import into Azure**.
+   - Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
+       - The name may contain only lowercase letters, numbers, and hyphens.
+       - The name must start with a letter, and may not contain spaces.
+   - Select a subscription.
+   - Enter or select a resource group.  
 
-    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
+     ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob3.png)
 
 3. In **Job details**:
 
@@ -108,21 +109,21 @@ Perform the following steps to create an import job in the Azure portal.
 
 4. In **Return shipping info**:
 
-    - Select the carrier from the dropdown list.
-    - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](http://www.fedex.com/us/oadr/) or [DHL](http://www.dhl.com/) carrier account.
-    - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region. 
+   - Select the carrier from the dropdown list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information regarding the carrier you plan to use.
+   - Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete. If you do not have an account number, create a [FedEx](https://www.fedex.com/us/oadr/) or [DHL](https://www.dhl.com/) carrier account.
+   - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region. 
         
-        > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+       > [!TIP] 
+       > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
-    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
+     ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
    
 5. In the **Summary**:
 
-    - Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
-    - Click **OK** to create the import job.
+   - Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
+   - Click **OK** to create the import job.
 
-    ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
+     ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob6.png)
 
 ## Step 3: Ship the drives 
 

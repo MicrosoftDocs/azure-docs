@@ -1,7 +1,6 @@
 ---
 title: Azure Storage solutions for ML Services on HDInsight - Azure 
 description: Learn about the different storage options available with ML Services on HDInsight
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -89,7 +88,7 @@ In your R code, point the name node reference to the **storage2** storage accoun
 
 All of the directory and file references now point to the storage account `wasb://container2@storage2.blob.core.windows.net`. This is the **Name Node** that you’ve specified.
 
-You have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
+You have to configure the `/user/RevoShare/<SSH username>` directory on **storage2** as follows:
 
 
 	hadoop fs -mkdir wasb://container2@storage2.blob.core.windows.net/user
@@ -113,9 +112,9 @@ After you give the Service Principal a name and create a password for it, click 
 
 It’s also possible to add cluster access to one or more Data Lake Storage accounts following cluster creation. Open the Azure portal entry for a Data Lake Storage and go to **Data Explorer > Access > Add**. 
 
-### How to access Data Lake Storage from ML Services on HDInsight
+### How to access Data Lake Storage Gen1 from ML Services on HDInsight
 
-Once you’ve given access to Data Lake Storage, you can use the storage in ML Services cluster on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
+Once you’ve given access to Data Lake Storage Gen1, you can use the storage in ML Services cluster on HDInsight the way you would a secondary Azure storage account. The only difference is that the prefix **wasb://** changes to **adl://** as follows:
 
 
 	# Point to the ADL Storage (e.g. ADLtest)
@@ -137,7 +136,7 @@ Once you’ve given access to Data Lake Storage, you can use the storage in ML S
 	# Specify the input file in HDFS to analyze
 	inputFile <-file.path(bigDataDirRoot,"mysamplefile.csv")
 
-The following commands are used to configure the Data Lake Storage account with the RevoShare directory and add the sample .csv file from the previous example:
+The following commands are used to configure the Data Lake Storage Gen1 account with the RevoShare directory and add the sample .csv file from the previous example:
 
 
 	hadoop fs -mkdir adl://rkadl1.azuredatalakestore.net/user
@@ -164,6 +163,5 @@ A major benefit of Azure Files is that the file shares can be mounted and used b
 ## Next steps
 
 * [Overview of ML Services cluster on HDInsight](r-server-overview.md)
-* [Get started with ML Services cluster on Apache Hadoop](r-server-get-started.md)
 * [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md)
-
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)

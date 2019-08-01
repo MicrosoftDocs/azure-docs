@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: Get Node.js REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: qna-maker
-ms.topic: article
-ms.date: 10/19/2018
+ms.subservice: qna-maker
+ms.topic: quickstart
+ms.date: 02/13/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -30,8 +30,8 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Delete a knowledge base.](#Delete)
 - [Get the current endpoint keys.](#GetKeys)
 - [Re-generate the current endpoint keys.](#PutKeys)
-- [Get the current set of word alterations.](#GetAlterations)
-- [Replace the current set of word alterations.](#PutAlterations)
+- [Get the current set of case-insensitive word alterations.](#GetAlterations)
+- [Replace the current set of case-insensitive word alterations.](#PutAlterations)
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-nodejs-repo-note.md)]
 
@@ -45,14 +45,14 @@ You must have a [Cognitive Services API account](https://docs.microsoft.com/azur
 
 ## Create knowledge base
 
-The following code creates a new knowledge base, using the [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) method.
+The following code creates a new knowledge base, using the [Create](https://go.microsoft.com/fwlink/?linkid=2092179) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -157,7 +157,7 @@ let req = {
   "qnaList": [
     {
       "id": 0,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -241,14 +241,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Update knowledge base
 
-The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+The following code updates an existing knowledge base, using the [Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -356,7 +356,7 @@ let req = {
     'qnaList': [
       {
         'id': 1,
-        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/en-us/azure-bot-service/templates/qnamaker/#navtitle',
+        'answer': 'You can change the default message if you use the QnAMakerDialog. See this for details: https://docs.botframework.com/azure-bot-service/templates/qnamaker/#navtitle',
         'source': 'Custom Editorial',
         'questions': [
           'How can I change the default message from QnA Maker?'
@@ -434,7 +434,7 @@ Press any key to continue.
 
 ## Get request status
 
-You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) method to check the status of a request to create or update a knowledge base. To see how this method is used, please see the sample code for the [Create](#Create) or [Update](#Update) method.
+You can call the [Operation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails) method to check the status of a request to create or update a knowledge base. To see how this method is used, please see the sample code for the [Create](#Create) or [Update](#Update) method.
 
 [Back to top](#HOLTop)
 
@@ -442,14 +442,14 @@ You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 ## Publish knowledge base
 
-The following code publishes an existing knowledge base, using the [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) method.
+The following code publishes an existing knowledge base, using the [Publish](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -554,14 +554,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Replace knowledge base
 
-The following code replaces the contents of the specified knowledge base, using the [Replace](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) method.
+The following code replaces the contents of the specified knowledge base, using the [Replace](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -648,7 +648,7 @@ let req = {
   'qnaList': [
     {
       'id': 0,
-      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600',
+      'answer': 'You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update',
       'source': 'Custom Editorial',
       'questions': [
         'How do I programmatically update my Knowledge Base?'
@@ -687,14 +687,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Download the contents of a knowledge base
 
-The following code downloads the contents of the specified knowledge base, using the [Download knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) method.
+The following code downloads the contents of the specified knowledge base, using the [Download knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -786,7 +786,7 @@ A successful response is returned in JSON, as shown in the following example:
   "qnaDocuments": [
     {
       "id": 1,
-      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600",
+      "answer": "You can use our REST APIs to manage your Knowledge Base. See here for details: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update",
       "source": "Custom Editorial",
       "questions": [
         "How do I programmatically update my Knowledge Base?"
@@ -827,7 +827,7 @@ The following code gets answers to a question using the specified knowledge base
 1. Replace the `kb` value with the ID of the knowledge base you want to query for answers. Note this knowledge base must already have been published using the [Publish](#Publish) method.
 1. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -949,14 +949,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get information about a knowledge base
 
-The following code gets information about the specified knowledge base, using the [Get knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) method.
+The following code gets information about the specified knowledge base, using the [Get knowledge base details](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/getdetails) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1064,14 +1064,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get all knowledge bases for a user
 
-The following code gets information about all knowledge bases for a specified user, using the [Get knowledge bases for user](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) method.
+The following code gets information about all knowledge bases for a specified user, using the [Get knowledge bases for user](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/listall) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1192,14 +1192,14 @@ Press any key to continue.
 
 ## Delete a knowledge base
 
-The following code deletes the specified knowledge base, using the [Delete knowledge base](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) method.
+The following code deletes the specified knowledge base, using the [Delete knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1304,14 +1304,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get endpoint keys
 
-The following code gets the current endpoint keys, using the [Get endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) method.
+The following code gets the current endpoint keys, using the [Get endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/getkeys) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1405,14 +1405,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Refresh endpoint keys
 
-The following code regenerates the current endpoint keys, using the [Refresh endpoint keys](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) method.
+The following code regenerates the current endpoint keys, using the [Refresh endpoint keys](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/endpointkeys/refreshkeys) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1531,14 +1531,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Get word alterations
 
-The following code gets the current word alterations, using the [Download alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) method.
+The following code gets the current word alterations, using the [Download alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/get) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1638,14 +1638,14 @@ A successful response is returned in JSON, as shown in the following example:
 
 ## Replace word alterations
 
-The following code replaces the current word alterations, using the [Replace alterations](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) method.
+The following code replaces the current word alterations, using the [Replace alterations](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/alterations/replace) method.
 
 1. Create a new Node.js project in your favorite IDE.
 2. Add the code provided below.
 3. Replace the `key` value with an access key valid for your subscription.
 4. Run the program.
 
-```nodejs
+```javascript
 'use strict';
 
 let fs = require ('fs');
@@ -1759,7 +1759,7 @@ A successful response is returned in JSON, as shown in the following example:
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [QnA Maker (V4) REST API Reference](https://go.microsoft.com/fwlink/?linkid=2092179)
 
 ## See also 
 

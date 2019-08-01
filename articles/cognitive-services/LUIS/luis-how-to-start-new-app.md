@@ -1,15 +1,15 @@
 ---
-title: Create a new app
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Create a new app - LUIS
+titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
-manager: cgronlun
+manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
-ms.component: language-understanding
+ms.subservice: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 05/07/2019
 ms.author: diberry
 ---
 
@@ -51,6 +51,36 @@ You can create a new app with the authoring APIs in a couple of ways:
     > [!NOTE]
     > The culture cannot be changed once the application is created. 
 
+## Import an app from file
+
+1. On **My Apps** page, select **Import new app**.
+1. In the pop-up dialog, select a valid app JSON file, and then select **Done**.
+
+### Import errors
+
+Possible errors are: 
+
+* An app with that name already exists. To fix this, reimport the app, and set the **Optional Name** to a new name. 
+
+## Export app for backup
+
+1. On **My Apps** page, select **Export**.
+1. Select **Export as JSON**. Your browser downloads the active version of the app.
+1. Add this file to your backup system to archive the model.
+
+## Export app for containers
+
+1. On **My Apps** page, select **Export**.
+1. Select **Export as container** then select which published slot (production or stage) you want to export.
+1. Use this file with your [LUIS container](luis-container-howto.md). 
+
+    If you are interested in exporting a trained but not yet published model to use with the LUIS container, go to the **Versions** page and export from there. 
+
+## Delete app
+
+1. On **My Apps** page, select the three dots (...) at the end of the app row.
+1. Select **Delete** from the menu.
+1. Select **Ok** in the confirmation window.
 
 ## Next steps
 

@@ -1,16 +1,16 @@
 ---
-title: Set up sign-up and sign-in with OpenID Connect using Azure Active Directory B2C | Microsoft Docs
+title: Set up sign-up and sign-in with OpenID Connect - Azure Active Directory B2C | Microsoft Docs
 description: Set up sign-up and sign-in with OpenID Connect using Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: mtillman
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: davidmu
-ms.component: B2C
+ms.author: marsma
+ms.subservice: B2C
 ---
 
 # Set up sign-up and sign-in with OpenID Connect using Azure Active Directory B2C
@@ -19,8 +19,7 @@ ms.component: B2C
 > This feature is in public preview. Do not use the feature in production environments.
 
 
-[OpenID Connect](https://openid.net/specs/openid-connect-core-1_0.html) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, such as [Azure AD](active-directory-b2c-setup-oidc-azure-active-directory.md), are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your user flows.
-
+[OpenID Connect](active-directory-b2c-reference-oidc.md) is an authentication protocol, built on top of OAuth 2.0, that can be used to securely sign users in. Most identity providers that use this protocol, are supported in Azure AD B2C. This article explains how you can add custom OpenID Connect identity providers into your user flows.
 
 ## Add the identity provider
 

@@ -4,7 +4,7 @@ description: Troubleshoot Resource Manager deployment issues when you create a n
 services: virtual-machines-windows, azure-resource-manager
 documentationcenter: ''
 author: JiangChen79
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: top-support-issue, azure-resource-manager
 
@@ -50,7 +50,7 @@ To start troubleshooting, collect the activity logs to identify the error associ
 
 **Resolution**
 
-To resolve both these errors, use [Add-AzureRmVhd to upload the original VHD](https://docs.microsoft.com/powershell/module/azurerm.compute/add-azurermvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
+To resolve both these errors, use [Add-AzVhd to upload the original VHD](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd), available on-premises, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first.
 
 **Capture Errors:**
 

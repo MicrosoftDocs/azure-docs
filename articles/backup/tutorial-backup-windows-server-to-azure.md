@@ -1,14 +1,14 @@
 ---
 title: Back up Windows Server to Azure
 description: This tutorial details backing up on-premises Windows Servers to a Recovery Services vault.
-services: backup
-author: saurabhsensharma
-manager: shivamg
+
+author: dcurwin
+manager: carmonm
 keywords: windows server back up; back up windows server; back up and disaster recovery
 ms.service: backup
 ms.topic: tutorial
 ms.date: 8/22/2018
-ms.author: saurse
+ms.author: dacurwin
 ms.custom: mvc
 ---
 # Back up Windows Server to Azure
@@ -20,12 +20,12 @@ You can use Azure Backup to protect your Windows Server from corruptions, attack
 > [!div class="checklist"]
 > * Download and set up the MARS Agent
 > * Configure back up times and retention schedule for your server’s backups
-> * Perform an ad-hoc back up
+> * Perform an ad hoc back up
 
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a Recovery Services vault
 
@@ -82,11 +82,11 @@ The Microsoft Azure Recovery Services (MARS) agent creates an association betwee
 
 1. Locate and double-click the downloaded **MARSagentinstaller.exe**.
 2. The **Microsoft Azure Recovery Services Agent Setup Wizard** appears. As you go through the wizard, provide the following information when prompted and click **Register**.
-    - Location for the installation and cache folder.
-    - Proxy server info if you use a proxy server to connect to the internet.
-    - Your user name and password details if you use an authenticated proxy.
+   - Location for the installation and cache folder.
+   - Proxy server info if you use a proxy server to connect to the internet.
+   - Your user name and password details if you use an authenticated proxy.
 
-    ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![prepare infrastructure](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. At the end of the wizard, click **Proceed to Registration** and provide the **Vault Credentials** file you downloaded in the previous procedure.
  
@@ -122,7 +122,7 @@ You use the Microsoft Azure Recovery Services agent to schedule when backups to 
 
 11.	After the wizard finishes creating the backup schedule, click **Close**.
 
-## Perform an ad-hoc back up
+## Perform an ad hoc back up
 
 You have established the schedule when backup jobs run. However, you have not backed up the server. It is a disaster recovery best practice to run an on-demand backup to ensure data resiliency for your server.
 

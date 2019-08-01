@@ -3,13 +3,13 @@ title: Glossary - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: The QnA Maker service has many new terms from machine-learning and natural language processing as well as service-specific terms. This list will help you understand those terms.
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+author: diberry
+manager: nitinme
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim
+ms.date: 02/21/2019
+ms.author: diberry
 ms.custom: seodec18
 ---
 
@@ -37,4 +37,4 @@ A user query is the question that the end-user or tester asks of the knowledge b
 The response is the answer retrieved from the knowledge base, based on the best match for a given user query.
 
 ## Confidence Score
-The confidence score of the response is a numeric value between 0 and 100, 100 being an exact query match between user query and a question in knowledge base, that the response served is the correct, appropriate response for a given user query. Answers are typically ranked by the confidence score and the one with the higher confidence score is served as the default response.
+The confidence score of the response is a numeric value between 0 and 100, 100 being an exact query match between user query and a question in knowledge base, that the response served is the correct, appropriate response for a given user query. Answers are typically ranked by the confidence score and the one with the higher confidence score is served as the [default response](concepts/confidence-score.md#change-default-answer).

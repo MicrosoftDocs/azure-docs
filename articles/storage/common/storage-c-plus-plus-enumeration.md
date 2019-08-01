@@ -2,18 +2,21 @@
 title: List Azure Storage resources with the Storage Client Library for C++ | Microsoft Docs
 description: Learn how to use the listing APIs in Microsoft Azure Storage Client Library for C++ to enumerate containers, blobs, queues, tables, and entities.
 services: storage
-author: dineshmurthy
+author: mhopkins-msft
+
 ms.service: storage
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: dineshm
-ms.component: common
+ms.author: mhopkins
+ms.reviewer: dineshm
+ms.subservice: common
 ---
+
 # List Azure Storage resources in C++
 Listing operations are key to many development scenarios with Azure Storage. This article describes how to most efficiently enumerate objects in Azure Storage using the listing APIs provided in the Microsoft Azure Storage Client Library for C++.
 
 > [!NOTE]
-> This guide targets the Azure Storage Client Library for C++ version 2.x, which is available via [NuGet](http://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
+> This guide targets the Azure Storage Client Library for C++ version 2.x, which is available via [NuGet](https://www.nuget.org/packages/wastorage) or [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
@@ -28,7 +31,7 @@ The Storage Client Library provides a variety of methods to list or query object
 Each of these methods is shown using different overloads for different scenarios.
 
 ## Asynchronous versus synchronous
-Because the Storage Client Library for C++ is built on top of the [C++ REST library](https://github.com/Microsoft/cpprestsdk), we inherently support asynchronous operations by using [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). For example:
+Because the Storage Client Library for C++ is built on top of the [C++ REST library](https://github.com/Microsoft/cpprestsdk), we inherently support asynchronous operations by using [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). For example:
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -71,7 +74,7 @@ do
     }
     else
     {
-        process_diretory(it->as_directory());
+        process_directory(it->as_directory());
     }
 }
 
@@ -188,7 +191,7 @@ For more information about Azure Storage and Client Library for C++, see the fol
 * [How to use Blob Storage from C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [How to use Table Storage from C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [How to use Queue Storage from C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Azure Storage Client Library for C++ API documentation.](http://azure.github.io/azure-storage-cpp/)
+* [Azure Storage Client Library for C++ API documentation.](https://azure.github.io/azure-storage-cpp/)
 * [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 

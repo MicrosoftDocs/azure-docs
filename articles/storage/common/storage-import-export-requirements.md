@@ -5,9 +5,9 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/15/2019
 ms.author: alkohli
-ms.component: common
+ms.subservice: common
 ---
 # Azure Import/Export system requirements
 
@@ -35,7 +35,7 @@ To prepare the hard drives using the WAImportExport tool, the following **64-bit
 
 Azure Import/Export service supports the following types of storage accounts:
 
-- General Purpose v2 storage accounts (recommended for most scenarios)
+- Standard General Purpose v2 storage accounts (recommended for most scenarios)
 - Blob Storage accounts
 - General Purpose v1 storage accounts (both Classic or Azure Resource Manager deployments), 
 
@@ -68,7 +68,7 @@ The following list of disks is supported for use with the Import/Export service.
 
 |Disk type  |Size  |Supported |Not supported  |
 |---------|---------|---------|---------|
-|SSD    |   2.5"      |         |         |
+|SSD    |   2.5"      |SATA III          |  USB       |
 |HDD     |  2.5"<br>3.5"       |SATA II, SATA III         |External HDD with built-in USB adaptor <br> Disk inside the casing of an external HDD         |
 
 

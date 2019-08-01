@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: ''
 
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 
 editor: ''
 tags: azure-service-management,azure-resource-manager
@@ -71,7 +71,7 @@ The following systems have been tested and are known to work with the Azure Linu
 
 > [!NOTE]
 > This list may differ from the official list of supported systems on the Microsoft Azure Platform, as described here:
-> [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
+> [https://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 

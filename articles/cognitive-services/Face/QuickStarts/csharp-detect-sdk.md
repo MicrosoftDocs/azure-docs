@@ -4,12 +4,12 @@ titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will use the Azure Face SDK with C# to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: face-api
+ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with the .NET SDK, so that I can build more complex scenarios later on.
 ---
@@ -31,6 +31,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. If there are other projects in your solution, select this one as the single startup project.
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Browse** tab and select **Include prerelease**; then find and install the following package:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
+1. Make sure you have installed the latest versions of all NuGet packages for your project. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Updates** tab and install the latest versions of any packages that appear.
 
 ## Add face detection code
 
@@ -44,25 +45,25 @@ Add the following `using` statements to the top of your *Program.cs* file.
 
 ### Add essential fields
 
-Add the following fields to the **Program** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `faceEndpoint` string so that it contains the correct region identifier. You'll also need to set the `localImagePath` and/or `remoteImageUrl` values to paths that point to actual image files.
+Add the **Program** class with the following fields. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `faceEndpoint` string so that it contains the correct region identifier. You'll also need to set the `localImagePath` and/or `remoteImageUrl` values to paths that point to actual image files.
 
 The `faceAttributes` field is simply an array of certain types of attributes. It will specify which information to retrieve about the detected faces.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=9-34)]
 
 ### Create and use the Face client
 
-Next, add the following code to the **Main** method of the **Program** class. This sets up a Face API client.
+Next, add the **Main** method of the **Program** class with the following code. This sets up a Face API client.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-Also in the **Main** method, add the following code to use the newly-created Face client to detect faces in a remote and local image. The detection methods will be defined next. 
+Also in the **Main** method, add the following code to use the newly created Face client to detect faces in a remote and local image. The detection methods will be defined next. 
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### Detect faces
 
-Add the following method to the **Program** class. It uses the Face service client to detect faces in a remote image, referenced by a URL. Note that it uses the `faceAttributes` field&mdash;the **DetectedFace** objects added to `faceList` will have the specified attributes (in this case, age and gender).
+Add the following method to the **Program** class. It uses the Face service client to detect faces in a remote image, referenced by a URL. It uses the `faceAttributes` field&mdash;the **DetectedFace** objects added to `faceList` will have the specified attributes (in this case, age and gender).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
@@ -76,9 +77,9 @@ Next, define the **GetFaceAttributes** method. It returns a string with the rele
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-Finally, define the **DisplayAttributes** method to write face attribute data to the console output.
+Finally, define the **DisplayAttributes** method to write face attribute data to the console output. You can then close the class and namespace.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-125)]
 
 ## Run the app
 

@@ -4,7 +4,7 @@ description: include file
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 
 ms.service: active-directory
@@ -20,45 +20,62 @@ ms.custom: include file
 
 ## Register your application
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) to register an application.
-1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview) > New registration**.
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+
+1. If your account gives you access to more than one tenant, select the account at the top right, and then set your portal session to the Azure AD tenant that you want to use.
+1. Go to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 1. When the **Register an application** page appears, enter a name for your application.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts**.
-1. Under the **Redirect URI** section, select the **Web** platform and set the value to the application's URL based on your web server. See the sections below for instructions on how to set and obtain the redirect URL in Visual Studio and Node.
-1. When finished, select **Register**.
-1. On the app **Overview** page, note down the **Application (client) ID** value.
-1. This quickstart requires the [Implicit grant flow](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) to be enabled. In the left-hand navigation pane of the registered application, select **Authentication**.
-1. In **Advanced settings**, under **Implicit grant**, enable both **ID tokens** and **Access tokens** checkboxes. ID tokens and access tokens are required since this app needs to sign in users and call an API.
+1. Under the **Redirect URI** section, in the drop-down list, select the **Web** platform, and then set the value to the application URL that's based on your web server. 
+
+   For information about setting and obtaining the redirect URL in Visual Studio and Node.js, see the next two sections.
+
+1. Select **Register**.
+1. On the app **Overview** page, note the **Application (client) ID** value for later use.
+1. This quickstart requires the [Implicit grant flow](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
+1. In **Advanced settings**, under **Implicit grant**, select the **ID tokens** and **Access tokens** check boxes. ID tokens and access tokens are required, because this app needs to sign in users and call an API.
 1. Select **Save**.
 
-> #### Setting the redirect URL for Node
-> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses the port 30662 for reference but you can use any other available port. Follow the instructions below to set up a redirect URL in the application registration information:<br/>
-> - Switch back to the *Application Registration* and set `http://localhost:30662/` as a `Redirect URL`, or use `http://localhost:[port]/` if you are using a custom TCP port (where *[port]* is the custom TCP port number).
-
-<p/>
-
-> #### Visual Studio instructions for obtaining the redirect URL
-> Follow these steps to obtain the redirect URL:
-> 1. In **Solution Explorer**, select the project and look at the **Properties** window. If you don’t see a **Properties** window, press **F4**.
-> 2. Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3. Switch back to the *Application Registration* and set the value as a **Redirect URL**.
+> #### Set a redirect URL for Node.js
+> For Node.js, you can set the web server port in the *server.js* file. This tutorial uses port 30662 for reference, but you can use any other available port. 
+>
+> To set up a redirect URL in the application registration information, switch back to the **Application Registration** pane, and do either of the following:
+>
+> - Set *`http://localhost:30662/`* as the **Redirect URL**.
+> - If you're using a custom TCP port, use *`http://localhost:<port>/`* (where *\<port>* is the custom TCP port number).
+>
+> #### Set a redirect URL for Visual Studio
+> To obtain the redirect URL for Visual Studio, do the following:
+> 1. In **Solution Explorer**, select the project.
+>
+>    The **Properties** window opens. If it doesn't open, press **F4**.
+>
+>    ![The JavaScriptSPA Project Properties window](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)
+>
+> 1. Copy the **URL** value.
+ 
+> 1. Switch back to the **Application Registration** pane, and paste the copied value as the **Redirect URL**.
 
 #### Configure your JavaScript SPA
 
-1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
+1. In the *index.html* file that you created during project setup, add the application registration information. At the top of the file, within the `<script></script>` tags, add the following code:
 
     ```javascript
-    var applicationConfig = {
-        clientID: "Enter_the_Application_Id_here",
-        authority: "https://login.microsoftonline.com/common",
-        graphScopes: ["user.read"],
-        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    var msalConfig = {
+        auth: {
+            clientId: "<Enter_the_Application_Id_here>",
+            authority: "https://login.microsoftonline.com/<Enter_the_Tenant_info_here>"
+        },
+        cache: {
+            cacheLocation: "localStorage",
+            storeAuthStateInCookie: true
+        }
     };
     ```
 
-<ol start="2">
-<li>
-Replace <code>Enter the application Id here</code> with the application ID you just registered.
-</li>
-</ol>
+    Where:
+    - *\<Enter_the_Application_Id_here>* is the **Application (client) ID** for the application you registered.
+    - *\<Enter_the_Tenant_info_here>* is set to one of the following options:
+       - If your application supports *Accounts in this organizational directory*, replace this value with the **Tenant ID** or **Tenant name** (for example, *contoso.microsoft.com*).
+       - If your application supports *Accounts in any organizational directory*, replace this value with **organizations**.
+       - If your application supports *Accounts in any organizational directory and personal Microsoft accounts*, replace this value with **common**. To restrict support to *Personal Microsoft accounts only*, replace this value with **consumers**.

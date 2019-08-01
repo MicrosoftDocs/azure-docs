@@ -1,26 +1,30 @@
 ---
-title: Frequently Asked Questions about Project Acoustics
+title: Project Acoustics Frequently Asked Questions
 titlesuffix: Azure Cognitive Services
 description: This page provides answers to questions asked frequently about Project Acoustics, including download instructions and bake process.
 services: cognitive-services
 author: kegodin
-manager: cgronlun
+manager: nitinme
 
 ms.service: cognitive-services
-ms.component: acoustics
+ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
 ---
-# Frequently asked questions
+# Project Acoustics Frequently Asked Questions
 
 ## What is Project Acoustics?
 
-The Project Acoustics Unity plugin is an acoustics system that calculates sound wave behavior prior to runtime, akin to static lighting. The cloud does the heavy lifting of wave physics computations, so runtime CPU cost is low.  
+The Project Acoustics suite of plugins is an acoustics system that calculates sound wave behavior prior to runtime, akin to static lighting. The cloud does the heavy lifting of wave physics computations, so runtime CPU cost is low.  
 
 ## Where can I download the plugin?
 
-If you're interested in evaluating the acoustics plugin, register [here](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u) to join the Designer Preview.
+You can download the [Project Acoustics Unity plugin](https://www.microsoft.com/download/details.aspx?id=57346) or the [Project Acoustics Unreal plugin](https://www.microsoft.com/download/details.aspx?id=58090).
+
+## Does Project Acoustics support &lt;x&gt; platform?
+
+Project Acoustics platform support evolves based on customer needs. Please contact us on the [Project Acoustics issue forum](https://github.com/microsoft/ProjectAcoustics/issues) to inquire about support for additional platforms.
 
 ## Is Azure used at runtime?
 
@@ -40,17 +44,17 @@ No. The system will ingest detailed level geometry directly. It will be voxelize
  
 ## What's in the runtime lookup table?
 
-The ACE file is a table of acoustic parameters between numerous source and listener location pairs.
+The ACE file includes is a table of acoustic parameters between numerous source and listener location pairs, as well as voxelized scene geometry used for parameter interpolation.
  
-## Can it handle moving sources?
+## Can Project Acoustics handle moving sources?
 
-Yes, the **Microsoft Acoustics** Unity spatializer plugin consults the lookup table on each audio processing tick with the current source and listener locations. The spatializer's DSP smoothly updates the acoustic processing parameters on each tick.
+Yes, Project Acoustics consults the lookup table and updates the audio DSP on each tick, so it can handle moving sources and listener.
  
-## Can it handle dynamic geometry? Closing doors? Walls blown away?
+## Can Project Acoustics handle dynamic geometry? Closing doors? Walls blown away?
 
-No. The acoustic parameters are precomputed based on the static state of a game level. We suggest leaving door geometry out of acoustics, and then apply additional occlusion based on the state of destructible and movable game objects using established techniques.
+No. The acoustic parameters are precomputed based on the static state of a game level. We suggest leaving door geometry out of acoustics, and then applying additional occlusion based on the state of destructible and movable game objects using established techniques.
  
-## Does it handle materials?
+## Does Project Acoustics use acoustic materials?
 
 Yes. Materials are picked from the physical material names in your level, driving absorptivity.
  
@@ -60,12 +64,12 @@ Probes are a sampling of possible player locations. Each probe represents a sepa
  
 ## Why spend so much compute in the cloud? What does it buy me?
 
-Project Acoustics provides accurate and reliable acoustic parameters even for ultra-complex virtual environments, taking every architectural aspect into account. It provides smooth occlusion/obstruction without all the manual work and dynamic reverb variation without drawing volumes. All while remaining light on CPU during runtime.
+Project Acoustics provides accurate and reliable acoustic parameters even for ultra-complex virtual environments, taking every architectural aspect into account. It provides smooth occlusion and obstruction and dynamic reverb variation without the manual work of drawing volumes. All while remaining light on CPU during runtime.
 
 ## What exactly happens during "baking"?
 
-The system considers potential player locations to generate a set of uniformly spaced "probe" sample positions. A bake for a level consists of independent tasks for each probe: The system considers a cuboid "Simulation Region" centered at the probe and does a detailed wave simulation within that region at up to 25 cm resolution.
+A bake consists of acoustic wave simulations of cuboid simulation regions centered at each listener probe.
 
-## Next Steps
-* Explore the [sample scene](sample-walkthrough.md)
+## Next steps
+* Try the [Project Acoustics Unity sample content](unity-quickstart.md) or [Unreal sample content](unreal-quickstart.md)
 

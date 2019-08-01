@@ -13,6 +13,8 @@ ms.author: tomfitz
 ---
 # Create and publish a managed application definition
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 You can create and publish Azure [managed applications](overview.md) that are intended for members of your organization. For example, an IT department can publish managed applications that fulfill organizational standards. These managed applications are available through the service catalog, not the Azure marketplace.
 
 To publish a managed application for the service catalog, you must:
@@ -25,7 +27,7 @@ To publish a managed application for the service catalog, you must:
 
 For this article, your managed application has only a storage account. It's intended to illustrate the steps of publishing a managed application. For complete examples, see [Sample projects for Azure managed applications](sample-projects.md).
 
-The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/install-azurerm-ps).
+The PowerShell examples in this article require Azure PowerShell 6.2 or later. If needed, [update your version](/powershell/azure/install-Az-ps).
 
 ## Create the resource template
 
@@ -78,20 +80,20 @@ Add the following JSON to your file. It defines the parameters for creating a st
 
 Save the mainTemplate.json file.
 
-## Create the user interface definition
+## Defining your create experience using CreateUiDefinition.json
 
-The Azure portal uses the **createUiDefinition.json** file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements] (create-uidefinition-elements.md) including drop-downs, text boxes, and password boxes.
 
-Create a file named **createUiDefinition.json**. The name is case-sensitive.
+Create a file named **createUiDefinition.json** (This name is case-sensitive)
 
-Add the following JSON to the file.
+Add the following starter JSON to the file and save it.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -132,10 +134,9 @@ Add the following JSON to the file.
             "location": "[location()]"
         }
     }
-}
 ```
 
-Save the createUiDefinition.json file.
+To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 
 ## Package the files
 
@@ -144,8 +145,8 @@ Add the two files to a .zip file named app.zip. The two files must be at the roo
 Upload the package to an accessible location from where it can be consumed. 
 
 ```powershell
-New-AzureRmResourceGroup -Name storageGroup -Location eastus
-$storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
+New-AzResourceGroup -Name storageGroup -Location eastus
+$storageAccount = New-AzStorageAccount -ResourceGroupName storageGroup `
   -Name "mystorageaccount" `
   -Location eastus `
   -SkuName Standard_LRS `
@@ -153,9 +154,9 @@ $storageAccount = New-AzureRmStorageAccount -ResourceGroupName storageGroup `
 
 $ctx = $storageAccount.Context
 
-New-AzureStorageContainer -Name appcontainer -Context $ctx -Permission blob
+New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
 
-Set-AzureStorageBlobContent -File "D:\myapplications\app.zip" `
+Set-AzStorageBlobContent -File "D:\myapplications\app.zip" `
   -Container appcontainer `
   -Blob "app.zip" `
   -Context $ctx 
@@ -170,7 +171,7 @@ The next step is to select a user group or application for managing the resource
 You need the object ID of the user group to use for managing the resources. 
 
 ```powershell
-$groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
+$groupID=(Get-AzADGroup -DisplayName mygroup).Id
 ```
 
 ### Get the role definition ID
@@ -178,7 +179,7 @@ $groupID=(Get-AzureRmADGroup -DisplayName mygroup).Id
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user, user group, or application. Typically, you use the Owner or Contributor or Reader role. The following command shows how to get the role definition ID for the Owner role:
 
 ```powershell
-$ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
+$ownerID=(Get-AzRoleDefinition -Name Owner).Id
 ```
 
 ### Create the managed application definition
@@ -186,15 +187,15 @@ $ownerID=(Get-AzureRmRoleDefinition -Name Owner).Id
 If you don't already have a resource group for storing your managed application definition, create one now:
 
 ```powershell
-New-AzureRmResourceGroup -Name appDefinitionGroup -Location westcentralus
+New-AzResourceGroup -Name appDefinitionGroup -Location westcentralus
 ```
 
 Now, create the managed application definition resource.
 
 ```powershell
-$blob = Get-AzureStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
 
-New-AzureRmManagedApplicationDefinition `
+New-AzManagedApplicationDefinition `
   -Name "ManagedStorage" `
   -Location "westcentralus" `
   -ResourceGroupName appDefinitionGroup `

@@ -3,7 +3,7 @@ title: Azure CLI Script Sample - Create app and deploy continuously from Azure R
 description: Azure CLI Script Sample - Create an app with continuous deployment from Azure Repos
 services: app-service\web
 documentationcenter: 
-author: msangapu
+author: msangapu-msft
 manager: jeconnoc
 editor: 
 tags: azure-service-management
@@ -15,15 +15,15 @@ ms.devlang: azurecli
 ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: jeconnoc
+ms.author: msangapu-msft
 ms.custom: mvc
 ms.custom: seodec18
 ---
 # Create an App Service app with continuous deployment using Azure CLI
 
-This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from a Azure DevOps repository. For this sample, you need:
+This sample script creates an app in App Service with its related resources, and then sets up continuous deployment from an Azure DevOps repository. For this sample, you need:
 
-* A Azure DevOps repository with application code, that you have administrative permissions for.
+* An Azure DevOps repository with application code, that you have administrative permissions for.
 * A [Personal Access Token (PAT)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts) for your Azure DevOps organization.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]

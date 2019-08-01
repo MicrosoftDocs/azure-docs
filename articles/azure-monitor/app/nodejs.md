@@ -10,21 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/01/2017
+ms.date: 03/14/2019
 ms.author: mbullwin
 ---
 
 # Monitor your Node.js services and apps with Application Insights
 
-[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you [discover and rapidly diagnose performance and other issues](../../azure-monitor/app/detect-triage-diagnose.md). You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
+[Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) monitors your backend services and components after deployment, to help you discover and rapidly diagnose performance and other issues. You can use Application Insights for Node.js services that are hosted in your datacenter, in Azure VMs and web apps, and even in other public clouds.
 
 To receive, store, and explore your monitoring data, include the SDK in your code, and then set up a corresponding Application Insights resource in Azure. The SDK sends data to that resource for further analysis and exploration.
 
 The Node.js SDK can automatically monitor incoming and outgoing HTTP requests, exceptions, and some system metrics. Beginning in version 0.20, the SDK also can monitor some common third-party packages, like MongoDB, MySQL, and Redis. All events related to an incoming HTTP request are correlated for faster troubleshooting.
 
 You can use the TelemetryClient API to manually instrument and monitor additional aspects of your app and system. We describe the TelemetryClient API in more detail later in this article.
-
-![Example performance monitoring charts](./media/nodejs/10-perf.png)
 
 ## Get started
 
@@ -44,11 +42,7 @@ Before you begin, make sure that you have an Azure subscription, or [get a new o
 1. Sign in to the [Azure portal][portal].
 2. Select **Create a resource** > **Developer tools** > **Application Insights**. The resource includes an endpoint for receiving telemetry data, storage for this data, saved reports and dashboards, rule and alert configuration, and more.
 
-  ![Create an Application Insights resource](./media/nodejs/03-new_appinsights_resource.png)
-
 3. On the resource creation page, in the **Application Type** box, select **Node.js Application**. The app type determines the default dashboards and reports that are created. (Any Application Insights resource can collect data from any language and platform.)
-
-  ![New Application Insights resource form](./media/nodejs/04-create_appinsights_resource.png)
 
 ### <a name="sdk"></a> Set up the Node.js SDK
 
@@ -56,29 +50,29 @@ Include the SDK in your app, so it can gather data.
 
 1. Copy your resource's Instrumentation Key (also called an *ikey*) from the Azure portal. Application Insights uses the ikey to map data to your Azure resource. Before the SDK can use your ikey, you must specify the ikey in an environment variable or in your code.  
 
-  ![Copy instrumentation key](./media/nodejs/05-appinsights_ikey_portal.png)
+   ![Copy instrumentation key](./media/nodejs/instrumentation-key-001.png)
 
 2. Add the Node.js SDK library to your app's dependencies via package.json. From the root folder of your app, run:
 
-  ```bash
-  npm install applicationinsights --save
-  ```
+   ```bash
+   npm install applicationinsights --save
+   ```
 
 3. Explicitly load the library in your code. Because the SDK injects instrumentation into many other libraries, load the library as early as possible, even before other `require` statements. 
 
-  At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
+   At the top of your first .js file, add the following code. The `setup` method configures the ikey (and thus, the Azure resource) to be used by default for all tracked items.
 
-  ```javascript
-  const appInsights = require("applicationinsights");
-  appInsights.setup("<instrumentation_key>");
-  appInsights.start();
-  ```
+   ```javascript
+   const appInsights = require("applicationinsights");
+   appInsights.setup("<instrumentation_key>");
+   appInsights.start();
+   ```
    
-  You also can provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments.
+   You also can provide an ikey via the environment variable APPINSIGHTS\_INSTRUMENTATIONKEY, instead of passing it manually to  `setup()` or `new appInsights.TelemetryClient()`. This practice lets you keep ikeys out of committed source code, and you can specify different ikeys for different environments.
 
-  For additional configuration options, see the following sections.
+   For additional configuration options, see the following sections.
 
-  You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
+   You can try the SDK without sending telemetry by setting `appInsights.defaultClient.config.disableAppInsights = true`.
 
 ### <a name="monitor"></a> Monitor your app
 
@@ -86,15 +80,13 @@ The SDK automatically gathers telemetry about the Node.js runtime and about some
 
 Then, in the [Azure portal][portal] go to the Application Insights resource that you created earlier. In the **Overview timeline**, look for your first few data points. To see more detailed data, select different components in the charts.
 
-![First data points](./media/nodejs/12-first-perf.png)
-
 To view the topology that is discovered for your app, select the **Application map** button. Select components in the map to see more details.
 
-![Simple app map](./media/nodejs/06-appinsights_appmap.png)
+![Simple app map](./media/nodejs/application-map-002.png)
 
 To learn more about your app, and to troubleshoot problems, in the **INVESTIGATE** section, select the other views that are available.
 
-![Investigate section](./media/nodejs/07-appinsights_investigate_blades.png)
+![Investigate section](./media/nodejs/007-investigate-pane.png)
 
 #### No data?
 
@@ -205,7 +197,7 @@ server.on("listening", () => {
 
 ## Next steps
 
-* [Monitor your telemetry in the portal](../../azure-monitor/app/app-insights-dashboards.md)
+* [Monitor your telemetry in the portal](../../azure-monitor/app/overview-dashboard.md)
 * [Write Analytics queries over your telemetry](../../azure-monitor/log-query/get-started-portal.md)
 
 <!--references-->

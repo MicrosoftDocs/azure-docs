@@ -17,11 +17,20 @@
   - name: Assign a policy - Azure CLI
     displayName: assign, compliance
     href: assign-policy-azurecli.md
+  - name: Assign a policy - template
+    displayName: assign, compliance, resource manager, ARM
+    href: assign-policy-template.md
 - name: Tutorials
   items:
   - name: Create and manage Azure Policy
     displayName: assign, definition, compliance, exempt, exclusion
     href: ./tutorials/create-and-manage.md
+  - name: Create a custom policy definition
+    displayName: disabled, parameters, rule, mode
+    href: ./tutorials/create-custom-policy-definition.md
+  - name: Hands-on Labs - Exploring Azure Policy
+    displayName: create, policy, training, learn
+    href: https://handsonlabs.microsoft.com/handsonlabs/SelfPacedLabs?storyId=story://content-private/content/sp-azuregovernance/1-azpolicy/a-policy
 - name: Samples
   items:
   - name: Index
@@ -107,6 +116,16 @@
     - name: Enforce Data Lake Store encryption
       displayName: deny
       href: samples/enforce-data-lake-store-encryption.md
+  - name: Guest Configuration
+    items:
+    - name: Audit applications aren't installed on Linux
+      displayName: audit, vm
+      href: samples/guest-configuration-applications-installed-linux.md
+  - name: Key Vaults
+    items:
+    - name: Audit vaults for no virtual network endpoints
+      displayName: audit, KeyVault, indexed
+      href: samples/keyvault-no-vnet-rules.md
   - name: Monitoring
     items:
     - name: Audit diagnostic setting
@@ -159,15 +178,15 @@
       - name: NSG X on every subnet
         displayName: deny, all
         href: samples/nsg-on-subnet.md
-    - name: Express Routes
+    - name: ExpressRoute
       items:
-      - name: Allowed Express Route bandwidth
+      - name: Allowed ExpressRoute bandwidth
         displayName: deny
         href: samples/allowed-express-route-bandwidth.md
-      - name: Allowed Express Route SKUs
+      - name: Allowed ExpressRoute SKUs
         displayName: deny
         href: samples/allowed-express-route-skus.md
-      - name: Allowed Express Route peerling locations
+      - name: Allowed ExpressRoute peering locations
         displayName: deny, Location
         href: samples/allowed-express-route-peering.md
     - name: Network Watchers
@@ -241,6 +260,9 @@
   - name: Understand Policy effects
     displayName: order, evaluation
     href: ./concepts/effects.md
+  - name: Azure Policy for Kubernetes
+    displayName: aks, rego, k8s, opa, open policy agent, gatekeeper
+    href: ./concepts/rego-for-aks.md
   - name: Audit VMs with Guest Configuration
     displayName: provider, tools, definition
     href: ./concepts/guest-configuration.md
@@ -249,12 +271,24 @@
   - name: Programmatically create policies
     displayName: assign, definition
     href: ./how-to/programmatically-create.md
+  - name: Author policies for array properties
+    displayName: array property, alias, aliases, in, notIn, type, defaultValue
+    href: ./how-to/author-policies-for-arrays.md
+  - name: Create a Guest Configuration policy
+    displayName: powershell, dsc, chef, linux, windows
+    href: ./how-to/guest-configuration-create.md
   - name: Get compliance data
     displayName: evaluation, scan, summarize, query, events, log analytics
     href: ./how-to/get-compliance-data.md
+  - name: Determine causes of non-compliance
+    displayName: reasons, compliance details
+    href: ./how-to/determine-non-compliance.md
   - name: Remediate non-compliant resources
     displayName: managed identity, task, definition, roleDefinitionIds
     href: ./how-to/remediate-resources.md
+  - name: Enable Azure Monitor for VMs (preview)
+    displayName: insights, log analytics, builtin
+    href: ../../azure-monitor/insights/vminsights-enable-at-scale-policy.md?toc=/azure/governance/policy/toc.json
 - name: Reference
   items:
   - name: Azure CLI
@@ -262,10 +296,18 @@
   - name: Azure PowerShell
     items:
     - name: Policy
-      href: /powershell/module/azurerm.resources/#policies
-    - name: Guest Configuration (preview)
-      href: https://www.powershellgallery.com/packages/AzureRM.GuestConfiguration
-  - name: REST API
+      href: /powershell/module/az.resources/#policies
+    - name: Policy Insights
+      href: /powershell/module/az.policyinsights#policy_insights
+    - name: Guest Configuration
+      href: https://www.powershellgallery.com/packages/Az.GuestConfiguration
+  - name: Azure SDK for .NET
+    items:
+    - name: Assignments
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policyassignment
+    - name: Policy Definitions
+      href: /dotnet/api/microsoft.azure.management.resourcemanager.models.policydefinition
+  - name: REST
     items:
     - name: Events
       href: /rest/api/policy-insights/policyevents
@@ -281,7 +323,7 @@
       href: /rest/api/policy-insights/policytrackedresources
     - name: Remediations
       href: /rest/api/policy-insights/remediations
-    - name: Guest Configuration (preview)
+    - name: Guest Configuration
       href: /rest/api/guestconfiguration/
   - name: Resource Manager templates
     items:
@@ -297,8 +339,8 @@
     href: https://github.com/Azure/azure-policy
   - name: Video - Build 2018
     href: https://channel9.msdn.com/events/Build/2018/THR2030
-  - name: Video - Ignite 2017
-    href: https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2238
+  - name: Governance YouTube Channel
+    href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
   - name: Guest Configuration videos
     items:
     - name: Getting Started

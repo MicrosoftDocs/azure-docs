@@ -3,16 +3,16 @@ title: "Quickstart: Translator Speech API Java"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the  Translator Speech API.
 services: cognitive-services
-author: v-jaswel
-manager: cgronlun
-
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
-ms.component: translator-speech
+ms.subservice: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
-ms.author: v-jaswel
+ms.author: swmachan
+ROBOTS: NOINDEX,NOFOLLOW
 ---
-# Quickstart: Translator Speech API with Java 
+# Quickstart: Translator Speech API with Java
 <a name="HOLTop"></a>
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
@@ -34,7 +34,7 @@ You will need the following files.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (or newer)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (or newer)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+You will need a .wav file named "speak.wav" in the same folder as the executable you compile from the code below. This .wav file should be in standard PCM, 16bit, 16kHz, mono format. You can obtain such a .wav file from the [Text to Speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft Translator Speech API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -98,7 +98,7 @@ import org.eclipse.jetty.websocket.common.scopes.*;
     https://docs.oracle.com/javaee/7/api/javax/websocket/Session.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/RemoteEndpoint.Basic.html
     https://docs.oracle.com/javaee/7/api/javax/websocket/OnMessage.html
-    http://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
+    https://www.oracle.com/technetwork/articles/java/jsr356-1937161.html
 */
 
 @ClientEndpoint(configurator = Config.class)
@@ -272,7 +272,7 @@ A successful result is the creation of a file named "speak2.wav". The file conta
 > [!div class="nextstepaction"]
 > [Translator Speech tutorial](../tutorial-translator-speech-csharp.md)
 
-## See also 
+## See also
 
 [Translator Speech overview](../overview.md)
 [API Reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

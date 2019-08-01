@@ -4,7 +4,7 @@ description: How to redeploy Linux virtual machines in Azure to mitigate SSH con
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: genlin
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-manager,top-support-issue
 
 ms.assetid: e9530dd6-f5b0-4160-b36b-d75151d99eb7
@@ -25,9 +25,9 @@ If you face difficulties troubleshooting SSH or application access to a Linux vi
 
 
 ## Use the Azure CLI
-Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/reference-index#az_login).
+Install the latest [Azure CLI](/cli/azure/install-az-cli2) and log in to your Azure account using [az login](/cli/azure/reference-index).
 
-Redeploy your VM with [az vm redeploy](/cli/azure/vm#az_vm_redeploy). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
+Redeploy your VM with [az vm redeploy](/cli/azure/vm). The following example redeploys the VM named *myVM* in the resource group named *myResourceGroup*:
 
 ```azurecli
 az vm redeploy --resource-group myResourceGroup --name myVM 

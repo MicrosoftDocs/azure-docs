@@ -1,116 +1,126 @@
 ---
-title: Azure Application Insights Profiler Settings Blade | Microsoft Docs
-description: See profiler status and start profiling sessions
+title: Use the Azure Application Insights Profiler settings pane | Microsoft Docs
+description: See Profiler status and start profiling sessions
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: cweining
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.reviewer: cawa
+ms.reviewer: mbullwin
 ms.date: 08/06/2018
-ms.author: mbullwin
+ms.author: cweining
 ---
 
 # Configure Application Insights Profiler
 
-## Profiler Settings Page
+## Profiler settings pane
 
-The profiler settings page can be opened from the Application Insights Performance page by pressing the **Profiler** button.
+To open the Azure Application Insights Profiler settings pane, go to the Application Insights Performance pane, and then select the **Profiler** button.
 
-![configure profiler pane entry][configure-profiler-entry]
+![Configure the Profiler pane][configure-profiler-entry]
 
-The Configure Application Insights Profiler page contains four features: 
-1. **Profile Now** - clicking this button will cause profiling sessions to start for all apps that are linked to this instance of Application Insights
-1. **Linked apps** - List of applications sending profiler to this Application Insights resource
-1. **Sessions in Progress** - When you press **Profile Now**, the status of the session will display here)
-1. **Recent profiling sessions** - Shows information about past profiling sessions.
+The **Configure Application Insights Profiler** pane contains four features: 
+* **Profile Now**: Starts profiling sessions for all apps that are linked to this instance of Application Insights.
+* **Linked apps**: Lists applications that send profiling data to this Application Insights resource.
+* **Sessions in Progress**: Displays the status of the session when you select **Profile Now**. 
+* **Recent profiling sessions**: Displays information about past profiling sessions.
 
 ![Profiler on-demand][profiler-on-demand]
 
-## App Service Environments (ASE)
-Depending on how your ASE is configured, the call to check on the agent status may be blocked. This page will say that the agent isn't running when in fact it is. You can check the webjob on your application to be sure. But if all the app settings are set correctly and the App Insights site extension is installed on your application, the profiler will be running and you should see recent profiling sessions in the list if there's adequate traffic to your application.
+## App Service Environment
+Depending on how your Azure App Service Environment is configured, the call to check on the agent status might be blocked. The pane might display a message that the agent isn't running even when it is running. To make sure that it is, check the webjob on your application. If all the app settings values are correct and the Application Insights site extension is installed on your application, Profiler is running. If your application is receiving enough traffic, recent profiling sessions should be displayed in a list.
 
 ## <a id="profileondemand"></a> Manually trigger Profiler
 
-Profiler can be triggered manually with one button click. Suppose you are running a web performance test. You will need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial since you know when load test will be running, but the random sampling interval might miss it.
-The following steps illustrate how this scenario works:
+### Minimum Requirements 
+For a user to manually trigger a profiler session they require at minimum "write" access on their role for the Application Insights component. In most cases you get this access automatically and no additional work is needed. If you are having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
-### (Optional) Step 1: Generate traffic to your web app by starting a web performance test
+You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial, because you know when the load test will be running. But the random sampling interval might miss it.
+
+The next sections illustrate how this scenario works:
+
+### Step 1: (Optional) Generate traffic to your web app by starting a web performance test
 
 If your web app already has incoming traffic or if you just want to manually generate traffic, skip this section and continue to Step 2.
 
-Navigate to Application Insights portal, **Configure > Performance Testing**. Click on New button to start a new performance test.
+1. In the Application Insights portal, select **Configure** > **Performance Testing**. 
 
-![create new performance test][create-performance-test]
+1. To start a new performance test, select the **New** button.
 
-In the **New performance test** pane, configure the test target URL. Accept all default settings and start running the load test.
+   ![create new performance test][create-performance-test]
 
-![Configure load test][configure-performance-test]
+1. In the **New performance test** pane, configure the test target URL. Accept all default settings, and then select **Run test** to start running the load test.
 
-You will see the new test is queued first, followed by a status of 'in progress'.
+    ![Configure load test][configure-performance-test]
 
-![load test is submitted and queued][load-test-queued]
+    The new test is queued first, followed by a status of *in progress*.
 
-![load test is running in progress][load-test-in-progress]
+    ![Load test is submitted and queued][load-test-queued]
 
-### Step 2: Start profiler on-demand
+    ![Load test is running in progress][load-test-in-progress]
 
-Once the load test is running, we can start profiler to capture traces on the web app while it's receiving load.
-Navigate to Configure Profiler pane:
+### Step 2: Start a Profiler on-demand session
+
+1. When the load test is running, start Profiler to capture traces on the web app while it's receiving load.
+
+1. Go to the **Configure Profiler** pane.
 
 
 ### Step 3: View traces
 
-Once the profiler finishes running, follow the instructions on notification to go to Performance page and view traces.
+After Profiler finishes running, follow the instructions on notification to go to Performance pane and view traces.
 
-## Troubleshooting on-demand profiler
+## Troubleshoot the Profiler on-demand session
 
-Sometimes you might see Profiler timeout error message after an on-demand session:
+After an on-demand session, you might receive a Profiler timeout error message:
 
 ![Profiler timeout error][profiler-timeout]
 
-There could be two reasons why you see this error:
+You might receive this error for either of the following reasons:
 
-1. The on-demand profiler session was successful, but Application Insights took a longer time to process the collected data. If data didn't finish being processed in 15 minutes, the portal will display a timeout message. Though after a while, Profiler traces will show up. If this happens, just ignore the error message for now. We are actively working on a fix.
+* The on-demand Profiler session was successful, but Application Insights took a longer time than expected to process the collected data.  
 
-1. Your web app has an older version of Profiler agent that does not have the on-demand feature. If you enabled Application Insights Profile previously, chances are you need to update your Profiler agent to start using the on-demand feature.
+  If the data isn't processed within 15 minutes, the portal displays a timeout message. After a while, however, Profiler traces will show up. If you receive an error message, ignore it for now. We are actively working on a fix.
+
+* Your web app has an older version of Profiler agent that doesn't have the on-demand feature.  
+
+  If you enabled Application Insights Profiler previously, you might need to update your Profiler agent to start using the on-demand feature.
   
-Follow these steps to check and install the latest Profiler:
+Go to the App Services **App Settings** pane and check for the following settings:
+* **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for Application Insights.
+* **APPINSIGHTS_PORTALINFO**: ASP.NET
+* **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-1. Go to App Services App Settings and check if the following settings are set:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for Application Insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
-If any of these settings aren't set, go to the Application Insights enablement pane to install the latest site extension.
+If any of the preceding values aren't set, install the latest site extension by doing the following:
 
-1. Go to Application Insights pane in App Services portal.
+1. Go to the **Application Insights** pane in the App Services portal.
 
-    ![Enable Application Insights from App Services portal][enable-app-insights]
+    ![Enable Application Insights from the App Services portal][enable-app-insights]
 
-1. If you see an ‘Update’ button in the following page, click it to update Application Insights site extension that will install the latest Profiler agent.
+1. If the **Application Insights** pane displays an **Update** button, select it to update the Application Insights site extension that will install the latest Profiler agent.
 
     ![Update site extension][update-site-extension]
 
-1. Then click **change** to making sure the Profiler is turned on and select **OK** to save the changes.
+1. To ensure that Profiler is turned on, select **Change**, and then select **OK** to save the changes.
 
     ![Change and save app insights][change-and-save-appinsights]
 
-1. Go back to **App Settings** tab for the App Service to double-check the following app settings items are set:
-    * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
-    * **APPINSIGHTS_PORTALINFO**: ASP.NET
-    * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
+1. Go back to **App Settings** pane for the App Service to ensure that the following values are set:
+   * **APPINSIGHTS_INSTRUMENTATIONKEY**: Replace with the proper instrumentation key for application insights.
+   * **APPINSIGHTS_PORTALINFO**: ASP.NET 
+   * **APPINSIGHTS_PROFILERFEATURE_VERSION**: 1.0.0
 
-    ![app settings for profiler][app-settings-for-profiler]
+     ![App settings for Profiler][app-settings-for-profiler]
 
-1. Optionally, check the extension version and making sure there’s no update available.
+1. Optionally, select **Extensions**, and then check the extension version and determine whether an update is available.
 
-    ![check for extension update][check-for-extension-update]
+    ![Check for extension update][check-for-extension-update]
 
-## Next Steps
-[Enable Profiler and View traces](profiler-overview.md ?toc=/azure/azure-monitor/toc.json)
+## Next steps
+[Enable Profiler and view traces](profiler-overview.md?toc=/azure/azure-monitor/toc.json)
 
 [profiler-on-demand]: ./media/profiler-settings/Profiler-on-demand.png
 [configure-profiler-entry]: ./media/profiler-settings/configure-profiler-entry.png

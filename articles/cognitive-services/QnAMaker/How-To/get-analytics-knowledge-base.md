@@ -1,16 +1,16 @@
 ---
-title: Analytics on knowledgebase 
+title: Analytics on knowledgebase - QnA Maker
 titleSuffix: Azure Cognitive Services
 description: QnA Maker stores all chat logs and other telemetry, if you have enabled App Insights during the creation of your QnA Maker service. Run the sample queries to get your chat logs from App Insights.
 services: cognitive-services
-author: tulasim88
-manager: cgronlun
+author: diberry
+manager: nitinme
 displayName: chat history, history, chat logs, logs
 ms.service: cognitive-services
-ms.component: qna-maker
+ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
-ms.author: tulasim88
+ms.date: 07/16/2019
+ms.author: diberry
 ---
 
 # Get analytics on your knowledge base
@@ -28,16 +28,17 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
 3. Paste in the following query and run it.
 
     ```query
-        requests
-        | where url endswith "generateAnswer"
-        | project timestamp, id, name, resultCode, duration
-        | parse name with *"/knowledgebases/"KbId"/generateAnswer"
-        | join kind= inner (
-        traces | extend id = operation_ParentId
-        ) on id
-        | extend question = tostring(customDimensions['Question'])
-        | extend answer = tostring(customDimensions['Answer'])
-        | project KbId, timestamp, resultCode, duration, question, answer
+    requests
+    | where url endswith "generateAnswer"
+    | project timestamp, id, name, resultCode, duration, performanceBucket
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
+    | join kind= inner (
+    traces | extend id = operation_ParentId
+    ) on id
+    | extend question = tostring(customDimensions['Question'])
+    | extend answer = tostring(customDimensions['Answer'])
+    | extend score = tostring(customDimensions['Score'])
+    | project timestamp, resultCode, duration, id, question, answer, score, performanceBucket,KbId 
     ```
 
     Select **Run** to run the query.
@@ -52,7 +53,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     //Total Traffic
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
-    | parse name with *"/knowledgebases/"KbId"/generateAnswer" 
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer" 
     | summarize ChatCount=count() by bin(timestamp, 1d), KbId
 ```
 
@@ -65,7 +66,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     requests
     | where timestamp <= endDate and timestamp >=startDate
     | where url endswith "generateAnswer" and name startswith "POST" 
-    | parse name with *"/knowledgebases/"KbId"/generateAnswer" 
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer" 
     | summarize ChatCount=count() by KbId
 ```
 
@@ -76,7 +77,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     requests
     | where url endswith "generateAnswer"
     | project timestamp, id, name, resultCode, duration
-    | parse name with *"/knowledgebases/"KbId"/generateAnswer"
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
     | join kind= inner (
     traces | extend id = operation_ParentId 
     ) on id
@@ -90,7 +91,7 @@ QnA Maker stores all chat logs and other telemetry, if you have enabled App Insi
     //Latency distribution of questions
     requests
     | where url endswith "generateAnswer" and name startswith "POST"
-    | parse name with *"/knowledgebases/"KbId"/generateAnswer" 
+    | parse kind = regex name with *"(?i)knowledgebases/"KbId"/generateAnswer"
     | project timestamp, id, name, resultCode, performanceBucket, KbId
     | summarize count() by performanceBucket, KbId
 ```

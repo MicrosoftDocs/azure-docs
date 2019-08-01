@@ -1,18 +1,19 @@
 ---
-title: How-to configure password writeback for Azure AD SSPR
+title: How-to configure password writeback for Azure AD SSPR - Azure Active Directory
 description: Use Azure AD and Azure AD Connect to writeback passwords to an on-premises directory
 
 services: active-directory
 ms.service: active-directory
-ms.component: authentication
+ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 01/11/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: mtillman
+manager: daveba
 ms.reviewer: sahenry
 
+ms.collection: M365-identity-device-management
 ---
 # How-to: Configure password writeback
 
@@ -49,6 +50,7 @@ To use password writeback, you must have one of the following licenses assigned 
 * Microsoft 365 E3 or A3
 * Microsoft 365 E5 or A5
 * Microsoft 365 F1
+* Microsoft 365 Business
 
 > [!WARNING]
 > Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.

@@ -6,33 +6,33 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: mvc
 ---
-# Set up disaster recovery for Azure VMs to a secondary Azure region
+# Set up disaster recovery for Azure VMs
 
 The [Azure Site Recovery](site-recovery-overview.md) service contributes to your disaster recovery strategy by managing and orchestrating replication, failover, and failback of on-premises machines and Azure virtual machines (VMs).
 
-This tutorial shows you how to set up disaster recovery to a secondary Azure region for Azure VMs. In this tutorial, you learn how to:
+This tutorial shows you how to set up disaster recovery for Azure VMs by replicating them from one Azure region to another. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a Recovery Services vault
 > * Verify target resource settings
-> * Set up outbound access for VMs
+> * Set up outbound network connectivity for VMs
 > * Enable replication for a VM
 
 > [!NOTE]
-> This article provides instructions for deploying disaster recovery with the simplest settings. If you want to learn about customized settings, review the articles under the [How To section](azure-to-azure-how-to-enable-replication.md). o
+> This article provides instructions for deploying disaster recovery with the simplest settings. If you want to learn about customized settings, review the articles under the [How To section](azure-to-azure-how-to-enable-replication.md).
 
 ## Prerequisites
 
 To complete this tutorial:
 
-- Make sure that you understand the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
-- Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) for all components.
+- Review the [scenario architecture and components](concepts-azure-to-azure-architecture.md).
+- Review the [support requirements](site-recovery-support-matrix-azure-to-azure.md) before you start.
 
-## Create a vault
+## Create a Recovery Services vault
 
 Create the vault in any region, except the source region.
 
@@ -50,19 +50,18 @@ Create the vault in any region, except the source region.
 
    The new vault is added to the **Dashboard** under **All resources**, and on the main **Recovery Services vaults** page.
 
-## Verify target resources
+## Verify target resource settings
 
 1. Verify that your Azure subscription allows you to create VMs in the target region. Contact support to enable the required quota.
 2. Make sure your subscription has enough resources to support VM sizes that match your source
    VMs. Site Recovery picks the same size, or the closest possible size, for the target VM.
 
-## Configure outbound network connectivity
+## Set up outbound network connectivity for VMs
 
 For Site Recovery to work as expected, you need to modify outbound network connectivity from the VMs that you want to replicate.
 
 > [!NOTE]
 > Site Recovery doesn't support using an authentication proxy to control network connectivity.
-
 
 
 ### Outbound connectivity for URLs
@@ -80,13 +79,13 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
 
 If you want to control outbound connectivity using IP addresses instead of URLs, allow these addresses for IP-based firewalls, proxy, or NSG rules.
 
-  - [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Windows Azure Datacenter IP Ranges in Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653)
+  - [Windows Azure Datacenter IP Ranges in Germany](https://www.microsoft.com/download/details.aspx?id=54770)
+  - [Windows Azure Datacenter IP Ranges in China](https://www.microsoft.com/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
-You can use this [script](https://gallery.technet.microsoft.com/Azure-Recovery-script-to-0c950702) to create the required NSG rules.
+If you're using NSG you can create a storage service tag NSG rules for the source region. [Learn more](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
 
 ## Verify Azure VM certificates
 
@@ -116,9 +115,9 @@ Azure Site Recovery provides three built-in roles to control Site Recovery manag
   operations. This role is best suited for an IT monitoring executive who can monitor the current
   state of protection and raise support tickets.
 
-Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
+Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md).
 
-## Enable replication
+## Enable replication for a VM
 
 ### Select the source
 
@@ -126,9 +125,9 @@ Learn more about [Azure RBAC built-in roles](../role-based-access-control/built-
 2. In **Source**, select **Azure**.
 3. In **Source location**, select the source Azure region where your VMs are currently running.
 4. Select the **Source subscription** where the virtual machines are running. This can be any subscription within the same Azure Active Directory tenant where your recovery services vault exists.
-5. Select the **Source resource group** for Resource Manager VMs, or **cloud service** for classic
-      VMs.
-6. Click **OK** to save the settings.
+5. Select the **Source resource group**, and click **OK** to save the settings.
+
+    ![Set up source](./media/azure-to-azure-tutorial-enable-replication/source.png)
 
 ### Select the VMs
 
@@ -144,65 +143,50 @@ Site Recovery creates default settings and replication policy for the target reg
 1. Click **Settings** to view the target and replication settings.
 2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability**.
 
-  ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
-3. Customize target settings as follows:
+3. Customize target settings as summarized in the table.
 
-    - **Target subscription**: The target subscription used for disaster recovery. By default, the target subscription will be same as the source subscription. Click 'Customize' to select a different target subscription within the same Azure Active Directory tenant.
-    - **Target location**: The target region used for disaster recovery. We recommend that the target
-      location matches the location of the Site Recovery vault.
-    - **Target resource group**: The resource group in the target region that holds Azure VMs after
-      failover. By default, Site Recovery creates a new resource group in the target region with an
-      "asr" suffix. resource group location of the target resource group can be any region except the
-    region where your source virtual machines are hosted.
-    - **Target virtual network**: The network in the target region that VMs are located after failover.
-      By default, Site Recovery creates a new virtual network (and subnets) in the target region with
-      an "asr" suffix.
-    - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
-      source VMs are sent to this account before replication to the target location.
-      >[!NOTE]
-      >If you are using firewall enabled cache storage account, ensure you 'Allow trusted Microsoft services'. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-      >
+    **Setting** | **Details**
+    --- | ---
+    **Target subscription** | By default, the target subscription is the same as the source subscription. Click 'Customize' to select a different target subscription within the same Azure Active Directory tenant.
+    **Target location** | The target region used for disaster recovery.<br/><br/> We recommend that the target location matches the location of the Site Recovery vault.
+    **Target resource group** | The resource group in the target region that holds Azure VMs after failover.<br/><br/> By default, Site Recovery creates a new resource group in the target region with an "asr" suffix. The location of the target resource group can be any region except the region in which your source virtual machines are hosted.
+    **Target virtual network** | The network in the target region that VMs are located after failover.<br/><br/> By default, Site Recovery creates a new virtual network (and subnets) in the target region with an "asr" suffix.
+    **Cache storage accounts** | Site Recovery uses a storage account in the source region. Changes to source VMs are sent to this account before replication to the target location.<br/><br/> If you are using a firewall-enabled cache storage account, make sure that you enable **Allow trusted Microsoft services**. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **Target storage accounts (source VM uses non-managed disks)** | By default, Site Recovery creates a new storage account in the target region to mirror the source VM storage account.<br/><br/> Enable **Allow trusted Microsoft services** if you're using a firewall-enabled cache storage account.
+    **Replica managed disks (If source VM uses managed disks)** | By default, Site Recovery creates replica managed disks in the target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk. You can only customize Disk type 
+    **Target availability sets** | By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.
+    **Target availability zones** | By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones.<br/><br/> If the target region doesn't support availability zones, the target VMs are configured as single instances by default.<br/><br/> Click **Customize** to configure VMs as part of an availability set in the target region.<br/><br/> You can't change the availability type (single instance, availability set or availability zone) after you enable replication. You need to disable and enable replication to change the availability type.
 
-    - **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the target region to mirror the source VM storage account.
-      >[!NOTE]
-      >If you are using firewall enabled source or target storage account, ensure you 'Allow trusted Microsoft services'. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
-      >
+4. To customize replication policy settings, click **Customize** next to **Replication policy**, and modify the settings as needed.
 
-    - **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
-      target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-    - **Target availability sets**: By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.
-    - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones. 
+    **Setting** | **Details**
+    --- | ---
+    **Replication policy name** | Policy name.
+    **Recovery point retention** | By default, Site Recovery keeps recovery points for 24 hours. You can configure a value between 1 and 72 hours.
+    **App-consistent snapshot frequency** | By default, Site Recovery takes an app-consistent snapshot every 4 hours. You can configure any value between 1 and 12 hours.<br/><br/> An app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken.
+    **Replication group** | If your application needs multi-VM consistency across VMs, you can create a replication group for those VMs. By default, the selected VMs are not part of any replication group.
 
-    If the target region does not support availability zones, the target VMs are configured as single instances by default. If required, you can configure such VMs to be part of availability sets in target region by clicking 'Customize'.
+5. In **Customize**, select **Yes** for multi-VM consistency if you want to add VMs to a new or existing replication group. Then click **OK**. 
 
     >[!NOTE]
-    >You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You need to disable and enable replication to change the availability type.
-    >
+    >- All the machines in a replication group have shared crash consistent and app-consistent recovery points when failed over.
+    >- Enabling multi-VM consistency can impact workload performance (it's CPU intensive). It should be used only if machines are running the same workload, and you need consistency across multiple machines.
+    >- You can have a maximum of 16 VMs in a replication group.
+    >- If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Make sure there's no firewall blocking the internal communication between the VMs over this port.
+    >- For Linux VMs in a replication group, ensure the outbound traffic on port 20004 is manually opened in accordance with guidance for the Linux version.
 
-4. To customize replication policy settings, click **Customize** next to **Replication policy**, and modify the following settings as required:
 
-    - **Replication policy name**: Policy name.
-    - **Recovery point retention**: By default, Site Recovery keeps recovery points for 24 hours. You
-      can configure a value between 1 and 72 hours.
-    - **App-consistent snapshot frequency**: By default, Site Recovery takes an app-consistent snapshot
-      every 4 hours. You can configure any value between 1 and 12 hours. A app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that app on the VM are in a consistent state when the snapshot is taken.
-    - **Replication group**: If your application needs multi-VM consistency across VMs, you can create a replication group for those VMs. By default, the selected VMs are not part of any replication group.
-
-5. In **Customize**, select **Yes** for multi-VM consistency if you want to add VMs to a new or existing replication group. to make VMs part of a replication group. Then click **OK**.
-
-    - All the machines in a replication group will have shared crash consistent and app-consistent recovery points when failed over. Enabling multi-VM consistency can impact workload performance (as it is CPU intensive) and should be used only if machines are running the same workload and you need consistency across multiple machines.
-    - You can choose to have at max 16 virtual machines in a replication group.
-    - If you enable multi-VM consistency, machines in the replication group communicate with each other over port 20004. Ensure that there is no firewall appliance blocking the internal communication between the VMs over port 20004. If you want Linux VMs to be part of a replication group, ensure the outbound traffic on port 20004 is manually opened as per the guidance of the specific Linux version.
 
 ### Configure encryption settings
 
-If the source virtual machine has Azure disk encryption (ADE) enabled, encryption settings are shown:
+If the source VM has Azure disk encryption (ADE) enabled, review the settings.
 
-1. Review the encryption settings.
-    - **Disk encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM disk encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
-    - **Key encryption key vaults**: By default, Azure Site Recovery creates a new key vault in the target region with name having "asr" suffix based on the source VM key encryption keys. In case key vault created by Azure Site Recovery already exists, it is reused.
+1. Verify the settings:
+    - **Disk encryption key vaults**: By default, Site Recovery creates a new key vault on the source VM disk encryption keys, with an "asr" suffix. If the key vault already exists, it is reused.
+    - **Key encryption key vaults**: By default, Site Recovery creates a new key vault in the target region. The name has an "asr" suffix, and is based on the source VM key encryption keys. If the key vault created by Site Recovery already exists, it's reused.
 
 2. Click **Customize** to select custom key vaults.
 

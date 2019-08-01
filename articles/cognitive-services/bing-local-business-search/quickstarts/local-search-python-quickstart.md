@@ -1,15 +1,14 @@
 ---
-title: Quickstart - Send a query to the Bing Local Business Search API in Python | Microsoft Docs
+title: Quickstart - Send a query to the Bing Local Business Search API in Python
 titleSuffix: Azure Cognitive Services
 description: Use this article to start using the Bing Local Business Search API in Python.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: nitinme
 ms.service: cognitive-services
-ms.component: bing-local-business
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 # Quickstart: Send a query to the Bing Local Business Search API in Python
 
@@ -35,7 +34,7 @@ The following code gets localized results. It is implemented in the following st
 
 The complete code for this demo follows:
 
-````
+```
 import http.client, urllib.parse
 import json
 
@@ -59,7 +58,7 @@ def get_local():
 result = get_local()
 print (json.dumps(json.loads(result), indent=4))
 
-````
+```
 
 ## Next steps
 - [Local Business Search Java Quickstart](local-search-java-quickstart.md)

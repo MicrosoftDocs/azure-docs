@@ -3,13 +3,15 @@ title: How to use Hudson with Blob storage | Microsoft Docs
 description: Describes how to use Hudson with Azure Blob storage as a repository for build artifacts.
 services: storage
 author: seguler
+
 ms.service: storage
 ms.devlang: Java
 ms.topic: article
 ms.date: 02/28/2017
-ms.author: seguler
-ms.component: common
+ms.author: tarcher
+ms.subservice: common
 ---
+
 # Using Azure Storage with a Hudson Continuous Integration solution
 ## Overview
 The following information shows how to use Blob storage as a repository of build artifacts created by a Hudson Continuous Integration (CI) solution, or as a source of downloadable files to be used in a build process. One of the scenarios where you would find this useful is when you're coding in an agile development environment (using Java or other languages), builds are running based on continuous integration, and you need a repository for your build artifacts, so that you could, for example, share them with other organization members, your customers, or maintain an archive.  Another scenario is when your build job itself requires other files, for example, dependencies to download as part of the build input.
@@ -19,7 +21,7 @@ In this tutorial you will be using the Azure Storage plugin for Hudson CI made a
 ## Introduction to Hudson
 Hudson enables continuous integration of a software project by allowing developers to easily integrate their code changes and have builds produced automatically and frequently, thereby increasing the productivity of the developers. Builds are versioned, and build artifacts can be uploaded to various repositories. This article will show how to use Azure Blob storage as the repository of the build artifacts. It will also show how to download dependencies from Azure Blob storage.
 
-More information about Hudson can be found at [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
+More information about Hudson can be found at [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson).
 
 ## Benefits of using the Blob service
 Benefits of using the Blob service to host your agile development build artifacts include:
@@ -46,7 +48,7 @@ You will need the following to use the Blob service with your Hudson CI solution
   5. After you complete the initial setup, cancel the running instance of the Hudson WAR, start the Hudson WAR again, and  re-open the Hudson dashboard, `http://localhost:8080/`, which you will use to install and configure the Azure Storage plugin.
      
       While a typical Hudson CI solution would be set up to run as a service, running the Hudson war at the command line will be sufficient for this tutorial.
-* An Azure account. You can sign up for an Azure account at <http://www.azure.com>.
+* An Azure account. You can sign up for an Azure account at <https://www.azure.com>.
 * An Azure storage account. If you don't already have a storage account, you can create one using the steps at [Create a Storage Account](../common/storage-quickstart-create-account.md).
 * Familiarity with the Hudson CI solution is recommended but not required, as the following content will use a basic example to show you the steps needed when using the Blob service as a repository for Hudson CI build artifacts.
 
@@ -128,7 +130,7 @@ The following steps show how to configure a build step to download items from Az
 1. In the **Build** section of the job configuration, click **Add build step** and choose **Download from Azure Blob storage**.
 2. For **Storage account name**, select the storage account to use.
 3. For **Container name**, specify the name of the container that has the blobs you want to download. You can use environment variables.
-4. For **Blob name**, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, **project\*** would specify all blobs whose names start with **project**.
+4. For **Blob name**, specify the blob name. You can use environment variables. Also, you can use an asterisk, as a wildcard after you specify the initial letter(s) of the blob name. For example, **project\\*** would specify all blobs whose names start with **project**.
 5. [Optional] For **Download path**, specify the path on the Hudson machine where you want to download files from Azure Blob storage. Environment variables can also be used. (If you do not provide a value for **Download path**, the files from Azure Blob storage will be downloaded to the job's workspace.)
 
 If you have additional items you want to download from Azure Blob storage, you can create additional build steps.
@@ -152,7 +154,7 @@ The following provides an overview of the Blob service components.
     `http://example.blob.core.windows.net/myjob/2014-05-01_11-56-22/1/hello.txt`
 
 ## Next steps
-* [Meet Hudson](http://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
+* [Meet Hudson](https://wiki.eclipse.org/Hudson-ci/Meet_Hudson)
 * [Azure Storage SDK for Java](https://github.com/azure/azure-storage-java)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)

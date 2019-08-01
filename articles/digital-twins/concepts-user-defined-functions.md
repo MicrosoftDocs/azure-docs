@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: alinast
 ---
 
@@ -35,7 +35,7 @@ Data processing in Azure Digital Twins consists of defining three objects: *matc
 
 ### Matchers
 
-Matchers define a set of conditions that evaluate what actions take place based on incoming sensor telemetry. Conditions to determine the match might include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](http://jsonpath.com/) as outlined in this example:
+Matchers define a set of conditions that evaluate what actions take place based on incoming sensor telemetry. Conditions to determine the match might include properties from the sensor, the sensor's parent device, and the sensor's parent space. The conditions are expressed as comparisons against a [JSON path](https://jsonpath.com/) as outlined in this example:
 
 - All sensors of datatype **Temperature** represented by the escaped String value `\"Temperature\"`
 - Having `01` in their port
