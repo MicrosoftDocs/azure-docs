@@ -12,7 +12,7 @@ manager: philmea
 
 # View your bill in IoT Central application
 
-This article describes how, as a administrator, you can view your bill in Azure IoT Central application in the administration section and also how you can convert your trail version to pay-as-you-go.
+This article describes how, as a administrator, you can view your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
@@ -22,12 +22,12 @@ To view your bill, go to the **Billing** page in the **Administration** section.
 
 ## Convert your Trial to Pay-As-You-Go
 
-You can convert your Trial application to a Pay-As-You-Go application. Here are the differences between these types of applications.
-
 - **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
-- **Pay-As-You-Go** applications are charged per device, with the first five devices free.
+- **Pay-As-You-Go** applications are charged per device, with the first five devices free, per subscription.
 
 Learn more about pricing on the [Azure IoT Central pricing page](https://azure.microsoft.com/pricing/details/iot-central/).
+
+In the billing section, you can convert your trial applications into pay-as-you-go.
 
 To complete this self-service process, follow these steps:
 

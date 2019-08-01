@@ -41,6 +41,9 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 Roles can't be changed after they are assigned. To change the role that's assigned to a user, delete the user, and then add the user again with a different role.
 
+> [!NOTE]
+> The roles assigned are specific to IoT Central application and cannot be managed from the Azure Portal.
+
 ### Delete users
 
 To delete users, select one or more check boxes on the **Users** page. Then select **Delete**.

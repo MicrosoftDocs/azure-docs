@@ -1,6 +1,6 @@
 ---
-title: Administer an Azure IoT Central application | Microsoft Docs
-description: As an administrator, how to administer your Azure IoT Central application
+title: Manage your Azure IoT Central application | Microsoft Docs
+description: As an administrator, how to manage your Azure IoT Central application by changing application name, URL, upload image, copy and delete an application
 author: viv-liu
 ms.author: viviali
 ms.date: 04/26/2019
@@ -12,13 +12,12 @@ manager: peterpr
 
 # Administer your IoT Central application
 
-This article describes how, as a administrator, you can manage application settings in your bill in Azure IoT Central application.
+This article describes how, as a administrator, you can manage application by changing application name and URL, uploading image,also you can learn how to copy and delete an application in your Azure IoT Central application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application. 
 
-## Manage application settings
+## Change application name and URL
 
-### Change application name and URL
 In the **Application Settings** page, you can change the name and URL of your application, then select **Save**.
 
 ![Application settings page](media/howto-administer/image0-a.png)
@@ -28,10 +27,12 @@ If your administrator creates a custom theme for your application, this page inc
 > [!Note]
 > If you change your URL, your old URL can be taken by another Azure IoT Central customer. If that happens, it is no longer available for you to use. When you change your URL, the old URL no longer works, and you need to notify your users about the new URL to use.
 
-### Prepare and upload image
+## Prepare and upload image
+
 To change the application image, see [Prepare and upload images to your Azure IoT Central application](howto-prepare-images.md).
 
-### Copy an application
+## Copy an application
+
 You can create a copy of any application, minus any device instances, device data history, and user data. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application in this way.
 
 Select **Copy**. In the dialog box, enter the details for the new Pay-As-You-Go application. Then select **Copy** to confirm that you want to continue. Learn more about the fields in this form in [Create an application](quick-deploy-iot-central.md) quickstart.
@@ -47,25 +48,13 @@ Copying an application also copies the definition of rules and email action. Som
 > [!WARNING]
 > If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
 
-### Delete an application
+## Delete an application
 
 Use the **Delete** button to permanently delete your IoT Central application. This action permanently deletes all data that's associated with the application.
 
 > [!Note]
 > To delete an application, you must also have permissions to delete resources in the Azure subscription you chose when you created the application. To learn more, see [Use role-based access control to manage access to your Azure subscription resources](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure).
 
-
-## Export data
-
-You can enable **Continuous data export** to export measurements, devices, and device templates data to your Azure Blob storage account. Learn more about how to [export your data](howto-export-data.md).
-
-## Manage device connection
-
-Connect devices at scale in your application using the keys and certificates here. Learn more about [connecting devices](concepts-connectivity.md).
-
-## Use access tokens
-
-Generate access tokens to use them in developer tools. Currently the only developer tool available is the IoT Central explorer for monitoring device messages and changes in properties and settings. Learn more about the [IoT Central explorer](howto-use-iotc-explorer.md).
 
 ## Manage programatically
 

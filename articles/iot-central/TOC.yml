@@ -100,7 +100,7 @@
 
   - name : Administration
     items:
-      - name: Administer your application
+      - name: Manage your application
         href: howto-administer.md 
       - name: Manage users and roles
         href: howto-manage-users-and-roles.md 
