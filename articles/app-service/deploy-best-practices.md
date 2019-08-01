@@ -4,7 +4,7 @@ description: Learn about the key components of deploying to Azure App Service.
 keywords: azure app service, web app, deploy, deployment, pipelines, build
 services: app-service
 documentationcenter: ''
-author: 
+author: jasonfreeberg
 manager: 
 editor: 
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: 
+ms.author: jafreebe
 ms.custom: 
 ---
 
