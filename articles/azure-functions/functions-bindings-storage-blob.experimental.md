@@ -346,7 +346,7 @@ The following table explains the binding configuration properties that you set i
     make it for C# Script as well.
 -->
 
-In C# and C# script, you can use the following parameter types for the triggering blob:
+You can use the following parameter types for the triggering blob:
 
 * `Stream`
 * `TextReader`
@@ -371,7 +371,7 @@ Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is s
     make it for C# as well.
 -->
 
-In C# and C# script, you can use the following parameter types for the triggering blob:
+You can use the following parameter types for the triggering blob:
 
 * `Stream`
 * `TextReader`
