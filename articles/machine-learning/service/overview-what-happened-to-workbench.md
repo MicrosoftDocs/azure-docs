@@ -114,7 +114,8 @@ The domain packages for computer vision, text analytics, and forecasting can't b
 
 Learn about the [latest architecture for Azure Machine Learning service](concept-azure-machine-learning-architecture.md). 
 
-For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
+For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md).
 
+Create your first experiment with the two-part tutorial to [setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md)
 
 For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service. 
