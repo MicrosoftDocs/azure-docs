@@ -141,7 +141,7 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Zone Pinned VMs** | Azure Backup supports backup and restore of zoned pinned VMs. [Learn more](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## Track the restore operation
-After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, click on the **Notifications** symbol and so, click **View all Jobs** to see the Restore Process Status.
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **View all Jobs** to see the Restore Process Status.
 
 ![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 
