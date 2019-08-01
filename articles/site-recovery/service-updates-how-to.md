@@ -1,6 +1,6 @@
 ---
-title: Azure Site Recovery updates 
-description: Provides an overview of service updates and how to upgrade Azure Site Recovery components.
+title: Updates and component upgrades in Azure Site Recovery
+description: Provides an overview of Azure Site Recovery service updates, and component upgrades.
 author: rajani-janaki-ram 
 manager: rochakm
 ms.service: site-recovery
@@ -13,7 +13,6 @@ ms.author: rajanaki
 
 This article provides an overview of [Azure Site Recovery](site-recovery-overview.md) updates, and describes how to upgrade Site Recovery components.
 
-
 Site Recovery publishes service updates on a regular basis. Updates include new features, support improvements, component updates, and bug fixes. In order to take advantage of the latest features and fixes, we recommend running the latest versions of Site Recovery components. 
  
  
@@ -25,7 +24,7 @@ We recommend always upgrading to the latest component versions:
 
 **With every new version 'N' of an Azure Site Recovery component that's released, all versions below 'N-4' are considered to be out of support**. 
 
-> [!IMPORTANT
+> [!IMPORTANT]
 > Official support is for upgrading from > N-4 version to N version. For example, if you're running  you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
 
 
