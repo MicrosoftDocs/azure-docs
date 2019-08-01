@@ -29,7 +29,7 @@ What is the challenge in getting authenticated and access data through Office 36
 
 It all started with an intent of accessing the Graph API for different workloads in office 365 viz Accessing an outlook task,planner task or for that matter read Microsoft teams related information. There were couple of approaches to take in this scenario and no matter which approach we take,it all boils down to fetch an OAuth Token as any resource accessible through Graph API is secured with Azure AD. Basically the need is to to have the data in the background for the user, so the user should not be prompted for the credentials during the process, Hence as a first choice, client credentials flow is considered.This worked for quite a few API's, i believe mostly for all of the Graph API's which supports Application permission(for e.g SendMail,Read a sharepoint list item) while your register the App. However, for API's which does not support, its a complete dead end. To my research,there were no other flows as such which can help to fetch token/data without the prompt. Ultimately, in the end i came to know that OAuth2 Token endpoint for AAD supports SAML assertion and SAML assertion is basically in the user context which means delegated permission will work.So in a nutshell below is the scenario.
 
-![][./media/v2-saml-bearer-assertion/1.png]
+![](./media/v2-saml-bearer-assertion/1.png)
 
 Now let us understand on how we can actually fetch SAML Asserstion.programatically. this approach is tested with ADFS. However this works with any IDP which is supporting return of SAML assertion programatically.
 
@@ -58,15 +58,15 @@ This can be achieved with the POSTMAN tool for POC in three parts as below. The 
 ## Get the SAML assertion from ADFS
 1. Create a POST request to ADFS endpoint with SOAP envelope to fetch the SAML assertion
 
-    ![][./media/v2-saml-bearer-assertion/2.png]
+    ![](./media/v2-saml-bearer-assertion/2.png)
 
     Header values as below
 
-    ![][./media/v2-saml-bearer-assertion/3.png]
+    ![](./media/v2-saml-bearer-assertion/3.png)
 
     ADFS request body
 
-    ![][./media/v2-saml-bearer-assertion/4.png]
+    ![](./media/v2-saml-bearer-assertion/4.png)
 
 Note : At the end of the post , i have attached the postman export files for reference Once,this request is posted successfully, you should receive a SAML Assertion from ADFS Only the SAML:Assertion tag data is required for further requests Convert the same to base64 encoding to use in further requests.
 
@@ -74,9 +74,9 @@ Note : At the end of the post , i have attached the postman export files for ref
 In this step ,we will fetch a OAuth2 token using the ADFS assertion response.
 
 1. Create a POST request as shown below with the header values. 
-    ![][./media/v2-saml-bearer-assertion/5.png]
+    ![](./media/v2-saml-bearer-assertion/5.png)
 1. In the Body of the request please do the following. Replace client_id, client_secret and assertion (base 64 encoded SAML assertion obtained in step #1)
-    ![][./media/v2-saml-bearer-assertion/6.png]
+    ![(./media/v2-saml-bearer-assertion/6.png)
 1. Upon successful request you will receive a access token from Azure active directory.
 
 ## Get the data with the Oauth token
@@ -85,7 +85,7 @@ For the POC we will call Graph API’s (e.g outlook tasks in this example)
 
 1. Create a GET request as shown below with the access token fetched in the earlier step. 
 
-    ![][./media/v2-saml-bearer-assertion/7.png]
+    ![](./media/v2-saml-bearer-assertion/7.png)
 
 1. Upon successful request , you will receive a json response.
 
