@@ -43,15 +43,11 @@ To test your device code in this guide, you need an IoT Central application crea
 To work with the device capability model in this guide, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): Visual Studio Code is available for multiple platforms
-* Azure IoT Device Workbench extension for Visual Studio Code:
-    1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
-    1. In Visual Studio Code, select **Extensions** tab.
-    1. Select **Install from VSIX**.
-    1. Select the .vsix file you downloaded.
-    1. Select **Install**.
+* Azure IoT Device Workbench extension for Visual Studio Code. Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
 
-        > [!NOTE]
-        > Bugbash: This is currently the only way to install the extension.
+    1. In VS Code, select the **Extensions** tab.
+    1. Search for **Azure IoT Device Workbench**.
+    1. Select **Install**.
 
 To build the generated C code on Windows in this guide, you need:
 
@@ -61,7 +57,7 @@ To build the generated C code on Windows in this guide, you need:
 * A local copy of the Azure IoT C SDK:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview-utopia
+    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview
     ```
 
 ## Create device template
@@ -177,9 +173,6 @@ You can connect an IoT Plug and Play device through a device-first connection as
 1. Associates with the device template if already published in the IoT Central app.
 
 1. Fetches from the global repository of published and certified capability models.
-
->[!NOTE]
->Bug Bash: The Environmental Sensor device capability model, being used above as a sample, has already been published in the global repository. You can use **urn:bugbash0725:sample_device:1** to access this.
 
 Using Visual Studio Code and the **Generate Device Code Stub** command referenced above, you can follow these steps to connect device-first and automatically bring in your published device capability model from the global repository into IoT Central:
 
