@@ -8,7 +8,6 @@ ms.date: 03/21/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.reviewer: seguler
 ---
 
 # How to use Blob storage from C++

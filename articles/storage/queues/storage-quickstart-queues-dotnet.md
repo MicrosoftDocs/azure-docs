@@ -9,7 +9,6 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.custom: mvc
 ---
 
 # Quickstart: Use .NET to create a queue in Azure Storage

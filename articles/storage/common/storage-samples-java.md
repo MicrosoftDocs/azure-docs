@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 05/03/2019
 ms.service: storage
 ms.subservice: common
-ms.topic: article
+ms.topic: sample
 ---
 
 # Azure Storage samples using Java

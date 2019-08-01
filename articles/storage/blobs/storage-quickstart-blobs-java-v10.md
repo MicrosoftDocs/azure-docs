@@ -7,7 +7,7 @@ ms.author: mhopkins
 ms.date: 11/14/2018
 ms.service: storage
 ms.topic: quickstart
-ms.custom: mvc, seo-java-july2019
+ms.custom: seo-java-july2019
 ---
 
 # Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10

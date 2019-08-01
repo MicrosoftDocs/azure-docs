@@ -8,7 +8,6 @@ ms.date: 11/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mvc
 ---
 
 # Quickstart: Upload, download, and list blobs using Ruby

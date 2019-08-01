@@ -8,7 +8,6 @@ ms.date: 06/13/2017
 ms.service: storage
 ms.subservice: blobs
 ms.topic: sample
-ms.custom: mvc
 ---
 
 # Azure CLI samples for Azure Blob storage

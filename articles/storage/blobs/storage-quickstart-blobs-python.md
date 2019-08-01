@@ -8,7 +8,6 @@ ms.date: 12/14/2018
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mvc
 ---
 
 # Quickstart: Upload, download, and list blobs with Python

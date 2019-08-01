@@ -8,7 +8,6 @@ ms.date: 02/04/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.custom: mvc
 ---
 
 # How to upload, download, and list blobs using the client library for Java v7

@@ -8,7 +8,6 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mvc
 ---
 
 # Quickstart: Azure Blob storage client library for .NET

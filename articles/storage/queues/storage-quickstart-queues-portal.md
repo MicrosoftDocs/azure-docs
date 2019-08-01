@@ -9,7 +9,6 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
 ms.reviewer: cbrooks
-ms.custom: mvc
 ---
 
 # Quickstart: Create a queue and add a message with the Azure portal
