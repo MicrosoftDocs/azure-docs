@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -145,16 +145,16 @@ $roleMember = Get-AzureADUser -ObjectId "username@contoso.com"
 
 #Fetch list of all directory roles with object id
 Get-AzureADDirectoryRole
- 
+
 # Fetch a directory role by id
 $role = Get-AzureADDirectoryRole -ObjectId "5b3fe201-fa8b-4144-b6f1-875829ff7543"
- 
+
 # Remove user from role
 Remove-AzureADDirectoryRoleMember -ObjectId $role.ObjectId -MemberId $roleMember.ObjectId 
 
 # Fetch role membership for role to confirm
 Get-AzureADDirectoryRoleMember -ObjectId $role.ObjectId | Get-AzureADUser
- 
+
 ```
 
 ## Next steps
