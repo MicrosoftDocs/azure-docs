@@ -91,8 +91,6 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the experiment.
 
-An experiment runs on a compute target, which is a compute resource that is attached to your workspace. Once you create a compute target, you can reuse it for future runs.
-
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
