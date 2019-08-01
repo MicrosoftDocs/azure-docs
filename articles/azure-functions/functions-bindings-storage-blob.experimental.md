@@ -305,9 +305,21 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The default storage account for the function app ("AzureWebJobsStorage" app setting).
 
-# [C# Script / JavaScript / Python / Java](#tab/csharp-script+javascript+python+java)
+# [C# Script](#tab/csharp-script)
 
-Attributes are a feature of C# class libraries and are therefore irrelevant to your selected language.
+Attributes are a feature of C# class libraries and therefore do not apply to C# Script.
+
+# [JavaScript](#tab/javascript)
+
+Attributes are a feature of C# class libraries and therefore do not apply to JavaScript.
+
+# [Python](#tab/python)
+
+Attributes are a feature of C# class libraries and therefore do not apply to Python.
+
+# [Java](#tab/java)
+
+Attributes are a feature of C# class libraries and therefore do not apply to Java.
 
 ---
 
@@ -327,7 +339,37 @@ The following table explains the binding configuration properties that you set i
 
 ## Trigger - usage
 
-# [C# / C# Script](#tab/csharp+csharp-script)
+# [C#](#tab/csharp)
+
+<!--
+    This info is the same as in the C# Script section. If you make a change here,
+    make it for C# Script as well.
+-->
+
+In C# and C# script, you can use the following parameter types for the triggering blob:
+
+* `Stream`
+* `TextReader`
+* `string`
+* `Byte[]`
+* A POCO serializable as JSON
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
+
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) later in this article.
+
+# [C# Script](#tab/csharp-script)
+
+<!--
+    This info is the same as in the C# section. If you make a change here,
+    make it for C# as well.
+-->
 
 In C# and C# script, you can use the following parameter types for the triggering blob:
 
@@ -351,7 +393,11 @@ Binding to `string`, `Byte[]`, or POCO is only recommended if the blob size is s
 
 In JavaScript, access the input blob data using `context.bindings.<name from function.json>`.
 
-# [Python / Java](#tab/python+java)
+# [Python](#tab/python)
+
+??
+
+# [Java](#tab/java)
 
 ??
 
@@ -400,7 +446,37 @@ If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in th
 
 ## Trigger - metadata
 
-# [C# / C# Script](#tab/csharp+csharp-script)
+# [C#](#tab/csharp)
+
+<!--
+    This info is the same as in the C# Script section. If you make a change here,
+    make it for C# Script as well.
+-->
+
+The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) type.
+
+|Property  |Type  |Description  |
+|---------|---------|---------|
+|`BlobTrigger`|`string`|The path to the triggering blob.|
+|`Uri`|`System.Uri`|The blob's URI for the primary location.|
+|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|The blob's system properties. |
+|`Metadata` |`IDictionary<string,string>`|The user-defined metadata for the blob.|
+
+For example, the following C# script and JavaScript examples log the path to the triggering blob, including the container:
+
+```csharp
+public static void Run(string myBlob, string blobTrigger, ILogger log)
+{
+    log.LogInformation($"Full blob path: {blobTrigger}");
+} 
+```
+
+# [C# Script](#tab/csharp-script)
+
+<!--
+    This info is the same as in the C# section. If you make a change here,
+    make it for C# as well.
+-->
 
 The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) type.
 
@@ -421,15 +497,17 @@ public static void Run(string myBlob, string blobTrigger, ILogger log)
 ```
 # [JavaScript](#tab/javascript)
 
-
 ```javascript
 module.exports = function (context, myBlob) {
     context.log("Full blob path:", context.bindingData.blobTrigger);
     context.done();
 };
 ```
+# [Python](#tab/python)
 
-# [Python / Java](#tab/python+java)
+??
+
+# [Java](#tab/java)
 
 ??
 
@@ -758,9 +836,40 @@ The following table explains the binding configuration properties that you set i
 
 ## Input - usage
 
-# [C# Script](#tab/csharp+csharp-script)
+# [C#](#tab/csharp)
 
-In C# and C# script, you can use the following parameter types for the blob input binding:
+<!--
+    This info is the same as in the C# Script section. If you make a change here,
+    make it for C# Script as well.
+-->
+
+You can use the following parameter types for the blob input binding:
+
+* `Stream`
+* `TextReader`
+* `string`
+* `Byte[]`
+* `CloudBlobContainer`
+* `CloudBlobDirectory`
+* `ICloudBlob`<sup>1</sup>
+* `CloudBlockBlob`<sup>1</sup>
+* `CloudPageBlob`<sup>1</sup>
+* `CloudAppendBlob`<sup>1</sup>
+
+<sup>1</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
+
+# [C# Script](#tab/csharp-script)
+
+<!--
+    This info is the same as in the C# section. If you make a change here,
+    make it for C# as well.
+-->
+
+You can use the following parameter types for the blob input binding:
 
 * `Stream`
 * `TextReader`
@@ -783,7 +892,11 @@ Binding to `string` or `Byte[]` is only recommended if the blob size is small, a
 
 Access the blob data using `context.bindings.<name from function.json>`.
 
-# [Python / Java](#tab/python+java)
+# [Python](#tab/python)
+
+??
+
+# [Java](#tab/java)
 
 ??
 
@@ -1095,9 +1208,21 @@ public static void Run(
 }
 ```
 
-# [C# Script / JavaScript / Python / Java](#tab/csharp-script+javascript+python+java)
+# [C# Script](#tab/csharp-script)
 
-Attributes are a feature of C# class libraries and are therefore irrelevant to your selected language.
+Attributes are a feature of C# class libraries and so do not apply to C# Script.
+
+# [JavaScript](#tab/javascript)
+
+Attributes are a feature of C# class libraries and so do not apply to JavaScript.
+
+# [Python](#tab/python)
+
+Attributes are a feature of C# class libraries and so do not apply to Python.
+
+# [Java](#tab/java)
+
+Attributes are a feature of C# class libraries and so do not apply to Java.
 
 ---
 
@@ -1122,9 +1247,45 @@ The following table explains the binding configuration properties that you set i
 
 ## Output - usage
 
-# [C# / C# Script](#tab/csharp+csharp-script)
+# [C#](#tab/csharp)
 
-In C# and C# script, you can bind to the following types to write blobs:
+<!--
+    This info is the same as in the C# Script section. If you make a change here,
+    make it for C# Script as well.
+-->
+
+You can bind to the following types to write blobs:
+
+* `TextWriter`
+* `out string`
+* `out Byte[]`
+* `CloudBlobStream`
+* `Stream`
+* `CloudBlobContainer`<sup>1</sup>
+* `CloudBlobDirectory`
+* `ICloudBlob`<sup>2</sup>
+* `CloudBlockBlob`<sup>2</sup>
+* `CloudPageBlob`<sup>2</sup>
+* `CloudAppendBlob`<sup>2</sup>
+
+<sup>1</sup> Requires "in" binding `direction` in *function.json* or `FileAccess.Read` in a C# class library. However, you can use the container object that the runtime provides to do write operations, such as uploading blobs to the container.
+
+<sup>2</sup> Requires "inout" binding `direction` in *function.json* or `FileAccess.ReadWrite` in a C# class library.
+
+If you try to bind to one of the Storage SDK types and get an error message, make sure that you have a reference to [the correct Storage SDK version](#azure-storage-sdk-version-in-functions-1x).
+
+In async functions, use the return value or `IAsyncCollector` instead of an `out` parameter.
+
+Binding to `string` or `Byte[]` is only recommended if the blob size is small, as the entire blob contents are loaded into memory. Generally, it is preferable to use a `Stream` or `CloudBlockBlob` type. For more information, see [Concurrency and memory usage](#trigger---concurrency-and-memory-usage) earlier in this article.
+
+# [C# Script](#tab/csharp-script)
+
+<!--
+    This info is the same as in the C# section. If you make a change here,
+    make it for C# as well.
+-->
+
+You can bind to the following types to write blobs:
 
 * `TextWriter`
 * `out string`
@@ -1152,7 +1313,11 @@ Binding to `string` or `Byte[]` is only recommended if the blob size is small, a
 
 In JavaScript, access the blob data using `context.bindings.<name from function.json>`.
 
-# [Python / Java](#tab/python+java)
+# [Python](#tab/python)
+
+??
+
+# [Java](#tab/java)
 
 ??
 
