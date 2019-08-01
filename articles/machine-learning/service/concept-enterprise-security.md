@@ -35,9 +35,9 @@ Azure Machine Learning supports two forms of authentication for web services, ke
 |Authentication Method|ACI|AKS|
 |---|---|---|
 |Key|Disabled by default| Enabled by default|
-|Token| Not Available| Disabled by default |
+|Token| Not available| Disabled by default |
 
-#### Authentication with Keys
+#### Authentication with keys
 
 When you enable key authentication for a deployment, you automatically create authentication keys.
 
@@ -56,7 +56,7 @@ print(primary)
 > [!IMPORTANT]
 > If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
-#### Authentication with Tokens
+#### Authentication with tokens
 
 When you enable token authentication for a web service, a user must provide an Azure Machine Learning JSON Web Token to the web service to access it.
 
@@ -74,8 +74,8 @@ print(token)
 
 > [!IMPORTANT]
 > You will need to request a new token after the token's `refresh_by` time.
-> [!IMPORTANT]
-> We strongly recommend you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with token, the web service will make a call to the region in which your Azure Machine Learning workspace is created in. If your workspace's region is unavailable, then you will not be able to fetch token for your webservice even if your cluster is in a different region than your workspace. This effectively results in AAD Auth being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch token.
+>
+> We strongly recommend you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your webservice even, if your cluster is in a different region than your workspace. This effectively results in Azure AD Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
 
 ## Authorization
 
@@ -184,9 +184,9 @@ The following screenshot shows the activity log for a workspace:
 
 Scoring request details are stored in the AppInsights, which is created in user’s subscription while creating the workspace. This includes fields like HTTPMethod, UserAgent, ComputeType, RequestUrl, StatusCode, RequestId, Duration etc.
 
-## Data Flow Diagram
+## Data flow diagram
 
-### Create Workspace
+### Create workspace
 
 The following diagram shows the create workspace workflow.
 User logs into Azure AD from any of the supported Azure Machine Learning service clients (CLI, Python SDK, Azure portal) and requests the appropriate Azure Resource Manager token. User then calls Azure Resource Manager to create the workspace.  Azure Resource Manager contacts the Azure Machine Learning service Resource Provider to provision the workspace.  Additional resources are created in the customer’s subscription during workspace creation:
@@ -215,17 +215,20 @@ The following diagram shows the training workflow.
 * Azure Machine Learning service creates run ID (optional) & Azure Machine Learning service token, which is later used by the compute targets like Machine Learning Compute/VM to talk back to Azure Machine Learning service
 * You can choose either a managed compute (ex. Machine Learning Compute) or unmanaged compute (ex. VM) to run your training jobs. Data flow is explained for both the scenarios below:
 * (VM/HDInsight – accessed using SSH creds in Key Vault in Microsoft subscription) Azure Machine Learning service runs management code on compute target that:
-    1. Prepares the environment (note: Docker is an option for VM/Local as well. See steps for Machine Learning Compute below to understand how running experiment on docker container works)
-    2. Downloads the code
-    3. Sets up environment variables/configs
-    4. Runs user script (code snapshot mentioned above)
+
+   1. Prepares the environment. (Note that Docker is an option for VM and Local as well. See the following steps for Machine Learning Compute to understand how running experiment on docker container works.)
+   1. Downloads the code.
+   1. Sets up environment variables and configs.
+   1. Runs user script (code snapshot mentioned above).
+
 * (Machine Learning Compute – accessed using workspace managed identity)
 Note that since Machine Learning Compute is a managed compute that is, it is managed by Microsoft, as a result it runs under the Microsoft subscription.
-    1. Remote Docker construction is kicked off if needed
-    2. Writes management code to user Azure FileShare
-    3. Starts container with initial command that is, management code in the above step
 
-#### Querying runs & metrics
+   1. Remote Docker construction is kicked off, if needed.
+   1. Writes management code to user Azure FileShare.
+   1. Starts the container with an initial command, that is, management code as described in the previous step.
+
+#### Querying runs and metrics
 
 This step is shown in the flow where training compute writes the *Run Metrics* back to the Azure Machine Learning service from where it gets stored in the Cosmos DB. Clients can call Azure Machine Learning service that will in turn pull metrics from the Cosmos DB and return it back to the client.
 
