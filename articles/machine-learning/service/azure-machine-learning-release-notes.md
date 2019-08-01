@@ -58,7 +58,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-mlflow**
     + Fixed bug in mlflow.azureml.build_image where nested directories are ignored.
   + **azureml-pipeline-steps**
-    + Added ability to run JAR jobs on existing DatabricksStep cluster.
+    + Added ability to run JAR jobs on existing Azure Databricks cluster.
     + Added support instance_pool_id and cluster_log_dbfs_path parameters for DatabricksStep step.
     + Added support for pipeline parameters in DatabricksStep step.
   + **azureml-train-automl**
