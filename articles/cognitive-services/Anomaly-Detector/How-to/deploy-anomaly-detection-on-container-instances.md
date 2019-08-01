@@ -35,5 +35,3 @@ You must first complete and submit the [Anomaly Detector Container request form]
 * Review [Install and run containers](../anomaly-detector-container-configuration.md) for pulling the container image and run the container
 * Review [Configure containers](../anomaly-detector-container-configuration.md) for configuration settings
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
-
-[!INCLUDE [join-anomaly-detector-advisors](../includes/join-anomaly-detector-advisors.md)]

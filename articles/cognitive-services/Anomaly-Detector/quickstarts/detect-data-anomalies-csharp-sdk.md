@@ -165,5 +165,3 @@ az group delete --name example-anomaly-detector-resource-group
 * What is the [Anomaly Detector API?](../overview.md)
 * [Best practices](../concepts/anomaly-detection-best-practices.md) when using the Anomaly Detector API.
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs).
-
-[!INCLUDE [join-anomaly-detector-advisors](../includes/join-anomaly-detector-advisors.md)]

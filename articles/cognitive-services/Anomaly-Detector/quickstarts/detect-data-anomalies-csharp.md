@@ -183,5 +183,3 @@ A successful response is returned in JSON format. Click the links below to view 
 
 > [!div class="nextstepaction"]
 > [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
-
-[!INCLUDE [join-anomaly-detector-advisors](../includes/join-anomaly-detector-advisors.md)]

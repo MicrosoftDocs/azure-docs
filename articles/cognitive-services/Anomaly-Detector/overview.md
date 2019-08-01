@@ -77,5 +77,3 @@ After signing up:
 * [Quickstart: Detect anomalies in your time series data using the Anomaly Detector REST API](quickstarts/detect-data-anomalies-csharp.md)
 * The Anomaly Detector API [online demo](https://notebooks.azure.com/AzureAnomalyDetection/projects/anomalydetector)
 * The Anomaly Detector [REST API reference](https://westus2.dev.cognitive.microsoft.com/docs/services/AnomalyDetector/operations/post-timeseries-entire-detect)
-
-[!INCLUDE [join-anomaly-detector-advisors](includes/join-anomaly-detector-advisors.md)]

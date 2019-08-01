@@ -171,5 +171,3 @@ Apply colors to your chart by clicking on the **Format** tool and **Data colors*
 
 > [!div class="nextstepaction"]
 >[Streaming anomaly detection with Azure Databricks](anomaly-detection-streaming-databricks.md)
-
-[!INCLUDE [join-anomaly-detector-advisors](../includes/join-anomaly-detector-advisors.md)]

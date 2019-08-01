@@ -134,5 +134,3 @@ The following Docker examples are for the Anomaly Detector container.
 
 * [Deploy an Anomaly Detector container to Azure Container Instances](how-to/deploy-anomaly-detection-on-container-instances.md)
 * [Learn more about Anomaly Detector API service](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)
-
-[!INCLUDE [join-anomaly-detector-advisors](includes/join-anomaly-detector-advisors.md)]

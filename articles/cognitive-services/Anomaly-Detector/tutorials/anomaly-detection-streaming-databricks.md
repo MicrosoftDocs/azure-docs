@@ -688,5 +688,3 @@ In this tutorial, you learned how to use Azure Databricks to stream data into Az
 
 > [!div class="nextstepaction"]
 >[Batch anomaly detection with Power BI desktop](batch-anomaly-detection-powerbi.md)
-
-[!INCLUDE [join-anomaly-detector-advisors](../includes/join-anomaly-detector-advisors.md)]
