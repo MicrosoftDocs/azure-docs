@@ -75,4 +75,4 @@ To learn more, see the following GitHub repositories and packages:
 
 ## Next steps
  
-Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-and-roles.md) in Azure IoT Central.
+Now that you've learned about how to administer your Azure IoT Central application, the suggested next step is to learn about [Manage users and roles](howto-manage-users-roles.md) in Azure IoT Central.

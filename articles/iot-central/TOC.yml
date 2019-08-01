@@ -103,9 +103,9 @@
       - name: Manage your application
         href: howto-administer.md 
       - name: Manage users and roles
-        href: howto-manage-users-and-roles.md 
+        href: howto-manage-users-roles.md 
       - name: View your bill
-        href: howto-view-your-bill.md
+        href: howto-view-bill.md
       - name: Customize application UI
         href: howto-customize-ui.md  
       - name: Prepare and upload image

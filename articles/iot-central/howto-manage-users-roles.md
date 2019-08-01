@@ -10,15 +10,14 @@ services: iot-central
 manager: philmea
 ---
 
-# Administer your IoT Central application
+# Manage users and roles in your IoT Central application
 
 This article describes how, as an administrator, you can add, edit, and delete users in your Azure IoT Central application and also how to manage roles in your Azure IoT Central application.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
-## Manage users
 
-### Add users
+## Add users
 
 Every user must have a user account before they can sign in and access an Azure IoT Central application. Microsoft Accounts (MSAs) and Azure Active Directory (Azure AD) accounts are supported in Azure IoT Central. Azure Active Directory groups aren't currently supported in Azure IoT Central.
 
@@ -44,7 +43,7 @@ Roles can't be changed after they are assigned. To change the role that's assign
 > [!NOTE]
 > The roles assigned are specific to IoT Central application and cannot be managed from the Azure Portal.
 
-### Delete users
+## Delete users
 
 To delete users, select one or more check boxes on the **Users** page. Then select **Delete**.
 
@@ -68,4 +67,4 @@ Users in the **Application Operator** role can't make changes to device template
 
 ## Next steps
 
-Now that you've learned about how to manage users and roles in your Azure IoT Central, the suggested next step is to learn about [View your bill](howto-view-your-bill.md) in Azure IoT Central.
+Now that you've learned about how to manage users and roles in your Azure IoT Central, the suggested next step is to learn about [View your bill](howto-view-bill.md) in Azure IoT Central.
