@@ -19,7 +19,7 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Current version](tutorial-copy-data-tool.md)
 
-In this tutorial, you use the Azure portal to create a data factory. Then, you use the Copy Data tool to create a pipeline that copies data from Azure Blob storage to a SQL database.
+In this tutorial, you use the Azure portal to create a data factory. Then you use the Copy Data tool to create a pipeline that copies data from Azure Blob storage to a SQL database.
 
 > [!NOTE]
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).

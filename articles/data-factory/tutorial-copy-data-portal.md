@@ -72,7 +72,7 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
-1. Open Azure Portal in **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
+1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
 2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
   
    ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
@@ -111,7 +111,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
    ![Create pipeline](./media/doc-common-process/get-started-page.png)
 1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
 
-1. In the **Activities** tool box, expand the **Move andTransform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
+1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
     ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
@@ -127,13 +127,13 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. In the **Set Properties** dialog box, enter **SourceBlobDataset** for Name. Next to the **Linked service** text box, select **+ New**. 
     
-1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account name** list.Test connection, then select **Finish** to deploy the linked service.
+1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account name** list. Test connection, then select **Finish** to deploy the linked service.
 
-1. After the linked service is created, you are back to the **Set properties** page. Next to **File path**, select **Browse**.
+1. After the linked service is created, it's navigated back to the **Set properties** page. Next to **File path**, select **Browse**.
 
 1. Navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then select **Finish**.
 
-1. Now you are back to the pipeline page. In **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**. 
+1. It automatically navigates to the pipeline page. In **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**. 
     
     ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -163,7 +163,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
     
     ![Save new linked service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. Now you are back to the **Set Properties** dialog box. In **Table**, select **[dbo].[emp]**. Then select **Finish**.
+1. It automatically navigates to the **Set Properties** dialog box. In **Table**, select **[dbo].[emp]**. Then select **Finish**.
 
 1. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
@@ -171,7 +171,7 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 ## Validate the pipeline
 To validate the pipeline, select **Validate** from the tool bar.
  
-You can see the JSON code associated with the pipeline by clicking **Code** on the upper-right.
+You can see the JSON code associated with the pipeline by clicking **Code** on the upper right.
 
 ## Debug and publish the pipeline
 You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Azure Repos Git repository. 
@@ -191,14 +191,14 @@ In this step, you manually trigger the pipeline you published in the previous st
 
     ![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline.png)
 
-1. To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Select **Pipeline Runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
+1. To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Select **Pipeline Runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
     ![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
 
 1. Verify that two more rows are added to the **emp** table in the SQL database. 
 
 ## Trigger the pipeline on a schedule
-In this schedule, you create a schedule trigger for the pipeline. The trigger runs the pipeline on the specified schedule, such as hourly or daily. In this example, you set the trigger to run every minute until the specified end datetime. 
+In this schedule, you create a schedule trigger for the pipeline. The trigger runs the pipeline on the specified schedule, such as hourly or daily. Here you set the trigger to run every minute until the specified end datetime. 
 
 1. Go to the **Author** tab on the left above the monitor tab. 
 
@@ -216,7 +216,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
     d. Select the **current day** option. By default, the end day is set to the next day.
 
-    e. Update the **End Time** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. If you set it to only a couple of minutes apart and you don't publish it by then, you don't see a trigger run.
+    e. Update the **End Time** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. If you set it to only a couple of minutes apart, and you don't publish it by then, you don't see a trigger run.
 
     f. Select **Apply**. 
 
