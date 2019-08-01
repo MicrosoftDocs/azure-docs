@@ -11,6 +11,7 @@ ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 03/29/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 # Quickstart: URL Preview with Python
 
