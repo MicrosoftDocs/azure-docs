@@ -85,6 +85,10 @@ You can fully develop and deploy logic apps with Visual Studio, Azure DevOps, or
 * [Create and deploy logic apps with Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Turn on monitoring, logging, and alerts for existing logic apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
+* [Sample: Connect to Azure Service Bus queues from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Sample: Connect to Azure Storage accounts from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Sample: Set up a function app action for Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [Sample: Connect to an integration account from Azure Logic Apps and deploy with Azure Pipelines in Azure DevOps](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 ## Content types, conversions, and transformations within a run
 
