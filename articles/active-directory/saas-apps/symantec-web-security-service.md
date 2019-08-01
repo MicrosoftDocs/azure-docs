@@ -52,15 +52,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Symantec Web Security Service (WSS) for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Symantec Web Security Service (WSS).
 
-1. Sign in to your [Security Service for provisioning](https://portal.threatpulse.com/login.jsp). Navigate to **Solutions** > Click **Service**.
+1. Sign in to your [Symantec Web Security Service admin console](https://portal.threatpulse.com/login.jsp). Navigate to **Solutions** > **Service**.
 
 	![Symantec Web Security Service(WSS)](media/symantec-web-security-service/service.png)
 
-2. Navigate to **Account Maintenance**. Select **Integrations** Click **+New Integration**
+2. Navigate to **Account Maintenance** > **Integrations** > **New Integration**.
 
 	![Symantec Web Security Service (WSS)](media/symantec-web-security-service/acount.png)
 
-3.  Select **Third-party User& Groups Sync**. 
+3.  Select **Third-Party Users & Groups Sync**. 
 
 	![Symantec Web Security Service](media/symantec-web-security-service/third-party-users.png)
 
@@ -158,9 +158,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Symantec Web Security Service.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-## Connector Limitations
-
 
 ## Additional resources
 
