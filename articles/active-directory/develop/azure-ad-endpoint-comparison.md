@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2017
+ms.date: 08/01/2019
 ms.author: celested
 ms.reviewer: elisol, jmprieur, hirsin
 ms.custom: aaddev
@@ -132,7 +132,10 @@ This allows you to code your app in a minimal-disclosure fashion – you can onl
 
 ## Token Claims
 
-The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. To learn about the specific claims emitted in v2.0 tokens, see the [v2.0 token reference](v2-id-and-access-tokens.md).
+The claims in v2.0 tokens  will not be identical to v1.0 tokens. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. To learn about the specific claims emitted in v2.0 tokens, see the [v2.0 token reference](v2-id-and-access-tokens.md).  
+
+> [!IMPORTANT]
+> v1.0 and v2.0 tokens can be issued by both the v1.0 and v2.0 endpoints! id_tokens *always* match the endpoint they're requested from, and access tokens *always* match the format expected by the Web API your client will call using that token.  So if your app uses the v2.0 endpoiont to get a token to call Microsoft Graph, which expects v1.0 format access tokens, your app will recieve a token in the v1.0 format.  
 
 ## Limitations
 
