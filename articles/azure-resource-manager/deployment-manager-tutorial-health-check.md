@@ -232,8 +232,8 @@ The purpose of this section is to show you how to include a health check step in
 
 To simplify the tutorial, the topology template and artifacts are shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-* Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
-* Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topology template: \https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplates/CreateADMServiceTopology.json
+* Artifacts store: \https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 To deploy the topology, select **Try it** to open the Cloud shell, and then paste the PowerShell script.
 
@@ -262,8 +262,8 @@ Verify the service topology and the underlined resources have been created succe
 
 To simplify the tutorial, the revised rollout template is shared at the following locations so that you don't need to prepare your own copy. If you want to use your own, follow the instructions in [Tutorial: Use Azure Deployment Manager with Resource Manager templates](./deployment-manager-tutorial.md).
 
-* Topology template: https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
-* Artifacts store: https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
+* Topology template: \https://armtutorials.blob.core.windows.net/admtutorial/ADMTemplatesHC/CreateADMRollout.json
+* Artifacts store: \https://armtutorials.blob.core.windows.net/admtutorial/ArtifactStore
 
 Use the unhealthy status URL you created in [Create a health check service simulator](#create-a-health-check-service-simulator). For **managedIdentityID**, see [Create the user-assigned managed identity](./deployment-manager-tutorial.md#create-the-user-assigned-managed-identity).
 

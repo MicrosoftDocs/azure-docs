@@ -9,11 +9,11 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 # Best practices for building a language understanding app with Cognitive Services
-Use the app authoring process to build your LUIS app. 
+Use the app authoring process to build your LUIS app: 
 
 * Build language model
 * Add a few training example utterances (10-15 per intent)
@@ -21,7 +21,7 @@ Use the app authoring process to build your LUIS app.
 * Test from endpoint 
 * Add features
 
-Once your app is [published](luis-how-to-publish-app.md), use the authoring cycle of add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
+Once your app is [published](luis-how-to-publish-app.md), use the authoring cycle to add features, publish, and test from endpoint. Do not begin the next authoring cycle by adding more example utterances. That does not let LUIS learn your model with real-world user utterances. 
 
 In order for LUIS to be efficient at its job of learning, do not expand the utterances until the current set of both example and endpoint utterances are returning confident, high prediction scores. Improve scores using [active learning](luis-concept-review-endpoint-utterances.md), [patterns](luis-concept-patterns.md), and [phrase lists](luis-concept-feature.md). 
 
@@ -72,7 +72,7 @@ For more information:
 
 ## Do add phrase lists and patterns in later iterations
 
-A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding phrase lists and patterns because these features are weighted more heavily than example utterances and will skew confidence. 
+A best practice is to not apply these practices before your app has been tested. You should understand how the app behaves before adding [phrase lists](luis-concept-feature.md) and [patterns](luis-concept-patterns.md) because these features are weighted more heavily than example utterances and will skew confidence. 
 
 Once you understand how your app behaves without these, add each of these features as they apply to your app. You do not need to add these features with each [iteration](luis-concept-app-iteration.md) or change the features with each version. 
 

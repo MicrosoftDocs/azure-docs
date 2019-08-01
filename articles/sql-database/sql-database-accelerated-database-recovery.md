@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Accelerated Database Recovery

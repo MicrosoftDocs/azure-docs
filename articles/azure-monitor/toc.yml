@@ -308,7 +308,13 @@
         displayname: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
       - name: Metrics
-        href: app/metrics-explorer.md
+        items:
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
+        - name: Log-based metrics definitions
+          href: platform/app-insights-metrics.md
+        - name: Classic metrics explorer   
+          href: app/metrics-explorer.md
       - name: Search
         href: app/diagnostic-search.md
       - name: Profiler
@@ -425,8 +431,6 @@
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Log-based & pre-aggregated metrics
-          href: app/pre-aggregated-metrics-log-metrics.md
         - name: Transaction diagnostics
           href: app/transaction-diagnostics.md
         - name: Correlate custom data sources
@@ -736,8 +740,6 @@
         href: platform/metrics-charts.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
-        name: Log-based metrics
-        href: platform/app-insights-metrics.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
     - name: Logs
