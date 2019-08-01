@@ -1,6 +1,6 @@
 ---
-title: Connect an IoT Plug and Play device to your Azure IoT solution | Microsoft Docs
-description: Connect an IoT Plug and Play device to my Azure IoT solution using Node.js
+title: Connect an IoT Plug and Play Preview device to your Azure IoT solution | Microsoft Docs
+description: Connect an IoT Plug and Play Preview device to my Azure IoT solution using Node.js
 author: miagdp
 ms.author: miag
 ms.date: 07/24/2019
@@ -12,9 +12,9 @@ ms.custom: mvc
 # As a solution developer, I want to connect an IoT Plug and Play device to my solution so I can collect telemetry and control the device.
 ---
 
-# Quickstart: Connect an IoT Plug and Play device to your solution
+# Quickstart: Connect an IoT Plug and Play Preview device to your solution
 
-IoT Plug and Play simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect with an IoT Plug and Play device to your solution.
+IoT Plug and Play Preview simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to connect with an IoT Plug and Play device to your solution.
 
 ## Prerequisites
 

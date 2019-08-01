@@ -1,5 +1,5 @@
 ---
-title: Developer guide - IoT Plug and Play | Microsoft Docs
+title: Developer guide - IoT Plug and Play Preview | Microsoft Docs
 description: Description of device modeling for IoT Plug and Play developers
 author: dominicbetts
 ms.author: dobett
@@ -9,9 +9,9 @@ ms.service: iot-pnp
 services: iot-pnp
 ---
 
-# IoT Plug and Play modeling developer guide
+# IoT Plug and Play Preview modeling developer guide
 
-IoT Plug and Play lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications. IoT Central is an example of an IoT Plug and Play-enabled application.
+IoT Plug and Play Preview lets you build devices that advertise their capabilities to Azure IoT applications. IoT Plug and Play devices don't require manual configuration when a customer connects them to IoT Plug and Play-enabled applications. IoT Central is an example of an IoT Plug and Play-enabled application.
 
 To build an IoT Plug and Play device, you need to create a device description. The description is done with a simple definition language called Digital Twins Definition Language (DTDL).
 

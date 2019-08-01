@@ -1,5 +1,5 @@
 ---
-title: Implement IoT Plug and Play model discovery | Microsoft Docs
+title: Implement IoT Plug and Play Preview model discovery | Microsoft Docs
 description: As a solution developer, learn about how you can implement IoT Plug and Play model discovery in your solution.
 author: ChrisGMsft
 ms.author: chrisgre
@@ -11,9 +11,9 @@ services: iot-pnp
 manager: philmea
 ---
 
-# Implement IoT Plug and Play model discovery in an IoT solution
+# Implement IoT Plug and Play Preview model discovery in an IoT solution
 
-This article describes how, as a solution developer, you can implement IoT Plug and Play model discovery in an IoT solution.  IoT Plug and Play model discovery is how IoT Plug and Play devices identify their supported capability models and interfaces, and how an IoT solution retrieves those capability models and interfaces.
+This article describes how, as a solution developer, you can implement IoT Plug and Play Preview model discovery in an IoT solution.  IoT Plug and Play model discovery is how IoT Plug and Play devices identify their supported capability models and interfaces, and how an IoT solution retrieves those capability models and interfaces.
 
 There are two broad categories of IoT solution: purpose-built solutions that work with a known set of IoT Plug and Play devices, and model-driven solutions that work with any IoT Plug and Play device.
 
