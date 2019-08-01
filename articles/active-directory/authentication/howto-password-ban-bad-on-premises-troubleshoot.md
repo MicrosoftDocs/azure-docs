@@ -29,7 +29,7 @@ The usual cause of this issue is that a proxy has not yet been registered. If a 
 
 The main symptom of this problem is 30018 events in the DC agent Admin event log. This problem may have several possible causes:
 
-1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may therefore be benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure, which will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
+1. The DC agent is located in an isolated portion of the network that does not allow network connectivity to the registered proxy(s). This problem may be benign as long as other DC agents can communicate with the proxy(s) in order to download password policies from Azure. Once downloaded, those policies will then be obtained by the isolated DC via replication of the policy files in the sysvol share.
 
 1. The proxy host machine is blocking access to the RPC endpoint mapper endpoint (port 135)
 
@@ -45,7 +45,7 @@ The main symptom of this problem is 30018 events in the DC agent Admin event log
 
 1. Ensure that the forest and all proxy servers are registered against the same Azure tenant.
 
-   You can check this requirement by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation the reported tenant name must be the same across all DC agents and proxy servers.
+   You can check this requirement by running the  `Get-AzureADPasswordProtectionProxy` and `Get-AzureADPasswordProtectionDCAgent` PowerShell cmdlets, then compare the `AzureTenant` property of each returned item. For correct operation, the reported tenant name must be the same across all DC agents and proxy servers.
 
    If an Azure tenant registration mismatch condition does exist, this problem can be fixed by running the `Register-AzureADPasswordProtectionProxy` and/or `Register-AzureADPasswordProtectionForest` PowerShell cmdlets as needed, making sure to use credentials from the same Azure tenant for all registrations.
 
@@ -96,7 +96,7 @@ Setting password failed.
         Error Message: Password doesn't meet the requirements of the filter dll's
 ```
 
-When Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This happens because the DSRM account is a local account that is not part of the actual Active Directory domain.  
+When Azure AD Password Protection logs the password validation event log event(s) for an Active Directory DSRM password, it is expected that the event log messages will not include a user name. This behavior occurs because the DSRM account is a local account that is not part of the actual Active Directory domain.  
 
 ## Domain controller replica promotion fails because of a weak DSRM password
 
@@ -116,24 +116,17 @@ Once the demotion has succeeded, and the domain controller has been rebooted and
 
 ## Booting into Directory Services Repair Mode
 
-If the domain controller is booted into Directory Services Repair Mode, the DC agent password filter dll detects this condition and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration. The DC agent password filter dll will log an 10023 warning event to the Admin event log, for example:
+If the domain controller is booted into Directory Services Repair Mode, the DC agent password filter dll detects this condition and will cause all password validation or enforcement activities to be disabled, regardless of the currently active policy configuration. The DC agent password filter dll will log a 10023 warning event to the Admin event log, for example:
 
 ```text
 The password filter dll is loaded but the machine appears to be a domain controller that has been booted into Directory Services Repair Mode. All password change and set requests will be automatically approved. No further messages will be logged until after the next reboot.
 ```
-
-## Emergency remediation
-
-If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
-
-Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agent service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
-
 ## Public preview DC agent software has expired
 
 During the Azure AD Password Protection public preview period, the DC agent software was hard-coded to stop processing password validation requests on the following dates:
 
-* Version 1.2.65.0 will stop processing password validation requests on September 1st 2019.
-* Version 1.2.25.0 and prior stopped processing password validation requests on July 1st 2019.
+* Version 1.2.65.0 will stop processing password validation requests on September 1 2019.
+* Version 1.2.25.0 and prior stopped processing password validation requests on July 1 2019.
 
 As the deadline approaches, all time-limited DC agent versions will emit a 10021 event in the DC agent Admin event log at boot time that looks like this:
 
@@ -155,7 +148,7 @@ The password filter dll is loaded but the allowable trial period has expired. Al
 No further messages will be logged until after the next reboot.
 ```
 
-Since the the deadline is only checked on initial boot, you may not see these events until long after the calendar deadline has passed. Once the deadline has been recognized, no negative effects on either the domain controller or the larger environment will occur other than all passwords will be automatically approved.
+Since the deadline is only checked on initial boot, you may not see these events until long after the calendar deadline has passed. Once the deadline has been recognized, no negative effects on either the domain controller or the larger environment will occur other than all passwords will be automatically approved.
 
 > [!IMPORTANT]
 > Microsoft recommends that expired public preview DC agents be immediately upgraded to the latest version.
@@ -181,7 +174,15 @@ PS C:\> $LatestAzureADPasswordProtectionVersion = "1.2.125.0"
 PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion -lt $LatestAzureADPasswordProtectionVersion}
 ```
 
-The Azure AD Password Protection Proxy software is not time-limited in any version. Microsoft still recommends that both DC and proxy agents be upgraded to the latest versions as they are released.  
+The Azure AD Password Protection Proxy software is not time-limited in any version. Microsoft still recommends that both DC and proxy agents be upgraded to the latest versions as they are released. The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to find Proxy agents that require upgrades, similar to the example above for DC agents.
+
+Please refer to [Upgrading the DC agent service](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent-service) and [Upgrading the Proxy agent service](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent-service) for more details on specific upgrade procedures.
+
+## Emergency remediation
+
+If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
+
+Another remediation measure would be to set the Enable mode to No in the Azure AD Password Protection portal. Once the updated policy has been downloaded, each DC agent service will go into a quiescent mode where all passwords are accepted as-is. For more information, see [Enforce mode](howto-password-ban-bad-on-premises-operations.md#enforce-mode).
 
 ## Removal
 
