@@ -34,5 +34,3 @@ Some of the following links are hosted on websites that are external to Microsof
 
 If you'd like to nominate a resource, fill [a short form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxSkyhztUNZCtaivu8nmhd1UMENTMEJWTkRORkRGQUtGQzlWQ1dSV1JLTS4u).
 Contact AnomalyDetector@microsoft.com or raise an issue on GitHub if you'd like us to remove the content.
-
-[!INCLUDE [join-anomaly-detector-advisors](includes/join-anomaly-detector-advisors.md)]
