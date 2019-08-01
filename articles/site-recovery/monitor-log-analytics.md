@@ -1,6 +1,6 @@
 ---
-title: Monitor Azure Site Recovery with Azure Monitor Logs
-description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs
+title: Monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
+description: Learn how to monitor Azure Site Recovery with Azure Monitor Logs (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
@@ -11,9 +11,9 @@ ms.author: raynew
 
 # Monitor Site Recovery with Azure Monitor Logs
 
-This article describes how to monitor machines replicated by Azure [Site Recovery](site-recovery-overview.md), using [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md).
+This article describes how to monitor machines replicated by Azure [Site Recovery](site-recovery-overview.md), using [Azure Monitor Logs](../azure-monitor/platform/data-platform-logs.md), and [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
-Azure Monitor Logs provide a log data platform that collects activity and diagnostic logs, along with other monitoring data. Within Azure Monitor Logs, you use [Log Analytics](../azure-monitor/log-query/log-query-overview.md) to write and test log queries, and to interactively analyze log data. You can visualize and query log results, and configure alerts to take actions based on monitored data.
+Azure Monitor Logs provide a log data platform that collects activity and diagnostic logs, along with other monitoring data. Within Azure Monitor Logs, you use Log Analytics to write and test log queries, and to interactively analyze log data. You can visualize and query log results, and configure alerts to take actions based on monitored data.
 
 For Site Recovery, you can Azure Monitor Logs to help you do the following:
 
