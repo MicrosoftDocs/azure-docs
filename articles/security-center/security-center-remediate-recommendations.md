@@ -17,38 +17,20 @@ ms.date: 07/31/2019
 ms.author: v-mohabe
 
 ---
-# Remediate recommendations
+# Remediate recommendations in Azure Security Center
 
-When you receive recommendations, you can remediate them easily by following the remediation steps provided in Security Center.
+When you receive recommendations, you can remediate them easily by following the [remediation steps](#remediation-steps) provided in Security Center. Some recommendations have a ["One-click fix" option](#one-click) .
 
-## Monitor recommendations
+## Remediation steps <a name="remediation-steps"></a>
 
-Azure Security Center automatically assigns its built-in security policies on each subscription that is onboarded. You can configure these policies in Azure Policy, which also enables you to set [policies](../governance/policy/overview) across management groups and across multiple subscriptions.
-
-
-![Security center overview](./media/security-center-recommendations/asc-overview.png)
-
-1. Select the **Recommendations tile** under **Overview**. The **Recommendations** list opens.
-
-      ![View recommendations](./media/security-center-remediate-recommendations/security-center-view-recommendations.png)
-
-1. To view each recommendation's details, click on the recommendation.
-
-   ![Recommendation details](./media/security-center-remediate-recommendations/security-center-recommendation-details.png)
-
-   
-    >[!NOTE] 
-    > See [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
-  
- ## Apply recommendations
-> After reviewing all recommendations, decide which one to apply first. We recommend that you use the secure score impact to evaluate which recommendations should be applied first.
+After reviewing all recommendations, decide which one to apply first. We recommend that you use the [secure score](security-center-recommendations#monitor-recommendations) impact to evaluate which recommendations should be applied first.
 
 1. From the list, click on the recommendation.
-1. Follow the instructions in the *Remediation steps* section.
+1. Follow the instructions in the **Remediation steps** section.
 
     ![Recommendation details](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
 
-## One-click fix remediation
+## One-click fix remediation <a name="one-click"></a>
 
 One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score and increase the security in your environment.
 
@@ -56,7 +38,7 @@ To implement one-click remediation:
 
 1. From the list of recommendations that have the **1-Click-fix** label, click on the recommendation.  
 
-   ![One-click fix](./media/security-center-remediate-recommendations/one-click-fix-remediate.png)
+   ![Select one-click fix](./media/security-center-remediate-recommendations/one-click-fix-select.png)
 
 2. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**. 
 

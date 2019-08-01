@@ -49,7 +49,7 @@ Recommendations center around system updates, baseline rules, anti-malware progr
 on subnets and network interfaces, SQL database auditing, SQL database transparent data encryption, and web application firewalls.  You can view and configure these policies. For more information, see [Setting security policies](tutorial-security-policy.md) provides a description of each recommendation option.
 [disable security policy](tutorial-security-policydisable-security-policies)
 
-## Monitor recommendations
+## Monitor recommendations <a name="monitor-recommendations"></a>
 
 Security Center analyzes the security state of your resources to identify potential vulnerabilities. The **Recommendations** tile under **Overview** shows the total number of recommendations identified by Security Center.
 
