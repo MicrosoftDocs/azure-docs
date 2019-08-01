@@ -319,7 +319,7 @@ Yes. You can enable DDoS protection on the virtual network where the application
 
 Yes. For details see, [Migrate Azure Application Gateway and Web Application Firewall from v1 to v2](migrate-v1-v2.md).
 
-### Does WAF aware non UTF-8 content?
+### Does WAF support non UTF-8 encoding?
 
 No. WAF is only UTF-8 aware currently.
 
