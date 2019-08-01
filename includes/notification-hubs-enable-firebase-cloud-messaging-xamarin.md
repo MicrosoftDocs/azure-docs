@@ -5,7 +5,7 @@
  author: spelluru
  ms.service: notification-hubs
  ms.topic: include
- ms.date: 03/11/2019
+ ms.date: 08/01/2019
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -23,7 +23,7 @@
 
 2. Select **Register app**. 
 1. 
-1. Select **Download google-services.json**. Then save the file into the **app** folder of your project and  select **Next**. 
+1. Select **Download google-services.json**. Then save the file into the folder of your project and select **Next**. If you haven't created the Visual Studio project yet, you can do this step after you create the project. 
 
     ![Download google-services.json](./media/notification-hubs-enable-firebase-cloud-messaging/download-google-service-button.png)
 
@@ -40,4 +40,4 @@
 
 1. Switch to the **Cloud Messaging** tab at the top. 
 
-1. Copy and save the **Legacy Server key** for later use. You use this value to configure your notification hub.
+1. Copy and save the **Server key** for later use. You use this value to configure your notification hub.
