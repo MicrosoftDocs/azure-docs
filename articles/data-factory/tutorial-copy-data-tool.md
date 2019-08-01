@@ -25,7 +25,6 @@ In this tutorial, you use the Azure portal to create a data factory. Then, you u
 > If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](introduction.md).
 
 In this tutorial, you perform the following steps:
-
 > [!div class="checklist"]
 > * Create a data factory.
 > * Use the Copy Data tool to create a pipeline.
@@ -68,19 +67,20 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-2. Allow Azure services to access SQL Server. Verify that the setting **Allow access to Azure services** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to Azure SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**. 
-
-    ![New sink SQL table creation](./media/tutorial-copy-data-tool/create-a-blob-and-a-sql-table-1.png)
-    ![New sink SQL table creation](./media/tutorial-copy-data-tool/create-a-blob-and-a-sql-table-2.png)
+2. Allow Azure services to access SQL Server. Verify that the setting **Allow access to Azure services** is enabled for your server that's running SQL Database. This setting lets Data Factory write data to your database instance. To verify and turn on this setting, go to Azure SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**.
 
 ## Create a data factory
 
 1. On the left menu, select **+ Create a resource** > **Analytics** > **Data Factory**:
     
-    ![New data factory creation](./media/tutorial-copy-data-tool/new-azure-data-factory-menu.png)
+    ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
-    The name for your data factory must be _globally unique_. If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+    The name for your data factory must be _globally unique_. You might receive the following error message:
+    
+    ![New data factory error message](./media/doc-common-process/name-not-available-error.png)
+
+    If you receive an error message about the name value, enter a different name for the data factory. For example, use the name _**yourname**_**ADFTutorialDataFactory**. For the naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
 1. Select the Azure **subscription** in which to create the new data factory.
 1. For **Resource Group**, take one of the following steps:
     
@@ -96,29 +96,23 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
 1. After creation is finished, the **Data Factory** home page is displayed.
     
+    ![Data factory home page](./media/doc-common-process/data-factory-home-page.png)
 1. To launch the Azure Data Factory user interface (UI) in a separate tab, select the **Author & Monitor** tile.
 
 ## Use the Copy Data tool to create a pipeline
 
 1. On the **Let's get started** page, select the **Copy Data** tile to launch the Copy Data tool.
 
-    ![Copy Data tool tile](./media/tutorial-copy-data-tool/copy-data-tool-tile.png)
+    ![Copy Data tool tile](./media/doc-common-process/get-started-page.png)
 1. On the **Properties** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**. Then select **Next**. The Data Factory UI creates a pipeline with the specified task name.
 
-    ![Properties page](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
 1. On the **Source data store** page, complete the following steps:
 
     a. Click **+ Create new connection** to add a connection
 
-    ![New source linked service](./media/tutorial-copy-data-tool/new-source-linked-service.png)
-
-    b. Select **Azure Blob Storage** from the gallery, and then select **Continue**.
-
-    ![Select blob source](./media/tutorial-copy-data-tool/select-blob-source.png)
+    b. Select **Azure Blob Storage** from the gallery, and then select **Next**.
 
     c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then select **Finish**.
-
-    ![Configure azure storage](./media/tutorial-copy-data-tool/configure-azure-storage.png)
 
     d. Select the newly created linked service as source, then click **Next**.
 
@@ -132,7 +126,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     b. Click **Next** to move to next step.
 
-1. On the **File format settings** page, notice that the tool automatically detects the column and row delimiters. Select **Next**. You can also preview data and view the schema of the input data on this page.
+1. On the **File format settings** page, notice that the tool automatically detects the column and row delimiters. Select **Next**. You also can preview data and view the schema of the input data on this page.
 
     ![File format settings](./media/tutorial-copy-data-tool/file-format-settings-page.png)
 1. On the **Destination data store** page, completes the following steps:
