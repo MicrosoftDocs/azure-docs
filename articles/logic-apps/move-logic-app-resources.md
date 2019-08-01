@@ -25,7 +25,7 @@ To move your logic app or related resources to another Azure subscription, resou
 
 * The same Azure subscription that was used to create the logic app or integration account that you want to move
 
-* [Logic App Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) permissions to move logic apps
+* Resource owner permissions to move and set up the resources that you want. Learn more about [role-based access control (RBAC)](../role-based-access-control/built-in-roles.md#owner).
 
 <a name="move-subscription"></a>
 
@@ -68,6 +68,8 @@ Before actually moving resources between groups, you can test whether you can su
 ## Move resources between regions
 
 When you want to move a logic app to a different region, your options depend on the way that you created your logic app. Based on the option that you choose, you must recreate or reauthorize the connections in your logic app.
+
+* In the Azure portal, recreate the logic app in the new region and reconfigure the workflow settings. To save time, you can copy the underlying workflow definition and connections from the source app to the destination app. To view the "code" behind a logic app, on the Logic App Designer toolbar, select **Code view**.
 
 * By using Visual Studio and the Azure Logic Apps Tools for Visual Studio, you can [open and download your logic app](../logic-apps/manage-logic-apps-with-visual-studio.md) from the Azure portal as an [Azure Resource Manager template](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md). This template is mostly ready for deployment and includes the resource definitions for your logic app, including the workflow itself, and connections. The template also declares parameters for the values to use at deployment. That way, you can more easily change where and how you deploy the logic app, based on your needs. To specify the location and other necessary information for deployment, you can use a separate parameters file.
 
