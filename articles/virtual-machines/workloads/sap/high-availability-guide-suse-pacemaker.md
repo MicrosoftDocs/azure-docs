@@ -395,6 +395,28 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    <pre><code>sudo zypper install fence-agents
    </code></pre>
 
+>[!IMPORTANT]
+> If using Suse Linux Enterprise Server for SAP 15, be aware that you need to activate additional module and install additional component, that is prerequisite for using Azure Fence Agent. To learn more about SUSE modules and extensions see [Modules and Extensions explained](https://www.suse.com/documentation/sles-15/singlehtml/art_modules/art_modules.html). Follow the instructions bellow to install Azure Python SDK. 
+
+   The following instructions on how to install Azure Python SDK are only applicable for Suse Enterprise Server for SAP **15**.  
+
+   - If you are using Bring-Your-Own-Subscription, follow these instructions
+
+   <pre><code>
+   #Activate module PackageHub/15/x86_64
+   sudo SUSEConnect -p PackageHub/15/x86_64
+   #Install Azure Python SDK
+   sudo zypper in python3-azure-sdk
+   </code></pre>
+
+   - If you are using Pay-As-You-Go subscription, follow these instructions
+
+   <pre><code>#Activate module PackageHub/15/x86_64
+   zypper ar https://download.opensuse.org/repositories/openSUSE:/Backports:/SLE-15/standard/ SLE15-PackageHub
+   #Install Azure Python SDK
+   sudo zypper in python3-azure-sdk
+   </code></pre>
+
 1. **[A]** Setup host name resolution
 
    You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
