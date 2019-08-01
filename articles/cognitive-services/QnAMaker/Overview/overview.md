@@ -93,9 +93,6 @@ Learn what's new with QnA Maker.
     * Active learning 
     * Improved NLP ranker model for English, 
 
-e.	Jun: improved ranker model for French, Italian, German, Spanish, Portuguese
-
-
 ## Next steps
 QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base. 
 
