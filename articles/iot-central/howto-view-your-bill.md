@@ -12,7 +12,7 @@ manager: philmea
 
 # View your bill in IoT Central application
 
-This article describes how, as a administrator, you can view your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
+This article describes how, as an administrator, you can view your bill in Azure IoT Central application in the administration section and also how you can convert your trial version to pay-as-you-go.
 
 To access and use the **Administration** section, you must be in the **Administrator** role for an Azure IoT Central application. If you create an Azure IoT Central application, you're automatically assigned to the **Administrator** role for that application.
 
