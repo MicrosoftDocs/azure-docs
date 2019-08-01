@@ -62,6 +62,8 @@
         href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
     - name: Apache Spark job fails - NoClassDefFoundError
       href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+    - name: Apache Spark job fails - InvalidClassException
+      href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
     - name: Slow Apache Spark jobs - listStatus
       href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
     - name: Slow Apache Spark jobs - storage container

@@ -80,7 +80,7 @@ To prepare to use PowerShell, download and install the Azure PowerShell cmdlets.
 
 3. **Create the file share**
     ```azurecli
-    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
+    az storage share create --name files --quota 2048 --connection-string $current_env_conn_string > /dev/null
     ```
 
 ## Next steps

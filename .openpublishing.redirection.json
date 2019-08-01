@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/security/develop/security-code-analysis-install.md",
+      "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
+      "redirect_document_id": true
+    }, 
+    {
       "source_path": "articles/machine-learning/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
       "redirect_document_id": true
@@ -13888,6 +13893,11 @@
     {
       "source_path": "articles/security/azure-security-data-classification.md",
       "redirect_url": "https://aka.ms/data-classification-cloud",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security/fundamentals/quick-encrypt-vm-powershell.md",
+      "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
       "redirect_document_id": false
     },
     {
@@ -40898,6 +40908,11 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
+      "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
     }
   ]

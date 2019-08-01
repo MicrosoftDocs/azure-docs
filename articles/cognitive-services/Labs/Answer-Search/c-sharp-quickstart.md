@@ -11,7 +11,7 @@ ms.subservice: answer-search
 ms.topic: quickstart
 ms.date: 04/13/2018
 ms.author: rosh
-
+ROBOTS: NOINDEX
 ---
 
 # Quickstart: Project Answer Search query in C#
