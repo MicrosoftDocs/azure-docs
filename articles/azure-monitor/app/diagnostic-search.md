@@ -51,7 +51,7 @@ The Track Operation tab is available when you open a request or a page view. An 
 
 Select any telemetry item to see key fields and related items.
 
-![Screenshot of an individual dependency request](./media/diagnostic-search/telemetry_item.png)
+![Screenshot of an individual dependency request](./media/diagnostic-search/telemetry-item.png)
 
 This will launch the end-to-end transaction details view.
 
