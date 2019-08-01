@@ -50,7 +50,7 @@ The following example shows a **RelyingParty** element in the *B2C_1A_signup_sig
     </UserJourneyBehaviors>
     <TechnicalProfile Id="PolicyProfile">
       <DisplayName>PolicyProfile</DisplayName>
-      <Description>The policy profile</Description> 
+      <Description>The policy profile</Description>
       <Protocol Name="OpenIdConnect" />
       <Metadata>collection of key/value pairs of data</Metadata>
       <OutputClaims>
@@ -129,18 +129,18 @@ The **JourneyInsights** element contains the following attributes:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| TelemetryEngine | Yes | The value must be `ApplicationInsights`. | 
+| TelemetryEngine | Yes | The value must be `ApplicationInsights`. |
 | InstrumentationKey | Yes | The string that contains the instrumentation key for the application insights element. |
 | DeveloperMode | Yes | Possible values: `true` or `false`. If `true`, Application Insights expedites the telemetry through the processing pipeline. This setting is good for development, but constrained at high volumes The detailed activity logs are designed only to aid in development of custom policies. Do not use development mode in production. Logs collect all claims sent to and from the identity providers during development. If used in production, the developer assumes responsibility for PII (Privately Identifiable Information) collected in the App Insights log that they own. These detailed logs are only collected when this value is set to `true`.|
-| ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. | 
-| ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. | 
-| TelemetryVersion | Yes | The value must be `1.0.0`. | 
+| ClientEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the Application Insights client-side script for tracking page view and client-side errors. |
+| ServerEnabled | Yes | Possible values: `true` or `false`. If `true`, sends the existing UserJourneyRecorder JSON as a custom event to Application Insights. |
+| TelemetryVersion | Yes | The value must be `1.0.0`. |
 
 For more information, see [Collecting Logs](active-directory-b2c-troubleshoot-custom.md)
 
 ## ContentDefinitionParameters
 
-By using custom policies in Azure AD B2C, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. Azure AD B2C passes the query string parameters to your dynamic HTML file, such as aspx file. 
+By using custom policies in Azure AD B2C, you can send a parameter in a query string. By passing the parameter to your HTML endpoint, you can dynamically change the page content. For example, you can change the background image on the Azure AD B2C sign-up or sign-in page, based on a parameter that you pass from your web or mobile application. Azure AD B2C passes the query string parameters to your dynamic HTML file, such as aspx file.
 
 The following example passes a parameter named `campaignId` with a value of `hawaii` in the query string:
 
@@ -165,7 +165,7 @@ For more information, see [Configure the UI with dynamic content by using custom
 The **TechnicalProfile** element contains the following attribute:
 
 | Attribute | Required | Description |
-| --------- | -------- | ----------- | 
+| --------- | -------- | ----------- |
 | Id | Yes | The value must be `PolicyProfile`. |
 
 The **TechnicalProfile** contains the following elements:
@@ -213,7 +213,7 @@ The **SubjectNamingInfo** element contains the following attribute:
 | --------- | -------- | ----------- |
 | ClaimType | Yes | A reference to an output claim's **PartnerClaimType**. The output claims must be defined in the relying party policy **OutputClaims** collection. |
 
-The following example shows how to define an OpenId Connect relying party. The subject name info is configured as the `objectId`:
+The following example shows how to define an OpenID Connect relying party. The subject name info is configured as the `objectId`:
 
 ```XML
 <RelyingParty>

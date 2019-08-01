@@ -95,7 +95,7 @@ In this section, you update the code to specify that both token issuer endpoints
         AuthenticationType = Startup.DefaultPolicy,
         ValidIssuers = new List<string> {
             "https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/",
-            "https://{your-b2c-tenant-name}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
+            "https://{your-b2c-tenant}.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/"
         }
     };
     ```
@@ -105,7 +105,7 @@ In this section, you update the code to specify that both token issuer endpoints
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 {
-    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenIDConnect metadata endpoint
+    // This SecurityTokenProvider fetches the Azure AD B2C metadata &  from the OpenID Connect metadata endpoint
     AccessTokenFormat = new JwtFormat(tvps, new tCachingSecurityTokenProvider(String.Format(AadInstance, ultPolicy)))
 });
 ```
@@ -127,11 +127,11 @@ Before:
 <add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
 ```
 
-After (replace `{your-tenant-name}` with the name of your B2C tenant):
+After (replace `{your-b2c-tenant}` with the name of your B2C tenant):
 
 ```xml
 <!-- New value -->
-<add key="ida:AadInstance" value="https://{your-b2c-tenant-name}.b2clogin.com/tfp/{0}/{1}" />
+<add key="ida:AadInstance" value="https://{your-b2c-tenant}.b2clogin.com/tfp/{0}/{1}" />
 ```
 
 When the endpoint strings are constructed during execution of the web app, the b2clogin.com-based endpoints are used when it requests tokens.

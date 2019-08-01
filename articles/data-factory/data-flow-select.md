@@ -31,6 +31,9 @@ Select can also be used as a way de-select columns from your data flow. For exam
 
 ![Skip Duplicates](media/data-flow/select-skip-dup.png "Skip Duplicates")
 
+> [!NOTE]
+> To clear mapping rules, press the **Reset** button.
+
 ## Mapping
 By default, the Select transformation will automatically map all columns, which will pass through all incoming columns to the same name on the output. The output stream name that is set in Select Settings will define a new alias name for the stream. If you keep the Select set for auto-map, then you can alias the entire stream with all columns the same.
 
