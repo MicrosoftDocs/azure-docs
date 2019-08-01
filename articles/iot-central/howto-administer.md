@@ -10,7 +10,7 @@ services: iot-central
 manager: peterpr
 ---
 
-# Administer your IoT Central application
+# Manage your IoT Central application
 
 This article describes how, as a administrator, you can manage application by changing application name and URL, uploading image,also you can learn how to copy and delete an application in your Azure IoT Central application.
 
