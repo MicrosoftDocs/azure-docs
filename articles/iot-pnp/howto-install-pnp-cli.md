@@ -1,6 +1,6 @@
 ---
-title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play devices | Microsoft Docs
-description: Install the Azure IoT extension for Azure CLI and use it to interact with the Plug and Play devices connected to my IoT hub.
+title: Use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play Preview devices | Microsoft Docs
+description: Install the Azure IoT extension for Azure CLI and use it to interact with the IoT Plug and Play devices connected to my IoT hub.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 07/10/2019
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. Azure CLI is available on Windows, Linux, and MacOS. The Azure CLI is also pre-installed in the [Azure Cloud Shell](https://shell.azure.com). Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
 
-The Azure IoT extension for Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play devices. You can use the extension to:
+The Azure IoT extension for Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play Preview devices. You can use the extension to:
 
 - Connect to a device.
 - View the telemetry the device sends.
@@ -56,7 +56,7 @@ az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourD
 
 ### Interact with a device
 
-You can use the extension to view and interact with IoT Plug and Play devices that are connected to an IoT hub. The extension works with the digital twin that represents the Plug and Play device.
+You can use the extension to view and interact with IoT Plug and Play devices that are connected to an IoT hub. The extension works with the digital twin that represents the IoT Plug and Play device.
 
 #### List devices and interfaces
 
@@ -202,4 +202,4 @@ You can't directly publish a model in the public model repository.
 
 ## Next steps
 
-In this how-to article, you've learned how to install and use Azure IoT extension for Azure CLI to interact with your Plug and Play devices. To learn about IoT Plug and Play, continue to the next article.
+In this how-to article, you've learned how to install and use Azure IoT extension for Azure CLI to interact with your IoT Plug and Play devices. To learn about IoT Plug and Play, continue to the next article.

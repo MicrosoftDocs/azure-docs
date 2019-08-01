@@ -1,5 +1,5 @@
 ---
-title: Use the Azure IoT Device Workbench to build IoT Plug and Play devices | Microsoft Docs
+title: Use the Azure IoT Device Workbench to build IoT Plug and Play Preview devices | Microsoft Docs
 description: Use Azure IoT Device Workbench extension in Visual Studio Code to accelerate authoring IoT Plug and Play device models and implementing the device code.
 author: liydu
 ms.author: liydu

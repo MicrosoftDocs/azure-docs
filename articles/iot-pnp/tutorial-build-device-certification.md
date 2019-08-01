@@ -1,6 +1,6 @@
 ---
-title: Build an Azure IoT Plug and Play device that's ready for certification | Microsoft Docs
-description: As a device developer, learn about how you can build a Plug and Play device that's ready for certification.
+title: Build an Azure IoT Plug and Play Preview device that's ready for certification | Microsoft Docs
+description: As a device developer, learn about how you can build an IoT Plug and Play Preview device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 06/28/2019
@@ -11,9 +11,9 @@ services: iot-pnp
 manager: philmea
 ---
 
-# Build a Plug and Play device that's ready for certification
+# Build an IoT Plug and Play Preview device that's ready for certification
 
-This tutorial describes how, as a device developer, you can build a Plug and Play device that's ready for certification.
+This tutorial describes how, as a device developer, you can build an IoT Plug and Play Preview device that's ready for certification.
 
 The certification tests check that:
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
 
-You also need the Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
+You also need the IoT Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
 
 ## Store a capability model and interfaces
 
