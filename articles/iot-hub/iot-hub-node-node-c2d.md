@@ -67,7 +67,7 @@ In this section, you modify the simulated device app you created in [Send teleme
     });
     ```
 
-    In this example, the device always invokes the **complete** function to notify IoT Hub that it has processed the message. 
+    In this example, the device invokes the **complete** function to notify IoT Hub that it has processed the message. The call to **complete** is not required if you are using MQTT transport and can be omitted. It is required for HTTPS and AMQP.
   
    > [!NOTE]
    > If you use HTTPS instead of MQTT or AMQP as the transport, the **DeviceClient** instance checks for messages from IoT Hub infrequently (less than every 25 minutes). For more information about the differences between MQTT, AMQP and HTTPS support, and IoT Hub throttling, see the [IoT Hub developer guide](iot-hub-devguide-messaging.md).
