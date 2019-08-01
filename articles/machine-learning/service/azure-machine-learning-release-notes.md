@@ -18,9 +18,9 @@ In this article, learn about the Azure Machine Learning service releases.  For t
 
 See [the list of known issues](resource-known-issues.md) to learn about known bugs and workarounds.
 
-## 2019-07-29
+## 2019-08-05
 
-### Azure Machine Learning SDK for Python v1.0.54
+### Azure Machine Learning SDK for Python v1.0.55
 
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
