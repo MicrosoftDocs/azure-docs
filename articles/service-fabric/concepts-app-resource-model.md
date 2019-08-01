@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Application Resource Model  | Microsoft Docs
+title: Service Fabric application resource model  | Microsoft Docs
 description: This article is an overview of managing a Service Fabric application with Azure Resource Manager
 services: service-fabric
 author: athinanthny 
@@ -10,7 +10,7 @@ ms.date: 07/25/2019
 ms.author: atsenthi 
 ---
 
-# What is  Service Fabric Application Resource Model?
+# What is the Service Fabric Application Resource Model?
 
 It is recommended that Service Fabric applications are deployed onto your Service Fabric cluster via Azure Resource Manager. This method makes it possible to describe applications and services in JSON and deploy them in the same Resource Manager template as your cluster. As opposed to deploying and managing applications via Powershell or Azure CLI, there is no need to wait for the cluster to be ready. The process of application registration, provisioning, and deployment all happens in one step. This is the best practice to manage application life cycle in your cluster. For more information, look at [best practices](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)
 
@@ -22,7 +22,7 @@ When applicable, manage your applications as Resource Manager resources to impro
 
 
 
-##Samples 
+## Samples 
 
 
 In this document, you will learn how to:
