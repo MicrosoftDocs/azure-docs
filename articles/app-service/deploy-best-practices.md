@@ -47,7 +47,7 @@ Deployment tools such as Azure Pipelines, Jenkins, and editor plugins all use on
 
 ### Java
 
-Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article]() 
+Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and [wardeploy/](deploy-zip.md#deploy-war-file) for WAR apps. If you are using Jenkins, you can use those APIs directly in your deployment phase. For more information, see [this article](../jenkins/execute-cli-jenkins-pipeline.md).
 
 ### Node
 

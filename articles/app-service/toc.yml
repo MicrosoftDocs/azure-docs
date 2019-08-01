@@ -111,7 +111,7 @@
       href: configure-connect-to-azure-storage.md
   - name: Deploy to Azure
     items:
-    - name: Deployment Best practices
+    - name: Deployment best practices
       href: deploy-best-practices.md
     - name: Deploy the app
       items:
