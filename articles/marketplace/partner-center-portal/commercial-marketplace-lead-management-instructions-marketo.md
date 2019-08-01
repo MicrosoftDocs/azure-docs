@@ -46,13 +46,13 @@ This article describes how to set up Marketo to handle Microsoft sales leads.
 
 9. Copy the values shown in Embed Code. You will use these values to configure your offer to receive leads in the next step. Use the next example as a guide for getting the Ids you need from the Marketo Embed Code example.
 
-    - Server Id = **ys12**
-    - Munchkin Id = **123-PQR-789**
-    - Form Id = **1179**\
+    - Server ID = **ys12**
+    - Munchkin ID = **123-PQR-789**
+    - Form ID = **1179**\
 
     **Another way to figure out these values**
 
-    - Server ID is found in the URL of your Marketo instance,  e.g., "`serverID.marketo.com`".
+    - Server ID is found in the URL of your Marketo instance,  for example, "`serverID.marketo.com`".
     - Get your subscription’s Munchkin ID by going to your Admin>Munchkin menu in the “Munchkin Account ID” field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
     - The ID of the Embed Code form you created to route leads from our marketplace.
 
