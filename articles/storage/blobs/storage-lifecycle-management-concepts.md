@@ -1,15 +1,14 @@
 ---
 title: Managing the Azure Storage lifecycle
 description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
-services: storage
 author: mhopkins-msft
 
-ms.service: storage
-ms.topic: conceptual
-ms.date: 05/21/2019
 ms.author: mhopkins
-ms.reviewer: yzheng
+ms.date: 05/21/2019
+ms.service: storage
 ms.subservice: common
+ms.topic: conceptual
+ms.reviewer: yzheng
 ---
 
 # Manage the Azure Blob storage lifecycle
@@ -25,6 +24,8 @@ The lifecycle management policy lets you:
 
 Consider a scenario where data gets frequent access during the early stages of the lifecycle, but only occasionally after two weeks. Beyond the first month, the data set is rarely accessed. In this scenario, hot storage is best during the early stages. Cool storage is most appropriate for occasional access. Archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policy rules are available to move aging data to cooler tiers.
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## Storage account support
 
 The lifecycle management policy is available with General Purpose v2 (GPv2) accounts, Blob storage accounts, and Premium Block Blob storage accounts. In the Azure portal, you can upgrade an existing General Purpose (GPv1) account to a GPv2 account. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md).  
@@ -35,7 +36,7 @@ The lifecycle management feature is free of charge. Customers are charged the re
 
 ## Regional availability
 
-The lifecycle management feature is available in all global Azure and Azure Government regions.
+The lifecycle management feature is available in all Azure regions.
 
 ## Add or remove a policy
 

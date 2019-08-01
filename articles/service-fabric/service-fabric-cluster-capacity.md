@@ -21,7 +21,7 @@ ms.author: chackdan
 For any production deployment, capacity planning is an important step. Here are some of the items that you have to consider as a part of that process.
 
 * The number of node types your cluster needs to start out with
-* The properties of each of node type (size, primary, internet facing, number of VMs, etc.)
+* The properties of each node type (size, primary, internet facing, number of VMs, etc.)
 * The reliability and durability characteristics of the cluster
 
 > [!NOTE]

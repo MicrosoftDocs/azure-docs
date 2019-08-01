@@ -481,6 +481,13 @@ public async Task RunAllTasks()
 }
 ```
 
+## ApplicationInsights operations vs System.Diagnostics.Activity
+`System.Diagnostics.Activity` represents the distributed tracing context and is used by frameworks and libraries to create and propagate context inside and outside of the process and correlate telemetry items. Activity works together with `System.Diagnostics.DiagnosticSource` - the notification mechanism between the framework/library to notify about interesting events (incoming or outgoing requests, exceptions, etc).
+
+Activities are first-class citizens in Application Insights and automatic dependency and request collection relies heavily on them along with `DiagnosticSource` events. If you create Activity in your application - it would not result in Application Insights telemetry being created. Application Insights needs to receive DiagnosticSource events and know the events names and payloads to translate Activity into telemetry.
+
+Each Application Insights operation (request or dependency) involves `Activity` - when `StartOperation` is called, it creates Activity underneath. `StartOperation` is the recommended way to track request or dependency telemetries manually and ensure everything is correlated.
+
 ## Next steps
 
 - Learn the basics of [telemetry correlation](correlation.md) in Application Insights.

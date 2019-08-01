@@ -35,7 +35,7 @@ Create an Azure Front Door Service profile by following the instructions describ
 
 ### Create a WAF policy
 
-Create a WAF policy by using the [az network waf-policy create](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-create) command. 
+Create a WAF policy by using the [az network waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) command. 
 In the example that follows, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive 
@@ -46,7 +46,7 @@ az network waf-policy create \
   ```
 ### Add a custom IP access control rule
 
-Use the [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/waf-policy/custom-rule?view=azure-cli-latest#ext-front-door-az-network-waf-policy-custom-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
+Use the [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
 
 In the following examples:
 -  Replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
@@ -78,7 +78,7 @@ az network waf-policy custom-rule create \
 ```
     
 ### Find the ID of a WAF policy 
-Find a WAF policy's ID by using the [az network waf-policy show](/cli/azure/ext/front-door/network/waf-policy?view=azure-cli-latest#ext-front-door-az-network-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
+Find a WAF policy's ID by using the [az network waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network waf-policy show \

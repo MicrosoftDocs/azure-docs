@@ -24,15 +24,16 @@
     - name: Run experiment locally
       displayName: workspace, install, sdk
       href: quickstart-run-local-notebook.md
-  - name: Visual interface
-    items:
-    - name: Prepare and visualize data
-      displayName: experiment drag-and-drop
-      href: ui-quickstart-run-experiment.md
 - name: Tutorials
   items:
   - name: Python SDK
     items:
+    - name: Create first ML experiment
+      items:
+      - name: 1. Setup workspace & dev environment
+        href: tutorial-1st-experiment-sdk-setup.md
+      - name: 2. Train your first model
+        href: tutorial-1st-experiment-sdk-train.md
     - name: Image classification (MNIST data)
       items:
       - name: 1. Train a model
@@ -90,16 +91,18 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
+  - name: Deep learning
+    displayName: deep learning vs machine learning, deep learning, vs, versus
+    href: concept-deep-learning-vs-machine-learning.md
   - name: Workspace
-    displayName: concept definitions architecture
     href: concept-workspace.md
   - name: Compute target
-    displayName: concept definitions architecture
+    displayName: compute, resource, target, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
   - name: Visual interface
-    displayName: concept
+    displayName: studio
     href: ui-concept-visual-interface.md
-  - name: Automated ML
+  - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
   - name: Model management (MLOps)
@@ -110,12 +113,11 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
-  - name: FPGAs overview
+  - name: FPGA vs. CPU GPU ASIC
+    displayName: field, programmable, arrays
     href: concept-accelerate-with-fpgas.md
-  - name: ONNX and ONNX Runtime
+  - name: ONNX
     href: concept-onnx.md
-  - name: Data drift monitoring
-    href: concept-data-drift.md
   - name: Security
     items:
     - name: Enterprise security overview
@@ -146,10 +148,10 @@
       href: how-to-configure-environment.md
     - name: Enable logging
       displayName: troubleshoot, log, files, tracing
-      href: how-to-enable-logging.md 
+      href: how-to-enable-logging.md
     - name: Set input & output directories
       displayName: large data, write, experiment files, size limit
-      href: how-to-save-write-experiment-files.md 
+      href: how-to-save-write-experiment-files.md
     - name: Use VS Code extension
       displayName: Visual Studio Code, VSCode, tools, ai, vs
       href: how-to-vscode-tools.md
@@ -183,7 +185,7 @@
     - name: Create estimators in training
       href: how-to-train-ml-models.md
     - name: Use Scikit-learn
-      href: how-to-train-scikit-learn.md  
+      href: how-to-train-scikit-learn.md
     - name: Use TensorFlow
       href: how-to-train-tensorflow.md
     - name: Use Keras
@@ -207,7 +209,7 @@
       href: how-to-use-mlflow.md
     - name: Visualize runs with TensorBoard
       displayName: log, monitor, metrics
-      href: how-to-monitor-tensorboard.md      
+      href: how-to-monitor-tensorboard.md
   - name: Automate machine learning
     displayName: automl, auto ml
     items:
@@ -227,14 +229,21 @@
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
-      displayName: publish azure kubernetes azure container instances
+      displayName: publish web service
       href: how-to-deploy-and-where.md
+    - name: Azure Container Instances
+      href: how-to-deploy-azure-container-instance.md
+    - name: Azure Kubernetes Service
+      href: how-to-deploy-azure-kubernetes-service.md
     - name: GPU inference
       href: how-to-deploy-inferencing-gpus.md
     - name: FPGAs inference
       href: how-to-deploy-fpga-web-service.md
     - name: IoT Edge
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
+    - name: Azure App Service
+      displayName: web app
+      href: how-to-deploy-app-service.md
     - name: Custom Docker image
       href: how-to-deploy-custom-docker-image.md
     - name: Deploy existing models
@@ -263,7 +272,7 @@
     displayName: pipelines
     items:
     - name: Create an ML pipeline
-      href: how-to-create-your-first-pipeline.md  
+      href: how-to-create-your-first-pipeline.md
     - name: 'CI/CD of ML workflows with Azure Pipelines'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
@@ -321,10 +330,10 @@
       - name: Partition and Sample
         href: ../algorithm-module-reference/partition-and-sample.md
     - name: Machine learning
-      items:  
+      items:
       - name: Score Model
         href: ../algorithm-module-reference/score-model.md
-      - name: Assign Data To Clusters 
+      - name: Assign Data To Clusters
         href: ../algorithm-module-reference/assign-data-to-clusters.md
       - name: Train Model
         href: ../algorithm-module-reference/train-model.md
@@ -363,7 +372,7 @@
       - name: K-Means Clustering
         href: ../algorithm-module-reference/k-means-clustering.md
     - name: Python and R language modules
-      items:  
+      items:
       - name: Execute Python Script
         href: ../algorithm-module-reference/execute-python-script.md
       - name: Create Python Model
@@ -389,7 +398,7 @@
   - name: User forum
     href: https://aka.ms/aml-forum-service
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
+    href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
   - name: What happened to Workbench
