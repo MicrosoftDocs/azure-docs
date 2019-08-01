@@ -34,7 +34,7 @@ The `acr purge` container command deletes images by tag in a repository that mat
 At a minimum, specify the following when you run `acr purge`:
 
 * `--registry` - The Azure container registry where you run the command. 
-* `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` paramters to purge multiple repositories.
+* `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` parameters to purge multiple repositories.
 * `--ago` - An expression in go style duration format to indicate a duration beyond which images are deleted. For example, `--ago 2d3h6m` selects all images last modified more than 2 days, 3 hours, and 6 minutes ago. If not specified, the default value is 1 day.
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
@@ -89,7 +89,7 @@ az acr run \
     --registry myregistry
 ```
 
-Review the command output to see the tags and manifests that match the selection parameters. Because the command is run with `--dryrun`, no data is deleted.
+Review the command output to see the tags and manifests that match the selection parameters. Because the command is run with `--dry-run`, no data is deleted.
 
 Sample output:
 
@@ -132,7 +132,7 @@ Run the [az acr task show][az-acr-task-show] command to see that the timer trigg
 
 Find out about other options to [delete image data](container-registry-delete.md) in Azure Container Registry.
 
-For more information about image storage in Azure Container Registry see [Container image storage in Azure Container Registry](container-registry-storage.md).
+For more information about image storage, see [Container image storage in Azure Container Registry](container-registry-storage.md).
 
 <!-- LINKS - External -->
 
