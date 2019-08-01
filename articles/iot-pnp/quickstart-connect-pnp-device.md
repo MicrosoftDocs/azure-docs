@@ -64,7 +64,7 @@ az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
 
-1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
+Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
     ```cmd/sh
     git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
