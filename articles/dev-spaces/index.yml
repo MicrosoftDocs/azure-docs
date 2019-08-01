@@ -12,7 +12,7 @@ metadata:
   ms.author: zarhoads
   manager: gwallace
 abstract:
-  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared Azure Kubernetes Service (AKS) cluster as well as running and debugging containers directly in AKS. Learn how to use Azure Dev Spaces using these quickstarts.
+  description: Azure Dev Spaces allows you to test and iteratively develop your entire microservices application by running in Azure Kubernetes Service (AKS) without the need to replicate or mock dependencies. Azure Dev Spaces reduces the burden and complexity of collaborating with your team in a shared Azure Kubernetes Service (AKS) cluster, as well as by running and debugging containers directly in AKS. Learn how to use Azure Dev Spaces by using these quickstarts.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -47,11 +47,11 @@ sections:
       text: Use Visual Studio and .NET Core
       href: quickstart-netcore-visualstudio.md
   - type: paragraph
-    text: 'Learn how to develop microservices for almost any language using the CLI with Azure Dev Spaces:'
+    text: 'Learn how to develop microservices for almost any language by using the Azure CLI with Azure Dev Spaces:'
   - type: list
     style: icon48
     items:
     - image: 
         src: https://docs.microsoft.com/media/common/i_cligeneric.svg
-      text: Develop using the CLI
+      text: Develop by using the Azure CLI
       href: quickstart-cli.md
