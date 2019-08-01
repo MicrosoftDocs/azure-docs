@@ -137,7 +137,7 @@ When the move is complete, check the following list of tasks that should be veri
 |Source control|You can run a manual sync on your source control repo.|[Source control integration](../source-control-integration.md)|
 |Change tracking and inventory|Verify you see current inventory data from your machines.|[Troubleshoot change tracking](../troubleshoot/change-tracking.md)|
 |Update management|Verify you see your machines and they're healthy.</br>Run a test software update deployment.|[Troubleshoot update management](../troubleshoot/update-management.md)|
-|Shared resources|Verify that you see all of your shared resources, such as [Credentials](..\shared-resources\credentials.md), [Variables](..\shared-resources\variables.md), etc.|
+|Shared resources|Verify that you see all of your shared resources, such as [Credentials](../shared-resources/credentials.md), [Variables](../shared-resources/variables.md), etc.|
 
 ## Next steps
 
