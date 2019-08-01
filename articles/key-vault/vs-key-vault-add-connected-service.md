@@ -37,23 +37,23 @@ Before you begin, make sure that you're signed into Visual Studio. Sign in with 
 
    ![Select your subscription](media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
-1. In Edit Azure Key Vault, enter the name you want to use for the Key Vault.
+1. In **Edit Azure Key Vault**, enter the name you want to use for the Key Vault.
 
 1. Select an existing **Resource Group**, or choose to create a new one with an automatically generated unique name.  If you want to create a new group with a different name, you can use the [Azure portal](https://portal.azure.com), and then close the page and restart to reload the list of resource groups.
 1. Choose the **Location** in which to create the Key Vault. If your web application is hosted in Azure, choose the region that hosts the web application for optimum performance.
 1. Choose a **Pricing tier**. For details, see [Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/).
 1. Choose **OK** to accept the configuration choices.
-1. After you select an existing Key Vault or have configured a new Key Vault, in the Azure Key Vault tab of Visual Studio, select **Add** to add the Connected Service.
-1. Follow the **Manage secrets stored in this Key Vault** link to open the **Secrets** page for your Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services** and, under **Security**, choosing **Key Vault**, then choose your Key Vault.
+1. After you select an existing Key Vault or have configured a new Key Vault, in the **Azure Key Vault** tab of Visual Studio, select **Add** to add the Connected Service.
+1. Select the **Manage secrets stored in this Key Vault** link to open the **Secrets** page for your Key Vault. If you closed the page or the project, you can navigate to it in the [Azure portal](https://portal.azure.com) by choosing **All Services** and, under **Security**, choosing **Key Vault**, then choose your Key Vault.
 1. In the Key Vault section for the key vault you created, choose **Secrets**, then **Generate/Import**.
 
    ![Generate/Import a secret](media/vs-key-vault-add-connected-service/azure-generate-secrets.png)
 
-1. Enter a secret, such as "MySecret" and give it any string value as a test, then choose the **Create** button.
+1. Enter a secret, such as *MySecret* and give it any string value as a test, then select the **Create** button.
 
    ![Create a secret](media/vs-key-vault-add-connected-service/azure-create-a-secret.png)
 
-1. (optional) Enter another secret, but this time put it into a category by naming it "Secrets--MySecret". This syntax specifies a category "Secrets" that contains a secret "MySecret".
+1. (optional) Enter another secret, but this time put it into a category by naming it *Secrets--MySecret*. This syntax specifies a category "Secrets" that contains a secret "MySecret".
 
 Now, you can access your secrets in code. The next steps are different depending on whether you are using ASP.NET 4.7.1 or ASP.NET Core.
 
