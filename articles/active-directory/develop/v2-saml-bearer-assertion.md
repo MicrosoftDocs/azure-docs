@@ -1,3 +1,28 @@
+---
+title: Microsoft identity platform and  SAML bearer assertion flow | Azure
+description: 
+services: active-directory
+documentationcenter: ''
+author: umeshbarapatre
+manager: CelesteDG
+editor: ''
+
+ms.assetid: 
+ms.service: active-directory
+ms.subservice: develop
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: conceptual
+ms.date: 08/01/2019
+ms.author: ryanwi
+ms.reviewer: hirsin
+ms.custom: aaddev
+ms.collection: M365-identity-device-management
+---
+
+# Microsoft identity platform and SAML bearer assertion flow
+
 SAML Bearer Assertion Flow Microsoft Documentation suggest 4 authentication flows but also supports SAML Bearer assertion flow. This is particularly useful in scenario when a user is trying to fetch data through Graph API which only supports delegated permissions. In this case, client credentials flow which is preferred for any background processes will not work. Also, when the information is being exchanged from few different systems then also the only resort is SAML Bearer flow.
 
 What is the challenge in getting authenticated and access data through Office 365 and Azure AD was the question when i started working on this concept.
