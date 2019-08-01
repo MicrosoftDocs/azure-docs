@@ -136,7 +136,6 @@ For more information about image storage in Azure Container Registry see [Contai
 
 <!-- LINKS - External -->
 
-[tagging-best-practices]: 
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
