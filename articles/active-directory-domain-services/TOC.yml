@@ -23,12 +23,6 @@
       href: synchronization.md
 - name: How to
   items:
-    - name: Plan for Azure AD DS
-      items: 
-        - name: Common scenarios
-          href: scenarios.md
-        - name: Virtual network scenarios
-          href: network-considerations.md
     - name: Configure common settings
       items:
         - name: Enable password hash synchronization
@@ -39,6 +33,12 @@
           href: create-ou.md
         - name: Create a group managed service account (gMSA)
           href: create-gmsa.md
+    - name: Plan for Azure AD DS
+      items: 
+        - name: Common scenarios
+          href: scenarios.md
+        - name: Virtual network considerations
+          href: network-considerations.md
     - name: Manage Azure AD DS
       items: 
         - name: Administer Group Policy
@@ -61,12 +61,6 @@
           href: password-policy.md
         - name: Enable security audit events (preview)
           href: security-audit-events.md
-    - name: Deploy applications to Azure AD DS
-      items:
-        - name: Deploy Azure AD Application Proxy
-          href: deploy-azure-app-proxy.md
-        - name: Configure support for profile synchronization for SharePoint Server
-          href: deploy-sp-profile-sync.md
     - name: Domain-join VMs
       items:
         - name: Windows Server VM from template
@@ -79,6 +73,12 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
+    - name: Deploy applications to Azure AD DS
+      items:
+        - name: Deploy Azure AD Application Proxy
+          href: deploy-azure-app-proxy.md
+        - name: Configure support for profile synchronization for SharePoint Server
+          href: deploy-sp-profile-sync.md
     - name: Troubleshoot
       items:
         - name: Common errors
