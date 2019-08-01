@@ -35,7 +35,7 @@ Once a QnA Maker knowledge base is published, a client application sends a quest
 |:--|:--|
 |1|The client application sends the user's _question_ (text in their own words), "How do I programmatically update my Knowledge Base?" to your knowledge base endpoint.|
 |2|QnA Maker uses the trained knowledge base to provide the correct answer and any follow-up prompts that can be used to refine the search for the best answer. QnA Maker returns a JSON-formatted response.|
-|3|The client application uses the JSON response to make decisions about how to continue the conversation. These decisions can include showing the top answer or presenting more choices to refine the the search for the best answer. |
+|3|The client application uses the JSON response to make decisions about how to continue the conversation. These decisions can include showing the top answer or presenting more choices to refine the search for the best answer. |
 
 ## What is a knowledge base? 
 
@@ -55,7 +55,7 @@ Once your knowledge base is edited, publish the knowledge base to a working [Azu
 
 ## Search quality and ranking provides the best possible answer
 
-QnA Maker provides a layered approach of Azure Search and QnA Maker. Queries are first sent to Azure Search, then the returned results are re-ranked by QnA Maker with information criteria such as metadata and multi-turn context. 
+QnA Maker provides a layered approach of Azure Search and QnA Maker. Queries are first sent to Azure Search, then the returned results are reranked by QnA Maker with information criteria such as metadata and multi-turn context. 
 
 ## QnA Maker improves the conversation process
 
@@ -96,7 +96,7 @@ e.	Jun: improved ranker model for French, Italian, German, Spanish, Portuguese
 
 
 ## Next steps
-QnA Maker provides everything you need to build, manage and deploy your custom knowledge base. 
+QnA Maker provides everything you need to build, manage, and deploy your custom knowledge base. 
 
 > [!div class="nextstepaction"]
 > [Create a QnA Maker service](../how-to/set-up-qnamaker-service-azure.md)
