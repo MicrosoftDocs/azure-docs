@@ -1,5 +1,5 @@
 ---
-title: Train deep learning neural network with PyTorch and
+title: Train deep learning neural network with PyTorch
 titleSuffix: Azure Machine Learning service
 description: Learn how to train and register a PyTorch model using Azure Machine Learning service.
 services: machine-learning
@@ -13,9 +13,9 @@ ms.date: 08/01/2019
 ms.custom: seodec18
 ---
 
-# Build a deep learning neural network classifier with PyTorch and Azure Machine Learning service
+# Build deep learning PyTorch models at scale with Azure Machine Learning service
 
-In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network at scale based on [PyTorch's transfer learning tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). 
+In this article, learn how to run your [PyTorch](https://pytorch.org/) training scripts at enterprise scale using Azure Machine Learning's [PyTorch estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py) class.  The example scripts in this article are used to classify chicken and turkey images to build a deep learning neural network based on PyTorch's transfer learning [tutorial](https://pytorch.org/tutorials/beginner/transfer_learning_tutorial.html). 
 
 Whether you're training a deep learning PyTorch model from the ground-up or you're bringing an existing model into the cloud, you can use Azure Machine Learning to scale out open-source training jobs using elastic cloud compute resources. You can build, deploy, version, and monitor production-grade models with Azure Machine Learning. 
 
