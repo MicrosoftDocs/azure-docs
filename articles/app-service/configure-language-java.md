@@ -39,11 +39,11 @@ Performance reports, traffic visualizations, and health checkups are available f
 
 ### SSH console access
 
-[!INCLUDE [Open SSH session in browser](/includes/app-service-web-ssh-connect-builtin-no-h.md)]
+[!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]
 
 ### Stream diagnostic logs
 
-[!INCLUDE [Access diagnostic logs](/includes/app-service-web-logs-access-no-h.md)]
+[!INCLUDE [Access diagnostic logs](../../includes/app-service-web-logs-access-no-h.md)]
 
 For more information, see [Streaming logs with the Azure CLI](troubleshoot-diagnostic-logs.md#streaming-with-azure-cli).
 
