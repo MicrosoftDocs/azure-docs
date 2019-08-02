@@ -11,18 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/12/2019
+ms.date: 08/02/2019
 ms.author: spelluru
 
 ---
 
 # Troubleshoot virtual machine (VM) and environment creation failures in Azure DevTest Labs
-DevTest Labs gives you warnings if a machine name is invalid or if you are about to violate a lab policy. Sometimes, you see red `X` next to your lab VM or environment status that informs you that something went wrong.  This article provides a few tricks that you can use to find the underlying issue and, hopefully, avoid the issue in the future.
+DevTest Labs gives you warnings if a machine name is invalid or if you're about to violate a lab policy. Sometimes, you see red `X` next to your lab VM or environment status that informs you that something went wrong.  This article provides a few tricks that you can use to find the underlying issue and, hopefully, avoid the issue in the future.
 
 ## Portal notifications
-If you are using the Azure portal, the first place to look at is the **notifications panel**.  The notifications panel, available on the main command bar by clicking the **bell icon**, will tell you whether the lab VM or environment creation was successful or not.  If there was a failure, you see the error message associated with the creation failure. The details often give further information to help you resolve the issue. In the following example, the virtual machine creation failed because of running out of cores. The detailed message tells you how to fix the issue and request a core quota increase.
+If you're using the Azure portal, the first place to look at is the **notifications panel**.  The notifications panel, available on the main command bar by clicking the **bell icon**, will tell you whether the lab VM or environment creation was successful or not.  If there was a failure, you see the error message associated with the creation failure. The details often give further information to help you resolve the issue. In the following example, the virtual machine creation failed because of running out of cores. The detailed message tells you how to fix the issue and request a core quota increase.
 
 ![Azure portal notification](./media/troubleshoot-vm-environment-creation-failures/portal-notification.png)
+
+### VM in corruption state
+If you see the status of your VM in the lab as **Corrupted**, the underlying VM may have been deleted from the **Virtual Machine** page that user can navigate to from the **Virtual Machines** page (not from the DevTest Labs page). Clean up your lab in DevTest Labs by deleting the VM from the lab. Then, recreate your VM in the lab. 
+
+![VM in corrupted state](./media/troubleshoot-vm-environment-creation-failures/vm-corrupted-state.png)
+
 
 
 ## Activity logs
