@@ -108,9 +108,9 @@ As the experiment progresses, the **Run Detail** screen updates the iteration ch
 >[!TIP]
 > Training jobs take several minutes for each pipeline to finish running.
 
-![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
 
-## Deploy model
+## Deploy the model
 
 For this experiment, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric. By using automated machine learning in the Azure portal, we can deploy this model as a web service to predict on new data. 
 
@@ -137,7 +137,7 @@ For this experiment, **VotingEnsemble** is considered the best model, based on t
 
 Deployment files are larger than data and experiment files, so they cost more to store. Delete only the deployment files to minimize costs to your account, or if you want to keep your workspace and experiment files. Otherwise, delete the entire resource group, if you don't plan to use any of the files.  
 
-### Delete deployment instance
+### Delete the deployment instance
 
 Delete just the deployment instance from the Azure portal, if you want to keep the resource group and workspace for other tutorials and exploration. 
 
@@ -147,7 +147,7 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 1. Select **Proceed**.
 
-### Delete resource group
+### Delete the resource group
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 
