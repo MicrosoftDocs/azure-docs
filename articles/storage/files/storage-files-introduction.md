@@ -1,7 +1,6 @@
 ---
 title: Introduction to Azure Files | Microsoft Docs
 description: An overview of Azure Files, a service that enables you to create and use network file shares in the cloud using the industry standard SMB protocol.
-services: storage
 author: roygara
 ms.service: storage
 ms.topic: overview
