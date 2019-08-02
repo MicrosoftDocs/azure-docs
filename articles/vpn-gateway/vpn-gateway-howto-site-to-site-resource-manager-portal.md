@@ -38,7 +38,7 @@ Verify that you have met the following criteria before beginning your configurat
 
 The examples in this article use the following values. You can use these values to create a test environment, or refer to them to better understand the examples in this article. For more information about VPN Gateway settings in general, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md).
 
-* **VNet Name:** TestVNet1
+* **VNet Name:** VNet1
 * **Address Space:** 10.1.0.0/16
 * **Subscription:** The subscription you want to use
 * **Resource Group:** TestRG1
