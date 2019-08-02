@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshooting BitLocker boot errors on an Azure VM | Microsoft Docs
 description: Learn how to troubleshoot BitLocker boot errors in an Azure VM
 services: virtual-machines-windows
@@ -12,8 +12,9 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 03/25/2019
 ms.author: genli
+ms.date: 03/25/2019
+
 ---
 
 # BitLocker boot errors on an Azure VM
