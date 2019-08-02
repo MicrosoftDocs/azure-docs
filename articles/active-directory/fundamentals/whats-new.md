@@ -71,7 +71,7 @@ We're removing the MFA server IP address from the [Office 365 IP Address and URL
 
 ---
 
-### App-only tokens now requires the client app to exist in the resource tenant
+### App-only tokens now require the client app to exist in the resource tenant
 
 **Type:** Fixed  
 **Service category:** Authentications (Logins)  
