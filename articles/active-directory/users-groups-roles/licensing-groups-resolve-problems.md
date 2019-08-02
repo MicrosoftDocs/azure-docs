@@ -1,6 +1,6 @@
 ---
 
-title: Resolve license assignment problems for an group - Azure Active Directory | Microsoft Docs
+title: Resolve license assignment problems for a group - Azure Active Directory | Microsoft Docs
 description: How to identify and resolve license assignment problems when you're using Azure Active Directory group-based licensing
 services: active-directory
 keywords: Azure AD licensing
@@ -103,7 +103,7 @@ If you use Exchange Online, some users in your tenant might be incorrectly confi
 > [!TIP]
 > To see if there is a duplicate proxy address, execute the following PowerShell cmdlet against Exchange Online:
 > ```
-> Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+> Get-Recipient -ResultSize unlimited | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
 > ```
 > For more information about this problem, see ["Proxy address 
 > is already being used" error message in Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). The article also includes information on [how to connect to Exchange Online by using remote PowerShell](https://technet.microsoft.com/library/jj984289.aspx).

@@ -27,6 +27,8 @@ In this documentation, you'll go over each feature in detail.
 > and Azure Policy's [Change history](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_. It's designed to help customers manage large-scale environments.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## How does Resource Graph complement Azure Resource Manager
 
 Azure Resource Manager currently supports queries over basic resource fields, specifically -
@@ -92,7 +94,7 @@ headers:
 - `x-ms-user-quota-resets-after` (hh:mm:ss): The time duration until a user's quota consumption is reset
 
 For more information, see
-[Throttling Resource Manager requests](../../azure-resource-manager/resource-manager-request-limits.md).
+[Guidance for throttled requests](./concepts/guidance-for-throttled-requests.md).
 
 ## Running your first query
 

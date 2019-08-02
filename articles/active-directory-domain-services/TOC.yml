@@ -37,10 +37,12 @@
       items: 
         - name: Scenarios
           href: scenarios.md
-        - name: Select a virtual network
+        - name: Plan a virtual network
           href: network-considerations.md
     - name: Manage Azure AD DS
       items: 
+        - name: Enable security audit events (Preview)
+          href: security-audit-events.md
         - name: Check a managed domain's health
           href: check-health.md
         - name: Configure scoped synchronization from Azure AD to a managed domain
@@ -53,7 +55,7 @@
           href: create-gmsa.md
         - name: Manage Group Policy for Azure AD Domain Services
           href: manage-group-policy.md
-        - name: Configure password polices on a managed domain
+        - name: Configure password policies on a managed domain
           href: password-policy.md
         - name: Delete a managed domain
           href: delete-aadds.md

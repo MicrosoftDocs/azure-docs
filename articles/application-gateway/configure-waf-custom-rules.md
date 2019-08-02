@@ -1,25 +1,25 @@
 ---
-title: Configure WAF custom rules using Azure PowerShell
-description: Learn how to configure WAF custom rules using Azure PowerShell
+title: Configure Web Application Firewall v2 custom rules using Azure PowerShell
+description: Learn how to configure WAF v2 custom rules using Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Configure Web Application Firewall with a custom rule using Azure PowerShell
+# Configure Web Application Firewall v2  with a custom rule using Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Custom rules allow you to create your own rules evaluated for each request that passes through the Web Application Firewall (WAF). These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules have an action (to allow or block), a match condition, and an operator to allow full customization.
+Custom rules allow you to create your own rules evaluated for each request that passes through the Web Application Firewall (WAF) v2. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules have an action (to allow or block), a match condition, and an operator to allow full customization.
 
-This article creates an Application Gateway WAF that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
+This article creates an Application Gateway WAF v2 that uses a custom rule. The custom rule blocks traffic if the request header contains User-Agent *evilbot*.
 
 To see more custom rule examples, see [Create and use custom web application firewall rules](create-custom-waf-rules.md)
 
-<!--- If you want run the Azure PowerShell in this article in one continuous script that you can copy, paste, and run, [see link to Samples]. --->
+If you want run the Azure PowerShell in this article in one continuous script that you can copy, paste, and run, see [Azure Application Gateway PowerShell samples](powershell-samples.md).
 
 ## Prerequisites
 

@@ -3,7 +3,7 @@ title: Provision Azure Batch pool from a custom image | Microsoft Docs
 description: Create a Batch pool from a custom image to provision compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.topic: article
@@ -45,7 +45,7 @@ In Azure you can prepare a managed image from snapshots of an Azure VM's OS and 
 
 ### Prepare a VM
 
-If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/rest/api/batchservice/account/listnodeagentskus) operation.
+If you are creating a new VM for the image, use a first party Azure Marketplace image supported by Batch as the base image for your managed image. Only first party images can be used as a base image. To get a full list of Azure Marketplace image references supported by Azure Batch, see the [List node agent SKUs](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) operation.
 
 > [!NOTE]
 > You can't use a third-party image that has additional license and purchase terms as your base image. For information about these Marketplace images, see the guidance for [Linux](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

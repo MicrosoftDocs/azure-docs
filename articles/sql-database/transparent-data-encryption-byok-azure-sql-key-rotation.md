@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: jhubbard
 ms.date: 03/12/2019
 ---
 # Rotate the Transparent Data Encryption (TDE) protector using PowerShell
@@ -65,36 +64,7 @@ Manual key rotation uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/
    -ResourceGroup <SQLDatabaseResourceGroupName>
    ```
 
-## Option 2: Manual rotation
 
-The option uses the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey), [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey), and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets to add a completely new key, which could be under a new key name or even another key vault. 
-
->[!NOTE]
->The combined length for the key vault name and key name cannot exceed 94 characters.
->
-
-   ```powershell
-   # Add a new key to Key Vault
-   Add-AzKeyVaultKey `
-   -VaultName <KeyVaultName> `
-   -Name <KeyVaultKeyName> `
-   -Destination <HardwareOrSoftware>
-
-   # Add the new key from Key Vault to the server
-   Add-AzSqlServerKeyVaultKey `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>   
-  
-   <# Set the key as the TDE protector for all resources 
-   under the server #>
-   Set-AzSqlServerTransparentDataEncryptionProtector `
-   -Type AzureKeyVault `
-   -KeyId <KeyVaultKeyId> `
-   -ServerName <LogicalServerName> `
-   -ResourceGroup <SQLDatabaseResourceGroupName>
-   ```
-  
 ## Other useful PowerShell cmdlets
 
 - To switch the TDE protector from Microsoft-managed to BYOK mode, use the [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet.

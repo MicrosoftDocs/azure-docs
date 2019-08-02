@@ -6,7 +6,7 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/03/2019
+ms.date: 06/10/2019
 ---
 
 # Scale HDInsight clusters
@@ -16,6 +16,9 @@ HDInsight provides elasticity by giving you the option to scale up and scale dow
 If you have periodic batch processing, the HDInsight cluster can be scaled up a few minutes prior to that operation, so that your cluster has adequate memory and CPU power.  Later, after the processing is done, and usage goes down again, you can scale down the HDInsight cluster to fewer worker nodes.
 
 You can scale a cluster manually using one of the methods outlined below, or use [autoscale](hdinsight-autoscale-clusters.md) options to have the system automatically scale up and down in response to CPU, memory, and other metrics.
+
+> [!NOTE]  
+> Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.
 
 ## Utilities to scale clusters
 
@@ -42,6 +45,50 @@ Using any of these methods, you can scale your HDInsight cluster up or down with
 When you **add** nodes to your running HDInsight cluster (scale up), any pending or running jobs will not be affected. New jobs can be safely submitted while the scaling process is running. If the scaling operation fails for any reason, the failure will be handled to leave your cluster in a functional state.
 
 If you **remove** nodes (scale down), any pending or running jobs will fail when the scaling operation completes. This failure is due to some of the services restarting during the scaling process. There is also a risk that your cluster can get stuck in safe mode during a manual scaling operation.
+
+The impact of changing the number of data nodes varies for each type of cluster supported by HDInsight:
+
+* Apache Hadoop
+
+    You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
+
+    When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This behavior causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
+
+* Apache HBase
+
+    You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging in to the headnode of cluster and running the following commands from a command prompt window:
+
+    ```bash
+    pushd %HBASE_HOME%\bin
+    hbase shell
+    balancer
+    ```
+
+    For more information on using the HBase shell, see [Get started with an Apache HBase example in HDInsight](hbase/apache-hbase-tutorial-get-started-linux.md).
+
+* Apache Storm
+
+    You can seamlessly add or remove data nodes to your Storm cluster while it is running. However, after a successful completion of the scaling operation, you will need to rebalance the topology.
+
+    Rebalancing can be accomplished in two ways:
+
+  * Storm web UI
+  * Command-line interface (CLI) tool
+
+    Refer to the [Apache Storm documentation](https://storm.apache.org/documentation/Understanding-the-parallelism-of-a-Storm-topology.html) for more details.
+
+    The Storm web UI is available on the HDInsight cluster:
+
+    ![HDInsight Storm scale rebalance](./media/hdinsight-scaling-best-practices/hdinsight-portal-scale-cluster-storm-rebalance.png)
+
+    Here is an example CLI command to rebalance the Storm topology:
+
+    ```cli
+    ## Reconfigure the topology "mytopology" to use 5 worker processes,
+    ## the spout "blue-spout" to use 3 executors, and
+    ## the bolt "yellow-bolt" to use 10 executors
+    $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+    ```
 
 ## How to safely scale down a cluster
 
@@ -135,13 +182,13 @@ If Hive has left behind temporary files, then you can manually clean up those fi
 1. Stop Hive services and be sure all queries and jobs are completed.
 2. List the contents of the scratch directory found above, `hdfs://mycluster/tmp/hive/` to see if it contains any files:
 
-    ```
+    ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     ```
 
     Here is a sample output when files exist:
 
-    ```
+    ```output
     sshuser@hn0-scalin:~$ hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c
     drwx------   - hive hdfs          0 2017-07-06 13:40 hdfs://mycluster/tmp/hive/hive/4f3f4253-e6d0-42ac-88bc-90f0ea03602c/_tmp_space.db
@@ -155,7 +202,7 @@ If Hive has left behind temporary files, then you can manually clean up those fi
 
     Example command line to remove files from HDFS:
 
-    ```
+    ```bash
     hadoop fs -rm -r -skipTrash hdfs://mycluster/tmp/hive/
     ```
 
@@ -168,7 +215,6 @@ Retaining three worker nodes is more costly than scaling down to only one worker
 #### Run the command to leave safe mode
 
 The final option is to execute the leave safe mode command. If you know that the reason for HDFS entering safe mode is because of Hive file under-replication, you can execute the following command to leave safe mode:
-
 
 ```bash
 hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode leave
@@ -196,4 +242,3 @@ Region servers are automatically balanced within a few minutes after completing 
 
 * [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md)
 * [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md)
-* [Scale clusters](hdinsight-administer-use-portal-linux.md#scale-clusters)

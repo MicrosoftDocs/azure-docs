@@ -10,7 +10,7 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 05/22/2019
+ms.date: 06/14/2019
 ---
 
 # Tutorial: Migrate SQL Server to an Azure SQL Database managed instance online using DMS
@@ -67,6 +67,10 @@ To complete this tutorial, you need to:
 * Ensure that the service account running the source SQL Server instance has write privileges on the network share that you created and that the computer account for the source server has read/write access to the same share.
 * Make a note of a Windows user (and password) that has full control privilege on the network share that you previously created. The Azure Database Migration Service impersonates the user credential to upload the backup files to Azure storage container for restore operation.
 * Create an Azure Active Directory Application ID that generates the Application ID key that DMS Service can use to connect to target Azure Database managed instance and Azure Storage Container. For more information, see the article [Use portal to create an Azure Active Directory application and service principal that can access resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal).
+
+  > [!NOTE]
+  > DMS requires the Contributor permission on the subscription for the specified Application ID. We are actively working to reduce these permissions requirements.
+
 * Create or make a note of **Standard Performance tier**, Azure Storage Account, that allows DMS service to upload the database backup files to and use for migrating databases.  Make sure to create the Azure Storage Account in the same region as the DMS service created.
 
 ## Register the Microsoft.DataMigration resource provider

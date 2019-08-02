@@ -21,7 +21,7 @@ ms.custom: seodec18
 ---
 # Tutorial: Build a custom image and run in App Service from a private registry
 
-[App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.0 and Node.js 4.5. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and run it in App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
+[App Service](app-service-linux-intro.md) provides built-in Docker images on Linux with support for specific versions, such as PHP 7.3 and Node.js 10.14. App Service uses the Docker container technology to host both built-in images and custom images as a platform as a service. In this tutorial, you learn how to build a custom image and run it in App Service. This pattern is useful when the built-in images don't include your language of choice, or when your application requires a specific configuration that isn't provided within the built-in images.
 
 In this tutorial, you learn how to:
 
@@ -274,7 +274,7 @@ SSH enables secure communication between a container and a client. To enable SSH
     > [!NOTE]
     > This configuration does not allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with your Azure account.
 
-* The [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copies the [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config file in the repository) to the */etc/ssh/* directory.
+* The [Dockerfile](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/Dockerfile#L18) copies the [sshd_config](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/sshd_config) file in the repository to the */etc/ssh/* directory.
 
     ```Dockerfile
     COPY sshd_config /etc/ssh/

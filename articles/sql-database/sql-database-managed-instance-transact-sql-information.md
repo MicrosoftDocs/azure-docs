@@ -9,8 +9,7 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova 
-manager: craigg
-ms.date: 03/13/2019
+ms.date: 07/07/2019
 ms.custom: seoapril2019
 ---
 
@@ -271,6 +270,7 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
 
 ### SQL Server Agent
 
+- Enabling and disabling SQL Server Agent is currently not supported in managed instance. SQL Agent is always running.
 - SQL Server Agent settings are read only. The procedure `sp_set_agent_properties` isn't supported in Managed Instance. 
 - Jobs
   - T-SQL job steps are supported.
@@ -287,13 +287,13 @@ For more information, see [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/
   - SQL Server Analysis Services aren't supported.
 - Notifications are partially supported.
 - Email notification is supported, although it requires that you configure a Database Mail profile. SQL Server Agent can use only one Database Mail profile, and it must be called `AzureManagedInstance_dbmail_profile`. 
-  - Pager isn't supported. 
+  - Pager isn't supported.
   - NetSend isn't supported.
   - Alerts aren't yet supported.
-  - Proxies aren't supported. 
+  - Proxies aren't supported.
 - EventLog isn't supported.
 
-The following features currently aren't supported but will be enabled in the future:
+The following SQL Agent features currently aren't supported:
 
 - Proxies
 - Scheduling jobs on an idle CPU
@@ -376,8 +376,9 @@ For more information, see [FILESTREAM](https://docs.microsoft.com/sql/relational
 
 Linked servers in Managed Instances support a limited number of targets:
 
-- Supported targets are SQL Server and SQL Database.
-- Targets that aren't supported are files, Analysis Services, and other RDBMS.
+- Supported targets are Managed Instances, Single Databases, and SQL Server instances. 
+- Linked servers don't support distributed writable transactions (MS DTC).
+- Targets that aren't supported are files, Analysis Services, and other RDBMS. Try to use native CSV import from Azure Blob Storage using `BULK INSERT` or `OPENROWSET` as an alternative for file import.
 
 Operations
 
@@ -385,6 +386,7 @@ Operations
 - `sp_dropserver` is supported for dropping a linked server. See [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
 - The `OPENROWSET` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. See [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
 - The `OPENDATASOURCE` function can be used to execute queries only on SQL Server instances. They can be either managed, on-premises, or in virtual machines. Only the `SQLNCLI`, `SQLNCLI11`, and `SQLOLEDB` values are supported as a provider. An example is `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. See [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- Linked servers cannot be used to read files (Excel, CSV) from the network shares. Try to use [BULK INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) or [OPENROWSET](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) that reads CSV files from Azure Blob Storage. Track this requests on [Managed Instance Feedback item](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### PolyBase
 
@@ -392,7 +394,13 @@ External tables that reference the files in HDFS or Azure Blob storage aren't su
 
 ### Replication
 
-Replication is available for public preview for Managed Instance. For information about replication, see [SQL Server replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+[Transactional Replication](sql-database-managed-instance-transactional-replication.md) is available for public preview on Managed Instance with some constraints:
+- Al types of replication participants (Publisher, Distributor, Pull Subscriber, and Push Subscriber) can be placed on Managed Instance, but Publisher and Distributor cannot be placed on different instances.
+- Transactional, Snapshot, and Bi-directional replication types are supported. Merge replication, Peer-to-peer replication and updateable subscriptions are not supported.
+- Managed Instance can communicate with the recent versions of SQL Server. See the supported versions [here](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
+- Transactional Replication has some [additional networking requirements](sql-database-managed-instance-transactional-replication.md#requirements).
+
+For information about configuring replication, see [replication tutorial](replication-with-sql-database-managed-instance.md).
 
 ### RESTORE statement 
 
@@ -452,17 +460,18 @@ Cross-instance service broker isn't supported:
 - `Extended stored procedures` aren't supported, which includes `sp_addextendedproc` and `sp_dropextendedproc`. See [Extended stored procedures](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
 - `sp_attach_db`, `sp_attach_single_file_db`, and `sp_detach_db` aren't supported. See [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), and [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
-## <a name="Environment"></a>Environmet constraints
+## <a name="Environment"></a>Environment constraints
 
 ### Subnet
 - In the subnet reserved for your Managed Instance you cannot place any other resources (for example virtual machines). Place these resources in others subnets.
 - Subnet must have sufficient number of available [IP addresses](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimum is 16, while recommendation is to have at least 32 IP addresses in the subnet.
 - [Service endpoints cannot be associated with the managed instance's subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Make sure that the service endpoints option is disabled when you create the virtual network.
-- The number and types of instances that you can place in subnet have some [constraints and limits](sql-database-managed-instance-resource-limits.md#strategies-for-deploying-mixed-general-purpose-and-business-critical-instances)
+- The number of vCores and types of instances that you can deploy in a region have some [constraints and limits](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - There are some [security rules that must be applied on the subnet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
 ### VNET
 - VNet can be deployed using Resource Model - Classic Model for VNet is not supported.
+- After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
 - Some services such as App Service Environments, Logic apps, and Managed Instances (used for Geo-replication, Transactional replication, or via linked servers) cannot access Managed Instances in different regions if their VNets are connected using [global peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers). You can connect to these resource via ExpressRoute or VNet-to-VNet through VNet Gateways.
 
 ## <a name="Changes"></a> Behavior changes
@@ -481,7 +490,7 @@ The following variables, functions, and views return different results:
 
 ### TEMPDB size
 
-The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb`. `tempdb` is always re-created as an empty database when the instance start or fail-over and any change made in `tempdb` will not be preserved. 
+The maximum file size of `tempdb` can't be greater than 24 GB per core on a General Purpose tier. The maximum `tempdb` size on a Business Critical tier is limited with the instance storage size. `tempdb` log file size is limited to 120 GB both on General Purpose and Business Critical tiers. The `tempdb` database is always split into 12 data files. This maximum size per file can't be changed, and new files cannot be added to `tempdb`. Some queries might return an error if they need more than 24 GB per core in `tempdb` or if they produce more than 120GB of log. `tempdb` is always re-created as an empty database when the instance starts or fail-over and any change made in `tempdb` will not be preserved. 
 
 ### Can't restore contained database
 
@@ -542,7 +551,7 @@ A managed instance places verbose information in error logs, and much of it isn'
 
 The `TransactionScope` class in .NET doesn't work if two queries are sent to two databases within the same instance under the same transaction scope:
 
-```C#
+```csharp
 using (var scope = new TransactionScope())
 {
     using (var conn1 = new SqlConnection("Server=quickstartbmi.neu15011648751ff.database.windows.net;Database=b;User ID=myuser;Password=mypassword;Encrypt=true"))
@@ -580,6 +589,11 @@ CLR modules placed in a managed instance and linked servers or distributed queri
 You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encrypted with service-managed Transparent Data Encryption (TDE). Service-managed TDE forces backups to be encrypted with an internal TDE key. The key can't be exported, so you can't restore the backup.
 
 **Workaround:** Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
+
+### Point-in-time restore follows time by the time zone set on the source instance
+
+Point-in-time restore currently interprets time to restore to by following time zone of the source instance instead by following UTC.
+Check [Managed Instance time zone known issues](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) for more details.
 
 ## Next steps
 

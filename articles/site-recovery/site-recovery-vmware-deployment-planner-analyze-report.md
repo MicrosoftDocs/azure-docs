@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 3/20/2019
+ms.date: 7/29/2019
 ms.author: mayg
 
 ---
@@ -36,9 +36,6 @@ The On-premises summary worksheet provides an overview of the profiled VMware en
 **Observed typical data churn per day (GB)**: The average data churn observed across all profiling days. This number is used as one of the inputs to decide the number of configuration servers and additional process servers to be used in the deployment.
 
 ## Recommendations
-
->[!Note]
->When replicating directly to managed disks, ignore the recommendation for number of storage accounts.
 
 The recommendations sheet of the VMware to Azure report has the following details as per the selected desired RPO:
 
@@ -90,7 +87,7 @@ If you are running the tool on a configuration server or process server that alr
 For all enterprise Site Recovery deployments, we recommend that you use [ExpressRoute](https://aka.ms/expressroute).
 
 ### Required storage accounts
-The following chart shows the total number of storage accounts (standard and premium) that are required to protect all the compatible VMs. To learn which storage account to use for each VM, see the "VM-storage placement" section.
+The following chart shows the total number of storage accounts (standard and premium) that are required to protect all the compatible VMs. To learn which storage account to use for each VM, see the "VM-storage placement" section. If you are using v2.5 of Deployment Planner, this recommendation only shows the number of standard cache storage accounts which are needed for replication since the data is being directly written to Managed Disks.
 
 ![Required storage accounts in the deployment planner](media/site-recovery-vmware-deployment-planner-analyze-report/required-storage-accounts-v2a.png)
 
@@ -158,21 +155,19 @@ You might have a situation where you know that you cannot set a bandwidth of mor
 ## VM-storage placement
 
 >[!Note]
->When replicating directly to managed disks, you do not need to worry about number of storage accounts. For storage, use only the recommendation on type of storage (Standard or Premium). The same type is applicable for managed disks.
+>Deployment Planner v2.5 onwards recommends the storage placement for machines which will replicate directly to managed disks.
 
 ![VM-storage placement](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Disk Storage Type**: Either a standard or premium storage account, which is used to replicate all the corresponding VMs mentioned in the **VMs to Place** column.
+**Replication Storage Type**: Either a standard or premium managed disk, which is used to replicate all the corresponding VMs mentioned in the **VMs to Place** column.
 
-**Suggested Prefix**: The suggested three-character prefix that can be used for naming the storage account. You can use your own prefix, but the tool's suggestion follows the [partition naming convention for storage accounts](https://aka.ms/storage-performance-checklist).
+**Log Storage Account Type**: All the replication logs are stored in a standard storage account.
 
-**Suggested Account Name**: The storage-account name after you include the suggested prefix. Replace the name within the angle brackets (< and >) with your custom input.
+**Suggested Prefix for Storage Account**: The suggested three-character prefix that can be used for naming the cache storage account. You can use your own prefix, but the tool's suggestion follows the [partition naming convention for storage accounts](https://aka.ms/storage-performance-checklist).
 
-**Log Storage Account**: All the replication logs are stored in a standard storage account. For VMs that replicate to a premium storage account, set up an additional standard storage account for log storage. A single standard log-storage account can be used by multiple premium replication storage accounts. VMs that are replicated to standard storage accounts use the same storage account for logs.
+**Suggested Log Account Name**: The storage-account name after you include the suggested prefix. Replace the name within the angle brackets (< and >) with your custom input.
 
-**Suggested Log Account Name**: Your storage log account name after you include the suggested prefix. Replace the name within the angle brackets (< and >) with your custom input.
-
-**Placement Summary**: A summary of the total VMs' load on the storage account at the time of replication and test failover or failover. It includes the total number of VMs mapped to the storage account, total read/write IOPS across all VMs being placed in this storage account, total write (replication) IOPS, total setup size across all disks, and total number of disks.
+**Placement Summary**: A summary of the disks needed to protected VMs by storage type. It includes the total number of VMs, total provisioned size across all disks, and total number of disks.
 
 **Virtual Machines to Place**: A list of all the VMs that should be placed on the given storage account for optimal performance and use.
 
@@ -193,9 +188,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 **Storage Type**: Standard or premium.
 
-**Suggested Prefix**: The three-character storage-account prefix.
-
-**Storage Account**: The name that uses the suggested storage-account prefix.
+**Asrseeddisk (Managed Disk) created for replication**: The name of the disk that is created when you enable replication. It stores the data and its snapshots in Azure.
 
 **Peak R/W IOPS (with Growth Factor)**: The peak workload read/write IOPS on the disk (default is 95th percentile), including the future growth factor (default is 30 percent). Note that the total read/write IOPS of a VM is not always the sum of the VM’s individual disks’ read/write IOPS, because the peak read/write IOPS of the VM is the peak of the sum of its individual disks' read/write IOPS during every minute of the profiling period.
 
@@ -236,7 +229,7 @@ For example, if the workload characteristics of a disk put it in the P20 or P30 
 
 * Source IOPS exceeds supported storage IOPS limit of 80,000 per VM.
 
-* Average data churn exceeds supported Site Recovery data churn limit of 10 MB/s for average I/O size for the disk.
+* Average data churn exceeds supported Site Recovery data churn limit of 20 MB/s for average I/O size for the disk.
 
 * Average data churn exceeds supported Site Recovery data churn limit of 25 MB/s for average I/O size for the VM (sum of all disks churn).
 

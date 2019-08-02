@@ -6,12 +6,12 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 07/10/2019
 
 # Customer intent: As a data analyst, I want to understand connection options in Power BI so I can choose the option most appropriate to my scenario.
 ---
 
-# Visualize data using the Azure Data Explorer connector for Power BI
+# Visualize data from Azure Data Explorer using a SQL query in Power BI
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Power BI is a business analytics solution that lets you visualize your data and share the results across your organization.
 
@@ -81,4 +81,4 @@ If you no longer need the report you created for this article, delete the Power 
 
 ## Next steps
 
-[Visualize data using an imported query in Power BI](power-bi-connector.md)
+[Visualize data using the Azure Data Explorer connector for Power BI](power-bi-connector.md)

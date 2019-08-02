@@ -1,19 +1,10 @@
 ---
 title: Link templates for Azure deployment | Microsoft Docs
 description: Describes how to use linked templates in an Azure Resource Manager template to create a modular template solution. Shows how to pass parameters values, specify a parameter file, and dynamically created URLs.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
-
-ms.assetid: 27d8c4b2-1e24-45fe-88fd-8cf98a6bb2d2
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 05/01/2019
+ms.date: 07/17/2019
 ms.author: tomfitz
 ---
 # Using linked and nested templates when deploying Azure resources
@@ -93,7 +84,7 @@ To nest the template within the main template, use the **template** property and
 > ],
 > ```
 >
-> You can't use the `reference` function in the outputs section of a nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
+> You can't use the `reference` function in the outputs section of a nested template for a resource you have deployed in the nested template. To return the values for a deployed resource in a nested template, convert your nested template to a linked template.
 
 The nested template requires the [same properties](resource-group-authoring-templates.md) as a standard template.
 

@@ -19,6 +19,9 @@ ms.collection: M365-identity-device-management
 
 To achieve high-availability with your Azure Server MFA deployment, you need to deploy multiple MFA servers. This section provides information on a load-balanced design to achieve your high availability targets in you Azure MFS Server deployment.
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
 ## MFA Server overview
 
 The Azure MFA Server service architecture comprises several components as shown in the following diagram:

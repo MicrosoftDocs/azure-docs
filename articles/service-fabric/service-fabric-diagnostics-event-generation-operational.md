@@ -101,6 +101,40 @@ More details on application upgrades can be found [here](service-fabric-applicat
 | --- | --- | ---| --- | --- | --- |
 | 18940 | PartitionReconfigured | LifeCycle | A partition reconfiguration has completed | RA | Informational | 
 
+## Replica events
+
+**Replica lifecycle events**
+
+| EventId | Name | Category | Description |Source (Task) | Level |
+| --- | --- | ---| --- | --- | --- |
+| 61701 | ReliableDictionaryOpened | LifeCycle | Reliable dictionary has opened | DistributedDictionary | Informational |
+| 61702 | ReliableDictionaryClosed | LifeCycle | Reliable dictionary has closed | DistributedDictionary | Informational |
+| 61703 | ReliableDictionaryCheckpointRecovered | LifeCycle | Reliable dictionary has recovered its checkpoint | DistributedDictionary | Informational |
+| 61704 | ReliableDictionaryCheckpointFilesSent | LifeCycle | Replica has sent reliable dictionary's checkpoint files | DistributedDictionary | Informational |
+| 61705 | ReliableDictionaryCheckpointFilesReceived | LifeCycle | Replica has received reliable dictionary's checkpoint files | DistributedDictionary | Informational |
+| 61963 | ReliableQueueOpened | LifeCycle | Reliable queue has opened | DistributedQueue | Informational |
+| 61964 | ReliableQueueClosed | LifeCycle | Reliable queue has closed | DistributedQueue | Informational |
+| 61965 | ReliableQueueCheckpointRecovered | LifeCycle | Reliable queue has recovered its checkpoint | DistributedQueue | Informational |
+| 61966 | ReliableQueueCheckpointFilesSent | LifeCycle | Replica has sent reliable queue's checkpoint files | DistributedQueue | Informational |
+| 63647 | ReliableQueueCheckpointFilesReceived | LifeCycle | Replica has received reliable queue's checkpoint files | DistributedQueue | Informational |
+| 63648 | ReliableConcurrentQueueOpened | LifeCycle | Reliable concurrent queue has opened | ReliableConcurrentQueue | Informational |
+| 63649 | ReliableConcurrentQueueClosed | LifeCycle | Reliable concurrent queue has closed | ReliableConcurrentQueue | Informational |
+| 63650 | ReliableConcurrentQueueCheckpointRecovered | LifeCycle | Reliable concurrent queue has recovered its checkpoint | ReliableConcurrentQueue | Informational |
+| 61687 | TStoreError | Failure | Reliable collection has received an unexpected error | TStore | Error |
+| 63831 | PrimaryFullCopyInitiated | LifeCycle | Primary replica has initiated a full copy | TReplicator | Informational |
+| 63832 | PrimaryPartialCopyInitiated | LifeCycle | Primary replica has initiated a partial copy | TReplicator | Informational |
+| 16831 | BuildIdleReplicaStarted | LifeCycle | Primary replica has started building idle replica | Replication | Informational |
+| 16832 | BuildIdleReplicaCompleted | LifeCycle | Primary replica has completed building idle replica | Replication | Informational |
+| 16833 | BuildIdleReplicaFailed | LifeCycle | Primary replica has failed building idle replica | Replication | Warning |
+| 16834 | PrimaryReplicationQueueFull | Health | Primary replica's replication queue is full | Replication | Warning |
+| 16835 | PrimaryReplicationQueueWarning | Health | Primary replica's replication queue is near full | Replication | Warning |
+| 16836 | PrimaryReplicationQueueWarningMitigated | Health | Primary replica's replication queue is okay | Replication | Informational |
+| 16837 | SecondaryReplicationQueueFull | Health | Secondary replica's replication queue is full | Replication | Warning |
+| 16838 | SecondaryReplicationQueueWarning | Health | Secondary replica's replication queue is near full | Replication | Warning |
+| 16839 | SecondaryReplicationQueueWarningMitigated | Health | Secondary replica's replication queue is okay | Replication | Informational |
+| 16840 | PrimaryFaultedSlowSecondary | Health | Primary replica has faulted a slow secondary replica | Replication | Warning |
+| 16841 | ReplicatorFaulted | Health | Replica has faulted | Replication | Warning |
+
 ## Container events
 
 **Container lifecycle events** 

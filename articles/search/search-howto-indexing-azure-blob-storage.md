@@ -116,6 +116,8 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 
 For more details on the Create Indexer API, check out [Create Indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
 
+For more information about defining indexer schedules see [How to schedule indexers for Azure Search](search-howto-schedule-indexers.md).
+
 ## How Azure Search indexes blobs
 
 Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content.
@@ -139,7 +141,8 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
   * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
   * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
   * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
-  * **metadata\_storage\_sas\_token** (Edm.String) - A temporary token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get right access to the blob. This sas token is not supposed to be stored for later use as it may expire.
+  * **metadata\_storage\_sas\_token** (Edm.String) - A temporary SAS token that can be used by [custom skills](cognitive-search-custom-skill-interface.md) to get access to the blob. This token should not be stored for later use as it might expire.
+
 * Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
 
 You don't need to define fields for all of the above properties in your search index - just capture the properties you need for your application.

@@ -1,14 +1,14 @@
 ---
-title: "Quickstart: Train a model and extract form data by using cURL - Form Recognizer"
+title: "Quickstart: Train a model and extract form data using cURL - Form Recognizer"
 titleSuffix: Azure Cognitive Services
 description: In this quickstart, you'll use the Form Recognizer REST API with cURL to train a model and extract data from forms.
 author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 04/15/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use Form Recognizer to extract my form data.
 ---
@@ -23,34 +23,21 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To complete this quickstart, you must have:
 - Access to the Form Recognizer limited-access preview. To get access to the preview, fill out and submit the [Form Recognizer access request](https://aka.ms/FormRecognizerRequestAccess) form.
 - [cURL](https://curl.haxx.se/windows/) installed.
-- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample dataset](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of an Azure Blob Storage account.
+- A set of at least five forms of the same type. You will use this data to train the model. You can use a [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451) for this quickstart. Upload the data to the root of a blob storage container in an Azure Storage account.
 
 ## Create a Form Recognizer resource
 
-When you are granted access to use Form Recognizer, you'll receive a Welcome email with several links and resources. Use the "Azure portal" link in that message to open the Azure portal and create a Form Recognizer resource. In the **Create** pane, provide the following information:
-
-|    |    |
-|--|--|
-| **Name** | A descriptive name for your resource. We recommend using a descriptive name, for example *MyNameFormRecognizer*. |
-| **Subscription** | Select the Azure subscription which has been granted access. |
-| **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
-| **Pricing tier** | The cost of your resource depends on the pricing tier you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
-| **Resource group** | The [Azure resource group](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access#what-is-an-azure-resource-group) that will contain your resource. You can create a new group or add it to a pre-existing group. |
-
-> [!IMPORTANT]
-> Normally when you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key (used across multiple cognitive services) or a single-service subscription key (used only with a specific cognitive service). However, because Form Recognizer is a preview release, it is not included in the multi-service subscription, and you cannot create the single-service subscription unless you use the link provided in the Welcome email.
-
-When your Form Recognizer resource finishes deploying, find and select it from the **All resources** list in the portal. Then select the **Keys** tab to view your subscription keys. Either key will give your app access to the resource. Copy the value of **KEY 1**. You will use it in the next section.
+[!INCLUDE [create resource](../includes/create-resource.md)]
 
 ## Train a Form Recognizer model
 
-First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five sample forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty."
+First, you'll need a set of training data in an Azure Storage blob. You should have a minimum of five filled-in forms (PDF documents and/or images) of the same type/structure as your main input data. Or, you can use a single empty form with two filled-in forms. The empty form's file name needs to include the word "empty." See [Build a training data set for a custom model](../build-training-data-set.md) for tips and options for putting together your training data.
 
-To train a Form Recognizer model by using the documents in your Azure blob container, call the **Train** API by running the cURL command that follows. Before you run the command, make these changes:
+To train a Form Recognizer model with the documents in your Azure blob container, call the **Train** API by running the following cURL command. Before you run the command, make these changes:
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
-1. Replace `<SAS URL>` with an Azure Blob storage container shared access signature (SAS) URL of the location of the training data.  
 1. Replace `<subscription key>` with the subscription key you copied from the previous step.
+1. Replace `<SAS URL>` with the Azure Blob storage container's shared access signature (SAS) URL. To retrieve the SAS URL, open the Microsoft Azure Storage Explorer, right-click your container, and select **Get shared access signature**. Make sure the **Read** and **List** permissions are checked, and click **Create**. Then copy the value in the **URL** section. It should have the form: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 ```bash
 curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/train" -H "Content-Type: application/json" -H "Ocp-Apim-Subscription-Key: <subscription key>" --data-ascii "{ \"source\": \""<SAS URL>"\"}"
@@ -105,13 +92,13 @@ Next, you'll analyze a document and extract key-value pairs and tables from it. 
 
 1. Replace `<Endpoint>` with the endpoint that you obtained from your Form Recognizer subscription key. You can find it on your Form Recognizer resource **Overview** tab.
 1. Replace `<modelID>` with the model ID that you received in the previous section.
-1. Replace `<path to your form>` with the file path of your form. For example c:\temp\file.pdf. 
-1. Replace `<file type>` with the file type. Supported types: pdf, image/jpeg, image/png.
+1. Replace `<path to your form>` with the file path of your form (for example, C:\temp\file.pdf).
+1. Replace `<file type>` with the file type. Supported types: `application/pdf`, `image/jpeg`, `image/png`.
 1. Replace `<subscription key>` with your subscription key.
 
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=application/<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/custom/models/<modelID>/analyze" -H "Content-Type: multipart/form-data" -F "form=@\"<path to your form>\";type=<file type>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response

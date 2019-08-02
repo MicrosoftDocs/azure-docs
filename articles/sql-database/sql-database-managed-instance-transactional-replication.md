@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author:  mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ---
 # Transactional replication with single, pooled, and instance databases in Azure SQL Database
@@ -60,11 +59,10 @@ There are different [types of replication](https://docs.microsoft.com/sql/relati
 
 | Replication | Single and pooled databases | Instance  databases|
 | :----| :------------- | :--------------- |
-| [**Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
+| [**Standard Transactional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/transactional-replication) | Yes (only as subscriber) | Yes | 
 | [**Snapshot**](https://docs.microsoft.com/sql/relational-databases/replication/snapshot-replication) | Yes (only as subscriber) | Yes|
 | [**Merge replication**](https://docs.microsoft.com/sql/relational-databases/replication/merge/merge-replication) | No | No|
 | [**Peer-to-peer**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/peer-to-peer-transactional-replication) | No | No|
-| **One-way** | Yes | Yes|
 | [**Bidirectional**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/bidirectional-transactional-replication) | No | Yes|
 | [**Updatable subscriptions**](https://docs.microsoft.com/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication) | No | No|
 | &nbsp; | &nbsp; | &nbsp; |
@@ -134,7 +132,7 @@ In this configuration, an Azure SQL Database (single, pooled, and instance datab
 
 ## Next steps
 
-1. [Configure transactional replication for a Managed Instance](replication-with-sql-database-managed-instance.md). 
+1. [Configure replication between two managed instances](replication-with-sql-database-managed-instance.md). 
 1. [Create a publication](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Create a push subscription](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) by using the Azure SQL Database server name as the subscriber (for example `N'azuresqldbdns.database.windows.net` and the Azure SQL Database name as the destination database (for example **Adventureworks**. )
 

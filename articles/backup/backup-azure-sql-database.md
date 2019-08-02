@@ -1,13 +1,13 @@
 ---
-title: Back up SQL Server databases to Azure | Microsoft Docs
+title: Back up SQL Server databases to Azure 
 description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
-ms.date: 04/23/2019
-ms.author: raynew
+ms.date: 06/18/2019
+ms.author: dacurwin
 
 
 ---
@@ -44,8 +44,19 @@ Before you start, verify the below:
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported geos** | Australia South East (ASE), East Australia (AE) <br> Brazil South (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> East US (EUS), East US 2 (EUS2), West Central US (WCUS), West US (WUS); West US 2 (WUS 2) North Central US (NCUS) Central US (CUS) South Central US (SCUS) <br> India Central (INC), India South (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> North Europe (NE), West Europe <br> UK South (UKS), UK West (UKW)
 **Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
-**Supported SQL Server versions** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Supported SQL Server versions** | SQL Server 2017 as detailed [here](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed [here](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Supported .NET versions** | .NET Framework 4.5.2 and above installed on the VM
+
+### Support for SQL Server 2008 and SQL Server 2008 R2
+
+Azure Backup has recently announced support for [EOS SQL Severs](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-2008-eos-extend-support) - SQL Server 2008 and SQL Server 2008 R2. The solution is currently in preview for EOS SQL Server and supports the following configuration:
+
+1. SQL Server 2008 and SQL Server 2008 R2 running on Windows 2008 R2 SP1
+2. .NET Framework 4.5.2 and above needs to be installed on the VM
+3. Backup for FCI and mirrored databases isn’t supported
+
+Users will not be charged for this feature till the time it is generally available. All of the other [feature considerations and limitations](#feature-consideration-and-limitations) apply to these versions as well. Kindly refer to the [prerequisites](backup-sql-server-database-azure-vms.md#prerequisites) before you configure protection on SQL Servers 2008 and 2008 R2 which include setting the [registry key](backup-sql-server-database-azure-vms.md#add-registry-key-to-enable-registration) (this step would not be required when the feature is generally available).
+
 
 ## Feature consideration and limitations
 
@@ -61,7 +72,7 @@ Before you start, verify the below:
 - You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 - You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
 - We support databases up to **2TB** in size; for sizes greater than that, performance issues may come up.
-- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these numbers on you own. We will be publishing it shortly.
+- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
 - In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
 
 ### Back up behavior in case of Always on availability groups
@@ -110,9 +121,19 @@ Differential | Primary
 Log |  Secondary
 Copy-Only Full |  Secondary
 
-## Fix SQL sysadmin permissions
+## Set VM permissions
 
-  If you need to fix permissions because of **UserErrorSQLNoSysadminMembership** error, perform the below steps:
+  When you run discovery on a SQL Server, Azure Backup does the following:
+
+* Adds the AzureBackupWindowsWorkload extension.
+* Creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
+* Discovers databases that are running on a VM, Azure Backup uses the NT AUTHORITY\SYSTEM account. This account must be a public sign-in on SQL.
+
+If you didn't create the SQL Server VM in the Azure Marketplace or if you are on SQL 2008 and 2008 R2, you might receive a **UserErrorSQLNoSysadminMembership** error.
+
+For giving permissions in case of **SQL 2008** and **2008 R2** running on Windows 2008 R2, refer [here](#give-sql-sysadmin-permissions-for-sql-2008-and-sql-2008-r2).
+
+For all other versions, fix permissions with the following steps:
 
   1. Use an account with SQL Server sysadmin permissions to sign in to SQL Server Management Studio (SSMS). Unless you need special permissions, Windows authentication should work.
   2. On the SQL Server, open the **Security/Logins** folder.
@@ -142,8 +163,72 @@ Copy-Only Full |  Secondary
 > [!NOTE]
 > If your SQL Server has multiple instances of SQL Server installed, then you must add sysadmin permission for **NT Service\AzureWLBackupPluginSvc** account to all SQL instances.
 
+### Give SQL sysadmin permissions for SQL 2008 and SQL 2008 R2
+
+Add **NT AUTHORITY\SYSTEM** and **NT Service\AzureWLBackupPluginSvc** logins to the SQL Server Instance:
+
+1. Go the SQL Server Instance in the Object explorer.
+2. Navigate to Security -> Logins
+3. Right click on the Logins and click *New Login…*
+
+    ![New Login using SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
+
+4. Go to the General tab and enter **NT AUTHORITY\SYSTEM** as the Login Name.
+
+    ![login name for SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+
+5. Go to *Server Roles* and choose *public* and *sysadmin* roles.
+
+    ![choosing roles in SSMS](media/backup-azure-sql-database/sql-2k8-server-roles-ssms.png)
+
+6. Go to *Status*. *Grant* the Permission to connect to database engine and Login as *Enabled*.
+
+    ![Grant permissions in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
+
+7. Click OK.
+8. Repeat the same sequence of steps (1-7 above) to add NT Service\AzureWLBackupPluginSvc login to the SQL Server instance. If the login already exists, make sure it has the sysadmin server role and under Status it has Grant the Permission to connect to database engine and Login as Enabled.
+9. After granting permission, **Re-discover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
+
+    ![Rediscover DBs in Azure portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
+
+Alternatively, you can automate giving the permissions by running the following PowerShell commands in admin mode. The instance name is set to MSSQLSERVER by default. Change the instance name argument in script if need be:
+
+```powershell
+param(
+    [Parameter(Mandatory=$false)]
+    [string] $InstanceName = "MSSQLSERVER"
+)
+if ($InstanceName -eq "MSSQLSERVER")
+{
+    $fullInstance = $env:COMPUTERNAME   # In case it is the default SQL Server Instance
+}
+else
+{
+    $fullInstance = $env:COMPUTERNAME + "\" + $InstanceName   # In case of named instance
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT Service\AzureWLBackupPluginSvc', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+try
+{
+    sqlcmd.exe -S $fullInstance -Q "sp_addsrvrolemember 'NT AUTHORITY\SYSTEM', 'sysadmin'" # Adds login with sysadmin permission if already not available
+}
+catch
+{
+    Write-Host "An error occurred:"
+    Write-Host $_.Exception|format-list -force
+}
+```
+
+
 ## Next steps
 
-- [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
-- [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
-- [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.
+* [Learn about](backup-sql-server-database-azure-vms.md) backing up SQL Server databases.
+* [Learn about](restore-sql-database-azure-vm.md) restoring backed up SQL Server databases.
+* [Learn about](manage-monitor-sql-database-backup.md) managing backed up SQL Server databases.

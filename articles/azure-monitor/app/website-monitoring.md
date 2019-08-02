@@ -5,7 +5,7 @@ services: application-insights
 keywords:
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/29/2018
+ms.date: 07/15/2019
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
@@ -36,12 +36,14 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Create a resource** > **Management tools** > **Application Insights**.
 
+   > [!NOTE]
+   >If this is your first time creating an Application Insights resource you can learn more by visiting the [Create an Application Insights Resource](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource) article.
+
    A configuration box appears; use the following table to fill out the input fields.
 
     | Settings        | Value           | Description  |
    | ------------- |:-------------|:-----|
    | **Name**      | Globally Unique Value | Name that identifies the app you are monitoring |
-   | **Application Type** | General Application | Type of app you are monitoring |
    | **Resource Group**     | myResourceGroup      | Name for the new resource group to host App Insights data |
    | **Location** | East US | Choose a location near you, or near where your app is hosted |
 

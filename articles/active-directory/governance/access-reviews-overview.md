@@ -3,8 +3,8 @@ title: What are access reviews? - Azure Active Directory | Microsoft Docs
 description: Using Azure Active Directory access reviews, you can control group membership and application access to meet governance, risk management, and compliance initiatives in your organization.
 services: active-directory
 documentationcenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/31/2019
-ms.author: rolyon
+ms.date: 07/23/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ---
@@ -53,8 +53,8 @@ Depending on what you want to review, you will create your access review in Azur
 | --- | --- | --- | --- |
 | Security group members</br>Office group members | Specified reviewers</br>Group owners</br>Self-review | Azure AD access reviews</br>Azure AD groups | Access panel |
 | Assigned to a connected app | Specified reviewers</br>Self-review | Azure AD access reviews</br>Azure AD enterprise apps (in preview) | Access panel |
-| Azure AD role | Specified reviewers</br>Self-review | Azure AD PIM | Azure portal |
-| Azure resource role | Specified reviewers</br>Self-review | Azure AD PIM | Azure portal |
+| Azure AD role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 ## Which users must have licenses?
 
@@ -78,16 +78,6 @@ Here are some example scenarios to help you determine the number of licenses you
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
-## Learn about access reviews
-
-To learn more about creating and performing access reviews, watch this short demo:
-
->[!VIDEO https://www.youtube.com/embed/6KB3TZ8Wi40]
-
-If you are ready to deploy access reviews in your organization, follow these steps in the video to onboard, train your administrators, and create your first access review!
-
->[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
-
 ## Onboard access reviews
 
 To onboard access reviews, follow these steps.
@@ -99,14 +89,23 @@ To onboard access reviews, follow these steps.
 1. In the left menu, click **Identity Governance**.
 
 1. Click **Access reviews**.
-
-    ![Access reviews start page](./media/access-reviews-overview/access-reviews-start.png)
+ 
+    ![Access reviews start page](./media/access-reviews-overview/access-reviews-overview-onboard.png)
 
 1. On the page, click the **Onboard now** button.
+    
+      ![Access reviews onboard](./media/access-reviews-overview/access-reviews-overview-select-onboard.png)
 
-    ![Access reviews onboard](./media/access-reviews-overview/onboard-button.png)
 
-1. Follow the instructions to onboard access reviews in the current directory.
+## Learn about access reviews
+
+To learn more about creating and performing access reviews, watch this short demo:
+
+>[!VIDEO https://www.youtube.com/embed/6KB3TZ8Wi40]
+
+If you are ready to deploy access reviews in your organization, follow these steps in the video to onboard, train your administrators, and create your first access review!
+
+>[!VIDEO https://www.youtube.com/embed/X1SL2uubx9M]
 
 ## License requirements
 

@@ -3,7 +3,7 @@ title: Create Azure IoT Central personal dashboards | Microsoft Docs
 description: As a user, learn how to create and manage your personal dashboards.
 author: dominicbetts
 ms.author: dobett
-ms.date: 02/13/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -33,6 +33,8 @@ Now when you view your personal dashboard, you see the new tile with the **Fan s
 !["Dashboard" tab with displayed settings and properties for the tile](media/howto-personalize-dashboard/personaldashboard.png)
 
 You can explore other tile types in the library to discover how to further customize your personal dashboards.
+
+To learn more about how to use tiles in Azure IoT Central, see [Use dashboard tiles](howto-use-tiles.md).
 
 ## Manage dashboards
 

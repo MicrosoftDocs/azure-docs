@@ -107,7 +107,7 @@ To add a credential to your web application:
 
 ## Add permissions to access web APIs
 
-[![Add API permissions](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
+[![Shows the screen where you can add API permissions](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png)](./media/quickstart-update-azure-ad-app-preview/api-permissions-expanded.png#lightbox)
 
 To add permission(s) to access resource APIs from your client:
 

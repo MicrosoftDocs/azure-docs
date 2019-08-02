@@ -3,7 +3,7 @@ title: "Azure Batch task complete event | Microsoft Docs"
 description: Reference for Batch task complete event.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch

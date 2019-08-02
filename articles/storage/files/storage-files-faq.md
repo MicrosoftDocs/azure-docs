@@ -1,7 +1,6 @@
 ---
 title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
-services: storage
 author: roygara
 ms.service: storage
 ms.date: 01/02/2019
@@ -68,10 +67,10 @@ This article answers common questions about Azure Files features and functionali
 
 * <a id="tier-options"></a>
   **What storage tiers are supported in Azure Files?**  
-    Currently, Azure Files supports only the standard storage tier. We don't have timelines to share for premium storage and cool storage support at this time. 
+    Azure Files supports two storage tiers: premium and standard. Standard file shares are created in general purpose (GPv1 or GPv2) storage accounts and premium file shares are created in FileStorage storage accounts. Learn more about how to create [standard file shares](storage-how-to-create-file-share.md) and [premium file shares](storage-how-to-create-premium-fileshare.md). 
     
     > [!NOTE]
-    > You cannot create Azure file shares from blob-only storage accounts or from premium storage accounts.
+    > You cannot create Azure file shares from Blob storage accounts or *premium* general purpose (GPv1 or GPv2) storage accounts. Standard Azure file shares must created in *standard* general purpose accounts only and premium Azure file shares must be created in FileStorage storage accounts only. *Premium* general purpose (GPv1 and GPv2) storage accounts are for premium page blobs only. 
 
 * <a id="give-us-feedback"></a>
   **I really want to see a specific feature added to Azure Files. Can you add it?**  
@@ -272,10 +271,6 @@ This article answers common questions about Azure Files features and functionali
 **Where are my share snapshots stored?**  
     Share snapshots are stored in the same storage account as the file share.
 
-* <a id="snapshot-perf-impact"></a>
-**Are there any performance implications for using share snapshots?**  
-    Share snapshots do not have any performance overhead.
-
 * <a id="snapshot-consistency"></a>
 **Are share snapshots application-consistent?**  
     No, share snapshots are not application-consistent. The user must flush the writes from the application to the share before taking the share snapshot.
@@ -351,8 +346,8 @@ This article answers common questions about Azure Files features and functionali
     For information about scalability and performance targets for Azure Files, see [Azure Files scalability and performance targets](storage-files-scale-targets.md).
 
 * <a id="need-larger-share"></a>
-**I need a larger file share than Azure Files currently offers. Can I increase the size of my Azure file share?**  
-    No. The maximum size of an Azure file share is 5 TiB. Currently, this is a hard limit that we cannot adjust. We are working on a solution to increase the share size to 100 TiB, but we don't have timelines to share at this time.
+**What sizes are available for Azure file shares?**  
+    Azure file share sizes (premium and standard) can scale up to 100 TiB. Premium file shares sizes up to 100 TiB are available as a GA offering. Standard file shares sizes up to 5 TiB are available as a GA offering, while sizes up to 100 TiB are in preview. See the [Onboard to larger file shares (standard tier)](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) section of the planning guide for onboarding instructions to the larger file shares preview for the standard tier.
 
 * <a id="open-handles-quota"></a>
 **How many clients can access the same file simultaneously?**   

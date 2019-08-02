@@ -4,8 +4,11 @@ description: Rehost your IBM z/OS mainframe workloads using the Micro Focus deve
 services: virtual-machines-linux
 documentationcenter:
 author: njray
+ms.author: edprice
 manager: edprice
 editor: edprice
+ms.topic: conceptual
+ms.date: 05/29/2019
 tags:
 keywords:
 ---

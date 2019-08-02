@@ -149,9 +149,9 @@ To configure Azure AD single sign-on with ITRP, take these steps:
 
 	1. Select **Enabled**.
 
-	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
+	1. In the **Remote logout URL** box, paste the **Logout URL** value that you copied from the Azure portal.
 
-	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
+	1. In the **SAML SSO URL** box, paste the **Login URL** value that you copied from the Azure portal.
 
 	1. In the **Certificate fingerprint** box, paste the **Thumbprint** value of the certificate, which you copied from the Azure portal.
 
@@ -250,4 +250,4 @@ When you select the ITRP tile in the Access Panel, you should be automatically s
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

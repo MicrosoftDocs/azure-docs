@@ -12,7 +12,7 @@ keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers,
 ---
 # Create a Kubernetes cluster using Azure Cloud Shell
 
-You can use [Azure Cloud Shell](/azure/cloud-shell) to create a cluster for Azure Dev Spaces by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands at the Azure Cloud Shell prompt when it appears.
+You can use [Azure Cloud Shell](/azure/cloud-shell) to create an Azure Kubernetes Service cluster by using the **Try It** button from this page. If you aren't signed in, follow the prompts to sign in with an Azure account, then type the commands at the Azure Cloud Shell prompt when it appears.
 
 ## Create the cluster
 
@@ -33,6 +33,9 @@ It takes a few minutes to create the cluster.  When complete, the output is show
 ## Next steps
 
 See [Azure Dev Spaces](/azure/dev-spaces/) for links to full tutorials.
+
+> [!IMPORTANT]
+> Many of the Azure Dev Spaces quickstarts and tutorials use the Azure Dev Spaces CLI to perform operations. You cannot install the Azure Dev Spaces CLI in the Azure Cloud Shell.
 
 
 [supported-regions]: ../about.md#supported-regions-and-configurations

@@ -3,7 +3,7 @@ title: Create a Windows container app on Service Fabric in Azure | Microsoft Doc
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: 'vturecek'
 ms.assetid: 
@@ -12,8 +12,8 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
@@ -39,7 +39,7 @@ In this quickstart you learn how to:
 
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * A development computer running:
-  * Visual Studio 2015 or Windows 2019.
+  * Visual Studio 2019 or Windows 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
 
 ## Package a Docker image container with Visual Studio
@@ -48,11 +48,11 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
 
 Start Visual Studio as "Administrator".  Select **File** > **New** > **Project**.
 
-Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
+Select **Service Fabric application**, name it "MyFirstContainer", and click **Create**.
 
 Select **Container** from the **Hosted Containers and Applications** templates.
 
-In **Image Name**, enter "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", the [Windows Server Core Server and IIS base image](https://hub.docker.com/r/microsoft-windows-servercore-iis).
+In **Image Name**, enter "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016", the [Windows Server Core Server and IIS base image](https://hub.docker.com/_/microsoft-windows-servercore-iis).
 
 Configure the container port-to-host port mapping so that incoming requests to the service on port 80 are mapped to port 80 on the container.  Set **Container Port** to "80" and set **Host Port** to "80".  
 
@@ -72,14 +72,14 @@ Microsoft publishes different images for versions of IIS built on different vers
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-	      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
-          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
-          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
+	      <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowsservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-The service manifest continues to specify only one image for the nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
+The service manifest continues to specify only one image for the nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowsservercore-ltsc2016`.
 
 Also in the *ApplicationManifest.xml* file, change **PasswordEncrypted** to **false**. The account and password are blank for the public container image that is on Docker Hub, so we turn off encryption because encrypting a blank password will generate a build error.
 

@@ -66,7 +66,7 @@ In preview, service updates occur on approximately a monthly cadence. If there a
 
 ## Next steps
 
-Now that you've created a validation host pool, you can optionally populate your validation host pool with RemoteApps. To learn more about how to manage apps in Windows Virtual Desktop, see the Manage app groups tutorial.
+Now that you've created a validation host pool, you can learn how to deploy and connect to a management tool for managing Microsoft Virtual Desktop resources.
 
 > [!div class="nextstepaction"]
-> [Manage app groups tutorial](./manage-app-groups.md)
+> [Deploy a management tool tutorial](./manage-resources-using-ui.md)

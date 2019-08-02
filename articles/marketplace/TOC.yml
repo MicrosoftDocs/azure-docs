@@ -335,39 +335,6 @@
         href: ./cloud-partner-portal/power-bi/cpp-update-existing-offer.md
     - name: SaaS application offer
       href: ./cloud-partner-portal/saas-app/cpp-saas-offer.md
-      items:
-      - name: Prerequisites
-        href: ./cloud-partner-portal/saas-app/cpp-prerequisites.md
-      - name: Create SaaS application offer
-        href: ./cloud-partner-portal/saas-app/cpp-create-offer.md
-        items:
-        - name: Offer Settings tab
-          href: ./cloud-partner-portal/saas-app/cpp-offer-settings-tab.md
-        - name: Technical Info tab
-          href: ./cloud-partner-portal/saas-app/cpp-technical-info-tab.md
-        - name: Plans tab
-          href: ./cloud-partner-portal/saas-app/cpp-plans-tab.md
-        - name: Channel Info tab
-          href: ./cloud-partner-portal/saas-app/cpp-channel-info-tab.md
-        - name: Test Drive tab
-          href: ./cloud-partner-portal/saas-app/cpp-testdrive-tab.md
-        - name: Storefront Details tab
-          href: ./cloud-partner-portal/saas-app/cpp-storefront-tab.md
-        - name: Contacts tab
-          href: ./cloud-partner-portal/saas-app/cpp-contacts-tab.md
-      - name: Publish offer
-        href: ./cloud-partner-portal/saas-app/cpp-publish-offer.md
-      - name: Update existing offer
-        href: ./cloud-partner-portal/saas-app/cpp-update-existing-offer.md
-      - name: SaaS Fulfillment APIs
-        href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-apis.md
-        items:
-        - name: Register SaaS application
-          href: ./cloud-partner-portal/saas-app/cpp-saas-registration.md
-        - name: SaaS API v1 (deprecated)
-          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v1.md
-        - name: SaaS API v2
-          href: ./cloud-partner-portal/saas-app/cpp-saas-fulfillment-api-v2.md
     - name: Virtual machine offer
       href: ./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md
       items:
@@ -485,6 +452,13 @@
       href: ./partner-center-portal/offer-creation-checklist.md
     - name: Create a SaaS offer
       href: ./partner-center-portal/create-new-saas-offer.md
+    - name: SaaS metered billing
+      href: ./partner-center-portal/saas-metered-billing.md
+      items:
+      - name: Marketplace metering service APIs - FAQ
+        href: ./partner-center-portal/marketplace-metering-service-apis-faq.md
+      - name: Marketplace metering service APIs
+        href: ./partner-center-portal/marketplace-metering-service-apis.md   
     - name: SaaS Fulfillment APIs
       href: ./partner-center-portal/pc-saas-fulfillment-apis.md
       items:
@@ -494,6 +468,8 @@
         href: ./partner-center-portal/pc-saas-fulfillment-api-v2.md
       - name: SaaS Fulfillment APIs v1 (deprecated)
         href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
+      - name: SaaS fulfillment APIs - FAQ
+        href: ./partner-center-portal/saas-fulfillment-apis-faq.md        
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers

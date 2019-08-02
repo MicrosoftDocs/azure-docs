@@ -32,9 +32,10 @@ Premium Storage caching: Not Supported
 
 | Size          | vCPU | Memory (GiB) | Temp disk<sup>1</sup> (GiB) | NVMe Disks<sup>2</sup> | NVMe Disk throughput<sup>3</sup> (Read IOPS / MBps) | Max uncached data disk throughput (IOPs/MBps)<sup>4</sup> | Max Data Disks | Max NICs / Expected network bandwidth (Mbps) |
 |---------------|-----------|-------------|--------------------------|----------------|---------------------------------------------------|-------------------------------------------|------------------------------|------------------------------| 
-| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000 | 8000/160 | 16 | 2 / 3200  |
-| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000 | 16000/320 | 32 | 4 / 6400  |
-| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M / 8000    | 32000/640 | 32 | 8 / 12800 |
+| Standard_L8s_v2   |  8 |  64 |  80 |  1x1.92 TB  | 400000 / 2000  | 8000/160   | 16 | 2 / 3200  |
+| Standard_L16s_v2  | 16 | 128 | 160 |  2x1.92 TB  | 800000 / 4000  | 16000/320  | 32 | 4 / 6400  |
+| Standard_L32s_v2  | 32 | 256 | 320 |  4x1.92 TB  | 1.5M / 8000    | 32000/640  | 32 | 8 / 12800 |
+| Standard_L48s_v2  | 48 | 384 | 480 |  6x1.92 TB  | 2.2M / 14000   | 48000/960  | 32 | 8 / 16000+ |
 | Standard_L64s_v2  | 64 | 512 | 640 |  8x1.92 TB  | 2.9M / 16000   | 64000/1280 | 32 | 8 / 16000+ |
 | Standard_L80s_v2<sup>5</sup> | 80 | 640 | 800 | 10x1.92TB   | 3.8M / 20000   | 80000/1400 | 32 | 8 / 16000+ |
 
@@ -52,7 +53,7 @@ Premium Storage caching: Not Supported
 - SLES 12 SP2 or later
 - RHEL or CentOS version 6.7 thru 6.10, with Microsoft-provided LIS package 4.3.1 (or later) installed
 - RHEL or CentOS version 7.3, with Microsoft-provided LIS package 4.2.1 (or later) installed
-- RHEL or CentOS version 7.4 or later
+- RHEL or CentOS version 7.6 or later
 - Oracle Linux with UEK4 or later
 - Debian 9 with the backports kernel, Debian 10 or later
 - CoreOS with a 4.14 kernel or later

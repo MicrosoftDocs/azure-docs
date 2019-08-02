@@ -19,9 +19,9 @@ The sequence number is a string representation of a hexadecimal number. You can 
 
 * An active Azure account. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/free-trial/).
 
-* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-dotnet.md#create-an-azure-cosmos-db-account) for a walkthrough.
+* An active Azure Cosmos DB SQL API account. If you haven't created one yet, see [Create a database account](../cosmos-db/create-sql-api-java.md#create-a-database-account) for a walkthrough.
 
-* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-dotnet.md#add-a-database-and-a-collection) for a walkthrough. When you create your collection, use `/id` for the partition key.
+* A collection in your database. See [Add a collection](../cosmos-db/create-sql-api-java.md#add-a-container) for a walkthrough. When you create your collection, use `/id` for the partition key.
 
 * An IoT Hub in Azure. If you haven't created one yet, see [Get started with IoT Hub](iot-hub-csharp-csharp-getstarted.md) for a walkthrough.
 
@@ -267,7 +267,7 @@ In this section, you configure your IoT Hub to publish events as they occur.
 
 6. For **Endpoint Details**, select Endpoint Type as **Web Hook** and click on select endpoint and paste the URL that you copied from your logic app and confirm selection.
 
-   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-url.png)
+   ![Select endpoint url](./media/iot-hub-how-to-order-connection-state-events/endpoint-select.png)
 
 7. The form should now look similar to the following example:
 

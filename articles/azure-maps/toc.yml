@@ -5,6 +5,7 @@
   - name: What is Azure Maps?
     href: about-azure-maps.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a web app
     href: quick-demo-map-app.md
@@ -42,6 +43,8 @@
       href: render-coverage.md
     - name: Routing coverage
       href: routing-coverage.md
+    - name: Mobility coverage
+      href: mobility-coverage.md
   - name: Localization support
     href: supported-languages.md
   - name: Supported map styles
@@ -50,6 +53,8 @@
     href: supported-browsers.md
   - name: Zoom levels and tile grid
     href: zoom-levels-and-tile-grid.md
+  - name: Mobility Service data structure
+    href: mobility-service-data-structure.md
 - name: How-to guides
   items:
   - name: Manage Maps accounts
@@ -70,6 +75,10 @@
       href: how-to-use-best-practices-for-search.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
+    - name: Request public transit routes
+      href: how-to-request-transit-data.md
+    - name: Request real-time public transit data
+      href: how-to-request-real-time-data.md
   - name: Develop with the Web SDK
     items:
     - name: Map control
@@ -146,6 +155,8 @@
       href: https://docs.microsoft.com/rest/api/maps/data
     - name: Geolocation service
       href: https://docs.microsoft.com/rest/api/maps/geolocation
+    - name: Mobility service
+      href: https://docs.microsoft.com/rest/api/maps/mobility
     - name: Render service
       href: https://docs.microsoft.com/rest/api/maps/render
     - name: Route service

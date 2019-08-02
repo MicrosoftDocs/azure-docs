@@ -30,9 +30,14 @@ The value can be any of the following examples:
 
 * Any static string. Dynamic values such as conditions, logic, operations, and functions are not allowed. For example, if you develop a SaaS application that is used by several customers, you can assign an identifier to each customer and make that identifier available in the application. When the application runs, IoT Hub will stamp the device telemetry messages with the customer's identifier, making it possible to process the messages differently for each customer.
 
+* The name of the IoT hub sending the message. This value is *$iothubname*.
+
 * Information from the device twin, such as its path. Examples would be *$twin.tags.field* and *$twin.tags.latitude*.
 
-* The name of the IoT hub sending the message. This value is *$iothubname*.
+   > [!NOTE]
+   > At this time, only $iothubname, $twin.tags, $twin.properties.desired, and $twin.properties.reported are supported variables for message enrichment.
+
+Message Enrichments are added as application properties to messages sent to chosen endpoint(s).  
 
 ## Applying enrichments
 
@@ -72,7 +77,7 @@ Message enrichments are available for no additional charge. Currently, you are c
 
 ## Availability
 
-This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure-government/documentation-government-welcome.md), [Azure China 21Vianet](/azure/china/china-welcome.md), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
+This capability is available in preview, and is available in all regions except East US, West US, West Europe, [Azure Government](/azure/azure-government/documentation-government-welcome), [Azure China 21Vianet](/azure/china), and [Azure Germany](https://azure.microsoft.com/global-infrastructure/germany/).
 
 ## Next steps
 

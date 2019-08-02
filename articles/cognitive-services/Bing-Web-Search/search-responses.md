@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---
@@ -34,6 +34,8 @@ When you send Bing Web Search a search request, it returns a [`SearchResponse`](
 ```
 
 Typically, Bing Web Search returns a subset of the answers. For example, if the query term was *sailing dinghies*, the response might include `webPages`, `images`, and `rankingResponse`. Unless you've used [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#responsefilter) to filter out webpages, the response always includes the `webpages` and `rankingResponse` answers.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../includes/cognitive-services-bing-url-note.md)]
 
 ## Webpages answer
 
@@ -423,10 +425,6 @@ If Bing determines that the user may have intended to search for something diffe
     }]
 }, ...
 ```
-
-The following shows how Bing uses the spelling suggestion.
-
-![Bing spelling suggestion example](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
 
 ## Response headers
 

@@ -5,11 +5,11 @@
  author: cherylmc
  ms.service: vpn-gateway
  ms.topic: include
- ms.date: 04/04/2018
+ ms.date: 08/02/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
-1. On the **Settings** page for your virtual network, navigate to **DNS Servers** and click to open the **DNS servers** page.
+1. On the **Settings** page for your virtual network, navigate to **DNS servers** and click to open the **DNS servers** page.
 
     ![Specify a DNS server](./media/vpn-gateway-specify-dns-portal-include/specify-dns-server.png "Specify a DNS Server")
 
