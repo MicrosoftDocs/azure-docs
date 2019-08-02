@@ -40,13 +40,13 @@ For the public preview, the following limits and quotas apply to a model reposit
 | Number of authorization keys per model repository | 10  |
 | Number of models (DCMs or interfaces) per company model repository| 1500  |
 | Number of models (DCMs or interfaces) in the public model repository per Azure Active Directory tenant| 1500  |
-| Number of DCMs or interfaces being deleted in a company model repository | 10 queries per second (qps)|
-| Number of model repositories being created/updated by a tenant| 1 qps |
-| Number of authorization keys being created/updated/deleted in a model repository | 1 qps|
-| Number of DCMs being created in a company model repository | 10 qps |
-| Number of interfaces being created in a company model repository | 10 qps|
-| Number of DCMs being created in the public model repository | 10 qps|
-| Number of interfaces being created in the public model repository | 10 qps|
+| Number of DCMs or interfaces being deleted in a company model repository | 10 queries per second (QPS)|
+| Number of model repositories being created/updated by a tenant| 1 QPS |
+| Number of authorization keys being created/updated/deleted in a model repository | 1 QPS|
+| Number of DCMs being created in a company model repository | 10 QPS |
+| Number of interfaces being created in a company model repository | 10 QPS|
+| Number of DCMs being created in the public model repository | 10 QPS|
+| Number of interfaces being created in the public model repository | 10 QPS|
 
 ## Parser library
 
