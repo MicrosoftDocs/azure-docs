@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 06/25/2019
+ms.date: 07/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -40,6 +40,7 @@ Moving a SQL Server VM to a different region requires doing the following:
       - Permissions to manage Azure Site Recovery operations. The *Site Recovery Contributor* role has all the permissions that are required to manage Site Recovery operations in a Recovery Services vault.  
 
 ## Prepare to move
+Prepare both the source SQL Server VM and the target region for the move. 
 
 ### Prepare the source SQL Server VM
 
