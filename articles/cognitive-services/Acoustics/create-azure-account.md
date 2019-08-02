@@ -11,6 +11,7 @@ ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: kegodin
+ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Azure Batch Account Setup

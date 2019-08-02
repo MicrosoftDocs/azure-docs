@@ -54,10 +54,6 @@
    
 - name: How-to guides
   items:
-   - name: Sign up
-     href: How-tos/text-analytics-how-to-signup.md
-   - name: Get an access key
-     href: How-tos/text-analytics-how-to-access-key.md
    - name: Call the Text Analytics API
      href: How-tos/text-analytics-how-to-call-api.md
    - name: Detect language
