@@ -24,7 +24,7 @@ In a Resource Manger template, you can specify the child resource either within 
 ]
 ```
 
-The next example shows the child resource outside of the parent resource.
+The next example shows the child resource outside of the parent resource. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](resource-group-create-multiple.md) to create more than one child resource.
 
 ```json
 "resources": [
@@ -87,8 +87,6 @@ The full resource type is still **Microsoft.Network/virtualNetworks/subnets**. Y
 The child resource name is set to **Subnet1** but the full name includes the parent name. You don't provide **VNet1** because it's assumed from the parent resource.
 
 ## Outside parent resource
-
-You don't have to define the child resource within the parent resource. Instead, you can define the child resource at the root level of the resources section. You might use this approach if the parent resource isn't deployed in the same template, or if want to use [copy](resource-group-create-multiple.md) to create more than one child resource.
 
 When defined outside of the parent resource, you format the type and  with slashes to include the parent type and name.
 
