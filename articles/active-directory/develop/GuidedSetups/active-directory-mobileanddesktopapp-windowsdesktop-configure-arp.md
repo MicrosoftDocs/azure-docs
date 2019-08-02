@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
-ms.author: andret
+ms.author: ryanwi
 ms.custom: aaddev
 
 ms.collection: M365-identity-device-management

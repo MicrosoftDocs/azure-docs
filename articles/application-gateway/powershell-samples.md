@@ -1,20 +1,12 @@
 ---
-title: Azure Application Gateway PowerShell Samples | Microsoft Docs
+title: Azure Application Gateway PowerShell Samples
 description: Azure Application Gateway PowerShell Samples
 services: application-gateway
-documentationcenter: networking
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
-
 ms.service: application-gateway
 ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
-ms.date: 01/29/2018
+ms.date: 6/18/2019
 ms.author: victorh
-ms.custom: mvc
 ---
 # Azure Application Gateway PowerShell samples
 
@@ -22,7 +14,7 @@ The following table includes links to Azure PowerShell script samples that creat
 
 | | |
 |---|---|
-| [Manage web traffic](./scripts/create-vmss-powershell.md) | Creates an application gateway and all related resources.|
-| [Restrict web traffic](./scripts/create-vmss-waf-powershell.md) | Creates an application gateway that restricts traffic using OWASP rules.|
+| [Manage web traffic](./scripts/create-vmss-powershell.md) | Creates an Application Gateway and all related resources.|
+| [Restrict web traffic](./scripts/create-vmss-waf-powershell.md) | Creates an Application Gateway that restricts traffic using OWASP rules.|
+|[WAF v2 custom rules](scripts/waf-custom-rules-powershell.md)|Creates an Application Gateway Web Application Firewall v2 with custom rules.
 | | |
-

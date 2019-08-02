@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/06/2019
+ms.date: 05/21/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
@@ -44,7 +44,7 @@ If you don't specify a prefix, the default prefix is the name that you specified
 15. For **Compression**, select **GZIP**.
 16. Select **Next**.
 17. After you've reviewed the settings for your report, select **Review and Complete**.
-    
+
     Note the report name. You'll use it in later steps.
 
 It can take up to 24 hours for AWS to start delivering reports to your Amazon S3 bucket. After delivery starts, AWS updates the AWS Cost and Usage report files at least once a day. You can continue configuring your AWS environment without waiting for delivery to start.
@@ -64,7 +64,7 @@ Use the Create a New Role wizard:
 5. In **Account ID**, enter **432263259397**.
 6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
 7. In **External ID**, enter the external ID. The external ID is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. For example, an external ID resembles _Companyname1234567890123_.
-    
+
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.
@@ -106,7 +106,7 @@ Add permission for AWS Organizations:
 4. Go back to the previous tab and refresh your browser's webpage. On the search bar, search for your new policy.
 5. Select **Next:Review**.
 6. Enter a name for the new role. Check that you entered the correct information, and then select **Create Role**.
-    
+
     Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Azure Cost Management connector.
 
 The policy JSON should resemble the following example. Replace _bucketname_ with the name of your S3 bucket.

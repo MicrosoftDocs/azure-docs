@@ -1,0 +1,36 @@
+- name: Secure Development Documentation
+  href: index.yml
+
+- name: Sample apps
+  expanded: true
+  items:
+  - name: Web app in a Linux container
+    href: secure-web-app.md
+
+- name: Concepts
+  expanded: true
+  items:
+  - name: Best practices
+    items:
+    - name: Overview
+      href: secure-dev-overview.md
+    - name: Design secure apps
+      href: secure-design.md
+    - name: Develop secure apps
+      href: secure-develop.md
+    - name: Deploy secure apps
+      href: secure-deploy.md
+- name: Solutions
+  expanded: true
+  items:
+  - name: Microsoft Security Code Analysis
+    expanded: true
+    items:
+      - name: Overview
+        href: security-code-analysis-overview.md
+      - name: Onboarding and installation
+        href: security-code-analysis-onboard.md
+      - name: Configuration
+        href: security-code-analysis-customize.md       
+      - name: FAQs
+        href: security-code-analysis-faq.md

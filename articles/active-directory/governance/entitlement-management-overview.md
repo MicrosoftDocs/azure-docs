@@ -3,8 +3,8 @@ title: What is Azure AD entitlement management? (Preview) - Azure Active Directo
 description: Get an overview of Azure Active Directory entitlement management and how you can use it to manage access to groups, applications, and SharePoint Online sites for internal and external users.
 services: active-directory
 documentationCenter: ''
-author: rolyon
-manager: mtillman
+author: msaburnley
+manager: daveba
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -12,8 +12,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/27/2019
-ms.author: rolyon
+ms.date: 07/10/2019
+ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 
@@ -68,22 +68,13 @@ Here are the types of resources you can manage access to with entitlement manage
 
 - Azure AD security groups
 - Office 365 groups
-- Azure AD enterprise applications
-- SaaS applications
-- Custom-integrated applications
-- SharePoint Online site collections
-- SharePoint Online sites
+- Azure AD enterprise applications, including SaaS application and custom-integrated applications that support federation or provisioning
+- SharePoint Online site collections and sites
 
-## Prerequisites
+You can also control access to other resources that rely upon Azure AD security groups or Office 365 groups.  For example:
 
-To use Azure AD entitlement management (Preview), you must have one of the following licenses:
-
-- Azure AD Premium P2
-- Enterprise Mobility + Security (EMS) E5 license
-
-For more information, see [Sign up for Azure Active Directory Premium editions](../fundamentals/active-directory-get-started-premium.md) or [Enterprise Mobility + Security E5 Trial](https://aka.ms/emse5trial).
-
-Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
+- You can give users licenses for Microsoft Office 365 by using an Azure AD security group in an access package and configuring [group-based licensing](../users-groups-roles/licensing-groups-assign.md) for that group
+- You can give users access to manage Azure resources by using an Azure AD security group in an access package and creating an [Azure role assignment](../../role-based-access-control/role-assignments-portal.md) for that group
 
 ## What are access packages and policies?
 
@@ -97,7 +88,7 @@ With an access package and its policies, the access package manager defines:
 
 - Resources
 - Roles the users need for the resources
-- Internal users and external users that are eligible to request access
+- Internal users and partner organizations of external users that are eligible to request access
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 
@@ -130,47 +121,18 @@ To better understand entitlement management and its documentation, you should re
 | policy | A set of rules that defines the access lifecycle, such as how users get access, who can approve, and how long users have access. Example policies include employee access and external access. |
 | catalog | A container of related resources and access packages. |
 | General catalog | A built-in catalog that is always available. To add resources to the General catalog, requires certain permissions. |
-| resource | An asset or service (such as a group, application, or site) that a user can be granted permissions to. |
+| resource | An asset or service (such as an Office group, a security group, an application, or a SharePoint Online site) that a user can be granted permissions to. |
 | resource type | The type of resource, which includes groups, applications, and SharePoint Online sites. |
 | resource role | A collection of permissions associated with a resource. |
 | resource directory | A directory that has one or more resources to share. |
-| assigned users | An assignment of an access package to a user or group. |
+| assigned users | An assignment of an access package to a user, so that the user has all the resource roles of that access package. |
 | enable | The process of making an access package available for users to request. |
 
-## Roles and permissions
+## License requirements
 
-Entitlement management has different roles based on job function.
+[!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Role | Description |
-| --- | --- |
-| [User administrator](../users-groups-roles/directory-assign-admin-roles.md#user-administrator) | Manage all aspects of entitlement management.<br/>Create users and groups. |
-| Catalog creator | Create and manage catalogs. Typically an IT administrator or resource owner. The person that creates a catalog automatically becomes the catalog's first catalog owner. |
-| Catalog owner | Edit and manage existing catalogs. Typically an IT administrator or resource owner. |
-| Access package manager | Edit and manage all existing access packages within a catalog. |
-| Approver | Approve requests to access packages. |
-| Requestor | Request access packages. |
-
-The following table lists the permissions for each of these roles.
-
-| Task | User admin | Catalog creator | Catalog owner | Access package manager | Approver |
-| --- | :---: | :---: | :---: | :---: | :---: |
-| [Create a new access package in the General catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |  :heavy_check_mark: |  |  |  |
-| [Create a new access package in a catalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |   | :heavy_check_mark: |  |  |
-| [Add/remove resource roles to/from an access package](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Specify who can request an access package](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Directly assign a user to an access package](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [View who has an assignment to an access package](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [View an access package's requests](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [View a request's delivery errors](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Cancel a pending request](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Hide an access package](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Delete an access package](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Approve an access request](entitlement-management-request-approve.md) |  |  |  |  | :heavy_check_mark: |
-| [Create a catalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
-| [Add/remove resources to/from the General catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  |  |  |  |
-| [Add/remove resources to/from a catalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Add catalog owners or access package managers](entitlement-management-catalog-create.md#add-catalog-owners-or-access-package-managers) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
-| [Edit/delete a catalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+Specialized clouds, such as Azure Government, Azure Germany, and Azure China 21Vianet, are not currently available for use in this preview.
 
 ## Next steps
 

@@ -31,7 +31,7 @@ A private cloud VMware stack is deployed with the following software version.
 
 ## ESXi
 
-VMware ESXi is installed on purchased CloudSimple nodes when you create a private cloud.  ESXi provides the hypervisor for deploying workload virtual machines (VMs).  Nodes provide hyper-converged infrastructure (compute and storage) on your private cloud.  The nodes are a part of the vSphere cluster on the private cloud.  Each node has four physical networks interfaces connected to underlay network.  Two physical network interfaces are used to create a **vSphere Distributed Switch (VDS)** on vCenter and two are used to create an **NSX-managed virtual distributed switch (N-VDS)**.  Network interfaces are configured in active-active mode for high availability.
+VMware ESXi is installed on provisioned CloudSimple nodes when you create a private cloud.  ESXi provides the hypervisor for deploying workload virtual machines (VMs).  Nodes provide hyper-converged infrastructure (compute and storage) on your private cloud.  The nodes are a part of the vSphere cluster on the private cloud.  Each node has four physical networks interfaces connected to underlay network.  Two physical network interfaces are used to create a **vSphere Distributed Switch (VDS)** on vCenter and two are used to create an **NSX-managed virtual distributed switch (N-VDS)**.  Network interfaces are configured in active-active mode for high availability.
 
 Learn more on VMware ESXi
 
@@ -75,7 +75,7 @@ NSX Data Center provides network virtualization, micro segmentation, and network
 
 ## vSphere cluster
 
-ESXi hosts are configured as a cluster to ensure high availability of the private cloud.  When you create a private cloud, management components of vSphere are deployed on the first cluster.  A resource pool is created for management components and all management VMs are deployed in this resource pool. The first cluster cannot be deleted to shrink the private cloud.  vSphere cluster provides high availability for VMs using **vSphere HA**.  Failures to tolerate are based on the number of available nodes in the cluster.  You can use the formula ```Number of nodes = 2N+1``` where ```N``` is the number of failures to tolerate.
+ESXi hosts are configured as a cluster to ensure high availability of the private cloud.  When you create a private cloud, management components of vSphere are deployed on the first cluster.  A resource pool is created for management components and all management VMs are deployed in this resource pool. The first cluster can't be deleted to shrink the private cloud.  vSphere cluster provides high availability for VMs using **vSphere HA**.  Failures to tolerate are based on the number of available nodes in the cluster.  You can use the formula ```Number of nodes = 2N+1``` where ```N``` is the number of failures to tolerate.
 
 ### vSphere cluster limits
 

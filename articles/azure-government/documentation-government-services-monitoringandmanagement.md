@@ -158,13 +158,35 @@ For more information on using PowerShell, see [public documentation](../azure-mo
 ## Application Insights
 
 > [!NOTE]
-> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. Snapshot Debugger is also not currently available in Azure Government. As soon as this functionality becomes available this article will be updated.
+> Codeless agent/extension based monitoring for Azure App Services is **currently not supported**. As soon as this functionality becomes available this article will be updated.
+
+This section describes the supplemental configuration that is required to use Application Insights in Azure Government. To learn more about Azure Monitor and Application Insights checkout the [full documentation](https://docs.microsoft.com/azure/azure-monitor/overview).
+
+### Enable Application Insights for ASP.NET & ASP.NET Core with Visual Studio
+
+Currently for Azure Government customers, the only way to enable Application Insights via the traditional **Add Applications Insights Telemetry** button in Visual Studio requires a small manual workaround. Customers experiencing the associated issue may see error messages like _"There is no Azure subscription associated with this account_ or  _"The selected subscription does not support Application Insights_ even though the `microsoft.insights` resource provider has a status of registered for the subscription. To mitigate this issue, you must perform the following steps:
+
+1. Switch Visual Studio to [target the Azure Government cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs).
+
+2. Create (or if already existing set) the User Environment variable for AzureGraphApiVersion as follows: (To create a User Environment variable go to **Control Panel** > **System** > **Advanced system settings** > **Advanced** > **Environment Variables**.)
+
+    `Variable name: AzureGraphApiVersion`
+    `Variable value: 2014-04-01`
+
+3. Make the appropriate Application Insights SDK endpoint modifications for either [ASP.NET](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-with-applicationinsightsconfig) or [ASP.NET Core](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#net-core) depending on your project type.
+
+### Snapshot Debugger
+
+Snapshot Debugger is now available for Azure Government customers. To use Snapshot Debugger the only additional prerequisite is to insure that you are using [Snapshot Collector version 1.3.5](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector/1.3.5-pre-1906.403) or later. Then simply follow the standard [Snapshot Debugger documentation](https://docs.microsoft.com/azure/azure-monitor/app/snapshot-debugger).
 
 ### SDK endpoint modifications
 
 In order to send data from Application Insights to the Azure Government region, you will need to modify the default endpoint addresses that are used by the Application Insights SDKs. Each SDK requires slightly different modifications.
 
 ### .NET with applicationinsights.config
+
+> [!NOTE]
+> The applicationinsights.config file is automatically overwritten anytime a SDK upgrade is performed. After performing an SDK upgrade be sure to re-enter the region specific endpoint values.
 
 ```xml
 <ApplicationInsights>
@@ -263,8 +285,8 @@ appInsights.Configuration.start();
 The endpoints can also be configured through environment variables:
 
 ```
-Instrumentation Key: “APPINSIGHTS_INSTRUMENTATIONKEY”
-Profile Endpoint: “https://dc.applicationinsights.us/api/profiles/{0}/appId”
+Instrumentation Key: "APPINSIGHTS_INSTRUMENTATIONKEY"
+Profile Endpoint: "https://dc.applicationinsights.us/api/profiles/{0}/appId"
 Live Metrics Endpoint: "https://quickpulse.applicationinsights.us/QuickPulseService.svc"
 ```
 
@@ -272,16 +294,15 @@ Live Metrics Endpoint: "https://quickpulse.applicationinsights.us/QuickPulseServ
 
 ```javascript
 <script type="text/javascript">
-var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){function n(e){i[e]=function(){var n=arguments;i.queue.push(function(){i[e].apply(i,n)})}}var i={config:e};i.initialize=!0;var a=document,t=window;setTimeout(function(){var n=a.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",a.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{i.cookie=a.cookie}catch(e){}i.queue=[],i.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var o="Track"+r[0];if(n("start"+o),n("stop"+o),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var s=t[r];t[r]=function(e,n,a,t,o){var c=s&&s(e,n,a,t,o);return!0!==c&&i["_"+r]({message:e,url:n,lineNumber:a,columnNumber:t,error:o}),c},e.autoExceptionInstrumented=!0}return i}
-(
-	{
-	instrumentationKey:"INSTRUMENTATION_KEY",
-	endpointUrl: "https://dc.applicationinsights.us/v2/track"
-  }
-);
-window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
-</script>
+   var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=window[sdkInstance],aisdk=window[aiName]||function(e){
+      function n(e){t[e]=function(){var n=arguments;t.queue.push(function(){t[e].apply(t,n)})}}var t={config:e};t.initialize=!0;var i=document,a=window;setTimeout(function(){var n=i.createElement("script");n.src=e.url||"https://az416426.vo.msecnd.net/next/ai.2.min.js",i.getElementsByTagName("script")[0].parentNode.appendChild(n)});try{t.cookie=i.cookie}catch(e){}t.queue=[],t.version=2;for(var r=["Event","PageView","Exception","Trace","DependencyData","Metric","PageViewPerformance"];r.length;)n("track"+r.pop());n("startTrackPage"),n("stopTrackPage");var s="Track"+r[0];if(n("start"+s),n("stop"+s),n("setAuthenticatedUserContext"),n("clearAuthenticatedUserContext"),n("flush"),!(!0===e.disableExceptionTracking||e.extensionConfig&&e.extensionConfig.ApplicationInsightsAnalytics&&!0===e.extensionConfig.ApplicationInsightsAnalytics.disableExceptionTracking)){n("_"+(r="onerror"));var o=a[r];a[r]=function(e,n,i,a,s){var c=o&&o(e,n,i,a,s);return!0!==c&&t["_"+r]({message:e,url:n,lineNumber:i,columnNumber:a,error:s}),c},e.autoExceptionInstrumented=!0}return t
+   }({
+      instrumentationKey:"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx"
+      endpointUrl: "https://dc.applicationinsights.us/v2/track"
+   });
 
+   window[aiName]=aisdk,aisdk.queue&&0===aisdk.queue.length&&aisdk.trackPageView({});
+</script>
 ```
 
 ### Firewall exceptions

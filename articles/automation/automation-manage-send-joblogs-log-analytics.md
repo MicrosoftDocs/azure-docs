@@ -4,8 +4,8 @@ description: This article demonstrates how to send job status and runbook job st
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
@@ -92,7 +92,7 @@ Diagnostics from Azure Automation creates two types of records in Azure Monitor 
 | Caller_s |Who initiated the operation. Possible values are either an email address or system for scheduled jobs. |
 | Tenant_g | GUID that identifies the tenant for the Caller. |
 | JobId_g |GUID that is the Id of the runbook job. |
-| ResultType |The status of the runbook job. Possible values are:<br>- New<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
+| ResultType |The status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
 | Category | Classification of the type of data. For Automation, the value is JobLogs. |
 | OperationName | Specifies the type of operation performed in Azure. For Automation, the value is Job. |
 | Resource | Name of the Automation account |

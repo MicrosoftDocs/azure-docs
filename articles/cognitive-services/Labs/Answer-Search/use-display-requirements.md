@@ -11,6 +11,7 @@ ms.subservice: answer-search
 ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: rosh
+ROBOTS: NOINDEX
 ---
 
 # Project Answer Search use and display requirements

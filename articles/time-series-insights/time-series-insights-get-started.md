@@ -4,9 +4,9 @@ description: This article describes how to use the Azure portal to create a new 
 ms.service: time-series-insights
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual 
 ms.date: 05/01/2019
@@ -46,7 +46,7 @@ Follow these steps to create an environment:
    Pricing tier | S1 | Choose the throughput needed. For lowest costs and starter capacity, select S1.
    Capacity | 1 | Capacity is the multiplier applies to the ingress rate, storage capacity, and cost associated with the selected SKU.  You can change capacity of an environment after creation. For lowest costs, select a capacity of 1. 
   
-1. Check **Pin to dashboard** to best easily access your Time Series Environment in the future.
+1. Check **Pin to dashboard** to easily access your Time Series Environment in the future.
 
    ![Create the Time Series Insights pin to dashboard](media/time-series-insights-get-started/3-pin-create.png)
 

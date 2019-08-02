@@ -8,7 +8,7 @@ editor: ''
 
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 05/24/2019
 ms.author: barclayn
 
 ---
@@ -21,6 +21,8 @@ The contents of your key vault are replicated within the region and to a seconda
 If individual components within the key vault service fail, alternate components within the region step in to serve your request to make sure that there is no degradation of functionality. You do not need to take any action to trigger this. It happens automatically and will be transparent to you.
 
 In the rare event that an entire Azure region is unavailable, the requests that you make of Azure Key Vault in that region are automatically routed (*failed over*) to a secondary region. When the primary region is available again, requests are routed back (*failed back*) to the primary region. Again, you do not need to take any action because this happens automatically.
+
+Through this high availability design, Azure Key Vault requires no downtime for maintenance activities.
 
 There are a few caveats to be aware of:
 

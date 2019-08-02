@@ -18,6 +18,9 @@ ms.author: juliako
 ---
 # Tutorial: Use AES-128 dynamic encryption and the key delivery service
 
+> [!NOTE]
+> Even though the tutorial uses the [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet) examples, the general steps are the same for [REST API](https://docs.microsoft.com/rest/api/media/liveevents), [CLI](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest), or other supported [SDKs](media-services-apis-overview.md#sdks).
+
 You can use Media Services to deliver HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming encrypted with the AES by using 128-bit encryption keys. Media Services also provides the key delivery service that delivers encryption keys to authorized users. If you want for Media Services to dynamically encrypt your video, you associate the encryption key with Streaming Locator and also configure the content key policy. When a stream is requested by a player, Media Services uses the specified key to dynamically encrypt your content with AES-128. To decrypt the stream, the player requests the key from the key delivery service. To determine whether the user is authorized to get the key, the service evaluates the content key policy that you specified for the key.
 
 You can encrypt each asset with multiple encryption types (AES-128, PlayReady, Widevine, FairPlay). See [Streaming protocols and encryption types](content-protection-overview.md#streaming-protocols-and-encryption-types), to see what makes sense to combine. Also, see [How to protect with DRM](protect-with-drm.md).

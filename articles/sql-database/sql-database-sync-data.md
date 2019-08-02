@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Sync data across multiple cloud and on-premises databases with SQL Data Sync
@@ -123,6 +122,7 @@ Provisioning and deprovisioning during sync group creation, update, and deletion
 - The names of objects (databases, tables, and columns) cannot contain the printable characters period (.), left square bracket ([), or right square bracket (]).
 - Azure Active Directory authentication is not supported.
 - Tables with same name but different schema (for example, dbo.customers and sales.customers) are not supported.
+- Columns with User Defined Data Types are not supported
 
 #### Unsupported data types
 

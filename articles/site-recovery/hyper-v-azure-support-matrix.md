@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ---
 
@@ -111,7 +111,7 @@ Disk: 4K logical and physical sector | Not supported: Gen 1/Gen 2 | Not supporte
 Disk: 4K logical and 512 bytes physical sector | Yes |  Yes
 Logical volume management (LVM). LVM is supported on data disks only. Azure provides only a single OS disk. | Yes | Yes
 Volume with striped disk >1 TB | Yes | Yes
-Storage Spaces | Yes | Yes
+Storage Spaces | No | No
 Hot add/remove disk | No | No
 Exclude disk | Yes | Yes
 Multi-path (MPIO) | Yes | Yes

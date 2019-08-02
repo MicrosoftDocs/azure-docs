@@ -82,14 +82,11 @@ The following diagram shows a simplified Microsoft identity platform provisionin
 
 In this provisioning flow:
 
-|   |   |
-|---|---|
-| 1 | A user from tenant B attempts to sign in with the app |
-| 2 | The user credentials are acquired and verified |
-| 3 | The user is prompted to consent for the app to gain access to tenant B |
-| 4 | Microsoft identity platform uses the application object in A as a blueprint for creating a service principal in tenant B |
-| 5 | The user receives the requested token |
-|   |   |
+1. A user from tenant B attempts to sign in with the app, the authorization endpoint requests a token for the application.
+1. The user credentials are acquired and verified for authentication
+1. The user is prompted to provide consent for the app to gain access to tenant B
+1. Microsoft identity platform uses the application object in tenant A as a blueprint for creating a service principal in tenant B
+1. The user receives the requested token
 
 You can repeat this process as many times as you want for other tenants (C, D, and so on). Tenant A retains the blueprint for the app (application object). Users and admins of all the other tenants where the app is given consent retain control over what the application is allowed to do through the corresponding service principal object in each tenant. For more information, see [Application and service principal objects in Microsoft identity platform](app-objects-and-service-principals.md).
 

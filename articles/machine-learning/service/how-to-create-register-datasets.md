@@ -1,5 +1,5 @@
 ---
-title: Create datasets to access data
+title: Create datasets to access data with azureml-datasets
 titleSuffix: Azure Machine Learning service
 description: Learn how to create Datasets from various sources and register Datasets with your workspace
 services: machine-learning
@@ -10,24 +10,23 @@ ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 05/20/2019
+ms.date: 05/21/2019
 
 ---
 
 # Create and access datasets (Preview) in Azure Machine Learning
 
-In this article, you'll learn how to create Azure Machine Learning datasets (preview) and how to access them across your local and remote experiments. These managed datasets make it easier to access and work with your data during:
-+ Model training
-+ Pipeline configuration and runs
+In this article, you'll learn how to create Azure Machine Learning datasets (preview), and how to access data from local or remote experiments.
 
-With datasets, you can:
-+ Work with data with simplified access to underlying data storage
-+ Explore and prep data
-+ Manage data lifecycles
-+ Version your data
-+ Compare training data to production data
+With Azure Machine Learning datasets, you can: 
 
-You can interact with your datasets with the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+* **Keep a single copy of data in your storage** referenced by datasets
+
+* **Analyze data** through exploratory data analysis 
+
+* **Easily access data during model training** without worrying about connection string or data path
+
+* **Share data & collaborate** with other users
 
 ## Prerequisites
 
@@ -35,29 +34,31 @@ To create and work with datasets, you need:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An [Azure Machine Learning service workspace Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
+* An [Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace)
 
-* The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* The [Azure Machine Learning SDK for Python installed](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), which includes the azureml-datasets package.
 
 > [!Note]
 > Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package (GA). For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
 ## Data formats
 
-You can create an Azure Machine Learning Dataset from the following data:
-+ [delimited](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-allfileshavesameheaders--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-norows--0---comment-none--include-path-false--archive-options-none-)
+You can create an Azure Machine Learning Dataset from the following formats:
++ [delimited](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-delimited-files-path--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---encoding--fileencoding-utf8--0---quoting-false--infer-column-types-true--skip-rows-0--skip-mode--skiplinesbehavior-no-rows--0---comment-none--include-path-false--archive-options-none--partition-format-none-)
++ [json](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false--partition-format-none-)
++ [Excel](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true--partition-format-none-)
++ [Parquet](/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false--partition-format-none-)
++ [pandas DataFrame](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-pandas-dataframe-dataframe--path-none--in-memory-false-)
++ [SQL query](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
 + [binary](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-binary-files-path-)
-+ [json](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-json-files-path--encoding--fileencoding-utf8--0---flatten-nested-arrays-false--include-path-false-)
-+ [Excel](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-excel-files-path--sheet-name-none--use-column-headers-false--skip-rows-0--include-path-false--infer-column-types-true-)
-+ [Parquet](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-parquet-files-path--include-path-false-)
-+ [Azure SQL Database](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
-+ [Azure Data Lake gen. 1](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#from-sql-query-data-source--query-)
 
 ## Create datasets 
 
+By creating a dataset, you create a reference to the data source location, along with a copy of its metadata. The data remains in  its existing location, so no extra storage cost is incurred.
+
 ### Create from local files
 
-Load files from your local machine by specifying the file or folder path with the [`auto_read_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false-) method from the `Dataset` class.  This method performs the following steps without requiring you to specify the file type or parsing arguments:
+Load files from your local machine by specifying the file or folder path with the [`auto_read_files()`](/python/api/azureml-core/azureml.core.dataset(class)?view=azure-ml-py#auto-read-files-path--include-path-false--partition-format-none-) method from the `Dataset` class.  This method performs the following steps without requiring you to specify the file type or parsing arguments:
 
 * Inferring and setting the delimiter.
 * Skipping empty records at the top of the file.
@@ -75,11 +76,11 @@ Alternatively, use the file-specific functions to explicitly control the parsing
 
 ### Create from Azure Datastores
 
-To create Datasets from an Azure Datastore:
+To create Datasets from an [Azure datastore](how-to-access-data.md):
 
-* Verify you have `contributor` or `owner` access to the registered Azure Datastore.
+* Verify you have `contributor` or `owner` access to the registered Azure datastore.
 
-* Import the [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) and [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#definition) and `Dataset` packages from the SDK.
+* Create the dataset by referencing to a path in the datastore 
 
 ```Python
 from azureml.core.workspace import Workspace
@@ -90,20 +91,16 @@ datastore_name = 'your datastore name'
 
 # get existing workspace
 workspace = Workspace.from_config()
-```
 
- The `get()` method retrieves an existing datastore in the workspace.
-
-```
+# retrieve an existing datastore in the workspace by name
 dstore = Datastore.get(workspace, datastore_name)
 ```
 
-Use the `from_delimited_files()` method to read in delimited files, and create an unregistered Dataset.
+Use the `from_delimited_files()` method to read delimited files from a [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py), and create an unregistered Dataset.
 
 ```Python
 # create an in-memory Dataset on your local machine
-datapath = dstore.path('data/src/crime.csv')
-dataset = Dataset.from_delimited_files(datapath)
+dataset = Dataset.from_delimited_files(dstore.path('data/src/crime.csv'))
 
 # returns the first 5 rows of the Dataset as a pandas Dataframe.
 dataset.head(5)
@@ -128,20 +125,22 @@ dataset = dataset.register(workspace = workspace,
 
 ## Access data in datasets
 
-Registered datasets are accessible and consumable locally, remotely and on compute clusters like the Azure Machine Learning compute. To reuse your registered Dataset across experiments and compute environments, use the following code to get your workspace and registered dataset by name.
+Registered datasets are accessible locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered Dataset across experiments, use the following code to get your workspace and registered dataset by name.
 
 ```Python
 workspace = Workspace.from_config()
 
 # See list of datasets registered in workspace.
-Dataset.list(workspace)
+print(Dataset.list(workspace))
 
 # Get dataset by name
-dataset = workspace.datasets['dataset_crime']
+dataset = Dataset.get(workspace, 'dataset_crime')
+
+# Load data into pandas DataFrame
+dataset.to_pandas_dataframe()
 ```
 
 ## Next steps
 
 * [Explore and prepare Datasets](how-to-explore-prepare-data.md).
-* [Manage the lifecycle of Dataset definitions](how-to-manage-dataset-definitions.md).
 * For an example of using Datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).

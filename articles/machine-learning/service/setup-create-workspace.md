@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sgilley
 author: sdgilley
-ms.date: 04/19/2019
+ms.date: 05/21/2019
 
 ---
 
@@ -29,7 +29,7 @@ If you would like to use a script to setup automated machine learning in a local
 
 When you create a workspace the following Azure resources are added automatically (if they're regionally available):
  
-- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): To minimize costs, ACR is **lazy-loaded** until deployment images are created.
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
@@ -164,7 +164,7 @@ This workspace configuration file makes it easy to load the same workspace later
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-This `write_config()` API call creates the configuration file in the current directory. The *config.json* file contains the following:
+This `write_config()` API call creates the configuration file in the current directory. The *.azureml/config.json* file contains the following:
 
 ```json
 {
@@ -194,10 +194,9 @@ To create a workspace with the CLI, see [Use the CLI extension for Azure Machine
 
 * No matter how it was created, you can view your workspace in the [Azure portal](https://portal.azure.com/).  See [view a workspace](how-to-manage-workspace.md#view) for details.
 
-* Try out your workspace with these quickstarts and tutorials.
+* Try out your workspace with these  tutorials.
 
-    * Quickstart: [Run Jupyter notebook in the cloud](quickstart-run-cloud-notebook.md).
-    * Quickstart: [Run Jupyter notebook on your own server](quickstart-run-local-notebook.md).
+    * Two-part tutorial: [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md).
     * Two-part tutorial: [Train](tutorial-train-models-with-aml.md) and [deploy](tutorial-deploy-models-with-aml.md) an image classification mode.
     * Two-part tutorial: [Prepare data](tutorial-data-prep.md) and [use automated machine learning](tutorial-auto-train-models.md) to build a regression model.
 

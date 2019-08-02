@@ -6,7 +6,6 @@ documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
-
 ms.assetid: 01d5e4d5-d856-42c4-a504-96fa554baf66
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -15,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
-ms.author: v-ant
+ms.author: "jeedes"
 ms.collection: M365-identity-device-management
 ---
 

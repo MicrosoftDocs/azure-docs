@@ -5,7 +5,7 @@ author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
 

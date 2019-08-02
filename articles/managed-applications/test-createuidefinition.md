@@ -1,36 +1,52 @@
 ---
 title: Test the UI definition for Azure Managed Applications | Microsoft Docs
 description: Describes how to test the user experience for creating your Azure Managed Application through the portal.
-services: managed-applications
-documentationcenter: na
 author: tfitzmac
-
 ms.service: managed-applications
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/22/2018
+ms.date: 05/26/2019
 ms.author: tomfitz
-
 ---
-# Test Azure portal interface for your managed application
-After [creating the createUiDefinition.json file](create-uidefinition-overview.md) for your Azure Managed Application, you need to test the user experience. To simplify testing, use a script that loads your file in the portal. You don't need to actually deploy your managed application.
+# Test your portal interface for Azure Managed Applications
+
+After [creating the createUiDefinition.json file](create-uidefinition-overview.md) for your managed application, you need to test the user experience. To simplify testing, use a sandbox environment that loads your file in the portal. You don't need to actually deploy your managed application. The sandbox presents your user interface in the current, full-screen portal experience. Or, you can use a PowerShell script for testing the interface, but it uses a legacy view of the portal. Both approaches are shown in this article. The sandbox is the recommended way to preview the interface.
 
 ## Prerequisites
 
-* A **createUiDefinition.json** file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json) and save it locally.
+* A **createUiDefinition.json** file. If you don't have this file, copy the [sample file](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json).
 
 * An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
-## Download test script
+## Use sandbox
+
+1. Open the [Create UI Definition Sandbox](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade).
+
+   ![Show sandbox](./media/test-createuidefinition/show-sandbox.png)
+
+1. Replace the empty definition with the contents of your createUiDefinition.json file. Select **Preview**.
+
+   ![Select preview](./media/test-createuidefinition/select-preview.png)
+
+1. The form you created is displayed. You can step through the user experience and fill in the values.
+
+   ![Show form](./media/test-createuidefinition/show-ui-form.png)
+
+### Troubleshooting
+
+If your form doesn't display after selecting **Preview**, you may have a syntax error. Look for the red indicator on the right scroll bar and navigate to it.
+
+![Show syntax error](./media/test-createuidefinition/show-syntax-error.png)
+
+If your form doesn't display, and instead you see an icon of a cloud with tear drop, your form has an error, such as a missing property. Open the Web Developer Tools in your browser. The **Console** displays important messages about your interface.
+
+![Show error](./media/test-createuidefinition/show-error.png)
+
+## Use test script
 
 To test your interface in the portal, copy one of the following scripts to your local machine:
 
 * [PowerShell side-load script](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Azure CLI side-load script](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
-
-## Run script
 
 To see your interface file in the portal, run your downloaded script. The script creates a storage account in your Azure subscription, and uploads your createUiDefinition.json file to the storage account. The storage account is created the first time you run the script or if the storage account has been deleted. If the storage account already exists in your Azure subscription, the script reuses it. The script opens the portal and loads your file from the storage account.
 
@@ -66,19 +82,9 @@ For Azure CLI, use:
 ./sideload-createuidef.sh
 ```
 
-## Test your interface
-
 The script opens a new tab in your browser. It displays the portal with your interface for creating the managed application.
 
 ![View portal](./media/test-createuidefinition/view-portal.png)
-
-Before filling out the fields, open the Web Developer Tools in your browser. The **Console** displays important messages about your interface.
-
-![Select console](./media/test-createuidefinition/select-console.png)
-
-If your interface definition has an error, you see the description in the console.
-
-![Show error](./media/test-createuidefinition/show-error.png)
 
 Provide values for the fields. When finished, you see the values that are passed to the template.
 
@@ -86,15 +92,7 @@ Provide values for the fields. When finished, you see the values that are passed
 
 You can use these values as the parameter file for testing your deployment template.
 
-## Troubleshooting the interface
-
-Some common errors you might see are:
-
-* The portal doesn't load your interface. Instead, it shows an icon of a cloud with tear drop. Usually, you see this icon when there's a syntax error in your file. Open the file in VS Code (or other JSON editor that has schema validation) and look for syntax errors.
-
-* The portal hangs at the summary screen. Usually, this interruption happens when there's a bug in the output section. For example, you may have referenced a control that doesn't exist.
-
-* A parameter in the output is empty. The parameter might be referencing a property that doesn't exist. For example, the reference to the control is valid, but the property reference isn't valid.
+If the portal hangs at the summary screen, there might be a bug in the output section. For example, you may have referenced a control that doesn't exist. If a parameter in the output is empty, the parameter might be referencing a property that doesn't exist. For example, the reference to the control is valid, but the property reference isn't valid.
 
 ## Test your solution files
 

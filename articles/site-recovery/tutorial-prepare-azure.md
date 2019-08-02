@@ -6,7 +6,7 @@ author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 04/15/2019
+ms.date: 05/30/2019
 ms.author: raynew
 ms.custom: MVC
 

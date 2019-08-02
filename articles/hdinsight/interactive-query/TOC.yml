@@ -2,28 +2,39 @@
   href: /azure/hdinsight
 - name: Overview
   items:
-  - name: Apache Hadoop components on HDInsight
-    href: ../hdinsight-component-versioning.md
+  - name: What is Interactive Query in HDInsight?
+    href: ./apache-interactive-query-get-started.md
     maintainContext: true
-  - name: HDInsight 4.0
-    href: ../hdinsight-version-release.md
-    maintainContext: true 
 - name: Quickstarts
+  expanded: true
   items:
   - name: Execute Apache Hive queries - Apache Zeppelin
     href: ./hdinsight-connect-hive-zeppelin.md
-- name: Get started
+- name: Tutorials
   items:
-  - name: Start with Interactive Query
-    href: ./apache-interactive-query-get-started.md
+  - name: Analyze data with Interactive Query
+    href: ./interactive-query-tutorial-analyze-flight-data.md
+- name: Concepts
+  items:
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
     maintainContext: true
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
+  - name: Troubleshoot
+    items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: GC overhead limit exceeded
+        href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
 - name: How to
   items:
+  - name: Migrate Hive workloads to HDInsight 4.0
+    href: apache-hive-migrate-workloads.md
+    maintainContext: true
   - name: Use cluster storage
     items:
     - name: Using Azure Storage
@@ -101,6 +112,9 @@
     - name: Connect Power BI to Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
       maintainContext: true
+    - name: Query Hive with PowerShell and ODBC
+      href: apache-hive-query-odbc-driver-powershell.md
+      maintainContext: true
     - name: Connect Excel to Apache Hadoop
       href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
       maintainContext: true
@@ -109,9 +123,6 @@
       maintainContext: true
     - name: Analyze stored tweets
       href: ../hdinsight-analyze-twitter-data-linux.md
-      maintainContext: true
-    - name: Analyze flight delay data
-      href: ../hdinsight-analyze-flight-delay-data-linux.md
       maintainContext: true
   - name: Extend clusters
     items:
@@ -251,9 +262,6 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md
       maintainContext: true
-    - name: Migrate Hive workloads to HDInsight 4.0
-      href: apache-hive-migrate-workloads.md
-      maintainContext: true
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
@@ -298,7 +306,7 @@
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
+      href: ../domain-joined/hdinsight-security-overview.md
       maintainContext: true
     - name: Plan for enterprise security
       href: ../domain-joined/apache-domain-joined-architecture.md
@@ -320,12 +328,18 @@
     maintainContext: true
   - name: Network access
     items:
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
-      maintainContext: true
   - name: Monitoring using Azure Monitor logs
     items:
     - name: Use Azure Monitor logs

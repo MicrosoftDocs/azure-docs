@@ -79,7 +79,7 @@ The following diagram illustrates the relationship between an application's appl
 - **Contoso** - The tenant used by the Contoso organization, which is a consumer of the **HR app**
 - **Fabrikam** - The tenant used by the Fabrikam organization, which also consumes the **HR app**
 
-![Relationship between an application object and a service principal object](./media/app-objects-and-service-principals/application-objects-relationship.svg)
+![Relationship between app object and service principal object](./media/app-objects-and-service-principals/application-objects-relationship.svg)
 
 In this example scenario:
 

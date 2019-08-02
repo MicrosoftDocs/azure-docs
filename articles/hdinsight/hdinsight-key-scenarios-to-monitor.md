@@ -1,14 +1,13 @@
 ---
 title: Monitor cluster performance - Azure HDInsight 
 description: 'How to monitor an HDInsight cluster for capacity and performance.'
-author: maxluk
+author: hrasheed-msft
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: arindamc
+ms.date: 05/29/2019
+ms.author: hrasheed
 ---
 # Monitor cluster performance
 

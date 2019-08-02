@@ -17,7 +17,7 @@ manager: philmea
 
 This article introduces the [Azure IoT reference architecture](https://aka.ms/iotrefarchitecture) and gives examples of how the [Azure IoT solution accelerators](about-iot-accelerators.md) follow its recommendations.
 
-The open-source [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) and [Connected Factory](iot-accelerators-connected-factory-sample-walkthrough.md) solution accelerators follow many of the reference architecture recommendations. You can use the solution accelerators either as a starting point for your own IoT solution or as learning tools.
+The open-source [Remote Monitoring](iot-accelerators-remote-monitoring-sample-walkthrough.md) and [Connected Factory](iot-accelerators-connected-factory-features.md) solution accelerators follow many of the reference architecture recommendations. You can use the solution accelerators either as a starting point for your own IoT solution or as learning tools.
 
 ## Overview
 

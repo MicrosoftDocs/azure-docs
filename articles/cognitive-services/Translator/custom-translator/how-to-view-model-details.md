@@ -2,12 +2,12 @@
 title: View model details - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Models tab under any project shows details of each model such as model name, model status, BLEU score, training, tuning, testing sentence count.
-author: rajdeep-in
-manager: christw
+author: swmachan
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019
-ms.author: v-rada
+ms.author: swmachan
 ms.topic: conceptual
 #Customer intent: As a Custom Translator user, I want to understand how to view model details, so that I can review details of each translation model.
 ---

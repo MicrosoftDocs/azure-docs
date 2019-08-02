@@ -19,14 +19,14 @@ abstract:
   description: Azure Machine Learning service provides SDKs and services to quickly prep data, train, and deploy machine learning models. Improve productivity and costs with autoscaling compute & pipelines. Use these capabilities with open-source Python frameworks, such as PyTorch, TensorFlow, and scikit-learn. Get started with our quickstarts and tutorials.
   aside:
     image:
-      alt: 
+      alt:
       height: 130
       src: media/index/video.png
-      width: 250  
+      width: 250
     title: Watch video (9:58)
-    href: https://www.youtube.com/watch?v=GBDSBInvz08
-    width: 250  
-sections:   
+    href: https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/
+    width: 250
+sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -36,7 +36,6 @@ sections:
     items:
     - html: <a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a> (no install required).
     - html: <a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a> (local SDK install).
-    - html: <a href="ui-quickstart-run-experiment">Prepare and visualize data without writing code</a> in the visual interface.
 
 - title: Step-by-Step Tutorials
   items:
@@ -45,6 +44,9 @@ sections:
   - type: list
     style: unordered
     items:
+    - html: 'Get started: <a href="tutorial-first-experiment-automated-ml">Train and deploy</a> your first automated ML model in Azure portal.'
+    - html: 'Get started: <a href="tutorial-1st-experiment-sdk-setup">Setup dev environment</a> and <a href="tutorial-1st-experiment-sdk-train">train your first ML model</a> using a Jupyter notebook (<b>two-part series</b>).'
+    - html: 'Get started: <a href="ui-tutorial-automobile-price-train-score">Train</a> and <a href="ui-tutorial-automobile-price-deploy">deploy</a> your first ML experiment with the drag-n-drop visual interface (<b>two-part series</b>).'
     - html: <a href="tutorial-train-models-with-aml">Train</a> and <a href="tutorial-deploy-models-with-aml">deploy</a>  image classification models (<b>two-part series</b>).
     - html: <a href="tutorial-data-prep">Prep data</a> and <a href="tutorial-auto-train-models">use automated machine learning</a> to train & tune regression models  (<b>two-part series</b>).
     - html: <a href="ui-tutorial-automobile-price-train-score">Predict automobile price</a>  with the visual interface and <a href="ui-tutorial-automobile-price-deploy">deploy</a> the regression model.
@@ -53,7 +55,7 @@ sections:
   items:
   - type: paragraph
     text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to help you explore the service on Github.'
-    
+
 - title: Reference
   items:
   - type: list
@@ -63,7 +65,7 @@ sections:
     - html: '<a href="https://aka.ms/aml-monitoring-sdk">Monitoring</a> Python SDK: collect data on deployed web services'
     - html: '<a href="../algorithm-module-reference/module-reference.md">Algorithm & module reference</a> for the visual interface'
     - html: '<a href="https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest">Azure ML CLI</a>: a machine learning command-line interface extension'
-  
+
 - title: Other Azure Machine Learning technologies
   items:
   - type: list
@@ -72,11 +74,11 @@ sections:
     items:
     - title: Azure Machine Learning Studio
       href: /azure/machine-learning/studio/
-      image: 
+      image:
         src: media/index/machine-learning-studio.svg
         href: /azure/machine-learning/studio/
     - title: Data Science Virtual Machine
       href: /azure/machine-learning/data-science-virtual-machine/
-      image: 
+      image:
         src: media/index/virtual-machines.svg
         href: /azure/machine-learning/data-science-virtual-machine/

@@ -93,7 +93,6 @@
         "jomolnar",
         "KatieCumming",
         "rjagiewich",
-        "v-thepet",
         "deneha",
         "ktoliver",
         "itechedit",
@@ -102,8 +101,19 @@
         "GitHubber17",
         "v-shils",
         "rmca14",
+        "trishamc",
+        "Jak-MS",
+        "garycentric",
+        "jborsecnik",
+        "Kellylorenebaker",
+        "ShannonLeavitt",
+        "v-albemi",
+        "v-dansch",
+        "chbain",
+        "atookey",
         "tfosmark",
-        "sdwheeler"
+        "sdwheeler",
+        "meganbradley"
       ],
       "_op_documentIdPathDepotMapping": {
         "articles/iot-central/": {
@@ -262,6 +272,7 @@
         "articles/data-factory/**/*.md": "https://feedback.azure.com/forums/270578-data-factory",
         "articles/data-lake-analytics/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
         "articles/data-lake-store/**/*.md": "https://feedback.azure.com/forums/327234-data-lake",
+        "articles/data-share/**/*.md": "https://feedback.azure.com/forums/922759-azure-data-share-public-preview",
         "articles/dev-spaces/**/*.md": "https://github.com/Azure/dev-spaces/issues",
         "articles/devtest-lab/**/*.md": "https://feedback.azure.com/forums/320373-devtest-labs",
         "articles/digital-twins/**/*.md": "https://feedback.azure.com/forums/916621-azure-digital-twins",
@@ -287,6 +298,7 @@
         "articles/iot-suite/**/*.md": "https://feedback.azure.com/forums/321918-azure-iot",
         "articles/jenkins/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/key-vault/**/*.md": "https://feedback.azure.com/forums/906355-azure-key-vault",
+        "articles/lighthouse/**/*.md": "https://feedback.azure.com/forums/922753-azure-lighthouse",
         "articles/load-balancer/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77467",
         "articles/log-analytics/**/*.md": "https://feedback.azure.com/forums/267889-log-analytics",
         "articles/logic-apps/**/*.md": "https://feedback.azure.com/forums/287593-logic-apps",
@@ -336,6 +348,7 @@
         "articles/terraform/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/time-series-insights/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/traffic-manager/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77466",
+        "articles/virtual-desktop/**/*.md": "https://windowsvirtualdesktop.uservoice.com/forums/921118-general",
         "articles/virtual-machine-scale-sets/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
         "articles/virtual-machines/**/*.md": "https://feedback.azure.com/forums/216843-virtual-machines",
         "articles/virtual-network/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=77469",
@@ -373,20 +386,15 @@
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",
         "articles/governance/policy/**/*.md": "Azure Policy",
-        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph"
+        "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
+        "articles/lighthouse/**/*.md": "Azure Lighthouse"
+      },
+      "manager": {
+        "articles/sql-database/**/*.md": "jroth"
       },
       "featureFlags": {
         "articles/**/*.md": [
           "show_learn_banner"
-        ],
-        "articles/active-directory-b2c/**/*.md": [
-          "show_star_rating"
-        ],
-        "articles/active-directory-domain-services/**/*.md": [
-          "show_star_rating"
-        ],
-        "articles/active-directory/**/*.md": [
-          "show_star_rating"
         ]
       },
       "learn_banner_products": {

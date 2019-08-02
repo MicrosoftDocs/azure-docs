@@ -4,7 +4,7 @@ description: Create a managed image of a generalized VM or VHD in Azure. Images 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

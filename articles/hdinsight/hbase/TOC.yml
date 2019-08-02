@@ -11,20 +11,24 @@
     href: apache-hbase-phoenix-squirrel-linux.md
   - name: Query Apache HBase - HBase Shell
     href: ./query-hbase-with-hbase-shell.md
-- name: Get started
+- name: Tutorials
   items:
-  - name: Start with Apache HBase & NoSQL
+  - name: Use Apache HBase in HDInsight
     href: apache-hbase-tutorial-get-started-linux.md
+- name: Concepts
+  items: 
   - name: Install HDInsight apps
     href: ../hdinsight-apps-install-applications.md
   - name: Cluster capacity planning
     href: ../hdinsight-capacity-planning.md
-- name: Concepts
-  items: 
   - name: Apache Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
+  - name: Troubleshoot
+    items:
+    - name: Timeouts with 'hbase hbck' command
+      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: How to
   items:
   - name: Use cluster storage
@@ -236,8 +240,16 @@
     href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
   - name: Network access
     items:
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
+    - name: HDInsight virtual network architecture
+      href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
+    - name: Use firewall to restrict outbound traffic
+      href: ../hdinsight-restrict-outbound-traffic.md
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
     - name: Create Apache HBase cluster in Azure VNet
@@ -260,7 +272,5 @@
   items:
   - name: Windows clusters
     items:
-    - name: Migrate Windows clusters to Linux clusters
-      href: ../hdinsight-migrate-from-windows-to-linux.md
     - name: Migrate .NET solutions to Linux clusters
       href: ../hdinsight-hadoop-migrate-dotnet-to-linux.md

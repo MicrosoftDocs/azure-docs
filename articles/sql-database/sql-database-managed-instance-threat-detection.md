@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-manager: craigg
 ms.date: 02/04/2019
 ---
 # Configure threat detection (Preview) in Azure SQL Database managed instance

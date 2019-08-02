@@ -112,3 +112,4 @@ After you join your device to your organization's network, you should be able to
 
 - If your organization wants you to register your personal device, such as your phone, see [Register your personal device on your organization's network](user-help-register-device-on-network.md).
 
+- If your organization is managed using Microsoft Intune and you have questions about enrollment, sign-in, or any other Intune-related issue, see the [Intune user help content](https://docs.microsoft.com/intune-user-help/use-managed-devices-to-get-work-done).

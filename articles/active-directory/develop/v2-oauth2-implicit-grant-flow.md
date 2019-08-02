@@ -44,7 +44,7 @@ However, if you prefer not to use a library in your single-page app and send pro
 
 The following diagram shows what the entire implicit sign-in flow looks like and the sections that follow describe each step in more detail.
 
-![OpenID Connect swimlanes](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
+![Diagram showing the implicit sign-in flow](./media/v2-oauth2-implicit-grant-flow/convergence-scenarios-implicit.svg)
 
 ## Send the sign-in request
 
@@ -239,4 +239,4 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redire
 
 ## Next steps
 
-* Go over the [MSAL JS samples](sample-v2-code.md#single-page-applications-spa) to get started coding.
+* Go over the [MSAL JS samples](sample-v2-code.md) to get started coding.
