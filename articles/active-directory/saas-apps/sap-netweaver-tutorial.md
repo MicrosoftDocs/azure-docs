@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/01/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -63,14 +63,14 @@ Configure and test Azure AD SSO with SAP NetWeaver using a test user called **B.
 To configure and test Azure AD SSO with SAP NetWeaver, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure SAP NetWeaver using SAML](#configure-sap-netweaver-using-saml)** to configure the SSO settings on application side.
-5. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Azure AD representation of user.
+	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
+	3. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+4. **[Configure SAP NetWeaver using SAML](#configure-sap-netweaver-using-saml)** to configure the SSO settings on application side.
+	5. **[Create SAP NetWeaver test user](#create-sap-netweaver-test-user)** to have a counterpart of B.Simon in SAP NetWeaver that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 7. **[Configure SAP NetWeaver for OAuth​](#configure-sap-netweaver-for-oauth)** to configure the OAuth settings on application side.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
@@ -187,37 +187,37 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
+	### Create an Azure AD test user
 
-In this section, you'll create a test user in the Azure portal called B.Simon.
+	In this section, you'll create a test user in the Azure portal called B.Simon.
 
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
+	1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+	1. Select **New user** at the top of the screen.
+	1. In the **User** properties, follow these steps:
+   		1. In the **Name** field, enter `B.Simon`.  
+   		1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+   		1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+   		1. Click **Create**.
 
-### Assign the Azure AD test user
+	### Assign the Azure AD test user
 
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SAP NetWeaver.
+	In this section, you'll enable B.Simon to use Azure single sign-on by granting access to SAP NetWeaver.
 
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **SAP NetWeaver**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+	1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+	1. In the applications list, select **SAP NetWeaver**.
+	1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   ![The "Users and groups" link](common/users-groups-blade.png)
+   		![The "Users and groups" link](common/users-groups-blade.png)
 
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+	1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-	![The Add User link](common/add-assign-user.png)
+		![The Add User link](common/add-assign-user.png)
 
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
+	1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+	1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+	1. In the **Add Assignment** dialog, click the **Assign** button.
 
-### Configure SAP NetWeaver using SAML
+## Configure SAP NetWeaver using SAML
 
 1. Sign in to SAP system and go to transaction code SAML2. It opens new browser window with SAML configuration screen.
 
@@ -299,11 +299,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration2.png)
 
-### Create SAP NetWeaver test user
+	### Create SAP NetWeaver test user
 
-In this section, you create a user called B.simon in SAP NetWeaver. Please work your in house SAP expert team or work with your organization SAP partner to add the users in the SAP NetWeaver platform.
+	In this section, you create a user called B.simon in SAP NetWeaver. Please work your in house SAP expert team or work with your organization SAP partner to add the users in the SAP NetWeaver platform.
 
-### Test SSO
+## Test SSO
 
 1. Once the identity provider Azure AD was activated, try accessing below URL to check SSO (there will no prompt for username & password)
 
