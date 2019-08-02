@@ -92,7 +92,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can CSP subscriptions activate the Azure Hybrid Benefit?**
 
-   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.  
+   Yes, the Azure Hybrid Benefit is available for CSP subscriptions. CSP customers should first deploy a pay-as-you-go image, and then [change the licensing model](virtual-machines-windows-sql-ahb.md) to bring-your-own-license.
 
 1. **Will registering my VM with the new SQL VM resource provider bring additional costs?**
 
