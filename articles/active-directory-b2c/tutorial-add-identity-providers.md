@@ -118,12 +118,11 @@ After you create the application for the identity provider that you want to add,
 
 ### Add the Facebook identity provider
 
-1. Select **Identity providers**, and then select **Add**.
-1. Enter a **Name**. For example, enter *Facebook*.
-1. Select **Identity provider type**, select **Facebook**, then select **OK**.
-1. Select **Set up this identity provider** and enter the *App ID* that you recorded earlier as the **Client ID**.
-1. Enter the *App Secret* that you recorded as the **Client secret**.
-1. Select **OK** and then select **Create** to save your Facebook configuration.
+1. Select **Identity providers**, then select **Facebook**.
+1. Enter a **Name**. For example, *Facebook*.
+1. For the **Client ID**, enter the App ID of the Facebook application that you created earlier.
+1. For the **Client secret**, enter the App Secret that you recorded.
+1. Select **Save**.
 
 ## Update the user flow
 
