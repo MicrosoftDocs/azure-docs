@@ -56,8 +56,6 @@
       href: best-practices-distributive-collaborative-development-environment.md    
     - name: Integration with Azure DevOps
       href: devtest-lab-dev-ops.md
-    - name: Use claim capabilities 
-      href: devtest-lab-use-claim-capabilities.md
     - name: Scenarios
       items:
       - name: Popular scenarios for using DevTest Labs
@@ -68,6 +66,8 @@
         href: devtest-lab-test-env.md
       - name: Use labs for training
         href: devtest-lab-training-lab.md
+      - name: Scenarios for using claimable VMs
+        href: devtest-lab-use-claim-capabilities.md
 - name: How-to guides
   items:
   - name: Classroom labs
@@ -158,11 +158,11 @@
       items: 
       - name: Create a VM - Azure portal
         href: devtest-lab-add-vm.md
-      - name: Create a VM using Azure PowerShell
+      - name: Create a VM - Azure PowerShell
         href: devtest-lab-vm-powershell.md
-      - name: Create and manage VMs using Azure CLI
+      - name: Create a VM - Azure CLI
         href: devtest-lab-vmcli.md        
-      - name: Create a VM from a Resource Manager template
+      - name: Create a VM - Resource Manager template
         href: devtest-lab-use-resource-manager-template.md
       - name: Start or stop a VM using PowerShell or CLI
         href: use-command-line-start-stop-virtual-machines.md
@@ -172,6 +172,8 @@
         href: devtest-lab-resize-vm.md
       - name: Redeploy a VM
         href: devtest-lab-redeploy-vm.md
+      - name: Configure autoshutdown of a VM 
+        href: devtest-lab-auto-shutdown-vm.md
       - name: Create and manage claimable VMs
         href: devtest-lab-add-claimable-vm.md
       - name: Configure secrets
@@ -210,9 +212,9 @@
         items:
         - name: Create custom image from a VM
           href: devtest-lab-create-custom-image-from-vm-using-portal.md
-        - name: Create custom image from a VHD using the Azure portal
+        - name: Create custom image from a VHD - Azure portal
           href: devtest-lab-create-template.md
-        - name: Create custom image from a VHD using PowerShell
+        - name: Create custom image from a VHD - PowerShell
           href: devtest-lab-create-custom-image-from-vhd-using-powershell.md
         - name: Upload VHD file using AzCopy
           href: devtest-lab-upload-vhd-using-azcopy.md
@@ -247,12 +249,16 @@
         href: devtest-lab-integrate-ci-cd-vsts.md
       - name: Integrate environments into your Azure DevOps CI/CD pipeline
         href: integrate-environments-devops-pipeline.md
+      - name: Use DevTest Labs in Azure DevOps build and release pipelines
+        href: use-devtest-labs-build-release-pipelines.md
     - name: DevTest Labs in the enterprise
       items:
       - name: DevTest Labs at enterprise scale
         href: devtest-lab-guidance-prescriptive-adoption.md
       - name: Reference architecture
         href: devtest-lab-reference-architecture.md
+      - name: Deliver proof of concept
+        href: deliver-proof-concept.md
       - name: Scale up your DevTest Labs deployment
         href: devtest-lab-guidance-scale.md
       - name: Orchestrate the implementation of DevTest Labs
@@ -296,13 +302,15 @@
 - name: Resources
   items:
   - name: Classroom Labs
-    items:
+    items:    
     - name: Azure updates
       href: https://azure.microsoft.com/updates/?product=lab-services
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/lab-services/
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/azure-lab-services
+    - name: Frequently asked questions
+      href: classroom-labs/classroom-labs-faq.md
   - name: DevTest Labs
     items:
     - name: Azure updates

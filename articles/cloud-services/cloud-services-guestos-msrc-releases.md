@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/12/2019
+ms.date: 7/26/2019
 ms.author: raiye
 
 ---
@@ -20,9 +20,6 @@ ms.author: raiye
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
 ## July 2019 Guest OS
-
->[!NOTE]
->The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change.
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
@@ -37,7 +34,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 |  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Security   |  4.68  |  July 9, 2019  |
 |  Rel 19-07   |  [4506977]  |  .NET 3.5 Security   |  4.68  |  July 9, 2019  |
 |  Rel 19-07   |  [4507457]  |  Windows Security   |  4.68  |  July 9, 2019  |
-|  Rel 19-07   |  [4506986]  |  .NET 4.8 Security   |  5.33  |  July 9, 2019  |
 |  Rel 19-07   |  [4507460]  |  Windows Security   |  5.33  |  July 9, 2019  |
 |  Rel 19-07   |  [4506998]  |  .NET 3.5 & 4.7.2 Security   |  6.9  |  July 9, 2019  |
 |  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  July 9, 2019  |
@@ -58,7 +54,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [4506964]: https://support.microsoft.com/kb/4506964
 [4506977]: https://support.microsoft.com/kb/4506977
 [4507457]: https://support.microsoft.com/kb/4507457
-[4506986]: https://support.microsoft.com/kb/4506986
 [4507460]: https://support.microsoft.com/kb/4507460
 [4506998]: https://support.microsoft.com/kb/4506998
 [4507469]: https://support.microsoft.com/kb/4507469

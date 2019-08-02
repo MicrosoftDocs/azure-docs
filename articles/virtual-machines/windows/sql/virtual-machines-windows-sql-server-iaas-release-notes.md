@@ -32,14 +32,13 @@ Azure allows you to deploy a virtual machine with an image of SQL Server built i
 | &nbsp; | &nbsp; |
 
 
-
 ## May 2019
 
 ### Service improvements
 
 | Service improvements | Details |
 | --- | --- |
-| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VM in the Azure portal](virtual-machines-windows-sql-manage-portal.md).  | 
+| **New SQL VM management in Azure portal** | There is now a new way to manage your SQL Server VM in the Azure portal. For more information, see [Manage SQL Server VM in the Azure portal](virtual-machines-windows-sql-manage-portal.md).  |
 | &nbsp; | &nbsp; |
 
 ### Documentation improvements

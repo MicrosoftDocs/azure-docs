@@ -7,7 +7,6 @@
   - name: Terminology changes
     href: terminology.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Applications
     items:
@@ -96,9 +95,9 @@
       href: platform/personal-data-mgmt.md
     - name: Application data collection, retention, and storage
       href: app/data-retention-privacy.md
-  - name: Respond to incidents
+  - name: Alerts
     items:
-    - name: Alerts 
+    - name: Overview 
       href: platform/alerts-overview.md
     - name: Classic alerts 
       href: platform/alerts-classic.overview.md  
@@ -114,8 +113,6 @@
       href: platform/alerts-action-rules.md
     - name: Smart groups
       href: platform/alerts-smartgroups-overview.md 
-    - name: Autoscale
-      href: platform/autoscale-overview.md
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Visualize data
@@ -179,7 +176,7 @@
           displayname: ASP.NET, c#, csharp, .NET, NET, dotnet 
           href: app/asp-net.md
         - name: .NET Console
-          displayname: console, .NET, dotnet console, dotenet, c#, csharp, NET
+          displayname: console, .NET, dotnet console, dotnet, c#, csharp, NET
           href: app/console.md
         - name: ILogger
           displayname: ilogger, logging, log 
@@ -272,7 +269,7 @@
             href: app/status-monitor-v2-api-get-status.md
           - name: API Set-ApplicationInsightsMonitoringConfig
             href: app/status-monitor-v2-api-set-config.md
-          - name: API Start-ApplicationInsightsMonitoringConfig
+          - name: API Start-ApplicationInsightsMonitoringTrace
             href: app/status-monitor-v2-api-start-trace.md
       - name: Create a resource
         href: app/create-new-resource.md 
@@ -295,7 +292,7 @@
         - name: Performance testing
           href: app/performance-testing.md
         - name: Troubleshooting
-          displayname: availability, troublshoot, troubleshoot availability
+          displayname: availability, troubleshoot, troubleshoot availability
           href: app/troubleshoot-availability.md
       - name: Distributed tracing
         items:
@@ -311,7 +308,13 @@
         displayname: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
       - name: Metrics
-        href: app/metrics-explorer.md
+        items:
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
+        - name: Log-based metrics definitions
+          href: platform/app-insights-metrics.md
+        - name: Classic metrics explorer   
+          href: app/metrics-explorer.md
       - name: Search
         href: app/diagnostic-search.md
       - name: Profiler
@@ -401,6 +404,8 @@
         items:
         - name: Access control
           href: app/resources-roles-access-control.md
+        - name: IP address collection
+          href: app/ip-collection.md
         - name: Sampling
           displayname: adaptive sampling, fixed rate sample, fixed sampling, ingestion sampling
           href: app/sampling.md
@@ -409,9 +414,9 @@
           href: app/telemetry-channels.md
         - name: TelemetryProcessors
           displayname: processors, filtering, telemetry filtering, telemetry processor
+          href: app/api-filtering-sampling.md
         - name: Telemetry correlation
           href: app/correlation.md
-          href: app/api-filtering-sampling.md
         - name: Track custom operations in .NET SDK
           href: app/custom-operations-tracking.md
         - name: Custom email reports
@@ -426,8 +431,6 @@
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Log-based & pre-aggregated metrics
-          href: app/pre-aggregated-metrics-log-metrics.md
         - name: Transaction diagnostics
           href: app/transaction-diagnostics.md
         - name: Correlate custom data sources
@@ -498,6 +501,8 @@
           href: insights/container-insights-alerts.md
         - name: Agent management
           href: insights/container-insights-manage-agent.md
+        - name: Configure agent collection settings
+          href: insights/container-insights-agent-config.md
         - name: Update to enable metrics
           href: insights/container-insights-update-metrics.md
         - name: Troubleshooting
@@ -603,6 +608,8 @@
             href: insights/vminsights-enable-at-scale-powershell.md
           - name: Enable for Hybrid environment
             href: insights/vminsights-enable-hybrid-cloud.md
+          - name: Integration with Operations Manager
+            href: insights/service-map-scom.md
         - name: Monitor health
           href: insights/vminsights-health.md
         - name: Map dependencies
@@ -613,8 +620,6 @@
           href: insights/vminsights-workbooks.md
         - name: Analyze data with log queries
           href: insights/vminsights-log-search.md
-        - name: Configure agent collection settings
-          href: insights/container-insights-agent-config.md
         - name: Disable monitoring
           href: insights/vminsights-optout.md
       - name: Capacity and performance solution
@@ -623,14 +628,8 @@
         href: insights/vmware.md
       - name: Wire Data solution
         href: insights/wire-data.md
-      - name: Service Map
-        items:
-        - name: Use
-          href: insights/service-map.md
-        - name: Configure
-          href: insights/service-map-configure.md
-        - name: Integration with Operations Manager
-          href: insights/service-map-scom.md
+      - name: Service Map solution
+        href: insights/service-map.md
       - name: Computer groups
         href: platform/computer-groups.md
       - name: Configuration Manager
@@ -664,15 +663,13 @@
         - name: Collect in Logs
           href: platform/diagnostic-logs-stream-log-store.md
         - name: Collect from Azure Storage
-          href: platform/collect-azure-metrics-logs.md
+          href: platform/azure-storage-iis-table.md
         - name: Archive to storage
           href: platform/archive-diagnostic-logs.md
         - name: Stream data to Event Hubs
           href: platform/diagnostic-logs-stream-event-hubs.md
         - name: Enable with Resource Manager templates
           href: platform/diagnostic-logs-stream-template.md
-        - name: Service logs and metrics
-          href: platform/azure-storage-iis-table.md
       - name: Stream data to Event Hubs
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Key Vault Analytics
@@ -743,8 +740,6 @@
         href: platform/metrics-charts.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
-        name: Log-based metrics
-        href: platform/app-insights-metrics.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
     - name: Logs
@@ -957,6 +952,8 @@
     items:
     - name: Autoscale
       items:
+      - name: Overview
+        href: platform/autoscale-overview.md
       - name: Walkthrough
         href: platform/autoscale-get-started.md
       - name: Settings

@@ -231,7 +231,9 @@
       href: cognitive-search-resources-documentation.md
   - name: Knowledge store (preview)
     items:
-    - name: How to get started
+    - name: Connect using Power BI
+      href: knowledge-store-connect-powerbi.md
+    - name: Create using REST and Postman
       href: knowledge-store-howto.md
   - name: Query data
     items:
@@ -334,8 +336,6 @@
       href: cognitive-search-skill-keyphrases.md
     - name: Language Detection
       href: cognitive-search-skill-language-detection.md
-    - name: Named Entity Recognition
-      href: cognitive-search-skill-named-entity-recognition.md
     - name: Entity Recognition
       href: cognitive-search-skill-entity-recognition.md
     - name: Text Merger
@@ -344,6 +344,8 @@
       href: cognitive-search-skill-textsplit.md 
     - name: Sentiment
       href: cognitive-search-skill-sentiment.md
+    - name: Text Translation
+      href: cognitive-search-skill-text-translation.md
     - name: Image Analysis
       href: cognitive-search-skill-image-analysis.md
     - name: OCR
@@ -352,12 +354,15 @@
       href: cognitive-search-skill-shaper.md
     - name: Conditional
       href: cognitive-search-skill-conditional.md
-    - name: Deprecated Skills
-      href: cognitive-search-skill-deprecated.md
   - name: Custom skills
     items:
     - name: Custom Web API
       href: cognitive-search-custom-skill-web-api.md
+  - name: Deprecated Skills
+    href: cognitive-search-skill-deprecated.md
+    items:
+    - name: Named Entity Recognition
+      href: cognitive-search-skill-named-entity-recognition.md
 - name: Resources
   items:
   - name: Azure Community Support

@@ -34,11 +34,11 @@ Azure Data Explorer offers two types of clusters:
 
 When creating an Azure Data Explorer cluster, select the *optimal* VM SKU for the planned workload. Azure Data Explorer has two SKU families from which to choose:
 
-* **D_V2**: The **D** SKU is compute optimized and provided in two flavors.
+* **D_V2**: The D SKU is compute optimized and provided in two flavors.
     * VM itself
     * VM bundled with premium storage disks
 
-* **LS**: The **L** SKU is storage optimized. It has a much greater SSD size than the similar priced **D** SKU.
+* **LS**: The L SKU is storage optimized. It has a much greater SSD size than the similar priced **D** SKU.
 
 The following table provides the key differences between the available SKU types:
  

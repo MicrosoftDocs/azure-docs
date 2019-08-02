@@ -3,18 +3,11 @@ title: How to create and deploy a cloud service | Microsoft Docs
 description: Learn how to create and deploy a cloud service using the Azure portal.
 services: cloud-services
 documentationcenter: ''
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 56ea2f14-34a2-4ed9-857c-82be4c9d0579
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 # How to create and deploy a cloud service

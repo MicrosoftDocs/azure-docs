@@ -368,6 +368,6 @@ but you can use the `correlation` properties of events to correlate across actio
 
 ## Next steps
 
-* [Create templates for logic app deployment and release management](../logic-apps/logic-apps-create-deploy-template.md)
+* [Automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [B2B scenarios with Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md)
 * [Monitor B2B messages](../logic-apps/logic-apps-monitor-b2b-message.md)

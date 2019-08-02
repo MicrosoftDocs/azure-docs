@@ -13,6 +13,8 @@
     href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - name: Create templates - IntelliJ IDEA
+    href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Utilize template reference
@@ -63,18 +65,18 @@
     href: template-best-practices.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
-  - name: Resource providers and types
-    href: resource-manager-supported-services.md
-  - name: Deployment Manager
-    displayName: adm
-    href: deployment-manager-overview.md
-  - name: Deployment Manager health check
-    displayName: adm
-    href: deployment-manager-health-check.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Resource deletion
     href: resource-group-delete.md
+  - name: Deployment Manager
+    items:
+    - name: Overview
+      displayName: adm, deployment manager
+      href: deployment-manager-overview.md
+    - name: Health check
+      displayName: adm, deployment manager
+      href: deployment-manager-health-check.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
   - name: Azure common security attributes
@@ -228,6 +230,8 @@
       href: resource-manager-sku-not-available-errors.md
     - name: Windows deployment issues
       href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+  - name: Resource providers and types
+    href: resource-manager-supported-services.md
   - name: Throttling requests
     href: resource-manager-request-limits.md
   - name: Track asynchronous operations
@@ -255,7 +259,9 @@
     - name: String functions
       href: resource-group-template-functions-string.md
   - name: Complete mode deletion
-    href: complete-mode-deletion.md  
+    href: complete-mode-deletion.md
+  - name: Resource instance limit
+    href: resources-without-rg-limit.md  
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager

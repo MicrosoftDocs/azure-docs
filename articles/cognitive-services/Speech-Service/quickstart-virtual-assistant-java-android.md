@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Android) - Speech Services'
+title: 'Quickstart: Custom voice-first virtual assistant (Preview), Java (Android) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to create a voice-first virtual assistant application in Java on Android using the Speech SDK
 services: cognitive-services

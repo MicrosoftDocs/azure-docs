@@ -1,7 +1,7 @@
 ---
-title: Try Speech Services for free
+title: Try Speech Service for free
 titleSuffix: Azure Cognitive Services
-description: Getting started with the Speech Services is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
+description: Getting started with the Speech Service is easy and affordable. A 30-day free trial lets you discover what the service can do and decide whether it's right for your application's needs.
 services: cognitive-services
 author: erhopf
 manager: nitinme

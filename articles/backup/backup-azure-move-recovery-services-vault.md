@@ -1,13 +1,13 @@
 ---
-title: Move a Recovery Services vault across Azure subscriptions or to another resource group
+title: Move a Recovery Services vault across Azure subscriptions or resource groups - Azure Backup
 description: Instructions to move recovery services vault across azure subscriptions and resource groups.
-services: backup
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: sogup
+ms.author: dacurwin
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups

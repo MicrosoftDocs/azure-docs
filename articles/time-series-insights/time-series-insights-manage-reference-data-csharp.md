@@ -242,4 +242,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 
-- Read the [reference data API](/rest/api/time-series-insights/ga-reference-data-api).
+- Read the [reference data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

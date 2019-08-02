@@ -27,7 +27,7 @@ With the information provided by the [user sign-ins report](concept-sign-ins.md)
 
 - Who signed in to my application?
 - Which applications were signed in to?
-- Which sign-ins failed why?
+- Which sign-ins failed and why?
 
 When a sign-in fails, you will see an error code corresponding to the failure. This article lists the error codes and their descriptions, along with a suggested course of action where applicable. 
 

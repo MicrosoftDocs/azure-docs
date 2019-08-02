@@ -1,6 +1,6 @@
 ---
 title: "Perform image operations - JavaScript"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Explore a basic JavaScript app that uses the Computer Vision API in Azure Cognitive Services. Perform OCR, create thumbnails, and work with visual features in an image.
 services: cognitive-services
 author: KellyDF

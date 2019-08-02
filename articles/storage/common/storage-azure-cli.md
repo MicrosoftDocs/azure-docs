@@ -23,6 +23,8 @@ The examples in the guide assume the use of the Bash shell on Ubuntu, but other 
 
 [!INCLUDE [storage-cli-versions](../../../includes/storage-cli-versions.md)]
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## Prerequisites
 This guide assumes that you understand the basic concepts of Azure Storage. It also assumes that you're able to satisfy the account creation requirements that are specified below for Azure and the Storage service.
 
@@ -319,6 +321,17 @@ To delete a blob, use the `blob delete` command:
 
 ```azurecli
 az storage blob delete --container-name <container_name> --name <blob_name>
+```
+
+### Set the content type
+
+The content type, also known as the MIME type, identifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. For example, the content type for PNG images is `image/png`. To set the content type, use the `blob update` command:
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
 ```
 
 ## Create and manage file shares
