@@ -445,6 +445,8 @@ When you run a service in a dev space, that service's pod is [injected with addi
 Resource requests and limits can be applied for the injected container (devspaces-proxy) by adding the `"azds.io/proxy-resources"` annotation to your pod spec. The value should be set to a JSON object representing the "resources" section of the container spec for the proxy.
 
 ### Try
+
+Below is an example of a proxy-resources annotation that is to be applied to your pod spec.
 ```
 azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
 ```
