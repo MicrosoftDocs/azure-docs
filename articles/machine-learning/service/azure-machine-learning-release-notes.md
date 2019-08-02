@@ -24,7 +24,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 + **New features**
   + Token based authentication is now supported for the calls made to the scoring endpoint deployed on AKS. We will continue to support the current key based authentication and users can use one of these authentication mechanisms at a time.
-  + Ability to register a blob storage that is behind the VNet as a datastore.
+  + Ability to register a blob storage that is behind the virtual network (VNet) as a datastore.
   
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
