@@ -66,7 +66,7 @@ In an Azure IoT Central application, device templates define the behavior and ca
 
 ![Template architecture](media/concepts-architecture-pnp/template-architecture.png)
 
-In a device template:
+In an IoT Central Preview application device template:
 
 - **Device capability models** specify the capabilities of a device such as the telemetry it sends, the properties that define the device state, and the commands the device responds to. Device capabilities are organized into one or more interfaces. For more information about device capability models, see the the [IoT Plug and Play](https://aka.ms/iot-pnp-docs) documentation.
 - **Cloud properties** specify the properties IoT Central stores for a device. These properties are only stored in IoT Central and are never sent to a device.
