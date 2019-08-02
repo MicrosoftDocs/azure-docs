@@ -93,6 +93,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     1. In the **Relay State** text box, type a value using the following pattern:`system=[your system], (for example, **system=DELTEKCP**)`
 
+1. If you wish to configure the application in **SP** initiated mode perform the following step:
+	
+	In the **Sign-on URL** text box, type a URL:
+    `https://costpointteea.deltek.com/cpweb/cploginform.htm`
+
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL and Relay State. Contact [Costpoint Client support team](https://www.deltek.com/about/contact-us) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
@@ -102,13 +107,16 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Generate Costpoint Metadata
 
-Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. You will get the PDF guide and access from the [Costpoint Client support team](https://www.deltek.com/about/contact-us). From that refer to the **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Azure AD** section. Follow the instructions and generate **Costpoint SP Federation Metadata XML** file. 
+Costpoint SAML SSO configuration is explained in the **DeltekCostpoint711Security.pdf** guide. From that refer to the **SAML Single Sign-on Setup -> Configure SAML Single Sign-on between Costpoint and Azure AD** section. Follow the instructions and generate **Costpoint SP Federation Metadata XML** file. Use this in the **Basic SAML Configuration** in Azure portal.
 
 ![Costpoint Configuration Utility](./media/costpoint-tutorial/config02.png)
 
+> [!NOTE]
+> You will get the **DeltekCostpoint711Security.pdf** guide from the [Costpoint Client support team](https://www.deltek.com/about/contact-us). If you do not have this file please contact them to get this file.
+
 ### Configure Costpoint
 
-Return to **Costpoint Configuration Utility** and paste the **App Federation Metadata Url** into the **IdP Federation Metadata XML** text box and Continue the instructions from the **DeltekCostpoint711Security.pdf** guide to finish the Costpoint SAML setup. 
+Return to **Costpoint Configuration Utility** and paste the **App Federation Metadata Url** into the **IdP Federation Metadata XML** text box and continue the instructions from the **DeltekCostpoint711Security.pdf** guide to finish the Costpoint SAML setup. 
 
 ![Costpoint Configuration Utility](./media/costpoint-tutorial/config01.png)
 
