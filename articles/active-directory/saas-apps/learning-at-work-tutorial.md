@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/01/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 5. Learning at Work application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes, where as **nameidentifier** is mapped with **user.userprincipalname**.
 
-	Based on your organization setup Learning at Work application expects **nameidentifier** to be mapped with **user.onpremisessamaccountname** and this value need to  match the user ID in the SABA cloud, so you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
+	You can update the **nameidentifier** value in Azure AD based on your Organization setup and this value needs to match with the **User ID** in the SABA cloud, for that you need to edit the attribute mapping by clicking on **Edit** icon and change the attribute mapping.
 
 	![image](common/edit-attribute.png)
 
