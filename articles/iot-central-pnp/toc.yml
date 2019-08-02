@@ -91,13 +91,17 @@
   - name : Administration
     items:
       - name: Administer your application
-        href: ../iot-central/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json  
+        href: ../iot-central/howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      - name: Manage users and roles
+        href: ../iot-central/howto-manage-users-roles-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json 
+      - name: View your bill
+        href: ../iot-central/howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+      - name: Customize application UI
+        href: ../iot-central/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json    
       - name: Prepare and upload image
         href: ../iot-central/howto-prepare-images.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Configure application dashboard
         href: ../iot-central/howto-configure-homepage.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
-      - name: Customize application UI
-        href: ../iot-central/howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Manage from the Azure portal
         href: ../iot-central/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
       - name: Manage from Azure CLI
