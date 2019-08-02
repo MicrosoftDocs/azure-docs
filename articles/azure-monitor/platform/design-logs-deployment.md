@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/18/2019
+ms.date: 08/02/2019
 ms.author: magoedte
 ---
 
@@ -29,7 +29,7 @@ A Log Analytics workspace provides:
 * Data isolation by granting different users access rights following one of our recommended design strategies.
 * Scope for configuration of settings like [pricing tier](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#changing-pricing-tier), [retention](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period) and [data capping](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#daily-cap).
 
-This article provides a detailed overview of the design factors and considerations, access control overview, and understand the design implementations we recommend for your IT organization.
+This article provides a detailed overview of the design factors and considerations, access control overview, and an understanding of the design implementations we recommend for your IT organization.
 
 ## Important considerations for an access control strategy
 
@@ -41,27 +41,30 @@ Identifying the number of workspaces you need is influenced by one or more of th
 
 IT organizations today are modeled following either a centralized, decentralized, or an in-between hybrid of both structures. As a result, the following workspace deployment models have been commonly used to map to one of these organizational structures:
 
-* Centralized: All logs are stored in a central workspace and administered by a single team, with Azure Monitor providing differentiated access per-team. In this scenario, it is easy to manage, search across resources, and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
-* Decentralized: Each team has their own workspace created in a resource group that they own and manage, and log data is segregated per resource. In this scenario, the workspace can be kept secure and access control is consistent with resource access, but it's difficult to cross-correlate logs. Users who need a broad view of many resources cannot analyze the data in a meaningful way.
-* Hybrid: Security audit compliance requirements further complicate this scenario because many organizations implement both deployment models in parallel. This commonly results in a complex, expensive, and hard-to-maintain configuration with gaps in logs coverage.
-
-While the centralized workspace design comes with minor trade-offs compared to the other deployment models, the resource-context access mode alleviates the need to configure scoped permissions to particular tables in the workspace.
+* **Centralized**: All logs are stored in a central workspace and administered by a single team, with Azure Monitor providing differentiated access per-team. In this scenario, it is easy to manage, search across resources, and cross-correlate logs. The workspace can grow significantly depending on the amount of data collected from multiple resources in your subscription, with additional administrative overhead to maintain access control to different users.
+* **Decentralized**: Each team has their own workspace created in a resource group that they own and manage, and log data is segregated per resource. In this scenario, the workspace can be kept secure and access control is consistent with resource access, but it's difficult to cross-correlate logs. Users who need a broad view of many resources cannot analyze the data in a meaningful way.
+* **Hybrid**: Security audit compliance requirements further complicate this scenario because many organizations implement both deployment models in parallel. This commonly results in a complex, expensive, and hard-to-maintain configuration with gaps in logs coverage.
 
 When using the Log Analytics agents to collect data, you need to understand the following in order to plan your agent deployment:
 
 * To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](../../azure-monitor/platform/agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
 * The Linux agent does not support multi-homing and can only report to a single workspace.
-* If you are using System Center Operations Manager 2012 R2 or later, each Operations Manager management group can be [connected to only one workspace](../platform/om-agents.md). With Linux computers reporting to a management group, the agent doesn't include a health service component as the Windows agent does, and information is collected and processes by a management server on its behalf. Because Linux computers are monitored differently with Operations Manager, they do not receive configuration or collect data directly and forward through the management group like a Windows agent-managed system. In this scenario, you need to configure the Linux computer to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager and a different workspace.
+
+If you are using System Center Operations Manager 2012 R2 or later:
+
+* Each Operations Manager management group can be [connected to only one workspace](../platform/om-agents.md). 
+* Linux computers reporting to a management group must be configured to report directly to a Log Analytics worksapce. If your Linux computers are already reporting directly to a workspace and you want to monitor them with Operations Manager, follow these steps to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
+* You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager integrated with a workspace, and a different workspace.
 
 ## Access control overview
 
-With role-based access control (RBAC), you can grant only the amount of access to users, groups, and applications that users need access to and align with your IT organization operating model using a single workspace to store collected data enabled on all your resources. For example, you grant access to your team responsible for infrastructure services hosted on Azure virtual machine (VM), and as a result they'll have access to only the logs generated by the VMs. This is following our new resource-context log model. The basis for this model is that every log record emitted by an Azure resource is automatically associated with this resource. Logs are forwarded to a central workspace that respects scoping and RBAC based on the resources.
+With role-based access control (RBAC), you can grant users and groups only the amount of access they need to work with monitoring data in a workspace. This allows you to align with your IT organization operating model using a single workspace to store collected data enabled on all your resources. For example, you grant access to your team responsible for infrastructure services hosted on Azure virtual machines (VMs), and as a result they'll have access to only the logs generated by the VMs. This is following our new resource-context log model. The basis for this model is that every log record emitted by an Azure resource is automatically associated with this resource. Logs are forwarded to a central workspace that respects scoping and RBAC based on the resources.
 
 The data that a user has access to are determined by a combination of factors that are listed in the following table. Each is described in the sections below.
 
 | Factor | Description |
 |:---|:---|
-| [Access mode](#access-mode) | Method that the user uses to accesses the workspace.  Defines the scope of the data available and the access control mode that's applied. |
+| [Access mode](#access-mode) | Method that the user uses to access the workspace.  Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
 | [Permissions](manage-access.md#manage-accounts-and-users) | Permissions applied to individual or groups of users for the workspace or resource. Defines what data the user will have access to. |
 | [Table level RBAC](manage-access.md#table-level-rbac) | Optional granular permissions that applies to all users regardless of their access mode or access control mode. Defines which data types a user can access. |
