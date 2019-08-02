@@ -3,7 +3,7 @@ title: Add a shape with Azure Maps | Microsoft Docs
 description: How to add a shape to a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -140,7 +140,7 @@ Azure Maps uses an extended version of the GeoJSON schema that provides a defini
 }  
 ```
 
-The Azure Maps Web SDK converts these `Pooint` features into `Polygon` features under the covers and can be rendered on the map using polygon and line layers as shown here.
+The Azure Maps Web SDK converts these `Point` features into `Polygon` features under the covers and can be rendered on the map using polygon and line layers as shown here.
 
 <iframe height='500' scrolling='no' title='Add a circle to a map' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Add a circle to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>

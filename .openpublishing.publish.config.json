@@ -334,6 +334,11 @@
       "path_to_root": "VideoReviewConsoleApp",
       "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
       "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-quickstart-code",
+      "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
+      "branch": "master"
     }
   ],
   "branch_target_mapping": {

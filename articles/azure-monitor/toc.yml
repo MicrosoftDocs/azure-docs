@@ -271,7 +271,7 @@
             href: app/status-monitor-v2-api-get-status.md
           - name: API Set-ApplicationInsightsMonitoringConfig
             href: app/status-monitor-v2-api-set-config.md
-          - name: API Start-ApplicationInsightsMonitoringConfig
+          - name: API Start-ApplicationInsightsMonitoringTrace
             href: app/status-monitor-v2-api-start-trace.md
       - name: Create a resource
         href: app/create-new-resource.md 
@@ -310,7 +310,13 @@
         displayname: live, quickpulse, quick pulse, live metrics
         href: app/live-stream.md
       - name: Metrics
-        href: app/metrics-explorer.md
+        items:
+        - name: Log-based & pre-aggregated metrics
+          href: app/pre-aggregated-metrics-log-metrics.md
+        - name: Log-based metrics definitions
+          href: platform/app-insights-metrics.md
+        - name: Classic metrics explorer   
+          href: app/metrics-explorer.md
       - name: Search
         href: app/diagnostic-search.md
       - name: Profiler
@@ -427,8 +433,6 @@
           href: app/asp-net-dependencies.md
         - name: ApplicationInsights.config
           href: app/configuration-with-applicationinsights-config.md
-        - name: Log-based & pre-aggregated metrics
-          href: app/pre-aggregated-metrics-log-metrics.md
         - name: Transaction diagnostics
           href: app/transaction-diagnostics.md
         - name: Correlate custom data sources
@@ -661,15 +665,13 @@
         - name: Collect in Logs
           href: platform/diagnostic-logs-stream-log-store.md
         - name: Collect from Azure Storage
-          href: platform/collect-azure-metrics-logs.md
+          href: platform/azure-storage-iis-table.md
         - name: Archive to storage
           href: platform/archive-diagnostic-logs.md
         - name: Stream data to Event Hubs
           href: platform/diagnostic-logs-stream-event-hubs.md
         - name: Enable with Resource Manager templates
           href: platform/diagnostic-logs-stream-template.md
-        - name: Service logs and metrics
-          href: platform/azure-storage-iis-table.md
       - name: Stream data to Event Hubs
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Key Vault Analytics
@@ -740,8 +742,6 @@
         href: platform/metrics-charts.md
       - name: Examples of metric charts
         href: platform/metric-chart-samples.md
-        name: Log-based metrics
-        href: platform/app-insights-metrics.md
       - name: Troubleshooting metric charts
         href: platform/metrics-troubleshoot.md
     - name: Logs

@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 10/06/2017
 ---
 
-# Schedule and broadcast jobs (Node)
+# Schedule and broadcast jobs (Node.js)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 

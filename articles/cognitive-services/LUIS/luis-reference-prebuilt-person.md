@@ -1,5 +1,5 @@
 ---
-title: PersonName prebuilt entity
+title: PersonName prebuilt entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: This article contains personName prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services

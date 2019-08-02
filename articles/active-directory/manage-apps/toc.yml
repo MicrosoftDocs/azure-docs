@@ -221,6 +221,8 @@
          items:
          - name: User provisioning for gallery apps
            href: application-provisioning-config-how-to.md
+         - name: Enable automatic user provisioning for multi-tenant apps
+           href: isv-automatic-provisioning-multi-tenant-apps.md
          - name: Configure automatic user provisioning
            href: configure-automatic-user-provisioning-portal.md
          - name: Customize application attributes
@@ -286,6 +288,8 @@
          href: application-proxy-security.md
        - name: Network topology
          href: application-proxy-network-topology.md
+       - name: High availability and load balancing
+         href: application-proxy-high-availability-load-balancing.md
        - name: Comparison of remote access solutions
          href: application-proxy-migration.md
      - name: How-to guides

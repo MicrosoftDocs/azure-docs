@@ -11,7 +11,7 @@ ms.date: 05/15/2017
 ms.author: robinsh
 ---
 
-# Get started with device twins (.NET/.NET)
+# Get started with device twins (.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 At the end of this tutorial, you will have these .NET console apps:

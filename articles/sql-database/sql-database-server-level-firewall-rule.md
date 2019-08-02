@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 02/11/2019
 ---
 # Quickstart: Create a server-level firewall rule for single and pooled databases using the Azure portal
