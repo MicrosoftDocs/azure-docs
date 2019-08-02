@@ -33,10 +33,10 @@ All RIs purchased after the announcement date will get the following behavior by
 | D15_v2                                                                 | Off     | D15_v2                                           |
 | D15_v2                                                                 | On      | D15_v2 hardware family  will get the RI benefit. |
 |                                                                        |         | D15i_v2 will not get the RI benefit. Since this is a separate hardware.                                                  |
-|     |         |                                                  |
 | D15i_v2                                                                | Off     | D15i_v2                                          |
 | D15i_v2                                                                | On      | D15i_v2                                          |
 |                                                                        |         | Autofit does not apply to any other sizes such as D2_v2, D4_v2 D15_v2.                                                |
+
 
 
 Can I buy a 3-year RI for D15i_v2 and DS15i_v2?
