@@ -53,7 +53,7 @@ Next, you create a function in the new function app.
     | Setting | Suggested value | Description |
     |---|---|---|
     | **Name** | Default | Defines the name of your timer triggered function. |
-    | **Schedule** | 0 \*/1 \* \* \* \* | A six field [CRON expression](functions-bindings-timer.md#cron-expressions) that schedules your function to run every minute. |
+    | **Schedule** | 0 \*/1 \* \* \* \* | A six field [CRON expression](functions-bindings-timer.md#ncrontab-expressions) that schedules your function to run every minute. |
 
 4. Click **Create**. A function is created in your chosen language that runs every minute.
 

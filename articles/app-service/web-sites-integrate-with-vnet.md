@@ -131,11 +131,10 @@ The Gateway required VNet Integration feature:
 * Enables up to five VNets to be integrated with in an App Service Plan 
 * Allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
 * Requires a Virtual Network Gateway that is configured with Point to Site VPN
-* Is not supported for use with Linux apps
 * Supports a 99.9% SLA due to the SLA on the gateway
 
 This feature does not support:
-
+* Use with Linux apps
 * Accessing resources across ExpressRoute 
 * Accessing resources across Service Endpoints 
 

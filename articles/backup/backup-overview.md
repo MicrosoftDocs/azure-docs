@@ -9,7 +9,7 @@ ms.date: 04/24/2019
 ms.author: dacurwin
 ms.custom: mvc
 ---
-# What is Azure Backup?
+# What is the Azure Backup service?
 
 The Azure Backup service backs up data to the Microsoft Azure cloud. You can back up on-premises machines and workloads, and Azure virtual machines (VMs).
 
