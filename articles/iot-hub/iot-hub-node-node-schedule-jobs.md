@@ -43,7 +43,7 @@ At the end of this tutorial, you have two Node.js apps:
 
 * **scheduleJobService.js**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
-# Prerequisites
+## Prerequisites
 
 Node.js version 10.0.x or later
 [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
@@ -151,7 +151,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
 
 3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
 
-4. Add the following 'require' statements at the start of the **dmpatterns_gscheduleJobServiceetstarted_service.js** file:
+4. Add the following 'require' statements at the start of the **scheduleJobService.js** file:
 
     ```javascript
     'use strict';
