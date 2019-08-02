@@ -1,6 +1,6 @@
 ---
-title: PowerShell in Azure Cloud Shell Quickstart | Microsoft Docs
-description: Quickstart for PowerShell in Cloud Shell
+title: Azure Cloud Shell Quickstart | Microsoft Docs
+description: Quickstart for Azure Cloud Shell
 services: Azure
 documentationcenter: ''
 author: maertendmsft
