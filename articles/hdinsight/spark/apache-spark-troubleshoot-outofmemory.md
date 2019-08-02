@@ -10,9 +10,9 @@ ms.date: 08/02/2019
 
 # OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
 
-## Scenario: OutOfMemoryError exception for Apache Spark in Azure HDInsight
-
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
+
+## Scenario: OutOfMemoryError exception for Apache Spark in Azure HDInsight
 
 ### Issue
 
