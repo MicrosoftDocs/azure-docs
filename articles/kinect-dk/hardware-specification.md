@@ -6,12 +6,12 @@ ms.author: tesych
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: article
-keywords: azure, kinect, specs, hardware, DK, capabilities, depth, color, RGB, IMU, microphone, array, depth
+keywords: azure| kinect| specs| hardware| DK| capabilities| depth| color| RGB| IMU| microphone| array| depth
 ---
 
 # Azure Kinect DK hardware specifications 
 
-This article provides details about how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single, USB-connected accessory.
+This article provides details about how Azure Kinect hardware integrates Microsoft's latest sensor technology into a single| USB-connected accessory.
 
 ![Azure Kinect DK](./media/resources/hardware-specs-media/device-wire.png)
 
@@ -42,7 +42,7 @@ Azure Kinect DK is intended for developers and commercial businesses operating u
 - **Humidity**: 8-90% (non-condensing) Relative Humidity
 
 > [!NOTE]
-> Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure, active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device, make sure this cooling channel is not obstructed.
+> Use outside of the ambient conditions could cause the device to fail and/or function incorrectly. These ambient conditions are applicable for the environment immediately around the device under all operational conditions. When used with an external enclosure| active temperature control and/or other cooling solutions are recommended to ensure the device is maintained within these ranges. The device design features a cooling channel in between the front section and rear sleeve. When you implement the device| make sure this cooling channel is not obstructed.
 
 Refer to additional product [safety information](https://support.microsoft.com/help/4023454/safety-information).
 
@@ -52,13 +52,13 @@ Azure Kinect DK integrates a Microsoft designed 1-Megapixel Time-of-Flight (ToF)
 
  | Mode            | Resolution | FOI       | FPS                | Operating range* | Exposure time |
 |-----------------|------------|-----------|--------------------|------------------|---------------|
-| NFOV unbinned   | 640x576    | 75°x65°   | 0, 5, 15, 30       | 0.5 - 3.86 m       | 12.8 ms        |
-| NFOV 2x2 binned (SW) | 320x288    | 75°x65°   | 0, 5, 15, 30       | 0.5 - 5.46 m       | 12.8 ms        |
-| WFOV 2x2 binned | 512x512    | 120°x120° | 0, 5, 15, 30       | 0.25 - 2.88 m      | 12.8 ms        |
-| WFOV unbinned   | 1024x1024  | 120°x120° | 0, 5, 15           | 0.25 - 2.21 m      | 20.3 ms        |
-| Passive IR      | 1024x1024  | N/A       | 0, 5, 15, 30       | N/A              | 1.6 ms         |
+| NFOV unbinned   | 640x576    | 75°x65°   | 0| 5| 15| 30       | 0.5 - 3.86 m       | 12.8 ms        |
+| NFOV 2x2 binned (SW) | 320x288    | 75°x65°   | 0| 5| 15| 30       | 0.5 - 5.46 m       | 12.8 ms        |
+| WFOV 2x2 binned | 512x512    | 120°x120° | 0| 5| 15| 30       | 0.25 - 2.88 m      | 12.8 ms        |
+| WFOV unbinned   | 1024x1024  | 120°x120° | 0| 5| 15           | 0.25 - 2.21 m      | 20.3 ms        |
+| Passive IR      | 1024x1024  | N/A       | 0| 5| 15| 30       | N/A              | 1.6 ms         |
 
-\*15% to 95% reflectivity, 2.2 μW/cm<sup>2</sup>/nm, random error std. dev. ≤ 17 mm, typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
+\*15% to 95% reflectivity| 2.2 μW/cm<sup>2</sup>/nm| random error std. dev. ≤ 17 mm| typical systematic error < 11 mm + 0.1% of distance without multi-path interference. Depth provided outside of indicated range depending on object reflectivity.
 
 ## Color camera supported operating modes
 
@@ -66,21 +66,42 @@ Azure Kinect DK includes an OV12A10 12MP CMOS sensor rolling shutter sensor. The
 
 |             RGB Camera Resolution (HxV)  |          Aspect Ratio  |          Format Options   |          Frame Rates (FPS)  |          Nominal FOV (HxV)(post-processed)  |
 |------------------------------------------|------------------------|---------------------------|-----------------------------|---------------------------------------------|
-|       3840x2160                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x59°                              |
-|       2560x1440                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x59°                              |
-|       1920x1080                          |          16:9          |          MJPEG            |          0, 5, 15, 30       |          90°x59°                              |
-|       1280x720                           |          16:9          |          MJPEG/YUY2/NV12  |          0, 5, 15, 30       |          90°x59°                              |
-|       4096x3072                          |          4:3           |          MJPEG             |          0, 5, 15           |          90°x74.3°                            |
-|       2048x1536                          |          4:3           |          MJPEG             |          0, 5, 15, 30       |          90°x74.3°                            |
+|       3840x2160                          |          16:9          |          MJPEG            |          0| 5| 15| 30       |          90°x59°                              |
+|       2560x1440                          |          16:9          |          MJPEG            |          0| 5| 15| 30       |          90°x59°                              |
+|       1920x1080                          |          16:9          |          MJPEG            |          0| 5| 15| 30       |          90°x59°                              |
+|       1280x720                           |          16:9          |          MJPEG/YUY2/NV12  |          0| 5| 15| 30       |          90°x59°                              |
+|       4096x3072                          |          4:3           |          MJPEG             |          0| 5| 15           |          90°x74.3°                            |
+|       2048x1536                          |          4:3           |          MJPEG             |          0| 5| 15| 30       |          90°x74.3°                            |
 
 The RGB camera is USB Video class-compatible and can be used without the Sensor SDK. The RGB camera color space: BT.601 full range [0..255]. 
 
 > [!NOTE]
 > The Sensor SDK can provide color images in the BGRA pixel format. This is not a native mode supported by the device and causes additional CPU load when used. The host CPU is used to convert from MJPEG images received from the device.
 
+## RGB camera exposure time values
+
+Below is the mapping for the acceptable RGB camera manual exposure values:
+
+| exp| 2^exp | 50Hz   |60Hz    |
+|----|-------|--------|--------|
+| -11|     488|    500|    500 |
+| -10|     977|   1250|   1250 |
+|  -9|    1953|   2500|   2500 |
+|  -8|    3906|  10000|   8330 |
+|  -7|    7813|  20000|  16670 |
+|  -6|   15625|  30000|  33330 |
+|  -5|   31250|  40000|  41670 |
+|  -4|   62500|  50000|  50000 |
+|  -3|  125000|  60000|  66670 |
+|  -2|  250000|  80000|  83330 |
+|  -1|  500000| 100000| 100000 |
+|   0| 1000000| 120000| 116670 |
+|   1| 2000000| 130000| 133330 |
+
+
 ## Camera field of view
 
-The next image shows the depth and RGB camera field-of-view, or the angles that the sensors "see". This diagram shows the RGB camera in a 4:3 mode.
+The next image shows the depth and RGB camera field-of-view| or the angles that the sensors "see". This diagram shows the RGB camera in a 4:3 mode.
 
 ![Camera FOV](./media/resources/hardware-specs-media/camera-fov.png)
 
@@ -89,7 +110,7 @@ This image demonstrates the camera's field-of-view as seen from the front at a d
 ![Camera FOV Front](./media/resources/hardware-specs-media/fov-front.png)
 
 > [!NOTE]
-> When depth is in NFOV mode, the RGB camera has better pixel overlap in 4:3 than 16:9 resolutions.
+> When depth is in NFOV mode| the RGB camera has better pixel overlap in 4:3 than 16:9 resolutions.
 
 ## Motion sensor (IMU)
 
@@ -97,9 +118,9 @@ The embedded Inertial Measurement Unit (IMU) is an LSM6DSMUS and includes both a
 
 ## Microphone array
 
-Azure Kinect DK embeds a high-quality, seven microphone circular array that identifies as a standard USB audio class 2.0 device. All 7 channels can be accessed. The performance specifications are:
+Azure Kinect DK embeds a high-quality| seven microphone circular array that identifies as a standard USB audio class 2.0 device. All 7 channels can be accessed. The performance specifications are:
 
-- Sensitivity: -22 dBFS (94 dB SPL, 1 kHz)
+- Sensitivity: -22 dBFS (94 dB SPL| 1 kHz)
 - Signal to noise ratio > 65 dB
 - Acoustic overload point: 116 dB
 
@@ -109,7 +130,7 @@ Azure Kinect DK embeds a high-quality, seven microphone circular array that iden
 
 Azure Kinect DK is a USB3 composite device that exposes the following hardware endpoints to the operating system:
 
-Vendor ID is 0x045E (Microsoft), Product ID table below:
+Vendor ID is 0x045E (Microsoft)| Product ID table below:
 
 |    USB Interface        |    PNP IP    |     Notes            |
 |-------------------------|--------------|----------------------|
@@ -148,7 +169,7 @@ A Type-C to Type-C cable isn't included with the Azure Kinect DK.
 > [!TIP]
 > To select a good Type-C to Type-C cable:
 > - The [USB certified cable](https://www.usb.org/products) must support both power and data.
-> - A passive cable should be less than 1.5m in length. If longer, use an active cable. 
+> - A passive cable should be less than 1.5m in length. If longer| use an active cable. 
 > - The cable needs to support no less than >1.5A. Otherwise you need to connect an external power supply.
 
 Verify cable:
@@ -158,7 +179,7 @@ Verify cable:
 
   ![Azure Kinect DK in Device Manager](./media/resources/hardware-specs-media/device-manager.png)
 
-- Validate that cable can stream reliably on all sensors in the Azure Kinect Viewer, with the  following settings:
+- Validate that cable can stream reliably on all sensors in the Azure Kinect Viewer| with the  following settings:
 
   - Depth camera: NFOV unbinned
   - RGB Camera: 2160p
@@ -174,7 +195,7 @@ Azure Kinect DK is calibrated at the factory. The calibration parameters for vis
 
 ## External synchronization
 
-The device includes 3.5-mm synchronization jacks that can be used to link multiple units together. When linked, cameras can coordinate the timing of Depth and RGB camera triggering. There are specific sync-in and sync-out jacks on the device, enabling easy daisy chaining. A compatible cable isn't included in box and must be purchased separately.
+The device includes 3.5-mm synchronization jacks that can be used to link multiple units together. When linked| cameras can coordinate the timing of Depth and RGB camera triggering. There are specific sync-in and sync-out jacks on the device| enabling easy daisy chaining. A compatible cable isn't included in box and must be purchased separately.
 
 Cable requirements:
 
@@ -190,7 +211,7 @@ Device firmware can be reset to original firmware using button underneath the lo
 
 ![Azure Kinect DK recovery button](./media/resources/hardware-specs-media/recovery.png)
 
-To recover the device, see [instructions here](https://aka.ms/support).
+To recover the device| see [instructions here](https://aka.ms/support).
 
 ## Next steps
 
