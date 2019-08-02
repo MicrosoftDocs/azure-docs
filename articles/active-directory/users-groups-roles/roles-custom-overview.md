@@ -1,6 +1,6 @@
 ---
-title: Preview custom administrator roles grant scope to restrict identity access identity management - Azure Active Directory | Microsoft Docs
-description: Preview custom administrator roles for delegating identity management. You can now manage the scope of an Azure AD administrator role in the Azure portal, Azure AD PowerShell, or Graph API.
+title: Preview Azure administrator roles with customizable permissions - Azure Active Directory | Microsoft Docs
+description: Preview custom Azure AD roles for delegating identity management. Manage Azure roles in the Azure portal, PowerShell, or Graph API.
 services: active-directory
 author: curtand
 manager: mtillman
@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 07/22/2019
+ms.date: 07/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
@@ -31,7 +31,7 @@ Preview features:
   - Assign built-in roles at organization-wide scope (parity with GA cmdlets)
   - Azure AD Graph API support
 
-Azure AD role-based access control is a public preview feature of Azure Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Azure AD role-based access control is a public preview feature of Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Understand Azure AD role-based access control
 
@@ -66,7 +66,11 @@ A role definition, or role, is a collection of permissions. A role definition li
 
 ### Scope
 
-A scope is the restriction of permitted actions on a particular Azure AD resource. When you assign a role, you can customize the role to limit the administrator's allowable actions by defining a scope of action. For example, if your developers don't need to fully manage all applications, you can use Azure AD custom roles to allow them to manage only app registrations.
+A scope is the restriction of permitted actions to a particular Azure AD resource. When you assign a role, you can specify a scope that limits the administrator's allowable actions to a specific resource. For example, if you want grant a developer a custom role, but only to manage a specific application registration, you can include the specific application registration as a scope in the role assignment.
+
+  > [!Note]
+  > Custom roles can be assigned at directory scope and resource scoped. They cannot yet be assigned at Administrative Unit scope.
+  > Built-in roles can can be assigned at directory scope, and in some cases Administrative Unit scope. They cannot yet be assigned at object scope.
 
 ## Required license plan
 
