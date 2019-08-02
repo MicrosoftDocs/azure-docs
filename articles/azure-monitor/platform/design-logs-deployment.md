@@ -75,21 +75,21 @@ The *access mode* refers to how a user accesses a Log Analytics workspace and de
 
 Users have two options for accessing the data:
 
-**Workspace-context**: You can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. This is the access mode used when logs are accessed with the workspace as the scope, such as when you select **Logs** from the **Azure Monitor** menu in the Azure portal.
+1. **Workspace-context**: You can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. This is the access mode used when logs are accessed with the workspace as the scope, such as when you select **Logs** from the **Azure Monitor** menu in the Azure portal.
 
-![Log Analytics context from workspace](./media/design-logs-deployment/query-from-workspace.png)
+    ![Log Analytics context from workspace](./media/design-logs-deployment/query-from-workspace.png)
 
-**Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only that resource in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular RBAC.
+2. **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only that resource in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular RBAC.
 
-![Log Analytics context from resource](./media/design-logs-deployment/query-from-resource.png)
+    ![Log Analytics context from resource](./media/design-logs-deployment/query-from-resource.png)
 
-> [!NOTE]
-> Logs are available for resource-context queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations:
-> - Computers outside of Azure
-> - Service Fabric
-> - Application Insights
->
-> You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
+    > [!NOTE]
+    > Logs are available for resource-context queries only if they were properly associated with the relevant resource. Currently, the following resources have limitations:
+    > - Computers outside of Azure
+    > - Service Fabric
+    > - Application Insights
+    >
+    > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
 
 Azure Monitor automatically determines the right mode depending on the context you perform the log search from. The scope is always presented in the top left section of Log Analytics.
 
@@ -102,7 +102,7 @@ The following table summarizes the access modes:
 | Who is each model intended for? | Central administration. Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who need to access logs for resources outside of Azure. | Application teams. Administrators of Azure resources being monitored. |
 | What does a user require to view logs? | Permissions to the workspace. See **Workspace permissions** in [Manage accounts and users](manage-access.md#manage-accounts-and-users). | Read access to the resource. See **Resource permissions** in [Manage accounts and users](manage-access.md#manage-accounts-and-users). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
 | What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](manage-access.md#table-level-rbac) | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
-| How can user access logs? | * Start **Logs** from **Azure Monitor** menu.<br> * Start **Logs** from **Log Analytics workspaces**.<br> * From Azure Monitor [Workbooks](../visualizations.md#workbooks). | Start **Logs** from the menu for the Azure resource<br> * Start **Logs** from **Azure Monitor** menu.<br> * Start **Logs** from **Log Analytics workspaces**.<br> * From Azure Monitor [Workbooks](../visualizations.md#workbooks). |
+| How can user access logs? | <ul><li>Start **Logs** from **Azure Monitor** menu.</li></ul> <li><ul>Start **Logs** from **Log Analytics workspaces**.</li></ul> <li><ul>From Azure Monitor [Workbooks](../visualizations.md#workbooks).</li></ul> | Start **Logs** from the menu for the Azure resource<br> <li><ul>Start **Logs** from **Azure Monitor** menu.</li></ul> <li><ul> Start **Logs** from **Log Analytics workspaces**.</li></ul> <li><ul> From Azure Monitor [Workbooks](../visualizations.md#workbooks).</li></ul> |
 
 ## Access control mode
 
