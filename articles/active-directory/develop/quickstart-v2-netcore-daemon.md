@@ -73,7 +73,7 @@ This quickstart requires [.NET Core 2.2](https://www.microsoft.com/net/download/
 > > [Make these changes for me]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Already configured](media/quickstart-v2-windows-desktop/green-check.png) Your application is configured with these attributes.
+> > ![Already configured](media/quickstart-v2-netcore-daemon/green-check.png) Your application is configured with these attributes.
 
 #### Step 2: Download your Visual Studio project
 
