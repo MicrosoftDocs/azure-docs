@@ -26,7 +26,7 @@ You can instrument not only the web service application, but also any background
 
 In addition, you can pull in telemetry from the host environments such as performance counters, Azure diagnostics, or Docker logs. You can also set up web tests that periodically send synthetic requests to your web service.
 
-All these telemetry streams are integrated into Azure Monitor. In the Azure Portal, you can apply powerful analytic and search tools to the raw data.
+All these telemetry streams are integrated into Azure Monitor. In the Azure portal, you can apply powerful analytic and search tools to the raw data.
 
 ### What's the overhead?
 The impact on your app's performance is very small. Tracking calls are non-blocking, and are batched and sent in a separate thread.
