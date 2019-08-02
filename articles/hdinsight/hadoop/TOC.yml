@@ -64,6 +64,8 @@
       href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
     - name: Converting service principal certificate
       href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+    - name: Local HDFS stuck in safe mode
+      href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
