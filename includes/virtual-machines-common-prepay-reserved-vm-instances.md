@@ -129,7 +129,7 @@ However, you can *exchange* a reservation if you want to make changes.
 
 ## Cancel, exchange, or refund reservations
 
-You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../articles/billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## Need help? Contact us.
 
