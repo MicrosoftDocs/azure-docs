@@ -10,7 +10,7 @@ ms.date: 6/5/2018
 ms.author: dacurwin
 ---
 
-# Back up files on Azure Stack
+# Back up files and applications on Azure Stack
 You can use Azure Backup to protect (or back up) files and applications on Azure Stack. To back up files and applications, install Microsoft Azure Backup Server as a virtual machine running on Azure Stack. You can protect the files on any Azure Stack server in the same virtual network. Once you have installed Azure Backup Server, add Azure disks to increase the local storage available for short-term backup data. Azure Backup Server uses Azure storage for long-term retention.
 
 > [!NOTE]

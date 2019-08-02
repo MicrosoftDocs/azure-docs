@@ -5,7 +5,7 @@ author: JasonWHowell
 ms.author: jasonh
 ms.service: data-catalog
 ms.topic: troubleshooting
-ms.date: 06/13/2019
+ms.date: 08/01/2019
 ---
 
 # Troubleshooting Azure Data Catalog
