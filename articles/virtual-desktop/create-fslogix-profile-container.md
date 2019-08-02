@@ -11,14 +11,14 @@ ms.author: helohr
 ---
 # Create an FSLogix profile container in Windows Virtual Desktop
 
-Windows Virtual Desktop is in [publicly preview](https://aka.ms/wvdpreview) and we wanted to share this step by step guide on how you can get FSLogix profile
-containers on [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp/).
+This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in [Windows Virtual Desktop Preview](https://aka.ms/wvdpreview).
 
-We are going to assume that you already have a set of VMs that are part of a Windows Virtual Desktop environment. Information on how to get that available at the official Windows Virtual Desktop documentation [here](https://docs.microsoft.com/en-us/azure/virtual-desktop/tenant-setup-azure-active-directory) or on the blog post in Tech Community [here](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+This article assumes you already have a set of VMs that are part of a Windows Virtual Desktop environment. To learn how to set up tenants, see [the tenant creation tutorial](tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
 
-The full documentation for configuring Azure NetApp Files are available [here](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes). In this article we have modified added steps particular to Windows Virtual Desktop.
+The instructions in this guide are specifically for Windows Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Windows Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
 
-This article will not cover best practices for securing access to the Azure NetApp Files share.
+>[!NOTE]
+>This article doesn't cover best practices for securing access to the Azure NetApp Files share.
 
 ## Prerequisites 
 
@@ -31,7 +31,7 @@ To get started, you need to set up an Azure NetApp Files account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Make sure your account has contributor or administrator permissions.
 
-2. Select the **Azure Cloud Shell** icon to open it.
+2. Select the **Azure Cloud Shell icon** to the right of the search bar to open Azure Cloud Shell.
 
    ![A screenshot of the Microsoft Azure toolbar with a red arrow pointing to the Azure Cloud Shell icon to the right of the search bar.](media/42d96dccad38b43b71e915c4300aa8ca.png)
 
@@ -43,17 +43,17 @@ To get started, you need to set up an Azure NetApp Files account.
 
    ![The storage age with a red arrow pointing at the create storage button.](media/0058ca9f19a387c86319f51d5b4b9562.png)
 
-5. Once Azure Cloud Shell loads, run the following two commands.
+5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
-   ```shell
+   ```powershell
    az account set --subscription <subscriptionID>
    ```
 
-   ```shell
+   ```powershell
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
-   ![An image of an Azure Cloud Shell window running the two commands from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
+   ![An image of an Azure Cloud Shell window running the two cmdlets from step 5.](media/3be21e3963ae3ebd7ae051b3d9fa727a.png)
 
 6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
@@ -77,8 +77,6 @@ To get started, you need to set up an Azure NetApp Files account.
    ![A screenshot of the new NetApp account menu showing the text boxes, drop-down menus, and Create button.](media/55dca1c987220ce419042bd1dfb88b56.png)
 
    ![A screenshot of the successful deployment screen.](media/516368c855c833539e9b0ee2c8868207.png)
-
-<!--Break here, turn 10 and the first part of 11 into new instructions-->
 
 ## Create a capacity pool
 
