@@ -7,6 +7,7 @@ ms.author: TomSh
 ms.date: 08/08/2018
 ms.topic: article
 ms.service: security
+ms.subservice: security-fundamentals
 
 ---
 # Azure network security
