@@ -20,7 +20,7 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create a machine learning Workspace to use in the next tutorial.
-> * Create a cloud notebook server environment.
+> * Create a notebook VM, a cloud-based Jupyter notebook server with Azure Machine Learning Python SDK pre-installed and pre-configured.
 
 ## Prerequisites
 
