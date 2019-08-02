@@ -69,4 +69,4 @@ Users in the **Application Operator** role can't make changes to device template
 
 ## Next steps
 
-Now that you've learned about how to manage users and roles in your Azure IoT Central, the suggested next step is to learn about [View your bill](howto-view-bill.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+Now that you've learned about how to manage users and roles in your Azure IoT Central, the suggested next step is to learn about [View your bill](howto-view-bill-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.

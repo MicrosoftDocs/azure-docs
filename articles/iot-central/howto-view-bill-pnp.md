@@ -47,4 +47,4 @@ To complete this self-service process, follow these steps:
 
 ## Next steps
 
-Now that you've learned about how to view your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+Now that you've learned about how to view your bill in Azure IoT Central application, the suggested next step is to learn about [Customize application UI](howto-customize-ui-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
