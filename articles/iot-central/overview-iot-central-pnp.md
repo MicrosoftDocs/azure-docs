@@ -16,7 +16,7 @@ manager: timlt
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 > [!WARNING]
-> The IoT Plug and Play capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
+> The [IoT Plug and Play](https://aka.ms/iot-pnp-docs) capabilities in Azure IoT Central are currently in public preview. Don't use an IoT Plug and Play enabled IoT Central application for production workloads. For production environments use an IoT central application created from a current, generally available, application template.
 
 Azure IoT Central is a fully managed IoT software-as-a-service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
 
@@ -45,18 +45,17 @@ This article outlines, for Azure IoT Central:
 ## Known issues
 
 > [!Note]
-> These known issues only apply to the IoT Central Preview application. 
+> These known issues only apply to the IoT Central Preview application.
 
--	Rules will not support all actions (only email).
--	Rules will not support complex types.
--	CDE will not support Avro format (incompatibility).
--	Simulated devices will not support all complex types.
--	GeoJSON is not currently supported.
--	Map tile is not currently supported.
--	Jobs will not support complex types.
--	Array schema types are not supported.
--	App template export and App Copy are not supported.
-
+- Rules don't support all actions (only email).
+- Rules don't support complex types.
+- Continuous data export doesn't support the Avro format (incompatibility).
+- Simulated devices don't support all complex types.
+- GeoJSON isn't currently supported.
+- Map tile isn't currently supported.
+- Jobs don't support complex types.
+- Array schema types aren't supported.
+- Application template export and application copy aren't supported.
 
 ## Personas
 
@@ -88,6 +87,8 @@ This device template includes:
 - Customizations, dashboards, and forms that are part of your IoT Central application.
 
 ### Create device templates
+
+[IoT Plug and Play](https://aka.ms/iot-pnp-docs) enables IoT Central to integrate devices without you writing any embedded device code. At the core of IoT Plug and Play is a device capability model schema that describes device capabilities. In an IoT Central Preview application, device templates use these IoT Plug and Play device capability models.
 
 As a builder, you have several options for creating device templates:
 
@@ -141,3 +142,4 @@ Now that you have an overview of Azure IoT Central, here are suggested next step
   - [As a builder, add rules to automate your solution](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [As an operator, monitor your devices](tutorial-monitor-devices-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
   - [As an operator, add a device to your solution](tutorial-add-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json)
+- Learn more about [IoT Plug and Play](https://aka.ms/iot-pnp-docs)

@@ -65,8 +65,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
      For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-<!-- TODO Replace this before public preview -->
-You also need a local copy of the **EnvironmentalSensor.json** file that contains the device capability model. You can download it from [here](https://raw.githubusercontent.com/dominicbetts/IoTPlugandPlay/add-inline-model/samples/EnvironmentalSensorInline.capabilitymodel.json).
+You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json).
 
 ## Create a template
 
@@ -88,7 +87,7 @@ The following steps show you how to import the capability model for an **Environ
 
 1. Enter **Environmental Sensor** as the name of your device template.
 
-1. Choose **Import Capability Model** to create a new device capability model from a JSON file. Navigate to the folder where you saved the **EnvironmentalSensor.json** file on your local machine. Select the file **EnvironmentalSensor.json** and then select import. The environmental sensor capability model includes the **Environmental Sensor** and **Device Information** interfaces:
+1. Choose **Import Capability Model** to create a new device capability model from a JSON file. Navigate to the folder where you saved the **EnvironmentalSensorInline.capabilitymodel.json** file on your local machine. Select the file **EnvironmentalSensorInline.capabilitymodel.json** and then select import. The environmental sensor capability model includes the **Environmental Sensor** and **Device Information** interfaces:
 
     ![Environmental sensor device capability model](./media/tutorial-define-device-type-pnp/newdevicecapabilitymodel.png)
 
