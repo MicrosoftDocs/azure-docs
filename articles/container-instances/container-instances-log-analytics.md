@@ -18,6 +18,9 @@ To send container group log and event data to Azure Monitor logs, you must speci
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
+> [!NOTE]
+> Currently, you can only send event data from Linux container instances to Log Analytics.
+
 ## Prerequisites
 
 To enable logging in your container instances, you need the following:
