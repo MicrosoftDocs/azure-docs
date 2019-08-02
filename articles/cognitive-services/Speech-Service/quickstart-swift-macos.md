@@ -18,12 +18,6 @@ ms.author: cbasoglu
 
 In this article, you learn how to create a macOS app in Swift using the Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
 
-# Quickstart: Recognize speech in Swift on macOS using the Speech SDK
-
-[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
-
-In this article, you learn how to create a macOS app in Swift using the Cognitive Services Speech SDK to transcribe speech recorded from a microphone to text.
-
 ## Prerequisites
 
 Before you get started, here's a list of prerequisites:
