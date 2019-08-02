@@ -41,6 +41,8 @@ When mapping columns in Source and Select transformations, you will have an opti
 
 ![rule based mapping](media/data-flow/rule2.png "Rule based mapping")
 
+Build your rules using the expression builder. Your expressions will return a boolean value to either match columns (true) or exclude columns (false). 
+
 ## Next steps
 * Learn more about the ADF Mapping Data Flow [expression language](http://aka.ms/dataflowexpressions) for data transformations
 * Use column patterns in the [Sink transformation](data-flow-sink.md) and [Select transformation](data-flow-select.md) with rule-based mapping
