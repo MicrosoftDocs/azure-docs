@@ -29,7 +29,7 @@ This article will not cover best practices for securing access to the Azure NetA
 
 To get started, you need to set up an Azure NetApp Files account.
 
-1. Sign in to the [Azure portal](https://microsoft-my.sharepoint.com/personal/stgeorgi_microsoft_com/Documents/RDS%20work/wvd%20and%20fslogix/portal.azure.com). Make sure your account has contributor or administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com). Make sure your account has contributor or administrator permissions.
 
 2. Select the **Azure Cloud Shell** icon to open it.
 
@@ -85,14 +85,9 @@ To get started, you need to set up an Azure NetApp Files account.
 Next, create a new capacity pool: 
 
 1. Go to the Azure NetApp Files menu and select your new account.
-
-![A screenshot of the Azure NetApp Files menu with a red arrow pointing at the NetApp account name.](media/9d20bba46a64e1c78fda4e25e1ddaa3f.png)
-
-![A screenshot of the NetApp account menu with a red arrow pointing at the "Capacity pools" button.](media/65551cd022276fe801a2bf656e069e4c.png)
-
-![A screenshot of the capacity pools menu with a red arrow pointing at the "Capacity pools" button.](media/187f244eed643633e1867c7c2e71c06e.png)
-
-2. When the **New capacity pool** blade opens, enter the following values:
+2. In your account menu, select **Capacity pools** under Storage service.
+3. Select **Add pool**.
+4. When the **New capacity pool** blade opens, enter the following values:
 
     - For **Name**, enter a name for the new capacity pool.
     - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
@@ -100,9 +95,7 @@ Next, create a new capacity pool:
        >The Premium setting provides the minimum throughput available for a Premium Service level, which is 256 MBps. You may need to adjust this throughput for a production environment. Final throughput is based on the relationship described in [Throughput limits](..\azure-netapp-files\azure-netapp-files-service-levels.md).
     - For **Size (TiB)**, enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
 
-   ![A screenshot of the new capacity pool window that shows each drop-down menu and the OK button.](media/d5bb782f55d1e1b2ab49e22910e19a32.png)
-
-3. When you're finished, select **OK**.
+5. When you're finished, select **OK**.
 
 <!--Break here-->
 
@@ -157,14 +150,14 @@ Next, you'll need to create a new volume.
 After you create the volume, configure the volume access parameters.
 
 1.  Select **SMB** as the protocol type.
-2.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in the previous instructions. <!--make a link here--> Keep in mind that there's a limit of one Active Directory per subscription.
-3.  In the **Share name** text box, enter the name of the share that will be used by the session host pool and its users.
+2.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection). <!--make a link here--> Keep in mind that there's a limit of one Active Directory per subscription.
+3.  In the **Share name** text box, enter the name of the share used by the session host pool and its users.
 
    ![A screenshot of the Protocol tab. The various parameter settings are labeled one through three based on their corresponding steps.](media/e36a9f45702b4047dbc3f167f7562313.png)
 
 <!--Where should these pictures go to make their relationship with the instructions as clear as possible?-->
 
-4.  Select **Review + create** at the bottom of the page. This will open the validation page. After your volume is validated successfully, select **Create**.
+4.  Select **Review + create** at the bottom of the page. This opens the validation page. After your volume is validated successfully, select **Create**.
 
    ![A screenshot of the successful validation screen in the Review + create tab. A red arrow points to the Create button at the bottom left of the screen.](media/32c86e33f19308de496233240fd3c784.png)
 
@@ -190,19 +183,15 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 4.  If you have a product key, enter it in the Product Key text box. If not, leave the box blank to start a 30 day trial.
 
-5. Select **I agree to the license terms and conditions**.
+5. Select the check box next to **I agree to the license terms and conditions**.
 
 6. Select **Install**.
-
-   ![A screenshot of the FSLogix Apps installer with the product key text box filled in.](media/bc8bad805085ef1875a20b0d845f99a4.png)
 
 7. Navigate to **C:\\Program Files\\FSLogix\\Apps** to confirm the agent installed.
 
    ![A screenshot of the Apps folder with the installed FSLogix files inside of it.](media/32f561f6e923afc899019cc9657732f9.png)
 
-8. From the Start menu, run **RegEdit** as an administrator.
-
-   ![A screenshot of the Start menu with the right-click drop-down menu open over the Registry Editor. The Run as administrator option is at the top of the drop-down menu.](media/d7e6314d663907e4227b1fdc0e62ec0e.png)
+8. From the Start menu, run **RegEdit** as administrator.
 
 9. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
 
@@ -216,15 +205,13 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 ![A screenshot of the Profiles folder with the (Default) and Enabled values inside of it. The Enabled value is selected.](media/bf055352db16c62a97abf335c45861ee.png)
 
-12. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure Files share (\\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-Vol).
+1.  Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure Files share.
 
    ![A screenshot of the Profiles folder with the VHDLocations value inside of it. The VHDLocations value is selected.](media/a420934cc18803242679cb8de863d767.png)
 
 ## Assign users to session host
 
-1. Open **PowerShell ISE** and sign in to Windows Virtual Desktop.
-
-   ![A screenshot of the Start menu with the right-click drop-down menu open over the ISE PowerShell app. The user has selected the Run as administrator option at the top of the drop-down menu.](media/d553c0b391cee5a1b99c6a2bd415915e.png)
+1. Open **PowerShell ISE** as administrator and sign in to Windows Virtual Desktop.
 
 2. Run the following cmdlets:
 
@@ -255,11 +242,9 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. Sign in with the credentials of a user assigned to the Remote Desktop group.
 
-   ![A screenshot of the Windows Virtual Desktop dashboard displaying the icon for an example Remote Desktop group.](media/3bc26bb1d5ec0888ec613afd92eafeb9.png)
-
 4. Once you've established the user session, sign in to the Azure portal with an administrative account.
 
-5. Open **Azure NetApp Files**, select your **Azure NetApp Files account**, and then select the corresponding volume.
+5. Open **Azure NetApp Files**, select your Azure NetApp Files account, and then select **Volumes**. Once the Volumes menu opens, select the corresponding volume.
 
 <!--The corresponding volume for your user session?-->
 
