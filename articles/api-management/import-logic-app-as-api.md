@@ -88,8 +88,8 @@ Operations can also be called **Developer portal** to test APIs.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
-> [!NOTE]
-> Every Logic App has **manual-invoke** operation. If you want to comprise your API of multiple logic apps, in order not to have collision, you need to rename the function.
+>[!NOTE]
+>Every Logic App has **manual-invoke** operation. If you want to comprise your API of multiple logic apps, in order not to have collision, you need to rename the function.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 
