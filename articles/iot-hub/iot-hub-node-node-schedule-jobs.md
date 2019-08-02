@@ -54,6 +54,8 @@ An active Azure account. (If you don't have an account, you can create a [free a
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+## Register a new device in the IoT hub
+
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
