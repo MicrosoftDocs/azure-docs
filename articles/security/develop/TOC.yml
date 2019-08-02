@@ -24,7 +24,6 @@
   expanded: true
   items:
   - name: Microsoft Security Code Analysis
-    expanded: true
     items:
       - name: Overview
         href: security-code-analysis-overview.md
