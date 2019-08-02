@@ -67,6 +67,8 @@ The most common root cause for the KDS service being unable to start is that the
 
 This problem may have several causes.
 
+1. Your DC agent(s) are running a public preview software version that has expired. See [Public preview DC agent software has expired](howto-password-ban-bad-on-premises-troubleshoot#public-preview-dc-agent-software-has-expired).
+
 1. Your DC agent(s) cannot download a policy or is unable to decrypt existing policies. Check for possible causes in the above topics.
 
 1. The password policy Enforce mode is still set to Audit. If this configuration is in effect, reconfigure it to Enforce using the Azure AD Password Protection portal. See [Enable Password protection](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).

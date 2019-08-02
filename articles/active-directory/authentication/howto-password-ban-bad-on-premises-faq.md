@@ -113,6 +113,10 @@ No. When a user's password is changed on a given non-PDC domain controller, the 
 
 In summary, deployment of the Azure AD Password Protection DC Agent service on the PDC is required to reach 100% security coverage of the feature across the domain. Deploying the feature on the PDC only does not provide Azure AD Password Protection security benefits for any other DCs in the domain.
 
+**Q: Why is custom smart lockout not working even after the agents are installed in my on-premises Active Directory environment?**
+
+Custom smart lockout is only supported in Azure. Changes to the custom smart lockout settings in the Azure management portal have no effect on the on-premises Active Directory environment, even with the agents installed.
+
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
 No.
