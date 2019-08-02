@@ -43,7 +43,7 @@ Usage: terraform [--version] [--help] <command> [args]
 
 To enable Terraform to provision resources into Azure, create an [Azure AD service principal](/cli/azure/create-an-azure-service-principal-azure-cli). The service principal grants your Terraform scripts to provision resources in your Azure subscription.
 
-If you have multiple Azure subscriptions, first query your account with [az account show](/cli/azure/account#az-account-show) to get a list of subscription ID and tenant ID values:
+If you have multiple Azure subscriptions, first query your account with [az account list](/cli/azure/account#az-account-list) to get a list of subscription ID and tenant ID values:
 
 ```azurecli-interactive
 az account list --query "[].{name:name, subscriptionId:id, tenantId:tenantId}"
