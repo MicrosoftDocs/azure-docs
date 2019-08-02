@@ -95,5 +95,5 @@ Now that both pipelines are set up, manually queue up a build and see it work. T
 ## Next steps
 See the following articles:
 
-- [Integrate Azure DevTest Labs into your Azure Pipelines continuous integration and delivery pipeline](devtest-lab-integrate-ci-cd.md)
+- [Integrate Azure DevTest Labs into your Azure Pipelines continuous integration and delivery pipeline](devtest-lab-integrate-ci-cd-vsts.md)
 - [Integrate environments into your Azure Pipelines CI/CD pipelines](integrate-environments-devops-pipeline.md)
