@@ -38,25 +38,23 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ## Assign Users to StarLeaf
 Azure Active Directory uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
-Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to StarLeaf. Once decided, you can assign these users and/or groups to StarLeaf by following the instructions here:
- 
-* [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md).
+Before you configure and enable automatic user provisioning, you should decide which users and groups in Azure AD need access to StarLeaf. Then you can assign the users and groups to StarLeaf by following [these instructions](../manage-apps/assign-user-or-group-access-portal.md).
 
- ## Important tips for assigning users to StarLeaf
+## Important tips for assigning users to StarLeaf
 
- * It is recommended that a single Azure AD user is assigned to StarLeaf to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
+* It's recommended that a single Azure AD user is assigned to StarLeaf to test the automatic user provisioning configuration. Additional users and groups can be assigned later.
 
-* When assigning a user to StarLeaf, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
+* When you assign a user to StarLeaf, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
 
 ## Setup StarLeaf for provisioning
 
-Before configuring StarLeaf for automatic user provisioning with Azure AD, you will need to configure SCIM provisioning in StarLeaf:
+Before you configure StarLeaf for automatic user provisioning with Azure AD, you will need to configure SCIM provisioning in StarLeaf:
 
 1. Sign in to your [StarLeaf Admin Console](https://portal.starleaf.com/#page=login). Navigate to **Integrations** > **Add integration**.
 
 	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image00.png)
 
-2. Select the **Type** to be Microsoft Azure Active Directory. Enter a suitable name in **Name**. Click Apply.
+2. Select the **Type** to be Microsoft Azure Active Directory. Enter a suitable name in **Name**. Click **Apply**.
 
 	![StarLeaf Add SCIM](media/starleaf-provisioning-tutorial/image01.png)
 
@@ -85,11 +83,9 @@ To configuring StarLeaf for automatic user provisioning with Azure AD, you need 
 4. In the search box, enter **StarLeaf**, select **StarLeaf** in the results panel.
 	![StarLeaf in the results list](common/search-new-app.png)
 
- ## Configure automatic user provisioning to StarLeaf
+## Configure automatic user provisioning to StarLeaf
 
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in StarLeaf based on user and/or group assignments in Azure AD.
-
-## To configure automatic user provisioning for StarLeaf in Azure AD:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). Select **Enterprise Applications**, then select **All applications**.
 
@@ -111,7 +107,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the **Send an email notification when a failure occurs** box.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
@@ -145,16 +141,16 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md)
 
-## 	Connector limitations
+## Connector limitations
 
-* StarLeaf does not currently support group provisioning. 
-* StarLeaf requires that **email** and **userName** values to have the same source value.
+* StarLeaf doesn't currently support group provisioning. 
+* StarLeaf requires **email** and **userName** values to have the same source value.
 
 ## Additional resources
 
-* [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md).
+* [Manage user account provisioning for enterprise apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## Next steps
 
-* [Learn how to review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md).
+* Learn how to [review logs and get reports on provisioning activity](../manage-apps/check-status-user-account-provisioning.md).
