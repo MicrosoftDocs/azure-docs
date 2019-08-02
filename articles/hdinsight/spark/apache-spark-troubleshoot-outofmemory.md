@@ -12,7 +12,7 @@ ms.date: 08/02/2019
 
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
 
-## Scenario: OutOfMemoryError exception for Apache Spark in Azure HDInsight
+## Scenario: OutOfMemoryError exception for Apache Spark
 
 ### Issue
 
@@ -81,11 +81,10 @@ The most likely cause of this exception is not enough heap memory. Your Spark ap
     ```
     spark.driver.memory + spark.yarn.driver.memoryOverhead
     ```
+
 ---
 
-## Scenario: Java heap space error when trying to open Apache Spark history server in Azure HDInsight
-
-This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
+## Scenario: Java heap space error when trying to open Apache Spark history server
 
 ### Issue
 
@@ -125,9 +124,7 @@ Make sure to restart all affected services from Ambari.
 
 ---
 
-## Scenario: Livy Server fails to start on Apache Spark cluster in Azure HDInsight
-
-This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
+## Scenario: Livy Server fails to start on Apache Spark cluster
 
 ### Issue
 
