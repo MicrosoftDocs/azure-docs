@@ -30,7 +30,7 @@ You can host function apps in a couple of ways:
 |----------------|-----------|----------------|---------|-----------------------|  
 |[Inbound IP restrictions & private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
 |[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
-|[Virtual network triggers (non-http)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
+|[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
 |[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
 |[Outbound IP Restrictions](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
 
@@ -95,13 +95,13 @@ Virtual network integration in Functions uses shared infrastructure with App Ser
 
 To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
 
-## Virtual network triggers (non-http)
+## Virtual network triggers (non-HTTP)
 
 Currently an App Service plan or App Service environment is the only way to configure function app triggers other than HTTP from within a virtual network. 
 
 To give an example, if you were to configure Azure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure comos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Azure Cosmos DB resource.
 
-Check [this list for all non-http triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
+Check [this list for all non-HTTP triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
 
 ## Hybrid Connections
 
