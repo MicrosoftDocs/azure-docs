@@ -34,34 +34,33 @@ To use the Azure IoT explorer tool, you need:
 
 ## Install Azure IoT explorer
 
-Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent releases. Download and install the most recent version of the application.
+Go to [Azure IoT explorer releases](https://github.com/Azure/azure-iot-explorer/releases) and expand the list of assets for the most recent release. Download and install the most recent version of the application.
 
 ## Use Azure IoT explorer
 
-For device, you can either connect your own device, or use one of our sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device sample.
+For a device, you can either connect your own device, or use one of our sample simulated devices. Follow [these instructions](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview/iothub_client/samples) to run the simulated device sample.
 
 ### Connect to your hub
 
 The first time you run Azure IoT explorer, you're prompted for your IoT hub's connection string. After you add the connection string, select **Connect**. You can use the tool's settings to switch to another IoT hub by updating the connection string.
 
-The model definition for a Plug and Play device is stored in either the public repository, a company repository, or your connected device. By default, the tool looks for your model definition from the public model repository and your connected device. You can add/remove a source, or configure the priority of the sources anytime in Settings.
+The model definition for an IoT Plug and Play device is stored in either the public repository, a company repository, or your connected device. By default, the tool looks for your model definition in the public model repository and your connected device. You can add and remove sources, or configure the priority of the sources in **Settings**:
 
-### Settings
-
-#### Add a source
+To add a source:
 
 1. Go to **Settings**.
 1. Select **New** and choose your source.
-1. If you are adding your company model repository, please provide the connection string.
+1. If you're adding your company model repository, provide the connection string.
 
-#### Remove a source 
+To remove a source:
+
 1. Go to **Settings**.
 1. Find the source you want to remove.
-1. Click **X** to remove it. Please note, public model repository cannot be removed, as the standard interface definitions come from public model repository.
+1. Select **X** to remove it. You can't remove the public model repository because the common interface definitions come from this repository.
 
-#### Rank the sources 
+Change the source priorities:
+
 You can drag and drop one of the model definition sources to a different ranking in the list. If there's a conflict, definition sources with higher rankings override sources with lower rankings.
-
 
 ### Overview page
 
@@ -73,8 +72,7 @@ After the tool connects to your IoT hub, it displays an overview page that lists
 
 - To register a new device with your hub, select **Add**. Enter a device ID. Use the default settings to autogenerate authentication keys and enable the connection to your hub.
 - To delete a device identity, select **Delete**. Review the device details before you complete this action to be sure you're deleting the right device identity.
-- The tool supports querying by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices. 
-
+- The tool supports querying by `capabilityID` and `interfaceID`. Add either your `capabilityID` or `interfaceID` as a parameter to query your devices.
 
 ## Interact with a device
 
@@ -116,14 +114,6 @@ To send a command to a device, go to the **Commands** page:
 #### Telemetry
 
 To view the telemetry for the selected interface, go to its **Telemetry** page.
-
-## Clean up resources
-
-If you plan to continue with other articles, you can keep the Azure resources you created. Otherwise, you can delete the resources you created for this article to avoid additional charges.
-
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to **Resource Groups**. In the **Filter by name** textbox, enter the resource group name that contains your hub.
-1. To the right of your resource group, click the ellipsis (...) and select **Delete resource group**.
 
 ## Next steps
 
