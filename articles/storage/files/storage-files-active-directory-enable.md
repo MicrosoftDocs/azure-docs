@@ -75,7 +75,7 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-quickstart-create-account.md).
 2. In the **Settings** section, select **Configuration**.
-3. Enable **Azure Active Directory authentication for Azure Files (preview)**.
+3. Select **Azure Active Directory Domain Services (AADDS)** from the **Identity-based Directory Service for Azure File Authentication** dropdown list.
 
 The following image shows how to enable Azure AD DS authentication over SMB for your storage account.
 
@@ -178,10 +178,7 @@ az role assignment create --role "<role-name>" --assignee <user-principal-name> 
 ## Configure NTFS permissions over SMB 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
-Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
-
-> [!NOTE]
-> The preview release supports viewing permissions with Windows File Explorer only. Editing permissions are not yet supported.
+Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Sxplorer or running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
 
 To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions accordingly.
 
