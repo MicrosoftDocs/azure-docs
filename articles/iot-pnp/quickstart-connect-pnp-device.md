@@ -1,20 +1,20 @@
 ---
-title: Connect an IoT Plug and Play Preview device to IoT Hub | Microsoft Docs
-description: Connect an IoT Plug and Play Preview device to IoT Hub and view with Azure IoT explorer
+title: Connect IoT Plug and Play Preview sample device code to IoT Hub | Microsoft Docs
+description: Build and run IoT Plug and Play Preview sample device code that connects to an IoT hub. Use the Azure IoT explorer tool to view the information sent by the device to the hub.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 07/24/2019
+ms.date: 08/02/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution developer, I want to connect an IoT Plug and Play device to IoT Hub and view it with Azure IoT explorer.
+# As a device developer, I want to see a working IoT Plug and Play device sample connecting to IoT Hub and sending properties, commands and telemetry. As a solution developer, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
-# Quickstart: Connect an IoT Plug and Play Preview device to IoT Hub
+# Quickstart: Connect a sample IoT Plug and Play Preview device  application to IoT Hub
 
-IoT Plug and Play Preview simplifies IoT by enabling you to interact with device capabilities without knowledge of the underlying device implementation. This quickstart shows you how to build an IoT Plug and Play device sample, connect it to IoT Hub, and view it with the Azure IoT explorer tool.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT bub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
