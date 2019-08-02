@@ -147,4 +147,4 @@ While planning your migration to this model, consider the following:
 
 ## Next steps
 
-Review how to [manage access to logs](manage-access.md) and to administer your workspaces.
+To implement the security permissions and controls recommended in this guide, review [manage access to logs](manage-access.md).

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/02/2019
 ms.author: magoedte
 ---
 
@@ -53,7 +53,11 @@ DefaultWorkspace38917: True
 DefaultWorkspace21532: False
 ```
 
-A value of `False` means the workspace is configured with the workspace-context access mode.  A value of `True` means the workspace is configured with the resource-context access mode. If a workspace is returned with a blank or null value, it means?  
+A value of `False` means the workspace is configured with the workspace-context access mode.  A value of `True` means the workspace is configured with the resource-context access mode. 
+
+>[!NOTE]
+>If a workspace is returned without a boolean value and is blank, this also matches the results of a `False` value.
+>
 
 Use the following script to set the access control mode for a specific workspace to the resource-context permission:
 
