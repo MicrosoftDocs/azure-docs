@@ -48,7 +48,7 @@ To learn more, see [Azure App Service static access restrictions](../app-service
 
 Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
 * Private site access is available in the [Premium](./functions-premium-plan.md) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with VNET integration configured.
+    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
 * Private site access is also available with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## Virtual network integration
@@ -57,10 +57,10 @@ Virtual network integration allows your function app to access resources inside 
 
 You can use virtual network integration to enable access from apps to databases and web services running in your virtual network. With virtual network integration, you don't need to expose a public endpoint for applications on your VM. You can use the private, non-internet routable addresses instead.
 
-There are two forms to the VNet Integration feature
+There are two forms to the virtual network Integration feature
 
-1. One version enables integration with VNets in the same region. This form of the feature requires a subnet in a VNet in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
-2. The other version enables integration with VNets in other regions or with Classic VNets. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN-based feature and is only supported with Windows apps.
+1. Regional virtual network integration enables integration with virtual networks in the same region. This form of the feature requires a subnet in a virtual network in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
+2. Gateway required virtual network integration enables integration with virtual networks in remote regions, or with Classic virtual networks. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN-based feature and is only supported with Windows apps.
 
 An app can only use one form of the VNet Integration feature at a time. The question then is which feature should you use. You can use either for many things. The clear differentiators though are:
 
