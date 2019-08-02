@@ -93,14 +93,15 @@ var msalConfig = {
     auth: {
         clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
     },
-    system: {
-        logger: {
-            localCallback: loggerCallback,
-            level: Msal.LogLevel.Verbose,
-            piiLoggingEnabled: false,
-            correlationId: '1234'
-        }
-    }
+     system: {
+    		 logger: new Msal.Logger(
+                                loggerCallback ,{
+                                     level: Msal.LogLevel.Verbose,
+                                     piiLoggingEnabled: false,
+                                     correlationId: '1234'
+                                }
+                        )
+     }
 }
 
 var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
