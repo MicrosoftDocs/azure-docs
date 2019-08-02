@@ -24,4 +24,4 @@
    - **Resource Group:** Select the resource group that you want to use. You can either create a new resource group, or select one that you have already created.
    - **Location:** Select the location that this object will be created in. You may want to select the same location that your VNet resides in, but you are not required to do so.
 
-4. When you have finished specifying the values, click the **Create** to create the gateway.
+4. When you have finished specifying the values, click the **Create** button to create the gateway.
