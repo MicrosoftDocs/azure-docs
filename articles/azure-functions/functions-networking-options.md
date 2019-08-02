@@ -115,7 +115,7 @@ To learn more, see the [App Service documentation for Hybrid Connections](../app
 
 Outbound IP restrictions are only available for functions deployed to an App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-When integrating a Function App in a Premium plan or App Service plan with a virtual network, the app is still able to make outbound calls to the internet.
+When integrating a Function app in a Premium plan or App Service plan with a virtual network, the app is still able to make outbound calls to the internet.
 
 ## Next steps
 To learn more about networking and Azure Functions: 
