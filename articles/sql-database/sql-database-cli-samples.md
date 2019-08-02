@@ -10,7 +10,6 @@ ms.topic: sample
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 02/03/2019
 ---
 

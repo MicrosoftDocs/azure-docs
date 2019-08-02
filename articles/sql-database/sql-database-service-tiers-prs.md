@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/07/2019
 ---
 # Azure SQL Database Premium RS service tier (preview) is being retired - options for migration

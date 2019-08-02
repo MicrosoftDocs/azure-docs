@@ -67,10 +67,7 @@ You can use Visual Studio to change the WebJob to run continuously when Always O
 
 ## WebJobs as .NET Framework console apps  
 
-When Visual Studio deploys a WebJobs-enabled .NET Framework Console Application project, it performs two tasks:
-
-* Copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
-* Sets up [Azure Scheduler](https://docs.microsoft.com/azure/scheduler/) jobs for WebJobs that are scheduled to run at particular times. (This is not needed for continuous WebJobs.)
+When Visual Studio deploys a WebJobs-enabled .NET Framework Console Application project, it copies runtime files to the appropriate folder in the web app (*App_Data/jobs/continuous* for continuous WebJobs and *App_Data/jobs/triggered* for scheduled or on-demand WebJobs).
 
 A WebJobs-enabled project has the following items added to it:
 
