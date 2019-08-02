@@ -275,7 +275,15 @@ You are now ready to run the applications.
     node scheduleJobService.js
     ```
 
-3. You see the device response to the direct method in the console.
+3. You see the device response to the direct method and the job status in the console.
+
+   The following shows the device response to the direct method:
+
+   ![Simulated device app output](./media/iot-hub-node-node-schedule-jobs/simDevice.png)
+
+   The following shows the service scheduling jobs for the direct method and device twin update, and the jobs running to completion:
+
+   ![Run the simulated device app](./media/iot-hub-node-node-schedule-jobs/scheduleJobService.png)
 
 ## Next steps
 
