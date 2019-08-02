@@ -23,7 +23,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.55
 
 + **New features**
-  + Token based authentication is now supported for the calls made to the scoring endpoint deployed on AKS. We will continue to support the current key based authentication and users can use one of these authentication mechanisms at a time. 
+  + Token based authentication is now supported for the calls made to the scoring endpoint deployed on AKS. We will continue to support the current key based authentication and users can use one of these authentication mechanisms at a time.
+  + Ability to register a blob storage that is behind the VNet as a datastore.
+  
 + **Bug fixes and improvements**
   + **automl-client-core-nativeclient**
     + Fixed failures of Timeseries if preprocess flag is True
