@@ -148,3 +148,9 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Overloaded AzureFile storage
+
+If you receive an error "Unable to upload project files to working directory in AzureFile because the storage is overloaded", apply following workarounds.
+
+If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.
