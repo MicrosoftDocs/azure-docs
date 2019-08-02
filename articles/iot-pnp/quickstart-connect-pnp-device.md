@@ -66,11 +66,11 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
-    ```
+```cmd/sh
+git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
+```
 
-    You should expect this operation to take several minutes to complete.
+You should expect this operation to take several minutes to complete.
 
 ## Build the code
 
