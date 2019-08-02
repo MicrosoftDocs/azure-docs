@@ -1,19 +1,19 @@
 ---
-title: Build an Azure IoT Plug and Play device that's ready for certification | Microsoft Docs
-description: As a device developer, learn about how you can build a Plug and Play device that's ready for certification.
+title: Build an Azure IoT Plug and Play Preview device that's ready for certification | Microsoft Docs
+description: As a device developer, learn about how you can build an IoT Plug and Play Preview device that's ready for certification.
 author: tbhagwat3
 ms.author: tanmayb
 ms.date: 06/28/2019
-ms.topic: Tutorial
+ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 ---
 
-# Build a Plug and Play device that's ready for certification
+# Build an IoT Plug and Play Preview device that's ready for certification
 
-This tutorial describes how, as a device developer, you can build a Plug and Play device that's ready for certification.
+This tutorial describes how, as a device developer, you can build an IoT Plug and Play Preview device that's ready for certification.
 
 The certification tests check that:
 
@@ -30,7 +30,7 @@ To complete this tutorial, you need:
 - [Visual Studio Code](https://code.visualstudio.com/download)
 - [Azure IoT Workbench extension for VS Code](https://github.com/Azure/Azure-IoT-PnP-Preview/blob/master/VSCode/README.md#installation)
 
-You also need the Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
+You also need the IoT Plug and Play device that you create in the [Quickstart: Use a device capability model to create a device](quickstart-create-pnp-device.md).
 
 ## Store a capability model and interfaces
 
@@ -39,10 +39,10 @@ For IoT Plug and Play devices, you must author a capability model and interfaces
 You can store these JSON files in three different locations:
 
 - The public model repository.
-- Your organizational model repository.
+- Your company model repository.
 - On your device.
 
-Currently, to certify your device, the files must be stored either in your organizational model repository, or in the public model repository.
+Currently, to certify your device, the files must be stored either in your company model repository, or in the public model repository.
 
 ## Include the required interfaces
 
@@ -133,7 +133,7 @@ If you chose to not use the Azure IoT device SDK, you can use the SDK source cod
 
 Implement the **Device Information** interface on your device and provide device-specific information from the device at run time.
 
-You can use an example implementation of the **Device Information** interface for [Linux](https://github.com/Azure/azure-iot-sdk-c-pnp/) as reference.
+You can use an example implementation of the **Device Information** interface for [Linux](https://github.com/Azure/azure-iot-sdk-c/tree/public-preview) as reference.
 
 ### Implement all the capabilities defined in your model
 

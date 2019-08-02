@@ -1,10 +1,10 @@
 ---
-title: Create and test an Azure IoT Plug and Play device | Microsoft Docs
-description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play device.
+title: Create and test an Azure IoT Plug and Play Preview device | Microsoft Docs
+description: As a device developer, learn about how to use VS Code to create and test a new device capability model for an IoT Plug and Play Preview device.
 author: dominicbetts
 ms.author: dobett
 ms.date: 07/10/2019
-ms.topic: Tutorial
+ms.topic: tutorial
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
@@ -15,7 +15,7 @@ manager: philmea
 
 # Tutorial: Create and test a device capability model using Visual Studio Code
 
-This tutorial shows you how, as a device developer, to use Visual Studio code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
+This tutorial shows you how, as a device developer, to use Visual Studio Code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
 The section in this tutorial that describes how to build the generated code assumes you're using Windows.
 
@@ -32,15 +32,11 @@ In this tutorial, you learn how to:
 To work with the device capability model in this tutorial, you need:
 
 * [Visual Studio Code](https://code.visualstudio.com/download): VS Code is available for multiple platforms
-* Azure IoT Device Workbench extension for VS Code:
-    1. Download the .vsix file from [https://aka.ms/iot-workbench-pnp-pr](https://aka.ms/iot-workbench-pnp-pr).
-    1. In VS Code, select **Extensions** tab.
-    1. Select **Install from VSIX**.
-    1. Select the .vsix file you downloaded.
-    1. Select **Install**.
+* Azure IoT Device Workbench extension in VS Code. Use the following steps to install the Azure IoT Device Workbench extension in VS Code:
 
-        > [!NOTE]
-        > Bugbash: This is currently the only way to install the extension.
+    1. In VS Code, select the **Extensions** tab.
+    1. Search for **Azure IoT Device Workbench**.
+    1. Select **Install**.
 
 To build the generated C code on Windows in this tutorial, you need:
 
@@ -50,12 +46,12 @@ To build the generated C code on Windows in this tutorial, you need:
 * A local copy of the Azure IoT C SDK:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview-utopia
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
 To test your device code in this tutorial, you need:
 
-* The [IoT Plug and Play Device Explorer](https://github.com/Azure/azure-iot-explorer/releases).
+* The [Azure IoT explorer](https://github.com/Azure/azure-iot-explorer/releases).
 * An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -70,7 +66,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Create a folder called **devicemodel**.
 
-1. Launch Visual Studio code and use **Ctrl+Shift+P** to open the command palette.
+1. Launch VS Code and use **Ctrl+Shift+P** to open the command palette.
 
 1. Enter **Plug and Play** and then select the **IoT Plug & Play: Create Interface** command.
 
@@ -214,9 +210,9 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 ### Create the model file
 
-The model file specifies the interfaces that your Plug and Play device implements. There are typically at least two interfaces in a model - one or more that define the specific capabilities of your device, and a standard interface that all Plug and Play devices must implement.
+The model file specifies the interfaces that your IoT Plug and Play device implements. There are typically at least two interfaces in a model - one or more that define the specific capabilities of your device, and a standard interface that all IoT Plug and Play devices must implement.
 
-To create a model file that specifies the interfaces your Plug and Play device implements in VS Code:
+To create a model file that specifies the interfaces your IoT Plug and Play device implements in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -267,7 +263,7 @@ You now have the three files that make up your device capability model:
 
 ## Publish the model
 
-For your IoT hub to read your device capability model, you need to publish it in your organizational repository. To publish from Visual Studio code, you need the connection string for the organizational repository:
+For the Azure IoT explorer tool to read your device capability model, you need to publish it in your company repository. To publish from VS Code, you need the connection string for the company repository:
 
 1. Navigate to the [Azure Certified for IoT portal](https://aka.ms/ACFI).
 
@@ -277,7 +273,7 @@ For your IoT hub to read your device capability model, you need to publish it in
 
 1. Copy the connection string.
 
-To open your organizational repository in VS Code:
+To open your company repository in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -285,9 +281,9 @@ To open your organizational repository in VS Code:
 
 1. Select **Open Organizational Model Repository** and paste in your connection string.
 
-1. Press **Enter** to open your organizational repository.
+1. Press **Enter** to open your company repository.
 
-To publish your device capability model and interfaces to your organizational repository:
+To publish your device capability model and interfaces to your company repository:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -295,7 +291,7 @@ To publish your device capability model and interfaces to your organizational re
 
 1. Select the **EnvironmentalSensor.interface.json** and **SensorboxModel.capabilitymodel.json** files and select **OK**.
 
-Your files are now stored in your organizational repository.
+Your files are now stored in your company repository.
 
 ## Generate code
 
@@ -319,9 +315,6 @@ VS Code generates the skeleton C code and saves the files in the **sensorbox_app
 
 ## Update the generated code
 
-> [!NOTE]
-> Bug bash: View the stub implementations in **SensorboxModel_impl.c**.
-
 Before you can build and run the code, you need to implement the stubbed properties, telemetry, and commands.
 
 To provide implementations for the stubbed code in VS Code:
@@ -334,14 +327,11 @@ To provide implementations for the stubbed code in VS Code:
 
 ## Build the code
 
-Before you run the code to test your plug and play device with an Azure IoT hub, you need to compile the code.
+Before you run the code to test your IoT Plug and Play device with an Azure IoT hub, you need to compile the code.
 
 Follow the instructions in the **Readme.md** file in the **sensorbox_app** folder to build and run the code on Windows. The following section includes instructions for retrieving a device connection string to use when you run the device code.
 
 ## Test the code
-
-> [!NOTE]
-> Bug bash: Use the provided IoT hub instances.
 
 When you run the code, it connects to IoT Hub and starts sending sample telemetry and property values. The device also responds to commands sent from IoT Hub. To verify this behavior:
 
@@ -370,7 +360,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
     sensorbox_app.exe {your device connection string}
     ```
 
-1. Use the Azure IoT explorer tool to interact with the Plug and Play device connected to your IoT hub. For more information, see [Install and use Azure IoT explorer](./howto-install-iot-explorer.md).
+1. Use the Azure IoT explorer tool to interact with the IoT Plug and Play device connected to your IoT hub. For more information, see [Install and use Azure IoT explorer](./howto-install-iot-explorer.md).
 
 ## Next steps
 

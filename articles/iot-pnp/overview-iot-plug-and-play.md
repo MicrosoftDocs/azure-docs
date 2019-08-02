@@ -1,6 +1,6 @@
 ---
-title: Introduction to IoT Plug and Play | Microsoft Docs
-description: Learn about IoT Plug and Play. IoT Plug and Play is based on an open modeling language that enables IoT devices to declare their capabilities. IoT devices present that declaration, called a device capability model, when they connect to cloud solutions such as Azure IoT Central or partner applications. The cloud solution can then automatically understand the device and start interacting with it — all without writing any code.
+title: Introduction to IoT Plug and Play Preview | Microsoft Docs
+description: Learn about IoT Plug and Play Preview. IoT Plug and Play is based on an open modeling language that enables IoT devices to declare their capabilities. IoT devices present that declaration, called a device capability model, when they connect to cloud solutions such as Azure IoT Central or partner applications. The cloud solution can then automatically understand the device and start interacting with it — all without writing any code.
 author: ChrisGMsft
 ms.author: chrisgre
 ms.date: 06/21/2019
@@ -13,9 +13,9 @@ manager: philmea
 # As a device builder, I need to know what is PnP and how to certify devices, so I can understand how they can help me build and market my IoT devices.
 ---
 
-# What is Azure IoT Plug and Play (preview)?
+# What is Azure IoT Plug and Play Preview?
 
-IoT Plug and Play enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play is a _device capability model_ schema that describes device capabilities. This schema is a JSON document that's structured as a set of interfaces that include definitions of:
+IoT Plug and Play Preview enables solution developers to integrate devices with their solutions without writing any embedded code. At the core of IoT Plug and Play is a _device capability model_ schema that describes device capabilities. This schema is a JSON document that's structured as a set of interfaces that include definitions of:
 
 - _Properties_ that represent the read-only and read/write state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a read/write property.
 - _Telemetry_ that is the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or information message.
@@ -36,12 +36,12 @@ This article outlines:
 
 ## User roles
 
-IoT Plug and Play will be useful for two types of developers:
+IoT Plug and Play is useful for two types of developers:
 
 - A _solution developer_ is responsible for developing an IoT solution using Azure IoT and other Azure resources and for identifying IoT devices to integrate.
 - A _device developer_ creates the code that runs on a device connected to your solution.
 
-## Use Plug and Play devices
+## Use IoT Plug and Play devices
 
 As a solution developer, you can develop a cloud-hosted IoT solution that uses IoT Plug and Play devices. You can use either of the following Azure services:
 
@@ -62,7 +62,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 The [IoT Device Workbench for VS Code](https://aka.ms/iot-workbench-pnp-pr) provides many features to assist you, however you can use any IDE to author and implement device capability models.
 
-## Certify a Plug and Play device
+## Certify an IoT Plug and Play device
 
 As a device developer, you can submit IoT hardware products for certification. You can publish a certified device in the Certified for IoT device catalog. The certification process steps include:
 
@@ -76,7 +76,7 @@ As a device developer, you can submit IoT hardware products for certification. Y
 During public preview, IoT Plug and Play is available in the North Europe, Central US, and Japan East regions. Please make sure you create your hub in one of these regions.
 
 ## Message quotas in IoT Hub
-During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
+During public preview, IoT Plug and Play devices send separate messages per interface, which may increase the number of messages counted towards your [message quota](../iot-hub/iot-hub-devguide-quotas-throttling.md).
 
 ## Next steps
 
