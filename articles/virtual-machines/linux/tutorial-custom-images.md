@@ -50,10 +50,10 @@ To create an image of a virtual machine, you need to prepare the VM by deprovisi
 
 Deprovisioning generalizes the VM by removing machine-specific information. This generalization makes it possible to deploy many VMs from a single image. During deprovisioning, the host name is reset to *localhost.localdomain*. SSH host keys, nameserver configurations, root password, and cached DHCP leases are also deleted.
 
-To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
-
 > [!WARNING]
-> Deprovisioning and capturing a VM will leave the source VM unusable and cannot be started. In the process users are deleted and the VM gets locked. Make sure this is done on a VM that can be erased.
+> Deprovisioning and marking the VM as generalized will make source VM unusable, and it cannot be restarted. 
+
+To deprovision the VM, use the Azure VM agent (waagent). The Azure VM agent is installed on the VM and manages provisioning and interacting with the Azure Fabric Controller. For more information, see the [Azure Linux Agent user guide](../extensions/agent-linux.md).
 
 Connect to your VM using SSH and run the command to deprovision the VM. With the `+user` argument, the last provisioned user account and any associated data are also deleted. Replace the example IP address with the public IP address of your VM.
 
