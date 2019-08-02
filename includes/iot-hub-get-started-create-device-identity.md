@@ -10,9 +10,11 @@
  ms.custom: include file
 ---
 
-In this section, you use the Azure CLI to create a device identity for this tutorial. The Azure CLI is preinstalled in the [Azure Cloud Shell](~/articles/cloud-shell/overview.md). Device IDs are case sensitive.
+In this section, you use the Azure CLI to create a device identity for this article. Device IDs are case sensitive.
 
-1. Run the following command in Azure Cloud Shell to install the Microsoft Azure IoT Extension for Azure CLI:
+1. Open [Azure Cloud Shell](https://shell.azure.com/).
+
+1. In Azure Cloud Shell, run the following command to install the Microsoft Azure IoT Extension for Azure CLI:
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
