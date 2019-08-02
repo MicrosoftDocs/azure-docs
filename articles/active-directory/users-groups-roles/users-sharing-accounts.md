@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
@@ -19,7 +19,9 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 # Sharing accounts with Azure AD
+
 ## Overview
+
 Sometimes organizations need to use a single username and password for multiple people, which typically happens in two cases:
 
 * When accessing applications that require a unique sign in and password for each user, whether on-premises apps or consumer cloud services (for example, corporate social media accounts).
@@ -36,6 +38,7 @@ The traditional sharing model has several drawbacks:
 * When you want to remove access to an application, you have to update the credentials and redistribute them to everyone that needs access to that application.
 
 ## Azure Active Directory account sharing
+
 Azure AD provides a new approach to using shared accounts that eliminates these drawbacks.
 
 The Azure AD administrator configures which applications a user can access by using the Access Panel and choosing the type of single sign-on best suited for that application. One of those types, *password-based single-sign on*, lets Azure AD act as a kind of "broker" during the sign-on process for that app.
@@ -58,6 +61,7 @@ Azure AD features that enable account sharing include:
 * [Active Directory Marketplace](https://azure.microsoft.com/marketplace/active-directory/all/)
 
 ## Sharing an account
+
 To use Azure AD to share an account, you need to:
 
 * Add an application [app gallery](https://azure.microsoft.com/marketplace/active-directory/) or [custom application](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/)
@@ -66,7 +70,8 @@ To use Azure AD to share an account, you need to:
 
 You can also make your shared account more secure with Multi-Factor Authentication (MFA) (learn more about [securing applications with Azure AD](../authentication/concept-mfa-whichversion.md)) and you can delegate the ability to manage who has access to the application using [Azure AD self-service](groups-self-service-management.md) group management.
 
-## Related articles
+## Next steps
+
 * [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Protecting apps with Conditional Access](../active-directory-conditional-access-azure-portal.md)
 * [Self-service group management/SSAA](groups-self-service-management.md)
