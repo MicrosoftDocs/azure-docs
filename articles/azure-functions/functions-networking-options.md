@@ -79,7 +79,7 @@ Regardless of the version used, VNet Integration gives your function app access 
 
 The VNet Integration feature:
 
-* Requires a Standard, Premium, or PremiumV2 pricing plan
+* Requires a Standard, Premium, or PremiumV2 App Service plan
 * Supports TCP and UDP
 * Works with App Service apps, and Function apps
 
