@@ -99,13 +99,18 @@ The synchronization of a password has no impact on the Azure user who is signed 
 
 ## Password hash sync process for Azure AD Domain Services
 
-If you use Azure AD Domain Services to provide authentication for applications and services, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
+If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Keberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
+
+> [!IMPORTANT]
+> Azure AD Connect only synchronizes legacy password hashes when you enable Azure AD DS for your Azure AD tenant. The following steps aren't used if you only use Azure AD Connect to synchronize an on-premises AD DS environment with Azure AD.
+>
+> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Azure AD DS. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization](../../active-directory-domain-services/secure-your-domain.md).
 
 1. Azure AD Connect retrieves the public key for the tenant's instance of Azure AD Domain Services.
 1. When a user changes their password, the on-premises domain controller stores the result of the password change (hashes) in two attributes:
     * *unicodePwd* for the NTLM password hash.
     * *supplementalCredentials* for the Kerberos password hash.
-1. Azure AD Connect detects password changes through the directory replication channel (attribute changes the need for replication to other domain controllers).
+1. Azure AD Connect detects password changes through the directory replication channel (attribute changes needing to replicate to other domain controllers).
 1. For each user whose password has changed, Azure AD Connect performs the following steps:
     * Generates a random AES 256-bit symmetric key.
     * Generates a random initialization vector needed for the first round of encryption.
