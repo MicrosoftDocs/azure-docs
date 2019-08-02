@@ -111,14 +111,14 @@ These scenarios don't require you to configure a federation server for authentic
 A federated environment should have an identity provider that supports the following requirements. If you have a federated environment using Active Directory Federation Services (AD FS), then the above requirements are already supported.
 
 - **WIAORMULTIAUTHN claim:** This claim is required to do hybrid Azure AD join for Windows down-level devices.
-- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD.
-  When you're using AD FS, you need to enable the following WS-Trust endpoints 
-  - /adfs/services/trust/2005/windowstransport  
-  - /adfs/services/trust/13/windowstransport  
-  - /adfs/services/trust/2005/usernamemixed 
-  - /adfs/services/trust/13/usernamemixed 
-  - /adfs/services/trust/2005/certificatemixed 
-  - /adfs/services/trust/13/certificatemixed 
+- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD. 
+When you're using AD FS, you need to enable the following WS-Trust endpoints: 
+  `/adfs/services/trust/2005/windowstransport`  
+  `/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
 > [!WARNING] 
 > Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust WIndows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
