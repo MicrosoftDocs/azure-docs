@@ -13,7 +13,7 @@ ms.date: 07/23/2019
 
 ---
 
-# Tutorial: Use automated machine learning to train and deploy your first classification model (Preview)
+# Tutorial: Use automated machine learning to train and deploy your first classification model (preview)
 
 In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal. This example creates a classification model to predict whether a client will subscribe to a term deposit with the bank.
 
@@ -32,7 +32,7 @@ In this tutorial, you learn the following tasks:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* The **bankmarketing_train.csv** data file. Download it [here](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* The **bankmarketing_train.csv** data file. [Download it](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
 
 ## Create a workspace
 
@@ -46,7 +46,7 @@ In this tutorial, you learn the following tasks:
 
     Because this is your first experiment with Automated Machine Learning, you'll see the **Welcome to Automated Machine Learning** screen. 
 
-1.  Select **Create experiment**. Then enter **my-1st-automl-experiment** as the experiment name.
+1. Select **Create experiment**. Then enter **my-1st-automl-experiment** as the experiment name.
 
 1. Select **Create a new compute** and configure your compute context for this experiment.
 
@@ -58,19 +58,19 @@ In this tutorial, you learn the following tasks:
 
     To create your new compute, select **Create**. This takes a few moments. 
 
-    When creation is complete, select your new compute from the dropdown, then select **Next**.
+    When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
 1. For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
 
-1. Select **Upload** and choose the **bankmarketing_train.csv** file from your local computer to upload it to the default container. Public preview supports only local file uploads and Azure Blob Storage accounts. When the upload is complete, select the file from the list. 
+1. Select **Upload** and choose the **bankmarketing_train.csv** file from your local computer to upload it to the default container. Public preview supports only local file uploads and Azure Blob storage accounts. When the upload is complete, select the file from the list. 
 
     [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 
 1. The **Preview** tab allows us to further configure our data for this experiment.
 
-    On the Preview tab, indicate that the data includes headers. The service defaults to include all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
+    On the **Preview** tab, indicate that the data includes headers. The service defaults to include all of the features (columns) for training. For this example, scroll to the right and **Ignore** the **day_of_week** feature.
 
-    ![Preview tab config](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
+    ![Preview tab configuration](media/tutorial-1st-experiment-automated-ml/preview-tab-config.gif)
 
 
     >[!NOTE]
@@ -78,7 +78,7 @@ In this tutorial, you learn the following tasks:
 
 1. Select **Classification** as the prediction task.
 
-1. Select **y** as the target column, which we want to do predictions on. This column indicates whether the client subscribed to a term deposit or not.
+1. Select **y** as the target column, where we want to do predictions. This column indicates whether the client subscribed to a term deposit or not.
 
 1. Expand **Advanced Settings** and populate the fields as follows.
 
@@ -87,32 +87,32 @@ In this tutorial, you learn the following tasks:
     Primary metric| AUC_weighted 
     Exit criteria| When any of these criteria are met, the training job ends before full completion: <br> *Training job time (minutes)*: 5  <br> *Max number of iterations*: 10 
     Preprocessing| Enables preprocessing done by automated machine learning. This includes automatic data cleansing, preparing, and transformation to generate synthetic features.
-    Validation| Select K-fold cross validation and **2** for the number of cross validations. 
-    Concurrency| Select **5** for the number max concurrent iterations.
+    Validation| Select K-fold cross-validation and **2** for the number of cross-validations. 
+    Concurrency| Select **5** for the number of max concurrent iterations.
 
    >[!NOTE]
    > For this experiment, we don't set a metric or max iterations threshold. We also don't block algorithms from being tested.
 
-1. Click **Start** to run the experiment.
+1. Select **Start** to run the experiment.
 
-   Once the experiment starts, you see a blank **Run Detail** screen with the following status at the top. 
+   When the experiment starts, you see a blank **Run Detail** screen with the following status at the top. 
 
       ![Run preparing](media/tutorial-1st-experiment-automated-ml/run-preparing.png)
       
-The experiment preparation process takes a couple of minutes. When the process completes, the status message changes to **Run is Running**.
+The experiment preparation process takes a couple of minutes. When the process finishes, the status message changes to **Run is Running**.
 
 ##  View experiment details
 
-As the experiment progresses, the **Run Detail** screen updates the iteration chart and list with the different iterations (models) that are run. The iterations list is in order by metric score, and by default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
+As the experiment progresses, the **Run Detail** screen updates the iteration chart and list with the different iterations (models) that are run. The iterations list is in order by metric score. By default, the model that scores the highest based on our **AUC_weighted** metric is at the top of the list.
 
 >[!TIP]
 > Training jobs take several minutes for each pipeline to finish running.
 
-[![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
+![Run details dashboard](media/tutorial-1st-experiment-automated-ml/run-details.png)](media/tutorial-1st-experiment-automated-ml/run-details-expanded.png#lightbox)
 
 ## Deploy model
 
-For this experiment **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric. By using automated machine learning in the Azure portal, we can deploy this model as a web service to predict on new data. 
+For this experiment, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric. By using automated machine learning in the Azure portal, we can deploy this model as a web service to predict on new data. 
 
 1. On the **Run Detail** page, select the **Deploy Best Model** button.
 
@@ -127,9 +127,9 @@ For this experiment **VotingEnsemble** is considered the best model, based on th
     
 1. Select **Deploy**. Deployment takes about 20 minutes to complete.
 
-    The following message appears when deployment successfully completes:
+    The following message appears when deployment successfully finishes:
 
-    ![Deploy complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
+    ![Deployment complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
     That's it! You have an operational web service to generate predictions.
 
