@@ -1,9 +1,9 @@
 ---
-author: davidmu1
-ms.service: active-directory-b2c 
+author: mmacy
+ms.service: active-directory-b2c
 ms.topic: include
-ms.date: 03/19/2019
-ms.author: davidmu
+ms.date: 08/08/2019
+ms.author: marsma
 ---
-> [!NOTE]
-> This feature is in public preview.
+> [!IMPORTANT]
+> This feature is currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
