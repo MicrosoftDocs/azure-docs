@@ -75,17 +75,17 @@ Neither feature will enable you to reach non-RFC 1918 addresses across ExpressRo
 
 Using the regional VNet Integration does not connect your VNet to on-premises or configure service endpoints. That is separate networking configuration. The regional VNet Integration simply enables your app to make calls across those connection types.
 
-Regardless of the version used, VNet Integration gives your web app access to resources in your virtual network but doesn't grant inbound private access to your web app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. 
+Regardless of the version used, VNet Integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. 
 
 The VNet Integration feature:
 
-* requires a Standard, Premium, or PremiumV2 pricing plan 
-* supports TCP and UDP
-* works with App Service apps, and Function apps
+* Requires a Standard, Premium, or PremiumV2 pricing plan
+* Supports TCP and UDP
+* Works with App Service apps, and Function apps
 
 There are some things that VNet Integration doesn't support including:
 
-* mounting a drive
+* Mounting a drive
 * AD integration 
 * NetBios
 
