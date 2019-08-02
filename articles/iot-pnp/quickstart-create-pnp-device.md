@@ -125,7 +125,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. Run the following commands to build the device SDK and the generated code stub:
 
     ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build . -- /m /p:Configuration=Release
     ```
 
@@ -153,7 +153,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
 
-1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with a Microsoft work or school account, or your Microsoft Partner ID if you have one.
+1. Enter your Company repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with a Microsoft work or school account, or your Microsoft Partner ID if you have one.
 
     > [!NOTE]
     > The connection string is required for the first time.
@@ -171,7 +171,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 1. After you connect, you see the device overview page.
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **Organization repository**.
+1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
 
 1. Add the connection string for your company repository. You can find this on the connection strings page for your company repository in the [Azure Certified for IoT](https://aka.ms/adbtest) portal. Select **Connect**.
 
