@@ -54,7 +54,7 @@ For a complete Resource Manager template example, see
 
 ## REST API
 
-1. First, get the list of images in the attached shared image gallery. 
+1. First, you need to get the ID of the image in the shared image gallery. One way is to list all images in the attached shared image gallery by using the following GET command. 
 
     ```rest
     GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}/sharedimages?api-version= 2018-10-15-preview

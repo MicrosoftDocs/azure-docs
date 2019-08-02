@@ -69,11 +69,6 @@ If you're using an Azure Resource Manager template to attach a shared image gall
     "location": "eastus",
     "resources": [
     {
-        "apiVersion": "2018-10-15-preview",
-        "name": "mylabvnet",
-        "type": "virtualNetworks",
-    },
-    {
         "apiVersion":"2018-10-15-preview",
         "name":"myGallery",
         "type":"sharedGalleries",
@@ -96,9 +91,9 @@ For a complete Resource Manager template example, see these Resource Manager tem
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/sharedgalleries/{name}?api-version= 2018-10-15-preview
 Body: 
 {
-    “properties”:{
-        “galleryId”: “[Shared Image Gallery resource Id]”,
-        “allowAllImages”:”Enabled”
+    "properties":{
+        "galleryId": "[Shared Image Gallery resource Id]",
+        "allowAllImages": "Enabled"
     }
 }
 
