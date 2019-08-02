@@ -158,4 +158,4 @@ In the above example, a daily trigger is dependent on an hourly trigger with no 
 
 ## Next steps
 
-Review [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md).
+* Review [How to create a tumbling window trigger](how-to-create-tumbling-window-trigger.md)
