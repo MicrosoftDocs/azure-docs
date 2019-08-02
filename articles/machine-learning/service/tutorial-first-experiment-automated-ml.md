@@ -13,7 +13,7 @@ ms.date: 07/23/2019
 
 ---
 
-# Tutorial: Train and deploy a classification model with automated machine learning in the Azure portal (Preview)
+# Tutorial: Use automated machine learning to train and deploy your first classification model (Preview)
 
 In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal. This example creates a classification model to predict whether a client will subscribe to a term deposit with the bank.
 

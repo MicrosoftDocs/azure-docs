@@ -221,6 +221,8 @@
          items:
          - name: User provisioning for gallery apps
            href: application-provisioning-config-how-to.md
+         - name: Enable automatic user provisioning for multi-tenant apps
+           href: isv-automatic-provisioning-multi-tenant-apps.md
          - name: Configure automatic user provisioning
            href: configure-automatic-user-provisioning-portal.md
          - name: Customize application attributes

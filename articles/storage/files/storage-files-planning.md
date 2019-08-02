@@ -200,12 +200,15 @@ This section only applies to the standard file shares. All premium file shares a
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region  |Supported redundancy  |Supports existing storage accounts  |
-|---------|---------|---------|
-|Australia East     |LRS|No         |
-|SouthEast Asia     |LRS|No         |
-|West Europe     |LRS, ZRS|No         |
-|West US 2     |LRS, ZRS|No         |
+|Region |Supported redundancy |Supports existing storage accounts |Portal support*   |
+|-------|---------|---------|---------|
+|Australia East  |LRS|No         |Yes|
+|France Central  |LRS|No         |Not yet|
+|SouthEast Asia  |LRS, ZRS|No         |LRS only, ZRS - not yet|
+|West Europe     |LRS, ZRS|No       |Yes|
+|West US 2       |LRS, ZRS|No         |Yes|
+
+*For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Altenatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 
