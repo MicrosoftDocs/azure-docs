@@ -108,7 +108,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    ```
 
 1. Configure the expiration settings
-   Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Office 365 groups in the Azure AD arganization to 365 days. Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com’
+   Use the New-AzureADMSGroupLifecyclePolicy cmdlet to set the lifetime for all Office 365 groups in the Azure AD organization to 365 days. Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com’
   
    ``` PowerShell
    New-AzureADMSGroupLifecyclePolicy -GroupLifetimeInDays 365 -ManagedGroupTypes All -AlternateNotificationEmails emailaddress@contoso.com
@@ -118,7 +118,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
    Get-AzureADMSGroupLifecyclePolicy: This cmdlet retrieves the current Office 365 group expiration  settings that have been configured. In this example, you can see:
 
    - The policy ID
-   - The lifetime for all Office 365 groups in the Azure AD arganization is set to 365 days
+   - The lifetime for all Office 365 groups in the Azure AD organization is set to 365 days
    - Renewal notifications for Office 365 groups without owners will be sent to ‘emailaddress@contoso.com.’
   
    ```powershell
