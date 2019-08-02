@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/02/2019
 ms.author: spelluru
 ---
 
@@ -27,7 +27,7 @@ You can use the *Azure DevTest Labs Tasks* extension to integrate your Azure Pip
 
 These tasks make it easy to, for example, quickly deploy a *golden image* VM for a specific test task, and then delete the VM when the test is finished.
 
-This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM, create a custom image, and then delete the VM, all in one release pipeline. You would ordinarily perform the tasks individually in your own custom build, test, and deploy pipelines.
+This article shows how to use Azure DevTest Labs Tasks to create and deploy a VM, create a custom image, and then delete the VM, all as one release pipeline. You would ordinarily perform the tasks individually in your own custom build, test, and deploy pipelines.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -100,7 +100,7 @@ To create the script file:
 
 ## Create a release pipeline in Azure Pipelines
 
-To create the release pipeline:
+To create a new release pipeline:
 
 1. From your Azure DevOps project page, select **Pipelines** > **Releases** from the left navigation.
 1. Select **New Pipeline**.
@@ -108,11 +108,19 @@ To create the release pipeline:
 
 ### Add and set variables
 
+The pipeline tasks use the values you assigned to the VM when you created the Resource Manager template in the Azure portal. 
+
+To add variables for the values: 
+
 1. On the pipeline page, select the **Variables** tab.
-1. Select **Add** to add the following variables to use in release pipeline tasks:
-   - Add *vmName*, and enter the name that you assigned to the VM when you created the Resource Manager template in the Azure portal.
-   - Add *userName*, and enter the username that you assigned to the VM when you created the Resource Manager template in the Azure portal.
-   - Add *password*, and enter the password that you assigned to the VM when you created the Resource Manager template in the Azure portal. Select the lock icon to hide and secure the password.
+   
+1. For each variable, select **Add** and enter the name and value:
+   
+   |Name|Value|
+   |---|---|
+   |*vmName*|VM name you assigned in the Resource Manager template|
+   |*userName*|Username to access the VM|
+   |*password*|Password for the username. Select the lock icon to hide and secure the password.
 
 ### Create a DevTest Labs VM
 
@@ -196,17 +204,21 @@ The final task is to delete the VM that you deployed in your Azure DevTest Labs 
    
 ### Save the release pipeline
 
+To save the new release pipeline:
+
 1. Select the name **New release pipeline** on the release pipeline page, and enter a new name for the pipeline. 
    
 1. Select the **Save** icon at upper right. 
 
 ## Create and run a release
 
+To create and run a release using the new pipeline:
+
 1. Select **Create release** at upper right on the release pipeline page. 
    
 1. Under **Artifacts**, select the latest build, and then select **Create**.
-
-At each release stage, refresh the view of your DevTest Labs instance in the Azure portal to view the VM creation, image creation, and VM deletion.
+   
+1. At each release stage, refresh the view of your DevTest Labs instance in the Azure portal to view the VM creation, image creation, and VM deletion.
 
 You can use the custom image to create VMs whenever you need them.
 
