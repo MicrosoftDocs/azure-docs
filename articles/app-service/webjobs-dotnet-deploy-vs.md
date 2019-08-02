@@ -225,7 +225,7 @@ When you [create a WebJob from the Azure portal](webjobs-create.md), the setting
 
 ### CRON expressions
 
-WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions).
+WebJobs uses the same CRON expressions for scheduling as the timer trigger in Azure Functions. To learn more about CRON support, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions).
 
 ### setting.job reference
 
@@ -235,7 +235,7 @@ The following settings are supported by WebJobs:
 | ----------- | --------- | --------------- |
 | `is_in_place` | All | Allows the job to run in place without being first copied to a temp folder. To learn more, see  [WebJobs working directory](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory). |
 | `is_singleton` | Continuous | Only run the WebJobs on a single instance when scaled out. To learn more, see [Set a continuous job as singleton](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton). |
-| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#cron-expressions). |
+| `schedule` | Triggered | Run the WebJob on a CRON-based schedule. TO learn more, see the [timer trigger reference article](../azure-functions/functions-bindings-timer.md#ncrontab-expressions). |
 | `stopping_wait_time`| All | Allows control of the shutdown behavior. To learn more, see [Graceful shutdown](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown). |
 
 ## Next steps

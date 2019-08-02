@@ -1506,6 +1506,8 @@
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: Reward Gateway
+        href: reward-gateway-provisioning-tutorial.md
       - name: RFPIO
         href: rfpio-provisioning-tutorial.md
       - name: Rollbar
