@@ -7,13 +7,15 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/31/2019
+ms.date: 08/02/2019
 ms.author: danlep
 ---
 
 # Automatically purge images from an Azure container registry
 
-When you use an Azure container registry as part of a development workflow, the registry can quickly fill up with images or other artifacts that aren't needed after a short period. You might want to delete all tags that are older than a certain duration or match a specified name filter. To delete multiple artifacts quickly, this article introduces the `acr purge` command you can run as an on-demand or [scheduled](container-registry-tasks-scheduled.md) ACR Task. The `acr purge` command is currently distributed in a public container image available from Microsoft Container Registry.
+When you use an Azure container registry as part of a development workflow, the registry can quickly fill up with images or other artifacts that aren't needed after a short period. You might want to delete all tags that are older than a certain duration or match a specified name filter. To delete multiple artifacts quickly, this article introduces the `acr purge` command you can run as an on-demand or [scheduled](container-registry-tasks-scheduled.md) ACR Task. 
+
+The `acr purge` command is currently distributed in a public container image available from Microsoft Container Registry.
 
 You can use the Azure Cloud Shell or a local installation of the Azure CLI to run the ACR task examples in this article. If you'd like to use it locally, version 2.0.69 or later is required. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install]. 
 
@@ -54,8 +56,8 @@ The following example uses the [az acr run][az-acr-run] command to run the `acr 
 az acr run \
     --cmd "mcr.microsoft.com/acr:0.1 purge --registry {{.Run.Registry}} 
         --filter "hello-world:.*" --untagged" \ 
-    --context /dev/null \
-    --registry myregistry
+    --registry myregistry \
+    /dev/null 
 ```
 
 ### Run in a scheduled task
@@ -85,8 +87,8 @@ In the following example, the filter in each repository selects all tags. The `-
 az acr run \
     --cmd "mcr.microsoft.com/acr:0.1 purge --registry {{.Run.Registry}} 
         --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged --dry-run" \ 
-    --context /dev/null \
-    --registry myregistry
+    --registry myregistry \
+    /dev/null
 ```
 
 Review the command output to see the tags and manifests that match the selection parameters. Because the command is run with `--dry-run`, no data is deleted.
