@@ -7,7 +7,7 @@ author: lisaweixu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.date: 07/23/2019
+ms.date: 07/30/2019
 ms.author: jhakulin
 ms.author: erhopf
 ---
@@ -16,7 +16,7 @@ ms.author: erhopf
 
 Quickstarts are also available for [speech-to-text](quickstart-csharp-uwp.md), [text-to-speech](quickstart-text-to-speech-csharp-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
-In this quickstart, you'll create a simple Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2017.
+In this quickstart, you'll create a simple Universal Windows Platform (UWP) application that captures user speech from your computer's microphone, translates the speech, and transcribes the translated text to the command line in real time. This application is designed to run on 64-bit Windows, and is built with the [Speech SDK NuGet package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019.
 
 For a complete list of languages available for speech translation, see [language support](language-support.md).
 
@@ -27,7 +27,7 @@ For a complete list of languages available for speech translation, see [language
 
 This quickstart requires:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project
@@ -36,11 +36,17 @@ This quickstart requires:
 
 ## Add sample code
 
-1. The application's user interface is defined by using XAML. Open `MainPage.xaml` in Solution Explorer. In the designer's XAML view, insert the following XAML snippet between `<Grid>` and `</Grid>`.
+Now add the XAML code that defines the user interface of the application, and add the C# code-behind implementation.
+
+1. In Solution Explorer, double-click `MainPage.xaml` to open the XAML file.
+
+1. In the designer's XAML view, insert the following XAML snippet into the **Grid** tag (between `<Grid>` and `</Grid>`):
 
     [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml#StackPanel)]
 
-1. Open the code-behind source file `MainPage.xaml.cs` (find it grouped under `MainPage.xaml`). Replace all the code in it with the following.
+1. In Solution Explorer, open the code-behind source file `MainPage.xaml.cs`. (It's grouped under `MainPage.xaml`.)
+
+1. Replace all the code in it with the following snippet:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
@@ -48,25 +54,23 @@ This quickstart requires:
 
 1. In the `SpeechTranslationFromMicrophone_ButtonClicked` handler, replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription (for example, `westus` for the free trial subscription).
 
-1. Save all changes to the project.
+1. Select the solution, and then choose **File** > **Save helloworld.sln** to save your changes.
 
 ## Build and run the app
 
-1. Build the application. From the menu bar, select **Build** > **Build Solution**. The code should compile without errors now.
+1. From the menu bar, select **Build** > **Build Solution** to build the application. The code should compile without errors now.
 
-    ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-csharp-uwp-08-build.png "Successful build")
+1. Choose **Debug** > **Start Debugging** (or press **F5**) to start the application. The **helloworld** window appears.
 
-1. Start the application. From the menu bar, select **Debug** > **Start Debugging**, or press **F5**.
+   ![Sample UWP translation application in C# - quickstart](media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
-    ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-uwp-09-start-debugging.png "Start the app into debugging")
+1. Select **Enable Microphone**, and approve the permission request that pops up.
 
-1. A window pops up. Select **Enable Microphone**, and acknowledge the permission request that pops up.
+   ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-    ![Screenshot of permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png "Start the app into debugging")
+1. Select **Translate speech from the microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech service and translated to text in another language (in this case, German), which appears in the window.
 
-1. Select **Speech recognition with microphone input**, and speak an English phrase or sentence into your device's microphone. Your speech is transmitted to the Speech service and transcribed to text, which appears in the window.
-
-    ![Screenshot of speech recognition user interface](media/sdk/qs-translate-csharp-uwp-ui-result.png)
+   ![Speech translation user interface](media/sdk/qs-translate-csharp-uwp-ui-result.png)
 
 ## Next steps
 
@@ -75,5 +79,4 @@ This quickstart requires:
 
 ## See also
 
-- [Customize acoustic models](how-to-customize-acoustic-models.md)
-- [Customize language models](how-to-customize-language-model.md)
+- [Train a model for Custom Speech](how-to-custom-speech-train-model.md)
