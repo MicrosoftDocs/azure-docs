@@ -212,7 +212,9 @@ module.exports = function(context, myQueueItem) {
 
 ### Trigger - Python example
 
-Here's the binding data in the *function.json* file:
+The following example demonstrates how to read a ServiceBus queue message via a trigger.
+
+A ServiceBus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
 
 ```json
 {
@@ -229,7 +231,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here's the Python code:
+The code *__init__.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
 
 ```python
 import azure.functions as func
@@ -608,7 +610,9 @@ module.exports = function (context, myTimer) {
 
 ### Output - Python example
 
-The following is the configuration needed in *function.json*.
+The following example demonstrates how to write out to a ServiceBus queue in Python.
+
+A ServiceBue binding definition is defined in *function.json* where *type* is set to `serviceBus`.
 
 ```json
 {
@@ -640,7 +644,7 @@ The following is the configuration needed in *function.json*.
 }
 ```
 
-The following is the code for *__init__.py* to create a Service Bus message.
+In *__init__.py*, you can write out a message to the queue by passing a value to the `set` method.
 
 ```python
 import azure.functions as func

@@ -187,7 +187,9 @@ The following Java example shows a storage queue trigger functions which logs th
 
 ### Trigger - Python example
 
-Here's the *function.json* file:
+The following example demonstrates how to read a queue message passed to a function via a trigger.
+
+A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
 
 ```json
 {
@@ -198,7 +200,7 @@ Here's the *function.json* file:
       "type": "queueTrigger",
       "direction": "in",
       "queueName": "messages",
-      "connection": "AzureWebJobsStorage"
+      "connection": "AzureStorageQueuesConnectionString"
     }
   ]
 }
@@ -513,6 +515,10 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ### Output - Python example
 
+The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way.
+
+A Storage queue binding is defined in *function.json* where *type* is set to `queue`.
+
 ```json
 {
   "scriptFile": "__init__.py",
@@ -537,13 +543,13 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
       "direction": "out",
       "name": "msg",
       "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
+      "connection": "AzureStorageQueuesConnectionString"
     }
   ]
 }
 ```
 
-Here's the Python code to add a single queue message:
+To set a individual message on the queue, you pass a single value to the `set` method.
 
 ```python
 import azure.functions as func
@@ -557,10 +563,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-To create more than one message, adjust the code to:
-
-* Declare `msg` as a list type
-* Pass an array to the `set` method
+To create multiple messages on the queue, declare a parameter as the appropriate list type and pass an array of values (that match the list type) to the `set` method.
 
 ```python
 import azure.functions as func

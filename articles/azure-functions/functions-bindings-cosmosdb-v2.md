@@ -2275,7 +2275,9 @@ In the [Java functions runtime library](/java/api/overview/azure/functions/runti
 
 ### Output - Python examples
 
-Here's the binding data in the *function.json* file:
+The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.
+
+The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
 
 ```json
 {
@@ -2309,7 +2311,7 @@ Here's the binding data in the *function.json* file:
 }
 ```
 
-Here is the Python code:
+To write to the database, pass a document object to the `set` method of the database parameter.
 
 ```python
 import azure.functions as func
@@ -2322,7 +2324,6 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
     return 'OK'
 ```
-
 
 ## Output - attributes
 
