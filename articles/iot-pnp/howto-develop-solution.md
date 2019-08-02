@@ -15,7 +15,7 @@ manager: philmea
 
 # Connect to and interact with an IoT Plug and Play Preview device
 
-This how-to guide shows you how to use the samples in the Node service SDK to learn how to interact with IoT Plug and Play Preview devices connected to your your IoT Solution.
+This how-to guide shows you how to use the samples in the Node service SDK that show you how your IoT Solution can interact with IoT Plug and Play Preview devices.
 
 If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
 

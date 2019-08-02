@@ -74,7 +74,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Then enter **EnvironmentalSensor** as the name of the interface and press **Enter**. VS Code creates a sample interface file called **EnvironmentalSensor.interface.json**.
 
-1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). The interface ID must be unique to save the interface in the repository:
+1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). The interface ID must be unique to save the interface in the repository:
 
     ```json
     {
