@@ -131,6 +131,8 @@ This scenario covers a single workspace design in your IT organizations subscrip
 
 All resources, monitoring solutions, and Insights such as Application Insights and Azure Monitor for VMs, supporting infrastructure and applications maintained by the different teams are configured to forward their collected log data to the IT organizations centralized shared workspace. Users on each team are granted access to logs for resources they have been given access to.
 
+### Workspace consolidation migration strategy
+
 For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you take an incremental approach to migrate to the recommended access model, and you don't attempt to achieve this quickly or aggressively. Following a phased approach to plan,  migrate, validate, and retire following a reasonable timeline will help avoid any unplanned incidents or unexpected impact to your cloud operations. If your timetable is 60 days for example, set this as the retention limit for the workspace you are migrating from. While you are reconfiguring resources to report to the shared workspace, you can still analyze the data in the original workspace as necessary and once the migration is complete, you can delete it.  
 
 While planning your migration to this model, consider the following:
