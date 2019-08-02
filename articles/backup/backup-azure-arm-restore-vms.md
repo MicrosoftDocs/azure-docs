@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 05/08/2019
 ms.author: dacurwin
 ---
-# Restore Azure VMs
+# How to restore Azure VM data in Azure portal
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
