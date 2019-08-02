@@ -199,13 +199,13 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 
 4. Enter a label of *person*.
 
-5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the id key is required.
+5. Click **Add property** to add each of the following properties. Notice that you can create unique properties for each person in your graph. Only the **id** key is required.
 
-    key|value|Notes
+    Key | Value | Notes
     ----|----|----
-    id|ashley|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-    gender|female| 
-    tech | java | 
+    **id** | ashley | The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    **gender** | female | 
+    **tech** | java | 
 
     > [!NOTE]
     > In this quickstart you create a non-partitioned collection. However, if you create a partitioned collection by specifying a partition key during the collection creation, then you need to include the partition key as a key in each new vertex. 
@@ -217,12 +217,12 @@ You can now go back to Data Explorer and see the vertices added to the graph, an
 8. Enter a label of *person*.
 
 9. Click **Add property** to add each of the following properties:
-
-    key|value|Notes
+    
+    Key | Value | Notes
     ----|----|----
-    id|rakesh|The unique identifier for the vertex. If you don't specify an id, one is generated for you.
-    gender|male| 
-    school|MIT| 
+    **id** | rakesh | The unique identifier for the vertex. If you don't specify an id, one is generated for you.
+    **gender** | male | 
+    **school** | MIT | 
 
 10. Click **OK**. 
 
