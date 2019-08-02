@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/01/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -47,6 +47,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 * Workplace by Facebook supports **SP** initiated SSO
 * Workplace by Facebook supports **just-in-time provisioning**
 * Workplace by Facebook supports **[automatic User Provisioning](workplacebyfacebook-provisioning-tutorial.md)**
+* Workplace by Facebook Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 ## Adding Workplace by Facebook from the gallery
 
