@@ -1,5 +1,5 @@
 ---
-title: Azure Backup - Offline backup or initial seeding using the Azure Import/Export service
+title: Offline backup seeding using the Azure Backup Import/Export service
 description: Learn how Azure Backup enables you to send data off the network using the Azure Import/Export service. This article explains the offline seeding of the initial backup data by using the Azure Import Export service.
 ms.reviewer: saurse
 author: dcurwin
