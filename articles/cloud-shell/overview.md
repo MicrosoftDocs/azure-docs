@@ -3,7 +3,7 @@ title: Azure Cloud Shell overview | Microsoft Docs
 description: Overview of the Azure Cloud Shell.
 services: 
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
  
