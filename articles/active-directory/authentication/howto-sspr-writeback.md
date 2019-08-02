@@ -56,7 +56,7 @@ To use password writeback, you must have one of the following licenses assigned 
 > Standalone Office 365 licensing plans *don't support "Self-Service Password Reset/Change/Unlock with on-premises writeback"* and require that you have one of the preceding plans for this functionality to work.
 >
 
-## Active Directory permissions
+## Active Directory permissions and the on premises Password complexity policies. 
 
 The account specified in the Azure AD Connect utility must have the following items set if you want to be in scope for SSPR:
 
@@ -95,6 +95,8 @@ To set up the appropriate permissions for password writeback to occur, complete 
     * **Write lockoutTime**
     * **Write pwdLastSet**
 9. Select **Apply/OK** to apply the changes and exit any open dialog boxes.
+
+Since the Source of authority is on-premises, the password complexity policies will apply from the same connected data source. Make sure you have changed the existing Group policies for "Minimum Password Length". Since this is set to 1 (which translates to - password should be atleast a day old before it can be updated), make sure it is set to 0. These can located in gpmc.msc under "Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies". Make sure you run 'gpupdate /force' for this change to take effect. 
 
 ## Next steps
 
