@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
 
 ---
@@ -43,11 +43,8 @@ The connection between Azure Sentinel and your CEF appliance takes place in thre
 3. The agent stores the data in a Log Analytics workspace so it can be queried as needed, using analytics, correlation rules, and dashboards.
 
 > [!NOTE]
-> The agent can collect logs from multiple sources, but must be installed on dedicated proxy machine.
+> The agent can collect logs from multiple sources, but must be installed on dedicated machine.
 
-## Step 1: Connect to your CEF appliance via dedicated Azure VM
-
-You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is based on Resource Manager templates and can be used only if your dedicated Linux machine is a new VM you are creating in Azure.
 
  ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
@@ -55,7 +52,12 @@ Alternatively, you can deploy the agent manually on an existing Azure VM, on a V
 
  ![CEF on premises](./media/connect-cef/cef-syslog-onprem.png)
 
-### Deploy the agent
+## Step 1: Configure your Syslog VM
+
+You need to deploy an agent on a dedicated Linux machine (VM or on premises) to support the communication between the appliance and Azure Sentinel. 
+
+> [!NOTE]
+> Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. 
 
 
 1. In the Azure Sentinel portal, click **Data connectors** and select **Common Event Format (CEF)** and then **Open connector page**. 

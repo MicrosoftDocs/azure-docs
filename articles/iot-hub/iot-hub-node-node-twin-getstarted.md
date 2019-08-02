@@ -10,7 +10,7 @@ ms.date: 08/25/2017
 ms.author: elioda
 ---
 
-# Get started with device twins (Node)
+# Get started with device twins (Node.js)
 
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 

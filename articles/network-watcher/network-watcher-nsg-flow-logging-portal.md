@@ -89,7 +89,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
     | Location       | Select **East US**                                           |
     | Resource group | Select **Use existing**, and then select **myResourceGroup** |
 
-    The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. If you use an existing storage account instead of creating one, ensure you select a storage account that has **All networks** (default) selected for **Firewalls and virtual networks**, under the **SETTINGS** for the storage account.
+    The storage account may take around minute to create. Don't continue with remaining steps until the storage account is created. If you use an existing storage account instead of creating one, ensure you select a storage account that has **All networks** (default) selected for **Firewalls and virtual networks**, under the **SETTINGS** for the storage account. In all cases, the storage account must be in the same region as the NSG. 
     
     > [!NOTE]
     > While Microsoft.Insight and Microsoft.Network providers are currently supported as trusted Microsoft Services for Azure Storage, NSG Flow logs is still not fully onboarded. To enable NSG Flow logging, **All Networks** must still be selected until this feature is fully onboarded. 
