@@ -13,14 +13,9 @@ ms.author: azfuncdf
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 # Zero downtime deployment for Durable Functions
-If you want to deploy Durable Functions with zero downtime, you need to consider your deployment strategy. This document is going to explain how to do it.
+Durable Functions' [reliable execution model](durable-functions-checkpointing-and-replay.md) requires that orchestrations be deterministic. This creates an additional challenge to consider when deploying updates. If a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances will fail. This is especially a problem for instances of long-running orchestrations, which may represent hours or days of work.
 
-# Zero downtime requirements
-If you perform a deployment containing certain changes to your orchestrators logic or your activity interfaces, running orchestrations will fail.
-
-This is especially a problem for long running orchestrations. To prevent this behavior, you need to delay your deployment until all orchestrations have been completed or keep running orchestrations with the functions of the previous version. To achieve this goal, we introduce three strategies to enable this. 
-
-For more details about versioning, you can refer [Versioning in Durable Functions - Azure](durable-functions-versioning.md).
+To prevent this behavior, you need to either delay your deployment until all running orchestration instances have completed, or ensure that any running orchestration instances use the existing versions of your functions. For more details about versioning, refer to [Versioning in Durable Functions](durable-functions-versioning.md).
 
 # Three Strategies
 There are three main strategies for zero downtime deployment for Durable Functions: 
