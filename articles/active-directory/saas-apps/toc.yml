@@ -1536,10 +1536,10 @@
         href: velpic-provisioning-tutorial.md
       - name: Workday
         href: workday-inbound-tutorial.md
-      - name: Workplace by Facebook
-        href: workplacebyfacebook-provisioning-tutorial.md
       - name: Workteam
         href: workteam-provisioning-tutorial.md
+      - name: Workplace by Facebook
+        href: workplacebyfacebook-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md      
       - name: Zscaler
