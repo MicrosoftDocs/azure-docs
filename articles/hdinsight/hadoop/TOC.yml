@@ -64,6 +64,8 @@
       href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
     - name: Converting service principal certificate
       href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+    - name: Apache Ambari shows down hosts and services
+      href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
