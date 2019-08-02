@@ -11,7 +11,7 @@ ms.date: 07/04/2017
 ms.author: robinsh
 ---
 
-# Upload files from your device to the cloud with IoT Hub using .NET
+# Upload files from your device to the cloud with IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 
@@ -37,7 +37,7 @@ At the end of this tutorial you run two .NET console apps:
 * **ReadFileUploadNotification**, which receives file upload notifications from your IoT hub.
 
 > [!NOTE]
-> IoT Hub supports many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
+> IoT Hub supports many device platforms and languages (including C, Java, Python, and Javascript) through Azure IoT device SDKs. Refer to the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot) for step-by-step instructions on how to connect your device to Azure IoT Hub.
 
 To complete this tutorial, you need the following:
 
@@ -93,6 +93,12 @@ In this section, you modify the device app you created in [Send cloud-to-device 
 > [!NOTE]
 > For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
+## Get the IoT hub connection string
+
+In this article you create a backend service to receive file upload notification messages from the IoT hub you created in [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md). To receive file upload notification messages, your service needs the **service connect** permission. By default, every IoT Hub is created with a shared access policy named **service** that grants this permission.
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
+
 ## Receive a file upload notification
 
 In this section, you write a .NET console app that receives file upload notification messages from IoT Hub.
@@ -113,7 +119,7 @@ In this section, you write a .NET console app that receives file upload notifica
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Substitute the placeholder value with the IoT hub connection string from [Send telemetry from a device to an IoT hub](quickstart-send-telemetry-dotnet.md):
+5. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```csharp
     static ServiceClient serviceClient;

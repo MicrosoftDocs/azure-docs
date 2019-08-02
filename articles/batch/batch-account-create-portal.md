@@ -4,7 +4,7 @@ description: Learn how to create an Azure Batch account in the Azure portal to r
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 3fbae545-245f-4c66-aee2-e25d7d5d36db

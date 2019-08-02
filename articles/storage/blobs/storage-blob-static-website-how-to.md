@@ -208,7 +208,7 @@ Once you've enabled metrics, traffic statistics on files in the **$web** contain
 
    ![Azure Storage static websites metrics API name](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
 
-7. heck the box next to **GetWebContent** in the *Values* selector to populate the metrics report.
+7. Check the box next to **GetWebContent** in the *Values* selector to populate the metrics report.
 
    ![Azure Storage static websites metrics GetWebContent](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
 

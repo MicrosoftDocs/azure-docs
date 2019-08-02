@@ -1,6 +1,6 @@
 ---
 title: Translator Text API Detect Method
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Detect method.
 services: cognitive-services
 author: swmachan

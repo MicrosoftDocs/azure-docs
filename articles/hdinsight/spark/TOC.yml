@@ -49,7 +49,37 @@
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
   - name: Monitor cluster availability with Ambari and Azure Monitor logs
-    href: ../hdinsight-cluster-availability.md 
+    href: ../hdinsight-cluster-availability.md
+  - name: Troubleshoot
+    items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: Insufficient heap memory
+        href: ./apache-spark-troubleshoot-outofmemory-heap.md
+      - name: Java heap space
+        href: ./apache-spark-troubleshoot-outofmemory-heap-space.md
+      - name: Livy Server fails to start
+        href: ./apache-spark-troubleshoot-outofmemory-native-thread.md
+    - name: Apache Spark job fails - NoClassDefFoundError
+      href: ./apache-spark-troubleshoot-job-fails-noclassdeffounderror.md
+    - name: Apache Spark job fails - InvalidClassException
+      href: ./apache-spark-troubleshoot-job-fails-invalidclassexception.md
+    - name: Slow Apache Spark jobs - listStatus
+      href: ./apache-spark-troubleshoot-job-slowness-liststatus.md
+    - name: Slow Apache Spark jobs - storage container
+      href: ./apache-spark-troubleshoot-job-slowness-container.md
+    - name: IllegalArgumentException exception
+      href: ./apache-spark-troubleshoot-illegalargumentexception.md
+    - name: Apache Spark Streaming application stops
+      href: ./apache-spark-troubleshoot-application-stops.md
+    - name: RpcTimeoutException exception
+      href: ./apache-spark-troubleshoot-rpctimeoutexception.md
+    - name: Blocking Cross Origin API
+      href: ./apache-spark-troubleshoot-blocking-cross-origin.md
+    - name: Kryo serialization failed
+      href: ./apache-spark-troubleshoot-sparkexception-kryo-serialization-failed.md
+    - name:  Apache Spark event log - RequestBodyTooLarge
+      href: ./apache-spark-troubleshoot-event-log-requestbodytoolarge.md
 - name: How to
   items:
   - name: Use cluster storage
@@ -356,7 +386,7 @@
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
+      href: ../domain-joined/hdinsight-security-overview.md
     - name: Plan for enterprise security
       href: ../domain-joined/apache-domain-joined-architecture.md
     - name: Configure enterprise security in HDInsight
@@ -373,10 +403,14 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
     - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
   - name: Monitoring using Azure Monitor logs

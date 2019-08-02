@@ -65,7 +65,12 @@ These scenarios don't require you to configure a federation server for authentic
 A federated environment should have an identity provider that supports both WS-Trust and WS-Fed protocols:
 
 - **WS-Fed:** This protocol is required to join a device to Azure AD.
-- **WS-Trust:** This protocol is required to sign in to an Azure AD joined device. 
+- **WS-Trust:** This protocol is required to sign in to an Azure AD joined device.
+When you're using AD FS, you need to enable the following WS-Trust endpoints:
+ `/adfs/services/trust/2005/usernamemixed`
+ `/adfs/services/trust/13/usernamemixed`
+ `/adfs/services/trust/2005/certificatemixed`
+ `/adfs/services/trust/13/certificatemixed`
 
 If your identity provider does not support these protocols, Azure AD join does not work natively. Beginning with  Windows 10 1809, your users can sign in to an Azure AD joined device with a SAML-based identity provider through [web sign-in on Windows 10](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1809#web-sign-in-to-windows-10). Currently, web sign-in is a preview feature and is not recommended for production deployments.
 
@@ -269,7 +274,7 @@ MAM does not apply to Azure AD join.
 
 ## Configure enterprise state roaming
 
-If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
+If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](enterprise-state-roaming-enable.md). 
 
 **Recommendation**: Enable this setting even for hybrid Azure AD joined devices.
 

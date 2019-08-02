@@ -1,10 +1,9 @@
 ---
 title: Planning for an Azure Files deployment | Microsoft Docs
 description: Learn what to consider when planning for an Azure Files deployment.
-services: storage
 author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
@@ -93,7 +92,7 @@ Currently, you cannot directly convert between a standard file share and a premi
 > [!IMPORTANT]
 > Premium file shares are only available with LRS and are available in most regions that offer storage accounts. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure.
 
-### Provisioned shares
+#### Provisioned shares
 
 Premium file shares are provisioned based on a fixed GiB/IOPS/throughput ratio. For each GiB provisioned, the share will be issued one IOPS and 0.1 MiB/s throughput up to the max limits per share. The minimum allowed provisioning is 100 GiB with min IOPS/throughput.
 
@@ -130,7 +129,7 @@ The following table illustrates a few examples of these formulae for the provisi
 > [!NOTE]
 > File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
-### Bursting
+#### Bursting
 
 Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
 
@@ -201,11 +200,15 @@ This section only applies to the standard file shares. All premium file shares a
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region  |Supported redundancy  |Supports existing storage accounts  |
-|---------|---------|---------|
-|SouthEast Asia     |LRS|No         |
-|West Europe     |LRS|No         |
-|West US 2     |LRS, ZRS|No         |
+|Region |Supported redundancy |Supports existing storage accounts |Portal support*   |
+|-------|---------|---------|---------|
+|Australia East  |LRS|No         |Yes|
+|France Central  |LRS|No         |Not yet|
+|SouthEast Asia  |LRS, ZRS|No         |LRS only, ZRS - not yet|
+|West Europe     |LRS, ZRS|No       |Yes|
+|West US 2       |LRS, ZRS|No         |Yes|
+
+*For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Altenatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 

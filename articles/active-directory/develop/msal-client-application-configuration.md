@@ -35,10 +35,10 @@ In your code, you initialize a new public or confidential client application (or
 ## Authority
 The authority is a URL that indicates a directory that MSAL can request tokens from. Common authorities are:
 
-- https://login.microsoftonline.com/&lt;tenant&gt;/, where &lt;tenant&gt; is the tenant ID of the Azure Active Directory (Azure AD) tenant or a domain associated with this Azure AD tenant. Used only to sign in users of a specific organization.
-- https://login.microsoftonline.com/common/. Used to sign in users with work and school accounts or personal Microsoft accounts.
-- https://login.microsoftonline.com/organizations/. Used to sign in users with work and school accounts.
-- https://login.microsoftonline.com/consumers/. Used to sign in users with only personal Microsoft accounts (formerly known as Windows Live ID accounts).
+- https\://login.microsoftonline.com/\<tenant\>/, where &lt;tenant&gt; is the tenant ID of the Azure Active Directory (Azure AD) tenant or a domain associated with this Azure AD tenant. Used only to sign in users of a specific organization.
+- https\://login.microsoftonline.com/common/. Used to sign in users with work and school accounts or personal Microsoft accounts.
+- https\://login.microsoftonline.com/organizations/. Used to sign in users with work and school accounts.
+- https\://login.microsoftonline.com/consumers/. Used to sign in users with only personal Microsoft accounts (formerly known as Windows Live ID accounts).
 
 The authority setting needs to be consistent with what's declared in the application registration portal.
 

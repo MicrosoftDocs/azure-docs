@@ -80,7 +80,11 @@
   items:
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
+  - name: REST API
+    href: /rest/api/virtual-desktop/
 - name: Resources
   items:
   - name: Tech Community support group 
     href: https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop
+  - name: UserVoice forum 
+    href: https://windowsvirtualdesktop.uservoice.com/forums/921118-general

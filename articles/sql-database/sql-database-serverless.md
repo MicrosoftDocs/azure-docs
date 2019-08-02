@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-manager: craigg
 ms.date: 07/05/2019
 ---
 # Azure SQL Database serverless (preview)

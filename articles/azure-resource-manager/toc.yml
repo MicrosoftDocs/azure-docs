@@ -13,6 +13,8 @@
     href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - name: Create templates - IntelliJ IDEA
+    href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Utilize template reference
@@ -63,18 +65,18 @@
     href: template-best-practices.md
   - name: Templates for cloud consistency
     href: templates-cloud-consistency.md
-  - name: Resource providers and types
-    href: resource-manager-supported-services.md
-  - name: Deployment Manager
-    displayName: adm
-    href: deployment-manager-overview.md
-  - name: Deployment Manager health check
-    displayName: adm
-    href: deployment-manager-health-check.md
   - name: Deployment modes
     href: deployment-modes.md
   - name: Resource deletion
     href: resource-group-delete.md
+  - name: Deployment Manager
+    items:
+    - name: Overview
+      displayName: adm, deployment manager
+      href: deployment-manager-overview.md
+    - name: Health check
+      displayName: adm, deployment manager
+      href: deployment-manager-health-check.md
   - name: Resource Manager and classic deployment
     href: resource-manager-deployment-model.md
   - name: Azure common security attributes
@@ -152,6 +154,12 @@
         href: ./move-limitations/virtual-machines-move-limitations.md
       - name: Virtual Networks
         href: ./move-limitations/virtual-network-move-limitations.md
+  - name: Tags
+    items:
+    - name: Tag resources
+      href: resource-group-using-tags.md
+    - name: Tag support
+      href: tag-support.md
   - name: Manage
     items:
     - name: Manage resource groups
@@ -176,9 +184,6 @@
       - name: Use Azure PowerShell
         displayName: open,delete,deploy,move,lock,tag
         href: manage-resources-powershell.md
-    - name: Organize resources
-      displayName: tags
-      href: resource-group-using-tags.md
     - name: Lock resources
       href: resource-group-lock-resources.md
     - name: Authentication API to access subscriptions
@@ -225,6 +230,8 @@
       href: resource-manager-sku-not-available-errors.md
     - name: Windows deployment issues
       href: ../virtual-machines/windows/troubleshoot-deploy-vm.md
+  - name: Resource providers and types
+    href: resource-manager-supported-services.md
   - name: Throttling requests
     href: resource-manager-request-limits.md
   - name: Track asynchronous operations
@@ -251,12 +258,10 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
-  - name: Resource capabilities
-    items:
-    - name: Complete mode deletion
-      href: complete-mode-deletion.md
-    - name: Tag support
-      href: tag-support.md
+  - name: Complete mode deletion
+    href: complete-mode-deletion.md
+  - name: Resource instance limit
+    href: resources-without-rg-limit.md  
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager

@@ -209,7 +209,7 @@ On machines you want to migrate, you need to install the Mobility service agent.
 4. Copy the installer file to the machine you want to migrate.
 5. Make sure that you have the passphrase that was generated when you deployed the appliance.
     - Store the file in a temporary text file on the machine.
-    - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
+    - You can obtain the passphrase on the replication appliance. From the command line, run **C:\ProgramData\ASR\home\svsystems\bin\genpassphrase.exe -v** to view the current passphrase.
     - Don't regenerate the passphrase. This will break connectivity and you will have to reregister the replication appliance.
 
 

@@ -1,30 +1,30 @@
 ---
-title: Create a Cognitive Services account in the Azure portal
-titlesuffix: Azure Cognitive Services
-description: How to create a Azure Cognitive Services APIs account in the Azure portal.
+title: Create a Cognitive Services resource in the Azure portal
+titleSuffix: Azure Cognitive Services
+description: Get started with Azure Cognitive Services by creating and subscribing to a resource in the Azure portal.
 services: cognitive-services
 author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/16/2019
 ms.author: aahi
 ---
 
-# Create a Cognitive Services account using the Azure portal
+# Create a Cognitive Services resource using the Azure portal
 
-In this quickstart, you'll learn how to sign up for Azure Cognitive Services and create an account that has a single-service or multi-service subscription. These services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal), which enable you to connect to one or many of the Azure Cognitive Services APIs.
+Use this quickstart to get started with Azure Cognitive Services using the Azure portal. Cognitive Services are represented by Azure [resources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) that you create in your Azure subscription. After creating the resource, Use the keys and endpoint generated for you to authenticate your applications. 
 
 ## Prerequisites
 
-* A valid Azure subscription. [Create an account](https://azure.microsoft.com/free/) for free.
+* A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
 ## Create a new Azure Cognitive Services resource
 
-Before creating a resource, you must have an Azure resource group. Every Cognitive Services account (and its associated Azure resource) must belong to an Azure resource group. When you create an account, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group.
+Before creating a Cognitive Services resource, you must have an Azure resource group to contain the resource. When you create a new resource, you have the option to either create a new resource group, or use an existing one. This article shows how to create a new resource group.
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and click **+Create a resource**.
 
@@ -32,7 +32,7 @@ Before creating a resource, you must have an Azure resource group. Every Cogniti
 
 2. You can find available Cognitive Services with in the following ways:
     * Use the search bar and enter the name of the service you want to subscribe to.
-        * To create a resource for a multi-service subscription, enter **Cognitive Services** in the search bar, and select the **Cognitive Services** resource.
+        * To create a multi-service resource, enter **Cognitive Services** in the search bar, and select the **Cognitive Services** resource.
 
         ![Search for Cognitive Services](media/cognitive-services-apis-create-account/azureCogServSearchMulti.png)
 
@@ -47,7 +47,7 @@ Before creating a resource, you must have an Azure resource group. Every Cogniti
 
     |    |    |
     |--|--|
-    | **Name** | A descriptive name for your cognitive services resource. We recommend using a descriptive name, for example *MyCognitiveServicesAccount*. |
+    | **Name** | A descriptive name for your cognitive services resource. For example *MyCognitiveServicesAccount*. |
     | **Subscription** | Select one of your available Azure subscriptions. |
     | **Location** | The location of your cognitive service instance. Different locations may introduce latency, but have no impact on the runtime availability of your resource. |
     | **Pricing tier** | The cost of your Cognitive Services account depends on the options you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -56,15 +56,22 @@ Before creating a resource, you must have an Azure resource group. Every Cogniti
     ![Resource creation screen](media/cognitive-services-apis-create-account/resource_create_screen.png)
 
 
-## Get the keys for your subscription
+## Get the keys for your resource
 
 After creating your resource, you can access it from the Azure dashboard if you pinned it. Otherwise, you can find it in **Resource Groups**. After selecting your resource, you can get the keys by selecting **Keys** under **Resource Management**.
 
 [!INCLUDE [cognitive-services-environment-variables](../../includes/cognitive-services-environment-variables.md)]
 
+## Pricing tiers and billing
+
+Pricing tiers (and the amount you get billed) are based on the number of transactions you send using your authentication information. Each pricing tier specifies the:
+* maximum number of allowed transactions per second (TPS).
+* service features enabled within the pricing tier.
+* The cost for a predefined amount of transactions. Going above this amount will cause an extra charge as specified in the [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) for your service.
+
 ## Clean up resources
 
-If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with the resource group.
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources contained in the group.
 
 To remove a resource group using the Azure portal:
 

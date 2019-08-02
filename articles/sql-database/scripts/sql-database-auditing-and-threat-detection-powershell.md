@@ -10,7 +10,6 @@ ms.topic: sample
 author: ronitr
 ms.author: ronitr
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use PowerShell to configure SQL Database auditing and threat detection

@@ -3,7 +3,7 @@ title: Add an HTML Marker to Azure Maps | Microsoft Docs
 description: How to add an HTML Marker to the Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps

@@ -68,7 +68,7 @@ collecting and analyzing data, and compliance of your applications and resources
 monitoring and threat analysis are provided by [Azure Security
 Center](../security-center/security-center-intro.md), which includes unified security management
 and advanced threat protection across hybrid cloud workloads. See [Introduction to Azure
-Security](../security/azure-security.md) for comprehensive information and guidance on securing
+Security](../security/fundamentals/overview.md) for comprehensive information and guidance on securing
 Azure resources.
 
 ## Protect

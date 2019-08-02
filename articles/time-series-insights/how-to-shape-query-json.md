@@ -192,5 +192,5 @@ For a property with a large number of possible values, it's best to send as dist
 
 ## Next steps
 
-- Read [Azure Time Series Insights query syntax](/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Time Series Insights data access REST API.
+- Read [Azure Time Series Insights query syntax](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) to learn more about the query syntax for the Time Series Insights data access REST API.
 - Learn [how to shape events](./time-series-insights-send-events.md).

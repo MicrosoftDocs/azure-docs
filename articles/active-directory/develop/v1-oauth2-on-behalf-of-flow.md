@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory service-to-service authentication that uses the OAuth2.0 On-Behalf-Of draft specification | Microsoft Docs
+title: Azure AD service-to-service authentication OAuth2.0 On-Behalf-Of draft spec | Microsoft Docs
 description: This article describes how to use HTTP messages to implement service-to-service authentication with the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: .net

@@ -16,7 +16,7 @@
           href: quickstarts/detect-data-anomalies-java.md
         - name: Using Python
           href: quickstarts/detect-data-anomalies-python.md
-    - name: SDK
+    - name: Client
       items:
         - name: Using C#
           href: quickstarts/detect-data-anomalies-csharp-sdk.md

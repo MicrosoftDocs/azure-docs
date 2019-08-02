@@ -89,7 +89,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 5. Comment out line one and uncomment line two. The first two lines should now look like this.
 
-    ```
+    ```xml
     #StorageConnectionString = UseDevelopmentStorage=true
     StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
     ```
