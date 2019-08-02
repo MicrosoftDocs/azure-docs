@@ -30,11 +30,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-The following services, tools, and data are used in this quickstart. 
+The following services and tools are required for this quickstart.
 
 + [Visual Studio](https://visualstudio.microsoft.com/downloads/), any edition. Sample code and instructions were tested on the free Community edition.
-
-+ A sample index and documents are provided in this article, as well as in the [Visual Studio solution](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart) for this quickstart.
 
 + [Create an Azure Search service](search-create-service-portal.md) or [find an existing service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under your current subscription. You can use a free service for this quickstart.
 

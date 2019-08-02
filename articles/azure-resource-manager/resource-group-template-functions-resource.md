@@ -4,7 +4,7 @@ description: Describes the functions to use in an Azure Resource Manager templat
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 07/11/2019
+ms.date: 07/31/2019
 ms.author: tomfitz
 
 ---
@@ -351,6 +351,8 @@ The reference function retrieves the runtime state of either a previously deploy
 
 The reference function can only be used in the properties of a resource definition and the outputs section of a template or deployment. When used with [property iteration](resource-group-create-multiple.md#property-iteration), you can use the reference function for `input` because the expression is assigned to the resource property. You can't use it with `count` because the count must be determined before the reference function is resolved.
 
+You can't use the reference function in the outputs of a [nested template](resource-group-linked-templates.md#nested-template) to return a resource you've deployed in the nested template. Instead, use a [linked template](resource-group-linked-templates.md#external-template-and-external-parameters).
+
 By using the reference function, you implicitly declare that one resource depends on another resource if the referenced resource is provisioned within same template and you refer to the resource by its name (not resource ID). You don't need to also use the dependsOn property. The function isn't evaluated until the referenced resource has completed deployment.
 
 If you use the **reference** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed.  You get an error if the **reference** function refers to a resource that doesn't exist. Use the **if** function to make sure the function is only evaluated when the resource is being deployed. See the [if function](resource-group-template-functions-logical.md#if) for a sample template that uses if and reference with a conditionally deployed resource.
@@ -558,6 +560,8 @@ A common use of the resourceGroup function is to create resources in the same lo
    }
 ]
 ```
+
+You can also use the resourceGroup function to apply tags from the resource group to a resource. For more information, see [Apply tags from resource group](resource-group-using-tags.md#apply-tags-from-resource-group).
 
 ### Example
 

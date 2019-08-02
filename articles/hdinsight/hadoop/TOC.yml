@@ -54,6 +54,16 @@
   - name: Understand managed identities
     href: ../hdinsight-managed-identities.md
     maintainContext: true
+  - name: Troubleshoot
+    items:
+    - name: Unable to log into HDInsight cluster
+      href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+    - name: Unable to add nodes to HDInsight cluster
+      href: ./hdinsight-troubleshoot-unable-add-nodes.md
+    - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
+      href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+    - name: Converting service principal certificate
+      href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
@@ -74,7 +84,7 @@
     - name: Apache Hive with Apache Hadoop
       href: hdinsight-use-hive.md
       items:
-      - name: Use the HDInsight tools for VSCode
+      - name: Use the Spark & Hive Tools for VSCode
         href: ../hdinsight-for-vscode.md
         maintainContext: true
       - name: Use the HDInsight tools for Visual Studio
@@ -397,7 +407,7 @@
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
+      href: ../domain-joined/hdinsight-security-overview.md
       maintainContext: true
     - name: Plan for enterprise security
       href: ../domain-joined/apache-domain-joined-architecture.md
@@ -421,11 +431,14 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
     - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
-      maintainContext: true
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
       maintainContext: true

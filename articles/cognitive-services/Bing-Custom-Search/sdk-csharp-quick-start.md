@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using the C# SDK | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
-description: Use the Bing Custom Search SDK for C# to search your custom search instance.
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using the C# SDK. 
 services: cognitive-services
 author: swhite-msft
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 06/18/2019
+ms.date: 07/26/2019
 ms.author: scottwhi
 ---
 

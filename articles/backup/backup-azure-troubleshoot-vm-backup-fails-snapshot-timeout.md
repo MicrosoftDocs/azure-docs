@@ -1,14 +1,14 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable'
 description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
-services: backup
-author: saurabhsensharma
-manager: saurabhsensharma
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.author: saurse
+ms.author: dacurwin
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -73,9 +73,9 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot extension operation failed
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
-**Error code**: ExtentionOperationFailedForManagedDisks <br>
+**Error code**: ExtensionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
@@ -102,7 +102,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 4095GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 4095GB. Support for large disks is coming soon.  
+Your backup operation could fail when backing up VM with disk size greater than 4095GB. To sign up for private preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, write back to us AskAzureBackupTeam@microsoft.com.
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 

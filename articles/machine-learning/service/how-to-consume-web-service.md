@@ -35,8 +35,10 @@ The general workflow for creating a client that uses a machine learning web serv
 
 The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
 
-* `auth_enabled` - If authentication is enabled, `True`; otherwise, `False`.
+* `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
+* `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
+
 
 There are a three ways to retrieve this information for deployed web services:
 
@@ -65,7 +67,15 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.scoring_uri)
     ```
 
-### Authentication key
+### Authentication for services
+
+Azure Machine Learning provides two ways to control access to your web services. 
+
+|Authentication Method|ACI|AKS|
+|---|---|---|
+|Key|Disabled by default| Enabled by default|
+|Token| Not Available| Disabled by default |
+#### Authentication with keys
 
 When you enable authentication for a deployment, you automatically create authentication keys.
 
@@ -83,6 +93,26 @@ print(primary)
 
 > [!IMPORTANT]
 > If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+
+#### Authentication with tokens
+
+When you enable token authentication for a web service, a user must provide an Azure Machine Learning JWT token to the web service to access it. 
+
+* Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
+* Token authentication is not supported when you are deploying to Azure Container Instances.
+
+To control token authentication, use the `token_auth_enabled` parameter when you are creating or updating a deployment.
+
+If token authentication is enabled, you can use the `get_token` method to retrieve a bearer token and that tokens expiration time:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> You will need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 
@@ -128,12 +158,14 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data:
 
-```python 
-from azureml.contrib.services.aml_request  import AMLRequest, rawhttp
+```python
+from azureml.contrib.services.aml_request import AMLRequest, rawhttp
 from azureml.contrib.services.aml_response import AMLResponse
+
 
 def init():
     print("This is init()")
+
 
 @rawhttp
 def run(request):
@@ -145,9 +177,9 @@ def run(request):
         return AMLResponse(respBody, 200)
     elif request.method == 'POST':
         reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody 
+        # For a real world solution, you would load the data from reqBody
         # and send to the model. Then return the response.
-        
+
         # For demonstration purposes, this example just returns the posted data as the response.
         return AMLResponse(reqBody, 200)
     else:
@@ -438,45 +470,44 @@ scoring_uri = '<your web service URI>'
 key = '<your key>'
 
 # Two sets of data to score, so we get two results back
-data = {"data": 
+data = {"data":
+        [
             [
-                [
-                    0.0199132141783263, 
-                    0.0506801187398187, 
-                    0.104808689473925, 
-                    0.0700725447072635, 
-                    -0.0359677812752396, 
-                    -0.0266789028311707, 
-                    -0.0249926566315915, 
-                    -0.00259226199818282, 
-                    0.00371173823343597, 
-                    0.0403433716478807
-                ],
-                [
-                    -0.0127796318808497, 
-                    -0.044641636506989, 
-                    0.0606183944448076, 
-                    0.0528581912385822, 
-                    0.0479653430750293, 
-                    0.0293746718291555, 
-                    -0.0176293810234174, 
-                    0.0343088588777263, 
-                    0.0702112981933102, 
-                    0.00720651632920303]
-            ]
+                0.0199132141783263,
+                0.0506801187398187,
+                0.104808689473925,
+                0.0700725447072635,
+                -0.0359677812752396,
+                -0.0266789028311707,
+                -0.0249926566315915,
+                -0.00259226199818282,
+                0.00371173823343597,
+                0.0403433716478807
+            ],
+            [
+                -0.0127796318808497,
+                -0.044641636506989,
+                0.0606183944448076,
+                0.0528581912385822,
+                0.0479653430750293,
+                0.0293746718291555,
+                -0.0176293810234174,
+                0.0343088588777263,
+                0.0702112981933102,
+                0.00720651632920303]
+        ]
         }
 # Convert to JSON string
 input_data = json.dumps(data)
 
 # Set the content type
-headers = { 'Content-Type':'application/json' }
+headers = {'Content-Type': 'application/json'}
 # If authentication is enabled, set the authorization header
-headers['Authorization']=f'Bearer {key}'
+headers['Authorization'] = f'Bearer {key}'
 
 # Make the request and display the response
-resp = requests.post(scoring_uri, input_data, headers = headers)
+resp = requests.post(scoring_uri, input_data, headers=headers)
 print(resp.text)
-
 ```
 
 The results returned are similar to the following JSON document:

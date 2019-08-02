@@ -64,7 +64,7 @@ Select an Azure virtual machine to onboard.
 
 If the machine does not have the PowerShell desired state extension installed and the power state is running, click **Connect**.
 
-Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/metaconfig4)
+Under **Registration**, enter the [PowerShell DSC Local Configuration Manager values](/powershell/dsc/managing-nodes/metaconfig)
 required for your use case, and optionally a node configuration to assign to the VM.
 
 ![onboarding](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
@@ -79,7 +79,7 @@ If you are managing a Virtual Machine Scale Set, see the example template
 
 ### PowerShell
 
-The [Register-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/register-azurermautomationdscnode)
+The [Register-AzAutomationDscNode](/powershell/module/az.automation/register-azautomationdscnode)
 cmdlet can be used to onboard virtual machines in the Azure portal via PowerShell.
 
 ### Registering virtual machines across Azure subscriptions
@@ -298,11 +298,11 @@ the Azure Automation cmdlets provide a simplified method of generating the DSC m
 needed:
 
 1. Open the PowerShell console or VSCode as an administrator in a machine in your local environment.
-2. Connect to Azure Resource Manager using `Connect-AzureRmAccount`
+2. Connect to Azure Resource Manager using `Connect-AzAccount`
 3. Download the PowerShell DSC metaconfigurations for the machines you want to onboard from the Automation account to which you want to onboard nodes:
 
    ```powershell
-   # Define the parameters for Get-AzureRmAutomationDscOnboardingMetaconfig using PowerShell Splatting
+   # Define the parameters for Get-AzAutomationDscOnboardingMetaconfig using PowerShell Splatting
    $Params = @{
        ResourceGroupName = 'ContosoResources'; # The name of the Resource Group that contains your Azure Automation Account
        AutomationAccountName = 'ContosoAutomation'; # The name of the Azure Automation Account where you want a node on-boarded to
@@ -311,7 +311,7 @@ needed:
    }
    # Use PowerShell splatting to pass parameters to the Azure Automation cmdlet being invoked
    # For more info about splatting, run: Get-Help -Name about_Splatting
-   Get-AzureRmAutomationDscOnboardingMetaconfig @Params
+   Get-AzAutomationDscOnboardingMetaconfig @Params
    ```
 
 1. You should now have a folder called ***DscMetaConfigs***, containing the PowerShell DSC metaconfigurations for the machines to onboard (as an administrator):
@@ -377,6 +377,6 @@ Automation State Configuration before reregistering it.
 
 - To get started, see [Getting started with Azure Automation State Configuration](automation-dsc-getting-started.md)
 - To learn about compiling DSC configurations so that you can assign them to target nodes, see [Compiling configurations in Azure Automation State Configuration](automation-dsc-compile.md)
-- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/azurerm.automation/#automation)
+- For PowerShell cmdlet reference, see [Azure Automation State Configuration cmdlets](/powershell/module/az.automation#automation)
 - For pricing information, see [Azure Automation State Configuration pricing](https://azure.microsoft.com/pricing/details/automation/)
 - To see an example of using Azure Automation State Configuration in a continuous deployment pipeline, see [Continuous Deployment Using Azure Automation State Configuration and Chocolatey](automation-dsc-cd-chocolatey.md)

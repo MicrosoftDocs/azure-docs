@@ -11,6 +11,7 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
+ROBOTS: NOINDEX
 ---
 
 # LogDownloader

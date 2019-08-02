@@ -1,13 +1,12 @@
 ---
-title: Manage and monitor SQL Server databases on an Azure VM that's backed up by Azure Backup | Microsoft Docs
+title: Manage and monitor SQL Server databases on an Azure VM with Azure Backup
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-services: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: raynew
+ms.author: dacurwin
 
 
 ---
@@ -86,10 +85,11 @@ To stop protection for a database:
 
 6. Select **Stop backup**.
 
->
+
 > [!NOTE]
-Refer the below FAQ for more information on delete data option: <br/>
-* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)<br/>
+>
+Refer the below FAQ for more information on delete data option:
+* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
 * [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >

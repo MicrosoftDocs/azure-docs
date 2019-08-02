@@ -317,6 +317,8 @@
     - name: Azure DevOps Project
       href: ../devops-project/azure-devops-project-aks.md
       maintainContext: true
+    - name: Deployment Center Launcher
+      href: deployment-center-launcher.md 
   - name: Troubleshoot
     items:
     - name: Common issues

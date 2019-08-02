@@ -44,7 +44,7 @@ This section sets up the training experiment by loading the required python pack
 
 ### Import packages
 
-First, import the azureml.core Python library ad display the version number.
+First, import the azureml.core Python library and display the version number.
 
 ```
 # Check core SDK version number
@@ -57,7 +57,7 @@ print("SDK version:", azureml.core.VERSION)
 
 The [Azure Machine Learning service workspace](concept-workspace.md) is the top-level resource for the service. It provides you with a centralized place to work with all the artifacts you create. In the Python SDK, you can access the workspace artifacts by creating a [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) object.
 
-Create a workspace object from the `config.json` file created in the [prerequisites section](#prerequisites).
+Create a workspace object by reading the `config.json` file created in the [prerequisites section](#prerequisites):
 
 ```Python
 ws = Workspace.from_config()
@@ -77,7 +77,9 @@ os.makedirs(project_folder, exist_ok=True)
 
 In this tutorial, the training script **chainer_mnist.py** is already provided for you. In practice, you should be able to take any custom training script as is and run it with Azure ML without having to modify your code.
 
-To use Azure ML's tracking and metrics capabilities, you will have to add a small amount of Azure ML code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure ML run. To do so, you access the Azure ML `Run` object within the script.
+To use Azure ML's tracking and metrics capabilities, add a small amount of Azure ML code inside your training script.  The training script **chainer_mnist.py** shows how to log some metrics to your Azure ML run using the `Run` object within the script.
+
+The provided training script uses example data from the chainer `datasets.mnist.get_mnist` function.  For your own data, you may need to use steps such as [Upload dataset and scripts](how-to-train-keras.md#upload-dataset-and-scripts) to make data available during training.
 
 Copy the training script **chainer_mnist.py** into your project directory.
 
@@ -89,7 +91,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### Create an experiment
 
-Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "chainer-mnist".
+Create an experiment. In this example, create an experiment called "chainer-mnist".
 
 ```
 from azureml.core import Experiment
@@ -101,9 +103,9 @@ experiment = Experiment(ws, name=experiment_name)
 
 ## Create or get a compute target
 
-You will need a [compute target](concept-compute-target.md) for training your model. In this tutorial, you will use Azure ML managed compute (AmlCompute) for your remote training compute resource.
+You need a [compute target](concept-compute-target.md) for training your model. In this example, you use Azure ML managed compute (AmlCompute) for your remote training compute resource.
 
-**Creation of AmlCompute takes approximately 5 minutes**. If the AmlCompute with that name is already in your workspace, this code will skip the creation process.  
+**Creation of AmlCompute takes approximately 5 minutes**. If the AmlCompute with that name is already in your workspace, this code skips the creation process.  
 
 ```Python
 from azureml.core.compute import ComputeTarget, AmlCompute
@@ -177,19 +179,28 @@ As the Run is executed, it goes through the following stages:
 
 Once you've trained the model, you can save and register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
 
-Add the following code to your training script, **chainer_mnist.py**, to save the model. 
 
-``` Python
-    serializers.save_npz(os.path.join(args.output_dir, 'model.npz'), model)
-```
-
-Register the model to your workspace with the following code.
+After the model training has completed, register the model to your workspace with the following code.  
 
 ```Python
 model = run.register_model(model_name='chainer-dnn-mnist', model_path='outputs/model.npz')
 ```
 
+> [!TIP]
+> If you receive an error that the model is not found, give it a minute and try again.  Sometimes there is a slight lag between the end of the training run and the availability of the model in the outputs directory.
 
+You can also download a local copy of the model. This can be useful for doing additional model validation work locally. In the training script, `chainer_mnist.py`, a saver object persists the model to a local folder (local to the compute target). You can use the Run object to download a copy from datastore.
+
+```Python
+# Create a model folder in the current directory
+os.makedirs('./model', exist_ok=True)
+
+for f in run.get_file_names():
+    if f.startswith('outputs/model'):
+        output_file_path = os.path.join('./model', f.split('/')[-1])
+        print('Downloading from {} to {} ...'.format(f, output_file_path))
+        run.download_file(name=f, output_file_path=output_file_path)
+```
 
 ## Next steps
 

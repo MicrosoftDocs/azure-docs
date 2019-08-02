@@ -1,13 +1,13 @@
 ---
-title: Move a Recovery Services vault across Azure subscriptions or to another resource group
+title: Move a Recovery Services vault across Azure subscriptions or resource groups - Azure Backup
 description: Instructions to move recovery services vault across azure subscriptions and resource groups.
-services: backup
-author: sogup
-manager: vijayts
+ms.reviewer: sogup
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: sogup
+ms.author: dacurwin
 ---
 
 # Move a Recovery Services vault across Azure Subscriptions and Resource Groups
@@ -30,7 +30,7 @@ Resource move for Recovery Services vault is supported in Australia East, Austra
 - Whether the VM is moved with the vault or not, you can always restore the VM from the retained backup history in the vault.
 - The Azure Disk Encryption requires that the key vault and VMs reside in the same Azure region and subscription.
 - To move a virtual machine with managed disks, see this [article](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
-- The options for moving resources deployed through the Classic model differ depending on whether you are moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
+- The options for moving resources deployed through the Classic model differ depending on whether you are moving the resources within a subscription, or to a new subscription. For more information, see this [article](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Backup policies defined for the vault are retained after the vault moves across subscriptions or to a new resource group.
 - Moving vault with the Azure Files, Azure File Sync, or SQL in IaaS VMs across subscriptions and resource groups is not supported.
 - If you move a vault containing VM backup data, across subscriptions, you must move your VMs to the same subscription, and use the same target resource group to continue backups.<br>

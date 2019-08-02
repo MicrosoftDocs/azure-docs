@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: article
 ms.date: 07/05/2019
-ms.author: cherylmc;ganesr
+ms.author: cherylmc
+ms.reviewer: ganesr
 
 ---
 

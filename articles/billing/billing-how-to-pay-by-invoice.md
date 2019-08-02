@@ -29,9 +29,11 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
 
 2. Select **Billing** as the **Issue type**. The *issue type* is the support request category. Select the subscription for which you want to pay by invoice, select a support plan, and then select **Next**.
 
-3. Select **Pay by Invoice** in the **Problem Type** box. The *problem type* is the support request subcategory.
+3. Select **Payment** as the **Problem Type**. The *problem type* is the support request subcategory.
 
-4. Enter the following information in the **Details** box, and then select **Next**.
+4. Select **Switch to Pay by Invoice** as the **Problem subtype**
+
+5. Enter the following information in the **Details** box, and then select **Next**.
 
          New or existing customer:
          If existing, current payment method:
@@ -59,7 +61,7 @@ If you switch to pay by invoice, that means you pay your bill within 30 days of 
     - The **Company name** and **Company address** should match the information that you provided for the Azure account. To view or update the information, see [Change your Azure account profile information](billing-how-to-change-azure-account-profile.md).
     - You must add your billing contact information in the Azure portal before the credit limit can be approved. The contact details should be related to the company's Accounts Payable or Finance department. To update the billing contact information, go to [Azure Account Center](https://account.azure.com/Profile).
 
-5. Verify your contact information and preferred contact method, and then click **Create**.
+6. Verify your contact information and preferred contact method, and then click **Create**.
 
 If we need to run a credit check because of the amount of credit that you need, we'll send you a credit check application.
 
