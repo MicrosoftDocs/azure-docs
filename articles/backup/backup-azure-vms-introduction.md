@@ -10,7 +10,7 @@ ms.date: 03/04/2019
 ms.author: dacurwin
 ---
 
-# About Azure VM backup
+# An overview of Azure VM backup
 
 This article describes how the [Azure Backup service](backup-introduction-to-azure-backup.md) backs up Azure virtual machines (VMs).
 
