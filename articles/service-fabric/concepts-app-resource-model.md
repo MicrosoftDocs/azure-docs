@@ -12,7 +12,7 @@ ms.author: atsenthi
 
 # What is the Service Fabric Application Resource Model?
 
-It is recommended that Service Fabric applications are deployed onto your Service Fabric cluster via Azure Resource Manager. This method makes it possible to describe applications and services in JSON and deploy them in the same Resource Manager template as your cluster. As opposed to deploying and managing applications via Powershell or Azure CLI, there is no need to wait for the cluster to be ready. The process of application registration, provisioning, and deployment all happens in one step. This is the best practice to manage application life cycle in your cluster. For more information, look at [best practices](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources)
+It is recommended that Service Fabric applications are deployed onto your Service Fabric cluster via Azure Resource Manager. This method makes it possible to describe applications and services in JSON and deploy them in the same Resource Manager template as your cluster. As opposed to deploying and managing applications via Powershell or Azure CLI, there is no need to wait for the cluster to be ready. The process of application registration, provisioning, and deployment all happens in one step. This is the best practice to manage application life cycle in your cluster. For more information, look at [best practices](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
 
 
 When applicable, manage your applications as Resource Manager resources to improve:
@@ -22,20 +22,20 @@ When applicable, manage your applications as Resource Manager resources to impro
 
 
 
-## Samples 
+## Service Fabric application life cycle with Azure Resource Manager 
 
 
 In this document, you will learn how to:
 
 > [!div class="checklist"]
 > * Deploy application resources using Azure Resource Manager 
-> * Upgrade application resoruce using Azure Resource Manager
-> * Delete Application resource 
+> * Upgrade application resources using Azure Resource Manager
+> * Delete application resources
 
 ## Deploy application resources using Azure Resource Manager  
-       To deploy an application and its services using the Azure Resource Manager application resource model, you need to package application code, upload the package, and then reference the location of package in an Azure Resource Manager template as an application resource. Steps to package an application can be found (here).[https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg]
+To deploy an application and its services using the Azure Resource Manager application resource model, you need to package application code, upload the package, and then reference the location of package in an Azure Resource Manager template as an application resource. For more information, view [Package an application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-       Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
+Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
            
            
           
@@ -67,20 +67,22 @@ In this document, you will learn how to:
 }
 ```
 
-## Upgrade Application resources
+## Upgrade application resources
 
-    Applications already deployed to a Service Fabric cluster will be upgraded for below reasons,
-    i) To add new service to application
-    ii) To upgrade existing service
+Applications already deployed to a Service Fabric cluster will be upgraded for below reasons,
+1. To add new service to application
+2. To upgrade existing service
      
 ## Delete application resources
-    Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below methods
-    i) delete application resources using Azure Remove
-    ii) delete application type
+
+Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below methods
+1. delete application resources using Azure Remove
+2. delete application type
            
 ## Next steps
 
-Information about App Resource Model.
+Get information about the application resource model:
 
-https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-model
-https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-application-and-service-manifests
+* [Model an application in Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-model)
+* [Service Fabric application and service manifests](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-and-service-manifests)
+
