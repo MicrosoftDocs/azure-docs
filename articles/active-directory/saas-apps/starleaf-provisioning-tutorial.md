@@ -35,7 +35,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A StarLeaf tenant](https://www.starleaf.com/solutions/).
 * A user account in StarLeaf with Admin permissions.
 
-## Assign Users to StarLeaf
+## Assign users to StarLeaf
 Azure Active Directory uses a concept called assignments to determine which users should receive access to selected apps. In the context of automatic user provisioning, only the users and/or groups that have been assigned to an application in Azure AD are synchronized.
 
 Before you configure and enable automatic user provisioning, you should decide which users and groups in Azure AD need access to StarLeaf. Then you can assign the users and groups to StarLeaf by following [these instructions](../manage-apps/assign-user-or-group-access-portal.md).
@@ -46,7 +46,7 @@ Before you configure and enable automatic user provisioning, you should decide w
 
 * When you assign a user to StarLeaf, you must select any valid application-specific role (if available) in the assignment dialog. Users with the Default Access role are excluded from provisioning.
 
-## Setup StarLeaf for provisioning
+## Set up StarLeaf for provisioning
 
 Before you configure StarLeaf for automatic user provisioning with Azure AD, you will need to configure SCIM provisioning in StarLeaf:
 
