@@ -26,9 +26,12 @@ Recommendations give you suggestions on how to better secure your resources.  Yo
 After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize the recommendations.
 
 1. From the list, click on the recommendation.
-1. Follow the instructions in the **Remediation steps** section.
+1. Follow the instructions in the **Remediation steps** section. Of course, each recommendation has it's own set of instructions. The following example explains how to only to configure applications to only allow traffic allow over HTTPS.
 
     ![Recommendation details](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
+
+5. Once completed, a notification appears informing you if the remediation succeeded.
+
 
 ## One-click fix remediation <a name="one-click"></a>
 
@@ -57,7 +60,7 @@ To implement one-click remediation:
     > [!NOTE]
     > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
 
-5. Once completed, a notification appears (click the bell in the menu bar) informing you if the remediation succeeded.
+5. Once completed, a notification appears informing you if the remediation succeeded.
 
 ## Next steps
 
