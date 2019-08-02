@@ -18,6 +18,9 @@ ms.author: apimpm
 
 # Feature-based comparison of the Azure API Management tiers
 
+>[!IMPORTANT]
+> Please note the Developer tier is for non-production use cases and evaluations. It does not offer SLA. 
+
 Each API Management [pricing tier](https://aka.ms/apimpricing) offers a distinct set of features and per unit [capacity](api-management-capacity.md). The following table summarizes the key features available in each of the tiers. Some features might work differently or have different capabilities depending on the tier. In such cases the differences are called out in the documentation articles describing these individual features.
 
 | Feature                                                                                      | Consumption | Developer      | Basic          | Standard       | Premium        |
