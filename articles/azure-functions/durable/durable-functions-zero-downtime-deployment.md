@@ -10,8 +10,8 @@ ms.devlang: multiple
 ms.topic: overview
 ms.date: 04/15/2019
 ms.author: azfuncdf
-#Customer intent: As a < type of user >, I want < what? > so that < why? >.
----
+#Customer intent: As a Durable Functions user, I want to deploy with zero downtime so that updates don't interrupt my function app's execution.
+--- 
 # Zero downtime deployment for Durable Functions
 Durable Functions' [reliable execution model](durable-functions-checkpointing-and-replay.md) requires that orchestrations be deterministic. This creates an additional challenge to consider when deploying updates. If a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances will fail. This is especially a problem for instances of long-running orchestrations, which may represent hours or days of work.
 
