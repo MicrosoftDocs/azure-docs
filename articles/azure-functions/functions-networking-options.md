@@ -99,7 +99,7 @@ To learn more about using virtual network integration, see [Integrate a function
 
 Currently an App Service plan or App Service environment is the only way to configure function app triggers other than HTTP from within a virtual network. 
 
-To give an example, if you were to configure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure comos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Cosmos resource.
+To give an example, if you were to configure Azure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure comos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Azure Cosmos DB resource.
 
 Check [this list for all non-http triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
 
