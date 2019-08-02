@@ -100,7 +100,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Is the SQL VM resource provider available for all customers?**
  
-   Yes. All customers are able to register with the new SQL VM resource provider. However, only customers with the [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) benefit can activate the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) (or BYOL) on a SQL Server VM. 
+   Yes, as long as the SQL Server VM was deployed using the Resource Manager model, and not the classic model. All other customers are able to register with the new SQL VM resource provider. However, only customers with the [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3) benefit can use their own license by activating the [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/) on a SQL Server VM. 
 
 1. **What happens to the  _Microsoft.SqlVirtualMachine_ resource if the VM resource is moved or dropped?** 
 
