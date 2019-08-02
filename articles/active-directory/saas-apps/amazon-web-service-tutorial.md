@@ -22,187 +22,187 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Integrate Amazon Web Services (AWS) with Azure Active Directory
 
-In this tutorial, you'll learn how to integrate Amazon Web Services (AWS) with Azure Active Directory (Azure AD). When you integrate Amazon Web Services (AWS) with Azure AD, you can:
+In this tutorial, you'll learn how to integrate Amazon Web Services (AWS) with Azure Active Directory (Azure AD). When you integrate AWS with Azure AD, you can:
 
-* Control in Azure AD who has access to Amazon Web Services (AWS).
-* Enable your users to be automatically signed-in to Amazon Web Services (AWS) with their Azure AD accounts.
+* Control in Azure AD who has access to AWS.
+* Enable your users to be automatically signed-in to AWS with their Azure AD accounts.
 * Manage your accounts in one central location - the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-![Amazon Web Services (AWS)](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
+![Diagram of Azure AD and AWS relationship](./media/amazon-web-service-tutorial/tutorial_amazonwebservices_image.png)
 
-You can configure multiple Identifiers for multiple instances as below.
+You can configure multiple identifiers for multiple instances. For example:
 
 * `https://signin.aws.amazon.com/saml#1`
 
 * `https://signin.aws.amazon.com/saml#2`
 
-With these values, Azure AD will remove the value of **#** and send the correct value `https://signin.aws.amazon.com/saml` as the Audience URL in the SAML Token.
+With these values, Azure AD removes the value of **#**, and sends the correct value `https://signin.aws.amazon.com/saml` as the audience URL in the SAML token.
 
-**We recommend to use this approach for the following reasons:**
+We recommend this approach for the following reasons:
 
-a. Each application will provide you a unique X509 certificate. Each instance of AWS App instance can then have a different certificate expiry date which can be managed on an individual AWS account basis. Overall certificate rollover will be easier in this case.
+- Each application provides you with a unique X509 certificate. Each instance of an AWS app instance can then have a different certificate expiry date, which can be managed on an individual AWS account basis. Overall certificate rollover is easier in this case.
 
-b. You can enable User Provisioning with AWS app in Azure AD and then our service will fetch all the roles from that AWS account. You don’t have to manually add or update the AWS roles on the app.
+- You can enable user provisioning with an AWS app in Azure AD, and then our service fetches all the roles from that AWS account. You don’t have to manually add or update the AWS roles on the app.
 
-c. You can assign the app owner individually for the app who can manage the app directly in Azure AD.
+- You can assign the app owner individually for the app. This person can manage the app directly in Azure AD.
 
 > [!Note]
-> Make sure you use only Gallery App
+> Make sure you use a gallery application only.
 
 ## Prerequisites
 
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Amazon Web Services (AWS) single sign-on (SSO) enabled subscription.
+* An AWS single sign-on (SSO) enabled subscription.
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment. Amazon Web Services (AWS) supports **SP and IDP** initiated SSO.
+In this tutorial, you configure and test Azure AD SSO in a test environment. AWS supports **SP and IDP** initiated SSO.
 
-## Adding Amazon Web Services (AWS) from the gallery
+## Add AWS from the gallery
 
-To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
+To configure the integration of AWS into Azure AD, you need to add AWS from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
+1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
-1. Navigate to **Enterprise Applications** and then select **All Applications**.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
-1. Select **Amazon Web Services (AWS)** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
+1. Select **Amazon Web Services (AWS)** from the results panel, and then add the app. Wait a few seconds while the app is added to your tenant.
 
 ## Configure and test Azure AD single sign-on
 
-Configure and test Azure AD SSO with Amazon Web Services (AWS) using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS).
+Configure and test Azure AD SSO with AWS by using a test user called **B.Simon**. For SSO to work, you need to establish a linked relationship between an Azure AD user and the related user in AWS.
 
-To configure and test Azure AD SSO with Amazon Web Services (AWS), complete the following building blocks:
+To configure and test Azure AD SSO with AWS, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure Amazon Web Services (AWS)](#configure-amazon-web-services-aws)** to configure the SSO settings on application side.
+2. **[Configure AWS](#configure-amazon-web-services-aws)** to configure the SSO settings on the application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
-5. **[Create Amazon Web Services (AWS) test user](#create-amazon-web-services-aws-test-user)** to have a counterpart of B.Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of user.
+5. **[Create an AWS test user](#create-amazon-web-services-aws-test-user)** to have a counterpart of B.Simon in AWS who is linked to the Azure AD representation of the user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Amazon Web Services (AWS)** application integration page, find the **Manage** section and select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **Amazon Web Services (AWS)** application integration page, find the **Manage** section, and select **Single sign-on**.
 1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. On the **Set up Single Sign-On with SAML** page, select the pen icon for **Basic SAML Configuration** to edit the settings.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Screenshot of Set up Single Sign-On with SAML page, with pen icon highlighted](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
+4. On the **Basic SAML Configuration** section, the application is pre-configured, and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by selecting **Save**.
 
-5. When you are configuring more than one instance, please provide Identifier value. From second instance onwards, please provide Identifier value in following format. Please use a **#** sign to specify a unique SPN value.
+5. When you are configuring more than one instance, provide an identifier value. From second instance onwards, use the following format, including a **#** sign to specify a unique SPN value.
 
 	`https://signin.aws.amazon.com/saml#2`
 
-6. Amazon Web Services (AWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+6. The AWS application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Select the pen icon to open the User Attributes dialog box.
 
-	![image](common/edit-attribute.png)
+	![Screenshot of User Attributes dialog box, with the pen icon highlighted](common/edit-attribute.png)
 
-7. In addition to above, Amazon Web Services (AWS) application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
+7. In addition to the preceding attributes, the AWS application expects few more attributes to be passed back in the SAML response. In the **User Claims** section on the **User Attributes** dialog box, perform the following steps to add the SAML token attribute.
 
-	| Name  | Source Attribute  | Namespace |
+	| Name  | Source attribute  | Namespace |
 	| --------------- | --------------- | --------------- |
 	| RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
 	| Role 			  | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
 	| SessionDuration 			  | "provide a value between 900 seconds (15 minutes) to 43200 seconds (12 hours)" |  https://aws.amazon.com/SAML/Attributes |
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+	a. Select **Add new claim** to open the **Manage user claims** dialog box.
 
-	![image](common/new-save-attribute.png)
+	![Screenshot of User claims section, with Add new claim and Save highlighted](common/new-save-attribute.png)
 
-	![image](common/new-attribute-details.png)
+	![Screenshot of Manage user claims dialog box](common/new-attribute-details.png)
 
-	b. In the **Name** textbox, type the attribute name shown for that row.
+	b. In **Name**, type the attribute name shown for that row.
 
-	c. In the **Namespace** textbox, type the Namespace value shown for that row.
+	c. In **Namespace**, type the namespace value shown for that row.
 
-	d. Select Source as **Attribute**.
+	d. In **Source**, select **Attribute**.
 
 	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Click **Ok**
+	f. Select **Ok**
 
-	g. Click **Save**.
+	g. Select **Save**.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, find **Federation Metadata XML**. Select **Download** to download the certificate and save it on your computer.
 
-   ![The Certificate download link](common/metadataxml.png)
+   ![Screenshot of SAML Signing Certificate section, with Download highlighted](common/metadataxml.png)
 
-1. On the **Set up Amazon Web Services (AWS)** section, copy the appropriate URL(s) based on your requirement.
+1. In the **Set up Amazon Web Services (AWS)** section, copy the appropriate URLs, based on your requirement.
 
-   ![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Screenshot of Set up Amazon Web Service (AWS) section, with configuration URLs highlighted](common/copy-configuration-urls.png)
 
-### Configure Amazon Web Services (AWS)
+### Configure AWS
 
-1. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
+1. In a different browser window, sign-on to your AWS company site as an administrator.
 
-2. Click **AWS Home**.
+2. Select **AWS Home**.
 
-    ![Configure Single Sign-On home][11]
+    ![Screenshot of AWS company site, with AWS Home icon highlighted][11]
 
-3. Click **Identity and Access Management**.
+3. Select **Identity and Access Management**.
 
-    ![Configure Single Sign-On Identity][12]
+    ![Screenshot of AWS services page, with IAM highlighted][12]
 
-4. Click **Identity Providers**, and then click **Create Provider**.
+4. Select **Identity Providers** > **Create Provider**.
 
-    ![Configure Single Sign-On Provider][13]
+    ![Screenshot of IAM page, with Identity Providers and Create Provider highlighted][13]
 
-5. On the **Configure Provider** dialog page, perform the following steps:
+5. On the **Configure Provider** page, perform the following steps:
 
-    ![Configure Single Sign-On dialog][14]
+    ![Screenshot of Configure Provider][14]
 
-	a. As **Provider Type**, select **SAML**.
+	a. For **Provider Type**, select **SAML**.
 
-	b. In the **Provider Name** textbox, type a provider name (for example: *WAAD*).
+	b. For **Provider Name**, type a provider name (for example: *WAAD*).
 
-	c. To upload your downloaded **metadata file** from Azure portal, click **Choose File**.
+	c. To upload your downloaded **metadata file** from the Azure portal, select **Choose File**.
 
-	d. Click **Next Step**.
+	d. Select **Next Step**.
 
-6. On the **Verify Provider Information** dialog page, click **Create**.
+6. On the **Verify Provider Information** page, select **Create**.
 
-    ![Configure Single Sign-On Verify][15]
+    ![Screenshot of Verify Provider Information, with Create highlighted][15]
 
-7. Click **Roles**, and then click **Create role**.
+7. Select **Roles** > **Create role**.
 
-    ![Configure Single Sign-On Roles][16]
+    ![Screenshot of Roles page][16]
 
 8. On the **Create role** page, perform the following steps:  
 
-    ![Configure Single Sign-On Trust][19]
+    ![Screenshot of Create role page][19]
 
-    a. Select **SAML 2.0 federation** under **Select type of trusted entity**.
+    a. Under **Select type of trusted entity**, select **SAML 2.0 federation** .
 
-	b. Under **Choose a SAML 2.0 Provider section**, select the **SAML provider** you have created previously (for example: *WAAD*)
+	b. Under **Choose a SAML 2.0 Provider**, select the **SAML provider** you created previously (for example: *WAAD*).
 
 	c. Select **Allow programmatic and AWS Management Console access**.
   
-    d. Click **Next: Permissions**.
+    d. Select **Next: Permissions**.
 
-9. On the **Attach Permissions Policies** dialog, please attach appropriate policy as per your organization. Click **Next: Review**.  
+9. On the **Attach permissions policies** dialog box, attach the appropriate policy, per your organization. Then select **Next: Review**.  
 
-    ![Configure Single Sign-On Policy][33]
+    ![Screenshot of Attach permissions policy dialog box][33]
 
-10. On the **Review** dialog, perform the following steps:
+10. On the **Review** dialog box, perform the following steps:
 
-    ![Configure Single Sign-On Review][34]
+    ![Screenshot of Review dialog box][34]
 
-	a. In the **Role name** textbox, enter your Role name.
+	a. In **Role name**, enter your role name.
 
-	b. In the **Role description** textbox, enter the description.
+	b. In **Role description**, enter the description.
 
-    c. Click **Create Role**.
+    c. Select **Create role**.
 
-    d. Create as many roles as needed and map them to the Identity Provider.
+    d. Create as many roles as needed, and map them to the identity provider.
 
 11. Use AWS service account credentials for fetching the roles from AWS account in Azure AD User Provisioning. For this, open the AWS console home.
 
