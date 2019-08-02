@@ -21,14 +21,14 @@ In addition to the data they contain, Blobs support system properties and user-d
 
 - **User-defined metadata**: User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
-Retrieving metadata and property values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the **FetchAttributes** or **FetchAttributesAsync** method. The exception to this rule is that the **Exists** and **ExistsAsync** methods call the appropriate **FetchAttributes** method under the covers. When you call one of these methods, you don't need to also call **FetchAttributes**.
+Retrieving metadata and property values for a Blob storage resource is a two-step process. Before you can read these values, you must explicitly fetch them by calling the `FetchAttributes` or `FetchAttributesAsync` method. The exception to this rule is that the `Exists` and `ExistsAsync` methods call the appropriate `FetchAttributes` method under the covers. When you call one of these methods, you don't need to also call `FetchAttributes`.
 
 > [!IMPORTANT]
-> If you find that property or metadata values for a storage resource have not been populated, check that your code calls the **FetchAttributes** or **FetchAttributesAsync** method.
+> If you find that property or metadata values for a storage resource have not been populated, check that your code calls the `FetchAttributes` or `FetchAttributesAsync` method.
 
 ## Set and retrieve properties
 
-The following code example sets the *ContentType* and *ContentLanguage* system properties on a blob.
+The following code example sets the `ContentType` and `ContentLanguage` system properties on a blob.
 
 ```csharp
 public static async Task SetBlobPropertiesAsync(CloudBlob blob)
@@ -56,7 +56,7 @@ public static async Task SetBlobPropertiesAsync(CloudBlob blob)
 }
 ```
 
-To retrieve blob properties, call the **FetchAttributes** or **FetchAttributesAsync** method on your blob to populate the **Properties** property. The following code example gets a blob's system properties and displays some of the values:
+To retrieve blob properties, call the `FetchAttributes` or `FetchAttributesAsync` method on your blob to populate the `Properties` property. The following code example gets a blob's system properties and displays some of the values:
 
 ```csharp
 private static async Task GetBlobPropertiesAsync(CloudBlob blob)
@@ -85,7 +85,7 @@ private static async Task GetBlobPropertiesAsync(CloudBlob blob)
 
 ## Set and retrieve metadata
 
-You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource. Then, call one of the following methods to write the values:
+You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the `Metadata` collection on the resource. Then, call one of the following methods to write the values:
 
 - [SetMetadata](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadata)
 - [SetMetadataAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.setmetadataasync)
@@ -94,7 +94,7 @@ Metadata name/value pairs are valid HTTP headers and should adhere to all restri
 
 The name of your metadata must conform to the naming conventions for C# identifiers. Metadata names maintain the case used when they were created, but are case-insensitive when set or read. If two or more metadata headers using the same name are submitted for a resource, Azure Blob storage returns HTTP error code 400 (Bad Request).
 
-The following code example sets metadata on a blob. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax.
+The following code example sets metadata on a blob. One value is set using the collection's `Add` method. The other value is set using implicit key/value syntax.
 
 ```csharp
 public static async Task AddBlobMetadataAsync(CloudBlob blob)
@@ -121,7 +121,7 @@ public static async Task AddBlobMetadataAsync(CloudBlob blob)
 }
 ```
 
-To retrieve metadata, call the **FetchAttributes** or **FetchAttributesAsync** method on your blob or container to populate the **Metadata** collection, then read the values, as shown in the example below.
+To retrieve metadata, call the `FetchAttributes` or `FetchAttributesAsync` method on your blob or container to populate the `Metadata` collection, then read the values, as shown in the example below.
 
 ```csharp
 public static async Task ReadBlobMetadataAsync(CloudBlob blob)
