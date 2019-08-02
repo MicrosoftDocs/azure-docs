@@ -195,7 +195,7 @@ These three APIs provide a multitude of opportunities to retrieve information ab
 
 ### Get all of the offline risk detections (riskDetection API)
 
-With Identity Protection sign-in risk policies you can apply conditions when risk is detected in real-time. But what about detections that are discovered offline (or non real-time)? To understand what detections occured offline, and thus would not have triggered the sign-in risk policy, you can query the riskDetection API.
+With Identity Protection sign-in risk policies you can apply conditions when risk is detected in real-time. But what about detections that are discovered offline (or non real-time)? To understand what detections occurred offline, and thus would not have triggered the sign-in risk policy, you can query the riskDetection API.
 
 ```
 GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
