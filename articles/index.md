@@ -2326,7 +2326,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <p>Real-time analytics on fast moving streams of data from applications and devices</p>
                                                 </div>
                                             </div>
                                         </div>
