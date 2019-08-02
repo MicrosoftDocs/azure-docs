@@ -95,6 +95,13 @@ Follow these steps to set up your security info for your work or school account 
 
     ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
 
+## Optional App password method
+
+If your organization still requires you to use apps that don't yet support two-factor verification, you can create your app passwords as part of this sign-in page prompt.
+
+>[!Note]
+>If you don't see this option, it means that your administrator hasn't set it up. If this isn't set up, but you know you need to use app passwords, you can follow the steps in the [Set up app passwords from the Security info (preview) page](security-info-app-passwords.md).
+
 ## Next steps
 
 - To change, delete, or update default security info methods, see:
