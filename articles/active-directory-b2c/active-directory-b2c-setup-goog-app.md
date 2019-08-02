@@ -31,10 +31,11 @@ To use a Google account as an [identity provider](active-directory-b2c-reference
 ## Configure a Google account as an identity provider
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
-1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
-1. Select **Identity providers**, then select **Google**.
-1. Enter a **Name**. For example, *Google*.
-1. For the **Client ID**, enter the Client ID of the Google application that you created earlier.
-1. For the **Client secret**, enter the Client Secret that you recorded.
-1. Select **Save**.
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+4. Select **Identity providers**, and then select **Add**.
+5. Enter a **Name**. For example, enter *Google*.
+6. Select **Identity provider type**, select **Google**, and click **OK**.
+7. Select **Set up this identity provider** and enter the Client ID that you recorded earlier as the **Client ID** and enter the Client Secret that you recorded as the **Client secret** of the Google application that you created earlier.
+8. Click **OK** and then click **Create** to save your Google configuration.
+
