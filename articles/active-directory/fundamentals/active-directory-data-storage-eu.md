@@ -26,6 +26,8 @@ For customers who provided an address in Europe, Azure AD keeps most of the iden
 - Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor specific services may also come into play and these services maybe outside Europe.
 - OATH codes are always validated in the U.S. 
 
+For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+
 ## Microsoft Azure Active Directory B2C (Azure AD B2C)
 
 Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
