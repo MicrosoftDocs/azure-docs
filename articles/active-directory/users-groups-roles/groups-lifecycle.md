@@ -102,7 +102,7 @@ Here are examples of how you can use PowerShell cmdlets to configure the expirat
 
 1. Install the PowerShell v2.0 module and sign in at the PowerShell prompt:
 
-``` PowerShell
+   ``` PowerShell
    Install-Module -Name AzureAD
    Connect-AzureAD
    ```
