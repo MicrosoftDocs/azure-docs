@@ -10,7 +10,7 @@ services: iot-central
 manager: philmea
 ---
 
-# View your bill in IoT Central application
+# View your bill in an IoT Central application
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -22,7 +22,7 @@ To access and use the **Administration** section, you must be in the **Administr
 
 To view your bill, go to the **Billing** page in the **Administration** section. The Azure billing page opens in a new tab, where you can see the bill for each of your Azure IoT Central applications.
 
-## Convert your Trial to Pay-As-You-Go
+## Convert your trial to pay-as-you-go
 
 - **Trial** applications are free for seven days before they expire. They can be converted to Pay-As-You-Go at any time before they expire.
 - **Pay-As-You-Go** applications are charged per device, with the first five devices free, per subscription.
