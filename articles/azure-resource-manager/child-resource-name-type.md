@@ -129,9 +129,6 @@ The following example shows a virtual network and subnet that are both defined a
 
 ## Next steps
 
-* To go through a tutorial, see [Tutorial: create Azure Resource Manager templates with dependent resources](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
-* For recommendations when setting dependencies, see [Azure Resource Manager template best practices](template-best-practices.md).
-
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
-* For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
 
+* To learn about the format of the resource name when referencing the resource, see the [reference function](resource-group-template-functions-resource.md#reference).
