@@ -131,19 +131,20 @@ This scenario covers a single workspace design in your IT organizations subscrip
 
 All resources, monitoring solutions, and Insights such as Application Insights and Azure Monitor for VMs, supporting infrastructure and applications maintained by the different teams are configured to forward their collected log data to the IT organizations centralized shared workspace. Users on each team are granted access to logs for resources they have been given access to.
 
-### Workspace consolidation migration strategy
+Once you have deployed your workspace architecture, you can enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). It provides a way to define policies and ensure compliance with your Azure resources so they send all their diagnostic logs to a particular workspace. For example, with Azure virtual machines or virtual machine scale sets, you can use existing policies that evaluate workspace compliance and report results, or customize to remediate if non-compliant.  
+
+## Workspace consolidation migration strategy
 
 For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you take an incremental approach to migrate to the recommended access model, and you don't attempt to achieve this quickly or aggressively. Following a phased approach to plan,  migrate, validate, and retire following a reasonable timeline will help avoid any unplanned incidents or unexpected impact to your cloud operations. If your timetable is 60 days for example, set this as the retention limit for the workspace you are migrating from. While you are reconfiguring resources to report to the shared workspace, you can still analyze the data in the original workspace as necessary and once the migration is complete, you can delete it.  
 
 While planning your migration to this model, consider the following:
 
 * Make sure that your application teams can work within the existing resource-context functionality.
+* 
 * Validate that your application teams have been granted proper access to their resources.
-* Configure the workspace to enable resource-only permissions.
+* Configure the workspace to enable **Use resource or workspace permissions**.
 * Remove application teams permission to read and query the workspace.
 * Enable and configure any monitoring solutions, Insights such as Azure Monitor for containers and/or Azure Monitor for VMs, your Automation account(s), and management solutions such as Update Management, Start/Stop VMs, etc., that were deployed in the original workspace.
-
-Once you have deployed your workspace architecture, you should enforce this on Azure resources with [Azure Policy](../../governance/policy/overview.md). This can provide a built-in definition that would automatically apply to all Azure resources. For example, you could set a policy to ensure that all your Azure resources in a particular region send all their diagnostic logs to a particular workspace.
 
 ## Next steps
 
