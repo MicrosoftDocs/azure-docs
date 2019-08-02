@@ -94,12 +94,12 @@ Learn more and see an example of [automated machine learning for time series for
 
 ## <a name="ensemble"></a> Ensemble models
 
-Automated machine learning supports ensemble models, which are enabled by default. Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. The ensemble iteration appears as the last iteration of your run. Automated machine learning uses both voting and stacking ensemble methods for combining models:
+Automated machine learning supports ensemble models, which are enabled by default. Ensemble learning improves machine learning results and predictive performance by combining multiple models as opposed to using single models. The ensemble iteration appears as the final iterations of your run. Automated machine learning uses both voting and stacking ensemble methods for combining models:
 
-* **Voting**: a soft-voting algorithm is used, which votes based on a weighted average of prediction probabilities.
-* **Stacking**: stacking combines heterogenous models and trains a meta-model based on the output from the individual models. The current default meta-models are          LogisticRegression for classification tasks and ElasticNet for regression/forecasting tasks.
+* **Voting**: predicts based on the weighted average of predicted class probabilities (for classification tasks) or predicted regression targets (for regression tasks).
+* **Stacking**: stacking combines heterogenous models and trains a meta-model based on the output from the individual models. The current default meta-models are LogisticRegression for classification tasks and ElasticNet for regression/forecasting tasks.
 
-The ensemble selector uses the [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization. At a high level, this algorithm initializes the ensemble with up to 5 models with the best individual scores, and verifies that these models are within 5% accuracy to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
+The [Caruana ensemble selection algorithm](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) with sorted ensemble initialization is used to decide which models to use within the ensemble. At a high level, this algorithm initializes the ensemble with up to 5 models with the best individual scores, and verifies that these models are within 5% accuracy to avoid a poor initial ensemble. Then for each ensemble iteration, a new model is added to the existing ensemble and the resulting score is calculated. If a new model improved the existing ensemble score, the ensemble is updated to include the new model.
 
 See the [how-to](how-to-configure-auto-train.md#ensemble) for changing default ensemble settings in automated machine learning.
 
