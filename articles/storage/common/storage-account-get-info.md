@@ -13,33 +13,33 @@ ms.topic: article
 
 # Get storage account type and SKU name with .NET
 
-The Get Account Information operation returns the sku name and account kind for the specified account.
-The Get Account Information operation is available on service versions beginning with version 2018-03-28.
-
 This article shows how to get Azure Storage account type and SKU using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+To get the storage account type and SKU name associated with a blob, call the [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) or [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) method.
+
+Account information is available on service versions beginning with version 2018-03-28.
 
 ## About account type and SKU
 
-- **Account type**: Valid account types include Storage, BlobStorage, StorageV2, FileStorage, BlockBlobStorage
+**Account type**: Valid account types include Storage, BlobStorage, StorageV2, FileStorage, BlockBlobStorage. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of different storage account types.
 
-- **SKU name**: Valid SKU names include Standard_LRS, Standard_GRS, Standard_RAGRS, Standard_ZRS, Premium_LRS, Premium_ZRS, Standard_GZRS, and Standard_RAGZRS.
-
-## Notes
-
-- SKU type names are case-sensitive.
-- Prior to version 2016-01-01, 'SKU' was called 'accountType' and was found under the 'properties' envelope.
+**SKU name**: Valid SKU names include Premium_LRS, Premium_ZRS, Standard_GRS, Standard_GZRS, Standard_LRS, Standard_RAGRS, Standard_RAGZRS, and Standard_ZRS. SKU names are case-sensitive and are string fields in the [SkuName class](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
 ## Retrieve account information
 
-The following code example gets the read-only properties...
+The following code example gets the read-only account properties.
 
 ```csharp
-public static async Task GetStorageAccountPropertiesAsync(CloudStorageAccount account)
+private static async Task GetAccountInfoAsync(CloudBlob blob)
 {
     try
     {
-        Console.WriteLine("Getting account properties.");
+        // Get the blob's storage account properties.
+        AccountProperties acctProps = await blob.GetAccountPropertiesAsync();
 
+        // Display the properties.
+        Console.WriteLine("Account properties");
+        Console.WriteLine("  AccountKind: {0}", acctProps.AccountKind);
+        Console.WriteLine("      SkuName: {0}", acctProps.SkuName);
     }
     catch (StorageException e)
     {
