@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -26,7 +26,7 @@ Using Azure Active Directory (Azure AD) with an Azure AD Premium license plan, y
 > Group-based assignment is supported only for security groups.
 > Nested group memberships are not supported for group-based assignment to applications at this time.
 
-**To assign access for a user or group to a SaaS application**
+## To assign access for a user or group to a SaaS application
 
 1. In the [Azure AD admin center](https://aad.portal.azure.com), select **Enterprise applications**.
 2. Select an application that you added from the Application Gallery to open it.
@@ -35,7 +35,7 @@ Using Azure Active Directory (Azure AD) with an Azure AD Premium license plan, y
 6. Select as many groups or users as you want, then click or tap **Select** to add them to the **Add Assignment** list. You can also assign a role to a user at this stage.
 7. Select **Assign** to assign the users or groups to the selected enterprise application.
 
-### Next steps
+## Next steps
 These articles provide additional information on Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md)
