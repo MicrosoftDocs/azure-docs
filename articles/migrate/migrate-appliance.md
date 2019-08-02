@@ -198,8 +198,6 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 - You can change this default setting to update the agents manually.
 - To disable the auto-update, go to the Registry Editor>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance and set the registry key- "AutoUpdate" to 0 (DWORD).
  
-
-
 ### Set agent updates to manual
 
 For manual updates, make sure that you update all the agents on the appliance at the same time, using the **Update** button for each outdated agent on the appliance. You can switch the update setting back to automatic updates at any time.
