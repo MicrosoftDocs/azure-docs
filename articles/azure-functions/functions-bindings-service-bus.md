@@ -231,7 +231,7 @@ A ServiceBus binding is defined in *function.json* where *type* is set to `servi
 }
 ```
 
-The code *__init__.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
 
 ```python
 import azure.functions as func
@@ -644,7 +644,7 @@ A ServiceBue binding definition is defined in *function.json* where *type* is se
 }
 ```
 
-In *__init__.py*, you can write out a message to the queue by passing a value to the `set` method.
+In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
 
 ```python
 import azure.functions as func
