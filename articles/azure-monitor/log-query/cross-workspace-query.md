@@ -39,9 +39,6 @@ Identifying a workspace can be accomplished one of several ways:
 * Resource name - is a human-readable name of the workspace, sometimes referred to as *component name*. 
 
     `workspace("contosoretail-it").Update | count`
- 
-    >[!NOTE]
-    >Identifying a workspace by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
 * Qualified name - is the “full name” of the workspace, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 
@@ -70,6 +67,9 @@ Identifying an application in Application Insights can be accomplished with the 
 * Resource name - is a human readable name of the app, sometimes referred to as the *component name*.  
 
     `app("fabrikamapp")`
+
+    >[!NOTE]
+    >Identifying an application by name assumes uniqueness across all accessible subscriptions. If you have multiple applications with the specified name, the query fails because of the ambiguity. In this case, you must use one of the other identifiers.
 
 * Qualified name - is the “full name” of the app, composed of the subscription name, resource group, and component name in this format: *subscriptionName/resourceGroup/componentName*. 
 

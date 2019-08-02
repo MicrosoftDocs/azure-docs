@@ -2,47 +2,41 @@
 title: Real-time Twitter sentiment analysis with Azure Stream Analytics
 description: This article describes how to use Stream Analytics for real-time Twitter sentiment analysis. Step-by-step guidance from event generation to data on a live dashboard.
 services: stream-analytics
-author: jseb225
-ms.author: jeanb
+author: mamccrea
+ms.author: mamccrea
 ms.reviewer: jasonh
-manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/29/2017
+ms.date: 07/9/2019
 ---
 
 # Real-time Twitter sentiment analysis in Azure Stream Analytics
 
-> [!IMPORTANT] 
-> Twitter application creation is no longer available through [apps.twitter.com](https://apps.twitter.com/). This tutorial is in the process of being updated to include the new Twitter API.
+Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. Then write an Azure Stream Analytics query to analyze the data and store the results for later use or create a [Power BI](https://powerbi.com/) dashboard to provide insights in real time.
 
-Learn how to build a sentiment analysis solution for social media analytics by bringing real-time Twitter events into Azure Event Hubs. You can then write an Azure Stream Analytics query to analyze the data and either store the results for later use or use a dashboard and [Power BI](https://powerbi.com/) to provide insights in real time.
+Social media analytics tools help organizations understand trending topics. Trending topics are subjects and attitudes that have a high volume of posts on social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product or idea. 
 
-Social media analytics tools help organizations understand trending topics. Trending topics are subjects and attitudes that have a high volume of posts in social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product, idea, and so on. 
-
-Real-time Twitter trend analysis is a great example of an analytics tool, because the hashtag subscription model enables you to listen to specific keywords (hashtags) and develop sentiment analysis of the feed.
+Real-time Twitter trend analysis is a great example of an analytics tool because the hashtag subscription model enables you to listen to specific keywords (hashtags) and develop sentiment analysis of the feed.
 
 ## Scenario: Social media sentiment analysis in real time
 
 A company that has a news media website is interested in gaining an advantage over its competitors by featuring site content that is immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis of Twitter data.
 
-To identify trending topics in real time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics. In other words, the need is a sentiment analysis analytics engine that's based on this social media feed.
+To identify trending topics in real time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics.
 
 ## Prerequisites
-In this tutorial, you use a client application that connects to Twitter and looks for tweets that have certain hashtags (which you can set). In order to run the application and analyze the tweets using Azure Streaming Analytics, you must have the following:
+In this how-to guide, you use a client application that connects to Twitter and looks for tweets that have certain hashtags (which you can set). To run the application and analyze the tweets using Azure Streaming Analytics, you must have the following:
 
-* An Azure subscription
-* A Twitter account 
-* A Twitter application, and the [OAuth access token](https://dev.twitter.com/oauth/overview/application-owner-access-tokens) for that application. We provide high-level instructions for how to create a Twitter application later.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* A [Twitter](https://twitter.com) account.
 * The TwitterWPFClient application, which reads the Twitter feed. To get this application, download the [TwitterWPFClient.zip](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/TwitterClient/TwitterWPFClient.zip) file from GitHub and then unzip the package into a folder on your computer. If you want to see the source code and run the application in a debugger, you can get the source code from [GitHub](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TwitterClient). 
 
 ## Create an event hub for Streaming Analytics input
 
 The sample application generates events and pushes them to an Azure event hub. Azure event hubs are the preferred method of event ingestion for Stream Analytics. For more information, see the [Azure Event Hubs documentation](../event-hubs/event-hubs-what-is-event-hubs.md).
 
-
 ### Create an event hub namespace and event hub
-In this procedure, you first create an event hub namespace, and then you add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
+Create an event hub namespace, and then add an event hub to that namespace. Event hub namespaces are used to logically group related event bus instances. 
 
 1. Log  in to the Azure portal and click **Create a resource** > **Internet of Things** > **Event Hub**. 
 
@@ -108,27 +102,26 @@ Before a process can send data to an event hub, the event hub must have a policy
 The client application gets tweet events directly from Twitter. In order to do so, it needs permission to call the Twitter Streaming APIs. To configure that permission, you create an application in Twitter, which generates unique credentials (such as an OAuth token). You can then configure the client application to use these credentials when it makes API calls. 
 
 ### Create a Twitter application
-If you do not already have a Twitter application that you can use for this tutorial, you can create one. You must already have a Twitter account.
+If you do not already have a Twitter application that you can use for this how-to guide, you can create one. You must already have a Twitter account.
 
 > [!NOTE]
 > The exact process in Twitter for creating an application and getting the keys, secrets, and token might change. If these instructions don't match what you see on the Twitter site, refer to the Twitter developer documentation.
 
-1. Go to the [Twitter application management page](https://apps.twitter.com/). 
+1. From a web browser, go to [Twitter For Developers](https://developer.twitter.com/en/apps), and select **Create an app**. You might see a message saying that you need to apply for a Twitter developer account. Feel free to do so, and after your application has been approved you should see a confirmation email. It could take several days to be approved for a developer account.
 
-2. Create a new application. 
+   ![Twitter developer account confirmation](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-dev-confirmation.png "Twitter developer account confirmation")
 
-   * For the website URL, specify a valid URL. It does not have to be a live site. (You can't specify just `localhost`.)
-   * Leave the callback field blank. The client application you use for this tutorial doesn't require callbacks.
+   ![Twitter application details](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter application details")
 
-     ![Creating an application in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+2. In the **Create an application** page, provide the details for the new app, and then select **Create your Twitter application**.
 
-3. Optionally, change the application's permissions to read-only.
+   ![Twitter application details](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter application details")
 
-4. When the application is created, go to the **Keys and Access Tokens** page.
+3. In the application page, select the **Keys and Tokens** tab and copy the values for **Consumer API Key** and **Consumer API Secret Key**. Also, select **Create** under **Access Token and Access Token Secret** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
-5. Click the button to generate an access token and access token secret.
+    ![Twitter application details](./media/stream-analytics-twitter-sentiment-analysis-trends/twitter-app-key-secret.png "Twitter application details")
 
-Keep this information handy, because you will need it in the next procedure.
+Save the values that you retrieved for the Twitter application. You need the values later in the how-to.
 
 >[!NOTE]
 >The keys and secrets for the Twitter application provide access to your Twitter account. Treat this information as sensitive, the same as you do your Twitter password. For example, don't embed this information in an application that you give to others. 
@@ -227,7 +220,7 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
 
 ## Specify the job query
 
-Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  This tutorial helps you author and test several queries over Twitter data.
+Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference).  This how-to guide helps you author and test several queries over Twitter data.
 
 To compare the number of mentions among topics, you can use a [Tumbling window](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics) to get the count of mentions by topic every five seconds.
 
@@ -287,7 +280,7 @@ The following table lists the fields that are part of the JSON streaming data. F
 
 You have now defined an event stream, an event hub input to ingest events, and a query to perform a transformation over the stream. The last step is to define an output sink for the job.  
 
-In this tutorial, you write the aggregated tweet events from the job query to Azure Blob storage.  You can also push your results to Azure SQL Database, Azure Table storage, Event Hubs, or Power BI, depending on your application needs.
+In this how-to guide, you write the aggregated tweet events from the job query to Azure Blob storage.  You can also push your results to Azure SQL Database, Azure Table storage, Event Hubs, or Power BI, depending on your application needs.
 
 ## Specify the job output
 
@@ -345,7 +338,7 @@ You can use a tool like [Azure Storage Explorer](https://storageexplorer.com/) o
 
 Another query you can use to understand Twitter sentiment is based on a [Sliding Window](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics). To identify trending topics, you look for topics that cross a threshold value for mentions in a specified amount of time.
 
-For the purposes of this tutorial, you check for topics that are mentioned more than 20 times in the last 5 seconds.
+For the purposes of this how-to, you check for topics that are mentioned more than 20 times in the last 5 seconds.
 
 1. In the job blade, click **Stop** to stop the job. 
 

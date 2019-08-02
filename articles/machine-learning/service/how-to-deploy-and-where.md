@@ -53,7 +53,7 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 + **Using the CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
   > [!TIP]
@@ -363,7 +363,8 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 ## Consume web services
 
 Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
-If you have enabled authentication for your service, you need to provide a service key as a token in your request header.
+If you have enabled key authentication for your service, you need to provide a service key as a token in your request header.
+If you have enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
 
 ### Request-response consumption
 
@@ -376,6 +377,8 @@ headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+elif service.token_auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_token()[0]
 
 print(headers)
 
