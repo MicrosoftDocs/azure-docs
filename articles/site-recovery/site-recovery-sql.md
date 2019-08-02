@@ -6,7 +6,7 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 06/30/2019
+ms.date: 08/02/2019
 ms.author: sutalasi
 
 ---
@@ -34,7 +34,7 @@ SQL Server on an Azure IaaS VM or at on-premises.| [Failover clustering (Always 
 SQL Server on an Azure IaaS VM or at on-premises.| [Database mirroring (high-performance mode)](https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server?view=sql-server-2017) | The time taken to force the service, which uses the mirror server as a warm standby server. | Replication is asynchronous. The mirror database might lag somewhat behind the principal database. The lag is typically small. But it can become large if the principal or mirror server's system is under a heavy load.<br/><br/>Log shipping can be a supplement to database mirroring. It's a favorable alternative to asynchronous database mirroring.
 SQL as platform as a service (PaaS) on Azure.<br/><br/>This deployment type includes elastic pools and Azure SQL Database servers. | Active geo-replication | 30 seconds after failover is triggered.<br/><br/>When failover is activated for one of the secondary databases, all other secondaries are automatically linked to the new primary. | RPO of five seconds.<br/><br/>Active geo-replication uses the Always On technology of SQL Server. It asynchronously replicates committed transactions on the primary database to a secondary database by using snapshot isolation.<br/><br/>The secondary data is guaranteed to never have partial transactions.
 SQL as PaaS configured with active geo-replication on Azure.<br/><br/>This deployment type includes a SQL Database managed instance, elastic pools, and SQL Database servers. | Auto-failover groups | RTO of one hour. | RPO of five seconds.<br/><br/>Auto-failover groups provide the group semantics on top of active geo-replication. But the same asynchronous replication mechanism is used.
-SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site Recovery | RTO is typically less than 15 minutes. To learn more, read the [RTO SLA provided by Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | One hour for application consistency and five minutes for crash consistency.
+SQL Server on an Azure IaaS VM or at on-premises.| Replication with Azure Site Recovery | RTO is typically less than 15 minutes. To learn more, read the [RTO SLA provided by Site Recovery](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). | One hour for application consistency and five minutes for crash consistency. If you are looking for lower RPO, use other BCDR technologies.
 
 > [!NOTE]
 > A few important considerations when you're helping to protect SQL workloads with Site Recovery:

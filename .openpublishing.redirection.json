@@ -25215,9 +25215,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md",
-      "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal",
-      "redirect_document_id": true
+      "source_path": "articles/data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md",
+      "redirect_url": "/azure/data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/data-factory/data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md",
@@ -25510,7 +25510,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/data-factory/data-factory-spark.md",
+    "source_path": "articles/data-factory/data-factory-spark.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-spark",
       "redirect_document_id": true
     },

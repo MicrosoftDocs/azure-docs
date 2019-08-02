@@ -35,7 +35,7 @@ If you prefer a no code experience, you can also [Create your automated machine 
 
 Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports task types of classification, regression and forecasting.
 
-Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm. 
+Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 
 Classification | Regression | Time Series Forecasting
 |-- |-- |--
@@ -99,7 +99,7 @@ Here is an example of using `datastore`:
 ```python
     import pandas as pd
     from sklearn import datasets
-    
+
     data_train = datasets.load_digits()
 
     pd.DataFrame(data_train.data[100:,:]).to_csv("data/X_train.csv", index=False)
@@ -109,7 +109,7 @@ Here is an example of using `datastore`:
     ds.upload(src_dir='./data', target_path='digitsdata', overwrite=True, show_progress=True)
 ```
 
-### Define deprep references
+### Define dprep references
 
 Define X and y as dprep reference, which will be passed to automated machine learning `AutoMLConfig` object similar to below:
 
@@ -117,8 +117,8 @@ Define X and y as dprep reference, which will be passed to automated machine lea
 
     X = dprep.auto_read_file(path=ds.path('digitsdata/X_train.csv'))
     y = dprep.auto_read_file(path=ds.path('digitsdata/y_train.csv'))
-    
-    
+
+
     automl_config = AutoMLConfig(task = 'classification',
                                  debug_log = 'automl_errors.log',
                                  path = project_folder,
@@ -248,9 +248,60 @@ automl_config = AutoMLConfig(task='forecasting',
                              **time_series_settings)
 ```
 
+### <a name="ensemble"></a> Ensemble configuration
+
+Ensemble models are enabled by default, and appear as the final run iterations in an automated machine learning run. Currently supported ensemble methods are voting and stacking. Voting is implemented as soft-voting using weighted averages, and the stacking implementation is using a 2 layer implementation, where the first layer has the same models as the voting ensemble, and the second layer model is used to find the optimal combination of the models from the first layer. If you are using ONNX models, **or** have model-explainability enabled, stacking will be disabled and only voting will be utilized.
+
+There are multiple default arguments that can be provided as `kwargs` in an `AutoMLConfig` object to alter the default stack ensemble behavior.
+
+* `stack_meta_learner_type`: the meta-learner is a model trained on the output of the individual heterogenous models. Default meta-learners are `LogisticRegression` for classification tasks (or `LogisticRegressionCV` if cross-validation is enabled) and `ElasticNet` for regression/forecasting tasks (or `ElasticNetCV` if cross-validation is enabled). This parameter can be one of the following strings: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`, or `LinearRegression`.
+* `stack_meta_learner_train_percentage`: specifies the proportion of the training set (when choosing train and validation type of training) to be reserved for training the meta-learner. Default value is `0.2`.
+* `stack_meta_learner_kwargs`: optional parameters to pass to the initializer of the meta-learner. These parameters and parameter types mirror those from the corresponding model constructor, and are forwarded to the model constructor.
+
+The following code shows an example of specifying custom ensemble behavior in an `AutoMLConfig` object.
+
+```python
+ensemble_settings = {
+    "stack_meta_learner_type": "LogisticRegressionCV",
+    "stack_meta_learner_train_percentage": 0.3,
+    "stack_meta_learner_kwargs": {
+        "refit": True,
+        "fit_intercept": False,
+        "class_weight": "balanced",
+        "multi_class": "auto",
+        "n_jobs": -1
+    }
+}
+
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        **ensemble_settings
+        )
+```
+
+Ensemble training is enabled by default, but it can be disabled by using the `enable_voting_ensemble` and `enable_stack_ensemble` boolean parameters.
+
+```python
+automl_classifier = AutoMLConfig(
+        task='classification',
+        primary_metric='AUC_weighted',
+        iterations=20,
+        X=X_train,
+        y=y_train,
+        n_cross_validations=5,
+        enable_voting_ensemble=False,
+        enable_stack_ensemble=False
+        )
+```
+
 ## Run experiment
 
-For automated ML you will need to create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
+For automated ML you create an `Experiment` object, which is a named object in a `Workspace` used to run experiments.
 
 ```python
 from azureml.core.experiment import Experiment
