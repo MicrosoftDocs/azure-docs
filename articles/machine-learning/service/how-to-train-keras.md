@@ -1,7 +1,7 @@
 ---
-title: Train and register a Keras classification DNN model using Azure Machine Learning service.
+title: Train deep learning neural network with Keras
 titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a Keras DNN classification model running on TensorFlow using Azure Machine Learning service.
+description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,8 +9,10 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/07/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
+
+#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
 # Train and register a Keras classification model with Azure Machine Learning service
