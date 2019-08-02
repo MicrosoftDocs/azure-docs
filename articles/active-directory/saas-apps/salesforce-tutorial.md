@@ -46,6 +46,8 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Salesforce supports [**Automated** user provisioning](salesforce-provisioning-tutorial.md)
 
+* Salesforce Mobile application can now be configured with Azure AD for enabling SSO. In this tutorial, you configure and test Azure AD SSO in a test environment.
+
 ## Adding Salesforce from the gallery
 
 To configure the integration of Salesforce into Azure AD, you need to add Salesforce from the gallery to your list of managed SaaS apps.
