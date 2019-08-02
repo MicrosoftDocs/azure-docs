@@ -284,7 +284,7 @@ In this section, you create a Java console app that simulates a device. The app 
     import java.util.HashSet;
     ```
 
-7. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the [Register a new device in the IoT hub](register-a-new-device-in-the-iot-hub) section:
+7. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
