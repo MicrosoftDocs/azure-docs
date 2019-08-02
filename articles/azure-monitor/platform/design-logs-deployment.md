@@ -140,8 +140,7 @@ For customers who have already deployed multiple workspaces and are interested i
 While planning your migration to this model, consider the following:
 
 * Make sure that your application teams can work within the existing resource-context functionality.
-* 
-* Validate that your application teams have been granted proper access to their resources.
+* Identify the access granted to resources for your application teams and test in a development environment before implementing in production.
 * Configure the workspace to enable **Use resource or workspace permissions**.
 * Remove application teams permission to read and query the workspace.
 * Enable and configure any monitoring solutions, Insights such as Azure Monitor for containers and/or Azure Monitor for VMs, your Automation account(s), and management solutions such as Update Management, Start/Stop VMs, etc., that were deployed in the original workspace.
