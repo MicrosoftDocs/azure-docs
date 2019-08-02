@@ -88,13 +88,11 @@ After the invitation email is received, you must open the email and select the l
 This behavior can occur when the machine you're using is behind a proxy. Make sure you provide the authorization credentials if the proxy needs them.
 If you're using any URL-based firewall proxy to control outbound connectivity, be sure to add these required URLs to an allow list:
 
-Scenario | URL list
---- | ---
-Server assessment for VMware | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
-Server assessment for Hyper-V | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
-Server migration for VMware (agentless) | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
-Server migration for VMware (agent-based) | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
-Server migration for Hyper-V | [Here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
+- [Server assessment for VMware](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-url-access-requirements)
+- [Server assessment for Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#assessment-appliance-url-access)
+- [Server migration for VMware (agentless)](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-url-access-requirements)
+- [Server migration for VMware (agent-based)](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#replication-appliance-url-access)
+- [Server migration for Hyper-V](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#migration-hyper-v-host-url-access)
 
 If you're using an intercepting proxy to connect to the internet, you must import the proxy certificate onto the appliance VM. You can import the proxy certificate by following the steps in [Azure Migrate appliance](https://docs.microsoft.com/azure/migrate/concepts-collector).
 
@@ -169,7 +167,7 @@ It takes up to 30 minutes for the discovery data gathered by the appliance to be
 ### Can't connect to a host or cluster because the server name can't be resolved. WinRM error code: 0x803381B9 (Error ID: 50004).
 This error occurs if the Azure DNS service for the appliance can't resolve the cluster or host name you provided. If you see this error on the cluster, try providing the fully qualified domain name (FQDN) of the cluster.
 
-You may also see this error for hosts in a cluster. In this case, the appliance can connect to the cluster, but the cluster returns host names that aren't FQDNs.
+You might also see this error for hosts in a cluster. In this case, the appliance can connect to the cluster, but the cluster returns host names that aren't FQDNs.
 
 To resolve this error, update the hosts file on the appliance by adding a mapping of the IP address and host names:
 1. Open Notepad as administrator. Then, open the C:\Windows\System32\Drivers\etc\hosts file.
@@ -211,7 +209,7 @@ Could not determine suitability for one or more network adapters because of an i
 Azure Migrate Server Assessment doesn't currently support Enterprise Agreement (EA)-based pricing. To work around this limitation, use **Pay-As-You-Go** as the Azure offer and use the **Discount** property to specify any custom discount that you receive. [Learn more about how you can customize an assessment](https://aka.ms/migrate/selfhelp/eapricing).
 
 ### Why does Server Assessment mark my Linux VMs "Conditionally ready"?
-There's a known gap in Server Assessment that prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs (for example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version). Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment. You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing the [Azure Linux support documentation.](https://aka.ms/migrate/selfhost/azureendorseddistros). After you've verified the endorsed distro, you can ignore this warning.
+There's a known gap in Server Assessment that prevents it from detecting the minor version of the Linux OS installed on the on-premises VMs (for example, for RHEL 6.10, currently Server Assessment detects only RHEL 6 as the OS version). Because Azure endorses only specific versions of Linux, the Linux VMs are currently marked as conditionally ready in Server Assessment. You can determine whether the Linux OS running on the on-premises VM is endorsed in Azure by reviewing the [Azure Linux support documentation.](https://aka.ms/migrate/selfhost/azureendorseddistros). After you've verified the endorsed distribution, you can ignore this warning.
 
 ### Why does the VM SKU recommended by Server Assessment have more cores and more memory than what's allocated on-premises?
 The VM SKU recommendation in Server Assessment depends on the assessment properties. You can create two kinds of assessments in Server Assessment: *Performance-based* and *As on-premises*. For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. Additionally, for performance-based sizing, the comfort factor is considered in determining effective utilization. For on-premises sizing, performance data is not considered, and a target SKU is recommended based on what is allocated on-premises.
@@ -236,7 +234,7 @@ These properties apply only to performance-based sizing. Server Assessment conti
 - The Azure Migrate appliance continuously profiles the on-premises environment to gather real-time utilization data every 20 seconds for VMware VMs and every 30 seconds for Hyper-V VMs.
 - The appliance rolls up the 20-second and 30-second samples to create a single data point for every 10 minutes. To create the single data point, the appliance selects the peak value from all the 20-second and 30-second samples, and then sends it to Azure.
 - When you create an assessment in Server Assessment, based on the performance duration and performance history percentile value, the representative utilization value is identified. For example, if the performance history is one week and percentile utilization is 95th, Azure Migrate sorts all the 10-minute sample points for the last one week in ascending order and then selects the 95th percentile as the representative value.
-The 95th percentile value makes sure that you ignore any outliers, which may be included if you pick the 99th percentile. If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile for percentile utilization.
+The 95th percentile value makes sure that you ignore any outliers, which might be included if you pick the 99th percentile. If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile for percentile utilization.
 
 ## Dependency visualization issues
 
@@ -246,7 +244,7 @@ Azure Migrate depends on Service Map for the dependency visualization functional
 
 ### I installed the Microsoft Monitoring Agent (MMA) and the dependency agent on my on-premises VMs, but the dependencies are now showing up in the Azure Migrate portal.
 
-After you've installed the agents, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the MMA agent can talk to the OMS workspace by following these steps.
+After you've installed the agents, Azure Migrate typically takes 15-30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that MMA can talk to the OMS workspace by following these steps.
 
 For Windows VM:
 1. Go to Control Panel and start Microsoft Monitoring Agent.
@@ -275,16 +273,16 @@ For example, you can use the time duration functionality in the dependency map t
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend that you split the group into smaller groups and visualize the dependencies.
 
 ### I installed agents and used the dependency visualization to create groups. Now, post-failover, the machines show "Install agent" action instead of "View dependencies."
-* After a planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. 
+* After a planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They might acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. 
 
   If both MAC and IP addresses differ, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. Instead, it asks the user to install agents instead of viewing dependencies.
-* Post-test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP addresses. Unless the user blocks outgoing Azure Monitor log traffic from these machines, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data and asks users to install agents instead of viewing dependencies.
+* Post-test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless the user blocks outgoing Azure Monitor log traffic from these machines, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data and asks users to install agents instead of viewing dependencies.
 
 ## Collect Azure portal logs
 
 **How do I collect Azure portal network traffic logs?**
 
-1. Open the browser, navigate [to the portal](https://portal.azure.com), and sign in.
+1. Open the browser, go [to the portal](https://portal.azure.com), and sign in.
 2. Press F12 to start Developer Tools. If needed, clear the  **Clear entries on navigation** setting.
 3. Select the **Network** tab, and start capturing network traffic:
    - In Chrome, select **Preserve log**. The recording should start automatically. A red circle indicates that traffic is being captured. If the red circle doesn't appear, select the black circle to start.
