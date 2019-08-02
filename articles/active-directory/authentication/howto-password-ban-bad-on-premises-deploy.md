@@ -279,10 +279,9 @@ There are two required installers for Azure AD password protection. They're avai
 
    You can automate the software installation by using standard MSI procedures. For example:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > The example msiexec command here causes an immediate reboot. To avoid that, use the `/norestart` flag.
+   You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
 
 The installation is complete after the DC Agent software is installed on a domain controller, and that computer is rebooted. No other configuration is required or possible.
 
@@ -298,10 +297,9 @@ The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the softwar
 
 When a newer version of the Azure AD Password Protection DC Agent software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionDCAgentSetup.msi` software package. It is not required to uninstall the current version of the DC agent software - the installer will perform an in-place upgrade. A reboot is always required when upgrading the DC agent software - this is caused by core Windows behavior. 
 
-The software upgrade may be automated using standard MSI procedures, for example: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`.
+The software upgrade may be automated using standard MSI procedures, for example: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
 
-> [!WARNING]
-> The example msiexec command shown above causes an immediate reboot during the upgrade. To avoid that, use the `/norestart` flag.
+You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
 
 The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to query the software version of all currently installed DC agents in a forest.
 
