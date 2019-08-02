@@ -127,14 +127,10 @@ In this example, the Developer Console is the client-app. The following steps de
 
 1. Copy the **OAuth 2.0 Token Endpoint**, and paste it into the **Token endpoint URL** text box. 
 
-<<<<<<< HEAD
     >[!IMPORTANT]
     > You can use either **v1** or **v2** endpoints. However, depending on which version you choose, the below step will be different. We recommend using v2 endpoints. 
 
 1. If you use **v1** endpoints, add a body parameter named **resource**. For the value of this parameter, use **Application ID** of the back-end app. 
-=======
-7. Copy the **OAuth 2.0 Authorization Endpoint**, and paste it into the **Authorization endpoint URL** text box.
->>>>>>> 427b8702cffca2ee2c9bdaa462b15d654242232d
 
 1. If you use **v2** endpoints, use the scope you created for the backend-app in the **Default scope** field.
 
