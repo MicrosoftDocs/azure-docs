@@ -53,6 +53,8 @@ While the current version of your function app is running in your production slo
 3. For each slot, create a new app setting (ex. DurableManagementStorage) and set its value to the connection string of different storage accounts. These storage accounts will be used by the Durable Functions extension for [reliable execution](durable-functions-checkpointing-and-replay.md). Use a separate storage account for each slot. Do not mark this setting as a deployment slot setting.
 4. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify azureStorageConnectionStringName as the name of the app setting you created in step 3.
 
+The diagram below shows illustrates the described configuration of deployment slots and storage accounts. In this potential pre-deployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
+
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
 ### host.json Examples
@@ -109,7 +111,7 @@ You will see Azure DevOps check your function app for running orchestration inst
 ![Deployment gate (Running)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
 Now the new version of your function app should be deployed to the staging slot.
- 
+
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
 Then swap slot.  Even if there is running orchestrations on Production slot with Ver.2, it was swap out to the Staging Slot. The function app swaps the Storage Account A/B as well. After the swap happens, Ver.2. Orchestration keeps on working and referring the same storage account. 
