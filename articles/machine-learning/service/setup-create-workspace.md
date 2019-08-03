@@ -194,10 +194,9 @@ To create a workspace with the CLI, see [Use the CLI extension for Azure Machine
 
 * No matter how it was created, you can view your workspace in the [Azure portal](https://portal.azure.com/).  See [view a workspace](how-to-manage-workspace.md#view) for details.
 
-* Try out your workspace with these quickstarts and tutorials.
+* Try out your workspace with these  tutorials.
 
-    * Quickstart: [Run Jupyter notebook in the cloud](quickstart-run-cloud-notebook.md).
-    * Quickstart: [Run Jupyter notebook on your own server](quickstart-run-local-notebook.md).
+    * Two-part tutorial: [Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md).
     * Two-part tutorial: [Train](tutorial-train-models-with-aml.md) and [deploy](tutorial-deploy-models-with-aml.md) an image classification mode.
     * Two-part tutorial: [Prepare data](tutorial-data-prep.md) and [use automated machine learning](tutorial-auto-train-models.md) to build a regression model.
 

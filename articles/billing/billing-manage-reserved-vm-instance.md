@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 08/02/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
@@ -101,13 +101,9 @@ To delegate access management for a reservation:
     Update-AzReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
-## Cancellations and exchanges
+## Cancel, exchange, or refund reservations
 
-Depending on the reservation type, you may be able to cancel or exchange a reservation. For more information, see the cancellation and exchanges sections in the following topics:
-
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
-- [Prepay for SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
-- [Prepay for SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## Change optimize setting for Reserved VM Instances
 
