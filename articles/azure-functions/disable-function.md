@@ -25,7 +25,7 @@ This article explains how to disable a function in Azure Functions. To *disable*
 
 ## Functions 2.x - all languages
 
-In Functions 2.x you disable a function by using an app setting. You can create and modify this setting programmatically by using the Azure CLI. You can also do this in your function's Manage tab in the [Azure portal](https://portal.azure.com). 
+In Functions 2.x, you disable a function by using an app setting in the format `AzureWebJobs.<FUNCTION_NAME>.Disabled`. You can create and modify this setting programmatically by using the Azure CLI. You can also do this from your function's **Manage** tab in the [Azure portal](https://portal.azure.com). 
 
 ### Azure CLI
 
@@ -37,7 +37,7 @@ az functionapp config appsettings set --name <myFunctionApp> \
 --settings AzureWebJobs.QueueTrigger.Disabled=true
 ```
 
-To re-enable the function, re-run the command with a value of `false`.
+To re-enable the function, rerun the same command with a value of `false`.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <myFunctionApp> \
