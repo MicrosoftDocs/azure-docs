@@ -23,8 +23,8 @@ Access the local HDFS from the command line and application code instead of by u
 
 1. At the command prompt, use `hdfs dfs -D "fs.default.name=hdfs://mycluster/" ...` literally, as in the following command:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
+    ```output
+    hdfs dfs -D "fs.default.name=hdfs://mycluster/" -ls /
     Found 3 items
     drwxr-xr-x   - hdiuser hdfs          0 2017-03-24 14:12 /EventCheckpoint-30-8-24-11102016-01
     drwx-wx-wx   - hive    hdfs          0 2016-11-10 18:42 /tmp
@@ -59,7 +59,7 @@ Access the local HDFS from the command line and application code instead of by u
 3. Run the compiled .jar file (for example, a file named `java-unit-tests-1.0.jar`) on the HDInsight cluster with the following command:
 
     ```apache
-    hdiuser@hn0-spark2:~$ hadoop jar java-unit-tests-1.0.jar JavaUnitTests
+    hadoop jar java-unit-tests-1.0.jar JavaUnitTests
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.info
     hdfs://mycluster/tmp/hive/hive/5d9cf301-2503-48c7-9963-923fb5ef79a7/inuse.lck
     hdfs://mycluster/tmp/hive/hive/a0be04ea-ae01-4cc4-b56d-f263baf2e314/inuse.info
@@ -83,8 +83,8 @@ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 
 You see the following error when you run the command:
 
-```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+```output
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -143,12 +143,12 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
 
 1. Get the status of HDFS on the HDInsight cluster by using the following commands:
 
-    ```apache
+    ```bash
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     ```
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+    ```output
+    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
     Safe mode is ON
     Configured Capacity: 3372381241344 (3.07 TB)
     Present Capacity: 3138625077248 (2.85 TB)
@@ -184,11 +184,11 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
 
 2. Check the integrity of HDFS on the HDInsight cluster by using the following commands:
 
-    ```apache
-    hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+    ```bash
+    hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
     ```
 
-    ```apache
+    ```output
     Connecting to namenode via http://hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net:30070/fsck?ugi=hdiuser&path=%2F
     FSCK started by hdiuser (auth:SIMPLE) from /10.0.0.22 for path / at Wed Apr 05 16:40:28 UTC 2017
     ....................................................................................................
