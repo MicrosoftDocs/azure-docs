@@ -34,7 +34,7 @@ This error points to a problem with custom DNS configuration. DNS servers within
 
 1. If you do not have an Azure VM that can act as a custom DNS server in the cluster’s vNet, then you need to add this first. Create a VM in the vNet, which will be configured as DNS forwarder.
 
-1. Once you have a VM deployed in your vNet, configure the DNS forwarding rules on this VM. Forward all iDNS name resolution requests to 168.63.129.16, and the rest to your DNS server. [Here](../hdinsight-plan-virtual-network-deployment.md#example-dns) is an example of this setup for a custom DNS server.
+1. Once you have a VM deployed in your vNet, configure the DNS forwarding rules on this VM. Forward all iDNS name resolution requests to 168.63.129.16, and the rest to your DNS server. [Here](../hdinsight-plan-virtual-network-deployment.md) is an example of this setup for a custom DNS server.
 
 1. Add the IP Address of this VM as first DNS entry for the Virtual Network DNS configuration.
 
