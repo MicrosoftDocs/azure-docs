@@ -104,11 +104,12 @@ Then configure the staging gate for waiting for the no orchestration is running.
 
 ![Deployment gate](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
-You will see Azure DevOps check the status before your deployment start.
+You will see Azure DevOps check your function app for running orchestration instances before your deployment starts.
 
 ![Deployment gate (Running)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
-Now Version.3 is deployed to the deployment slot. 
+Now the new version of your function app should be deployed to the staging slot.
+ 
 ![Deployment slot](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
 Then swap slot.  Even if there is running orchestrations on Production slot with Ver.2, it was swap out to the Staging Slot. The function app swaps the Storage Account A/B as well. After the swap happens, Ver.2. Orchestration keeps on working and referring the same storage account. 
