@@ -24,9 +24,6 @@ There are three main strategies for zero downtime deployment for Durable Functio
 * [Status check with slot](#status-check-with-slot)
 * [Application routing](#application-routing)
 
->[!NOTE]
->All the strategies described in this article use Deployment slots. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies.md#deployment-slots)
-
 # Versioning Strategy
 Add new versions of your Durable Functions and leave the old versions in your function app. As you can see on the diagram, the functions of the previous versions are preserved, and a new version resides in the same function app. 
 
@@ -41,6 +38,9 @@ Applications that don't experience frequent breaking changes.
 * Increased function app size
 * Code duplication
 * Need to copy every function. You can make it easier by writing a script. Here is a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
+
+>[!NOTE]
+>This strategies uses Deployment slots. Avoiding downtime of the deployment, use Deployment Slot. For more detailed information about how to create and use new deployment slots refer to [Deployment technologies in Azure Functions](../functions-deployment-technologies.md#deployment-slots)
 
 # Status Check with Slot
 Before you deploy a new version, check if there are running orchestrations. If all orchestrations are completed, you can deploy. This strategy works when you don't have long-running or frequently overlaping orchestrations.  
