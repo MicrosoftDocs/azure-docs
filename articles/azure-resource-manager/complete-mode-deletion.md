@@ -25,10 +25,8 @@ Jump to a resource provider namespace:
 > - [Microsoft.Advisor](#microsoftadvisor)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
-> - [Microsoft.ApiHubs](#microsoftapihubs)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft.Archive](#microsoftarchive)
 > - [Microsoft.Attestation](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
@@ -155,7 +153,6 @@ Jump to a resource provider namespace:
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
 > - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft.SqlVM](#microsoftsqlvm)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.Storage](#microsoftstorage)
@@ -245,18 +242,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | servers | Yes |
 
-## Microsoft.ApiHubs
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | apimanagementaccounts | No |
-> | apimanagementaccounts/apis | No |
-> | apimanagementaccounts/connectionacls | No |
-> | apimanagementaccounts/connectionprovideracls | No |
-> | apimanagementaccounts/connectionproviders | No |
-> | apimanagementaccounts/connections | No |
-
 ## Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
@@ -273,15 +258,6 @@ Jump to a resource provider namespace:
 > | ------------- | ----------- |
 > | configurationstores | Yes |
 > | configurationstores/eventgridfilters | No |
-
-## Microsoft.Archive
-
-> [!div class="mx-tableFixed"]
-> | Resource type | Complete mode deletion |
-> | ------------- | ----------- |
-> | collections | Yes |
-> | collections/archives | No |
-> | collections/operations | No |
 
 ## Microsoft.Attestation
 
@@ -1815,12 +1791,31 @@ Jump to a resource provider namespace:
 > | applications | Yes |
 > | jitrequests | Yes |
 
-## Microsoft.SqlVM
+## Microsoft.SQL
 
 > [!div class="mx-tableFixed"]
 > | Resource type | Complete mode deletion |
 > | ------------- | ----------- |
-> | dwvm | Yes |
+> | managedInstances | Yes |
+> | managedInstances/databases | Yes |
+> | managedInstances/databases/backupShortTermRetentionPolicies | No |
+> | managedInstances/databases/schemas/tables/columns/sensitivityLabels | No |
+> | managedInstances/databases/vulnerabilityAssessments | No |
+> | managedInstances/databases/vulnerabilityAssessments/rules/baselines | No |
+> | managedInstances/encryptionProtector | No |
+> | managedInstances/keys | No |
+> | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | No |
+> | managedInstances/vulnerabilityAssessments | No |
+> | servers | Yes |
+> | servers/administrators | No |
+> | servers/communicationLinks | No |
+> | servers/databases | Yes |
+> | servers/encryptionProtector | No |
+> | servers/firewallRules | No |
+> | servers/keys | No |
+> | servers/restorableDroppedDatabases | No |
+> | servers/serviceobjectives | No |
+> | servers/tdeCertificates | No |
 
 ## Microsoft.SqlVirtualMachine
 
