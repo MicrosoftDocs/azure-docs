@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
@@ -25,4 +25,4 @@ A shared access signature (SAS) enables you to grant limited access to container
 ## See also
 
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
-- [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegating-access-with-a-shared-access-signature)
+- [Delegating Access with a Shared Access Signature](/rest/api/storageservices/delegate-access-with-a-shared-access-signature)
