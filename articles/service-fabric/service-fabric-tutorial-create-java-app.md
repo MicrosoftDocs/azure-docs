@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
-ms.custom: "mvc, seo-java-july2019"
+ms.custom: "mvc, seo-java-august2019"
 
 ---
 # Tutorial: Create an application with a Java web API front-end service and a stateful back-end service on Service Fabric
