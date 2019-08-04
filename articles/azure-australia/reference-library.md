@@ -4,7 +4,7 @@ description: Additional documentation, tutorials or references relevant to Austr
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.author: grgale
 ---
 
@@ -14,7 +14,7 @@ This resource library contains additional links and references that are relevant
 
 ## General references for all security and governance in Azure Australia
 
-* Microsoft Service Trust Portal Australia Page at [https://servicetrust.microsoft.com/ViewPage/Australia](https://servicetrust.microsoft.com/ViewPage/Australia) or [https://aka.ms/au-irap](https://aka.ms/au-irap)|
+* [Microsoft Service Trust Portal Australia Page](https://aka.ms/au-irap)
 * [Microsoft Trust Center CCSL Page](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [Azure Security and Compliance Blueprints for PROTECTED](https://aka.ms/au-protected)
 * [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/azure/security/azure-isolation)

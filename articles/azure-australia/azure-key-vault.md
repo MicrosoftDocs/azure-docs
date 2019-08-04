@@ -30,8 +30,8 @@ This article will focus on management of keys using Key Vault.
 
 There are two options for creating Azure Key Vaults. Both options use the Thales nShield family of Hardware Security Modules (HSM), are Federal Information Processing Standards (FIPS) validated, and are approved to store keys in PROTECTED environments. The options are:
 
-- **Software-protected vaults:** FIPS 104-2 level 1 validated. Keys stored on an HSM. Encryption and decryption operations are performed in compute resources on Azure.
-- **HSM-protected vaults:** FIPS 104-2 level 2 validated. Keys stored on an HSM. Encryption and decryption operations are performed on the HSM.
+- **Software-protected vaults:** FIPS 140-2 level 1 validated. Keys stored on an HSM. Encryption and decryption operations are performed in compute resources on Azure.
+- **HSM-protected vaults:** FIPS 140-2 level 2 validated. Keys stored on an HSM. Encryption and decryption operations are performed on the HSM.
 
 Key Vault supports Rivest-Shamir-Adleman (RSA) and Elliptic Curve Cryptography (ECC) keys. The default is RSA 2048-bit keys but there is an advanced option for RSA 3072-bit, RSA 4096-bit, and ECC keys.  All keys meet the ISM controls, but Elliptic Curve keys are preferred.
 
@@ -159,6 +159,6 @@ SSE is used for managed disks but customer-managed keys are not supported.  Encr
 
 ## Next Steps
 
-Review the article on [Data Security](secure-your-data.md)
+Review the article on [Identity Federation](identity-federation.md)
 
 Review additional Azure Key Vault documentation and tutorials in the [Reference Library](reference-library.md)

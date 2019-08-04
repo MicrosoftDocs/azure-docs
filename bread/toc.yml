@@ -572,6 +572,9 @@
       - name: Video Indexer
         tocHref: /azure/media-services/video-indexer/
         topicHref: /azure/media-services/video-indexer/        
+  - name: Migrate
+    tocHref: /azure/migrate/
+    topicHref: /azure/migrate/
   - name: Mobile Engagement
     tocHref: /azure/mobile-engagement/
     topicHref: /azure/mobile-engagement/

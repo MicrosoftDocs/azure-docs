@@ -120,8 +120,7 @@ To automate responses:
 
 
 ## Next steps
-In this article, you learned how to run a playbook in Azure Sentinel. To learn more about Azure Sentinel, see the following articles:
+
 In this tutorial, you learned how to run a playbook in Azure Sentinel. Continue to the [how to proactively hunt for threats](hunting.md) using Azure Sentinel.
-> [!div class="nextstepaction"]
-> [Hunt for threats](hunting.md) to proactively find threats on your network.
+
 
