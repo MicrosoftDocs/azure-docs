@@ -70,7 +70,7 @@
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
           href: azure-security-disk-encryption-linux.md
-        - name: Disk encryption with VM scale set extension sequencing
+        - name: Disk encryption with virtual machine scale set extension sequencing
           href: azure-security-disk-encryption-extension-sequencing.md
         - name: Appendix for disk encryption
           href: azure-security-disk-encryption-appendix.md
