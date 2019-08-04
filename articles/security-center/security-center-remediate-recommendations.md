@@ -23,7 +23,7 @@ Recommendations give you suggestions on how to better secure your resources.  Yo
 
 ## Remediation steps <a name="remediation-steps"></a>
 
-After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize the recommendations.
+After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize what to do first.
 
 1. From the list, click on the recommendation.
 1. Follow the instructions in the **Remediation steps** section. Each recommendation has its own set of instructions. The following shows remediation steps for configuring applications to only allow traffic over HTTPS.
