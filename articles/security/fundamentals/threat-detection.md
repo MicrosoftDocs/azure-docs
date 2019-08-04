@@ -213,7 +213,7 @@ These combined efforts culminate in new and improved detections, which you can b
 
 ### Virtual machines: Microsoft antimalware
 
-[Microsoft antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. Azure antimalware is a security option for Azure virtual machines that's automatically installed on all Azure PaaS virtual machines.
+[Microsoft antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) for Azure is a single-agent solution for applications and tenant environments, designed to run in the background without human intervention. You can deploy protection based on the needs of your application workloads, with either basic secure-by-default or advanced custom configuration, including antimalware monitoring. Azure antimalware is a security option for Azure virtual machines that's automatically installed on all Azure PaaS virtual machines.
 
 #### Microsoft antimalware core features
 
