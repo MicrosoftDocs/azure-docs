@@ -55,7 +55,7 @@ The views and actions are basically the same. Here are some examples:
      ![Secure score](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
  
 
-- **Manage security policies**: From one view, manage security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data.
+- **Manage security policies**: From one view, manage security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenants (Doug.Lora, Microsoft, SSO, Wilde Company). Each tenant has their own subscriptions. Subscriptions from the different tenants are listed in this Policy Management list.
 
      ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
  
