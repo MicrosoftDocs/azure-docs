@@ -82,7 +82,7 @@ You can use [Azure Data Factory](https://azure.microsoft.com/services/data-facto
 
 ## Next Steps
 
-Once the system is setup and data is moving to the long-term storage, the next step is to come up with the questions that the data needs to answer. For example: 
+Once the system is set up and data is moving to the long-term storage, the next step is to come up with the questions that the data needs to answer. For example: 
 
 -	What is the VM size usage?
 
