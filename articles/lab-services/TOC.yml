@@ -1,4 +1,4 @@
-- name: Lab Services Documentation
+  - name: Lab Services Documentation
   href: index.yml
 - name: Overview
   items:
@@ -281,6 +281,8 @@
         href: troubleshoot-vm-environment-creation-failures.md
       - name: Troubleshoot artifact failures
         href: devtest-lab-troubleshoot-artifact-failure.md
+    - name:  Report usage of labs
+      href: report-usage-across-multiple-labs-subscriptions.md
 - name: Reference
   items:
   - name: Classroom Labs
