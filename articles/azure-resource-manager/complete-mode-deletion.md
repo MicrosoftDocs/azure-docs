@@ -4,7 +4,7 @@ description: Shows how resource types handle complete mode deletion in Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 8/3/2019
+ms.date: 8/4/2019
 ms.author: tomfitz
 ---
 
@@ -1960,6 +1960,7 @@ Jump to a resource provider namespace:
 > | serverFarms | Yes |
 > | serverFarms/eventGridFilters | No |
 > | sites | Yes |
+> | sites/config  | No |
 > | sites/eventGridFilters | No |
 > | sites/hostNameBindings | No |
 > | sites/networkConfig | No |
