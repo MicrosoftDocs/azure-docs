@@ -50,12 +50,12 @@ The views and actions are basically the same. Here are some examples:
 
   ![Cross-tenant management of recommendations](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
 
-- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how one secure score measures the overall security health of all the selected subscriptions from different tenants.
+- **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how Security Center provides an overall security health of all the selected subscriptions from different tenants. It then lists the secure score for each subscription, from all the different tenants.
 
      ![Secure score](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
  
 
-- **Manage security policies**: From one view, manage security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenants (Doug.Lora, Microsoft, SSO, Wilde Company). Each tenant has their own subscriptions. Subscriptions from the different tenants are listed in this Policy Management list.
+- **Manage security policies**: From one view, manage security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenants (Doug.Lora, Microsoft, SSO, Wilde Company), and each tenant has subscriptions. Subscriptions from the different tenants are listed in this Policy Management list.
 
      ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
  
