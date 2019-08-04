@@ -4,7 +4,7 @@ description: Shows how resource types handle complete mode deletion in Azure Res
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 8/4/2019
+ms.date: 08/04/2019
 ms.author: tomfitz
 ---
 
