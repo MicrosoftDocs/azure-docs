@@ -52,8 +52,12 @@ The views and actions are basically the same. Here are some examples:
 
 - **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall health of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them. The following image shows how one secure score measures the overall security health of all the selected subscriptions from different tenants.
 
+     ![Secure score](./media/security-center-cross-tenant-management/cross-tenant-secure-score.png)
+ 
+
 - **Manage security policies**: From one view, manage security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data.
- ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
+
+     ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
  
 
 - **Manage Alerts**: Detect [alerts](security-center-alerts-overview.md) throughout the different tenants. Take action on resources that are out of compliance with actionable [remediation steps](security-center-managing-and-responding-alerts.md).
