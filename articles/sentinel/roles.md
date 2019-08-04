@@ -8,7 +8,7 @@ author: rkarlin
 manager: angrobe
 
 ms.assetid:
-ms.service: sentinel
+ms.service: azure-sentinel
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
