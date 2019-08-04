@@ -1,6 +1,6 @@
-﻿---
-title: PowerShell example of auditing and Advance Threat Protection - Azure SQL Database  | Microsoft Docs
-description: Azure PowerShell example script to configure auditing & Advanced Threat Protection in an Azure SQL Database
+---
+title: PowerShell example of auditing and Advanced Threat Protection - Azure SQL Database  | Microsoft Docs
+description: Azure PowerShell example script to configure auditing and Advanced Threat Protection in an Azure SQL Database
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
