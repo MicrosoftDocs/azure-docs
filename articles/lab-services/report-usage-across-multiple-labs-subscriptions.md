@@ -55,8 +55,8 @@ These files are stored in the `labresourceusage` blob container under the lab na
 
 To export the usage information for multiple labs consider using 
 
-* [Azure Functions](../azure-functions/), available in many languages, including PowerShell, or 
-* [Azure Automation runbook](../automation/), use PowerShell, Python, or a custom graphical designer to write the export code.
+* [Azure Functions](https://docs.microsoft.com/azure/azure-functions/), available in many languages, including PowerShell, or 
+* [Azure Automation runbook](https://docs.microsoft.com/azure/automation/), use PowerShell, Python, or a custom graphical designer to write the export code.
 
 Using these technologies, you can execute the individual lab exports on all the labs at a specific date and time. 
 
