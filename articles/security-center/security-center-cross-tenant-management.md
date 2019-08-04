@@ -46,13 +46,13 @@ Select the subscription, from each tenant, you'd like to view.
 
 The views and actions are basically the same. Here are some examples:
 
-- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time (as seen in the image below). You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
-
-  ![Cross-tenant management of recommendations](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
-
 - **Manage security policies**: From one view, manage the security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenants (Doug.Lora, Microsoft, SSO, Wilde Company), and each tenant has subscriptions. The selected subscriptions from the different tenants are listed in this Policy Management list.
 
      ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
+
+- **Remediate recommendations**: Monitor and remediate a [recommendation](security-center-recommendations.md) for many resources from various tenants at one time (as seen in the image below). You can then immediately tackle the vulnerabilities that present the highest risk across all tenants.
+
+  ![Cross-tenant management of recommendations](./media/security-center-cross-tenant-management/cross-tenant-recommendation.png)
 
 - **Improve secure score and compliance posture**: Cross-tenant visibility enables you to view the overall security posture of all your tenants and where and how to best improve the [secure score](security-center-secure-score.md) and [compliance posture](security-center-compliance-dashboard.md) for each of them, as seen in the following image.
 
