@@ -40,13 +40,13 @@ Set up cross-tenant management by delegating access to resources of managed tena
 
 You are able to review and manage subscriptions across multiple tenants in the same way that you manage multiple subscriptions in a single tenant.
 
-Select the subscription, from each tenant, you'd like to view.
+From the top menu bar, click the filter icon, and select the subscriptions, from each tenant's directory, you'd like to view.
 
   ![Filter tenants](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
 The views and actions are basically the same. Here are some examples:
 
-- **Manage security policies**: From one view, manage the security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenants (Doug.Lora, Microsoft, SSO, Wilde Company), and each tenant has subscriptions. The selected subscriptions from the different tenants are listed in this Policy Management list.
+- **Manage security policies**: From one view, manage the security posture of many resources with [policies](tutorial-security-policy.md), take actions with security recommendations, and collect and manage security-related data. For example, in the following image, there are four different tenant's directories (Doug.Lora, Microsoft, SSO, Wilde Company), and each tenant has subscriptions. The selected subscriptions from the different tenants are listed in this Policy Management list.
 
      ![Cross-tenant management of policies](./media/security-center-cross-tenant-management/cross-tenant-policy.png)
 
