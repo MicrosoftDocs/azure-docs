@@ -17,15 +17,15 @@ This article shows how to get the Azure Storage account type and SKU name for a 
 
 Account information is available on service versions beginning with version 2018-03-28.
 
-## About account kind and SKU name
+## About account type and SKU name
 
-**Account kind**: Valid account kinds include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
+**Account type**: Valid account types include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
 
 **SKU name**: Valid SKU names include `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`, and `Standard_ZRS`. SKU names are case-sensitive and are string fields in the [SkuName Class](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
 ## Retrieve account information
 
-To get the storage account kind and SKU name associated with a blob, call the [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) or [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) method.
+To get the storage account type and SKU name associated with a blob, call the [GetAccountProperties](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountproperties?view=azure-dotnet) or [GetAccountPropertiesAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblob.getaccountpropertiesasync?view=azure-dotnet) method.
 
 The following code example retrieves and displays the read-only account properties.
 
@@ -55,6 +55,10 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
 
-## See also
+## Next steps
 
-- [Get Account Information operation](/rest/api/storageservices/get-account-information)
+Learn about other operations you can perform on a storage account through the [Azure portal](https://portal.azure.com) and the Azure REST API.
+
+- [Manage a storage account](storage-account-manage.md)
+- [Upgrade a storage account](storage-account-upgrade.md)
+- [Get Account Information operation (REST)](/rest/api/storageservices/get-account-information)
