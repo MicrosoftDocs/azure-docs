@@ -23,10 +23,11 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Maximum number of interfaces that can be registered per device | 40 ||
 | Maximum number of DCMs that can be registered per device | 1 ||
 | Maximum size of an interface name | 256 chars ||
-| Maximum size of a property name  | 64 bytes, 9 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
+| Maximum size of a property name  | 64 bytes, 7 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
 | Maximum size of a property value | 512 bytes ||
 | Maximum size of a command name | 100 bytes ||
-| Resolution API calls across SKU (regardless of units) | 100 request/second |
+| Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins#device-twin-size.md) ||
+| Resolution API calls across SKU (regardless of units) | 100 request/second ||
 
 ## Model Repository
 
