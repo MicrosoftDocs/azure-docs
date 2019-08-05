@@ -6,6 +6,16 @@
       "redirect_document_id": true
     }, 
     {
+      "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/quickstart-run-cloud-notebook.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
       "redirect_document_id": true
