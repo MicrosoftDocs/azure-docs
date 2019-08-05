@@ -34,7 +34,6 @@ In this document, you will learn how to:
 To deploy an application and its services using the Azure Resource Manager application resource model, you need to package application code, upload the package, and then reference the location of package in an Azure Resource Manager template as an application resource. For more information, view [Package an application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
 Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
-  
 
 ### Create a Storage Account 
 Deploying an application from a resource manager template requires a storage account to stage the application image. You can re-use an existing storage account or create a new storage account to stage your applications. If you would like to use an existing storage account, you can skip this step. 
@@ -74,6 +73,12 @@ The sample application already contains an ARM template for the sample applicati
 ```json
 {
     "apiVersion": "2019-03-01",
+    "type": "Microsoft.ServiceFabric/clusters/applications",
+    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
+    "location": "[variables('clusterLocation')]",
+},
+{
+    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applicationTypes",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationTypeName'))]",
     "location": "[variables('clusterLocation')]",
@@ -86,16 +91,16 @@ The sample application already contains an ARM template for the sample applicati
 },
 {
     "apiVersion": "2019-03-01",
-    "type": "Microsoft.ServiceFabric/clusters/applications",
-    "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'))]",
-    "location": "[variables('clusterLocation')]",
-},
-{
-    "apiVersion": "2019-03-01",
     "type": "Microsoft.ServiceFabric/clusters/applications/services",
     "name": "[concat(parameters('clusterName'), '/', parameters('applicationName'), '/', parameters('serviceName'))]",
     "location": "[variables('clusterLocation')]"
 }
+```
+
+### Deploy the application 
+To deploy the application, run the New-AzResourceGroupDeployment to deploy to the resource group which contains your cluster.
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParameterFile ".\UserApp.Parameters.json" -TemplateFile ".\UserApp.json" -Verbose
 ```
 
 ## Upgrade application resources
