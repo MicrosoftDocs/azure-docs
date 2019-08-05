@@ -14,8 +14,6 @@ ms.author: asgang
 
 This article describes the common issues related to network connectivity when replicating and recovering Azure virtual machines from one region to another region. For more information about networking requirements, see the [connectivity requirements for replicating Azure VMs](azure-to-azure-about-networking.md).
 
-## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
-
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.
 
 **URL** | **Details**  
@@ -24,6 +22,8 @@ For Site Recovery replication to work, outbound connectivity to specific URLs or
 login.microsoftonline.com | Required for authorization and authentication to the Site Recovery service URLs.
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
+
+## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
 ### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
