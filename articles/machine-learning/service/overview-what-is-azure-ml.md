@@ -27,13 +27,13 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning. 
 
 Explore and prepare data, train and test models, and deploy them using rich tools such as:
-+ A [visual interface](ui-quickstart-run-experiment.md) in which you can drag-n-drop modules to build your experiments and then deploy models
++ A [visual interface](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
 + [Jupyter notebooks](https://jupyter.org)  in which you use the [SDKs](https://docs.microsoft.com/azure/machine-learning/service/#reference) to write your own code, such as [these sample notebooks](https://aka.ms/aml-notebooks)
 + [Visual Studio Code extension](how-to-vscode-tools.md)
 
 ## What can I do with Azure Machine Learning service?
 
-Use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-quickstart-run-experiment.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
+Use the <a href="https://aka.ms/aml-sdk" target="_blank">Azure Machine Learning Python SDK</a> with open-source Python packages, or use the [visual interface (preview)](ui-tutorial-automobile-price-train-score.md) to build and train highly accurate machine learning and deep-learning models yourself in an Azure Machine Learning service Workspace.
 
 You can choose from many machine learning components available in open-source Python packages, such as <a href="https://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>, <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>, <a href="https://pytorch.org" target="_blank">PyTorch</a>, and <a href="https://mxnet.io" target="_blank">MXNet</a>.
 
@@ -83,7 +83,7 @@ Here is a quick comparison.
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
 |Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
 
-Try out the visual interface (preview) with [Quickstart: Prepare and visualize data without writing code](ui-quickstart-run-experiment.md)
+Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
 > [!NOTE]
 > Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning service workspace.

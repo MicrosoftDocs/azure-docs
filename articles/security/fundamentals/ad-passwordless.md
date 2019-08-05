@@ -1,13 +1,13 @@
 ---
 title: Understanding a world without passwords with Azure Active Directory | Microsoft Docs
 description: This guide helps CEOs, CIOs, CISOs, Chief Identity Architects, Enterprise Architects, and Security and IT decision makers responsible for choosing a passwordless authentication method for their Azure Active Directory implementation. 
-services: active-directory 
 keywords: passwordless, azuread
 author: martincoetzer
 ms.author: martinco
 ms.date: 07/09/2019
 ms.topic: article
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.workload: identity
 ---
 # A world without passwords with Azure Active Directory

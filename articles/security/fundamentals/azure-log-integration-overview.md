@@ -9,6 +9,7 @@ editor: TerryLanfear
 
 ms.assetid: 9c1346e1-baf8-4975-b2f2-42ae05b2dc0a
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

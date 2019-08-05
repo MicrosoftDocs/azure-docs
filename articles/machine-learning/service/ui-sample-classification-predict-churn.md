@@ -1,5 +1,5 @@
 ---
-title: "Classification: Predict churn, appetency, and up-selling "
+title: "Classification: Predict churn + appetency + up-selling"
 titleSuffix: Azure Machine Learning service
 description: This visual interface sample experiment shows binary classifier prediction of churn, a common task for customer relationship management (CRM).
 services: machine-learning
