@@ -306,7 +306,7 @@ situation.
 | Spoofing               | Authentication        | [Require HTTPS connections](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
 | Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
-| Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) and [in transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
+| Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest) and [in transit](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit). |
 | Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
 | Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
 
@@ -522,9 +522,9 @@ sensitive. These practices can help you protect your sensitive data:
 Protecting data should be an essential part of your security strategy.
 If your data is stored in a database or if it moves back and forth
 between locations, use encryption of [data at
-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 (while in the database) and encryption of [data in
-transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit)
+transit](https://docs.microsoft.com/azure/security/fundamentals/data-encryption-best-practices#protect-data-in-transit)
 (on its way to and from the user, the database, an API, or service
 endpoint). We recommend that you always use SSL/TLS protocols to
 exchange data. Ensure that you use the latest version of TLS for
