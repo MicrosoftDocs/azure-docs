@@ -1446,7 +1446,7 @@ Jump to a resource provider namespace:
 <a id="frontdoor" />
 
 > [!NOTE]
-For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
+> For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
 
 ## Microsoft.NotificationHubs
 
