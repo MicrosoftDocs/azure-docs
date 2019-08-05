@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 06/16/2017
 ---
 
-# Send cloud-to-device messages with IoT Hub (Node)
+# Send cloud-to-device messages with IoT Hub (Node.js)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
@@ -36,7 +36,7 @@ At the end of this tutorial, you run two Node.js console apps:
 * **SendCloudToDeviceMessage**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgment.
 
 > [!NOTE]
-> IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
+> IoT Hub has SDK support for many device platforms and languages (including C, Java, Python, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center](https://azure.microsoft.com/develop/iot).
 >
 
 To complete this tutorial, you need the following:

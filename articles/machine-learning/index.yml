@@ -42,10 +42,7 @@ sections:
           - 
             html: "<a href=\"service/quickstart-run-cloud-notebook\">Run an experiment in the cloud</a> (no install required)"
           - 
-            html: "<a href=\"service/quickstart-run-local-notebook\">Run an experiment using a local notebook server</a> (local SDK install)"
-          - 
-            html: "<a href=\"service/ui-quickstart-run-experiment\">Run an experiment in the visual interface</a> (code-free)"
-            
+            html: "<a href=\"service/quickstart-run-local-notebook\">Run an experiment using a local notebook server</a> (local SDK install)"            
         style: unordered
         type: list
       - 

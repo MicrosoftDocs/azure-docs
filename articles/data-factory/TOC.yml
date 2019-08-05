@@ -526,6 +526,8 @@
       href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Run SSIS packages in Azure from SSDT
+      href: how-to-invoke-ssis-package-ssdt.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity
@@ -556,6 +558,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
   - name: Templates
     items:
     - name: Overview of templates

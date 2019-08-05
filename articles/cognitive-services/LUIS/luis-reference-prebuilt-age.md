@@ -1,6 +1,6 @@
 ---
-title: Age Prebuilt entity
-titleSuffix: Azure
+title: Age Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains age prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry

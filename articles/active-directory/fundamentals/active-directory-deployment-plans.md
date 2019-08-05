@@ -2,7 +2,7 @@
 title: Deployment plans - Azure Active Directory | Microsoft Docs
 description: End-to-end guidance about how to deploy many Azure Active Directory capabilities.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/08/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.custom: "it-pro, seodec18"
 ms.collection: M365-identity-device-management
 ---

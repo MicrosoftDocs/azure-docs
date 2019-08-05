@@ -61,7 +61,7 @@ For devices running the Windows desktop operating system, supported version are 
 ### Windows down-level devices
 
 - Windows 8.1
-- Windows 7. For support information on Windows 7, please review this article [Support for Windows 7 is ending](https://www.microsoft.com/en-us/windowsforbusiness/end-of-windows-7-support)
+- Windows 7. For support information on Windows 7, please review this article [Support for Windows 7 is ending](https://www.microsoft.com/windowsforbusiness/end-of-windows-7-support)
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2
@@ -84,7 +84,7 @@ If you are relying on the System Preparation Tool (Sysprep) and if you are using
 
 If you are relying on a Virtual Machine (VM) snapshot to create additional VMs, make sure that snapshot is not from a VM that is already registered with Azure AD as Hybrid Azure AD join.
 
-If your Windows 10 domain joined devices are already [Azure AD registered](https://docs.microsoft.com/azure/active-directory/devices/overview#getting-devices-in-azure-ad) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
+If your Windows 10 domain joined devices are already [Azure AD registered](overview.md#getting-devices-in-azure-ad) to your tenant, we highly recommend removing that state before enabling Hybrid Azure AD join. From Windows 10 1809 release, the following changes have been made to avoid this dual state:
 
 - Any existing Azure AD registered state would be automatically removed after the device is Hybrid Azure AD joined.
 - You can prevent your domain joined device from being Azure AD registered by adding this registry key - HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin"=dword:00000001.
@@ -118,7 +118,7 @@ If you have a federated environment using Active Directory Federation Services (
 > [!NOTE]
 > Azure AD does not support smartcards or certificates in managed domains.
 
-Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
+Beginning with version 1.1.819.0, Azure AD Connect provides you with a wizard to configure hybrid Azure AD join. The wizard enables you to significantly simplify the configuration process. If installing the required version of Azure AD Connect is not an option for you, see [how to manually configure device registration](hybrid-azuread-join-manual.md). 
 
 Based on the scenario that matches your identity infrastructure, see:
 

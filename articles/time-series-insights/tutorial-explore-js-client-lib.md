@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial: Explore the Azure Time Series Insights JavaScript client library | Microsoft Docs'
-description: Learn about the Azure Time Series Insights JavaScript client library and the related programming model.
+description: Tutorial to learn about the Azure Time Series Insights JavaScript client library and the related programming model.
 author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: tutorial
-ms.date: 05/06/2019
+ms.date: 07/29/2019
 ms.author: dpalled
 ms.custom: seodec18
 # Customer intent: As a developer, I want to learn about the Time Series Insights JavaScript client library, so I can use the APIs in my own applications.
@@ -30,17 +30,19 @@ Specifically, you'll learn about:
 > * The Time Series Insights sample app source files are provided in the [GitHub sample repository](https://github.com/Microsoft/tsiclient/tree/tutorial/pages/tutorial).
 > * Read the [Time Series Insights client reference documentation](https://github.com/microsoft/tsiclient/blob/master/docs/API.md).
 
+Sign up for a [free Azure subscription](https://azure.microsoft.com/free/) if you don't already have one.
+
+## Prerequisites
+
+* This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
+typically provide access to the **Web Inspector View** through the F12 hotkey on your keyboard. Another way to access the view is to right-click on a webpage, and then select **Inspect Element**.
+
 ## Video
 
 In this video, we introduce the open-source Time Series Insights JavaScript SDK:
 <br /><br />
 
 > [!VIDEO https://www.youtube.com/embed/X8sSm7Pl9aA]
-
-## Prerequisites
-
-This tutorial uses your browser's **Developer Tools** feature. Modern web browsers ([Microsoft Edge](/microsoft-edge/devtools-guide), [Chrome](https://developers.google.com/web/tools/chrome-devtools/), [Firefox](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/What_are_browser_developer_tools), [Safari](https://developer.apple.com/safari/tools/), and others)
-typically provide access to the **Web Inspector View** through the F12 hotkey on your keyboard. Another way to access the view is to right-click on a webpage, and then select **Inspect Element**.
 
 ## Time Series Insights sample application
 
@@ -97,7 +99,7 @@ First, let's view the [HTML and JavaScript source code](https://github.com/Micro
 
 ## Time Series Insights JavaScript client library concepts
 
-The Time Series Insights client library (*tsclient.js*) provides abstractions for two important JavaScript functionalities:
+The Time Series Insights client library (*tsiclient.js*) provides abstractions for two important JavaScript functionalities:
 
 * **Wrapper methods for calling the Time Series Insights Query APIs**: REST APIs you can use to query for Time Series Insights data by using aggregate expressions. The methods are organized under the TsiClient.Server namespace of the library.
 
@@ -304,6 +306,13 @@ The code that's used to illustrate brushes is shown in the `Line Chart with Cont
 [!code-javascript[code-sample-brushes](~/samples-javascript/pages/tutorial/index.html?range=526-540&highlight=1,13)]
 
 [![Line chart with context menu to create pie chart and bar chart by using brushes](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png)](media/tutorial-explore-js-client-lib/tcs-line-chart-with-context-menu-to-create-pie-bar-chart-brushes.png#lightbox)
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 

@@ -23,7 +23,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 ### Azure Machine Learning SDK for Python v1.0.53
 
 + **New features**
-    + Automated Machine Learning now supports training ONNX models on the remote compute target
+  + Automated Machine Learning now supports training ONNX models on the remote compute target
   + Azure Machine Learning now provides ability to resume training from a previous run, checkpoint or model files.
     + Learn how to [use estimators to resume training from a previous run](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-tensorflow-resume-training/train-tensorflow-resume-training.ipynb)
 
@@ -75,9 +75,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Model description can now properly be updated after registration
     + Model and Image deletion now provides more information about upstream objects that depend on them which causes the delete to fail
     + Improve resource utilization of remote runs using azureml.mlflow.
-  + **azureml-dataprep**
-    + Dataflow objects can now be iterated over, producing a sequence of records.
-    + Add `_summarize_each` as experimental feature to `azureml.dataprep.Dataflow`.
   + **azureml-explain-model**
     + Fixed transformations argument for LIME explainer for raw feature importance in azureml-contrib-explain-model package
     + add scipy sparse support for LimeExplainer
@@ -110,6 +107,15 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-train-core**
     + Strings are now accepted as compute target for Automated Hyperparameter Tuning
     + The unused RunConfiguration setting auto_prepare_environment has been marked as deprecated.
+
+### Azure Machine Learning Data Prep SDK v1.1.9
+
++ **New features**
+  + Added support for reading a file directly from a http or https url.
+
++ **Bug fixes and improvements**
+  + Improved error message when attempting to read a Parquet Dataset from a remote source (which is not currently supported).
+  + Fixed a bug when writing to Parquet file format in ADLS Gen 2, and updating the ADLS Gen 2 container name in the path.
 
 ## 2019-07-09
 

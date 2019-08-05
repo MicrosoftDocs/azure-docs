@@ -17,6 +17,8 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Password Protection on-premises - Frequently asked questions
 
+This section provides answers to many commonly asked questions about Azure AD Password Protection.
+
 ## General questions
 
 **Q: What guidance should users be given on how to select a secure password?**
@@ -44,6 +46,10 @@ The password validation policy behaves the same regardless of whether a password
 **Q: Why are duplicated password rejection events logged when attempting to set a weak password using the Active Directory Users and Computers management snap-in?**
 
 The Active Directory Users and Computers management snap-in will first try to set the new password using the Kerberos protocol. Upon failure the snap-in will make a second attempt to set the password using a legacy (SAM RPC) protocol (the specific protocols used are not important). If the new password is considered weak by Azure AD Password Protection, this will result in two sets of password reset rejection events being logged.
+
+**Q: Why are Azure AD Password Protection password validation events being logged with an empty user name?**
+
+Active Directory supports the ability to test a password to see if it passes the domain's current password complexity requirements, for example using the [NetValidatePasswordPolicy](https://docs.microsoft.com/windows/win32/api/lmaccess/nf-lmaccess-netvalidatepasswordpolicy) api. When a password is validated in this way, the testing also includes validation by password-filter-dll based products such as Azure AD Password Protection - but the user names passed to a given password filter dll will be empty. In this scenario Azure AD Password Protection will still validate the password using the currently in-effect password policy and will issue an event log message to capture the outcome, however the event log message will have empty user name fields.
 
 **Q: Is it supported to install Azure AD Password Protection side by side with other password-filter-based products?**
 

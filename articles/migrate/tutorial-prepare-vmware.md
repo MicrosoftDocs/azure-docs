@@ -97,11 +97,11 @@ Assign role assignment permissions on the resource group in which the Azure Migr
 
 ## Prepare for VMware VM assessment
 
-To prepare for VMware VM assessment, you need to verify Hyper-V host and VM settings, and verify settings for appliance deployment.
+To prepare for VMware VM assessment, you need to verify VMware host and VM settings, and verify settings for appliance deployment.
 
 ### Verify VMware settings
 
-1. [Verify](migrate-support-matrix-vmware.md#assessment-vmware-server-requirements) VMware server requirements for VM assessment.
+1. [Verify](migrate-support-matrix-vmware.md#assessment-vcenter-server-requirements) VMware server requirements for VM assessment.
 2. [Make sure](migrate-support-matrix-vmware.md#assessment-port-requirements) that the required ports are open on vCenter servers.
 
 

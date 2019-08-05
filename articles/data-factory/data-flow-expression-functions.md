@@ -834,13 +834,13 @@ Gets the aggregate sum of distinct values of a numeric column
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumDistinctIf(state == 'CA' && commission < 10000, sales) -> value``
 * ``sumDistinctIf(true, sales) -> SUM(sales)``
-*********************************
+---
 ### <code>sumIf</code>
 <code><b>sumIf(<i>&lt;value1&gt;</i> : boolean, <i>&lt;value2&gt;</i> : number) => number</b></code><br/><br/>
 Based on criteria gets the aggregate sum of a numeric column. The condition can be based on any column
 * ``sumIf(state == 'CA' && commission < 10000, sales) -> value``
 * ``sumIf(true, sales) -> SUM(sales)``
-*********************************
+---
 ### <code>tan</code>
 <code><b>tan(<i>&lt;value1&gt;</i> : number) => double</b></code><br/><br/>
 Calculates a tangent value

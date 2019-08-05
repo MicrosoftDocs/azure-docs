@@ -16,6 +16,8 @@ ms.reviewer: seguler
 
 In this quickstart, you learn how to use the new Java Storage SDK to upload, download, and list block blobs in a container in Azure Blob storage. The new Java SDK uses the reactive programming model with RxJava, which provides asynchronous operations. Learn more about RxJava [reactive extensions for the Java VM](https://github.com/ReactiveX/RxJava). 
 
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 ## Prerequisites
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]

@@ -1,5 +1,5 @@
 ---
-title: Contextual data with roles - Language Understanding
+title: Contextual data with roles - LUIS
 titleSuffix: Azure Cognitive Services
 description: Find related data based on context. For example, an origin and destination locations for a physical move from one building and office to another building and office are related. 
 services: cognitive-services

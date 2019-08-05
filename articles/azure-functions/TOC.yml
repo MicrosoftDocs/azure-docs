@@ -47,6 +47,8 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Storage - Visual Studio Code
       href: functions-add-output-binding-storage-queue-vs-code.md
+    - name: Storage - Visual Studio
+      href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
@@ -119,7 +121,7 @@
     - name: Python
       href: functions-reference-python.md
   - name: Diagnostics
-    href: ../app-service/overview-diagnostics.md
+    href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies

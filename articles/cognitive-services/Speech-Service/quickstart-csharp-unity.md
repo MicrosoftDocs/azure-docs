@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Unity - Speech Services'
+title: 'Quickstart: Recognize speech, Unity - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text application with Unity and the Speech SDK for Unity (Beta). When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services

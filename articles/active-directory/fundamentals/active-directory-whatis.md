@@ -7,7 +7,7 @@ manager: daveba
 
 ms.service: active-directory
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: "it-pro, seodec18, seo-update-azuread-jan"
 
@@ -39,16 +39,14 @@ Azure AD is intended for:
 
 Microsoft Online business services, such as Office 365 or Microsoft Azure, require Azure AD for sign-in and to help with identity protection. If you subscribe to any Microsoft Online business service, you automatically get Azure AD with access to all the free features.
 
-To enhance your Azure AD implementation, you can also add paid capabilities by upgrading to Azure Active Directory Basic, Premium P1, or Premium P2 licenses. Azure AD paid licenses are built on top of your existing free directory, providing self-service, enhanced monitoring, security reporting, and secure access for your mobile users.
+To enhance your Azure AD implementation, you can also add paid capabilities by upgrading to Azure Active Directory Premium P1 or Premium P2 licenses. Azure AD paid licenses are built on top of your existing free directory, providing self-service, enhanced monitoring, security reporting, and secure access for your mobile users.
 
 >[!Note]
 >For the pricing options of these licenses, see [Azure Active Directory Pricing](https://azure.microsoft.com/pricing/details/active-directory/).
 >
->Azure Active Directory Premium P1, Premium P2, and Azure Active Directory Basic are not currently supported in China. For more information about Azure AD pricing, contact the [Azure Active Directory Forum](https://azure.microsoft.com/support/community/?product=active-directory).
+>Azure Active Directory Premium P1 and Premium P2 are not currently supported in China. For more information about Azure AD pricing, contact the [Azure Active Directory Forum](https://azure.microsoft.com/support/community/?product=active-directory).
 
 - **Azure Active Directory Free.** Provides user and group management, on-premises directory synchronization, basic reports, self-service password change for cloud users, and single sign-on across Azure, Office 365, and many popular SaaS apps.
-
-- **Azure Active Directory Basic.** In addition to the Free features, Basic also provides cloud-centric app access, group-based access management, self-service password reset for cloud apps, and Azure AD Application Proxy, which lets you publish on-premises web apps using Azure AD.
 
 - **Azure Active Directory Premium P1.** In addition to the Free and Basic features, P1 also lets your hybrid users access both on-premises and cloud resources. It also supports advanced administration, such as dynamic groups, self-service group management, Microsoft Identity Manager (an on-premises identity and access management suite) and cloud write-back capabilities, which allow self-service password reset for your on-premises users.
 

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2019
+ms.date: 07/30/2019
 ms.author: cherylmc
 ---
 # ExpressRoute partners and peering locations
@@ -23,14 +23,23 @@ ms.author: cherylmc
 > * [Providers By Location](expressroute-locations-providers.md)
 
 
-The tables in this article provide information on ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
+The tables in this article provide information on ExpressRoute locations, ExpressRoute connectivity providers, ExpressRoute geographical coverage, Microsoft cloud services supported over ExpressRoute, and ExpressRoute System Integrators (SIs).
 
-## <a name="partners"></a>ExpressRoute connectivity providers
-ExpressRoute is supported across all Azure regions and locations. The following map provides a list of Azure regions and ExpressRoute locations. ExpressRoute locations refer to those where Microsoft peers with several service providers.
+> [!Note]
+> Azure regions and ExpressRoute locations are two distinct and different concepts, understanding the difference between the two is critical to exploring Azure hybrid networking connectivity. 
+>
+>
 
-![Location map][0]
+## Azure Regions
+Azure regions are global datacenters where Azure compute, networking and storage resources are located. When creating an Azure resource, a customer needs to select a resource location. The resource location determines which Azure datacenter (or availability zone) the resource is created in.
+
+## ExpressRoute Locations
+ExpressRoute locations (sometimes referred to as peering locations or meet-me-locations) are co-location facilities where Microsoft Enterprise Edge (MSEE) devices are located. ExpressRoute locations are the entry point to Microsoft’s network – and are globally distributed, providing customers the opportunity to connect to Microsoft’s network around the world. These locations are where ExpressRoute partners and ExpressRoute Direct customers issue cross connections to Microsoft’s network. In general, the ExpressRoute location does not need to match the Azure region. For example, a customer can create an ExpressRoute circuit with the resource location *East US*, in the *Seattle* Peering location.
 
 You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. 
+
+## <a name="partners"></a>ExpressRoute connectivity providers
+ExpressRoute is supported across all Azure regions and locations.
 
 ### Azure regions to ExpressRoute locations within a geopolitical region
 The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
@@ -38,7 +47,7 @@ The following table provides a map of Azure regions to ExpressRoute locations wi
 | **Geopolitical region** | **Zone** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- | --- |
 | **Australia Government** | 1 | Australia Central, Australia Central 2 |Canberra, Canberra2 |
-| **Europe** | 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Zurich |
+| **Europe** | 1 |France Central, France South, North Europe, West Europe, UK West, UK South |Amsterdam, Amsterdam2, Copenhagen, Dublin, Frankfurt, London, London2, Marseille, Newport(Wales), Paris, Zurich |
 | **North America** | 1 |East US, West US, East US 2, West US 2, Central US, South Central US, North Central US, West Central US, Canada Central, Canada East |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Angeles, Miami, New York, San Antonio, Seattle, Silicon Valley, Silicon Valley2, Washington DC, Washington DC2, Montreal, Quebec City, Toronto |
 | **Asia** | 2 |East Asia, Southeast Asia |Hong Kong SAR, Kuala Lumpur, Singapore, Singapore2, Taipei |
 | **India** | 2 |India West, India Central, India South |Chennai, Chennai2, Mumbai, Mumbai2 |
@@ -74,7 +83,7 @@ The following table shows connectivity locations and the service providers for e
 | **Amsterdam** | Equinix | West Europe | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | West Europe | CenturyLink Cloud Connect, DE-CIX, Interxion, Vodafone |
 | **Atlanta** | Equinix | n/a | Equinix, Megaport |
-| **Auckland** | Vocus Group NZ | n/a | Devoli, Kordia, Megaport, Vocus Group NZ |
+| **Auckland** | Vocus Group NZ | n/a | Devoli, Kordia, Megaport, Spark NZ, Vocus Group NZ |
 | **Busan** |LG CNS | Korea South | LG CNS |
 | **Canberra** | CDC | Australia Central | CDC |
 | **Canberra2** | CDC | Australia Central 2| CDC |
@@ -82,6 +91,7 @@ The following table shows connectivity locations and the service providers for e
 | **Chennai** | Tata Communications | South India | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | South India | Airtel |
 | **Chicago** | Equinix | North Central US | Aryaka Networks, AT&T NetBond, CenturyLink Cloud Connect, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, Level 3 Communications, Megaport, PacketFabric, PCCW Global Limited, Sprint, Telia Carrier, Verizon, Zayo |
+| **Copenhagen** | Interxion | n/a | Interxion |
 | **Dallas** | Equinix | n/a | Aryaka Networks, AT&T NetBond, Cologix, Equinix, Internet2, Level 3 Communications, Megaport, Neutrona Networks, Telmex Uninet, Telia Carrier, Transtelco, Verizon, Zayo|
 | **Denver** | CoreSite | West Central US | CoreSite, Megaport, Zayo |
 | **Dubai** | Etisalat UAE | UAE North | Etisalat UAE |

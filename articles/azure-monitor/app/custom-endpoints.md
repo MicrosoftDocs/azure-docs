@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
 ---
 
@@ -153,6 +153,14 @@ Currently the only regions that require endpoint modifications are [Azure Govern
 | Azure Government | Telemetry Channel |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+If you currently use the [Application Insights REST API](https://dev.applicationinsights.io/
+) which is normally accessed via `api.applicationinsights.io' you will need to use an endpoint that is local to your region:
+
+|Region |  Endpoint Name | Value |
+|-----------------|:------------|:-------------|
+| Azure China | REST API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.

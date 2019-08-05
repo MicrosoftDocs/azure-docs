@@ -5,6 +5,7 @@
   - name: About Time Series Insights
     href: time-series-insights-update-overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Azure Time Series Insights GA
     items:

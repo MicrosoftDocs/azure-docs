@@ -257,7 +257,9 @@
     - name: String functions
       href: resource-group-template-functions-string.md
   - name: Complete mode deletion
-    href: complete-mode-deletion.md  
+    href: complete-mode-deletion.md
+  - name: Resource instance limit
+    href: resources-without-rg-limit.md  
   - name: Resource providers by service
     href: azure-services-resource-providers.md
   - name: REST - Resource Manager

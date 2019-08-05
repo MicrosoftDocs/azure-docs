@@ -3,7 +3,7 @@ title: Back up SQL Server databases to Azure | Microsoft Docs
 description: This tutorial explains how to back up SQL Server to Azure.
 
 author: dcurwin
-manager: 
+manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
