@@ -29,6 +29,10 @@
     items:
     - name: Apache HBase REST not responding
       href: ./hbase-troubleshoot-rest-not-spending.md
+    - name: Pegged CPU on region server
+      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+    - name: Timeouts with 'hbase hbck' command
+      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: How to
   items:
   - name: Use cluster storage
