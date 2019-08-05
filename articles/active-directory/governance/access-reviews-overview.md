@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -74,7 +74,7 @@ Here are some example scenarios to help you determine the number of licenses you
 | An administrator creates an access review of Group A with 500 users.<br/>Assigns 3 group owners as reviewers. | 1 administrator + 3 group owners | 4 |
 | An administrator creates an access review of Group A with 500 users.<br/>Makes it a self-review. | 1 administrator + 500 users as self-reviewers | 501 |
 | An administrator creates an access review of Group A with 5 users and 25 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers<br/>(guest users are covered in the required 1:5 ratio) | 6 |
-| An administrator creates an access review of Group A with 5 users and 28 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers + 1 user to cover guest users in the required 1:5 ratio | 7 |
+| An administrator creates an access review of Group A with 5 users and 28 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers + 1 user to cover guest users in the required 1:5 ratio | 6 |
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
