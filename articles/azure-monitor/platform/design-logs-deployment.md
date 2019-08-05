@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ms.author: magoedte
 ---
 
@@ -101,7 +101,7 @@ The following table summarizes the access modes:
 |:---|:---|:---|
 | Who is each model intended for? | Central administration. Administrators who need to configure data collection and users who need access to a wide variety of resources. Also currently required for users who need to access logs for resources outside of Azure. | Application teams. Administrators of Azure resources being monitored. |
 | What does a user require to view logs? | Permissions to the workspace. See **Workspace permissions** in [Manage accounts and users](manage-access.md#manage-accounts-and-users). | Read access to the resource. See **Resource permissions** in [Manage accounts and users](manage-access.md#manage-accounts-and-users). Permissions can be inherited (such as from the containing resource group) or directly assigned to the resource. Permission to the logs for the resource will be automatically assigned. |
-| What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](manage-access.md#table-level-rbac) | Azure resource. User can query logs for resources they have access to from any workspace but can't query logs for other resources. |
+| What is the scope of permissions? | Workspace. Users with access to the workspace can query all logs in that workspace from tables that they have permissions to. See [Table access control](manage-access.md#table-level-rbac) | Azure resource. User can query logs for specific resources, resource groups, or subscription they have access to from any workspace but can't query logs for other resources. |
 | How can user access logs? | <ul><li>Start **Logs** from **Azure Monitor** menu.</li></ul> <ul><li>Start **Logs** from **Log Analytics workspaces**.</li></ul> <ul><li>From Azure Monitor [Workbooks](../visualizations.md#workbooks).</li></ul> | <ul><li>Start **Logs** from the menu for the Azure resource</li></ul> <ul><li>Start **Logs** from **Azure Monitor** menu.</li></ul> <ul><li>Start **Logs** from **Log Analytics workspaces**.</li></ul> <ul><li>From Azure Monitor [Workbooks](../visualizations.md#workbooks).</li></ul> |
 
 ## Access control mode
@@ -135,10 +135,11 @@ Once you have deployed your workspace architecture, you can enforce this on Azur
 
 ## Workspace consolidation migration strategy
 
-For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you take an incremental approach to migrate to the recommended access model, and you don't attempt to achieve this quickly or aggressively. Following a phased approach to plan,  migrate, validate, and retire following a reasonable timeline will help avoid any unplanned incidents or unexpected impact to your cloud operations. If your timetable is 60 days for example, set this as the retention limit for the workspace you are migrating from. While you are reconfiguring resources to report to the shared workspace, you can still analyze the data in the original workspace as necessary and once the migration is complete, you can delete it.  
+For customers who have already deployed multiple workspaces and are interested in consolidating to the resource-context access model, we recommend you take an incremental approach to migrate to the recommended access model, and you don't attempt to achieve this quickly or aggressively. Following a phased approach to plan,  migrate, validate, and retire following a reasonable timeline will help avoid any unplanned incidents or unexpected impact to your cloud operations. If you do not have a data retention policy for compliance or business reasons, you need to assess the appropriate length of time to retain data in the workspace you are migrating from during the process. While you are reconfiguring resources to report to the shared workspace, you can still analyze the data in the original workspace as necessary. Once the migration is complete, if you governed to retain data in the original workspace before the end of the retention period, don't delete it.
 
 While planning your migration to this model, consider the following:
 
+* Understand what industry regulations and internal policies regarding data retention you must comply with.
 * Make sure that your application teams can work within the existing resource-context functionality.
 * Identify the access granted to resources for your application teams and test in a development environment before implementing in production.
 * Configure the workspace to enable **Use resource or workspace permissions**.

@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ms.author: magoedte
 ---
 
@@ -21,9 +21,9 @@ Azure Monitor stores log data in a Log Analytics workspace, which is essentially
 
 This article explains how to manage access to logs and to administer the workspaces that contain them, including:
 
-1. How to grant access to users who need access to a specific monitoring solution.
 1. How to grant access to users who need access to log data from specific resources using Azure role-based access control (RBAC).
 1. How to grant access to the workspace using workspace permissions.
+1. How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
 
 ## Define access control mode in Azure portal
 
