@@ -70,6 +70,8 @@
       href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
     - name: Apache Ambari heartbeat issues
       href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+    - name: Apache Ambari UI 502 error
+      href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
