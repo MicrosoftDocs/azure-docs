@@ -30,6 +30,8 @@
         href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
     - name: Inaccessible Apache Hive View 
       href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+    - name: ZooKeeperHiveClientException - HiveServer2 configs
+      href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
     - name: Apache Hive LLAP query performance
       href: ./interactive-query-troubleshoot-query-performance.md
 - name: How to
