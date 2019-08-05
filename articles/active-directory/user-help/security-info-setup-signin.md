@@ -96,7 +96,7 @@ Follow these steps to set up your security info for your work or school account 
     ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
 
     >[!Note]
-    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a third section, called **App passwords**, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see [Manage your app passwords](#manage-your-app-passwords).
+    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a third section, called **App passwords**, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see the [Manage your app passwords](#manage-your-app-passwords) section of this article.
 
 ### Manage your app passwords
 
