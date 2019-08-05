@@ -74,4 +74,4 @@ Now that you know how to create the SAS token, you are ready to perform an HTTP 
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
-If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it. As such, you have control over what they can access, and for how long. It is important to remember is that if you change the primary key in the policy, any Shared Access Signatures created from it is invalidated.
+If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it. As such, you have control over what they can access, and for how long. It is important to remember that if you change the primary key in the policy, any Shared Access Signatures created from it is invalidated.
