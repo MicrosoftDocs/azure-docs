@@ -176,7 +176,7 @@ If you used a cloud notebook server, stop the VM when you are not using it to re
 
 1. In your workspace, select **Notebook VMs**.
 
-   ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. From the list, select the VM.
 
