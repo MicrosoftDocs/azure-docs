@@ -28,7 +28,7 @@ This article shows you how to create an ILB ASE. For an overview on the ASE, see
 
 ## Overview 
 
-You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appservicewebsites.net. Apps that are made in an ILB ASE are not put in the public DNS. 
+You can deploy an ASE with an internet-accessible endpoint or with an IP address in your VNet. To set the IP address to a VNet address, the ASE must be deployed with an ILB. When you deploy your ASE with an ILB, you must provide the name of your ASE. The name of your ASE is used in the domain suffix for the apps in your ASE.  The domain suffix for your ILB ASE is &lt;ASE name&gt;.appserviceenvironment.net. Apps that are made in an ILB ASE are not put in the public DNS. 
 
 Earlier versions of the ILB ASE required you to provide a domain suffix and a default certificate for HTTPS connections. The domain suffix is no longer collected at ILB ASE creation and a default certificate is also no longer collected. When you create an ILB ASE now, the default certificate is provided by Microsoft and is trusted by the browser. You are still able to set custom domain names on apps in your ASE and set certificates on those custom domain names. 
 
