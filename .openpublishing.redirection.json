@@ -24510,11 +24510,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user.md",
-      "redirect_url": "/azure/active-directory/user-help/user-help-two-step-verification-overview",
-      "redirect_document_id": false
-    },    
-    {
       "source_path": "articles/active-directory/active-directory-azureadjoin-personal-device.md",
       "redirect_url": "/azure/active-directory/user-help/device-management-azuread-joined-devices-setup",
       "redirect_document_id": false
