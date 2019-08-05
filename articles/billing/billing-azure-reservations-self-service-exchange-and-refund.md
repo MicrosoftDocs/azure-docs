@@ -58,9 +58,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 **Cancellation policies**
 
 - If you cancel a reservation, there may be a 12% early termination fee.
-- Refunds are based on the lowest price of either your purchase price or the current price of the reservation.
-- Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
-- The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select Refund.
+- The refund you receive for a cancellation is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
 
 **Exchange policies**
 
@@ -75,6 +73,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 
 **Refund policies**
 - Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
+- Refunds are calculated based on the lowest price of either your purchase price or the current price of the reservation.
 - Only reservation owners can process a refund. [Learn how to Add or change users who can manage a reservation](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft reserves the right to charge a 12% penalty for any returns, although the penalty isn't currently charged.
 
