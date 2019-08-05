@@ -57,7 +57,7 @@
   - name: Troubleshoot
     items:
     - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
-      href: ./hdinsight-troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+      href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
     - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
       href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
     - name: Unable to log into HDInsight cluster

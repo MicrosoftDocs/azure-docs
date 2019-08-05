@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ---
 
 # Cluster creation fails with InvalidNetworkConfigurationErrorCode in Azure HDInsight
@@ -14,7 +14,7 @@ This article describes troubleshooting steps and possible resolutions for issues
 
 If you see error code `InvalidNetworkConfigurationErrorCode` with the description "Virtual Network configuration is not compatible with HDInsight Requirement", it usually indicates a problem with the [virtual network configuration](../hdinsight-plan-virtual-network-deployment.md) for your cluster. Based on the rest of the error description, follow the below sections to resolve your problem.
 
-## Scenario: Error description contains "HostName Resolution failed"
+## "HostName Resolution failed"
 
 ### Issue
 
@@ -40,7 +40,7 @@ This error points to a problem with custom DNS configuration. DNS servers within
 
 ---
 
-## Scenario: Error description contains "Failed to connect to Azure Storage Account” or “Failed to connect to Azure SQL"
+## "Failed to connect to Azure Storage Account”
 
 ### Issue
 
