@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ---
 # Configure Advanced Threat Protection in Azure SQL Database managed instance
 
@@ -20,7 +20,7 @@ You can receive notifications about the detected threats via [email notification
 
 [Advanced Threat Protection](sql-database-threat-detection-overview.md) is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
 
-## Set up Advanced Threat Protection for your managed instance in the Azure portal
+## Set up Advanced Threat Protection in the Azure portal
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Navigate to the configuration page of the managed instance you want to protect. In the **Settings** page, select **Advanced Data Security**.
@@ -32,6 +32,9 @@ You can receive notifications about the detected threats via [email notification
 4. Click **Save** to save the new or updated Advanced Data Security policy.
 
    ![Advanced Threat Protection](./media/sql-database-managed-instance-threat-detection/threat-detection.png)
+
+   > [!NOTE]
+   > Prices in screenshots does not always reflect the current price, and are an example.
 
 ## Next steps
 

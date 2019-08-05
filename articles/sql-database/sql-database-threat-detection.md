@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ---
 # Azure SQL Database Advanced Threat Protection for single or pooled databases
 
@@ -18,7 +18,7 @@ You can receive notifications about the detected threats via [email notification
 
 [Advanced Threat Protection](sql-database-threat-detection-overview.md) is part of the [advanced data security](sql-database-advanced-data-security.md) (ADS) offering, which is a unified package for advanced SQL security capabilities. Advanced Threat Protection can be accessed and managed via the central SQL ADS portal.
 
-## Set up Advanced Threat Protection for your database in the Azure portal
+## Set up Advanced Threat Protection in the Azure portal
 
 1. Launch the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 2. Navigate to the configuration page of the Azure SQL Database server you want to protect. In the security settings, select **Advanced Data Security**.
@@ -28,6 +28,9 @@ You can receive notifications about the detected threats via [email notification
    - In **Advanced Threat Protection Settings**, in the **Send alerts to** text box, provide the list of emails to receive security alerts upon detection of anomalous database activities.
   
    ![Set up Advanced Threat Protection](./media/sql-database-threat-detection/set_up_threat_detection.png)
+
+   > [!NOTE]
+   > Prices in screenshots does not always reflect the current price, and are an example.
 
 ## Set up Advanced Threat Protection using PowerShell
 
