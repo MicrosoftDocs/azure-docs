@@ -91,10 +91,10 @@ Follow these steps to set up your security info for your work or school account 
 
     Your security info is updated to use text messaging as a backup method to verify your identity when using two-step verification or password reset.
 
-    >[!Note]
-    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a 3rd section, called App passwords, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see Manage your app passwords (#manage-your-app-passwords).
-
 12. Review the **Success** page to verify that you've successfully set up both the Microsoft Authenticator app and a phone (either text message or phone call) method for your security info, and then select **Done**.
+
+    >[!Note]
+    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a third section, called App passwords, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see [Manage your app passwords](#manage-your-app-passwords).
 
     ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
 
@@ -115,19 +115,17 @@ When using app passwords, it's important to remember:
 
 #### To add app passwords in the sign-in wizard
 
-1. After you complete the **Phone** section of the wizard and select **Next**, you will be asked to complete the **App password** section.
-
-    ![Phone completion in the sign-in wizard, showing the app passwords section](media/security-info/app-password-phone.png)
+1. After you complete the first two sections of the wizard and select **Next**, you'll be asked to complete the **App password** section.
 
 2. Type the name of the app that needs the password, for example `Outlook 2010`, and then select **Next**.
 
     ![Add the app password name in the wizard](media/security-info/app-password-app-password.png)
 
-3. Copy the text from the **App password** screen, paste the password in the **Password** area of the app (in this example, Outlook 2010).
+3. Copy the password code from the **App password** screen and paste it into the **Password** area of the app (in this example, Outlook 2010).
 
     ![App password page, with password for copy](media/security-info/app-password-copy-password.png)
 
-4. After you copy the password and paste it in the app, you can return to the wizard and select **Done**.
+4. After you copy the password and paste it in the app, you can return to this wizard and select **Done**.
 
     ![App password page, with completion notice](media/security-info/app-password-complete.png)
 
