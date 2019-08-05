@@ -19,7 +19,7 @@ Account information is available on service versions beginning with version 2018
 
 ## About account kind and SKU name
 
-**Account kind**: Valid account kinds include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
+**Account kind**: Valid account types include `BlobStorage`, `BlockBlobStorage`, `FileStorage`, `Storage`, and `StorageV2`. [Azure storage account overview](storage-account-overview.md) has more information, including descriptions of the various storage accounts.
 
 **SKU name**: Valid SKU names include `Premium_LRS`, `Premium_ZRS`, `Standard_GRS`, `Standard_GZRS`, `Standard_LRS`, `Standard_RAGRS`, `Standard_RAGZRS`, and `Standard_ZRS`. SKU names are case-sensitive and are string fields in the [SkuName Class](/dotnet/api/microsoft.azure.management.storage.models.skuname?view=azure-dotnet).
 
@@ -55,6 +55,10 @@ private static async Task GetAccountInfoAsync(CloudBlob blob)
 
 [!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
 
-## See also
+## Next steps
 
-- [Get Account Information operation](/rest/api/storageservices/get-account-information)
+Learn about other operations you can perform on a storage account through the [Azure portal](https://portal.azure.com) and the Azure REST API.
+
+- [Manage a storage account](storage-account-manage.md)
+- [Upgrade a storage account](storage-account-upgrade.md)
+- [Get Account Information operation (REST)](/rest/api/storageservices/get-account-information)
