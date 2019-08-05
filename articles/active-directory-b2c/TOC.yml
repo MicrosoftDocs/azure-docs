@@ -26,7 +26,7 @@
     href: tutorial-add-identity-providers.md
   - name: Customize the UI
     href: tutorial-customize-ui.md
-  - name: Authenticate accounts
+  - name: Authenticate users
     items:
     - name: ASP.NET
       href: active-directory-b2c-tutorials-web-app.md
