@@ -2,12 +2,12 @@
 title: FSLogix profile containers and Azure Files in Windows Virtual Desktop - Azure
 description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 
 # FSLogix profile containers and Azure files
