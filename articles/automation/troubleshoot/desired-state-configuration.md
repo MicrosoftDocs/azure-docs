@@ -28,6 +28,7 @@ steps to help you diagnose the issue.
    - **Missing Modules**
    - **Syntax Errors**
    - **Logic Errors**
+
 2. **View DSC logs on your Node:** If your configuration compiles successfully, but fails when applied to a Node, you can find
    detailed information in the logs. For information about where to find DSC logs, see [Where are the DSC Event Logs](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
 
