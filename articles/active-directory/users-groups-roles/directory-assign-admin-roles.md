@@ -32,7 +32,7 @@ As a best practice, we recommend that you assign this role to fewer than 5 peopl
 
 ### Find the role you need
 
-If it's frustrating for you to find the role you need out of a list of many roles, Azure AD can provide you to a shorter list filtered based on role categories. Check out our new **Type** filter for [Azure AD Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) to show you only the roles in the selected type.
+If it's frustrating for you to find the role you need out of a list of many roles, Azure AD can provide you with shorter lists based on role categories. Check out our new **Type** filter for [Azure AD Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) to show you only the roles in the selected type.
 
 ### A role exists now that didn’t exist when you assigned the Global administrator role
 
