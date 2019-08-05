@@ -56,7 +56,7 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 ## Connect to Azure
 
 > [!NOTE]
-> If your Azure subscription uses certificate-based multi-factor authentication, it is crucial that you perform these steps on a device that has the required certificates installed.
+> If your Azure subscription uses certificate-based multi-factor authentication, it is crucial that you perform the following steps on a device that has the required certificates installed.
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 
