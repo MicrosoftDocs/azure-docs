@@ -4,7 +4,7 @@ description: Additional documentation, tutorials or references relevant to Austr
 author: galey801
 ms.service: azure-australia
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 07/29/2019
 ms.author: grgale
 ---
 
@@ -14,10 +14,10 @@ This resource library contains additional links and references that are relevant
 
 ## General references for all security and governance in Azure Australia
 
-* Microsoft Service Trust Portal Australia Page at [https://servicetrust.microsoft.com/ViewPage/Australia](https://servicetrust.microsoft.com/ViewPage/Australia) or [https://aka.ms/au-irap](https://aka.ms/au-irap)|
+* [Microsoft Service Trust Portal Australia Page](https://aka.ms/au-irap)
 * [Microsoft Trust Center CCSL Page](https://www.microsoft.com/trustcenter/compliance/ccsl)
 * [Azure Security and Compliance Blueprints for PROTECTED](https://aka.ms/au-protected)
-* [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/azure/security/azure-isolation)
+* [Tenant Isolation in Microsoft Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices)
 * [Australian Information Security Manual](https://www.cyber.gov.au/ism)
 * [Australian Cyber Security Centre (ACSC) Certified Cloud List](https://www.cyber.gov.au/irap/asd-certified-cloud-services)
 
@@ -27,7 +27,7 @@ This resource library contains additional links and references that are relevant
 * [About keys, secrets, and certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates)
 * [Configure Azure Key Vault firewalls and virtual networks](https://docs.microsoft.com/azure/key-vault/key-vault-network-security)
 * [Secure access to a key vault](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)
-* [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+* [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
 * [How to use Azure Key Vault with Azure Windows Virtual Machines in .NET](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Azure Key Vault managed storage account - PowerShell](https://docs.microsoft.com/azure/key-vault/tutorial-net-windows-virtual-machine)
 * [Setup key rotation and auditing](https://docs.microsoft.com/azure/key-vault/key-vault-key-rotation-log-monitoring)
@@ -63,7 +63,7 @@ This resource library contains additional links and references that are relevant
 * [Azure RBAC Overview](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Azure Privileged Identify Management Overview](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure)
 * [Azure Management Groups Overview](https://docs.microsoft.com/azure/governance/management-groups/)
-* [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices)
+* [Azure Identity and Access Control Best Practices](https://docs.microsoft.com/azure/security/fundamentals/identity-management-best-practices)
 * [Managing Azure AD Groups](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 * [Hybrid Identity](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity)
 * [RBAC Custom Roles](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)

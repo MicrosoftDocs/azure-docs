@@ -3,7 +3,7 @@ title: Troubleshooting issues with Azure Automation Desired State Configuration 
 description: This article provides information on troubleshooting Desired State Configuration (DSC)
 services: automation
 ms.service: automation
-ms.subservice: 
+ms.subservice:
 author: bobbytreed
 ms.author: robreed
 ms.date: 04/16/2019
@@ -13,6 +13,33 @@ manager: carmonm
 # Troubleshoot Desired State Configuration (DSC)
 
 This article provides information on troubleshooting issues with Desired State Configuration (DSC).
+
+## Steps to troubleshoot Desired State Configuration (DSC)
+
+When you have errors compiling or deploying configurations in Azure State Configuration, here are a few
+steps to help you diagnose the issue.
+
+1. **Ensure your configuration compiles successfully on your local machine:**  Azure State Configuration
+   is built on PowerShell DSC. You can find the documentation for the DSC language and syntax in
+   the [PowerShell DSC Docs](/powershell/dsc/overview/overview).
+
+   By compiling your DSC configuration on your local machine your can discover and resolve common errors, such as:
+
+   - **Missing Modules**
+   - **Syntax Errors**
+   - **Logic Errors**
+2. **View DSC logs on your Node:** If your configuration compiles successfully, but fails when applied to a Node, you can find
+   detailed information in the logs. For information about where to find DSC logs, see [Where are the DSC Event Logs](/powershell/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+
+   Futhermore, the [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) can assist you in parsing detailed information
+   from the DSC logs. If you contact support, they will require these logs to dianose your issue.
+
+   You can install **xDscDiagnostics** on your local machine using the instructions found under [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+
+   To install **xDscDiagnostics** on your Azure machine, you can use [az vm run-command](/cli/azure/vm/run-command) or [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). You can also use the **Run command** option from the portal, by following the steps found in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+
+   For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), as well as [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
+3. **Ensure your Nodes and Automation workspace have the required modules:** Desired State Configuration depends on modules installed on the Node.  When using Azure Automation State Configuration, import any required modules into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules.  For more information see, [Troubleshoot Modules](shared-resources.md#modules).
 
 ## Common errors when working with Desired State Configuration (DSC)
 
@@ -80,7 +107,7 @@ This error typically occurs when the node is assigned to a configuration name (f
 * Make sure that you're assigning the node with "node configuration name" and not the "configuration name".
 * You can assign a node configuration to a node using Azure portal or with a PowerShell cmdlet.
 
-  * To assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.  
+  * To assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.
   * To assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
 
 ### <a name="no-mof-files"></a>Scenario: No node configurations (MOF files) were produced when a configuration is compiled

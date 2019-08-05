@@ -167,7 +167,7 @@ It's crucial to not only know who is using your applications, but also to preven
   > 
   > **Get started**: To learn more about authentication in App Service, see [Authentication and authorization in Azure App Service](../../app-service/overview-authentication-authorization.md).
 
-To learn more about security best practices in Azure, see [Azure security best practices and patterns](../../security/security-best-practices-and-patterns.md).
+To learn more about security best practices in Azure, see [Azure security best practices and patterns](../../security/fundamentals/best-practices-and-patterns.md).
 
 ### Monitoring
 

@@ -28,7 +28,7 @@ Hyper-V VM | Hyper-V VM assessment with the Azure Migrate Assessment tool. | Dow
 
 ## Appliance access
 
-After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: ``` https://<appliance-ip-or-name>:44368 ```.
+After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: `https://<appliance-ip-or-name>:44368`.
 
 ## Appliance license
 The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
@@ -148,7 +148,7 @@ VM version | Msvm_ProcessorSettingData | VirtualQuantity
 Memory (bytes) | Msvm_MemorySettingData | VirtualQuantity
 Maximum memory that can be consumed by VM | Msvm_MemorySettingData | Limit
 Dynamic memory enabled | Msvm_MemorySettingData | DynamicMemoryEnabled
-Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsciExchangeItems Name Data
+Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems Name Data
 VM power status | Msvm_ComputerSystem | EnabledState
 **Per disk details** | 
 Disk identifier | Msvm_VirtualHardDiskSettingData | VirtualDiskId
