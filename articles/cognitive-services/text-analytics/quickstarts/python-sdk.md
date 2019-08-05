@@ -66,7 +66,28 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 ## Object model
 
-TBD
+The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods (and response objects) for analyzing raw text: 
+
+| Method | Response object class |
+| -- | -- |
+| [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [LanguageBatchResult](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.languagebatchresult?view=azure-python)
+| [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)
+| [key_phrases](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)
+| [sentiment()](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)
+
+Text is sent to the API as a list of `documents`, which are dictionaries containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
+
+The response object is a list containing the analysis information for each document. Depending on the method called, these documents can be a `BatchResultItem`
+
+The Text Analysis response object 
+
+
+
+Text is sent to the API either directly in 
+
+Time series data is sent as a series of Points in a Request object. The Request object contains properties to describe the data (Granularity for example), and parameters for the anomaly detection.
+
+The Anomaly Detector response is a LastDetectResponse or EntireDetectResponse object depending on the method used.
 
 ## Code examples
 
@@ -86,8 +107,6 @@ Create a new `TextAnalyticsClient` object with `credentials` and `text_analytics
 
 ## Sentiment analysis
 
-The payload to the API consists of a list of `documents`, which are dictionaries containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
-
 Call the `sentiment()` function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
 
 [!code-python[Sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentiment-analysis)]
@@ -104,8 +123,6 @@ Document Id:  4 , Sentiment Score:  1.00
 
 ## Language detection
 
-Create a list of dictionaries, each containing the document you want to analyze. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
-
 Using the client created earlier, call `detect_language()` and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
 [!code-python[Language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=language-detection)]
@@ -119,8 +136,6 @@ Document Id:  3 , Language:  Chinese_Simplified
 ```
 
 ## Entity recognition
-
-Create a list of dictionaries, containing the documents you want to analyze. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
 Using the client created earlier, call `entities()` function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
 
@@ -158,8 +173,6 @@ Document Id:  2
 ```
 
 ## Key phrase extraction
-
-Create a list of dictionaries, containing the documents you want to analyze. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
 Using the client created earlier, call `key_phrases()` function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
 
