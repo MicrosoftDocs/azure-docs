@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 04/29/2019
+ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
@@ -75,6 +75,12 @@ While there is no perfect solution or recommendation for every customer, the fol
 You can also check out the Getting started tab of **Identity Governance** in the Azure portal to start using entitlement management, access reviews, Privileged Identity Management, and Terms of use.
 
 ![Identity Governance getting started](./media/identity-governance-overview/getting-started.png)
+
+## Feedback
+
+As you use Identity Governance features, if you you any feedback, click **Got feedback?** to submit your feedback. The team regularly reviews your feedback.
+
+![Identity Governance feedback pane](./media/identity-governance-overview/feedback.png)
 
 ## Next steps
 
