@@ -49,10 +49,10 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 2. Click **Active Directory Administrative Center**.
 
     ![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. To view the domain, click the domain name in the left pane (for example, 'contoso100.com').
+3. To view the domain, click the domain name in the left pane (for example, 'contoso.com').
 
     ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
-4. On the right side **Tasks** pane, click **New** under the domain name node. In this example, we click **New** under the 'contoso100(local)' node on the right side **Tasks** pane.
+4. On the right side **Tasks** pane, click **New** under the domain name node. In this example, we click **New** under the 'contoso(local)' node on the right side **Tasks** pane.
 
     ![ADAC - new OU](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 5. You should see the option to create an Organizational Unit. Click **Organizational Unit** to launch the **Create Organizational Unit** dialog.

@@ -78,7 +78,7 @@ You can configure a custom FGPP for the following reasons:
 To create a custom FGPP on your managed domain:
 1. Sign in to the Windows VM you use to administer your managed domain. If you don't have one, follow the instructions to [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md).
 2. Launch the **Active Directory Administrative Center** on the VM.
-3. Click the domain name (for example, 'contoso100.com').
+3. Click the domain name (for example, 'contoso.com').
 4. Double-click **System** to open the System container.
 5. Double-click **Password Settings Container**.
 6. You see the default built-in FGPP for the managed domain called **AADDSSTFPSO**. You can't modify this built-in FGPP. You can however, create a new custom FGPP override the default FGPP.
