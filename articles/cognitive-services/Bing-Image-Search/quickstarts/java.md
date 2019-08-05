@@ -11,7 +11,7 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and Java
 

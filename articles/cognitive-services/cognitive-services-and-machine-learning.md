@@ -1,6 +1,6 @@
 ---
-title: Cognitive Services and machine learning
-titlesuffix: Azure Cognitive Services
+title: Cognitive Services and Machine Learning
+titleSuffix: Azure Cognitive Services
 description: Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.
 services: cognitive-services
 author: diberry
@@ -99,11 +99,11 @@ The following data categorizes each service by which kind of data it allows or r
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
 |[Speaker Recognizer](./speaker-recognition/home.md)||x||
 |[Speech Text-to-speech (TTS)](speech-service/text-to-speech.md)|x|x||
-|[Speech Speech-to-text (STT)](/speech-service/speech-to-text.md)|x|x||
+|[Speech Speech-to-text (STT)](speech-service/speech-to-text.md)|x|x||
 |[Speech Translation](speech-service/speech-translation.md)|x|||
 |[Text Analytics](./text-analytics/overview.md)|x|||
 |[Translator Text](./translator/translator-info-overview.md)|x|||
-|[Translator Text - custom translator]()||x||
+|[Translator Text - custom translator](./translator/custom-translator/overview.md)||x||
 
 *Personalizer only needs training data collected by the service (as it operates in real-time) to evaluate your policy and data. Personalizer does not need large historical datasets for up-front or batch training. 
 

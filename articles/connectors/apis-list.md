@@ -54,7 +54,7 @@ logic app's workflow, and also work with data.
   > ISE use a pricing plan different from the consumption-based pricing plan.
   >
   > For more information about creating ISEs, see 
-  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). 
   > For more information about pricing, see 
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
 
@@ -108,7 +108,7 @@ you might have to first create connections, which are managed by Azure Logic App
   > the consumption-based pricing plan. 
   >
   > For more information about creating ISEs, see 
-  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
   > For more information about pricing, see 
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
 
@@ -318,7 +318,7 @@ you can [submit connectors for Microsoft certification](../logic-apps/custom-con
 > the data gateway when communicating with those resources.
 >
 > For more information about creating ISEs, see 
-> [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ## Next steps
 

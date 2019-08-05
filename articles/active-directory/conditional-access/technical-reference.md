@@ -55,7 +55,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Microsoft Intune
 - Microsoft Intune Enrollment
 - Microsoft Planner
-- Microsoft Power BI
 - Microsoft PowerApps
 - Microsoft Search in Bing
 - Microsoft StaffHub
@@ -67,6 +66,7 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Office Delve
 - Office Sway
 - Outlook Groups
+- Power BI Service
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)

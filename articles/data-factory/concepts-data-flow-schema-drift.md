@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 10/04/2018
 ---
 
-# Mapping Data Flow Schema Drift
+# Mapping data flow schema drift
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -60,7 +60,7 @@ Then, we will round and sum the values for each of those matched columns:
 
 ```round(sum ($$))```
 
-You can test this out with the Azure Data Factory Data Flow sample "Taxi Demo". Switch on the Debug session using the Debug toggle at the top of the Data Flow design surface so that you can see your results interactively:
+You can see this schema drift functionality at work with the Azure Data Factory Data Flow sample "Taxi Demo". Switch on the Debug session using the Debug toggle at the top of the Data Flow design surface so that you can see your results interactively:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
@@ -70,6 +70,9 @@ When you generate new columns with column patterns, you can access those new col
 * Use "byPosition" to identify the new columns by position number.
 * Use "byName" to identify the new columns by their name.
 * In Column Patterns, use "Name", "Stream", "Position", or "Type" or any combination of those to match new columns.
+
+## Rule-based mapping
+The Select and Sink transformation support pattern matching via rule-based mapping. This will allow you to build rules that can map drifted columns to column aliases and to sink those columns to your destination.
 
 ## Next steps
 In the [Data Flow Expression Language](data-flow-expression-functions.md) you will find additional facilities for column patterns and schema drift including "byName" and "byPosition".

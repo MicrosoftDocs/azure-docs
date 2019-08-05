@@ -1,6 +1,6 @@
 ---
 title: Learn Review tool concepts - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn about the Content Moderator Review tool, a website that coordinates a combined AI and human review moderation effort.
 services: cognitive-services
 author: sanjeev3

@@ -1,6 +1,6 @@
 ---
 title: Translator Text API BreakSentence Method
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API BreakSentence method.
 services: cognitive-services
 author: swmachan

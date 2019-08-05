@@ -1,5 +1,5 @@
 ---
-title: Develop apps with the Speech SDK - Speech Services
+title: Develop apps with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to create apps using the Speech SDK.
 services: cognitive-services

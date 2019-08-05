@@ -34,7 +34,7 @@ Allow traffic from the following IP addresses for Azure HDInsight health and man
 Allow traffic from the IP addresses listed for the Azure HDInsight health and management services in the specific Azure region where your resources are located:
 
 > [!IMPORTANT]  
-> If the Azure region you are using is not listed, then only use the four IP addresses from step 1.
+> If the Azure region you are using is not listed, then only use the four IP addresses from previous section.
 
 | Country | Region | Allowed Source IP addresses | Allowed Destination | Direction |
 | ---- | ---- | ---- | ---- | ----- |

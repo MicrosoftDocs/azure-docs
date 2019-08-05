@@ -13,7 +13,7 @@ ms.author: mbaldwin
 ---
 # Security attributes for Azure Load Balancer
 
-This article documents the common security attributes built into Azure Load Balancer.
+This article documents the security attributes built into Azure Load Balancer.
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 

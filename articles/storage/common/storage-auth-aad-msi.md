@@ -96,8 +96,7 @@ const string blobName = "https://storagesamples.blob.core.windows.net/sample-con
 
 // Get the initial access token and the interval at which to refresh it.
 AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-var tokenAndFrequency = TokenRenewerAsync(azureServiceTokenProvider,
-                                            CancellationToken.None).GetAwaiter().GetResult();
+var tokenAndFrequency = await TokenRenewerAsync(azureServiceTokenProvider,CancellationToken.None);
 
 // Create storage credentials using the initial token, and connect the callback function
 // to renew the token just before it expires
@@ -113,7 +112,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri(blobName),
                                             storageCredentials);
 
 // Upload text to the blob.
-blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
+await blob.UploadTextAsync(string.Format("This is a blob named {0}", blob.Name));
 
 // Continue to make requests against Azure Storage.
 // The token is automatically refreshed as needed in the background.
@@ -122,7 +121,7 @@ do
     // Read blob contents
     Console.WriteLine("Time accessed: {0} Blob Content: {1}",
                         DateTimeOffset.UtcNow,
-                        blob.DownloadTextAsync().Result);
+                        await blob.DownloadTextAsync());
 
     // Sleep for ten seconds, then read the contents of the blob again.
     Thread.Sleep(TimeSpan.FromSeconds(10));

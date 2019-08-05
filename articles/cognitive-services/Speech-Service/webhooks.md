@@ -1,6 +1,6 @@
 ---
-title: Webhooks - Speech Services
-titlesuffix: Azure Cognitive Services
+title: Webhooks - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests, or transcriptions of long running files.
 services: cognitive-services
 author: PanosPeriorellis

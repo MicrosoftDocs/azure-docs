@@ -19,7 +19,7 @@
     href: sql-database-managed-instance-quickstart-guide.md
   - name: Create
     items: 
-    - name: Single database - portal
+    - name: Single database
       href: sql-database-single-database-get-started.md
     - name: Single database - template
       displayName: Azure Resource Manager template, ARM
@@ -87,14 +87,22 @@
       href: sql-database-design-first-database.md
     - name: Design database using .NET
       href: sql-database-design-first-database-csharp.md
-  - name: Singleton Database
+  - name: Single Database
     items:
     - name: Migrate to a single/pooled database using DMS
       href: ../dms/tutorial-sql-server-to-azure-sql.md?toc=/azure/sql-database/toc.json
+    - name: Add to a failover group
+      href: sql-database-single-database-failover-group-tutorial.md
     - name: Implement a geo-distributed database
       href: sql-database-implement-geo-distributed-database.md 
+    - name: Configure active geo-replication
+      href: sql-database-active-geo-replication-portal.md
     - name: Set up Azure SQL Data Sync
       href: sql-database-get-started-sql-data-sync.md
+  - name: Elastic pool
+    items:
+    - name: Add to a failover group
+      href: sql-database-elastic-pool-failover-group-tutorial.md
   - name: Managed Instance
     items:
     - name: Migrate online using DMS
@@ -169,7 +177,7 @@
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Single databases
     items:
-    - name: Single database overview
+    - name: Single database documentation
       href: sql-database-single-index.yml
     - name: Single database capabilities
       href: sql-database-single-database.md  
@@ -209,7 +217,7 @@
       href: sql-database-elastic-pool-manage.md
   - name: Managed instances
     items:
-    - name: Managed instances overview
+    - name: Managed instance documentation
       href: sql-database-managed-instance-index.yml
     - name: Managed instance capabilities
       href: sql-database-managed-instance.md
@@ -229,7 +237,7 @@
       href: sql-database-managed-instance-public-endpoint-securely.md
   - name: Platform as a Service
     items:
-    - name: Platform as a Service overview
+    - name: Platform as a Service documentation
       href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
@@ -247,8 +255,6 @@
         href: sql-database-active-geo-replication.md
       - name: Auto-failover groups
         href: sql-database-auto-failover-group.md
-      - name: Configure active geo-replication - Portal
-        href: sql-database-active-geo-replication-portal.md
       - name: Configure security for replicas
         href: sql-database-geo-replication-security-config.md
     - name: Database recovery options
@@ -320,7 +326,7 @@
       href: sql-database-feature-restrictions.md
   - name: Scalability
     items:
-    - name: Scalability overview
+    - name: Scalability documentation
       href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
@@ -350,7 +356,7 @@
       href: sql-database-elastic-transactions-overview.md
   - name: Monitoring and tuning
     items:
-    - name: Monitoring and tuning overview
+    - name: Monitor and tuning documentation
       href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance tuning
       href: sql-database-monitor-tune-overview.md
@@ -374,7 +380,7 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
-    - name: Overview
+    - name: SQL Database feature documentation
       href: sql-database-features-index.yml
     - name: SQL features comparison
       href: sql-database-features.md
@@ -518,6 +524,8 @@
       href: sql-database-managed-instance-connect-app.md
   - name: Load and move data
     items:
+    - name: Move resource to a new region
+      href: sql-database-move-resources-across-regions.md
     - name: Copy a database within Azure
       href: sql-database-copy.md
     - name: Import a database from a BACPAC file
