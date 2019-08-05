@@ -5,7 +5,7 @@ services: storage
 author: mhopkins-msft
 
 ms.author: mhopkins
-ms.date: 08/01/2019
+ms.date: 08/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: article
