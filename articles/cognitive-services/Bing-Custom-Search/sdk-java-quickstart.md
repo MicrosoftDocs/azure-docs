@@ -27,6 +27,7 @@ Use the Bing Custom Search client library for Java to:
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
 * The current version of the [Java Development Kit(JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * The [Gradle build tool](https://gradle.org/install/), or another dependency manager.
+* A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
 
 ## Setting up
 
@@ -118,9 +119,7 @@ The API response is a [SearchResponse](https://docs.microsoft.com/java/api/com.m
 These code snippets show you how to do the following tasks with the Bing Custom Search client library for Java:
 
 * [Authenticate the client](#authenticate-the-client)
-* [link to example task 1]()
-* [link to example task 2]()
-* [link to example task 3]()
+* [Get search results from your custom search instance](#Get-search-results-from-your-custom-search-instance)
 
 ## Authenticate the client
 
