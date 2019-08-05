@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
@@ -56,28 +56,6 @@ Depending on what you want to review, you will create your access review in Azur
 | Azure AD role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 | Azure resource role | Specified reviewers</br>Self-review | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
-## Which users must have licenses?
-
-Each user who interacts with access reviews must have a paid Azure AD Premium P2 license. Examples include:
-
-- Administrators who create an access review
-- Group owners who perform an access review
-- Users assigned as reviewers
-- Users who perform a self-review
-
-You can also ask guest users to review their own access. For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use Azure AD business-to-business (B2B) to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
-
-Here are some example scenarios to help you determine the number of licenses you must have.
-
-| Scenario | Calculation | Required number of licenses |
-| --- | --- | --- |
-| An administrator creates an access review of Group A with 500 users.<br/>Assigns 3 group owners as reviewers. | 1 administrator + 3 group owners | 4 |
-| An administrator creates an access review of Group A with 500 users.<br/>Makes it a self-review. | 1 administrator + 500 users as self-reviewers | 501 |
-| An administrator creates an access review of Group A with 5 users and 25 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers<br/>(guest users are covered in the required 1:5 ratio) | 6 |
-| An administrator creates an access review of Group A with 5 users and 28 guest users.<br/>Makes it a self-review. | 1 administrator + 5 users as self-reviewers + 1 user to cover guest users in the required 1:5 ratio | 7 |
-
-For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
-
 ## Onboard access reviews
 
 To onboard access reviews, follow these steps.
@@ -110,6 +88,28 @@ If you are ready to deploy access reviews in your organization, follow these ste
 ## License requirements
 
 [!INCLUDE [Azure AD Premium P2 license](../../../includes/active-directory-p2-license.md)]
+
+### Which users must have licenses?
+
+Each user who interacts with access reviews must have a paid Azure AD Premium P2 license. Examples include:
+
+- Administrators who create an access review
+- Group owners who perform an access review
+- Users assigned as reviewers
+- Users who perform a self-review
+
+You can also ask guest users to review their own access. For each paid Azure AD Premium P2 license that you assign to one of your own organization's users, you can use Azure AD business-to-business (B2B) to invite up to five guest users under the External User Allowance. These guest users can also use Azure AD Premium P2 features. For more information, see [Azure AD B2B collaboration licensing guidance](../b2b/licensing-guidance.md).
+
+Here are some example scenarios to help you determine the number of licenses you must have.
+
+| Scenario | Calculation | Required number of licenses |
+| --- | --- | --- |
+| An administrator creates an access review of Group A with 500 users.<br/>Assigns 3 group owners as reviewers. | 1 license for the administrator + 3 licenses for each group owner as reviewers | 4 |
+| An administrator creates an access review of Group A with 500 users.<br/>Makes it a self-review. | 1 license for the administrator + 500 licenses for each user as self-reviewers | 501 |
+| An administrator creates an access review of Group B with 5 users and 25 guest users.<br/>Makes it a self-review. | 1 license for the administrator + 5 licenses for each user as self-reviewers<br/>(guest users are covered in the required 1:5 ratio) | 6 |
+| An administrator creates an access review of Group C with 5 users and 108 guest users.<br/>Makes it a self-review. | 1 license for the administrator + 5 licenses for each user as self-reviewers + 16 additional licenses to cover all 108 guest users in the required 1:5 ratio<br/>1 + 5 = 6 licenses, which cover 5\*6=30 guest users. For the remaining (108-5\*6) = 78 users, 78/5 = 16 additional licenses are required. Thus in total, 6+16=22 licenses are required. | 22 |
+
+For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
 ## Next steps
 
