@@ -1,6 +1,6 @@
 ---
 title: Getting started with web map control in Azure Maps | Microsoft Docs 
-description: Learn how to use the Azure Maps Map Control client-side Javascript library.
+description: Learn how to use the Azure Maps Mmp control client-side Javascript library.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -10,7 +10,7 @@ services: azure-maps
 manager: timlt
 ---
 
-# Use the Azure Maps Map Control
+# Use the Azure Maps map control
 
 The Map Control client-side Javascript library allows you to render maps and embedded Azure Maps functionality into your web or mobile application.
 
@@ -166,7 +166,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
 ## Localizing the map
 
-Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to is to add this information to the global `atlas` namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "auto":
+Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to add this information to the global `atlas` namespace, which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
