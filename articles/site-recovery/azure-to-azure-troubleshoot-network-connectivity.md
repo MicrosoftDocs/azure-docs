@@ -109,7 +109,6 @@ These rules are required so that replication can be enabled from the target regi
                 *Port=567*</br>
   4. Azure Site Recovery Mobility Service agent supports only ***un-authenticated proxies***.
 
-
 ### Fix the problem
 To allow [the required URLs](azure-to-azure-about-networking.md#outbound-connectivity-for-urls) or the [required IP ranges](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges), follow the steps in the [networking guidance document](site-recovery-azure-to-azure-networking-guidance.md).
 
