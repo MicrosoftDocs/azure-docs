@@ -75,8 +75,6 @@ To complete the export in **Express** mode, follow these steps:
 
 3. Click **OK**. The custom connector is now built and added to the environment you specified.
 
-For examples of using **Express** mode with Azure Functions, see [Call a function from PowerApps](functions-powerapps-scenario.md) and [Call a function from Microsoft Flow](functions-flow-scenario.md).
-
 <a name="manual"></a>
 ## Use manual export
 
