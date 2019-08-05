@@ -24,11 +24,6 @@
     - name: Run experiment locally
       displayName: workspace, install, sdk
       href: quickstart-run-local-notebook.md
-  - name: Visual interface
-    items:
-    - name: Prepare and visualize data
-      displayName: experiment drag-and-drop
-      href: ui-quickstart-run-experiment.md
 - name: Tutorials
   items:
   - name: Python SDK
@@ -96,16 +91,18 @@
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
 - name: Concepts
   items:
+  - name: Deep learning
+    displayName: deep learning vs machine learning, deep learning, vs, versus
+    href: concept-deep-learning-vs-machine-learning.md
   - name: Workspace
-    displayName: concept definitions architecture
     href: concept-workspace.md
   - name: Compute target
-    displayName: concept definitions architecture
+    displayName: compute, resource, target, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
   - name: Visual interface
-    displayName: concept
+    displayName: studio
     href: ui-concept-visual-interface.md
-  - name: Automated ML
+  - name: Automated machine learning
     displayName: automl, auto ml
     href: concept-automated-ml.md
   - name: Model management (MLOps)
@@ -116,12 +113,11 @@
   - name: Model interpretability
     displayName: explainability
     href: machine-learning-interpretability-explainability.md
-  - name: FPGAs overview
+  - name: FPGA vs. CPU GPU ASIC
+    displayName: field, programmable, arrays
     href: concept-accelerate-with-fpgas.md
-  - name: ONNX and ONNX Runtime
+  - name: ONNX
     href: concept-onnx.md
-  - name: Data drift monitoring
-    href: concept-data-drift.md
   - name: Security
     items:
     - name: Enterprise security overview
@@ -402,7 +398,7 @@
   - name: User forum
     href: https://aka.ms/aml-forum-service
   - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
+    href: https://stackoverflow.com/questions/tagged/azure-machine-learning-service
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
   - name: What happened to Workbench
