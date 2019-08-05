@@ -35,7 +35,7 @@ sections:
         text: "Get set up and start using Azure Machine Learning service:"
         type: paragraph    
       -
-        text: "<b>With the Azure portal, an easy-to-use, no code interface to train, deploy, manage ML models:</b>"
+        text: "<b>Use the Azure portal, an easy-to-use, no code interface to train, deploy, manage ML models:</b>"
         type: paragraph
       -
         items:
@@ -46,7 +46,7 @@ sections:
         style: unordered
         type: list
       -
-        text: "<b>Use the Python SDK, in scripts and notebooks to train, deploy, manage ML models:</b>"
+        text: "<b>Use the Python SDK in scripts and notebooks to train, deploy, manage ML models:</b>"
         type: paragraph
       -
         items:
@@ -55,7 +55,7 @@ sections:
           -              
             html: "<a href=\"service/tutorial-train-models-with-aml\">Train & deploy image classification models</a>"
           -
-            html: "<a href=\"service/tutorial-data-prep\">Use automated ML to predict taxi fares</a>"
+            html: "<a href=\"service/tutorial-data-prep\">Prepare data and use automated ML to predict taxi fares</a>"
         style: unordered
         type: list
       

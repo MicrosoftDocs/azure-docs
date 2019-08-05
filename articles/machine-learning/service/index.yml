@@ -40,13 +40,13 @@ sections:
     - html: '<a href="tutorial-first-experiment-automated-ml">Train your first automated machine learning experiment</a>.'
     - html: '<a href="ui-tutorial-automobile-price-train-score">Train your first experiment in visual interface&quot;s drag and drop UI.</a>'
   - type: paragraph
-    text: '<b>With the Python SDK, in scripts and notebooks:</b>'
+    text: '<b>Use the Python SDK in scripts and notebooks:</b>'
   - type: list
     style: unordered
     items:
     - html: '<a href="tutorial-1st-experiment-sdk-setup">Set up your environment & train your first ML experiment.</a>'
     - html: '<a href="tutorial-train-models-with-aml">Train & deploy image classification models</a>.'
-    - html: '<a href="tutorial-data-prep">Use automated ML to predict taxi fares</b>).</a>'
+    - html: '<a href="tutorial-data-prep">Prepare data and automated ML to predict taxi fares</b>).</a>'
 
 - title: Samples
   items:
