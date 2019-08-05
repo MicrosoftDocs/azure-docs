@@ -28,7 +28,7 @@ You can use Azure file shares on a Windows installation that is running either i
 | Windows 7              | SMB 2.1     | Yes                   | No                   |
 | Windows Server 2008 R2 | SMB 2.1     | Yes                   | No                   |
 
-<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, and 1809.  
+<sup>1</sup>Windows 10, versions 1507, 1607, 1703, 1709, 1803, 1809, and 1903.  
 <sup>2</sup>Windows Server, version 1709 and 1803.
 
 > [!Note]  
