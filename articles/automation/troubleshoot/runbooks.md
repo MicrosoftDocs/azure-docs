@@ -28,12 +28,60 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
 
 ## Authentication errors when working with Azure Automation runbooks
 
+### <a name="login-azurerm"></a>Scenario: Run Login-AzureRMAccount to login
+
+#### Issue
+
+You receive the following error when executing a runbook:
+
+```error
+Run Login-AzureRMAccount to login.
+```
+
+#### Cause
+
+This error has two primary causes:
+
+* Different versions of AzureRM modules.
+* You are trying to access resources in a separate subscription.
+
+#### Resolution
+
+If you receive this error after updating one AzureRM module, you should update all of your AzureRM modules to the same version.
+
+If you are trying to access resources in another subscription, you can follow the steps below to configure permissions.
+
+1. Go to the Automation Account's run as account and copy the Application ID and thumbprint.
+  ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+1. Go to the subscription's Access Control where the Automation Account is NOT hosted, and add a new role assignment.
+  ![Access control](../media/troubleshoot-runbooks/access-control.png)
+1. Add the Application ID you collected in the previous step. Select Contributor permissions.
+   ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+1. Copy the name of the subscription for the next step.
+1. You can now use the following runbook code to test the permissions from your Automation Account to the other subscription.
+
+    Replace the "\<CertificateThumbprint\>" with the value you copied in step #1 and the "\<SubscriptionName\>" value you copied in step #4.
+
+    ```powershell
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint "<CertificateThumbprint>"
+    #Select the subscription you want to work with
+    Select-AzureRmSubscription -SubscriptionName '<YourSubscriptionNameGoesHere>'
+
+    #Test and get outputs of the subscriptions you granted access.
+    $subscriptions = Get-AzureRmSubscription
+    foreach($subscription in $subscriptions)
+    {
+        Set-AzureRmContext $subscription
+        Write-Output $subscription.Name
+    }
+    ```
+
 ### <a name="sign-in-failed"></a>Scenario: Sign in to Azure Account failed
 
 #### Issue
 
-You receive the following error when working with the `Add-AzureAccount` or `Connect-AzureRmAccount` cmdlets.
-:
+You receive the following error when working with the `Add-AzureAccount` or `Connect-AzureRmAccount` cmdlets:
 
 ```error
 Unknown_user_type: Unknown User Type
@@ -146,7 +194,7 @@ To use a certificate with the Azure classic deployment model cmdlets, refer to [
 
 #### Issue
 
-You receive the following error when invoking a child runbook with the `-Wait` switch and the output stream contains and object:
+You receive the following error when invoking a child runbook with the `-Wait` switch and the output stream contains an object:
 
 ```error
 Object reference not set to an instance of an object
@@ -281,8 +329,8 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 This error can happen based on one the following reasons:
 
-1. The module containing the cmdlet isn't imported into the automation account
-2. The module containing the cmdlet is imported but is out of date
+* The module containing the cmdlet isn't imported into the automation account
+* The module containing the cmdlet is imported but is out of date
 
 #### Resolution
 
@@ -306,15 +354,15 @@ The job was tried three times but it failed
 
 This error occurs due to one of the following issues:
 
-1. Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
+* Memory Limit. The documented limits on how much memory is allocated to a Sandbox is found at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits). A job may fail it if it's using more than 400 MB of memory.
 
-2. Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
+* Network Sockets. Azure sandboxes are limited to 1000 concurrent network sockets as described at [Automation service limits](../../azure-subscription-service-limits.md#automation-limits).
 
-3. Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
+* Module Incompatible. This error can occur if module dependencies aren't correct and if they aren't, your runbook typically returns a "Command not found" or "Cannot bind parameter" message.
 
-4. Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
+* Your runbook attempted to call an executable or subprocess in a runbook that runs in an Azure sandbox. This scenario is not supported in Azure sandboxes.
 
-5. Your runbook attempted to write too much exception data to the output stream.
+* Your runbook attempted to write too much exception data to the output stream.
 
 #### Resolution
 
@@ -350,9 +398,9 @@ If your runbook is a PowerShell Workflow, it stores complex objects in a deseria
 
 Any of the following three solutions fix this problem:
 
-1. If you're piping complex objects from one cmdlet to another, wrap these cmdlets in an InlineScript.
-2. Pass the name or value that you need from the complex object instead of passing the entire object.
-3. Use a PowerShell runbook instead of a PowerShell Workflow runbook.
+* If you're piping complex objects from one cmdlet to another, wrap these cmdlets in an InlineScript.
+* Pass the name or value that you need from the complex object instead of passing the entire object.
+* Use a PowerShell runbook instead of a PowerShell Workflow runbook.
 
 ### <a name="runbook-fails"></a>Scenario: My Runbook fails but works when ran locally
 
@@ -364,21 +412,21 @@ Your script fails when ran as a runbook but it works when ran locally.
 
 Your script may fail when running as a runbook for one of the following reasons:
 
-1. Authentication issues
-2. Required modules are not imported or out of date.
-3. Your script may be prompting for user interaction.
-4. Some modules make assumptions about libraries that are present on Windows computers. These libraries may not be present on a sandbox.
-5. Some modules rely on a .NET version that is different from the one available on the sandbox.
+* Authentication issues
+* Required modules are not imported or out of date.
+* Your script may be prompting for user interaction.
+* Some modules make assumptions about libraries that are present on Windows computers. These libraries may not be present on a sandbox.
+* Some modules rely on a .NET version that is different from the one available on the sandbox.
 
 #### Resolution
 
 Any of the following solutions may fix this problem:
 
-1. Verify you are properly [authenticating to Azure](../manage-runas-account.md).
-2. Ensure your [Azure modules are imported and up to date](../automation-update-azure-modules.md).
-3. Verify that none of your cmdlets are prompting for information. This behavior is not supported in runbooks.
-4. Check whether anything that is part of your module has a dependency on something that isn't included in the module.
-5. Azure sandboxes use .NET Framework 4.7.2, if a module uses a higher version it won't work. In this case, you should use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md)
+* Verify you are properly [authenticating to Azure](../manage-runas-account.md).
+* Ensure your [Azure modules are imported and up to date](../automation-update-azure-modules.md).
+* Verify that none of your cmdlets are prompting for information. This behavior is not supported in runbooks.
+* Check whether anything that is part of your module has a dependency on something that isn't included in the module.
+* Azure sandboxes use .NET Framework 4.7.2, if a module uses a higher version it won't work. In this case, you should use a [Hybrid Runbook Worker](../automation-hybrid-runbook-worker.md)
 
 If none of these solutions solve your problemReview the [job logs](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) for specific details in to why your runbook may have failed.
 
