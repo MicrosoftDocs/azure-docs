@@ -166,7 +166,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
 
 ## Localizing the map
 
-Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to is to add this information to the global atlas namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French (“fr-FR”) and the regional view to “auto”:
+Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to is to add this information to the global `atlas` namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French ("fr-FR") and the regional view to "auto":
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -188,9 +188,9 @@ map = new atlas.Map('myMap', {
 ```
 
 >[Note]
-> With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, it is also possible to update these settings in the map after it has loaded. 
+> With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, these settings can be update after the map has loaded by using the `setStyle` function of the map. 
 
-Here is an example of Azure Maps with the language set to “fr” and the user region set to “fr-FR”.
+Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "auto".
 
 ![Map image showing labels in French](./media/how-to-use-map-control/websdk_localization.png)
 
