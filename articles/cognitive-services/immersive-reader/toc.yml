@@ -12,7 +12,9 @@
 - name: Tutorials
   items:
   - name: Launch the Immersive Reader (Node.js)
-    href: tutorial.md
+    href: tutorial-nodejs.md
+  - name: Launch the Immersive Reader (Python)
+    href: tutorial-python.md
 - name: How-To
   items:
   - name: Azure Active Directory authentication

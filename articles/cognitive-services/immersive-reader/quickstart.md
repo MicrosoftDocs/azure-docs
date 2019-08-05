@@ -220,5 +220,6 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 ## Next steps
 
-* View the [tutorial](./tutorial.md) to see what else you can do with the Immersive Reader SDK
+* View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)

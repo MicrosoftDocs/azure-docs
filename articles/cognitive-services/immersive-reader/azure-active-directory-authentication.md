@@ -130,5 +130,6 @@ Alternatively, the service principal can be authenticated with a certificate. In
 
 ## Next steps
 
-* View the [tutorial](./tutorial.md) to see what else you can do with the Immersive Reader SDK
+* View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
+* View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
