@@ -56,9 +56,11 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter tile under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected. Depending on the storage accounts selected, if there are errors that exist under the criteria of **ClientOtherError**, **ClientThrottlingError**, or   **AuthorizationError**, and <> will be represented under the category of "Other"
+The counter tile under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Select any column, including **Availability**, **E2E Latency**, **Server Latency**, **ClientOtherError/Errors**, and **ClientThrottlingError/Errors**. You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
+Select any column, including **Availability**, **E2E Latency**, **Server Latency**, and errors reported.  For details on which errors can be shown in the report, see [Transaction Table schema](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema?redirectedfrom=MSDN#transactions-table-schema) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**.  Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+
+You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
 
 * **Availability** opens the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
@@ -68,7 +70,7 @@ Select any column, including **Availability**, **E2E Latency**, **Server Latency
 
     ![Performance report example](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* **ClientOtherError/Errors** and **ClientThrottlingError/Errors** opens the **Failure** workbook. The report shows metric tiles of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
+* Selecting any of the error categories listed in the grid opens the **Failure** workbook. The report shows metric tiles of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
@@ -76,10 +78,9 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens t
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-When you select a storage account from the list in the table, you drill down to the **Overview** workbook to help you identify over and under utilized storage for the selected storage account.
+When you select a storage account from the list in the table, you drill down to the **Overview** workbook to help you identify over and under utilized storage for the selected storage account. Note that the [breadcrumb](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) in the portal reflects the workbook is scoped to the selected storage account. If you selected any one of the other column values while it is showing data for that storage account, the [left pane](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) does not reflect you are in Azure Monitor for Storage. 
 
 ![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
-
 
 ## View from a storage account
 
