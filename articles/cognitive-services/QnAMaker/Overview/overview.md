@@ -77,7 +77,7 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 **Step 2**: Create a knowledge base in the [QnA Maker](https://www.qnamaker.ai) portal. Add [files and URLs](../concepts/data-sources-supported.md) to create the knowledge base.  
 
-**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL](./quickstarts/get-answer-from-kb-using-curl.md) or [Postman](./quickstarts/get-answer-from-kb-using-postman.md). 
+**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL](../quickstarts/get-answer-from-kb-using-curl.md) or [Postman](../quickstarts/get-answer-from-kb-using-postman.md). 
 
 **Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
 
