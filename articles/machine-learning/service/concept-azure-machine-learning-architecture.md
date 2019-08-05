@@ -218,7 +218,7 @@ Azure IoT Edge ensures that your module is running, and it monitors the device t
 
 ### ML Pipelines
 
-You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. Steps are also reusable, so steps can be run without rerunning subsequent steps if the output of that step hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed.
+You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. Pipeline steps are also reusable, and can be run without rerunning subsequent steps if the output of that step hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed.
 
 Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
 
