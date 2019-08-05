@@ -71,7 +71,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md)
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md) and follow code instructions [below](#tlsssl-configuration).
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
@@ -194,7 +194,7 @@ The following are the installation instructions for the prerequisites.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-To authenticate using a device certificate, make the following changes to the code (see [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview) on how to prepare devices for certificate-based authentication):
+To authenticate using a device certificate, use the code snippet above but make the following changes (see [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview) on how to prepare devices for certificate-based authentication):
 
 ```python
 # Create the client as before
