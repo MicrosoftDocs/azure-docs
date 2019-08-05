@@ -49,9 +49,9 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
     Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get the service name and admin and query keys](media/search-get-started-nodejs/get-url-key.png "Get the service name and admin and query keys") tk tk
+![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
 
-All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it. 
+All requests require an api-key in the header of every request sent to your service. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
 ## Set up your environment
 
@@ -73,7 +73,7 @@ npm install nconf node-fetch
 npm install --save-dev eslint eslint-config-prettier eslint-config-airbnb-base eslint-plugin-import prettier
 ```
 
-4. Confirm that your **package.json** file looks similar to this:
+4. Confirm that you've configured the projects and its dependencies by checking that your  **package.json** file looks similar to the following:
 
 ```json
 {
@@ -108,7 +108,7 @@ npm install --save-dev eslint eslint-config-prettier eslint-config-airbnb-base e
 
 ## Configure Azure Search service information
 
-Create a file **azure_search_config.json** with this form:
+Create a file **azure_search_config.json** to hold your search service data:
 
 ```json
 {
@@ -122,7 +122,7 @@ Replace the `[SERVICE_NAME]` value with the name of your search service. Replace
 
 ## Create some documents to be indexed
 
-In Azure Search, documents are data structures that are both inputs to indexing and outputs from queries. As obtained from an external data source, document inputs might be rows in a database, blobs in Blob storage, or JSON documents on disk. In this example, we're taking a shortcut and embedding JSON documents for four hotels in the code itself. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json) or create your own **hotels.json** file with the following content:
+In Azure Search, documents are data structures that are both inputs to indexing and outputs from queries. Document inputs might be rows in a database, blobs in Blob storage, or, as in this sample, JSON documents on disk. You can either download [hotels.json](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels.json) or create your own **hotels.json** file with the following content:
 
 ```json
 {
@@ -202,7 +202,7 @@ In Azure Search, documents are data structures that are both inputs to indexing 
 
 ## Create an index definition matching the documents
 
-Create a file **hotels_quickstart_index.json**. This will define how Azure Search works with the documents you just defined in **hotels.json**. Each field will be identified by a `name` and have a specified `type`. Index attributes that specify whether Azure Search can search, filter, sort, and facet upon are set for each field. You can read more about [supported data types](https://docs.microsoft.com/en-us/rest/api/searchservice/supported-data-types) and [index attributes](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index#index-attributes). 
+Create a file **hotels_quickstart_index.json**.  This file defines how Azure Search works with the documents you just created in **hotels.json**. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich datastructures in your index.  You can read more about [supported data types](https://docs.microsoft.com/en-us/rest/api/searchservice/supported-data-types) and [index attributes](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index#index-attributes). 
 
 Add the following to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels_quickstart_index.json). 
 
@@ -407,7 +407,7 @@ Add the following to **hotels_quickstart_index.json** or [download the file](htt
 
 It's good practice to separate the specifics of a particular scenario from code that will be broadly applicable. The `AzureSearchClient` class defined in the file **AzureSearchClient.js** will know how to construct request URLs, make a request using the Fetch API, and react to the status code of the response.
 
-Begin working on **AzureSearchClient.js** by importing the **node-fetch** package and creating a simple class whose property values are passed in during construction:
+Begin working on **AzureSearchClient.js** by importing the **node-fetch** package and creating a simple class. Isolate the changeable parts of the `AzureSearchClient` class by passing to its constructor the various configuration values:
 
 ```javascript
 const fetch = require('node-fetch');
@@ -428,7 +428,7 @@ class AzureSearchClient {
 module.exports = AzureSearchClient;
 ```
 
-The first responsibility of the class is to know how to construct URLs for the various requests. Do this with instance methods that use the configuration data passed to the class constructor. Notice that the URL they construct is specific to an API version and must have an argument specifying that version (in this application, `2019-05-06`). 
+The first responsibility of the class is to know how to construct URLs to which to send the various requests. Build these URLs with instance methods that use the configuration data passed to the class constructor. Notice that the URL they construct is specific to an API version and must have an argument specifying that version (in this application, `2019-05-06`). 
 
 Add the following methods inside the class body:
 
@@ -440,7 +440,7 @@ Add the following methods inside the class body:
   getSearchUrl(searchTerm) { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs?api-version=${this.apiVersion}&search=${searchTerm}&searchMode=all`; }
 ```
 
-The next responsibility is making an asynchronous request with the Fetch API. The asynchronous static method `request` takes a URL, a string specifying the HTTP method ("GET", "PUT", "POST", "DELETE"), the key to be used in the request, and an optional JSON object. The `headers` variable maps the `queryKey` (whether the admin key or the read-only query key) to the "api-key" HTTP request header. The request options always contain the `method` to be used and the `headers`. If `bodyJson` is not `null`, the body of the HTTP request is set to the string representation of `bodyJson`. The `request` returns the Fetch API's Promise to execute the HTTP request.
+The next responsibility is making an asynchronous request with the Fetch API. The asynchronous static method `request` takes a URL, a string specifying the HTTP method ("GET", "PUT", "POST", "DELETE"), the key to be used in the request, and an optional JSON object. The `headers` variable maps the `queryKey` (whether the admin key or the read-only query key) to the "api-key" HTTP request header. The request options always contain the `method` to be used and the `headers`. If `bodyJson` isn't `null`, the body of the HTTP request is set to the string representation of `bodyJson`. The `request` returns the Fetch API's Promise to execute the HTTP request.
 
 ```javascript
   static async request(url, method, apiKey, bodyJson = null) {
@@ -471,7 +471,7 @@ The next responsibility is making an asynchronous request with the Fetch API. Th
   }
 ```
 
-For demo purposes, we are just going to throw an exception if the HTTP request is not a success:
+For demo purposes, we're just going to throw an exception if the HTTP request is not a success. In a real application, you would probably do some logging and diagnoses of the HTTP status code in the `response` from the search service request.
 
 ```javascript
   static throwOnHttpError(response) {
@@ -548,7 +548,7 @@ module.exports = AzureSearchClient;
 
 ### Create and use `AzureSearchClient` from the main program
 
-An object-oriented class was a good choice for the potentially reusable **AzureSearchClient.js** module, but is not necessary for the main program, which we'll put in a file called **index.js**. 
+An object-oriented class was a good choice for the potentially reusable **AzureSearchClient.js** module, but isn't necessary for the main program, which we'll put in a file called **index.js**. 
 
 Create **index.js** and begin by bringing in:
 
@@ -565,7 +565,7 @@ const indexDefinition = require('./hotels_quickstart_index.json');
 const AzureSearchClient = require('./AzureSearchClient.js');
 ```
 
-Now add some simple queries: 
+Now add some basic queries: 
 
 ```javascript
 const queries = [
@@ -576,7 +576,7 @@ const queries = [
 
 The first query will return all data (`*`) and a count of the number of records returned. The second will return only those documents that contain the word "historic" in any of the fields defined as "searchable" in **hotels_quickstart_index.json** and whose `Rating` field contains a value greater than 4. Read more about [how to compose a query in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-query-overview). 
 
-The [**nconf** package](https://github.com/indexzero/nconf) allows you to specify configuration data in a variety of formats, but we're going to use it in a basic manner, reading the file **azure_search_config.json** and returning that file's contents as a dictionary. Using **nconf**'s `get(key)` function, we can do a quick check that [Configure Azure Search service information](#configure) wasn't skipped. Finally, return the configuration:
+The [**nconf** package](https://github.com/indexzero/nconf) allows you to specify configuration data in a variety of formats, such as environment variables or the command-line. We're going to use **nconf** in a basic manner to read the file **azure_search_config.json** and return that file's contents as a dictionary. Using **nconf**'s `get(key)` function, we can do a quick check that the step ["Configure Azure Search service information"](#configure) wasn't skipped. Finally, we return the configuration:
 
 ```javascript
 function getAzureConfiguration() {
@@ -619,12 +619,12 @@ async function doQueriesAsync(client) {
 
 Finally, specify and call the main asynchronous `run` function. This function calls the other functions in order, `await`ing as necessary to resolve `Promise`s.
 
-* Retrieves the configuration with the `getAzureConfiguration()` you wrote previously
-* Creates a new `AzureSearchClient` instance, passing in values from your configuration
-* Checks if the index exists and, if it does, deletes it
-* Creates an index using the `indexDefinition` loaded from **hotels_quickstart_index.json**
-* Adds the documents about hotels you loaded from **hotels.json**
-* Queries the Azure Search index using the `doQueriesAsync()` method you wrote
+* Retrieve the configuration with the `getAzureConfiguration()` you wrote previously
+* Create a new `AzureSearchClient` instance, passing in values from your configuration
+* Check if the index exists and, if it does, delete it
+* Create an index using the `indexDefinition` loaded from **hotels_quickstart_index.json**
+* Add the documents about hotels you loaded from **hotels.json**
+* Query the Azure Search index using the `doQueriesAsync()` method you wrote
 
 ```javascript
 const run = async () => {
@@ -652,15 +652,15 @@ const run = async () => {
 run();
 ```
 
-Don't forget that final call to `run()`!
+Don't forget that final call to `run()`! It's the entrance point to your program when you run `node index.js` in the next step.
 
 ## Prepare and run the sample
 
 Use a terminal window for the following commands.
 
-1. Navigate to the folder that contains the **package.json** file.
-1. Type `npm install`. This installs the packages upon which the sample depends.
-1. Type `node index.js`.
+1. Navigate to the folder that contains the **package.json** file and the rest of your code.
+1. Install the packages for the sample with `npm install`.  This command will download the packages upon which the code depends.
+1. Run your program with `node index.js`.
 
 You should see a series of messages describing the actions being taken by the program, ending with the results of some queries. If you want to see more detail of the requests, you can uncomment lines [20-26](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) of the **AzureSearchClient.js**. 
 
@@ -668,7 +668,7 @@ You should see a series of messages describing the actions being taken by the pr
 
 The sample uses a small amount of hotel data, sufficient to demonstrate the basics of creating and querying an Azure Search index.
 
-The **AzureSearchClient** class encapsulates the configuration, URLs, and basic HTTP requests for the search service. The **index.js** file loads the configuration data for the Azure Search service, the hotel data that will be uploaded for indexing, and, in it's `run` function, orders and executes the various operations.
+The **AzureSearchClient** class encapsulates the configuration, URLs, and basic HTTP requests for the search service. The **index.js** file loads the configuration data for the Azure Search service, the hotel data that will be uploaded for indexing, and, in it's `run` function, orders, and executes the various operations.
 
 The overall behavior of the `run` function is to delete the Azure Search index if it exists, create the index, add some data, and perform some queries.  
 
@@ -676,5 +676,5 @@ The overall behavior of the `run` function is to delete the Azure Search index i
 
 In this Node.js quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. We did certain steps, such as reading the configuration and defining the queries, in the simplest possible way. In a real application, you would want to put those concerns in separate modules that would provide flexibility and encapsulation. 
 
-If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Search we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
+If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Search, we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 
