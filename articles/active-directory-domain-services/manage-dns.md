@@ -55,20 +55,15 @@ Complete the following steps to install the DNS Administration tools on the doma
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. On the **Before You Begin** page of the **Add Roles and Features Wizard**, click **Next**.
 
-    ![Before You Begin page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. On the **Installation Type** page, leave the **Role-based or feature-based installation** option checked and click **Next**.
 
-    ![Installation Type page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. On the **Server Selection** page, select the current virtual machine from the server pool, and click **Next**.
 
-    ![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. On the **Server Roles** page, click **Next**.
 9. On the **Features** page, click to expand the **Remote Server Administration Tools** node and then click to expand the **Role Administration Tools** node. Select **DNS Server Tools** feature from the list of role administration tools.
 
     ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-tools.png)
 10. On the **Confirmation** page, click **Install** to install the DNS Server tools feature on the virtual machine. When feature installation completes successfully, click **Close** to exit the **Add Roles and Features** wizard.
-
-    ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-dns-confirmation.png)
 
 ## Task 3 - Launch the DNS management console to administer DNS
 Now, you can use Windows Server DNS tools to administer DNS on the managed domain.

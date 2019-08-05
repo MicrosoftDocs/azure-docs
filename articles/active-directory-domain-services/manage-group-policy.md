@@ -54,20 +54,15 @@ Perform the following steps to install the Group Policy Administration tools on 
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. On the **Before You Begin** page of the **Add Roles and Features Wizard**, click **Next**.
 
-    ![Before You Begin page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. On the **Installation Type** page, leave the **Role-based or feature-based installation** option checked and click **Next**.
 
-    ![Installation Type page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. On the **Server Selection** page, select the current virtual machine from the server pool, and click **Next**.
 
-    ![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. On the **Server Roles** page, click **Next**. We skip this page since we are not installing any roles on the server.
 9. On the **Features** page, select the **Group Policy Management** feature.
 
     ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 10. On the **Confirmation** page, click **Install** to install the Group Policy Management feature on the virtual machine. When feature installation completes successfully, click **Close** to exit the **Add Roles and Features** wizard.
-
-    ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
 
 ## Task 3 - Launch the Group Policy management console to administer Group Policy
 You can use the Group Policy management console on the domain-joined virtual machine to administer Group Policy on the managed domain.
