@@ -150,7 +150,7 @@ The following code in the `main` method of the program loops through a cycle of 
 
 [!code-csharp[The Personalizer learning loop is a cycle of rank and reward calls.](~/samples-personalizer/quickstarts/c#/PersonalizerExample/Program.cs?name=mainLoop)] 
 
-## Rank a request
+## Request a rank
 
 To complete the rank request, the program asks the user's preferences to create a `currentContent` of the content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the actions, currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 
 
@@ -180,8 +180,8 @@ dotnet run
 
 If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
-* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
+* [Portal](../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 
