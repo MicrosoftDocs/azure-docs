@@ -38,7 +38,7 @@ SQL threat detection detects anomalous activities indicating unusual and potenti
 
 For more information about SQL threat detection alerts see,[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), and review the threat detection alerts section. Also see [How Azure Security Center helps reveal a Cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to view an example of how Security Center used malicious SQL activity detection to discover an attack.
 
-## Azure Storage<a name="azure-storage"></a>
+## Azure Storage <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection for Azure Storage is currently available for Blob Storage only.
@@ -46,9 +46,6 @@ For more information about SQL threat detection alerts see,[Azure SQL Database t
 Advanced Threat Protection for Azure Storage provides an additional layer of security intelligence that detects unusual and potentially harmful attempts to access or exploit storage accounts. This layer of protection allows you to address threats without requiring you to be a security expert, and manage security monitoring systems.
 
 Security Center analyzes diagnostic logs of read, write, and delete requests to Blob storage to detect threats, and it triggers alerts when anomalies in activity occur. For more information, see to [configure Storage Analytics logging](https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account#configure-logging) for more information.
-
-
-### Anomalous access pattern alerts
 
 > [!div class="mx-tableFixed"]
 
@@ -58,23 +55,9 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 |**Application access anomaly**|Indicates that an unusual application has accessed this storage account. A potential cause is that an attacker has accessed your storage account using a new application.|
 |**Anonymous access anomaly**|Indicates that there is a change in the access pattern to a storage account. For instance, the account has been accessed anonymously (without any authentication), which is unexpected compared to the recent access pattern on this account. A potential cause is that an attacker has exploited public read access to a container that holds blob(s) storage.|
 |**Tor Anomaly**|Indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access.Potential causes can be an attacker has accessed your storage account using Tor, or legitimate user has accessed your storage account using Tor.|
-
-### Anomalous extract/upload alerts
-
-> [!div class="mx-tableFixed"]
-
-|Alert|Description|
-|---|---|
 |**Data Exfiltration anomaly**|Indicates that an unusually large amount of data has been extracted compared to recent activity on this storage container. A potential cause is that an attacker has extracted a large amount of data from a container that holds blob(s) storage.|
 |**Unexpected delete anomaly**|Indicates that one or more unexpected delete operations has occurred in a storage account, compared to recent activity on this account. A potential cause is that an attacker has deleted data from your storage account.|
 |**Upload Azure Cloud Service package**|Indicates that an Azure Cloud Service package (.cspkg file) has been uploaded to a storage account in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has been preparing to deploy malicious code from your storage account to an Azure cloud service.|
-
-### Suspicious storage activities alerts
-
-> [!div class="mx-tableFixed"]
-
-|Alert|Description|
-|---|---|
 |**Permission access anomaly**|Indicates that the access permissions of this storage container have been changed in an unusual way. Potential cause is that an attacker has changed container permissions to weaken its security posture or to gain persistence.|
 |**Inspection access anomaly**|Indicates that the access permissions of a storage account have been inspected in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
 |**Data Exploration anomaly**|Indicates that blobs or containers in a storage account have been enumerated in an abnormal way, compared to recent activity on this account. A potential cause is that an attacker has performed reconnaissance for a future attack.|
