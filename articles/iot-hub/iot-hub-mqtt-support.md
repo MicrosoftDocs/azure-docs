@@ -194,7 +194,7 @@ The following are the installation instructions for the prerequisites.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-To authenticate using a device certificate, use the code snippet above but make the following changes (see [documentation](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview) on how to prepare devices for certificate-based authentication):
+To authenticate using a device certificate, use the code snippet above but make the following changes (see [certificate registration steps here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview) on how to prepare devices for certificate-based authentication):
 
 ```python
 # Create the client as before
