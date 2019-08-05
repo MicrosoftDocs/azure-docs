@@ -104,10 +104,10 @@ Here are some example scenarios to help you determine the number of licenses you
 
 | Scenario | Calculation | Required number of licenses |
 | --- | --- | --- |
-| An administrator creates an access review of Group A with 500 users.<br/>Assigns 3 group owners as reviewers. | 1 license for the administrator + 3 licenses for each group owner as reviewers. | 4 |
-| An administrator creates an access review of Group A with 500 users.<br/>Makes it a self-review. | 1 license for the administrator + 500 licenses for each user as self-reviewers. | 501 |
-| An administrator creates an access review of Group B with 5 users and 25 guest users.<br/>Makes it a self-review. | 1 license for the administrator + 5 licenses for each user as self-reviewers.<br/>(guest users are covered in the required 1:5 ratio) | 6 |
-| An administrator creates an access review of Group C with 5 users and 108 guest users.<br/>Makes it a self-review. | 1 license for the administrator + 5 licenses for each user as self-reviewers + 16 additional licenses to cover all 108 guest users in the required 1:5 ratio.<br/>1+5=6 licenses, which cover 5\*6=30 guest users. For the remaining (108-5\*6)=78 guest users, 78/5=16 additional licenses are required. Thus in total, 6+16=22 licenses are required. | 22 |
+| An administrator creates an access review of Group A with 500 users. Assigns 3 group owners as reviewers. | 1 license for the administrator + 3 licenses for each group owner as reviewers. | 4 |
+| An administrator creates an access review of Group A with 500 users. Makes it a self-review. | 1 license for the administrator + 500 licenses for each user as self-reviewers. | 501 |
+| An administrator creates an access review of Group B with 5 users and 25 guest users. Makes it a self-review. | 1 license for the administrator + 5 licenses for each user as self-reviewers.<br/>(guest users are covered in the required 1:5 ratio) | 6 |
+| An administrator creates an access review of Group C with 5 users and 108 guest users. Makes it a self-review. | 1 license for the administrator + 5 licenses for each user as self-reviewers + 16 additional licenses to cover all 108 guest users in the required 1:5 ratio.<br/>1+5=6 licenses, which cover 5\*6=30 guest users. For the remaining (108-5\*6)=78 guest users, 78/5=16 additional licenses are required. Thus in total, 6+16=22 licenses are required. | 22 |
 
 For information about how to assign licenses to your uses, see [Assign or remove licenses using the Azure Active Directory portal](../fundamentals/license-users-groups.md).
 
