@@ -73,7 +73,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 ## Assessment-URL access requirements
 
-The Azure Migrate appliance needs internet connectivity to the internet.
+The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 - If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
