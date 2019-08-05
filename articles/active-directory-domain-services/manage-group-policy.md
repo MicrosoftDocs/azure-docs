@@ -48,7 +48,7 @@ Perform the following steps to install the Group Policy Administration tools on 
 2. Click the **Connect** button on the Overview tab. A Remote Desktop Protocol (.rdp) file is created and downloaded.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case. You may receive a certificate warning during the sign-in process. Click Yes or Continue to proceed with the connection.
+3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@contoso.onmicrosoft.com' in our case. You may receive a certificate warning during the sign-in process. Click Yes or Continue to proceed with the connection.
 4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
 
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)

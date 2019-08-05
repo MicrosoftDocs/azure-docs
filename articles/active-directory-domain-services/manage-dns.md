@@ -48,7 +48,7 @@ Complete the following steps to install the DNS Administration tools on the doma
 2. Click the **Connect** button on the Overview tab. A Remote Desktop Protocol (.rdp) file is created and downloaded.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. Use the credentials of a user belonging to the 'AAD DC Administrators' group. For example,  'bob@domainservicespreview.onmicrosoft.com'. You may receive a certificate warning during the sign-in process. Click Yes or Continue to connect.
+3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. Use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, 'bob@contoso.onmicrosoft.com'. You may receive a certificate warning during the sign-in process. Click Yes or Continue to connect.
 
 4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
 
