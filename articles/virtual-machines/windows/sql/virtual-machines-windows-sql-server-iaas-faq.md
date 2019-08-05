@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/12/2018
+ms.date: 08/05/2019
 ms.author: mathoma
 ---
 # Frequently asked questions for SQL Server running on Windows virtual machines in Azure
@@ -116,6 +116,11 @@ This article provides answers to some of the most common questions about running
 1. **Is it possible to register self-deployed SQL Server VMs with the SQL VM resource provider?**
 
     Yes. If you deployed SQL Server from your own media, and installed the SQL IaaS extension you can register your SQL Server VM with the resource provider to get the manageability benefits provided by the SQL IaaS extension. However, you are unable to convert a self-deployed SQL VM to pay-as-you-go.
+
+1. **Is it possible to switch licensing model on a Classic VM?**
+
+   No. Changing licensing model is not supported on a classic VM. You may migrate your VM to the resource manager model (ARM) and register with the SQL VM resource provider. Once the VM is registered with the SQL VM resource provider, licensing model changes will be available on the VM. 
+   
 
 ## Administration
 
