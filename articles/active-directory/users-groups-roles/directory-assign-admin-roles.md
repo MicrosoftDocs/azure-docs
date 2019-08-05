@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/04/2019
+ms.date: 08/05/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
