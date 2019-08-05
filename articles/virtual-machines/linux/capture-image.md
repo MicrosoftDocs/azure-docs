@@ -59,13 +59,15 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
 ## Step 2: Create VM image
 Use the Azure CLI to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
 
-1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*.
+1. Deallocate the VM that you deprovisioned with [az vm deallocate](/cli/azure/vm). The following example deallocates the VM named *myVM* in the resource group named *myResourceGroup*.  
    
     ```azurecli
     az vm deallocate \
 	  --resource-group myResourceGroup \
 	  --name myVM
     ```
+	
+	Wait for the VM to completely deallocate before moving on. This may take a few minutes to complete.
 
 2. Mark the VM as generalized with [az vm generalize](/cli/azure/vm). The following example marks the VM named *myVM* in the resource group named *myResourceGroup* as generalized.
    
