@@ -17,8 +17,6 @@ ms.collection: M365-identity-device-management
 ---
 # Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
 
-## Overview
-
 The Network Policy Server (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), which provides two-step verification.
 
 This article provides instructions for integrating NPS infrastructure with MFA by using the NPS extension for Azure. This process enables secure two-step verification for users who attempt to connect to your network by using a VPN.
