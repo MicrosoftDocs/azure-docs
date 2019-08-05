@@ -6,7 +6,7 @@
       "redirect_document_id": true
     }, 
     {
-      "source_path": "articles/machine-learning/ui-quickstart-run-experiment.md",
+      "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
       "redirect_document_id": true
     },

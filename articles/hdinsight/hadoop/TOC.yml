@@ -56,14 +56,18 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
+      href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+    - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
+      href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
     - name: Unable to log into HDInsight cluster
       href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
     - name: Unable to add nodes to HDInsight cluster
       href: ./hdinsight-troubleshoot-unable-add-nodes.md
-    - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
-      href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
     - name: Converting service principal certificate
       href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+    - name: Local HDFS stuck in safe mode
+      href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
     - name: Apache Ambari heartbeat issues
       href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: How to
