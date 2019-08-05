@@ -78,7 +78,7 @@ You can also check out the Getting started tab of **Identity Governance** in the
 
 ## Feedback
 
-As you use Identity Governance features, if you you any feedback, click **Got feedback?** to submit your feedback. The team regularly reviews your feedback.
+If you have any feedback about Identity Governance features, click **Got feedback?** to submit your feedback. The team regularly reviews your feedback.
 
 ![Identity Governance feedback pane](./media/identity-governance-overview/feedback.png)
 
