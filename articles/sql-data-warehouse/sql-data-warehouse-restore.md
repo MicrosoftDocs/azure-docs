@@ -2,13 +2,13 @@
 title: Restore an Azure SQL Data Warehouse | Microsoft Docs
 description: How to guide for restoring an Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
+author: julieMSFT
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 08/29/2018
-ms.author: kevin
+ms.author: jrasnick
 ms.reviewer: igorstan
 ---
 
