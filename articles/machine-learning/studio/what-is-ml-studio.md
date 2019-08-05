@@ -39,7 +39,7 @@ Download the **Microsoft Azure Machine Learning Studio Capabilities Overview** d
 ![Microsoft Azure Machine Learning Studio Capabilities Overview](./media/what-is-ml-studio/ml_studio_overview_v1.1.png)
 
 ## Get started with Machine Learning Studio
-When you first enter Machine Learning Studio,](https://studio.azureml.net) you see the **Home** page. From here you can view documentation, videos, webinars, and find other valuable resources.
+When you first enter [Machine Learning Studio](https://studio.azureml.net), you see the **Home** page. From here you can view documentation, videos, and webinars and find other valuable resources.
 
 Click the upper-left menu ![Menu](./media/what-is-ml-studio/menu.png) and you'll see several options.
 ### Azure Machine Learning Studio
@@ -118,7 +118,7 @@ Here is a quick comparison.
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](../service/how-to-deploy-and-where.md) supported in SDK) |
 |Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
 
-Try out the visual interface (preview) with [Quickstart: Prepare and visualize data without writing code](../service/ui-quickstart-run-experiment.md)
+Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](../service/ui-tutorial-automobile-price-train-score.md)
 
 > [!NOTE]
 > Models created in Studio can't be deployed or managed by Azure Machine Learning service. However, models created and deployed in the service visual interface can be managed through the Azure Machine Learning service workspace.

@@ -23,7 +23,7 @@ We recommend that you configure business continuity disaster recovery (BCDR) acr
 
 ## Prerequisites 
 
-An Azure subscription. If you don't have an Azure subscription yet, sign up for [Azure Free Trial](https://azure.microsoft.com/free/).
+An Azure subscription. If you don't have an Azure subscription yet, sign up for [Azure free trial](https://azure.microsoft.com/free/).
 
 ## Failover to a secondary account
 
@@ -39,4 +39,4 @@ For information about using multiple tenants, see [Manage multiple tenants](mana
 
 ## Next steps
 
-[Manage a Video Indexer account connected to Azure](manage-account-connected-to-azure.md)
+[Manage a Video Indexer account connected to Azure](manage-account-connected-to-azure.md).

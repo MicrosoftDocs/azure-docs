@@ -28,7 +28,7 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 
 | **Error Message** | **Resolution** |
 | --- |:--- |
-| *The name contoso100.com is already in use on this network. Specify a name that is not in use.* |[Domain name conflict in the virtual network](troubleshoot.md#domain-name-conflict) |
+| *The name contoso.com is already in use on this network. Specify a name that is not in use.* |[Domain name conflict in the virtual network](troubleshoot.md#domain-name-conflict) |
 | *Domain Services could not be enabled in this Azure AD tenant. The service does not have adequate permissions to the application called 'Azure AD Domain Services Sync'. Delete the application called 'Azure AD Domain Services Sync' and then try to enable Domain Services for your Azure AD tenant.* |[Domain Services does not have adequate permissions to the Azure AD Domain Services Sync application](troubleshoot.md#inadequate-permissions) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Domain Services application in your Azure AD tenant does not have the required permissions to enable Domain Services. Delete the application with the application identifier d87dcbc6-a371-462e-88e3-28ad15ec4e64 and then try to enable Domain Services for your Azure AD tenant.* |[The Domain Services application is not configured properly in your tenant](troubleshoot.md#invalid-configuration) |
 | *Domain Services could not be enabled in this Azure AD tenant. The Microsoft Azure AD application is disabled in your Azure AD tenant. Enable the application with the application identifier 00000002-0000-0000-c000-000000000000 and then try to enable Domain Services for your Azure AD tenant.* |[The Microsoft Graph application is disabled in your Azure AD tenant](troubleshoot.md#microsoft-graph-disabled) |
@@ -36,7 +36,7 @@ Pick the troubleshooting steps that correspond to the error message you encounte
 ### Domain Name conflict
 **Error message:**
 
-*The name contoso100.com is already in use on this network. Specify a name that is not in use.*
+*The name contoso.com is already in use on this network. Specify a name that is not in use.*
 
 **Remediation:**
 
@@ -143,6 +143,9 @@ If one or more users in your Azure AD tenant are unable to sign in to the newly 
     1. net stop 'Microsoft Azure AD Sync'
     2. net start 'Microsoft Azure AD Sync'
 * **Cloud-only accounts**: If the affected user account is a cloud-only user account, ensure that the user has changed their password after you enabled Azure AD Domain Services. This step causes the credential hashes required for Azure AD Domain Services to be generated.
+* **Verify the user account is active**: If a user's account is locked out, they can't sign in until their account is active again. Five invalid password attempts within 2 minutes on the managed domain cause a user account to be locked out for 30 minutes. After 30 minutes, the user account is automatically unlocked.
+  * Invalid password attempts on the managed domain don't lock out the user account in Azure AD. The user account is locked out only within your Azure AD Domain Services managed domain. Check the user account status using the Active Directory Administrative Console (ADAC) for the Azure AD DS managed domain, not in Azure AD.
+  * You can also [configure fine grained password policies that change the default lockout threshold and duration](https://docs.microsoft.com/azure/active-directory-domain-services/password-policy).
 
 ## There are one or more alerts on your managed domain
 

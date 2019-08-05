@@ -44,15 +44,15 @@ From Windows Server 2012 onwards, service administrators gain the ability to con
 Resource-based KCD is configured using PowerShell. You use the `Set-ADComputer` or `Set-ADUser` cmdlets, depending on whether the impersonating account is a computer account or a user account/service account.
 
 ### Configure resource-based KCD for a computer account on a managed domain
-Assume you have a web app running on the computer 'contoso100-webapp.contoso100.com'. It needs to access the resource (a web API running on 'contoso100-api.contoso100.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario:
+Assume you have a web app running on the computer 'contoso-webapp.contoso.com'. It needs to access the resource (a web API running on 'contoso-api.contoso.com') in the context of domain users. Here's how you would set up resource-based KCD for this scenario:
 
 1. [Create a custom OU](create-ou.md). You can delegate permissions to manage this custom OU to users within the managed domain.
 2. Join both virtual machines (the one running the web app and the one running the web API) to the managed domain. Create these computer accounts within the custom OU.
 3. Now, configure resource-based KCD using the following PowerShell command:
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity contoso100-webapp.contoso100.com
-Set-ADComputer contoso100-api.contoso100.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+$ImpersonatingAccount = Get-ADComputer -Identity contoso-webapp.contoso.com
+Set-ADComputer contoso-api.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 > [!NOTE]

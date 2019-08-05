@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Setup environment and workspace."
 titleSuffix: Azure Machine Learning service
-description: In this tutorial, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.
+description: In this tutorial series, you complete the end-to-end steps to get started with the Azure Machine Learning Python SDK running in Jupyter notebooks.  Part one covers creating a cloud notebook server environment as well as creating a workspace to manage your experiments and machine learning models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -20,7 +20,7 @@ In this tutorial, you:
 
 > [!div class="checklist"]
 > * Create a machine learning Workspace to use in the next tutorial.
-> * Create a cloud notebook server environment.
+> * Create a notebook VM, a cloud-based Jupyter notebook server with Azure Machine Learning Python SDK pre-installed and pre-configured.
 
 ## Prerequisites
 

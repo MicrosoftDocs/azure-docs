@@ -5,7 +5,7 @@ author: mattwojo
 manager: evansma
 ms.author: parthp 
 ms.service: marketplace 
-ms.topic: how-to
+ms.topic: guide
 ms.date: 07/05/2019
 ---
 
