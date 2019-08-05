@@ -32,7 +32,6 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 5. Once completed, a notification appears informing you if the remediation succeeded.
 
-
 ## One-click fix remediation <a name="one-click"></a>
 
 One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score and increase the security in your environment.
