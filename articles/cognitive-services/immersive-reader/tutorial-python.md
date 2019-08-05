@@ -79,15 +79,15 @@ Install [Python](https://www.python.org/downloads/).
 
 Check the Add Python to PATH box.
 
-![Python Windows Install Dialog Step 1](./media/pythoninstallone.png)
+![Python Windows Install Dialog Step 1](./media/pythoninstallone.jpg)
 
 Add Optional Features by checking the boxes then click the 'Next' button.
 
-![Python Windows Install Dialog Step 2](./media/pythoninstalltwo.png)
+![Python Windows Install Dialog Step 2](./media/pythoninstalltwo.jpg)
 
 Choose 'Custom installation' and set the installation path as your root folder e.g. `C:\Python37-32\` then click the 'Install' button.
 
-![Python Windows Install Dialog Step 3](./media/pythoninstallthree.png)
+![Python Windows Install Dialog Step 3](./media/pythoninstallthree.jpg)
 
 After Python Installation is complete, open a Command Prompt and `cd` to the Python Scripts folder.
 
