@@ -33,8 +33,7 @@ sections:
     items:
       -
         text: "Get set up and start using Azure Machine Learning service:"
-        type: paragraph
-      -
+        type: paragraph    
       -
         text: "<b>Tutorial: Train and deploy your first automated ML model in Azure portal:</b>"
         type: paragraph
