@@ -37,6 +37,7 @@ Once a QnA Maker knowledge base is published, a client application sends a quest
 |1|The client application sends the user's _question_ (text in their own words), "How do I programmatically update my Knowledge Base?" to your knowledge base endpoint.|
 |2|QnA Maker uses the trained knowledge base to provide the correct answer and any follow-up prompts that can be used to refine the search for the best answer. QnA Maker returns a JSON-formatted response.|
 |3|The client application uses the JSON response to make decisions about how to continue the conversation. These decisions can include showing the top answer or presenting more choices to refine the search for the best answer. |
+|||
 
 ## What is a knowledge base? 
 
@@ -50,19 +51,19 @@ After you publish your knowledge base, a client application sends a user's quest
 
 ## Create, manage, and publish to a bot without code
 
-The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final markdown format supports rich presentation including images. 
+The QnA Maker portal provides the complete knowledge base authoring experience. You can import documents, in their current form, to your knowledge base. These documents (such as an FAQ, product manual, spreadsheet, or web page) are converted into question and answer sets. Each set is analyzed for follow-up prompts and connected to other sets. The final markdown format supports rich presentation including images and links. 
 
 Once your knowledge base is edited, publish the knowledge base to a working [Azure Web App bot](https://azure.microsoft.com/en-us/services/bot-service/) without writing any code. Test your bot in the [Azure portal](https://portal.azure.com) or download and continue development. 
 
 ## Search quality and ranking provides the best possible answer
 
-QnA Maker's system is a layered ranking approach. The data is stored in Azure search, which also serves as the first ranking layer. The top results from Azure search are then passed through an NLP re-ranking model to produce the final results and confidence score."
+QnA Maker's system is a layered ranking approach. The data is stored in Azure search, which also serves as the first ranking layer. The top results from Azure search are then passed through QnA Maker's NLP re-ranking model to produce the final results and confidence score.
 
 ## QnA Maker improves the conversation process
 
 QnA Maker provides multi-turn prompts and active learning to help you improve your basic question and answer sets. 
 
-**Multi-turn prompts** give you the opportunity to connect question and answer pairs. This connection allows the client application to provide an answer but also provide more questions to refine the answer. 
+**Multi-turn prompts** give you the opportunity to connect question and answer pairs. This connection allows the client application to provide a top answer and provides more questions to refine the search for a final answer. 
 
 After the knowledge base receives questions from users at the published endpoint, QnA Maker applies **active learning** to these real-world questions to suggest changes to your knowledge base to improve the quality. 
 
@@ -76,7 +77,7 @@ QnA Maker provides authoring, training, and publishing along with collaboration 
 
 **Step 2**: Create a knowledge base in the [QnA Maker](https://www.qnamaker.ai) portal. Add [files and URLs](../concepts/data-sources-supported.md) to create the knowledge base.  
 
-**Step 3**: Publish your knowledge base and test from your custom endpoint using cURL or Postman. 
+**Step 3**: Publish your knowledge base and test from your custom endpoint using [cURL](./quickstarts/get-answer-from-kb-using-curl.md) or [Postman](./quickstarts/get-answer-from-kb-using-postman.md). 
 
 **Step 4**: From your client application, programmatically call your knowledge base's endpoint and read the JSON response show the best answer to the user.  
 
