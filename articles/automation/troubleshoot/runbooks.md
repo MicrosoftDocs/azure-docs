@@ -12,6 +12,8 @@ manager: carmonm
 
 # Troubleshoot errors with runbooks
 
+This article details common issues with runbooks and how to resolve them.
+
 ## Steps to troubleshoot runbooks
 
 When you have errors executing runbooks in Azure Automation, you can use the following steps to help diagnose the issue.
