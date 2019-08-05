@@ -14,7 +14,7 @@ ms.author: dylankil
 #Customer intent: As a developer, I want to learn more about the Immersive Reader SDK so that I can fully utilize all that the SDK has to offer.
 ---
 
-# Tutorial: Launch the Immersive Reader (Python)
+# Tutorial: Launch the Immersive Reader using the Python sample project
 
 In the [overview](./overview.md), you learned about what the Immersive Reader is and how it implements proven techniques to improve reading comprehension for language learners, emerging readers, and students with learning differences. This tutorial covers how to create a Python web application that launches the Immersive Reader. In this tutorial, you learn how to:
 
@@ -309,4 +309,4 @@ Open your browser and navigate to _http://localhost:5000_.
 ## Next steps
 
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)
-* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/advanced-csharp)
+* View code samples on [GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/js/samples/)
