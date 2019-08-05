@@ -93,10 +93,10 @@ Follow these steps to set up your security info for your work or school account 
 
 12. Review the **Success** page to verify that you've successfully set up both the Microsoft Authenticator app and a phone (either text message or phone call) method for your security info, and then select **Done**.
 
-    >[!Note]
-    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a third section, called App passwords, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see [Manage your app passwords](#manage-your-app-passwords).
-
     ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
+
+    >[!Note]
+    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a third section, called **App passwords**, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see [Manage your app passwords](#manage-your-app-passwords).
 
 ### Manage your app passwords
 
