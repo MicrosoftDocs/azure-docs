@@ -35,7 +35,7 @@ sections:
         text: "Get set up and start using Azure Machine Learning service."
         type: paragraph    
       -
-        text: "<b>Use the Azure portal, an easy-to-use, no code interface to train, deploy, and manage ML models:</b>"
+        text: "Use the Azure portal, an easy-to-use, no code interface to train, deploy, and manage ML models:"
         type: paragraph
       -
         items:
@@ -46,7 +46,7 @@ sections:
         style: unordered
         type: list
       -
-        text: "<b>Use the Python SDK in scripts and notebooks to train, deploy, manage ML models:</b>"
+        text: "Use the Python SDK in scripts and notebooks to train, deploy, manage ML models:"
         type: paragraph
       -
         items:
@@ -60,7 +60,7 @@ sections:
         type: list
       
       -
-        text: "<b>Consume your models:</b>"
+        text: "Consume your models:"
         type: paragraph
       -
         items:
