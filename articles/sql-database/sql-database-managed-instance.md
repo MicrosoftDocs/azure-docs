@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-manager: craigg
 ms.date: 07/18/2019
 ---
 # What is Azure SQL Database managed instance?

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 07/25/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -25,6 +25,8 @@ Smart lockout tracks the last three bad password hashes to avoid incrementing th
 
  > [!NOTE]
  > Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
+
+Federated deployments using AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
 
 Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Basic or higher licenses for your users.
 

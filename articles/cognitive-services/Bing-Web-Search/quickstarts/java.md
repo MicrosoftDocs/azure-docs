@@ -10,7 +10,7 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 

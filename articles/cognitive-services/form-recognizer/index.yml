@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use Form Recognizer to intelligently extract key-value data from your form documents.
   services: cognitive-services
   author: PatrickFarley
-  manager: cgronlun
+  manager: nitinme
 
   ms.service: cognitive-services
   ms.subservice: forms-recognizer

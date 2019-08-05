@@ -9,7 +9,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 07/26/2019
 ms.author: mbullwin
 ---
 
@@ -143,16 +143,24 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 ## Regions that require endpoint modification
 
-Currently the only region that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
+Currently the only regions that require endpoint modifications are [Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-monitoringandmanagement#application-insights) and [Azure China](https://docs.microsoft.com/azure/china/resources-developer-guide).
 
 |Region |  Endpoint Name | Value |
 |-----------------|:------------|:-------------|
 | Azure China | Telemetry Channel | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure China | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure China | QuickPulse (Live Metrics) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
 | Azure China | Profile Query |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | Telemetry Channel |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (Live Metrics) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | Profile Query |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
+
+If you currently use the [Application Insights REST API](https://dev.applicationinsights.io/
+) which is normally accessed via `api.applicationinsights.io' you will need to use an endpoint that is local to your region:
+
+|Region |  Endpoint Name | Value |
+|-----------------|:------------|:-------------|
+| Azure China | REST API | `api.applicationinsights.azure.cn` |
+| Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]
 > Codeless agent/extension based monitoring for Azure App Services is **currently not supported** in these regions. As soon as this functionality becomes available this article will be updated.

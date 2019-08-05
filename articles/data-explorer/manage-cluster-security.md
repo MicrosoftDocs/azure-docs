@@ -15,7 +15,7 @@ ms.date: 07/22/2019
   
 ## Enable encryption at rest
   
-Enabling [encryption at rest](/azure/security/azure-security-encryption-atrest) on your cluster provides data protection for stored data (at rest). 
+Enabling [encryption at rest](/azure/security/fundamentals/encryption-atrest) on your cluster provides data protection for stored data (at rest). 
 
 1. In the Azure portal, go to your Azure Data Explorer cluster resource. Under the **Settings** heading, select **Security**. 
 

@@ -81,7 +81,7 @@ If you made a mistake; for example, you paired the wrong regions during the init
 
 ## Samples
 
-The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
+The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
 
 - Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
 - Steps required to execute the sample code. 
@@ -112,7 +112,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 ## Next steps
 
-* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
+* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
 * The [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs) describes APIs for performing the Geo-disaster recovery configuration.
 
 For more information about Event Hubs, visit the following links:

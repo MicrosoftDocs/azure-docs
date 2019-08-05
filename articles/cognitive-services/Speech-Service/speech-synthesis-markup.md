@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language (SSML) - Speech Services
+title: Speech Synthesis Markup Language (SSML) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Using the Speech Synthesis Markup Language to control pronunciation and prosody in text-to-speech.
 services: cognitive-services
@@ -346,6 +346,78 @@ Pitch changes can be applied to standard voices at the word or sentence-level. W
         <prosody contour="(80%,+20%) (90%,+30%)" >
             Good morning.
         </prosody>
+    </voice>
+</speak>
+```
+
+## Add recorded audio
+
+`audio` is an optional element that allows you to insert MP3 audio into an SSML document. The body of the audio element may contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. Additionally, the `audio` element can contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
+
+Any audio included in the SSML document must meet these requirements:
+
+* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted SSL certificate.
+* The MP3 must be a valid MP3 file (MPEG v2).
+* The bit rate must be 48 kbps.
+* The sample rate must be 16000 Hz.
+* The combined total time for all text and audio files in a single response cannot exceed ninety (90) seconds.
+* The MP3 must not contain any customer-specific or other sensitive information.
+
+**Syntax**
+
+```xml
+<audio src="string"/></audio>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| src | Specifies the location/URL of the audio file. | Required if using the audio element in your SSML document. |
+
+**Example**
+
+```xml
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <p>
+        <audio src="https://contoso.com/opinionprompt.wav"/>
+        Thanks for offering your opinion. Please begin speaking after the beep.
+        <audio src="https://contoso.com/beep.wav">
+        Could not play the beep, please voice your opinion now. </audio>
+    </p>
+</speak>
+```
+
+## Add background audio
+
+The `mstts:backgroundaudio` element allows you to add background audio to your SSML documents (or mix an audio file with text-to-speech). With `mstts:backgroundaudio` you can loop an audio file in the background, fade in at the beginning of text-to-speech, and fade out at the end of text-to-speech.
+
+If the background audio provided is shorter than the text-to-speech or the fade out, it will loop. If it is longer than the text-to-speech, it will stop when the fade out has finished.
+
+Only one background audio file is allowed per SSML document. However, you can intersperse `audio` tags within the `voice` element to add additional audio to your SSML document.
+
+**Syntax**
+
+```XML
+<mstts:backgroundaudio src="string" volume="string" fadein="string" fadeout="string"/>
+```
+
+**Attributes**
+
+| Attribute | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| src | Specifies the location/URL of the background audio file. | Required if using background audio in your SSML document. |
+| volume | Specifies the volume of the background audio file. **Accepted values**: `0` to `100` inclusive. The default value is `1`. | Optional |
+| fadein | Specifies the duration of the background audio fade in. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+| fadeout | Specifies the duration of the background audio fade out. **Accepted values**: `0` to `10000` inclusive.  | Optional |
+
+**Example**
+
+```xml
+<speak version="1.0" xml:lang="en-US" xmlns:mstts="http://www.w3.org/2001/mstts">
+    <mstts:backgroundaudio src="https://contoso.com/sample.wav" volume="0.7" fadein="3000" fadeout="4000"/>
+    <voice name="Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)">
+        The text provided in this document will be spoken over the background audio.
     </voice>
 </speak>
 ```

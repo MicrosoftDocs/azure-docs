@@ -45,7 +45,7 @@ To receive a stream of tweets, you create an application in Twitter. Follow the 
     |---|---|
     |Name|Provide the application name. The value used for this tutorial is **HDISparkStreamApp0423**. This name has to be a unique name.|
     |Description|Provide a short description of the application. The value used for this tutorial is **A simple HDInsight Spark streaming application**.|
-    |Website|Provide the application's website. It doesn't have to be a valid website.  The value used for this tutorial is **http:\//www.contoso.com**.|
+    |Website|Provide the application's website. It doesn't have to be a valid website.  The value used for this tutorial is `http://www.contoso.com`.|
     |Callback URL|You can leave it blank.|
 
 1. Select **Yes, I have read and agree to the Twitter Developer Agreement**, and then Select **Create your Twitter application**.

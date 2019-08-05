@@ -2,7 +2,7 @@
 title: Create a basic group and add members - Azure Active Directory | Microsoft Docs
 description: Instructions about how to create a basic group using Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 03/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
 ms.collection: M365-identity-device-management

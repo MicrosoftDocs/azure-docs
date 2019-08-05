@@ -166,7 +166,7 @@ User can either [sign in to Azure subscription](#sign-in-to-your-azure-subscript
 
 ### Link a cluster
 
-You can link an HDInsight cluster by using the Apache Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as user1@contoso.com. Also you can link Livy Service cluster.
+You can link an HDInsight cluster by using the Apache Ambari managed username. Similarly, for a domain-joined HDInsight cluster, you can link by using the domain and username, such as `user1@contoso.com`. Also you can link Livy Service cluster.
 
 1. From the menu bar, navigate to **View** > **Tool Windows** > **Azure Explorer**.
 
