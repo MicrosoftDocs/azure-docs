@@ -23,9 +23,9 @@ login.microsoftonline.com | Required for authorization and authentication to the
 *.hypervrecoverymanager.windowsazure.com | Required so that the Site Recovery service communication can occur from the VM. You can use the corresponding 'Site Recovery IP' if your firewall proxy supports IPs.
 *.servicebus.windows.net | Required so that the Site Recovery monitoring and diagnostics data can be written from the VM. You can use the corresponding 'Site Recovery Monitoring IP' if your firewall proxy supports IPs.
 
-## Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
+# Outbound connectivity for Site Recovery URLs or IP ranges (error code 151037 or 151072)
 
-### <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
+## <a name="issue-1-failed-to-register-azure-virtual-machine-with-site-recovery-151195-br"></a>Issue 1: Failed to register Azure virtual machine with Site Recovery (151195) </br>
 - **Possible cause** </br>
   - Connection cannot be established to Site Recovery endpoints due to DNS resolution failure.
   - This is more frequently seen during re-protection when you have failed over the virtual machine but the DNS server is not reachable from the DR region.
@@ -36,7 +36,11 @@ login.microsoftonline.com | Required for authorization and authentication to the
     ![com-error](./media/azure-to-azure-troubleshoot-errors/custom_dns.png)
 
 
-### Issue 2: Site Recovery configuration failed (151196)
+## Issue 2: Site Recovery configuration failed (151196)
+
+> [!NOTE]
+> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.microsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
+
 - **Possible cause** </br>
   - Connection cannot be established to Office 365 authentication and identity IP4 endpoints.
 
@@ -45,10 +49,43 @@ login.microsoftonline.com | Required for authorization and authentication to the
     If you are using Azure Network security group (NSG) rules/firewall proxy to control outbound network connectivity on the VM, ensure you allow communication to O365 IPranges. Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
       - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
 
-> [!NOTE]
-> If the virtual machines are behind **Standard** internal load balancer then it would not have access to O365 IPs i.e login.microsoftonline.com by default. Either change it to **Basic** internal load balancer type or  create out bound access as mentioned in the [article](https://aka.ms/lboutboundrulescli).
+### Example NSG configuration
 
-### Issue 3: Site Recovery configuration failed (151197)
+This example shows how to configure NSG rules for a VM to replicate.
+
+- If you're using NSG rules to control outbound connectivity, use "Allow HTTPS outbound" rules to port:443 for all the required IP address ranges.
+- The example presumes that the VM source location is "East US" and the target location is "Central US".
+
+### NSG rules - East US
+
+1. Create an outbound HTTPS (443) security rule for "Storage.EastUS" on the NSG as shown in the screenshot below.
+
+      ![storage-tag](./media/azure-to-azure-about-networking/storage-tag.png)
+
+2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG as shown in the screenshot below.
+
+      ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
+
+3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the target location:
+
+   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
+    --- | --- | ---
+   Central US | 40.69.144.231 | 52.165.34.144
+
+### NSG rules - Central US
+
+These rules are required so that replication can be enabled from the target region to the source region post-failover:
+
+1. Create an outbound HTTPS (443) security rule for "Storage.CentralUS" on the NSG.
+
+2. Create an outbound HTTPS (443) security rule for "AzureActiveDirectory" on the NSG.
+
+3. Create outbound HTTPS (443) rules for the Site Recovery IPs that correspond to the source location:
+
+   **Location** | **Site Recovery IP address** |  **Site Recovery monitoring IP address**
+    --- | --- | ---
+   Central US | 13.82.88.226 | 104.45.147.24
+## Issue 3: Site Recovery configuration failed (151197)
 - **Possible cause** </br>
   - Connection cannot be established to Azure Site Recovery service endpoints.
 
@@ -56,7 +93,7 @@ login.microsoftonline.com | Required for authorization and authentication to the
   - Azure Site Recovery required access to [Site Recovery IP ranges](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges) depending on the region. Make sure that required ip ranges are accessible from the virtual machine.
 
 
-### Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
+## Issue 4: A2A replication failed when the network traffic goes through on-premises proxy server (151072)
 - **Possible cause** </br>
   - The custom proxy settings are invalid and Azure Site Recovery Mobility Service agent did not auto-detect the proxy settings from IE
 
