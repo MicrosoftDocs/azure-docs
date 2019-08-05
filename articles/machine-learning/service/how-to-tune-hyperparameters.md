@@ -126,7 +126,7 @@ param_sampling = GridParameterSampling( {
 
 When you use Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence, since the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only `choice` and `uniform` distributions over the search space. 
+Bayesian sampling only supports `choice`, `uniform`, and `quniform` distributions over the search space.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
