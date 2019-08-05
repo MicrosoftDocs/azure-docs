@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ms.author: danlep
 ---
 
@@ -37,7 +37,7 @@ At a minimum, specify the following when you run `acr purge`:
 
 * `--registry` - The Azure container registry where you run the command. 
 * `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` parameters to purge multiple repositories.
-* `--ago` - An expression in go style duration format to indicate a duration beyond which images are deleted. For example, `--ago 2d3h6m` selects all images last modified more than 2 days, 3 hours, and 6 minutes ago. If not specified, the default value is 1 day.
+* `--ago` - An expression in go style duration format to indicate a duration beyond which images are deleted. For example, `--ago 2d3h6m` selects all images last modified more than 2 days, 3 hours, and 6 minutes ago. 
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
 
@@ -50,12 +50,12 @@ For additional parameters, run `acr purge --help`.
 
 ### Run in an on-demand task
 
-The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago (the default). The task runs in the local context.
+The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The task runs in the local context.
 
 ```azurecli
 az acr run \
     --cmd "mcr.microsoft.com/acr:0.1 purge --registry {{.Run.Registry}} 
-        --filter "hello-world:.*" --untagged" \ 
+        --filter "hello-world:.*" --untagged --ago 1d" \ 
     --registry myregistry \
     /dev/null 
 ```
