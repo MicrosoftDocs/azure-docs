@@ -220,8 +220,6 @@ var LOOKATMEIMCODE = 42;
 
 ::: zone-end
 
-::: zone-end
-
 ## Sample response
 
 After you run the sample, you should see the following printed to terminal:
