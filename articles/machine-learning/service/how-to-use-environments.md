@@ -19,31 +19,39 @@ settings for different runtimes, such as plain Python, Spark, or Docker.
 
 Environments are managed and versioned entities within the Workspace that enable reproducible, auditable machine learning workflows. Thet are portable across different compute targets. You can use an environment on local compute to develop your training script, then re-use that same environment on Azure Machine Learning Compute to train your model at scale, and finally deploy your model using that same environment.
 
+![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.png)
+
+This article describes how you can
+ * Create an environment and specify package dependencies
+ * Use environment for training
+ * Use environment for web service deployment
+ * Retrieve and update environments
+
 ## How to create environment?
 
 Environments can be created using Azure Machine Learning SDK:
 
  * Automatically when submitting an [__Estimator__](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) run
- * By instantiating new [__Environment__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) object
+ * By instantiating a new [__Environment__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) object
  * From existing conda environment on your local computer
  * From conda specification file
  * From pip requirements file
- * Automatically when submitting a run without explicitly created environment.
+ * Automatically when submitting a run without user-defined environment.
 
-For example, to create a new environment, you can execute.
+For example, to create a new environment, you can execute:
 
 ```python
 from azureml.core import Environment
 myenv = Environment(name="myenv")
 ```
 
-When used first time in a run, the environment registered with Workspace, built and deployed on the compute target. You can also manually register an environment using the [__register__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#register-workspace-) method.
+When used first time, either for training or deployment, the environment is registered with Workspace, built and deployed on the compute target. You can also manually register an environment using the [__register__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#register-workspace-) method.
 
 When you submit a training run, the building of new environment can take several minutes depending on the size of the required dependencies. The environments are cached by the service. Therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
 
-## Attributes of Environment
+## Attributes of environment
 
-Environment class has name, version and a dictionary of environment variables you want to pass to training run. Furthermore, Environment class contains 
+[__Environment__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class has a name, a version and a dictionary of environment variables you want to pass to training run. Furthermore, Environment class contains 
 sections, which are applicable depending on where your script executes. The sections are
 
  * PythonSection
@@ -51,7 +59,7 @@ sections, which are applicable depending on where your script executes. The sect
  * SparkSection
  * DatabricksSection
 
-The first two, PythonSection and DockerSection are generally applicable, and can be used to control, for example, location of Python executable, or Docker base image. The SparkSection is relevant when executing PySpark scripts. The DatabricksSection is relevant when executing [DatabricksStep](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) in Machine Learning Pipeline.
+The first two, PythonSection and DockerSection are generally applicable, and can be used to control, for example, location of Python executable, or Docker base image. The SparkSection is relevant only when submitting PySpark training scripts. The DatabricksSection is relevant only when executing [__DatabricksStep__](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) in Machine Learning Pipeline.
 
 Environments can broadly be divided into system-managed and user-managed. 
 
@@ -99,7 +107,7 @@ Note that during environment creation the service replaces the URL by secure SAS
 
 ### User-managed environment
 
-For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the setup step by setting `user_managed_dependencies` in [PythonSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) to True. Conda will not check your environment or install anything for you.
+For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. If your training environment is already configured (such as on your local machine), you can skip the setup step by setting __user_managed_dependencies__ in [PythonSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py) to True. Conda will not check your environment or install anything for you.
 
 ### Docker and environments
 
@@ -115,7 +123,8 @@ You can also specify your own custom Docker image, by specifying __Environment.d
 
 ## Using environment for training
 
-To submit a training run, you need to combine environment, compute target and training Python script into run configuration. For example, for a local script run, you would use:
+To submit a training run, you need to combine environment, [compute target](concept-compute-target.md)
+and training Python script into run configuration: a wrapper object used for submitting runs. For example, for a local script run, you would use [__ScriptRunConfig__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py):
 
 ```python
 from azureml.core import Environment, ScriptRunConfig, Experiment
@@ -131,6 +140,9 @@ run = exp.submit(runconfig)
 If you don't specify the environment, the service will create a default environment for you.
 
 If you are using [__Estimator__](how-to-train-ml-models.md), you can simply sumbit the Estimator instance directly, as it already encapsulates the environment and compute target. 
+
+> [!NOTE]
+> To disable run history or run snapshots, use setting under __ScriptRunConfig.run_config.history__ property.
 
 ## Using environment for web service deployment
 
@@ -176,6 +188,7 @@ If you make changes to the environment, such as add a Python package, a new vers
 
 ## Next steps
 
+* View [example Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/using-environments) to see code examples of using environments.
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md) uses a managed compute target to  train a model.
 * Learn how to [efficiently tune hyperparameters](how-to-tune-hyperparameters.md) to build better models.
 * Once you have a trained model, learn [how and where to deploy models](how-to-deploy-and-where.md).
