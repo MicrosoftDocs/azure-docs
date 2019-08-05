@@ -114,8 +114,8 @@ Check that the zipped file is secure, before you deploy it.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 3681F745FA2B0A0A6910707D85161EC5
-  SHA256 | E6CA109AFAB9657BDCFB291C343B3E3ABCED9A273D25273059171F9954D25832
+  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
+  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
 
 
 

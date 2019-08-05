@@ -103,8 +103,8 @@ Check that the OVA file is secure, before you deploy it.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### Create the appliance VM
