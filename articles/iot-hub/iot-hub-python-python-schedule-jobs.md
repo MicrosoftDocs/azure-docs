@@ -161,7 +161,25 @@ In this section, you create a Python console app that responds to a direct metho
 
 In this article, you create a backend service that uses asynchronous threads and timers to schedule a job to invoke a direct method on a device and to schedule a job to update the device twin. The service needs the **service connect** permission to call a direct method on a device. The service also reads and writes the identity registry, so it needs the **registry read** and **registry write** permissions. There is no default shared access policy that contains only these permissions, so you need to create one.
 
-[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+To create a shared access policy that grants **service connect**, **registry read**, and **registry write** permissions and to get a connection string for this policy, follow these steps:
+
+1. Open your IoT hub in the [Azure portal](https://portal.azure.com). The easiest way to get to your IoT hub is to select **Resource groups**, select the resource group where your IoT hub is located, and then select your IoT hub from the list of resources.
+
+2. On the left-side pane of your IoT hub, select **Shared access policies**.
+
+3. From the top menu above the list of policies, select **Add**.
+
+4. On the **Add a shared access policy** pane, enter a descriptive name for your policy; for example: *serviceAndRegistryReadWrite*. Under **Permissions**, select **Service connect** and **Registry write** (**Registry read** is automatically selected when you select **Registry write**). Then select **Create**.
+
+    ![Show how to add a new shared access policy](./media/iot-hub-python-python-schedule-jobs/add-policy.png)
+
+5. Back on the **Shared access policies** pane, select your new policy from the list of policies.
+
+6. Under **Shared access keys**, select the copy icon for the **Connection string -- primary key** and save the value.
+
+    ![Show how to retrieve the connection string](./media/iot-hub-python-python-schedule-jobs/get-connection-string.png)
+
+For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](../articles/iot-hub/iot-hub-devguide-security.md#access-control-and-permissions).
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
 
