@@ -32,10 +32,10 @@ sections:
   -
     items:
       -
-        text: "Get set up and start using Azure Machine Learning service:"
+        text: "Get set up and start using Azure Machine Learning service."
         type: paragraph    
       -
-        text: "<b>Use the Azure portal, an easy-to-use, no code interface to train, deploy, manage ML models:</b>"
+        text: "<b>Use the Azure portal, an easy-to-use, no code interface to train, deploy, and manage ML models:</b>"
         type: paragraph
       -
         items:
