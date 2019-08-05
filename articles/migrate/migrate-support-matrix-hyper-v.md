@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ---
 
@@ -37,8 +37,12 @@ Geography | You can create Azure Migrate projects in a number of geographies. Al
   **Geography** | **Metadata storage location**
   --- | ---
   Azure Government | US Gov Virginia
-  Asia Pacific | Southeast Asia or East Asia
-  Europe | South Europe or West Europe
+  Asia Pacific | East Asia or Southeast Asia
+  Australia | Australia East or Australia Southeast
+  Canada | Canada Central or Canada East
+  Europe | North Europe or West Europe
+  India | Central India or South India
+  Japan |  Japan East or Japan West
   United Kingdom | UK South or UK West
   United States | Central US or West US 2
 

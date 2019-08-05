@@ -32,7 +32,7 @@ Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 ## Vendor documentation
 
 
-| **Vendor**  | **Use Case in Azure Sentinel** | **Link**|
+| **Vendor**  | **Use incident in Azure Sentinel** | **Link**|
 |----|----|----|
 | GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
 | PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
