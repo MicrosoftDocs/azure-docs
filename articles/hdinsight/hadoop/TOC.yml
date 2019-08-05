@@ -16,6 +16,8 @@
   items:
   - name: Create on-demand clusters
     href: ../hdinsight-hadoop-create-linux-clusters-adf.md
+  - name: Create ETL pipelines for sales Insights
+    href: hdinsight-sales-insights-etl.md
     maintainContext: true
 - name: Samples
   items:
