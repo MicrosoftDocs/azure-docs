@@ -64,6 +64,8 @@
       href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
     - name: Converting service principal certificate
       href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+    - name: Local HDFS stuck in safe mode
+      href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
     - name: Apache Ambari heartbeat issues
       href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: How to
