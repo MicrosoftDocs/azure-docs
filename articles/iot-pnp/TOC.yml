@@ -7,13 +7,15 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Use a device capability model to create a device
+  - name: Use a device capability model to create a device (Windows)
     href: quickstart-create-pnp-device.md
-  - name: Connect a device to IoT Hub
+  - name: Use a device capability model to create a device (Linux)
+    href: quickstart-create-pnp-device-linux.md
+  - name: Connect a device to IoT Hub (Windows)
     href: quickstart-connect-pnp-device.md
-  - name: Connect a device to IoT Central
-    href: https://aka.ms/iot-central-connect-qs
-  - name: Connect to a device in your solution
+  - name: Connect a device to IoT Hub (Linux)
+    href: quickstart-connect-pnp-device-linux.md
+  - name: Connect a device to your solution
     href: quickstart-connect-pnp-device-solution.md
 - name: Tutorials
   items:

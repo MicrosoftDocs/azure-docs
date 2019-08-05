@@ -1,9 +1,9 @@
 ---
-title: Create an Azure IoT Plug and Play Preview device | Microsoft Docs
+title: Create an Azure IoT Plug and Play Preview device (Linux) | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
-author: miagdp
-ms.author: miag
-ms.date: 08/02/2019
+author: dominicbetts
+ms.author: dobett
+ms.date: 08/06/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -12,17 +12,30 @@ ms.custom: mvc
 # As a device builder, I want to try out generating device code from a model so I can understand the purpose of device capability models.
 ---
 
-# Quickstart: Use a device capability model to create an IoT Plug and Play Preview device (Windows)
+# Quickstart: Use a device capability model to create an IoT Plug and Play Preview device (Linux)
 
-A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code on Windows to create an IoT Plug and Play device using a DCM.
+A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code on Ubuntu Linux to create an IoT Plug and Play device using a DCM.
 
 ## Prerequisites
 
-To complete this quickstart, you need to install the following software on your local machine:
+This quickstart assumes you're using Ubuntu Linux - if you're using a different distribution you may need to adjust some of the steps.
 
-* [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
-* [Git](https://git-scm.com/download/).
-* [CMake](https://cmake.org/download/).
+To complete this quickstart, you need to install the following software on your local Linux machine:
+
+* Install **GCC**, **Git**, **cmake**, and all dependencies using the `apt-get` command:
+
+    ```sh
+    sudo apt-get update
+    sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
+    ```
+
+    Verify the version of `cmake` is above **2.8.12** and the version of **GCC** is above **4.4.7**.
+
+    ```sh
+    cmake --version
+    gcc --version
+    ```
+
 * [Visual Studio Code](https://code.visualstudio.com/).
 
 ### Install Azure IoT Device Workbench
@@ -33,13 +46,9 @@ Use the following steps to install the Azure IoT Device Workbench extension in V
 1. Search for **Azure IoT Device Workbench**.
 1. Select **Install**.
 
-### Install the Azure IoT explorer
-
-Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
-
 ### Get the connection string for your company model repository
 
-You can find your _company model repository connection string_ in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) portal when you sign in with a Microsoft work or school account, or your Microsoft Partner ID if you have one. After you sign in, select **Company repository** and then **Connection strings**.
+You can find your _company model repository connection string_ in the [Azure Device Builder](https://aka.ms/adbtest) portal when you sign in with a Microsoft work or school account, or your Microsoft Partner ID if you have one. After you sign in, select **Company repository** and then **Connection strings**.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -73,13 +82,11 @@ az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
 
 ## Prepare the development environment
 
-### Get Azure IoT device SDK for C
-
 In this quickstart, you prepare a development environment you can use to clone and build the Azure IoT C device SDK.
 
 1. Open a command prompt. Execute the following command to clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository:
 
-    ```cmd/sh
+    ```sh
     git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
     ```
 
@@ -87,7 +94,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. You use this folder for the device model files and device code stub.
 
-    ```cmd/sh
+    ```sh
     cd azure-iot-sdk-c
     mkdir pnp_app
     ```
@@ -96,14 +103,14 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Download the [device capability model](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
+1. Download the [device capability model](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
 
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
 
 1. Open `pnp_app` folder with VS Code. You can view the files with intellisense:
 
-    ![Device capability model](media/quickstart-create-pnp-device/dcm.png)
+    ![Device capability model](media/quickstart-create-pnp-device-linux/dcm.png)
 
 1. In the files you downloaded, replace `<YOUR_COMPANY_NAME_HERE>` in the `@id` and `schema` fields with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format).
 
@@ -127,7 +134,7 @@ Now you have a DCM and its associated interfaces, you can generate the device co
 1. Choose **Via IoT Hub device connection string** as connection method.
 
 1. VS Code opens a new window with generated device code stub files.
-    ![Device code](media/quickstart-create-pnp-device/device-code.png)
+    ![Device code](media/quickstart-create-pnp-device-linux/device-code.png)
 
 ## Build the code
 
@@ -143,31 +150,28 @@ You use the device SDK to build the generated device code stub. The application 
 
 1. Create a cmake subdirectory in the device SDK root folder, and navigate to that folder:
 
-    ```cmd\sh
+    ```sh
     mkdir cmake
     cd cmake
     ```
 
 1. Run the following commands to build the device SDK and the generated code stub:
 
-    ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
-    cmake --build . -- /m /p:Configuration=Release
+    ```sh
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake --build .
     ```
-
-    > [!NOTE]
-    > If cmake can't find your C++ compiler, you get build errors when you run the previous command. If that happens, try running this command at the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs).
 
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
-    ```cmd\sh
-    cd azure-iot-sdk-c\cmake\pnp_app\sample_device\Release\
-    sample_device.exe "[IoT Hub device connection string]"
+    ```sh
+    cd ~/azure-iot-sdk-c/cmake/pnp_app/sample_device
+    ./sample_device "[IoT Hub device connection string]"
     ```
 
 1. The device application starts sending data to IoT Hub.
 
-    ![Device app running](media/quickstart-create-pnp-device/device-app-running.png)
+    ![Device app running](media/quickstart-create-pnp-device-linux/device-app-running.png)
 
 ## Validate the code
 
@@ -189,42 +193,27 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
     > [!NOTE]
     > If you get errors on publishing the device model files, you can try use command **IoT Plug and Play: Sign out Model Repository** to sign out and go through the steps again.
 
-### Use the Azure IoT explorer to validate the code
+### Use the Azure IoT CLI to validate the code
 
-1. Open Azure IoT explorer, you see the **App configurations** page.
+After the device client sample starts, you can check it's working with the Azure CLI.
 
-1. Enter your IoT Hub connection string and click **Connect**.
+Use the following command to view the telemetry the sample device is sending:
 
-1. After you connect, you see the device overview page.
+```azurecli-interactive
+az iot dt monitor-events --interface sensor --device-id {your device ID} --login "{your IoT Hub connection string}"
+```
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
+Use the following command to view the properties sent by the device:
 
-1. Add your company model repository connection string. Select **Connect**.
-
-1. On the device overview page, find the device identity you created previously, and select it to view more details.
-
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
-
-1. Select the **Telemetry** page to view the telemetry data the device is sending.
-
-1. Select the **Properties(non-writable)** page to view the non-writable properties reported by the device.
-
-1. Select the **Properties(writable)** page to view the writable properties you can update.
-
-1. Expand property **name**, update with a new name and select **update writable property**. 
-2. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
-
-1. Select the **Command** page to view all the commands the device supports.
-
-1. Expand the **blink** command and set a new blink time interval. Select **Send Command** to call the command on the device.
-
-1. Go to the simulated device to verify that the command executed as expected.
+```azurecli-interactive
+az iot dt list-properties --device-id {your device ID} --login "{your IoT Hub connection string}"
+```
 
 ## Next steps
 
 In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
 
-To learn more about IoT Plug and Play, continue to the tutorial:
+To learn more about DCMs and how to create your own models, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Create and test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
