@@ -110,6 +110,8 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
+[!code-csharp[Using statements](~/samples-personalizer/quickstarts/c#/PersonalizerExample/Program.cs)]
+
 [!code-csharp[Using statements](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs)]
 
 [!code-csharp[Using statements](~/samples-personalizer/snippets/blogpost-snippet.cs)]
