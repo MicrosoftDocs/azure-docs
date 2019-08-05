@@ -93,11 +93,13 @@ Proactive CPU monitoring provides you an easy, proactive way to take an action w
 
 ![Proactive CPU monitoring](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### Proactive auto-healing
+### Auto-healing and proactive auto-healing
 
-Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive approach to mitigating unexpected behavior of your app. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. This tool can be used to temporarily mitigate an unexpected behavior until the real cause for the issue is found. For more information on proactive auto-healing, visit [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Auto-healing is a mitigation action you can take when your app is having unexpected behavior. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. This tool can be used to temporarily mitigate an unexpected behavior until the real cause for the issue is found.
 
-![Proactive auto-healing](./media/app-service-diagnostics/proactive-auto-healing-10.png)
+![Auto-healing](./media/app-service-diagnostics/auto-healing-10.png)
+
+Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive approach to mitigating unexpected behavior of your app. Proactive auto-healing will only take corrective actions for the sites that we have deemed to be in a bad state for which the best way to recover is to simply restart the Web App. For more information on proactive auto-healing, visit [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
 ## Navigator and change analysis (only for Windows app)
 
