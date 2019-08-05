@@ -68,7 +68,7 @@ Complete the following steps to install the Active Directory Administration tool
 2. Click the **Connect** button on the Overview tab. A Remote Desktop Protocol (.rdp) file is created and downloaded.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. Use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, 'bob@domainservicespreview.onmicrosoft.com'. You may receive a certificate warning during the sign-in process. Click Yes or Continue to proceed with the connection.
+3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. Use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, 'bob@contoso.onmicrosoft.com'. You may receive a certificate warning during the sign-in process. Click Yes or Continue to proceed with the connection.
 4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
 
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
@@ -103,7 +103,7 @@ Now, you can use Windows Server AD administrative tools to explore and administe
 2. Click **Active Directory Administrative Center**.
 
     ![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. To explore the domain, click the domain name in the left pane (for example, 'contoso100.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
+3. To explore the domain, click the domain name in the left pane (for example, 'contoso.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
 
     ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 4. Click the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user called 'bob' and a group called 'AAD DC Administrators' are available in this container.
