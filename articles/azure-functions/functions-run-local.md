@@ -265,15 +265,40 @@ func new --template "Queue Trigger" --name QueueTriggerJS
 
 ## <a name="start"></a>Run functions locally
 
-To run a Functions project, run the Functions host. The host enables triggers for all functions in the project:
+To run a Functions project, run the Functions host. The host enables triggers for all functions in the project. 
 
-```bash
+### Version 2.x
+
+In version 2.x of the runtime, the start command varies, depending on your project language.
+
+#### C\#
+
+```command
+func start --build
+```
+
+#### JavaScript
+
+```command
+func start
+```
+
+#### TypeScript
+
+```command
+npm install
+npm start     
+```
+
+### Version 1.x
+
+Version 1.x of the Functions runtime requires the `host` command, as in the following example:
+
+```command
 func host start
 ```
 
-The `host` command is only required in version 1.x.
-
-`func host start` supports the following options:
+`func start` supports the following options:
 
 | Option     | Description                            |
 | ------------ | -------------------------------------- |
@@ -289,8 +314,6 @@ The `host` command is only required in version 1.x.
 | **`--script-root --prefix`** | Used to specify the path to the root of the function app that is to be run or deployed. This is used for compiled projects that generate project files into a subfolder. For example, when you build a C# class library project, the host.json, local.settings.json, and function.json files are generated in a *root* subfolder with a path like `MyProject/bin/Debug/netstandard2.0`. In this case, set the prefix as `--script-root MyProject/bin/Debug/netstandard2.0`. This is the root of the function app when running in Azure. |
 | **`--timeout -t`** | The timeout for the Functions host to start, in seconds. Default: 20 seconds.|
 | **`--useHttps`** | Bind to `https://localhost:{port}` rather than to `http://localhost:{port}`. By default, this option creates a trusted certificate on your computer.|
-
-For a C# class library project (.csproj), you must include the `--build` option to generate the library .dll.
 
 When the Functions host starts, it outputs the URL of HTTP-triggered functions:
 

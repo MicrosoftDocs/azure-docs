@@ -586,7 +586,14 @@ To create a TypeScript function app project using Core Tools, you must specify t
 
 - Run the `func init --worker-runtime typescript` command.
 
-To run your function app code locally using Core Tools, use the `npm start` command, instead of `func host start`. The `npm start` command is equivalent to the following commands:
+To run your function app code locally using Core Tools, use the following commands instead of `func host start`. 
+
+```command
+npm install
+npm start
+```
+
+The `npm start` command is equivalent to the following commands:
 
 - `npm run build`
 - `func extensions install`
