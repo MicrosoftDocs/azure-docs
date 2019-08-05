@@ -91,16 +91,47 @@ Follow these steps to set up your security info for your work or school account 
 
     Your security info is updated to use text messaging as a backup method to verify your identity when using two-step verification or password reset.
 
+    >[!Note]
+    >If your organization requires you to use app passwords, you might see an additional section in this wizard, where you can set it up. If you see a 3rd section, called App passwords, you must fill it out before you will be able to complete the wizard. For steps about how to add an app password, see Manage your app passwords (#manage-your-app-passwords).
+
 12. Review the **Success** page to verify that you've successfully set up both the Microsoft Authenticator app and a phone (either text message or phone call) method for your security info, and then select **Done**.
 
     ![Wizard successfully completed page](media/security-info/securityinfo-prompt-setup-success.png)
 
-## Optional App password method
+### Manage your app passwords
 
-If your organization still requires you to use apps that don't yet support two-factor verification, you can create your app passwords as part of this sign-in page prompt.
+Certain apps, such as Outlook 2010, don't support two-step verification. This lack of support means that if you're using two-step verification in your organization, the app won't work. To get around this problem, you can create an auto-generated password to use with each non-browser app, separate from your normal password.
 
 >[!Note]
->If you don't see this option, it means that your administrator hasn't set it up. If this isn't set up, but you know you need to use app passwords, you can follow the steps in the [Set up app passwords from the Security info (preview) page](security-info-app-passwords.md).
+>If you don't see this option in the wizard, it means that your administrator hasn't set it up. If this isn't set up, but you know you need to use app passwords, you can follow the steps in the [Set up app passwords from the Security info (preview) page](security-info-app-passwords.md).
+
+When using app passwords, it's important to remember:
+
+- App passwords are auto-generated and only entered once per app.
+
+- There's a limit of 40 passwords per user. If you try to create one after that limit, you'll be prompted to delete an existing password before being allowed to create the new one.
+
+- Use one app password per device, not per app. For example, create a single password for all the apps on your laptop, and then another single password for all the apps on your desktop.
+
+#### To add app passwords in the sign-in wizard
+
+1. After you complete the **Phone** section of the wizard and select **Next**, you will be asked to complete the **App password** section.
+
+    ![Phone completion in the sign-in wizard, showing the app passwords section](media/security-info/app-password-phone.png)
+
+2. Type the name of the app that needs the password, for example `Outlook 2010`, and then select **Next**.
+
+    ![Add the app password name in the wizard](media/security-info/app-password-app-password.png)
+
+3. Copy the text from the **App password** screen, paste the password in the **Password** area of the app (in this example, Outlook 2010).
+
+    ![App password page, with password for copy](media/security-info/app-password-copy-password.png)
+
+4. After you copy the password and paste it in the app, you can return to the wizard and select **Done**.
+
+    ![App password page, with completion notice](media/security-info/app-password-complete.png)
+
+5. Make sure all of your sign-in method information is accurate, and then select **Done**.
 
 ## Next steps
 
