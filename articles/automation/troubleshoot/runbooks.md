@@ -14,6 +14,55 @@ manager: carmonm
 
 ## Authentication errors when working with Azure Automation runbooks
 
+### <a name="login-azurerm"></a>Scenario: Run Login-AzureRMAccount to login
+
+#### Issue
+
+You receive the following error when executing a runbook:
+
+```error
+Run Login-AzureRMAccount to login.
+```
+
+#### Cause
+
+This error has two primary causes:
+
+1. Different versions of AzureRM modules.
+2. You are trying to access resources in a separate subscription.
+
+#### Resolution
+
+If you receive this error after upating one AzureRM module, you should update all of your AzureRM modules to the same version.
+
+If you are trying to access resources in another subscription, you can follow the steps below to configure permissions.
+
+1. Go to the Automation Account's run as account and copy the Application ID and thumbprint.
+  ![Copy Application ID and Thumbprint](../media/troubleshoot-runbooks/collect-app-id.png)
+1. Go to the subscription's Access Control where the Automation Account is NOT hosted, and add a new role assignment.
+  ![Access control](../media/troubleshoot-runbooks/access-control.png)
+1. Add the Application ID you collected in the previous step. Select Contributor permissions.
+   ![Add role assignment](../media/troubleshoot-runbooks/add-role-assignment.png)
+1. Copy the name of the subscription for the next step.
+1. You can now use the following runbook code to test the permissions from your Automation Account to the other subscription.
+
+    Replace the "\<CertificateThumbprint\>" with the value you copied in step #1 and the "\<SubscriptionName\>" value you copied in step #4.
+
+    ```powershell
+    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint "<CertificateThumbprint>"
+    #Select the subscription you want to work with
+    Select-AzureRmSubscription -SubscriptionName '<YourSubscriptionNameGoesHere>'
+
+    #Test and get outputs of the subscriptions you granted access.
+    $subscriptions = Get-AzureRmSubscription
+    foreach($subscription in $subscriptions)
+    {
+        Set-AzureRmContext $subscription
+        Write-Output $subscription.Name
+    }
+    ```
+
 ### <a name="sign-in-failed"></a>Scenario: Sign in to Azure Account failed
 
 #### Issue
@@ -31,20 +80,20 @@ This error occurs if the credential asset name isn't valid. This error may also 
 
 #### Resolution
 
-To determine what's wrong, take the following steps:  
+To determine what's wrong, take the following steps:
 
-1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.  
-2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:  
+1. Make sure that you don’t have any special characters. These characters include the **\@** character in the Automation credential asset name that you're using to connect to Azure.
+2. Check that you can use the username and password that stored in the Azure Automation credential in your local PowerShell ISE editor. You can do check the username and password are correct by running the following cmdlets in the PowerShell ISE:
 
    ```powershell
-   $Cred = Get-Credential  
+   $Cred = Get-Credential
    #Using Azure Service Management
-   Add-AzureAccount –Credential $Cred  
-   #Using Azure Resource Manager  
+   Add-AzureAccount –Credential $Cred
+   #Using Azure Resource Manager
    Connect-AzureRmAccount –Credential $Cred
    ```
 
-3. If your authentication fails locally, it means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.  
+3. If your authentication fails locally, it means that you haven’t set up your Azure Active Directory credentials properly. Refer to [Authenticating to Azure using Azure Active Directory](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) blog post to get the Azure Active Directory account set up correctly.
 
 4. If it looks like a transient error, try adding retry logic to your authentication routine to make authenticating more robust.
 
@@ -90,10 +139,10 @@ This error may occur if:
 
 #### Resolution
 
-Take the following steps to determine if you've authenticated to Azure and have access to the subscription you're trying to select:  
+Take the following steps to determine if you've authenticated to Azure and have access to the subscription you're trying to select:
 
 1. To make sure it works stand-alone, test your script outside of Azure Automation.
-2. Make sure that you run the `Add-AzureAccount` cmdlet before running the `Select-AzureSubscription` cmdlet. 
+2. Make sure that you run the `Add-AzureAccount` cmdlet before running the `Select-AzureSubscription` cmdlet.
 3. Add `Disable-AzureRmContextAutosave –Scope Process` to the beginning of your runbook. This cmdlet ensures that any credentials apply only to the execution of the current runbook.
 4. If you still see this error message, modify your code by adding the **AzureRmContext** parameter following the `Add-AzureAccount` cmdlet and then execute the code.
 
@@ -175,9 +224,9 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 You see in your error in your job streams for a runbook with the following message:
 
 ```error
-Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
-'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
-'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
+Connect-AzureRMAccount : Method 'get_SerializationSettings' in type
+'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly
+'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35'
 does not have an implementation.
 At line:16 char:1
 + Connect-AzureRMAccount -ServicePrincipal -Tenant $Conn.TenantID -Appl ...
@@ -308,7 +357,7 @@ Any of the following solutions fix the problem:
 
 * Suggested methods to work within the memory limit are to split the workload between multiple runbooks, not process as much data in memory, not to write unnecessary output from your runbooks, or consider how many checkpoints you write into your PowerShell Workflow runbooks. You can use the clear method, such as `$myVar.clear()` to clear out the variable and use `[GC]::Collect()` to run garbage collection immediately. These actions reduce the memory footprint of your runbook during runtime.
 
-* Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).  
+* Update your Azure modules by following the steps [How to update Azure PowerShell modules in Azure Automation](../automation-update-azure-modules.md).
 
 * Another solution is to run the runbook on a [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers aren't limited by the memory and network limits that Azure sandboxes are.
 
@@ -384,10 +433,10 @@ This error occurs when the job execution exceeds the 500-minute free quota for y
 
 #### Resolution
 
-If you want to use more than 500 minutes of processing per month, you need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier by taking the following steps:  
+If you want to use more than 500 minutes of processing per month, you need to change your subscription from the Free tier to the Basic tier. You can upgrade to the Basic tier by taking the following steps:
 
-1. Sign in to your Azure subscription  
-2. Select the Automation account you wish to upgrade  
+1. Sign in to your Azure subscription
+2. Select the Automation account you wish to upgrade
 3. Click **Settings** > **Pricing**.
 4. Click **Enable** on page bottom to upgrade your account to the **Basic** tier.
 
@@ -407,11 +456,11 @@ This error is caused when the PowerShell engine can't find the cmdlet you're usi
 
 #### Resolution
 
-Any of the following solutions fix the problem:  
+Any of the following solutions fix the problem:
 
-* Check that you've entered the cmdlet name correctly.  
-* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.  
-* If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this issue by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
+* Check that you've entered the cmdlet name correctly.
+* Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.
+* If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this issue by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.
 * If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module and cmdlet is installed on the machine that hosts the hybrid worker.
 
 ### <a name="long-running-runbook"></a>Scenario: A long running runbook fails to complete
