@@ -21,9 +21,11 @@ Azure Monitor stores log data in a Log Analytics workspace, which is essentially
 
 This article explains how to manage access to logs and to administer the workspaces that contain them, including:
 
-1. How to grant access to users who need access to log data from specific resources using Azure role-based access control (RBAC).
-1. How to grant access to the workspace using workspace permissions.
-1. How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
+* How to grant access to users who need access to log data from specific resources using Azure role-based access control (RBAC).
+
+* How to grant access to the workspace using workspace permissions.
+
+* How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
 
 ## Define access control mode in Azure portal
 
@@ -111,7 +113,7 @@ The following activities also require Azure permissions:
 | Access a specific log table | `Microsoft.OperationalInsights/workspaces/query/<table_name>/read` ||
 | Read the workspace keys to allow sending logs to this workspace | `Microsoft.OperationalInsights/workspaces/sharedKeys/action` ||
 
-## Manage access to Log Analytics Workspace using Azure permissions
+## Manage access using Azure permissions
 
 To grant access to the Log Analytics workspace using Azure permissions, follow the steps in [use role assignments to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 
