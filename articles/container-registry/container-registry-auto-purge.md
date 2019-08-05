@@ -50,11 +50,11 @@ For additional parameters, run `acr purge --help`.
 
 ### Run in an on-demand task
 
-The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The task runs in the local context.
+The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The task runs without a source context.
 
 ```azurecli
 az acr run \
-    --cmd "mcr.microsoft.com/acr:0.1 purge --registry {{.Run.Registry}} 
+    --cmd "mcr.microsoft.com/acr-cli:0.1 purge --registry {{.Run.Registry}} 
         --filter "hello-world:.*" --untagged --ago 1d" \ 
     --registry myregistry \
     /dev/null 
@@ -62,11 +62,11 @@ az acr run \
 
 ### Run in a scheduled task
 
-The following example uses the [az acr task create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task runs `acr purge` to delete tags modified more than 7 days ago in the `hello-world` repository. The task runs in the local context.
+The following example uses the [az acr task create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task runs `acr purge` to delete tags modified more than 7 days ago in the `hello-world` repository. The task runs without a source context.
 
 ```azurecli
 az acr task create --name purgeTask \
-    --cmd "mcr.microsoft.com}/acr:0.1 purge --registry {{.Run.Registry}}
+    --cmd "mcr.microsoft.com}/acr-cli:0.1 purge --registry {{.Run.Registry}}
         --filter "hello-world:.*"  --ago 7d" \
     --context /dev/null \
     --schedule "0 0 * * *" \
@@ -85,7 +85,7 @@ In the following example, the filter in each repository selects all tags. The `-
 
 ```azurecli
 az acr run \
-    --cmd "mcr.microsoft.com/acr:0.1 purge --registry {{.Run.Registry}} 
+    --cmd "mcr.microsoft.com/acr-cli:0.1 purge --registry {{.Run.Registry}} 
         --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged --dry-run" \ 
     --registry myregistry \
     /dev/null
@@ -121,7 +121,7 @@ After you've verified the dry run, create a scheduled task to automate the purge
 
 ```azurecli
 az acr task create --name weeklyPurgeTask \
-    --cmd "mcr.microsoft.com/acr:0.1 purge --registry {{.Run.Registry}} 
+    --cmd "mcr.microsoft.com/acr-cli:0.1 purge --registry {{.Run.Registry}} 
         --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged" \ 
     --context /dev/null \
     --schedule "0 1 * * Sun" \
