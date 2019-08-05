@@ -16,6 +16,7 @@ ms.author: yoafr
 >
 >
 
+
 # Retirement of Security Center features (July 2019)
 
 We've made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the last six months.
