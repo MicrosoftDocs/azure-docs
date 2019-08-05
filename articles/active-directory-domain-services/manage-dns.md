@@ -82,7 +82,7 @@ Now, you can use Windows Server DNS tools to administer DNS on the managed domai
 
     ![Administrative tools - DNS Console](./media/active-directory-domain-services-admin-guide/install-rsat-dns-tools-installed.png)
 2. Click **DNS** to launch the DNS Management console.
-3. In the **Connect to DNS Server** dialog, click **The following computer**, and enter the DNS domain name of the managed domain (for example, 'contoso100.com').
+3. In the **Connect to DNS Server** dialog, click **The following computer**, and enter the DNS domain name of the managed domain (for example, 'contoso.com').
 
     ![DNS Console - connect to domain](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 4. The DNS Console connects to the managed domain.

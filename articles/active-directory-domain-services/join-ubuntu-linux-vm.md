@@ -60,10 +60,10 @@ sudo vi /etc/hosts
 In the hosts file, enter the following value:
 
 ```console
-127.0.0.1 contoso-ubuntu.contoso100.com contoso-ubuntu
+127.0.0.1 contoso-ubuntu.contoso.com contoso-ubuntu
 ```
 
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-ubuntu' is the hostname of the Ubuntu virtual machine you are joining to the managed domain.
+Here, 'contoso.com' is the DNS domain name of your managed domain. 'contoso-ubuntu' is the hostname of the Ubuntu virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
@@ -84,7 +84,7 @@ Next, install packages required for domain join on the virtual machine. Perform 
 3. During the Kerberos installation, you see a pink screen. The installation of the 'krb5-user' package prompts for the realm name (in ALL UPPERCASE). The installation writes the [realm] and [domain_realm] sections in /etc/krb5.conf.
 
     > [!TIP]
-    > If the name of your managed domain is contoso100.com, enter CONTOSO100.COM as the realm. Remember, the realm name must be specified in UPPERCASE.
+    > If the name of your managed domain is contoso.com, enter contoso.COM as the realm. Remember, the realm name must be specified in UPPERCASE.
 
 
 ## Configure the NTP (Network Time Protocol) settings on the Linux virtual machine
@@ -97,16 +97,16 @@ sudo vi /etc/ntp.conf
 In the ntp.conf file, enter the following value and save the file:
 
 ```console
-server contoso100.com
+server contoso.com
 ```
 
-Here, 'contoso100.com' is the DNS domain name of your managed domain.
+Here, 'contoso.com' is the DNS domain name of your managed domain.
 
 Now sync the Ubuntu VM's date and time with NTP server and then start the NTP service:
 
 ```console
 sudo systemctl stop ntp
-sudo ntpdate contoso100.com
+sudo ntpdate contoso.com
 sudo systemctl start ntp
 ```
 
@@ -117,7 +117,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -135,7 +135,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     >
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Join the machine to the domain. In your SSH terminal, type the following command:
@@ -146,7 +146,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM' --install=/
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM' --install=/
     ```
 
 You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
@@ -189,10 +189,10 @@ session required pam_mkhomedir.so skel=/etc/skel/ umask=0077
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined Ubuntu VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined Ubuntu virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@contoso.COM' in this case.)
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-ubuntu.contoso100.com
+    ssh -l bob@contoso.COM contoso-ubuntu.contoso.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.

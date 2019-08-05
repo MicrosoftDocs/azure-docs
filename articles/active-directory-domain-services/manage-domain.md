@@ -103,7 +103,7 @@ Now, you can use Windows Server AD administrative tools to explore and administe
 2. Click **Active Directory Administrative Center**.
 
     ![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. To explore the domain, click the domain name in the left pane (for example, 'contoso100.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
+3. To explore the domain, click the domain name in the left pane (for example, 'contoso.com'). Notice two containers called 'AADDC Computers' and 'AADDC Users' respectively.
 
     ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/adac-domain-view.png)
 4. Click the container called **AADDC Users** to see all users and groups belonging to the managed domain. You should see user accounts and groups from your Azure AD tenant show up in this container. Notice in this example, a user account for the user called 'bob' and a group called 'AAD DC Administrators' are available in this container.

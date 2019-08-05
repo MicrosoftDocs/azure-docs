@@ -60,10 +60,10 @@ sudo vi /etc/hosts
 In the hosts file, enter the following value:
 
 ```console
-127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
+127.0.0.1 contoso-rhel.contoso.com contoso-rhel
 ```
 
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-rhel' is the hostname of the RHEL virtual machine you are joining to the managed domain.
+Here, 'contoso.com' is the DNS domain name of your managed domain. 'contoso-rhel' is the hostname of the RHEL virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
@@ -80,7 +80,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -97,7 +97,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > * Specify the domain name in capital letters, else kinit fails.
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Join the machine to the domain. In your SSH terminal, type the following command:
@@ -108,7 +108,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
     ```
 
 You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
@@ -117,10 +117,10 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined RHEL VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@contoso.COM' in this case.)
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
+    ssh -l bob@contoso.COM contoso-rhel.contoso.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.

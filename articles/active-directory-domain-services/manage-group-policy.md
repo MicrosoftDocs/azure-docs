@@ -87,7 +87,7 @@ You can use the Group Policy management console on the domain-joined virtual mac
 ## Task 4 - Customize built-in Group Policy Objects
 There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain. You can customize these GPOs to configure group policy on the managed domain.
 
-1. In the **Group Policy Management** console, click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain.
+1. In the **Group Policy Management** console, click to expand the **Forest: contoso.com** and **Domains** nodes to see the group policies for your managed domain.
 
     ![Built-in GPOs](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 2. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
