@@ -159,7 +159,7 @@ In this section, you create a Python console app that responds to a direct metho
 
 ## Get the IoT hub connection string
 
-In this article, you create a backend service that uses asynchronous threads and timers to schedule a job to invoke a direct method on a device and to schedule a job to update the device twin. The service needs the **service connect** permission to call a direct method on a device. The service also reads and writes the identity registry, so it needs the **registry read** and **registry write** permissions. There is no default shared access policy that contains only these permissions, so you need to create one.
+In this article, you create a backend service that invokes a direct method on a device and updates the device twin. The service needs the **service connect** permission to call a direct method on a device. The service also needs the **registry read** and **registry write** permissions to read and write the identity registry. There is no default shared access policy that contains only these permissions, so you need to create one.
 
 To create a shared access policy that grants **service connect**, **registry read**, and **registry write** permissions and to get a connection string for this policy, follow these steps:
 
