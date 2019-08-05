@@ -1,4 +1,4 @@
-- name: Azure AD Domain Services Documentation
+- name: Azure AD Domain Services documentation
   href: index.yml
 - name: Overview
   items:
