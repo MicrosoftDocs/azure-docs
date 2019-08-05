@@ -194,7 +194,7 @@ The following are the installation instructions for the prerequisites.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-To authenticate using a device certificate, use the code snippet above but make the following changes (see [How to get an X.509 CA certificate](./iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
+To authenticate using a device certificate, use the code snippet above but make the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
 
 ```python
 # Create the client as before
