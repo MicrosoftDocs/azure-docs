@@ -47,7 +47,7 @@ Provision a CentOS virtual machine in Azure, using any of the following methods:
 ## Connect remotely to the newly provisioned Linux virtual machine
 The CentOS virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Follow the instructions in the article [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Configure the hosts file on the Linux virtual machine
@@ -60,10 +60,10 @@ sudo vi /etc/hosts
 In the hosts file, enter the following value:
 
 ```console
-127.0.0.1 contoso-centos.contoso100.com contoso-centos
+127.0.0.1 contoso-centos.contoso.com contoso-centos
 ```
 
-Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
+Here, 'contoso.com' is the DNS domain name of your managed domain. 'contoso-centos' is the hostname of the CentOS virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
@@ -80,7 +80,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
     ```console
-    sudo realm discover CONTOSO100.COM
+    sudo realm discover contoso.COM
     ```
 
    > [!NOTE]
@@ -97,16 +97,18 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > * Specify the domain name in capital letters, else kinit fails.
 
     ```console
-    kinit bob@CONTOSO100.COM
+    kinit bob@contoso.COM
     ```
 
 3. Join the machine to the domain. In your SSH terminal, type the following command:
 
     > [!TIP]
     > Use the same user account you specified in the preceding step ('kinit').
+    >
+    > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
     ```console
-    sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
+    sudo realm join --verbose contoso.COM -U 'bob@contoso.COM'
     ```
 
 You should get a message ("Successfully enrolled machine in realm") when the machine is successfully joined to the managed domain.
@@ -115,10 +117,10 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 ## Verify domain join
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined CentOS VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
-1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
+1. In your SSH terminal, type the following command to connect to the domain joined CentOS virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@contoso.COM' in this case.)
     
     ```console
-    ssh -l bob@CONTOSO100.COM contoso-centos.contoso100.com
+    ssh -l bob@contoso.COM contoso-centos.contoso.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
@@ -140,6 +142,6 @@ Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domai
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * [Installing Kerberos](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/html/Managing_Smart_Cards/installing-kerberos.html)
 * [Red Hat Enterprise Linux 7 - Windows Integration Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/Windows_Integration_Guide/index.html)

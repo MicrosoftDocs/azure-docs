@@ -6,7 +6,7 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 08/02/2019
 ms.author: banders
 ---
 
@@ -57,13 +57,9 @@ You can buy Isolated Stamp reserved capacity in the [Azure portal](https://porta
 
 After purchase, go to [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) to view the purchase status and monitor it at any time.
 
-## Cancellations and exchanges
+## Cancel, exchange, or refund reservations
 
-If you need to cancel your Isolated Stamp reserved capacity, there might be a 12% early termination fee. Refunds are based on the lowest price of either your purchase price or the current price of the reservation. Refunds are limited to $50,000.00 per year. The refund you receive is the remaining prorated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select **Refund**.
-
-If you need to move your Isolated Stamp reserved capacity to another region, you can exchange it for another reservation that's of equal or greater value. The term start date for the new reservation doesn't carry over from the exchanged reservation. A three-year term starts when you create the new reservation. To exchange, go to the Azure portal, select the reservation you want to exchange and select **Exchange**.
-
-For more information about how to exchange or refund reservations, see [Reservation exchanges and refunds](billing-azure-reservations-self-service-exchange-and-refund.md).
+You can cancel, exchange, or refund reservations with certain limitations. For more information, see [Self-service exchanges and refunds for Azure Reservations](billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## Discount application shown in usage data
 
