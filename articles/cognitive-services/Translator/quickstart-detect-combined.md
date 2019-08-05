@@ -206,6 +206,8 @@ That's it, you're ready to run your sample app. From the command line (or termin
 dotnet run
 ```
 
+::: zone-end
+
 ::: zone pivot="cogsvcs1-programming-language-java"
 
 ## Java stuff
