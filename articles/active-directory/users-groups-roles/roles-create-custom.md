@@ -16,9 +16,9 @@ ms.custom: it-pro
 
 ms.collection: M365-identity-device-management
 ---
-# Create a custom role and assign a resource scope in Azure Active Directory
+# Create a custom role and assign at resource scope in Azure Active Directory
 
-This article describes how to create new custom roles in Azure Active Directory (Azure AD). Custom roles can be created in the **Roles and administrators** tab on the Azure AD overview page or [the application registration page](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview). The role can be assigned either at the directory-level scope or scoped to app registrations only.
+This article describes how to create new custom roles in Azure Active Directory (Azure AD). Custom roles can be created in the [Roles and administrators](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators) tab on the Azure AD overview page. The role can be assigned either at the directory-level scope or an app registration resource scope only.
 
 For more information, see the [custom roles overview](roles-custom-overview.md) for the basics of custom roles.
 
@@ -31,33 +31,31 @@ For more information, see the [custom roles overview](roles-custom-overview.md) 
 
    ![Create or edit roles from the Roles and administrators page](./media/roles-create-custom/new-custom-role.png)
 
-1. On the **Basics** tab, provide a name and description for the role.
+1. On the **Basics** tab, provide a name and description for the role and then click **Next**.
 
    ![provide a name and description for a custom role on the Basics tab](./media/roles-create-custom/basics-tab.png)
 
-1. To select the permissions necessary to manage app registration credentials and basic properties such as name:
-   1. Enter "credentials" in the search bar and select the `microsoft.directory/applications/credentials/update` permission.
+1. On the **Permissions** tab, select the permissions necessary to manage basic properties and credential properties of app registrations. For a detailed description of each permission, see [Application registration subtypes and permissions in Azure Active Directory](./roles-custom-available-permissions.md).
+   1. First, enter "credentials" in the search bar and select the `microsoft.directory/applications/credentials/update` permission.
 
       ![Select the permissions for a custom role on the Permissions tab](./media/roles-create-custom/permissions-tab.png)
 
-   1. Enter "basic" in the search bar, select the `microsoft.directory/applications/basic/update` permission, and then click **Next**.
+   1. Next, enter "basic" in the search bar, select the `microsoft.directory/applications/basic/update` permission, and then click **Next**.
 1. On the **Review + create** tab, review the permissions and select **Create**.
 
 Your custom role will show up in the list of available roles to assign.
 
 ## Assign a role scoped to a resource
 
-Like built-in roles, custom roles can be assigned at default organization scope to grant access over all app registrations. But custom roles can also be assigned at object scope. This allows you to give the assignee the permission to update credentials and basic properties of a single app without having to create a second custom role.
+Like built-in roles, custom roles can be assigned at organization-wide scope to grant access over all app registrations. But custom roles can also be assigned at resource scope. This allows you to give the assignee the permission to update credentials and basic properties of a single app without having to create a second custom role.
 
-1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Application developer permissions in the Azure AD organization.
+1. If not already, sign in to the [Azure AD admin center](https://aad.portal.azure.com) with Application developer permissions in the Azure AD organization.
 1. Select **App registrations**.
 1. Select the app registration to which you are granting access to manage. You might have to select **All applications** to see the complete list of app registrations in your Azure AD organization.
 
     ![Select the app registration as a resource scope for a role assignment](./media/roles-create-custom/appreg-all-apps.png)
 
 1. In the app registration, select **Roles and administrators**. If you haven't already created one, instructions are in the [preceding procedure](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
-
-    If you assign this role from the context of an open app registration, then the assignee has permissions on that single app registration. The role you're assigning shows up in the list on every app registration. This access model, where an owner can be assigned permission to specific Azure AD resources by roles, is similar to the model used in [Azure RBAC](../../role-based-access-control/overview.md) for Azure resource access control.
 
 1. Select the role to open the **Assignments** page.
 1. Select **Add assignment** to add a user. The user won't be granted any permissions over any app registration other than the selected one.
@@ -66,7 +64,7 @@ Like built-in roles, custom roles can be assigned at default organization scope 
 
 ### Prepare PowerShell
 
-First, you must [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
+First, you must [download the Azure AD Preview PowerShell module](https://www.powershellgallery.com/packages/AzureADPreview).
 
 To install the Azure AD PowerShell module, use the following commands:
 
@@ -78,10 +76,10 @@ import-module azureadpreview
 To verify that the module is ready to use, use the following command:
 
 ``` PowerShell
-get-module azuread
+get-module azureadpreview
   ModuleType Version      Name                         ExportedCommands
   ---------- ---------    ----                         ----------------
-  Binary     2.0.0.115    azuread                      {Add-AzureADAdministrati...}
+  Binary     2.0.2.31     azuread                      {Add-AzureADAdministrati...}
 ```
 
 ### Create the custom role
@@ -97,7 +95,6 @@ $templateId = (New-Guid).Guid
 # Set of permissions to grant
 $allowedResourceAction =
 @(
-    "microsoft.directory/applications/allProperties/read",
     "microsoft.directory/applications/basic/update",
     "microsoft.directory/applications/credentials/update"
 )
@@ -106,7 +103,24 @@ $rolePermission = @{'resourceActions' = $resourceActions}
 $rolePermissions = $rolePermission
 
 # Create new custom admin role
-$customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+$customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
+```
+
+### Assign the custom role using Azure AD PowerShell
+
+Assign the role using the below PowerShell script:
+
+``` PowerShell
+# Get the user and role definition you want to link
+$user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
+$roleDefinition = Get-AzureADRoleDefinition -Filter "displayName eq ' Application Registration Creator'"
+
+# Get app registration and construct resource scope for assignment.
+$appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
+$resourceScopes = '/' + $appRegistration.objectId
+
+# Create a scoped role assignment
+$roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
 ```
 
 ## Create a custom role using Microsoft Graph API
@@ -130,13 +144,8 @@ $customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Disp
     "isEnabled":true,
     "rolePermissions":
     [
-        {
-            "allowedResourceActions": 
-            [
-                "microsoft.directory/applications/basic/read",
-                "microsoft.directory/applications/credentials/update"
-            ]
-        }
+        "microsoft.directory/applications/basic/update",
+        "microsoft.directory/applications/credentials/update"
     ]
     }
     ```
@@ -148,7 +157,7 @@ $customAdmin = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Disp
     POST
 
     ``` HTTP
-    https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions/roleAssignments
+    https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
     ```
 
     Body
