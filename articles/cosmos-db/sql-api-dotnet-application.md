@@ -226,8 +226,8 @@ The first thing to do here is add a class that contains the logic to connect to 
                             .WithConnectionModeDirect()
                             .Build();
         CosmosDbService cosmosDbService = new CosmosDbService(client, databaseName, containerName);
-        Database database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
-        await database.CreateContainerIfNotExistsAsync(containerName, "/id");
+        DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
+        await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
 
         return cosmosDbService;
     }
