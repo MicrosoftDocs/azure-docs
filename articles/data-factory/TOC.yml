@@ -588,6 +588,8 @@
     items:
     - name: Why Azure Data Factory
       href: data-migration-guidance-overview.md
+    - name: Migrate data from AWS S3 to Azure
+      href: data-migration-guidance-s3-to-azure-storage.md
 - name: Reference
   items:
   - name: .NET

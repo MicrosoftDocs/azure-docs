@@ -17,11 +17,12 @@ ms.date: 8/04/2019
 
 Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from Amazon S3 to Azure Blob Storage or Azure Data Lake Storage Gen2.  This article provides the following information for data engineers and developers: 
 
-- Performance​ 
-- Copy Resilience
-- Network security
-- High-level solution architecture 
-- Implementation best practices  
+> [!div class="checklist"]
+> * Performance​ 
+> * Copy Resilience
+> * Network security
+> * High-level solution architecture 
+> * Implementation best practices  
 
 ## Performance
 
@@ -51,7 +52,7 @@ Alternatively, if you do not want data to be transferred over public Internet, y
 
 ## Solution architecture
 
-Migrate data over public Internet
+Migrate data over public Internet:
 
 ![solution-architecture-public-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
@@ -60,7 +61,7 @@ Migrate data over public Internet
 - You can easily scale up the amount of horsepower in serverless manner to fully utilize your network and storage bandwidth so that you can get the best throughput for your environment. 
 - Both initial snapshot migration and delta data migration can be achieved using this architecture. 
 
-Migrate data over private link 
+Migrate data over private link: 
 
 ![solution-architecture-private-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
@@ -80,13 +81,15 @@ Migrate data over private link
 
 ### Initial snapshot data migration 
 
-- Data partition is recommended especially when migrating more than 10 TB of data.  To partition the data, leverage the ‘prefix’ setting to filter the folders and files in Amazon S3 by name, and then each ADF copy job can copy one partition at a time.  You can run multiple ADF copy jobs concurrently for better throughput. 
-- If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from AWS S3.  All other copy jobs loading other partitions will not be impacted. 
+Data partition is recommended especially when migrating more than 10 TB of data.  To partition the data, leverage the ‘prefix’ setting to filter the folders and files in Amazon S3 by name, and then each ADF copy job can copy one partition at a time.  You can run multiple ADF copy jobs concurrently for better throughput. 
+
+If any of the copy jobs fail due to network or data store transient issue, you can rerun the failed copy job to reload that specific partition again from AWS S3.  All other copy jobs loading other partitions will not be impacted. 
 
 ### Delta data migration 
 
-- The most performant way to identify new or changed files from AWS S3 is by using time-partitioned naming convention – when your data in AWS S3 has been time partitioned with time slice information in the file or folder name (for example, /yyyy/mm/dd/file.csv), then your pipeline can easily identify which files/folders to copy incrementally. 
-- Alternatively, If your data in AWS S3 is not time partitioned, ADF can identify new or changed files by their LastModifiedDate.   The way it works is that ADF will scan all the files from AWS S3, and only copy the new and updated file whose last modified timestamp is greater than a certain value.  Please be aware that if you have a large number of files in S3, the initial file scanning could take a long time regardless of how many files match the filter condition.  In this case you are suggested to partition the data first, using the same ‘prefix’ setting for initial snapshot migration, so that the file scanning can happen in parallel.  
+The most performant way to identify new or changed files from AWS S3 is by using time-partitioned naming convention – when your data in AWS S3 has been time partitioned with time slice information in the file or folder name (for example, /yyyy/mm/dd/file.csv), then your pipeline can easily identify which files/folders to copy incrementally. 
+
+Alternatively, If your data in AWS S3 is not time partitioned, ADF can identify new or changed files by their LastModifiedDate.   The way it works is that ADF will scan all the files from AWS S3, and only copy the new and updated file whose last modified timestamp is greater than a certain value.  Please be aware that if you have a large number of files in S3, the initial file scanning could take a long time regardless of how many files match the filter condition.  In this case you are suggested to partition the data first, using the same ‘prefix’ setting for initial snapshot migration, so that the file scanning can happen in parallel.  
 
 ### For scenarios which require self-hosted Integration runtime on Azure VM 
 
@@ -101,7 +104,7 @@ As a best practice, conduct a performance POC with a representative sample datas
 
 Start with a single partition and a single copy activity with default DIU setting.  Gradually increase the DIU setting until you reach the bandwidth limit of your network or IOPS/bandwidth limit of the data stores, or you have reached the max 256 DIU allowed on a single copy activity. 
 
-Next, gradually increase the number of concurrent copy jobs until you reach limits of your environment. 
+Next, gradually increase the number of concurrent copy activities until you reach limits of your environment. 
 
 When you encounter throttling errors reported by ADF copy activity, either reduce the concurrency or DIU setting in ADF, or consider increasing the bandwidth/IOPS limits of the network and data stores.  
 
@@ -126,6 +129,7 @@ Let us assume the following:
 Here is the estimated price based on the above assumptions: 
 
 ![pricing-table](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+
 
 ### Additional references 
 - [Amazon Simple Storage Service connector](https://docs.microsoft.com/en-us/azure/data-factory/connector-amazon-simple-storage-service)
