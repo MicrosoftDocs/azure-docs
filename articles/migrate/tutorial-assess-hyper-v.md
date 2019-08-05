@@ -110,7 +110,7 @@ Check that the zipped file is secure, before you deploy it.
     - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
     - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
 
-3.  For appliance version 1.19.06.27, the generated hash should match these settings.
+3.  For appliance version 2.19.07.30, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---

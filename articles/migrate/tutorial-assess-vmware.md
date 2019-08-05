@@ -99,7 +99,7 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For version 1.19.06.27, the generated hash should match these values. 
+3. For version 2.19.07.30, the generated hash should match these values. 
 
   **Algorithm** | **Hash value**
   --- | ---
