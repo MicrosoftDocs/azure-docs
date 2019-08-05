@@ -56,6 +56,8 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: Out of disk space
+      href: ./hdinsight-troubleshoot-out-disk-space.md
     - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
       href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
     - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
