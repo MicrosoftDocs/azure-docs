@@ -99,6 +99,11 @@
       "source_path": "articles/batch-ai/resource-concepts.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/resource-concepts",
       "redirect_document_id": true
+    }, 
+    {
+      "source_path": "articles/vmware-cloudsimple/enable-cloudsimple-service.md",
+      "redirect_url": "/azure/vmware-cloudsimple/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/batch-ai/tutorial-horovod-tensorflow.md",

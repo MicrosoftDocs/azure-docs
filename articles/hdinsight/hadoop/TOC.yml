@@ -66,6 +66,8 @@
       href: ./hdinsight-troubleshoot-unable-add-nodes.md
     - name: Converting service principal certificate
       href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+    - name: Apache Ambari heartbeat issues
+      href: ./apache-ambari-troubleshoot-heartbeat-issues.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox

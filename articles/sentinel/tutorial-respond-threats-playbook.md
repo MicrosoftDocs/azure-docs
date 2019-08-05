@@ -87,7 +87,7 @@ You can run a playbook on demand.
 
 To run a playbook on-demand:
 
-1. In the **Cases** page, select a case and click on **View full details**.
+1. In the **incidents** page, select an incident and click on **View full details**.
 
 2. In the **Alerts** tab, click on the alert you want to run the playbook on, and scroll all the way to the right and click **View playbooks** and select a playbook to **run** from the list of available playbooks on the subscription. 
 
