@@ -88,9 +88,9 @@ This error means that the registry login server did not respond with an access t
 
 ## CONNECTIVITY_SSL_ERROR
 
-This error means that the CLI encountered a SSL (Secure Sockets Layer) error while trying to connect to the container registry. This error typically occurs if you're running or using a proxy server to connect to the container registry.
+This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
 
-*Potential solutions*: Verify if you're using a proxy server to connect to the container registry. If so, try connecting without the proxy server or restart your machine. In addition, an environment variable that disables SSL verification on the CLI could be setup.
+*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
 
 ## LOGIN_SERVER_ERROR
 
