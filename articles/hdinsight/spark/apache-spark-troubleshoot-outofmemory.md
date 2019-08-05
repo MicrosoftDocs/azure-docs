@@ -1,18 +1,132 @@
 ---
-title: Livy Server fails to start on Apache Spark cluster in Azure HDInsight
-description: Livy Server fails to start on Apache Spark cluster in Azure HDInsight
+title: OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
+description: Various OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/29/2019
+ms.date: 08/02/2019
 ---
 
-# Scenario: Livy Server fails to start on Apache Spark cluster in Azure HDInsight
+# OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
 
 This article describes troubleshooting steps and possible resolutions for issues when using Apache Spark components in Azure HDInsight clusters.
 
-## Issue
+## Scenario: OutOfMemoryError exception for Apache Spark
+
+### Issue
+
+Your Apache Spark application failed with an OutOfMemoryError unhandled exception. You may receive an error message similar to:
+
+```error
+ERROR Executor: Exception in task 7.0 in stage 6.0 (TID 439)
+
+java.lang.OutOfMemoryError
+    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source)
+    at java.io.ByteArrayOutputStream.grow(Unknown Source)
+    at java.io.ByteArrayOutputStream.ensureCapacity(Unknown Source)
+    at java.io.ByteArrayOutputStream.write(Unknown Source)
+    at java.io.ObjectOutputStream$BlockDataOutputStream.drain(Unknown Source)
+    at java.io.ObjectOutputStream$BlockDataOutputStream.setBlockDataMode(Unknown Source)
+    at java.io.ObjectOutputStream.writeObject0(Unknown Source)
+    at java.io.ObjectOutputStream.writeObject(Unknown Source)
+    at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:44)
+    at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:101)
+    at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:239)
+    at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+    at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+    at java.lang.Thread.run(Unknown Source)
+```
+
+```error
+ERROR SparkUncaughtExceptionHandler: Uncaught exception in thread Thread[Executor task launch worker-0,5,main]
+
+java.lang.OutOfMemoryError
+    at java.io.ByteArrayOutputStream.hugeCapacity(Unknown Source)
+    ...
+```
+
+### Cause
+
+The most likely cause of this exception is not enough heap memory. Your Spark application requires enough Java Virtual Machines (JVM) heap memory when running as executors or drivers.
+
+### Resolution
+
+1. Determine the maximum size of the data the Spark application will handle. Make an estimate of the size based on the maximum of the size of input data, the intermediate data produced by transforming the input data and the output data produced further transforming the intermediate data. If the initial estimate is not sufficient, increase the size slightly, and iterate until the memory errors subside.
+
+1. Make sure that the HDInsight cluster to be used has enough resources in terms of memory and also cores to accommodate the Spark application. This can be determined by viewing the Cluster Metrics section of the YARN UI of the cluster for the values of Memory Used vs. Memory Total and VCores Used vs. VCores Total.
+
+    ![yarn core memory view](./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png)
+
+1. Set the following Spark configurations to appropriate values. Balance the application requirements with the available resources in the cluster. These values should not exceed 90% of the available memory and cores as viewed by YARN, and should also meet the minimum memory requirement of the Spark application:
+
+    ```
+    spark.executor.instances (Example: 8 for 8 executor count)
+    spark.executor.memory (Example: 4g for 4 GB)
+    spark.yarn.executor.memoryOverhead (Example: 384m for 384 MB)
+    spark.executor.cores (Example: 2 for 2 cores per executor)
+    spark.driver.memory (Example: 8g for 8GB)
+    spark.driver.cores (Example: 4 for 4 cores)
+    spark.yarn.driver.memoryOverhead (Example: 384m for 384MB)
+    ```
+
+    Total memory used by all executors =
+
+    ```
+    spark.executor.instances * (spark.executor.memory + spark.yarn.executor.memoryOverhead) 
+    ```
+
+    Total memory used by driver =
+
+    ```
+    spark.driver.memory + spark.yarn.driver.memoryOverhead
+    ```
+
+---
+
+## Scenario: Java heap space error when trying to open Apache Spark history server
+
+### Issue
+
+You receive the following error when opening events in Spark History server:
+
+```
+scala.MatchError: java.lang.OutOfMemoryError: Java heap space (of class java.lang.OutOfMemoryError)
+```
+
+### Cause
+
+This issue is often caused by a lack of resources when opening large spark-event files. The Spark heap size is set to 1 GB by default, but large Spark event files may require more than this.
+
+If you would like to verify the size of the files that you are trying to load, you can perform the following commands:
+
+```bash
+hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0274_1/
+**576.5 M**  wasb:///hdp/spark2-events/application_1503957839788_0274_1
+
+hadoop fs -du -s -h wasb:///hdp/spark2-events/application_1503957839788_0264_1/
+**2.1 G**  wasb:///hdp/spark2-events/application_1503957839788_0264_1
+```
+
+### Resolution
+
+You can increase the Spark History Server memory by editing the `SPARK_DAEMON_MEMORY` property in the Spark configuration and restarting all the services.
+
+You can do this from within the Ambari browser UI by selecting the Spark2/Config/Advanced spark2-env section.
+
+![Advanced spark2-env section](./media/apache-spark-ts-outofmemory-heap-space/image01.png)
+
+Add the following property to change the Spark History Server memory from 1g to 4g: `SPARK_DAEMON_MEMORY=4g`.
+
+![Spark property](./media/apache-spark-ts-outofmemory-heap-space/image02.png)
+
+Make sure to restart all affected services from Ambari.
+
+---
+
+## Scenario: Livy Server fails to start on Apache Spark cluster
+
+### Issue
 
 Livy Server cannot be started on an Apache Spark [(Spark 2.1 on Linux (HDI 3.6)]. Attempting to restart results in the following error stack, from the Livy logs:
 
@@ -72,7 +186,7 @@ Exception in thread "main" java.lang.OutOfMemoryError: unable to create new nati
   ## using "vmstat" found  we had enough free memory
 ```
 
-## Cause
+### Cause
 
 `java.lang.OutOfMemoryError: unable to create new native thread` highlights OS cannot assign more native threads to JVMs. Confirmed that this Exception is caused by the violation of per-process thread count limit.
 
@@ -80,7 +194,7 @@ When Livy Server terminates unexpectedly, all the connections to Spark Clusters 
 
 When large number of jobs are submitted via Livy, as part of High Availability for Livy Server stores these session states in ZK (on HDInsight clusters) and recover those sessions when the Livy service is restarted. On restart after unexpected termination, Livy creates one thread per session and this accumulates a certain number of to-be-recovered sessions causing too many threads being created.
 
-## Resolution
+### Resolution
 
 Delete all entries using steps detailed below.
 
@@ -121,9 +235,15 @@ Delete all entries using steps detailed below.
 > [!NOTE]
 > `DELETE` the livy session once it is completed its execution. The Livy batch sessions will not be deleted automatically as soon as the spark app completes, which is by design. A Livy session is an entity created by a POST request against Livy Rest server. A `DELETE` call is needed to delete that entity. Or we should wait for the GC to kick in.
 
+---
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+
+* [Spark memory management overview](https://spark.apache.org/docs/latest/tuning.html#memory-management-overview).
+
+* [Debugging Spark application on HDInsight clusters](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/).
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
