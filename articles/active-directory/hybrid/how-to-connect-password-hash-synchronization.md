@@ -58,9 +58,6 @@ The following section describes, in-depth, how password hash synchronization wor
 >[!Note] 
 >The original MD4 hash is not transmitted to Azure AD. Instead, the SHA256 hash of the original MD4 hash is transmitted. As a result, if the hash stored in Azure AD is obtained, it cannot be used in an on-premises pass-the-hash attack.
 
-### How password hash synchronization works with Azure Active Directory Domain Services
-You can also use the password hash synchronization feature to synchronize your on-premises passwords to [Azure Active Directory Domain Services](../../active-directory-domain-services/overview.md). In this scenario, the Azure Active Directory Domain Services instance authenticates your users in the cloud with all the methods available in your on-premises Active Directory instance. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
-
 ### Security considerations
 When synchronizing passwords, the plain-text version of your password is not exposed to the password hash synchronization feature, to Azure AD, or any of the associated services.
 
@@ -99,6 +96,39 @@ The synchronization of a password has no impact on the Azure user who is signed 
 
 - Generally, password hash synchronization is simpler to implement than a federation service. It doesn't require any additional servers, and eliminates dependence on a highly available federation service to authenticate users.
 - Password hash synchronization can also be enabled in addition to federation. It may be used as a fallback if your federation service experiences an outage.
+
+## Password hash sync process for Azure AD Domain Services
+
+If you use Azure AD Domain Services to provide legacy authentication for applications and services that need to use Keberos, LDAP, or NTLM, some additional processes are part of the password hash synchronization flow. Azure AD Connect uses the additional following process to synchronize password hashes to Azure AD for use in Azure AD Domain Services:
+
+> [!IMPORTANT]
+> Azure AD Connect only synchronizes legacy password hashes when you enable Azure AD DS for your Azure AD tenant. The following steps aren't used if you only use Azure AD Connect to synchronize an on-premises AD DS environment with Azure AD.
+>
+> If your legacy applications don't use NTLM authentication or LDAP simple binds, we recommend that you disable NTLM password hash synchronization for Azure AD DS. For more information, see [Disable weak cipher suites and NTLM credential hash synchronization](../../active-directory-domain-services/secure-your-domain.md).
+
+1. Azure AD Connect retrieves the public key for the tenant's instance of Azure AD Domain Services.
+1. When a user changes their password, the on-premises domain controller stores the result of the password change (hashes) in two attributes:
+    * *unicodePwd* for the NTLM password hash.
+    * *supplementalCredentials* for the Kerberos password hash.
+1. Azure AD Connect detects password changes through the directory replication channel (attribute changes needing to replicate to other domain controllers).
+1. For each user whose password has changed, Azure AD Connect performs the following steps:
+    * Generates a random AES 256-bit symmetric key.
+    * Generates a random initialization vector needed for the first round of encryption.
+    * Extracts Kerberos password hashes from the *supplementalCredentials* attributes.
+    * Checks the Azure AD Domain Services security configuration *SyncNtlmPasswords* setting.
+        * If this setting is disabled, generates a random, high-entropy NTLM hash (different from the user's password). This hash is then combined with the exacted Kerberos password hashes from the *supplementalCrendetials* attribute into one data structure.
+        * If enabled, combines the value of the *unicodePwd* attribute with the extracted Kerberos password hashes from the *supplementalCredentials* attribute into one data structure.
+    * Encrypts the single data structure using the AES symmetric key.
+    * Encrypts the AES symmetric key using the tenant's Azure AD Domain Services public key.
+1. Azure AD Connect transmits the encrypted AES symmetric key, the encrypted data structure containing the password hashes, and the initialization vector to Azure AD.
+1. Azure AD stores the encrypted AES symmetric key, the encrypted data structure, and the initialization vector for the user.
+1. Azure AD pushes the encrypted AES symmetric key, the encrypted data structure, and the initialization vector using an internal synchronization mechanism over an encrypted HTTP session to Azure AD Domain Services.
+1. Azure AD Domain Services retrieves the private key for the tenant's instance from Azure Key vault.
+1. For each encrypted set of data (representing a single user's password change), Azure AD Domain Services then performs the following steps:
+    * Uses its private key to decrypt the AES symmetric key.
+    * Uses the AES symmetric key with the initialization vector to decrypt the encrypted data structure that contains the password hashes.
+    * Writes the Kerberos password hashes it receives to the Azure AD Domain Services domain controller. The hashes are saved into the user object's *supplementalCredentials* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
+    * Azure AD Domain Services writes the NTLM password hash it received to the Azure AD Domain Services domain controller. The hash is saved into the user object's *unicodePwd* attribute that is encrypted to the Azure AD Domain Services domain controller's public key.
 
 ## Enable password hash synchronization
 

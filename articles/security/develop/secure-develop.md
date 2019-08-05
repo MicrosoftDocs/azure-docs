@@ -146,13 +146,13 @@ generated passwords are random and that they have high entropy.
 If your application allows [file uploads](https://www.owasp.org/index.php/Unrestricted_File_Upload), consider precautions that you can take for this risky activity. The first step in many attacks is to get some malicious code into a system that is under attack. Using a file upload helps the attacker accomplish this. OWASP offers solutions for validating a file to ensure that the file you're uploading is safe.
 
 Antimalware protection helps identify and remove viruses, spyware, and
-other malicious software. You can install [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+other malicious software. You can install [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 or a Microsoft partner’s endpoint protection solution ([Trend Micro](https://www.trendmicro.com/azure/),
 [Symantec](https://www.symantec.com/products),
 [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10),
 and [System Center Endpoint Protection](https://docs.microsoft.com/sccm/protect/deploy-use/endpoint-protection)).
 
-[Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+[Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 includes features like real-time protection, scheduled scanning, malware
 remediation, signature updates, engine updates, samples reporting, and
 exclusion event collection. You can integrate Microsoft Antimalware and
@@ -205,7 +205,7 @@ tools analyze source code or compiled versions of code when the code is
 not executing in order to find security flaws.
 
 Perform DAST, preferably with the assistance of a security professional
-(a [penetration tester](https://docs.microsoft.com/azure/security/azure-security-pen-testing) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don’t introduce obvious security issues into your code. See the [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
+(a [penetration tester](https://docs.microsoft.com/azure/security/fundamentals/pen-testing) or vulnerability assessor). If a security professional isn't available, you can perform DAST yourself with a web proxy scanner and some training. Plug in a DAST scanner early on to ensure that you don’t introduce obvious security issues into your code. See the [OWASP](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) site for a list of web application vulnerability scanners.
 
 ### Perform fuzz testing
 
@@ -238,7 +238,7 @@ tools](https://azuremarketplace.microsoft.com/marketplace/apps/category/develope
 
 Ensuring that your application is secure is as important as testing any
 other functionality. Make [penetration
-testing](https://docs.microsoft.com/azure/security/azure-security-pen-testing)
+testing](https://docs.microsoft.com/azure/security/fundamentals/pen-testing)
 a standard part of the build and deployment process. Schedule regular
 security tests and vulnerability scanning on deployed applications, and
 monitor for open ports, endpoints, and attacks.
