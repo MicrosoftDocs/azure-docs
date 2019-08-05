@@ -38,7 +38,7 @@ SQL threat detection detects anomalous activities indicating unusual and potenti
 
 For more information about SQL threat detection alerts see,[Azure SQL Database threat detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview), and review the threat detection alerts section. Also see [How Azure Security Center helps reveal a Cyberattack](https://azure.microsoft.com/blog/how-azure-security-center-helps-reveal-a-cyberattack/) to view an example of how Security Center used malicious SQL activity detection to discover an attack.
 
-## Azure Storage<a name="azure-storage"></a>
+## Azure Storage <a name="azure-storage"></a>
 
 >[!NOTE]
 > Advanced Threat Protection for Azure Storage is currently available for Blob Storage only.
@@ -54,6 +54,7 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 |**Unusual location access anomaly**|Sampled network traffic analysis detected anomalous outgoing Remote Desktop Protocol (RDP) communication originating from a resource in your deployment. This activity is considered abnormal for this environment and may indicate that your resource has been compromised and is now used to brute force external RDP endpoint. Note that this type of activity could possibly cause your IP to be flagged as malicious by external entities.|
 |**Application access anomaly**|Indicates that an unusual application has accessed this storage account. A potential cause is that an attacker has accessed your storage account using a new application.|
 |**Anonymous access anomaly**|Indicates that there is a change in the access pattern to a storage account. For instance, the account has been accessed anonymously (without any authentication), which is unexpected compared to the recent access pattern on this account. A potential cause is that an attacker has exploited public read access to a container that holds blob(s) storage.|
+|**Tor Anomaly**|Indicates that this account has been accessed successfully from an IP address that is known as an active exit node of Tor (an anonymizing proxy). The severity of this alert considers the authentication type used (if any), and whether this is the first case of such access.Potential causes can be an attacker has accessed your storage account using Tor, or legitimate user has accessed your storage account using Tor.|
 |**Data Exfiltration anomaly**|Indicates that an unusually large amount of data has been extracted compared to recent activity on this storage container. A potential cause is that an attacker has extracted a large amount of data from a container that holds blob(s) storage.|
 |**Unexpected delete anomaly**|Indicates that one or more unexpected delete operations has occurred in a storage account, compared to recent activity on this account. A potential cause is that an attacker has deleted data from your storage account.|
 |**Upload Azure Cloud Service package**|Indicates that an Azure Cloud Service package (.cspkg file) has been uploaded to a storage account in an unusual way, compared to recent activity on this account. A potential cause is that an attacker has been preparing to deploy malicious code from your storage account to an Azure cloud service.|
@@ -64,7 +65,7 @@ Security Center analyzes diagnostic logs of read, write, and delete requests to 
 >[!NOTE]
 >Advanced Threat Protection for Azure Storage is currently not available in Azure government and sovereign cloud regions.
 
-For more information about the alerts for storage, see the [Advanced Threat Protection for Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-advanced-threat-protection) article, and review the Protection Alerts section.
+For more information about the alerts for storage, see the [Advanced Threat Protection for Azure Storage](../storage/common/storage-advanced-threat-protection.md) article, and review the Protection Alerts section.
 
 ## Cosmos DB<a name="cosmos-db"></a>
 
