@@ -390,9 +390,6 @@ Edit these values as need to update, add, or delete node pools as needed:
         }
     },
     "variables": {
-        "apiVersion": {
-            "aks": "2019-04-01"
-        },
         "agentPoolProfiles": {
             "maxPods": 30,
             "osDiskSizeGB": 0,
