@@ -39,12 +39,12 @@ Some of the key building blocks of an enterprise team analytics environment are:
 
 This series of articles provides guidance and pointers for each of the preceding items. It doesn't cover all the considerations and needs in deploying DSVM in large enterprise configurations. Here's other Azure documentation that you can use while implementing DSVM instances in your enterprise: 
 
-* [Network security](https://docs.microsoft.com/azure/security/azure-network-security)
+* [Network security](https://docs.microsoft.com/azure/security/fundamentals/network-security
 * [Monitoring](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) and [management](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Logging and auditing](https://docs.microsoft.com/azure/security/azure-log-audit)
+* [Logging and auditing](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
 * [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/overview)
 * [Policy setting and enforcement](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware)
+* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
 * [Encryption](https://docs.microsoft.com/azure/virtual-machines/windows/encrypt-disks)
 * [Data discovery and governance](https://docs.microsoft.com/azure/data-catalog/)
 
