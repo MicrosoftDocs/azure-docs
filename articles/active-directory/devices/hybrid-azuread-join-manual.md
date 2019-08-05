@@ -102,9 +102,13 @@ Depending on how you have deployed Azure AD Connect, the SCP object might have a
 You can verify the existence of the object and retrieve the discovery values by using the following Windows PowerShell script:
 
    ```PowerShell
+   $Root = [ADSI]"LDAP://RootDSE"
+
+   $ConfigurationName = $Root.rootDomainNamingContext
+
    $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
-   $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,CN=Configuration,DC=fabrikam,DC=com";
+   $scp.Path = "LDAP://CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,CN=Configuration," + $ConfigurationName;
 
    $scp.Keywords;
    ```
