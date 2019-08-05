@@ -27,8 +27,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + Ability to register a blob storage that is behind the virtual network (VNet) as a datastore.
   
 + **Bug fixes and improvements**
-  + **automl-client-core-nativeclient**
-    + Fixed failures of Timeseries if preprocess flag is True
   + **azureml-automl-core**
     + Fixes a bug where validation size for CV splits is small and results in bad predicted vs. true charts for regression and forecasting.
     + The logging of forecasting tasks on the remote runs improved, now user is provided with comprehensive error message if the run was failed.
