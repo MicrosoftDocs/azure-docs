@@ -24,11 +24,11 @@ ms.author: jingwang
 > * [Version 1](v1/data-factory-data-movement-activities.md)
 > * [Current version](copy-activity-overview.md)
 
-In Azure Data Factory, you can use Copy Activity to copy data among data stores located on-premises and in the cloud. After the data is copied, it can be further transformed and analyzed. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
+In Azure Data Factory, you can use Copy Activity to copy data among data stores located on-premises and in the cloud. After the data is copied, it can be further transformed and analyzed using other activities. You can also use Copy Activity to publish transformation and analysis results for business intelligence (BI) and application consumption.
 
 ![Role of Copy Activity](media/copy-activity-overview/copy-activity.png)
 
-Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, different flavor of Integration Runtime can be leveraged:
+Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, different flavors of Integration Runtime can be leveraged:
 
 * When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
@@ -70,7 +70,7 @@ The service that powers Copy Activity is available globally in the regions and g
 To use copy activity in Azure Data Factory, you need to:
 
 1. **Create linked services for source data store and sink data store.** Refer to the connector article's "Linked service properties" section on how to configure and the supported properties. You can find the supported connector list in [Supported data stores and formats](#supported-data-stores-and-formats) section.
-2. **Create datasets for source and sink.** Refer to the source and sink connector articles' "Dataset properties" section on how to configure and the supported properties.
+2. **Create datasets for source and sink.** Refer to the source and sink connector articles' "Dataset properties" section on how to configure and its supported properties.
 3. **Create a pipeline with copy activity.** The next section provides an example.
 
 ### Syntax
@@ -156,7 +156,7 @@ Click to see the list of activities in this pipeline run. In the **Actions** col
 Click the "**Details**" link under **Actions** to see copy activity's execution details and performance characteristics. It shows you information including volume/rows/files of data copied from source to sink, throughput, steps it goes through with corresponding duration and used configurations for your copy scenario.
 
 >[!TIP]
->For some scenarios, you will also see "**Performance tuning tips**" on top of the copy monitoring page,  which tells you the bottleneck identified and guides you on what to change so as to boost copy throughput, see example with details [here](#performance-and-tuning).
+>For some scenarios, you will also see "**Performance tuning tips**" on top of the copy monitoring page,  which tells you the bottleneck identified and guides you on what to change so as to boost copy throughput, see an example with details [here](#performance-and-tuning).
 
 **Example: copy from Amazon S3 to Azure Data Lake Store**
 ![Monitor activity run details](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
@@ -166,7 +166,7 @@ Click the "**Details**" link under **Actions** to see copy activity's execution 
 
 ### Monitor programmatically
 
-Copy activity execution details and performance characteristics are also returned in Copy Activity run result -> Output section. Below is an exhaustive list; only the applicable ones to your copy scenario will show up. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
+Copy activity execution details and performance characteristics are also returned in the Copy Activity run result -> Output section. Below is an exhaustive list; only the applicable ones to your copy scenario will show up. Learn how to monitor activity run from [quickstart monitoring section](quickstart-create-data-factory-dot-net.md#monitor-a-pipeline-run).
 
 | Property name  | Description | Unit |
 |:--- |:--- |:--- |
@@ -230,7 +230,7 @@ See the [Schema and data type mapping](copy-activity-schema-and-type-mapping.md)
 
 ## Fault tolerance
 
-By default, copy activity stops copying data and returns failure when it encounters incompatible data between source and sink. You can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
+By default, copy activity stops copying data and returns a failure when it encounters incompatible data between source and sink. You can explicitly configure to skip and log the incompatible rows and only copy those compatible data to make the copy succeeded. See the [Copy Activity fault tolerance](copy-activity-fault-tolerance.md) on more details.
 
 ## Performance and tuning
 
@@ -240,12 +240,12 @@ In some cases, when you execute a copy activity in ADF, you will directly see "*
 
 **Example: copy into Azure SQL DB with performance tuning tips**
 
-In this sample, during copy run, ADF notice the sink Azure SQL DB reaches high DTU utilization which slows down the write operations, thus the suggestion is to increase the Azure SQL DB tier with more DTU.
+In this sample, during copy run, ADF notices that the sink Azure SQL DB reaches a high DTU utilization which slows down the write operations, so the suggestion is to increase the Azure SQL DB tier with more DTU.
 
 ![Copy monitoring with performance tuning tips](./media/copy-activity-overview/copy-monitoring-with-performance-tuning-tips.png)
 
 ## Incremental copy
-Data Factory supports scenarios for incrementally copying delta data from a source data store to a destination data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md).
+Data Factory supports scenarios for incrementally copying delta data from a source data store to a sink data store. See [Tutorial: incrementally copy data](tutorial-incremental-copy-overview.md).
 
 ## Read and write partitioned data
 In version 1, Azure Data Factory supported reading or writing partitioned data by using SliceStart/SliceEnd/WindowStart/WindowEnd system variables. In the current version, you can achieve this behavior by using a pipeline parameter and trigger's start time/scheduled time as a value of the parameter. For more information, see [How to read or write partitioned data](how-to-read-write-partitioned-data.md).
