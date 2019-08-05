@@ -4,6 +4,8 @@
   items:
   - name: What is Azure DB for MySQL?
     href: overview.md
+  - name: PaaS vs IaaS for MySQL
+    href: selecting-right-deployment-type.md
 - name: Quickstarts
   expanded: true
   items:
