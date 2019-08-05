@@ -47,7 +47,7 @@ Provision an Ubuntu Linux virtual machine in Azure, using any of the following m
 ## Connect remotely to the Ubuntu Linux virtual machine
 The Ubuntu virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Follow the instructions in the article [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Configure the hosts file on the Linux virtual machine
@@ -173,7 +173,7 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 
 
 ## Configure automatic home directory creation
-To enable automatic creation of the home directory after logging in users, type the following commands in your PuTTY terminal:
+To enable automatic creation of the home directory after signing in users, type the following commands in your PuTTY terminal:
 
 ```console
 sudo vi /etc/pam.d/common-session
@@ -211,7 +211,7 @@ Verify whether the machine has been successfully joined to the managed domain. C
 ## Grant the 'AAD DC Administrators' group sudo privileges
 You can grant members of the 'AAD DC Administrators' group administrative privileges on the Ubuntu VM. The sudo file is located at /etc/sudoers. The members of AD groups added in sudoers can perform sudo.
 
-1. In your SSH terminal, ensure you are logged in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
+1. In your SSH terminal, ensure you are signed in with superuser privileges. You can use the local administrator account you specified while creating the VM. Execute the following command:
     
     ```console
     sudo vi /etc/sudoers
@@ -224,7 +224,7 @@ You can grant members of the 'AAD DC Administrators' group administrative privil
     %AAD\ DC\ Administrators ALL=(ALL) NOPASSWD:ALL
     ```
 
-3. You can now log in as a member of the 'AAD DC Administrators' group and should have administrative privileges on the VM.
+3. You can now sign in as a member of the 'AAD DC Administrators' group and should have administrative privileges on the VM.
 
 
 ## Troubleshooting domain join
@@ -234,4 +234,4 @@ Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domai
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

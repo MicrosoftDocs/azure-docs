@@ -49,7 +49,7 @@ This article uses the **CoreOS Linux (Stable)** virtual machine image in Azure.
 ## Connect remotely to the newly provisioned Linux virtual machine
 The CoreOS virtual machine has been provisioned in Azure. The next task is to connect remotely to the virtual machine using the local administrator account created while provisioning the VM.
 
-Follow the instructions in the article [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Follow the instructions in the article [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Configure the hosts file on the Linux virtual machine
@@ -151,4 +151,4 @@ Refer to the [Troubleshooting domain join](join-windows-vm.md#troubleshoot-domai
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [How to log on to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+* [How to sign in to a virtual machine running Linux](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
