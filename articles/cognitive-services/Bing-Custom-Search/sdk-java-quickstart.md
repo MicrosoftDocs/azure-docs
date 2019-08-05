@@ -97,14 +97,10 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
 In your project's *build.gradle.kts* file, be sure to include the client library under `dependencies`. 
 
-
-[!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=imports)]
-
-
 ```kotlin
 dependencies {
-    compile("com.squareup.okhttp:okhttp:2.5.0")
-    compile("com.microsoft....") <!-- Consider highlighting the line containing the library-->
+    compile("org.slf4j:slf4j-simple:1.7.25")
+    compile("com.microsoft.azure.cognitiveservices:azure-cognitiveservices-customsearch:1.0.2")
 }
 ```
 
