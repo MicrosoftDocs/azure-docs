@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/31/2019
+ms.date: 08/05/2019
 ms.author: magoedte
 ---
 
@@ -56,7 +56,7 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter tile under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
+The counter tile under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected. Depending on the storage accounts selected, if there are errors that exist under the criteria of **ClientOtherError**, **ClientThrottlingError**, or   **AuthorizationError**, and <> will be represented under the category of "Other"
 
 Select any column, including **Availability**, **E2E Latency**, **Server Latency**, **ClientOtherError/Errors**, and **ClientThrottlingError/Errors**. You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
 
