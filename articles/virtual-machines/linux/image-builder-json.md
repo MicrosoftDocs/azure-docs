@@ -59,7 +59,10 @@ The location is the region where the custom image will be created. For the Image
 ```json
     "location": "<region>",
 ```
-	
+
+## Tags
+These are key value pairs that you can specify for the image that is generated.
+
 ## Depends on (optional)
 
 This optional section can be used to ensure that dependencies are completed before proceeding. 
