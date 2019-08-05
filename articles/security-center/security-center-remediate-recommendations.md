@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2019
+ms.date: 08/04/2019
 ms.author: v-mohabe
 
 ---
 # Remediate recommendations in Azure Security Center
 
-Recommendations give you suggestions on how to better secure your resources.  You implement a recommendation by following the [remediation steps](#remediation-steps) provided in the recommendation. For several recommendations, Security Center provides a ["One-click fix" option](#one-click) that automatically runs some of the steps for you.
+Recommendations give you suggestions on how to better secure your resources.  You implement a recommendation by following the remediation steps provided in the recommendation. 
 
 ## Remediation steps <a name="remediation-steps"></a>
 
-After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize the recommendations.
+After reviewing all the recommendations, decide which one to remediate first. We recommend that you use the [secure score impact](security-center-recommendations.md#monitor-recommendations) to help prioritize what to do first.
 
 1. From the list, click on the recommendation.
 1. Follow the instructions in the **Remediation steps** section. Each recommendation has its own set of instructions. The following shows remediation steps for configuring applications to only allow traffic over HTTPS.
 
     ![Recommendation details](./media/security-center-remediate-recommendations/security-center-remediate-recommendation.png)
 
-5. Once completed, a notification appears informing you if the remediation succeeded.
+1. Once completed, a notification appears informing you if the remediation succeeded.
 
 ## One-click fix remediation <a name="one-click"></a>
 
