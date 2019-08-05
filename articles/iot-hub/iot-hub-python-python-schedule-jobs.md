@@ -42,6 +42,10 @@ At the end of this tutorial, you have two Python apps:
 
 **scheduleJobService.py**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
+> [!NOTE]
+> The **Azure IoT SDK for Python** does not directly support **Jobs** functionality. Instead this tutorial offers an alternate solution utilizing asynchronous threads and timers. For further updates, see the **Service Client SDK** feature list on the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) page.
+>
+
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
 ## Prerequisites
@@ -49,10 +53,6 @@ At the end of this tutorial, you have two Python apps:
 The following are the installation instructions for the prerequisites.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
-> [!NOTE]
-> The **Azure IoT SDK for Python** does not directly support **Jobs** functionality. Instead this tutorial offers an alternate solution utilizing asynchronous threads and timers. For further updates, see the **Service Client SDK** feature list on the [Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python) page.
->
 
 ## Create an IoT hub
 
@@ -71,6 +71,10 @@ In this section, you create a Python console app that responds to a direct metho
     ```cmd/sh
     pip install azure-iothub-device-client
     ```
+
+   > [!NOTE]
+   > The pip packages for azure-iothub-service-client and azure-iothub-device-client are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
 
 2. Using a text editor, create a new **simDevice.py** file in your working directory.
 
@@ -168,6 +172,10 @@ In this section, you create a Python console app that initiates a remote **lockD
     ```cmd/sh
     pip install azure-iothub-service-client
     ```
+
+   > [!NOTE]
+   > The pip packages for azure-iothub-service-client and azure-iothub-device-client are currently available only for Windows OS. For Linux/Mac OS, please refer to the Linux and Mac OS-specific sections on the [Prepare your development environment for Python](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) post.
+   >
 
 2. Using a text editor, create a new **scheduleJobService.py** file in your working directory.
 
