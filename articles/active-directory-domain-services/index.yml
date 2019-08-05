@@ -26,7 +26,7 @@ landingContent:
           - text: What is Azure AD Domain Services?
             url: overview.md
           - text: Compare identity solutions
-            url: compare-identity-solutions.md.md
+            url: compare-identity-solutions.md
           - text: How does synchronization work?
             url: synchronization.md
           - text: FAQs
