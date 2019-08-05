@@ -60,7 +60,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
     git clone https://github.com/azure-samples/azure-iot-samples-node
     ```
 
-1. In a terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/tree/master/digital-twins/Quickstarts/Device** folder, and then install all the dependencies by running the following command:
+1. In a terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Device** folder, and then install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
@@ -84,7 +84,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 
 In this quickstart, you use a sample IoT solution in Node.js to interact with the sample device.
 
-1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/tree/master/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
+1. Open another terminal. Go to the folder of your cloned repository, and navigate to the **/azure-iot-samples-node/digital-twins/Quickstarts/Service** folder. Install all the dependencies by running the following command:
 
     ```cmd/sh
     npm install
