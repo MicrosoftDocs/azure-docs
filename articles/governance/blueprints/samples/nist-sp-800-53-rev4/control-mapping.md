@@ -470,6 +470,10 @@ exfiltration of information.
 
 - Deploy Advanced Threat Protection on Storage Accounts
 
+> [!NOTE]
+> Availability of specific Azure Policy defintions may vary in Azure Government and other national 
+> clouds.
+
 ## Next steps
 
 Now that you've reviewed the control mapping of the NIST SP 800-53 R4 blueprint, visit the following

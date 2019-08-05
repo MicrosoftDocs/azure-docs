@@ -1,5 +1,5 @@
 ---
-title: Transcribe multi-participant conversations with the Speech SDK - Speech Services
+title: Transcribe multi-participant conversations with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to use Conversation Transcription with the Speech SDK. Available for C++, C#, and Java.
 services: cognitive-services

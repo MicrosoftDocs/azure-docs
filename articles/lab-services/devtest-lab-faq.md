@@ -43,7 +43,7 @@ Our Twitter handle: [@azlabservices](https://twitter.com/azlabservices)
 ### What if my question isn't answered here?
 If your question isn't listed here, let us know, so we can help you find an answer.
 
-- Post a question at the end of this FAQ. Engage with the Azure Cache team and other community members about this article.
+- Post a question at the end of this FAQ. 
 - To reach a wider audience, post a question on the [Azure DevTest Labs MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Engage with the Azure DevTest Labs team and other members of the community.
 - For feature requests, submit your requests and ideas to [Azure DevTest Labs User Voice](https://feedback.azure.com/forums/320373-azure-devtest-labs).
 

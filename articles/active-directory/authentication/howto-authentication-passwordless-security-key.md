@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 ## Requirements
 
 * Azure Multi-Factor Authentication
-* Combined registration preview
+* Combined registration preview with users enabled for SSPR
 * FIDO2 security key preview requires compatible FIDO2 security keys
 * WebAuthN requires Microsoft Edge on Windows 10 version 1809 or higher
 * FIDO2 based Windows sign in requires Azure AD joined Windows 10 version 1809 or higher
@@ -98,7 +98,7 @@ Registration features for passwordless authentication methods rely on the combin
 ### Enable new passwordless authentication method
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **Authentication methods** > **Authentication method policy (Preview)**
+1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)**
 1. Under each **Method**, choose the following options
    1. **Enable** - Yes or No
    1. **Target** - All users or Select users

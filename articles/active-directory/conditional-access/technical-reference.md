@@ -55,7 +55,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Microsoft Intune
 - Microsoft Intune Enrollment
 - Microsoft Planner
-- Microsoft Power BI
 - Microsoft PowerApps
 - Microsoft Search in Bing
 - Microsoft StaffHub
@@ -67,6 +66,7 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Office Delve
 - Office Sway
 - Outlook Groups
+- Power BI Service
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)
@@ -143,7 +143,7 @@ To automatically deploy this extension to Chrome browsers, create the following 
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 

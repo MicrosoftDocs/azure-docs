@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/15/2018
-ms.author: erikre
+ms.author: banders
 
 # As an administrator or developer, I want to use REST APIs to review resource and service usage data under my control.
 

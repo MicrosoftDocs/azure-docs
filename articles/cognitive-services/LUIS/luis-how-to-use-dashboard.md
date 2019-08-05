@@ -1,5 +1,5 @@
 ---
-title: Dashboard - Language Understanding
+title: Dashboard - Language Understanding - LUIS
 titleSuffix: Azure Cognitive Services
 description: Fix intents with the analytics dashboard, a visualized reporting tool.
 services: cognitive-services

@@ -7,10 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 06/25/2019
+ms.date: 07/23/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
+::: zone target="docs"
 
 # Tutorial: Return Azure Data Box Disk and verify data upload to Azure
 
@@ -24,6 +25,7 @@ This is the last tutorial of the series: Deploy Azure Data Box Disk. In this tut
 ## Prerequisites
 
 Before you begin, make sure that you have completed the [Tutorial: Copy data to Azure Data Box Disk and verify](data-box-disk-deploy-copy-data.md).
+
 
 ## Ship Data Box Disk back
 
@@ -225,5 +227,41 @@ Advance to the next how-to to learn how to manage Data Box Disk via the Azure po
 
 > [!div class="nextstepaction"]
 > [Use Azure portal to administer Azure Data Box Disk](./data-box-portal-ui-admin.md)
+
+::: zone-end
+
+
+::: zone target="chromeless"
+
+# Return the disk and verify upload to Azure
+
+## Ship to Azure
+
+1. After the data validation is complete, unplug the disks. Remove the connecting cables.
+2. Wrap all the disks and the connecting cables with a bubble wrap and place those into the shipping box. Charges may apply if the accessories are missing.
+    - Reuse the packaging from the initial shipment.  
+    - We recommend that you pack disks using a well-secured bubbled wrap.
+    - Make sure the fit is snug to reduce any movements within the box.
+3. The next steps are determined by where you are returning the device.
+    - [Schedule a pickup with UPS if returning the device in US and Canada](data-box-disk-deploy-picked-up.md#pick-up-in-us-canada).
+    - [Schedule a pickup with DHL for Europe](data-box-disk-deploy-picked-up.md#pick-up-in-europe) by visiting their website and specifying the airway bill number.
+    - [Schedule a pickup for countries in Australia-Pacific region](data-box-disk-deploy-picked-up.md#pick-up-in-asia-pacific-region) such as Australia, Japan, Korea, and Singapore.
+4. Once the disks are picked up by your carrier, the order status in the portal updates and a tracking ID is displayed.
+
+## Verify upload to Azure
+
+After the data is uploaded to Azure, verify that your data is in the storage account(s) before you delete it from the source. Your data can be in:
+
+- Your Azure Storage account(s). When you copy the data to Data Box, depending on the type, the data is uploaded to one of the following paths in your Azure Storage account.
+
+    - **For block blobs and page blobs**: https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt
+
+    - **For Azure Files**: https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt
+
+    Alternatively, you could go to your Azure storage account in Azure portal and navigate from there.
+
+- Your managed disk resource group(s). When creating managed disks, the VHDs are uploaded as page blobs and then converted to managed disks. The managed disks are attached to the resource groups specified at the time of order creation.
+
+::: zone-end
 
 

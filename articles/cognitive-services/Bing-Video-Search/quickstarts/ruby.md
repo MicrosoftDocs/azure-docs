@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Search for videos using the Bing Video Search REST API and Ruby"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send video search requests to the Bing Video Search REST API using Ruby.
 services: cognitive-services
 author: aahill

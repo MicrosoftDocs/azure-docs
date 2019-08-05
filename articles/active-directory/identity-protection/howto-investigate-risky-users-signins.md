@@ -66,7 +66,7 @@ Additionally, you can:
 - View all sign-ins shortcut to view the sign-ins report for that user.
 - View all risky sign-ins to view all the sign-ins for that user that were flagged as risky.
 - Reset a user’s password if you believe that the user's identity has been compromised.
-- Dismiss user risk if you think that the active risk events of a user are false positives. For more information, see [how to improve the detection accuracy](howto-improve-detection-accuracy.md).
+- Dismiss user risk if you think that the active risk events of a user are false positives. For more information, see the article [Provide feedback on risk events in Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### Filter risky users
 
@@ -168,7 +168,7 @@ Additionally, you can:
 - Confirm compromised 
 - Confirm safe
 
-For more information, see [how to improve the detection accuracy](howto-improve-detection-accuracy.md).
+For more information, see the article [Provide feedback on risk events in Azure AD Identity Protection](howto-provide-risk-event-feedback.md).
 
 ### Filter risky sign-ins
 

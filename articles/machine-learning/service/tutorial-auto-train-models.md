@@ -743,7 +743,7 @@ Explore the results of automatic training with a Jupyter widget or by examining 
 
 ### Option 1: Add a Jupyter widget to see results
 
-If you use a Jupyter notebook, use this Jupyter notebook widget to see a graph and a table of all results:
+If you use a Jupyter notebook, use this [Jupyter widget](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) to see a graph and a table of all results:
 
 
 ```python
@@ -753,6 +753,13 @@ RunDetails(local_run).show()
 
 ![Jupyter widget run details](./media/tutorial-auto-train-models/automl-dash-output.png)
 ![Jupyter widget plot](./media/tutorial-auto-train-models/automl-chart-output.png)
+
+The same results are stored in your workspace.  You can get a link to the results from the run:
+
+```
+local_run.get_portal_url()
+```
+  
 
 ### Option 2: Get and examine all run iterations in Python
 
