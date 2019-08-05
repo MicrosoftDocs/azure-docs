@@ -11,3 +11,7 @@ groups:
     title: Java
   - id: cogsvcs1-programming-language-python
     title: Python
+  - id: cogsvcs1-programming-language-nodejs
+    title: Node.js
+  - id: cogsvcs1-programming-language-go
+    title: Go
