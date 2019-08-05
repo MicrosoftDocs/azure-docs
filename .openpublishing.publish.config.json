@@ -150,11 +150,6 @@
       "branch": "master"
     },
     {
-      "path_to_root": "samples-personalizer",
-      "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
-      "branch": "master"
-    },
-    {
       "path_to_root": "samples-anomaly-detector",
       "url": "https://github.com/Azure-Samples/anomalydetector",
       "branch": "master"
