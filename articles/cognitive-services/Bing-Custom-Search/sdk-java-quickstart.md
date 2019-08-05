@@ -18,12 +18,7 @@ Get started with the Bing Custom Search client library for Java. Follow these st
 
 Use the Bing Custom Search client library for Java to:
 
-* TBD
-* TBD
-
-<!--
-    Include the following single line of links targeting the library's companion content at the bottom of the introduction; make adjustments as necessary, but try not to include any other links or content in the introduction.
--->
+* Find search results on the web, from your Bing Custom Search instance. 
 
 [Reference documentation](https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-java-stable) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Search.BingCustomSearch) | [Artifact (Maven)](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customsearch/) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code)
 
@@ -87,20 +82,23 @@ mkdir -p src/main/java
 
 Navigate to the new folder and create a file called *CustomSearch.java*. Open it in your preferred editor or IDE and add the following `import` statements:
 
-```java
-```
+[!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=imports)]
+
 
 In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
 
-```java
+[!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=main)]
 
-```
 
 ### Install the client library
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://search.maven.org/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-textanalytics/).
 
-In your project's *build.gradle.kts* file, be sure to include the client library as an `implementation` statement. 
+In your project's *build.gradle.kts* file, be sure to include the client library under `dependencies`. 
+
+
+[!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=imports)]
+
 
 ```kotlin
 dependencies {
@@ -111,22 +109,11 @@ dependencies {
 
 ## Object model
 
-<!-- 
-    Briefly introduce and describe the functionality of the library's main classes. Include links to their reference pages.
-    Briefly explain the object hierarchy and how the classes work together to manipulate resources in the service.
--->
-
 The Bing Custom Search client is a [BingCustomSearchAPI](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchapi?view=azure-java-stable) object that's created from the [BingCustomSearchManager](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager?view=azure-java-stable) object's [authenticate()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustomsearchmanager.authenticate?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomSearchManager_authenticate_String_) method. You can send a search request using the client's [BingCustomInstances.search()](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.bingcustominstances.search?view=azure-java-stable#com_microsoft_azure_cognitiveservices_search_customsearch_BingCustomInstances_search__) method.
 
 The API response is a [SearchResponse](https://docs.microsoft.com/java/api/com.microsoft.azure.cognitiveservices.search.customsearch.models.searchresponse?view=azure-java-stable) object containing information on the search query, and search results.
 
 ## Code examples
-
-<!--
-    Include code snippets and short descriptions for each task you list in the the bulleted list. Briefly explain each operation, but include enough clarity to explain complex or otherwise tricky operations.
-
-    Include links to the service's reference content when introducing a class for the first time
--->
 
 These code snippets show you how to do the following tasks with the Bing Custom Search client library for Java:
 
@@ -135,42 +122,22 @@ These code snippets show you how to do the following tasks with the Bing Custom 
 * [link to example task 2]()
 * [link to example task 3]()
 
-<!--
-    change the environment key variable to something descriptive for your service.
-    For example: TEXT_ANALYTICS_KEY
--->
-
-### Authenticate the client
-
-<!-- 
-    The authentication section (and its H3) is required and must be the first code example in the section if your library requires authentication for use.
--->
+## Authenticate the client
 
 > [!NOTE]
-> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Bing Custom Search key, named `TBD_KEY`.
+> This quickstart assumes you've [created an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for your Bing Custom Search key, named `AZURE_BING_CUSTOM_SEARCH_API_KEY`.
 
+To instantiate a client, create a `BingCustomSearchManager` object, and call its `authenticate()` function with your key. You can send search requests by calling the client's `bingCustomInstances().search()` function.
+ 
+[!code-java[authenticate client](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=client)]
 
-In a new method, instantiate a client with your endpoint and key. Create an [ApiKeyServiceClientCredentials]() object with your key, and use it with your endpoint to create an [ApiClient]() object.
+## Get search results from your custom search instance
 
-```java
+Use the client's `search()` function to send a search query to your custom instance. Set the `withCustomConfig` to your custom configuration ID, or default to `1`. 
 
-```
+[!code-java[call custom search](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=custom-search)]
 
-### Example task 1
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
-
-```java
-
-```
-
-### Example task 2
-
-Example: Create a new method to read in the data and add it to a [Request](https://docs.microsoft.com/dotnet/) object as an array of [Points](https://docs.microsoft.com/dotnet/). Send the request with the [send()](https://docs.microsoft.com/dotnet/) method
-
-```java
-
-```
+After getting a response from the API, check if any search results were found. If so, get the first search result by calling the response's `webPages().value().get()` function and print the result's name, and URL. 
 
 ## Run the application
 
@@ -192,12 +159,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 
 * [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
-
-## Troubleshooting
-
-<!--
-    This section is optional. If you know of areas that people commonly run into trouble, help them resolve those issues in this section
--->
 
 ## Next steps
 
