@@ -99,7 +99,7 @@ Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive 
 
 ![Proactive auto-healing](./media/app-service-diagnostics/proactive-auto-healing-10.png)
 
-## Change analysis (only for Windows app)
+## Navigator and Change analysis (only for Windows app)
 
 In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused unhealthy behavior. Change analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change analysis is found in **Application Changes** and also embedded in a diagnostic report such as **Application Crashes** so you can use it concurrently with other metrics.
 
