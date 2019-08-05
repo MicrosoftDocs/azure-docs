@@ -56,8 +56,6 @@
     maintainContext: true
   - name: Troubleshoot
     items:
-    - name: Soft lockup - CPU
-      href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
     - name: Unable to log into HDInsight cluster
       href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
     - name: Unable to add nodes to HDInsight cluster
