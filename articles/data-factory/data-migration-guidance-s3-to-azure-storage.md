@@ -66,7 +66,7 @@ Migrate data over private link:
 ![solution-architecture-private-network](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - In this architecture, data migration is done over a private peering link between AWS Direct Connect and Azure Express Route such that data never traverses over public Internet.  It requires use of AWS VPC and Azure Virtual network. 
-- You need to install ADF self-hosted integration runtime on a Windows VMs within your Azure virtual network to achieve this architecture.  You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth. 
+- You need to install ADF self-hosted integration runtime on a Windows VM within your Azure virtual network to achieve this architecture.  You can manually scale up your self-hosted IR VMs or scale out to multiple VMs (up to 4 nodes) to fully utilize your network and storage IOPS/bandwidth. 
 - If it is acceptable to transfer data over HTTPS but you want to lock down network access to source S3 to a specific IP range, you can adopt a variation of this architecture by removing AWS VPC and replacing private link with HTTPS.  You will want to keep Azure Virtual and self-hosted IR on Azure VM so you can have a static publicly routable IP for whitelisting purpose. 
 - Both initial snapshot data migration and delta data migration can be achieved using this architecture. 
 
@@ -89,14 +89,14 @@ If any of the copy jobs fail due to network or data store transient issue, you c
 
 The most performant way to identify new or changed files from AWS S3 is by using time-partitioned naming convention – when your data in AWS S3 has been time partitioned with time slice information in the file or folder name (for example, /yyyy/mm/dd/file.csv), then your pipeline can easily identify which files/folders to copy incrementally. 
 
-Alternatively, If your data in AWS S3 is not time partitioned, ADF can identify new or changed files by their LastModifiedDate.   The way it works is that ADF will scan all the files from AWS S3, and only copy the new and updated file whose last modified timestamp is greater than a certain value.  Please be aware that if you have a large number of files in S3, the initial file scanning could take a long time regardless of how many files match the filter condition.  In this case you are suggested to partition the data first, using the same ‘prefix’ setting for initial snapshot migration, so that the file scanning can happen in parallel.  
+Alternatively, If your data in AWS S3 is not time partitioned, ADF can identify new or changed files by their LastModifiedDate.   The way it works is that ADF will scan all the files from AWS S3, and only copy the new and updated file whose last modified timestamp is greater than a certain value.  Be aware that if you have a large number of files in S3, the initial file scanning could take a long time regardless of how many files match the filter condition.  In this case you are suggested to partition the data first, using the same ‘prefix’ setting for initial snapshot migration, so that the file scanning can happen in parallel.  
 
-### For scenarios which require self-hosted Integration runtime on Azure VM 
+### For scenarios that require self-hosted Integration runtime on Azure VM 
 
-Whether you are migrating data over private link or you want to whitelist specific IP range on Amazon S3 firewall, you need to install self-hosted Integration runtime on Azure Windows VM. 
+Whether you are migrating data over private link or you want to allow specific IP range on Amazon S3 firewall, you need to install self-hosted Integration runtime on Azure Windows VM. 
 
-- The recommend configuration to start with for each Azure VM is Standard_D32s_v3 with 32 vCPU and 128 GB memory.  You can keep monitoring CPU and memory utilization of the IR VM during the data migration to see if you need to further scale up the VM for better performance or scale down the VM to save cost. 
-- You can also scale out by associating up to 4 VM nodes with a single self-hosted IR.  A single copy job running against a self-hosted IR will automatically partition the file set and leverage all VM nodes to copy the files in parallel.  For high availability you are recommended to start with 2 VM nodes to avoid single point of failure during the data migration. 
+- The recommend configuration to start with for each Azure VM is Standard_D32s_v3 with 32 vCPU and 128-GB memory.  You can keep monitoring CPU and memory utilization of the IR VM during the data migration to see if you need to further scale up the VM for better performance or scale down the VM to save cost. 
+- You can also scale out by associating up to 4 VM nodes with a single self-hosted IR.  A single copy job running against a self-hosted IR will automatically partition the file set and leverage all VM nodes to copy the files in parallel.  For high availability, you are recommended to start with 2 VM nodes to avoid single point of failure during the data migration. 
 
 ### Rate limiting 
 
@@ -121,10 +121,10 @@ Let us assume the following:
 
 - Total data volume is 2 PB 
 - Migrating data over HTTPS using first solution architecture 
-- 2 PB is divided into 1K partitions and each copy moves one partition 
+- 2 PB is divided into 1 K partitions and each copy moves one partition 
 - Each copy is configured with DIU=256 and achieves 1 GBps throughput 
 - ForEach concurrency is set to 2 and aggregate throughput is 2 GBps 
-- In total it takes 292 hours to complete the migration 
+- In total, it takes 292 hours to complete the migration 
 
 Here is the estimated price based on the above assumptions: 
 
