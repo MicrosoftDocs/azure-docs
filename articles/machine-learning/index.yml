@@ -35,69 +35,30 @@ sections:
         text: "Get set up and start using Azure Machine Learning service:"
         type: paragraph    
       -
-        text: "<b>Tutorial: Train and deploy your first automated ML model in Azure portal:</b>"
+        text: "<b>With the Azure portal, an easy-to-use, no code interface to train, deploy, manage ML models:</b>"
         type: paragraph
       -
         items:
+          -
+            html: "<a href=\"service/ui-tutorial-automobile-price-train-score\">Train your first experiment in visual interface's drag and drop UI</a>"
           -
             html: "<a href=\"service/tutorial-first-experiment-automated-ml\">Use automated machine learning to train and deploy your first classification model</a>"
         style: unordered
         type: list
       -
-        text: "<b>Tutorial: Train your first ML model with SDK:</b>"
+        text: "<b>Use the Python SDK, in scripts and notebooks to train, deploy, manage ML models:</b>"
         type: paragraph
       -
         items:
           -
-            html: "Part 1: <a href=\"service/tutorial-1st-experiment-sdk-setup\">Setup environment and workspace</a>"
+            html: "<a href=\"service/tutorial-1st-experiment-sdk-setup\">Set up your environment & train your first ML experiment</a>"
+          -              
+            html: "<a href=\"service/tutorial-train-models-with-aml\">Train & deploy image classification models</a>"
           -
-            html: "Part 2: <a href=\"service/tutorial-1st-experiment-sdk-train\">Train your first model</a>"
+            html: "<a href=\"service/tutorial-data-prep\">Use automated ML to predict taxi fares</a>"
         style: unordered
         type: list
-      -
-        text: "<b>Tutorial: Train and deploy first experiment using visual interface:</b>"
-        type: paragraph
-      -
-        items:
-          -
-            html: "Part 1: <a href=\"service/ui-tutorial-automobile-price-train-score\">Train regression model</a>"
-          -
-            html: "Part 2: <a href=\"service/ui-tutorial-automobile-price-deploy\">Deploy the model</a>"
-        style: unordered
-        type: list
-      -
-        text: "<b>Tutorial: Image classification of MNIST data with SDK:</b>"
-        type: paragraph
-      -
-        items:
-          -
-            html: "Part 1: <a href=\"service/tutorial-train-models-with-aml\">Train your own  model</a>"
-          -
-            html: "Part 2: <a href=\"service/tutorial-deploy-models-with-aml\">Deploy that model</a>"
-        style: unordered
-        type: list
-      -
-        text: "<b>Tutorial: Predict taxi trip fare using SDK:</b>"
-        type: paragraph
-      -
-        items:
-          -
-            html: "Part 1: <a href=\"service/tutorial-data-prep\">Prepare data for modeling</a>"
-          -
-            html: "Part 2: <a href=\"service/tutorial-auto-train-models\">Let automated ML train models for you</a>"
-        style: unordered
-        type: list
-      -
-        text: "<b>Tutorial: Predict automobile price using visual interface:</b>"
-        type: paragraph
-      -
-        items:
-          -
-            html: "Part 1: <a href=\"service/ui-tutorial-automobile-price-train-score\">Predict automobile price</a>"
-          -
-            html: "Part 2: <a href=\"service/ui-tutorial-automobile-price-deploy\">Deploy the regression model</a>"
-        style: unordered
-        type: list
+      
       -
         text: "<b>Consume your models:</b>"
         type: paragraph
@@ -109,7 +70,7 @@ sections:
             html: "<a href=\"service/how-to-run-batch-predictions\">Batch predictions with ML pipelines</a>"
         style: unordered
         type: list
-    title: "Quickstarts and tutorials"
+    title: "Step-by-step tutorials"
   -
     items:
       -
