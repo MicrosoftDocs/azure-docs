@@ -53,6 +53,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added blob_cache_timeout parameter to `Datastore.register_azure_blob_container`.
     + Added save_to_directory and load_from_directory methods to azureml.core.environment.Environment.
     + Added the "az ml environment download" and "az ml environment register" commands to the CLI.
+    + Added Environment.add_private_pip_wheel method.
   + **azureml-explain-model**
     + Added dataset tracking to Explanations using the Dataset service (preview).
     + Decreased default batch size when streaming global explanations from 10k to 100.
