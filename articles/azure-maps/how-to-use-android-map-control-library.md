@@ -194,6 +194,52 @@ Android Studio will take a few seconds to build the application. After the build
 
 ![Android map](./media/how-to-use-android-map-control-library/android-map.png)</center>
 
+## Localizing the map
+
+The Azure Maps Android SDK provides three different ways of setting the language and regional view of the map. The following shows how to set the language to French ("fr-FR") and the regional view to "auto". 
+
+The first option is to pass the language and view regional information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This will set default language and regional view across all Azure Maps controls loaded in your app.
+
+```Java
+static {
+    //Set your Azure Maps Key.
+    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+
+    //Set the language to be used by Azure Maps.
+    AzureMaps.setLanguage("fr-FR");
+
+    //Set the regional view to be used by Azure Maps.
+    AzureMaps.setView("auto");
+}
+```
+
+The second option is to pass the language and view information into the map control XML.
+
+```XML
+<com.microsoft.azure.maps.mapcontrol.MapControl
+    android:id="@+id/myMap"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:mapcontrol_language="fr-FR"
+    app:mapcontrol_view="auto"
+    />
+```
+
+The third option is to programmatically set the language and regional view of the map using the maps `setStyle` method. This can be done at any time to change the language and regional view of the map.
+
+```Java
+mapControl.onReady(map -> {
+    map.setStyle(StyleOptions.language("fr-FR"));
+    map.setStyle(StyleOptions.view("auto"));
+});
+```
+
+Here is an example of Azure Maps with the language set to "fr-FR" and regional view set to "auto".
+
+![Map image showing labels in French](./media/how-to-use-android-map-control-library/android-localization.png)
+
+A complete list of supported languages and regional views is documented [here](supported-languages.md).
+
 ## Next steps
 
 Learn how to add overlay data on the map:

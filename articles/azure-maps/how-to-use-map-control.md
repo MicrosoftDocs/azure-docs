@@ -164,6 +164,38 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     <iframe height="700" style="width: 100%;" scrolling="no" title="How to use the map control" src="//codepen.io/azuremaps/embed/yZpEYL/?height=557&theme-id=0&default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true">See the Pen <a href='https://codepen.io/azuremaps/pen/yZpEYL/'>How to use the map control</a> by Azure Maps(<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
     </iframe>
 
+## Localizing the map
+
+Azure Maps provides two different ways of setting the language and regional view of the map. The first option is to is to add this information to the global atlas namespace which will result in all map control instances in your app defaulting to these settings. The following sets the language to French (“fr-FR”) and the regional view to “auto”:
+
+```javascript
+atlas.setLanguage('fr-FR');
+atlas.setView('auto');
+```
+
+The second option is to pass this information into the map options when loading the map like:
+
+```javascript
+map = new atlas.Map('myMap', {
+    language: 'fr-FR',
+    view: 'auto',
+
+    authOptions: {
+        authType: 'subscriptionKey',
+        subscriptionKey: '<Your Azure Maps Key>'
+    }
+});
+```
+
+>[Note]
+> With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, it is also possible to update these settings in the map after it has loaded. 
+
+Here is an example of Azure Maps with the language set to “fr” and the user region set to “fr-FR”.
+
+![Map image showing labels in French](./media/how-to-use-map-control/websdk_localization.png)
+
+A complete list of supported languages and regional views is documented [here](supported-languages.md).
+
 ## Next steps
 
 Learn how to create and interact with a map:
