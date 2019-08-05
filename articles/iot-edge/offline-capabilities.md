@@ -2,9 +2,8 @@
 title: Operate devices offline - Azure IoT Edge | Microsoft Docs 
 description: Understand how IoT Edge devices and modules can operate without internet connection for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
 author: kgremban
-manager: philmea
 ms.author: kgremban
-ms.date: 06/04/2019
+ms.date: 08/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -167,6 +166,8 @@ You can configure environment variables and the create options for the IoT Edge 
 Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path. In the create options, bind the host and module storage paths together. Then, create an environment variable that points to the module storage path.  
 
 For example, `"Binds":["/etc/iotedge/storage/:/iotedge/storage/"]` means the directory **/etc/iotedge/storage** on your host system is mapped to the directory **/iotedge/storage/** on the container. Or another example for Windows systems, `"Binds":["C:\\temp:C:\\contemp"]` means the directory **C:\\temp** on your host system is mapped to the directory **C:\\contemp** on the container. 
+
+On Linux devices, make sure that the IoT Edge hub's user profile, **edgehubuser**, has read and write permissions to the host system directory. These permissions are necessary so that the IoT Edge hub can store messages in the directory while offline, and retrieve them once the device is reconnected. There are several ways to manage directory permissions on Linux systems, including using `setfacl` to add permissions for a specific user. For example, `setfacl -m u:edgehubuser:rw <HostStoragePath>`.
 
 You can also find more details about create options from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
 
