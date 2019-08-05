@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2019
+ms.date: 08/05/2019
 ms.author: banders
 ---
 
@@ -59,7 +59,7 @@ Azure has the following policies for cancellations, exchanges, and refunds.
 
 - If you cancel a reservation, there may be a 12% early termination fee.
 - Refunds are based on the lowest price of either your purchase price or the current price of the reservation.
-- Refunds are limited to $50,000 per year.
+- Your total refund amount can't exceed $50,000 USD in a 12-month rolling window.
 - The refund you receive is the remaining pro-rated balance minus the 12% early termination fee. To cancel, go to the reservation in the Azure portal and select Refund.
 
 **Exchange policies**
