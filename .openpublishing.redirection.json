@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/security/develop/security-code-analysis-install.md",
+      "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
+      "redirect_document_id": true
+    }, 
+    {
+      "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
+      "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cli-samples",
       "redirect_document_id": true
@@ -89,6 +99,11 @@
       "source_path": "articles/batch-ai/resource-concepts.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/resource-concepts",
       "redirect_document_id": true
+    }, 
+    {
+      "source_path": "articles/vmware-cloudsimple/enable-cloudsimple-service.md",
+      "redirect_url": "/azure/vmware-cloudsimple/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/batch-ai/tutorial-horovod-tensorflow.md",
@@ -1017,18 +1032,53 @@
     },
     {
       "source_path": "articles/cognitive-services/bing-entity-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
       "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/bing-news-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/cognitive-services/bing-visual-search/resize-and-crop-thumbnails.md",
-      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/resize-and-crop-thumbnails",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-image-search/bing-image-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-entities-search/bing-entity-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/bing-news-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-video-search/bing-video-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-visual-search-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-autosuggest-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-viusal-search/bing-spell-check-stats.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/bing-web-stats",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/governance/management-groups/overview.md",
@@ -13851,6 +13901,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security/fundamentals/quick-encrypt-vm-powershell.md",
+      "redirect_url": "/azure/security/azure-disk-encryption-linux-powershell-quickstart",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
       "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
       "redirect_document_id": false
@@ -15613,6 +15668,16 @@
     {
       "source_path": "articles/cognitive-services/cognitive-services-text-analytics-quick-start.md",
       "redirect_url": "/azure/cognitive-services/text-analytics/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-access-key.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/cognitive-services-text-analytics-how-to-sign-up.md",
+      "redirect_url": "/azure/cognitive-services/cognitive-services-apis-create-account",
       "redirect_document_id": false
     },
     {
@@ -25155,9 +25220,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/data-factory/data-factory-copy-activity-tutorial-using-azure-portal.md",
-      "redirect_url": "/azure/data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal",
-      "redirect_document_id": true
+      "source_path": "articles/data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md",
+      "redirect_url": "/azure/data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/data-factory/data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md",
@@ -25450,7 +25515,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/data-factory/data-factory-spark.md",
+    "source_path": "articles/data-factory/data-factory-spark.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-spark",
       "redirect_document_id": true
     },
@@ -28018,6 +28083,111 @@
       "source_path": "articles/security/security-white-papers.md",
       "redirect_url": "/azure/security/fundamentals/white-papers",
       "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-auditing-and-logging.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-auditing-and-logging",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-authentication.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-authentication",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-authorization.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-authorization",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-communication-security.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-communication-security",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-configuration-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-configuration-management",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-cryptography.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-cryptography",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-exception-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-exception-management",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-feature-overview.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-feature-overview",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-getting-started.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-getting-started",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-input-validation.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-input-validation",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-mitigations.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-mitigations",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71509112.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71509112",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71510231.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71510231",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71601261.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71601261",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71604081.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71604081",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases-71607021.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases-71607021",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-releases.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-releases",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-sensitive-data.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-sensitive-data",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-session-management.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-session-management",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool-threats.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool-threats",
+            "redirect_document_id": true
+    },
+    {
+            "source_path": "articles/security/azure-security-threat-modeling-tool.md",
+            "redirect_url": "/azure/security/develop/threat-modeling-tool",
+            "redirect_document_id": true
     },
     {
       "source_path": "articles/sql-data-warehouse/sql-data-warehouse-auditing-downlevel-clients.md",
@@ -37265,6 +37435,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/service/concept-data-drift.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-monitor-data-drift",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/governance/policy/samples/allowed-app-gate-sku.md",
       "redirect_url": "/azure/governance/policy/samples/allowed-app-gateway-sku",
       "redirect_document_id": true
@@ -38260,11 +38435,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/data-factory/tumbling-window-trigger-dependency.md",
-      "redirect_url": "/azure/data-factory/how-to-create-tumbling-window-trigger",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/billing/billing-usage-rate-card-partner-solution-cloudcruiser.md",
       "redirect_url": "/azure/billing/billing-usage-rate-card-overview#azure-resource-ratecard-api-preview",
       "redirect_document_id": false
@@ -38322,6 +38492,11 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/content-moderator-helper-quickstart-dotnet.md",
       "redirect_url": "/azure/cognitive-services/content-moderator/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/Content-Moderator/text-moderation-quickstart-python.md",
+      "redirect_url": "/azure/cognitive-services/content-moderator/python-sdk-quickstart",
       "redirect_document_id": false
     },
     {
@@ -40738,6 +40913,11 @@
     {
       "source_path": "articles/cognitive-services/Content-Moderator/Review-Tool-User-Guide/Upload-Images.md",
       "redirect_url": "/azure/cognitive-services/content-moderator",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
+      "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
     }
   ]

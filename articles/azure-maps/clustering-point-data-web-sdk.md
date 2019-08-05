@@ -3,7 +3,7 @@ title: Clustering point data in Azure Maps | Microsoft Docs
 description: How to cluster point data in the Web SDK
 author: rbrundritt
 ms.author: richbrun
-ms.date: 03/27/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps

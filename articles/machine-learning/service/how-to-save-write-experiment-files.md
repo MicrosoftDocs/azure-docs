@@ -5,7 +5,7 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 manager: danielsc
-ms.reviewer: jmartens, jasonwhowell, mldocs
+ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services

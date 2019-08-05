@@ -1,6 +1,6 @@
 ---
-title: Define an OpenId Connect technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
-description: Define an OpenId Connect technical profile in a custom policy in Azure Active Directory B2C.
+title: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C | Microsoft Docs
+description: Define an OpenID Connect technical profile in a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -13,11 +13,11 @@ ms.author: marsma
 ms.subservice: B2C
 ---
 
-# Define an OpenId Connect technical profile in an Azure Active Directory B2C custom policy
+# Define an OpenID Connect technical profile in an Azure Active Directory B2C custom policy
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the [OpenId Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols. With an OpenId Connect technical profile, you can federate with an OpenId Connect based identity provider, such as Azure AD. Federating with an identity provider allows users to sign in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the [OpenID Connect](https://openid.net/2015/04/17/openid-connect-certification-program/) protocol identity provider. OpenID Connect 1.0 defines an identity layer on top of OAuth 2.0 and represents the state of the art in modern authentication protocols. With an OpenID Connect technical profile, you can federate with an OpenID Connect based identity provider, such as Azure AD. Federating with an identity provider allows users to sign in with their existing social or enterprise identities.
 
 ## Protocol
 
@@ -27,7 +27,7 @@ The **Name** attribute of the **Protocol** element needs to be set to `OpenIdCon
 <TechnicalProfile Id="MSA-OIDC">
   <DisplayName>Microsoft Account</DisplayName>
   <Protocol Name="OpenIdConnect" />
-  ...    
+  ...
 ```
 
 ## Input claims
@@ -42,7 +42,7 @@ The **InputClaims** and **InputClaimsTransformations** elements are not required
 
 ## Output claims
 
-The **OutputClaims** element contains a list of claims returned by the OpenId Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider, as long as you set the `DefaultValue` attribute.
+The **OutputClaims** element contains a list of claims returned by the OpenID Connect identity provider. You may need to map the name of the claim defined in your policy to the name defined in the identity provider. You can also include claims that aren't returned by the identity provider, as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 
@@ -90,10 +90,10 @@ The **CryptographicKeys** element contains the following attribute:
 
 | Attribute | Required | Description |
 | --------- | -------- | ----------- |
-| client_secret | Yes | The client secret of the identity provider application. The cryptographic key is required only if the **response_types** metadata is set to `code`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token` you can omit the cryptographic key.  |  
+| client_secret | Yes | The client secret of the identity provider application. The cryptographic key is required only if the **response_types** metadata is set to `code`. In this case, Azure AD B2C makes another call to exchange the authorization code for an access token. If the metadata is set to `id_token` you can omit the cryptographic key.  |
 
 ## Redirect Uri
- 
+
 When you configure the redirect URI of your identity provider, enter `https://login.microsoftonline.com/te/tenant/oauth2/authresp`. Make sure to replace **tenant** with your tenant's name (for example, contosob2c.onmicrosoft.com) or the tenant's ID. The redirect URI needs to be in all lowercase.
 
 If you are using the **b2clogin.com** domain instead of **login.microsoftonline.com** Make sure to use b2clogin.com instead of login.microsoftonline.com.

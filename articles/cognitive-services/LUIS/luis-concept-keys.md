@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -24,6 +24,7 @@ LUIS uses two keys: [authoring](#programmatic-key) and [endpoint](#endpoint-key)
 It is important to author LUIS apps in [regions](luis-reference-regions.md#publishing-regions) where you also want to publish and query.
 
 <a name="programmatic-key" ></a>
+
 ## Authoring key
 
 An authoring key, also known as a starter key, is created automatically when you create a LUIS account and it is free. You have one authoring key across all your LUIS apps for each authoring [region](luis-reference-regions.md). The authoring key is provided to author your LUIS app or to test endpoint queries. 

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2019
+ms.date: 07/29/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -185,6 +185,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 |azureprofileruploads3.blob.core.windows.net:443 |
 |azureprofileruploads4.blob.core.windows.net:443 |
 |azureprofileruploads5.blob.core.windows.net:443 |
+|azureprofilerfrontdoor.cloudapp.net:443 |
 
 #### Wildcard HTTP/HTTPS dependencies 
 

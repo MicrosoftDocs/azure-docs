@@ -87,7 +87,7 @@ The following table shows the types of blob operations that are disabled for the
 - For a storage account, the maximum number of containers with locked time-based immutable policies is 1,000.
 - The minimum retention interval is 1 day. The maximum is 146,000 days (400 years).
 - For a container, the maximum number of edits to extend a retention interval for locked time-based immutable policies is 5.
-- For a container, a maximum of 7 time-based retention policy audit logs are retained for the duration of the policy.
+- For a container, a maximum of 7 time-based retention policy audit logs are retained for a locked policy.
 
 ### Legal hold
 - For a storage account, the maximum number of containers with a legal hold setting is 1,000.

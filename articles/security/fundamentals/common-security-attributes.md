@@ -6,6 +6,7 @@ documentationcenter: ''
 author: msmbaldwin
 manager: barbkess
 ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: mbaldwin

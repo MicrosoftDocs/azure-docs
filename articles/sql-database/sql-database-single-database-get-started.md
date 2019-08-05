@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein
-ms.date: 04/23/2019
+ms.date: 07/29/2019
 ---
 # Quickstart: Create a single database in Azure SQL Database using the Azure portal, PowerShell, and Azure CLI
 
 Creating a [single database](sql-database-single-database.md) is the quickest and simplest deployment option for creating a database in Azure SQL Database. This quickstart shows you how to create and then query a single database using the Azure portal.
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/). 
 
 For all steps in this quickstart, sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -30,7 +30,7 @@ A single database can either be created in the provisioned or serverless (previe
 When you create a single database, you also define a [SQL Database server](sql-database-servers.md) to manage it and place it within [Azure resource group](../azure-resource-manager/resource-group-overview.md) in a specified region.
 
 > [!NOTE]
-> This quickstart uses the [vCore-based purchasing model](sql-database-service-tiers-vcore.md) and the [serverless](sql-database-serverless.md) compute tier, but the [DTU-based purchasing model](sql-database-service-tiers-DTU.md) is also available.
+> This quickstart uses the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), but the [DTU-based purchasing model](sql-database-service-tiers-DTU.md) is also available.
 
 To create a single database containing the AdventureWorksLT sample data:
 

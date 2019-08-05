@@ -50,7 +50,7 @@
     - name: Disk encryption for IaaS VMs
       items:
       - name: About Azure Disk Encryption
-        displayName: Bitlocker, bek
+        displayName: BitLocker, bek
         href: azure-security-disk-encryption-overview.md
       - name: Quickstarts
         items:
@@ -70,7 +70,7 @@
           href: azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
           href: azure-security-disk-encryption-linux.md
-        - name: Disk encryption with VMSS extension sequencing
+        - name: Disk encryption with virtual machine scale set extension sequencing
           href: azure-security-disk-encryption-extension-sequencing.md
         - name: Appendix for disk encryption
           href: azure-security-disk-encryption-appendix.md
@@ -332,49 +332,3 @@
   - name: Pen testing
     displayName: penetration
     href: ./fundamentals/pen-testing.md
-  - name: Microsoft Threat Modeling tool
-    displayName: stride
-    href: azure-security-threat-modeling-tool.md
-    items:
-    - name: Getting started
-      href: azure-security-threat-modeling-tool-getting-started.md
-    - name: Feature overview
-      href: azure-security-threat-modeling-tool-feature-overview.md
-    - name: Threats
-      href: azure-security-threat-modeling-tool-threats.md
-    - name: Releases
-      href: azure-security-threat-modeling-tool-releases.md
-      items:
-      - name: Threat Modeling Tool GA release 7.1.5091.2 - Sept. 12, 2018
-        href: azure-security-threat-modeling-tool-releases-71509112.md
-      - name: Threat Modeling Tool update release 7.1.51023.1 - Nov. 1, 2018
-        href: azure-security-threat-modeling-tool-releases-71510231.md
-      - name: Threat Modeling Tool update release 7.1.60126.1 - Jan. 29, 2019
-        href: azure-security-threat-modeling-tool-releases-71601261.md
-      - name: Threat Modeling Tool update release 7.1.60408.1 - April 9, 2019
-        href: azure-security-threat-modeling-tool-releases-71604081.md
-      - name: Threat Modeling Tool update release 7.1.60702.1 - 7/02/2019
-        href: azure-security-threat-modeling-tool-releases-71607021.md
-    - name: Mitigations
-      href: azure-security-threat-modeling-tool-mitigations.md
-      items:
-      - name: Auditing and logging
-        href: azure-security-threat-modeling-tool-auditing-and-logging.md
-      - name: Authentication
-        href: azure-security-threat-modeling-tool-authentication.md
-      - name: Authorization
-        href: azure-security-threat-modeling-tool-authorization.md
-      - name: Communication security
-        href: azure-security-threat-modeling-tool-communication-security.md
-      - name: Configuration management
-        href: azure-security-threat-modeling-tool-configuration-management.md
-      - name: Cryptography
-        href: azure-security-threat-modeling-tool-cryptography.md
-      - name: Exception management
-        href: azure-security-threat-modeling-tool-exception-management.md
-      - name: Input validation
-        href: azure-security-threat-modeling-tool-input-validation.md
-      - name: Sensitive data
-        href: azure-security-threat-modeling-tool-sensitive-data.md
-      - name: Session management
-        href: azure-security-threat-modeling-tool-session-management.md
