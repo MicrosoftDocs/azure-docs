@@ -14,16 +14,7 @@
   - name: Create a workspace
     displayName: install sdk workspace
     href: setup-create-workspace.md
-- name: Quickstarts
-  items:
-  - name: Python SDK
-    items:
-    - name: Run experiment in the cloud
-      displayName: workspace
-      href: quickstart-run-cloud-notebook.md
-    - name: Run experiment locally
-      displayName: workspace, install, sdk
-      href: quickstart-run-local-notebook.md
+
 - name: Tutorials
   items:
   - name: Python SDK

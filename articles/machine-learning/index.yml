@@ -35,16 +35,6 @@ sections:
         text: "Get set up and start using Azure Machine Learning service:"
         type: paragraph
       -
-        text: "<b>Quickstarts:</b>"
-        type: paragraph
-      -
-        items:
-          -
-            html: "<a href=\"service/quickstart-run-cloud-notebook\">Run an experiment in the cloud</a> (no install required)"
-          -
-            html: "<a href=\"service/quickstart-run-local-notebook\">Run an experiment using a local notebook server</a> (local SDK install)"
-        style: unordered
-        type: list
       -
         text: "<b>Tutorial: Train and deploy your first automated ML model in Azure portal:</b>"
         type: paragraph

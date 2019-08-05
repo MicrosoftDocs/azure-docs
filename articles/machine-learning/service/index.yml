@@ -27,15 +27,6 @@ abstract:
     href: https://channel9.msdn.com/Events/Connect/Microsoft-Connect--2018/D240/
     width: 250
 sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'After you  <a href="setup-create-workspace">create a workspace</a> for Azure Machine Learning service, you can get started using these quickstarts:'
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="quickstart-run-cloud-notebook">Run an experiment in the cloud</a> (no install required).
-    - html: <a href="quickstart-run-local-notebook">Run an experiment using a local notebook server</a> (local SDK install).
 
 - title: Step-by-Step Tutorials
   items:
