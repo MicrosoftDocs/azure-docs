@@ -9,9 +9,10 @@ ms.author: tomfitz
 ---
 
 # Tag support for Azure resources
-This article describes whether a resource type supports [tags](resource-group-using-tags.md).
+This article describes whether a resource type supports [tags](resource-group-using-tags.md). The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report.
 
 To get the same data as a file of comma-separated values, download [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv).
+
 Jump to a resource provider namespace:
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
@@ -1443,6 +1444,7 @@ Jump to a resource provider namespace:
 > | webApplicationFirewallPolicies | Yes |Yes |
 
 <a id="frontdoor" />
+
 > [!NOTE]
 For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
 
@@ -1810,6 +1812,7 @@ For Azure Front Door Service, you can apply tags when creating the resource, but
 > | servers/tdeCertificates | No | No |
 
 <a id="sqlnote" />
+
 > [!NOTE]
 > The Master database doesn't support tags, but other databases, including Azure SQL Data Warehouse databases, support tags. Azure SQL Data Warehouse databases must be in Active (not Paused) state.
 
