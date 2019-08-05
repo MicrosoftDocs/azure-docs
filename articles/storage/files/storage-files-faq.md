@@ -271,10 +271,6 @@ This article answers common questions about Azure Files features and functionali
 **Where are my share snapshots stored?**  
     Share snapshots are stored in the same storage account as the file share.
 
-* <a id="snapshot-perf-impact"></a>
-**Are there any performance implications for using share snapshots?**  
-    Share snapshots do not have any performance overhead.
-
 * <a id="snapshot-consistency"></a>
 **Are share snapshots application-consistent?**  
     No, share snapshots are not application-consistent. The user must flush the writes from the application to the share before taking the share snapshot.
