@@ -27725,6 +27725,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/azure/active-directory/authentication/howto-authentication-phone-sign-in.md",
+      "redirect_url": "/azure//active-directory/authentication/howto-authentication-passwordless-phone",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/security/azure-ad-passwordless.md",
       "redirect_url": "/azure/security/fundamentals/ad-passwordless",
       "redirect_document_id": true
