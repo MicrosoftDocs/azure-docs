@@ -153,7 +153,7 @@ Then, implement the client in a Python script. Replace the placeholders as follo
 from paho.mqtt import client as mqtt
 import ssl
 
-path_to_root_cert = "<local path to digicert.cer>"
+path_to_root_cert = "<local path to digicert.cer file>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
 iot_hub_name = "<iot hub name>"
@@ -194,7 +194,7 @@ The following are the installation instructions for the prerequisites.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
-To authenticate using a device certificate, use the code snippet above but make the following changes (see [certificate registration steps here](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-x509ca-overview) on how to prepare devices for certificate-based authentication):
+To authenticate using a device certificate, use the code snippet above but make the following changes (see [How to get an X.509 CA certificate](./iot-hub/iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
 
 ```python
 # Create the client as before
@@ -205,8 +205,8 @@ client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
                        device_id + "/?api-version=2018-06-30", password=None)
 
 # Set the certificate and key paths on your client
-cert_file = "path to your certificate file"
-key_file = "path to your device key file"
+cert_file = "<local path to your certificate file>"
+key_file = "<local path to your device key file>"
 client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
                cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
 
