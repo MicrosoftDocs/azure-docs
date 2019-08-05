@@ -140,6 +140,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-personalizer",
+      "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+      "branch": "master"
+    },   
+    {
       "path_to_root": "samples-luis",
       "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master"
@@ -333,6 +338,11 @@
     {
       "path_to_root": "VideoReviewConsoleApp",
       "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-quickstart-code",
+      "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master"
     }
   ],

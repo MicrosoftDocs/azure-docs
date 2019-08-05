@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup protected workloads'
 description: Monitor Azure Backup workloads using Azure portal
-
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Azure Backup; Alerts;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/05/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ---
 

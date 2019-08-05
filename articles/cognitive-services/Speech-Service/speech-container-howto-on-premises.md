@@ -1,5 +1,5 @@
 ---
-title: Use with Kubernetes and Helm
+title: Use with Kubernetes and Helm - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Using Kubernetes and Helm to define the speech-to-text and text-to-speech container images, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises.
 services: cognitive-services
