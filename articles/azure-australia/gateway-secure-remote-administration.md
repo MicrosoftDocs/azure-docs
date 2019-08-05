@@ -28,7 +28,6 @@ This document discusses the importance of secure administration and suggests one
 |Logging and auditing   |Automated generation, collection, and analysis of security and administrative related events from workstations, servers, network devices, and jump boxes will enable detection of compromises and attempted compromises. Automation enables organisations to respond more quickly, reducing the implications of a compromise.|
 |Network segmentation and segregation|Segmenting a network into logical zones such as differing security domains, and further segregating these logical networks by restricting the types of data that flow from one zone to another, restricts lateral movement. Segmentation prevents an adversary from gaining access to additional resources.|
 |Jump boxes|A jump box is a hardened remote access server, commonly utilising Microsoft’s Remote Desktop Services or Secure Shell (SSH) software. Jump boxes act as a stepping point for administrators accessing critical systems with all administrative actions performed from the dedicated host.|
-|
 
 This article provides a reference architecture for how the elements above can be used for secure administration of systems deployed in Azure.
 
@@ -72,7 +71,6 @@ Gaining access for administration is a multi-step process involving the componen
 |Conditional Access |Conditional Access policies check the authentication attempt to ensure that it meets the necessary requirements such as the IP address the connection is coming from, group membership for the privileged account, and the management and compliance status of the privileged workstation as reported by Intune. |
 |Privileged Identity Management (PIM) |Through the Azure portal the administrator can now activate or request activation for the privileged roles for which they have authorisation through PIM. PIM ensures that privileged accounts do not have any standing administrative privileges and that all requests for privileged access are only for the time required to perform administrative tasks. PIM also provides logging of all requests and activations for auditing purposes. |
 |Identity and Access Management|Once the privileged account has been securely identified and roles activated, the administrator is provided access to the Azure subscriptions and resources that they have been assigned permissions to through Identity and Access Management.|
-|
 
 Once the privileged account has completed the steps to gain administrative access to the Azure portal, access to the workloads can be configured and administrative connections can be made.
 
@@ -86,7 +84,6 @@ Once the privileged account has completed the steps to gain administrative acces
 |Network Policy Server (NPS)|The NPS receives the authentication request from the RD Gateway and validates the username and password against Active Directory before sending a request to Azure Active Directory to trigger an Azure MFA authentication request.|
 |Azure MFA|Azure MFA sends an authentication request to the registered mobile device of the privileged account. The mobile device is managed by Intune to ensure compliance with security requirements. The administrator must authenticate first to the mobile device and then to the Microsoft Authenticator App using a PIN or Biometric system before the authentication attempt is authorised to Azure MFA.|
 |Jump Server|Once successfully authenticated, the RDP connection is encrypted using Transport Layer Security (TLS) and then sent through the encrypted IPSec tunnel to the Azure VPN Gateway, through the RD Gateway and on to the Jump Server. From the Jump Server, the administrator can now RDP or SSH to workload virtual machines as specified in the JIT request.|
-|
 
 ## General guidance
 
@@ -128,7 +125,6 @@ The privileged workstation is a hardened machine that can be used to perform adm
 |---|---|
 |Privileged Access Workstations Architecture Overview|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/privileged-access-workstations)|
 |Securing Privileged Access Reference Material|[https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)|
-|
 
 ### Mobile device
 
@@ -138,7 +134,6 @@ A mobile device is at greater risk of accidental loss or theft due to its portab
 |---|---|
 |Azure AD Authentication Methods|[https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods](https://docs.microsoft.com/azure/active-directory/authentication/concept-authentication-methods)|
 |How to use the Microsoft Authenticator App|[https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app](https://support.microsoft.com/help/4026727/microsoft-account-how-to-use-the-microsoft-authenticator-app)|
-|
 
 ### Microsoft Intune
 
@@ -148,7 +143,6 @@ Intune is the component of Enterprise Mobility + Security that manages mobile de
 |---|---|
 |Microsoft Intune Documentation|[https://docs.microsoft.com/intune/](https://docs.microsoft.com/intune/)|
 |Get started with Device Compliance in Intune|[https://docs.microsoft.com/intune/device-compliance-get-started](https://docs.microsoft.com/intune/device-compliance-get-started)|
-|
 
 ### Group Policy
 
@@ -157,7 +151,6 @@ Group Policy is used to control the configuration of operating systems and appli
 |Resources|Link|
 |---|---|
 |Allow sign in locally Group Policy setting|[https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/allow-log-on-locally)|
-|
 
 ### Jump Server / Bastion Host
 
@@ -166,7 +159,6 @@ The Jump Server / Bastion Host is a centralised point for administration. It has
 |Resources|Link|
 |---|---|
 |Implementing Secure Administrative Hosts|[https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-secure-administrative-hosts)|
-|
 
 ### Just in Time (JIT) access
 
@@ -176,7 +168,6 @@ JIT is an Azure Security Center capability that utilises Network Security Groups
 |---|---|
 |Manage Just in Time (JIT) access|[https://docs.microsoft.com/azure/security-center/security-center-just-in-time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)|
 |Automating Azure Just In Time VM Access|[https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access](https://blogs.technet.microsoft.com/motiba/2018/06/24/automating-azure-just-in-time-vm-access)|
-|
 
 ## Secure communication
 
@@ -189,7 +180,6 @@ Communications to the Azure portal are encrypted using Transport Layer Security 
 |Resources |Link |
 |---|---|
 |Azure Encryption Overview – Encryption in transit|[https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit](https://docs.microsoft.com/azure/security/security-azure-encryption-overview#encryption-of-data-in-transit)|
-|
 
 ### Azure VPN Gateway
 
@@ -199,8 +189,7 @@ The Azure VPN Gateway provides the secure encrypted connection from the privileg
 |---|---|
 |About Point-to-Site Connections|[https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about](https://docs.microsoft.com/azure/vpn-gateway/point-to-site-about)|
 |Azure VPN Gateway Cryptographic Details|[https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto)|
-|Azure VPN Gateway Configuration|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
-|
+|Azure VPN Gateway Configuration|[Azure VPN Gateway configuration](vpn-gateway.md)|
 
 ### Remote Desktop (RD) Gateway
 
@@ -209,7 +198,6 @@ RD Gateway is a secure mechanism for controlling and authorising RDP connections
 |Resources |Link |
 |---|---|
 |Remote Desktop Services Architecture|[https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/desktop-hosting-logical-architecture)|
-|
 
 ### Network Security Groups (NSGs)
 
@@ -219,7 +207,6 @@ NSGs function as Access Control Lists (ACLs) for network traffic entering or lea
 |---|---|
 |Azure Security Groups Overview|[https://docs.microsoft.com/azure/virtual-network/security-overview](https://docs.microsoft.com/azure/virtual-network/security-overview)|
 |How to: Plan Virtual Networks|[https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm)|
-|
 
 ## Strong authentication
 
@@ -232,7 +219,6 @@ At a high level, a DC hosts a copy of the Active Directory Database, which conta
 |Resources |Link |
 |---|---|
 |Active Directory Domain Services Overview|[https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview)|
-|
 
 ### Azure Active Directory (Azure AD)
 
@@ -244,7 +230,6 @@ identities and provides authentication and authorisation for an Azure environmen
 |---|---|
 |Azure Active Directory Documentation|[https://docs.microsoft.com/azure/active-directory](https://docs.microsoft.com/azure/active-directory)|
 |Hybrid Identity Documentation|[https://docs.microsoft.com/azure/active-directory/hybrid](https://docs.microsoft.com/azure/active-directory/hybrid)|
-|
 
 ### Network Policy Server (NPS)
 
@@ -253,7 +238,6 @@ An NPS is an authentication and policy server that provides advanced authenticat
 |Resources |Link |
 |---|---|
 |Network Policy Server Documentation|[https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top)|
-|
 
 ### Azure MFA
 
@@ -263,7 +247,6 @@ Azure MFA is an authentication service provided within Azure Active Directory to
 |---|---|
 |How it works: Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks)|
 |How to: Deploy cloud-based Azure Multi-Factor Authentication|[https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getstarted)|
-|
 
 ## Strong authorisation
 
@@ -277,7 +260,6 @@ Access to perform privileged actions within Azure is based on roles that are ass
 |---|---|
 |Azure Role Based Access Control|[https://docs.microsoft.com/azure/role-based-access-control](https://docs.microsoft.com/azure/role-based-access-control)|
 |Understand Role Definitions|[https://docs.microsoft.com/azure/role-based-access-control/role-definitions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions)|
-|
 
 ### Privileged Identity Management (PIM)
 
@@ -287,7 +269,6 @@ PIM is an Azure Active Directory component that controls access to privileged ro
 |---|---|
 |Privileged Identity Management (PIM) Documentation|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management)|
 |Start using PIM|[https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-getting-started)|
-|
 
 ### Conditional access
 
@@ -297,7 +278,6 @@ Conditional access is a component of Azure Active Directory that allows or denie
 |---|---|
 |Conditional Access Documentation|[https://docs.microsoft.com/azure/active-directory/conditional-access](https://docs.microsoft.com/azure/active-directory/conditional-access)|
 |How to: Require Managed Devices for cloud app access with conditional access|[https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices](https://docs.microsoft.com/azure/active-directory/conditional-access/require-managed-devices)|
-|
 
 ## Next steps
 
