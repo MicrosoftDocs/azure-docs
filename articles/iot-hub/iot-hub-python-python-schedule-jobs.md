@@ -44,6 +44,8 @@ At the end of this tutorial, you have two Python apps:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
+## Prerequisites
+
 The following are the installation instructions for the prerequisites.
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
@@ -153,7 +155,7 @@ In this section, you create a Python console app that responds to a direct metho
 
 ## Get the IoT hub connection string
 
-[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+In this article, you create a backend service that uses asynchronous threads and timers to schedule a job to invoke a direct method on a device and to schedule a job to update the device twin. The service needs the **service connect** permission to call a direct method on a device. The service also reads and writes the identity registry, so it needs the **registry read** and **registry write** permissions. There is no default shared access policy that contains only these permissions, so you need to create one.
 
 [!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
 
@@ -169,7 +171,7 @@ In this section, you create a Python console app that initiates a remote **lockD
 
 2. Using a text editor, create a new **scheduleJobService.py** file in your working directory.
 
-3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file:
+3. Add the following `import` statements and variables at the start of the **scheduleJobService.py** file. Replace the `{IoTHubConnectionString}` placeholder with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub):
 
     ```python
     import sys
