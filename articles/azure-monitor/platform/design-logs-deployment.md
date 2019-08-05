@@ -53,7 +53,7 @@ When using the Log Analytics agents to collect data, you need to understand the 
 If you are using System Center Operations Manager 2012 R2 or later:
 
 * Each Operations Manager management group can be [connected to only one workspace](../platform/om-agents.md). 
-* Linux computers reporting to a management group must be configured to report directly to a Log Analytics worksapce. If your Linux computers are already reporting directly to a workspace and you want to monitor them with Operations Manager, follow these steps to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
+* Linux computers reporting to a management group must be configured to report directly to a Log Analytics workspace. If your Linux computers are already reporting directly to a workspace and you want to monitor them with Operations Manager, follow these steps to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group). 
 * You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager integrated with a workspace, and a different workspace.
 
 ## Access control overview
@@ -67,7 +67,7 @@ The data that a user has access to are determined by a combination of factors th
 | [Access mode](#access-mode) | Method that the user uses to access the workspace.  Defines the scope of the data available and the access control mode that's applied. |
 | [Access control mode](#access-control-mode) | Setting on the workspace that defines whether permissions are applied at the workspace or resource level. |
 | [Permissions](manage-access.md#manage-accounts-and-users) | Permissions applied to individual or groups of users for the workspace or resource. Defines what data the user will have access to. |
-| [Table level RBAC](manage-access.md#table-level-rbac) | Optional granular permissions that applies to all users regardless of their access mode or access control mode. Defines which data types a user can access. |
+| [Table level RBAC](manage-access.md#table-level-rbac) | Optional granular permissions that apply to all users regardless of their access mode or access control mode. Defines which data types a user can access. |
 
 ## Access mode
 
@@ -75,11 +75,11 @@ The *access mode* refers to how a user accesses a Log Analytics workspace and de
 
 Users have two options for accessing the data:
 
-1. **Workspace-context**: You can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. This is the access mode used when logs are accessed with the workspace as the scope, such as when you select **Logs** from the **Azure Monitor** menu in the Azure portal.
+* **Workspace-context**: You can view all logs in the workspace that you have permission to. Queries in this mode are scoped to all data in all tables in the workspace. This is the access mode used when logs are accessed with the workspace as the scope, such as when you select **Logs** from the **Azure Monitor** menu in the Azure portal.
 
     ![Log Analytics context from workspace](./media/design-logs-deployment/query-from-workspace.png)
 
-2. **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only that resource in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular RBAC.
+* **Resource-context**: When you access the workspace for a particular resource, resource group, or subscription, such as when you select **Logs** from a resource menu in the Azure portal, you can view logs for only that resource in all tables that you have access to. Queries in this mode are scoped to only data associated with that resource. This mode also enables granular RBAC.
 
     ![Log Analytics context from resource](./media/design-logs-deployment/query-from-resource.png)
 
@@ -91,7 +91,7 @@ Users have two options for accessing the data:
     >
     > You can test if logs are properly associated with their resource by running a query and inspecting the records you're interested in. If the correct resource ID is in the [_ResourceId](log-standard-properties.md#_resourceid) property, then data is available to resource-centric queries.
 
-Azure Monitor automatically determines the right mode depending on the context you perform the log search from. The scope is always presented in the top left section of Log Analytics.
+Azure Monitor automatically determines the right mode depending on the context you perform the log search from. The scope is always presented in the top-left section of Log Analytics.
 
 ### Comparing access modes
 
@@ -106,7 +106,7 @@ The following table summarizes the access modes:
 
 ## Access control mode
 
-The *Access control mode* is a setting on each workspaces that defines how permissions are determined for that workspace.
+The *Access control mode* is a setting on each workspace that defines how permissions are determined for that workspace.
 
 * **Require workspace permissions**: This control mode does not allow granular RBAC. For a user to access the workspace, they must be granted permissions to the workspace or to specific tables.
 
