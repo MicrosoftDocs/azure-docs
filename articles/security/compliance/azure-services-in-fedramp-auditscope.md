@@ -1,8 +1,8 @@
 ---
 title: Azure Services in FedRAMP and DoD SRG Audit Scope
 description: This article contains tables for Azure Public and Azure Government that illustrate what FedRAMP (Moderate vs. High) and DoD SRG (Impact level 2, 4, or 5) audit scope a given service has reached.
-author: davib
-ms.author: davib 
+author: Jain-Garima
+ms.author: gjain
 ms.date: 5/17/2019
 ms.topic: article
 ms.service: security
@@ -18,7 +18,7 @@ This article provides a detailed list of in-scope cloud services across Azure an
 #### Terminology/Symbols used
 
 * DoD CC SRG = Department of Defense Cloud Computing Security Requirements Guide
-* IIL = Information Impact Level
+* IL = Impact Level
 * FedRAMP = Federal Risk and Authorization Management Program  
 * :heavy_check_mark: = indicates the service has achieved this audit scope.
 
