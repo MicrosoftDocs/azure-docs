@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/05/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -152,23 +152,19 @@ In the example below a user has already provisioned their FIDO2 security key. Th
 
 ## Known issues
 
-### FIDO2 security keys
-
-#### Security key provisioning
+### Security key provisioning
 
 Administrator provisioning and de-provisioning of security keys is not available in the public preview.
 
-#### Hybrid Azure AD join
+### Hybrid Azure AD join
 
 Users relying on WIA SSO that use managed credentials like FIDO2 security keys or passwordless sign in with Microsoft Authenticator app need to Hybrid Join on Windows 10 to get the benefits of SSO. However, security keys only work for Azure Active Directory Joined machines for now. We recommend you only try out FIDO2 security keys for the Windows lock screen on pure Azure Active Directory Joined machines. This limitation doesn’t apply for the web.
 
-#### UPN changes
+### UPN changes
 
 We are working on supporting a feature that allows UPN change on hybrid AADJ and AADJ devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for that. So the only approach is to reset the device and the user has to re-register.
 
 ## Next steps
-
-
 
 [Learn about device registration](../devices/overview.md)
 

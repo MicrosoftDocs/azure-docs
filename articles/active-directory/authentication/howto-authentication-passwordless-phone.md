@@ -1,12 +1,12 @@
 ---
 title: Enable passwordless sign-in with the Microsoft Authenticator app (preview) - Azure Active Directory
-description: Enable passwordless sign in to Azure AD using the Microsoft Authenticator app (preview)
+description: Enable passwordless sign-in to Azure AD using the Microsoft Authenticator app (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/19/2019
+ms.date: 08/05/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,7 +21,7 @@ The Microsoft Authenticator app can be used to sign in to any Azure AD account w
 
 ![Example of a browser sign-in asking for user to approve the sign-in](./media/howto-authentication-passwordless-phone/phone-sign-in-microsoft-authenticator-app.png)
 
-Instead of seeing a prompt for a password after entering a username, a person who has enabled phone sign-in in the Microsoft Authenticator app will see a message telling them to tap a number in their app. In the app, the user must match the number, choose Approve, then provide their PIN or biometric, then the authentication will complete.
+Instead of seeing a prompt for a password after entering a username, a person who has enabled phone sign-in from the Microsoft Authenticator app will see a message telling them to tap a number in their app. In the app, the user must match the number, choose Approve, then provide their PIN or biometric, then the authentication will complete.
 
 > [!NOTE]
 > This capability has been in the Microsoft Authenticator app since March of 2017, so there is a possibility that when the policy is enabled for a directory, users may encounter this flow immediately, and see an error message if they have not been enabled by policy. Be aware and prepare your users for this change.
@@ -79,9 +79,9 @@ The admin can choose to enable the user to use passwordless phone sign-in, or th
 
 ### AD FS integration
 
-When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. 
+When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign-in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. 
 
-If a user has an unanswered passwordless phone sign-in verification pending and attempts to log in again, the user may be taken to ADFS to enter a password instead.  
+If a user has an unanswered passwordless phone sign-in verification pending and attempts to sign in again, the user may be taken to ADFS to enter a password instead.  
 
 ### Azure MFA server
 
@@ -89,7 +89,7 @@ End users who are enabled for MFA through an organization’s on-premises Azure 
 
 ### Device registration
 
-One of the prerequisites to create this new, strong credential, is that the device must also registered within the Azure AD tenant to an individual user. Due to current device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign in.
+One of the prerequisites to create this new, strong credential, is that the device must also registered within the Azure AD tenant to an individual user. Due to current device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign-in.
 
 > [!NOTE]
 > Device registration is not the same as device management or "MDM." It only associates a device ID and a user ID together in the Azure AD directory.  
