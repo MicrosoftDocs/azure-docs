@@ -69,6 +69,22 @@ module.exports = df.orchestrator(function*(context) {
 
 The difference between this example and a timer-triggered function is that cleanup trigger times here are not based on a schedule. For example, a CRON schedule that executes a function every hour will execute it at 1:00, 2:00, 3:00 etc. and could potentially run into overlap issues. In this example, however, if the cleanup takes 30 minutes, then it will be scheduled at 1:00, 2:30, 4:00, etc. and there is no chance of overlap.
 
+## Starting an eternal orchestration
+Triggering an eternal orchestration is no different from any other orchestration function. Use the [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method to start it. 
+
+> [!NOTE] If you need to ensure a singleton eternal orchestration is running, it is important to maintain the same instance ```id``` when starting the orchestration. For more information, see [Instance Management](durable-functions-instance-management.md).
+
+```csharp
+[FunctionName("Trigger_Eternal_Orchestration")]
+public static async Task OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+    [OrchestrationClient] DurableOrchestrationClientBase orchestrationClient)
+{
+    string myId = "StaticId";
+    await functionOrchestrator.StartNewAsync("Periodic_Cleanup_Loop"), myId, null);  // Note: null was added as the input, since there is no input in "Periodic_Cleanup_Loop"
+}
+```
+
 ## Exit from an eternal orchestration
 
 If an orchestrator function needs to eventually complete, then all you need to do is *not* call `ContinueAsNew` and let the function exit.
