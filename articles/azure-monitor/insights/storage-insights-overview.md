@@ -78,6 +78,8 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens t
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
+There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.  
+
 When you select a storage account from the list in the table, you drill down to the **Overview** workbook to help you identify over and under utilized storage for the selected storage account. Note that the [breadcrumb](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) in the portal reflects the workbook is scoped to the selected storage account. If you selected any one of the other column values while it is showing data for that storage account, the [left pane](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) does not reflect you are in Azure Monitor for Storage. 
 
 ![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
@@ -103,6 +105,9 @@ On the **Overview** workbook for the storage account, it shows several storage k
 Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens that workbook. The **Capacity** workbook shows the amount of storage used for each device type in the account, and total storage used across the account.  
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
+
+## Editing a workbook
+
 
 ## Next steps
 
