@@ -20,7 +20,7 @@ This article shows how to use Azure Active Directory (Azure AD) credentials to c
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## Install the Azure PowerShell preview module
+## Install the preview module
 
 To use PowerShell to create a user delegation SAS, you must first install the Az.Storage 1.3.1-preview module. Follow these steps to install the module:
 
@@ -100,9 +100,9 @@ $ctx = New-AzStorageContext -StorageAccountName <storage-account> -UseConnectedA
 
 ### Create a user delegation SAS for a container
 
-To return a user delegation SAS token for a container, call the [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-azstoragecontainersastoken) command, passing in the Azure Storage context object that you created previously. 
+To return a user delegation SAS token for a container, call the [New-AzStorageContainerSASToken](/powershell/module/az.storage/new-azstoragecontainersastoken) command, passing in the Azure Storage context object that you created previously.
 
-Remember to replace placeholder values in angle brackets with your own values:
+The following example returns a user delegation SAS token for a container. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 New-AzStorageContainerSASToken -Context $ctx `
@@ -111,11 +111,18 @@ New-AzStorageContainerSASToken -Context $ctx `
     -ExpiryTime <date-time>
 ```
 
+The user delegation SAS token returned will be similar to:
+
+```
+?sv=2018-11-09&sr=c&sig=<sig>&skoid=<skoid>&sktid=<sktid>&skt=2019-08-05T22%3A24%3A36Z&ske=2019-08-07T07%3A
+00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=rwdl
+```
+
 ### Create a user delegation SAS for a blob
 
-To return a user delegation SAS token for a blob, call the [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) command, passing in the Azure Storage context object that you created previously. 
+To return a user delegation SAS token for a blob, call the [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) command, passing in the Azure Storage context object that you created previously.
 
-Remember to replace placeholder values in angle brackets with your own values:
+The following syntax returns a user delegation SAS for a blob. The example specifies the `-FullUri` parameter, which returns the blob URI with the SAS token appended. Remember to replace the placeholder values in brackets with your own values:
 
 ```powershell
 New-AzStorageBlobSASToken -Context $ctx `
@@ -123,7 +130,18 @@ New-AzStorageBlobSASToken -Context $ctx `
     -Blob <blob> `
     -Permission racwd `
     -ExpiryTime <date-time>
+    -FullUri
 ```
+
+The user delegation SAS URI returned will be similar to:
+
+```
+https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-11-09&sr=b&sig=4f6QzTteEZmrEMXWn7iEeI27vHrX13zVmL6rk2MbiyA%3D&skoid=e5981635-dcf0-4279-ab7b-ca1cbdf4a5c7&sktid=72f988bf-86f1-41af-91ab
+-2d7cd011db47&skt=2019-08-06T21%3A16%3A54Z&ske=2019-08-07T07%3A00%3A00Z&sks=b&skv=2018-11-09&se=2019-08-07T07%3A00%3A00Z&sp=racwd
+```
+
+> [!NOTE]
+> A user delegation SAS does not support defining permissions with a stored access policy.
 
 ## Revoke a user delegation SAS
 

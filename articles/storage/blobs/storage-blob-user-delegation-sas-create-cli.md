@@ -83,7 +83,7 @@ To create a user delegation SAS for a blob with Azure CLI, call the [az storage 
 
 Supported permissions for a user delegation SAS on a blob include Add, Create, Delete, Read, and Write. Permissions can be specified singly or combined. For more information about these permissions, see [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).
 
-The following syntax returns a user delegation SAS for a blob. Remember to replace the placeholder values in brackets with your own values:
+The following syntax returns a user delegation SAS for a blob. The example specifies the `--full-uri` parameter, which returns the blob URI with the SAS token appended. Remember to replace the placeholder values in brackets with your own values:
 
 ```azurecli-interactive
 az storage blob generate-sas \
@@ -97,7 +97,7 @@ az storage blob generate-sas \
     --full-uri
 ```
 
-The user delegation SAS returned will be similar to:
+The user delegation SAS URI returned will be similar to:
 
 ```
 https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-08-03&sp=rw&sv=2018-11-09&sr=b&skoid=<skoid>&sktid=<sktid>&skt=2019-08-02T2
