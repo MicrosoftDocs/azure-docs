@@ -9,7 +9,6 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 
 # Quickstart: Create an Azure Search index in Postman using REST APIs
