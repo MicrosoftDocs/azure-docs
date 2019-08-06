@@ -149,7 +149,7 @@ If you find that your organization's reservations are being underused:
 - Make sure the virtual machines that your organization creates match the VM size that's for the reservation.
 - Make sure instance size flexibility is on. For more information, see [Manage reservations - Change optimize setting for Reserved VM Instances](#change-optimize-setting-for-reserved-vm-instances).
 - Change the scope of the reservation to _shared_ so that it applies more broadly. For more information, see [Change the scope for a reservation](#change-the-reservation-scope).
-- Consider exchanging the unused quantity. For more information, see [Cancellations and exchanges](#cancel-exchagne-or-refund-reservations).
+- Consider exchanging the unused quantity. For more information, see [Cancellations and exchanges](#cancel-exchange-or-refund-reservations).
 
 
 ## Need help? Contact us.
