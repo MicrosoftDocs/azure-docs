@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot System State Backup with Azure Backup
 description: Troubleshoot issues in System State Backup.
-services: backup
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 keywords: how to backup; backup system state
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: srinathv
+ms.date: 07/22/2019
+ms.author: dacurwin
 ---
 
 # Troubleshoot System State Backup

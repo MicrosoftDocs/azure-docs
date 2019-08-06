@@ -241,7 +241,7 @@ Any user who has the built-in role of Monitoring Contributor at the subscription
 - Microsoft.Insights/actiongroups/*
 - Microsoft.Insights/AlertRules/*
 - Microsoft.Insights/metricAlerts/*
-- Microsoft.AlertsManagement/smartDetectorRules/*
+- Microsoft.AlertsManagement/smartDetectorAlertRules/*
 
 > [!NOTE]
 > In addition to having above permissions, your subscription should additionally be registered with Microsoft.AlertsManagement resource provider. This is required to successfully migrate Failure Anomaly alerts on Application Insights. 

@@ -3,6 +3,8 @@ title: Schedule Azure Container Registry tasks
 description: Set timers to run an Azure Container Registry task on a defined schedule.
 services: container-registry
 author: dlepow
+manager: gwallace
+
 ms.service: container-registry
 ms.topic: article
 ms.date: 06/27/2019

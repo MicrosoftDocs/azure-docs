@@ -5,7 +5,7 @@ author: sharaths-cs
 ms.author: dikamath 
 ms.date: 04/11/2019 
 ms.topic: quickstart 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---

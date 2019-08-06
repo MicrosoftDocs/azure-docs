@@ -60,8 +60,8 @@ Billing dimensions are used to communicate to the customer on how they will be b
 * **Dimension name**: the display name associated with the dimension, e.g. “text messages sent”.
 * **Unit of measure**: the description of the billing unit, e.g. “per text message” or “per 100 emails”.
 * **Price per unit**: the price for one unit of the dimension.  
-* **Included quantity for monthly term**: quantity of dimension included per month for customers paying the recurring monthly fee.
-* **Included quantity for annual term**: quantity of dimension included per month for customers paying the recurring annual fee.
+* **Included quantity for monthly term**: quantity of dimension included per month for customers paying the recurring monthly fee, must be an integer.
+* **Included quantity for annual term**: quantity of dimension included per month for customers paying the recurring annual fee, must be an integer.
 
 Billing dimensions are shared across all plans for an offer.  Some attributes apply to the dimension across all plans, and other attributes are plan-specific.
 

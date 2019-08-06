@@ -25,6 +25,14 @@
     href: ../hdinsight-component-versioning.md
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
+  - name: Troubleshoot
+    items:
+    - name: Apache HBase REST not responding
+      href: ./hbase-troubleshoot-rest-not-spending.md
+    - name: Pegged CPU on region server
+      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+    - name: Timeouts with 'hbase hbck' command
+      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: How to
   items:
   - name: Use cluster storage
@@ -238,10 +246,14 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
     - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
     - name: Create Apache HBase cluster in Azure VNet

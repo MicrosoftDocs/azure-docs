@@ -9,14 +9,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 07/11/2019
+ms.date: 07/21/2019
 ---
 
 # Tutorial: Predict automobile price with the visual interface
 
-In this tutorial, you learn to develop a predictive solution in the Azure Machine Learning service visual interface. At the end of this tutorial series, you'll have a managed cloud web service that can predict the price of any car based on technical specifications you send it.
+In this two-part tutorial, you learn how to use the Azure Machine Learning service visual interface to develop and deploy a predictive analytic solution that predicts the price of any car. 
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GY]
+
+In part one, you'll set up your environment, drag-and-drop datasets and analysis modules onto an interactive canvas, and connect them together to create an experiment. 
 
 In part one of the tutorial you learn how to:
 
@@ -25,7 +27,7 @@ In part one of the tutorial you learn how to:
 > * Train a machine learning model
 > * Score and evaluate a model
 
-In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service.
+In [part two](ui-tutorial-automobile-price-deploy.md) of the tutorial, you'll learn how to deploy your predictive model as an Azure web service so you can use it to predict the price of any car based on technical specifications you send it. 
 
 A completed version of this tutorial is available as a sample experiment.
 
@@ -33,11 +35,11 @@ To find it, from the **Experiments page**, select **Add New**, then select the *
 
 ## Create a workspace
 
-If you have an Azure Machine Learning service workspace, skip to the [next section](#open-the-visual-interface-webpage).
+If you have an Azure Machine Learning service workspace, skip to the next section.
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-## Open the visual interface webpage
+## Create new experiment
 
 1. Open your workspace in the [Azure portal](https://portal.azure.com/).
 
@@ -45,19 +47,13 @@ If you have an Azure Machine Learning service workspace, skip to the [next secti
 
     ![Screenshot of the Azure portal showing how to access the Visual interface from a Machine Learning service workspace](./media/ui-tutorial-automobile-price-train-score/launch-ui.png)
 
-## Create your first experiment
-
-The visual interface tool provides an interactive, visual place to build predictive analytic models. Drag-and-drop datasets and analysis modules onto an interactive canvas, and connect them together to create an *experiment*.
-
 1. Create a new experiment by selecting **+New** at the bottom of the visual interface window.
-
-    ![Add new experiment](./media/ui-tutorial-automobile-price-train-score/add-new.png)
 
 1. Select **Blank Experiment**.
 
 1. Select the default experiment name **"Experiment created on ...**" at the top of the canvas and rename it to something meaningful. For example, **"Automobile price prediction"**. The name doesn't need to be unique.
 
-## Add data
+## Specify data
 
 Machine learning depends on data. Luckily, there are several sample datasets included in this interface available for you to experiment with. For this tutorial, use the sample dataset **Automobile price data (Raw)**. 
 
@@ -67,22 +63,14 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
    ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
 
-## Select columns
+1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
-Select which columns of data to work with. To start with, configure the module to show all available columns.
+1. Click and drag the **Select Columns in Dataset** module onto the canvas. Drop the module below the dataset module.
 
-> [!TIP]
-> Use the search bar at the top of the palette to find modules quickly. The rest of the tutorial will use this shortcut.
-
-
-1. Type **Select** in the Search box to find the **Select Columns in Dataset** module.
-
-1. Click and drag the **Select Columns in Dataset** onto the canvas. Drop the module below the dataset module.
-
-1. Connect the dataset to the **Select Columns in Dataset**: click and drag from the output port of the dataset to the input port of **Select Columns in Dataset**.
+1. Connect the dataset you added earlier to the **Select Columns in Dataset** module by clicking and dragging. Drag from the dataset's output port, which is the small circle at the bottom of the dataset on the canvas, all the way to the input port of **Select Columns in Dataset**, which is the small circle at the top of the module.
 
     > [!TIP]
-    > Datasets and modules have input and output ports represented by small circles - input ports at the top, output ports at the bottom. You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
+    > You create a flow of data through your experiment when you connect the output port of one module to an input port of another.
     >
 
     ![Connect modules](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
@@ -103,16 +91,14 @@ Select which columns of data to work with. To start with, configure the module t
 
 At any time, click the output port of a dataset or module to see what the data looks like at that point in the data flow. If the **Visualize** option is disabled, you first need to run the experiment.
 
-An experiment runs on a compute target, which is a compute resource that is attached to your workspace. Once you create a compute target, you can reuse it for future runs.
-
 [!INCLUDE [aml-ui-create-training-compute](../../../includes/aml-ui-create-training-compute.md)]
 
 After the compute target is available, the experiment runs. When the run is complete, a green check mark appears on each module.
 
 
-## Preview the data
+## Visualize the data
 
-Now that you have run your initial experiment, you can visualize the data to understand more about the dataset you have to work with.
+Now that you have run your initial experiment, you can visualize the data to understand more about the dataset you have.
 
 1. Select the output port at the bottom of the **Select Columns in Dataset** then select **Visualize**.
 
@@ -124,11 +110,11 @@ Now that you have run your initial experiment, you can visualize the data to und
 
      ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
 
-1. Click on each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
+1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
 ## Prepare data
 
-A dataset usually requires some preprocessing before it can be analyzed. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so you'll exclude that column from the model altogether.
+Typically, a dataset requires some preprocessing before it can be analyzed. You might have noticed some missing values when visualizing the dataset. These missing values need to be cleaned so the model can analyze the data correctly. You'll remove any rows that have missing values. Also, the **normalized-losses** column has a large proportion of missing values, so you'll exclude that column from the model altogether.
 
 > [!TIP]
 > Cleaning the missing values from input data is a prerequisite for using most of the modules.

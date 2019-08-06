@@ -80,7 +80,7 @@ Create a model that represents input claims by doing the following:
 1. If Solution Explorer is not already open, select **View** > **Solution Explorer**.
 2. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**.
 
-    ![Add model](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
+    ![Add Class menu item selected in Visual Studio](media/aadb2c-ief-rest-api-netfw/aadb2c-ief-rest-api-netfw-add-model.png)
 
 3. Name the class `InputClaimsModel`, and then add the following properties to the `InputClaimsModel` class:
 

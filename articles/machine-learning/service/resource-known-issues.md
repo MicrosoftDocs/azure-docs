@@ -115,6 +115,14 @@ If you see this error when you use automated machine learning:
 
 If these steps don't solve the issue, try restarting the cluster.
 
+### FailToSendFeather
+
+If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
+
+* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Add `azure-dataprep` version 1.1.8 or above.
+* Add `pyarrow` version 0.11 or above.
+
 ## Azure portal
 
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
@@ -140,3 +148,9 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Overloaded AzureFile storage
+
+If you receive an error "Unable to upload project files to working directory in AzureFile because the storage is overloaded", apply following workarounds.
+
+If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.

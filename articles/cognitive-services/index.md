@@ -7,13 +7,14 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.author: nitinme
-ms.date: 06/20/2019
+ms.date: 07/22/2019
 ms.topic: hub-page
 ---
 
 <div id="main" class="v2">
 <h1>Azure Cognitive Services Documentation</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Learn how to build intelligent algorithms into apps, websites, and bots so that they see, hear, speak, and understand your user needs through natural methods of communication. Tutorials, quickstarts, API references, and examples show you how.</p>
+        <p> Each service has its own <a href="/azure/cognitive-services/language-support">language support</a> and <a href="/azure/cognitive-services/cognitive-services-and-machine-learning#service-requirements-for-the-data-model">data model requirements</a> ranging from a fully-trained model to a fully-customizable model. 
 
 
 <h2>Cognitive Services APIs</h2>
@@ -118,6 +119,25 @@ ms.topic: hub-page
                             <div class="cardText">
                                 <h3>What are Cognitive Services?</h3>
                                 <p>Learn about Azure Cognitive Services and how to use the different APIs to build intelligent apps.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-and-machine-learning/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_get-started.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Cognitive Services and machine learning</h3>
+                                <p>Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning.</p>
                             </div>
                         </div>
                     </div>

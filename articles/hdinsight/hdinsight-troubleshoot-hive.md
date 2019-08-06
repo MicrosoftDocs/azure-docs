@@ -4,7 +4,7 @@ description: Get answers to common questions about working with Apache Hive and 
 keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
 ---

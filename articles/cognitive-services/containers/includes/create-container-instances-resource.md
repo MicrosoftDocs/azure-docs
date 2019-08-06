@@ -34,12 +34,12 @@ ms.author: dapine
     |--|--|
     |Ports|Set the TCP port to `5000`. Exposes the container on port 5000.|
 
-4. On the **Advanced** tab, enter the required **Environment Variables** for the container [billing settings](https://docs.microsoft.com/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-install-containers#billing-arguments) of the ACI resource:
+4. On the **Advanced** tab, enter the required **Environment Variables** for the container billing settings of the ACI resource:
 
     | Key | Value |
     |--|--|
-    |`apikey`|Copied from the **Keys** page of the Text Analytics resource. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
-    |`billing`|Copied from the **Overview** page of the Text Analytics resource. Example: `https://northeurope.api.cognitive.microsoft.com/text/analytics/v2.0`|
+    |`apikey`|Copied from the **Keys** page of the resource. It is a 32 alphanumeric-character string with no spaces or dashes, `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.|
+    |`billing`|Copied from the **Overview** page of the resource.|
     |`eula`|`accept`|
 
 1. Click **Review and Create**

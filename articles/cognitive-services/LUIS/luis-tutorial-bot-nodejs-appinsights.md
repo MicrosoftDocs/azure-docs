@@ -1,5 +1,5 @@
 ---
-title: Application Insights, Node.js 
+title: Application Insights, Node.js - LUIS
 titleSuffix: Azure Cognitive Services
 description: This tutorial adds bot and Language Understanding information to Application Insights telemetry data storage.
 services: cognitive-services

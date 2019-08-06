@@ -292,6 +292,16 @@
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Get account type and SKU name (.NET)
+        href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Create and manage containers
+      items:
+      - name: Create or delete a container (.NET)
+        href: storage-blob-container-create.md
+      - name: List containers (.NET)
+        href: storage-blob-containers-list.md
+      - name: Manage properties and metadata (.NET)
+        href: storage-blob-container-properties-metadata.md
     - name: Secure blob data
       items:
       - name: Authorize access to blob data
@@ -358,8 +368,6 @@
         href: ../common/storage-use-azurite.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use the Azure Storage emulator
         href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Set and retrieve properties and metadata
-      href: storage-properties-metadata.md
     - name: Host a static website
       href: storage-blob-static-website-how-to.md
     - name: Map Azure CDN to a custom domain for access over HTTPS
@@ -547,12 +555,22 @@
       href: ../blobs/data-lake-storage-data-scenarios.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Quickstarts
     items:
-    - name: Create a Storage account
-      href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Manage data with Storage Explorer
-      href: ../blobs/data-lake-storage-explorer.md
     - name: Analyze data with Databricks
       href: ../blobs/data-lake-storage-quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Manage blobs without code
+      items:
+      - name: PowerShell
+        href: storage-quickstart-blobs-powershell.md
+      - name: CLI
+        href: storage-quickstart-blobs-cli.md
+    - name: Develop with blobs
+      items:
+      - name: .NET
+        href: storage-quickstart-blobs-dotnet.md
+      - name: Java
+        href: storage-quickstart-blobs-java-v10.md
+      - name: Python
+        href: storage-quickstart-blobs-python.md
   - name: Tutorials
     items:
     - name: Extract, transform, and load data using Azure Databricks
@@ -563,6 +581,8 @@
       href: ../blobs/data-lake-storage-tutorial-extract-transform-load-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Concepts
     items:
+    - name: Multi-protocol access
+      href: ../blobs/data-lake-storage-multi-protocol-access.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System driver for Hadoop
       href: ../blobs/data-lake-storage-abfs-driver.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure Blob File System URI
@@ -571,16 +591,38 @@
       href: ../blobs/data-lake-storage-namespace.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Best practices
       href: data-lake-storage-best-practices.md
+    - name: Access tiers
+      items:
+      - name: Access tiers
+        href: storage-blob-storage-tiers.md
+      - name: Managing the Azure Blob Storage Lifecycle
+        href: storage-lifecycle-management-concepts.md
     - name: Security
       items:
         - name: Storage security overview
           href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json        
         - name: Access control
           href: data-lake-storage-access-control.md
+    - name: Logging
+      items:
+        - name: Storage analytics
+          href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Storage analytics logs
+          href: ../common/storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Event handling
       href: storage-blob-event-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: How to
     items:
+    - name: Create and manage storage accounts
+      items:
+      - name: Create a general-purpose storage account
+        href: ../blobs/data-lake-storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Manage a storage account
+        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Manage data with Storage Explorer
+        href: ../blobs/data-lake-storage-explorer.md
+      - name: Upgrade a storage account
+        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Ingest data
       items:
       - name: AzCopy
@@ -626,7 +668,9 @@
         - name: Use with Azure Databricks
           href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
         - name: Use with Azure SQL Data Warehouse
-          href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase
+          href: ../../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#azure-sql-data-warehouse-polybase   
+        - name: Use with Power BI
+          href: ../blobs/data-lake-storage-use-power-bi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json   
     - name: Optimize performance
       items:
         - name: Overview
@@ -639,6 +683,12 @@
           href: ../blobs/data-lake-storage-performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Optimize Storm on HDInsight
           href: ../blobs/data-lake-storage-performance-tuning-storm.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Manage files (blobs)
+      items:
+       - name: PowerShell
+         href: /powershell/module/azure.storage
+       - name: Azure CLI
+         href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Migrate data
       items:
         - name: Upgrade from Data Lake Storage Gen1
@@ -647,8 +697,37 @@
           href: ../blobs/data-lake-storage-migrate-on-premises-HDFS-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Reference
     items:
+    - name: PowerShell
+      href: /powershell/module/azure.storage
+    - name: Azure CLI
+      href: /cli/azure/storage
+    - name: .NET
+      items:
+      - name: Blobs, Queues, Tables, and Files
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
+      - name: Data movement
+        href: /dotnet/api/microsoft.azure.storage.datamovement
+      - name: Resource Manager
+        href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
+    - name: Java
+      items:
+      - name: Blobs, Queues, Tables, and Files (v7)
+        href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-stable
+      - name: Blob SDK (v10)
+        href: https://docs.microsoft.com/java/api/overview/azure/storage/client?view=azure-java-preview
     - name: REST
-      href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
+      items:
+      - name: Blobs, Queues, Tables, and Files
+        href: /rest/api/storageservices
+      - name: Data Lake Storage Gen2
+        href: https://docs.microsoft.com/rest/api/storageservices/data-lake-storage-gen2
+      - name: Resource provider
+        href: /rest/api/storagerp
+      - name: Import/Export
+        href: /rest/api/storageimportexport
+    - name: Resource Manager template
+      displayName: ARM
+      href: /azure/templates/microsoft.storage/allversions
   - name: Resources
     items:
     - name: Known issues
