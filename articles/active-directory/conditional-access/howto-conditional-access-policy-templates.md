@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access policy templates
 
-Baseline protection policies are great but many organizations need more flexibility than they offer.
+Baseline protection policies are great but many organizations need more flexibility than they offer. For example, many organizations need the ability to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies requiring multi-factor authentication. For those organizations the template policies referenced in this article can be of use.
 
 ## Typical policies deployed by organizations
 

@@ -48,8 +48,8 @@ The following steps will help create a Conditional Access policy to require thos
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management** and select **Select** then **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
-1. Set **Enable policy** to **On**.
-1. Select **Create** to create and enable your policy.
+1. Confirm your settings and set **Enable policy** to **On**.
+1. Select **Create** to create to enable your policy.
 
 ## Next steps
 
