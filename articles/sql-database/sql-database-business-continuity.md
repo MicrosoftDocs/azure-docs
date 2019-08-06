@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 06/25/2019
 ---
 # Overview of business continuity with Azure SQL Database

@@ -25,19 +25,19 @@ The rest of this article provides considerations for migrating your SQL Server i
 
 ## Provisioning
 
-There is a pay-as-you-go **SQL Server 2008 R2 on Windows Server 2008 R2** image available on the Azure Marketplace.
+There is a pay-as-you-go **SQL Server 2008 R2 on Windows Server 2008 R2** image available on Azure Marketplace.
 
 Customers who are on SQL Server 2008 will need to either self-install or upgrade to SQL Server 2008 R2. Likewise, customers on Windows Server 2008 will need to either deploy their VM from a custom VHD or upgrade to Windows Server 2008 R2.
 
-Images deployed through the Marketplace come with the SQL IaaS extension pre-installed. The SQL IaaS extension is a requirement for flexible licensing and automated patching. Customers who deploy self-installed VMs will need to manually install the SQL IaaS extension. The SQL IaaS extension is not supported on Windows Server 2008.
+Images deployed through Azure Marketplace come with the SQL IaaS extension pre-installed. The SQL IaaS extension is a requirement for flexible licensing and automated patching. Customers who deploy self-installed VMs will need to manually install the SQL IaaS extension. The SQL IaaS extension is not supported on Windows Server 2008.
 
 > [!NOTE]
 > Although the SQL Server **Create** and **Manage** blades will work with the SQL Server 2008 R2 image in the Azure portal, the following features are _not supported_: Automatic backups, Azure Key Vault integration, R Services, and storage configuration.
 
 ## Licensing
-Pay-as-you-go SQL Server 2008 R2 deployments can convert to [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/hybrid-benefit/).
+Pay-as-you-go SQL Server 2008 R2 deployments can convert to [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
-To convert a Software Assurance (SA)-based license to pay-as-you-go, customers should register with the SQL VM [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). After that registration, the SQL license type will be interchangeable between AHB and pay-as-you-go.
+To convert a Software Assurance (SA)-based license to pay-as-you-go, customers should register with the SQL VM [resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). After that registration, the SQL license type will be interchangeable between Azure Hybrid Benefit and pay-as-you-go.
 
 Self-installed SQL Server 2008 or SQL Server 2008 R2 instances on an Azure VM can register with the SQL VM resource provider and convert their license type to pay-as-you-go.
 

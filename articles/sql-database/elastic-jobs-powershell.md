@@ -10,7 +10,6 @@ ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
-manager: craigg
 ms.date: 03/13/2019
 ---
 # Create an Elastic Job agent using PowerShell

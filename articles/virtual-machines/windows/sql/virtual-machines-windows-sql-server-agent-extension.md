@@ -47,7 +47,7 @@ The SQL Server IaaS Agent Extension supports the following administration tasks:
 
 After the SQL Server Iaas Agent Extension is installed and running, it makes the administration features available:
 
-* On the SQL Server panel of the virtual machine in the Azure portal and through Azure PowerShell for SQL Server images on the Azure Marketplace.
+* On the SQL Server panel of the virtual machine in the Azure portal and through Azure PowerShell for SQL Server images on Azure Marketplace.
 * Through Azure PowerShell for manual installations of the extension. 
 
 ## Prerequisites
@@ -105,7 +105,7 @@ To upgrade the agent mode to full:
 ##  Installation
 The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider). If necessary, you can install the SQL Server IaaS agent manually by using full or lightweight mode. 
 
-The SQL Server IaaS Agent Extension in full mode is automatically installed when you provision one of the SQL Server virtual machine Marketplace images by using the Azure portal. 
+The SQL Server IaaS Agent Extension in full mode is automatically installed when you provision one of the SQL Server virtual machine Azure Marketplace images by using the Azure portal. 
 
 ### Install in full mode
 The full mode for the SQL Server IaaS extension offers full manageability for a single instance on the SQL Server VM. If there is a default instance, the extension will work with the default instance, and it won't support managing other instances. If there is no default instance but only one named instance, it will manage the named instance. If there is no default instance and there are multiple named instances, the extension will fail to be installed. 
@@ -138,7 +138,7 @@ Install the SQL Server IaaS agent with full mode by using PowerShell:
 The SQL Server IaaS extension will work with a named instance on SQL Server if the default instance is uninstalled and the IaaS extension is reinstalled.
 
 To use a named instance of SQL Server:
-   1. Deploy a SQL Server VM from the Marketplace. 
+   1. Deploy a SQL Server VM from Azure Marketplace. 
    1. Uninstall the IaaS extension from the [Azure portal](https://portal.azure.com).
    1. Uninstall SQL Server completely within the SQL Server VM.
    1. Install SQL Server with a named instance within the SQL Server VM. 
@@ -155,7 +155,7 @@ Install the SQL Server IaaS agent with lightweight mode by using PowerShell:
      // Get the existing  Compute VM
      $vm = Get-AzVM -Name <vm_name> -ResourceGroupName <resource_group_name>
           
-     // Register the SQL VM with the 'Lightweight' SQL IaaS agent
+     // Register the SQL Server VM with the 'Lightweight' SQL IaaS agent
      New-AzResource -Name $vm.Name -ResourceGroupName $vm.ResourceGroupName -Location $vm.Location `
         -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines `
         -Properties @{virtualMachineResourceId=$vm.Id;sqlServerLicenseType='AHUB';sqlManagement='LightWeight'}  

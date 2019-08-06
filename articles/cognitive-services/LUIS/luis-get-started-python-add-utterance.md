@@ -1,6 +1,6 @@
 ---
-title: Change, train app, Python
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Change, train app, Python - LUIS
+titleSuffix: Azure Cognitive Services
 description: In this Python quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services
 author: diberry

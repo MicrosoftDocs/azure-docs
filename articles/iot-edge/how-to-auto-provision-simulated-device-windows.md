@@ -41,7 +41,7 @@ When you create an enrollment in DPS, you have the opportunity to declare an **I
 
 Choose the SDK language that you want to use to create the simulated device, and follow the steps until you create the individual enrollment.
 
-When you create the individual enrollment, select **Enable** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
+When you create the individual enrollment, select **True** to declare that the simulated TPM device on your Windows development machine is an **IoT Edge device**.
 
 Simulated device and individual enrollment guides:
 

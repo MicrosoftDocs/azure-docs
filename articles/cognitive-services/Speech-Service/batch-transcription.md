@@ -1,6 +1,6 @@
 ---
-title: How to use Batch Transcription - Speech Services
-titlesuffix: Azure Cognitive Services
+title: How to use Batch Transcription - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Batch transcription is ideal if you want to transcribe a large quantity of audio in storage, such as Azure Blobs. By using the dedicated REST API, you can point to audio files with a shared access signature (SAS) URI and asynchronously receive transcriptions.
 services: cognitive-services
 author: PanosPeriorellis

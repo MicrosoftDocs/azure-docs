@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 08/01/2019
 ms.author: jingwang
 
 ---
@@ -105,13 +105,14 @@ To copy data from Cassandra, set the type property of the dataset to **Cassandra
     "name": "CassandraDataset",
     "properties": {
         "type": "CassandraTable",
-        "linkedServiceName": {
-            "referenceName": "<Cassandra linked service name>",
-            "type": "LinkedServiceReference"
-        },
         "typeProperties": {
             "keySpace": "<keyspace name>",
             "tableName": "<table name>"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Cassandra linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }

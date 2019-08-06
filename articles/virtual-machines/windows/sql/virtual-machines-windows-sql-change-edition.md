@@ -1,5 +1,5 @@
 ---
-title: Perform an in-place upgrade of SQL Server on an Azure VM| Microsoft Docs
+title: Perform an in-place upgrade of a SQL Server edition on an Azure VM| Microsoft Docs
 description: Learn how to change the edition of your SQL Server VM in Azure. 
 services: virtual-machines-windows
 documentationcenter: na
@@ -16,7 +16,7 @@ ms.author: mathoma
 ms.reviewer: jroth
 
 ---
-# Perform an in-place upgrade of SQL Server on an Azure VM
+# Perform an in-place upgrade of a SQL Server edition on an Azure VM
 
 This article describes how to change the edition of SQL Server on a Windows virtual machine in Azure. 
 
@@ -82,7 +82,7 @@ After the SQL Server edition is downgraded, modify the edition property of the S
 
 - The edition property for the SQL Server VM must match the edition of the SQL Server instance installed for all SQL Server virtual machines, including both pay-as-you-go and bring-your-own-license types of licenses.
 - If you drop your SQL Server VM resource, you will go back to the hard-coded edition setting of the image.
-- The ability to change the edition is a feature of the SQL VM resource provider. Deploying a Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md).
+- The ability to change the edition is a feature of the SQL VM resource provider. Deploying an Azure Marketplace image through the Azure portal automatically registers a SQL Server VM with the resource provider. However, customers who are self-installing SQL Server will need to manually [register their SQL Server VM](virtual-machines-windows-sql-register-with-resource-provider.md).
 - Adding a SQL Server VM to an availability set requires re-creating the VM. Any VMs added to an availability set will go back to the default edition, and the edition will need to be modified again.
 
 ## Next steps

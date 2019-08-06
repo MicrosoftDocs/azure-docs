@@ -293,7 +293,7 @@ You can enable Antimalware extension using PowerShell script in the Startup Task
 - [Create a PowerShell startup task](cloud-services-startup-tasks-common.md#create-a-powershell-startup-task)
 - [Set-AzureServiceAntimalwareExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/Set-AzureServiceAntimalwareExtension?view=azuresmps-4.0.0 )
 
-For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/azure-security-antimalware.md#antimalware-deployment-scenarios).
+For more information about Antimalware deployment scenarios and how to enable it from the portal, see [Antimalware Deployment Scenarios](../security/fundamentals/antimalware.md#antimalware-deployment-scenarios).
 
 ### How to enable Server Name Indication (SNI) for Cloud Services?
 

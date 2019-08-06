@@ -10,7 +10,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/27/2019
+ms.date: 07/29/2019
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
 ---
@@ -18,7 +18,7 @@ ms.custom: H1Hack27Feb2017
 # Adding Log Analytics saved searches and alerts to management solution (Preview)
 
 > [!IMPORTANT]
-> The details here for creating an alert using a Resource Manager template are out of date now that [Log Analytics alerts have been extended to Azure Monitor](../platform/alerts-extend.md). For details on creating a log alert with a Resource Manager template, see [Managing log alerts using Azure Resource Template](../platform/alerts-log.md#managing-log-alerts-using-azure-resource-template).
+> As [announced earlier](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/), log analytics workspace(s) created after *June 1, 2019* - will be able to manage alert rules using **only** Azure scheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager Template](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) and [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). Customers can easily [switch their preferred means of alert rule management](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) for older workspaces to leverage Azure Monitor scheduledQueryRules as default and gain many [new benefits](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) like the ability to use native PowerShell cmdlets, increased lookback time period in rules, creation of rules in separate resource group or subscription and much more.
 
 > [!NOTE]
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.
@@ -83,16 +83,12 @@ Each property of a saved search is described in the following table.
 ## Alerts
 [Azure Log alerts](../../azure-monitor/platform/alerts-unified-log.md) are created by Azure Alert rules that run specified log queries at regular intervals. If the results of the query match specified criteria, an alert record is created and one or more actions are run using [Action Groups](../../azure-monitor/platform/action-groups.md).
 
-> [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to extend into Azure. For more information, see [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-Alert rules in a management solution are made up of the following three different resources.
+For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+Alert rules in legacy management solution are made up of the following three different resources.
 
 - **Saved search.** Defines the log search that is run. Multiple alert rules can share a single saved search.
 - **Schedule.** Defines how often the log search is run. Each alert rule has one and only one schedule.
 - **Alert action.** Each alert rule has one action group resource or action resource (legacy) with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record is created and the alert's severity. [Action group](../../azure-monitor/platform/action-groups.md) resource can have a list of configured actions to take when alert is fired - such as voice call, SMS, email, webhook, ITSM tool, automation runbook, logic app, etc.
-
-The action resource (legacy) will optionally define a mail and runbook response.
-- **Webhook action (legacy).** If the alert rule calls a webhook, then it requires an additional action resource with a type of **Webhook**.
 
 Saved search resources are described above. The other resources are described below.
 
@@ -129,8 +125,7 @@ The schedule resource should depend on the saved search so that it's created bef
 ### Actions
 A schedule can have multiple actions. An action may define one or more processes to perform such as sending a mail or starting a runbook, or it may define a threshold that determines when the results of a search match some criteria. Some actions will define both so that the processes are performed when the threshold is met.
 Actions can be defined using [action group] resource or action resource.
-> [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
+
 There are two types of action resource specified by the **Type** property. A schedule requires one **Alert** action, which defines the details of the alert rule and what actions are taken when an alert is created. Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.
 
 Alert actions have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names.
@@ -188,9 +183,6 @@ This section is required. It defines the properties for the alert threshold.
 ##### MetricsTrigger
 This section is optional. Include it for a metric measurement alert.
 
-> [!NOTE]
-> Metric measurement alerts are currently in public preview.
-
 | Element name | Required | Description |
 |:--|:--|:--|
 | TriggerCondition | Yes | Specifies whether the threshold is for total number of breaches or consecutive breaches from the following values:<br><br>**Total<br>Consecutive** |
@@ -215,61 +207,6 @@ For user's who have extended their alerts into Azure - a schedule should now hav
 | AzNsNotification | Yes | The resource ID of the Azure action group to be associated with alert for taking necessary actions when alert criteria is met. |
 | CustomEmailSubject | No | Custom subject line of the mail sent to all addresses specified in associated action group. |
 | CustomWebhookPayload | No | Customized payload to be sent to all webhook endpoints defined in associated action group. The format depends on what the webhook is expecting and should be a valid serialized JSON. |
-
-#### Actions for OMS (legacy)
-
-Every schedule has one **Alert** action. This defines the details of the alert and optionally notification and remediation actions. A notification sends an email to one or more addresses. A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
-
-> [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../../azure-monitor/platform/alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../azure-monitor/platform/action-groups-create-resource-manager-template.md).
-
-##### EmailNotification
- This section is optional Include it if you want the alert to send mail to one or more recipients.
-
-| Element name | Required | Description |
-|:--|:--|:--|
-| Recipients | Yes | Comma-delimited list of email addresses to send notification when an alert is created such as in the following example.<br><br>**[ "recipient1\@contoso.com", "recipient2\@contoso.com" ]** |
-| Subject | Yes | Subject line of the mail. |
-| Attachment | No | Attachments are not currently supported. If this element is included, it should be **None**. |
-
-##### Remediation
-This section is optional Include it if you want a runbook to start in response to the alert. 
-
-| Element name | Required | Description |
-|:--|:--|:--|
-| RunbookName | Yes | Name of the runbook to start. |
-| WebhookUri | Yes | Uri of the webhook for the runbook. |
-| Expiry | No | Date and time that the remediation expires. |
-
-##### Webhook actions
-
-Webhook actions start a process by calling a URL and optionally providing a payload to be sent. They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks. They also provide the additional option of providing a payload to be delivered to the remote process.
-
-If your alert will call a webhook, then it will need an action resource with a type of **Webhook** in addition to the **Alert** action resource.
-
-    {
-      "name": "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name, '/', variables('Schedule').Name, '/', variables('Webhook').Name)]",
-      "type": "Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions/",
-      "apiVersion": "[variables('LogAnalyticsApiVersion')]",
-      "dependsOn": [
-        "[concat('Microsoft.OperationalInsights/workspaces/', parameters('workspaceName'), '/savedSearches/', variables('SavedSearch').Name, '/schedules/', variables('Schedule').Name)]"
-      ],
-      "properties": {
-        "etag": "*",
-        "type": "[variables('Alert').Webhook.Type]",
-        "name": "[variables('Alert').Webhook.Name]",
-        "webhookUri": "[variables('Alert').Webhook.webhookUri]",
-        "customPayload": "[variables('Alert').Webhook.CustomPayLoad]"
-      }
-    }
-The properties for Webhook action resources are described in the following tables.
-
-| Element name | Required | Description |
-|:--|:--|:--|
-| type | Yes | Type of the action. This is **Webhook** for webhook actions. |
-| name | Yes | Display name for the action. This is not displayed in the console. |
-| webhookUri | Yes | Uri for the webhook. |
-| customPayload | No | Custom payload to be sent to the webhook. The format depends on what the webhook is expecting. |
 
 ## Sample
 

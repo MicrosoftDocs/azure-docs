@@ -53,7 +53,7 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 + **Using the CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
   > [!TIP]
@@ -169,7 +169,7 @@ If you want to use automatic schema generation, your entry script **must** impor
 Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The scikit-learn example below uses schema generation.
 
 > [!TIP]
-> After deploying the service, use the `swagger_uri` property to retrieve the schema JSON document.
+> You can retrieve the schema JSON document after deploying the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service, such as `service.swagger_uri`, to get the URI to the local web service's Swagger file.
 
 #### Example entry script
 
@@ -363,7 +363,11 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 ## Consume web services
 
 Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
-If you have enabled authentication for your service, you need to provide a service key as a token in your request header.
+If you have enabled key authentication for your service, you need to provide a service key as a token in your request header.
+If you have enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
+
+> [!TIP]
+> You can retrieve the schema JSON document after deploying the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service, such as `service.swagger_uri`, to get the URI to the local web service's Swagger file.
 
 ### Request-response consumption
 
@@ -376,6 +380,8 @@ headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+elif service.token_auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_token()[0]
 
 print(headers)
 

@@ -17,7 +17,7 @@ ms.reviewer: jroth
 
 ---
 # Use the Azure CLI to configure an Always On availability group for SQL Server on an Azure VM
-This article describes how to use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer (ILB) and listener for an Always On availability group (AG). Deployment of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
+This article describes how to use the [Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) to deploy a Windows failover cluster, add SQL Server VMs to the cluster, and create the internal load balancer and listener for an Always On availability group. Deployment of the Always On availability group is still done manually through SQL Server Management Studio (SSMS). 
 
 ## Prerequisites
 To automate the setup of an Always On availability group by using the Azure CLI, you must have the following prerequisites: 
@@ -30,7 +30,7 @@ To automate the setup of an Always On availability group by using the Azure CLI,
 ## Permissions
 You need the following account permissions to configure the Always On availability group by using the Azure CLI: 
 
-- An existing domain user account that has Create Computer Object permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
+- An existing domain user account that has **Create Computer Object** permission in the domain. For example, a domain admin account typically has sufficient permission (for example: account@domain.com). _This account should also be part of the local administrator group on each VM to create the cluster._
 - The domain user account that controls the SQL Server service. 
  
 ## Step 1: Create a storage account as a cloud witness
@@ -96,10 +96,10 @@ Manually create the availability group as you normally would, by using [SQL Serv
 
 ## Step 5: Create the internal load balancer
 
-The Always On availability group listener requires an internal instance of Azure Load Balancer. The internal load balancer provides a “floating” IP address for the AG listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, you can use a Basic load balancer. Otherwise, you need to use a Standard load balancer.  
+The Always On availability group listener requires an internal instance of Azure Load Balancer. The internal load balancer provides a “floating” IP address for the availability group listener that allows for faster failover and reconnection. If the SQL Server VMs in an availability group are part of the same availability set, you can use a Basic load balancer. Otherwise, you need to use a Standard load balancer.  
 
 > [!NOTE]
-> The ILB should be in the same virtual network as the SQL Server VM instances. 
+> The internal load balancer should be in the same virtual network as the SQL Server VM instances. 
 
 The following code snippet creates the internal load balancer:
 
@@ -133,7 +133,7 @@ The *subnet resource ID* is the value of `/subnets/<subnetname>` appended to the
 The following code snippet creates the availability group listener:
 
 ```azurecli-interactive
-# Create the AG listener
+# Create the availability group listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
 #  --load-balancer sqlilb --probe-port 59999  `
@@ -144,7 +144,7 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
   --ag-name <availability group name> --group-name <cluster name> --ip-address <ag listener IP address> `
   --load-balancer <lbname> --probe-port <Load Balancer probe port, default 59999>  `
   --subnet <subnet resource id> `
-  --sqlvms <names of SQL VM's hosting AG replicas ex: sqlvm1 sqlvm2>
+  --sqlvms <names of SQL VM's hosting AG replicas, ex: sqlvm1 sqlvm2>
 ```
 
 ## Modify the number of replicas in an availability group
@@ -200,10 +200,10 @@ To remove a replica from the availability group:
 ## Remove the availability group listener
 If you later need to remove the availability group listener configured with the Azure CLI, you must go through the SQL VM resource provider. Because the listener is registered through the SQL VM resource provider, just deleting it via SQL Server Management Studio is insufficient. 
 
-The best method is to delete it through the SQL VM resource provider by using the following code snippet in the Azure CLI. Doing so removes the AG listener metadata from the SQL VM resource provider. It also physically deletes the listener from the availability group. 
+The best method is to delete it through the SQL VM resource provider by using the following code snippet in the Azure CLI. Doing so removes the availability group listener metadata from the SQL VM resource provider. It also physically deletes the listener from the availability group. 
 
 ```azurecli-interactive
-# Remove the AG listener
+# Remove the availability group listener
 # example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
 
 az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
