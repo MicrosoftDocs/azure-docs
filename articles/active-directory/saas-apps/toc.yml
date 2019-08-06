@@ -1309,7 +1309,7 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
-      - name: Viareport's Inativ Portal (Europe)
+      - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
@@ -1534,6 +1534,8 @@
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
+      - name: Templafy
+        href: templafy-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday

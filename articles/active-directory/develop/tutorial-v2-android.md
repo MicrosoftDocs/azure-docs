@@ -3,7 +3,7 @@ title: Getting started with Android - Microsoft identity platform | Azure
 description: How an Android app can get an access token and call Microsoft Graph API or APIs that require access tokens from Microsoft identity platform.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 
 ms.service: active-directory

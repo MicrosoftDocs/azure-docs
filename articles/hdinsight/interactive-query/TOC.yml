@@ -24,10 +24,12 @@
     maintainContext: true
   - name: Troubleshoot
     items:
-    - name: OutOfMemoryError exception
-      items:
-      - name: GC overhead limit exceeded
-        href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: GC overhead limit exceeded
+      href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Apache Ambari Tez View loads slowly
+      href: ./interactive-query-troubleshoot-tez-view-slow.md
+    - name: Error message not shown in Apache Hive View
+      href: ./interactive-query-troubleshoot-error-message-hive-view.md
     - name: Inaccessible Apache Hive View 
       href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
     - name: ZooKeeperHiveClientException - HiveServer2 configs

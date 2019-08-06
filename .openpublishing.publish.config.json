@@ -306,6 +306,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cosmosdb-xamarin",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
       "branch": "master"
