@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Call Cognitive Services REST APIs in an indexing pipeline - Azure Search'
+title: 'REST Tutorial: Call Cognitive Services in an AI enrichment pipeline - Azure Search'
 description: Step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation over JSON blobs using Postman and the REST API. 
 manager: pablocas
 author: luiscabrer

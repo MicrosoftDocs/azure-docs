@@ -100,4 +100,4 @@ If the recovery type is “snapshot and vault”, restore will be automatically 
 The new model does not allow deleting the restore point (Tier2) unless the snapshot (Tier1) is deleted. We recommend scheduling restore point (Tier2) retention period greater than the snapshot retention period.
 
 ### Why is my snapshot existing even after the set retention period in backup policy?
-If the recovery point has snapshot and that is the latest RP available, it is retained until the time there is a next successful backup. This is as per the designed GC policy today that mandates at least one latest RP to be always present in case all backups further on fail due to an issue in the VM. In normal scenarios, RPs are cleaned up in maximum of 24 hours after their expiry.
+If the recovery point has snapshot and that is the latest RP available, it is retained until the time there is a next successful backup. This is as per the designed "garbage collection" (GC) policy today that mandates at least one latest RP to be always present in case all backups further on fail due to an issue in the VM. In normal scenarios, RPs are cleaned up in maximum of 24 hours after their expiry.

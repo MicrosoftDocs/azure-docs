@@ -30,7 +30,7 @@ This tutorial guides you through the process of creating an Azure Time Series In
 
 * Your Azure sign-in account also must be a member of the subscription's **Owner** role. For more information, see [Manage access by using role-based access control and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
-## Video
+## Review video
 
 ### Learn how to use an Azure IoT solution accelerator to generate data and get started with Time Series Insights. </br>
 
@@ -112,7 +112,7 @@ Second, create a Time Series Insights environment in your Azure subscription.
 
    [![Time Series Insights environment deployment succeeded](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
-## Run device simulation to stream data
+## Run device simulation
 
 Now that the deployment and initial configuration's complete, populate the Time Series Insights environment with sample data from [simulated devices created by the accelerator](#create-a-device-simulation).
 

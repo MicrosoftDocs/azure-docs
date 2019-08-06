@@ -26,7 +26,7 @@ Use the links in this section for more information about managed cloud networkin
 
 [Aryaka Networks](https://www.aryaka.com/)
 
-[BT](https://www.bt.com/)
+[BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
 
 [Dimension Data](https://www.dimensiondata.com/)
 
@@ -35,6 +35,8 @@ Use the links in this section for more information about managed cloud networkin
 [InterCloud](https://www.intercloud.com/)
 
 [IIJ](https://www.iij.ad.jp/en/)
+
+[ixreach](https://www.ixreach.com/)
 
 [Megaport](https://www.megaport.com/)
 
