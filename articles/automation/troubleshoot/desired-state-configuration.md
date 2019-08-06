@@ -183,7 +183,7 @@ Customers have identified that if the /tmp location is set to noexec, the curren
 
 If a single configuration script is used to generate multiple node configurations, and some of the node configurations have a name that is a subset of others, an issue in the compilation service could result in assigning the wrong configuration.  This only occurs when using a single script to generate configurations with configuration data per node, and only when the name overlap occurs at the beginning of the string.
 
-Example, if a single configuration script is ued to generate configurations based on node data passed as a hashtable using cmdlets, and the node data includes a server named "server" and "1server".
+Example, if a single configuration script is used to generate configurations based on node data passed as a hashtable using cmdlets, and the node data includes a server named "server" and "1server".
 
 #### Cause
 
@@ -191,7 +191,7 @@ Known issue with the compilation service.
 
 #### Resolution
 
-The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF fies directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
+The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
 
 ## Next steps
 
