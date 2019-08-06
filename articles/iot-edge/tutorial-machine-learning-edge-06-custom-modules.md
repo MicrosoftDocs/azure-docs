@@ -87,11 +87,11 @@ During execution of the second of our two Azure Notebooks, we created and publis
        }
        ```
 
-     * **Modules:** This section contains the set of user-defined modules that go with this solution. You will notice that this section currently contains two modules: tempSensor and turbofanRulClassifier. The tempSensor was installed by the Visual Studio Code template, but we don’t need it for this solution. You can delete the tempSensor module definition from the modules section. Note that the turbofanRulClassifier module definition points to the image in your container registry. As we add more modules to the solution, they will show up in this section.
+     * **Modules:** This section contains the set of user-defined modules that go with this solution. You will notice that this section currently contains two modules: SimulatedTemperatureSensor and turbofanRulClassifier. The SimulatedTemperatureSensor was installed by the Visual Studio Code template, but we don’t need it for this solution. You can delete the SimulatedTemperatureSensor module definition from the modules section. Note that the turbofanRulClassifier module definition points to the image in your container registry. As we add more modules to the solution, they will show up in this section.
 
        ```json
        "modules": {
-         "tempSensor": {
+         "SimulatedTemperatureSensor": {
            "version": "1.0",
            "type": "docker",
            "status": "running",
@@ -114,7 +114,7 @@ During execution of the second of our two Azure Notebooks, we created and publis
        }
        ```
 
-     * **Routes:** we will be working with routes quite a bit in this tutorial. Routes define how modules communicate with each other. The two routes defined by the template do not match with the routing we need. The first route sends all the data from any output of the classifier to the IoT Hub ($upstream). The other route is for tempSensor, which we just deleted. Delete the two default routes.
+     * **Routes:** we will be working with routes quite a bit in this tutorial. Routes define how modules communicate with each other. The two routes defined by the template do not match with the routing we need. The first route sends all the data from any output of the classifier to the IoT Hub ($upstream). The other route is for SimulatedTemperatureSensor, which we just deleted. Delete the two default routes.
 
        ```json
        "$edgeHub": {
@@ -122,7 +122,7 @@ During execution of the second of our two Azure Notebooks, we created and publis
            "schemaVersion": "1.0",
            "routes": {
              "turbofanRulClassifierToIoTHub": "FROM /messages/modules/turbofanRulClassifier/outputs/\* INTO $upstream",
-             "sensorToturbofanRulClassifier": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
+             "sensorToturbofanRulClassifier": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\\"/modules/turbofanRulClassifier/inputs/input1\\")"
            },
            "storeAndForwardConfiguration": {
              "timeToLiveSecs": 7200
