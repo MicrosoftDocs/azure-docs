@@ -36,7 +36,7 @@ Import the sample package to a new Unity project.
 
 * Click on the **Import** button to integrate the Unity package into your project  
   
-    ![Screenshot of Unity Import Package diaglog](media/import-dialog.png)  
+    ![Screenshot of Unity Import Package dialog](media/import-dialog.png)  
 
 If you're importing the package into an existing project, see [Unity integration](unity-integration.md) for additional steps and notes.
 

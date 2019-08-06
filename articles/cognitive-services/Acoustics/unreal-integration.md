@@ -117,7 +117,7 @@ An example Wwise project is included with the samples download. We recommend loo
 
 * Then go to the Mixer Plug-in tab and add the project acoustics mixer plug-in to the bus
 
-    ![Screenshow of Wwise bus showing how to add the Project Acoustics Mixer Plugin](media/add-mixer-plugin.png)
+    ![Screenshot of Wwise bus showing how to add the Project Acoustics Mixer Plugin](media/add-mixer-plugin.png)
 
 ### Actor-mixer hierarchy setup
 * For performance reasons, Project Acoustics applies audio DSP to all sources simultaneously. This requires the plugin to operate as a mixer plugin. Wwise requires mixer plugins to be on the output bus, though the output bus usually carries the dry output signal. Project Acoustics requires the dry signal be routed through aux busses while the wet signal is carried on the `Project Acoustics Bus`. The following process supports gradual migration to this signal flow.
@@ -159,7 +159,7 @@ Unfortunately, other object-based spatializer plugins can't be supported at this
 
 * Now assign the baked acoustic data asset to the Acoustics Data slot on the Acoustics Space actor. Your scene now has acoustics!
 
-    ![Screenshot of Unreal editor s howing acoustics Asset assignment](media/acoustics-asset-assign.png)
+    ![Screenshot of Unreal editor showing acoustics Asset assignment](media/acoustics-asset-assign.png)
 
 * Now add an empty actor and do the following:
 

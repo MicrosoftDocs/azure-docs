@@ -202,7 +202,7 @@ You can bake your scene on your own PC. This can be useful for experimenting wit
 
 ### Minimum hardware requirements
 * An x86-64 processor with at least 8 cores and 32 GB of RAM
-* [Hyper-V enabled](https://docs.microsoft.com/en-us/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) to run Docker
+* [Hyper-V enabled](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) to run Docker
 
 As an example, in our testing on an 8 core machine with Intel Xeon E5-1660 @ 3 GHz and 32 GB RAM -
 * A small scene with 100 probes can take about 2 hours for a coarse bake or 32 hours for a fine bake.
