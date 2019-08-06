@@ -26,7 +26,7 @@ For the public preview, the following limits and quotas apply to an IoT hub:
 | Maximum size of a property name  | 64 bytes, 7 levels in depth (and the first level is reserved for `$iotin`) | Allowed characters: a-z, A-Z, 0-9 (not as the first character), and underscore. |
 | Maximum size of a property value | 512 bytes ||
 | Maximum size of a command name | 100 bytes ||
-| Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins#device-twin-size.md) ||
+| Device twin size | Same as [IoT Hub Limits](../iot-hub/iot-hub-devguide-device-twins.md#device-twin-size) ||
 | Resolution API calls across SKU (regardless of units) | 100 request/second ||
 
 ## Model Repository
