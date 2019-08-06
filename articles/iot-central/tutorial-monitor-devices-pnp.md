@@ -3,7 +3,7 @@ title: Monitor your devices in Azure IoT Central | Microsoft Docs
 description: As an operator, use your Azure IoT Central application to monitor your devices.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/12/2019
+ms.date: 08/06/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -36,21 +36,19 @@ Before you begin, the builder should complete the three builder tutorials to cre
 
 Azure IoT Central sends notifications about devices as email messages. The builder added a rule to send a notification when the temperature in a connected environmental sensor device exceeded a threshold. Check the emails sent to the account the builder chose to receive notifications.
 
-Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. In the email, choose **Click here to open your device**:
+Open the email message you received at the end of the [Configure rules and actions for your device](tutorial-configure-rules-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) tutorial. In the email, select the link to the device:
 
 ![Alert notification email](media/tutorial-monitor-devices-pnp/email.png)
 
-The **Device** page for the environmental sensor simulated device you created in the previous tutorials opens in your browser:
+The **Dashboard** view for the environmental sensor simulated device you created in the previous tutorials opens in your browser:
 
-![Device that triggered the notification email message](media/tutorial-monitor-devices-pnp/sourcedevice.png)
+![Device that triggered the notification email message](media/tutorial-monitor-devices-pnp/dashboard.png)
 
 ## Investigate an issue
 
 As an operator, you can view information about the device on the **Dashboard**, **Environmental Sensor properties**, and **Commands** pages. The builder customized the **Dashboard** and **Environmental Sensor properties** pages to display important information about a connected environmental sensor device.
 
 Choose the **Dashboard** view to see information about the device.
-
-![Device dashboard](media/tutorial-monitor-devices-pnp/initial-screen.png)
 
 The chart on the dashboard shows a plot of the device temperature. You can also see the current target temperature for the device in the **Device properties** tile. You decide that the target temperature is too high.
 
