@@ -10,10 +10,10 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/17/2015
+ms.date: 08/06/2019
 ms.author: mbullwin
 ---
-# Using PowerShell to set up Application Insights for an Azure web app
+# Using PowerShell to set up Application Insights for an Azure cloud service app
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
