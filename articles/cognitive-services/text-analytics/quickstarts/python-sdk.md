@@ -71,23 +71,13 @@ The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/
 | Method | Response object class |
 | -- | -- |
 | [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [LanguageBatchResult](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.languagebatchresult?view=azure-python)
-| [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)
-| [key_phrases](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)
-| [sentiment()](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-)
+| [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [EntitiesBatchResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.entitiesbatchresult?view=azure-python)
+| [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [KeyPhraseBatchResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.keyphrasebatchresult?view=azure-python)
+| [sentiment()](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [SentimentBatchResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.sentimentbatchresult?view=azure-python)
 
 Text is sent to the API as a list of `documents`, which are dictionaries containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
-The response object is a list containing the analysis information for each document. Depending on the method called, these documents can be a `BatchResultItem`
-
-The Text Analysis response object 
-
-
-
-Text is sent to the API either directly in 
-
-Time series data is sent as a series of Points in a Request object. The Request object contains properties to describe the data (Granularity for example), and parameters for the anomaly detection.
-
-The Anomaly Detector response is a LastDetectResponse or EntireDetectResponse object depending on the method used.
+The response object is a list containing the analysis information for each document. 
 
 ## Code examples
 
