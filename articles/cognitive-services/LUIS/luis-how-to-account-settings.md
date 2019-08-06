@@ -1,6 +1,6 @@
 ---
-title: Manage account and keys
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Manage account and keys - LUIS
+titleSuffix: Azure Cognitive Services
 description: The two key pieces of information for a LUIS account are the user account and the authoring key. Your login information is managed at account.microsoft.com. Your authoring key is managed from the LUIS portal Settings page.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -19,7 +19,7 @@ The two key pieces of information for a LUIS account are the user account and th
 
 ## Authoring key
 
-This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://aka.ms/luis-authoring-api). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month.
+This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) portal as well as the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month.
 
 [![LUIS Settings page](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 

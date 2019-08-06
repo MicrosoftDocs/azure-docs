@@ -6,20 +6,19 @@ ms.date: 04/16/2019
 ms.author: alkohli
 ---
 
-- **Order details** – Once the order is created, the shipping address, email, contact information of users is stored in the Azure portal. The information saved includes:
+- **Order details**. When an order is created, the shipping address, email address, and contact information of the user is stored in the Azure portal. The information saved includes:
   - Contact name
   - Phone number
-  - Email
+  - Email address
   - Street address
   - City
-  - Zip/postal code
+  - ZIP Code/postal code
   - State
-  - Country/Province/Region
+  - Country/province/region
   - Shipping tracking number
 
-    The order details are encrypted and stored in the service. The service retains the information until you delete the resource or order explicitly. Moreover, the deletion of resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
+    Order details are encrypted and stored in the service. The service retains the information until you explicitly delete the resource or order. The deletion of the resource and the corresponding order is blocked from the time the device is shipped until the device returns to Microsoft.
 
-- **Shipping address** – After the order is placed, Data Box service provides the shipping address to third-party carriers such as UPS.
+- **Shipping address**. After an order is placed, Data Box service provides the shipping address to third-party carriers like UPS.
 
-- **Share users** - Users on your device can also access the data residing on the shares. A list of users who can access the share data is displayed and can be viewed. This list is also deleted when the shares are deleted.
-
+- **Share users**. Users on your device can also access the data located on the shares. A list of users who can access the share data can be viewed. When the shares are deleted, this list is also deleted.

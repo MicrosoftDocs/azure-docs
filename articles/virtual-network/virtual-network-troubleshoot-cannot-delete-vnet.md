@@ -63,7 +63,7 @@ If the Active Directory Domain Service is enabled and connected to the virtual n
 
 ![Check the connected device](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-To disable the service, see [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
+To disable the service, see [Disable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/delete-aadds.md).
 
 ### Check whether the virtual network is connected to other resource
 

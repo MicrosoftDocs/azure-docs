@@ -9,13 +9,31 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 04/30/2019
 ms.custom: seodec18
 
 ---
 # Known issues and troubleshooting Azure Machine Learning service
 
 This article helps you find and correct errors or failures encountered when using the Azure Machine Learning service.
+
+## Visual interface issues
+
+Visual interface for machine learning service issues.
+
+### Long compute preparation time
+
+Create new compute or evoke leaving compute takes time, may be a few minutes or even longer. The team is working for optimization.
+
+
+### Cannot run an experiment only contains dataset 
+
+You might want to run an experiment only contains dataset  to visualize the dataset. However, it's not allowed to run an experiment only contains dataset today. We are actively fixing this issue.
+ 
+Before the fix, you can connect the dataset to any data transformation module (Select Columns in Dataset, Edit Metadata, Split Data etc.) and run the experiment. Then you can visualize the dataset. 
+
+Below image shows how:
+![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
 
 ## SDK installation issues
 
@@ -48,6 +66,9 @@ You will not be able to deploy models on FPGAs until you have requested and been
 Tensor Flow
 Automated machine learning does not currently support tensor flow version 1.13. Installing this version will cause package dependencies to stop working. We are working to fix this issue in a future release. 
 
+### Experiment Charts
+
+Binary classification charts (precision-recall, ROC, gain curve etc.) shown in automated ML experiment iterations are not rendering corectly in user interface since 4/12. Chart plots are currently showing inverse results, where better performing models are shown with lower results. A resolution is under investigation.
 
 ## Databricks
 
@@ -94,6 +115,14 @@ If you see this error when you use automated machine learning:
 
 If these steps don't solve the issue, try restarting the cluster.
 
+### FailToSendFeather
+
+If you see a `FailToSendFeather` error when reading data on Azure Databricks cluster, refer to the following solutions:
+
+* Upgrade `azureml-sdk[automl_databricks]` package to the latest version.
+* Add `azure-dataprep` version 1.1.8 or above.
+* Add `pyarrow` version 0.11 or above.
+
 ## Azure portal
 
 If you go directly to view your workspace from a share link from the SDK or the portal, you will not be able to view the normal Overview page with subscription information in the extension. You will also not be able to switch into another workspace. If you need to view another workspace, the workaround is to go directly to the [Azure portal](https://portal.azure.com) and search for the workspace name.
@@ -119,3 +148,9 @@ If you perform a management operation on a compute target from a remote job, you
 ```
 
 For example, you will receive an error if you try to create or attach a compute target from an ML Pipeline that is submitted for remote execution.
+
+## Overloaded AzureFile storage
+
+If you receive an error "Unable to upload project files to working directory in AzureFile because the storage is overloaded", apply following workarounds.
+
+If you are using file share for other workloads, such as data transfer, the recommendation is to use blobs so that file share is free to be used for submitting runs. You may also split the workload between two different workspaces.

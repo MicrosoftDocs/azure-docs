@@ -1,6 +1,6 @@
 ---
-title: Webhooks - Speech Services
-titlesuffix: Azure Cognitive Services
+title: Webhooks - Speech Service
+titleSuffix: Azure Cognitive Services
 description: Webhooks are HTTP call backs ideal for optimizing your solution when dealing with long running processes like imports, adaptation, accuracy tests, or transcriptions of long running files.
 services: cognitive-services
 author: PanosPeriorellis
@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/11/2019
+ms.date: 07/05/2019
 ms.author: panosper
-ms.custom: seodec18
 ---
 
 # Webhooks for Speech Services
@@ -19,7 +18,7 @@ Webhooks are like HTTP callbacks that allow your application to accept data from
 
 ## Supported operations
 
-The Speech Services support webhooks for all long running operations. Each of the operations listed below can trigger an HTTP callback upon completion. 
+The Speech Services support webhooks for all long running operations. Each of the operations listed below can trigger an HTTP callback upon completion.
 
 * DataImportCompletion
 * ModelAdaptationCompletion
@@ -32,7 +31,10 @@ Next, let's create a webhook.
 
 ## Create a webhook
 
-Let's create a webhook for an offline transcription. The scenario: a user has a long running audio file that they would like to transcribe asynchronously with the Batch Transcription API. 
+Let's create a webhook for an offline transcription. The scenario: a user has a long running audio file that they would like to transcribe asynchronously with the Batch Transcription API.
+
+Webhooks can be created by making a
+POST request to https://\<region\>.cris.ai/api/speechtotext/v2.1/transcriptions/hooks.
 
 Configuration parameters for the request are provided as JSON:
 
@@ -58,7 +60,7 @@ All POST requests to the Batch Transcription API require a `name`. The `descript
 
 The `Active` property is used to switch calling back into your URL on and off without having to delete and re-create the webhook registration. If you only need to call back once after the process has complete, then delete the webhook and switch the `Active` property to false.
 
-The event type `TranscriptionCompletion` is provided in the events array. It will call back to your endpoint when a transcription gets into a terminal state (`Succeeded` or `Failed`). When calling back to the registered URL, the request will contain an `X-MicrosoftSpeechServices-Event` header containing one of the registered event types. There is one request per registered event type. 
+The event type `TranscriptionCompletion` is provided in the events array. It will call back to your endpoint when a transcription gets into a terminal state (`Succeeded` or `Failed`). When calling back to the registered URL, the request will contain an `X-MicrosoftSpeechServices-Event` header containing one of the registered event types. There is one request per registered event type.
 
 There is one event type that you cannot subscribe to. It is the `Ping` event type. A request with this type is sent to the URL when finished creating a webhook when using the ping URL (see below).  
 
@@ -87,7 +89,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
             var validated = contentHash.SequenceEqual(storedHash);
         }
     }
- 
+
     switch (eventTypeHeader)
     {
         case WebHookEventType.Ping:
@@ -99,7 +101,7 @@ public async Task<IActionResult> PostAsync([FromHeader(Name = EventTypeHeaderNam
         default:
             break;
     }
- 
+
     return this.Ok();
 }
 
@@ -117,13 +119,13 @@ GET https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 To remove one specific webhook:
 DELETE https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id
 
-> [!Note] 
+> [!Note]
 > In the example above, the region is 'westus'. This should be replaced by the region where you've created your Speech Services resource in the Azure portal.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/ping
 Body: empty
 
-Sends a POST request to the registered URL. The request contains an `X-MicrosoftSpeechServices-Event` header with a value ping. If the webhook was registered with a secret, it will contain an `X-MicrosoftSpeechServices-Signature` header with an SHA256 hash of the payload with the secret as HMAC key. The hash is Base64 encoded. 
+Sends a POST request to the registered URL. The request contains an `X-MicrosoftSpeechServices-Event` header with a value ping. If the webhook was registered with a secret, it will contain an `X-MicrosoftSpeechServices-Signature` header with an SHA256 hash of the payload with the secret as HMAC key. The hash is Base64 encoded.
 
 POST https://westus.cris.ai/api/speechtotext/v2.1/transcriptions/hooks/:id/test
 Body: empty
@@ -133,6 +135,50 @@ Sends a POST request to the registered URL if an entity for the subscribed event
 ### Run a test
 
 A quick test can be done using the website https://bin.webhookrelay.com. From there, you can obtain call back URLs to pass as parameter to the HTTP POST for creating a webhook described earlier in the document.
+
+Click on 'Create Bucket' and follow the on-screen instructions to obtain a hook. Then use the information provided in this page to register the hook with the Speech service. The payload of a relay message – in response to the completion of a transcription – looks as follows:
+
+```json
+{
+    "results": [],
+    "recordingsUrls": [
+        "my recording URL"
+    ],
+    "models": [
+        {
+            "modelKind": "AcousticAndLanguage",
+            "datasets": [],
+            "id": "a09c8c8b-1090-443c-895c-3b1cf442dec4",
+            "createdDateTime": "2019-03-26T12:48:46Z",
+            "lastActionDateTime": "2019-03-26T14:04:47Z",
+            "status": "Succeeded",
+            "locale": "en-US",
+            "name": "v4.13 Unified",
+            "description": "Unified",
+            "properties": {
+                "Purpose": "OnlineTranscription,BatchTranscription,LanguageAdaptation",
+                "ModelClass": "unified-v4"
+            }
+        }
+    ],
+    "statusMessage": "None.",
+    "id": "d41615e1-a60e-444b-b063-129649810b3a",
+    "createdDateTime": "2019-04-16T09:35:51Z",
+    "lastActionDateTime": "2019-04-16T09:38:09Z",
+    "status": "Succeeded",
+    "locale": "en-US",
+    "name": "Simple transcription",
+    "description": "Simple transcription description",
+    "properties": {
+        "PunctuationMode": "DictatedAndAutomatic",
+        "ProfanityFilterMode": "Masked",
+        "AddWordLevelTimestamps": "True",
+        "AddSentiment": "True",
+        "Duration": "00:00:02"
+    }
+}
+```
+The message contains the recording URL and models used to transcribe that recording.
 
 ## Next steps
 

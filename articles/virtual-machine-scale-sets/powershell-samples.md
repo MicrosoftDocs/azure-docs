@@ -39,4 +39,4 @@ The following table includes links to bash scripts built using Azure PowerShell.
 | | |
 
 
-[!INCLUDE [updated-for-az-vm.md](../../includes/updated-for-az-vm.md)]    
+[!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]    

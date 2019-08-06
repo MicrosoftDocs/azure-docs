@@ -1,13 +1,13 @@
 ---
-title: Azure Database for PostgreSQL Server vnet services endpoint overview
-description: Learn how VNET service endpoints work for your Azure Database for PostgreSQL server.
-author: mbolz
+title: Virtual Network (VNet) services endpoint overview in Azure Database for PostgreSQL - Single Server
+description: Learn how Virtual Network (VNet) service endpoints work for Azure Database for PostgreSQL - Single Server.
+author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 5/6/2019
 ---
-# Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL
+# Use Virtual Network service endpoints and rules for Azure Database for PostgreSQL - Single Server
 
 *Virtual network rules* are one firewall security feature that controls whether your Azure Database for PostgreSQL server accepts communications that are sent from particular subnets in virtual networks. This article explains why the virtual network rule feature is sometimes your best option for securely allowing communication to your Azure Database for PostgreSQL server.
 
@@ -96,6 +96,7 @@ You have the option of using [role-based access control (RBAC)][rbac-what-is-813
 > In some cases the Azure Database for PostgreSQL and the VNet-subnet are in different subscriptions. In these cases you must ensure the following configurations:
 > - Both subscriptions must be in the same Azure Active Directory tenant.
 > - The user has the required permissions to initiate operations, such as enabling service endpoints and adding a VNet-subnet to the given Server.
+> - Make sure that both the subscription has the **Microsoft.Sql** resource provider registered. For more information refer [resource-manager-registration][resource-manager-portal]
 
 ## Limitations
 
@@ -153,3 +154,5 @@ For articles on creating VNet rules, see:
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
 [expressroute-indexmd-744v]: ../expressroute/index.yml
+
+[resource-manager-portal]: ../azure-resource-manager/resource-manager-supported-services.md

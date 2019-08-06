@@ -11,12 +11,13 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
+ROBOTS: NOINDEX
 ---
 # Project Acoustics Unity Bake Tutorial
 This tutorial describes acoustics baking with Project Acoustics in Unity.
 
 Software requirements:
-* [Unity 2018.2+](http://unity3d.com) for Windows
+* [Unity 2018.2+](https://unity3d.com) for Windows
 * [Project Acoustics plugin integrated in your Unity project](unity-integration.md) or the [Project Acoustics Unity sample content](unity-quickstart.md)
 * Optional: An [Azure Batch account](create-azure-account.md) to accelerate bakes using cloud computing
 

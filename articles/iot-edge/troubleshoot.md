@@ -4,7 +4,7 @@ description: Use this article to learn standard diagnostic skills for Azure IoT 
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 02/26/2019
+ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -13,13 +13,39 @@ ms.custom: seodec18
 
 # Common issues and resolutions for Azure IoT Edge
 
-If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution. 
+If you experience issues running Azure IoT Edge in your environment, use this article as a guide for troubleshooting and resolution.
 
-## Standard diagnostic steps 
+## Run the iotedge 'check' command
 
-When you encounter an issue, learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information. 
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
-### Check the status of the IoT Edge Security Manager and its logs:
+You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
+
+* On Linux:
+
+  ```bash
+  sudo iotedge check
+  ```
+
+* On Windows:
+
+  ```powershell
+  iotedge check
+  ```
+
+The types of checks run by the tool can be classified as:
+
+* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
+* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
+
+For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
+
+## Standard diagnostic steps
+
+If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. Use the commands and tools in this section to gather information.
+
+### Check the status of the IoT Edge Security Manager and its logs
 
 On Linux:
 - To view the status of the IoT Edge Security Manager:
@@ -67,20 +93,13 @@ On Windows:
 - To view the logs of the IoT Edge Security Manager:
 
    ```powershell
-   # Displays logs from today, newest at the bottom.
- 
-   Get-WinEvent -ea SilentlyContinue `
-   -FilterHashtable @{ProviderName= "iotedged";
-     LogName = "application"; StartTime = [datetime]::Today} |
-   select TimeCreated, Message |
-   sort-object @{Expression="TimeCreated";Descending=$false} |
-   format-table -autosize -wrap
+   . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
    ```
 
 ### If the IoT Edge Security Manager is not running, verify your yaml configuration file
 
 > [!WARNING]
-> YAML files cannot contain tabs as identation. Use 2 spaces instead.
+> YAML files cannot contain tabs as indentation. Use 2 spaces instead.
 
 On Linux:
 
@@ -319,6 +338,8 @@ Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/ada
 The IoT Edge daemon enforces process identification for all modules connecting to the edgeHub for security reasons. It verifies that all messages being sent by a module come from the main process ID of the module. If a message is being sent by a module from a different process ID than initially established, it will reject the message with a 404 error message.
 
 ### Resolution
+As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
+
 Make sure that the same process ID is always used by the custom IoT Edge module to send messages to the edgeHub. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
 
 
@@ -359,7 +380,7 @@ Place `daemon.json` in the right location for your platform:
 | Platform | Location |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows host with Windows containers | `C:\ProgramData\iotedge-moby-data\config` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
 
 If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 

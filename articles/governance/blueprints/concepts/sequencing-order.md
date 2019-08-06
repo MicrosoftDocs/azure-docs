@@ -39,6 +39,10 @@ created within that resource group:
 - Resource group child **policy assignment** artifacts sorted by artifact name
 - Resource group child **Azure Resource Manager template** artifacts sorted by artifact name
 
+> [!NOTE]
+> Use of [artifacts()](../reference/blueprint-functions.md#artifacts) creates an implicit dependency
+> on the artifact being referred to.
+
 ## Customizing the sequencing order
 
 When composing large blueprint definitions, it may be necessary for resources to be created in a

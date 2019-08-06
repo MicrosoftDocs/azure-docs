@@ -1,20 +1,18 @@
 ﻿---
-title: Common security attributes for Azure Backup
-description: A checklist of common security attributes for evaluating Azure Backup
-services: backup
-documentationcenter: ''
-author: msmbaldwin
-manager: barbkess
+title: Security attributes for Azure Backup
+description: A checklist of security attributes for evaluating Azure Backup
+ms.reviewer: mbaldwin
+author: dcurwin
+manager: carmonm
 ms.service: backup
-
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: mbaldwin
+ms.author: dacurwin
 
 ---
-# Common security attributes for Azure Backup
+# Security attributes for Azure Backup
 
-Security is integrated into every aspect of an Azure service. This article documents the common security attributes built into Azure Backup. 
+This article documents the security attributes built into Azure Backup. 
 
 [!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
@@ -22,20 +20,20 @@ Security is integrated into every aspect of an Azure service. This article docum
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>| Yes | Using storage service encryption for storage accounts. |
-| Encryption in Transit:<ul><li>Express route encryption</li><li>In Vnet encryption</li><li>VNet-VNet encryption</ul>| No | Using HTTPS. |
-| Encryption Key Handling (CMK, BYOK, etc.)| No |  |
-| Column Level Encryption (Azure Data Services)| No |  |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)| Yes | Using storage service encryption for storage accounts. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| No | Using HTTPS. |
+| Encryption key handling (CMK, BYOK, etc.)| No |  |
+| Column level encryption (Azure Data Services)| No |  |
 | API calls encrypted| Yes |  |
 
-## Network Segmentation
+## Network segmentation
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Service Endpoint support| No |  |
-| vNET Injection support| No |  |
-| Network Isolation / Firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling is not supported for workloads running inside VMs. |
-| Support for forced tunneling | No |  |
+| Service endpoint support| No |  |
+| VNet injection support| No |  |
+| Network isolation and firewalling support| Yes | Forced tunneling is supported for VM backup. Forced tunneling is not supported for workloads running inside VMs. |
+| Forced tunneling support| No |  |
 
 ## Detection
 
@@ -43,22 +41,22 @@ Security is integrated into every aspect of an Azure service. This article docum
 |---|---|--|
 | Azure monitoring support (Log analytics, App insights, etc.)| Yes | Log Analytics is supported via diagnostic logs. See [Monitor Azure Backup protected workloads using Log Analytics](https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/) for more information. |
 
-## IAM Support
+## Identity and access management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Access management - Authentication| Yes | Authentication is through Azure Active Directory. |
-| Access management - Authorization| Yes | Customer created and built-in RBAC roles are used. See [Use Role-Based Access Control to manage Azure Backup recovery points](/azure/backup/backup-rbac-rs-vault) for more information. |
+| Authentication| Yes | Authentication is through Azure Active Directory. |
+| Authorization| Yes | Customer created and built-in RBAC roles are used. See [Use Role-Based Access Control to manage Azure Backup recovery points](/azure/backup/backup-rbac-rs-vault) for more information. |
 
 
-## Audit Trail
+## Audit trail
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|
-| Control/Management Plan Logging and Audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |
-| Data plane Logging and Audit| No | Azure Backup data plane can't be reached directly.  |
+| Control and management plane logging and audit| Yes | All customer triggered actions from the Azure portal are logged to activity logs. |
+| Data plane logging and audit| No | Azure Backup data plane can't be reached directly.  |
 
-## Configuration Management
+## Configuration management
 
 | Security Attribute | Yes/No | Notes|
 |---|---|--|

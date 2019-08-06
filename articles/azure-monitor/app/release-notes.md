@@ -22,7 +22,6 @@ Here are detailed release notes and update instructions for our SDKs:
 * [ASP.NET Core](https://github.com/Microsoft/ApplicationInsights-aspnet5/releases)
 * [Java](https://github.com/Microsoft/ApplicationInsights-Java)
 * [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/commits/master)
-* [Visual Studio tools](release-notes-vsix.md)
 * [Other platforms](https://github.com/Microsoft/ApplicationInsights-Home)
 
 Read also our [blogs](https://azure.microsoft.com/blog/tag/application-insights/) and [Service Updates](https://azure.microsoft.com/updates/?service=application-insights) which summarize major improvements in the Application Insights service as a whole.

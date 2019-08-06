@@ -201,7 +201,7 @@ Generates the result:
 
 ![Application Insights Workbooks section editing controls](./media/usage-workbooks/011-data-table.png)
 
-A more applicable example is using a dropdown to pick from a set of countries by name:
+A more applicable example is using a dropdown to pick from a set of countries/regions by name:
 
 ```
 customEvents

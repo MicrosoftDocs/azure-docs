@@ -2,12 +2,12 @@
 title: Soft delete for Azure Storage blobs | Microsoft Docs
 description: Azure Storage now offers soft delete for blob objects so that you can more easily recover your data when it is erroneously modified or deleted by an application or other storage account user.
 services: storage
-author: MichaelHauss
+author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/15/2018
-ms.author: mihauss
+ms.date: 04/23/2019
+ms.author: tamram
 ms.subservice: blobs
 ---
 
@@ -226,10 +226,12 @@ from azure.storage.blob import BlockBlobService
 from azure.storage.common.models import DeleteRetentionPolicy
 
 # Initialize a block blob service
-block_blob_service = BlockBlobService(account_name='<enter your storage account name>', account_key='<enter your storage account key>')
+block_blob_service = BlockBlobService(
+    account_name='<enter your storage account name>', account_key='<enter your storage account key>')
 
 # Set the blob client's service property settings to enable soft delete
-block_blob_service.set_blob_service_properties(delete_retention_policy = DeleteRetentionPolicy(enabled = True, days = 7))
+block_blob_service.set_blob_service_properties(
+    delete_retention_policy=DeleteRetentionPolicy(enabled=True, days=7))
 ```
 
 ### .NET Client Library
@@ -273,8 +275,8 @@ CloudBlockBlob copySource = allBlobVersions.First(version => ((CloudBlockBlob)ve
 blockBlob.StartCopy(copySource);
 ```
 
-## Should I use soft delete?
-If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, we recommend turning on soft delete. Soft delete is one part of a data protection strategy and can help prevent inadvertent data loss.
+## Are there any special considerations for using soft delete?
+If there is a chance that your data is accidentally modified or deleted by an application or another storage account user, we recommend turning on soft delete. Enabling soft delete for frequently overwritten data may result in increased storage capacity charges and increased latency when listing blobs. You can mitigate this by storing the frequently overwritten data in a seperate storage account with soft delete disabled. 
 
 ## FAQ
 **For which storage types can I use soft delete?**  

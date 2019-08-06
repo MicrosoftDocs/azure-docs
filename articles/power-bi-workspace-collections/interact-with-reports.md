@@ -2,9 +2,9 @@
 title: Interact with reports using the JavaScript API | Microsoft Docs
 description: The Power BI JavaScript API enables you to easily embed Power BI reports into your applications.
 services: power-bi-workspace-collections
-ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+ms.service: power-bi-embedded
+author: rkarlin
+ms.author: rkarlin
 ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017

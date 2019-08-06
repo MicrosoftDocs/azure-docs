@@ -5,7 +5,7 @@ author: SnehaGunda
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/12/2018
+ms.date: 05/28/2019
 ms.author: sngun
 
 ---
@@ -37,7 +37,7 @@ The following diagram represents the data flow and components involved in the so
    }
    ```
 
-2. **Cosmos DB:** The generated data is stores in an Azure Cosmos DB collection.  
+2. **Cosmos DB:** The generated data is stored in an Azure Cosmos DB collection.  
 
 3. **Change Feed:** The change feed will listen for changes to the Azure Cosmos DB collection. Each time a new document is added into the collection (that is when an event occurs such a user viewing an item, adding an item to their cart, or purchasing an item), the change feed will trigger an [Azure Function](../azure-functions/functions-overview.md).  
 

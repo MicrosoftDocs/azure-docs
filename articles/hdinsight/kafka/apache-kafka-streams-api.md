@@ -1,27 +1,25 @@
 ---
 title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
-description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
-services: hdinsight
+description: Tutorial - Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/02/2019
+ms.date: 06/25/2019
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
-# Tutorial: Apache Kafka streams API
+# Tutorial: Use Apache Kafka streams API in Azure HDInsight
 
-Learn how to create an application that uses the Apache Kafka Streams API and run it with Kafka on HDInsight. 
+Learn how to create an application that uses the Apache Kafka Streams API and run it with Kafka on HDInsight.
 
 The application used in this tutorial is a streaming word count. It reads text data from a Kafka topic, extracts individual words, and then stores the word and count into another Kafka topic.
 
-> [!NOTE]  
-> Kafka stream processing is often done using Apache Spark or Apache Storm. Kafka version 1.1.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution. 
->
-> For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
+Kafka stream processing is often done using Apache Spark or Apache Storm. Kafka version 1.1.0 (in HDInsight 3.5 and 3.6) introduced the Kafka Streams API. This API allows you to transform data streams between input and output topics. In some cases, this may be an alternative to creating a Spark or Storm streaming solution.
+
+For more information on Kafka Streams, see the [Intro to Streams](https://kafka.apache.org/10/documentation/streams/) documentation on Apache.org.
 
 In this tutorial, you learn how to:
 
@@ -65,8 +63,7 @@ The important things to understand in the `pom.xml` file are:
     </dependency>
     ```
 
-    > [!NOTE]  
-    > The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
+    The `${kafka.version}` entry is declared in the `<properties>..</properties>` section of `pom.xml`, and is configured to the Kafka version of the HDInsight cluster.
 
 * Plugins: Maven plugins provide various capabilities. In this project, the following plugins are used:
 
@@ -203,8 +200,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
    * `RekeyedIntermediateTopic`: This topic is used to repartition data as the count is updated by the `countByKey` operator.
    * `wordcount-example-Counts-changelog`: This topic is a state store used by the `countByKey` operation
 
-     > [!IMPORTANT]  
-     > Kafka on HDInsight can also be configured to automatically create topics. For more information, see the [Configure automatic topic creation](apache-kafka-auto-create-topics.md) document.
+    Kafka on HDInsight can also be configured to automatically create topics. For more information, see the [Configure automatic topic creation](apache-kafka-auto-create-topics.md) document.
 
 ## Run the code
 
@@ -214,8 +210,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     java -jar kafka-streaming.jar $KAFKABROKERS $KAFKAZKHOSTS &
     ```
 
-    > [!NOTE]  
-    > You may get a warning about Apache log4j. You can ignore this.
+    You may get a warning about Apache log4j. You can ignore this.
 
 2. To send records to the `test` topic, use the following command to start the producer application:
 
@@ -229,8 +224,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $KAFKABROKERS --topic wordcounts --formatter kafka.tools.DefaultMessageFormatter --property print.key=true --property key.deserializer=org.apache.kafka.common.serialization.StringDeserializer --property value.deserializer=org.apache.kafka.common.serialization.LongDeserializer --from-beginning
     ```
 
-    > [!NOTE]  
-    > The `--property` parameters tell the console consumer to print the key (word) along with the count (value). This parameter also configures the deserializer to use when reading these values from Kafka.
+    The `--property` parameters tell the console consumer to print the key (word) along with the count (value). This parameter also configures the deserializer to use when reading these values from Kafka.
 
     The output is similar to the following text:
    
@@ -247,8 +241,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
         jumped  13640
         jumped  13641
    
-    > [!NOTE]  
-    > The parameter `--from-beginning` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
+    The parameter `--from-beginning` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
 
 4. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 
@@ -261,9 +254,19 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
     /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic wordcount-example-Counts-changelog --zookeeper $KAFKAZKHOSTS
     ```
 
+## Clean up resources
+
+To clean up the resources created by this tutorial, you can delete the resource group. Deleting the resource group also deletes the associated HDInsight cluster, and any other resources associated with the resource group.
+
+To remove the resource group using the Azure portal:
+
+1. In the Azure portal, expand the menu on the left side to open the menu of services, and then choose __Resource Groups__ to display the list of your resource groups.
+2. Locate the resource group to delete, and then right-click the __More__ button (...) on the right side of the listing.
+3. Select __Delete resource group__, and then confirm.
+
 ## Next steps
 
-In this document, you learned how to use the Apache Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka:
+In this document, you learned how to use the Apache Kafka Streams API with Kafka on HDInsight. Use the following to learn more about working with Kafka.
 
-* [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)
-* [Replicate data between Apache Kafka clusters](apache-kafka-mirroring.md)
+> [!div class="nextstepaction"]
+> [Analyze Apache Kafka logs](apache-kafka-log-analytics-operations-management.md)

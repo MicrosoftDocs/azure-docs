@@ -4,8 +4,8 @@ description: Certificates are securely in Azure Automation so they can be access
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
@@ -28,7 +28,7 @@ For AzureRM, the cmdlets in the following table are used to create and manage au
 |[New-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/new-azurermautomationcertificate)|Creates a new certificate into Azure Automation.|
 [Remove-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/remove-azurermautomationcertificate)|Removes a certificate from Azure Automation.|
 |[Set-AzureRmAutomationCertificate](/powershell/module/azurerm.automation/set-azurermautomationcertificate)|Sets the properties for an existing certificate including uploading the certificate file and setting the password for a .pfx.|
-|[Add-AzureCertificate](/previous-versions/azure/dn495214)|Uploads a service certificate for the specified cloud service.|
+|[Add-AzureCertificate](/powershell/module/servicemanagement/azure/add-azurecertificate)|Uploads a service certificate for the specified cloud service.|
 
 ## Activities
 

@@ -28,7 +28,7 @@ The following table provides a comparison of ultra solid-state-drives (SSD) (pre
 
 ## Ultra SSD (preview)
 
-Azure ultra SSD (preview) deliver high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSD are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSD can only be used as data disks. We recommend using premium SSDs as OS disks.
+Azure ultra SSD (preview) delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra SSD include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra SSDs are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra SSD can only be used as data disks. We recommend using premium SSDs as OS disks.
 
 ### Performance
 
@@ -39,6 +39,7 @@ Some key capabilities of Ultra SSD are:
 - Disk capacity: Ultra SSD capacity ranges from 4 GiB up to 64 TiB.
 - Disk IOPS: Ultra SSD support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS are 100 IOPS.
 - Disk throughput: With ultra SSD, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum disk throughput is 1 MiB.
+- Ultra SSDs support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 
 ### Disk size
 
@@ -54,6 +55,10 @@ Some key capabilities of Ultra SSD are:
 |512     |80,000         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
+### Transactions
+
+For ultra SSDs, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB.
+
 ### Preview scope and limitations
 
 During preview, ultra SSD:
@@ -63,7 +68,8 @@ During preview, ultra SSD:
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as empty disks  
-- Currently can only be deployed using Azure Resource Manager templates, CLI, and the python SDK.
+- Currently can only be deployed using Azure Resource Manager templates, CLI, PowerShell, and the Python SDK.
+- Cannot be deployed with the Azure portal (yet).
 - Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption.
 - Does not yet support integration with Azure Backup or Azure Site Recovery.
 - As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until general availability (GA).

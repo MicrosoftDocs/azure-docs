@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 07/30/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -21,12 +21,20 @@ IT professionals who want to deploy self-service password reset (SSPR) in Azure 
 
 ## Customize the "Contact your administrator" link
 
-Even if SSPR is not enabled, users still have a "Contact your administrator" link on the password reset portal. If a user selects this link, it either:
+Self-service password reset users have a "Contact your administrator" link available to them in the password reset portal. If a user selects this link, it will do one of two things:
 
-* Emails your administrators and asks them for assistance in changing the user's password.
-* Sends your users to a URL that you specify for assistance.
+* If left in the default state:
+   * Email is sent to your administrators and asks them to provide assistance in changing the user's password. See the [sample email](#sample-email) below.
+* If customized:
+   * Sends your user to a webpage or email address specified by the administrator for assistance.
 
-We recommend that you set this contact to something like an email address or website that your users already use for support questions.
+> [!TIP]
+> If you customize this, we recommend setting this to something users are already familiar with for support
+
+> [!WARNING]
+> If you customize this setting with an email address and account that needs a password reset the user may be unable to ask for assistance.
+
+### Sample email
 
 ![Sample request to reset email sent to Administrator][Contact]
 
@@ -92,4 +100,4 @@ You can change the directory name attribute under **Azure Active Directory** > *
 * [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
 * [I have a question that was not covered somewhere else](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help resetting your password email example"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help with resetting your password email example"

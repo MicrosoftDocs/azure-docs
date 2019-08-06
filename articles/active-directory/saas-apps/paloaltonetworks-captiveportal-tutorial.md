@@ -205,5 +205,5 @@ To learn more, see these articles:
 
 - [Tutorials about integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 - [Single sign-on to applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Conditional access in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Conditional Access in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -121,7 +121,7 @@ To see the data in a Power BI visualization, first set up a Stream Analytics job
 
    **Endpoint**: Select **Messaging**. (If you select Operations Monitoring, you get the telemetry data about the IoT hub rather than the data you're sending through.) 
 
-   **Shared access policy name**: Select **iothubowner**. The portal fills in the Shared Access Policy Key for you.
+   **Shared access policy name**: Select **service**. The portal fills in the Shared Access Policy Key for you.
 
    **Consumer group**: Select the consumer group set up in step 1 of this tutorial. This tutorial uses **contosoconsumers**.
    

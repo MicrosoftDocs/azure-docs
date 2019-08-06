@@ -5,6 +5,7 @@
   - name: About Azure Digital Twins
     href: about-digital-twins.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Find available rooms
     href: quickstart-view-occupancy-dotnet.md
@@ -66,6 +67,8 @@
       href: how-to-navigate-apis.md
     - name: Common query patterns
       href: how-to-query-common-apis.md
+  - name: Register your app with legacy AAD
+    href: how-to-use-legacy-aad.md
 - name: Reference
   items:
   - name: User-defined functions client library

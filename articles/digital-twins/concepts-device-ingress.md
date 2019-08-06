@@ -1,12 +1,12 @@
 ---
-title: Device connectivity and telemetry ingress with Azure Digital Twins | Microsoft Docs
+title: 'Device connectivity and telemetry ingress with Azure Digital Twins | Microsoft Docs'
 description: Overview of how to bring a device onboard with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
 ---
 
@@ -45,7 +45,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 | *YOUR_DEVICE_GUID* | The device ID |
 
 ```plaintext
-YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
+YOUR_MANAGEMENT_API_URL/devices?HardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
 | Parameter value | Replace with |
@@ -56,7 +56,7 @@ In the response payload, copy the device's **connectionString** property. You us
 
 ## Device-to-cloud message
 
-You can customize your device's message format and payload to fit your solution's needs. Use any data contract that can be serialized into a byte array or stream that's supported by the [Azure IoT Device Client Message class, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in a corresponding user-defined function. There's only one requirement for a device-to-cloud message. You must maintain a set of properties to make sure your message is routed appropriately to the processing engine.
+You can customize your device's message format and payload to fit your solution's needs. Use any data contract that can be serialized into a byte array or stream that's supported by the [Azure IoT Device Client Message class, Message(byte[] byteArray)](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.-ctor?view=azure-dotnet#Microsoft_Azure_Devices_Client_Message__ctor_System_Byte___). The message can be a custom binary format of your choice, as long as you decode the data contract in a corresponding user-defined function. There's only one requirement for a device-to-cloud message. Maintain a set of properties to make sure your message is routed appropriately to the processing engine.
 
 ### Telemetry properties
 

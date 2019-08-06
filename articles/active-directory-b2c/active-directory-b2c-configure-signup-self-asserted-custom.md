@@ -2,21 +2,21 @@
 title: Add claims and customize user input using custom policies - Azure Active Directory B2C | Microsoft Docs
 description: Learn how to customize user input and add claims to the sign-up or sign-in journey in Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
-manager: daveba
+author: mmacy
+manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 #  Add claims and customize user input using custom policies in Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-In this article, you add a new user provided entry (a claim) to your sign-up user journey in Azure Active Directory (Azure AD) B2C.  You configure the entry as a dropdown, and define whether it's required.
+In this article, you add a new user provided entry (a claim) to your sign-up user journey in Azure Active Directory (Azure AD) B2C.  You configure the entry as a dropdown and define whether it's required.
 
 ## Prerequisites
 
@@ -24,12 +24,12 @@ Complete the steps in the article [Getting Started with Custom Policies](active-
 
 ## Add claims
 
-Gathering initial data from your users is achieved using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its selfasserted provider.
+Gathering initial data from your users is achieved using the sign-up or sign-in user journey. Additional claims can be gathered later by using a profile edit user journey. Anytime Azure AD B2C gathers information directly from the user interactively, the Identity Experience Framework uses its self-asserted provider.
 
 
 ### Define the claim
 
-Lets ask the user for their city. Add the following element to the **ClaimsSchema** element in the TrustFrameworkBase policy file:
+Let's ask the user for their city. Add the following element to the **ClaimsSchema** element in the TrustFrameworkBase policy file:
 
 ```xml
 <ClaimType Id="city">
@@ -74,7 +74,7 @@ The following elements are used to define the claim:
 
 #### DropdownSingleSelect
 
-![Screenshot of dropdown option](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Single-select dropdown control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -91,7 +91,7 @@ The following elements are used to define the claim:
 
 #### CheckboxMultiSelect
 
-![Screenshot of multiselect option](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Multi-select checkbox control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -230,7 +230,7 @@ The following elements are used to define the claim:
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Add the `<OutputClaim ClaimTypeReferenceId="city" />` claim to the SignUporSignIn.xml file so that this claim is sent to the application in the token after a successful user journey.
 
     ```xml

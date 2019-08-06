@@ -1,16 +1,16 @@
 ---
-title: "Quickstart: Perform a news search - Bing News Search SDK for Python"
+title: "Quickstart: Perform a news search using the Bing News Search SDK for Python"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Python, and process the response.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
-ms.author: v-gedod
+ms.date: 06/18/2019
+ms.author: aahi
 ms.custom: seodec2018
 ---
 # Quickstart: Perform a news search with the Bing News Search SDK for Python
@@ -67,7 +67,8 @@ If any search results are found, print the first webpage result:
 ```python
 if news_result.value:
     first_news_result = news_result.value[0]
-    print("Total estimated matches value: {}".format(news_result.total_estimated_matches))
+    print("Total estimated matches value: {}".format(
+        news_result.total_estimated_matches))
     print("News result count: {}".format(len(news_result.value)))
     print("First news name: {}".format(first_news_result.name))
     print("First news url: {}".format(first_news_result.url))

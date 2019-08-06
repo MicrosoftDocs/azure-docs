@@ -2,13 +2,13 @@
 title: Using T-SQL views in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions.
 services: sql-data-warehouse
-author: ronortloff
+author: XiaoyuMSFT 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
+ms.subservice: development
 ms.date: 04/17/2018
-ms.author: rortloff
+ms.author: xiaoyul
 ms.reviewer: igorstan
 ---
 
@@ -18,12 +18,18 @@ Tips for using T-SQL views in Azure SQL Data Warehouse for developing solutions.
 ## Why use views?
 Views can be used in a number of different ways to improve the quality of your solution.  This article highlights a few examples of how to enrich your solution with views, as well as the limitations that need to be considered.
 
+
+> [!IMPORTANT]
+> See the new materialized view syntax at [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest).  For more information, see the [release notes](/azure/sql-data-warehouse/release-notes-10-0-10106-0).
+>
+
+
 > [!NOTE]
 > Syntax for CREATE VIEW is not discussed in this article. For more information, see the [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentation.
 > 
-> 
 
 ## Architectural abstraction
+
 A common application pattern is to re-create tables using CREATE TABLE AS SELECT (CTAS) followed by an object renaming pattern whilst loading data.
 
 The following example adds new date records to a date dimension. Note how a new table, DimDate_New, is first created and then renamed to replace the original version of the table.

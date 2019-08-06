@@ -169,7 +169,7 @@ For more information:
 Migrating Azure Functions resources from Azure Germany to global Azure isn't supported at this time. We recommend that you export the Resource Manager template, change the location, and then redeploy to the target region.
 
 > [!IMPORTANT]
-> Change location, Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
+> Change location, Key Vault secrets, certificates, App Settings, and other GUIDs to be consistent with the new region.
 
 For more information:
 
