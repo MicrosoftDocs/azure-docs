@@ -1,5 +1,5 @@
 ---
-title: Enable Azure Active Directory authentication over SMB for Azure Files (preview) - Azure Storage
+title: Enable Azure Active Directory authentication over SMB for Azure Files - Azure Storage
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials. 
 author: roygara
 ms.service: storage
@@ -8,10 +8,10 @@ ms.date: 07/05/2019
 ms.author: rogarana
 ---
 
-# Enable Azure Active Directory Domain Services authentication over SMB for Azure Files (preview)
+# Enable Azure Active Directory Domain Services authentication over SMB for Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-For an overview of Azure AD authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](storage-files-active-directory-overview.md).
+For an overview of Azure AD authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -197,6 +197,17 @@ Use the Windows **net use** command to mount the Azure file share. Remember to r
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
+### Configure NTFS permissions with Windows File Explorer
+Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
+
+1. Open Windows File Explorer and right click on the file/directory and select **Properties**
+2. Click on the **Security** tab
+3. Click on **Edit..**. button to change permissions
+4. You can change the permission of existing users, or click on **Add...** to grant permissions to new users
+5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and click on **Check Names** to find the full UPN name of the target user.
+7.	Click on **OK**
+8.	In the Security tab, select all permissions you want to grant to the newly add user
+9.	Then click on **Apply**
 
 ### Configure NTFS permissions with icacls
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
@@ -228,5 +239,5 @@ You have now successfully enabled Azure AD authentication over SMB and assigned 
 For more information about Azure Files and how to use Azure AD over SMB, see these resources:
 
 - [Introduction to Azure Files](storage-files-introduction.md)
-- [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](storage-files-active-directory-overview.md)
+- [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md)
 - [FAQ](storage-files-faq.md)
