@@ -19,7 +19,8 @@ ms.author: cynthn
 ---
 
 
-# Low-priority VMs on scale sets (preview)
+# Preview: Use low-priority VMs in Azure
+
 
 Using low-priority VMs on scale sets allows you to take advantage of our unutilized capacity at a significant cost savings. At any point in time when Azure needs the capacity back, the Azure infrastructure will evict low-priority VMs. Therefore, low-priority VMs are great for workloads that can handle interruptions like batch processing jobs, dev/test environments, large compute workloads, and more.
 
