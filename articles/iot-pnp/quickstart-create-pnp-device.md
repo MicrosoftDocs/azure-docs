@@ -88,7 +88,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. You use this folder for the device model files and device code stub.
 
     ```cmd/sh
-    cd azure-iot-sdk-c-pnp
+    cd azure-iot-sdk-c
     mkdir pnp_app
     ```
 
@@ -161,7 +161,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
     ```cmd\sh
-    cd azure-iot-sdk-c-pnp\cmake\pnp_app\sample_device\Release\
+    cd azure-iot-sdk-c\cmake\pnp_app\sample_device\Release\
     sample_device.exe "[IoT Hub device connection string]"
     ```
 
