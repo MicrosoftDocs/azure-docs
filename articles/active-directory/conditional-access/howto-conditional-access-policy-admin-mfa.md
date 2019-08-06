@@ -1,5 +1,5 @@
 ---
-title: Conditional Access: Require MFA for administrators
+title: Conditional Access - Require MFA for administrators
 description: Create a custom Conditional Access policy to require administrators to perform multi-factor authentication
 
 services: active-directory
