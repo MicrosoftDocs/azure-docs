@@ -1,6 +1,6 @@
 ---
-title: Tutorial - Azure function trigger for Azure container instances
-description: Create an HTTP-triggered serverless PowerShell function to automate creation Azure container instances
+title: Tutorial - Azure Functions trigger for Azure Container Instances
+description: Create an HTTP-triggered serverless PowerShell function to automate creation of Azure container instances
 services: container-instances
 author: dlepow
 manager: gwallace
@@ -16,15 +16,18 @@ ms.custom:
 
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that can run scripts or code in response to a variety of events, such as an HTTP request or a message in an Azure Storage queue.
 
-In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of an Azure container instance. This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
+In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of a container group. This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Use the [Azure Functions extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create a basic HTTP-triggered PowerShell function locally. Then, deploy it to a function app in Azure.
 > * Enable an identity in the function app and give it permissions to create Azure resources.
-> * Modify the PowerShell function code to automate deployment of a [container group](container-instances-container-groups.md).
-> * Verify the HTTP-triggered deployment of a container instance.
+> * Modify the PowerShell function code to automate deployment of a single-container [container group](container-instances-container-groups.md).
+> * Verify the HTTP-triggered deployment of the container.
+
+> [!IMPORTANT]
+> PowerShell for Azure Functions is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use][terms-of-use]. Some aspects of this feature may change prior to general availability (GA).
 
 ## Prerequisites
 
@@ -34,15 +37,13 @@ Some steps in this article use the Azure CLI. You can use the Azure Cloud Shell 
 
 ## Create a simple PowerShell function
 
-Follow steps in [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md) to create a PowerShell function using the HTTP Trigger template, run it locally, and publish the project to a function app in Azure. Use the default Azure function name **HttpTrigger**. This example is a simple HTTP-triggered function that returns some text. In later steps in this article, you modify the function to create a container group.
+Follow steps in [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md) to create a PowerShell function using the HTTP Trigger template, run it locally, and publish the project to a function app in Azure. Use the default Azure function name **HttpTrigger**. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
 
 This article assumes you publish the project using the name *myfunctionapp*, in an Azure resource group automatically named according to the function app name (also *myfunctionapp*). Substitute your unique function app name and resource group name in later steps.
 
-
-
 ## Enable an Azure-managed identity in the function app
 
-Now enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) in your function app. By enabling a managed identity for the function app, the PowerShell host can automatically authenticate using this identity, giving functions permission to take actions on Azure services that the managed identity has been granted access. In this tutorial, you grant the identity permissions to create resources in the function app's resource group. 
+Now enable a system-assigned [managed identity](../app-service/overview-managed-identity.md?toc=/azure/azure-functions/toc.json#adding-a-system-assigned-identity) in your function app. The PowerShell host running the app can automatically authenticate using this identity, enabling functions to take actions on Azure services to which the identity has been granted access. In this tutorial, you grant the managed identity permissions to create resources in the function app's resource group. 
 
 First use the [az group show][az-group-show] command to get the Id of the function app's resource group and store it in an environment variable. This example assumes you run the command in a Bash shell.
 
@@ -50,15 +51,18 @@ First use the [az group show][az-group-show] command to get the Id of the functi
 rgId=$(az group show --name myfunctionapp --query id --output tsv)
 ```
 
-Run [az functionapp identity app assign][az-functionapp-identity-app-assign] to assign a local identity to the function app and assign a contributor role to the resource group.
+Run [az functionapp identity app assign][az-functionapp-identity-app-assign] to assign a local identity to the function app and assign a contributor role to the resource group. This role allows the identity to create additional resources such as container groups in the resource group.
 
 ```azurecli
-az functionapp identity assign --name danlep0805 --resource-group danlep0805 --role contributor --scope $rgId
+az functionapp identity assign \
+  --name danlep0805 \
+  --resource-group myfunctionapp \
+  --role contributor --scope $rgId
 ```
 
 ## Update HttpTrigger function code
 
-Update the PowerShell code for your **HttpTrigger** function to create a container group. In file `run.ps1` for the function, find the following code block which is used to display a name value passed as a query string in the function URL:
+Update the PowerShell code for the **HttpTrigger** function to create a container group. In file `run.ps1` for the function, find the following code block. This code displays a name value it one is passed as a query string in the function URL:
 
 ```powershell
 ...
@@ -69,7 +73,7 @@ if ($name) {
 ...
 ```
 
-Replace this code with the following code. Here, the name value passed in the query string is used to name a new container group. The group is created using the [New-AzContainerGroup][new-azcontainergroup] cmdlet. Make sure to replace the resource group name *myfunctionapp* with the name of the resource group for your function app:
+Replace this code with the following block. Here, if a name value is passed in the query string, it is used to name a new container group. The group is created using the [New-AzContainerGroup][new-azcontainergroup] cmdlet. Make sure to replace the resource group name *myfunctionapp* with the name of the resource group for your function app:
 
 ```powershell
 if ($name) {
@@ -82,6 +86,8 @@ if ($name) {
 }
 ...
 ```
+
+This example container group consists of a single container instance running the `alpine` image. The container runs a single `echo` command and then terminates. In a real-world scenario, you might trigger creation of a container group to ...
 
 ## Test function app locally
 
@@ -195,7 +201,7 @@ Adding a system-assigned identity to a function: https://docs.microsoft.com/en-u
 
 
 <!-- LINKS - external -->
-
+[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - internal -->
 
