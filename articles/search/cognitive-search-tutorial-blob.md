@@ -9,7 +9,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 #Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
