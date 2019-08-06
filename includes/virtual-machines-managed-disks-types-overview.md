@@ -36,14 +36,14 @@ When you provision an ultra disk, you can independently configure the capacity a
 
 Some key capabilities of Ultra disks are:
 
-- Disk capacity: Ultra disks capacity ranges from 4 GiB up to 64 TiB.
-- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS. The minimum disk IOPS are 100 IOPS.
-- Disk throughput: With Ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum disk throughput is 1 MiB.
+- Disk capacity: Ultra disks capacity ranges from 4 GiB up to 64 TiB, in 1 TiB increments.
+- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum disk IOPS per disk is 2 IOPS per GiB, up to an overall minimum of 100 IOPS.
+- Disk throughput: With Ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum throughput per disk is 4KiB/s for each provisioned IOPS, with an overal minimum of 1 MBps.
 - Ultra disks support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 
 ### Disk size
 
-|Disk Size (GiB)  |IOPS Caps  |Throughput Cap (MBps)  |
+|Disk Size (GiB)  |IOPS Cap  |Throughput Cap (MBps)  |
 |---------|---------|---------|
 |4     |1,200         |300         |
 |8     |2,400         |600         |
@@ -55,13 +55,9 @@ Some key capabilities of Ultra disks are:
 |512     |80,000         |2,000         |
 |1,024-65,536 (sizes in this range increasing in increments of 1 TiB)     |160,000         |2,000         |
 
-### Transactions
+### GA scope and limitations
 
-For Ultra disks, each I/O operation less than or equal to 256 KiB of throughput is considered a single I/O operation. I/O operations larger than 256 KiB of throughput are considered multiple I/Os of size 256 KiB.
-
-### Preview scope and limitations
-
-During preview, Ultra disks:
+Ultra disks temporarily have additional limitations, they are as follows:
 
 - Are supported in East US 2 in a single availability zone  
 - Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
@@ -72,4 +68,3 @@ During preview, Ultra disks:
 - Cannot be deployed with the Azure portal (yet).
 - Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption.
 - Does not yet support integration with Azure Backup or Azure Site Recovery.
-- As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until general availability (GA).
