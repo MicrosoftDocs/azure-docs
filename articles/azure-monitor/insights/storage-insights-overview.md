@@ -120,13 +120,14 @@ The customizations are saved to a custom workbook to prevent overwriting the def
 To edit a workbook and save your changes to a custom workbook, perform the following steps.
 
 1. With the Azure Monitor for Storage workbook open, from the command bar select **Edit**. 
+
 1. In the workbook editor, to specify a subscription or storage account to scope to on every run, select **Edit** to the right of the parameter selectors at the top of the workbook.
 
     ![Edit workbook parameter example](./media/storage-insights-overview/edit-workbook-parameters-01.png)
 
 1. In the grid, to modify the **Subscription** parameter, select the checkbox to the left of it and then select the pencil icon from the command bar.
 
-    ![Edit parameter properties example](./media/storage-insights-overview/edit-paramter-properties-01.png)
+    ![Edit parameter properties example](./media/storage-insights-overview/edit-parameter-properties-01.png)
 
 1. In the **Edit parameters** pane, under the **Previews** section, select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  Click **Save** to commit your changes.
 
