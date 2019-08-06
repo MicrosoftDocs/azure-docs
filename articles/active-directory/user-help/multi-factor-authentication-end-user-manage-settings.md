@@ -119,8 +119,18 @@ You can delete your account from the Microsoft Authenticator app, and you can de
 
 - From the Microsoft Authenticator app, select the **Delete** button next to the device you want to delete.
 
+## Require two-factor verification on a device you've marked as trusted
+
+Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've checked this box to stop two-factor verification prompts for your account, and then you lose your device or your device is potentially compromised, you must turn two-factor verification prompts back on. Unfortunately, you can't turn the prompts back on for a single device. You must turn the prompts on for all of your devices at the same time.
+
+### To turn two-factor verification prompts back on for your devices
+
+- From the **Additional security verification** page, select **Restore multi-factor authentication on previously trusted devices**.
+
+    The next time you sign in on any device, you'll be prompted to perform two-factor verification.
+
 ## Next steps
 
 - Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
 
-- Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-factor verification.
+- [Manage app passwords for two-factor verification](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-factor verification.
