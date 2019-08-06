@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -100,31 +100,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
 
-	| Name | Source Attribute|
-	| --------| ----------------|
-	| groups  | user.assignedroles |
-    | | |
+	1. Click the **pen** next to **Groups returned in claim**.
 
-	> [!NOTE]
-	> **groups** refers to the security group in Bynder which is mapped to a **Role** in Azure AD. Please refer to [this](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) doc which explains how to create custom roles in Azure AD.
+	1. Select **Security groups** from the radio list.
 
-	a. Click **Add new claim** to open the **Manage user claims** dialog.
+	1. Select **Source Attribute** of **Group ID**.
 
-	![image](common/new-save-attribute.png)
+	1. Click **Save**.
 
-	![image](common/new-attribute-details.png)
-
-	b. In the **Name** textbox, type the attribute name shown for that row.
-
-	c. Leave the **Namespace** blank.
-
-	d. Select Source as **Attribute**.
-
-	e. From the **Source attribute** list, type the attribute value shown for that row.
-
-	f. Click **Ok**
-
-	g. Click **Save**.
+    	![image](./media/bynder-tutorial/config08.png)
 
 1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Metadata XML** and select **Download** to download the certificate and save it on your computer.
 
