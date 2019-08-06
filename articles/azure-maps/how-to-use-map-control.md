@@ -187,7 +187,7 @@ map = new atlas.Map('myMap', {
 });
 ```
 
->[Note]
+> [!Note]
 > With the Web SDK it is possible to load multiple map instances on the same page with different language and region settings. Additionally, these settings can be update after the map has loaded by using the `setStyle` function of the map. 
 
 Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "auto".

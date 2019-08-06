@@ -38,6 +38,7 @@ The Azure Maps Web SDK supports many types of expressions that can be used on th
 
 | Type of expressions | Description |
 |---------------------|-------------|
+| [Aggregate expression](#aggregate-expression) | An expression that defines a calculate that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. |
 | [Boolean expressions](#boolean-expressions) | Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons. |
 | [Color expressions](#color-expressions) | Color expressions make it easier to create and manipulate color values. |
 | [Conditional expressions](#conditional-expressions) | Conditional expressions provide logic operations that are like if-statements. |
@@ -160,6 +161,27 @@ Math expressions provide mathematical operators to perform data-driven calculati
 | `['sin', number]` | number | Calculates the sine of the specified number. |
 | `['sqrt', number]` | number | Calculates the square root of the specified number. |
 | `['tan', number]` | number | Calculates the tangent of the specified number. |
+
+## Aggregate expression
+
+An aggregate expression defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or boolean. 
+
+An aggregate expression takes in three values; an operator value, and initial value, and an expression to retrieve a proeprty from each feature in a data to apply the aggregate operation on. This expression has the following format:
+
+```javascript
+[operator: string, initialValue: boolean | number, mapExpression: Expression]
+```
+
+- operator: An expression function that is then applied to against all values calculated by the `mapExpression` for each point in the cluster. Supported operators; 
+    - For numbers: `+`, `*`, `max`, `min`
+    - For Booleans: `all`, `any`
+- initialValue: An initial value in which the first calculated value is aggregated against.
+- mapExpression: An expression that is applied against each point in the data set.
+
+**Examples**
+
+If all features in a data set have a `revenue` property that is a number. The total revenue of all points in a cluster created from the data set can be calculated using the following aggregate expression: `['+', 0, ['get', 'revenue']]`
+
 ## Boolean expressions
 
 Boolean expressions provide a set of boolean operators expressions for evaluating boolean comparisons.
