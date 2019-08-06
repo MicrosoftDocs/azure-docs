@@ -231,7 +231,7 @@ because PowerShell DSC doesn’t know that Azure Automation will be encrypting t
 after its generation via a compilation job.
 
 You can tell PowerShell DSC that it is okay for credentials to be outputted in plain text in the
-generated node configuration MOFs using [**ConfigurationData**](#configurationdata). You should
+generated node configuration MOFs using [**ConfigurationData**](#managing-configurationdata-when-compiling-configuration-in-azure-automatation). You should
 pass `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** for each node block’s name
 that appears in the DSC configuration and uses credentials.
 
