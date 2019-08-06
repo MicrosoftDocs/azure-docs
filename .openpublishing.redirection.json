@@ -40465,6 +40465,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-native-thread.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap-space.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
       "redirect_url": "/azure/active-directory-domain-services/alert-service-principal",
       "redirect_document_id": true
