@@ -20,12 +20,12 @@ ms.collection: M365-identity-device-management
 
 You've gotten an email from someone in IT or your boss saying that the organization has added additional security verification to your account. So what does that mean? It means your organization is taking extra steps to make sure you are who you say you are when you sign in. This extra verification, also known as two-factor verification, is done through a combination of your user name, your password, and a mobile device or phone.
 
-Two-step verification is more secure than just a password because it relies on two forms of authentication: something you know, and something you have with you. The something you know is your password. The something you have with you is a phone or device that you commonly have with you. Two-step verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
+Two-factor verification is more secure than just a password because it relies on two forms of authentication: something you know, and something you have with you. The something you know is your password. The something you have with you is a phone or device that you commonly have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
 
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 >
->This content is also only intended for use with your work or school account. If you're having problems with two-factor verification and your personal Microsoft account, see [Turning two-step verification on or off for your Microsoft account](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+>This content is also only intended for use with your work or school account. If you're having problems with two-factor verification and your personal Microsoft account, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## Two-factor verification-related articles
 
