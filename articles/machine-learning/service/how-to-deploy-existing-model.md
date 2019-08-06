@@ -34,7 +34,7 @@ If you have a machine learning model that was trained outside the Azure Machine 
     >
     > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
-* The Azure Machine Learning SDK. For more information, see the Python SDK section of [Create a workspace](setup-create-workspace.md#sdk).
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 

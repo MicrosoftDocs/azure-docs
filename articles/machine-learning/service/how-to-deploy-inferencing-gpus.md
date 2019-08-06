@@ -28,7 +28,7 @@ Inference, or model scoring, is the phase where the deployed model is used to ma
 
 * An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
-* A Python development environment with the Azure Machine Learning SDK installed. For more information, see the [Python SDK](setup-create-workspace.md#sdk) section of the Create a workspace article.
+* A Python development environment with the Azure Machine Learning SDK installed. For more information, see [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * A registered model that uses a GPU.
 

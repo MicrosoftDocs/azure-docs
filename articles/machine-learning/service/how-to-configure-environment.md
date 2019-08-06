@@ -374,7 +374,7 @@ To use this file from your code, use `ws=Workspace.from_config()`. This code loa
 
 You can create the configuration file in three ways:
 
-* **Follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
+* **Use  [ws.write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: to write a *config.json* file. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
 
 * **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 
