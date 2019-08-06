@@ -125,11 +125,9 @@ When using app passwords, it's important to remember:
 
     ![App password page, with password for copy](media/security-info/app-password-copy-password.png)
 
-4. After you copy the password and paste it in the app, you can return to this wizard and select **Done**.
+4. After you copy the password and paste it in the app, return to this wizard to make sure all of your sign-in method information is accurate, and then select **Done**.
 
     ![App password page, with completion notice](media/security-info/app-password-complete.png)
-
-5. Make sure all of your sign-in method information is accurate, and then select **Done**.
 
 ## Next steps
 
