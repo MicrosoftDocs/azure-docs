@@ -16,7 +16,7 @@ ms.workload: identity
 ms.date: 04/18/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how to sign in users and call Microsoft Graph from my iOS application.
 ms.collection: M365-identity-device-management
 ---
