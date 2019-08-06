@@ -26,7 +26,8 @@ Use the Text Analytics client library for Python to perform:
 
 [Reference documentation](https://docs.microsoft.com/en-us/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet-preview) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Language.TextAnalytics) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics/) | [Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples)
 
-> [!NOTE] The demo code in this article uses the synchronous methods of the Text Analytics .NET SDK for simplicity. However, for production scenarios, we recommend using the batched asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use SentimentBatchAsync instead of Sentiment.
+> [!NOTE] 
+> The demo code in this article uses the synchronous methods of the Text Analytics .NET SDK for simplicity. However, for production scenarios, we recommend using the batched asynchronous methods in your own applications to keep them scalable and responsive. For example, you could use SentimentBatchAsync instead of Sentiment.
 
 ## Prerequisites
 
@@ -37,7 +38,7 @@ Use the Text Analytics client library for Python to perform:
 
 ### Create a Text Analytics Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for [Product name] using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text Analytics using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure Portal](https://portal.azure.com/)
@@ -80,7 +81,7 @@ In the application's `Main` method, create variables for your resource's Azure e
 
 ### Install the client library
 
-Within the application directory, install the [Product Name] client library for .NET with the following command:
+Within the application directory, install the Text Analytics client library for .NET with the following command:
 
 ```console
 dotnet add package Microsoft.Azure.CognitiveServices.Language.TextAnalytics --version 4.0.0
