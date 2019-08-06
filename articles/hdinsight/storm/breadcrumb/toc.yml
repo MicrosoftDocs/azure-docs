@@ -6,9 +6,9 @@
     tocHref: /azure/hdinsight/
     topicHref: /azure/hdinsight/index
     items:
-    - name: Spark
+    - name: Storm
       tocHref: /azure/hdinsight/hadoop/
-      topicHref: /azure/hdinsight/spark/index
-    - name: Spark
+      topicHref: /azure/hdinsight/storm/index
+    - name: Storm
       tocHref: /azure/hdinsight/domain-joined/
-      topicHref: /azure/hdinsight/spark/index
+      topicHref: /azure/hdinsight/storm/index
