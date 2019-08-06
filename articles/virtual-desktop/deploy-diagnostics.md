@@ -177,7 +177,7 @@ To set the Redirect URI:
 
    ![The redirect URI page](media/62579062-9c922600-b857-11e9-96f3-ba0dd9b915c5.png)
 
-8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was "contosoapp45," then your associated URL is <https://contosoapp45.azurewebsites.net>).
+8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
 10.   Select **Accept**.
 
