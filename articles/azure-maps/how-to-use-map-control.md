@@ -1,6 +1,6 @@
 ---
 title: Getting started with web map control in Azure Maps | Microsoft Docs 
-description: Learn how to use the Azure Maps Mmp control client-side Javascript library.
+description: Learn how to use the Azure Maps map control client-side Javascript library.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 10/08/2018
@@ -181,8 +181,10 @@ map = new atlas.Map('myMap', {
     view: 'auto',
 
     authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
+        authType: 'aad',
+        clientId: '<Your AAD Client Id>',
+        aadAppId: '<Your AAD App Id>',
+        aadTenant: 'msft.ccsctp.net'
     }
 });
 ```

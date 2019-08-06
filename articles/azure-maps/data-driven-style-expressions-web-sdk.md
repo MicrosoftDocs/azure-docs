@@ -34,7 +34,7 @@ Expressions are represented as JSON arrays. The first element of an expression i
 ] 
 ```
 
-The Azure Maps Web SDK supports many types of expressions that can be used on their own or in combination with other expressions.
+The Azure Maps Web SDK supports many types of that can be used on their own or in combination with other expressions.
 
 | Type of expressions | Description |
 |---------------------|-------------|
@@ -166,7 +166,7 @@ Math expressions provide mathematical operators to perform data-driven calculati
 
 An aggregate expression defines a calculation that is processed over a set of data and can be used with the `clusterProperties` option of a `DataSource`. The output of these expressions must be a number or boolean. 
 
-An aggregate expression takes in three values; an operator value, and initial value, and an expression to retrieve a proeprty from each feature in a data to apply the aggregate operation on. This expression has the following format:
+An aggregate expression takes in three values; an operator value, and initial value, and an expression to retrieve a property from each feature in a data to apply the aggregate operation on. This expression has the following format:
 
 ```javascript
 [operator: string, initialValue: boolean | number, mapExpression: Expression]
