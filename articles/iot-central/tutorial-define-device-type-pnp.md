@@ -47,25 +47,27 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
 1. To start creating a new Azure IoT Central application, select **New Application**.
 
-1. To create a new Azure IoT Central application that uses preview features, including IoT Plug and Play:
+To create a new Azure IoT Central application that uses preview features, including IoT Plug and Play:
 
-   * Choose **Trial**. You don't need an Azure subscription to create a trial application.
+1. Choose **Trial**. You don't need an Azure subscription to create a trial application.
 
-      For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    For more information about directories and subscriptions, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-   * Choose **Preview application**.
+1. Choose **Preview application**.
 
-   * Optionally you can choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
+1. Optionally you can choose a friendly application name, such as **Contoso Air Conditioners**. Azure IoT Central generates a unique URL prefix for you. You can change this URL prefix to something more memorable.
 
-   * If you're creating a trial application, you need to provide your contact details.
+1. If you're creating a trial application, you need to provide your contact details.
 
-   * Select **Create**.
+1. Select **Create**.
 
-     ![Azure IoT Central Create Application page](./media/tutorial-define-device-type-pnp/iotcentralcreate.png)
+    ![Azure IoT Central Create Application page](./media/tutorial-define-device-type-pnp/iotcentralcreate.png)
 
-     For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
+    For more information, see the [create an application quickstart](quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
 
-You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json).
+You also need a local copy of the **EnvironmentalSensorInline.capabilitymodel.json** file that contains the [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device capability model. You can download it from [here](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json). Right-click on the page and select **Save as**.
+
+After you download the file, open it in a text editor, and replace the two instances of `<YOUR_COMPANY_NAME_HERE>` with your name. Use only the characters a-z, A-Z, 0-9, and underscore.
 
 ## Create a template
 
@@ -130,9 +132,9 @@ As a builder, you can customize the application to display relevant information 
 
 Generating default views is a quick way to get started with visualizing your important device information. You can have up to three default views generated for your device template:
 
-1. The **Commands** view lets your operator dispatch commands to your device.
-1. The **Overview** view uses charts and metrics to display device telemetry.
-1. The **About** view displays device properties.
+* The **Commands** view lets your operator dispatch commands to your device.
+* The **Overview** view uses charts and metrics to display device telemetry.
+* The **About** view displays device properties.
 
 After you select **Generate default views**, they're automatically added under the **Views** section of your device template.
 
