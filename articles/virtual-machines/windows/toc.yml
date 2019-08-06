@@ -108,6 +108,8 @@
       href: compute-benchmark-scores.md
     - name: vCPU quotas
       href: quotas.md
+  - name: Dedicated hosts
+    href: dedicated-hosts.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -146,6 +148,12 @@
   items:
   - name: Create VMs
     items:
+    - name: Use dedicated hosts
+      items:
+      - name: PowerShell
+        href: dedicated-hosts-powershell.md
+      - name: Portal
+        href: dedicated-hosts-portal.md
     - name: Use C#
       href: csharp.md
     - name: Use specialized disk

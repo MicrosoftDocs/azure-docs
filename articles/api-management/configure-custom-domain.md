@@ -11,7 +11,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/01/2019
 ms.author: apimpm
 ---
 
@@ -37,17 +37,20 @@ To perform the steps described in this article, you must have:
 ## Use the Azure portal to set a custom domain name
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
-1. Select **Custom domains and SSL**.
+1. Select **Custom domains**.
 
     There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
-    - **Proxy** (default is: `<apim-service-name>.azure-api.net`),
+    - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
     - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name. In most cases only a single custom domain name can be set for a given endpoint. However, the **Premium** tier supports setting multiple host names for the **Proxy** endpoint.
+    > Only the **Gateway** endpoint in available for configuration in the Consumption tier.
+    > You can update all of the endpoints or some of them. Commonly, customers update **Gateway** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL).
+    > **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name. 
+    > The **Premium** tier supports setting multiple host names for the **Gateway** endpoint.
 
 1. Select the endpoint that you want to update.
 1. In the window on the right, click **Custom**.

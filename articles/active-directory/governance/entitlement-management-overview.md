@@ -88,7 +88,7 @@ With an access package and its policies, the access package manager defines:
 
 - Resources
 - Roles the users need for the resources
-- Internal users and external users that are eligible to request access
+- Internal users and partner organizations of external users that are eligible to request access
 - Approval process and the users that can approve or deny access
 - Duration of user's access
 

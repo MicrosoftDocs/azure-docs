@@ -323,6 +323,17 @@ To delete a blob, use the `blob delete` command:
 az storage blob delete --container-name <container_name> --name <blob_name>
 ```
 
+### Set the content type
+
+The content type, also known as the MIME type, identifies the format of the data in the blob. Browsers and other software use the content type to determine how to process the data. For example, the content type for PNG images is `image/png`. To set the content type, use the `blob update` command:
+
+```azurecli
+az storage blob update
+    --container-name <container_name> 
+    --name <blob_name>
+    --content-type <content_type>
+```
+
 ## Create and manage file shares
 Azure Files offers shared storage for applications using the Server Message Block (SMB) protocol. Microsoft Azure virtual machines and cloud services, as well as on-premises applications, can share file data via mounted shares. You can manage file shares and file data via the Azure CLI. For more information on Azure Files, see [Introduction to Azure Files](../files/storage-files-introduction.md).
 
