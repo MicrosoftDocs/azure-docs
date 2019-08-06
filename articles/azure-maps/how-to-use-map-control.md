@@ -194,7 +194,7 @@ map = new atlas.Map('myMap', {
 
 Here is an example of Azure Maps with the language set to "fr-FR" and the regional view set to "auto".
 
-![Map image showing labels in French](./media/how-to-use-map-control/websdk_localization.png)
+![Map image showing labels in French](./media/how-to-use-map-control/websdk-localization.png)
 
 A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
