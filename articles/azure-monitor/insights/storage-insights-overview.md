@@ -108,12 +108,27 @@ Selecting any one of buttons for **Failures**, **Performance**, **Availability**
 
 ## Editing a workbook
 
-This section highlights common scenarios for editing or creating a custom workbook to support your data analytics needs:
+This section highlights common scenarios for editing the workbook to customize in support of your data analytics needs:
 
 * Scope the workbook to always select a particular subscription or storage account(s)
 * Change metrics in the grid
 * Change the availability threshold
 * Change the color rendering
+
+The customizations are saved to a custom workbook to prevent overwriting the default configuration in our published workbook.  
+
+To edit a workbook and save your changes to a custom workbook, perform the following steps.
+
+1. With the Azure Monitor for Storage workbook open, from the command bar select **Edit**. 
+1. In the workbook editor, to specify which subscription or storage accounts it will be scoped to upon every launch, select **Edit** to the right of the parameter selectors at the top of the workbook.
+
+    ![Edit workbook parameter example](./media/storage-insights-overview/edit-workbook-parameters-01.png)
+
+1. In the grid, to modify the **Subscription** drop down list selector, select the checkbox to the left of it and then select the pencil icon from the command bar.
+
+    ![Edit parameter properties example](./media/storage-insights-overview/edit-paramter-properties-01.png)
+
+1. In the **Edit parameters** pane, under the **Previews** section select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.
 
 
 ## Next steps
