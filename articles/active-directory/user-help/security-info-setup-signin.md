@@ -71,7 +71,7 @@ Follow these steps to set up your security info for your work or school account 
 
 8. Approve the notification in the Microsoft Authenticator app, and then select **Next**.
 
-    ![Success notification, connecting the app and your account](media/security-info/securityinfo-prompt-auth-app-success.png).
+    ![Success notification, connecting the app and your account](media/security-info/securityinfo-prompt-auth-app-success.png)
 
     Your security info is updated to use the Microsoft Authenticator app by default to verify your identity when using two-step verification or password reset.
 
