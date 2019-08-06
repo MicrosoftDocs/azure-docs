@@ -122,21 +122,29 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 ### Configure Carbonite Endpoint Backup SSO
 
-1. In a different web browser window, sign in to your Carbonite Endpoint Backup company site as an administrator.
+1. To automate the configuration within Carbonite Endpoint Backup, you need to install **My Apps Secure Sign-in browser extension** by clicking **Install the extension**.
 
-1. Click on the **Company** from the left pane.
+	![My apps extension](common/install-myappssecure-extension.png)
+
+2. After adding extension to the browser, click on **Setup Carbonite Endpoint Backup** will direct you to the Carbonite Endpoint Backup application. From there, provide the admin credentials to sign into Carbonite Endpoint Backup. The browser extension will automatically configure the application for you and automate steps 3-7.
+
+	![Setup configuration](common/setup-sso.png)
+
+3. If you want to setup Carbonite Endpoint Backup manually, open a new web browser window and sign into your Carbonite Endpoint Backup company site as an administrator and perform the following steps:
+
+4. Click on the **Company** from the left pane.
 
     ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure1.png)
 
-1. Click on **Single sign-on**.
+5. Click on **Single sign-on**.
 
     ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure2.png)
 
-1. Click on **Enable** and then click **Edit settings** to configure.
+6. Click on **Enable** and then click **Edit settings** to configure.
 
     ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure3.png)
 
-1. On the **Single sign-on** settings page, perform the following steps:
+7. On the **Single sign-on** settings page, perform the following steps:
 
     ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
