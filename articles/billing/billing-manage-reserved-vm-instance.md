@@ -1,6 +1,6 @@
 ---
 title: Manage Azure Reservations
-description: Learn how you can mange Azure Reservations.
+description: Learn how you can manage Azure Reservations.
 ms.service: billing
 author: bandersmsft
 manager: yashesvi
@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: banders
 ---
 # Manage Reservations for Azure resources
 
 After you buy an Azure reservation, you may need to apply the reservation to a different subscription, change who can manage the reservation, or change the scope of the reservation. You can also split a reservation into two reservations to apply some of the instances you bought to another subscription.
 
-If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations for as much use as possible.
+If you bought Azure Reserved Virtual Machine Instances, you may change the optimize setting for the reservation. The reservation discount can apply to VMs in the same series or you can reserve data center capacity for a specific VM size. And, you should try to optimize reservations for as much usage as possible.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
