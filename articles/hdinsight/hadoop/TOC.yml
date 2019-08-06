@@ -56,6 +56,8 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: Out of disk space
+      href: ./hdinsight-troubleshoot-out-disk-space.md
     - name: Soft lockup - CPU
       href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
     - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
