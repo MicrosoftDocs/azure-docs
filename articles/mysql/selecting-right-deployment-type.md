@@ -13,11 +13,11 @@ ms.date: 08/05/2019
 In Azure, you can have your MySQl server workloads running in a hosted infrastructure VM (IaaS) or running as a hosted service (PaaS). Within PaaS, you have multiple deployment options and service tiers within each deployment option. The key question that you need to ask when deciding between PaaS or IaaS is do you want to manage your database, apply patches take backups, or you want to delegate these operations to Azure? Depending on the answer, you have the following options: <br/><br/>
 **Azure Database for MySQL** is a fully managed MySQL database engine, based on the stable version of the community edition. This is a relational database-as-a-service (DBaaS) hosted in the Azure cloud that falls into the industry category of Platform-as-a-Service (PaaS). With a managed MySQL on Azure, you can use built-in features and functionality that require extensive configuration when using MySQL Server (either on-premises or in an Azure virtual machine). When using MySQL as a service you pay-as-you-go with options to scale up or out for greater power with no interruption. Azure Database for MySQL has additional features that are
 not available in standalone MySQL server, such as built-in high availability, intelligence, and management. MySQL on Azure VM falls into the industry category Infrastructure-as-a-Service (IaaS) and allows you to run MySQL server inside a fully managed virtual machine in the Azure cloud. <br/><br/>
-**MySQL on Azure VM** falls into the industry category Infrastructure-as-a-Service (IaaS) and allows you to run MySQL server inside a fully managed virtual machine in the Azure cloud. 
+**MySQL on Azure VM** falls into the industry category *Infrastructure-as-a-Service (IaaS)* and allows you to run MySQL server inside a fully managed virtual machine in the Azure cloud. MySQL on Azure virtual machines (VM) is a good option for migrating on-premises MySQL databases and applications without any database change. All recent versions and editions of MySQL can be installed on an IaaS virtual machine. The most significant difference from **Azure Database for MySQL** is that **MySQL on Azure VMs** allow full control over the database engine. You can choose when maintenance/patching will start, to change the recovery model, to pause or start engine when needed. With this additional control comes with added responsibility to manage the virtual machines and numerous DBA tasks.
 
 The main differences between these options are listed in the following table:
 
-|                    | **Azure Database for MySQL** | **MySQL on VMs**    |
+|            | **Azure Database for MySQL** | **MySQL on Azure VMs**    |
 |:-------------------|:-----------------------------|:--------------------|
 | **SLA**                | Offers SLA of 99.99% availability| **SLA (for IaaS in Azure)** <br/>Up to 99.95% availability. <br/>99.9% Single-Instance VM <br/> 99.99% with Availability Zone <br/> *Only for Virtual Machine, not to MySQL Processes. |
 | **OS Patching**        | Automatic  |  Automatic|
@@ -33,7 +33,7 @@ The main differences between these options are listed in the following table:
 | **Performance Recommendation** | Customers get proactive [performance recommendation](https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/Azure-brings-intelligence-and-high-performance-to-Azure-Database/ba-p/769110) based on the usage telemetry that helps in optimizing workloads  | Managed by customers |
 
 
-## Business motivations for choosing Azure Database for MySQL or MySQL database on Azure VMs
+## Business motivations for choosing Azure Database for MySQL or MySQL on Azure VMs
 
 There are several factors that can influence your decision to choose PaaS or IaaS to host your MySQL databases:
 
@@ -97,4 +97,6 @@ For many IT departments, meeting up-time obligations of a Service Level Agreemen
 
 ## Next Steps
 
+* See [Azure Database for MySQL Pricing](https://azure.microsoft.com/pricing/details/mysql/)
+* Get started by [creating your first server](https://review.docs.microsoft.com/en-us/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
 
