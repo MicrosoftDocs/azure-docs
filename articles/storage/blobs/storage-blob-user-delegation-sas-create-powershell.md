@@ -105,7 +105,7 @@ New-AzStorageContainerSASToken -Context $ctx `
     -ExpiryTime <date-time>
 ```
 
-## Create a user delegation SAS for a blob
+### Create a user delegation SAS for a blob
 
 To return a user delegation SAS token for a blob, call the [New-AzStorageBlobSASToken](/powershell/module/az.storage/new-azstorageblobsastoken) command, passing in the Azure Storage context object that you created previously. 
 
