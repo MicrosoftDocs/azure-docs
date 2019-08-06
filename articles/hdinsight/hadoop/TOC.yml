@@ -56,6 +56,8 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: Soft lockup - CPU
+      href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
     - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
       href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
     - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
