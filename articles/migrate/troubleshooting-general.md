@@ -137,8 +137,12 @@ Discovery couldn't be started on the hosts listed in the error because of a prob
 
 ### An Azure AD operation failed. The error occurred while creating or updating the Azure AD application (Error ID: 60025).
 
-The Azure user account used to register the appliance doesn't have access to the Azure AD application specified in the error message. Check whether you're the owner of the Azure AD application. [Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about Azure AD application permissions.
+This error is encountered when the Azure user account used to initiate the discovery is different from the account used to register the appliance. You can do one of the following:
+1. Ensure that the user account initiating the discovery is same as the one used to register the appliance.
+1. Provide AAD Application access permissions to the other user account for which the discovery operation is failing.
+1. Delete the Resource Group previously created for Azure Migrate project and create another Resource Group to start again.
 
+[Learn more](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) about AAD application permissions.
 
 ## Discovery issues
 
