@@ -208,6 +208,8 @@
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
+    - name: Binary format
+      href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
     - name: Common Data Service for Apps
