@@ -86,7 +86,7 @@ To filter the available locations to only those locations that support the resou
     "handler": "Microsoft.Azure.CreateUIDef",
     "version": "0.1.2-preview",
     "parameters": {
-		"resourceTypes": ["Microsoft.Compute/disks"],
+      "resourceTypes": ["Microsoft.Compute/disks"],
       "basics": [
         ...
 ```  
