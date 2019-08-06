@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -174,11 +174,13 @@ Copy activity execution details and performance characteristics are also returne
 | dataWritten | Data size written to sink | Int64 value in **bytes** |
 | filesRead | Number of files being copied when copying data from file storage. | Int64 value (no unit) |
 | filesWritten | Number of files being copied when copying data to file storage. | Int64 value (no unit) |
+| sourcePeakConnections | Number of max concurrent connections established to source data store during the copy activity run. | Int64 value (no unit) |
+| sinkPeakConnections | Number of max concurrent connections established to sink data store during the copy activity run. | Int64 value (no unit) |
 | rowsRead | Number of rows being read from source (not applicable for binary copy). | Int64 value (no unit) |
 | rowsCopied | Number of rows being copied to sink (not applicable for binary copy). | Int64 value (no unit) |
 | rowsSkipped | Number of incompatible rows being skipped. You can turn on the feature by set "enableSkipIncompatibleRow" to true. | Int64 value (no unit) |
-| throughput | Ratio at which data are transferred. | Floating point number in **KB/s** |
 | copyDuration | The duration of the copy. | Int32 value in seconds |
+| throughput | Ratio at which data are transferred. | Floating point number in **KB/s** |
 | sourcePeakConnections | Peak number of concurrent connections established to the source data store during copy. | Int32 value |
 | sinkPeakConnections| Peak number of concurrent connections established to the sink data store during copy.| Int32 value |
 | sqlDwPolyBase | If PolyBase is used when copying data into SQL Data Warehouse. | Boolean |
@@ -186,39 +188,52 @@ Copy activity execution details and performance characteristics are also returne
 | hdfsDistcp | If DistCp is used when copying data from HDFS. | Boolean |
 | effectiveIntegrationRuntime | Show which Integration Runtime(s) is used to empower the activity run, in the format of `<IR name> (<region if it's Azure IR>)`. | Text (string) |
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
-| usedParallelCopies | The effective parallelCopies during copy. | Int32 value|
+| usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
-| executionDetails | More details on the stages copy activity goes through, and the corresponding steps, duration, used configurations, etc. It's not recommended to parse this section as it may change. | Array |
+| executionDetails | More details on the stages copy activity goes through, and the corresponding steps, duration, used configurations, etc. It's not recommended to parse this section as it may change.<br><br>ADF also reports the detailed durations (in seconds) spent on respective steps under `detailedDurations`:<br>- **Queuing duration** (`queuingDuration`): The time until the copy activity actually starts on integration runtime. If you use Self-hosted IR and this value is large, suggest to check the IR capacity and usage, and scale up/out according to your workload. <br>- **Pre-copy script duration** (`preCopyScriptDuration`): The time spent on executing the pre-copy script in sink data store. Apply when you configure the pre-copy script. <br>- **Time-to-first-byte** (`timeToFirstByte`): The time that integration runtime receives the first byte from the source data store. Apply to non-file-based source. If this value is large, suggest to check and optimize the query or server.<br>- **Transfer duration** (`transferDuration`): The time for integration runtime to transfer all the data from source to sink after getting the first byte. | Array |
+| perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning
+) section on details. | Text (string) |
 
 ```json
 "output": {
-    "dataRead": 107280845500,
-    "dataWritten": 107280845500,
-    "filesRead": 10,
-    "filesWritten": 10,
-    "copyDuration": 224,
-    "throughput": 467707.344,
+    "dataRead": 6198358,
+    "dataWritten": 19169324,
+    "filesRead": 1,
+    "sourcePeakConnections": 1,
+    "sinkPeakConnections": 2,
+    "rowsRead": 39614,
+    "rowsCopied": 39614,
+    "copyDuration": 1325,
+    "throughput": 4.568,
     "errors": [],
-    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (East US 2)",
-    "usedDataIntegrationUnits": 32,
-    "usedParallelCopies": 8,
+    "effectiveIntegrationRuntime": "DefaultIntegrationRuntime (West US)",
+    "usedDataIntegrationUnits": 4,
+    "usedParallelCopies": 1,
     "executionDetails": [
         {
             "source": {
-                "type": "AmazonS3"
+                "type": "AzureBlobStorage"
             },
             "sink": {
-                "type": "AzureDataLakeStore"
+                "type": "AzureSqlDatabase"
             },
             "status": "Succeeded",
-            "start": "2018-01-17T15:13:00.3515165Z",
-            "duration": 221,
-            "usedDataIntegrationUnits": 32,
-            "usedParallelCopies": 8,
+            "start": "2019-08-06T01:01:36.7778286Z",
+            "duration": 1325,
+            "usedDataIntegrationUnits": 4,
+            "usedParallelCopies": 1,
             "detailedDurations": {
                 "queuingDuration": 2,
-                "transferDuration": 219
+                "preCopyScriptDuration": 12,
+                "transferDuration": 1311
             }
+        }
+    ],
+    "perfRecommendation": [
+        {
+            "Tip": "Sink Azure SQL Database: The DTU utilization was high during the copy activity run. To achieve better performance, you are suggested to scale the database to a higher tier than the current 1600 DTUs.",
+            "ReferUrl": "https://go.microsoft.com/fwlink/?linkid=2043368",
+            "RuleName": "AzureDBTierUpgradePerfRecommendRule"
         }
     ]
 }
