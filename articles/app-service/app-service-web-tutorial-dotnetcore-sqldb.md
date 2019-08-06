@@ -12,7 +12,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 08/06/2019
 ms.author: cephalin
 ms.custom: mvc
 ms.custom: seodec18
@@ -169,13 +169,19 @@ In this step, you deploy your SQL Database-connected .NET Core application to Ap
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
-### Configure an environment variable
+### Configure connection string
 
 To set connection strings for your Azure app, use the [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) command in the Cloud Shell. In the following command, replace *\<app name>*, as well as the *\<connection_string>* parameter with the connection string you created earlier.
 
 ```azurecli-interactive
 az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
 ```
+
+In ASP.NET Core, you can use this named connection string (`MyDbConnection`) using the standard pattern, like any connection string specified in *appsettings.json*. In this case, `MyDbConnection` is also defined in your *appsettings.json*. When running in App Service, the connection string defined in App Service takes precedence over the connection string defined in your *appsettings.json*. The code uses the *appsettings.json* value during local development, and the same code uses the App Service value when deployed.
+
+To see how the connection string is referenced in your code, see [Connect to SQL Database in production](#connect-to-sql-database-in-production).
+
+### Configure environment variable
 
 Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLite for your local development environment and SQL Database for your Azure environment.
 
@@ -184,6 +190,8 @@ The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your 
 ```azurecli-interactive
 az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
+
+To see how the environment variable is referenced in your code, see [Connect to SQL Database in production](#connect-to-sql-database-in-production).
 
 ### Connect to SQL Database in production
 
@@ -358,7 +366,7 @@ git commit -m "added done field"
 git push azure master
 ```
 
-Once the `git push` is complete, navigate to your App Service app and try out the new functionality.
+Once the `git push` is complete, navigate to your App Service app and try adding a to-do item and check **Done**.
 
 ![Azure app after Code First Migration](./media/app-service-web-tutorial-dotnetcore-sqldb/this-one-is-done.png)
 
@@ -371,9 +379,9 @@ While the ASP.NET Core app runs in Azure App Service, you can get the console lo
 The sample project already follows the guidance at [ASP.NET Core Logging in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging#azure-app-service-provider) with two configuration changes:
 
 - Includes a reference to `Microsoft.Extensions.Logging.AzureAppServices` in *DotNetCoreSqlDb.csproj*.
-- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Startup.cs*.
+- Calls `loggerFactory.AddAzureWebAppDiagnostics()` in *Program.cs*.
 
-To set the ASP.NET Core [log level](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Warning`, use the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
+To set the ASP.NET Core [log level](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-level) in App Service to `Information` from the default level `Error`, use the [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) command in the Cloud Shell.
 
 ```azurecli-interactive
 az webapp log config --name <app_name> --resource-group myResourceGroup --application-logging true --level information
