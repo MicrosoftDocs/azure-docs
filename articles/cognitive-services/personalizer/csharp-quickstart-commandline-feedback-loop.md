@@ -93,9 +93,9 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 The Personalizer client is a [PersonalizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclient?view=azure-dotnet) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
-To ask for a rank of the content, create a [RankRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest?view=azure-dotnet-preview), then pass it to [client.Rank](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank?view=azure-dotnet-preview) method. The Rank method returns a RankResponse, containing the ranked content. 
+To ask for a rank of the content, create a [RankRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rankrequest?view=azure-dotnet-preview), then pass it to [client.Rank](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.rank?view=azure-dotnet-preview) method. The Rank method returns a RankResponse, containing the ranked content. 
 
-To send a reward to Personalizer, create a [RewardRequest](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview), then pass it to the [client.Reward](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) method. 
+To send a reward to Personalizer, create a [RewardRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.models.rewardrequest?view=azure-dotnet-preview), then pass it to the [client.Reward](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.personalizer.personalizerclientextensions.reward?view=azure-dotnet-preview) method. 
 
 Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture. 
 
@@ -143,7 +143,83 @@ The Personalizer learning loop is a cycle of rank and reward calls. In this quic
 
 The following code in the `main` method of the program loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
-[!code-csharp[The Personalizer learning loop is a cycle of rank and reward calls.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)] 
+```csharp
+static void Main(string[] args)
+{
+    int iteration = 1;
+    bool runLoop = true;
+
+    // Get the actions list to choose from personalizer with their features.
+    IList<RankableAction> actions = GetActions();
+
+    // Initialize Personalizer client.
+    PersonalizerClient client = InitializePersonalizerClient(ServiceEndpoint);
+
+    do
+    {
+        Console.WriteLine("\nIteration: " + iteration++);
+
+        // <rank>
+        // Get context information from the user.
+        string timeOfDayFeature = GetUsersTimeOfDay();
+        string tasteFeature = GetUsersTastePreference();
+
+        // Create current context from user specified data.
+        IList<object> currentContext = new List<object>() {
+            new { time = timeOfDayFeature },
+            new { taste = tasteFeature }
+        };
+
+        // Exclude an action for personalizer ranking. This action will be held at its current position.
+        // This simulates a business rule to force the action "juice" to be ignored in the ranking.
+        // As juice is excluded, the return of the API will always be with a probability of 0.
+        IList<string> excludeActions = new List<string> { "juice" };
+
+        // Generate an ID to associate with the request.
+        string eventId = Guid.NewGuid().ToString();
+
+        // Rank the actions
+        var request = new RankRequest(actions, currentContext, excludeActions, eventId);
+        RankResponse response = client.Rank(request);
+        // </rank>
+
+        Console.WriteLine("\nPersonalizer service thinks you would like to have: " + response.RewardActionId + ". Is this correct? (y/n)");
+
+        // <reward>
+        float reward = 0.0f;
+        string answer = GetKey();
+
+        if (answer == "Y")
+        {
+            reward = 1;
+            Console.WriteLine("\nGreat! Enjoy your food.");
+        }
+        else if (answer == "N")
+        {
+            reward = 0;
+            Console.WriteLine("\nYou didn't like the recommended food choice.");
+        }
+        else
+        {
+            Console.WriteLine("\nEntered choice is invalid. Service assumes that you didn't like the recommended food choice.");
+        }
+
+        Console.WriteLine("\nPersonalizer service ranked the actions with the probabilities as below:");
+        foreach (var rankedResponse in response.Ranking)
+        {
+            Console.WriteLine(rankedResponse.Id + " " + rankedResponse.Probability);
+        }
+
+        // Send the reward for the action based on user response.
+        client.Reward(response.EventId, new RewardRequest(reward));
+        // </reward>
+
+        Console.WriteLine("\nPress q to break, any other key to continue:");
+        runLoop = !(GetKey() == "Q");
+
+    } while (runLoop);
+}
+```
 
 ## Request a rank
 
@@ -170,6 +246,8 @@ dotnet run
 ```
 
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/csharp/PersonalizerExample/Program.cs) is available in the Personalizer samples Github repository.
 
 ## Clean up resources
 
