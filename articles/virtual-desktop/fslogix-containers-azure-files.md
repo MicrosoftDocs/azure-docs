@@ -2,12 +2,12 @@
 title: FSLogix profile containers and Azure Files in Windows Virtual Desktop - Azure
 description: This article describes FSLogix profile containers within Windows Virtual Desktop and Azure files.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/16/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 
 # FSLogix profile containers and Azure files
@@ -55,7 +55,7 @@ UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-se
 
 #### Cost
 
-While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers. For this solution, businesses pay for premium storage disks, along with the cost of the VMs that use the disks for a share.
+While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers. For this solution, businesses pay for storage disks, along with the cost of the VMs that use the disks for a share.
 
 #### Administrative overhead
 

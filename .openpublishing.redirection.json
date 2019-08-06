@@ -6,7 +6,17 @@
       "redirect_document_id": true
     }, 
     {
-      "source_path": "articles/machine-learning/ui-quickstart-run-experiment.md",
+      "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/quickstart-run-cloud-notebook.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
       "redirect_document_id": true
     },
@@ -99,6 +109,11 @@
       "source_path": "articles/batch-ai/resource-concepts.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/resource-concepts",
       "redirect_document_id": true
+    }, 
+    {
+      "source_path": "articles/vmware-cloudsimple/enable-cloudsimple-service.md",
+      "redirect_url": "/azure/vmware-cloudsimple/",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/batch-ai/tutorial-horovod-tensorflow.md",
@@ -14001,6 +14016,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore-points",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -25115,6 +25135,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
+      "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/data-factory/data-factory-amazon-simple-storage-service-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-amazon-simple-storage-service-connector",
       "redirect_document_id": true
@@ -27707,6 +27732,11 @@
     {
       "source_path": "articles/security/azure-ad-choose-authn.md",
       "redirect_url": "/azure/security/fundamentals/choose-ad-authn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure/active-directory/authentication/howto-authentication-phone-sign-in.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
       "redirect_document_id": true
     },
     {
@@ -40438,6 +40468,21 @@
       "source_path": "articles/hdinsight/hdinsight-extend-hadoop-virtual-network.md",
       "redirect_url": "/azure/hdinsight/hdinsight-plan-virtual-network-deployment",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-native-thread.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap-space.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
