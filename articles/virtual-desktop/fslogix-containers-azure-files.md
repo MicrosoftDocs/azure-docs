@@ -77,7 +77,7 @@ FSLogix profile containers' performance and features take advantage of the cloud
 
 ## Best practices for Windows Virtual Desktop
 
-Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop Preview?](https://docs.microsoft.com/azure/virtual-desktop/overview).
+Windows Virtual Desktop offers full control over size, type, and count of VMs that are being used by customers. For more information, see [What is Windows Virtual Desktop Preview?](overview.md).
 
 To ensure your Windows Virtual Desktop environment follows best practices:
 
@@ -90,11 +90,11 @@ To ensure your Windows Virtual Desktop environment follows best practices:
 
 ## Next steps
 
-Use the following instructions to set up a Windows Virtual Desktop environment.
+Use the following guides to set up a Windows Virtual Desktop environment.
 
-- To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory).
-- To create a host pool within your Windows Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace).
-- To set up fully managed file shares in the cloud, see [Set up Azure Files share](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable).
-- To configure FSLogix profile containers, see [Set up a user profile share for a host pool](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-user-profile).
-- To assign users to a host pool, see [Manage app groups for Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/manage-app-groups).
-- To access your Windows Virtual Desktop resources from a web browser, see [Connect to Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/connect-web).
+- To start building out your desktop virtualization solution, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- To create a host pool within your Windows Virtual Desktop tenant, see [Create a host pool with Azure Marketplace](create-host-pools-azure-marketplace.md).
+- To set up fully managed file shares in the cloud, see [Set up Azure Files share](..\storage\files\storage-files-active-directory-enable.md).
+- To configure FSLogix profile containers, see [Set up a user profile share for a host pool](create-host-pools-user-profile.md).
+- To assign users to a host pool, see [Manage app groups for Windows Virtual Desktop](manage-app-groups.md).
+- To access your Windows Virtual Desktop resources from a web browser, see [Connect to Windows Virtual Desktop](connect-web.md).
