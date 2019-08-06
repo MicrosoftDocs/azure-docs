@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
-ms.date: 07/30/2019
+ms.date: 08/07/2019
 ---
 
 # Introduction to deep learning vs. machine learning
@@ -38,9 +38,9 @@ Now that you have the overview of machine learning vs. deep learning, compare th
 
 The table below compares the two techniques in more detail:
 
-| |Machine learning |Deep learning|
+| |All machine learning |Only deep learning|
 |---|---|---|
-|  **Number of data points** | Can use small data amounts provided by users | Requires a large amount of unlabeled training data to make concise conclusions |
+|  **Number of data points** | Can use small data amounts provided by users | Requires a large amount of training data to make concise conclusions |
 |  **Hardware dependencies** | Can work on low-end machines. It doesn't need a large amount of computational power | Depends on high-end machines. It inherently does a large number of matrix multiplication operations. These operations can be efficiently optimized using a GPU |
 |  **Featurization process** | Requires features to be accurately identified and created by users | It learns high-level features from data and creates new features by itself |
 |  **Learning approach** | Divides tasks into small pieces, and then combine received results into one conclusion | Solves the problem on an end-to-end basis |
