@@ -164,7 +164,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 ## Next steps
 The pipeline in this sample copies data from Blob storage to a SQL database. You learned how to:
 
-> [!div class="checklist"
+> [!div class="checklist"]
 > * Create a data factory.
 > * Use the Copy Data tool to create a pipeline.
 > * Monitor the pipeline and activity runs.
