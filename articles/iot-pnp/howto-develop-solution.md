@@ -19,11 +19,11 @@ This how-to guide shows you how to use the samples in the Node service SDK that 
 
 If you haven't completed the [Connect an IoT Plug and Play device to your solution](quickstart-connect-pnp-device-solution.md) quickstart, you should do so now. The quickstart shows you how to download and install the SDK and run some of the samples.
 
-Before you run the service samples, open a new terminal, go to the root folder of your cloned repository, navigate to the **/azure-iot-samples-node/tree/master/digitaltwins/quickstarts/service** folder, and then  run the following command to install the dependencies:
+Before you run the service samples, open a new terminal, go to the root folder of your cloned repository, navigate to the **digitaltwins/quickstarts/service** folder, and then  run the following command to install the dependencies:
 
-    ```cmd/sh
-    npm install
-    ```
+```cmd/sh
+npm install
+```
 
 ## Run the service samples
 
@@ -82,6 +82,64 @@ select * from devices where HAS_CAPABILITYMODEL('id without version', version)
 
 > [!NOTE]
 > To get the new IoT Plug and Play interface data format, use `INTERFACES` instead of `*`.
+
+### Creating digital twin routes
+
+Your solution can receive notifications of digital twin change events. To subscribe to these notifications, use the [IoT Hub routing feature](../iot-hub/iot-hub-devguide-endpoints.md) to send the notifications to an endpoint such as as blob storage, Event Hubs, or a Service Bus queue.
+
+To create a digital twin route:
+
+1. In the Azure portal, go to your IoT Hub resource.
+1. Select **Message routing**.
+1. On the **Routes** tab select **Add**.
+1. Enter a value in the **Name** field and choose an **Endpoint**. If you haven't configured an endpoint, select **Add endpoint**.
+1. In the **Data source** drop-down, select **Digital Twin Change Events**.
+1. Select **Save**.
+
+The following JSON shows an example of a digital twin change event:
+
+```json
+{
+  "interfaces": {
+    "urn_azureiot_ModelDiscovery_DigitalTwin": {
+      "name": "urn_azureiot_ModelDiscovery_DigitalTwin",
+      "properties": {
+        "modelInformation": {
+          "reported": {
+            "value": {
+              "modelId": "urn:domain:capabilitymodel:TestCapability:1",
+              "interfaces": {
+                "MyInterfaceFoo": "urn:domain:interfaces:FooInterface:1",
+                "urn_azureiot_ModelDiscovery_DigitalTwin": "urn:azureiot:ModelDiscovery:DigitalTwin:1"
+              }
+            }
+          }
+        }
+      }
+    },
+    "MyInterfaceFoo": {
+      "name": "MyInterfaceFoo",
+      "properties": {
+        "property_1": { "desired": { "value": "value_1" } },
+        "property_2": {
+          "desired": { "value": 20 },
+          "reported": {
+            "value": 10,
+            "desiredState": {
+              "code": 200,
+              "version": 22,
+              "subCode": 400,
+              "description": ""
+            }
+          }
+        },
+        "property_3": { "reported": { "value": "value_3" } }
+      }
+    }
+  },
+  "version": 4
+}
+```
 
 ## Next steps
 
