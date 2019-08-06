@@ -118,7 +118,8 @@ To make sure your app registration has API permissions:
 1. Open a browser and connect to the [Azure Portal](https://portal.azure.com/) with your administrative account.
 2. Go to **App registrations** and look for your Azure AD App registration.
 
-![The API permissions page.](media/2b978bbf5b3769a1d83acd56031ba67b.png)
+      ![The API permissions page.](media/62579307-42de2b80-b858-11e9-8fc5-d32b8b387efd.png)
+
 
 ### Review your Log Analytics workspace
 
@@ -174,7 +175,7 @@ To set the Redirect URI:
 6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![The redirect URI page](media/8fc125e527af5dbfac48b9f026d18b10.png)
+   ![The redirect URI page](media/62579062-9c922600-b857-11e9-96f3-ba0dd9b915c5.png)
 
 8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was "contosoapp45," then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
