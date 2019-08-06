@@ -43,7 +43,7 @@ landingContent:
             url: join-windows-vm.md
           - text: Install management tools
             url: tutorial-create-management-vm.md
-  - title: Configure Azure AD Domain Services
+  - title: Configure
     linkLists:
       - linkListType: tutorial
         links:
@@ -59,7 +59,7 @@ landingContent:
             url: deploy-kcd.md
           - text: Secure managed domain
             url: secure-your-domain.md
-  - title: Manage Azure AD Domain Services
+  - title: Manage
     linkLists:
       - linkListType: how-to-guide
         links:
@@ -73,7 +73,7 @@ landingContent:
             url: notifications.md
           - text: Enable security audits (preview)
             url: security-audit-events.md
-  - title: Join VMs to Azure AD Domain Services
+  - title: Domain-join VMs
     linkLists:
       - linkListType: tutorial
         links:
