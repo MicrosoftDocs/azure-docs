@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 08/02/2019
+ms.date: 08/06/2019
 ms.author: curtand                   
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -60,7 +60,7 @@ For more information on permissions to restore a deleted group, see [Restore a d
   - Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more).
   - Specify an email address where the renewal and expiration notifications should be sent when a group has no owner.
   - Select which Office 365 groups expire. You can set expiration for:
-    - **All** Office 365 groups and new groups
+    - **All** Office 365 groups (no new groups)
     - A list of **Selected** Office 365 groups (no new groups)
     - **None** to restrict expiration for all groups
   - Save your settings when you're done by selecting **Save**.
