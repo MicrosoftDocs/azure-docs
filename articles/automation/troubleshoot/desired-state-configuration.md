@@ -59,7 +59,7 @@ This error is normally caused by a firewall, the machine being behind a proxy se
 
 #### Resolution
 
-Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
+Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](articles/automation/automation-dsc-overview.md#network-planning)
 
 ### <a name="failed-not-found"></a>Scenario: Node is in failed status with a "Not found" error
 
@@ -102,7 +102,7 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions fix the problem:
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
-* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](articles/automation/automation-dsc-compile.md#configurationdata).
+* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](articles/automation/automation-dsc-compile.md#managing-configurationdata-when-compiling-configuration-in-azure-automatation).
 
 ### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck "in progress" state
 
@@ -138,7 +138,7 @@ You've used a credential in a configuration but didn’t provide proper **Config
 
 #### Resolution
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](articles/automation/automation-dsc-compile.md#assets).
+* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](articles/automation/automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
 
