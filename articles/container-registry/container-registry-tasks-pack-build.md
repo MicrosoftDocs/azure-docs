@@ -39,7 +39,7 @@ The following example builds a container image from the Node.js app in the [Azur
 az acr pack build \
     --registry myregistry \
     --image {{.Run.Registry}}/node-app:1.0 \
-    --builder cloudfoundry/cnb:bionic --pull \
+    --pull --builder cloudfoundry/cnb:bionic \
     https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 ```
 
