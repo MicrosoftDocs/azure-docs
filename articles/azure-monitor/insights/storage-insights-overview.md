@@ -124,12 +124,15 @@ To edit a workbook and save your changes to a custom workbook, perform the follo
 
     ![Edit workbook parameter example](./media/storage-insights-overview/edit-workbook-parameters-01.png)
 
-1. In the grid, to modify the **Subscription** drop down list selector, select the checkbox to the left of it and then select the pencil icon from the command bar.
+1. In the grid, to modify the **Subscription** parameter, select the checkbox to the left of it and then select the pencil icon from the command bar.
 
     ![Edit parameter properties example](./media/storage-insights-overview/edit-paramter-properties-01.png)
 
-1. In the **Edit parameters** pane, under the **Previews** section select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.
+1. In the **Edit parameters** pane, under the **Previews** section, select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  Click **Save** to commit your changes.
 
+1. To modify the **StorageAccounts** parameter, select the checkbox to the left of it and then select the pencil icon from the command bar.
+
+1. In the **Edit parameters** pane, under the **Previews** section, select from the **StorageAccounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts.  Click **Save** to commit your changes.
 
 ## Next steps
 
