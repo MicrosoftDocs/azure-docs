@@ -237,6 +237,7 @@ mapControl.onReady(map -> {
 Here is an example of Azure Maps with the language set to "fr-FR" and regional view set to "auto".
 
 <center>
+
 ![Map image showing labels in French](./media/how-to-use-android-map-control-library/android-localization.png)
 </center>
 
