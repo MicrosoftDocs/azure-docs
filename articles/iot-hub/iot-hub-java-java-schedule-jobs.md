@@ -261,7 +261,7 @@ To create the app:
     public static void main( String[] args ) throws Exception
     ```
 
-15. To run and monitor two jobs sequentially, add the following code to the **main** method:
+15. To run and monitor two jobs sequentially, replace the code in the **main** method with the following code:
 
     ```java
     // Record the start time
@@ -354,10 +354,10 @@ In this section, you create a Java console app that handles the desired properti
     import java.util.Scanner;
     ```
 
-8. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+8. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you copied previously in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
 
     ```java
-    private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
+    private static String connString = "{yourdeviceconnectionstring}";
     private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static final int METHOD_SUCCESS = 200;
     private static final int METHOD_NOT_DEFINED = 404;
@@ -418,7 +418,7 @@ In this section, you create a Java console app that handles the desired properti
     public static void main( String[] args ) throws IOException, URISyntaxException
     ```
 
-13. Add the following code to the **main** method to:
+13. Replace the code in the **main** method with the following code to:
     * Create a device client to communicate with IoT Hub.
     * Create a **Device** object to store the device twin properties.
 
