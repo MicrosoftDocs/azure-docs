@@ -1,12 +1,12 @@
 ---
-title: Configure Azure Active Directory passwordless sign in (preview)
-description: Enable passwordless sign in to Azure AD using FIDO2 security keys or the Microsoft Authenticator app (preview)
+title: Enable passwordless security key sign in for Azure AD (preview) - Azure Active Directory
+description: Enable passwordless security key sign in to Azure AD using FIDO2 security keys (preview)
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -15,7 +15,7 @@ ms.reviewer: librown
 
 ms.collection: M365-identity-device-management
 ---
-# Enable passwordless sign in for Azure AD (preview)
+# Enable passwordless security key sign in for Azure AD (preview)
 
 ## Requirements
 
@@ -59,7 +59,7 @@ To target specific device groups to enable the credential provider, use the foll
       1. Value: 1 
 1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
 
-![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-enable/intune-custom-profile.png)
+![Intune custom device configuration policy creation](./media/howto-authentication-passwordless-security-key/intune-custom-profile.png)
 
 ### Enable credential provider via provisioning package
 
@@ -89,21 +89,13 @@ See the section FIDO2 Security Keys, in the article [What is passwordless?](conc
 > [!NOTE]
 > If you purchase and plan to use NFC based security keys you will need a supported NFC reader.
 
-## Enable passwordless authentication methods
+## Enable passwordless authentication method
 
 ### Enable the combined registration experience
 
-Registration features for FIDO2 security keys rely on the combined registration preview. Follow the steps below to enable the combined registration preview.
+Registration features for passwordless authentication methods rely on the combined registration preview. Follow the steps in the article [Enable combined security information registration (preview)](howto-registration-mfa-sspr-combined.md), to enable the combined registration preview.
 
-1. Sign in to the [Azure portal](https://portal.azure.com)
-1. Browse to **Azure Active Directory** > **User Settings**
-   1. Click on **Manage user feature preview settings**
-   1. Under **Users can use preview features for registering and managing security info - enhanced**.
-      1. Choose **Selected** and choose a group of users who will participate in the preview.
-      1. Or choose **All** to enable for everyone in your directory.
-1. Click **Save**
-
-### Enable new passwordless authentication methods
+### Enable new passwordless authentication method
 
 1. Sign in to the [Azure portal](https://portal.azure.com)
 1. Browse to **Azure Active Directory** > **Security** > **Authentication methods** > **Authentication method policy (Preview)**
@@ -144,51 +136,33 @@ Registration features for FIDO2 security keys rely on the combined registration 
 
 To configure the Microsoft Authenticator app for phone sign in, follow the guidance in the article [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
 
-## Sign in with passwordless credentials
+## Sign in with passwordless credential
 
 ### Sign in at the lock screen
 
 In the example below a user Bala Sandhu has already provisioned their FIDO2 security key. Bala can choose the security key credential provider from the Windows 10 lock screen and insert the security key to sign into Windows.
 
-![Security key sign in at the Windows 10 lock screen](./media/howto-authentication-passwordless-enable/fido2-windows-10-1903-sign-in-lock-screen.png)
+![Security key sign in at the Windows 10 lock screen](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-sign-in-lock-screen.png)
 
 ### Sign in on the web
 
 In the example below a user has already provisioned their FIDO2 security key. The user can choose to sign in on the web with their FIDO2 security key inside of the Microsoft Edge browser on Windows 10 version 1809 or higher.
 
-![Security key sign in Microsoft Edge](./media/howto-authentication-passwordless-enable/fido2-windows-10-1903-edge-sign-in.png)
-
-For information about signing in using the Microsoft Authenticator app see the article, [Sign in to your accounts using the Microsoft Authenticator app](../user-help/user-help-auth-app-sign-in.md).
+![Security key sign in Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 
 ## Known issues
 
-### FIDO2 security keys
-
-#### Security key provisioning
+### Security key provisioning
 
 Administrator provisioning and de-provisioning of security keys is not available in the public preview.
 
-#### Hybrid Azure AD join
+### Hybrid Azure AD join
 
 Users relying on WIA SSO that use managed credentials like FIDO2 security keys or passwordless sign in with Microsoft Authenticator app need to Hybrid Join on Windows 10 to get the benefits of SSO. However, security keys only work for Azure Active Directory Joined machines for now. We recommend you only try out FIDO2 security keys for the Windows lock screen on pure Azure Active Directory Joined machines. This limitation doesn’t apply for the web.
 
-#### UPN changes
+### UPN changes
 
 We are working on supporting a feature that allows UPN change on hybrid AADJ and AADJ devices. If a user’s UPN changes, you can no longer modify FIDO2 security keys to account for that. So the only approach is to reset the device and the user has to re-register.
-
-### Authenticator app
-
-#### AD FS integration
-
-When a user has enabled the Microsoft Authenticator passwordless credential, authentication for that user will always default to sending a notification for approval. This logic prevents users in a hybrid tenant from being directed to ADFS for sign in verification without the user taking an additional step to click “Use your password instead.” This process will also bypass any on-premises Conditional Access policies, and Pass-through authentication flows. The exception to this process is if a login_hint is specified, a user will be autoforwarded to AD FS, and bypass the option to use the passwordless credential.
-
-#### Azure MFA server
-
-End users who are enabled for MFA through an organization’s on-premises Azure MFA server can still create and use a single passwordless phone sign in credential. If the user attempts to upgrade multiple installations (5+) of the Microsoft Authenticator with the credential, this change may result in an error.  
-
-#### Device registration
-
-One of the prerequisites to create this new, strong credential, is that the device where it resides is registered within the Azure AD tenant, to an individual user. Due to device registration restrictions, a device can only be registered in a single tenant. This limit means that only one work or school account in the Microsoft Authenticator app can be enabled for phone sign in.
 
 ## Next steps
 

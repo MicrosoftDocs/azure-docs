@@ -366,9 +366,9 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
 
 1. Open the **deployment.template.json** file in the solution folder. 
 
-2. Find the **modules** section, which should contain three modules: the two that you created, classifier and cameraCapture, and a third that's included by default, tempSensor. 
+2. Find the **modules** section, which should contain three modules: the two that you created, classifier and cameraCapture, and a third that's included by default, SimulatedTemperatureSensor. 
 
-3. Delete the **tempSensor** module with all of its parameters. This module is included to provide sample data for test scenarios, but we don't need it in this deployment. 
+3. Delete the **SimulatedTemperatureSensor** module with all of its parameters. This module is included to provide sample data for test scenarios, but we don't need it in this deployment. 
 
 4. If you named the image classification module something other than **classifier**, check the name now and ensure that it's all lowercase. The cameraCapture module calls the classifier module using a requests library that formats all requests in lowercase, and IoT Edge is case-sensitive. 
 
