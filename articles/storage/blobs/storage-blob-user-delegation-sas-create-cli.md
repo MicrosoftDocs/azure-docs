@@ -14,11 +14,19 @@ ms.subservice: blobs
 
 # Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with the Azure CLI (preview)
 
-A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with Azure CLI (preview).
+A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. 
+
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with Azure CLI (preview).
+
+[!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
+
+## Install the latest version of the Azure CLI
 
 To use the Azure CLI to secure a SAS with Azure AD credentials, first make sure that you have installed the latest version of Azure CLI. For more information about installing the Azure CLI, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
-[!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
+## Sign in with Azure AD credentials
+
+Sign in to the Azure CLI with your Azure AD credentials. For more information, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Assign permissions with RBAC
 
@@ -36,10 +44,6 @@ az role assignment create \
 ```
 
 For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Built-in roles for Azure resources](/role-based-access-control/built-in-roles).
-
-## Sign in with Azure AD credentials
-
-First, sign in to the Azure CLI with your Azure AD credentials. For more information, see [Sign in with the Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ## Use Azure AD credentials to secure a SAS
 

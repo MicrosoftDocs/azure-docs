@@ -14,11 +14,13 @@ ms.subservice: blobs
 
 # Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with PowerShell
 
-A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with PowerShell.
+A shared access signature (SAS) enables you to grant limited access to containers and blobs in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid.
+
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a SAS for a container or blob with PowerShell.
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## Install the PowerShell preview module
+## Install the Azure PowerShell preview module
 
 To use PowerShell to create a user delegation SAS, you must first install the Az.Storage 1.3.1-preview module. Follow these steps to install the module:
 
@@ -52,6 +54,16 @@ To use PowerShell to create a user delegation SAS, you must first install the Az
 
 For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
+## Sign in to Azure PowerShell with Azure AD
+
+Call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to sign in with your Azure AD account:
+
+```powershell
+Connect-AzAccount
+```
+
+For more information about signing in with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
+
 ## Assign permissions with RBAC
 
 To create a user delegation SAS from Azure PowerShell, the Azure AD account used to sign into PowerShell must be assigned a role that includes the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. This permission enables that Azure AD account to request the *user delegation key*. The user delegation key is used to sign the user delegation SAS. The role providing the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action must be assigned at the level of the storage account, the resource group, or the subscription.
@@ -67,16 +79,6 @@ New-AzRoleAssignment -SignInName <email> `
 ```
 
 For more information about the built-in roles that include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action, see [Built-in roles for Azure resources](/role-based-access-control/built-in-roles).
-
-## Sign in to Azure PowerShell with Azure AD
-
-Call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to sign in with your Azure AD account:
-
-```powershell
-Connect-AzAccount
-```
-
-For more information about signing in with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## Use Azure AD credentials to secure a SAS
 
