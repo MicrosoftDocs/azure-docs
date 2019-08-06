@@ -1,5 +1,5 @@
 ---
-title: Regular-expression entity
+title: Regular-expression entity - LUIS
 titleSuffix: Azure Cognitive Services
 description: Extract consistently-formatted data from an utterance using the Regular Expression entity. 
 services: cognitive-services

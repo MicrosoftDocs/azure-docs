@@ -1,7 +1,7 @@
 ---
-title: Azure Backup FAQ
+title: Answers to common questions about Azure Backup features
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
-services: backup
+
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -149,7 +149,7 @@ You can create up to 9999 recovery points per protected instance. A protected in
 - Learn more about [backup and retention](./backup-overview.md#backup-and-retention).
 
 
-### How many times can I recovery data that's backed up to Azure?
+### How many times can I recover data that's backed up to Azure?
 There is no limit on the number of recoveries from Azure Backup.
 
 ### When restoring data, do I pay for the egress traffic from Azure?

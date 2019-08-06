@@ -207,7 +207,7 @@ Recall the structure of the custom Bing entity search enricher:
       "uri": "https://indexer-e2e-webskill.azurewebsites.net/api/InvokeTextAnalyticsV3?code=foo",
       "httpHeaders": {
           "Ocp-Apim-Subscription-Key": "foobar"
-      }
+      },
       "context": "/document/organizations/*",
       "inputs": [
         {

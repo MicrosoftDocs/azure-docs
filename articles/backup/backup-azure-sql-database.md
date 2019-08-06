@@ -1,13 +1,13 @@
 ---
-title: Back up SQL Server databases to Azure | Microsoft Docs
+title: Back up SQL Server databases to Azure 
 description: This tutorial explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
-services: backup
-author: rayne-wiselman
+
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: raynew
+ms.author: dacurwin
 
 
 ---
@@ -44,7 +44,7 @@ Before you start, verify the below:
 **Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server manually installed) VMs are supported.
 **Supported geos** | Australia South East (ASE), East Australia (AE) <br> Brazil South (BRS)<br> Canada Central (CNC), Canada East (CE)<br> South East Asia (SEA), East Asia (EA) <br> East US (EUS), East US 2 (EUS2), West Central US (WCUS), West US (WUS); West US 2 (WUS 2) North Central US (NCUS) Central US (CUS) South Central US (SCUS) <br> India Central (INC), India South (INS) <br> Japan East (JPE), Japan West (JPW) <br> Korea Central (KRC), Korea South (KRS) <br> North Europe (NE), West Europe <br> UK South (UKS), UK West (UKW)
 **Supported operating systems** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux isn't currently supported.
-**Supported SQL Server versions** | SQL Server 2017; SQL Server 2016, SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
+**Supported SQL Server versions** | SQL Server 2017 as detailed [here](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed [here](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
 **Supported .NET versions** | .NET Framework 4.5.2 and above installed on the VM
 
 ### Support for SQL Server 2008 and SQL Server 2008 R2
@@ -72,7 +72,7 @@ Users will not be charged for this feature till the time it is generally availab
 - You can back up to **~2000** SQL Server databases in a vault. You can create multiple vaults in case you have a greater number of databases.
 - You can configure backup for up to **50** databases in one go; this restriction helps optimize backup loads.
 - We support databases up to **2TB** in size; for sizes greater than that, performance issues may come up.
-- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. We are working on a planner that would help you calculate these numbers on you own. We will be publishing it shortly.
+- To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](http://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
 - In case of availability groups, backups are taken from the different nodes based on a few factors. The backup behavior for an availability group is summarized below.
 
 ### Back up behavior in case of Always on availability groups

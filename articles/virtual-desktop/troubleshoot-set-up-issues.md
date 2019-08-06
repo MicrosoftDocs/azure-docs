@@ -2,12 +2,12 @@
 title: Windows Virtual Desktop tenant and host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 04/08/2019
-ms.author: v-chjenk
+ms.date: 07/10/2019
+ms.author: helohr
 ---
 # Tenant and host pool creation
 
@@ -92,7 +92,7 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
-### Error: Your deployment failed….<hostname>/joindomain
+### Error: Your deployment failed….\<hostname>/joindomain
 
 ![Your Deployment Failed screenshot.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 
@@ -113,6 +113,17 @@ Example of raw error:
 **Cause 2:** Domain name doesn't resolve.
 
 **Fix 2:** See the "Domain name doesn't resolve" error for VMs are not joined to the domain in [Session host VM configuration](troubleshoot-vm-configuration.md).
+
+
+### Error: Your deployment failed...\Unauthorized
+
+```Error
+{"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
+```
+
+**Cause:** The subscription you're using is a type that can't access required features in the region where the customer is trying to deploy. For example, MSDN, Free, or Education subscriptions can show this error.
+
+**Fix:** Change your subscription type or region to one that can access the required features.
 
 ### Error: VMExtensionProvisioningError
 

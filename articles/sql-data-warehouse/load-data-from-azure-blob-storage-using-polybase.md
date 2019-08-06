@@ -598,8 +598,7 @@ Loading using PolyBase and authenticating through managed identities is the most
         
    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
-Refer to the following [documentation] (https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
-) if you'd like to set up virtual network service endpoints for SQL Data Warehouse. 
+Refer to the following [documentation](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) if you'd like to set up virtual network service endpoints for SQL Data Warehouse. 
 
 ## Clean up resources
 

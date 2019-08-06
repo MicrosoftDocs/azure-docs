@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: Standard Load Balancer and Availability Zones
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.custom: seodec18
 ms.service: load-balancer
 ms.devlang: na
@@ -12,7 +12,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Standard Load Balancer and Availability Zones

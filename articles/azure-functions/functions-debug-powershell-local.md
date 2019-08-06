@@ -9,7 +9,8 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
+ms.author: tyleonha
+ms.reviewer: glenga
 # Customer intent: As a PowerShell developer, I want to learn how to debug my functions on my local computer so that I can publish higher quality code to Azure.
 ---
 

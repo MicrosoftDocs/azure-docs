@@ -5,16 +5,11 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 06/20/2019
+ms.date: 7/10/2019
 ms.author: victorh
 ---
 
 # Deploy an Azure Firewall with Availability Zones using Azure PowerShell
-
-> [!IMPORTANT]
-> Azure Firewall with Availability Zones is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Firewall can be configured during deployment to span multiple Availability Zones for increased availability.
 

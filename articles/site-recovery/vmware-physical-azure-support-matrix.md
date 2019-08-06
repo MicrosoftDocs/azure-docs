@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/07/2019
+ms.date: 07/23/2019
 ms.author: raynew
 
 ---
@@ -119,7 +119,7 @@ Multi-queue block IO devices | Not supported.
 Physical servers with the HP CCISS storage controller | Not supported.
 Device/Mount point naming convention | Device name or mount point name should be unique.<br/> Ensure that no two devices/mount points have case-sensitive names. For example naming devices for the same VM as *device1* and *Device1* isn't supported.
 Directories | If you're running a version of the Mobility service earlier than version 9.20 (released in [Update Rollup 31](https://support.microsoft.com/help/4478871/)), then these restrictions apply:<br/><br/> - These directories (if set up as separate partitions/file-systems) must be on the same OS disk on the source server: /(root), /boot, /usr, /usr/local, /var, /etc.</br> - The /boot directory should be on a disk partition and not be an LVM volume.<br/><br/> From version 9.20 onwards, these restrictions don't apply. 
-Boot directory | - Multiple boot disks are supported on a VM <br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
+Boot directory | - Boot disks mustn't be in GPT partition format. This is an Azure architecture limitation. GPT disks are supported as data disks.<br/><br/> Multiple boot disks on a VM aren't supported<br/><br/> - /boot on an LVM volume across more than one disk isn't supported.<br/> - A machine without a boot disk can't be replicated.
 Free space requirements| 2 GB on the /root partition <br/><br/> 250 MB on the installation folder
 XFSv5 | XFSv5 features on XFS file systems, such as metadata checksum, are supported (Mobility service version 9.10 onwards).<br/> Use the xfs_info utility to check the XFS superblock for the partition. If `ftype` is set to 1, then XFSv5 features are in use.
 BTRFS | BTRFS is supported from [Update Rollup 34](https://support.microsoft.com/help/4490016) (version 9.22 of the Mobility service) onwards. BTRFS isn't supported if:<br/><br/> - The BTRFS file system subvolume is changed after enabling protection.</br> - The BTRFS file system is spread over multiple disks.</br> - The BTRFS file system supports RAID.
@@ -179,7 +179,7 @@ Guest/server NFS | No
 Guest/server iSCSI | No
 Guest/server SMB 3.0 | No
 Guest/server RDM | Yes<br/><br/> N/A for physical servers
-Guest/server disk > 1 TB | Yes<br/><br/>Up to 4,095 GB<br/><br/> Disk must be larger than 1024 MB.
+Guest/server disk > 1 TB | Yes, disk must be larger than 1024 MB<br/><br/>Up to 8,192 GB when replicating to managed disks (9.26 version onwards)<br></br> Up to 4,095 GB when replicating to storage accounts
 Guest/server disk with 4K logical and 4k physical sector size | No
 Guest/server disk with 4K logical and 512-bytes physical sector size | No
 Guest/server volume with striped disk >4 TB <br/><br/>Logical volume management (LVM)| Yes
@@ -188,7 +188,7 @@ Guest/server hot add/remove disk | No
 Guest/server - exclude disk | Yes
 Guest/server multipath (MPIO) | No
 Guest/server GPT partitions | Five partitions are supported from [Update Rollup 37](https://support.microsoft.com/help/4508614/) (version 9.25 of the Mobility service) onwards. Previously four were supported.
-Guest/server EFI/UEFI boot | - Supported when you're running Mobility service version 9.13 or later.<br/> - Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> - You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> - Only NTFS is supported & secure UEFI boot type is not supported. <br/> - Disk sector size should be 512 bytes per physical sector.
+Guest/server EFI/UEFI boot | - Supported when you're running Mobility service version 9.13 or later.<br/> - Supported when migrating VMware VMs or physical servers running Windows Server 2012 or later to Azure.<br/> - You can only replicate VMs for migration. Failback to on-premises isn't supported.<br/> - Only NTFS is supported <br/> - Secure UEFI boot type is not supported. <br/> - Disk sector size should be 512 bytes per physical sector.
 
 ## Replication channels
 
@@ -234,7 +234,7 @@ Guest operating system architecture | 64-bit. | Check fails if unsupported.
 Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
 Operating system disk count | 1 | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
-Data disk size | Up to 4,095 GB | Check fails if unsupported.
+Data disk size | Up to 8,192 GB when replicating to managed disk (9.26 version onwards)<br></br>Up to 4,095 GB when replicating to storage account| Check fails if unsupported.
 Network adapters | Multiple adapters are supported. |
 Shared VHD | Not supported. | Check fails if unsupported.
 FC disk | Not supported. | Check fails if unsupported.

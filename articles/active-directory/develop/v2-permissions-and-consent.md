@@ -151,6 +151,9 @@ If the application is requesting application permissions and an administrator gr
 
 ## Using the admin consent endpoint
 
+> [!NOTE] 
+> Please note after granting admin consent using the admin consent endpoint, you have finished granting admin consent and users do not need to perform any further additional actions. After granting admin consent, users can get an access token via a typical auth flow and the resulting access token will have the consented permissions. 
+
 When a Company Administrator uses your application and is directed to the authorize endpoint, Microsoft identity platform will detect the user's role and ask them if they would like to consent on behalf of the entire tenant for the permissions you have requested. However, there is also a dedicated admin consent endpoint you can use if you would like to proactively request that an administrator grants permission on behalf of the entire tenant. Using this endpoint is also necessary for requesting Application Permissions (which can't be requested using the authorize endpoint).
 
 If you follow these steps, your app can request permissions for all users in a tenant, including admin-restricted scopes. This is a high privilege operation and should only be done if necessary for your scenario.
@@ -164,7 +167,8 @@ The admin consent does not accept a scope parameter, so any permissions being re
 #### To configure the list of statically requested permissions for an application
 
 1. Go to your application in the [Azure portal – App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience, or [create an app](quickstart-register-app.md) if you haven't already.
-2. Locate the **Microsoft Graph Permissions** section, and then add the permissions that your app requires.
+2. Locate the **API Permissions** section, and within the API permissions click Add a permission.
+3. Select **Microsoft Graph** from the list of available APIs and then add the permissions that your app requires.
 3. **Save** the app registration.
 
 ### Recommended: Sign the user into your app

@@ -41,9 +41,9 @@ Navigate to the Azure AD tenant that shows your Azure subscription. Open the [Az
 
 ## Find Azure AD B2C in the Azure Marketplace
 
-Click the **Create a resource** button. In the **Search the marketplace** field, enter `B2C`.
+Click the **Create a resource** button. In the **Search the Marketplace** field, enter `Active Directory B2C`.
 
-![Add button highlighted and the text Azure AD B2C in the search the marketplace field](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
+![Portal screenshot with 'Active Directory B2C' in Marketplace search](../../includes/media/active-directory-b2c-create-tenant/find-azure-ad-b2c.png)
 
 In the results list, select **Azure AD B2C**.
 
@@ -63,7 +63,7 @@ For Subscription, select an active Azure subscription that you are the administr
 
 Select a Resource Group and Resource Group location. The selection here has no impact on your Azure AD B2C tenant location, performance, or billing status.
 
-![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
+![The Azure AD B2C Resource creation page in Azure portal](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## Manage your Azure AD B2C tenant resources
 
@@ -76,7 +76,7 @@ You can use this resource to:
 - Submit a support request
 - Move your Azure AD B2C tenant resource to another Azure subscription or to another Resource Group.
 
-![B2C Resource settings](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
+![B2C Resource settings page in the Azure portal](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.PNG)
 
 ## Change the Azure AD B2C tenant billing subscription
 

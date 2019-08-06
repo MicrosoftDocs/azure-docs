@@ -47,8 +47,10 @@
     href: azure-netapp-files-set-up-capacity-pool.md
   - name: Delegate a subnet to Azure NetApp Files
     href: azure-netapp-files-delegate-subnet.md
-  - name: Create a volume for Azure NetApp Files
+  - name: Create an NFS volume for Azure NetApp Files
     href: azure-netapp-files-create-volumes.md
+  - name: Create an SMB volume for Azure NetApp Files
+    href: azure-netapp-files-create-volumes-smb.md
   - name: Configure export policy for an NFS volume
     href: azure-netapp-files-configure-export-policy.md
   - name: Manage volumes

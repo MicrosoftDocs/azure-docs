@@ -22,6 +22,20 @@
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
+  - name: Troubleshoot
+    items:
+    - name: OutOfMemoryError exception
+      items:
+      - name: GC overhead limit exceeded
+        href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Error message not shown in Apache Hive View
+      href: ./interactive-query-troubleshoot-error-message-hive-view.md
+    - name: Inaccessible Apache Hive View 
+      href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+    - name: ZooKeeperHiveClientException - HiveServer2 configs
+      href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
 - name: How to
   items:
   - name: Migrate Hive workloads to HDInsight 4.0
@@ -298,7 +312,7 @@
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/apache-domain-joined-introduction.md
+      href: ../domain-joined/hdinsight-security-overview.md
       maintainContext: true
     - name: Plan for enterprise security
       href: ../domain-joined/apache-domain-joined-architecture.md
@@ -322,10 +336,14 @@
     items:
     - name: HDInsight virtual network architecture
       href: ../hdinsight-virtual-network-architecture.md
+    - name: Plan VNETs for HDInsight
+      href: ../hdinsight-plan-virtual-network-deployment.md
+    - name: Create VNETs for HDInsight
+      href: ../hdinsight-create-virtual-network.md
+    - name: Required IP Addresses for NSGs and UDRs
+      href: ../hdinsight-management-ip-addresses.md
     - name: Use firewall to restrict outbound traffic
       href: ../hdinsight-restrict-outbound-traffic.md
-    - name: HDInsight in Azure VNet
-      href: ../hdinsight-extend-hadoop-virtual-network.md
     - name: Connect HDInsight with on-premises network
       href: ../connect-on-premises-network.md
   - name: Monitoring using Azure Monitor logs

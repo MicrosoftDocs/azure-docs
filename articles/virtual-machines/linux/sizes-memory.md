@@ -4,7 +4,7 @@ description: Lists the different memory optimized sizes available for Linux virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: jonbeck7
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 keywords: VM isolation,isolated VM,isolation,isolated

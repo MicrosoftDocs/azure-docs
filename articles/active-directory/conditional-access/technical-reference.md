@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 07/10/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -55,7 +55,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Microsoft Intune
 - Microsoft Intune Enrollment
 - Microsoft Planner
-- Microsoft Power BI
 - Microsoft PowerApps
 - Microsoft Search in Bing
 - Microsoft StaffHub
@@ -67,6 +66,7 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Office Delve
 - Office Sway
 - Outlook Groups
+- Power BI Service
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)
@@ -94,6 +94,8 @@ In a Conditional Access policy, you can configure the device platform condition 
 - macOS
 
 ![Tie the access policy to the client OS](./media/technical-reference/41.png)
+
+If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
 
 ## Client apps condition
 
@@ -132,7 +134,7 @@ On Windows 7, iOS, Android, and macOS Azure AD identifies the device using a cli
 
 #### Chrome support
 
-For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install [this extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+For Chrome support in **Windows 10 Creators Update (version 1703)** or later, install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji). This extension is required when a Conditional Access policy requires device specific details.
 
 To automatically deploy this extension to Chrome browsers, create the following registry key:
 
@@ -141,7 +143,7 @@ To automatically deploy this extension to Chrome browsers, create the following 
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 
@@ -200,6 +202,8 @@ This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -238,8 +242,11 @@ In your Conditional Access policy, you can require an app protection policy be p
 
 This setting applies to the following client apps:
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Microsoft Planner
 
 **Remarks**
 

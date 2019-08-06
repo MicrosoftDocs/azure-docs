@@ -6,7 +6,7 @@ author: mmacy
 manager: celestedg
 
 ms.author: marsma
-ms.date: 07/08/2019
+ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
@@ -37,7 +37,7 @@ You need the following Azure AD B2C resources in place before continuing with th
 Additionally, you need the following in your local development environment:
 
 * Code editor, for example [Visual Studio Code](https://code.visualstudio.com/) or [Visual Studio 2019](https://www.visualstudio.com/downloads/)
-* [.NET Core SDK 2.0.0](https://www.microsoft.com/net/core) or later
+* [.NET Core SDK 2.2](https://dotnet.microsoft.com/download) or later
 * [Node.js](https://nodejs.org/en/download/)
 
 ## Update the application
@@ -54,7 +54,7 @@ In the second tutorial that you completed as part of the prerequisites, you regi
 
 ## Get the sample code
 
-In this tutorial, you configure a code sample that you download from GitHub. The sample demonstrates how a single-page application can use Azure AD B2C for user sign up and sign in, and to call a protected web API.
+In this tutorial, you configure a code sample that you download from GitHub. The sample demonstrates how a single-page application can use Azure AD B2C for user sign-up and sign-in, and to call a protected web API.
 
 [Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) or clone the sample from GitHub.
 
@@ -111,13 +111,13 @@ The sample supports sign-up, sign-in, profile editing, and password reset. This 
 
 ### Sign up using an email address
 
-1. Click **Login** to sign up as a user of the application. This uses the **B2C_1_signupsignin1** user flow you specified in a previous step.
-1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't have an account yet, click the **Sign up now** link.
+1. Click **Login** to initiate the *B2C_1_signupsignin1* user flow you specified in an earlier step.
+1. Azure AD B2C presents a sign-in page with a sign-up link. Since you don't yet have an account, click the **Sign up now** link.
 1. The sign-up workflow presents a page to collect and verify the user's identity using an email address. The sign-up workflow also collects the user's password and the requested attributes defined in the user flow.
 
     Use a valid email address and validate using the verification code. Set a password. Enter values for the requested attributes.
 
-    ![Sign-up workflow](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
+    ![Sign-up page presented by the sign-in/sign-up user flow](./media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.PNG)
 
 1. Click **Create** to create a local account in the Azure AD B2C directory.
 
@@ -129,11 +129,15 @@ You can now use your email address and password to sign in to the application.
 
 After you sign in, the app displays an insufficient permissions error - this is **expected**:
 
-`ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.`
+```Output
+ServerError: AADB2C90205: This application does not have sufficient permissions against this web resource to perform the operation.
+Correlation ID: ce15bbcc-0000-0000-0000-494a52e95cd7
+Timestamp: 2019-07-20 22:17:27Z
+```
 
-You receive this error because you're attempting to access a resource from the demo directory, but your access token is valid only for your Azure AD directory. The API call is therefore unauthorized.
+You receive this error because the web application is attempting to access a web API protected by the demo directory, *fabrikamb2c*. Because your access token is valid only for your Azure AD directory, the API call is therefore unauthorized.
 
-Continue with the next tutorial in the series (see [Next steps](#next-steps)) to create a protected web API for your directory.
+To fix this error, continue on to the next tutorial in the series (see [Next steps](#next-steps)) to create a protected web API for your directory.
 
 ## Next steps
 
@@ -147,4 +151,4 @@ In this article, you learned how to:
 Now move on to the next tutorial in the series to grant access to a protected web API from the SPA:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Grant access to an ASP.NET Core web API from a single-page app using Azure Active Directory B2C](active-directory-b2c-tutorials-spa-webapi.md)
+> [Tutorial: Grant access to an ASP.NET Core web API from an SPA using Azure AD B2C >](active-directory-b2c-tutorials-spa-webapi.md)

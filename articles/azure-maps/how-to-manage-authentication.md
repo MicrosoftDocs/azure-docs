@@ -3,7 +3,7 @@ title: Manage authentication in Azure Maps | Microsoft Docs
 description: You can use the Azure portal to manage authentication in Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 07/11/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -54,7 +54,7 @@ After you create an Azure Maps account, you need to establish a link between you
 
 ## Grant RBAC to Azure Maps
 
-After you associate an Azure Maps account with your Azure AD tenant, you can grant access control by assigning a user or application to one or more Azure Maps access control roles.
+After you associate an Azure Maps account with your Azure AD tenant, you can grant access control by assigning a user, group or application to one or more Azure Maps access control roles.
 
 1. Go to **Access control (IAM)**, select **Role assignments**, and then select **Add role assignment**.
 

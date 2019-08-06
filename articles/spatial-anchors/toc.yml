@@ -5,6 +5,7 @@
   - name: About Spatial Anchors
     href: overview.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create Unity app
     href: unity-overview.yml
@@ -85,4 +86,3 @@
     href: https://stackoverflow.com/questions/tagged/azure-spatial-anchors
   - name: Support
     href: spatial-anchor-support.md
-  

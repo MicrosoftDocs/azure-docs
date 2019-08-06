@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Service Principal configuration| Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Troubleshoot service principals | Microsoft Docs'
 description: Troubleshooting Service Principal configuration for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.date: 05/14/2019
 ms.author: iainfou
 
 ---
-# Troubleshoot invalid Service Principal configuration for your managed domain
+# Troubleshoot invalid service principal configurations for Azure Active Directory Domain Services
 
 This article helps you troubleshoot and resolve service principal-related configuration errors that result in the following alert message:
 

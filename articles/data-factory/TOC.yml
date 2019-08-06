@@ -526,6 +526,8 @@
       href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Run SSIS packages in Azure from SSDT
+      href: how-to-invoke-ssis-package-ssdt.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity
@@ -534,6 +536,8 @@
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
       href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
+      href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
@@ -556,6 +560,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -564,18 +570,30 @@
       href: solution-template-copy-files-multiple-containers.md
     - name: Copy new files by LastModifiedDate
       href: solution-template-copy-new-files-lastmodifieddate.md
-    - name: Bulk copy with control table
+    - name: Bulk copy from database
       href: solution-template-bulk-copy-with-control-table.md
-    - name: Delta copy with control table
+    - name: Delta copy from database
       href: solution-template-delta-copy-with-control-table.md
+    - name: Move files
+      href: solution-template-move-files.md
     - name: Transform data with Databricks
       href: solution-template-databricks-notebook.md
   - name: Troubleshooting guide
     items:
     - name: Activity troubleshooting
       href: data-factory-troubleshoot-guide.md
+    - name: Troubleshooting Azure-SSIS IR Management
+      href: ssis-integration-runtime-management-troubleshoot.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+- name: Scenarios
+  items:
+  - name: Data migration for data lake & EDW
+    items:
+    - name: Why Azure Data Factory
+      href: data-migration-guidance-overview.md
+    - name: Migrate data from AWS S3 to Azure
+      href: data-migration-guidance-s3-azure-storage.md
 - name: Reference
   items:
   - name: .NET

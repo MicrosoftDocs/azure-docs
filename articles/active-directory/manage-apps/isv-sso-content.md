@@ -16,7 +16,7 @@ ms.collection: M365-identity-device-management
 ---
 # Enable Single Sign-on for your multi-tenant application  
 
-When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/en-us/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
+When you offer your application for use by other companies through a purchase or subscription, you make your application available to customers within their own Azure tenants. This is known as creating a multi-tenant application. For overview of this concept, see [Multitenant Applications in Azure](https://docs.microsoft.com/azure/dotnet-develop-multitenant-applications) and [Tenancy in Azure Active Directory](../develop/single-and-multi-tenant-apps.md).
 
 ## What is Single Sign-On
 

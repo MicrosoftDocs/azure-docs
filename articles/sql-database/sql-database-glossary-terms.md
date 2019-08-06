@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 04/26/2019
 ---
 # Azure SQL Database glossary of terms

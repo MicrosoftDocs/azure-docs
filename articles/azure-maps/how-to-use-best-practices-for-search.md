@@ -261,7 +261,7 @@ encodeURIComponent(query)
 ```
 
 C#/VB:
-```C#
+```csharp
 Uri.EscapeDataString(query)
 ```
 

@@ -47,6 +47,12 @@ The software requirements include the information on the supported operating sys
 
 Your datacenter needs to have high-speed network. For fastest copy speeds, two 40-GbE connections can be utilized in parallel (one per node). If you do not have 40-GbE available, we recommend that you have at least two 10-GbE connections (one per node).
 
+### Port requirements
+
+The following table lists the ports that need to be opened in your firewall to allow for SMB or NFS traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Heavy device sends data externally, beyond the deployment: for example, outbound to the Internet.
+
+[!INCLUDE [data-box-port-requirements](../../includes/data-box-port-requirements.md)]
+
 ## Next steps
 
 * [Deploy your Azure Data Box](data-box-deploy-ordered.md)

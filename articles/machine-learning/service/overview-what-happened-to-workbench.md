@@ -72,7 +72,8 @@ You won't lose any code or work. In the older version, projects are cloud entiti
 
 Much of the project content was already on your local machine. So you just need to create a config file in that directory and reference it in your code to connect to your workspace. To continue using the local directory containing your files and scripts, specify the directory's name in the ['experiment.submit'](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) Python command or using the `az ml project attach` CLI command.  For example:
 ```python
-run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
+run = exp.submit(source_directory=script_folder,
+                 script='train.py', run_config=run_config_system_managed)
 ```
 
 [Create a workspace](setup-create-workspace.md#portal) to get started.
@@ -113,8 +114,8 @@ The domain packages for computer vision, text analytics, and forecasting can't b
 
 Learn about the [latest architecture for Azure Machine Learning service](concept-azure-machine-learning-architecture.md). 
 
-For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
+For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md).
 
-For a quickstart showing you how to run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+Create your first experiment with the two-part tutorial to [setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md)
 
 For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service. 

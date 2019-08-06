@@ -1,11 +1,9 @@
 ---
 title: Troubleshoot Azure Files problems in Linux | Microsoft Docs
 description: Troubleshooting Azure Files problems in Linux
-services: storage
 author: jeffpatt24
-tags: storage
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
@@ -88,6 +86,13 @@ There is a quota of 2,000 open handles on a single file. When you have 2,000 ope
 
 Reduce the number of concurrent open handles by closing some handles, and then retry the operation.
 
+To view open handles for a file share, directory or file, use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet.  
+
+To close open handles for a file share, directory or file, use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet.
+
+> [!Note]  
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowfilecopying"></a>
 ## Slow file copying to and from Azure Files in Linux
 
@@ -139,6 +144,23 @@ Browse to the storage account where the Azure file share is located, click **Acc
 
 Verify virtual network and firewall rules are configured properly on the storage account. To test if virtual network or firewall rules is causing the issue, temporarily change the setting on the storage account to **Allow access from all networks**. To learn more, see [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
+<a id="open-handles"></a>
+## Unable to delete a file or directory in an Azure file share
+
+### Cause
+This issue typically occurs if the file or directory has an open handle. 
+
+### Solution
+
+If the SMB clients have closed all open handles and the issue continues to occur, perform the following:
+
+- Use the [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) PowerShell cmdlet to view open handles.
+
+- Use the [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) PowerShell cmdlet to close open handles. 
+
+> [!Note]  
+> The Get-AzStorageFileHandle and Close-AzStorageFileHandle cmdlets are included in Az PowerShell module version 2.4 or later. To install the latest Az PowerShell module, see [Install the Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
 <a id="slowperformance"></a>
 ## Slow performance on an Azure file share mounted on a Linux VM
 
@@ -189,40 +211,6 @@ Use the storage account user for copying the files:
 - `Passwd [storage account name]`
 - `Su [storage account name]`
 - `Cp -p filename.txt /share`
-
-## Cannot connect to or mount an Azure file share
-
-### Cause
-
-Common causes for this problem are:
-
-- You're using an incompatible Linux distribution client. We recommend that you use the following Linux distributions to connect to an Azure file share:
-
-    |   | SMB 2.1 <br>(Mounts on VMs within the same Azure region) | SMB 3.0 <br>(Mounts from on-premises and cross-region) |
-    | --- | :---: | :---: |
-    | Ubuntu Server | 14.04+ | 16.04+ |
-    | RHEL | 7+ | 7.5+ |
-    | CentOS | 7+ |  7.5+ |
-    | Debian | 8+ |   |
-    | openSUSE | 13.2+ | 42.3+ |
-    | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
-
-- CIFS utilities (cifs-utils) are not installed on the client.
-- The minimum SMB/CIFS version, 2.1, is not installed on the client.
-- SMB 3.0 encryption is not supported on the client. SMB 3.0 encryption is available in Ubuntu 16.4 and later versions, along with SUSE 12.3 and later versions. Other distributions require kernel 4.11 and later versions.
-- You're trying to connect to a storage account over TCP port 445, which is not supported.
-- You're trying to connect to an Azure file share from an Azure VM, and the VM is not in the same region as the storage account.
-- If the [Secure transfer required]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) setting is enabled on the storage account, Azure Files will allow only connections that use SMB 3.0 with encryption.
-
-### Solution
-
-To resolve the problem, use the [troubleshooting tool for Azure Files mounting errors on Linux](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089). This tool:
-
-* Helps you to validate the client running environment.
-* Detects the incompatible client configuration that would cause access failure for Azure Files.
-* Gives prescriptive guidance on self-fixing.
-* Collects the diagnostics traces.
-
 
 ## ls: cannot access '&lt;path&gt;': Input/output error
 

@@ -3,7 +3,7 @@ title: Troubleshooting Azure Container Instances
 description: Learn how to troubleshoot issues with Azure Container Instances
 services: container-instances
 author: dlepow
-manager: jeconnoc
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

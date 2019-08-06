@@ -138,17 +138,9 @@ A solution is a logical way of developing and organizing multiple modules for a 
 
 1. In Visual Studio Code, select **View** > **Terminal** to open the VS Code integrated terminal.
 
-2. In the integrated terminal, enter the following command to install (or update) **cookiecutter**, which you use to create the IoT Edge python module template in VS Code:
+1. Select **View** > **Command Palette** to open the VS Code command palette. 
 
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
-   >[!Note]
-   >Ensure the directory where cookiecutter will be installed is in your environment’s `Path` in order to make it possible to invoke it from a command prompt.
-
-3. Select **View** > **Command Palette** to open the VS Code command palette. 
-
-4. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+1. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
 
    | Field | Value |
    | ----- | ----- |

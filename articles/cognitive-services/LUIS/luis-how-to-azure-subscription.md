@@ -1,6 +1,6 @@
 ---
-title: Subscription keys
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Subscription keys - LUIS
+titleSuffix: Azure Cognitive Services
 description: You do not need to create subscription keys to use your free first-1000 endpoint queries. If you receive an _out of quota_ error in the form of an HTTP 403 or 429, you need to create a key and assign it to your app.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 07/10/2019
 ms.author: diberry
 ---
 
@@ -27,6 +27,8 @@ For testing and prototype only, use the free (F0) tier. For production systems, 
 
 You create the [prediction endpoint resource](get-started-portal-deploy-app.md#create-the-endpoint-resource) in the Azure portal. This resource should only be used for endpoint prediction queries. Do not use this resource for authoring changes to the app.
 
+You can create a Language Understanding resource or a Cognitive Services resource. If you are creating a Language Understanding resource, a good practice is to postpend the resource type to the resource name. 
+
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
 <a name="endpoint-key" ></a>
@@ -40,6 +42,15 @@ You create the [prediction endpoint resource](get-started-portal-deploy-app.md#c
 <a name="assign-endpoint-key"></a>
 <a name="assign-resource"></a>
 
+### Using resource from LUIS portal
+
+If you are using the resource from the LUIS portal, you do not need to know your key and location. Instead you need to know your resource tenant, subscription, and resource name.
+
+Once you [assign](#assign-resource-key-to-luis-app-in-luis-portal) your resource to your LUIS app in the LUIS portal, the key and location are provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page.
+ 
+### Using resource from REST API or SDK
+
+If you are using the resource from the REST API(s) or SDK, you need to know your key and location. This information is provided as part of the query prediction endpoint URL in the Manage section's **Keys and Endpoint settings** page as well as in the Azure portal, on the resource's Overview and Keys pages.
 
 ## Assign resource key to LUIS app in LUIS Portal
 

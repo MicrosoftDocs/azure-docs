@@ -4,7 +4,7 @@ description: Lists the different sizes available for Windows high performance co
 services: virtual-machines-windows
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -15,8 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/12/2018
-ms.author: jonbeck;amverma
-
+ms.author: amverma
+ms.reviewer: jonbeck
 ---
 
 # High performance compute VM sizes

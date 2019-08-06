@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: ''
 
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines-linux

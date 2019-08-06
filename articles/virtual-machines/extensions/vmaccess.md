@@ -4,7 +4,7 @@ description: How to manage administrative users and reset access on Linux VMs us
 services: virtual-machines-linux
 documentationcenter: ''
 author: roiyz-msft
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 
