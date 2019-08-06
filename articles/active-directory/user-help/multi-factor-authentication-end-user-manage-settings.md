@@ -105,7 +105,7 @@ If you've previously set up your work or school account in the Microsoft Authent
 
 3. Select **Save**.
 
-## To delete your account or device from the Microsoft Authenticator app
+## Delete your account or device from the Microsoft Authenticator app
 
 You can delete your account from the Microsoft Authenticator app, and you can delete your device from your work or school account. Typically you delete your device to permanently remove a lost, stolen, or old device from your account, and you delete your account to try to fix some connection issues or to address an account change, such as a new user name.
 
