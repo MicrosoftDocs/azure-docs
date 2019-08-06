@@ -65,7 +65,7 @@ User needs to remove the lock and clear the restore point collection from that r
 
 
 ### Does Azure backup support standard SSD managed disk?
-Yes, Azure Backup supports[standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
+Yes, Azure Backup supports [standard SSD managed disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ### Can we back up a VM with a Write Accelerator (WA)-enabled disk?
 Snapshots can't be taken on the WA-enabled disk. However, the Azure Backup service can exclude the WA-enabled disk from backup.
