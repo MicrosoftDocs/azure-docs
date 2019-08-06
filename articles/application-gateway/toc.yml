@@ -35,6 +35,8 @@
     href: powershell-samples.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Resource Manager templates
+    href: rm-template-samples.md
 - name: Concepts
   items:
   - name: Basics
