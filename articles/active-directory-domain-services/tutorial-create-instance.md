@@ -221,4 +221,4 @@ To see this managed domain in action, create and join a virtual machine to the d
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: active-directory-ds-getting-started-password-sync-synced-tenant.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
-[password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization#password-hash-sync-process-for-azure-ad-domain-services
+[password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
