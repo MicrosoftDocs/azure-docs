@@ -110,14 +110,14 @@ This command will use the credentials to authenticate with the remote SMB server
 
 For your deployment the value of `<storage directory bind>` can be **G:/ContainerData:C:/BlobRoot**.
 
-## Granting directory access to low privileged user for Linux containers
+## Granting directory access to container user on Linux
 If you have used volume bind for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used directory bind then these steps are required to run the service correctly.
 
-This module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as `root` (default user is `root`), our service will be started as the low-privilege `absie` user. 
+This module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
 
-If any other user is specified through `user create option`, the service is started as that `user`. 
+If any other user is specified through **user create option**, the service is started as that **user**. 
 
-This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by this user (example: absie 11000).  
+This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by the container user (example: absie 11000). You can grant the container user the access to a directory by executing the commands below on the host:
 
 ```terminal
 sudo chown -R <user id>:<group id> <blob-dir> 
