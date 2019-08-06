@@ -173,7 +173,7 @@ This article answers common questions about Azure Files features and functionali
 
     - Azure File Sync preserves and replicates all discretionary ACLs, or DACLs, (whether Active Directory-based or local) to all server endpoints that it syncs to. Because Windows Server can already authenticate with Active Directory, Azure File Sync is an effective stop-gap option until full support for Active Directory-based authentication and ACL support arrives.
     
-    You can refer to [Authorizing access to Azure Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a comprehensive representation of all protocols supported on Azure Storage services. 
+    You can refer to [Authorizing access to Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) for a comprehensive representation of all protocols supported on Azure Storage services. 
 
 * <a id="ad-support-devices"></a>
 **Does Azure Files Azure AD DS Authentication support SMB access using Azure AD credentials from devices joined to or registered with Azure AD?**
