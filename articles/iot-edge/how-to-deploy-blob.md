@@ -164,7 +164,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Open *deployment.template.json* in your new solution workspace and find the **modules** section. Make the following configuration changes:
 
-   1. Delete the **tempSensor** module, as it's not necessary for this deployment.
+   1. Delete the **SimulatedTemperatureSensor** module, as it's not necessary for this deployment.
 
    1. Copy and paste the following code into the `createOptions` field:
 
