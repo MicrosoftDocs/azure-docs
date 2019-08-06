@@ -333,4 +333,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
 * [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
 * [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
