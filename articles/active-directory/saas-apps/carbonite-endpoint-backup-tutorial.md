@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -140,9 +140,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Carbonite Endpoint Backup configuration ](media/carbonite-endpoint-backup-tutorial/configure4.png)
 
-    1. In the **Identity provider name** textbox, enter the name of identity provider like **Microsoft Azure AD**.
+    1. In the **Identity provider name** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
 
-    1. In the **Identity provider URL** textbox, paste the **Azure AD Identifier** value, which you have copied from the Azure portal.
+    1. In the **Identity provider URL** textbox, paste the **Login URL** value, which you have copied from the Azure portal.
 
     1. Click on **Choose file** to upload the downloaded **Certificate(Base64)** file from the Azure portal.
 
