@@ -38,6 +38,8 @@ To complete this tutorial, you need the following resources:
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
 
+If you already have a VM that you want to domain-join, skip to the section to [join the VM to the Azure AD DS managed domain][#join-the-vm-to-the-azure-ad-ds-managed-domain].
+
 ## Sign in to the Azure portal
 
 In this tutorial, you create a Windows Server VM to join to your Azure AD DS managed domain using the Azure portal. To get started, first sign in to the [Azure portal](https://portal.azure.com).
@@ -45,6 +47,8 @@ In this tutorial, you create a Windows Server VM to join to your Azure AD DS man
 ## Create a Windows Server virtual machine
 
 To see how to join a computer to an Azure AD DS managed domain, let's create a Windows Server VM. This VM is connected to an Azure virtual network that provides connectivity to the Azure AD DS managed domain. The process to join an Azure AD DS managed domain is the same as joining a regular on-premises Active Directory Domain Services domain.
+
+If you already have a VM that you want to domain-join, skip to the section to [join the VM to the Azure AD DS managed domain][#join-the-vm-to-the-azure-ad-ds-managed-domain].
 
 1. In the top left-hand corner of the Azure portal, select **+ Create a resource**.
 2. From **Get started**, choose **Windows Server 2016 Datacenter**.
@@ -142,6 +146,11 @@ With the VM created and an RDP connection establish, now let's join the Windows 
 
 1. To complete the process to join to the Azure AD DS managed domain, restart the VM.
 
+> [!TIP]
+> You can also domain-join a VM using PowerShell with the [Add-Computer][add-computer] cmdlet. The following example joins the *CONTOSO* domain and then restarts the VM. When prompted, enter the credentials for a user that belongs to the *Azure AD DC administrators* group:
+>
+> `Add-Computer -DomainName CONTOSO -Restart`
+
 Once the Windows Server VM has restarted, any policies applied in the Azure AD DS managed domain are be pushed to the VM. You can also now sign in to the Windows Server VM using appropriate domain credentials.
 
 ## Clean up resources
@@ -213,3 +222,4 @@ To administer your Azure AD DS managed domain, configure a management VM using t
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md
+[add-computer]: /powershell/module/microsoft.powershell.management/add-computer
