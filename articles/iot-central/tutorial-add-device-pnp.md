@@ -3,7 +3,7 @@ title: Add a real device to an Azure IoT Central application | Microsoft Docs
 description: As an operator, add a real device to your Azure IoT Central application.
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -37,7 +37,9 @@ To add a real device to your application, you use the **Environmental Sensor** d
 
 1. To add a simulated environmental sensor device, select **+ New**. Use the suggested **Device ID** or enter your own lowercase **Device ID**. You can also enter a name for your new device. Switch the **simulated** toggle to **On** and then select **Create**.
 
-1. Now you can interact with the views that were created by the builder for the device template using simulated data.
+    ![Simulated device](./media/tutorial-add-device-pnp/simulated-device.png)
+
+Now you can interact with the views that were created by the builder for the device template using simulated data.
 
 ## Use a simulated device to improve views
 
@@ -52,6 +54,8 @@ After you create a new simulated device, the builder can use this device to cont
 1. Choose **Select from a running device** and enter in the **Device ID** of the simulated device that you had copied.
 
 1. Choose **Apply**. Now you can see the same simulated device in your device template views building experience. This view is particularly useful for charts and other visualizations.
+
+    ![Configure preview device](./media/tutorial-add-device-pnp/configure-preview.png)
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2019
+ms.date: 08/06/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -47,11 +47,13 @@ Before you begin, you should complete the [Define a new device type in your appl
     | Operator                                     | is greater than                   |
     | Value                                        | 90                                |
 
- To add more conditions, select **+ Condition**.
+    To add more conditions, select **+ Condition**.
+
+    ![Create rule condition](./media/tutorial-configure-rules-pnp/condition.png)
 
 1. To add an action to run when the rule triggers, select **+ Action**, and choose **Email**.
 
-1. USe the information in the following table to define your action:
+1. Use the information in the following table to define your action:
 
     | Setting   | Value                                             |
     | --------- | ------------------------------------------------- |
@@ -60,6 +62,8 @@ Before you begin, you should complete the [Define a new device type in your appl
 
     > [!NOTE]
     > To receive an email notification, the email address must be a [user ID in the application](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json), and that user must have signed in to the application at least once.
+
+    ![Create rule action](./media/tutorial-configure-rules-pnp/action.png)
 
 1. Select **Save**. Your rule is listed on the **Rules** page.
 
