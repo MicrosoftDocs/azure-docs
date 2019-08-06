@@ -15,7 +15,7 @@ ms.author: dapine
 
 # Install and run Text Analytics containers
 
-The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
+Containers enable you to run the Text Analytic APIs in your own environment and are great for your specific security and data governance requirements. The Text Analytics containers provide advanced natural language processing over raw text, and include three main functions: sentiment analysis, key phrase extraction, and language detection. Entity linking is not currently supported in a container.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -56,13 +56,13 @@ Core and memory correspond to the `--cpus` and `--memory` settings, which are us
 
 ## Get the container image with `docker pull`
 
-Container images for Text Analytics are available from Microsoft Container Registry. 
+Container images for Text Analytics are available from Microsoft Container Registry.
 
 | Container | Repository |
 |-----------|------------|
 |Key Phrase Extraction | `mcr.microsoft.com/azure-cognitive-services/keyphrase` |
 |Language Detection | `mcr.microsoft.com/azure-cognitive-services/language` |
-|Sentiment Analysis | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
+|Sentiment Analysis| `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
 Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from Microsoft Container Registry.
 
@@ -94,17 +94,20 @@ docker pull mcr.microsoft.com/azure-cognitive-services/sentiment:latest
 
 [!INCLUDE [Tip for using docker list](../../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-
 ## How to use the container
 
 Once the container is on the [host computer](#the-host-computer), use the following process to work with the container.
 
-1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
-1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint). 
+1. [Run the container](#run-the-container-with-docker-run), with the required billing settings. More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+1. [Query the container's prediction endpoint](#query-the-containers-prediction-endpoint).
 
 ## Run the container with `docker run`
 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run any of the three containers. Refer to [Gathering required parameters](#gathering-required-parameters) for details on how to get the `{Endpoint_URI}` and `{API_Key}` values.
+
+[Examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available.
+
+### Run container example of docker run command
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -119,9 +122,8 @@ This command:
 * Runs a key phrase container from the container image
 * Allocates one CPU core and 4 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
-* Automatically removes the container after it exits. The container image is still available on the host computer. 
+* Automatically removes the container after it exits. The container image is still available on the host computer.
 
-More [examples](../text-analytics-resource-container-config.md#example-docker-run-commands) of the `docker run` command are available. 
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
@@ -130,7 +132,7 @@ More [examples](../text-analytics-resource-container-config.md#example-docker-ru
 
 ## Query the container's prediction endpoint
 
-The container provides REST-based query prediction endpoint APIs. 
+The container provides REST-based query prediction endpoint APIs.
 
 Use the host, `https://localhost:5000`, for container APIs.
 
@@ -144,7 +146,7 @@ Use the host, `https://localhost:5000`, for container APIs.
 
 ## Troubleshooting
 
-If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](../text-analytics-resource-container-config.md#mount-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container.
 
 ## Billing
 

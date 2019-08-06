@@ -46,6 +46,7 @@ See the language-specific example:
 * [F#](#trigger---f-example)
 * [Java](#trigger---java-example)
 * [JavaScript](#trigger---javascript-example)
+* [Python](#trigger---python-example)
 
 ### Trigger - C# example
 
@@ -209,6 +210,57 @@ module.exports = function(context, myQueueItem) {
 };
 ```
 
+### Trigger - Python example
+
+The following example demonstrates how to read a ServiceBus queue message via a trigger.
+
+A ServiceBus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "name": "msg",
+      "type": "serviceBusTrigger",
+      "direction": "in",
+      "queueName": "inputqueue",
+      "connection": "AzureServiceBusConnectionString"
+    }
+  ]
+}
+```
+
+The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+
+```python
+import azure.functions as func
+
+import logging
+import json
+
+def main(msg: func.ServiceBusMessage):
+    logging.info('Python ServiceBus queue trigger processed message.')
+
+    result = json.dumps({
+        'message_id': msg.message_id,
+        'body': msg.get_body().decode('utf-8'),
+        'content_type': msg.content_type,
+        'expiration_time': msg.expiration_time,
+        'label': msg.label,
+        'partition_key': msg.partition_key,
+        'reply_to': msg.reply_to,
+        'reply_to_session_id': msg.reply_to_session_id,
+        'scheduled_enqueue_time': msg.scheduled_enqueue_time,
+        'session_id': msg.session_id,
+        'time_to_live': msg.time_to_live,
+        'to': msg.to,
+        'user_properties': msg.user_properties,
+    })
+
+    logging.info(result)
+```
+
 ## Trigger - attributes
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a Service Bus trigger:
@@ -365,6 +417,7 @@ See the language-specific example:
 * [F#](#output---f-example)
 * [Java](#output---java-example)
 * [JavaScript](#output---javascript-example)
+* [Python](#output---python-example)
 
 ### Output - C# example
 
@@ -553,6 +606,56 @@ module.exports = function (context, myTimer) {
     context.bindings.outputSbQueue.push("2 " + message);
     context.done();
 };
+```
+
+### Output - Python example
+
+The following example demonstrates how to write out to a ServiceBus queue in Python.
+
+A ServiceBue binding definition is defined in *function.json* where *type* is set to `serviceBus`.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "serviceBus",
+      "direction": "out",
+      "connection": "AzureServiceBusConnectionString",
+      "name": "msg",
+      "queueName": "outqueue"
+    }
+  ]
+}
+```
+
+In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
+
+```python
+import azure.functions as func
+
+def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
+
+    input_msg = req.params.get('message')
+
+    msg.set(input_msg)
+
+    return 'OK'
 ```
 
 ## Output - attributes

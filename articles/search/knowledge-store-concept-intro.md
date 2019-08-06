@@ -1,5 +1,5 @@
 ---
-title: Knowledge store introduction and overview (preview) - Azure Search
+title: Introduction to knowledge store (preview) - Azure Search
 description: Send enriched documents to Azure storage where you can view, reshape, and consume enriched documents in Azure Search and in other applications.
 manager: cgronlun
 author: HeidiSteen

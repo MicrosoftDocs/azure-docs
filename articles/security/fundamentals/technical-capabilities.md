@@ -10,6 +10,7 @@ editor: TomSh
 
 ms.assetid:
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -327,7 +328,7 @@ Azure also provides several easy-to-use features to help secure both inbound and
 
 - [Securely connect your app with resources in a private network using Hybrid Connections](https://docs.microsoft.com/azure/app-service/app-service-hybrid-connections)
 
-Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](https://docs.microsoft.com/azure/security/azure-security-antimalware).
+Azure App Service uses the same Antimalware solution used by Azure Cloud Services and Virtual Machines. To learn more about this refer to our [Antimalware documentation](https://docs.microsoft.com/azure/security/fundamentals/antimalware).
 
 ## Secure your network
 Microsoft Azure includes a robust networking infrastructure to support your application and service connectivity requirements. Network connectivity is possible between resources located in Azure, between on-premises and Azure hosted resources, and to and from the Internet and Azure.
@@ -348,7 +349,7 @@ Azure supports dedicated WAN link connectivity to your on-premises network and a
 
 [Azure Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/) lets you deploy a wide range of computing solutions in an agile way. With support for Microsoft Windows, Linux, Microsoft SQL Server, Oracle, IBM, SAP, and Azure BizTalk Services, you can deploy any workload and any language on nearly any operating system.
 
-With Azure, you can use [antimalware software](https://docs.microsoft.com/azure/security/azure-security-antimalware) from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats.
+With Azure, you can use [antimalware software](https://docs.microsoft.com/azure/security/fundamentals/antimalware) from security vendors such as Microsoft, Symantec, Trend Micro, and Kaspersky to protect your virtual machines from malicious files, adware, and other threats.
 
 Microsoft Antimalware for Azure Cloud Services and Virtual Machines is a real-time protection capability that helps identify and remove viruses, spyware, and other malicious software. Microsoft Antimalware provides configurable alerts when known malicious or unwanted software attempts to install itself or run on your Azure systems.
 
@@ -378,7 +379,7 @@ In addition, the checklist:
 
 ## Azure infrastructure and application security validation
 
-[Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
+[Azure Operational Security](https://docs.microsoft.com/azure/security/fundamentals/operational-security refers to the services, controls, and features available to users for protecting their data, applications, and other assets in Microsoft Azure.
 
 ![security validation (detect)](./media/technical-capabilities/azure-security-technical-capabilities-fig7.png)
 
