@@ -442,7 +442,7 @@ Update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=az
 When you run a service in a dev space, that service's pod is [injected with additional containers for instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster) and all the containers in a pod need to have resource limits and requests set for Horizontal Pod Autoscaling. 
 
 
-Resource requests and limits can be applied for the injected container (devspaces-proxy) by adding the `"azds.io/proxy-resources"` annotation to your pod spec. The value should be set to a JSON object representing the "resources" section of the container spec for the proxy.
+Resource requests and limits can be applied for the injected container (devspaces-proxy) by adding the `azds.io/proxy-resources` annotation to your pod spec. The value should be set to a JSON object representing the resources section of the container spec for the proxy.
 
 ### Try
 
