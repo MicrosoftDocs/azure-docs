@@ -89,7 +89,7 @@ Your solution can receive notifications of digital twin change events. To subscr
 
 To create a digital twin route:
 
-1. In the Azure portal, go to your Iot Hub resource.
+1. In the Azure portal, go to your IoT Hub resource.
 1. Select **Message routing**.
 1. On the **Routes** tab select **Add**.
 1. Enter a value in the **Name** field and choose an **Endpoint**. If you haven't configured an endpoint, select **Add endpoint**.
