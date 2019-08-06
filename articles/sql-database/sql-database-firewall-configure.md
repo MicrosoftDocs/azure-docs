@@ -14,16 +14,11 @@ ms.date: 03/12/2019
 ---
 # Azure SQL Database and SQL Data Warehouse IP firewall rules
 
-Microsoft Azure [SQL Database](sql-database-technical-overview.md) and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) provide a relational database service for Azure and other Internet-based applications. To help protect your data, firewalls prevent all access to your database server until you specify which computers have permission. The firewall grants access to databases based on the originating IP address of each request.
-
 > [!NOTE]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
 > [!IMPORTANT]
-> This article does *not* apply to **Azure SQL Database Managed Instance**. Please see the following article on [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) for more information about the networking configuration needed.
-
-## Virtual network rules as alternatives to IP rules
-
-In addition to IP rules, the firewall also manages *virtual network rules*. Virtual network rules are based on Virtual Network service endpoints. Virtual network rules might be preferable to IP rules in some cases. To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+> This article does *not* apply to **Azure SQL Database Managed Instance**. for more information about the networking configuration, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) .
 
 ## Overview
 
@@ -33,6 +28,7 @@ To selectively grant access to just one of the databases in your Azure SQL serve
 
 > [!IMPORTANT]
 > SQL Data Warehouse only supports server-level IP firewall rules and does not support database-level IP firewall rules.
+
 
 Connection attempts from the Internet and Azure must first pass through the firewall before they can reach your Azure SQL server or SQL Database, as shown in the following diagram:
 
@@ -54,6 +50,26 @@ Microsoft recommends using database-level IP firewall rules whenever possible to
 > Windows Azure SQL Database supports a maximum of 128 IP firewall rules.
 > [!NOTE]
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
+
+## Server-level versus database-level IP firewall rules
+
+Q. Should users of one database be fully isolated from another database?
+  If yes, grant access using database-level IP firewall rules. This avoids using server-level IP firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.
+
+Q. Do users at the IP address’s need access to all databases?
+  Use server-level IP firewall rules to reduce the number of times you must configure IP firewall rules.
+
+Q. Does the person or team configuring the IP firewall rules only have access through the Azure portal, PowerShell, or the REST API?
+  You must use server-level IP firewall rules. Database-level IP firewall rules can only be configured using Transact-SQL.  
+
+Q. Is the person or team configuring the IP firewall rules prohibited from having high-level permission at the database level?
+  Use server-level IP firewall rules. Configuring database-level IP firewall rules using Transact-SQL, requires at least `CONTROL DATABASE` permission at the database level.  
+
+Q. Is the person or team configuring or auditing the IP firewall rules, centrally managing IP firewall rules for many (perhaps 100s) of databases?
+  This selection depends upon your needs and environment. Server-level IP firewall rules might be easier to configure, but scripting can configure rules at the database-level. And even if you use server-level IP firewall rules, you might need to audit the database-level IP firewall rules, to see if users with `CONTROL` permission on the database have created database-level IP firewall rules.
+
+Q. Can I use a mix of both server-level and database-level IP firewall rules?
+  Yes. Some users, such as administrators might need server-level IP firewall rules. Other users, such as users of a database application, might need database-level IP firewall rules.
 
 ### Connecting from the Internet
 
@@ -193,25 +209,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Delete Firewall Rule](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Removes server-level IP firewall rules |
 | [Get Firewall Rules](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Gets server-level IP firewall rules |
 
-## Server-level versus database-level IP firewall rules
 
-Q. Should users of one database be fully isolated from another database?
-  If yes, grant access using database-level IP firewall rules. This avoids using server-level IP firewall rules, which permit access through the firewall to all databases, reducing the depth of your defenses.
-
-Q. Do users at the IP address’s need access to all databases?
-  Use server-level IP firewall rules to reduce the number of times you must configure IP firewall rules.
-
-Q. Does the person or team configuring the IP firewall rules only have access through the Azure portal, PowerShell, or the REST API?
-  You must use server-level IP firewall rules. Database-level IP firewall rules can only be configured using Transact-SQL.  
-
-Q. Is the person or team configuring the IP firewall rules prohibited from having high-level permission at the database level?
-  Use server-level IP firewall rules. Configuring database-level IP firewall rules using Transact-SQL, requires at least `CONTROL DATABASE` permission at the database level.  
-
-Q. Is the person or team configuring or auditing the IP firewall rules, centrally managing IP firewall rules for many (perhaps 100s) of databases?
-  This selection depends upon your needs and environment. Server-level IP firewall rules might be easier to configure, but scripting can configure rules at the database-level. And even if you use server-level IP firewall rules, you might need to audit the database-level IP firewall rules, to see if users with `CONTROL` permission on the database have created database-level IP firewall rules.
-
-Q. Can I use a mix of both server-level and database-level IP firewall rules?
-  Yes. Some users, such as administrators might need server-level IP firewall rules. Other users, such as users of a database application, might need database-level IP firewall rules.
 
 ## Troubleshooting the database firewall
 

@@ -62,7 +62,7 @@ At present, there are two ways to enable auditing on your SQL Database. Table au
 Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, you will turn off **Allow Azure services to access server** access to your SQL Database server and will break the Data Sync feature.
 
 ## IP firewall rules
-Ip based firewall is a feature of Azure SQL Server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule) of the client machines.
+Ip based firewall is a feature of Azure SQL Server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
 
 
 ### Virtual Network firewall rules
@@ -106,7 +106,7 @@ A virtual network rule tells your SQL Database server to accept communications f
 
 - For information on additional ports that you may need to open, see the **SQL Database: Outside vs inside** section of [Ports beyond 1433 for ADO.NET 4.5 and SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
-- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture)
+- For an overview of Azure SQL Database Connectivity, see [Azure SQL Connectivity Architecture](sql-database-connectivity-architecture.md)
 
 - For an overview of Azure SQL Database security, see [Securing your database](sql-database-security-overview.md)
 
