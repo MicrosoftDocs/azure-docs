@@ -4,10 +4,10 @@
   expanded: true
   items:
   - name: What is Azure Machine Learning service?
-    displayName: AML services overview
+    displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
   - name: How the service works
-    displayName: architecture concepts definitions
+    displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
 - name: Setup
   items:
@@ -43,10 +43,10 @@
   - name: Visual interface
     items:
     - name: Train regression model
-      displayName: experiment drag-and-drop visual interface Tutorial 1
+      displayName: studio
       href: ui-tutorial-automobile-price-train-score.md
     - name: Deploy regression model
-      displayName: experiment drag-and-drop visual interface Tutorial 2
+      displayName: studio
       href: ui-tutorial-automobile-price-deploy.md
   - name: Automated machine learning
     items:
@@ -56,27 +56,27 @@
 - name: Samples
   items:
   - name: Notebooks
-    displayName: example, examples, jupyter, azure notebooks, python, notebook, github
+    displayName: example, examples, server, jupyter, azure notebooks, python, notebook, github
     href: samples-notebooks.md
   - name: Visual interface experiments
     items:
     - name: "Predict price"
-      displayName: Basic Sample, training, regression, sample 1
+      displayName: regression, studio
       href:  ui-sample-regression-predict-automobile-price-basic.md
     - name: "Predict price (advanced)"
-      displayName: Advanced Sample, training, regression, sample 2
+      displayName: regression, studio
       href: ui-sample-regression-predict-automobile-price-compare-algorithms.md
     - name: "Predict credit risk"
-      displayName: Basic Sample, training, classification, sample 3
+      displayName: classification, studio
       href:  ui-sample-classification-predict-credit-risk-basic.md
     - name: "Predict credit risk (advanced)"
-      displayName: Advanced Sample, training, classification, sample 4
+      displayName: classification, studio
       href: ui-sample-classification-predict-credit-risk-cost-sensitive.md
     - name: "Predict churn"
-      displayName: Basic Sample, training, classification, sample 5
+      displayName: classification, studio
       href:  ui-sample-classification-predict-churn.md
     - name: "Predict flight delays"
-      displayName: Basic Sample, training, classification, sample 6
+      displayName: classification, studio
       href:  ui-sample-classification-predict-flight-delay.md
   - name: Azure Open Datasets
     href: /azure/open-datasets/samples?context=azure/machine-learning/service/context/ml-context
