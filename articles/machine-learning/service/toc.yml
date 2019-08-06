@@ -88,7 +88,7 @@
   - name: Workspace
     href: concept-workspace.md
   - name: Compute target
-    displayName: compute, resource, target, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
+    resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight
     href: concept-compute-target.md
   - name: Visual interface
     displayName: studio
@@ -97,7 +97,7 @@
     displayName: automl, auto ml
     href: concept-automated-ml.md
   - name: Model management (MLOps)
-    displayName: deploy, deployment, mlops, operationalize, operationalization
+    displayName: deploy, deployment, publish, production, operationalize, operationalization
     href: concept-model-management-and-deployment.md
   - name: ML pipelines
     href: concept-ml-pipelines.md
@@ -220,7 +220,7 @@
   - name: Deploy & serve models
     items:
     - name: Where and how to deploy
-      displayName: publish web service
+      displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: how-to-deploy-and-where.md
     - name: Azure Container Instances
       href: how-to-deploy-azure-container-instance.md
@@ -276,13 +276,13 @@
 - name: Reference
   items:
   - name: Machine learning SDK
-    displayName: api core package python data prep
-    href: https://aka.ms/aml-sdk
+    displayName: api, core, package, python, class
+    href: https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py
   - name: Machine Learning CLI
-    displayName: cli, extension, command line, command-line, az, ci/cd, automate, automated
+    displayName: extension, command line, command-line, az, ci/cd, automate, automated
     href: reference-azure-machine-learning-cli.md
   - name: Visual interface modules
-    displayName: module reference
+    displayName: module, reference, algorithm, studio
     items:
     - name: Module reference overview
       href: ../algorithm-module-reference/module-reference.md
@@ -375,7 +375,7 @@
 - name: Resources
   items:
   - name: Release notes
-    displayName: what's new issues bugs
+    displayName: what's, new, issues, bugs
     href: azure-machine-learning-release-notes.md
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
@@ -384,7 +384,7 @@
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Known issues
-    displayName: bugs errors troubleshoot
+    displayName: bugs, errors, troubleshoot
     href: resource-known-issues.md
   - name: User forum
     href: https://aka.ms/aml-forum-service
@@ -393,5 +393,5 @@
   - name: Compare our ML products
     href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/service/context/ml-context
   - name: What happened to Workbench
-    displayName: desktop ui Workbench upgrade update transfer
+    displayName: desktop, ui, Workbench, upgrade, update, transfer
     href: overview-what-happened-to-workbench.md
