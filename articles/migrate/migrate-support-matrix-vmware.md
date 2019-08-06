@@ -69,7 +69,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 **Support** | **Details**
 --- | ---
-**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB of memory, 4 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
+**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
 **ESXi** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.
 **Azure Migrate project** | An appliance can be associated with a single project.
 **vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
@@ -77,7 +77,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 ## Assessment-URL access requirements
 
-The Azure Migrate appliance needs internet connectivity to the internet.
+The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 - If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
