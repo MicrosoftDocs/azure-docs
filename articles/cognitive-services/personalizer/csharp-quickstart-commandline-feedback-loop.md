@@ -127,7 +127,7 @@ Next, create a method to return a Personalizer client. The parameter to the meth
 
 ## Get content choices represented as actions
 
-Actions represent the content choices you want Personalizer to rank. Add the following method to the Program class.
+Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference.
 
 [!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=createUserFeatureTimeOfDay)]
 
@@ -136,12 +136,6 @@ Actions represent the content choices you want Personalizer to rank. Add the fol
 Both methods use the `GetKey` method to read the user's selection from the command line. 
 
 [!code-csharp[Read user's choice from the command line](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=readCommandLine)]
-
-## Get user information represented as features
-
-In this example, features represent user preferences. Add the following methods to the Program class. These methods are called when a user makes a selection at the command line for time of day and food taste preference.
-
-[!code-csharp[Using statements](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=readCommandLine)] 
 
 ## Create the learning loop
 
