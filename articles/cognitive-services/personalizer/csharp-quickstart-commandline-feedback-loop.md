@@ -110,43 +110,37 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
-[!code-csharp[Using statements](~/samples-personalizer/quickstarts/c#/PersonalizerExample/Program.cs)]
-
-[!code-csharp[Using statements](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs)]
-
-[!code-csharp[Using statements](~/samples-personalizer/snippets/blogpost-snippet.cs)]
-
-
+[!code-csharp[Using statements](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=Dependencies)]
 
 ## Add Personalizer resource information
 
 In the **Program** class, create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_RESOURCE_KEY` and `PERSONALIZER_RESOURCE_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
 
-[!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?name=classVariables)]
+[!code-csharp[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=classVariables)]
 
 ## Create a Personalizer client
 
 Next, create a method to return a Personalizer client.
 
-[!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?name=authorization)]
+[!code-csharp[Create the Personalizer client](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)]
 
 ## Get content choices represented as actions
 
 Actions represent the content choices you want Personalizer to rank. Add the following method to the Program class.
 
-[!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?createUserFeatureTimeOfDay)]
+[!code-csharp[Present time out day preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?createUserFeatureTimeOfDay)]
 
-[!code-csharp[Present food taste preference to the user](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?createUserFeatureTastePreference)]
+[!code-csharp[Present food taste preference to the user](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?createUserFeatureTastePreference)]
 
 Both methods use the `GetKey` method to read the user's selection from the command line. 
 
-[!code-csharp[Read user's choice from the command line](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?readCommandLine)]
+[!code-csharp[Read user's choice from the command line](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?readCommandLine)]
 
 ## Get user information represented as features
 
 In this example, features represent user preferences. Add the following methods to the Program class. These methods are called when a user makes a selection at the command line for time of day and food taste preference.
 
-[!code-csharp[Using statements](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?name=authorization)] 
+[!code-csharp[Using statements](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=authorization)] 
 
 ## Create the learning loop
 
@@ -154,7 +148,7 @@ The Personalizer learning loop is a cycle of rank and reward calls. In this quic
 
 The following code in the `main` method of the program loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
-[!code-csharp[The Personalizer learning loop is a cycle of rank and reward calls.](~/samples-personalizer/quickstarts/c%23/PersonalizerExample/Program.cs?name=mainLoop)] 
+[!code-csharp[The Personalizer learning loop is a cycle of rank and reward calls.](~/samples-personalizer/quickstarts/csharp/PersonalizerExample/Program.cs?name=mainLoop)] 
 
 ## Request a rank
 
@@ -162,7 +156,7 @@ To complete the rank request, the program asks the user's preferences to create 
 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](concept-feature-evaluation.md) [actions and features](concepts-features.md) can be a non-trivial matter.  
 
-[!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/c#//PersonalizerExample/Program.cs?name=rank)]
+[!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/csharp//PersonalizerExample/Program.cs?name=rank)]
 
 ## Send a reward
 
@@ -170,7 +164,7 @@ To complete the reward request, the program gets the user's selection from the c
 
 This quickstart assigns a simple number as a reward, either a zero or a 1. In production systems, determining when and what to send to the [reward](concept-rewards.md) call can be a non-trivial matter, depending on your specific needs. 
 
-[!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/c#//PersonalizerExample/Program.cs?name=reward)]
+[!code-csharp[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/csharp//PersonalizerExample/Program.cs?name=reward)]
 
 ## Run the program
 
