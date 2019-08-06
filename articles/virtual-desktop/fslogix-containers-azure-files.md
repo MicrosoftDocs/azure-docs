@@ -55,7 +55,7 @@ UPD requires [Storage Spaces Direct (S2D)](https://docs.microsoft.com/windows-se
 
 #### Cost
 
-While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers. For this solution, businesses pay for premium storage disks, along with the cost of the VMs that use the disks for a share.
+While S2D clusters achieve the necessary performance, the cost is expensive for enterprise customers, but especially expensive for small and medium business (SMB) customers. For this solution, businesses pay for storage disks, along with the cost of the VMs that use the disks for a share.
 
 #### Administrative overhead
 

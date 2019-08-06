@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 07/19/2019
+ms.date: 07/30/2019
 ms.author: assafi
 ---
 
@@ -31,8 +31,6 @@ For technical details, refer to the SDK for .NET [Text Analytics reference](http
 * The Text Analytics [SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-You also need the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign-up.
 
 ## Create the Visual Studio solution and install the SDK
 
@@ -82,10 +80,16 @@ You also need the [endpoint and access key](../How-tos/text-analytics-how-to-acc
 3. Update the `Program` class. Add a constant member for your Text Analytics API key, and another for the service endpoint. Remember to use the correct Azure location for your Text Analytics resource.
 
     ```csharp
-    //Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
+    // Enter your Text Analytics (TA) API Key (available in Azure Portal -> your TA resource -> Keys)
     private const string ApiKey = "enter-your-textanalytics-api-key-here";
-    //You can get the resource location from Azure Portal -> your TA resource -> Overview
-    private const string Endpoint = "enter-your-service-endpoint-here"; // For example: "https://<your-location>.api.cognitive.microsoft.com";
+    // You can get the resource location from Azure Portal -> your TA resource -> Overview
+    // There are two acceptable formats for the endpoint, both
+    // require that you omit the `/text/analytics/<version>` suffix:
+    // 1. A location based endpoint URL -
+    //     "https://<your-location>.api.cognitive.microsoft.com";
+    // 2. A resource name based endpoint URL -
+    //     "https://<your-resource-name>.cognitiveservices.azure.com";
+    private const string Endpoint = "enter-your-base-resource-endpoint-here";
     ```
 
 > [!Tip]

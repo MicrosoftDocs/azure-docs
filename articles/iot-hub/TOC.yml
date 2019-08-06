@@ -37,7 +37,7 @@
       href: quickstart-control-device-android.md
   - name: Communicate using device streams (preview)
     items:
-    - name: C#
+    - name: .NET
       href: quickstart-device-streams-echo-csharp.md
     - name: Node.js
       href: quickstart-device-streams-echo-nodejs.md
@@ -45,7 +45,7 @@
       href: quickstart-device-streams-echo-c.md
   - name: SSH/RDP using device streams (preview)
     items:
-    - name: C#
+    - name: .NET
       href: quickstart-device-streams-proxy-csharp.md
     - name: Node.js
       href: quickstart-device-streams-proxy-nodejs.md
@@ -250,7 +250,7 @@
         href: iot-hub-python-python-module-twin-getstarted.md
       - name: C
         href: iot-hub-c-c-module-twin-getstarted.md
-      - name: Node
+      - name: Node.js
         href: iot-hub-node-node-module-twin-getstarted.md
     - name: Get started with device management
       items:

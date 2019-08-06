@@ -63,7 +63,7 @@ An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) u
 
     Once connected, you see information similar to the following text:
     
-    ```text
+    ```output
     Authorized uses only. All activity may be monitored and reported.
     Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
     
@@ -81,7 +81,6 @@ An SSH client. For more information, see [Connect to HDInsight (Apache Hadoop) u
     Welcome to Kafka on HDInsight.
     
     Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-    ssuhuser@hn0-mykafk:~$
     ```
 
 ## <a id="getkafkainfo"></a>Get the Apache Zookeeper and Broker host information

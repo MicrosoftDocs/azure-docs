@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security
+ms.subservice: security-develop
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -132,7 +133,7 @@ To get the application up and running, you need to install these tools:
 - [Git](https://git-scm.com/) on your system. Git is used to clone the source code locally.
 - [jq](https://stedolan.github.io/jq/), a UNIX tool for querying JSON in a user-friendly way.
 
-You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/en-us/free/) to test the sample app.
+You need an Azure subscription to deploy the sample app's resources. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/) to test the sample app.
 
 After installing these tools, you’re ready to deploy the app on Azure.
 
@@ -348,7 +349,7 @@ For more information on how to setup SSL and Certificate Authority (CA) verifica
 A root certificate is included in the container. The steps taken to obtain the certificate are:
 
 1. Download the certificate file from the [Certificate Authority](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security#download-and-install-openssl-on-your-machine).
+2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
 3. Decode your certificate file:
 
    ```powershell
