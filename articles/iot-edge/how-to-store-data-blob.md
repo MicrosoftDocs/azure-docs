@@ -94,7 +94,7 @@ The name of this setting is `deviceAutoDeleteProperties`
 | retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true| `deviceAutoDeleteProperties__retainWhileUploading={false,true}` |
 
 ## Using SMB share as your local storage
-You can provide SMB share as your local storage path, when you deploy windows container of this module on Windows host.
+You can provide SMB share as your local storage path, when you deploy Windows container of this module on Windows host.
 You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows. Make sure the IoT device can read/write to the remote SMB share.
 
 Below are the configuration steps:
@@ -108,10 +108,10 @@ Example: <br>
 
 This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive. 
 
-For your deployment the value of `<storage directory bind>` can be **G:/ContainerData:C:/BlobRoot**.
+For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**.
 
 ## Granting directory access to container user on Linux
-If you have used volume bind for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used directory bind then these steps are required to run the service correctly.
+If you have used [volume mount](https://docs.docker.com/storage/volumes/) for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used [bind mount](https://docs.docker.com/storage/bind-mounts/) then these steps are required to run the service correctly.
 
 This module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
 
