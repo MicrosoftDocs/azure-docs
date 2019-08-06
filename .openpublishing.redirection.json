@@ -6,6 +6,16 @@
       "redirect_document_id": true
     }, 
     {
+      "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/machine-learning/service/quickstart-run-cloud-notebook.md",
+      "redirect_url": "/azure/machine-learning/service/tutorial-1st-experiment-sdk-setup",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
       "redirect_document_id": true
@@ -14006,6 +14016,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore-points",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -27712,6 +27727,11 @@
     {
       "source_path": "articles/security/azure-ad-choose-authn.md",
       "redirect_url": "/azure/security/fundamentals/choose-ad-authn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/azure/active-directory/authentication/howto-authentication-phone-sign-in.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
       "redirect_document_id": true
     },
     {
