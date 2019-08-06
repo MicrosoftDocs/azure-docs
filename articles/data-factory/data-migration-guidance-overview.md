@@ -53,4 +53,4 @@ If you want to complete the data migration within two weeks (migration window), 
 
 ## Next steps
 
-- [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-to-azure-storage.md)
+- [Migrate data from AWS S3 to Azure](data-migration-guidance-s3-azure-storage.md)
