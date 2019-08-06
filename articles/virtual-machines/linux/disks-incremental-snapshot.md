@@ -21,7 +21,7 @@ There are a few differences between an incremental snapshot and a regular snapsh
 
 ## Resource Manager template
 
-Create an incremental snapshot for a managed disk by setting the apiVersion as 2019-03-01 and setting the incremental property to true as shown below. 
+Create an incremental snapshot for a managed disk by setting the apiVersion as **2019-03-01** and setting the incremental property to true as shown below. 
 
 ```json
 {
