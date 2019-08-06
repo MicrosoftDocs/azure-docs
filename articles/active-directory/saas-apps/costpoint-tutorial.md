@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 08/06/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -86,8 +86,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	
 	1. Once the metadata file is successfully uploaded, the **Identifier** and **Reply URL** values get auto populated in Costpoint section textboxes
 
-	> [!Note]
-	> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement. Verify that **Identifier (Entity ID)** and **Reply URL (Assertion Consumer Service URL)** are correctly set and that **ACS URL** is a valid Costpoint URL ending with **/LoginServlet.cps**.
+		> [!Note]
+		> If the **Identifier** and **Reply URL** values are not getting auto polulated, then fill in the values manually according to your requirement. Verify that **Identifier (Entity ID)** and **Reply URL (Assertion Consumer Service URL)** are correctly set and that **ACS URL** is a valid Costpoint URL ending with **/LoginServlet.cps**.
 
 	1. Click **Set additional URLs**.
 
