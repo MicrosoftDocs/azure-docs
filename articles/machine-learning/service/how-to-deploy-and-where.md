@@ -534,7 +534,9 @@ The following JSON document is an example of a schema (OpenAPI specification) ge
 }
 ```
 
-For more information, see the [Open API specification](https://swagger.io/specification/).
+For more information on the specification, see the [Open API specification](https://swagger.io/specification/).
+
+For a utility that can create client libraries from the specification, see [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.
