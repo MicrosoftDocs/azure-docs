@@ -28,6 +28,9 @@ The general workflow for creating a client that uses a machine learning web serv
 1. Determine the type of request data used by the model.
 1. Create an application that calls the web service.
 
+> [!TIP]
+> The examples in this document are manually created without the use of OpenAPI (Swagger) specifications. If you've enabled an OpenAPI specification for your deployment, you can use tools such as [swagger-codegen](https://github.com/swagger-api/swagger-codegen) to create client libraries for your service.
+
 ## Connection information
 
 > [!NOTE]
