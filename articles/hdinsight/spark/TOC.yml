@@ -14,7 +14,6 @@
   - name: Create Apache Spark cluster - Azure CLI
     href: apache-spark-create-cluster-cli.md
   - name: Create Apache Spark cluster - Template
-    displayName: resource manager template, arm template, resource manager group
     href: apache-spark-jupyter-spark-sql.md
 - name: Tutorials
   items:
@@ -202,7 +201,6 @@
         - name: Use the Azure portal
           href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
         - name: Use Azure Resource Manager templates
-          displayName: resource manager template, arm template, resource manager group
           href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
         - name: Use SDK for .NET
           href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
@@ -350,7 +348,6 @@
   - name: REST API (Apache Spark)
     href: /rest/api/hdinsightspark/
   - name: Resource Manager template
-    displayName: resource manager template, arm template, resource manager group
     href: /azure/templates/microsoft.hdinsight/allversions
 - name: Resources
   items:
