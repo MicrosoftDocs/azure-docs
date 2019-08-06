@@ -1,25 +1,26 @@
 ---
-title: Generate SAS token | Microsoft Docs
-description: learn about how to generate a SAS token to use with Model Repository API.
+title: Generate security token to access IoT Plug and Play Preview repository | Microsoft Docs
+description: Generate a shared access signature token to use when you access an IoT Plug and Play Preview model repository programmatically.
 author: YasinMSFT
 ms.author: yahajiza
-ms.date: 07/24/2019
-ms.topic: tutorial
-ms.custom: mvc
+ms.date: 08/06/2019
+ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
 
-# I want to generate SAS token to use with model repo APIs.
+# As a solution developer, I need to generate shared access signature token to use with model repository APIs.
 ---
 
 # Generate SAS token
 
-This how-to guide shows how to programmatically generate a Shared Access Signature (SAS) token for using the model repository APIs.
+This how-to guide shows you how to programmatically generate a shared access signature (SAS) token to use with the IoT Plug and Play Preview model repository APIs.
 
 ## Python
 
-```Python
+The following snippet shows you how to generate a SAS token using Python:
+
+```python
 from base64 import b64decode, b64encode
 from hashlib import sha256
 from hmac import digest
@@ -40,9 +41,11 @@ def calculate_sas_token(hostname, repo_id, key_name, key, expiry_in_second):
     return token
 ```
 
-## C#
+## C\#
 
-```C#
+The following snippet shows you how to generate a SAS token using C\#:
+
+```csharp
 public static string generateSasToken(string hostName, string repoId, string key, string keyName, int expiryInSeconds = 3600)
 {
     TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
@@ -66,12 +69,16 @@ public static string generateSasToken(string hostName, string repoId, string key
 }
 ```
 
-## Next steps
+## Use the SAS token
 
-Now that you know how to create the SAS token, you are ready to perform an HTTP POST:
+After you generate a SAS token, you can use it to make an HTTP POST request. For example:
 
 ```text
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview
 ```
 
-If you give a sender or client a SAS token, they don't have the key directly, and they cannot reverse the hash to obtain it. As such, you have control over what they can access, and for how long. It is important to remember that if you change the primary key in the policy, any Shared Access Signatures created from it is invalidated.
+If you give a client a SAS token, the client doesn't have the resource's primary key, and can't reverse the hash to obtain it. A SAS token gives you control over what the client can access, and for how long. When you change the primary key in the policy, any SAS tokens created from it are invalidated.
+
+## Next steps
+
+Now that you've learned about generating security tokens to use to access the model IoT Plug and Play Preview model repositories, a suggested next step is to learn more in the [IoT Plug and Play Preview modeling developer guide](concepts-developer-guide.md).

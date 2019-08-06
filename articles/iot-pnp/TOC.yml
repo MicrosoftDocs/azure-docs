@@ -46,6 +46,8 @@
     href: howto-manage-models.md
   - name: Connect to and interact with a device
     href: howto-develop-solution.md
+  - name: Generate a security token
+    href: howto-generate-sas-token.md
 - name: Related
   items:
   - name: Solutions
