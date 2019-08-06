@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Manage log data and workspaces in Azure Monitor
 
-Azure Monitor stores log data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
+Azure Monitor stores [log](data-platform-logs.md) data in a Log Analytics workspace, which is essentially a container that includes data and configuration information. To manage access to log data, you perform various administrative tasks related to your workspace.
 
 This article explains how to manage access to logs and to administer the workspaces that contain them, including:
 
