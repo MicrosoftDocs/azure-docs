@@ -95,4 +95,6 @@ Operations can also be called **Developer portal** to test APIs.
 
 ## Next steps
 
-> [!div class="nextstepaction"][transform and protect a published api](transform-api.md)
+> [!div class="nextstepaction"]
+>
+> [Transform and protect a published api](transform-api.md)
