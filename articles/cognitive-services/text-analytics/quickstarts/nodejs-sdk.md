@@ -325,7 +325,10 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 > [!div class="nextstepaction"]
 > [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## See also
 
- [Text Analytics overview](../overview.md)
- [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
+* [Text Analytics overview](../overview.md)
+* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction)
+* [Language recognition](../how-tos/text-analytics-how-to-language-detection)
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).

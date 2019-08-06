@@ -187,9 +187,10 @@ Document Id:  4
 > [!div class="nextstepaction"]
 > [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## See also
 
-* [What is the Text Analytics API?](../overview.md)
-* [Example user scenarios](../text-analytics-user-scenarios.md)
-* [Frequently asked questions (FAQ)](../text-analytics-resource-faq.md)
+* [Text Analytics overview](../overview.md)
+* [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
+* [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
+* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction)
+* [Language recognition](../how-tos/text-analytics-how-to-language-detection)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
