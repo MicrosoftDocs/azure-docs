@@ -21,6 +21,12 @@
     href: tutorial-process-mailing-list-subscriptions-workflow.md
   - name: Process email attachments
     href: tutorial-process-email-attachments-workflow.md
+- name: Samples
+  items:
+  - name: Azure code samples
+    href: https://docs.microsoft.com/samples/browse/?products=azure-logic-apps
+  - name: Resource Manager quickstart templates
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Logic
 - name: Concepts
   items:
   - name: Connectors for Logic Apps
@@ -299,6 +305,8 @@
       href: logic-apps-enterprise-integration-accounts.md
     - name: Manage integration service environments
       href: ise-manage-integration-service-environment.md
+    - name: Move logic app resources
+      href: move-logic-app-resources.md      
     - name: Migrate to latest schema
       href: ../connectors/connectors-schema-migration.md
   - name: Test
@@ -349,15 +357,15 @@
       href: /azure/architecture/reference-architectures/enterprise-integration/queues-events
   - name: Connectors - Full details
     href: https://docs.microsoft.com/connectors/
-  - name: Limits and config
+  - name: Service limits and configuration
     href: logic-apps-limits-and-config.md
-  - name: Usage metering
+  - name: Pricing model & usage metering
     href: logic-apps-pricing.md
   - name: Azure PowerShell
     href: /powershell/module/az.logicapp
   - name: REST API
     href: /rest/api/logic/
-  - name: Resource Manager template
+  - name: Resource Manager template reference
     href: /azure/templates/microsoft.logic/allversions
   - name: Workflow Definition Language schema
     href: logic-apps-workflow-definition-language.md
@@ -378,23 +386,27 @@
         href: logic-apps-track-integration-account-custom-tracking-schema.md      
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: https://docs.microsoft.com/learn/browse/?products=azure-logic-apps
   - name: Azure Logic Apps roadmap
     href: https://aka.ms/logicappsroadmap/  
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
+  - name: Pricing
+    href: https://azure.microsoft.com/pricing/details/logic-apps/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Customer stories
+    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
+  - name: Videos
+    href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelogicapps
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-logic-apps
   - name: Twitter
     href: https://twitter.com/logicappsio
-  - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/logic-apps/
-  - name: Pricing calculator
-    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Provide product feedback
+    href: https://feedback.azure.com/forums/287593-logic-apps
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=logic-apps
-  - name: Customer stories
-    href: https://customers.microsoft.com/en-us/search?sq=%22Azure%20Logic%20Apps%20%22&ff=story_product_categories%26%3EAzure&p=0&so=story_publish_date%20desc
-  - name: Videos
-    href: https://azure.microsoft.com/resources/videos/index/?services=logic-apps&sort=newest
