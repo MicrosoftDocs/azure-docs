@@ -102,7 +102,7 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions fix the problem:
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
-* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](articles/automation/automation-dsc-compile.md#configurationdata).
 
 ### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck "in progress" state
 
@@ -138,7 +138,7 @@ You've used a credential in a configuration but didn’t provide proper **Config
 
 #### Resolution
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](../automation-dsc-compile.md#assets).
+* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](articles/automation/automation-dsc-compile.md#assets).
 
 ### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
 
