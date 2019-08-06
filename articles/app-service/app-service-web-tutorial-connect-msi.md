@@ -18,7 +18,7 @@ ms.custom: mvc
 ---
 # Tutorial: Secure Azure SQL Database connection from App Service using a managed identity
 
-[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to the sample ASP.NET web app you built in: 
+[App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure SQL Database](/azure/sql-database/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the connection strings. In this tutorial, you will add managed identity to the sample web app you built in one of the following tutorials: 
 
 - [Tutorial: Build an ASP.NET app in Azure with SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md)
 - [Tutorial: Build an ASP.NET Core and SQL Database app in Azure App Service](app-service-web-tutorial-dotnetcore-sqldb.md)
@@ -32,7 +32,7 @@ When you're finished, your sample app will connect to SQL Database securely with
 > - .NET Core 2.2 and above.
 >
 
-What you learn how to:
+What you will learn:
 
 > [!div class="checklist"]
 > * Enable managed identities
@@ -135,7 +135,7 @@ In the [ASP.NET Core and SQL Database tutorial](app-service-web-tutorial-dotnetc
 "Server=tcp:<server-name>.database.windows.net,1433;Database=<database-name>;"
 ```
 
-In *Startup.cs*, remove the code section that you added earlier:
+In *Startup.cs*, remove the code section that you added before:
 
 ```csharp
 // Use SQL Database if in Azure, otherwise, use SQLite
