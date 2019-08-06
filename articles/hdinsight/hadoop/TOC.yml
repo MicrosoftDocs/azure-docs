@@ -56,6 +56,8 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: Soft lockup - CPU
+      href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
     - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
       href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
     - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
@@ -72,6 +74,8 @@
       href: ./apache-ambari-troubleshoot-heartbeat-issues.md
     - name: Apache Ambari UI 502 error
       href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+    - name: Apache Ambari shows down hosts and services
+      href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox

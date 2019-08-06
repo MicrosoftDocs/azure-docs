@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/02/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -200,12 +200,12 @@ These properties are supported for the linked service:
 
 For a full list of sections and properties available for defining datasets, see [Datasets](concepts-datasets-linked-services.md).
 
-- For the parquet and delimited text format, see the [Parquet and delimited text format dataset](#parquet-and-delimited-text-format-dataset) section.
-- For other formats like ORC, Avro, JSON, or binary format, see the [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### Parquet and delimited text format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
 
-To copy data to and from Data Lake Storage Gen2 in parquet or delimited text format, see the [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) articles on format-based dataset and supported settings. The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
+To copy data to and from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Data Lake Storage Gen2 under `location` settings in the format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -246,7 +246,7 @@ To copy data to and from Data Lake Storage Gen2 in parquet or delimited text for
 
 ### Other format dataset
 
-To copy data to and from Data Lake Storage Gen2 in ORC, Avro, JSON, or binary format, the following properties are supported:
+To copy data to and from Data Lake Storage Gen2 in **ORC/Avro/JSON format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -297,12 +297,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### Azure Data Lake Storage Gen2 as a source type
 
-- To copy from the parquet or delimited text format, see the [Parquet and delimited text format source](#parquet-and-delimited-text-format-source) section.
-- To copy from other formats like ORC, Avro, JSON, or binary format, see the [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
 
-#### Parquet and delimited text format source
+#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
 
-To copy data from Data Lake Storage Gen2 in parquet or delimited text format, see the [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy source:
+To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -360,7 +360,7 @@ To copy data from Data Lake Storage Gen2 in parquet or delimited text format, se
 
 #### Other format source
 
-To copy data from Data Lake Storage Gen2 in ORC, Avro, JSON, or binary format, the following properties are supported in the copy activity **source** section:
+To copy data from Data Lake Storage Gen2 in **ORC/Avro/JSON format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -402,12 +402,12 @@ To copy data from Data Lake Storage Gen2 in ORC, Avro, JSON, or binary format, t
 
 ### Azure Data Lake Storage Gen2 as a sink type
 
-- To copy to the parquet or delimited text format, see the [Parquet and delimited text format sink](#parquet-and-delimited-text-format-sink) section.
-- To copy to other formats like ORC, Avro, JSON, or binary format, see the [Other format sink](#other-format-sink) section.
+- To copy to **Parquet, delimited text or binary format**, refer to [Parquet, delimited text and binary format sink](#format-based-sink) section.
+- To copy to other formats like **ORC/Avro/JSON format**, refer to [Other format sink](#other-format-sink) section.
 
-#### Parquet and delimited text format sink
+#### <a name="format-based-sink"></a> Parquet, delimited text and binary format sink
 
-To copy data to Data Lake Storage Gen2 in parquet or delimited text format, see the [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) articles on format-based copy activity sink and supported settings. The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
+To copy data to **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity sink and supported settings. The following properties are supported for Data Lake Storage Gen2 under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -455,7 +455,7 @@ To copy data to Data Lake Storage Gen2 in parquet or delimited text format, see 
 
 #### Other format sink
 
-To copy data to Data Lake Storage Gen2 in ORC, Avro, JSON, or binary format, the following properties are supported in the **sink** section:
+To copy data to Data Lake Storage Gen2 in **ORC/Avro/JSON format**, the following properties are supported in the **sink** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
