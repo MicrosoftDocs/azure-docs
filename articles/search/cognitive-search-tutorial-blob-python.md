@@ -1,5 +1,5 @@
 ---
-title: 'Python Tutorial: Call Cognitive Services in an indexing pipeline - Azure Search'
+title: 'Python Tutorial: Call Cognitive Services in an AI enrichment pipeline - Azure Search'
 description: Step through an example of data extraction, natural language, and image AI processing in Azure Search using a Jupyter Python notebook. Extracted data is indexed and easily accessed by query.
 manager: cgronlun
 author: LisaLeib
