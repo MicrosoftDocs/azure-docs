@@ -23,7 +23,7 @@ determine when to use which method based on the characteristics of each:
 - Windows PowerShell
   - Call from Windows PowerShell on local workstation or build service
   - Integrate with development test pipeline
- - Provide complex parameter values
+  - Provide complex parameter values
   - Work with node and non-node data at scale
   - Significant performance improvement
   - Increased reliability
