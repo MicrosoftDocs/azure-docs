@@ -1,6 +1,6 @@
 ---
-title: Report DevTest Labs usage across multiple labs and subscriptions - Azure | Microsoft Docs
-description: Learn how to report DevTest Labs usage across multiple labs and subscriptions.
+title: Report Azure DevTest Labs usage across multiple labs and subscriptions - Azure | Microsoft Docs
+description: Learn how to report Azure DevTest Labs usage across multiple labs and subscriptions.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: tanmayeekamath
@@ -17,7 +17,7 @@ ms.author: takamath
 
 ---
 
-# Report DevTest Labs usage across multiple labs and subscriptions
+# Report Azure DevTest Labs usage across multiple labs and subscriptions
 
 Most large organizations want to track resource usage to be more effective with those resources by visualizing trends and outliers in the usage. Based on resource usage the lab owners or managers can customize the labs to [improve resource usage and costs](https://docs.microsoft.com/azure/billing/billing-getting-started). In Azure DevTest Labs, you can download resource usage per lab allowing a deeper historical look into the usage patterns. These usage patterns can help pinpoint changes to improve efficiency. Most enterprises want both individual lab usage and overall usage across [multiple labs and subscriptions](https://docs.microsoft.com/azure/architecture/cloud-adoption/decision-guides/subscriptions/). 
 
@@ -76,7 +76,7 @@ Some common storage solutions are: [SQL Server](https://azure.microsoft.com/serv
 
 ## Visualizing data and gathering insights
 
-Use a data visualization tool of your choice to connect to your long-term storage to display the usage data and gather insights to verify usage efficiency. For example, [Power BI](https://docs.microsoft.com/en-us/power-bi/power-bi-overview) can be used to organize and display the usage data. 
+Use a data visualization tool of your choice to connect to your long-term storage to display the usage data and gather insights to verify usage efficiency. For example, [Power BI](https://docs.microsoft.com/power-bi/power-bi-overview) can be used to organize and display the usage data. 
 
 You can use [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) to create, link, and manage your resources within a single location interface. If greater control is needed, the individual resource can be created within a single resource group and managed independently of the Data Factory service.  
 
