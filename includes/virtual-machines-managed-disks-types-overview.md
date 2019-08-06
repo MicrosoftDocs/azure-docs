@@ -59,7 +59,7 @@ Some key capabilities of Ultra disks are:
 
 Ultra disks temporarily have additional limitations, they are as follows:
 
-- Are supported in East US 2 in a single availability zone  
+- Are supported in East US 2, SouthEast Asia, and North Europe, in two availability zones per region  
 - Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
