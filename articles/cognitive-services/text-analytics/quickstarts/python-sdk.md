@@ -66,16 +66,9 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 ## Object model
 
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods (and response objects) for analyzing raw text: 
+The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
 
-| Method | Response object class |
-| -- | -- |
-| [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [LanguageBatchResult](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.languagebatchresult?view=azure-python)
-| [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [EntitiesBatchResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.entitiesbatchresult?view=azure-python)
-| [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [KeyPhraseBatchResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.keyphrasebatchresult?view=azure-python)
-| [sentiment()](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) | [SentimentBatchResult](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.models.sentimentbatchresult?view=azure-python)
-
-Text is sent to the API as a list of `documents`, which are dictionaries containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
+Text is sent to the API as a list of `documents`, which are `dictionary` objects containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
 
 The response object is a list containing the analysis information for each document. 
 

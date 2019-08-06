@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Using Node.js to call the Text Analytics API'
+title: 'Quickstart: Text Analytics client library for Node.js | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started with using the Text Analytics API.
 services: cognitive-services
@@ -13,47 +13,58 @@ ms.date: 07/30/2019
 ms.author: shthowse
 ---
 
-# Quickstart: Using Node.js to call the Text Analytics Cognitive Service
+# Quickstart: Text analytics client library for Node.js
 <a name="HOLTop"></a>
 
-Use this quickstart to begin analyzing language with the Text Analytics SDK for Node.js. While the [Text Analytics](//go.microsoft.com/fwlink/?LinkID=759711) REST API is compatible with most programming languages, the SDK provides an easy way to integrate the service into your applications. The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/textAnalytics.js).
+Get started with the Text Analytics client library for .Node.js. Follow these steps to install the package and try out the example code for basic tasks. 
 
-Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
+Use the Text Analytics client library for Node.js to perform:
+
+* Sentiment analysis
+* Language detection
+* Entity recognition
+* Key phrase extraction
+
+[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [Package (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [Samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## Prerequisites
 
-* [Node.js](https://nodejs.org/)
-* The Text Analytics [SDK for Node.js](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics)
-    You can install the SDK with:
+* Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
+* The current version of the [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core).
 
-    `npm install azure-cognitiveservices-textanalytics`
+## Setting up
 
-[!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
+### Create a Text Analytics Azure resource
 
-You must also have the [endpoint and access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that was generated for you during sign-up.
+Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for [Product name] using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
 
-## Create a Node.js application and install the SDK
+* Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
+* View your resource on the [Azure Portal](https://portal.azure.com/)
 
-After installing Node.js, create a node project. Create a new directory for your app, and navigate to its directory.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXTANALYTICS_SUBSCRIPTION_KEY`.
 
-```mkdir myapp && cd myapp```
+### Create a new Node.js application
 
-Run ```npm init``` to create a node application with a package.json file. Install the `ms-rest-azure` and `azure-cognitiveservices-textanalytics` NPM packages:
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
-```npm install azure-cognitiveservices-textanalytics ms-rest-azure```
+```console
+mkdir myapp && cd myapp
+```
 
-Your app's package.json file will be updated with the dependencies.
+Run the `npm init` command to create a node application with a `package.json` file. 
 
-## Authenticate your credentials
+```console
+npm init
+```
 
-Create a new file `index.js` in the project root and import the installed libraries
+Create a file named `index.js` and import the following libraries:
 
 ```javascript
 const CognitiveServicesCredentials = require("ms-rest-azure").CognitiveServicesCredentials;
 const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 ```
 
-Create a variable for your Text Analytics subscription key.
+Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```javascript
 let credentials = new CognitiveServicesCredentials(
@@ -61,11 +72,34 @@ let credentials = new CognitiveServicesCredentials(
 );
 ```
 
-> [!Tip]
-> For secure deployment of secrets in production systems we recommend using [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-net).
->
+### Install the client library
 
-## Create a Text Analytics client
+Install the `ms-rest-azure` and `azure-cognitiveservices-textanalytics` NPM packages:
+
+```console
+npm install azure-cognitiveservices-textanalytics ms-rest-azure
+```
+
+Your app's `package.json` file will be updated with the dependencies.
+
+## Object model
+
+The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
+
+Text is sent to the API as a list of `documents`, which are `dictionary` objects containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
+
+The response object is a list containing the analysis information for each document. 
+
+## Code examples
+
+* [Authenticate the client](#authenticate-the-client)
+* [Sentiment Analysis](#sentiment-analysis)
+* [Language detection](#language-detection)
+* [Entity recognition](#entity-recognition)
+* [Key phrase extraction](#key-phrase-extraction)
+
+
+## Authenticate the client
 
 Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use the correct Azure region for your Text Analytics subscription.
 
@@ -270,6 +304,21 @@ Run your code with `node index.js` in your console window.
     { id: '4', keyPhrases: [ 'fútbol' ] } 
 ]
 ```
+
+## Run the application
+
+Run the application with the `node` command on your quickstart file.
+
+```console
+node index.js
+```
+
+## Clean up resources
+
+If you want to clean up and remove a Cognitive Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it.
+
+* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## Next steps
 

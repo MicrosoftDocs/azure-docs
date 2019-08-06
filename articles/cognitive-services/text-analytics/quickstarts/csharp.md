@@ -90,7 +90,8 @@ If you're using the Visual Studio IDE, the client library is available as a down
 
 ## Object model
 
-TBD
+The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-dotnet) object that authenticates to Azure using your key, and provides functions to accept text as single strings or as a batch. You can send text to the API synchronously, or asynchronously. The response object will contain the analysis information for each document you send. 
+
 
 ## Code examples
 
