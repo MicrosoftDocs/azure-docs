@@ -69,6 +69,8 @@ landingContent:
             url: manage-dns.md
           - text: Check health status
             url: check-health.md
+          - text: Configure email notifications
+            url: notifications.md
           - text: Enable security audits (preview)
             url: security-audit-events.md
   - title: Join VMs to Azure AD Domain Services
@@ -83,3 +85,16 @@ landingContent:
             url: join-ubuntu-linux-vm.md
           - text: Red Hat Enterprise Linux
             url: join-rhel-linux-vm.md
+  - title: Troubleshoot
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Common issues
+            url: troubleshoot.md
+          - text: Common alert messages
+            url: troubleshoot-alerts.md
+          - text: Network security group issues
+            url: alert-nsg.md
+          - text: Secure LDAP issues
+            url: alert-ldaps.md
+
