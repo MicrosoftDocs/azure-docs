@@ -26,7 +26,7 @@ You can run performance diagnostics directly from the Azure portal, where you ca
 > [!NOTE]
 > For Windows, Performance diagnostics is currently supported on VMs that have .NET SDK version 4.5 or a later version installed. For the steps to run performance diagnostics on classic VMs, see [Azure Performance Diagnostics VM extension](performance-diagnostics-vm-extension.md).
 
-## Supported Operating Systems
+## Supported operating systems
 
 ### Windows
 

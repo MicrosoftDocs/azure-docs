@@ -41,7 +41,7 @@ This scenario collects basic information such as storage and hardware configurat
 
 - Storage information
 
-- Azure Virtual Machine Configuration (collected using [Azure Instance Metadata Service](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+- Azure Virtual Machine Configuration (collected using [Azure Instance Metadata Service](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service))
 
 - List of running processes, Disk, Memory, and CPU usage
 
@@ -106,10 +106,10 @@ Information about the Linux virtual machine, operating system, block devices, hi
   - /etc/waagent.config
   - Output of journalctl for the last five days
 
-- [Azure virtual machine instance metadata](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/instance-metadata-service)
+- [Azure virtual machine instance metadata](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
-Note:  
-[`*`] PCI information is not yet collected on Debian and SLES distributions
+>[!Note]
+>[`*`] PCI information is not yet collected on Debian and SLES distributions
 
 ## Run the PerfInsights Linux on your VM
 
@@ -177,7 +177,7 @@ To run the PerfInsights tool, follow these steps:
     sudo python perfinsights.py
     ```
 
-    ![Screenshot of PerfInsights Linux commandline output](media/how-to-use-perfInsights-linux/perfInsightslinuxcommandline.png)
+    ![Screenshot of PerfInsights Linux commandline output](media/how-to-use-perfinsights-linux/perfinsights-linux-commandline.png)
 
     The basic syntax for running PerfInsights scenarios is:
 
@@ -212,8 +212,8 @@ Within the **PerformanceDiagnostics\_yyyy-MM-dd\_hh-mm-ss-fff.tar.gz** file, you
 
 The **Overview** tab provides basic run details and virtual machine information. The **Findings** tab displays a summary of the recommendations from all the different sections of the PerfInsights report.
 
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights-linux/perfinsightslinuxoverview.png)  
-![Screenshot of PerfInsights Report](media/how-to-use-perfInsights-linux/perfinsightslinuxfindingstab.png)
+![Screenshot of PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-overview.png)  
+![Screenshot of PerfInsights Report](media/how-to-use-perfinsights-linux/perfinsights-linux-findings-tab.png)
 
 > [!NOTE]
 > Findings categorized as high are known issues that might cause performance issues. Findings categorized as medium represent non-optimal configurations that do not necessarily cause performance issues. Findings categorized as low are informative statements only.
@@ -224,22 +224,22 @@ Review the recommendations and links for all high and medium findings. Learn abo
 
 **CPU** tab provides information about system-wide CPU consumption during the PerfInsights run. Information about high CPU usage periods and top long running CPU consumers will be helpful to troubleshoot high CPU-related issues.
 
-![Screenshot of PerfInsights Report CPU tab](media/how-to-use-perfInsights-linux/perfinsightslinuxcputab.png)
+![Screenshot of PerfInsights Report CPU tab](media/how-to-use-perfinsights-linux/perfinsights-linux-cpu-tab.png)
 
 ### Storage tab
 
 The **Findings** section displays various findings and recommendations related to storage.
 
-The **Block Devices** and other related sections such as **Partitions**, **LVM, and **MDADM** tabs describe how block devices are configured and related to each other.
+The **Block Devices** and other related sections such as **Partitions**, **LVM**, and **MDADM** tabs describe how block devices are configured and related to each other.
 
-![Screenshot of storage tab](media/how-to-use-perfInsights-linux/perfinsightslinuxstoragetab.png)  
-![Screenshot of MDADM tab](media/how-to-use-perfInsights-linux/perfinsightslinuxmdadmconfig.png)
+![Screenshot of storage tab](media/how-to-use-perfinsights-linux/perfinsights-linux-storage-tab.png)  
+![Screenshot of MDADM tab](media/how-to-use-perfinsights-linux/perfinsights-linux-mdadm-config.png)
 
 ### Linux tab
 
 The **Linux** tab contains information on the hardware and the operating system running in your VM. Details include a list of running processes and information about Guest Agent, PCI, CPU, Drivers, and LIS drivers.
 
-![Screenshot of Linux tab](media/how-to-use-perfInsights-linux/perfinsightslinuxtab.png)
+![Screenshot of Linux tab](media/how-to-use-perfinsights-linux/perfinsights-linux-tab.png)
 
 ## Next steps
 
@@ -247,7 +247,7 @@ You can upload diagnostics logs and reports to Microsoft Support for further rev
 
 The following screenshot shows a message similar to what you might receive:
 
-![Screenshot of sample message from Microsoft Support](media/how-to-use-perfInsights-linux/supportemail.png)
+![Screenshot of sample message from Microsoft Support](media/how-to-use-perfinsights-linux/support-email.png)
 
 Follow the instructions in the message to access the file transfer workspace. For additional security, you have to change your password on first use.
 

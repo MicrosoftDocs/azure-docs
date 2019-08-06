@@ -39,7 +39,7 @@ ms.author: genli
         - [How to use PerfInsights](how-to-use-perfInsights.md)
         - [Performance diagnostics extension](performance-diagnostics-vm-extension.md)
 	- Linux
-	    - [How to use PerfInsights](how-to-use-perfInsights-linux.md)
+	    - [How to use PerfInsights](how-to-use-perfinsights-linux.md)
 - Redeploy a VM
 	- [Linux](redeploy-to-new-node-linux.md)
 	- [Windows](redeploy-to-new-node-windows.md)

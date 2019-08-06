@@ -77,7 +77,7 @@
   - name: Linux
     items:
     - name: How to use PerfInsights
-      href: how-to-use-perfInsights-linux.md
+      href: how-to-use-perfinsights-linux.md
 - name: Install Windows VM agent offline
   href: install-vm-agent-offline.md
 - name: Redeploy a VM
