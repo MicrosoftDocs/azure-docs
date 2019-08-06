@@ -14,15 +14,15 @@ ms.custom: include file
 
 After the function app is created in Azure, you can use the [`func azure functionapp publish`](../articles/azure-functions/functions-run-local.md#project-file-deployment) Core Tools command to deploy your project code to Azure. In these examples, replace `<APP_NAME>` with the name of your app from the previous step.
 
-### C\# \ JavaScript
+### C\# / JavaScript
 
-```bash
+```command
 func azure functionapp publish <APP_NAME>
 ```
 
 ### TypeScript
 
-```bash
+```command
 npm run build:production 
 func azure functionapp publish <APP_NAME>
 ```

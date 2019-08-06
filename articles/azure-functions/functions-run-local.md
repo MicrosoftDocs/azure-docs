@@ -131,15 +131,19 @@ func init MyFunctionProj
 ```
 
 When you provide a project name, a new folder with that name is created and initialized. Otherwise, the current folder is initialized.  
-In version 2.x, when you run the command you must choose a runtime for your project. If you plan to develop JavaScript functions, choose **node**:
+In version 2.x, when you run the command you must choose a runtime for your project. 
 
 ```output
 Select a worker runtime:
 dotnet
 node
+python (preview)
+powershell (preview)
 ```
 
-Use the up/down arrow keys to choose a language, then press Enter. The output looks like the following example for a JavaScript project:
+Use the up/down arrow keys to choose a language, then press Enter. If you plan to develop JavaScript or TypeScript functions, choose **node**, and then select the language. TypeScript has [some additional requirements](functions-reference-node.md#typescript). 
+
+The output looks like the following example for a JavaScript project:
 
 ```output
 Select a worker runtime: node
