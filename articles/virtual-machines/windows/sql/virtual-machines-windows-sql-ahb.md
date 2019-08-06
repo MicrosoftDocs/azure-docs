@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 07/30/2019
+ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
 
@@ -135,7 +135,7 @@ You can only change the license type of a SQL Server VM as PAYG or AHB if the SQ
 
  - Changing the licensing model is only available to customers with software assurance.
  - Changing the licensing model is only supported for the standard and enterprise edition of SQL Server. License changes for Express, Web, and Developer are unsupported. 
- - Changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. 
+ - Changing the licensing model is only supported for virtual machines deployed using the Resource Manager model. VMs deployed using the classic model are not supported. You may migrate your VM from classic to resource manager (ARM) model and register with SQL VM resource provider. Once the VM is registered with the SQL VM resource provider, licensing model changes will be available on the VM. 
  - Changing the licensing model is only enabled for Public Cloud installations.
  - Changing the licensing model is supported only on virtual machines that have a single NIC (network interface). On virtual machines that have more than one NIC, you should first remove one of the NICs (by using the Azure portal) before you attempt the procedure. Otherwise, you will run into an error similar to the following: 
    `The virtual machine '\<vmname\>' has more than one NIC associated.` Although you might be able to add the NIC back to the VM after you change the licensing mode, operations done through the SQL configuration page in the Azure portal, like automatic patching and backup, will no longer be considered supported.

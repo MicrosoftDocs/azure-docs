@@ -100,6 +100,16 @@ Wildcard examples:
 
 Container has to be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
 
+* **Partition Root Path**: If you have partitioned folders in your file source of a ```key=value``` format (i.e. year=2019), then you can ask ADF to assign the top-level of that partition folder tree to a column name in your data flow data stream.
+
+First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
+
+![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+
+Now use the Partition Root Path setting to tell ADF what is the top-level of the folder structure. Now, when you view the contents of your data, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+
+![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+
 * **List of files**: This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
 * **Column to store file name**: Store the name of the source file in a column in your data. Enter a new name here to store the file name string.
 * **After completion**: Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
