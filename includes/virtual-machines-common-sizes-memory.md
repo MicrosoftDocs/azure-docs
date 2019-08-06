@@ -5,7 +5,7 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/02/2019
+ ms.date: 08/08/2019
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
@@ -14,7 +14,7 @@ Memory optimized VM sizes offer a high memory-to-CPU ratio that are great for re
 
 * The Ev3-series features the E5-2673 v4 2.3 GHz  (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading.  The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
-* The Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC 7452V processor in a multi-threaded configuration with up to 256GB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
+* The Eav3-series and Easv3-series utilize AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256GB L3 cache, increasing options for running most memory optimized workloads.  The Eav3-series and Easv3-series have the same memory and disk configurations as the Ev3 & Esv3-series.
 
 * The Mv2-Series offers the highest vCPU count (up to 208 vCPUs) and largest memory (up to 5.7 TiB) of any VM in the cloud. It’s ideal for extremely large databases or other applications that benefit from high vCPU counts and large amounts of memory.
 
@@ -62,18 +62,17 @@ Premium Storage: Supported
 
 Premium Storage caching: Supported
 
-Easv3-series sizes are based on the 2.35Ghz AMD EPYC 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
+Easv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Easv3-series sizes are ideal for memory-intensive enterprise applications.
 
-| Size | vCPUs | Memory: GiB | Temp storage (SSD): GiB | Max cached and temp storage throughput: IOPS/MBps (cache size in Gib) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (MBps) |
-|---|---|---|---|---|---|---|
-| Standard_E2as_v3  | 2  | 16  | 32  | 4000/32 (50)       | 3200/48    | 2/1000  |
-| Standard_E4as_v3  | 4  | 32  | 64  | 8000/64 (100)      | 6400/96    | 2/2000  |
-| Standard_E8as_v3  | 8  | 64  | 128 | 16000/128 (200)    | 12800/192  | 4/4000  |
-| Standard_E16as_v3 | 16 | 128 | 256 | 32000/256 (400)    | 25600/384  | 8/8000  |
-| Standard_E20as_v3 | 20 | 160 | 320 | 40000/320 (400)    | 32000/480  | 8/10000 |
-| Standard_E32as_v3 | 32 | 256 | 512 | 64000/512 (800)    | 51200/768  | 8/16000 |
-| Standard_E48as_v3 | 48 | 384 | 768 | 96000/768 (1200)   | 76800/1152 | 8/24000 |
-| Standard_E64as_v3 | 64 | 432 | 864 | 128000/1024 (1600) | 80000/1200 | 8/30000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
+|---|---|---|---|
+| Standard_E2as_v3  | 2  | 16  | 32  |
+| Standard_E4as_v3  | 4  | 32  | 64  |
+| Standard_E8as_v3  | 8  | 64  | 128 |
+| Standard_E16as_v3 | 16 | 128 | 256 |
+| Standard_E32as_v3 | 32 | 256 | 512 |
+| Standard_E48as_v3 | 48 | 384 | 768 |
+| Standard_E64as_v3 | 64 | 432 | 864 |
 
 ## Ev3-series 
 
@@ -112,18 +111,17 @@ Premium Storage: Not Supported
 
 Premium Storage caching: Not Supported
 
-Eav3-series sizes are based on the 2.35Ghz AMD EPYC 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
+Eav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Eav3-series sizes are ideal for memory-intensive enterprise applications. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Easv3-series sizes. The pricing and billing meters for Easv3 sizes are the same as the Eav3-series.
 
-| Size | vCPUs | Memory: GiB | Temp storage (SSD): GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max NICs/Network Bandwidth |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
 |---|---|---|---|---|---|
-| Standard_E2a_v3  | 2  | 16  | 50   | 3000/46/23     | 2/1000  |
-| Standard_E4a_v3  | 4  | 32  | 100  | 6000/93/46     | 2/2000  |
-| Standard_E8a_v3  | 8  | 64  | 200  | 12000/187/93   | 4/4000  |
-| Standard_E16a_v3 | 16 | 128 | 400  | 24000/375/187  | 8/8000  |
-| Standard_E20a_v3 | 20 | 160 | 500  | 30000/496/234  | 8/10000 |
-| Standard_E32a_v3 | 32 | 256 | 800  | 48000/750/375  | 8/16000 |
-| Standard_E48a_v3 | 48 | 384 | 1200 | 96000/1000/500 | 8/24000 |
-| Standard_E64a_v3 | 64 | 432 | 1600 | 96000/1000/500 | 8/30000 |
+| Standard_E2a_v3  | 2  | 16  | 50   |
+| Standard_E4a_v3  | 4  | 32  | 100  |
+| Standard_E8a_v3  | 8  | 64  | 200  |
+| Standard_E16a_v3 | 16 | 128 | 400  |
+| Standard_E32a_v3 | 32 | 256 | 800  |
+| Standard_E48a_v3 | 48 | 384 | 1200 |
+| Standard_E64a_v3 | 64 | 432 | 1600 |
 
 ## Mv2-series
 

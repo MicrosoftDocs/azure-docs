@@ -5,7 +5,7 @@
  author: jonbeck7
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 08/02/2019
+ ms.date: 08/08/2019
  ms.author: azcspmt;jonbeck;cynthn
  ms.custom: include file
 ---
@@ -24,7 +24,7 @@ General purpose VM sizes provide balanced CPU-to-memory ratio. Ideal for testing
 
   Example D-series use cases include enterprise-grade applications, relational databases, in-memory caching, and analytics.
 
-- The Da-series and Dasv3-series are new sizes utilizing AMD’s 2.35Ghz EPYC 7452V processor in a multi-threaded configuration with up to 256 GB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Da-series and Dasv3-series have the same memory and disk configurations as the D & Dsv3-series.
+- The Da-series and Dasv3-series are new sizes utilizing AMD’s 2.35Ghz EPYC<sup>TM</sup> 7452V processor in a multi-threaded configuration with up to 256 GB L3 cache dedicating 8 GB of that L3 cache to every 8 cores increasing customer options for running their general purpose workloads. The Da-series and Dasv3-series have the same memory and disk configurations as the D & Dsv3-series.
   
 ## B-series
 
@@ -80,17 +80,17 @@ Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) pro
 Premium Storage: Supported
 Premium Storage caching: Supported
 
-Dasv3-series sizes are based on the 2.35Ghz AMD EPYC 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Dasv3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
+Dasv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Dasv3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB | Max cached and temp storage throughput: IOPS/MBps (cache size in Gib) | Max uncached disk throughput: IOPS/MBps | Max NICs/Expected network bandwidth (MBps) |
-|---|---|---|---|---|---|---|
-| Standard_D2as_v3  | 2  | 8   | 16  | 4000/32 (50)       | 3200/48    | 2/1000  |
-| Standard_D4as_v3  | 4  | 16  | 32  | 8000/64 (100)      | 6400/96    | 2/2000  |
-| Standard_D8as_v3  | 8  | 32  | 64  | 16000/128 (200)    | 12800/192  | 4/4000  |
-| Standard_D16as_v3 | 16 | 64  | 128 | 32000/256 (400)    | 25600/384  | 8/8000  |
-| Standard_D32as_v3 | 32 | 128 | 256 | 64000/512 (800)    | 51200/768  | 8/16000 |
-| Standard_D48as_v3 | 48 | 192 | 384 | 96000/768 (1200)   | 76800/1152 | 8/24000 |
-| Standard_D64as_v3 | 64 | 256 | 512 | 128000/1024 (1600) | 80000/1200 | 8/30000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
+|---|---|---|---|
+| Standard_D2as_v3  | 2  | 8   | 16  |
+| Standard_D4as_v3  | 4  | 16  | 32  |
+| Standard_D8as_v3  | 8  | 32  | 64  |
+| Standard_D16as_v3 | 16 | 64  | 128 |
+| Standard_D32as_v3 | 32 | 128 | 256 |
+| Standard_D48as_v3 | 48 | 192 | 384 |
+| Standard_D64as_v3 | 64 | 256 | 512 |
 
 ## Dv3-series <sup>1</sup>
 
@@ -122,17 +122,17 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 Premium Storage: Not Supported
 Premium Storage caching: Not Supported
 
-Dav3-series sizes are based on the 2.35Ghz AMD EPYCTM 7452V processor that can achieve a boosted Fmax of 3.35GHz. The Dav3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dasv3 sizes. The pricing and billing meters for Dasv3 sizes are the same as the Dav3-series.
+Dav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz. The Dav3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dasv3 sizes. The pricing and billing meters for Dasv3 sizes are the same as the Dav3-series.
 
-| Size | vCPUs | Memory: GiB | Temp storage (SSD): GiB | Max temp storage throughput: IOPS/Read MBps/Write MBps | Max NICs/Network Bandwidth |
-|---|---|---|---|---|---|
-| Standard_D2a_v3  | 2  | 8   | 50   | 3000/46/23     | 2/1000  |
-| Standard_D4a_v3  | 4  | 16  | 100  | 6000/93/46     | 2/2000  |
-| Standard_D8a_v3  | 8  | 32  | 200  | 12000/187/93   | 4/4000  |
-| Standard_D16a_v3 | 16 | 64  | 400  | 24000/375/187  | 8/8000  |
-| Standard_D32a_v3 | 32 | 128 | 800  | 48000/750/375  | 8/16000 |
-| Standard_D48a_v3 | 48 | 192 | 1200 | 96000/1000/500 | 8/24000 |
-| Standard_D64a_v3 | 64 | 256 | 1600 | 96000/1000/500 | 8/30000 |
+| Size | vCPU | Memory: GiB | Temp storage (SSD): GiB |
+|---|---|---|---|
+| Standard_D2a_v3  | 2  | 8   | 50   |
+| Standard_D4a_v3  | 4  | 16  | 100  |
+| Standard_D8a_v3  | 8  | 32  | 200  |
+| Standard_D16a_v3 | 16 | 64  | 400  |
+| Standard_D32a_v3 | 32 | 128 | 800  |
+| Standard_D48a_v3 | 48 | 192 | 1200 |
+| Standard_D64a_v3 | 64 | 256 | 1600 |
 
 ## DSv2-series
 
