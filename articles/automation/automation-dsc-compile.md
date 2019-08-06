@@ -140,10 +140,10 @@ to learn more about **Composite Resources**.
 > In order for configurations containing **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first imported in to Azure Automation.
 
 Adding a DSC **Composite Resource** is no different than adding any PowerShell module to Azure Automation.
-The step by step intructions for this process are documented in the article
+The step by step instruction for this process is documented in the article
 [Manage Modules in Azure Automation](/azure/automation/shared-resources/modules).
 
-### Managing ConfigurationData when compiling configuration in Azure Automatation
+### Managing ConfigurationData when compiling configuration in Azure Automation
 
 **ConfigurationData** allows you to separate structural configuration from any environment-specific
 configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
@@ -206,8 +206,8 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### Working with Assets in Azure Automation during compilation
 
-Asset references are the same in Azure Automation State Configuration and runbooks. See the
-following for more information:
+Asset references are the same in Azure Automation State Configuration and runbooks. For more information, see the
+following:
 
 - [Certificates](automation-certificates.md)
 - [Connections](automation-connections.md)
@@ -286,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 You can also import node configurations (MOFs) that have been compiled outside of Azure.
 This includes compiling from a developer workstation or in a service such as
 [Azure DevOps](https://dev.azure.com).
-There are mulitple advanatges to this approach including performance and reliability.
+There are multiple advantages to this approach including performance and reliability.
 Compiling in Windows PowerShell also provides the option to sign configuration content.
 A signed node configuration is verified locally on a managed node by the DSC agent,
 ensuring that the configuration being applied to the node comes from an authorized source.
