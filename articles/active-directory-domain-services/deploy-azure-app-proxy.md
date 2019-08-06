@@ -46,10 +46,8 @@ Perform the following steps to enable the Azure AD Application Proxy for your Az
 
 3. Click **Application proxy**.
 
-    ![Enable App Proxy](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. To download the connector, click the **Connector** button.
 
-    ![Download connector](./media/app-proxy/app-proxy-enabled-download-connector.png)
 5. On the download page, accept the license terms and privacy agreement and click the **Download** button.
 
     ![Confirm download](./media/app-proxy/app-proxy-enabled-confirm-download.png)
