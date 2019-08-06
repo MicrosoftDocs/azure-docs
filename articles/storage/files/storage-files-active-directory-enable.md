@@ -120,7 +120,7 @@ To enable this feature on existing storage accounts, use the following command:
 
 ```azurecli-interactive
 # Update a new storage account
-az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
 ```
 
 
