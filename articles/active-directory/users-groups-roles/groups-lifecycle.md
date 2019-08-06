@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 
 # Configure the expiration policy for Office 365 groups
 
-You can now manage the lifecycle of Office 365 groups by setting an expiration policy for them. You can set expiration policy for only Office 365 groups in Azure Active Directory (Azure AD).
+This article tells you how to manage the lifecycle of Office 365 groups by setting an expiration policy for them. You can set expiration policy for only Office 365 groups in Azure Active Directory (Azure AD).
 
 Once you set a group to expire:
 
@@ -60,8 +60,8 @@ For more information on permissions to restore a deleted group, see [Restore a d
   - Set the group lifetime in days. You could select one of the preset values, or a custom value (should be 31 days or more).
   - Specify an email address where the renewal and expiration notifications should be sent when a group has no owner.
   - Select which Office 365 groups expire. You can set expiration for:
-    - **All** Office 365 groups (no new groups)
-    - A list of **Selected** Office 365 groups (no new groups)
+    - **All** Office 365 groups
+    - A list of **Selected** Office 365 groups
     - **None** to restrict expiration for all groups
   - Save your settings when you're done by selecting **Save**.
 
