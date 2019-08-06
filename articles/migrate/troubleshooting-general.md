@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/06/2019
 ms.author: raynew
 ---
 
@@ -22,7 +22,7 @@ There are [two versions](https://docs.microsoft.com/azure/migrate/migrate-servic
 
     1. Go to the [Azure portal](https://portal.azure.com), and search for **Azure Migrate**.
     2. On the Azure Migrate dashboard, you'll see a banner that mentions accessing older projects. You'll see this banner only if you have created a project with the old experience. Select the banner.
-    
+
        ![Access existing projects](./media/troubleshooting-general/access-existing-projects.png)
 
     3. You'll now see the list of existing projects that were created with the previous version of Azure Migrate.
@@ -193,10 +193,10 @@ Requires a Microsoft Visual Studio subscription | The machine is running a Windo
 VM not found for the required storage performance | The storage performance (input/output operations per second [IOPS] and throughput) required for the machine exceeds Azure VM support. Reduce storage requirements for the machine before migration.
 VM not found for the required network performance | The network performance (in/out) required for the machine exceeds Azure VM support. Reduce the networking requirements for the machine.
 VM not found in the specified location | Use a different target location before migration.
-One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements. For each disk attached to the VM, make sure that the size of the disk is < 4 terabytes (TB), if not, reduce the disk size before you migrate to Azure. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).   
+One or more unsuitable disks | One or more disks attached to the VM don't meet Azure requirements. Azure Migrate: Server Assessment currently does not support Ultra SSD disks and assesses the disks based on the disk limits for premium managed disks (32 TB).  For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks), if not, reduce the disk size before you migrate to Azure or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by Azure [managed virtual machine disks](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits).
 One or more unsuitable network adapters. | Remove unused network adapters from the machine before migration.
 Disk count exceeds limit | Remove unused disks from the machine before migration.
-Disk size exceeds limit | Azure supports disks with up to 4 TB. Shrink disks to less than 4 TB before migration.
+Disk size exceeds limit | Azure Migrate: Server Assessment currently does not support Ultra SSD disks and assesses the disks based on premium disk limits (32 TB). However, Azure supports disks with up to 64 TB size (supported by Ultra SSD disks). Shrink disks to less than 64 TB before migration or use multiple disks in Azure and [stripe them together](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) to get higher storage limits.
 Disk unavailable in the specified location | Make sure the disk is in your target location before you migrate.
 Disk unavailable for the specified redundancy | The disk should use the redundancy storage type defined in the assessment settings (LRS by default).
 Could not determine disk suitability because of an internal error | Try creating a new assessment for the group.
@@ -214,7 +214,7 @@ There's a known gap in Server Assessment that prevents it from detecting the min
 ### Why does the VM SKU recommended by Server Assessment have more cores and more memory than what's allocated on-premises?
 The VM SKU recommendation in Server Assessment depends on the assessment properties. You can create two kinds of assessments in Server Assessment: *Performance-based* and *As on-premises*. For performance-based assessments, Server Assessment considers the utilization data of the on-premises VMs (CPU, memory, disk, and network utilization) to determine the right target VM SKU for your on-premises VMs. Additionally, for performance-based sizing, the comfort factor is considered in determining effective utilization. For on-premises sizing, performance data is not considered, and a target SKU is recommended based on what is allocated on-premises.
 
-For example, let's say there's an on-premises VM with 4 cores and 8 GB of memory with 50% CPU utilization and 50% memory utilization, and a comfort factor of 1.3 is specified in the assessment. If the sizing criteria of the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 gigabytes (GB) of memory is recommended. 
+For example, let's say there's an on-premises VM with 4 cores and 8 GB of memory with 50% CPU utilization and 50% memory utilization, and a comfort factor of 1.3 is specified in the assessment. If the sizing criteria of the assessment is **As on-premises**, an Azure VM SKU with 4 cores and 8 gigabytes (GB) of memory is recommended.
 
 However, assume the sizing criteria is performance-based. Based on effective CPU and memory utilization (50% of 4 cores * 1.3 = 2.6 cores and 50% of 8-GB memory * 1.3 = 5.3-GB memory), the cheapest VM SKU of four cores (nearest supported core count) and 8 GB of memory (nearest supported memory size) would be recommended. [Learn more about how Server Assessment performs sizing.](https://docs.microsoft.com/azure/migrate/concepts-assessment-calculation#sizing).
 
@@ -265,7 +265,7 @@ And [here's a list of Linux operating systems supported by MMA](https://docs.mic
 [Here's a list of Windows operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems). And [here's a list of Linux operating systems supported by the dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### I can't visualize dependencies in Azure Migrate for more than a one-hour duration.
-In Azure Migrate, you can visualize dependencies for up to a one-hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour. 
+In Azure Migrate, you can visualize dependencies for up to a one-hour duration. Although Azure Migrate allows you to go back to a particular date in the last month, the maximum duration for which you can visualize the dependencies is one hour.
 
 For example, you can use the time duration functionality in the dependency map to view dependencies for yesterday, but you can view them for only a one-hour period. However, you can use Azure Monitor logs to [query the dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
@@ -273,7 +273,7 @@ For example, you can use the time duration functionality in the dependency map t
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend that you split the group into smaller groups and visualize the dependencies.
 
 ### I installed agents and used the dependency visualization to create groups. Now, post-failover, the machines show "Install agent" action instead of "View dependencies."
-* After a planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They might acquire a different IP address based on whether or not the user chose to retain an on-premises IP address. 
+* After a planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They might acquire a different IP address based on whether or not the user chose to retain an on-premises IP address.
 
   If both MAC and IP addresses differ, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data. Instead, it asks the user to install agents instead of viewing dependencies.
 * Post-test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and might acquire different IP addresses. Unless the user blocks outgoing Azure Monitor log traffic from these machines, Azure Migrate doesn't associate the on-premises machines with any Service Map dependency data and asks users to install agents instead of viewing dependencies.
