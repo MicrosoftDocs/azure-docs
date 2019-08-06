@@ -1,6 +1,6 @@
 ---
 title: Secure SQL Database connection with managed identity - Azure App Service | Microsoft Docs 
-description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply this to other Azure services.
+description: Learn how to make database connectivity more secure by using a managed identity, and also how to apply it to other Azure services.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -158,7 +158,7 @@ services.AddDbContext<MyDatabaseContext>(options => {
 });
 ```
 
-Next, you supply the Entity Framework database context with the access token for the SQL Database. In *Data\MyDatabaseContext.cs*, add the following code inside the curly braces of the the empty `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` constructor:
+Next, you supply the Entity Framework database context with the access token for the SQL Database. In *Data\MyDatabaseContext.cs*, add the following code inside the curly braces of the empty `MyDatabaseContext (DbContextOptions<MyDatabaseContext> options)` constructor:
 
 ```csharp
 var conn = (System.Data.SqlClient.SqlConnection)Database.GetDbConnection();
