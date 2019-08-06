@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/01/2019
+ms.date: 08/06/2019
 ms.author: diberry
 ---
 
@@ -180,6 +180,8 @@ Run the application with the dotnet `run` command from your application director
 ```dotnet
 dotnet run
 ```
+
+The [source code for this quickstart](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/blob/master/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.css) is available in the QnA Maker C# samples GitHub repository.
 
 ## Clean up resources
 
