@@ -7,7 +7,7 @@ services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 06/21/2019
-ms.author: v-rodixo
+ms.author: heidist
 ---
 
 # C# Tutorial: Combine data from multiple data sources in one Azure Search index
