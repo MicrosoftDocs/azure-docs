@@ -179,7 +179,7 @@ To see how the connection string is referenced in your code, see [Connect to SQL
 
 ### Configure environment variable
 
-Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you are running in Azure, because you use SQLite for your local development environment and SQL Database for your Azure environment.
+Next, set `ASPNETCORE_ENVIRONMENT` app setting to _Production_. This setting lets you know whether you're running in Azure, because you use SQLite for your local development environment and SQL Database for your Azure environment.
 
 The following example configures a `ASPNETCORE_ENVIRONMENT` app setting in your Azure app. Replace the *\<app-name>* placeholder.
 
@@ -213,9 +213,9 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-If this code detects that it is running in production (which indicates the Azure environment), then it uses the connection string you configured to connect to the SQL Database. For information on how app settings are accessed in App Service, see [Access environment variables](configure-language-dotnetcore.md#access-environment-variables).
+If this code detects that it's running in production (which indicates the Azure environment), then it uses the connection string you configured to connect to the SQL Database. For information on how app settings are accessed in App Service, see [Access environment variables](configure-language-dotnetcore.md#access-environment-variables).
 
-The `Database.Migrate()` call helps you when it is run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration.
+The `Database.Migrate()` call helps you when it's run in Azure, because it automatically creates the databases that your .NET Core app needs, based on its migration configuration.
 
 Save your changes, then commit it into your Git repository.
 
@@ -362,7 +362,7 @@ Once the `git push` is complete, navigate to your Azure app and try out the new 
 
 ![Azure app after Code First Migration](./media/tutorial-dotnetcore-sqldb-app/this-one-is-done.png)
 
-All your existing to-do items are still displayed. When you republish your .NET Core app, existing data in your SQL Database is not lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
+All your existing to-do items are still displayed. When you republish your .NET Core app, existing data in your SQL Database isn't lost. Also, Entity Framework Core Migrations only changes the data schema and leaves your existing data intact.
 
 ## Stream diagnostic logs
 
