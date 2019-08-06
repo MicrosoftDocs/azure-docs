@@ -8,7 +8,7 @@ ms.service: managed-applications
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
-ms.date: 10/04/2018
+ms.date: 08/06/2019
 ms.author: tomfitz
 ---
 # Publish an Azure managed application definition
@@ -36,7 +36,7 @@ When defining the managed application, you select a user, group, or application 
 To get the object ID of your identity, provide your user principal name in the following command:
 
 ```azurecli-interactive
-userid=$(az ad user show --upn-or-object-id example@contoso.org --query objectId --output tsv)
+userid=$(az ad user show --id example@contoso.org --query objectId --output tsv)
 ```
 
 Next, you need the role definition ID of the RBAC built-in role you want to grant access to the user. The following command shows how to get the role definition ID for the Owner role:
