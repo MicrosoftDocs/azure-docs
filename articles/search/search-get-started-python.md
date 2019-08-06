@@ -9,8 +9,7 @@ ms.author: heidist
 services: search
 ms.service: search
 ms.devlang: rest-api
-ms.topic: conceptual
-ms.custom: seodec2018
+ms.topic: quickstart
 ---
 # Quickstart: Create an Azure Search index in Python using Jupyter notebooks
 > [!div class="op_single_selector"]
