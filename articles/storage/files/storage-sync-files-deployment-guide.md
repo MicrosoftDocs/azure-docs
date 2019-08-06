@@ -376,7 +376,7 @@ The recommended steps to onboard on Azure File Sync for the first with zero down
 6. After the initial upload is complete, install Azure File Sync agent on each of the remaining servers.
 7. Create new file shares on each of the remaining servers.
 8. Create server endpoints on new file shares with cloud tiering policy, if desired. (This step requires additional storage to be available for the initial setup.)
-9. Let Azure File Sync agent to do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
+9. Let Azure File Sync agent do a rapid restore of the full namespace without the actual data transfer. After the full namespace sync, sync engine will fill the local disk space based on the cloud tiering policy for the server endpoint. 
 10. Ensure sync completes and test your topology as desired. 
 11. Redirect users and applications to this new share.
 12. You can optionally delete any duplicate shares on the servers.
