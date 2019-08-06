@@ -28,7 +28,11 @@ To use PowerShell to create a user delegation SAS, you must first install the Az
 
     - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
     - Remove all **Azure** modules from `%Program Files%\WindowsPowerShell\Modules`.
-    - You may need to remove any **Az.Storage** modules other than Az.Storage 1.3.1-preview. You can use [Get-InstalledModule](/powershell/module/powershellget/get-installedmodule) to list installed Az.Storage modules, and [Uninstall-Module](/powershell/module/powershellget/uninstall-module) to uninstall modules.
+    - Because PowerShell loads the latest Az.Storage module by default, you may need to explicitly load the 1.3.1-preview module when you start the console. To explicitly load the preview module, run the [Import-Module](/powershell/module/microsoft.powershell.core/import-module) command:
+
+        ```powershell
+        Import-Module Az.Storage -RequiredVersion 1.3.1
+        ```
 
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
 
