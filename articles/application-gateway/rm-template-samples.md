@@ -15,7 +15,5 @@ The following table includes links to Azure Resource Manager templates for Azure
 
 | | |
 |---|---|
-| [Manage web traffic](./scripts/create-vmss-powershell.md) | Creates an Application Gateway and all related resources.|
-| [Restrict web traffic](./scripts/create-vmss-waf-powershell.md) | Creates an Application Gateway that restricts traffic using OWASP rules.|
-|[WAF v2 custom rules](scripts/waf-custom-rules-powershell.md)|Creates an Application Gateway Web Application Firewall v2 with custom rules.
+| [Application Gateway v2 with Web Application Firewall](https://azure.microsoft.com/resources/templates/101-application-gateway-waf/) | Creates an Application Gateway v2 with Web Application Firewall.|
 | | |
