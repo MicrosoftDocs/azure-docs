@@ -8,10 +8,10 @@ ms.date: 07/30/2019
 ms.author: rogarana
 ---
 
-# Overview of Azure Files Azure Active Directory Domain Service (AAD DS) Authentication Support for SMB Access
+# Overview of Azure Files Azure Active Directory Domain Service (Azure AD DS) Authentication Support for SMB Access
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-To learn how to enable AAD DS authentication for Azure Files, see [Enable Azure Active Directory Domain Service Authentication over SMB for Azure Files](storage-files-active-directory-enable.md).
+To learn how to enable Azure AD DS authentication for Azure Files, see [Enable Azure Active Directory Domain Service Authentication over SMB for Azure Files](storage-files-active-directory-enable.md).
 
 ## Glossary 
 It's helpful to understand some key terms relating to Azure AD Domain Service authentication over SMB for Azure Files:
@@ -37,7 +37,7 @@ It's helpful to understand some key terms relating to Azure AD Domain Service au
 Azure AD Domain Service authentication for Azure Files offers several benefits over using Shared Key authentication:
 
 -   **Extend the traditional identity-based file share access experience to the cloud with Azure AD and Azure AD Domain Service**  
-    If you plan to "lift and shift" your application to the cloud, replacing traditional file servers with Azure Files, then you may want your application to authenticate with Azure AD credentials to access file data. Azure Files supports using Azure AD credentials to access Azure Files over SMB from AAD DS domain-joined Windows VMs. You can also choose to sync all of your on-premises Active Directory objects to Azure AD to preserve usernames, passwords, and other group assignments.
+    If you plan to "lift and shift" your application to the cloud, replacing traditional file servers with Azure Files, then you may want your application to authenticate with Azure AD credentials to access file data. Azure Files supports using Azure AD credentials to access Azure Files over SMB from Azure AD DS domain-joined Windows VMs. You can also choose to sync all of your on-premises Active Directory objects to Azure AD to preserve usernames, passwords, and other group assignments.
 
 -   **Enforce granular access control on Azure file shares**  
     You can grant permissions to a specific identity at the share, directory, or file level. For example, suppose that you have several teams using a single Azure file share for project collaboration. You can grant all teams access to non-sensitive directories, while limiting access to directories containing sensitive financial data to your Finance team only. 
