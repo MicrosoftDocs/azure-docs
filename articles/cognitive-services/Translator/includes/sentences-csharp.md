@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Get sentence lengths, C# - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to determine sentence length using .NET Core and the Translator Text API.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/13/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to determine sentence length using C#
-
-In this quickstart, you'll learn how to determine sentence lengths using .NET Core, C# 7.1 or later, and the Translator Text API.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## Prerequisites
 
@@ -227,12 +212,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-* [Translate text](quickstart-csharp-translate.md)
-* [Transliterate text](quickstart-csharp-transliterate.md)
-* [Identify the language by input](quickstart-csharp-detect.md)
-* [Get alternate translations](quickstart-csharp-dictionary.md)
-* [Get a list of supported languages](quickstart-csharp-languages.md)
-* [Determine sentence lengths from an input](quickstart-csharp-sentences.md)

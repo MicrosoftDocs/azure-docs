@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Detect text language, Python - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to identify the language of provided text using Python and the Translator Text REST API.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to detect text language using Python
-
-In this quickstart, you'll learn how to detect the language of provided text using Python and the Translator Text REST API.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Prerequisites
 
@@ -30,7 +15,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Python project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `detect.py`.
+Create a new Python project using your favorite IDE or editor, or create a new folder on your desktop. Copy this code snippet into your project/folder into a file named `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -61,19 +46,22 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+# below and add your subscription key. Then, be sure to delete your "os" import.
+# subscriptionKey = 'put_your_key_here'
 ```
 
-The Translator Text global endpoint is set as the `base_url`. `path` sets the `detect` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `dictionary/lookup` route and identifies that we want to hit version 3 of the API.
+
+The `params` are used to set the source and output languages. In this sample we're using English and Spanish: `en` and `es`.
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect).
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
-path = '/detect?api-version=3.0'
-constructed_url = base_url + path
+path = '/dictionary/lookup?api-version=3.0'
+params = '&from=en&to=es'
+constructed_url = base_url + path + params
 ```
 
 ## Add headers
@@ -93,14 +81,14 @@ headers = {
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-## Create a request to detect text language
+## Create a request to find alternate translations
 
-Define the string (or strings) that you want to detect the language for:
+Define the string (or strings) that you want to find translations for:
 
 ```python
 # You can pass more than one object in body.
 body = [{
-    'text': 'Salve, mondo!'
+    'text': 'Elephants'
 }]
 ```
 
@@ -125,36 +113,35 @@ print(json.dumps(response, sort_keys=True, indent=4,
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-python detect.py
+python alt-translations.py
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Sample response
 
-Find the country/region abbreviation in this [list of languages](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
-
 ```json
 [
     {
-        "alternatives": [
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
             {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "pt",
-                "score": 1.0
-            },
-            {
-                "isTranslationSupported": true,
-                "isTransliterationSupported": false,
-                "language": "en",
-                "score": 1.0
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
             }
-        ],
-        "isTranslationSupported": true,
-        "isTransliterationSupported": false,
-        "language": "it",
-        "score": 1.0
+        ]
     }
 ]
 ```
@@ -169,13 +156,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-Learn how to use the Translator Text API to:
-
-* [Translate text](quickstart-python-translate.md)
-* [Transliterate text](quickstart-python-transliterate.md)
-* [Get alternate translations](quickstart-python-dictionary.md)
-* [Get a list of supported languages](quickstart-python-languages.md)
-* [Determine sentence lengths from an input](quickstart-python-sentences.md)

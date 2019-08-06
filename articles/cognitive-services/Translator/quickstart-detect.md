@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Detect text language - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to detect the language of provided text using .NET Core and the Translator Text REST API.
+description: In this quickstart, you'll learn how to detect the language of provided text using the Translator Text REST API.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: quickstart
-ms.date: 06/13/2019
+ms.date: 08/20/2019
 ms.author: erhopf
 zone_pivot_groups: cogsvcs1-programming-language
 ---
@@ -51,8 +51,8 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 
 ## See also
 
-* [Translate text](quickstart-csharp-translate.md)
-* [Transliterate text](quickstart-csharp-transliterate.md)
-* [Get alternate translations](quickstart-csharp-dictionary.md)
-* [Get a list of supported languages](quickstart-csharp-languages.md)
-* [Determine sentence lengths from an input](quickstart-csharp-sentences.md)
+* [Translate text](quickstart-translate.md)
+* [Transliterate text](quickstart-transliterate.md)
+* [Get alternate translations](quickstart-dictionary.md)
+* [Get a list of supported languages](quickstart-languages.md)
+* [Determine sentence lengths from an input](quickstart-sentences.md)

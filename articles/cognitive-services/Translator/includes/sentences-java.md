@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Get sentence lengths, Java - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to determine sentence length using Java and the Translator Text API.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to determine sentence length using Java
-
-In this quickstart, you'll learn how to determine sentence lengths using Java and the Translator Text API.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java).
 
 ## Prerequisites
 
@@ -204,12 +189,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-* [Translate text](quickstart-java-translate.md)
-* [Transliterate text](quickstart-java-transliterate.md)
-* [Identify the language by input](quickstart-java-detect.md)
-* [Get alternate translations](quickstart-java-dictionary.md)
-* [Get a list of supported languages](quickstart-java-languages.md)
-* [Determine sentence lengths from an input](quickstart-java-sentences.md)

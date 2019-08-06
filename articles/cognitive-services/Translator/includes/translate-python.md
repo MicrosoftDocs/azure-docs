@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Transliterate text, Python - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Python and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to transliterate text using Python
-
-In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Python and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Prerequisites
 
@@ -30,7 +15,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new project using your favorite IDE or editor, or a new folder with a file named `transliterate-text.py` on your desktop. Then copy this code snippet into your project/file:
+Create a new Python project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `translate-text.py`. Be sure your IDE's interpreter references the correct version of Python to avoid libraries not being recognized.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -65,17 +50,17 @@ else:
 #subscriptionKey = 'put_your_key_here'
 ```
 
-The Translator Text global endpoint is set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `translate` route and identifies that we want to hit version 3 of the API.
 
-The `params` are used to set the input language, and the input and output scripts. In this sample, we're transliterating from Japanese to the Latin alphabet.
+The `params` are used to set the output languages. In this sample we're translating from English to Italian and German: `it` and `de`.
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
-path = '/transliterate?api-version=3.0'
-params = '&language=ja&fromScript=jpan&toScript=latn'
+path = '/translate?api-version=3.0'
+params = '&to=de&to=it'
 constructed_url = base_url + path + params
 ```
 
@@ -96,15 +81,13 @@ headers = {
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-## Create a request to transliterate text
+## Create a request to translate text
 
-Define the string (or strings) that you want to transliterate:
+Define the string (or strings) that you want to translate:
 
 ```python
-# Transliterate "good afternoon" from source Japanese.
-# Note: You can pass more than one object in body.
 body = [{
-    'text': 'こんにちは'
+    'text': 'Hello World!'
 }]
 ```
 
@@ -129,7 +112,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-python transliterate-text.py
+python translate-text.py
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
@@ -139,8 +122,20 @@ If you'd like to compare your code against ours, the complete sample is availabl
 ```json
 [
     {
-        "script": "latn",
-        "text": "konnichiwa"
+        "detectedLanguage": {
+            "language": "en",
+            "score": 1.0
+        },
+        "translations": [
+            {
+                "text": "Hallo Welt!",
+                "to": "de"
+            },
+            {
+                "text": "Salve, mondo!",
+                "to": "it"
+            }
+        ]
     }
 ]
 ```
@@ -155,13 +150,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-Learn how to use the Translator Text API to:
-
-* [Translate text](quickstart-python-translate.md)
-* [Identify the language by input](quickstart-python-detect.md)
-* [Get alternate translations](quickstart-python-dictionary.md)
-* [Get a list of supported languages](quickstart-python-languages.md)
-* [Determine sentence lengths from an input](quickstart-python-sentences.md)

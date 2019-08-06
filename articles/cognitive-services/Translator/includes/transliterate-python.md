@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Look up words with bilingual dictionary, Python - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Python and the Translator Text REST API.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Look up words with bilingual dictionary using Python
-
-In this quickstart, you'll learn how to find alternate translations and usage examples for a specified text using Python and the Translator Text REST API.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Prerequisites
 
@@ -30,7 +15,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new Python project using your favorite IDE or editor, or create a new folder on your desktop. Copy this code snippet into your project/folder into a file named `dictionary-lookup.py`.
+Create a new project using your favorite IDE or editor, or a new folder with a file named `transliterate-text.py` on your desktop. Then copy this code snippet into your project/file:
 
 ```python
 # -*- coding: utf-8 -*-
@@ -61,21 +46,21 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key. Then, be sure to delete your "os" import.
-# subscriptionKey = 'put_your_key_here'
+# below and add your subscription key.
+#subscriptionKey = 'put_your_key_here'
 ```
 
-The Translator Text global endpoint is set as the `base_url`. `path` sets the `dictionary/lookup` route and identifies that we want to hit version 3 of the API.
+The Translator Text global endpoint is set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
 
-The `params` are used to set the source and output languages. In this sample we're using English and Spanish: `en` and `es`.
+The `params` are used to set the input language, and the input and output scripts. In this sample, we're transliterating from Japanese to the Latin alphabet.
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Dictionary Lookup](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-dictionary-lookup).
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
 
 ```python
 base_url = 'https://api.cognitive.microsofttranslator.com'
-path = '/dictionary/lookup?api-version=3.0'
-params = '&from=en&to=es'
+path = '/transliterate?api-version=3.0'
+params = '&language=ja&fromScript=jpan&toScript=latn'
 constructed_url = base_url + path + params
 ```
 
@@ -96,14 +81,15 @@ headers = {
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
-## Create a request to find alternate translations
+## Create a request to transliterate text
 
-Define the string (or strings) that you want to find translations for:
+Define the string (or strings) that you want to transliterate:
 
 ```python
-# You can pass more than one object in body.
+# Transliterate "good afternoon" from source Japanese.
+# Note: You can pass more than one object in body.
 body = [{
-    'text': 'Elephants'
+    'text': 'こんにちは'
 }]
 ```
 
@@ -128,7 +114,7 @@ print(json.dumps(response, sort_keys=True, indent=4,
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-python alt-translations.py
+python transliterate-text.py
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
@@ -138,25 +124,8 @@ If you'd like to compare your code against ours, the complete sample is availabl
 ```json
 [
     {
-        "displaySource": "elephants",
-        "normalizedSource": "elephants",
-        "translations": [
-            {
-                "backTranslations": [
-                    {
-                        "displayText": "elephants",
-                        "frequencyCount": 1207,
-                        "normalizedText": "elephants",
-                        "numExamples": 5
-                    }
-                ],
-                "confidence": 1.0,
-                "displayTarget": "elefantes",
-                "normalizedTarget": "elefantes",
-                "posTag": "NOUN",
-                "prefixWord": ""
-            }
-        ]
+        "script": "latn",
+        "text": "konnichiwa"
     }
 ]
 ```
@@ -171,13 +140,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-Learn how to use the Translator Text API to:
-
-* [Translate text](quickstart-python-translate.md)
-* [Transliterate text](quickstart-python-transliterate.md)
-* [Identify the language by input](quickstart-python-detect.md)
-* [Get a list of supported languages](quickstart-python-languages.md)
-* [Determine sentence lengths from an input](quickstart-python-sentences.md)

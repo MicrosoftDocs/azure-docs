@@ -1,23 +1,10 @@
 ---
-title: "Quickstart: Get list of supported languages, Python - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with Python.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to get a list of supported languages using Python
-
-In this quickstart, you'll learn how to make a GET request that returns a list of supported languages using Python and the Translator Text REST API.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## Prerequisites
 
@@ -198,13 +185,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-Learn how to use the Translator Text API to:
-
-* [Translate text](quickstart-python-translate.md)
-* [Transliterate text](quickstart-python-transliterate.md)
-* [Identify the language by input](quickstart-python-detect.md)
-* [Get alternate translations](quickstart-python-dictionary.md)
-* [Determine sentence lengths from an input](quickstart-python-sentences.md)

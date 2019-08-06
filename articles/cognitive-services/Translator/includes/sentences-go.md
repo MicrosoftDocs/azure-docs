@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Get sentence lengths, Go - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Go.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to determine sentence length using Go
-
-In this quickstart, you'll learn how to determine sentence lengths (in characters) using Go and the Translator Text REST API.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## Prerequisites
 
@@ -187,13 +172,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-Learn how to use the Translator Text API to:
-
-* [Translate text](quickstart-go-translate.md)
-* [Transliterate text](quickstart-go-transliterate.md)
-* [Identify the language by input](quickstart-go-detect.md)
-* [Get alternate translations](quickstart-go-dictionary.md)
-* [Get a list of supported languages](quickstart-go-languages.md)

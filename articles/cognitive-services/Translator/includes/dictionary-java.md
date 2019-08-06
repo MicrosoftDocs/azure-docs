@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Translate text, Java - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to translate a text string from English to Italian and German using Java and the Translator Text REST API.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to translate a string using Java
-
-In this quickstart, you'll learn how to translate a text string from English to Italian and German using Java and the Translator Text REST API.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Java).
 
 ## Prerequisites
 
@@ -32,8 +17,8 @@ This quickstart requires an [Azure Cognitive Services account](https://docs.micr
 Let's start by creating a working directory for this project. From the command line (or terminal), run this command:
 
 ```console
-mkdir translator-sample
-cd translator-sample
+mkdir alt-translation-sample
+cd alt-translation-sample
 ```
 
 Next, you're going to initialize a Gradle project. This command will create essential build files for Gradle, most importantly, the `build.gradle.kts`, which is used at runtime to create and configure your application. Run this command from your working directory:
@@ -54,7 +39,7 @@ plugins {
     application
 }
 application {
-    mainClassName = "Translate"
+    mainClassName = "AltTranslation"
 }
 repositories {
     mavenCentral()
@@ -72,14 +57,14 @@ Take note that this sample has dependencies on OkHttp for HTTP requests, and Gso
 Let's create a folder for your sample app. From your working directory, run:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
-Next, in this folder, create a file named `Translate.java`.
+Next, in this folder, create a file named `AltTranslation.java`.
 
 ## Import required libraries
 
-Open `Translate.java` and add these import statements:
+Open `AltTranslation.java` and add these import statements:
 
 ```java
 import java.io.*;
@@ -89,42 +74,43 @@ import com.google.gson.*;
 import com.squareup.okhttp.*;
 ```
 
+
 ## Define variables
 
 First, you'll need to create a public class for your project:
 
 ```java
-public class Translate {
+public class AltTranslation {
   // All project code goes here...
 }
 ```
 
-Add these lines to the `Translate` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
+Add these lines to the `AltTranslation` class. You'll notice that along with the `api-version`, two additional parameters have been appended to the `url`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
 
 ```java
 String subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-String url = "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=de,it";
+String url = "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es";
 ```
 
 If you are using a Cognitive Services multi-service subscription, you must also include the `Ocp-Apim-Subscription-Region` in your request parameters. [Learn more about authenticating with the multi-service subscription](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
 
 ## Create a client and build a request
 
-Add this line to the `Translate` class to instantiate the `OkHttpClient`:
+Add this line to the `AltTranslation` class to instantiate the `OkHttpClient`:
 
 ```java
 // Instantiates the OkHttpClient.
 OkHttpClient client = new OkHttpClient();
 ```
 
-Next, let's build the POST request. Feel free to change the text for translation. The text must be escaped.
+Next, let's build the POST request. Feel free to change the text for translation.
 
 ```java
 // This function performs a POST request.
 public String Post() throws IOException {
     MediaType mediaType = MediaType.parse("application/json");
     RequestBody body = RequestBody.create(mediaType,
-            "[{\n\t\"Text\": \"Welcome to Microsoft Translator. Guess how many languages I speak!\"\n}]");
+            "[{\n\t\"Text\": \"Pineapples\"\n}]");
     Request request = new Request.Builder()
             .url(url).post(body)
             .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey)
@@ -155,8 +141,8 @@ The last step is to make a request and get a response. Add these lines to your p
 ```java
 public static void main(String[] args) {
     try {
-        Translate translateRequest = new Translate();
-        String response = translateRequest.Post();
+        AltTranslation altTranslationRequest = new AltTranslation();
+        String response = altTranslationRequest.Post();
         System.out.println(prettify(response));
     } catch (Exception e) {
         System.out.println(e);
@@ -183,18 +169,56 @@ gradle run
 ```json
 [
   {
-    "detectedLanguage": {
-      "language": "en",
-      "score": 1.0
-    },
+    "normalizedSource": "pineapples",
+    "displaySource": "pineapples",
     "translations": [
       {
-        "text": "Willkommen bei Microsoft Translator. Erraten Sie, wie viele Sprachen ich spreche!",
-        "to": "de"
+        "normalizedTarget": "piñas",
+        "displayTarget": "piñas",
+        "posTag": "NOUN",
+        "confidence": 0.7016,
+        "prefixWord": "",
+        "backTranslations": [
+          {
+            "normalizedText": "pineapples",
+            "displayText": "pineapples",
+            "numExamples": 5,
+            "frequencyCount": 158
+          },
+          {
+            "normalizedText": "cones",
+            "displayText": "cones",
+            "numExamples": 5,
+            "frequencyCount": 13
+          },
+          {
+            "normalizedText": "piña",
+            "displayText": "piña",
+            "numExamples": 3,
+            "frequencyCount": 5
+          },
+          {
+            "normalizedText": "ganks",
+            "displayText": "ganks",
+            "numExamples": 2,
+            "frequencyCount": 3
+          }
+        ]
       },
       {
-        "text": "Benvenuti a Microsoft Translator. Indovinate quante lingue parlo!",
-        "to": "it"
+        "normalizedTarget": "ananás",
+        "displayTarget": "ananás",
+        "posTag": "NOUN",
+        "confidence": 0.2984,
+        "prefixWord": "",
+        "backTranslations": [
+          {
+            "normalizedText": "pineapples",
+            "displayText": "pineapples",
+            "numExamples": 2,
+            "frequencyCount": 16
+          }
+        ]
       }
     ]
   }
@@ -207,11 +231,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-* [Transliterate text](quickstart-java-transliterate.md)
-* [Identify the language by input](quickstart-java-detect.md)
-* [Get alternate translations](quickstart-java-dictionary.md)
-* [Get a list of supported languages](quickstart-java-languages.md)
-* [Determine sentence lengths from an input](quickstart-java-sentences.md)

@@ -1,25 +1,10 @@
 ---
-title: "Quickstart: Transliterate text, Node.js - Translator Text API"
-titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Node.js and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
-services: cognitive-services
-author: swmachan
-manager: nitinme
+author: erhopf
 ms.service: cognitive-services
-ms.subservice: translator-text
-ms.topic: quickstart
-ms.date: 06/04/2019
-ms.author: swmachan
+ms.topic: include
+ms.date: 08/06/2019
+ms.author: erhopf
 ---
-
-# Quickstart: Use the Translator Text API to transliterate text with Node.js
-
-In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Node.js and the Translator Text REST API. In the sample provided, Japanese is transliterated to use the Latin alphabet.
-
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
-
->[!TIP]
-> If you'd like to see all the code at once, the source code for this sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
 
 ## Prerequisites
 
@@ -30,7 +15,7 @@ This quickstart requires:
 
 ## Create a project and import required modules
 
-Create a new project using your favorite IDE or editor, or a new folder with a file named  `translate-text.js` on your desktop. Then copy this code snippet into your project/file:
+Create a new project using your favorite IDE or editor. Then copy this code snippet into your project in a file named `sentence-length.js`.
 
 ```javascript
 const request = require('request');
@@ -66,18 +51,15 @@ if (!subscriptionKey) {
 The `request()` method, made available through the request module, allows us to pass the HTTP method, URL, request params, headers, and the JSON body as an `options` object. In this code snippet, we'll configure the request:
 
 >[!NOTE]
-> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).
+> For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Break Sentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
 
 ```javascript
 let options = {
     method: 'POST',
     baseUrl: 'https://api.cognitive.microsofttranslator.com/',
-    url: 'transliterate',
+    url: 'breaksentence',
     qs: {
       'api-version': '3.0',
-      'language': 'ja',
-      'fromScript': 'jpan',
-      'toScript': 'latn'
     },
     headers: {
       'Ocp-Apim-Subscription-Key': subscriptionKey,
@@ -85,7 +67,7 @@ let options = {
       'X-ClientTraceId': uuidv4().toString()
     },
     body: [{
-          'text': 'こんにちは'
+          'text': 'How are you? I am fine. What did you do today?'
     }],
     json: true,
 };
@@ -116,7 +98,7 @@ request(options, function(err, res, body){
 That's it, you've put together a simple program that will call the Translator Text API and return a JSON response. Now it's time to run your program:
 
 ```console
-node transliterate-text.js
+node sentence-length.js
 ```
 
 If you'd like to compare your code against ours, the complete sample is available on [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
@@ -126,8 +108,11 @@ If you'd like to compare your code against ours, the complete sample is availabl
 ```json
 [
     {
-        "script": "latn",
-        "text": "konnichiwa"
+        "sentLen": [
+            13,
+            11,
+            22
+        ]
     }
 ]
 ```
@@ -142,13 +127,3 @@ Take a look at the API reference to understand everything you can do with the Tr
 
 > [!div class="nextstepaction"]
 > [API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
-
-## See also
-
-In addition to language detection, learn how to use the Translator Text API to:
-
-* [Translate text](quickstart-nodejs-translate.md)
-* [Identify the language by input](quickstart-nodejs-detect.md)
-* [Get alternate translations](quickstart-nodejs-dictionary.md)
-* [Get a list of supported languages](quickstart-nodejs-languages.md)
-* [Determine sentence lengths from an input](quickstart-nodejs-sentences.md)
