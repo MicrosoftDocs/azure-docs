@@ -52,7 +52,7 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
 | [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
 
-- For Amazon S3 and Google Sloud Storage, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
+- For Amazon S3 and Google Cloud Storage, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
 - For Azure Blob, the `lastModified` applies to container and blob but not virtual folder.
 
 **Relational database:**
