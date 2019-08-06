@@ -5,21 +5,22 @@ author: arduppal
 manager: mchad
 ms.author: arduppal
 ms.reviewer: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ---
 
-# Store data at the edge with Azure Blob Storage on IoT Edge (preview)
+# Store data at the edge with Azure Blob Storage on IoT Edge
 
 Azure Blob Storage on IoT Edge provides a [block blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) storage solution at the edge. A blob storage module on your IoT Edge device behaves like an Azure block blob service, except the block blobs are stored locally on your IoT Edge device. You can access your blobs using the same Azure storage SDK methods or block blob API calls that you're already used to. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
 
-This module is useful in scenarios where data needs to be stored locally until it can be processed or transferred to the cloud. This data may be videos, images, finance data, hospital data, or any other unstructured data.
-
-> [!NOTE]
-> Azure Blob Storage on IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This module is useful in scenarios:
+* where data needs to be stored locally until it can be processed or transferred to the cloud. This data may be videos, images, finance data, hospital data, or any other unstructured data.
+* when devices are located in a place with limited connectivity.
+* when you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
+* when you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
 
 Watch the video for quick introduction
 > [!VIDEO https://www.youtube.com/embed/QhCYCvu3tiM]
@@ -55,16 +56,11 @@ An Azure IoT Edge device:
 
 - You can use your development machine or a virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
 
-- The Azure Blob Storage on IoT Edge module supports the following device configurations:
-
-  | Operating system | AMD64 | ARM32v7 | ARM64 |
-  | ---------------- | ----- | ----- | ---- |
-  | Raspbian-stretch | No | Yes | No |  
-  | Ubuntu Server 16.04 | Yes | No | Yes |
-  | Ubuntu Server 18.04 | Yes | No | Yes |
-  | Windows 10 IoT Enterprise, build 17763 | Yes | No | No |
-  | Windows Server 2019, build 17763 | Yes | No | No |
-  
+- Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported operating systems and architectures. The Azure Blob Storage on IoT Edge module supports following architectures:
+    - Windows AMD64
+    - Linux AMD64
+    - Linux ARM32
+    - Linux ARM64 (preview)
 
 Cloud resources:
 
@@ -107,12 +103,30 @@ $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
 Example: <br>
-`$creds = Get-Credentials` <br>
+`$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
 This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive. 
 
 For your deployment the value of `<storage directory bind>` can be **G:/ContainerData:C:/BlobRoot**.
+
+## Granting directory access to low privileged user for Linux containers
+If you have used volume bind for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used directory bind then these steps are required to run the service correctly.
+
+This module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as `root` (default user is `root`), our service will be started as the low-privilege `absie` user. 
+
+If any other user is specified through `user create option`, the service is started as that `user`. 
+
+This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by this user (example: absie 11000).  
+
+```terminal
+sudo chown -R <user id>:<group id> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
+
+Example:<br>
+`sudo chown -R 11000:11000 /srv/containerdata` <br>
+`sudo chmod -R 700 /srv/containerdata `
 
 ## Configure log files
 
@@ -234,3 +248,5 @@ You can reach us at absiotfeedback@microsoft.com
 ## Next steps
 
 Learn how to [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
+
+Stay up-to-date with recent updates and announcement in the [Azure Blob Storage on IoT Edge blog](https://aka.ms/abs-iot-blogpost)

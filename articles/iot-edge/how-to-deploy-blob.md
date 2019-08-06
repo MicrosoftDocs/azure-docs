@@ -3,7 +3,7 @@ title: Deploy the Azure Blob Storage module to devices - Azure IoT Edge | Micros
 description: Deploy an Azure Blob Storage module to your IoT Edge device to store data at the edge.
 author: arduppal
 ms.author: arduppal
-ms.date: 06/19/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
 ms.custom: seodec18
@@ -15,9 +15,6 @@ manager: mchad
 # Deploy the Azure Blob Storage on IoT Edge module to your device
 
 There are several ways to deploy modules to an IoT Edge device and all of them work for Azure Blob Storage on IoT Edge modules. The two simplest methods are to use the Azure portal or Visual Studio Code templates.
-
-> [!NOTE]
-> Azure Blob Storage on IoT Edge is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -81,8 +78,13 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
    - Replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.
 
-     - For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
-     - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot**. Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+     - For Linux containers, the format is *\<storage path>:/blobroot*. For example
+         - use volume bind: **my-volume:/blobroot** 
+         - use directory bind: **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the user](granting-directory-access-to-low-privileged-user-for-Linux-containers)
+     - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example
+         - use volume bind: **my-volume:C:/blobroot**. 
+         - use directory bind: **C:/ContainerData:C:/BlobRoot**.
+         - Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
      > [!IMPORTANT]
      > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
@@ -189,8 +191,14 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Replace `<storage directory bind>` according to your container operating system. Provide the name of a [volume](https://docs.docker.com/storage/volumes/) or the absolute path to a directory on your IoT Edge device where you want the blob module to store its data. The storage directory bind maps a location on your device that you provide to a set location in the module.  
 
-      - For Linux containers, the format is *\<storage path>:/blobroot*. For example, **/srv/containerdata:/blobroot** or **my-volume:/blobroot**.
-      - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example, **C:/ContainerData:C:/BlobRoot** or **my-volume:C:/blobroot**.  Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
+      
+     - For Linux containers, the format is *\<storage path>:/blobroot*. For example
+         - use volume bind: **my-volume:/blobroot** 
+         - use directory bind: **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the user](granting-directory-access-to-low-privileged-user-for-Linux-containers)
+     - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example
+         - use volume bind: **my-volume:C:/blobroot**. 
+         - use directory bind: **C:/ContainerData:C:/BlobRoot**.
+         - Instead of using your local drive, you can map your SMB network location, for more information see [using SMB share as your local storage](how-to-store-data-blob.md#using-smb-share-as-your-local-storage)
 
       > [!IMPORTANT]
       > Do not change the second half of the storage directory bind value, which points to a specific location in the module. The storage directory bind should always end with **:/blobroot** for Linux containers and **:C:/BlobRoot** for Windows containers.
@@ -246,7 +254,5 @@ When you connect to additional blob storage modules, change the endpoint to poin
 
 ## Next steps
 Learn more about [Azure Blob Storage on IoT Edge](how-to-store-data-blob.md)
-
-Stay up-to-date with recent updates and announcement in the [Azure Blob Storage on IoT Edge blog](https://aka.ms/abs-iot-blogpost)
 
 For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
