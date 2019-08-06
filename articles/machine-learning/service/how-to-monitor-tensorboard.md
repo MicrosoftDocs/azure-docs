@@ -37,9 +37,9 @@ How you launch TensorBoard with Azure Machine Learning experiments depends on th
         * tensorboard.ipynb
 
     * Your own Juptyer notebook server
-      * Use the [Create a workspace article](setup-create-workspace.md) to
           * [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) with the `tensorboard` extra
-          * Create a workspace and its configuration file (config.json)
+          *[Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).  
+          * [Create a workspace configuration file](how-to-configure-environment.md#workspace).
   
 <a name="direct"></a>
 ## Option 1: Directly view run history in TensorBoard

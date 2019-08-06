@@ -231,5 +231,5 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 To get started with Azure Machine Learning service, see:
 
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Create an Azure Machine Learning service workspace](setup-create-workspace.md)
+* [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

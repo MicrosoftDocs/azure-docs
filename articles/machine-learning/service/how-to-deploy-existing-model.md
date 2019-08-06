@@ -27,7 +27,7 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see [Create a workspace](setup-create-workspace.md).
+* An Azure Machine Learning service workspace. For more information, see [Create a workspace](how-to-manage-workspace.md).
 
     > [!TIP]
     > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.

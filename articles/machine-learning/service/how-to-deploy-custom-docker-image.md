@@ -35,7 +35,7 @@ This document is broken into two sections:
 
 ## Prerequisites
 
-* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
