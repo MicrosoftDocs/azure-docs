@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/05/2019
+ms.date: 08/06/2019
 ms.author: magoedte
 ---
 
@@ -107,6 +107,13 @@ Selecting any one of buttons for **Failures**, **Performance**, **Availability**
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## Editing a workbook
+
+This section highlights common scenarios for editing or creating a custom workbook to support your data analytics needs:
+
+* Scope the workbook to always select a particular subscription or storage account(s)
+* Change metrics in the grid
+* Change the availability threshold
+* Change the color rendering
 
 
 ## Next steps
