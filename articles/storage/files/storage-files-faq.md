@@ -1,7 +1,6 @@
 ---
 title: Frequently asked questions (FAQ) for Azure Files | Microsoft Docs
 description: Find answers to frequently asked questions about Azure Files.
-services: storage
 author: roygara
 ms.service: storage
 ms.date: 07/30/2019
@@ -263,10 +262,6 @@ This article answers common questions about Azure Files features and functionali
 * <a id="where-are-snapshots-stored"></a>
 **Where are my share snapshots stored?**  
     Share snapshots are stored in the same storage account as the file share.
-
-* <a id="snapshot-perf-impact"></a>
-**Are there any performance implications for using share snapshots?**  
-    Share snapshots do not have any performance overhead.
 
 * <a id="snapshot-consistency"></a>
 **Are share snapshots application-consistent?**  

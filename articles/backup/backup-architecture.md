@@ -10,7 +10,7 @@ ms.date: 02/19/2019
 ms.author: dacurwin
 ---
 
-# Azure Backup architecture
+# Azure Backup architecture and components
 
 You can use the [Azure Backup service](backup-overview.md) to back up data to the Microsoft Azure cloud platform. This article summarizes Azure Backup architecture, components, and processes. 
 

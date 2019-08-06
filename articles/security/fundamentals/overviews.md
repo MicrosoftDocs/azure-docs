@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid:
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na

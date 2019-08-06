@@ -173,7 +173,7 @@ when making changes in one don't forget the other two.
 
 ## CRON expressions
 
-You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md#cron-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {

@@ -9,6 +9,7 @@ editor: tomsh
 
 ms.assetid: 
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -36,7 +37,7 @@ These include:
 Cloud computing requires new security paradigms that are unfamiliar to many application users, database administrators, and programmers. As a result, some organizations are hesitant to implement a cloud infrastructure for data management due to perceived security risks. However, much of this concern can be alleviated through a better understanding of the security features built into Microsoft Azure and Microsoft Azure SQL Database.
 
 ## Checklist
-We recommend that you read the [Azure Database Security Best Practices](https://docs.microsoft.com/azure/security/azure-database-security-best-practices)  article prior to reviewing this checklist. You will be able to get the most out of this checklist after you understand the best practices. You can then use this checklist to make sure that you’ve addressed the important issues in Azure database security.
+We recommend that you read the [Azure Database Security Best Practices](https://docs.microsoft.com/azure/security/fundamentals/database-best-practices)  article prior to reviewing this checklist. You will be able to get the most out of this checklist after you understand the best practices. You can then use this checklist to make sure that you’ve addressed the important issues in Azure database security.
 
 
 |Checklist Category| Description|
