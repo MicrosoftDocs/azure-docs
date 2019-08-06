@@ -81,7 +81,7 @@ In the dialogs that follow, make the following selections:
 1. Open the `helloworld.xcworkspace` workspace in Xcode.
 1. Make the debug output visible (**View** > **Debug Area** > **Activate Console**).
 1. Build and run the example code by selecting **Product** > **Run** from the menu or clicking the **Play** button.
-1. After you click the "Recognize" button in the app and say a few words, you should see the text you have spoken on the lower part of the app window.
+1. After you click the "Recognize" button in the app and say a few words, you should see the text you have spoken in the lower part of the app window.
 
 ## Next steps
 
