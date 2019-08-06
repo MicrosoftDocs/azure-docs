@@ -1,5 +1,6 @@
 ---
-title: "Quickstart: Computer Vision client library for Java | Microsoft Docs"
+title: "Quickstart: Computer Vision client library for Java"
+titleSuffix: "Azure Cognitive Services"
 description: Get started with the Computer Vision client library for Java.
 services: cognitive-services
 author: PatrickFarley
