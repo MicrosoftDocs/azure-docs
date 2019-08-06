@@ -5,6 +5,7 @@
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Use a device capability model to create a device
     href: quickstart-create-pnp-device.md
