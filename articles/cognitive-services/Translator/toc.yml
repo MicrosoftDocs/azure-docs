@@ -11,15 +11,15 @@
     - name: Translate text
       href: quickstart-translate.md
     - name: Transliterate text
-      items: quickstart-transliterate.md
+      href: quickstart-transliterate.md
     - name: Detect language
-      items: quickstart-detect.md
+      href: quickstart-detect.md
     - name: Look up word translations
-      items: quickstart-dictionary.md
+      href: quickstart-dictionary.md
     - name: Get supported languages
-      items: quickstart-languages.md
+      href: quickstart-languages.md
     - name: Determine sentence length
-      items: quickstart-sentences.md
+      href: quickstart-sentences.md
   - name: Tutorials
     items:
     - name: Create a WPF app for Translator Text, C#
