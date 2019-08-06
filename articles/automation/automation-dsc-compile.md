@@ -26,7 +26,6 @@ determine when to use which method based on the characteristics of each:
   - Provide complex parameter values
   - Work with node and non-node data at scale
   - Significant performance improvement
-  - Increased reliability
 
 ## Compiling a DSC Configuration in Azure State Configuration
 
