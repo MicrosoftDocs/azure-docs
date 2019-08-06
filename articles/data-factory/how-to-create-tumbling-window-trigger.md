@@ -144,7 +144,7 @@ The following points apply to existing **TriggerResource** elements:
 * If the value for the **frequency** element (or window size) of the trigger changes, the state of the windows that are already processed is *not* reset. The trigger continues to fire for the windows from the last window that it executed by using the new window size.
 * If the value for the **endTime** element of the trigger changes (added or updated), the state of the windows that are already processed is *not* reset. The trigger honors the new **endTime** value. If the new **endTime** value is before the windows that are already executed, the trigger stops. Otherwise, the trigger stops when the new **endTime** value is encountered.
 
-### Tumbling Window Trigger Dependency
+### Tumbling window trigger dependency
 
 If you want to make sure that a tumbling window trigger is executed only after the successful execution of another tumbling window trigger in the data factory, [create a tumbling window trigger dependency](tumbling-window-trigger-dependency.md). 
 

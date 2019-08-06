@@ -50,7 +50,7 @@ To enable sign-in for users from a specific Azure AD organization, you need to r
 2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 3. Select **Identity providers**, and then select **Add**.
 4. Enter a **Name**. For example, enter `Contoso Azure AD`.
-5. Select **Identity provider type**, select **Open ID Connect (Preview)**, and then click **OK**.
+5. Select **Identity provider type**, select **OpenID Connect (Preview)**, and then click **OK**.
 6. Select **Set up this identity provider**
 7. For **Metadata url**, enter the following URL replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant. For example `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`:
 

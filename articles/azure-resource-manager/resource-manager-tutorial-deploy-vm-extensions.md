@@ -4,8 +4,6 @@ description: Learn how to deploy virtual machine extensions with Azure Resource 
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: 
 
 ms.service: azure-resource-manager
 ms.workload: multiple
@@ -104,7 +102,7 @@ Add a virtual machine extension resource to the existing template with the follo
 
 For more information about this resource definition, see the [extension reference](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). The following are some important elements:
 
-* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Child resources](./resource-group-authoring-templates.md#child-resources).
+* **name**: Because the extension resource is a child resource of the virtual machine object, the name must have the virtual machine name prefix. See [Set name and type for child resources](child-resource-name-type.md).
 * **dependsOn**: Create the extension resource after you've created the virtual machine.
 * **fileUris**: The locations where the script files are stored. If you choose not to use the provided location, you need to update the values.
 * **commandToExecute**: This command invokes the script.  

@@ -19,7 +19,8 @@ The entries in the `deploymentconfig.json` document map to the parameters for [A
 | &emsp;&emsp;`targetUtilization` | `autoscale_target_utilization` | The target utilization (in percent out of 100) that the autoscaler should attempt to maintain for this web service. Default, `70`. |
 | `dataCollection` | NA | Contains configuration elements for data collection. |
 | &emsp;&emsp;`storageEnabled` | `collect_model_data` | Whether to enable model data collection for the web service. Default, `False`. |
-| `authEnabled` | `auth_enabled` | Whether to enable authentication for the web service. Default, `True`. |
+| `authEnabled` | `auth_enabled` | Whether or not to enable key authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `True`. |
+| `tokenAuthEnabled` | `token_auth_enabled` | Whether or not to enable token authentication for the web service. Both `tokenAuthEnabled` and `authEnabled` cannot be `True`. Default, `False`. |
 | `containerResourceRequirements` | NA | Container for the CPU and memory entities. |
 | &emsp;&emsp;`cpu` | `cpu_cores` | The number of CPU cores to allocate for this web service. Defaults, `0.1` |
 | &emsp;&emsp;`memoryInGB` | `memory_gb` | The amount of memory (in GB) to allocate for this web service. Default, `0.5` |
