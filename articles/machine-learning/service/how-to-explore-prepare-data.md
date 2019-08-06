@@ -31,7 +31,7 @@ To explore and prepare your data, you'll need:
 
 * The Azure Machine Learning SDK for Python (version 1.0.21 or later), which includes the azureml-datasets package. To install or update to the latest version of the SDK, see [Install or update the SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
-* The Azure Machine Learning Data Prep SDK. To install or update to the latest version, see [Install or update the Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py#install).
+* The Azure Machine Learning Data Prep SDK. To install or update to the latest version, see [Install or update the Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
 
 * Download the sample files to follow along with the examples: [crime.csv](https://dprepdata.blob.core.windows.net/dataset-sample-files/crime.csv) and [city.json](https://dprepdata.blob.core.windows.net/dataset-sample-files/city.json).
 

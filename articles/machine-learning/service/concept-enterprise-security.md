@@ -156,7 +156,7 @@ All container images in your registry (ACR) are encrypted at rest. Azure automat
 
 The OS disk for each compute node is stored in Azure Storage is encrypted using Microsoft Managed Keys in Azure Machine Learning service storage accounts. This compute is ephemeral, and clusters are typically scaled down when there are no runs queued. The underlying virtual machine is de-provisioned and OS disk deleted. Azure disk encryption is not supported for the OS disk.
 Each virtual machine also has a local temporary disk for OS operations. This disk can also be optionally used to stage training data. This disk is not encrypted.
-For more information on how encryption at rest works in Azure, see [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest).
+For more information on how encryption at rest works in Azure, see [Azure Data Encryption-at-Rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 ### Encryption in transit
 
