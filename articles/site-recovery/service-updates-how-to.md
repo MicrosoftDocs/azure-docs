@@ -67,7 +67,7 @@ Follow the same process for all relevant components.
 
 1. Before upgrading operating system/kernel versions, verify if the target version is supported Site Recovery. 
 
-    - [Azure VM](/azure-to-azure-support-matrix.md#replicated-machine-operating-systems) support.
+    - [Azure VM](azure-to-azure-support-matrix.md#replicated-machine-operating-systems) support.
     - [VMware/physical server](vmware-physical-azure-support-matrix.md#replicated-machines) support
     - [Hyper-V](hyper-v-azure-support-matrix.md#replicated-vms) support.
 2. Review [available updates](site-recovery-whats-new.md) to find out what you want to upgrade.
