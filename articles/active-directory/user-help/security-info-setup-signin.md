@@ -115,7 +115,7 @@ When using app passwords, it's important to remember:
 
 #### To add app passwords in the sign-in wizard
 
-1. After you complete the first two sections of the wizard and select **Next**, you'll be asked to complete the **App password** section.
+1. After finishing the previous sections of the wizard, select **Next** and complete the **App password** section.
 
 2. Type the name of the app that needs the password, for example `Outlook 2010`, and then select **Next**.
 
