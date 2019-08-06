@@ -22,14 +22,6 @@
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
-  - name: Troubleshoot
-    items:
-    - name: OutOfMemoryError exception
-      items:
-      - name: GC overhead limit exceeded
-        href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
-    - name: Permission error creating table
-      href: ./interactive-query-troubleshoot-permission-error-creating-table.md
 - name: How to
   items:
   - name: Migrate Hive workloads to HDInsight 4.0
@@ -266,18 +258,28 @@
     href: ../hdinsight-troubleshoot-guide.md
     maintainContext: true
     items:
+    - name: Permission error creating table
+      href: ./interactive-query-troubleshoot-permission-error-creating-table.md
+    - name: GC overhead limit exceeded
+      href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Apache Ambari Tez View loads slowly
+      href: ./interactive-query-troubleshoot-tez-view-slow.md
+    - name: Error message not shown in Apache Hive View
+      href: ./interactive-query-troubleshoot-error-message-hive-view.md
+    - name: Inaccessible Apache Hive View 
+      href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+    - name: ZooKeeperHiveClientException - HiveServer2 configs
+      href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
     - name: Troubleshoot a slow or failing HDInsight cluster
       href: ../hdinsight-troubleshoot-failed-cluster.md
-      maintainContext: true
     - name: Apache Hadoop HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
-      maintainContext: true
     - name: Apache HIVE troubleshooting
       href: ../hdinsight-troubleshoot-hive.md
-      maintainContext: true
     - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md
-      maintainContext: true
     - name: Resources
       items:
       - name: Information about using HDInsight on Linux
