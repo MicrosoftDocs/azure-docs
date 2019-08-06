@@ -60,7 +60,7 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
-| [Azure SQL Database Managed Instance](connector-azure-sql-database-managed-insance.md) | √ | √ | √ |
+| [Azure SQL Database Managed Instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
 | [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
@@ -85,7 +85,7 @@ The following metadata types can be specified in the GetMetadata activity field 
 >When you want to validate if a file/folder/table exists or not, specify `exists` in the GetMetadata activity field list, then you can check the `exists: true/false` result from the activity output. If `exists` is not configured in the field list, the GetMetadata activity will fail when the object is not found.
 
 >[!NOTE]
->When you get metadata from file stores and configure `modifiedDatetimeStart` and/or `modifiedDatetimeEnd`, the `childItems` in output under the given path only returns files with last modified time between the range, but no sub-folders.
+>When you get metadata from file stores and configure `modifiedDatetimeStart` and/or `modifiedDatetimeEnd`, the `childItems` in output only returns files under the given path with last modified time between the range, but no sub-folders.
 
 ## Syntax
 
