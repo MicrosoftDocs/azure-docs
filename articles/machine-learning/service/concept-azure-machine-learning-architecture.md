@@ -37,13 +37,13 @@ The machine learning model workflow generally follows this sequence:
 
 1. **Monitor** - Monitor for **data drift** between the training dataset and inference data of a deployed model. When necessary, loop back to step 1 to retrain the model with new training data.
 
-## Tools for Azure Machine Learning 
+## Tools for Azure Machine Learning
 
 Use these tools for Azure Machine Learning:
 
 +  Interact with the service in any Python environment with the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 + Automate your machine learning activities with the [Azure Machine Learning CLI](https://docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
-+ Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md) 
++ Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 + Use the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
 
 ## Glossary of concepts
@@ -129,9 +129,9 @@ A **datastore** is a storage abstraction over an Azure storage account. The data
 
 ### Compute targets
 
-A [compute target](concept-compute-target.md) lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code. 
+A [compute target](concept-compute-target.md) lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
 
-Learn more about the [available compute targets for training and deployment](concept-compute-target.md). 
+Learn more about the [available compute targets for training and deployment](concept-compute-target.md).
 
 ### Training scripts
 
@@ -218,7 +218,9 @@ Azure IoT Edge ensures that your module is running, and it monitors the device t
 
 ### ML Pipelines
 
-You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets.
+You use machine learning pipelines to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inference/scoring phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets. 
+
+Pipeline steps are reusable, and can be run without rerunning subsequent steps if the output of that step hasn't changed. For example, you can retrain a model without rerunning costly data preparation steps if the data hasn't changed. Pipelines also allow data scientists to collaborate while working on separate areas of a machine learning workflow.
 
 For more information about machine learning pipelines with this service, see [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
 
