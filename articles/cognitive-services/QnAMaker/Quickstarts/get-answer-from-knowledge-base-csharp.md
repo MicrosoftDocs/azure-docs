@@ -64,7 +64,6 @@ Build and run the program from Visual Studio. It will automatically send the req
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
 
-
 [!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## Next steps
