@@ -5,7 +5,7 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/18/2019
+ms.date: 7/29/2019
 ms.author: mayg
 
 ---
@@ -115,6 +115,9 @@ Example: Copy the .zip file to E:\ drive and extract it. E:\ASR Deployment Plann
 E:\ASR Deployment Planner_v2.3\ASRDeploymentPlanner.exe
 
 ### Updating to the latest version of deployment planner
+
+The latest updates are summarized in the Deployment Planner [version history](site-recovery-deployment-planner-history.md).
+
 If you have previous version of the deployment planner, do either of the following:
  * If the latest version doesn't contain a profiling fix and profiling is already in progress on your current version of the planner, continue the profiling.
  * If the latest version does contain a profiling fix, we recommended that you stop profiling on your current version and restart the profiling with the new version.
@@ -127,7 +130,7 @@ If you have previous version of the deployment planner, do either of the followi
   >Each new deployment planner is a cumulative update of the .zip file. You don't need to copy the newest files to the previous  folder. You can create and use a new folder.
 
 ## Version history
-The latest Azure Site Recovery Deployment Planner tool version is 2.4.
+The latest Azure Site Recovery Deployment Planner tool version is 2.5.
 Refer to [Azure Site Recovery Deployment Planner Version History](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) page for the fixes that are added in each update.
 
 

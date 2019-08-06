@@ -5,14 +5,18 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 03/18/2019
+ ms.date: 07/22/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
 ### What is the difference between an Azure virtual network gateway (VPN Gateway) and an Azure Virtual WAN vpngateway?
 
-Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute and point-to-site connectivity functionality is currently under Preview. CPE branch devices autoprovision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+Virtual WAN provides large-scale site-to-site connectivity and is built for throughput, scalability, and ease of use. ExpressRoute  for Virtual WAN connectivity is currently under Preview. CPE branch devices autoprovision and connect into Azure Virtual WAN. These devices are available from a growing ecosystem of SD-WAN and VPN partners. See the [Preferred Partner List](https://go.microsoft.com/fwlink/p/?linkid=2019615).
+
+### What is a branch connection to Azure Virtual WAN?
+
+A connection from a branch device into Azure Virtual WAN, composed of two active/active IPsec tunnels.
 
 ### Which device providers (Virtual WAN partners) are supported at launch time?
 
@@ -40,7 +44,7 @@ Yes, Virtual WAN introduces new Resource Manager resources. For more information
 
 ### How many VPN devices can connect to a single Hub?
 
-Up to 1000 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
+Up to 1,000 connections are supported per virtual hub. Each connection consists of two tunnels that are in an active-active configuration. The tunnels terminate in an Azure Virtual Hub vpngateway.
 
 ### Can the on-premises VPN device connect to multiple Hubs?
 
@@ -92,7 +96,7 @@ A simple configuration of one Virtual WAN with one hub and one vpnsite can be cr
 
 ### Is branch-to-branch connectivity allowed in Virtual WAN?
 
-Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN to ExpressRoute. While VPN site-to-site is GA, ExpressRoute and point-to-site are currently in Preview.
+Yes, branch-to-branch connectivity is available in Virtual WAN for VPN and VPN to ExpressRoute. While VPN site-to-site is GA, ExpressRoute is currently in Preview.
 
 ### Does Branch to Branch traffic traverse through the Azure Virtual WAN?
 
@@ -100,7 +104,7 @@ Yes.
 
 ### How is Virtual WAN different from the existing Azure Virtual Network Gateway?
 
-Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1000 branch connections with 2 Gbps in the hub for all regions except the West Central region. For the West Central region, 20 Gbps is available. We will be rolling out 20 Gbps to additional regions in the future. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1000 branches across hubs.
+Virtual Network Gateway VPN is limited to 30 tunnels. For connections, you should use Virtual WAN for large-scale VPN. You can connect up to 1,000 branch connections with 20 Gbps in the hub for all regions. A connection is an active-active tunnel from the on-premises VPN device to the virtual hub. You can have one hub per region, which means you can connect more than 1,000 branches across hubs.
 
 ### How is Virtual WAN supporting SD-WAN devices?
 
@@ -112,7 +116,15 @@ No, the Virtual WAN does not require ExpressRoute from each site. It uses standa
 
 ### Is there a network throughput limit when using Azure Virtual WAN?
 
-Number of branches is limited to 1000 connections per hub/region and a total of 2 G in the hub. The exception is West Central US, which has a total of 20 Gbps. We will be rolling 20 Gbps out to other regions in the future.
+Number of branches is limited to 1000 connections per hub/region and a total of 20 Gbps in the hub.
+
+### How many VPN connections does a Virtual WAN hub support?
+
+An Azure Virtual WAN hub can support up to 1,000 S2S connections and 10,000 P2S connections simultaneously.
+
+### What is the total VPN throughput of a VPN tunnel and a connection?
+
+The total VPN throughput of a hub is up to 20 Gbps based on the chosen scale unit. Throughput is shared by all existing connections.
 
 ### Does Virtual WAN allow the on-premises device to utilize multiple ISPs in parallel or is it always a single VPN tunnel?
 

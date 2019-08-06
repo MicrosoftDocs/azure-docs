@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/08/2019
+ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -196,42 +196,9 @@ Here's a C# code sample to get you started, [RestApiSample on GitHub](https://gi
 1.	Clone or download the repo. Open the RestApiSample solution.
 2.	Find the line **client.BaseAddress = …** and provide your [base URL](#base-url).
 
-The code sample can use interactive login, username/password, or [service principal](#service-principal).
+The code sample uses [service principal](#service-principal) authentication.
 
-#### Interactive login or username/password
-
-This form of authentication requires an Azure application be created with the necessary API permissions assigned. 
-
-1.	In Azure portal, click **Create a resource** > **Azure Active Directory** > **App registrations** > **New application registration**.
-
-    ![New Application registration](./media/analysis-services-async-refresh/aas-async-app-reg.png)
-
-
-2.	In **Create**, type a name, select **Native** application type. For **Redirect URI**, enter **urn:ietf:wg:oauth:2.0:oob**, and then click **Create**.
-
-    ![Settings](./media/analysis-services-async-refresh/aas-async-app-reg-name.png)
-
-3.	Select your app and then copy and save the **Application ID**.
-
-    ![Copy application ID](./media/analysis-services-async-refresh/aas-async-app-id.png)
-
-4.	In **Settings**, click **Required permissions** > **Add**.
-
-    ![Add API access](./media/analysis-services-async-refresh/aas-async-add.png)
-
-5.	In **Select an API**, type **Azure Analysis Services** into the search box, and then select it.
-
-    ![Select API](./media/analysis-services-async-refresh/aas-async-select-api.png)
-
-6.	Select **Read and Write all Models**, and then click **Select**. When both are selected, click **Done** to add the permissions. It may take a few minutes to propagate.
-
-    ![Select Read and Write all models](./media/analysis-services-async-refresh/aas-async-select-read.png)
-
-7.	In the code sample, find the **UpdateToken()** method. Observe the contents of this method.
-8.	Find **string clientID = …**, and then enter the **Application ID** you copied from step 3.
-9.	Run the sample.
-
-#### Service principal
+### Service principal
 
 See [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
 

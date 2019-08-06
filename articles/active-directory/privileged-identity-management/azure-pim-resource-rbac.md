@@ -39,11 +39,11 @@ To see what actions a specific user took in various resources, you can view the 
 
     You see a graphical view of the user's actions in Azure resources by date. It also shows the recent role activations over that same time period.
 
-    ![User details](media/azure-pim-resource-rbac/rbac-user-details.png)
+    ![User details with resource activity summary and role activations](media/azure-pim-resource-rbac/rbac-user-details.png)
 
 1. Click a specific role activation to see details and corresponding Azure resource activity that occurred while that user was active.
 
-    ![Select role activation](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
+    ![Role activation selected and activity details displayed by date](media/azure-pim-resource-rbac/rbac-user-resource-activity.png)
 
 ## Export role assignments with children
 
@@ -59,11 +59,11 @@ You may have a compliance requirement where you must provide a complete list of 
 
 1. Click **Export** to open the Export membership pane.
 
-    ![Export membership pane](media/azure-pim-resource-rbac/export-membership.png)
+    ![Export membership pane to export all members](media/azure-pim-resource-rbac/export-membership.png)
 
 1. Click **Export all members** to export all role assignments in a CSV file.
 
-    ![Export CSV file](media/azure-pim-resource-rbac/export-csv.png)
+    ![Exported role assignments in CSV fil as display in Excel](media/azure-pim-resource-rbac/export-csv.png)
 
 ## View resource audit history
 
@@ -79,15 +79,15 @@ Resource audit gives you a view of all role activity for a resource.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Filter resource audit](media/azure-pim-resource-rbac/rbac-resource-audit.png)
+    ![Resource audit list with filters](media/azure-pim-resource-rbac/rbac-resource-audit.png)
 
 1. For **Audit type**, select **Activate (Assigned + Activated)**.
 
-    ![Activity detail](media/azure-pim-resource-rbac/rbac-audit-activity.png)
+    ![Resource audit list that is filtered by Activate audit type](media/azure-pim-resource-rbac/rbac-audit-activity.png)
 
 1. Under **Action**, click **(activity)** for a user to see that user's activity detail in Azure resources.
 
-    ![User activity detail](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
+    ![User activity details for a particular action](media/azure-pim-resource-rbac/rbac-audit-activity-details.png)
 
 ## View my audit
 
@@ -103,7 +103,7 @@ My audit enables you to view your personal role activity.
 
 1. Filter the history using a predefined date or custom range.
 
-    ![Personal role activity](media/azure-pim-resource-rbac/my-audit-time.png)
+    ![Audit list for the current user](media/azure-pim-resource-rbac/my-audit-time.png)
 
 ## Next steps
 

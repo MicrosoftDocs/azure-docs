@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Node.js - Speech Services'
+title: 'Quickstart: Recognize speech, Node.js - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text console application by using the Speech SDK for Node.js. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 1/16/2019
+ms.date: 07/05/2019
 ms.author: fmegen
 ---
 

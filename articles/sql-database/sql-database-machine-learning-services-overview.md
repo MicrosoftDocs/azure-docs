@@ -3,6 +3,7 @@ title: Azure SQL Database Machine Learning Services with R (preview) overview
 description: This article describes Azure SQL Database Machine Learning Services (with R) and explains how it works.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
@@ -43,9 +44,7 @@ Most common open-source R packages are pre-installed in Machine Learning Service
 | [RevoScaleR](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-revoscaler) | RevoScaleR is the primary library for scalable R. Functions in this library are among the most widely used. Data transformations and manipulation, statistical summarization, visualization, and many forms of modeling and analyses are found in these libraries. Additionally, functions in these libraries automatically distribute workloads across available cores for parallel processing, with the ability to work on chunks of data that are coordinated and managed by the calculation engine. |
 | [MicrosoftML (R)](https://docs.microsoft.com/sql/advanced-analytics/r/ref-r-microsoftml) | MicrosoftML adds machine learning algorithms to create custom models for text analysis, image analysis, and sentiment analysis. |
 
-<!-- Add this back when the new package-related article is written
-In addition to the pre-installed packages, you can [install additional packages](sql-database-quickstart-r-create-script.md#add-a-package).
--->
+In addition to the pre-installed packages, you can [install additional packages](sql-database-machine-learning-services-add-r-packages.md).
 
 <a name="signup"></a>
 
@@ -63,6 +62,6 @@ Machine Learning Services with R is not recommended for production workload duri
 
 ## Next steps
 
-- See the [key differences from SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md)
-- To learn how to use Machine Learning Services (with R) in Azure SQL Database, see [Quickstart guide](sql-database-connect-query-r.md).
-- Learn more with [SQL Server R language tutorials](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sql-server-r-tutorials)
+- See the [key differences from SQL Server Machine Learning Services](sql-database-machine-learning-services-differences.md).
+- To learn how to use R to query Azure SQL Database Machine Learning Services (preview), see the [Quickstart guide](sql-database-connect-query-r.md).
+- To get started with some simple R scripts, see [Create and run simple R scripts in Azure SQL Database Machine Learning Services (preview)](sql-database-quickstart-r-create-script.md).

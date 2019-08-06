@@ -1,10 +1,10 @@
 ---
 title: Implement Azure Databricks with a Cosmos DB endpoint
 description: This tutorial describes how to implement Azure Databricks in a virtual network with a Service Endpoint enabled for Cosmos DB. 
-services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
 ms.reviewer: jasonh
+ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
 #Customer intent: As a data scientist, I want to use the Cosmos DB Spark connector so that I can access Cosmos DB data from Azure Databricks.

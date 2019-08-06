@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 03/11/2019
+ms.date: 07/15/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed text (OCR) using the REST API and PHP in Computer Vision
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and PHP
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -214,7 +214,7 @@ A successful response is returned in JSON. The sample website parses and display
 
 ## Clean up resources
 
-When no longer needed, delete the file, and then uninstall the PHP5 `HTTP_Request2` package. To uninstall the package, do the following steps:
+When you're no longer using the project, delete the file and uninstall the PHP5 `HTTP_Request2` package. To uninstall the package, do the following steps:
 
 1. Open a command prompt window as an administrator.
 2. Run the following command:

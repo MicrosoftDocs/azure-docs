@@ -2,13 +2,16 @@
 title: Copy data into Azure Data Lake Storage Gen2 using DistCp| Microsoft Docs
 description: Use DistCp tool to copy data to and from Data Lake Storage Gen2
 services: storage
-author: seguler
+author: normesta
+
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.author: seguler
+ms.author: normesta
+ms.reviewer: seguler
 ---
+
 # Use DistCp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen2
 
 You can use [DistCp](https://hadoop.apache.org/docs/stable/hadoop-distcp/DistCp.html) to copy data between a general purpose V2 storage account and a general purpose V2 storage account with hierarchical namespace enabled. This article provides instructions on how use the DistCp tool.

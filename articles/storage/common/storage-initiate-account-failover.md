@@ -8,6 +8,7 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
+ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
@@ -62,7 +63,7 @@ To use PowerShell to initiate an account failover, you must first install the 6.
 1. Uninstall any previous installations of Azure PowerShell:
 
     - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
-    - Remove all **Azure*** modules from `%Program Files%\WindowsPowerShell\Modules`.
+    - Remove all **Azure** modules from `%Program Files%\WindowsPowerShell\Modules`.
     
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
  

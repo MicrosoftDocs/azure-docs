@@ -3,7 +3,7 @@ title: Microsoft identity platform Android quickstart | Azure
 description: Learn how Android applications can call an API that require access tokens by Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
-ms.author: dadobali
+ms.date: 07/17/2019
+ms.author: ryanwi
 ms.custom: aaddev 
 #Customer intent: As an application developer, I want to learn how Android native apps can call an API that requires access tokens by Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
@@ -31,8 +31,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 > [!NOTE]
 > **Prerequisites**
-> * Android Studio 3+
-> * Android 21+ is required 
+> * Android Studio 
+> * Android 16+ is required 
 
 
 > [!div renderon="docs"]
@@ -53,19 +53,20 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > #### Step 1: Register your application
 > To register your application and add the app's registration information to your solution manually, follow these steps:
 >
-> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account, or a personal Microsoft account.
-> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
-> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
+> 1. Navigate to the Microsoft identity platform for developers [App registrations](https://aka.ms/MobileAppReg) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
->      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Android-Quickstart`.
+>      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AndroidQuickstart`.
+>      - You can skip other configurations on this page. 
 >      - Hit the `Register` button.
-> 1. Go to `Authentication` > `Redirect URIs` > `Suggested Redirect URIs for public clients`, and select the Redirect URI of format **msal{AppId}://auth**. Save the change.
-
+> 1. Click on the new app > go to `Authentication` > `Add Platform` > `Android`.    
+>      - Enter the Package Name from your Android studio project. 
+>      - Generate a Signature Hash. Refer to the portal for instructions.
+> 1. Select `Configure` and save the ***MSAL Configuration*** JSON for later. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a reply URL as **msal{AppId}://auth** (where {AppId} is the application ID of your app).
+> For the code sample for this quickstart to work, you need to add a redirect URI compatible with the Auth broker. 
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -74,24 +75,36 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 #### Step 2: Download the project
 
-* [Download the Android Studio Project](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
+* [Download the Code Sample](https://github.com/Azure-Samples/active-directory-android-native-v2/archive/master.zip)
 
 #### Step 3: Configure your project
 
 > [!div renderon="docs"]
-> If you selected Option 1 above, you can skip these steps. Open the project in Android Studio and run the app. 
+> If you selected Option 1 above, you can skip these steps. 
 
 > [!div renderon="portal" class="sxs-lookup"]
 > 1. Extract and open the Project in Android Studio.
-> 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-> 1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
+> 1. Inside **app** > **src** > **main** > **res** > **raw**, open **auth_config.json**.
+> 1. Edit **auth_config.json** and replace it with the JSON from the Azure portal. If instead you want to manually make the changes:
 >    ```javascript
->    "client_id" : "Enter_the_Application_Id_Here",
->    "type": "Enter_the_Audience_Info_Here",
->    "tenant_id" : "Enter_the_Tenant_Info_Here"
+>    {
+>       "client_id" : "Enter_the_Application_Id_Here",
+>       "authorization_user_agent" : "DEFAULT",
+>       "redirect_uri" : "Enter_the_Redirect_Uri_Here",
+>       "authorities" : [
+>          {
+>             "type": "AAD",
+>             "audience": {
+>                "type": "Enter_the_Audience_Info_Here",
+>                "tenant_id": "Enter_the_Tenant_Info_Here"
+>             }
+>          }
+>       ]
+>    }
 >    ```
+> 
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
-> 1. Add the following activity to the **manifest\application** node. This code allows Microsoft to callback to your app:	
+> 1. Paste the following activity to the **manifest\application** node:	
 >    ```xml
 >    <!--Intent filter to catch Microsoft's callback after Sign In-->
 >    <activity
@@ -100,19 +113,22 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <action android:name="android.intent.action.VIEW" />
 >            <category android:name="android.intent.category.DEFAULT" />
 >            <category android:name="android.intent.category.BROWSABLE" />
-> 
->            <!--Add in your scheme/host from registered redirect URI-->
->            <!--By default, the scheme should be similar to 'msal[appId]' -->
->            <data android:scheme="msalEnter_The_Application_Id_Here"
->                android:host="auth" />
+>            <data android:scheme="msauth"
+>                android:host="Enter_the_Package_Name"
+>                android:path="/Enter_the_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
+> 1. Run the app! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
 > 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-> 1. Edit **auth_config.json** and replace the `client_id` and `redirect_uri`:
+> 1. Edit **auth_config.json** and replace it with the JSON from the Azure portal. If instead you want to manually make these changes:
 >    ```javascript
 >    "client_id" : "ENTER_YOUR_APPLICATION_ID",
 >    "redirect_uri": "ENTER_YOUR_REDIRECT_URI", 
@@ -127,27 +143,26 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >            <action android:name="android.intent.action.VIEW" />
 >            <category android:name="android.intent.category.DEFAULT" />
 >            <category android:name="android.intent.category.BROWSABLE" />
-> 
->            <!--Add in your scheme/host from registered redirect URI-->
->            <!--By default, the scheme should be similar to 'msal[appId]' -->
->            <data android:scheme="msal<ENTER_YOUR_APPLICATION_ID>"
->                android:host="auth" />
+>            <data android:scheme="msauth"
+>                android:host="Enter_the_Package_Name"
+>                android:path="/Enter_the_Decoded_Signature_Hash" />
 >        </intent-filter>
 >    </activity>
 >    ```
-> 1. Replace `<ENTER_THE_APPLICATION_ID_HERE>` with the *Application ID* for your application. If you need to find the *Application ID*, go to the *Overview* page.
+> 1. Replace `Enter_the_Package_Name` and `Enter_the_Signature_Hash` with the values you registered in the Azure portal. 
+> 1. Run the app! 
 
 ## More Information
 
 Read the following sections for more info about this quickstart.
 
-### MSAL
+### Getting MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. You can use Gradle to install it by adding the following in **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) is the library used to sign in users and request tokens used to access an API protected by Microsoft identity platform. You can use Gradle 3.0+ to install it by adding the following in **Gradle Scripts** > **build.gradle (Module: app)** under **Dependencies**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
-implementation 'com.microsoft.identity.client:msal:0.2.+'
+implementation 'com.microsoft.identity.client:msal:0.3.+'
 ```
 
 ### MSAL initialization
@@ -168,20 +183,22 @@ Then, initialize MSAL using the following code:
 
 > |Where: ||
 > |---------|---------|
-> |`R.raw.auth_config` | This file contains the configurations for your application including your App/Client ID, Sign-in audience, and several other customization options. |
+> |`R.raw.auth_config` | This file contains the configurations for your application including your App/Client ID, Sign-in audience, Redirect URI, and several other customization options. |
 
 ### Requesting tokens
 
 MSAL has two methods used acquire tokens: `acquireToken` and `acquireTokenSilentAsync`
 
-#### Getting a user token interactively
+#### acquireToken: Getting a token interactively
 
-Some situations require forcing users to interact with Microsoft identity platform endpoint, which results in a context switch to the system browser to either validate the users's credentials or for consent. Some examples include:
+Some situations require users to interact with Microsoft identity platform. In these cases, the end user may be required to select their account, enter their credentials, or consent to the permissions your app has requested. For example, 
 
 * The first time users sign in to the application
-* When users may need to reenter their credentials because the password has expired
-* When your application is requesting access to a resource that the user needs to consent to
-* When two factor authentication is required
+* If a user resets their password, they will need to enter their credentials 
+* If consent is revoked 
+* If your app explicitly requires consent. 
+* When your application is requesting access to a resource for the first time
+* When MFA or other Conditional Access policies are required
 
 ```java
 sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
@@ -192,24 +209,29 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 > | `SCOPES` | Contains the scopes being requested (that is, `{ "user.read" }` for Microsoft Graph or `{ "<Application ID URL>/scope" }` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`) |
 > | `getAuthInteractiveCallback` | Callback executed when control is given back to the application after authentication |
 
-#### Getting a user token silently
+#### acquireTokenSilent: Getting a user token silently
 
-You don't want to require user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `acquireToken` method:
+Apps shouldn't require their users to sign in every time they request a token. If the user has already signed in, this method allows apps to request tokens silently.
 
 ```java
-List<IAccount> accounts = sampleApp.getAccounts();
-if (sample.size() == 1) {
-    sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
-} else {
-    // No or multiple accounts
-}
+    sampleApp.getAccounts(new PublicClientApplication.AccountsLoadedCallback() {
+        @Override
+        public void onAccountsLoaded(final List<IAccount> accounts) {
+
+            if (!accounts.isEmpty()) {
+                sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
+            } else {
+                /* No accounts */
+            }
+        }
+    });
 ```
 
 > |Where:||
 > |---------|---------|
 > | `SCOPES` | Contains the scopes being requested (that is, `{ "user.read" }` for Microsoft Graph or `{ "<Application ID URL>/scope" }` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`) |
-> | `accounts.get(0)` | Contains the Account you're trying to get tokens for silently |
-> | `getAuthInteractiveCallback` | Callback executed when control is given back to the application after authentication |
+> | `getAccounts(...)` | Contains the Account you're trying to get tokens for silently |
+> | `getAuthSilentCallback()` | Callback executed when control is given back to the application after authentication |
 
 ## Next steps
 
@@ -228,3 +250,8 @@ Read more information about MSAL library for Android:
 > [MSAL for Android library wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

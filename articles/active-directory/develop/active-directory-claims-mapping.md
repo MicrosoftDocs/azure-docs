@@ -1,16 +1,18 @@
 ---
-title: Customize claims emitted in tokens for a specific app in an Azure AD tenant (Public Preview)
+title: Customize claims for an app in an Azure AD tenant (Public Preview)
 description: This page describes Azure Active Directory claims mapping.
 services: active-directory
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 ms.service: active-directory
+ms.subservice: develop
+ms.custom: aaddev 
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/28/2019
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
 ---

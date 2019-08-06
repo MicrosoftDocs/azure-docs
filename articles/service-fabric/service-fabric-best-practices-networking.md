@@ -68,6 +68,8 @@ Scaling out infrastructure is required to enable Accelerated Networking on an ex
 
 * Use a reverse proxy such as [Traefik](https://docs.traefik.io/configuration/backends/servicefabric/) or the [Service Fabric reverse proxy](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy) to expose common application ports such as 80 or 443.
 
+* For Windows Containers hosted on air-gapped machines that can't pull base layers from Azure cloud storage, override the foreign layer behavior, by using the [--allow-nondistributable-artifacts](https://docs.microsoft.com/virtualization/windowscontainers/about/faq#how-do-i-make-my-container-images-available-on-air-gapped-machines) flag in the Docker daemon.
+
 ## Next steps
 
 * Create a cluster on VMs or computers running Windows Server: [Service Fabric cluster creation for Windows Server](service-fabric-cluster-creation-for-windows-server.md)

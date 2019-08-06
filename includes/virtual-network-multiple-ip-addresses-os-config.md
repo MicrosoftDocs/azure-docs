@@ -5,8 +5,8 @@
  author: jimdial
  ms.service: virtual-network
  ms.topic: include
- ms.date: 04/09/2018
- ms.author: jdial
+ ms.date: 05/10/2019
+ ms.author: anavin
  ms.custom: include file
 ---
 
@@ -46,7 +46,8 @@ ping -S 10.0.0.5 hotmail.com
 >[!NOTE]
 >For secondary IP configurations, you can only ping to the Internet if the configuration has a public IP address associated with it. For primary IP configurations, a public IP address is not required to ping to the Internet.
 
-### Linux (Ubuntu)
+### Linux (Ubuntu 14/16)
+We recommend looking at the latest the documentation for your Linux distribution. 
 
 1. Open a terminal window.
 2. Make sure you are the root user. If you are not, enter the following command:

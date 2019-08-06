@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 06/20/2019
 ---
 
 # Auto-train a time-series forecast model
@@ -19,6 +19,16 @@ In this article, you learn how to train a time-series forecasting regression mod
 * Prepare data for time series modeling
 * Configure specific time-series parameters in an [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) object
 * Run predictions with time-series data
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
+
+You can use automated ML to combine techniques and approaches and get a recommended, high-quality time-series forecast. An automated time-series experiment is treated as a multivariate regression problem. Past time-series values are “pivoted” to become additional dimensions for the regressor together with other predictors. 
+
+This approach, unlike classical time series methods, has an advantage of naturally incorporating multiple contextual variables and their relationship to one another during training. In real-world forecasting applications, multiple factors can influence a forecast. For example, when forecasting sales, interactions of historical trends, exchange rate and price all jointly drive the sales outcome. A further benefit is that all recent innovations in regression models apply immediately to forecasting.
+
+You can [configure](#config) how far into the future the forecast should extend (the forecast horizon), as well as lags and more. Automated ML learns a single, but often internally branched model for all items in the dataset and prediction horizons. More data is thus available to estimate model parameters and generalization to unseen series becomes possible. 
+
+Features extracted from the training data play a critical role. And, automated ML performs standard pre-processing steps and generates additional time-series features to capture seasonal effects and maximize predictive accuracy. 
 
 ## Prerequisites
 
@@ -67,7 +77,8 @@ y_test = X_test.pop("sales_quantity").values
 > not be able to accurately predict future stock values corresponding to future time-series
 > points, and model accuracy could suffer.
 
-## Configure experiment
+<a name="config"></a>
+## Configure and run experiment
 
 For forecasting tasks, automated machine learning uses pre-processing and estimation steps that are specific to time-series data. The following pre-processing steps will be executed:
 
@@ -83,7 +94,7 @@ The `AutoMLConfig` object defines the settings and data necessary for an automat
 |-------|-------|-------|
 |`time_column_name`|Used to specify the datetime column in the input data used for building the time series and inferring its frequency.|✓|
 |`grain_column_names`|Name(s) defining individual series groups in the input data. If grain is not defined, the data set is assumed to be one time-series.||
-|`max_horizon`|Maximum desired forecast horizon in units of time-series frequency.|✓|
+|`max_horizon`|Defines the maximum desired forecast horizon in units of time-series frequency. Units are based on the time interval of your training data, e.g. monthly, weekly that the forecaster should predict out.|✓|
 |`target_lags`|*n* periods to forward-lag target values prior to model training.||
 |`target_rolling_window_size`|*n* historical periods to use to generate forecasted values, <= training set size. If omitted, *n* is the full training set size.||
 
@@ -128,6 +139,20 @@ best_run, fitted_model = local_run.get_output()
 > automated machine learning implements a rolling origin validation procedure to create cross-validation folds for time-series data. To use this procedure, specify the
 > `n_cross_validations` parameter in the `AutoMLConfig` object. You can bypass validation and use your own validation sets with the `X_valid` and `y_valid` parameters.
 
+### View feature engineering summary
+
+For time-series task types in automated machine learning, you can view details from the feature engineering process. The following code shows each raw feature along with the following attributes:
+
+* Raw feature name
+* Number of engineered features formed out of this raw feature
+* Type detected
+* Whether feature was dropped
+* List of feature transformations for the raw feature
+
+```python
+fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
+```
+
 ## Forecasting with best model
 
 Use the best model iteration to forecast values for the test data set.
@@ -135,6 +160,17 @@ Use the best model iteration to forecast values for the test data set.
 ```python
 y_predict = fitted_model.predict(X_test)
 y_actual = y_test.flatten()
+```
+
+Alternatively, you can use the `forecast()` function instead of `predict()`, which will allow specifications of when predictions should start. In the following example, you first replace all values in `y_pred` with `NaN`. The forecast origin will be at the end of training data in this case, as it would normally be when using `predict()`. However, if you replaced only the second half of `y_pred` with `NaN`, the function would leave the numerical values in the first half unmodified, but forecast the `NaN` values in the second half. The function returns both the forecasted values and the aligned features.
+
+You can also use the `forecast_destination` parameter in the `forecast()` function to forecast values up until a specified date.
+
+```python
+y_query = y_test.copy().astype(np.float)
+y_query.fill(np.nan)
+y_fcst, X_trans = fitted_pipeline.forecast(
+    X_test, y_query, forecast_destination=pd.Timestamp(2019, 1, 8))
 ```
 
 Calculate RMSE (root mean squared error) between the `y_test` actual values, and the forecasted values in `y_pred`.

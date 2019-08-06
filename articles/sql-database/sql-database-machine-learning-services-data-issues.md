@@ -295,4 +295,4 @@ From even these short examples, you can see the need to check the effects of dat
 - Perform explicit casts as necessary when preparing your input data, to avoid surprises.
 - Avoid passing columns of data (such as GUIDS or rowguids) that cause errors and aren't useful for modeling.
 
-For more information on supported and unsupported R data types, see [R libraries and data types](/sql/advanced-analytics/r/r-libraries-and-data-types.md).
+For more information on supported and unsupported R data types, see [R libraries and data types](/sql/advanced-analytics/r/r-libraries-and-data-types).

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/19/2019
+ms.date: 05/7/2019
 ms.author: haroldw
 ---
 
@@ -30,15 +30,15 @@ OpenShift includes Kubernetes for container orchestration and management. It add
 
 There are multiple versions of OpenShift available.  Of these versions, only two are available today for customers to deploy in Azure: OpenShift Container Platform and OKD (formerly OpenShift Origin).
 
+## Azure Red Hat OpenShift
+
+Microsoft Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. For more details, see the [Azure Red Hat OpenShift Service](https://docs.microsoft.com/azure/openshift/) documentation.
+
 ## OpenShift Container Platform
 
 Container Platform is an enterprise-ready [commercial version](https://www.openshift.com) from and supported by Red Hat. With this version, customers purchase the necessary entitlements for OpenShift Container Platform and are responsible for installation and management of the entire infrastructure.
 
 Because customers "own" the entire platform, they can install it in their on-premises datacenter, or in a public cloud (such as Azure).
-
-## Azure Red Hat OpenShift
-
-Azure Red Hat OpenShift is a fully managed offering of OpenShift running in Azure. This service is jointly managed and supported by Microsoft and Red Hat. The cluster will deploy into the customer's Azure subscription. The service is scheduled to be GA around May 2019. Separate documentation for the managed service will be available once the service is GA.
 
 ## OKD
 

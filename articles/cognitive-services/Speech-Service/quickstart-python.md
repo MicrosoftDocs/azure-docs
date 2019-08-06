@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Python - Speech Services'
+title: 'Quickstart: Recognize speech, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Use this guide to create a speech-to-text console application that uses the Speech SDK for Python. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 07/05/2019
 ms.author: chlandsi
 ---
 
@@ -25,15 +25,24 @@ This article shows how to use the Speech Services through the Speech SDK for Pyt
 * The Python Speech SDK package is available for these operating systems:
     * Windows: x64 and x86.
     * Mac: macOS X version 10.12 or later.
-    * Linux: Ubuntu 16.04 or 18.04 on x64.
-* On Ubuntu, run these commands to install the required packages:
+    * Linux: Ubuntu 16.04, Ubuntu 18.04, Debian 9 on x64.
+* On Linux, run these commands to install the required packages:
 
-  ```sh
-  sudo apt-get update
-  sudo apt-get install build-essential libssl1.0.0 libasound2 wget
-  ```
+  * On Ubuntu:
 
-* On Windows, you also need the [Microsoft Visual C++ Redistributable for Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.0 libasound2
+    ```
+
+  * On Debian 9:
+
+    ```sh
+    sudo apt-get update
+    sudo apt-get install build-essential libssl1.0.2 libasound2
+    ```
+
+* On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) for your platform.
 
 ## Install the Speech SDK
 

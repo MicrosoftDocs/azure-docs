@@ -9,6 +9,7 @@ metadata:
   manager: dougseven
   ms.author: mihansen
   ms.service: healthcare-apis
+  ms.subservice: fhir
   ms.topic: landing-page
   ms.date: 02/07/2019
 abstract:

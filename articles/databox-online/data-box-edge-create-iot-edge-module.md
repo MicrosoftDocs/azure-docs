@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 08/02/2019
 ms.author: alkohli
 ---
 
@@ -32,7 +32,7 @@ Your Data Box Edge device can deploy and run IoT Edge modules. Edge modules are 
 2. The file event generator creates a file event for each file written to the local share. The file events are also generated when a file is modified. The file events are then sent to IoT Edge Hub (in IoT Edge runtime).
 3. The IoT Edge custom module processes the file event to create a file event object that also contains a relative path for the file. The module generates an absolute path using the relative file path and copies the file from the local share to the cloud share. The module then deletes the file from the local share.
 
-![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works.png)
+![How Azure IoT Edge module works on Data Box Edge](./media/data-box-edge-create-iot-edge-module/how-module-works-1.png)
 
 Once the file is in the cloud share, it automatically gets uploaded to your Azure Storage account.
 
@@ -136,11 +136,11 @@ Create a C# solution template that you can customize with your own code.
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Add the **MessageBody** class to the Program class. These classes define the expected schema for the body of incoming messages.
+4. Add the **FileEvent** class to define the message body.
 
     ```
     /// <summary>
-    /// The MessageBody class defines the expected schema for the body of incoming messages. 
+    /// The FileEvent class defines the body of incoming messages. 
     /// </summary>
     private class FileEvent
     {

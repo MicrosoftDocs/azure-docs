@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer:
-manager: craigg
 ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Azure SQL Database
@@ -84,7 +83,7 @@ Document models can be used instead of the relational models in some specific sc
 
 ## Spatial features
 
-Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries, roads, or lakes.
+Spatial data represents information about the physical location and shape of geometric objects. These objects can be point locations or more complex objects such as countries/regions, roads, or lakes.
 
 Azure SQL Database supports two spatial data types - the geometry data type and the geography data type.
 - The geometry type represents data in a Euclidean (flat) coordinate system.

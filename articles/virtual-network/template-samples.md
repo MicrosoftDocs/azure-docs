@@ -25,7 +25,7 @@ The following table includes links to Azure Resource Manager template samples. Y
 For the JSON syntax and properties to use in templates, see [Microsoft.Network resource types](/azure/templates/microsoft.network/allversions).
 
 
-| | |
+| Task | Description |
 |----|----|
 |[Create a virtual network with two subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets)| Creates a virtual network with two subnets.|
 |[Route traffic through a network virtual appliance](https://github.com/Azure/azure-quickstart-templates/tree/master/201-userdefined-routes-appliance)| Creates a virtual network with three subnets. Deploys a virtual machine into each of the subnets. Creates a route table containing routes to direct traffic from one subnet to another through the virtual machine in the third subnet. Associates the route table to one of the subnets.|

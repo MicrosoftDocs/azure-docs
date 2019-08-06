@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Search in Node.js - Azure Search
-description: Walk through building a search application on a hosted cloud search service on Azure using Node.js as your programming language.
+title: 'Node.js Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+description: Explains how to create an index, load data, and run queries using Node.js and the Azure Search REST APIs.
 author: jj09
 manager: jlembicz
 services: search
@@ -10,7 +10,7 @@ ms.date: 04/26/2017
 ms.author: jjed
 ms.custom: seodec2018
 ---
-# Get started with Azure Search in Node.js
+# Quickstart: Create an Azure Search index in Node.js
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
@@ -26,7 +26,7 @@ To run this sample, you must have an Azure Search service, which you can sign up
 ## About the data
 This sample application uses data from the [United States Geological Services (USGS)](https://geonames.usgs.gov/domestic/download_data.htm), filtered on the state of Rhode Island to reduce the dataset size. We'll use this data to build a search application that returns landmark buildings such as hospitals and schools, as well as geological features like streams, lakes, and summits.
 
-In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from a public Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
+In this application, the **DataIndexer** program builds and loads the index using an [Indexer](https://msdn.microsoft.com/library/azure/dn798918.aspx) construct, retrieving the filtered USGS dataset from an Azure SQL Database. Credentials and connection information to the online data source is provided in the program code. No further configuration is necessary.
 
 > [!NOTE]
 > We applied a filter on this dataset to stay under the 10,000 document limit of the free pricing tier. If you use the standard tier, this limit does not apply. For details about capacity for each pricing tier, see [Search service limits](search-limits-quotas-capacity.md).

@@ -1,6 +1,6 @@
 ---
 title: Release Notes - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
 manager: nitinme
@@ -13,6 +13,24 @@ ms.author: anroth
 ---
 
 # Custom Vision Service Release Notes
+
+## May 2, 2019 and May 10, 2019
+
+- Bugfixes and backend improvements
+
+## May 23, 2019
+
+- Improved portal UX experience related to Azure subscriptions, making it easier to select your Azure directories.
+
+## April 18, 2019 
+
+- Added Object Detection export for the Vision AI Dev Kit.
+- UI tweaks, including project search.
+
+## April 3, 2019
+
+- Increased limit on number of bounding boxes per image to 200. 
+- Bugfixes, including substantial performance update for models exported to TensorFlow. 
 
 ## March 26, 2019
 

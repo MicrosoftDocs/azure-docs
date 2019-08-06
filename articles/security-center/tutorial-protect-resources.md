@@ -15,7 +15,7 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
-ms.author: monhaber
+ms.author: v-mohabe
 
 ---
 # Tutorial: Protect your resources with Azure Security Center

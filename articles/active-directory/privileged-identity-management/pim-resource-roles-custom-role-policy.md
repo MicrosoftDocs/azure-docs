@@ -37,7 +37,7 @@ When you create custom role, include a descriptive name so you can easily rememb
 
 After the role is created in your tenant, in the Azure portal, go to the **Privileged Identity Management - Azure resources** pane. Select the resource that the role applies to.
 
-![The "Privileged Identity Management - Azure resources" pane](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+![The "Privileged Identity Management - Azure resources" pane](media/pim-resource-roles-custom-role-policy/aadpim-manage-azure-resource-some-there.png)
 
 [Configure PIM role settings](pim-resource-roles-configure-role-settings.md) that should apply to these members of the role.
 

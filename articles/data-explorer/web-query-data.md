@@ -1,17 +1,17 @@
 ---
-title: 'Quickstart: Query data in Azure Data Explorer'
-description: In this quickstart, you learn how to query and share data in Azure Data Explorer.
+title: 'Quickstart: Query data in Azure Data Explorer Web UI'
+description: In this quickstart, you learn how to query and share data in Azure Data Explorer Web UI.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 07/04/2019
 
-#Customer intent: As a user of Azure Data Explorer, I want to query and share data so I can understand my data and share analysis with colleagues.
+#Customer intent: As a user of Azure Data Explorer, I want to query data in the Web UI and share data. This will allow me to understand my data and share analysis with colleagues.
 ---
 
-# Quickstart: Query data in Azure Data Explorer
+# Quickstart: Query data in Azure Data Explorer Web UI
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data explorer provides a web application that enables you to run and share queries. The application is available in the Azure portal and as a stand-alone web application. In this article, you work in the stand-alone version, which enables you to connect to multiple clusters and to share deep links to your queries.
 
@@ -188,5 +188,4 @@ You didn't create any resources in this quickstart, but if you'd like to remove 
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Write queries for Azure Data Explorer](write-queries.md)
+[Write queries for Azure Data Explorer](write-queries.md)

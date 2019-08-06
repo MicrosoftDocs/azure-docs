@@ -2,7 +2,6 @@
 title: 'Tutorial: Search unstructured data in Azure Blob storage'
 description: 'Tutorial: Searching unstructured data in Blob storage using Azure search.'
 author: roygara
-
 services: storage
 
 ms.service: storage

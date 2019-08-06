@@ -23,8 +23,6 @@ Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for tec
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that was generated for you during sign up. 
-
 <a name="Detect"></a>
 
 ## Detect language
@@ -303,7 +301,7 @@ A successful response is returned in JSON, as shown in the following example:
 ```
 <a name="Entities"></a>
 
-## Identify entities
+## Entity recognition
 
 The Entities API extracts entities in a text document, using the [Entities method](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
 

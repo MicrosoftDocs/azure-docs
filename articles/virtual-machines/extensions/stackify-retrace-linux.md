@@ -4,7 +4,7 @@ description: Deploy the Stackify Retrace Linux agent on a Linux virtual machine.
 services: virtual-machines-linux 
 documentationcenter: ''
 author:  darinhoward
-manager: jeconnoc 
+manager: gwallace 
 editor: ''
 
 ms.assetid: 

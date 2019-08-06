@@ -579,11 +579,11 @@ If you have already set up an AzureML workspace, you can directly upload the sam
 
 In order to run the sample IPython Notebook or the Python script file, the following Python packages are needed. If you are using the AzureML IPython Notebook service, these packages have been pre-installed.
 
-    - pandas
-    - numpy
-    - matplotlib
-    - pyodbc
-    - PyTables
+- pandas
+- numpy
+- matplotlib
+- pyodbc
+- PyTables
 
 The recommended sequence when building advanced analytical solutions on AzureML with large data is the following:
 

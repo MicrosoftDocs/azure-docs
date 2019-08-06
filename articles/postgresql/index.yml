@@ -9,9 +9,9 @@ metadata:
   ms.author: raagyema
   ms.service: postgresql
   ms.topic: landing-page
-  ms.date: 02/25/2019
+  ms.date: 04/26/2019
 abstract:
-  description: Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability.  Develop applications with Azure Database for PostgreSQL leveraging the open-source tools and platform of your choice.  Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
+  description: Azure Database for PostgreSQL is a relational database service based on the open-source Postgres database engine.  It's a fully managed database as a service offering that can handle mission-critical workloads with predictable performance, security, high availability, and dynamic scalability. It's available in two deployment options, Single Server and Hyperscale (Citus) (preview). The Hyperscale (Citus) option horizontally scales queries across multiple machines using sharding, and serves applications that require greater scale and performance. Learn how to use Azure Database for PostgreSQL with our quickstarts, tutorials, and samples.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -22,22 +22,33 @@ sections:
     items: 
     - image: 
         src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
-      text: Azure Portal
+      text: Single Server Azure Portal
       href: /azure/postgresql/quickstart-create-server-database-portal
-    - image: 
+    - image:
         src: https://docs.microsoft.com/azure/sql-database/media/index/cli.svg
-      text: Azure CLI
+      text: Single Server Azure CLI
       href: /azure/postgresql/quickstart-create-server-database-azure-cli
+    - image:
+        src: https://docs.microsoft.com/azure/sql-database/media/index/portal.svg
+      text: Hyperscale (Citus) Azure Portal
+      href: /azure/postgresql/quickstart-create-hyperscale-portal
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: 'Learn how to:'
+    text: 'For Single Server:'
   - type: list
     style: ordered
     items:
     - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
     - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
     - html: <a href="/azure/postgresql/tutorial-monitor-and-tune">Monitor and tune the service</a>
+  - type: paragraph
+    text: 'For Hyperscale (Citus) (preview):'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-multi-tenant">Design a multi-tenant database</a>
+    - html: <a href="/azure/postgresql/tutorial-design-database-hyperscale-realtime">Design a real-time database</a>
 - title: Build your skills with Microsoft Learn
   items:
   - type: list

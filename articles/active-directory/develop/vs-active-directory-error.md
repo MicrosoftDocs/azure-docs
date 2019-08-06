@@ -2,6 +2,8 @@
 title: How to diagnose errors with the Azure Active Directory connected service
 description: The active directory connected service detected an incompatible authentication type
 services: active-directory
+ms.service: active-directory
+ms.subservice: develop
 author: ghogen
 manager: douge
 ms.assetid: dd89ea63-4e45-4da1-9642-645b9309670a

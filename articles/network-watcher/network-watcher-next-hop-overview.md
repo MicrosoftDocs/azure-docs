@@ -3,8 +3,8 @@ title: Introduction to next hop in Azure Network Watcher | Microsoft Docs
 description: This article provides an overview of the Network Watcher next hop capability.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: febf7bca-e0b7-41d5-838f-a5a40ebc5aac
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Use next hop to diagnose virtual machine routing problems
