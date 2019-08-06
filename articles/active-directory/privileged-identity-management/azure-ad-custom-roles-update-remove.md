@@ -1,6 +1,6 @@
 ---
-title: Update or remove an Azure AD custom role assignments in Privileged Identity Management (PIM) | Microsoft Docs
-description: How to activate an Azure AD custom role for assignment Privileged Identity Management (PIM)
+title: Update or remove an Azure AD custom role assignment in Privileged Identity Management (PIM) | Microsoft Docs
+description: How to update or remove an Azure AD custom role assignment Privileged Identity Management (PIM)
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -21,7 +21,7 @@ ms.collection: M365-identity-device-management
 #Customer intent: As a dev, devops, or it admin, I want to learn how to activate Azure AD custom roles, so that I can grant access to resources using this new capability.
 ---
 
-# Update or remove an Azure AD custom role assignments in Privileged Identity Management
+# Update or remove an assigned Azure AD custom role in Privileged Identity Management
 
 Azure AD Privileged Identity Management now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. View the details here [insert link to Vince’s docs] to learn more about and create custom roles for delegated application management.
 
