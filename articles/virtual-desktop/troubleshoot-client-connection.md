@@ -2,12 +2,12 @@
 title: Remote Desktop client connections in Windows Virtual Desktop - Azure
 description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Remote Desktop client connections
 
