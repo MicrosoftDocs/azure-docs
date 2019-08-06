@@ -1,5 +1,5 @@
 ---
-title: Application settings
+title: Application settings - LUIS
 titleSuffix: Azure Cognitive Services
 description: Understand applications settings for Language understanding apps.
 services: cognitive-services

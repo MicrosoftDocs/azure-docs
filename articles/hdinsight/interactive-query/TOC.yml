@@ -22,6 +22,20 @@
   - name: Capacity planning
     href: ../hdinsight-capacity-planning.md
     maintainContext: true
+  - name: Troubleshoot
+    items:
+    - name: GC overhead limit exceeded
+      href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Apache Ambari Tez View loads slowly
+      href: ./interactive-query-troubleshoot-tez-view-slow.md
+    - name: Error message not shown in Apache Hive View
+      href: ./interactive-query-troubleshoot-error-message-hive-view.md
+    - name: Inaccessible Apache Hive View 
+      href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+    - name: ZooKeeperHiveClientException - HiveServer2 configs
+      href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
 - name: How to
   items:
   - name: Migrate Hive workloads to HDInsight 4.0

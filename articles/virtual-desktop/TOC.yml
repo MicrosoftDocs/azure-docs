@@ -82,6 +82,8 @@
   items:
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
+  - name: REST API
+    href: /rest/api/virtual-desktop/
 - name: Resources
   items:
   - name: Tech Community support group 

@@ -107,7 +107,7 @@ The middleware is added to the web API by this instruction:
 ```CSharp
 services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
 {
-    // This is a Microsoft identity platform v2.0 web API.
+    // This is a Microsoft identity platform web API.
     options.Authority += "/v2.0";
 
     // The web API accepts as audiences both the Client ID (options.Audience) and api://{ClientID}.
