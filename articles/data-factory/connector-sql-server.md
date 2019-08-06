@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -33,6 +33,8 @@ Specifically, this SQL Server connector supports:
 - Copying data by using SQL or Windows authentication.
 - As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
+
+[SQL Server Express LocalDB](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/sql-server-express-localdb?view=sql-server-2017) is not supported.
 
 >[!NOTE]
 >SQL Server [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017) isn't supported by this connector now. To work around, you can use a [generic ODBC connector](connector-odbc.md) and a SQL Server ODBC driver. Follow [this guidance](https://docs.microsoft.com/sql/connect/odbc/using-always-encrypted-with-the-odbc-driver?view=sql-server-2017) with ODBC driver download and connection string configurations.
