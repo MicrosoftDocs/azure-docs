@@ -169,4 +169,4 @@ TODO: add link to full sample
 * [How to Deploy Service Fabric Application with System-Managed Identity](how-to-deploy-service-fabric-application-managed-identity.md)
 
 ## See Also
-* [How to Grant Service Fabric Application with User Managed Identity to Acess Other Azure Resources](how-to-grant-access-other-resources.md.md)
+* [How to Grant Service Fabric Application with User Managed Identity to Acess Other Azure Resources](how-to-grant-access-other-resources.md)
