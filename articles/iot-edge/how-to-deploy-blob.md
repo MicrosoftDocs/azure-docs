@@ -80,7 +80,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 
      - For Linux containers, the format is *\<storage path>:/blobroot*. For example
          - use volume bind: **my-volume:/blobroot** 
-         - use directory bind: **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the user](granting-directory-access-to-low-privileged-user-for-Linux-containers)
+         - use directory bind: **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the user](how-to-store-data-blob.md#granting-directory-access-to-low-privileged-user-for-Linux-containers)
      - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example
          - use volume bind: **my-volume:C:/blobroot**. 
          - use directory bind: **C:/ContainerData:C:/BlobRoot**.
@@ -194,7 +194,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
       
      - For Linux containers, the format is *\<storage path>:/blobroot*. For example
          - use volume bind: **my-volume:/blobroot** 
-         - use directory bind: **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the user](granting-directory-access-to-low-privileged-user-for-Linux-containers)
+         - use directory bind: **/srv/containerdata:/blobroot**. Make sure to follow the steps to [grant directory access to the user](how-to-store-data-blob.md#granting-directory-access-to-low-privileged-user-for-Linux-containers)
      - For Windows containers, the format is *\<storage path>:C:/BlobRoot*. For example
          - use volume bind: **my-volume:C:/blobroot**. 
          - use directory bind: **C:/ContainerData:C:/BlobRoot**.
