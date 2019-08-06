@@ -22,7 +22,7 @@ Storage accounts are encrypted regardless of their performance tier (standard or
 
 Encryption does not affect Azure Storage performance. There is no additional cost for Azure Storage encryption.
 
-You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys, together with Azure Key Vault.
+You can rely on Microsoft-managed keys for the encryption of your storage account, or you can manage encryption with your own keys.
 
 For more information about the cryptographic modules underlying Azure Storage encryption, see [Cryptography API: Next Generation](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
 
