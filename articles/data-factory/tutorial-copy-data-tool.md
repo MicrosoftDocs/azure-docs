@@ -49,7 +49,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
     Jane|Doe
 	```
 
-1. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use various tools to perform these tasks, such as [Azure Storage Explorer](https://storageexplorer.com/).
+1. Create a container named **adfv2tutorial** and upload the inputEmp.txt file to the container. You can use the Azure portal various tools like [Azure Storage Explorer](https://storageexplorer.com/) to perform these tasks.
 
 #### Create a sink SQL table
 
@@ -110,7 +110,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     a. Click **+ Create new connection** to add a connection
 
-    b. Select **Azure Blob Storage** from the gallery, and then select **Next**.
+    b. Select **Azure Blob Storage** from the gallery, and then select **Continue**.
 
     c. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then select **Finish**.
 
@@ -131,7 +131,7 @@ Prepare your Blob storage and your SQL database for the tutorial by performing t
 
     a. Click **+ Create new connection** to add a connection
 
-    b. Select **Azure SQL Database** from the gallery, and then select **Next**.
+    b. Select **Azure SQL Database** from the gallery, and then select **Continue**.
 
     c. On the **New Linked Service** page, select your server name and DB name from the dropdown list, and specify the username and password, then select **Finish**.
 
