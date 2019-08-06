@@ -6,7 +6,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.date: 08/06/2019
 #Customer intent: As an HDInsight user, I would like to understand how to resolve common cluster creation failures.
 ---
@@ -75,7 +75,7 @@ Check [Azure status](https://status.azure.com/status) for any potential outages 
 
 ## Next steps
 
-* [Extend Azure HDInsight using an Azure Virtual Network](hdinsight-plan-virtual-network-deployment.md)
-* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](hdinsight-hadoop-use-data-lake-storage-gen2.md)  
-* [Use Azure storage with Azure HDInsight clusters](hdinsight-hadoop-use-blob-storage.md)
-* [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md)
+* [Extend Azure HDInsight using an Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md)
+* [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md)  
+* [Use Azure storage with Azure HDInsight clusters](../hdinsight-hadoop-use-blob-storage.md)
+* [Set up clusters in HDInsight with Apache Hadoop, Apache Spark, Apache Kafka, and more](../hdinsight-hadoop-provision-linux-clusters.md)
