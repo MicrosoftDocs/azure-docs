@@ -203,7 +203,7 @@
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-insance.md
+      href: connector-azure-sql-database-managed-instance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
