@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: tsikiksr
+ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 07/23/2019
