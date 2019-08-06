@@ -25,12 +25,13 @@ The current minor version is 9.6.14. Refer to the [PostgreSQL documentation](htt
 ## PostgreSQL version 9.5
 The current minor version is 9.5.18. Refer to the [PostgreSQL documentation](https://www.postgresql.org/docs/9.5/static/release-9-5-18.html) to learn about improvements and fixes in this minor version.
 
-## Managing updates and upgrades
+## Managing upgrades
 Azure Database for PostgreSQL automatically manages minor version upgrades. 
 
-Automatic major version upgrade is not supported. For example, there is not an automatic upgrade from PostgreSQL 9.5 to PostgreSQL 9.6. If you would like to upgrade to the next major version, create a database [dump and restore it](./howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.
+Automatic major version upgrade is not supported. For example, there is not an automatic upgrade from PostgreSQL 9.5 to PostgreSQL 9.6. To upgrade to the next major version, create a database and [dump and restore it](./howto-migrate-using-dump-and-restore.md) to a server that was created with the new engine version.
 
+### Version syntax
 Before PostgreSQL version 10, the [PostgreSQL versioning policy](https://www.postgresql.org/support/versioning/) considered a _major version_ upgrade to be an increase in the first _or_ second number. For example, 9.5 to 9.6 was considered a _major_ version upgrade. As of version 10, only a change in the first number is considered a major version upgrade. For example, 10.0 to 10.1 is a _minor_ version upgrade. Version 10 to 11 is a _major_ version upgrade.
 
 ## Next steps
-For information about the support of different PostgreSQL extensions, see [PostgreSQL Extensions](concepts-extensions.md).
+For information on supported PostgreSQL extensions, see [the extensions document](concepts-extensions.md).
