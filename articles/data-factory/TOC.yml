@@ -253,7 +253,7 @@
     - name: Impala
       href: connector-impala.md
     - name: Informix
-      href: connector-odbc.md#ibm-informix-source
+      href: connector-informix.md
     - name: Jira
       href: connector-jira.md
     - name: Magento
@@ -263,7 +263,7 @@
     - name: Marketo
       href: connector-marketo.md
     - name: Microsoft Access
-      href: connector-odbc.md#microsoft-access-source
+      href: connector-microsoft-access.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -304,7 +304,7 @@
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce Service Cloud
-      href: connector-salesforce.md
+      href: connector-salesforce-service-cloud.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
