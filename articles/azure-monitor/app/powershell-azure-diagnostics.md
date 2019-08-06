@@ -1,8 +1,7 @@
 ---
 title: Using PowerShell to setup Application Insights in an Azure  | Microsoft Docs
-description: Automate configuring Azure Diagnostics to pipe to Application Insights.
+description: Automate configuring Azure Diagnostics to pipe data to Application Insights.
 services: application-insights
-documentationcenter: .net
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 4ac803a8-f424-4c0c-b18f-4b9c189a64a5
@@ -13,7 +12,7 @@ ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: mbullwin
 ---
-# Using PowerShell to set up Application Insights for an Azure cloud service app
+# Using PowerShell to set up Application Insights for Azure Cloud Services
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
