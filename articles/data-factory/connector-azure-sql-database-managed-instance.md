@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -26,7 +26,7 @@ You can copy data from Azure SQL Database Managed Instance to any supported sink
 
 Specifically, this Azure SQL Database Managed Instance connector supports:
 
-- Copying data by using SQL authentication.
+- Copying data by using SQL authentication and Azure Active Directory (Azure AD) Application token authentication with a service principal or managed identities for Azure resources.
 - As a source, retrieving data by using a SQL query or a stored procedure.
 - As a sink, appending data to a destination table or invoking a stored procedure with custom logic during copy.
 
@@ -54,19 +54,28 @@ The following properties are supported for the Azure SQL Database Managed Instan
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to **SqlServer**. | Yes |
-| connectionString |This property specifies the **connectionString** information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| type | The type property must be set to **AzureSqlMI**. | Yes |
+| connectionString |This property specifies the **connectionString** information that's needed to connect to the managed instance by using SQL authentication. For more information, see the following examples. <br/>The default port is 1433. If you're using Azure SQL Database Managed Instance with a public endpoint, explicitly specify port 3342.<br>Mark this field as **SecureString** to store it securely in Azure Data Factory. You also can put a password in Azure Key Vault. If it's SQL authentication, pull the `password` configuration out of the connection string. For more information, see the JSON example following the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md). |Yes |
+| servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal |
+| servicePrincipalKey | Specify the application's key. Mark this field as **SecureString** to store it securely in Azure Data Factory or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal |
+| tenant | Specify the tenant information, like the domain name or tenant ID, under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal |
 | connectVia | This [integration runtime](concepts-integration-runtime.md) is used to connect to the data store. You can use a self-hosted integration runtime or an Azure integration runtime if your managed instance has a public endpoint and allows Azure Data Factory to access it. If not specified, the default Azure integration runtime is used. |Yes |
 
-**Example 1: Use SQL authentication**
+For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
-The default port is 1433. If you're using Azure SQL Database Managed Instance with a public endpoint, explicitly specify port 3342.
+- [SQL authentication](#sql-authentication)
+- [Azure AD application token authentication: Service principal](#service-principal-authentication)
+- [Azure AD application token authentication: Managed identities for Azure resources](#managed-identity)
+
+### SQL authentication
+
+**Example 1: use SQL authentication**
 
 ```json
 {
     "name": "AzureSqlMILinkedService",
     "properties": {
-        "type": "SqlServer",
+        "type": "AzureSqlMI",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -81,15 +90,13 @@ The default port is 1433. If you're using Azure SQL Database Managed Instance wi
 }
 ```
 
-**Example 2: Use SQL authentication with a password in Azure Key Vault**
-
-The default port is 1433. If you're using Azure SQL Database Managed Instance with a public endpoint, explicitly specify port 3342.
+**Example 2: use SQL authentication with a password in Azure Key Vault**
 
 ```json
 {
     "name": "AzureSqlMILinkedService",
     "properties": {
-        "type": "SqlServer",
+        "type": "AzureSqlMI",
         "typeProperties": {
             "connectionString": {
                 "type": "SecureString",
@@ -112,6 +119,110 @@ The default port is 1433. If you're using Azure SQL Database Managed Instance wi
 }
 ```
 
+### Service principal authentication
+
+To use a service principal-based Azure AD application token authentication, follow these steps:
+
+1. [Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application) from the Azure portal. Make note of the application name and the following values that define the linked service:
+
+    - Application ID
+    - Application key
+    - Tenant ID
+
+2. [Create logins](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your Managed Instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+
+    ```sql
+    CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
+    ```
+
+2. [Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) for the Azure Data Factory managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+  
+    ```sql
+    CREATE USER [your application name] FROM EXTERNAL PROVIDER
+    ```
+
+3. Grant the Data Factory managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+
+    ```sql
+    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
+    ```
+
+4. Configure an Azure SQL Database Managed Instance linked service in Azure Data Factory.
+
+**Example: use service principal authentication**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlMI",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
+            },
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="managed-identity"></a> Managed identities for Azure resources authentication
+
+A data factory can be associated with a [managed identity for Azure resources](data-factory-service-identity.md) that represents the specific data factory. You can use this managed identity for Azure SQL Database Managed Instance authentication. The designated factory can access and copy data from or to your database by using this identity.
+
+To use managed identity authentication, follow these steps.
+
+1. [Create logins](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) for the Azure Data Factory managed identity. In SQL Server Management Studio (SSMS), connect to your Managed Instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+
+    ```sql
+    CREATE LOGIN [your Data Factory name] FROM EXTERNAL PROVIDER
+    ```
+
+2. [Create contained database users](../sql-database/sql-database-aad-authentication-configure.md#create-contained-database-users-in-your-database-mapped-to-azure-ad-identities) for the Azure Data Factory managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+  
+    ```sql
+    CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER
+    ```
+
+3. Grant the Data Factory managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-role-transact-sql?view=azuresqldb-mi-current).
+
+    ```sql
+    ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your Data Factory name]
+    ```
+
+4. Configure an Azure SQL Database Managed Instance linked service in Azure Data Factory.
+
+**Example: uses managed identity authentication**
+
+```json
+{
+    "name": "AzureSqlDbLinkedService",
+    "properties": {
+        "type": "AzureSqlMI",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "Data Source=<hostname,port>;Initial Catalog=<databasename>;"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
 ## Dataset properties
 
 For a full list of sections and properties available for use to define datasets, see the datasets article. This section provides a list of properties supported by the Azure SQL Database Managed Instance dataset.
@@ -120,7 +231,7 @@ To copy data to and from Azure SQL Database Managed Instance, the following prop
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to **SqlServerTable**. | Yes |
+| type | The type property of the dataset must be set to **AzureSqlMITable**. | Yes |
 | tableName |This property is the name of the table or view in the database instance that the linked service refers to. | No for source, Yes for sink |
 
 **Example**
@@ -130,7 +241,7 @@ To copy data to and from Azure SQL Database Managed Instance, the following prop
     "name": "AzureSqlMIDataset",
     "properties":
     {
-        "type": "SqlServerTable",
+        "type": "AzureSqlMITable",
         "linkedServiceName": {
             "referenceName": "<Managed Instance linked service name>",
             "type": "LinkedServiceReference"
@@ -149,18 +260,18 @@ For a full list of sections and properties available for use to define activitie
 
 ### Azure SQL Database Managed Instance as a source
 
-To copy data from Azure SQL Database Managed Instance, set the source type in the copy activity to **SqlSource**. The following properties are supported in the copy activity source section:
+To copy data from Azure SQL Database Managed Instance, the following properties are supported in the copy activity source section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity source must be set to **SqlSource**. | Yes |
+| type | The type property of the copy activity source must be set to **SqlMISource**. | Yes |
 | sqlReaderQuery |This property uses the custom SQL query to read data. An example is `select * from MyTable`. |No |
 | sqlReaderStoredProcedureName |This property is the name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. |No |
 | storedProcedureParameters |These parameters are for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No |
 
 **Note the following points:**
 
-- If **sqlReaderQuery** is specified for **SqlSource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
+- If **sqlReaderQuery** is specified for **SqlMISource**, the copy activity runs this query against the managed instance source to get the data. You also can specify a stored procedure by specifying **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either the **sqlReaderQuery** or **sqlReaderStoredProcedureName** property, the columns defined in the "structure" section of the dataset JSON are used to construct a query. The query `select column1, column2 from mytable` runs against the managed instance. If the dataset definition doesn't have "structure," all columns are selected from the table.
 
 **Example: Use a SQL query**
@@ -184,7 +295,7 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "SqlMISource",
                 "sqlReaderQuery": "SELECT * FROM MyTable"
             },
             "sink": {
@@ -216,7 +327,7 @@ To copy data from Azure SQL Database Managed Instance, set the source type in th
         ],
         "typeProperties": {
             "source": {
-                "type": "SqlSource",
+                "type": "SqlMISource",
                 "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
                 "storedProcedureParameters": {
                     "stringData": { "value": "str3" },
@@ -255,17 +366,18 @@ GO
 > [!TIP]
 > Learn more about the supported write behaviors, configurations, and best practices from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
-To copy data to Azure SQL Database Managed Instance, set the sink type in the copy activity to **SqlSink**. The following properties are supported in the copy activity sink section:
+To copy data to Azure SQL Database Managed Instance, the following properties are supported in the copy activity sink section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property of the copy activity sink must be set to **SqlSink**. | Yes |
+| type | The type property of the copy activity sink must be set to **SqlMISink**. | Yes |
 | writeBatchSize |Number of rows to insert into the SQL table *per batch*.<br/>Allowed values are integers for the number of rows. By default, Azure Data Factory dynamically determines the appropriate batch size based on the row size.  |No |
 | writeBatchTimeout |This property specifies the wait time for the batch insert operation to complete before it times out.<br/>Allowed values are for the timespan. An example is “00:30:00,” which is 30 minutes. |No |
 | preCopyScript |This property specifies a SQL query for the copy activity to run before writing data into the managed instance. It's invoked only once per copy run. You can use this property to clean up preloaded data. |No |
-| sqlWriterStoredProcedureName |This name is for the stored procedure that defines how to apply source data into the target table. <br/>This stored procedure is *invoked per batch*. To do an operation that runs only once and has nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. |No |
-| storedProcedureParameters |These parameters are used for the stored procedure.<br/>Allowed values are name or value pairs. The names and casing of the parameters must match the names and casing of the stored procedure parameters. |No |
-| sqlWriterTableType |This property specifies a table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
+| sqlWriterStoredProcedureName | The name of the stored procedure that defines how to apply source data into a target table. <br/>This stored procedure is *invoked per batch*. For operations that run only once and have nothing to do with source data, for example, delete or truncate, use the `preCopyScript` property. | No |
+| storedProcedureTableTypeParameterName |The parameter name of the table type specified in the stored procedure.  |No |
+| sqlWriterTableType |The table type name to be used in the stored procedure. The copy activity makes the data being moved available in a temp table with this table type. Stored procedure code can then merge the data that's being copied with existing data. |No |
+| storedProcedureParameters |Parameters for the stored procedure.<br/>Allowed values are name and value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
 
 **Example 1: Append data**
 
@@ -291,7 +403,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "SqlMISink",
                 "writeBatchSize": 100000
             }
         }
@@ -301,7 +413,7 @@ To copy data to Azure SQL Database Managed Instance, set the sink type in the co
 
 **Example 2: Invoke a stored procedure during copy**
 
-Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-stored-procedure-from-a-sql-sink).
+Learn more details from [Invoke a stored procedure from a SQL MI sink](#invoke-a-stored-procedure-from-a-sql-sink).
 
 ```json
 "activities":[
@@ -325,9 +437,10 @@ Learn more details from [Invoke a stored procedure from a SQL sink](#invoke-a-st
                 "type": "<source type>"
             },
             "sink": {
-                "type": "SqlSink",
+                "type": "SqlMISink",
                 "sqlWriterStoredProcedureName": "CopyTestStoredProcedureWithParameters",
-                "sqlWriterTableType": "CopyTestTableType",
+                "storedProcedureTableTypeParameterName": "MyTable",
+                "sqlWriterTableType": "MyTableType",
                 "storedProcedureParameters": {
                     "identifier": { "value": "1", "type": "Int" },
                     "stringData": { "value": "str1" }
@@ -398,77 +511,57 @@ The steps to write data with custom logic are similar to those described in the 
 
 ## <a name="invoke-a-stored-procedure-from-a-sql-sink"></a> Invoke a stored procedure from a SQL sink
 
-When you copy data into Azure SQL Database Managed Instance, you also can configure and invoke a user-specified stored procedure with additional parameters.
+When you copy data into Azure SQL Database Managed Instance, you also can configure and invoke a user-specified stored procedure with additional parameters. The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
 
 > [!TIP]
 > Invoking a stored procedure processes the data row by row instead of by using a bulk operation, which we don't recommend for large-scale copy. Learn more from [Best practice for loading data into Azure SQL Database Managed Instance](#best-practice-for-loading-data-into-azure-sql-database-managed-instance).
 
 You can use a stored procedure when built-in copy mechanisms don't serve the purpose. An example is when you want to apply extra processing before the final insertion of source data into the destination table. Some extra processing examples are when you want to merge columns, look up additional values, and insert data into more than one table.
 
-The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that the input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category.
+The following sample shows how to use a stored procedure to do an upsert into a table in the SQL Server database. Assume that the input data and the sink **Marketing** table each have three columns: **ProfileID**, **State**, and **Category**. Do the upsert based on the **ProfileID** column, and only apply it for a specific category called "ProductA".
 
-**Output dataset:** The "tableName" is the same table type parameter name in your stored procedure, as shown in the following stored procedure script:
+1. In your database, define the table type with the same name as **sqlWriterTableType**. The schema of the table type is the same as the schema returned by your input data.
 
-```json
-{
-    "name": "AzureSqlMIDataset",
-    "properties":
-    {
-        "type": "SqlServerTable",
-        "linkedServiceName": {
-            "referenceName": "<Managed Instance linked service name>",
-            "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "tableName": "Marketing"
+    ```sql
+    CREATE TYPE [dbo].[MarketingType] AS TABLE(
+        [ProfileID] [varchar](256) NOT NULL,
+        [State] [varchar](256) NOT NULL，
+        [Category] [varchar](256) NOT NULL
+    )
+    ```
+
+2. In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
+
+    ```sql
+    CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
+    AS
+    BEGIN
+    MERGE [dbo].[Marketing] AS target
+    USING @Marketing AS source
+    ON (target.ProfileID = source.ProfileID and target.Category = @category)
+    WHEN MATCHED THEN
+        UPDATE SET State = source.State
+    WHEN NOT MATCHED THEN
+        INSERT (ProfileID, State, Category)
+        VALUES (source.ProfileID, source.State, source.Category);
+    END
+    ```
+
+3. In Azure Data Factory, define the **SQL MI sink** section in the copy activity as follows:
+
+    ```json
+    "sink": {
+        "type": "SqlMISink",
+        "SqlWriterStoredProcedureName": "spOverwriteMarketing",
+        "storedProcedureTableTypeParameterName": "Marketing",
+        "SqlWriterTableType": "MarketingType",
+        "storedProcedureParameters": {
+            "category": {
+                "value": "ProductA"
+            }
         }
     }
-}
-```
-
-Define the **SQL sink** section in the copy activity as follows:
-
-```json
-"sink": {
-    "type": "SqlSink",
-    "SqlWriterTableType": "MarketingType",
-    "SqlWriterStoredProcedureName": "spOverwriteMarketing",
-    "storedProcedureParameters": {
-        "category": {
-            "value": "ProductA"
-        }
-    }
-}
-```
-
-In your database, define the stored procedure with the same name as **SqlWriterStoredProcedureName**. It handles input data from your specified source and merges into the output table. The parameter name of the table type in the stored procedure is the same as **tableName** defined in the dataset.
-
-```sql
-CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)
-AS
-BEGIN
-  MERGE [dbo].[Marketing] AS target
-  USING @Marketing AS source
-  ON (target.ProfileID = source.ProfileID and target.Category = @category)
-  WHEN MATCHED THEN
-      UPDATE SET State = source.State
-  WHEN NOT MATCHED THEN
-      INSERT (ProfileID, State, Category)
-      VALUES (source.ProfileID, source.State, source.Category);
-END
-```
-
-In your database, define the table type with the same name as **sqlWriterTableType**. The schema of the table type is the same as the schema returned by your input data.
-
-```sql
-CREATE TYPE [dbo].[MarketingType] AS TABLE(
-    [ProfileID] [varchar](256) NOT NULL,
-    [State] [varchar](256) NOT NULL，
-    [Category] [varchar](256) NOT NULL
-)
-```
-
-The stored procedure feature takes advantage of [table-valued parameters](https://msdn.microsoft.com/library/bb675163.aspx).
+    ```
 
 ## Data type mapping for Azure SQL Database Managed Instance
 
