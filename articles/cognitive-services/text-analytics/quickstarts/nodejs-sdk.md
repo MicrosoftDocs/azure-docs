@@ -67,8 +67,10 @@ const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
 ```javascript
+let endpoint = "https://westus.api.cognitive.microsoft.com/";
+let key = var apiKey = process.env.TEXTANALYTICS_SUBSCRIPTION_KEY;
 let credentials = new CognitiveServicesCredentials(
-    "enter-your-key-here"
+    key
 );
 ```
 
@@ -101,13 +103,13 @@ The response object is a list containing the analysis information for each docum
 
 ## Authenticate the client
 
-Create a new `TextAnalyticsClient` object with `credentials` as a parameter. Use the correct Azure region for your Text Analytics subscription.
+Create a new [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) object with `credentials` and `endpoint` as a parameter.
 
 ```javascript
 //Replace 'westus' with the correct region for your Text Analytics subscription
 let client = new TextAnalyticsAPIClient(
     credentials,
-    "https://westus.api.cognitive.microsoft.com/"
+    endpoint
 );
 ```
 
@@ -329,6 +331,6 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [Text Analytics overview](../overview.md)
 * [Sentiment analysis](../how-tos/text-analytics-how-to-sentiment-analysis.md)
 * [Entity recognition](../how-tos/text-analytics-how-to-entity-linking.md)
-* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction)
-* [Language recognition](../how-tos/text-analytics-how-to-language-detection)
+* [Detect language](../how-tos/text-analytics-how-to-keyword-extraction.md)
+* [Language recognition](../how-tos/text-analytics-how-to-language-detection.md)
 * The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/blob/master/samples/language/text_analytics_samples.py).
