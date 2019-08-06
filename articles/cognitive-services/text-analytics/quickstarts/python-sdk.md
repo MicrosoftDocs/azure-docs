@@ -9,7 +9,7 @@ manager: assafi
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 
@@ -28,8 +28,6 @@ Use this quickstart to begin analyzing language with the Text Analytics SDK for 
     `pip install --upgrade azure-cognitiveservices-language-textanalytics`
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
-
-You must also have the [endpoint and access key](../How-tos/text-analytics-how-to-access-key.md) that were generated for you during sign-up.
 
 ## Create a new Python application
 

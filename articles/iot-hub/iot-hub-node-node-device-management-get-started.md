@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 08/25/2017
 ---
 
-# Get started with device management (Node)
+# Get started with device management (Node.js)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -37,6 +37,8 @@ To complete this tutorial, you need the following:
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 

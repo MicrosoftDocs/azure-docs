@@ -182,7 +182,7 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 Each Azure subscription has these integration account limits:
 
-* A single [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
 
 * 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
 

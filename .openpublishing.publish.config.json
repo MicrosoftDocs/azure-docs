@@ -140,6 +140,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-personalizer",
+      "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+      "branch": "master"
+    },   
+    {
       "path_to_root": "samples-luis",
       "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master"
@@ -293,6 +298,11 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-core-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-xamarin",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
       "branch": "master"
     },
     {
