@@ -132,6 +132,7 @@ We have introduced two Azure built-in roles for granting share-level permissions
 
 - **Storage File Data SMB Share Reader** allows read access in Azure Storage file shares over SMB.
 - **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure Storage file shares over SMB.
+- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete and modify NTFS permissions in Azure Storage file shares over SMB.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
@@ -207,7 +208,7 @@ Use Windows File Explorer to grant full permission to all directories and files 
 5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and click on **Check Names** to find the full UPN name of the target user.
 7.	Click on **OK**
 8.	In the Security tab, select all permissions you want to grant to the newly add user
-9.	Then click on **Apply**
+9.	Click on **Apply**
 
 ### Configure NTFS permissions with icacls
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
