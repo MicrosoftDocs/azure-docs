@@ -82,15 +82,17 @@ In this section, you create a Java console app that uses jobs to:
 
 To create the app:
 
-1. On your development machine, create an empty folder called `iot-java-schedule-jobs`.
+1. On your development machine, create an empty folder called **iot-java-schedule-jobs**.
 
-2. In the `iot-java-schedule-jobs` folder, create a Maven project called **schedule-jobs** using the following command at your command prompt. Note this is a single, long command:
+2. In the **iot-java-schedule-jobs** folder, create a Maven project called **schedule-jobs** using the following command at your command prompt. Note this is a single, long command:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+   ```cmd/sh
+   mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=schedule-jobs -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+   ```
 
-3. At your command prompt, navigate to the `schedule-jobs` folder.
+3. At your command prompt, navigate to the **schedule-jobs** folder.
 
-4. Using a text editor, open the `pom.xml` file in the `schedule-jobs` folder and add the following dependency to the **dependencies** node. This dependency enables you to use the **iot-service-client** package in your app to communicate with your IoT hub:
+4. Using a text editor, open the **pom.xml** file in the **schedule-jobs** folder and add the following dependency to the **dependencies** node. This dependency enables you to use the **iot-service-client** package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
@@ -122,9 +124,9 @@ To create the app:
     </build>
     ```
 
-6. Save and close the `pom.xml` file.
+6. Save and close the **pom.xml** file.
 
-7. Using a text editor, open the `schedule-jobs\src\main\java\com\mycompany\app\App.java` file.
+7. Using a text editor, open the **schedule-jobs\src\main\java\com\mycompany\app\App.java** file.
 
 8. Add the following **import** statements to the file:
 
@@ -286,23 +288,27 @@ To create the app:
     System.out.println("Shutting down schedule-jobs app");
     ```
 
-16. Save and close the `schedule-jobs\src\main\java\com\mycompany\app\App.java` file
+16. Save and close the **schedule-jobs\src\main\java\com\mycompany\app\App.java** file
 
-17. Build the **schedule-jobs** app and correct any errors. At your command prompt, navigate to the `schedule-jobs` folder and run the following command:
+17. Build the **schedule-jobs** app and correct any errors. At your command prompt, navigate to the **schedule-jobs** folder and run the following command:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## Create a device app
 
 In this section, you create a Java console app that handles the desired properties sent from IoT Hub and implements the direct method call.
 
-1. In the `iot-java-schedule-jobs` folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
+1. In the **iot-java-schedule-jobs** folder, create a Maven project called **simulated-device** using the following command at your command prompt. Note this is a single, long command:
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+   ```cmd/sh
+   mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+   ```
 
-2. At your command prompt, navigate to the `simulated-device` folder.
+2. At your command prompt, navigate to the **simulated-device** folder.
 
-3. Using a text editor, open the `pom.xml` file in the `simulated-device` folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
+3. Using a text editor, open the **pom.xml** file in the **simulated-device** folder and add the following dependencies to the **dependencies** node. This dependency enables you to use the **iot-device-client** package in your app to communicate with your IoT hub:
 
     ```xml
     <dependency>
@@ -333,9 +339,9 @@ In this section, you create a Java console app that handles the desired properti
     </build>
     ```
 
-5. Save and close the `pom.xml` file.
+5. Save and close the **pom.xml** file.
 
-6. Using a text editor, open the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+6. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
 
 7. Add the following **import** statements to the file:
 
@@ -348,7 +354,7 @@ In this section, you create a Java console app that handles the desired properti
     import java.util.Scanner;
     ```
 
-8. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the *Create a device identity* section:
+8. Add the following class-level variables to the **App** class. Replacing `{youriothubname}` with your IoT hub name, and `{yourdevicekey}` with the device key value you generated in the [Register a new device in the IoT hub](register-a-new-device-in-the-iot-hub) section:
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -460,31 +466,37 @@ In this section, you create a Java console app that handles the desired properti
     scanner.close();
     ```
 
-16. Save and close the `simulated-device\src\main\java\com\mycompany\app\App.java` file.
+16. Save and close the **simulated-device\src\main\java\com\mycompany\app\App.java** file.
 
-17. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the `simulated-device` folder and run the following command:
+17. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## Run the apps
 
 You are now ready to run the console apps.
 
-1. At a command prompt in the `simulated-device` folder, run the following command to start the device app listening for desired property changes and direct method calls:
+1. At a command prompt in the **simulated-device** folder, run the following command to start the device app listening for desired property changes and direct method calls:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+   ```cmd/sh
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
 
-    ![The device client starts](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+   ![The device client starts](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
 2. At a command prompt in the `schedule-jobs` folder, run the following command to run the **schedule-jobs** service app to run two jobs. The first sets the desired property values, the second calls the direct method:
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+   ```cmd\sh
+   mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+   ```
 
-    ![Java IoT Hub service app creates two jobs](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
+   ![Java IoT Hub service app creates two jobs](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
 3. The device app handles the desired property change and the direct method call:
 
-    ![The device client responds to the changes](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
+   ![The device client responds to the changes](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## Next steps
 
