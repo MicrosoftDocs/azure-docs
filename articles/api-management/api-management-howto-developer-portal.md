@@ -74,6 +74,10 @@ The goal of general availability is to provide a scenario-based feature parity w
 
 The exceptions are the *Applications* and *Issues* from the old portal, which won't be available in the new portal. If you use *Issues* in the old portal and need them in the new one, post a comment in [a dedicated GitHub issue](https://github.com/Azure/api-management-developer-portal/issues/122).
 
+### I've found bugs and/or I'd like to request a feature.
+
+Great! You can provide us feedback, submit a feature request, or file a bug report through [the GitHub repository's Issues section](https://github.com/Azure/api-management-developer-portal/issues). While you're there, we'd also appreciate your feedback on the issues marked with the `community` label.
+
 ### I want to move the content of the new portal between environments. How can I do that and do I need to go with the self-hosted version?
 
 You can do so in both portal versions - managed and self-hosted. The new developer portal supports extracting content through the management API of your API Management service. The APIs are documented [in the wiki section of the GitHub repository](https://github.com/Azure/api-management-developer-portal/wiki/). We have also written [a script](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat), which might help you get started.

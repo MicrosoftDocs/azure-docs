@@ -4,7 +4,7 @@ description: Provides an overview of assessment calculations in the Azure Migrat
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/06/2019
 ms.author: raynew
 ---
 
@@ -55,7 +55,7 @@ Server Assessment reviews the following properties of the on-premises VM to dete
 **Boot type** | Azure supports VMs with a boot type of BIOS, not UEFI. | Conditionally ready if the boot type is UEFI.
 **Cores** | The number of cores in the machines must be equal to or less than the maximum number of cores (128) supported for an Azure VM.<br/><br/> If performance history is available, Azure Migrate considers the utilized cores for comparison. If a comfort factor is specified in the assessment settings, the number of utilized cores is multiplied by the comfort factor.<br/><br/> If there's no performance history, Azure Migrate uses the allocated cores without applying the comfort factor. | Ready if less than or equal to limits.
 **Memory** | The machine memory size must be equal to or less than the maximum memory (3892 gigabytes [GB] on Azure M series Standard_M128m&nbsp;<sup>2</sup>) allowed for an Azure VM. [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes).<br/><br/> If performance history is available, Azure Migrate considers the utilized memory for comparison. If a comfort factor is specified, the utilized memory is multiplied by the comfort factor.<br/><br/> If there's no history, the allocated memory is used without applying the comfort factor.<br/><br/> | Ready if within limits.
-**Storage disk** | Allocated size of a disk must be 32 TB or less.<br/><br/> The number of disks attached to the machine must be 65 or fewer, including the OS disk. | Ready if within limits.
+**Storage disk** | Allocated size of a disk must be 32 TB or less. Although Azure supports 64 TB disks with Ultra SSD disks, Azure Migrate: Server Assessment currently checks for 32TB as the disk size limits as it does not support Ultra SSD yet. <br/><br/> The number of disks attached to the machine must be 65 or fewer, including the OS disk. | Ready if within limits.
 **Networking** | A machine must have 32 or fewer network interfaces (NICs) attached to it. | Ready if within limits.
 
 ### Guest operating system
