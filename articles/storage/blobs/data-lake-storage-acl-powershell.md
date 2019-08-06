@@ -45,15 +45,14 @@ This article shows you how to use PowerShell to get and set the access control l
 
 ## Get the ACL of a directory
 
-Get the ACL of a directory by using the `Get-AzStorageBlobFromDirectory`cmdlet with the `-FetchPermission` parameter.
+Get the ACL of a directory by using the `Get-AzStorageBlob`cmdlet with the `-FetchPermission` parameter.
 
 This example gets the ACL of a directory, and then prints the short form of the ACL to the console.
 
 ```powershell
 $containerName = "mycontainer"
-$dir = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath my-directory -FetchPermission
-$dir
-$dir.CloudBlobDirectory.Properties
+$dir = Get-AzStorageBlob -Container $containerName -blob my-directory -Context $ctx -FetchPermission
+$dir.CloudBlobDirectory.PathProperties
 ```
 
 The short form of an ACL might look something like the following:
@@ -72,7 +71,7 @@ This example gets the ACL of a file and then prints the short form of ACL to the
 $containerName = "mycontainer"
 $directoryName = "my-directory"
 $blob = Get-AzStorageBlobFromDirectory -Context $ctx -Container $containerName -BlobDirectoryPath $directoryName  -BlobRelativePath text1.txt -FetchPermission
-$blob
+$blob.ICloudBlob.PathProperties
 ```
 
 ## Set the ACL of a directory
@@ -85,11 +84,10 @@ This example sets the ACL on a directory for the owning user, owning group, or o
 $containerName = "mycontainer"
 $directory = "my-directory"
 $acl = New-AzStorageBlobPathACL -AccessControlType user -Permission rw- -DefaultScope
-$acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rw- -InputObject $acl 
-$acl = New-AzStorageBlobPathACL -AccessControlType other -Permission "-wx" -InputObject $acl
-$dir1 = Set-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $directory -ACL $acl
-$directory.CloudBlobDirectory
-$blob.ICloudBlob.PathProperties
+$acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rw- -InputObject $acl
+$acl = New-AzStorageBlobPathACL -AccessControlType other -Permission -wx -InputObject $acl
+$dir = Set-AzStorageBlobDirectory -Context $ctx -Container $containerName -Path $directory -ACL $acl
+$dir.CloudBlobDirectory.PathProperties
 ```
 
 ## Set the ACL of a file
@@ -104,7 +102,7 @@ $directory = "my-directory"
 $acl = New-AzStorageBlobPathACL -AccessControlType user -Permission r-x 
 $acl = New-AzStorageBlobPathACL -AccessControlType group -Permission rwx -InputObject $acl 
 $acl = New-AzStorageBlobPathACL -AccessControlType other -Permission "-w-" -InputObject $acl
-$blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text.txt -ACL $acl
+$blob = Set-AzStorageBlob -Context $ctx -Container $containerName -Path text1.txt -ACL $acl
 $blob.ICloudBlob.PathProperties
 ```
 
