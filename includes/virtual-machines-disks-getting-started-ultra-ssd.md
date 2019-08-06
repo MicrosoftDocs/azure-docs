@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Deploy Azure Ultra disks (preview)
+# Deploy Azure Ultra disks
 
 Azure Ultra disks offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of Ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
 
@@ -37,7 +37,7 @@ Now that you know which zone to deploy to, follow the deployment steps in this a
 
 ## Deploy an Ultra disk using Azure Resource Manager
 
-First, determine the VM size to deploy. As part of this preview, only DsV3 and EsV3 VM families are supported. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
+First, determine the VM size to deploy. For now, only DsV3 and EsV3 VM families support Ultra disks. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 
 If you would like to create a VM with multiple Ultra disks, refer to the sample [Create a VM with multiple Ultra disks](https://aka.ms/UltraSSDTemplate).
 
