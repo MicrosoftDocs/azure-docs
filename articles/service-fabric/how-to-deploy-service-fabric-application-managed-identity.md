@@ -164,9 +164,9 @@ TODO: add link to full sample
 
 ## Next steps
 
-* [How to Deploy Service Fabric Application with User-Managed Identity](how-to-deloy-servicefabric-application-with-user-managedidentity.md)
+* [How to Deploy Service Fabric Application with User-Managed Identity](how-to-deploy-service-fabric-application-user-managed-identity.md)
 
-* [How to Deploy Service Fabric Application with System-Managed Identity](how-to-deloy-servicefabric-application-with-system-managedidentity.md)
+* [How to Deploy Service Fabric Application with System-Managed Identity](how-to-deploy-service-fabric-application-managed-identity.md)
 
 ## See Also
 * [How to Grant Service Fabric Application with User Managed Identity to Acess Other Azure Resources](how-to-grant-access-other-resources.md.md)
