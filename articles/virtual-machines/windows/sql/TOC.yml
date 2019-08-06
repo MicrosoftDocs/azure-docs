@@ -68,6 +68,8 @@
     items:
     - name: Migrate a SQL Server database
       href: virtual-machines-windows-migrate-sql.md
+    - name: VM to a new region
+      href: virtual-machines-windows-sql-move-different-region.md
   - name: Configure High Availability
     items:
     - name: Use Azure Storage for backup and restore

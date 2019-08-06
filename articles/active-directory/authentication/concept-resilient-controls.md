@@ -204,7 +204,7 @@ User lockout can also occur if the following conditions are true:
 - Your organization uses a hybrid identity solution with pass-through authentication or federation.
 - Your on-premises identity systems (such as Active Directory, AD FS, or a dependent component) are unavailable. 
  
-To be more resilient, your organization should [enable password hash sync](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), because it enables you to [switch to using password hash sync](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) if your on-premises identity systems are down.
+To be more resilient, your organization should [enable password hash sync](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), because it enables you to [switch to using password hash sync](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin) if your on-premises identity systems are down.
 
 #### Microsoft recommendations
  Enable password hash sync using the Azure AD Connect wizard, regardless whether your organization uses federation or pass-through authentication.

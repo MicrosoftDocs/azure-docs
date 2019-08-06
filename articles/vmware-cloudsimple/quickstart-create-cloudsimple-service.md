@@ -5,7 +5,7 @@ author: sharaths-cs
 ms.author: dikamath 
 ms.date: 04/10/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
@@ -19,25 +19,13 @@ The CloudSimple service allows you to consume Azure VMware Solution by CloudSimp
 
 To add the CloudSimple service, you must create a gateway subnet. The gateway subnet is used when creating the edge network and requires a /28 CIDR block. The gateway subnet address space must be unique. It can't overlap with any of your on-premises network address spaces or Azure virtual network address space.
 
+## Before you begin
+
+Allocate a /28 CIDR block for gateway subnet.  A gateway subnet is required per CloudSimple service and is unique to the region in which it's created. The gateway subnet is used for edge network services and requires a /28 CIDR block. The gateway subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks. 
+
 ## Sign in to Azure
 
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
-
-## Enable Microsoft.VMwareCloudSimple resource provider
-
-Follow the steps below to enable the resource provider for CloudSimple service.
-
-1. Select **All services**.
-2. Search for and select **subscriptions**.
-
-    ![Select subscriptions](media/cloudsimple-service-select-subscriptions.png)
-
-3. Select the subscription on which you want to enable CloudSimple service
-4. Click on **Resource providers** for the subscription
-5. Use **Microsoft.VMwareCloudSimple** to filter the resource provider
-6. Select the **Microsoft.VMwareCloudSimple** resource provider and click on **Register**
-
-    ![Register resource provider](media/cloudsimple-service-enable-resource-provider.png)
 
 ## Create the service
 

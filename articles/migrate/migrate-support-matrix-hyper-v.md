@@ -5,7 +5,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ---
 
@@ -31,14 +31,18 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Support** | **Details**
 --- | ---
 Azure permissions | You need Contributor or Owner permissions in the subscription to create an Azure Migrate project.
-Hyper-V VMs | Assess up to 10,000 Hyper-V VMs in a single project. You can have multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
+Hyper-V VMs | Assess up to 35,000 Hyper-V VMs in a single project. You can have multiple projects in an Azure subscription. A project can include both VMware VMs and Hyper-V VMs, up to the assessment limits.
 Geography | You can create Azure Migrate projects in a number of geographies. Although you can create projects in specific ographies, you can assess or migrate machines for other target locations. The project geography is only used to store the discovered metadata.
 
   **Geography** | **Metadata storage location**
   --- | ---
   Azure Government | US Gov Virginia
-  Asia Pacific | Southeast Asia or East Asia
-  Europe | South Europe or West Europe
+  Asia Pacific | East Asia or Southeast Asia
+  Australia | Australia East or Australia Southeast
+  Canada | Canada Central or Canada East
+  Europe | North Europe or West Europe
+  India | Central India or South India
+  Japan |  Japan East or Japan West
   United Kingdom | UK South or UK West
   United States | Central US or West US 2
 
@@ -79,7 +83,7 @@ For assessment, Azure Migrate runs a lightweight appliance to discover Hyper-V V
 | **Support**                | **Details**               
 | :-------------------       | :------------------- |
 | **Azure Migrate project**  |  An appliance can be associated with a single project.<br/> You can discover up to 5000 Hyper-V VMs with a single appliance.
-| **Hyper-V**    |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided is Hyper-V VM version 5.0.<br/> The VM host must be running Windows Server 2012 R2 or later.<br/> It needs sufficient space to allocate 16 GB RAM, 4 virtual processors, and 1 external switch for the appliance VM.<br/> Appliance requires a static or dynamic IP address, and internet access.
+| **Hyper-V**    |  You deploy the appliance as a Hyper-V VM.<br/> The appliance VM provided is Hyper-V VM version 5.0.<br/> The VM host must be running Windows Server 2012 R2 or later.<br/> It needs sufficient space to allocate 16 GB RAM, 8 vCPUs, and 1 external switch for the appliance VM.<br/> Appliance requires a static or dynamic IP address, and internet access.
 
 
 ## Assessment-appliance URL access
