@@ -123,7 +123,7 @@ To update the optimize setting for the reservation:
 
 ## Optimize reservation use
 
-Azure reservation savings only result from sustained resource use. When you make a reservation purchase, you pay an up-front cost for what is essentially 100% possible resource use over a one- or three-year term. Try to maximize your reservation to get as much use and savings possible. This article explains how to monitor your reservation and optimize its use.
+Azure reservation savings only result from sustained resource use. When you make a reservation purchase, you pay an up-front cost for what is essentially 100% possible resource use over a one- or three-year term. Try to maximize your reservation to get as much use and savings possible. The following sections explain how to monitor a reservation and optimize its use.
 
 ### View reservation use in the Azure portal
 
