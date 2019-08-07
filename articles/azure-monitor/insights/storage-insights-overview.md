@@ -48,7 +48,7 @@ To view the utilization and availability of your storage accounts across all of 
 
     ![Multiple storage accounts view](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-On the Overview workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to ten storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the Overview workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
