@@ -14,11 +14,11 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 ## Soft Delete
 ### Soft Delete for VMs
 
-1. In order to delete a VM, the backup must be stopped. In the recovery vault, right-click on the VM and choose **Stop backup**.
+1. In order to delete the backup data of a VM, the backup must be stopped. In the recovery vault, right-click on the VM and choose **Stop backup**.
 
 ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
-2. In the following window, you will be given a choice of what to delete. If you choose **Delete backup data** and then **Stop backup**, the VM will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. The deletion is deferred until after that period, when permanent deletion will occur.
+2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. The deletion is deferred until after that period, when permanent deletion will occur.
     
 ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
