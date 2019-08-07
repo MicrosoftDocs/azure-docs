@@ -53,8 +53,6 @@ If you aren't combining resources into a single group, or if existing resource g
 
 In Instance Details, provide a service name in the **URL** field. The name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. For example, if you want the endpoint to be `https://myservice.search.windows.net`, you would enter `myservice`.
 
-If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Search is in West US, then you might want other services to also be in West US. A name like `mysearchservice-westus` can save you a step when you need to know the service region.
-
 Service name requirements:
 
 * It must be unique within the search.windows.net namespace
@@ -63,13 +61,16 @@ Service name requirements:
 * Avoid dashes ("-") in the first 2 characters or as the last single character
 * No consecutive dashes ("--") anywhere
 
+> [!TIP]
+> If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Search is in West US, and you have other services also in West US, a name like `mysearchservice-westus` can save you a trip to the properties page when combing resources into a resource group.
+
 ## Select a location
 
 As an Azure service, Azure Search can be hosted in datacenters around the world. The list of supported regions can be found in the [pricing page](https://azure.microsoft.com/pricing/details/search/). 
 
-If you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), we recommend creating your Azure Search service in the same region to avoid bandwidth charges. There are no charges for outbound data when services are in the same region.
+You can minimize or avoid bandwidth charges by choosing the same location for multiple services. For example, if you are indexing data provided by another Azure service (Azure storage, Azure Cosmos DB, Azure SQL Database), creating your Azure Search service in the same region avoids bandwidth charges (there are no charges for outbound data when services are in the same region).
 
-If you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. *Co-location of Azure Search and Cognitive Services in the same region is a requirement for AI enrichment*.
+Additionally, if you are using cognitive search AI enrichments, create your service in the same region as your Cognitive Services resource. *Co-location of Azure Search and Cognitive Services in the same region is a requirement for AI enrichment*.
 
 > [!Note]
 > Central India is currently unavailable for new services. For services already in Central India, you can scale up with no restrictions, and your service is fully supported in that region. The restriction on this region is temporary and limited to new services only. We will remove this note when the restriction no longer applies.
@@ -80,7 +81,7 @@ If you are using cognitive search AI enrichments, create your service in the sam
 
 Basic and Standard are the most common choices for production workloads, but most customers start with the Free service.
 
-A pricing tier cannot be changed once the service is created. If you need a higher or lower tier later, you have to re-create the service.
+Remember that a pricing tier cannot be changed once the service is created. If you need a higher or lower tier later, you have to re-create the service.
 
 ## Create your service
 
