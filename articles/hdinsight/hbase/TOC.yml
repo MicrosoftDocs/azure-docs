@@ -25,14 +25,6 @@
     href: ../hdinsight-component-versioning.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-  - name: Troubleshoot
-    items:
-    - name: Apache HBase REST not responding
-      href: ./hbase-troubleshoot-rest-not-spending.md
-    - name: Pegged CPU on region server
-      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-    - name: Timeouts with 'hbase hbck' command
-      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
 - name: How to
   items:
   - name: Use cluster storage
@@ -167,8 +159,17 @@
     - name: OS patching for HDInsight cluster
       href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
   - name: Troubleshoot
-    href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     items:
+    - name: Troubleshoot resources  
+      href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+    - name: Apache Phoenix connectivity issues
+      href: ./hbase-troubleshoot-phoenix-connectivity.md
+    - name: Apache HBase REST not responding
+      href: ./hbase-troubleshoot-rest-not-spending.md
+    - name: Pegged CPU on region server
+      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+    - name: Timeouts with 'hbase hbck' command
+      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
     - name: Troubleshoot a slow or failing HDInsight cluster
       href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: Apache Hadoop HDFS troubleshooting
@@ -177,6 +178,12 @@
       href: apache-troubleshoot-hbase.md
     - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+    - name: Apache HBase REST not responding
+      href: ./hbase-troubleshoot-rest-not-spending.md
+    - name: Pegged CPU on region server
+      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+    - name: Timeouts with 'hbase hbck' command
+      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
     - name: Resources
       items:
       - name: Information about using HDInsight on Linux
