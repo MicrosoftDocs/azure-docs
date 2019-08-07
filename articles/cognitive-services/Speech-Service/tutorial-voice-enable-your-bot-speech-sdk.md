@@ -29,7 +29,7 @@ At the end of this exercise, you'll have set up a system that will operate as fo
 5. Optionally, higher accuracy wake word verification happens on the service
 6. The audio is passed to the speech recognition service and transcribed to text
 7. The recognized text is passed to the Echo-Bot as a Bot Framework Activity 
-8. The response text is turned in to audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback
+8. The response text is turned into audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback
 
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
