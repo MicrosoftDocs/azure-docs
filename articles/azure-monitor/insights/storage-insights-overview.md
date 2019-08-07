@@ -162,7 +162,7 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 1. Select **Column Settings** in the metrics grid.
 
-2. In the **Edit column settings** pane, select under the columns section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**, and under the drop-down list **Color palette** select **Green**.
+2. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**. Under the drop-down list **Color palette**, select **Green**.
 
 3. Select **Save and close** to commit your change.
 
@@ -182,7 +182,7 @@ In this example, we are working with the storage account capacity workbook and d
 
     ![Edit Availability by API Name grid settings](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Select **Column settings** and then the **Edit column settings** pane select under the columns section **Availability (%) (Thresholds + Formatted)**.
+5. Select **Column settings** and then in the **Edit column settings** pane, under the **Columns** section select **Availability (%) (Thresholds + Formatted)**.
 
 6. Change the value for the **Critical** health state from **90** to **85** and then click **Save and Close**.
 
