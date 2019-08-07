@@ -77,7 +77,7 @@ Triggering an eternal orchestration is no different from any other orchestration
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
 public static async Task OrchestrationTrigger(
-    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
     [OrchestrationClient] DurableOrchestrationClientBase orchestrationClient)
 {
     string myId = "StaticId";
