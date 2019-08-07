@@ -1,8 +1,7 @@
 ---
-title: Set up two-step verification - Azure Active Directory | Microsoft Docs
-description: When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up.
+title: Set up two-factor verification for your work or school account - Azure Active Directory | Microsoft Docs
+description: Learn about how to set up two-factor verification for your work or school account, the account provided to you by your organization, such as alain@contoso.com.
 services: active-directory
-keywords: how to use azure directory, active directory in the cloud, active directory tutorial
 author: eross-msft
 manager: daveba
 ms.reviewer: richagi
@@ -12,25 +11,29 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 05/15/2017
+ms.date: 08/07/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up my account for two-step verification
-Two-step verification is an additional security step that helps protect your account by making it harder for other people to break in. If you're reading this article, you probably got an email from your work or school admin about Multi-Factor Authentication. Or maybe you tried to sign in and got a message asking you to set up additional security verification. If that's the case, **you cannot sign in until you have completed the auto-enrollment process**.
+# Set up two-factor verification for your work or school account
 
-This article helps you set up your **work or school account**. If you want to enable two-step verification for your own, personal Microsoft account, see [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
+Your organization has turned on two-factor verification, meaning that your work or school account sign-in now requires a combination of your user name, your password, and a mobile device or phone. Your organization turned on this extra verification because it's more secure than just a password, relying on two forms of authentication: something you know and something you have with you. Two-factor verification can help to stop malicious hackers from pretending to be you, because even if they have your password, odds are that they don't have your device, too.
+
+>[!Important]
+>This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
+>
+>This content is also only intended for use with your work or school account, the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal Microsoft account, the account you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## Set up your account
 
-When your company support requires you to start using two-step verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
+When your company support requires you to start using two-factor verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
 
 ![Setup](./media/multi-factor-authentication-end-user-first-time/first.png)
 
 To get started, select **Set it up now.**
 
-If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options.
+If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-factor verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options.
 
 ## Decide how you want to verify your sign-ins
 
@@ -66,7 +69,7 @@ Using this method requires that you install an authenticator app on your phone o
 
 8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country/region from the drop-down list, and enter your mobile phone number in the box next to the country/region name. Select **Next**.
-10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
+10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-factor verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 11. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
 12. Click **Done**.
 
@@ -86,7 +89,7 @@ If you want to add an account to the mobile app manually, instead of using the Q
 2. Choose your country/region from the drop-down list, and enter your mobile phone number.
 3. Select the method you would prefer to use with your mobile phone - text or call.
 4. Select **Contact me** to verify your phone number. Depending on the mode you selected, we send you a text or call you. Follow the instructions provided on the screen, then select **Verify**.
-5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
+5. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-factor verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 6. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, [help with app passwords].
 7. Click **Done**.
 
@@ -96,11 +99,11 @@ If you want to add an account to the mobile app manually, instead of using the Q
     ![Setup](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. The phone number box is automatically filled with your company contact information. If the number is wrong or missing, ask your admin to make changes.
 3. Select **Contact me** to verify your phone number, and we will call your number. Follow the instructions provided on the screen, then select **Verify**.
-4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
+4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-factor verification. If you do not use these apps, click **Done** and skip the rest of the steps.
 5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](multi-factor-authentication-end-user-app-passwords.md).
 6. Click **Done**.
 
 ## Next steps
-* Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
-* Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
+* Change your preferred options and [manage your settings for two-factor verification](multi-factor-authentication-end-user-manage-settings.md)
+* Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-factor verification.
 * Check out the [Microsoft Authenticator app](user-help-auth-app-download-install.md) for fast, secure authentication even when you don't have cell service.
