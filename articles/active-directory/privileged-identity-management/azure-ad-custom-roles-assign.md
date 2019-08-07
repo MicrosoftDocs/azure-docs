@@ -23,47 +23,33 @@ ms.collection: M365-identity-device-management
 
 # Assign an Azure AD custom role in Privileged Identity Management
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. View the details here [insert link to Vince’s docs] to learn more about and create custom roles for delegated application management.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
 > Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will appear as in the built-in roles experience.
 
 ## Assign a role
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) can manage custom roles you have created in Azure AD application management:
-Assign a role
-Follow these steps to make an eligible assignment to a custom directory role.
-1.	Sign in to Azure portal with a user that is a member of the Privileged Role Administrator role.
-1.	For information about how to grant another administrator access to manage PIM, see Grant access to other administrators to manage PIM.
-1.	Open Azure AD Privileged Identity Management.
-1.	If you haven't started PIM in the Azure portal yet, go to Start using PIM.
-1.	Click Azure AD custom roles (Preview)
- 
-1.	Under Manage, click Roles to see a list of custom roles for Azure AD applications.
- 
-1.	Click Add member to open the assignment pane.
-1.	Click the Scope tab to open and select an application scope. Choose the application scope for the custom role you would like to assign
- 
-1.	Click Select a role to open the “Select a role” pane.
- 
+Privileged Identity Management (PIM) can manage custom roles you can create in Azure Active Directory (Azure AD) application management. For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md). The following steps make an eligible assignment to a custom directory role. If you haven't used Privileged Identity Management yet, get more information at [Start using PIM](pim/getting-started.md).
 
-1.	Click a role you want to assign and then click Select. The “Select a member” pane opens.
+1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user profile that is assigned to the Privileged Role administrator role.
+1. Select **Azure AD custom roles (Preview)**.
+1. Select **Roles** to see a list of custom roles for Azure AD applications.
+1. Select **Add member** to open the assignment pane.
+1. To restrict the scope of the role assignment to a single application, select **Scope** to specify an application scope.
+1. Select **Select a role** to open the **Select a role** page.
+1. Select a role you want to assign and then click **Select**. The **Select a member** pane opens.
+1. Select a user you want to assign to the role and then click **Select**. The **Membership settings** pane opens.
+1. In the Assignment type list, select **Eligible** or **Active**:
 
-1.	Click a member you want to assign to the role and then click Select.
- 
+    - *Eligible* assignments require the user assigned to the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
+    - *Active* assignments don't require the assigned user to perform any action to use the role. Users assigned as active have the privileges assigned to the role at all times.
 
-The Membership settings pane opens.
-1.	In the Assignment type list, select Eligible or Active.
- 
-PIM for Azure AD custom roles provides two distinct assignment types:
-- Eligible assignments require the member of the role to perform an action to use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
-- Active assignments don't require the member to perform any action to use the role. Members assigned as active have the privileges assigned to the role at all times.
+1. Specify whether the assignment is permanent:
+    - If the assignment should be permanent (permanently eligible or permanently assigned), select the **Permanent** check box. Depending on the role settings, the check box might not appear or might be unmodifiable.
+    - To specify a specific assignment duration, clear the **Permanent** check box and update the start and end date and time boxes.
 
-1.	If the assignment should be permanent (permanently eligible or permanently assigned), select the “Permanent” check box.
-1.	Depending on the role settings, the check box might not appear or might be unmodifiable.
-1.	To specify a specific assignment duration, clear the check box and modify the start and/or end date and time boxes.
- 
-1.	To create the new role assignment, click Save and then Add. A notification of the status is displayed.
+1. To create the new role assignment, click **Save** and then **Add**. A notification of the status is displayed.
 
 ## Next steps
 
