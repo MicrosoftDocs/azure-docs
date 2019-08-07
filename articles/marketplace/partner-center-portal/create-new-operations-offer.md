@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/07/2019
 ---
 
-# Create a new SaaS offer
+# Create a new Dynamics 365 for Operations offer
 
 To begin creating Dynamics 365 for Operations offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
