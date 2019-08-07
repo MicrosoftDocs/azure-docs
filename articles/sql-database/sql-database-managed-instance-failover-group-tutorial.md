@@ -40,24 +40,16 @@ In this step, you will create the resource group and the primary managed instanc
 1. Choose to **Create a resource** on the upper-left hand corner of the Azure portal. 
 1. Type `managed instance` in the search box and select the option for Azure SQL Managed Instance. 
 1. Select **Create** to launch the **SQL managed instance** creation page. 
-1. On the **SQL managed instance** creation page, fill out or select the following values and then select **Create** to create your primary managed instance. 
+1. On the **Create Azure SQL Database Managed Instance** page, on the **Basics** tab
+    1. Under **Project Details**, select your **Subscription** from the drop-down and then choose to **Create New** resource group. Type in a name for your resource group, such as `myResourceGroup`. 
+    1. Under **Managed Instance Details**, provide the name of your managed instance, and the region where you would like to deploy your managed instance. Be sure to select a region with a [paired region](/azure/best-practices-availability-paired-regions). Leave the **Compute + storage** at default values. 
+    1. Under **Administrator Account**, provide an admin login, such as `azureuser`, and a complex admin password. 
 
-   The following table shows the values necessary for the primary managed instance:
+    ![Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
 
-   | **Field** | Value |
-   | --- | --- |
-   | **Subscription** | The subscription where your primary managed instance was created. |
-   | **Managed instance name** | Type in a name for your primary managed instance, such as `primary-sql-mi`  | 
-   | **Managed instance admin login** | The login you want to use for your primary managed instance, such as `azureuser`. |
-   | **Password** | A complex password that will be used by the admin login for the new primary managed instance.  |
-   | **Collation** | The collation for your primary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
-   | **Location**| The region where you want your managed instance to be created.  |
-   | **Virtual network**| Create a new virtual network for your managed instance. |
-   | **Connection type**| Leave this as **Proxy (Default)** and optionally select the checkbox next to **Enable public endpoint**. |
-   | **Resource group**| Select **Create new** and then enter a name for your resource group, such as `myResourceGroup`.  |
-   | &nbsp; | &nbsp; |
+1. Leave the rest of the settings at default values, and select **Review + create** to review your managed instance settings. 
+1. Select **Create** to create your primary managed instance. 
 
-   ![Create primary MI](media/sql-database-managed-instance-failover-group-tutorial/primary-sql-mi-values.png)
 
 ## 2 - Create a virtual network
 In this step, you will create a virtual network for the secondary managed instance. This step is necessary because there is a requirement that the subnet of the primary and secondary managed instances have non-overlapping address ranges. 
@@ -102,26 +94,31 @@ To create your secondary managed instance, follow these steps:
 
 1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
 1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next page.
-1. Fill out the required fields to configure your secondary managed instance. 
+1. On the **Create Azre SQL Database Managed Instance** page, under the **Basics** tab, fill out the required fields to configure your secondary managed instance. 
 
    The following table shows the values necessary for the secondary managed instance:
  
     | **Field** | Value |
     | --- | --- |
     | **Subscription** |  The subscription where your primary managed instance is. |
+    | **Resource group**| The resource group where your primary managed instance is. |
     | **Managed instance name** | The name of your new secondary managed instance, such as `sql-mi-secondary`  | 
+    | **Region**| The [paired region](/azure/best-practices-availability-paired-regions) location for your secondary managed instance.  |
     | **Managed instance admin login** | The login you want to use for your new secondary managed instance, such as `azureuser`. |
     | **Password** | A complex password that will be used by the admin login for the new secondary managed instance.  |
-    | **Collation** | The collation for your secondary managed instance. *SQL_Latin1_General_CP1_CI_AS* is provided by default. |
-    | **Location**| The [paired region](/azure/best-practices-availability-paired-regions) location for your secondary managed instance.  |
-    | **Virtual network**| Select the virtual network that was created in section 2, such as `vnet-sql-mi-secondary`. |
-    | **Resource group**| The resource group where your primary managed instance is. |
     | &nbsp; | &nbsp; |
 
-1. Select the checkbox next to *I want to use this managed instance as an Instance Failover Group secondary*. 
-1. From the **Primary Managed Instance** drop-down, select the managed instance you want to act as the primary.
+1. Under the **Networking** tab, for the **Virtual Network**, select the virtual network you created for the secondary managed instance from the drop-down.
 
-   ![Secondary MI values](media/sql-database-managed-instance-failover-group-tutorial/secondary-sql-mi-values.png)
+   ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/networking-settings-for-secondary-mi.png)
+
+1. Under the **Additional settings** tab, for **Geo-Replication**, choose to _Use as failover secondary_. Select the primary managed instance from the drop down.
+
+   ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/secondary-mi-failover.png)
+
+1. Select **Review + create** to review the settings for your secondary managed instance. 
+1. Select **Create** to create your secondary managed instance. 
+
 
 ## 4 - Create primary virtual network gateway 
 
