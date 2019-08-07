@@ -145,6 +145,8 @@
       href: howto-data-in-replication.md
     - name: Create read replicas Azure portal
       href: howto-read-replicas-portal.md
+    - name: Create read replicas Azure CLI
+      href: howto-read-replicas-cli.md
   - name: Troubleshoot
     items:
     - name: Troubleshoot connection errors

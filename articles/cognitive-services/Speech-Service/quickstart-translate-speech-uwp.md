@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.author: erhopf
+ms.topic: quickstart
 ---
 
 # Quickstart: Translate speech with the Speech SDK for C# (UWP)

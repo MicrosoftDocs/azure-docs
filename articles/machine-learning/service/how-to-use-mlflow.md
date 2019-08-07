@@ -31,8 +31,9 @@ This article demonstrates how to enable MLflow's tracking URI and logging API, c
 
  MLflow Tracking offers metric logging and artifact storage functionalities that are only otherwise available via the [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
 
-| | MLflow Tracking & Deployment | Azure Machine Learning <br> Python SDK |  Azure Machine Learning <br> CLI | Azure portal|
-|-|-|-|-|-|-|
+
+| | MLflow Tracking & Deployment | Azure Machine Learning Python SDK |  Azure Machine Learning CLI | Azure portal|
+|---|---|---|---|---|
 | Manage workspace |   | ✓ | ✓ | ✓ |
 | Use data stores  |   | ✓ | ✓ | |
 | Log metrics      | ✓ | ✓ |   | |
@@ -46,7 +47,9 @@ This article demonstrates how to enable MLflow's tracking URI and logging API, c
 ## Prerequisites
 
 * [Install MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Install the Azure Machine Learning Python SDK on your local computer and create an Azure Machine Learning Workspace](setup-create-workspace.md#sdk). The SDK provides the connectivity for MLflow to access your workspace.
+* [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) on your local computer  The SDK provides the connectivity for MLflow to access your workspace.
+* [Create an Azure Machine Learning Workspace](how-to-manage-workspace.md).
+
 
 ## Track experiment runs
 
@@ -149,7 +152,7 @@ In the **Package** field, type azureml-mlflow and then click install. Repeat thi
 
 Once your cluster is set up, import your experiment notebook, open it and attach your cluster to it.
 
-The following code should be in your experiment notebook. This gets the details of your Azure subscription to instantiate your workspace. This assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](setup-create-workspace.md#portal). 
+The following code should be in your experiment notebook. This gets the details of your Azure subscription to instantiate your workspace. This assumes you have an existing resource group and Azure Machine Learning workspace, otherwise you can [create them](how-to-manage-workspace.md). 
 
 ```python
 import mlflow
