@@ -94,7 +94,7 @@ static void Main(string[] args)
     // replace this endpoint with the correct one for your Azure resource. 
     string endpoint = $"https://westus2.api.cognitive.microsoft.com";
     //This sample assumes you have created an environment variable for your key
-    string key = Environment.GetEnvironmentVariable("TEXTANALYTICS_SUBSCRIPTION_KEY");
+    string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
     ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
     Console.OutputEncoding = System.Text.Encoding.UTF8;
     SentimentAnalysisExample(client);

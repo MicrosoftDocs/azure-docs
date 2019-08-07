@@ -69,7 +69,9 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```javascript
+// replace this endpoint with the correct one for your Azure resource. 
 let endpoint = "https://westus.api.cognitive.microsoft.com/";
+// This sample assumes you have created an environment variable for your key
 let key = var apiKey = process.env.TEXTANALYTICS_SUBSCRIPTION_KEY;
 let credentials = new CognitiveServicesCredentials(
     key
@@ -88,9 +90,9 @@ Your app's `package.json` file will be updated with the dependencies.
 
 ## Object model
 
-The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
+The Text Analytics client is a [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics/textanalyticsclient?view=azure-node-latest) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch.
 
-Text is sent to the API as a list of `documents`, which are `dictionary` objects containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
+Text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
 
 The response object is a list containing the analysis information for each document. 
 

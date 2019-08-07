@@ -114,7 +114,9 @@ In the main function of your project, create variables for your resource's Azure
 [!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```golang
+// This sample assumes you have created an environment variable for your key
 subscriptionKey := os.Getenv("TEXT_ANALYTICS_SUBSCRIPTION_KEY")
+// replace this endpoint with the correct one for your Azure resource. 
 endpoint := "https://eastus.api.cognitive.microsoft.com"
 ```
 
@@ -122,7 +124,7 @@ endpoint := "https://eastus.api.cognitive.microsoft.com"
 
 The Text Analytics client is a [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
 
-Text is sent to the API as a list of `documents`, which are `dictionary` objects containing an `id` and a `text` attribute. The `text` attribute stores the text to be analyzed, and the `id` can be any value. 
+Text is sent to the API as a list of `documents`, which are `dictionary` objects containing a combination of `id`, `text`, and `language` attributes depending on the method used. The `text` attribute stores the text to be analyzed in the origin `language`, and the `id` can be any value. 
 
 The response object is a list containing the analysis information for each document. 
 
