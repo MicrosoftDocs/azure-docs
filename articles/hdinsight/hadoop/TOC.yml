@@ -56,6 +56,8 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: Cluster creation failures
+      href: ./hdinsight-troubleshoot-cluster-creation-fails.md
     - name: Out of disk space
       href: ./hdinsight-troubleshoot-out-disk-space.md
     - name: Soft lockup - CPU
