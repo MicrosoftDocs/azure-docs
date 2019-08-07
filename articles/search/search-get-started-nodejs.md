@@ -335,7 +335,7 @@ Add the following to **hotels_quickstart_index.json** or [download the file](htt
     }
     ```
     
-### 2 - A class for Azure Search 
+## 2 - A class for Azure Search 
 
 It's good practice to separate the specifics of a particular scenario from code that will be broadly applicable. The `AzureSearchClient` class defined in the file **AzureSearchClient.js** will know how to construct request URLs, make a request using the Fetch API, and react to the status code of the response.
 
