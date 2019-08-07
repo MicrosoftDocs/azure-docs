@@ -22,12 +22,12 @@ Use the QnA Maker client library for Node.js to:
 * Manage a knowledge base
 * Publish a knowledge base
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
+[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/qnamaker?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of [Node.js Core](https://dotnet.microsoft.com/download/dotnet-core).
+* The current version of [Node.js](https://nodejs.org).
 
 ## Setting up
 
@@ -37,31 +37,27 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After getting a key from your resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `QNAMAKER_SUBSCRIPTION_KEY`.
 
-### Create a new C# application
+### Create a new Node.js application
 
-Create a new Node.js Core application in your preferred editor or IDE. 
-
-In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `qna-maker-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
+In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app, and navigate to it. 
 
 ```console
-dotnet new console -n qna-maker-quickstart
+mkdir myapp && cd myapp
 ```
 
-Change your directory to the newly created app folder. You can build the application with:
+Run the `npm init` command to create a node application with a `package.json` file. 
 
 ```console
-dotnet build
+npm init
 ```
 
-The build output should contain no warnings or errors. 
+Create a file named `index.js` and import the following libraries:
 
-```console
-...
-Build succeeded.
- 0 Warning(s)
- 0 Error(s)
-...
-```
+[!code-nodejs[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=dependencies)]
+
+Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+[!code-nodejs[Azure resource variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=resourcekeys)]
 
 
 ### Install the SDK
