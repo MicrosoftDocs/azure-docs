@@ -1,6 +1,6 @@
 ---
 title: Runbook Output and Messages in Azure Automation
-description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
+description: Describes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
 ms.service: automation
 ms.subservice: process-automation
@@ -11,6 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 # Runbook output and messages in Azure Automation
+
 Most Azure Automation runbooks have some form of output. This output could be an error message to the user or a complex object you intend to use with another runbook. Windows PowerShell provides [multiple streams](/powershell/module/microsoft.powershell.core/about/about_redirection) to send output from a script or workflow. Azure Automation works with each of these streams differently. You should follow best practices for how to use each when you're creating a runbook.
 
 The following table provides a brief description of each of the streams and their behavior in the Azure portal for published runbooks and when [testing a runbook](automation-testing-runbook.md). Further details on each stream are provided in later sections.
@@ -36,6 +37,7 @@ $object
 ```
 
 ### Output from a function
+
 When you write to the output stream in a function that's included in your runbook, the output is passed back to the runbook. If the runbook assigns that output to a variable, then it is not written to the output stream. Writing to any other streams from within the function writes to the corresponding stream for the runbook.
 
 Consider the following sample runbook:
@@ -73,6 +75,7 @@ Verbose inside of function
 Once you've published the runbook and before you start it, you must also turn on Verbose logging in the runbook settings to get the Verbose stream output.
 
 ### Declaring output data type
+
 A workflow can specify the data type of its output using the [OutputType attribute](https://technet.microsoft.com/library/hh847785.aspx). This attribute has no effect during runtime, but it provides an indication to the runbook author at design time of the expected output of the runbook. As the toolset for runbooks continues to evolve, the importance of declaring output data types at design time increases in importance. As a result, it's a best practice to include this declaration in any runbooks that you create.
 
 Here is a list of example output types:
@@ -98,24 +101,27 @@ To declare an output type in Graphical or Graphical PowerShell Workflow runbooks
 
 In the following example, you have two graphical runbooks to demonstrate this feature. If you apply the modular runbook design model, you have one runbook, which serves as the *Authentication Runbook template* managing authentication with Azure using the Run As account. Our second runbook, which would normally perform the core logic to automate a given scenario, in this case is going to execute the *Authentication Runbook template* and display the results to your **Test** output pane. Under normal circumstances, you would have this runbook do something against a resource leveraging the output from the child runbook.
 
-Here is the basic logic of the **AuthenticateTo-Azure** runbook.<br> ![Authenticate Runbook Template Example](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
+Here is the basic logic of the **AuthenticateTo-Azure** runbook.<br> ![Authenticate Runbook Template Example](media/automation-runbook-output-and-messages/runbook-authentication-template.png).
 
-It includes the output type *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which returns the authentication profile properties.<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
+It includes the output type *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which returns the authentication profile properties.<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
 
-While this runbook is straight forward, there is one configuration item to call out here. The last activity is executing the **Write-Output** cmdlet and writes the profile data to a $_ variable using a PowerShell expression for the **Inputobject** parameter, which is required for that cmdlet.  
+While this runbook is straight forward, there is one configuration item to call out here. The last activity is executing the **Write-Output** cmdlet and writes the profile data to a $_ variable using a PowerShell expression for the **Inputobject** parameter, which is required for that cmdlet.
 
-For the second runbook in this example, named *Test-ChildOutputType*, you simply have two activities.<br> ![Example Child Output Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
+For the second runbook in this example, named *Test-ChildOutputType*, you simply have two activities.<br> ![Example Child Output Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
 
-The first activity calls the **AuthenticateTo-Azure** runbook and the second activity is running the **Write-Verbose** cmdlet with the **Data source** of **Activity output** and the value for **Field path** is **Context.Subscription.SubscriptionName**, which is specifying the context output from the **AuthenticateTo-Azure** runbook.<br> ![Write-Verbose cmdlet Parameter Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
+The first activity calls the **AuthenticateTo-Azure** runbook and the second activity is running the **Write-Verbose** cmdlet with the **Data source** of **Activity output** and the value for **Field path** is **Context.Subscription.SubscriptionName**, which is specifying the context output from the **AuthenticateTo-Azure** runbook.<br> ![Write-Verbose cmdlet Parameter Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)
 
 The resulting output is the name of the subscription.<br> ![Test-ChildOutputType Runbook Results](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-One note about the behavior of the Output Type control. When you type a value in the Output Type field on the Input and Output properties blade, you have to click outside of the control  after you type it, in order for your entry to be recognized by the control.  
+> [!NOTE]
+> After you enter a value in the **Output Type** box in the **Input and Output properties** pane, you have to click outside the control so that your entry can be recognized by the control.
 
 ## Message streams
+
 Unlike the output stream, message streams are intended to communicate information to the user. There are multiple message streams for different kinds of information, and each is handled differently by Azure Automation.
 
 ### Warning and error streams
+
 The Warning and Error streams are intended to log problems that occur in a runbook. They are written to the job history when a runbook is executed, and are included in the Test Output Pane in the Azure portal when a runbook is tested. By default, the runbook will continue executing after a warning or error. You can specify that the runbook should be suspended on a warning or error by setting a [preference variable](#preference-variables) in the runbook before creating the message. For example, to cause a runbook to suspend on an error as it would an exception, set **$ErrorActionPreference** to Stop.
 
 Create a warning or error message using the [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) or [Write-Error](https://technet.microsoft.com/library/hh849962.aspx) cmdlet. Activities may also write to these streams.
@@ -129,6 +135,7 @@ Write-Error –Message "This is an error message that will stop the runbook beca
 ```
 
 ### Verbose stream
+
 The Verbose message stream is for general information about the runbook operation. Since the [Debug Stream](#debug-stream) is not available in a runbook, verbose messages should be used for debug information. By default, verbose messages from published runbooks are not stored in the job history. To store verbose messages, configure published runbooks to Log Verbose Records on the Configure tab of the runbook in the Azure portal. In most cases, you should keep the default setting of not logging verbose records for a runbook for performance reasons. Turn on this option only to troubleshoot or debug a runbook.
 
 When [testing a runbook](automation-testing-runbook.md), verbose messages aren't displayed even if the runbook is configured to log verbose records. To display verbose messages while [testing a runbook](automation-testing-runbook.md), you must set the $VerbosePreference variable to Continue. With that variable set, verbose messages are displayed in the Test Output Pane of the Azure portal.
@@ -142,14 +149,17 @@ Write-Verbose –Message "This is a verbose message."
 ```
 
 ### Debug stream
+
 The Debug stream is intended for use with an interactive user and should not be used in runbooks.
 
 ## Progress records
+
 If you configure a runbook to log progress records (on the Configure tab of the runbook in the Azure portal), then a record will be written to the job history before and after each activity is run. In most cases, you should keep the default setting of not logging progress records for a runbook in order to maximize performance. Turn on this option only to troubleshoot or debug a runbook. When testing a runbook, progress messages are not displayed even if the runbook is configured to log progress records.
 
 The [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) cmdlet is not valid in a runbook, since this cmdlet is intended for use with an interactive user.
 
 ## Preference variables
+
 Windows PowerShell uses [preference variables](https://technet.microsoft.com/library/hh847796.aspx) to determine how to respond to data sent to different output streams. You can set these variables in a runbook to control how it responds to data sent into different streams.
 
 The following table lists the preference variables that can be used in runbooks with their valid and default values. This table only includes the values that are valid in a runbook. Additional values are valid for the preference variables when used in Windows PowerShell outside of Azure Automation.
@@ -169,10 +179,13 @@ The following table lists the behavior for the preference variable values that a
 | Stop |Logs the message and suspends the runbook. |
 
 ## <a name="runbook-output"></a>Retrieving runbook output and messages
+
 ### Azure portal
+
 You can view the details of a runbook job in the Azure portal from the Jobs tab of a runbook. The Summary of the job displays the input parameters and the [Output Stream](#output-stream) in addition to general information about the job and any exceptions if they occurred. The History includes messages from the [Output Stream](#output-stream) and [Warning and Error Streams](#warning-and-error-streams) as well as the [Verbose Stream](#verbose-stream) and [Progress Records](#progress-records) if the runbook is configured to log verbose and progress records.
 
 ### Windows PowerShell
+
 In Windows PowerShell, you can retrieve output and messages from a runbook using the [Get-AzureAutomationJobOutput](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationjoboutput) cmdlet. This cmdlet requires the ID of the job and has a parameter called Stream where you specify which stream to return. You can specify **Any** to return all streams for the job.
 
 The following example starts a sample runbook and then waits for it to complete. Once completed, its output stream is collected from the job.
@@ -195,9 +208,10 @@ Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
 # For more detailed job output, pipe the output of Get-AzAutomationJobOutput to Get-AzAutomationJobOutputRecord
 Get-AzAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
   –AutomationAccountName "MyAutomationAccount" -Id $job.JobId –Stream Any | Get-AzAutomationJobOutputRecord
-``` 
+```
 
 ### Graphical Authoring
+
 For graphical runbooks, extra logging is available in the form of activity-level tracing. There are two levels of tracing: Basic and Detailed. In Basic tracing, you can see the start and end time of each activity in the runbook plus information related to any activity retries. Some examples are, the number of attempts and start time of the activity. In Detailed tracing, you get Basic tracing plus input and output data for each activity. Currently the trace records are written using the verbose stream, so you must enable Verbose logging when you enable tracing. For graphical runbooks with tracing enabled, there's no need to log progress records. Basic tracing serves the same purpose and is more informative.
 
 ![Graphical Authoring Job Streams View](media/automation-runbook-output-and-messages/job-streams-view-blade.png)
@@ -211,22 +225,23 @@ You can see from the preceding screenshot that when you enable Verbose logging a
 3. On the Runbooks page, click to select a graphical runbook from your list of runbooks.
 4. Under **Settings**, click **Logging and tracing**.
 5. On the Logging and Tracing page, under Log verbose records, click **On** to enable verbose logging and under Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
-   
+
    ![Graphical Authoring Logging and Tracing page](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
 ### Microsoft Azure Monitor logs
+
 Automation can send runbook job status and job streams to your Log Analytics workspace. With Azure Monitor logs you can,
 
-* Get insight on your Automation jobs 
-* Trigger an email or alert based on your runbook job status (for example, failed or suspended) 
-* Write advanced queries across your job streams 
-* Correlate jobs across Automation accounts 
-* Visualize your job history over time    
+* Get insight on your Automation jobs
+* Trigger an email or alert based on your runbook job status (for example, failed or suspended)
+* Write advanced queries across your job streams
+* Correlate jobs across Automation accounts
+* Visualize your job history over time
 
 For more information on how to configure integration with Azure Monitor logs to collect, correlate and act on job data, see [Forward job status and job streams from Automation to Azure Monitor logs](automation-manage-send-joblogs-log-analytics.md).
 
 ## Next steps
+
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
 * To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
-
-
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](/powershell/scripting/overview).

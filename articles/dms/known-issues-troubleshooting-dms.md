@@ -93,7 +93,7 @@ When you try to connect to source in the Azure Database Migration service projec
 | ------------- | ------------- |
 | When using [ExpressRoute](https://azure.microsoft.com/services/expressroute/), Azure Database Migration Service [requires](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) provisioning three service endpoints on the Virtual Network subnet associated with the service:<br> -- Service Bus endpoint<br> -- Storage endpoint<br> -- Target database endpoint (e.g. SQL endpoint, Cosmos DB endpoint)<br><br><br><br><br> | [Enable](https://docs.microsoft.com/azure/dms/tutorial-sql-server-azure-sql-online) the required service endpoints for ExpressRoute connectivity between source and Azure Database Migration Service. <br><br><br><br><br><br><br><br> |
 
-## Timeout error when migrating a MySQL database to Azure MySQL
+## Timeout error when migrating a MySQL database to Azure DB for MySQL
 
 When you migrate a MySQL database to an Azure Database for MySQL instance via Azure Database Migration Service, the migration fails with following timeout error:
 
