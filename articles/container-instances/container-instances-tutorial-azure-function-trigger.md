@@ -60,9 +60,9 @@ az functionapp identity assign \
   --role contributor --scope $rgID
 ```
 
-## Update HttpTrigger function
+## Modify HttpTrigger function
 
-Update the PowerShell code for the **HttpTrigger** function to create a container group. In file `run.ps1` for the function, find the following code block. This code displays a name value, if one is passed as a query string in the function URL:
+Modify the PowerShell code for the **HttpTrigger** function to create a container group. In file `run.ps1` for the function, find the following code block. This code displays a name value, if one is passed as a query string in the function URL:
 
 ```powershell
 [...]
@@ -92,7 +92,7 @@ This example creates a container group consisting of a single container instance
  
 ## Test function app locally
 
-Ensure that the function runs properly locally before republishing the function app project to Azure. As in the [PowerShell quickstart](../azure-functions/functions-create-first-function-powershell.md), insert a local breakpoint in the PowerShell script and a `Wait-Debugger` call above it.  For debugging guidance, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
+Ensure that the function runs properly locally before republishing the function app project to Azure. As shown in the [PowerShell quickstart](../azure-functions/functions-create-first-function-powershell.md), insert a local breakpoint in the PowerShell script and a `Wait-Debugger` call above it.  For debugging guidance, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
 
 
 ## Republish Azure function app
@@ -120,7 +120,7 @@ https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0Gng
 
 ### Run function without passing a name
 
-As a first test, run the `curl` command and pass the function URL without appending a `name` query string.  
+As a first test, run the `curl` command and pass the function URL without appending a `name` query string. Make sure to include your function's unique code.
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M=="
@@ -145,7 +145,7 @@ The function returns status code 400 and the text `Please pass a name on the que
 Please pass a name on the query string or in the request body.
 ```
 
-### Run function and pass a name of a container group
+### Run function and pass the name of a container group
 
 Now run the `curl` command by appending the name of a container group (*mycontainergroup*) as a query string `&name=mycontainergroup`:
 
@@ -184,7 +184,6 @@ Sample output:
 ```console
 Hello from an Azure container instance triggered by an Azure function
 ```
-
 
 ## Clean up resources
 
