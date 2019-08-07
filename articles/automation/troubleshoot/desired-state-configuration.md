@@ -129,7 +129,7 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions fix the problem:
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
-* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md#configurationdata).
+* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck "in progress" state
 
@@ -165,7 +165,7 @@ You've used a credential in a configuration but didn’t provide proper **Config
 
 #### Resolution
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](../automation-dsc-compile.md#assets).
+* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. For more information, see [assets in Azure Automation DSC](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation).
 
 ### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
 
@@ -203,6 +203,22 @@ Customers have identified that if the /tmp location is set to noexec, the curren
 #### Resolution
 
 * Remove the noexec option from the /tmp location.
+
+### <a name="compilation-node-name-overlap"></a>Scenario: Node configuration names that overlap could result in bad release
+
+#### Issue
+
+If a single configuration script is used to generate multiple node configurations, and some of the node configurations have a name that is a subset of others, an issue in the compilation service could result in assigning the wrong configuration.  This only occurs when using a single script to generate configurations with configuration data per node, and only when the name overlap occurs at the beginning of the string.
+
+Example, if a single configuration script is used to generate configurations based on node data passed as a hashtable using cmdlets, and the node data includes a server named "server" and "1server".
+
+#### Cause
+
+Known issue with the compilation service.
+
+#### Resolution
+
+The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
 
 ## Next steps
 
