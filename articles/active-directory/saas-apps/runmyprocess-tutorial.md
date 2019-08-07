@@ -111,7 +111,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     c. In the **Logout redirect** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
-    d. In the **Name Id Format** textbox, type the value of **Name Identifier Format** as **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
+    d. In the **Name ID Format** textbox, type the value of **Name Identifier Format** as **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
     e. Open the downloaded certificate file from Azure portal in notepad, copy the content of certificate file and then paste it into the **Certificate** textbox.
 
