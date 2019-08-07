@@ -448,10 +448,10 @@
       href: ./partner-center-portal/account-migration-from-cpp-to-pc.md
   - name: Create a new offer
     items:
-    - name: Offer creation checklist
-      href: ./partner-center-portal/offer-creation-checklist.md
     - name: SaaS offers
       items:
+      - name: SaaS offer creation checklist
+        href: ./partner-center-portal/offer-creation-checklist.md
       - name: Create a SaaS offer
         href: ./partner-center-portal/create-new-saas-offer.md
       - name: SaaS metered billing
