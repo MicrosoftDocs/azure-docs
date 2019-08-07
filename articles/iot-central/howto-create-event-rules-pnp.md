@@ -57,8 +57,8 @@ Condition defines the criteria that is monitored by the rule.
 
  ![Condition](media/howto-create-event-rules-pnp/aggregate_condition_filled_out1.png)
 
-     >[!NOTE]
-     >More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
+> [!NOTE]
+> More than one event measurement can be added under **Condition**. When multiple conditions are specified, all the conditions must be met for the rule to trigger. Each condition gets joined by an 'AND' clause implicitly. When using aggregate, every measurement must be aggregated.
 
 ### Configure actions
 
@@ -70,8 +70,8 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Choose the **Email** action, enter a display name for the action, a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
-    > [!NOTE]
-    > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+ > [!NOTE]
+ > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
 
    ![Configure Action](media/howto-create-event-rules-pnp/configure_action1.png)
 
