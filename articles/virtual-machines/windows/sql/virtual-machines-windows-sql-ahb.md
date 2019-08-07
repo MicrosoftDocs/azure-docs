@@ -40,9 +40,9 @@ The license type of SQL Server is set when the VM is provisioned. You can change
 ## Prerequisites
 
 The use of the SQL VM resource provider requires the SQL Server IaaS extension. As such, you need the following:
-- An [Azure subscription](https://azure.microsoft.com/free/)
-- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) 
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) 
+- An [Azure subscription](https://azure.microsoft.com/free/).
+- [Software Assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
+- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).
 
 
 ## Change the license for VMs already registered with the resource provider 
