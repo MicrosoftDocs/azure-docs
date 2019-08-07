@@ -21,7 +21,7 @@ If you failed over a VMware virtual machine, you can fail back to the same sourc
 > [!NOTE]
 > You can only fail back to the original vCenter and Configuration server. You cannot deploy a new Configuration server and fail back using it. Also, you cannot add a new vCenter to the existing Configuration server and failback into the new vCenter.
 
-## Fail back to the original VM
+## Original Location Recovery (OLR)
 If you choose to fail back to the original virtual machine, the following conditions need to be met:
 
 * If the virtual machine is managed by a vCenter server, then the master target's ESX host should have access to the virtual machine's datastore.
@@ -32,7 +32,7 @@ If you choose to fail back to the original virtual machine, the following condit
 > [!IMPORTANT]
 > It is important to enable disk.enableUUID= TRUE so that during failback, the Azure Site Recovery service is able to identify the original VMDK on the virtual machine to which the pending changes will be written. If this value is not set to be TRUE, then the service tries to identify the corresponding on-premises VMDK on a best effort basis. If the right VMDK is not found, it creates an extra disk and the data gets written on to that.
 
-## Fail back to an alternate location
+## Alternate location recovery (ALR)
 If the on-premises virtual machine does not exist before reprotecting the virtual machine, the scenario is called an alternate location recovery. The reprotect workflow creates the on-premises virtual machine again. This will also cause a full data download.
 
 * When you fail back to an alternate location, the virtual machine is recovered to the same ESX host on which the master target server is deployed. The datastore that's used to create the disk will be the same datastore that was selected when reprotecting the virtual machine.
