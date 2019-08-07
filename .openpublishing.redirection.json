@@ -6,6 +6,11 @@
       "redirect_document_id": true
     }, 
     {
+      "source_path": "articles/machine-learning/service/setup-create-workspace.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
       "redirect_document_id": true
@@ -27735,7 +27740,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/azure/active-directory/authentication/howto-authentication-phone-sign-in.md",
+      "source_path": "articles/active-directory/authentication/howto-authentication-phone-sign-in.md",
       "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
       "redirect_document_id": true
     },

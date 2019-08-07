@@ -43,6 +43,9 @@ The default `htmlContent` of an Html marker is an SVG template with place folder
 <iframe height='500' scrolling='no' title='HTML Marker with Custom SVG Template' src='//codepen.io/azuremaps/embed/LXqMWx/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/LXqMWx/'>HTML Marker with Custom SVG Template</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+> [!TIP]
+> The Azure Maps web SDK provides several SVG image templates that can be used with HTML markers. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+
 ## Add a CSS styled HTML marker
 
 One of the benefits of HTML markers is that there are many great customizations that can be achieved using CSS. In this sample, the content of the HtmlMarker consists of HTML and CSS that create an animated pin that drops into place and pulses.
@@ -84,6 +87,9 @@ Learn more about the classes and methods used in this article:
 > [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)
 
 For more code examples to add to your maps, see the following articles:
+
+> [!div class="nextstepaction"]
+> [How to use image templates](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Add a symbol layer](./map-add-pin.md)
