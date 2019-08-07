@@ -95,7 +95,7 @@ The name of this setting is `deviceAutoDeleteProperties`
 
 ## Using SMB share as your local storage
 You can provide SMB share as your local storage path, when you deploy Windows container of this module on Windows host.
-You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows. Make sure the IoT device can read/write to the remote SMB share.
+You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows.
 
 Below are the configuration steps:
 ```PowerShell
@@ -110,10 +110,12 @@ This command will use the credentials to authenticate with the remote SMB server
 
 For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**.
 
+Make sure the user in IoT device can read/write to the remote SMB share. 
+
 ## Granting directory access to container user on Linux
 If you have used [volume mount](https://docs.docker.com/storage/volumes/) for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used [bind mount](https://docs.docker.com/storage/bind-mounts/) then these steps are required to run the service correctly.
 
-This module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
+Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
 
 If any other user is specified through **user create option**, the service is started as that **user**. 
 
