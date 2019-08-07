@@ -91,7 +91,7 @@ This example creates a container group consisting of a single container instance
  
 ## Test function app locally
 
-Ensure that the function runs properly locally before republishing the function app project to Azure. As in the [PowerShell quickstart](../azure-functions/functions-create-first-function-powershell.md), insert a local breakpoint in the PowerShell script and a `Wait-Debugger` call above it.  For debugging guidance, see [Debug PowerShell Azure Functions locally](../azure/azure-functions/functions-debug-powershell-local.md).
+Ensure that the function runs properly locally before republishing the function app project to Azure. As in the [PowerShell quickstart](../azure-functions/functions-create-first-function-powershell.md), insert a local breakpoint in the PowerShell script and a `Wait-Debugger` call above it.  For debugging guidance, see [Debug PowerShell Azure Functions locally](../azure-functions/functions-debug-powershell-local.md).
 
 
 ## Republish Azure function app
