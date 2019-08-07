@@ -32,10 +32,9 @@ cloudBlobClient = storageAccount.createCloudBlobClient();
 
 Replace the `<connection-string>` placeholder value with the connection string of your storage account.  
 
-
 ## Get the ACL of a directory
 
-Get the access permissions of a directory by calling the **CloudBlobDirectory.downloadSecurityInfo** method.
+Get the ACL of a directory by calling the **CloudBlobDirectory.downloadSecurityInfo** method.
 
 Call the **CloudBlobDirectory.getAccessControlList** method to return a collection of ACL entries.
 
@@ -44,7 +43,7 @@ This example gets the ACL of a directory named `my-directory` directory, and the
 ```java
 static void GetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
 throws URISyntaxException, StorageException{
-    
+
     CloudBlobContainer cloudBlobContainer =
     cloudBlobClient.getContainerReference(containerName);
 
@@ -52,7 +51,7 @@ throws URISyntaxException, StorageException{
     {
         CloudBlobDirectory cloudBlobDirectory =
             cloudBlobContainer.getDirectoryReference("my-directory");
-            
+
             cloudBlobDirectory.downloadSecurityInfo();
 
             if (cloudBlobDirectory != null){
@@ -78,7 +77,7 @@ This string means that the owning user has read, write, and execute permissions.
 
 ## Get the ACL of a file
 
-Get the access permissions of a file by calling the **CloudBlockBlob.downloadSecurityInfo** method.
+Get the ACL of a file by calling the **CloudBlockBlob.downloadSecurityInfo** method.
 
 Call the **CloudBlockBlob.getAccessControlList** method to return a collection of ACL entries.
 
@@ -98,9 +97,9 @@ String blobName) throws URISyntaxException, StorageException{
 
             if (cloudBlobDirectory != null){
 
-                CloudBlockBlob cloudBlockBlob = 
+                CloudBlockBlob cloudBlockBlob =
                 cloudBlobDirectory.getBlockBlobReference(blobName);
-                
+
                 cloudBlockBlob.downloadSecurityInfo();
 
                 if (cloudBlockBlob != null){
@@ -110,7 +109,7 @@ String blobName) throws URISyntaxException, StorageException{
                     for (PathAccessControlEntry entry :cloudBlockBlob.getAccessControlList()) {
                         ACL = ACL + entry.toString();
                      }
-    
+
                      System.out.println(ACL);
                 }
 
@@ -121,7 +120,9 @@ String blobName) throws URISyntaxException, StorageException{
 
 ## Set the ACL of a directory
 
-Need to get a working example of this.
+Set the ACL of a directory by setting the permission of an existing entry in the access control list or by adding a new entry to the access control list.
+
+This example gets the ACL of a directory named `my-directory` directory, and locates the entry for all users other than the owning group and owning user. Then, it modifies that entry to grant read access to those users.
 
 ```java
 static void SetDirectoryACL(CloudBlobClient cloudBlobClient, String containerName)
@@ -130,33 +131,35 @@ throws URISyntaxException, StorageException{
     CloudBlobContainer cloudBlobContainer =
     cloudBlobClient.getContainerReference(containerName);
 
+
     if (cloudBlobContainer != null)
     {
         CloudBlobDirectory cloudBlobDirectory =
             cloudBlobContainer.getDirectoryReference("my-directory");
 
-        cloudBlobDirectory.downloadSecurityInfo();
-
         if (cloudBlobDirectory != null)
         {
-            PathAccessControlEntry entry = new PathAccessControlEntry();
-            entry.setDefaultScope(true);
+            cloudBlobDirectory.downloadSecurityInfo();
+
             RolePermissions perms = new RolePermissions();
             perms.setRead(true);
-            entry.setAccessControlType(AccessControlType.OTHER);
-            entry.setPermissions(perms);
-            cloudBlobDirectory.getAccessControlList().add(entry);
+
+            for (PathAccessControlEntry entry :cloudBlobDirectory.getAccessControlList()) {
+                if (entry.getAccessControlType() == AccessControlType.OTHER){
+                    entry.setPermissions(perms);
+                }
+           }
             cloudBlobDirectory.uploadACL();
         }
-  
-    }
-
+     }
 }
 ```
 
 ## Set the ACL of a file
 
-Need to get a working example of this
+Set the ACL of a file by setting the permission of an existing entry in the access control list or by adding a new entry to the access control list.
+
+This example gets the ACL of a file, and locates the entry for all users other than the owning group and owning user. Then, it modifies that entry to grant read access to those users.
 
 ```java
 static void SetFileACL(CloudBlobClient cloudBlobClient, String containerName, String blobName)
@@ -172,22 +175,24 @@ throws URISyntaxException, StorageException{
 
         if (cloudBlobDirectory != null)
         {
-            CloudBlockBlob cloudBlockBlob = 
+            CloudBlockBlob cloudBlockBlob =
             cloudBlobDirectory.getBlockBlobReference(blobName);
 
             if (cloudBlockBlob != null){
 
                 cloudBlockBlob.downloadSecurityInfo();
-                RolePermissions otherPermission = new RolePermissions();
-                otherPermission.setRead(true);
-                PathAccessControlEntry entry = new PathAccessControlEntry();
-                entry.setAccessControlType(AccessControlType.OTHER);
-                entry.setPermissions(otherPermission);
+
+                RolePermissions perms = new RolePermissions();
+                perms.setRead(true);
+
+                for (PathAccessControlEntry entry :cloudBlockBlob.getAccessControlList()) {
+                    if (entry.getAccessControlType() == AccessControlType.OTHER){
+                        entry.setPermissions(perms);
+                    }
+                }
+
                 cloudBlockBlob.uploadACL();
-
             }
-
-
         }
      }
 }
