@@ -20,6 +20,8 @@ You also see that you are able to build out this entire pipeline using Azure pro
 
 INSERT IMAGE OF ARCHITECTURE HERE 
 
+![This is my alt-text](./media/hdinsight-sales-insights-etl/Untitled.png)
+
 ### Azure Subscription
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
