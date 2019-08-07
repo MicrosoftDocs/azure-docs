@@ -191,7 +191,15 @@
     "fileMetadata": {
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
-        "articles/virtual-machines/linux/classic/**/*": "None"
+        "articles/virtual-machines/linux/classic/**/*": "None",
+        "articles/cognitive-services/Academic-Knowledge/**/*.md": "None",
+        "articles/cognitive-services/custom-decision-service/**/*.md": "None",
+        "articles/cognitive-services/Emotion/**/*.md": "None",
+        "articles/cognitive-services/EntityLinking/**/*.md": "None",
+        "articles/cognitive-services/KES/**/*.md": "None",
+        "articles/cognitive-services/LinguisticAnalysisAPI/**/*.md": "None",
+        "articles/cognitive-services/Recommendations/**/*.md": "None",
+        "articles/cognitive-services/Web-Language-Model/**/*.md": "None"
       },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
