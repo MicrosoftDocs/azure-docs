@@ -44,9 +44,9 @@ At the end of this tutorial, you have two .NET (C#) console apps:
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
-* Visual Studio.
+* Visual Studio. This tutorial uses Visual Studio 2017.
 
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
@@ -62,7 +62,7 @@ To complete this tutorial, you need the following:
 
 In this section, you create a .NET console app that responds to a direct method called by the solution back end.
 
-1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **SimulateDeviceMethods**.
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to a new or existing solution by using the **Console Application** project template. Name the project **SimulateDeviceMethods**.
 
     ![New Visual C# Windows Classic device app](./media/iot-hub-csharp-csharp-schedule-jobs/create-device-app.png)
 
@@ -143,7 +143,7 @@ In this section, you create a .NET console app that responds to a direct method 
 
 > [!NOTE]
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
-> 
+>
 
 ## Get the IoT hub connection string
 

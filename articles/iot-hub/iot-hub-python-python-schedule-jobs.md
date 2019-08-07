@@ -50,7 +50,7 @@ At the end of this tutorial, you have two Python apps:
 
 ## Prerequisites
 
-The following are the installation instructions for the prerequisites.
+To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
