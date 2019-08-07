@@ -180,6 +180,8 @@ In this example, we are working with the storage account capacity workbook and d
 
 4. Scroll down to the bottom of the page and on the left-hand side next to the **Availability by API** grid, select **Edit**.
 
+    ![Edit Availability by API Name grid settings](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
+
 5. Select **Column settings** and then the **Edit column settings** pane select under the columns section **Availability (%) (Thresholds + Formatted)**.
 
 6. Change the value for the **Critical** health state from **90** to **85** and then click **Save and Close**.
