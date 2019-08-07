@@ -170,7 +170,7 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 ### Modify the availability threshold
 
-In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold.  By default, the tile and grid reporting percent availability are configured with a minimum value of 90 and maximum value of 99. We are going to change the minimum value of the **Availability %** in the **Availability by API** grid to 80. 
+In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold.  By default, the tile and grid reporting percent availability are configured with a minimum threshold of 90 and maximum threshold of 99. We are going to change the minimum threshold value of the **Availability %** in the **Availability by API** grid to 85%, which means the health state changes to critical if the threshold is 85 percent or less. 
 
 1. Select **Storage accounts** from the portal and then select a storage account from the list.
 
@@ -182,7 +182,9 @@ In this example, we are working with the storage account capacity workbook and d
 
 5. Select **Column settings** and then the **Edit column settings** pane select under the columns section **Availability (%) (Thresholds + Formatted)**.
 
-6. Change the value for the **<** less than operator to **80** and then click **Save and Close**.
+6. Change the value for the **Critical** health state from **90** to **85** and then click **Save and Close**.
+
+    ![Modify the availability threshold value for critical state](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)]
 
 7. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.
 
