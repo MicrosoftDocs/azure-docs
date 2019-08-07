@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add a SQL Database managed instance to a failover group"
-description: Learn to configure a failover group for your Azure SQL database managed instance. 
+description: Learn to configure a failover group for your Azure SQL Database managed instance. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -24,7 +24,7 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 
   > [!NOTE]
   > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
-  > Using failover groups with managed instances is in currently in preview. 
+  > Using failover groups with managed instances is currently in preview. 
 
 ## Prerequisites
 
@@ -112,7 +112,7 @@ To create your secondary managed instance, follow these steps:
 
    ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Under the **Additional settings** tab, for **Geo-Replication**, choose to **Yes** to _Use as failover secondary_. Select the primary managed instance from the drop down. 
+1. Under the **Additional settings** tab, for **Geo-Replication**, choose to **Yes** to _Use as failover secondary_. Select the primary managed instance from the drop-down. 
     1. Be sure that the collation and time zone matches that of the primary managed instance. The primary managed instance created in this tutorial used  the default of `SQL_Latin1_General_CP1_CI_AS` collation and the `(UTC) Coordinated Universal Time` time zone. 
 
    ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/secondary-mi-failover.png)
@@ -225,7 +225,7 @@ In this step, you will fail your failover group over to the secondary server, an
 
    ![Fail over the failover group](media/sql-database-managed-instance-failover-group-tutorial/failover-mi-failover-group.png)
 
-1. Review which manged instance is the primary and which instance is the secondary. If failover succeeded, the two instances should have switched roles. 
+1. Review which manged instance is the primary and which instance is the secondary. If fail over succeeded, the two instances should have switched roles. 
 
    ![Managed instances have switched roles after failover](media/sql-database-managed-instance-failover-group-tutorial/mi-switched-after-failover.png)
 

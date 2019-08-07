@@ -264,7 +264,7 @@ When you set up a failover group between primary and secondary managed instances
 1. The two managed instances need to be in different Azure regions.
 1. The two managed instances need to be the same service tier, and have the same storage size. 
 1. Your secondary managed instance must be empty (no user databases).
-1. The virtual networks used by the the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
+1. The virtual networks used by the managed instances need to be connected through a [VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md) or Express Route. When two virtual networks connect through an on-premises network, ensure there is no firewall rule blocking ports 5022, and 11000-11999. Global VNet Peering is not supported.
 1. The two managed instance VNets cannot have overlapping IP addresses.
 1. You need to set up your Network Security Groups (NSG) such that ports 5022 and the range 11000~12000 are open inbound and outbound for connections from the other managed instanced subnet. This is to allow replication traffic between the instances
 
