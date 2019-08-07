@@ -9,7 +9,7 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.subservice: common
+ms.subservice: blobs
 ---
 
 # Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with .NET
