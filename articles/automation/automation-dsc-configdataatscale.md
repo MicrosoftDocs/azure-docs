@@ -8,10 +8,9 @@ title:  Configuration Data At Scale
 > Applies To: Windows PowerShell 5.1
 
 Managing hundreds or thousands of servers can be a challenge.
-Customers have provided feedback that the most difficult aspect is actually managing the
-[configuration data](powershell/dsc/configurations/configdata.md)
-organizing information across logical constructs like location, type, and environment
-that presents the biggest obstacle.
+Customers have provided feedback that the most difficult aspect is actually managing
+[configuration data](powershell/dsc/configurations/configdata.md).
+Organizing information across logical constructs like location, type, and environment.
 
 A community maintained solution named
 [Datum](https://github.com/gaelcolas/Datum)
@@ -28,8 +27,8 @@ Examples would be:
 - Settings that should apply to all database servers
 - Individual server settings
 
-This information is organized in to the file format you prefer (JSON, Yaml, or PSD1)
-and then cmdlets are provided to generate configuration data files by
+This information is organized in the file format you prefer (JSON, Yaml, or PSD1).
+Then cmdlets are provided to generate configuration data files by
 [consolidating the information](https://github.com/gaelcolas/Datum#datum-tree)
 from each file in to single view of a server or server role.
 
