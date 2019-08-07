@@ -171,9 +171,9 @@ when making changes in one don't forget the other two.
 
    ![List of WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
-## CRON expressions
+## NCRONTAB expressions
 
-You can enter a [CRON expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
+You can enter a [NCRONRAB expression](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) in the portal or include a `settings.job` file at the root of your WebJob *.zip* file, as in the following example:
 
 ```json
 {
