@@ -1,5 +1,5 @@
 ---
-title: Benchmark testing for volume performance and metrics using Azure NetApp Files | Microsoft Docs
+title: Performance benchmark test recommendations for Azure NetApp Files | Microsoft Docs
 description: Provides benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
@@ -16,7 +16,7 @@ ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: b-juche
 ---
-# Benchmark testing for volume performance and metrics using Azure NetApp Files
+# Performance benchmark test recommendations for Azure NetApp Files
 
 This article provides benchmark testing recommendations for volume performance and metrics using Azure NetApp Files.
 
