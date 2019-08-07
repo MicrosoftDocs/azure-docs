@@ -32305,6 +32305,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/bing-custom-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/Bing-Entities-Search/use-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
       "redirect_document_id": false
