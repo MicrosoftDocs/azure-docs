@@ -133,9 +133,16 @@ You can configure the multi-subscription and storage account **Overview** or **C
 
 5. Select **Save as** from the command bar to save a copy of the workbook with your customizations and then click **Done editing** to return to reading mode.  
 
-### Modify metrics visualized in the workbook
+### Modify metrics and colors in the workbook
 
-The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. Perform the following steps to remove a metric, modify the availability threshold, or change color rendering. In our example, we are working with the multi-subscription and storage account capacity workbook, but you can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks. 
+The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. 
+
+In our example, we are working with the multi-subscription and storage account capacity workbook, to demonstrate how to:
+
+* Remove a metric
+* Change color rendering
+
+You can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks.
 
 1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
 
@@ -159,7 +166,11 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 3. Select **Save and close** to commit your change.
 
+### Modify the availability threshold
 
+In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold.  By default, the tile and grid reporting percent availability are configured with a minimum value of 90 and maximum value of 99. We are going to change the minimum value of the **Availability %** in the **Availability by API** grid to 80. 
+
+1. 
 
 ## Next steps
 
