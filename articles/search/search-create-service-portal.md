@@ -6,7 +6,7 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 07/09/2019
+ms.date: 08/09/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -34,11 +34,26 @@ Alternatively, [activate MSDN subscriber benefits](https://azure.microsoft.com/p
 
 ![Navigate to an Azure Search resource](./media/search-create-service-portal/find-search3.png "Navigation path to Azure Search")
 
+## Select a subscription
+
+If you have more than one subscription, choose one that also has data or file storage services. Azure Search can autodetect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via [*indexers*](search-indexer-overview.md), but only for services under the same subscription.
+
+## Select a resource group
+
+A resource group is required and is useful for managing resources all-up, including cost management. A resource group can consist of one service, or multiple services used together. For example, if you are using Azure Search to index an Azure Cosmos DB database, you could make both services part of the same resource group for management purposes. 
+
+If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Search resource.
+
+![Manage costs at the resource group level](./media/search-create-service-portal/resource-group-cost-management.png "Manage costs at the resource group level")
+
+> [!TIP]
+> Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
+
 ## Name the service and URL endpoint
 
-A service name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. Enter your service name in the **URL** field.
+In Instance Details, provide a service name in the **URL** field. The name is part of the URL endpoint against which API calls are issued: `https://your-service-name.search.windows.net`. For example, if you want the endpoint to be `https://myservice.search.windows.net`, you would enter `myservice`.
 
-For example, if you want the endpoint to be `https://my-app-name-01.search.windows.net`, you would enter `my-app-name-01`.
+If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Search is in West US, then you might want other services to also be in West US. A name like `mysearchservice-westus` can save you a step when you need to know the service region.
 
 Service name requirements:
 
@@ -47,19 +62,6 @@ Service name requirements:
 * Use lowercase letters, digits, or dashes ("-")
 * Avoid dashes ("-") in the first 2 characters or as the last single character
 * No consecutive dashes ("--") anywhere
-
-## Select a subscription
-
-If you have more than one subscription, choose one that also has data or file storage services. Azure Search can autodetect Azure Table and Blob storage, SQL Database, and Azure Cosmos DB for indexing via [*indexers*](search-indexer-overview.md), but only for services in the same subscription.
-
-## Select a resource group
-
-A resource group is a collection of Azure services and resources used together. For example, if you are using Azure Search to index a SQL database, then both services should be part of the same resource group.
-
-If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Search resource.
-
-> [!TIP]
-> Deleting a resource group also deletes the services within it. For prototype projects utilizing multiple services, putting all of them in the same resource group makes cleanup easier after the project is over.
 
 ## Select a location
 
@@ -76,13 +78,13 @@ If you are using cognitive search AI enrichments, create your service in the sam
 
 [Azure Search is currently offered in multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, or Standard. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). See [Choose a pricing tier or SKU](search-sku-tier.md) for guidance.
 
-Standard is usually chosen for production workloads, but most customers start with the Free service.
+Basic and Standard are the most common choices for production workloads, but most customers start with the Free service.
 
 A pricing tier cannot be changed once the service is created. If you need a higher or lower tier later, you have to re-create the service.
 
 ## Create your service
 
-Enter the necessary inputs to create the service. 
+After you've provided the necessary inputs, go ahead and create the service. 
 
 ![Review and create the service](./media/search-create-service-portal/new-service3.png "Review and create the service")
 
@@ -92,7 +94,7 @@ Your service is deployed within minutes, which you can monitor through Azure not
 
 ## Get a key and URL endpoint
 
-Unless you are using the portal, accessing your new service requires that you provide the URL endpoint and an authentication api-key.
+Unless you are using the portal, programmatic access to your new service requires that you provide the URL endpoint and an authentication api-key.
 
 1. In the service overview page, locate and copy the URL endpoint on the right side of the page.
 
@@ -135,7 +137,7 @@ Although most customers use just one service, service redundancy might be necess
 * For globally deployed applications, you might require an instance of Azure Search in multiple regions to minimize latency of your application’s international traffic.
 
 > [!NOTE]
-> In Azure Search, you cannot segregate indexing and querying workloads; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
+> In Azure Search, you cannot segregate indexing and querying operations; thus, you would never create multiple services for segregated workloads. An index is always queried on the service in which it was created (you cannot create an index in one service and copy it to another).
 
 A second service is not required for high availability. High availability for queries is achieved when you use 2 or more replicas in the same service. Replica updates are sequential, which means at least one is operational when a service update is rolled out. For more information about uptime, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
