@@ -7,8 +7,8 @@ title:  Convert Configurations to Composite Resources
 
 > Applies To: Windows PowerShell 5.1
 
-Once you get started authoring configurations
-you can very quickly create "scenarios" that manage
+Once you get started authoring configurations,
+you can quickly create "scenarios" that manage
 groups of settings.
 Examples would be:
 
@@ -22,7 +22,7 @@ Examples would be:
 If you are interested in sharing this work with others,
 the best option is to package the configuration as a
 [Composite Resource](powershell/dsc/resources/authoringresourcecomposite.md).
-This can be challenging if you are thinking about creating a Composite for the first time.
+Creating composite resources for the first time can be overwhelming.
 
 A community maintained solution named
 [CompositeResource](https://github.com/microsoft/compositeresource)
@@ -35,7 +35,7 @@ the configuration script on your workstation (or build server)
 so it is loaded in memory.
 Next, rather than running the configuration to generate a MOF file,
 use the function provided by the CompositeResource module to automate a conversion.
-This will load the contents of your configuration,
+The cmdlet will load the contents of your configuration,
 get the list of parameters,
 and generate a new module with everything you need.
 
@@ -61,7 +61,7 @@ to pull configurations.
 The latest update to the project has also published
 [runbooks](https://www.powershellgallery.com/packages?q=DscGallerySamples)
 for Azure Automation to automate the process of importing configurations
-from the PowerShell Gallery in to your account for use as composite resources.
+from the PowerShell Gallery.
 
 To try out automating creation of composite resources for DSC, visit the
 [PowerShell Gallery](https://www.powershellgallery.com/packages/compositeresource/)
