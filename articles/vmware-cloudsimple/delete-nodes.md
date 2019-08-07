@@ -16,10 +16,10 @@ CloudSimple nodes are metered once they are created.  Nodes must be deleted to s
 
 ## Before you begin
 
-A node can be deleted only under following conditions.
+A node can be deleted only under following conditions:
 
-* A Private Cloud created with the nodes is deleted.  To delete a Private Cloud, see [Delete an Azure VMware Solution by CloudSimple Private Cloud](delete-private-cloud.md)
-* The node has been removed from the Private Cloud by shrinking the Private Cloud.  To shrink a Private Cloud, see [Shrink Azure VMware Solution by CloudSimple Private Cloud](shrink-private-cloud.md)
+* A Private Cloud created with the nodes is deleted.  To delete a Private Cloud, see [Delete an Azure VMware Solution by CloudSimple Private Cloud](delete-private-cloud.md).
+* The node has been removed from the Private Cloud by shrinking the Private Cloud.  To shrink a Private Cloud, see [Shrink Azure VMware Solution by CloudSimple Private Cloud](shrink-private-cloud.md).
 
 
 ## Sign in to Azure
