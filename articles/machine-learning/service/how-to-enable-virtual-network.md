@@ -32,7 +32,7 @@ Create an Azure Machine Learning service [workspace](setup-create-workspace.md) 
 
 ## Storage account for your workspace
 
-To use the default Azure Storage account for the workspace in a virtual network, use the following steps:
+To use an Azure Storage account for the workspace in a virtual network, use the following steps:
 
 1. Create an experimentation compute ex. Machine Learning Compute behind a virtual network or attach an experimentation compute to the workspace ex. HDInsight cluster or virtual machine. For more information, see [Use Machine Learning Compute](#use-machine-learning-compute) and [Use a virtual machine or HDInsight cluster](#use-a-virtual-machine-or-hdinsight-cluster) sections in this document
 2. Go to the storage attached to the workspace. ![Image of the Azure portal showing Azure Storage that is attached to the Azure Machine Learning service workspace](./media/how-to-enable-virtual-network/workspace-storage.png)
