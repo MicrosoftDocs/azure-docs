@@ -62,6 +62,12 @@ While model building is automated, you can also [learn how important or relevant
 
 In every automated machine learning experiment, your data is preprocessed using the default methods and optionally through advanced preprocessing.
 
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
+
 ### Automatic preprocessing (standard)
 
 In every automated machine learning experiment, your data is automatically scaled or normalized to help algorithms perform well.  During model training, one of the following scaling or normalization techniques will be applied to each model.
