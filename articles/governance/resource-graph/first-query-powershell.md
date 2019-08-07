@@ -27,7 +27,7 @@ before you begin.
 
 To enable Azure PowerShell to query Azure Resource Graph, the module must be added. This module can
 be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or
-with the [Azure PowerShell Docker image](https://hub.docker.com/r/azuresdk/azure-powershell/).
+with the [PowerShell Docker image](https://hub.docker.com/_/microsoft-powershell).
 
 ### Base requirements
 
