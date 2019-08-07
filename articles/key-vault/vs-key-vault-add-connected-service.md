@@ -7,7 +7,7 @@ manager: jillfra
 ms.service: key-vault
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 08/07/2019
 ms.author: ghogen
 ---
 # Add Key Vault to your web application by using Visual Studio Connected Services
@@ -19,7 +19,7 @@ For details on the changes that Connected Services makes in your project to enab
 ## Prerequisites
 
 - **An Azure subscription**. If you don't have a subscription, sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-- **Visual Studio 2019 version 16.2.0 Preview 1.0** or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- **Visual Studio 2019 version 16.3 Preview 1** or later, or **Visual Studio 2017 version 15.7** with the **Web Development** workload installed. [Download it now](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 - For ASP.NET (not Core) with Visual Studio 2017, you need the .NET Framework 4.7.1 or later Development Tools, which are not installed by default. To install them, launch the Visual Studio Installer, choose **Modify**, and then choose **Individual Components**, then on the right-hand side, expand **ASP.NET and web development**, and choose **.NET Framework 4.7.1 Development Tools**.
 - An ASP.NET 4.7.1 or later, or ASP.NET Core 2.0 web project open.
 
