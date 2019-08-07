@@ -1,5 +1,10 @@
 {
   "redirections": [
+    { 
+        "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md", 
+        "redirect_url": "/azure/azure-government/documentation-government-welcome", 
+        "redirect_document_id": false 
+    },
     {
       "source_path": "articles/batch-ai/cli-samples.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/cli-samples",
