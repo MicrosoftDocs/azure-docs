@@ -18,9 +18,18 @@ You can now use the power of the Speech Services to easily voice-enable a chat b
 
 In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 
-This tutorial is designed for developers who are just starting their journey with Azure, Bot-Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed. At the end of this exercise, you'll have set up a simple system with a client app, channel service, and bot service all communicating with each other, as shown in following diagram.
+This tutorial is designed for developers who are just starting their journey with Azure, Bot-Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed. At the end of this exercise, you'll have set up a system that will operate as follows:
 
-![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
+1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
+2. Audio is recorded from the default microphone on button press (or continuously recorded if custom wake word is activated)
+3. Optionally, custom wake word detection happens, gating audio streaming to the cloud
+4. Using Speech SDK, the app connects to Direct Line Speech channel
+5. Optionally, higher accuracy wake word verification happens on the service
+6. The audio is passed to the speech recognition service and transcribed to text
+7. The recognized text is passed to the Echo-Bot
+8. The response text is turned in to audio using the Text-to-Speech (TTS) service and streamed back to the application
+
+![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
 > [!NOTE]
 > The steps in this tutorial do not require a paid service. As a new Azure user, you'll be able to use credits from your free Azure trail subscription and the free tier of Speech Services to complete this tutorial.
@@ -282,9 +291,9 @@ If your issue isn't addressed in the table, see [Voice-first virtual assistants 
 
 ### View bot activities
 
-Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech Client, you'll see timestamped logs with each activity that the client has received from the bot. When you select a log item, it will show the details of the associated activity as JSON.
+Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech Client, you'll see timestamped logs with each activity that the client has received from the bot. You can also see the activities that the client sent to the bot using the [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync)  method. When you select a log item, it will show the details of the associated activity as JSON.
 
-Here's a sample log:
+Here's a sample json of an Activity the client received:
 ```json
 {
     "attachments":[],
