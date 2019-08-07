@@ -73,31 +73,31 @@
     items:
     - name: Using Azure Storage
       href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-      - name: Using Azure Data Lake Storage Gen2
+    - name: Using Azure Data Lake Storage Gen2
       href: ../hdinsight-hadoop-use-data-lake-storage-gen2.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-      - name: Using Azure Data Lake Storage Gen1
+    - name: Using Azure Data Lake Storage Gen1
       href: ../hdinsight-hadoop-use-data-lake-store.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: Use Apache Hadoop for batch queries
-    items:
-    - name: Apache Hive with Apache Hadoop
-      href: hdinsight-use-hive.md
       items:
-      - name: Use the Spark & Hive Tools for VSCode
-        href: ../hdinsight-for-vscode.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-      - name: Use the HDInsight tools for Visual Studio
-        href: apache-hadoop-use-hive-visual-studio.md
-      - name: Use the Apache Hive View
-        href: apache-hadoop-use-hive-ambari-view.md
-      - name: Use Apache Hive Beeline
-        href: apache-hadoop-use-hive-beeline.md
-      - name: Use REST API
-        href: apache-hadoop-use-hive-curl.md
-      - name: Use Azure PowerShell
-        href: apache-hadoop-use-hive-powershell.md
-      - name: Use SDK for .NET
-        href: apache-hadoop-use-hive-dotnet-sdk.md
-    - name: Use a Java UDF with Hive
-      href: apache-hadoop-hive-java-udf.md
+      - name: Apache Hive with Apache Hadoop
+        href: hdinsight-use-hive.md
+        items:
+        - name: Use the Spark & Hive Tools for VSCode
+          href: ../hdinsight-for-vscode.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
+        - name: Use the HDInsight tools for Visual Studio
+          href: apache-hadoop-use-hive-visual-studio.md
+        - name: Use the Apache Hive View
+          href: apache-hadoop-use-hive-ambari-view.md
+        - name: Use Apache Hive Beeline
+          href: apache-hadoop-use-hive-beeline.md
+        - name: Use REST API
+          href: apache-hadoop-use-hive-curl.md
+        - name: Use Azure PowerShell
+          href: apache-hadoop-use-hive-powershell.md
+        - name: Use SDK for .NET
+          href: apache-hadoop-use-hive-dotnet-sdk.md
+        - name: Use a Java UDF with Hive
+          href: apache-hadoop-hive-java-udf.md
     - name: Use MapReduce with Apache Hadoop
       href: hdinsight-use-mapreduce.md
       items:
