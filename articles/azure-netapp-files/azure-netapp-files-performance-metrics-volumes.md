@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 08/07/2019
 ms.author: b-juche
 ---
 # Performance benchmark test recommendations for Azure NetApp Files
