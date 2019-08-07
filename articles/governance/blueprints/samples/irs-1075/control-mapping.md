@@ -56,7 +56,7 @@ Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure vi
 reducing exposure to attacks while providing easy access to connect to VMs when needed. All JIT
 requests to access virtual machines are logged in the Activity Log allowing you to monitor for
 atypical usage. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
-that helps you monitor virtual machines that can support just-in-time access but have not yet been
+that helps you monitor virtual machines that can support just-in-time access but haven't yet been
 configured.
 
 - Just-In-Time network access control should be applied on virtual machines
@@ -335,7 +335,7 @@ Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure vi
 reducing exposure to attacks while providing easy access to connect to VMs when needed. JIT virtual
 machine access helps you limit the number of external connections to your resources in Azure. This
 blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that helps you monitor
-virtual machines that can support just-in-time access but have not yet been configured.
+virtual machines that can support just-in-time access but haven't yet been configured.
 
 - Just-In-Time network access control should be applied on virtual machines
 
@@ -345,7 +345,7 @@ Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure vi
 reducing exposure to attacks while providing easy access to connect to VMs when needed. JIT virtual
 machine access helps you manage exceptions to your traffic flow policy by facilitating the access
 request and approval processes. This blueprint assigns an [Azure Policy](../../../policy/overview.md)
-definition that helps you monitor virtual machines that can support just-in-time access but have not
+definition that helps you monitor virtual machines that can support just-in-time access but haven't
 yet been configured.
 
 - Just-In-Time network access control should be applied on virtual machines
