@@ -7,7 +7,7 @@ ms.date: 01/30/2018
 ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
-ms.reviewer: cbrooksmsft
+ms.reviewer: cbrooks
 ---
 
 # Reacting to Blob storage events
