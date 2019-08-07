@@ -22,7 +22,7 @@ This article provides benchmark testing recommendations for volume performance a
 
 ## Overview
 
-To understand the performance characteristics of an Azure NetApp Files volume, you can use the open source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
+To understand the performance characteristics of an Azure NetApp Files volume, you can use the open-source tool [FIO](https://github.com/axboe/fio) to run a series of benchmarks to simulate a variety of workloads. FIO can be installed on both Linux and Windows-based operating systems.  It is an excellent tool to get a quick snapshot of both IOPS and throughput for a volume.
 
 ### VM instance sizing
 
