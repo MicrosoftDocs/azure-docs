@@ -40,7 +40,8 @@ Import the sample package to a new Unity project.
 
 If you're importing the package into an existing project, see [Unity integration](unity-integration.md) for additional steps and notes.
 
-* Note: Several errors will be displayed in the console log after importing has completed.  Continue to the next step and restart Unity.
+>[!NOTE] 
+>Several errors will be displayed in the console log after importing has completed.  Continue to the next step and restart Unity.
 
 ## Restart Unity
 The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings. Restart Unity for this setting to take effect.
@@ -50,7 +51,9 @@ You can verify this setting took effect by opening the **Player Settings**:
 ![Screenshot of Unity Player Settings panel](media/player-settings.png)  
 
 ![Screenshot of Unity Player Settings panel with .NET 4.5 selected](media/net45.png)  
-* Note: Screenshot is taken from Unity 2018.x.  Newer versions of Unity may vary.
+
+>[!NOTE]
+>Screenshot is taken from Unity 2018.x. Newer versions of Unity may vary.
 
 ## Open the Project Acoustics bake window
 Choose **Window > Acoustics** from the Unity menu:
