@@ -79,7 +79,7 @@ To add a new device template to your application, go to the **Device Templates**
 
 ### Add a device capability model
 
-There are several options for authoring a device capability model in IoT Central. You can choose to create a custom model from scratch, import from a file, select from the device catalog, or connect an IoT Plug and Play device through a device-first connection where the device capability model has been published in the global repository. In this tutorial, you import a device capability model from a file.
+There are several options for authoring a device capability model in IoT Central. You can choose to create a custom model from scratch, import from a file, select from the device catalog, or connect an IoT Plug and Play device through a device-first connection where the device capability model has been published in the public repository. In this tutorial, you import a device capability model from a file.
 
 The following steps show you how to import the capability model for an **Environmental Sensor** device. These devices send telemetry, such as temperature, to your application:
 

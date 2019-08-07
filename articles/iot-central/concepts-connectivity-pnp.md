@@ -141,8 +141,8 @@ The following steps describe this process in more detail. The steps differ sligh
 
 One of the key features of IoT Plug and Play with IoT Central is the ability to associate device templates automatically on device connection. Along with device credentials, devices can now send the **CapabilityModelId** as part of the device registration call and IoT Central will discover and associate the device template. The discovery process follows the following order:
 
-1. Associates with the Device Template if already published in the IoT Central app.
-1. Fetches from the Global Repository of Published and Certified capability models.
+1. Associates with the device template if it's already published in the IoT Central application.
+1. Fetches from the public repository of published and certified capability models.
 
 Below is the format of the additional payload the device would send during the DPS registration call
 

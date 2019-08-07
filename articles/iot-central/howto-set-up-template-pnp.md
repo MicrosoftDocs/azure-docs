@@ -38,7 +38,7 @@ As a builder, you have several options for creating device templates:
 - Design the device template in IoT Central and then implement its device capability model in your device code.
 - Import a device capability model from the [Azure Certified for IoT device catalog](https://aka.ms/iotdevcat) and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
-- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your real device to your IoT Central application using a device-first connection. IoT Central finds and imports the device capability model from the global repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
+- Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your real device to your IoT Central application using a device-first connection. IoT Central finds and imports the device capability model from the public repository for you. You can then add any cloud properties, customizations, and dashboards your IoT Central application needs to the device template.
 
 ## Create a device template from the device catalog
 
