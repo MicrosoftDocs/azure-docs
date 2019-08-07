@@ -1,5 +1,5 @@
 ---
-title: Create and manage group policy in Azure AD DS | Microsoft Docs
+title: Create and manage group policy in Azure AD Domain Services | Microsoft Docs
 description: Learn how to edit the built-in group policy objects (GPOs) and create your own custom policies in an Azure Active Directory Domain Services managed domain.
 author: iainfoulds
 manager: daveba
@@ -13,7 +13,7 @@ ms.date: 08/05/2019
 ms.author: iainfou
 
 ---
-# Administer Group Policy on an Azure AD Domain Services managed domain
+# Administer Group Policy in an Azure AD Domain Services managed domain
 
 Settings for user and computer objects in Azure Active Directory Domain Services (Azure AD DS) are often managed using Group Policy Objects (GPOs). Azure AD DS includes built-in GPOs for the *AADDC Users* and *AADDC Computers* containers. You can customize these built-in GPOs to configure Group Policy as needed for your environment. Members of the *Azure AD DC administrators* group have Group Policy administration privileges in the Azure AD DS domain, and can also create custom GPOs and organizational units (OUs). More more information on what Group Policy is and how it works, see [Group Policy overview][group-policy-overview].
 
@@ -21,7 +21,7 @@ This article shows you how to install the Group Policy Management tools, then ed
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
-## Prerequisites
+## Before you begin
 
 To complete this article, you need the following resources and privileges:
 
@@ -58,7 +58,7 @@ To create and configure Group Policy Object (GPOs), you need to install the Grou
 Default group policy objects (GPOs) exist for users and computers in an Azure AD DS managed domain. With the Group Policy Management feature installed from the previous section, let's view and edit an existing GPO. In the next section, you create a custom GPO.
 
 > [!NOTE]
-> To administer group policy on an Azure AD DS managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
+> To administer group policy in an Azure AD DS managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown, including **Group Policy Management** installed in the previous section.
 1. To open the Group Policy Management Console (GPMC), choose **Group Policy Management**.
@@ -115,7 +115,7 @@ For more information on the available Group Policy settings that you can configu
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
 [tutorial-create-management-vm]: tutorial-create-management-vm.md
-[connect-to-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
+[connect-windows-server-vm]: join-windows-vm.md#connect-to-the-windows-server-vm
 
 <!-- EXTERNAL LINKS -->
 [group-policy-overview]: /previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11)
