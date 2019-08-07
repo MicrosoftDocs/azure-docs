@@ -94,7 +94,7 @@ To create your secondary managed instance, follow these steps:
 
 1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
 1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next page.
-1. On the **Create Azurere SQL Database Managed Instance** page, under the **Basics** tab, fill out the required fields to configure your secondary managed instance. 
+1. On the **Basics** tab of the **Create Azure SQL Database Managed Instance** page, fill out the required fields to configure your secondary managed instance. 
 
    The following table shows the values necessary for the secondary managed instance:
  
@@ -112,7 +112,8 @@ To create your secondary managed instance, follow these steps:
 
    ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Under the **Additional settings** tab, for **Geo-Replication**, choose to _Use as failover secondary_. Select the primary managed instance from the drop down. Be sure that the collation and time zone matches that of the primary managed instance. The primary managed instance in this tutorial used `SQL_Latin1_General_CP1_CI_AS` collation and the `(UTC) Coordinated Universal Time` time zone. 
+1. Under the **Additional settings** tab, for **Geo-Replication**, choose to **Yes** to _Use as failover secondary_. Select the primary managed instance from the drop down. 
+    1. Be sure that the collation and time zone matches that of the primary managed instance. The primary managed instance created in this tutorial used  the default of `SQL_Latin1_General_CP1_CI_AS` collation and the `(UTC) Coordinated Universal Time` time zone. 
 
    ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/secondary-mi-failover.png)
 
@@ -125,7 +126,7 @@ To create your secondary managed instance, follow these steps:
 For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary managed instance. 
-1. Select **Subnets** under *Settings** and then select to add a new **Gateway subnet**. Leave the default values. 
+1. Select **Subnets** under **Settings** and then select to add a new **Gateway subnet**. Leave the default values. 
 
    ![Add gateway for primary managed instance](media/sql-database-managed-instance-failover-group-tutorial/add-subnet-gateway-primary-vnet.png)
 
@@ -188,10 +189,10 @@ To configure connectivity, follow these steps:
 
    ![Add connection to primary gateway](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
 
-1. Enter a name for your connection, such as `Primary-connection`, and type in a value for the **Shared Key** such as `mi1mi2psk1`. 
+1. Enter a name for your connection, such as `Primary-connection`, and type in a value for the **Shared Key** such as `mi1mi2psk`. 
 1. Select the **Second virtual network gateway** and then select the gateway for the secondary managed instance, such as `secondary-mi-gateway`. 
 
-  ![Create primary to secondary connection](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
+   ![Create primary to secondary connection](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
 
 1. Select **OK** to add your new primary-to-secondary gateway connection.
 1. Repeat these steps to create a connection from the gateway of the secondary managed instance to the gateway of the primary managed instance. 
