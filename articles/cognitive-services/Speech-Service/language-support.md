@@ -19,9 +19,9 @@ Different languages are supported for different Speech Services functions. The f
 
 ## Speech-to-text
 
-Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). Different levels of customization are available for each language.
+Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). To improve accuracy, customization is offered and the supported data types (Audio + Human-labeled Transcripts, Related Text: Sentences, Related Text:Pronunciation) are shown.  Learn more about customization [here](how-to-custom-speech-train-model.md).
 
-  Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
+  Code | Language | Audio + Human-labeled Transcripts | Related Text: Sentences | Related Text: Pronunciation
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
  ca-ES | Catalan | No | No | No
