@@ -42,7 +42,7 @@ The following diagram shows the high-level process to create a new access packag
 
 ## Start new access package
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator or Catalog owner
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -62,21 +62,20 @@ On the **Basics** tab, you give the access package a name and specify which cata
 
 1. In the **Catalog** drop-down list, select the catalog you want to create the access package in. For example, you might have a catalog owner that manages all the marketing resources that can be requested. In this case, you could select the marketing catalog.
 
-    You will only see catalogs you have permission to create access packages in. To create access package in an existing catalog, you must be at least a User administrator, catalog owner, or access package manager.
+    You will only see catalogs you have permission to create access packages in. To create an access package in an existing catalog, you must be at least a Global administrator, a User administrator, catalog owner in that catalog, or access package manager in that catalog.
 
     ![Access package - Basics](./media/entitlement-management-access-package-create/basics.png)
 
-    If you would like to create your access package in a new catalog, click **Create new**. Enter the Catalog name and description and then click **Create**.
+    If you are a Global administrator, or a User administrator, and would like to create your access package in a new catalog that's not listed, click **Create new**. Enter the Catalog name and description and then click **Create**.
 
-    The access package you are creating and any resources included in it will be added to the new catalog. Additionally, you will automatically become the first owner of the catalog. You can add additional catalog owners.
+    The access package you are creating and any resources included in it will be added to the new catalog. You can also  add additional catalog owners later.
 
-    To create a new catalog, you must be at least a User administrator or Catalog creator.
 
 1. Click **Next**.
 
 ## Resource roles
 
-On the **Resource roles** tab, you select the resources to include in the access package.
+On the **Resource roles** tab, you select the resources to include in the access package.  Users who request and receive the access package will receive all the resource roles in the access package.
 
 1. Click the resource type you want to add (**Groups**, **Applications**, or **SharePoint sites**).
 
@@ -84,11 +83,11 @@ On the **Resource roles** tab, you select the resources to include in the access
 
     ![Access package - Resource roles](./media/entitlement-management-access-package-create/resource-roles.png)
 
-    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a User administrator or Catalog creator.
+    If you are creating the access package in the General catalog or a new catalog, you will be able to pick any resource from the directory that you own. You must be at least a Global administrator, a User administrator or Catalog creator.
 
     If you are creating the access package in an existing catalog, you can select any resource that is already in the catalog without owning it.
 
-    If you are a User administrator or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pan.
+    If you are a Global administrator, a User administrator or catalog owner, you have the additional option of selecting resources you own that are not yet in the catalog. If you select resources not currently in the selected catalog, these resources will also be added to the catalog for other catalog administrators to build access packages with. If you only want to select resources that are currently in the selected catalog, check the **Only see** check box at the top of the Select pan.
 
 1. Once you have selected the resources, in the **Role** list, select the role you want users to be assigned for the resource.
 

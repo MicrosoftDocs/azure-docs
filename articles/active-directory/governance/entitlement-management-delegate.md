@@ -135,7 +135,7 @@ If you want to delegate catalog creation, you add users to the catalog creator r
 
 If you want to delegate management of a catalog or access packages in the catalog, you add users to the catalog owner or access package manager roles. Whoever creates a catalog becomes the first catalog owner. Follow these steps to assign a user to the catalog owner or access package manager role.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

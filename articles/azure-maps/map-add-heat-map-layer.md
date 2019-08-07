@@ -3,7 +3,7 @@ title: Add a heat map layer to Azure Maps | Microsoft Docs
 description: How to add a heat map layer to the Javascript map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/2/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Add a heat map layer
 
-Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data using a range of colors. They're often used to show the data "hot spots" on a map and are a great way to render large point data sets.  For example, rendering tens of thousands of points within the map view as symbols, covers most of the map area and would result in many symbols overlapping eachother, making it difficult to gain much insight into the data. However, visualizing this same data set as a heat map makes it easy to see where the point data is the densest and the relative density to other areas. There are many scenarios in which heat maps, are used. Here are few examples;
+Heat maps, also known as point density maps, are a type of data visualization used to represent the density of data using a range of colors. They're often used to show the data "hot spots" on a map and are a great way to render large point data sets.  For example, rendering tens of thousands of points within the map view as symbols, covers most of the map area and would result in many symbols overlapping each other, making it difficult to gain much insight into the data. However, visualizing this same data set as a heat map makes it easy to see where the point data is the densest and the relative density to other areas. There are many scenarios in which heat maps, are used. Here are few examples;
 
 * Temperature data is commonly rendered as heat map as it provides approximations for what the temperature between two data points.
 * Rendering data for noise sensors as a heat map not only shows the intensity of the noise where the sensor is but can also provide insights into the dissipation over a distance. The noise level at any one site may not be high, however if the noise coverage area from multiple sensors overlaps, it's possible that this overlapping area may experience higher noise levels, and thus would be visible in the heat map.
@@ -38,7 +38,7 @@ In this sample, each heat point has a radius of 10 pixels at all zoom levels. Wh
 The previous example customized the heat map by setting the radius and opacity options. The heat map layer provides several options for customization;
 
 * `radius`: Defines a pixel radius in which to render each data point. The radius can be set as a fixed number or as an expression. Using an expression, it's possible to scale the radius based on the zoom level, that appears to represent a consistent spatial area on the map (for example, 5-mile radius).
-* `color`: Specifies how the heat map is colorized. A color gradient is often used for heat maps and can be achieve with an `interpolate` expression. Using a `step` expression for colorizing the heat map breaks up the density visually into ranges that more so resembles a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value. Color values for heat maps are specified as an expression on the `heatmap-density` value. The color at index 0 in an interpolation expression or the default color of a step expression, defines the color of the area where there's no data and can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black. Here are examples of color expressions;
+* `color`: Specifies how the heat map is colorized. A color gradient is often used for heat maps and can be achieved with an `interpolate` expression. Using a `step` expression for colorizing the heat map breaks up the density visually into ranges that more so resembles a contour or radar style map. These color palettes define the colors from the minimum to the maximum density value. Color values for heat maps are specified as an expression on the `heatmap-density` value. The color at index 0 in an interpolation expression or the default color of a step expression, defines the color of the area where there's no data and can be used to define a background color. Many prefer to set this value to transparent or a semi-transparent black. Here are examples of color expressions;
 
 | Interpolation Color Expression | Stepped Color Expression | 
 |--------------------------------|--------------------------|
@@ -46,7 +46,7 @@ The previous example customized the heat map by setting the radius and opacity o
 
 * `opacity`: Specifies how opaque or transparent the heat map layer is.
 * `intensity`: Applies a multiplier to the weight of each data point to increase the overall intensity of the heatmap and helps to make the small differences in the weight of data points become easier to visualize.
-* `weight`: By default, all data points have a weight of 1, thus all data points are weighted equally. The weight option acts as a multiplier and can be set as a number or an expression. If a number is set as the weight, say 2, it would be the equivalent of placing each data point on the map twice, thus doubling the density. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. However, if an expression is used, the weight of each data point can be based on the properties of each data point. Take earthquake data as an example, each data point represents an earthquake. An important metric each earthquake data point has, is a magnitude value. Earthquakes happen all the time, but most have a low magnitude and aren't even felt. Using the magnitude value in an expression to assign the weight to each data point will allows more significant earthquakes to be better represented within the heat map.
+* `weight`: By default, all data points have a weight of 1, thus all data points are weighted equally. The weight option acts as a multiplier and can be set as a number or an expression. If a number is set as the weight, say 2, it would be the equivalent of placing each data point on the map twice, thus doubling the density. Setting the weight option to a number renders the heat map in a similar way to using the intensity option. However, if an expression is used, the weight of each data point can be based on the properties of each data point. Take earthquake data as an example, each data point represents an earthquake. An important metric each earthquake data point has, is a magnitude value. Earthquakes happen all the time, but most have a low magnitude and aren't even felt. Using the magnitude value in an expression to assign the weight to each data point will allow more significant earthquakes to be better represented within the heat map.
 * Besides the base layer options; min/max zoom, visible and filter, there's also a `source` option if you want to update the data source and `source-layer` option if your data source is a vector tile source.
 
 Here is a tool to test out the different heat map layer options.
@@ -58,7 +58,7 @@ Here is a tool to test out the different heat map layer options.
 
 ## Consistent zoomable heat map
 
-By default, the radius of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. This will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius such that it doubles with each zoom level will create a heat map that looks consistent on all zoom levels. This can be accomplished by using the `zoom` with a base 2 `exponential interpolation` expression as shown in the sample below. Zoom the map to see how the heat map scales with the zoom level.
+By default, the radii of data points rendered in the heat map layer have a fixed pixel radius for all zoom levels. As the map is zoomed the data aggregates together and the heat map layer looks different. A `zoom` expression can be used to scale the radius for each zoom level such that each data point covers the same physical area of the map. This will make the heat map layer look more static and consistent. Each zoom level of the map has twice as many pixels vertically and horizontally as the previous zoom level. Scaling the radius such that it doubles with each zoom level will create a heat map that looks consistent on all zoom levels. This can be accomplished by using the `zoom` with a base 2 `exponential interpolation` expression as shown in the sample below. Zoom the map to see how the heat map scales with the zoom level.
 
 <br/>
 

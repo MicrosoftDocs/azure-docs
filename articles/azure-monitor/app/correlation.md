@@ -79,6 +79,14 @@ It's disabled by default. To enable it, change `ApplicationInsights.config`:
 
 - Under `RequestTrackingTelemetryModule`, add the `EnableW3CHeadersExtraction` element with value set to `true`.
 - Under `DependencyTrackingTelemetryModule`, add the `EnableW3CHeadersInjection` element with value set to `true`.
+- Add `W3COperationCorrelationTelemetryInitializer` under the `TelemetryInitializers` similar to 
+
+```xml
+<TelemetryInitializers>
+  <Add Type="Microsoft.ApplicationInsights.Extensibility.W3C.W3COperationCorrelationTelemetryInitializer, Microsoft.ApplicationInsights"/>
+   ...
+</TelemetryInitializers> 
+```
 
 #### Enable W3C distributed tracing support for ASP.NET Core apps
 

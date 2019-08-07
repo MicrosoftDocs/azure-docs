@@ -32,7 +32,7 @@ ms.collection: M365-identity-device-management
 
 A catalog is a container of resources and access packages. You create a catalog when you want to group related resources and access packages. Whoever creates the catalog becomes the first catalog owner. A catalog owner can add additional catalog owners.
 
-**Prerequisite role:** User administrator or Catalog creator
+**Prerequisite role:** Global administrator, User administrator or Catalog creator
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -100,7 +100,7 @@ You can remove resources from a catalog. A resource can only be removed from a c
 
 You can edit the name and description for a catalog. Users see this information in an access package's details.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 
@@ -116,7 +116,7 @@ You can edit the name and description for a catalog. Users see this information 
 
 You can delete a catalog, but only if it does not have any access packages.
 
-**Prerequisite role:** User administrator or Catalog owner
+**Prerequisite role:** Global administrator, User administrator or Catalog owner
 
 1. In the Azure portal, click **Azure Active Directory** and then click **Identity Governance**.
 

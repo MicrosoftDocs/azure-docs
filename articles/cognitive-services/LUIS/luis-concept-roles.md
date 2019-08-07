@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 # Entity roles for contextual subtypes
@@ -49,7 +49,7 @@ Schedule the meeting from 8 to 9
 
 ## Are multiple entities in an utterance the same thing as roles? 
 
-Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates with version of the entity has a value, then a role should be used. 
+Multiple entities can exist in an utterance and can be extracted without using roles. If the context of the sentence indicates which version of the entity has a value, then a role should be used. 
 
 ### Don't use roles for duplicates without meaning
 
