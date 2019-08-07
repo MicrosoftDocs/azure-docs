@@ -21,9 +21,9 @@ In this tutorial, you create an Azure function that takes an HTTP request and tr
 You learn how to:
 
 > [!div class="checklist"]
-> * Use Visual Studio Code with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create a basic HTTP-triggered PowerShell function locally. Then, deploy it to a function app in Azure.
+> * Use Visual Studio Code with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create a basic HTTP-triggered PowerShell function.
 > * Enable an identity in the function app and give it permissions to create Azure resources.
-> * Modify and republish the PowerShell function code to automate deployment of a single-container container group.
+> * Modify and republish the PowerShell function to automate deployment of a single-container container group.
 > * Verify the HTTP-triggered deployment of the container.
 
 > [!IMPORTANT]
@@ -35,7 +35,7 @@ See [Create your first PowerShell function in Azure](../azure-functions/function
 
 Some steps in this article use the Azure CLI. You can use the Azure Cloud Shell or a local installation of the Azure CLI to complete these steps. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-## Create a simple PowerShell function
+## Create a basic PowerShell function
 
 Follow steps in [Create your first PowerShell function in Azure](../azure-functions/functions-create-first-function-powershell.md) to create a PowerShell function using the HTTP Trigger template. Use the default Azure function name **HttpTrigger**. As shown in the quckstart, test the function locally, and publish the project to a function app in Azure. This example is a basic HTTP-triggered function that returns a text string. In later steps in this article, you modify the function to create a container group.
 
@@ -65,17 +65,18 @@ az functionapp identity assign \
 Update the PowerShell code for the **HttpTrigger** function to create a container group. In file `run.ps1` for the function, find the following code block. This code displays a name value, if one is passed as a query string in the function URL:
 
 ```powershell
-...
+[...]
 if ($name) {
     $status = [HttpStatusCode]::OK
     $body = "Hello $name"
 }
-...
+[...]
 ```
 
 Replace this code with the following example block. Here, if a name value is passed in the query string, it is used to name and create a container group using the [New-AzContainerGroup][new-azcontainergroup] cmdlet. Make sure to replace the resource group name *myfunctionapp* with the name of the resource group for your function app:
 
 ```powershell
+[...]
 if ($name) {
     $status = [HttpStatusCode]::OK
     New-AzContainerGroup -ResourceGroupName myfunctionapp -Name $name `
@@ -84,7 +85,7 @@ if ($name) {
         -RestartPolicy Never
     $body = "Started container group $name"
 }
-...
+[...]
 ```
 
 This example creates a container group consisting of a single container instance running the `alpine` image. The container runs a single `echo` command and then terminates. In a real-world example, you might trigger creation of one or more container groups for running a batch job.
@@ -117,7 +118,7 @@ The function URL includes a unique code and is of the form:
 https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==
 ```
 
-### Run the function without passing a name
+### Run function without passing a name
 
 As a first test, run the `curl` command and pass the function URL without appending a `name` query string.  
 
@@ -144,9 +145,9 @@ The function returns status code 400 and the text `Please pass a name on the que
 Please pass a name on the query string or in the request body.
 ```
 
-### Test trigger and pass a name of a container group
+### Run function and pass a name of a container group
 
-Now test the trigger by appending the name of a container group (*mycontainergroup*) as a query string `&name=mycontainergroup`:
+Now run the `curl` command by appending the name of a container group (*mycontainergroup*) as a query string `&name=mycontainergroup`:
 
 ```bash
 curl --verbose "https://myfunctionapp.azurewebsites.net/api/HttpTrigger?code=bmF/GljyfFWISqO0GngDPCtCQF4meRcBiHEoaQGeRv/Srx6dRcrk2M==&name=mycontainergroup"
@@ -198,9 +199,9 @@ az group delete --name myfunctionapp
 In this tutorial, you created an Azure function that takes an HTTP request and triggers deployment of a container group. You learned how to:
 
 > [!div class="checklist"]
-> * Use Visual Studio Code with the Azure Functions extension to create a basic HTTP-triggered PowerShell function locally. Then, deploy it to a function app in Azure.
+> * Use Visual Studio Code with the Azure Functions extension to create a basic HTTP-triggered PowerShell function.
 > * Enable an identity in the function app and give it permissions to create Azure resources.
-> * Modify and republish the PowerShell function code to automate deployment of a single-container container group.
+> * Modify the PowerShell function code to automate deployment of a single-container container group.
 > * Verify the HTTP-triggered deployment of the container.
 
 For a detailed example to launch and monitor a containerized job, see the blog post [Event-Driven Serverless Containers with PowerShell Azure Functions and Azure Container Instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) and accompanying [code sample](https://github.com/anthonychu/functions-powershell-run-aci).
