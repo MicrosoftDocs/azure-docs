@@ -119,7 +119,7 @@ Perform the following steps to download the order history.
 2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. There will be two sets of log corresponding to the two nodes on a Data Box Heavy. If you scroll down to the bottom of this log, you can see the links to:
     
    - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account.
-   - **Audit logs** - contain information on power on and share access on the Data Box when it is outside of Azure datacenter.
+   - **Audit logs** - contain information on how to power on and access shares on the Data Box when it is outside of Azure datacenter.
    - **BOM files** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
 
        ```
