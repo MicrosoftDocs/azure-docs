@@ -40,6 +40,22 @@
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
+  - name: Policy templates
+    items: 
+    - name: Conditional Access policy templates
+      href: howto-conditional-access-policy-templates.md
+    - name: Require MFA for administrators
+      href: howto-conditional-access-policy-admin-mfa.md
+    - name: Require MFA for Azure management
+      href: howto-conditional-access-policy-azure-mamgement.md
+    - name: Block legacy authentication
+      href: howto-conditional-access-policy-block-legacy.md
+    - name: Risk-based Conditional Access
+      href: howto-conditional-access-policy-risk.md
+    - name: Require trusted location for MFA registration
+      href: howto-conditional-access-policy-registration.md
+    - name: Block access by location
+      href: howto-conditional-access-policy-location.md
   - name: Baseline policies
     items:
     - name: Require MFA for admins

@@ -24,7 +24,7 @@ Baseline protection policies are great but many organizations need more flexibil
 * [Require Administrators to perform multi-factor authentication](howto-conditional-access-policy-admin-mfa.md)
 * [Require multi-factor authentication when using the Azure portal, PowerShell, or the Azure CLI](howto-conditional-access-policy-azure-mamgement.md)
 * [Block legacy authentication protocols](howto-conditional-access-policy-block-legacy.md)
-* [Block risky sign-ins (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
+* [Risk-based Conditional Access (Requires Azure AD Premium P2)](howto-conditional-access-policy-risk.md)
 * [Require trusted location for security information registration](howto-conditional-access-policy-registration.md)
 * [Block access by location](howto-conditional-access-policy-location.md)
 

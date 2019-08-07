@@ -1,5 +1,5 @@
 ---
-title: Conditional Access - Risk-based multi-factor authentication
+title: Conditional Access - Risk-based Conditional Access
 description: Create a custom Conditional Access policy to 
 
 services: active-directory
@@ -15,7 +15,7 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Risk-based multi-factor authentication
+# Conditional Access: Risk-based Conditional Access
 
 Organizations with Azure AD Premium P2 licenses can create Conditional Access policies incorporating Azure AD Identity Protection risk events. There are three default policies that can be enabled out of the box. 
 
