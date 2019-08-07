@@ -51,7 +51,7 @@ To complete these tasks your account should be assigned the Virtual Machine Cont
 ## Create a Recovery Services vault
 
 1. In the Azure portal, click **+Create a resource**, and search the Marketplace for **Recovery**.
-2. Click **Backup and Site Recovery (OMS)**, and in the Backup and Site Recovery page, click **Create**. 
+2. Click **Backup and Site Recovery**, and in the Backup and Site Recovery page, click **Create**. 
 1. In **Recovery Services vault** > **Name**, enter a friendly name to identify the vault. For this set of tutorials we're using **ContosoVMVault**.
 2. In **Resource group**, select an existing resource group or create a new one. For this tutorial we're using **contosoRG**.
 3. In **Location**, select the region in which the vault should be located. We're using **West Europe**.

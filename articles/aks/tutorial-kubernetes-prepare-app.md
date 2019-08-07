@@ -101,7 +101,7 @@ Stop and remove the container instances and resources with the [docker-compose d
 docker-compose down
 ```
 
-When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-front-front*, for use with the next tutorial.
+When the local application has been removed, you have a Docker image that contains the Azure Vote application, *azure-vote-front*, for use with the next tutorial.
 
 ## Next steps
 

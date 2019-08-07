@@ -57,7 +57,7 @@ Azure Files has several built-in options for ensuring data security:
     * Clients that do not support SMB 3.0 with encryption can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. SMB clients are not allowed to communicate inter-datacenter over SMB 2.1 or SMB 3.0 without encryption.
     * Clients can communicate over File REST with either HTTP or HTTPS.
 * Encryption at-rest ([Azure Storage Service Encryption](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Storage Service Encryption (SSE) is enabled for all storage accounts. Data at-rest is encrypted with fully-managed keys. Encryption at-rest does not increase storage costs or reduce performance. 
-* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed.
+* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access to the data over unencrypted channels. Specifically, only HTTPS and SMB 3.0 with encryption connections are allowed.
 
     > [!Important]  
     > Requiring secure transfer of data will cause older SMB clients not capable of communicating with SMB 3.0 with encryption to fail. For more information, see [Mount on Windows](storage-how-to-use-files-windows.md), [Mount on Linux](storage-how-to-use-files-linux.md), and [Mount on macOS](storage-how-to-use-files-mac.md).
@@ -200,12 +200,16 @@ This section only applies to the standard file shares. All premium file shares a
 
 Standard file shares are available in all regions up to 5 TiB. In certain regions, it is available with a 100 TiB limit, those regions are listed in the following table:
 
-|Region  |Supported redundancy  |Supports existing storage accounts  |
-|---------|---------|---------|
-|Australia East     |LRS|No         |
-|SouthEast Asia     |LRS|No         |
-|West Europe     |LRS, ZRS|No         |
-|West US 2     |LRS, ZRS|No         |
+|Region |Supported redundancy |Supports existing storage accounts |Portal support*   |
+|-------|---------|---------|---------|
+|Australia East  |LRS     |No    |Yes|
+|France Central  |LRS     |No    |Not yet|
+|France South    |LRS     |No    |Not yet|
+|SouthEast Asia  |LRS, ZRS|No    |Yes|
+|West Europe     |LRS, ZRS|No    |Yes|
+|West US 2       |LRS, ZRS|No    |Yes|
+
+*For regions without portal support, you can still use PowerShell or Azure Command Line Interface (CLI) to create larger than 5 TiB shares. Altenatively, create a new share via portal without specifying quota. This will create a share with default size of 100 TiB, that can up updated later via PowerShell or Azure CLI.
 
 To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
 

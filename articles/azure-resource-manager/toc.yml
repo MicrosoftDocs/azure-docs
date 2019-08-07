@@ -13,6 +13,8 @@
     href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
   - name: Create templates - Visual Studio
     href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - name: Create templates - IntelliJ IDEA
+    href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Tutorials
   items:
   - name: Utilize template reference
@@ -85,6 +87,8 @@
     items:
     - name: Create template
       href: how-to-create-template.md
+    - name: Child resource name and type
+      href: child-resource-name-type.md
     - name: Create resource groups and resources at subscription
       displayName: subscription level deployment
       href: deploy-to-subscription.md

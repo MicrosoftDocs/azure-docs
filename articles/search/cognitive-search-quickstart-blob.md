@@ -5,10 +5,10 @@ manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.topic: quickstart
 ms.date: 07/09/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 # Quickstart: Create an AI indexing pipeline using cognitive skills in Azure Search
 
