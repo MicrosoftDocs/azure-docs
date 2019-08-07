@@ -31,7 +31,7 @@ Microsoft's current guidance on this topic can be found at the following link:
 
 No - on-premises Azure AD Password Protection is only supported in the public cloud. No date has been announced for non-public cloud availability.
 
-Although on-premises Azure AD Password Protection is not supported in non-public clouds, the Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in such clouds. These configuration changes will never have any effect since registration of on-premises forests or proxy agents is unsupported when non-public cloud credentials are used; such registration attempts will always fail.
+The Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in non-public clouds; such changes will be persisted but otherwise will never take effect. Registration of on-premises proxy agents or forests is unsupported when non-public cloud credentials are used, and any such registration attempts will always fail.
 
 **Q: How can I apply Azure AD Password Protection benefits to a subset of my on-premises users?**
 
@@ -117,15 +117,15 @@ In summary, deployment of the Azure AD Password Protection DC Agent service on t
 
 **Q: Why is custom smart lockout not working even after the agents are installed in my on-premises Active Directory environment?**
 
-Custom smart lockout is only supported in Azure. Changes to the custom smart lockout settings in the Azure management portal have no effect on the on-premises Active Directory environment, even with the agents installed.
+Custom smart lockout is only supported in Azure AD. Changes to the custom smart lockout settings in the Azure AD portal have no effect on the on-premises Active Directory environment, even with the agents installed.
 
 **Q: Is a System Center Operations Manager management pack available for Azure AD Password Protection?**
 
 No.
 
-**Q: Why is Azure still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
+**Q: Why is Azure AD still rejecting weak passwords even though I've configured the policy to be in Audit mode?**
 
-Audit mode is only supported in the on-premises Active Directory environment. Azure is implicitly always in "enforce" mode when it evaluates passwords.
+Audit mode is only supported in the on-premises Active Directory environment. Azure AD is implicitly always in "enforce" mode when it evaluates passwords.
 
 ## Additional content
 
