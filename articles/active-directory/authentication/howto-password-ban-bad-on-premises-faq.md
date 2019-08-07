@@ -31,7 +31,7 @@ Microsoft's current guidance on this topic can be found at the following link:
 
 No - on-premises Azure AD Password Protection is only supported in the public cloud. No date has been announced for non-public cloud availability.
 
-Although on-premises Azure AD Password Protection is not supported in non-public clouds, the Azure management portal will allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in such clouds. These configuration changes do not currently have any effect since registration of on-premises forests or proxy agents is unsupported when non-public cloud credentials are used; such registration attempts will always fail.
+Although on-premises Azure AD Password Protection is not supported in non-public clouds, the Azure AD portal does allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in such clouds. These configuration changes will never have any effect since registration of on-premises forests or proxy agents is unsupported when non-public cloud credentials are used; such registration attempts will always fail.
 
 **Q: How can I apply Azure AD Password Protection benefits to a subset of my on-premises users?**
 
@@ -63,7 +63,7 @@ Not supported. Azure AD Password Protection is an Azure feature that supports be
 
 **Q: How can I modify the contents of the policy at the Active Directory level?**
 
-Not supported. The policy can only be administered using the Azure AD management portal. Also see previous question.
+Not supported. The policy can only be administered using the Azure AD portal. Also see previous question.
 
 **Q: Why is DFSR required for sysvol replication?**
 
