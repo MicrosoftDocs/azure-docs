@@ -11,7 +11,7 @@ ms.topic: quickstart
 ms.date: 07/30/2019
 ms.author: laobri
 ---
-# Quickstart: Create and Query an Azure Search index in Node.js
+# Quickstart: Create an Azure Search index in Node.js
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
