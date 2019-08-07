@@ -3,7 +3,7 @@ title: Creating and using resource files - Azure Batch | Microsoft Docs
 description: Learn how to create Azure Batch resource files from various input sources.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.topic: article
@@ -34,7 +34,7 @@ Options for creating a resource file:
 
 ### Storage container URL
 
-Using a storage container URL means you can access files in any storage container in Azure. With the correct permissions
+Using a storage container URL means you can access files in any storage container in Azure with the correct permissions.
 
 In this C# example, the files have already been uploaded to an Azure storage container as blob storage. To access the data needed to create a resource file, we first need to get access to the storage container.
 
@@ -68,7 +68,7 @@ An alternative to generating a SAS URL is to enable anonymous, public read acces
 
 Instead of configuring and creating a SAS URL, you can use the name of your Azure storage container to access your blob data. The storage container used needs to in the Azure storage account that's linked to your Batch account, known as the autostorage account. Using the storage container name of an autostorage account allows you to bypass configuring and creating a SAS URL to access a storage container.
 
-In this example, we assume that the data to be used for resource file creation is already in an Azure Storage account linked to your Batch account. If you don't have an autostorage account, see the steps in [Create a Batch account](/create-a-batch-account.md) for details on how to create and link an account.
+In this example, we assume that the data to be used for resource file creation is already in an Azure Storage account linked to your Batch account. If you don't have an autostorage account, see the steps in [Create a Batch account](batch-account-create-portal.md) for details on how to create and link an account.
 
 By using a linked storage account, you don't need to create and configure a SAS URL to a storage container. Instead, provide the name of the storage container in your linked storage account.
 

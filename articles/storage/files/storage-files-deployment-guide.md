@@ -1,12 +1,11 @@
 ---
 title: How to deploy Azure Files | Microsoft Docs
 description: Learn how to deploy Azure Files from start to finish.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/22/2018
-ms.author: wgries
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -103,7 +102,7 @@ Robocopy is a well known copy tool that ships with Windows and Windows Server. R
 ### AzCopy
 AzCopy is a command-line utility designed for copying data to and from Azure Files, as well as Azure Blob storage, using simple commands with optimal performance. Using AzCopy is easy:
 
-1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Download the [latest version of AzCopy on Windows](https://aka.ms/downloadazcopy) or [Linux](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy-linux#download-and-install-azcopy).
 2. Use `azcopy` at the command line to move data to the Azure file share. The syntax on Windows is as follows: 
 
     ```

@@ -1,5 +1,5 @@
 ---
-title: Copy data to or from Azure Data Explorer using Azure Data Factory | Microsoft Docs
+title: Copy data to or from Azure Data Explorer using Azure Data Factory 
 description: Learn how to copy data to or from Azure Data Explorer by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -11,8 +11,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2019
-ms.author: orspod
+ms.date: 08/01/2019
+ms.author: orspodek
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory
@@ -34,6 +34,9 @@ The Azure Data Explorer connector allows you to do the following:
 
 ## Getting started
 
+>[!TIP]
+>For a walkthrough of using Azure Data Explorer connector, see [Copy data to/from Azure Data Explorer using Azure Data Factory](../data-explorer/data-factory-load-data.md).
+
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Azure Data Explorer connector.
@@ -54,7 +57,7 @@ The Azure Data Explorer connector uses service principal authentication. Follow 
     - **As sink**, grant at least **Database ingestor** role to your database.
 
 >[!NOTE]
->When using ADF UI to author, the operations of listing databases on linked service or listing tables on dataset may require higher privileged permission granted for the service principal. Alternatively, you can choose to manually input database name and table name. Copy activity execution works as long as the service principal is granted with proper permission to read/write data.
+>When using ADF UI to author, your login user account is used to list Azure Data Explorer clusters, databases and tables. Manually input the name if you don’t have permission for such operation.
 
 The following properties are supported for Azure Data Explorer linked service:
 
@@ -108,12 +111,13 @@ The following properties are supported:
    "name": "AzureDataExplorerDataset",
     "properties": {
         "type": "AzureDataExplorerTable",
+        "typeProperties": {
+            "table": "<table name>"
+        },
+        "schema": [],
         "linkedServiceName": {
             "referenceName": "<Azure Data Explorer linked service name>",
             "type": "LinkedServiceReference"
-        },
-        "typeProperties": {
-            "table": "<table name>"
         }
     }
 }
@@ -132,6 +136,7 @@ To copy data from Azure Data Explorer, set the **type** property in the Copy act
 | type | The **type** property of the copy activity source must be set to: **AzureDataExplorerSource** | Yes |
 | query | A read-only request given in a [KQL format](/azure/kusto/query/). Use the custom KQL query as a reference. | Yes |
 | queryTimeout | The wait time before the query request times out. Default value is 10 min (00:10:00); allowed max value is 1 hour (01:00:00). | No |
+| noTruncation | Indicates whether to truncate the returned result set. By default, result is truncated after 500,000 records or 64MB. Truncation is strongly recommended for a proper behavior of the activity. |No |
 
 >[!NOTE]
 >Azure Data Explorer source by default has a size limit of 500,000 records or 64 MB. To retrieve all the records without truncation, you can specify `set notruncation;` at the beginning of your query. Refer to [Query limits](https://docs.microsoft.com/azure/kusto/concepts/querylimits) on more details.
@@ -211,4 +216,7 @@ To copy data to Azure Data Explorer, set the type property in the copy activity 
 ```
 
 ## Next steps
-For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+
+* Learn more about [Copy data from Azure Data Factory to Azure Data Explorer](/azure/data-explorer/data-factory-load-data).

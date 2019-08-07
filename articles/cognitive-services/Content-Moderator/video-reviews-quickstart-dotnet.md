@@ -1,6 +1,6 @@
 ---
 title: Create video reviews using .NET - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: This article provides information and code samples to help you quickly get started using the Content Moderator SDK with C# to create video reviews.
 services: cognitive-services
 author: sanjeev3
@@ -172,7 +172,7 @@ Create a video review with **ContentModeratorClient.Reviews.CreateVideoReviews**
 - **Status**. Set the value to "Unpublished." If you do not set it, it defaults to "Pending", which means the video review is published and pending human review. Once a video review is published, you can no longer add video frames, a transcript, or a transcript moderation result to it.
 
 > [!NOTE]
-> **CreateVideoReviews** returns an IList<string>. Each of these strings contains an ID for a video review. These IDs are GUIDs and are not the same as the value of the **ContentId** property. 
+> **CreateVideoReviews** returns an IList\<string>. Each of these strings contains an ID for a video review. These IDs are GUIDs and are not the same as the value of the **ContentId** property. 
 
 Add the following method definition to namespace VideoReviews, class Program.
 

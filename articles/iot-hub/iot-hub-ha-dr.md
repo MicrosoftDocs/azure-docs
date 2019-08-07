@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
-ms.author: rkmanda
+ms.author: philmea
 ---
 
 # IoT Hub high availability and disaster recovery
@@ -77,8 +77,6 @@ The manual failover option is always available for use irrespective of whether t
 > - Test drills should not be performed on IoT hubs that are being used in your production environments.
 >
 > - Manual failover should not be used as a mechanism to permanently migrate your hub between the Azure geo paired regions. Doing so would cause an increased latency for the operations being performed against the hub from devices homed in the old primary region.
->
-> - Manual failover is currently in preview and is not available in the following Azure regions. East US, West US, North Europe, West Europe, Brazil South, South Central US.
 
 ### Failback
 

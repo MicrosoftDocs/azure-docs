@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ms.collection: M365-identity-device-management
 ---
@@ -52,9 +52,9 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
 >    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `AspNetCore-Quickstart`.
->    - In **Reply URL**, add `https://localhost:44321/`, and select **Register**.
+>    - In **Redirect URI**, add `https://localhost:44321/`, and select **Register**.
 > 1. Select the **Authentication** menu, and then add the following information:
->    - In **Reply URL**, add `https://localhost:44321/signin-oidc`,  and select **Register**.
+>    - In **Redirect URIs**, add `https://localhost:44321/signin-oidc`,  and select **Save**.
 >    - In the **Advanced settings** section, set **Logout URL** to `https://localhost:44321/signout-oidc`.
 >    - Under **Implicit grant**, check **ID tokens**.
 >    - Select **Save**.
@@ -70,18 +70,22 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 
 #### Step 2: Download your ASP.NET Core project
 
-- [Download the Visual Studio 2017 solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
+- [Download the Visual Studio 2019 solution](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/archive/aspnetcore2-2.zip)
 
 #### Step 3: Configure your Visual Studio project
 
 1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
-1. If you use Visual Studio 2017, open the solution in Visual Studio (optional).
-1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you just registered. 
+1. If you use Visual Studio 2019, open the solution in Visual Studio (optional).
+1. Edit the **appsettings.json** file. Find `ClientId` and update the value of `ClientId` with the **Application (client) ID** value of the application you registered. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
     "TenantId": "Enter_the_Tenant_Info_Here"
     ```
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > Where:
@@ -96,7 +100,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 
 ## More information
 
-This section gives an overview of the code required to sign-in users. This can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application.
+This section gives an overview of the code required to sign in users. This overview can be useful to understand how the code works, main arguments, and also if you want to add sign-in to an existing ASP.NET Core application.
 
 ### Startup class
 
@@ -133,9 +137,9 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-The method `AddAuthentication` configures the service to add cookie-based authentication, which is used on browser scenarios, as well as set the challenge to OpenID Connect. 
+The method `AddAuthentication` configures the service to add cookie-based authentication, which is used on browser scenarios and to set the challenge to OpenID Connect. 
 
-The line containing `.AddAzureAd` adds the Microsoft identity platform authentication to your application. It's then configured to sign-in using the Microsoft identity platform endpoint.
+The line containing `.AddAzureAd` adds the Microsoft identity platform authentication to your application. It's then configured to sign in using the Microsoft identity platform endpoint.
 
 > |Where  |  |
 > |---------|---------|
@@ -145,18 +149,23 @@ The line containing `.AddAzureAd` adds the Microsoft identity platform authentic
 
 
 > [!NOTE]
-> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer
+> Setting `ValidateIssuer = false` is a simplification for this quickstart. In real applications you need to validate the issuer.
 > See the samples to understand how to do that.
 
 ### Protect a controller or a controller's method
 
-You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user is not authenticated.
+You can protect a controller or controller methods using the `[Authorize]` attribute. This attribute restricts access to the controller or methods by only allowing authenticated users, which means that authentication challenge can be started to access the controller if the user isn't authenticated.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## Next steps
 
-Check out the GitHub repo for this ASP.NET Core tutorial for more information including instructions on how to add authentication to a brand new ASP.NET Core Web application, how to call Microsoft Graph, and other Microsoft APIs, how to call your own APIs, how to add authorization, how to sign-in users in national clouds, or with social identities and more:
+Check out the GitHub repo for this ASP.NET Core tutorial for more information including instructions on how to add authentication to a brand new ASP.NET Core Web application, how to call Microsoft Graph, and other Microsoft APIs, how to call your own APIs, how to add authorization, how to sign in users in national clouds, or with social identities and more:
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core Web App tutorial](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

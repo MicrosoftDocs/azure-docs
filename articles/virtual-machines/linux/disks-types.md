@@ -1,13 +1,11 @@
 ---
 title: Select a disk type for Azure IaaS Linux VMs - managed disks
 description: Learn about the available Azure disk types for Linux virtual machines, including ultra SSDs, premium SSDs, standard SSDs, and Standard HDDs.
-services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
-ms.date: 02/11/2019
-ms.topic: article
+ms.date: 05/10/2019
+ms.topic: conceptual
 ms.service: virtual-machines-linux
-ms.tgt_pltfrm: linux
 ms.subservice: disks
 ---
 

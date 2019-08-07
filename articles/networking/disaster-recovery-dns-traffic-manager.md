@@ -4,7 +4,7 @@ description: Overview of the disaster recovery solutions using Azure DNS and Tra
 services: dns
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
+manager: twooley
 editor: 
 tags: azure-resource-manager
 
@@ -140,6 +140,7 @@ Create a new Azure Traffic manager profile with the name contoso123 and select t
 If you have a pre-existing resource group that you want to associate with, then you can select an existing resource group, otherwise, create a new resource group.
 
 ![Create Traffic Manager profile](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+
 *Figure - Create a Traffic Manager profile*
 
 ### Step 2: Create endpoints within the Traffic Manager profile

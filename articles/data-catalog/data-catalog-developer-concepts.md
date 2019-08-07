@@ -1,13 +1,11 @@
 ---
 title: Azure Data Catalog developer concepts
 description: Introduction to the key concepts in Azure Data Catalog conceptual model, as exposed through the Catalog REST API.
-services: data-catalog
-author: markingmyname
-ms.author: maghan
-ms.assetid: 89de9137-a0a4-40d1-9f8d-625acad31619
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
+ms.date: 08/01/2019
 ---
 # Azure Data Catalog developer concepts
 Microsoft **Azure Data Catalog** is a fully managed cloud service that provides capabilities for data source discovery and for crowdsourcing data source metadata. Developers can use the service via its REST APIs. Understanding the concepts implemented in the service is important for developers to successfully integrate with **Azure Data Catalog**.
@@ -169,9 +167,9 @@ Common types can be used as the types for properties, but are not Items.
 
 <tr><td>DataSourceLocation</td><td></td><td></td><td></td></tr>
 <tr><td></td><td>protocol</td><td>string</td><td>Required. Describes a protocol used to communicate with the data source. For example: "tds" for SQl Server, "oracle" for Oracle, etc. Refer to <a href="https://docs.microsoft.com/azure/data-catalog/data-catalog-dsr">Data source reference specification - DSL Structure</a> for the list of currently supported protocols.</td></tr>
-<tr><td></td><td>address</td><td>Dictionary<string, object></td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
+<tr><td></td><td>address</td><td>Dictionary&lt;string, object&gt;</td><td>Required. Address is a set of data specific to the protocol that is used to identify the data source being referenced. The address data scoped to a particular protocol, meaning it is meaningless without knowing the protocol.</td></tr>
 <tr><td></td><td>authentication</td><td>string</td><td>Optional. The authentication scheme used to communicate with the data source. For example: windows, oauth, etc.</td></tr>
-<tr><td></td><td>connectionProperties</td><td>Dictionary<string, object></td><td>Optional. Additional information on how to connect to a data source.</td></tr>
+<tr><td></td><td>connectionProperties</td><td>Dictionary&lt;string, object&gt;</td><td>Optional. Additional information on how to connect to a data source.</td></tr>
 
 <tr><td>SecurityPrincipal</td><td></td><td></td><td>The backend does not perform any validation of provided properties against AAD during publishing.</td></tr>
 <tr><td></td><td>upn</td><td>string</td><td>Unique email address of user. Must be specified if objectId is not provided or in the context of "lastRegisteredBy" property, otherwise optional.</td></tr>

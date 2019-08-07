@@ -13,16 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/11/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
 ---
 
 # Call Microsoft Graph API from a Universal Windows Platform application (XAML)
 
 > [!div renderon="docs"]
-> [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
 This guide explains how a native Universal Windows Platform (UWP) application can request an access token and then call Microsoft Graph API. The guide also applies to other APIs that require access tokens from the Microsoft identity platform endpoint.
 
@@ -144,7 +143,7 @@ This section shows how to use MSAL to get a token for Microsoft Graph API.
         }
 
         /// <summary>
-        /// Call AcquireTokenAsync - to acquire a token requiring user to sign-in
+        /// Call AcquireTokenInteractive - to acquire a token requiring user to sign-in
         /// </summary>
         private async void CallGraphButton_Click(object sender, RoutedEventArgs e)
         {
@@ -330,8 +329,10 @@ Now you need to register your application in the Microsoft Application Registrat
    - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**.
    - Select **Register** to create the application.
 1. On the app **Overview** page, find the **Application (client) ID** value and record it for later. Go back to Visual Studio, open **MainPage.xaml.cs**, and replace the value of ClientId  with the Application ID you just registered:
-1. In the list of pages for the app, select **Authentication**:
-   - In the **Redirect URIs** | **Suggested Redirect URIs for public clients (mobile, desktop)** section, check **urn:ietf:wg:oauth:2.0:oob**
+1. In the list of pages for the app, select **Authentication**.
+   1. In the **Redirect URIs** section, in the Redirect URIs list:
+   1. In the **TYPE** column select **Public client (mobile & desktop)**.
+   1. Enter `urn:ietf:wg:oauth:2.0:oob` in the **REDIRECT URI** column.
 1. Select **Save**.
 1. In the list of pages for the app, select **API permissions**
    - Click the **Add a permission** button and then,
@@ -415,3 +416,8 @@ You enable [integrated authentication on federated domains](#enable-integrated-a
 **Workaround:** Select **Sign in with other options**. Then select **Sign in with a username and password**. Select **Provide your password**. Then go through the phone authentication process.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

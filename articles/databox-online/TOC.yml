@@ -25,6 +25,8 @@
       href: data-box-gateway-system-requirements.md
     - name: Understand limits
       href: data-box-gateway-limits.md
+    - name: Security overview
+      href: data-box-gateway-security.md
     - name: View use cases
       href: data-box-gateway-use-cases.md
   - name: How to
@@ -41,12 +43,18 @@
           href: data-box-gateway-manage-access-power-connectivity-mode.md
         - name: Via PowerShell 
           href: data-box-gateway-connect-powershell-interface.md
+    - name: Monitor
+      href: data-box-gateway-monitor.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: data-box-edge-contact-microsoft-support.md
   - name: Release notes
     items:
-    - name: General availability
-      href: data-box-gateway-release-notes.md
+      - name: 1905 - Current
+        href: data-box-gateway-1905-release-notes.md
+      - name: General availability
+        href: data-box-gateway-release-notes.md
 - name: Data Box Edge
   items:
   - name: Overview
@@ -63,8 +71,10 @@
       href: data-box-edge-deploy-connect-setup-activate.md
     - name: 4 - Add, connect to share
       href: data-box-edge-deploy-add-shares.md
-    - name: 5 - Configure compute
+    - name: 5A - Configure compute (simple)
       href: data-box-edge-deploy-configure-compute.md
+    - name: 5B - Configure compute (advanced)
+      href: data-box-edge-deploy-configure-compute-advanced.md
   - name: Concepts
     items:
     - name: Review requirements
@@ -77,24 +87,36 @@
       href: data-box-edge-technical-specifications-compliance.md
   - name: How to
     items:
-    - name: Manage compute
-      href: data-box-edge-manage-compute.md
     - name: Develop C# module
       href: data-box-edge-create-iot-edge-module.md
-    - name: Manage shares
-      href: data-box-edge-manage-shares.md
-    - name: Manage users
-      href: data-box-edge-manage-users.md
-    - name: Manage bandwidth schedules
-      href: data-box-edge-manage-bandwidth-schedules.md
-    - name: Manage power, access, connectivity
-      href: data-box-edge-manage-access-power-connectivity-mode.md
-    - name: Manage via PowerShell
-      href: data-box-edge-connect-powershell-interface.md
+    - name: Manage 
+      items:
+      - name: Edge compute
+        href: data-box-edge-manage-compute.md
+      - name: Edge compute network
+        href: data-box-edge-extend-compute-access-modules.md
+      - name: Shares
+        href: data-box-edge-manage-shares.md
+      - name: Users
+        href: data-box-edge-manage-users.md
+      - name: Bandwidth schedules
+        href: data-box-edge-manage-bandwidth-schedules.md
+      - name: Power, access, connectivity
+        href: data-box-edge-manage-access-power-connectivity-mode.md
+      - name: Via PowerShell
+        href: data-box-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: data-box-edge-contact-microsoft-support.md
+    - name: Monitor
+      href: data-box-edge-monitor.md
+    - name: Return or replace device
+      href: data-box-edge-return-device.md
   - name: Release notes
     items:
+    - name: 1905 - Current
+      href: data-box-gateway-1905-release-notes.md
     - name: General availability
       href: data-box-gateway-release-notes.md
 - name: Resources

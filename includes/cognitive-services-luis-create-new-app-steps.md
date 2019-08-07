@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 12/21/2018
+ms.date: 06/03/2019
 ms.author: diberry
 ---
 
@@ -22,4 +22,5 @@ ms.author: diberry
 
     ![Create LUIS new HumanResources app](./media/cognitive-services-luis/tutorials-create-new-app/create-app.png)
 
-1. Select **Done**. Next, the app shows the **Intents** page with the **None** Intent.
+1. Select **Done**. 
+

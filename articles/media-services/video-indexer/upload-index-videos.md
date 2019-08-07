@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/05/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
@@ -28,7 +29,7 @@ Once your video has been uploaded, Video Indexer, optionally encodes the video (
 
 - When uploading your video based on the URL (preferred) the endpoint must be secured with TLS 1.2 (or higher)
 - The upload size with the URL option is limited to 30GB
-- In most browsers, URL length is limited to 2000 characters
+- The request URL length is limited to 2048 characters
 - The upload size with the byte array option is limited to 2GB
 - The byte array option times out after 30 min
 - The URL provided in the `videoURL` param needs to be encoded
@@ -59,7 +60,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
         |---|---|
         |id|The video ID|
         |state|The video state|  
-    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
 - Person identified in video:
   - Properties
     
@@ -70,7 +71,7 @@ A URL that is used to notify the customer (using a POST request) about the follo
       |knownPersonId|The person ID that is unique within a face model|
       |personName|The name of the person|
         
-    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Example: https:\//test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
 
 #### Notes
 

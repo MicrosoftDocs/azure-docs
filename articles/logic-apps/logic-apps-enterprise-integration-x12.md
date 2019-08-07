@@ -61,11 +61,11 @@ you can create an X12 agreement by following these steps.
 4. Select **Overview**, then select the **Agreements** tile. 
    If you don't have an Agreements tile, add the tile first. 
 
-   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
+   ![Choose "Agreements" tile](./media/logic-apps-enterprise-integration-x12/agreement-1.png)
 
 5. Under **Agreements**, choose **Add**.
 
-   ![Choose "Add"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
+   ![Choose "Add"](./media/logic-apps-enterprise-integration-x12/agreement-2.png)     
 
 6. Under **Add**, enter a **Name** for your agreement. 
    For the agreement type, select **X12**. 

@@ -32,7 +32,7 @@ The [Azure Relay service](relay-what-is-it.md) facilitates your hybrid applicati
 A [namespace](relay-create-namespace-portal.md) is a scoping container that you can use to address Relay resources within your application. You must create a namespace to use Relay. This is one of the first steps in getting started.
 
 ### What happened to Service Bus Relay service?
-The previously named Service Bus Relay service is now called [WCF Relay](relay-wcf-dotnet-get-started.md). You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
+The previously named Service Bus Relay service is now called [WCF Relay](service-bus-relay-tutorial.md). You can continue to use this service as usual. The Hybrid Connections feature is an updated version of a service that's been transplanted from Azure BizTalk Services. WCF Relay and Hybrid Connections both continue to be supported.
 
 ## Pricing
 This section answers some frequently asked questions about the Relay pricing structure. You also can see the [Azure Support FAQs](https://azure.microsoft.com/support/faq/) for general Azure pricing information. For complete information about Relay pricing, see [Service Bus pricing details][Pricing overview].
@@ -102,7 +102,7 @@ To move a namespace from one Azure subscription to another subscription, you can
 
 #### Azure portal
 
-To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md#use-portal). 
+To use the Azure portal to migrate Azure Relay namespaces from one subscription to another subscription, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md#use-the-portal). 
 
 #### PowerShell
 
@@ -124,7 +124,7 @@ Move-AzResource -DestinationResourceGroupName 'targetRG' -DestinationSubscriptio
 For a description of common exceptions and suggested actions you can take, see [Relay exceptions][Relay exceptions].
 
 ### What is a shared access signature, and which languages can I use to generate a signature?
-Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node, PHP, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
+Shared Access Signatures (SAS) are an authentication mechanism based on SHA-256 secure hashes or URIs. For information about how to generate your own signatures in Node.js, PHP, Python, Java, C, and C#, see [Service Bus authentication with shared access signatures][Shared Access Signatures].
 
 ### Is it possible to whitelist relay endpoints?
 Yes. The relay client makes connections to the Azure Relay service by using fully qualified domain names. Customers can add an entry for `*.servicebus.windows.net` on firewalls that support DNS whitelisting.

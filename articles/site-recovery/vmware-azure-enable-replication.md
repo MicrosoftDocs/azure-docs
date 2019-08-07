@@ -1,11 +1,11 @@
 ---
 title: Enable replication of VMware VMs for disaster recovery to Azure with Azure Site Recovery| Microsoft Docs'
 description: This article describes how to enable VMware VMs for replication to Azure for disaster recovery by using Azure Site Recovery.
-author: mayurigupta13
+author: Rajeswari-Mamilla
 ms.service: site-recovery
-ms.date: 3/6/2019
+ms.date: 06/28/2019
 ms.topic: conceptual
-ms.author: mayg
+ms.author: ramamill
 ---
 
 # Enable replication to Azure for VMware VMs
@@ -32,22 +32,25 @@ When you're replicating VMware virtual machines, keep this information in mind:
 ## Enable replication
 
 Before you follow the steps in this section, note the following information:
-* Azure Site Recovery now replicates directly to managed disks for all new replications. The process server writes replication logs to a cache storage account in the target region. These logs are used to create recovery points in replica managed disks.
+* Azure Site Recovery now replicates directly to managed disks for all new replications. The process server writes replication logs to a cache storage account in the target region. These logs are used to create recovery points in replica managed disks that have naming convention of asrseeddisk.
+* Powershell support for replicating to managed disks is available from [Az.RecoveryServices module version 2.0.0 onwards](https://www.powershellgallery.com/packages/Az.RecoveryServices/2.0.0-preview) 
 * At the time of failover, the recovery point that you select is used to create the target-managed disk.
 * VMs that were previously configured to replicate to target storage accounts aren't affected.
 * Replication to storage accounts for a new virtual machine is only available via a Representational State Transfer (REST) API and Powershell. Use Azure REST API version 2016-08-10 or 2018-01-10 for replicating to storage accounts.
 
+Please follow below steps to Enable Replication:
 1. Go to **Step 2: Replicate application** > **Source**. After you enable replication for the first time, select **+Replicate** in the vault to enable replication for additional virtual machines.
-1. In the **Source** page > **Source**, select the configuration server.
-1. For **Machine type**, select **Virtual Machines** or **Physical Machines**.
-1. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host. This setting isn't relevant if you're replicating physical computers.
-1. Select the process server, which will be the configuration server if you haven't created any additional process servers. Then select **OK**.
+2. In the **Source** page > **Source**, select the configuration server.
+3. For **Machine type**, select **Virtual Machines** or **Physical Machines**.
+4. In **vCenter/vSphere Hypervisor**, select the vCenter server that manages the vSphere host, or select the host. This setting isn't relevant if you're replicating physical computers.
+5. Select the process server. If there are no additional process servers created, inbuilt process server of configuration server will be available in the dropdown. Health status of each process server is indicated as per recommended limits and other parameters. Choose a healthy process server. A [critical](vmware-physical-azure-monitor-process-server.md#process-server-alerts) process server cannot be chosen. You can either [troubleshoot and resolve](vmware-physical-azure-troubleshoot-process-server.md) the errors **or** set up a [scale-out process server](vmware-azure-set-up-process-server-scale.md).
+    ![Enable replication source window](media/vmware-azure-enable-replication/ps-selection.png)
 
-    ![Enable replication source window](./media/vmware-azure-enable-replication/enable-replication2.png)
+> [!NOTE]
+> From [9.24 versions](service-updates-how-to.md#links-to-currently-supported-update-rollups), additional alerts are introduced to enhance the health alerts of process server. Upgrade Site Recovery components to 9.24 versions or above for all alerts to be generated.
 
-1. For **Target**, select the subscription and resource group where you want to create the failed-over virtual machines. Choose the deployment model that you want to use in Azure for the failed-over VMs.
-
-1. Select the Azure network and subnet that the Azure VMs will connect to after failover. The network must be in the same region as the Site Recovery service vault.
+6. For **Target**, select the subscription and resource group where you want to create the failed-over virtual machines. Choose the deployment model that you want to use in Azure for the failed-over VMs.
+2. Select the Azure network and subnet that the Azure VMs will connect to after failover. The network must be in the same region as the Site Recovery service vault.
 
    Select **Configure now for selected machines** to apply the network setting to all virtual machines that you select for protection. Select **Configure later** to select the Azure network per virtual machine. If you don't have a network, you need to create one. To create a network by using Azure Resource Manager, select **Create new**. Select a subnet if applicable, and then select **OK**.
    
@@ -84,7 +87,7 @@ Next, verify the properties of the source virtual machine. Remember that the Azu
     ![Compute and network properties window](./media/vmware-azure-enable-replication/vmproperties.png)
 
     * Azure VM name: Modify the name to meet Azure requirements, if necessary.
-    * Target VM size or VM type: The default VM size is chosen based on the source VM size. You can select a different VM size based on your needs at any time before failover. Note that VM disk size is also based on source disk size, and it can only be changed after failover. Learn more about disk sizes and IOPS rates at [Scalability and performance targets for VM disks on Windows](../virtual-machines/windows/disk-scalability-targets.md).
+    * Target VM size or VM type: The default VM size is chosen based on a few parameters that include Disk count, NIC count, CPU core count, Memory and available VM role sizes in target Azure region. Azure Site Recovery picks the first available VM size which satisfies all the criteria. You can select a different VM size based on your needs at any time before failover. Note that VM disk size is also based on source disk size, and it can only be changed after failover. Learn more about disk sizes and IOPS rates at [Scalability and performance targets for VM disks on Windows](../virtual-machines/windows/disk-scalability-targets.md).
 
     *  Resource group: You can select a [resource group](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-resource-groups-guidelines), from which a virtual machine becomes a part of a post failover. You can change this setting at any time before failover. After failover, if you migrate the virtual machine to a different resource group, the protection settings for that virtual machine break.
     * Availability set: You can select an [availability set](https://docs.microsoft.com/azure/virtual-machines/windows/infrastructure-availability-sets-guidelines) if your virtual machine needs to be a part of a post failover. When you select an availability set, keep the following information in mind:

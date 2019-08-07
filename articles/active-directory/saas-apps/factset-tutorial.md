@@ -102,13 +102,13 @@ To configure Azure AD single sign-on with FactSet, perform the following steps:
     ![FactSet Domain and URLs single sign-on information](common/sp-identifier.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://login.factset.com/services/auth-test?idpid=<GUID>`
+    `https://<intendedDestinationURL>.factset.com?idpid=<GUID>`
 
     b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
     `https://login.factset.com`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [FactSet Client support team](mailto:support@factset.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact your FactSet account representative to get these values. If you don't know who your FactSet representative is, you can find help on the [FactSet support numbers page](https://www.factset.com/support-numbers). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -126,7 +126,7 @@ To configure Azure AD single sign-on with FactSet, perform the following steps:
 
 ### Configure FactSet Single Sign-On
 
-To configure single sign-on on **FactSet** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [FactSet support team](mailto:support@factset.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **FactSet** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to FactSet Support individuals you are in contact with. They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create an Azure AD test user 
 
@@ -181,7 +181,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create FactSet test user
 
-In this section, you create a user called Britta Simon in FactSet. Work with [FactSet support team](mailto:support@factset.com) to add the users in the FactSet platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in FactSet. Work with your FactSet account support representatives to add the users in the FactSet platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
@@ -195,5 +195,5 @@ When you click the FactSet tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

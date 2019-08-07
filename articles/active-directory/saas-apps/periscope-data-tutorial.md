@@ -133,7 +133,7 @@ To configure Azure AD single sign-on with Periscope Data, perform the following 
 
     d. Find the tag **SingleLogoutService** and paste the **Location** value in the **SLO URL** textbox.
 
-    e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
+    e. Copy the **Identifier** value for your instance and paste it in **Identifier (Entity ID)** textbox of **Basic SAML Configuration** section on Azure portal.
 
     f. Find the first tag of the XML file, copy the value of **entityID** and paste it in the **Issuer** textbox.
 
@@ -232,5 +232,5 @@ When you click the Periscope Data tile in the Access Panel, you should be automa
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

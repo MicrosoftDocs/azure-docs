@@ -4,7 +4,7 @@ description: Get answers to frequently asked questions about virtual machine sca
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: mayanknayar
-manager: jeconnoc
+manager: drewm
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2019
+ms.date: 05/24/2019
 ms.author: manayar
 ms.custom: na
 
@@ -26,13 +26,13 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 
 ## Top frequently asked questions for scale sets
 
-**Q.** How many VMs can I have in a scale set?
+### How many VMs can I have in a scale set?
 
-**A.** A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
+A scale set can have 0 to 1,000 VMs based on platform images, or 0 to 600 VMs based on custom images.
 
-**Q.** Are data disks supported within scale sets?
+### Are data disks supported within scale sets?
 
-**A.** Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
+Yes. A scale set can define an attached data disks configuration that applies to all VMs in the set. For more information, see [Azure scale sets and attached data disks](virtual-machine-scale-sets-attached-disks.md). Other options for storing data include:
 
 * Azure files (SMB shared drives)
 * OS drive
@@ -40,33 +40,33 @@ Get answers to frequently asked questions about virtual machine scale sets in Az
 * Azure data service (for example, Azure tables, Azure blobs)
 * External data service (for example, remote database)
 
-**Q.** Which Azure regions support scale sets?
+### Which Azure regions support scale sets?
 
-**A.** All regions support scale sets.
+All regions support scale sets.
 
-**Q.** How do I create a scale set by using a custom image?
+### How do I create a scale set by using a custom image?
 
-**A.** Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
+Create and capture a VM image, then use that as the source for your scale set. For a tutorial on how to create and use a custom VM image, you can use the [Azure CLI](tutorial-use-custom-image-cli.md) or [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
-**Q.** If I reduce my scale set capacity from 20 to 15, which VMs are removed?
+### If I reduce my scale set capacity from 20 to 15, which VMs are removed?
 
-**A.** Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
+Virtual machines are removed from the scale set evenly across update domains and fault domains to maximize availability. VMs with the highest IDs are removed first.
 
-**Q.** What if I then increase the capacity from 15 to 18?
+### What if I then increase the capacity from 15 to 18?
 
-**A.** If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
+If you increase capacity to 18, then 3 new VMs are created. Each time, the VM instance ID is incremented from the previous highest value (for example, 20, 21, 22). VMs are balanced across fault domains and update domains.
 
-**Q.** When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
+### When I'm using multiple extensions in a scale set, can I enforce an execution sequence?
 
-**A.** Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
+Yes, you can use scale set [extension sequencing](virtual-machine-scale-sets-extension-sequencing.md).
 
-**Q.** Do scale sets work with Azure availability sets?
+### Do scale sets work with Azure availability sets?
 
-**A.** A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
+A regional (non-zonal) scale set uses *placement groups*, which act as an implicit availability set with five fault domains and five update domains. Scale sets of more than 100 VMs span multiple placement groups. For more information about placement groups, see [Working with large virtual machine scale sets](virtual-machine-scale-sets-placement-groups.md). An availability set of VMs can exist in the same virtual network as a scale set of VMs. A common configuration is to put control node VMs (which often require unique configuration) in an availability set and put data nodes in the scale set.
 
-**Q.** Do scale sets work with Azure availability zones?
+### Do scale sets work with Azure availability zones?
 
-**A.** Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
+Yes! For more information, see the [scale set zone doc](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## Autoscale
@@ -137,7 +137,7 @@ No. If autoscale rules require additional VM instances as part of a scale set, a
 
 ## Certificates
 
-### How do I securely ship a certificate to the VM? How do I provision a virtual machine scale set to run a website where the SSL for the website is shipped securely from a certificate configuration? (The common certificate rotation operation would be almost the same as a configuration update operation.) Do you have an example of how to do this?
+### How do I securely ship a certificate to the VM?
 
 To securely ship a certificate to the VM, you can install a customer certificate directly into a Windows certificate store from the customer's key vault.
 
@@ -164,16 +164,14 @@ The code supports Windows and Linux.
 For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/mt589035.aspx).
 
 
-### Example of Self-signed certificates provisioned for Azure Service Fabric Clusters.
+### How do I use self-signed certificates provisioned for Azure Service Fabric Clusters?
 For the latest example use the following azure CLI statement within azure shell, read Service Fabrics CLI module Example documentation, which will be printed to stdout:
 
 ```bash
 az sf cluster create -h
 ```
 
-Please review keyvaults documentation for the latest API supported certificate operations in Azure.
-
-Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
+Self-signed certificates can not be used for distributed trust provided by a Certificate Authority, and should not be used for any Service Fabric Cluster intended to host enterprise production solutions; for additional Service Fabric Security guidance, review [Azure Service Fabric Security Best Practices](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices) and [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/).
 
 ### Can I specify an SSH key pair to use for SSH authentication with a Linux virtual machine scale set from a Resource Manager template?
 
@@ -199,9 +197,7 @@ Include **osProfile** in your template:
 }
 ```
 
-This JSON block is used in [the 101-vm-sshkey GitHub quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
-
-The OS profile also is used in [the grelayhost.json GitHub quickstart template](https://github.com/ExchMaster/gadgetron/blob/master/Gadgetron/Templates/grelayhost.json).
+This JSON block is used in [this Azure quickstart template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-vm-sshkey/azuredeploy.json).
 
 For more information, see [Create or update a virtual machine scale set](https://msdn.microsoft.com/library/azure/mt589035.aspx#linuxconfiguration).
 
@@ -209,9 +205,9 @@ For more information, see [Create or update a virtual machine scale set](https:/
 
 To remove deprecated certificates, remove the old certificate from the vault certificates list. Leave all the certificates that you want to remain on your computer in the list. This does not remove the certificate from all your VMs. It also does not add the certificate to new VMs that are created in the virtual machine scale set.
 
-To remove the certificate from existing VMs, write a custom script extension to manually remove the certificates from your certificate store.
+To remove the certificate from existing VMs, use a custom script extension to manually remove the certificates from your certificate store.
 
-### How do I inject an existing SSH public key into the virtual machine scale set SSH layer during provisioning? I want to store the SSH public key values in Azure Key Vault, and then use them in my Resource Manager template.
+### How do I inject an existing SSH public key into the virtual machine scale set SSH layer during provisioning?
 
 If you are providing the VMs only with a public SSH key, you don't need to put the public keys in Key Vault. Public keys are not secret.
 
@@ -231,7 +227,7 @@ You can provide SSH public keys in plain text when you create a Linux VM:
 ```
 
 linuxConfiguration element name | Required | Type | Description
---- | --- | --- | --- 
+--- | --- | --- | ---
 ssh | No | Collection | Specifies the SSH key configuration for a Linux OS
 path | Yes | String | Specifies the Linux file path where the SSH keys or certificate should be located
 keyData | Yes | String | Specifies a base64-encoded SSH public key
@@ -300,16 +296,6 @@ The CRP component does not persist customer secrets. If you run `stop deallocate
 
 You don't encounter this problem when scaling out because there is a cached copy of the secret in Azure Service Fabric (in the single-fabric tenant model).
 
-### Why do I have to specify the exact location for the certificate URL (https:\/\/\<name of the vault>.vault.azure.net:443/secrets/\<exact location>), as indicated in [Service Fabric cluster security scenarios](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security/)?
-
-The Azure Key Vault documentation states that the Get Secret REST API should return the latest version of the secret if the version is not specified.
-
-Method | URL
---- | ---
-GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
-
-Replace {*secret-name*} with the name, and replace {*secret-version*} with the version of the secret you want to retrieve. The secret version might be excluded. In that case, the current version is retrieved.
-
 ### Why do I have to specify the certificate version when I use Key Vault?
 
 The purpose of the Key Vault requirement to specify the certificate version is to make it clear to the user what certificate is deployed on their VMs.
@@ -322,7 +308,7 @@ To deploy .cer public keys to a virtual machine scale set, you can generate a .p
 
 For more information, see [X509Certificate.Export Method (X509ContentType, String)](https://msdn.microsoft.com/library/24ww6yzk(v=vs.110.aspx)).
 
-### I do not see an option for users to pass in certificates as base64 strings. Most other resource providers have this option.
+### How do I pass in certificates as base64 strings?
 
 To emulate passing in a certificate as a base64 string, you can extract the latest versioned URL in a Resource Manager template. Include the following JSON property in your Resource Manager template:
 
@@ -352,7 +338,7 @@ For more information, see [the Microsoft Trust Center](https://www.microsoft.com
 
 ### Does [managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/msi-overview) work with virtual machine scale sets?
 
-Yes. You can see some example MSI templates in Azure Quickstart templates. Linux: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi). Windows: [https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
+Yes. You can see some example MSI templates in Azure Quickstart templates for [Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi) and [Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-msi).
 
 
 ## Extensions
@@ -375,46 +361,19 @@ You can find the extensionName value in `$vmss`.
 
 For a virtual machine scale set template example that integrates with Azure Monitor logs, see the second example in [Deploy an Azure Service Fabric cluster and enable monitoring by using Azure Monitor logs](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
-### Extensions seem to run in parallel on virtual machine scale sets. This causes my custom script extension to fail. What can I do to fix this?
-
-To learn about extension sequencing in virtual machine scale sets, see [Extension sequencing in Azure virtual machine scale sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
-
-### How do I reset the password for VMs in my virtual machine scale set?
-
-There are two main ways to change the password for VMs in scale sets.
-
-- Change the virtual machine scale set model directly. Available with Compute API 2017-12-01 and later.
-
-    Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
-
-- Reset the password using the VM access extensions.
-
-    Use the following PowerShell example:
-
-    ```powershell
-    $vmssName = "myvmss"
-    $vmssResourceGroup = "myvmssrg"
-    $publicConfig = @{"UserName" = "newuser"}
-    $privateConfig = @{"Password" = "********"}
-
-    $extName = "VMAccessAgent"
-    $publisher = "Microsoft.Compute"
-    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
-    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
-    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
-    ```
-
 ### How do I add an extension to all VMs in my virtual machine scale set?
 
 If update policy is set to **automatic**, redeploying the template with the new extension properties updates all VMs.
 
 If update policy is set to **manual**, first update the extension, and then manually update all instances in your VMs.
 
-### If the extensions associated with an existing virtual machine scale set are updated, are existing VMs affected? (That is, will the VMs *not* match the virtual machine scale set model?) Or are they ignored? When an existing machine is service-healed or reimaged, are the scripts that are currently configured on the virtual machine scale set executed, or are the scripts that were configured when the VM was first created used?
+### If the extensions associated with an existing virtual machine scale set are updated, are existing VMs affected?
 
 If the extension definition in the virtual machine scale set model is updated and the upgradePolicy property is set to **automatic**, it updates the VMs. If the upgradePolicy property is set to **manual**, extensions are flagged as not matching the model.
 
-If an existing VM is service-healed, it appears as a reboot, and the extensions are not rerun. If it is reimaged, it's like replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run.
+### Are extensions run again when an existing machine is service-healed or reimaged?
+
+If an existing VM is service-healed, it appears as a reboot, and the extensions are not run again. If a VM is reimaged, the process is similar replacing the OS drive with the source image. Any specialization from the latest model, such as extensions, are run again.
 
 ### How do I join a virtual machine scale set to an Active Directory domain?
 
@@ -447,7 +406,7 @@ To define an extension, use the JsonADDomainExtension property:
 }
 ```
 
-### My virtual machine scale set extension is trying to install something that requires a reboot. For example, "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted Install-WindowsFeature –Name FS-Resource-Manager –IncludeManagementTools"
+### My virtual machine scale set extension is trying to install something that requires a reboot.
 
 If your virtual machine scale set extension is trying to install something that requires a reboot, you can use the Azure Automation Desired State Configuration (Automation DSC) extension. If the operating system is Windows Server 2012 R2, Azure pulls in the Windows Management Framework (WMF) 5.0 setup, reboots, and then continues with the configuration.
 
@@ -470,9 +429,36 @@ Add-AzVmssExtension -VirtualMachineScaleSet $VMSS -Name "IaaSAntimalware" -Publi
 Update-AzVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineScaleSet $VMSS
 ```
 
-### I need to execute a custom script that's hosted in a private storage account. The script runs successfully when the storage is public, but when I try to use a Shared Access Signature (SAS), it fails. This message is displayed: “Missing mandatory parameters for valid Shared Access Signature”. Link+SAS works fine from my local browser.
+### How do I execute a custom script that's hosted in a private storage account?
 
-To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension for Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+To execute a custom script that's hosted in a private storage account, set up protected settings with the storage account key and name. For more information, see [Custom Script Extension](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
+
+## Passwords
+
+### How do I reset the password for VMs in my virtual machine scale set?
+
+There are two main ways to change the password for VMs in scale sets.
+
+- Change the virtual machine scale set model directly. Available with API 2017-12-01 and later.
+
+    Update the admin credentials directly in the scale set model (for example using the Azure Resource Explorer, PowerShell or CLI). Once the scale set is updated, all new VMs have the new credentials. Existing VMs only have the new credentials if they are reimaged.
+
+- Reset the password using the VM access extensions.
+
+    Use the following PowerShell example:
+
+    ```powershell
+    $vmssName = "myvmss"
+    $vmssResourceGroup = "myvmssrg"
+    $publicConfig = @{"UserName" = "newuser"}
+    $privateConfig = @{"Password" = "********"}
+
+    $extName = "VMAccessAgent"
+    $publisher = "Microsoft.Compute"
+    $vmss = Get-AzVmss -ResourceGroupName $vmssResourceGroup -VMScaleSetName $vmssName
+    $vmss = Add-AzVmssExtension -VirtualMachineScaleSet $vmss -Name $extName -Publisher $publisher -Setting $publicConfig -ProtectedSetting $privateConfig -Type $extName -TypeHandlerVersion "2.0" -AutoUpgradeMinorVersion $true
+    Update-AzVmss -ResourceGroupName $vmssResourceGroup -Name $vmssName -VirtualMachineScaleSet $vmss
+    ```
 
 ## Networking
 
@@ -530,10 +516,6 @@ The allocation method of virtual machine scale set IP addresses is always “dyn
 
 To deploy a virtual machine scale set to an existing Azure virtual network, see [Deploy a virtual machine scale set to an existing virtual network](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vmss-existing-vnet).
 
-### How do I add the IP address of the first VM in a virtual machine scale set to the output of a template?
-
-To add the IP address of the first VM in a virtual machine scale set to the output of a template, see [Azure Resource Manager: Get virtual machine scale sets private IPs](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
-
 ### Can I use scale sets with Accelerated Networking?
 
 Yes. To use accelerated networking, set enableAcceleratedNetworking to true in your scale set's networkInterfaceConfigurations settings. For example
@@ -577,7 +559,7 @@ To create a virtual machine scale set that assigns a public IP address to each V
 
 ### Can I configure a scale set to work with multiple Application Gateways?
 
-Yes. You can add the resource id's for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
+Yes. You can add the resource IDs for multiple Application Gateway backend address pools to the _applicationGatewayBackendAddressPools_ list in the _ipConfigurations_ section of your scale set network profile.
 
 ## Scale
 
@@ -589,7 +571,7 @@ Another reason you might create a virtual machine scale set with fewer than two 
 
 ### How do I change the number of VMs in a virtual machine scale set?
 
-To change the number of VMs in a virtual machine scale set in the Azure portal, from the virtual machine scale set properties section, click on the "Scaling" blade and use the slider bar. For other ways to change the instance count, see [Change the instance count of a virtual machine scale set](https://msftstack.wordpress.com/2016/05/13/change-the-instance-count-of-an-azure-vm-scale-set/).
+To change the number of VMs in a virtual machine scale set in the Azure portal, from the virtual machine scale set properties section, click on the "Scaling" blade and use the slider bar.
 
 ### How do I define custom alerts for when certain thresholds are reached?
 
@@ -620,7 +602,7 @@ You have some flexibility in how you handle alerts for specified thresholds. For
                 },
                 "webhooks": [
                     {
-                        "serviceUri": "https://events.pagerduty.com/integration/0b75b57246814149b4d87fa6e1273687/enqueue",
+                        "serviceUri": "<service uri>",
                         "properties": {
                             "key1": "custommetric",
                             "key2": "scalevmss"
@@ -633,15 +615,14 @@ You have some flexibility in how you handle alerts for specified thresholds. For
 }
 ```
 
-In this example, an alert goes to Pagerduty.com when a threshold is reached.
 
 ## Patching and operations
 
-### How do I create a scale set in an existing resource group?
+### Can I create a scale set in an existing resource group?
 
-Creating scale sets in an existing resource group is not yet possible from the Azure portal, but you can specify an existing resource group when deploying a scale set from an Azure Resource Manager template. You can also specify an existing resource group when creating a scale set using Azure PowerShell or CLI.
+Yes, you can create a scale set in an existing resource group.
 
-### Can we move a scale set to another resource group?
+### Can I move a scale set to another resource group?
 
 Yes, you can move scale set resources to a new subscription or resource group.
 
@@ -652,8 +633,6 @@ To update your virtual machine scale set to a new image, and to manage patching,
 ### Can I use the reimage operation to reset a VM without changing the image? (That is, I want reset a VM to factory settings rather than to a new image.)
 
 Yes, you can use the reimage operation to reset a VM without changing the image. However, if your virtual machine scale set references a platform image with `version = latest`, your VM can update to a later OS image when you call `reimage`.
-
-For more information, see [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
 ### Is it possible to integrate scale sets with Azure Monitor logs?
 
@@ -719,25 +698,25 @@ The main difference between deleting a VM in a virtual machine scale set and dea
   - Related to this scenario, you might have created your own autoscale engine and want a faster end-to-end scale.
 - You have a virtual machine scale set that is unevenly distributed across fault domains or update domains. This might be because you selectively deleted VMs, or because VMs were deleted after overprovisioning. Running `stop deallocate` followed by `start` on the virtual machine scale set evenly distributes the VMs across fault domains or update domains.
 
-### How do I take a snapshot of a VMSS instance?
-Create a snapshot from an instance of a VMSS.
+### How do I take a snapshot of a virtual machine scale set instance?
+Create a snapshot from an instance of a virtual machine scale set.
 
 ```azurepowershell-interactive
 $rgname = "myResourceGroup"
 $vmssname = "myVMScaleSet"
 $Id = 0
 $location = "East US"
- 
+
 $vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
 $snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
 New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
-``` 
- 
+```
+
 Create a managed disk from the snapshot.
 
 ```azurepowershell-interactive
 $snapshotName = "myShapshot"
 $snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
 $diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
-$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk')
 ```

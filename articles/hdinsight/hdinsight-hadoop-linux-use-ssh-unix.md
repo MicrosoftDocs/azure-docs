@@ -1,7 +1,6 @@
 ---
 title: Use SSH with Hadoop - Azure HDInsight 
 description: "You can access HDInsight using Secure Shell (SSH). This document provides information on connecting to HDInsight using the ssh and scp commands from Windows, Linux, Unix, or macOS clients."
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: hadoop commands in linux,hadoop linux commands,hadoop macos,ssh hadoop,ssh hadoop cluster
@@ -14,7 +13,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 # Connect to HDInsight (Apache Hadoop) using SSH
 
-Learn how to use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) to securely connect to Apache Hadoop on Azure HDInsight. For information on connecting through a virtual network, see [Azure HDInsight virtual network architecture](./hdinsight-virtual-network-architecture.md) and [Extend Azure HDInsight using an Azure Virtual Network](./hdinsight-extend-hadoop-virtual-network.md).
+Learn how to use [Secure Shell (SSH)](https://en.wikipedia.org/wiki/Secure_Shell) to securely connect to Apache Hadoop on Azure HDInsight. For information on connecting through a virtual network, see [Azure HDInsight virtual network architecture](./hdinsight-virtual-network-architecture.md) and [Plan a virtual network deployment for Azure HDInsight clusters](./hdinsight-plan-virtual-network-deployment.md).
 
 The following table contains the address and port information needed when connecting to HDInsight using an SSH client:
 
@@ -167,7 +166,9 @@ The worker nodes and Zookeeper nodes are not directly accessible from the intern
 
 2. From the SSH connection to the head or edge node, use the `ssh` command to connect to a worker node in the cluster:
 
+        ```bash
         ssh sshuser@wn0-myhdi
+        ```
 
     To retrieve a list of the node names, see the [Manage HDInsight by using the Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) document.
 
@@ -178,7 +179,7 @@ If the SSH account is secured using __SSH keys__, make sure that SSH forwarding 
 > [!NOTE]  
 > Another way to directly access all nodes in the cluster is to install HDInsight into an Azure Virtual Network. Then, you can join your remote machine to the same virtual network and directly access all nodes in the cluster.
 >
-> For more information, see [Use a virtual network with HDInsight](hdinsight-extend-hadoop-virtual-network.md).
+> For more information, see [Plan a virtual network for HDInsight](hdinsight-plan-virtual-network-deployment.md).
 
 ### Configure SSH agent forwarding
 
@@ -242,5 +243,5 @@ scp sshuser@clustername-ssh.azurehdinsight.net:test.txt .
 ## Next steps
 
 * [Use SSH tunneling with HDInsight](hdinsight-linux-ambari-ssh-tunnel.md)
-* [Use a virtual network with HDInsight](hdinsight-extend-hadoop-virtual-network.md)
+* [Plan a virtual network with HDInsight](hdinsight-plan-virtual-network-deployment.md)
 * [Use edge nodes in HDInsight](hdinsight-apps-use-edge-node.md#access-an-edge-node)

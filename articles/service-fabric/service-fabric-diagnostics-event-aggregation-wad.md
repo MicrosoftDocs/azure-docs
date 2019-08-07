@@ -80,16 +80,17 @@ Add a new storage resource to the template by adding to the resources section.
 
 ```json
 {
-  "apiVersion": "2015-05-01-preview",
-  "type": "Microsoft.Storage/storageAccounts",
-  "name": "[parameters('applicationDiagnosticsStorageAccountName')]",
-  "location": "[parameters('computeLocation')]",
-  "sku": {
-    "accountType": "[parameters('applicationDiagnosticsStorageAccountType')]"
+	"apiVersion": "2018-07-01",
+	"type": "Microsoft.Storage/storageAccounts",
+	"name": "[parameters('applicationDiagnosticsStorageAccountName')]",
+	"location": "[parameters('computeLocation')]",
+	"sku": {
+	"name": "[parameters('applicationDiagnosticsStorageAccountType')]"
+	"tier": "standard"
   },
-  "tags": {
-    "resourceType": "Service Fabric",
-    "clusterName": "[parameters('clusterName')]"
+	"tags": {
+	"resourceType": "Service Fabric",
+	"clusterName": "[parameters('clusterName')]"
   }
 },
 ```

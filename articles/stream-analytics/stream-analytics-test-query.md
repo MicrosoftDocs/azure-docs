@@ -7,15 +7,15 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 6/21/2019
 ms.custom: seodec18
 ---
 
 # Test a Stream Analytics query with sample data
 
-By using Azure Stream Analytics, you can upload sample data and test queries in the Azure portal without starting or stopping a job.
+By using Azure Stream Analytics, you can sample data from inputs or upload sample data to test queries in the Azure portal without starting or stopping a job.
 
-## Upload sample data and test the query
+## Upload or sample data from a live source to test the query
 
 1. Sign in to the Azure portal. 
 
@@ -23,11 +23,15 @@ By using Azure Stream Analytics, you can upload sample data and test queries in 
 
 3. On the Stream Analytics job page, under the **Job Topology** heading, select **Query** to open the Query editor window. 
 
-4. To test your query with sample input data, right-click on any of your inputs.  Then select **Upload sample data from file**. The data must be serialized in JSON, CSV or AVRO. Sample input must be encoded in UTF-8 and not compressed. Only comma (,) delimiter is supported for testing CSV input on portal.
+4. To test your query you can then either sample data from a live input, or upload from a file. The data must be serialized in JSON, CSV or AVRO. Sample input must be encoded in UTF-8 and not compressed. Only comma (,) delimiter is supported for testing CSV input on portal.
+
+    1. Using live input: right-click on any of your inputs. Then select **Sample data from input**. In the next screen, you can set the duration of the sample. Sampling events from a live source will retrieve up to 1000 events or 1 MB (whichever comes first), so the data sampled may not represent the full time interval specified.
+
+    1. Using file: right-click on any of your inputs. Then select **Upload sample data from file**. 
 
     ![stream analytics query editor test query](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 
-5. After the upload is complete, select **Test** to test this query against the sample data you have provided.
+5. After the sampling or upload is complete, select **Test** to test this query against the sample data you have provided.
 
     ![stream analytics query editor test sample data](media/stream-analytics-test-query/stream-analytics-test-query-editor-test.png)
 
@@ -43,4 +47,4 @@ By using Azure Stream Analytics, you can upload sample data and test queries in 
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+> [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

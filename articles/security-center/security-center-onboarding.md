@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 19/02/2019
-ms.author: monhaber
+ms.date: 02/19/2019
+ms.author: v-mohabe
 
 ---
 # Onboarding to Azure Security Center Standard for enhanced security

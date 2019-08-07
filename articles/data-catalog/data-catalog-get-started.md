@@ -1,11 +1,11 @@
 ---
 title: Create an Azure Data Catalog
 description: A quickstart on how to create an Azure Data Catalog.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: quickstart
-ms.date: 04/05/2019
+ms.date: 08/01/2019
 
 # Customer intent: As a user, I want to access my company's data all in one place so I can easily build reports or presentations from it.
 ---

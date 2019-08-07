@@ -4,7 +4,10 @@
   items:
   - name: What is Stream Analytics?
     href: stream-analytics-introduction.md
+  - name: End-to-end solution patterns
+    href: stream-analytics-solution-patterns.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a job - Azure portal
     href: stream-analytics-quick-create-portal.md
@@ -12,6 +15,8 @@
     href: stream-analytics-quick-create-powershell.md
   - name: Create a job - Visual Studio
     href: stream-analytics-quick-create-vs.md
+  - name: Create a job - Visual Studio Code
+    href: quick-create-vs-code.md
 - name: Tutorials
   items:
   - name: 1 - Create / manage a job
@@ -22,7 +27,7 @@
     href: stream-analytics-javascript-user-defined-functions.md
   - name: 4 - Deploy with CI/CD in Azure Pipelines
     href: stream-analytics-tools-visual-studio-cicd-vsts.md
-  - name: 5 - Run C# UDF on Edge
+  - name: 5 - Run C# UDF on IoT Edge
     href: stream-analytics-edge-csharp-udf.md
 - name: Samples
   items:
@@ -30,6 +35,10 @@
     href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Concepts
   items:
+  - name: Choose a streaming analytics technology
+    href: streaming-technologies.md
+  - name: Choose a job development tool
+    href: feature-comparison.md
   - name: Input types for a job
     items:
     - name: Inputs overview
@@ -82,14 +91,16 @@
       href: stream-analytics-test-query.md
     - name: View results on a dashboard
       href: stream-analytics-power-bi-dashboard.md
-    - name: Clean up a job
+    - name: Stop or delete a job
       href: stream-analytics-clean-up-your-job.md
     - name: Pair jobs for reliability
       href: stream-analytics-job-reliability.md
-    - name: Authenticate with managed identity
+    - name: Authenticate with managed identity - ADLS Gen 1 output
       href: stream-analytics-managed-identities-adls.md
     - name: Use SQL reference data
       href: sql-reference-data.md
+    - name: Authenticate with managed identity - Blob output
+      href: blob-output-managed-identity.md
   - name: Build solutions
     items:
     - name: Twitter sentiment analysis
@@ -110,6 +121,9 @@
       href: stream-analytics-threshold-based-rules.md
     - name: Process Kafka events
       href: ../event-hubs/event-hubs-kafka-stream-analytics.md
+      maintainContext: true
+    - name: Process Event Hubs data 
+      href: ../event-hubs/process-data-azure-stream-analytics.md
       maintainContext: true
     - name: Geospatial scenarios
       href: geospatial-scenarios.md
@@ -135,15 +149,17 @@
         href: stream-analytics-scale-jobs.md
     - name: Scale with ML functions
       href: stream-analytics-scale-with-machine-learning-functions.md
+    - name: Scale with repartitioning
+      href: repartition.md
   - name: Automate
     items:
     - name: Using .NET SDK
       href: stream-analytics-dotnet-management-sdk.md
     - name: Using Azure PowerShell
       href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
-    - name: Using API for Edge jobs
+    - name: Using API for IoT Edge jobs
       href: stream-analytics-cicd-api.md
-  - name: Visual Studio tools
+  - name: Visual Studio
     items:
     - name: Install tools
       href: stream-analytics-tools-for-visual-studio-install.md
@@ -153,12 +169,20 @@
       href: stream-analytics-live-data-local-testing.md
     - name: View jobs in Visual Studio
       href: stream-analytics-vs-tools.md
-    - name: Develop an Edge job
+    - name: Develop an edge job
       href: stream-analytics-tools-for-visual-studio-edge-jobs.md
     - name: Set up CI/CD pipeline
       href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Write .NET UDF for Edge
+    - name: Write .NET UDF for edge
       href: stream-analytics-edge-csharp-udf-methods.md
+  - name: Visual Studio Code
+    items:
+    - name: Test with sample data
+      href: vscode-local-run.md
+    - name: Set up CI/CD pipeline
+      href: setup-cicd-vs-code.md
+    - name: Explore jobs
+      href: vscode-explore-jobs.md
   - name: Troubleshoot
     items:
     - name: Input
@@ -169,6 +193,8 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Activity and diagnostic logs
       href: stream-analytics-job-diagnostic-logs.md
+    - name: Data errors
+      href: data-errors.md
   - name: Integrate with machine learning
     items:
     - name: Sentiment analysis with ML models
@@ -180,14 +206,14 @@
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
 - name: Stream Analytics Query Language
-  items: 
+  items:
     - name: Built-in Functions
-      items: 
+      items:
         - name: Built-in Functions Overview
-          href: /stream-analytics-query/built-in-functions-azure-stream-analytics 
+          href: /stream-analytics-query/built-in-functions-azure-stream-analytics
           maintainContext: true
         - name: Aggregate Functions
-          items: 
+          items:
             - name: Aggregate Functions Overview
               href: /stream-analytics-query/aggregate-functions-azure-stream-analytics
               maintainContext: true
@@ -211,7 +237,7 @@
               maintainContext: true
             - name: Percentile_Cont
               href: /stream-analytics-query/percentile-cont-azure-stream-analytics
-              maintainContext: true 
+              maintainContext: true
             - name: Percentile_Disc
               href: /stream-analytics-query/percentile-disc-azure-stream-analytics
               maintainContext: true
@@ -234,7 +260,7 @@
               href: /stream-analytics-query/varp-azure-stream-analytics
               maintainContext: true
         - name: Analytic Functions
-          items: 
+          items:
             - name: Analytic Functions Overview
               href: /stream-analytics-query/analytic-functions-azure-stream-analytics
               maintainContext: true
@@ -254,7 +280,7 @@
               href: /stream-analytics-query/last-azure-stream-analytics
               maintainContext: true
         - name: Array Functions
-          items: 
+          items:
             - name: Array Functions Overview
               href: /stream-analytics-query/array-functions-stream-analytics
               maintainContext: true
@@ -268,7 +294,7 @@
               href: /stream-analytics-query/getarrayelements-azure-stream-analytics
               maintainContext: true
         - name: Conversion Functions
-          items: 
+          items:
             - name: Conversion Functions Overview
               href: /stream-analytics-query/conversion-functions-azure-stream-analytics
               maintainContext: true
@@ -282,7 +308,7 @@
               href: /stream-analytics-query/try-cast-azure-stream-analytics
               maintainContext: true
         - name: Date and Time Functions
-          items: 
+          items:
             - name: Date and Time Functions Overview
               href: /stream-analytics-query/date-and-time-functions-azure-stream-analytics
               maintainContext: true
@@ -311,10 +337,10 @@
               href: /stream-analytics-query/year-azure-stream-analytics
               maintainContext: true
         - name: GeoSpatial Functions
-          items: 
+          items:
             - name: GeoSpatial Functions Overview
               href: /stream-analytics-query/geospatial-functions
-              maintainContext: true 
+              maintainContext: true
             - name: CreateLineString
               href: /stream-analytics-query/createlinestring
               maintainContext: true
@@ -337,7 +363,7 @@
               href: /stream-analytics-query/st-within
               maintainContext: true
         - name: Input Metadata Functions
-          items: 
+          items:
             - name: Input Metadata Functions Overview
               href: /stream-analytics-query/input-metadata-functions
               maintainContext: true
@@ -345,7 +371,7 @@
               href: /stream-analytics-query/getmetadatapropertyvalue
               maintainContext: true
         - name: Mathematical Functions
-          items: 
+          items:
             - name: Mathematical Functions Overview
               href: /stream-analytics-query/mathematical-functions-azure-stream-analytics
               maintainContext: true
@@ -364,6 +390,9 @@
             - name: POWER
               href: /stream-analytics-query/power-azure-stream-analytics
               maintainContext: true
+            - name: ROUND
+              href: /stream-analytics-query/round-azure-stream-analytics.md
+              maintainContext: true
             - name: SIGN
               href: /stream-analytics-query/sign-azure-stream-analytics
               maintainContext: true
@@ -374,7 +403,7 @@
               href: /stream-analytics-query/sqrt-azure-stream-analytics
               maintainContext: true
         - name: Record Functions
-          items: 
+          items:
             - name: Record Functions Overview
               href: /stream-analytics-query/record-functions-azure-stream-analytics
               maintainContext: true
@@ -385,7 +414,7 @@
               href: /stream-analytics-query/getrecordpropertyvalue-azure-stream-analytics
               maintainContext: true
         - name: String Functions
-          items: 
+          items:
             - name: String Functions Overview
               href: /stream-analytics-query/string-functions-azure-stream-analytics
               maintainContext: true
@@ -407,6 +436,9 @@
             - name: REGEXMATCH
               href: /stream-analytics-query/regexmatch-azure-stream-analytics
               maintainContext: true
+            - name: REPLACE
+              href: /stream-analytics-query/replace-azure-stream-analytics.md
+              maintainContext: true
             - name: SUBSTRING
               href: /stream-analytics-query/substring-azure-stream-analytics
               maintainContext: true
@@ -414,7 +446,7 @@
               href: /stream-analytics-query/upper-azure-stream-analytics
               maintainContext: true
         - name: Windowing Functions
-          items: 
+          items:
             - name: Windowing Functions Overview
               href: /stream-analytics-query/windowing-azure-stream-analytics
               maintainContext: true
@@ -430,8 +462,11 @@
             - name: Tumbling Window
               href: /stream-analytics-query/tumbling-window-azure-stream-analytics
               maintainContext: true
+            - name: Aggregate Windowing functions
+              href: /stream-analytics-query/windows-azure-stream-analytics
+              maintainContext: true
     - name: Data Types
-      items: 
+      items:
         - name: Data Types Overview
           href: /stream-analytics-query/data-types-azure-stream-analytics
           maintainContext: true
@@ -439,7 +474,7 @@
           href: stream-analytics-parsing-json.md
           maintainContext: true
     - name: Query Language Elements
-      items: 
+      items:
         - name: Query Language Elements Overview
           href: /stream-analytics-query/query-language-elements-azure-stream-analytics
           maintainContext: true
@@ -448,6 +483,9 @@
           maintainContext: true
         - name: CASE
           href: /stream-analytics-query/case-azure-stream-analytics
+          maintainContext: true
+        - name: COALESCE
+          href: /stream-analytics-query/coalesce-azure-stream-analytics.md
           maintainContext: true
         - name: CREATE TABLE
           href: /stream-analytics-query/create-table-stream-analytics
@@ -467,6 +505,9 @@
         - name: JOIN
           href: /stream-analytics-query/join-azure-stream-analytics
           maintainContext: true
+        - name: MATCH_RECOGNIZE
+          href: /stream-analytics-query/match-recognize-stream-analytics.md
+          maintainContext: true
         - name: Reference Data JOIN
           href: /stream-analytics-query/reference-data-join-azure-stream-analytics
           maintainContext: true
@@ -483,7 +524,7 @@
           href: /stream-analytics-query/with-azure-stream-analytics
           maintainContext: true
     - name: Time Management
-      items: 
+      items:
         - name: Time Management Overview
           href: /stream-analytics-query/time-management-azure-stream-analytics
           maintainContext: true

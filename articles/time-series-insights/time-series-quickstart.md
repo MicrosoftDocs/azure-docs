@@ -1,72 +1,91 @@
 ---
 title: 'Quickstart: Azure Time Series Insights explorer | Microsoft Docs'
-description: This quickstart shows you how to get started with Azure Time Series Insights explorer in your web browser to visualize large volumes of IoT data. Tour the key features in a demo environment. 
+description: This quickstart shows you how to get started with the Azure Time Series Insights explorer in your web browser to visualize large volumes of IoT data. Tour the key features in a demo environment. 
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 manager: cshankar
-ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 11/15/2017
+ms.date: 07/29/2019
+# Customer intent: As a data analyst or developer, I want to quickly learn about the Time Series insights visualization explorer.
 ---
 
 # Quickstart: Explore Azure Time Series Insights
-This quickstart shows you how to get started with Azure Time Series Insights explorer in a free demonstration environment. You learn how to use your web browser to visualize large volumes of IoT data and tour the key features of the Time Series Insights explorer. 
 
-Azure Time Series Insights is a fully managed analytics, storage, and visualization service that makes it simple to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data, letting you quickly validate your IoT solution and avoid costly downtime to mission-critical devices by helping you discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.  If you are building an application that needs to store or query time series data, you can develop using the Time Series Insights REST APIs.
+This Azure Time Series Insights explorer quickstart helps you get started with Time Series Insights in a free demonstration environment. In this quickstart, you learn how to use your web browser to visualize large volumes of IoT data and tour key features that are generally available now.
 
-If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+Azure Time Series Insights is a fully managed analytics, storage, and visualization service that simplifies how to explore and analyze billions of IoT events simultaneously. It gives you a global view of your data so that you can quickly validate your IoT solution and avoid costly downtime to mission-critical devices. Azure Time Series Insights helps you to discover hidden trends, spot anomalies, and conduct root-cause analyses in near real time.
 
-## Explore Time Series Insights explorer in a demo environment
+For additional flexibility, you can add Azure Time Series Insights to a preexisting application through its powerful [REST APIs](./time-series-insights-update-tsq.md) and [client SDK](./tutorial-create-tsi-sample-spa.md). You can use the APIs to store, query, and consume time series data in a client application of your choice. You also can use the client SDK to add UI components to your existing application.
 
-1. In your browser, navigate to [https://insights.timeseries.azure.com/demo](https://insights.timeseries.azure.com/demo). 
+This Time Series Insights explorer quickstart offers a guided tour of features that are in general availability.
 
-2. If prompted, log in to the Time Series Insights explorer using your Azure account credentials. 
- 
-3. The Time Series Insights quick tour page is displayed. Click **Next** to begin the quick tour.
+> [!IMPORTANT]
+> Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you haven't created one already.
 
-   ![Click Next](media/quickstart/quickstart1.png)
+## Prepare the demo environment
 
-4. The **Time selection panel** is displayed. Use this panel to select a time frame to visualize.
+1. In your browser, go to the [general availability demo](https://insights.timeseries.azure.com/demo).
 
-   ![Time selection panel](media/quickstart/quickstart2.png)
+1. If prompted, sign in to the Time Series Insights explorer by using your Azure account credentials.
 
-5. Click and drag in the region, then click the **Search** button.
- 
-   ![Select a time frame](media/quickstart/quickstart3.png) 
+1. The Time Series Insights quick tour page displays. Select **Next** to begin the quick tour.
 
-   Time Series Insights displays a chart visualization for the time frame you specified. You can do various actions within with the line chart, such as filtering, pinning, sorting, and stacking. 
+   [![Select Next](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
-   To return to the **Time selection panel**, click the down arrow as shown:
+## Explore the demo environment
 
-   ![Chart](media/quickstart/quickstart4.png)
+1. The **Time selection panel** displays. Use this panel to select a time frame to visualize.
 
-6. Click **Add** in the **Terms panel** to add a new search term.
+   [![Time selection panel](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
-   ![Add item](media/quickstart/quickstart5.png)
+1. Select a time frame and drag it in the region. Then select **Search**.
 
-7. In the chart, you can select a region, right-click the region, and select **Explore Events**.
- 
-   ![Explore Events](media/quickstart/quickstart6.png)
+   [![Select a time frame](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
-   A grid of your raw data is displayed from the region you are exploring:
+   Time Series Insights displays a chart visualization for the time frame you specified. You can do various actions within the line chart. For example, you can filter, pin, sort, and stack.
 
-   ![Grid view](media/quickstart/quickstart7.png)
+   To return to the **Time selection panel**, select the down arrow as shown:
 
-8. Edit your terms to change the values in the chart, and add another term to cross-correlate different types of values:
+   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
-   ![Add a term](media/quickstart/quickstart8.png)
+1. Select **Add** in the **Terms panel** to add a new search term.
 
-9. Enter a filter term in the **Filter series...** box for ad hoc series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
- 
-   ![Filter series](media/quickstart/quickstart9.png)
+   [![Add item](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
-After you finish the quickstart, you can experiment with the sample data set to create different visualizations. 
+1. In the chart, you can select a region, right-click the region, and select **Explore Events**.
 
-### Next steps
-You are ready to create your own Time Series Insights environment:
+   [![Explore Events](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+
+   A grid of your raw data displays from the region that you're exploring.
+
+   [![Grid view](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+
+## Select and filter data
+
+1. Edit your terms to change the values in the chart. Add another term to cross-correlate different types of values.
+
+   [![Add a term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+
+1. Enter a filter term in the **Filter series** box for improvised series filtering. For the quickstart, enter **Station5** to cross-correlate temperature and pressure for that station.
+
+   [![Filter series](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+
+After you finish the quickstart, you can experiment with the sample data set to create different visualizations.
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
+
+## Next steps
+
+You're ready to create your own Time Series Insights environment:
 > [!div class="nextstepaction"]
 > [Plan your Time Series Insights environment](time-series-insights-environment-planning.md)

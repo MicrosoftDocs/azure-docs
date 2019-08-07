@@ -1,14 +1,14 @@
 ---
-title: Configure metrics alerts for Azure Database for PostgreSQL in Azure portal
-description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL from the Azure portal.
+title: Configure metrics alerts for Azure Database for PostgreSQL - Single Server in Azure portal
+description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Single Server from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 5/6/2019
 ---
 
-# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL 
+# Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Single Server
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 

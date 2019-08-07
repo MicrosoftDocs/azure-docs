@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 08/05/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -16,8 +16,6 @@ ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ---
 # Integrate your VPN infrastructure with Azure MFA by using the Network Policy Server extension for Azure
-
-## Overview
 
 The Network Policy Server (NPS) extension for Azure allows organizations to safeguard Remote Authentication Dial-In User Service (RADIUS) client authentication using cloud-based [Azure Multi-Factor Authentication (MFA)](howto-mfaserver-nps-rdg.md), which provides two-step verification.
 
@@ -73,7 +71,7 @@ When the NPS extension for Azure is integrated with the NPS, a successful authen
 
 ## Prerequisites
 
-This section details the prerequisites that must be completed before you can integrate MFA with the Remote Desktop Gateway. Before you begin, you must have the following prerequisites in place:
+This section details the prerequisites that must be completed before you can integrate MFA with the VPN. Before you begin, you must have the following prerequisites in place:
 
 * VPN infrastructure
 * Network Policy and Access Services role
@@ -243,7 +241,7 @@ In this section, you configure your VPN server to use RADIUS authentication. The
 
     b. For the **Shared secret**, select **Change**, and then enter the shared secret password that you created and recorded earlier.
 
-    c. In the **Time-out (seconds)** box, select a value from **30** through **60**.  
+    c. In the **Time-out (seconds)** box, enter a value of **30**.  
     The timeout value is necessary to allow enough time to complete the second authentication factor.
 
     ![Add RADIUS Server window configuring the Time-out](./media/howto-mfa-nps-extension-vpn/image16.png)
@@ -301,7 +299,7 @@ To troubleshoot these issues, an ideal place to start is to examine the Security
 
 ## Configure Multi-Factor Authentication
 
-For assistance configuring users for Multi-Factor Authentication see the articles [How to require two-step verification for a user or group](howto-mfa-userstates.md) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
+For assistance configuring users for Multi-Factor Authentication see the articles [Planning a cloud-based Azure Multi-Factor Authentication deployment](howto-mfa-getstarted.md#create-conditional-access-policy) and [Set up my account for two-step verification](../user-help/multi-factor-authentication-end-user-first-time.md)
 
 ## Install and configure the NPS extension
 
@@ -335,7 +333,7 @@ As part of the configuration of the NPS extension, you must supply administrator
 
 ### Install the NPS extension
 
-The NPS extension must be installed on a server that has the Network Policy and Access Services role installed and that functions as the RADIUS server in your design. Do *not* install the NPS extension on your Remote Desktop server.
+The NPS extension must be installed on a server that has the Network Policy and Access Services role installed and that functions as the RADIUS server in your design. Do *not* install the NPS extension on your VPN server.
 
 1. Download the NPS extension from [Microsoft Download Center](https://aka.ms/npsmfa).
 
@@ -371,7 +369,7 @@ To use the script, provide the extension with your Azure Active Directory admini
 
 2. At the PowerShell command prompt, enter **cd "c:\Program Files\Microsoft\AzureMfa\Config"**, and then select Enter.
 
-3. At the next command prompt, enter **.\AzureMfsNpsExtnConfigSetup.ps1**, and then select Enter. The script checks to see whether the Azure AD PowerShell module is installed. If it is not installed, the script installs the module for you.
+3. At the next command prompt, enter **.\AzureMfaNpsExtnConfigSetup.ps1**, and then select Enter. The script checks to see whether the Azure AD PowerShell module is installed. If it is not installed, the script installs the module for you.
 
     ![Running the AzureMfsNpsExtnConfigSetup.ps1 configuration script](./media/howto-mfa-nps-extension-vpn/image38.png)
 

@@ -4,17 +4,11 @@ description: Learn what to do in the event of an Azure service disruption that i
 services: cloud-services
 documentationcenter: ''
 author: mmccrory
-manager: timlt
-editor: ''
-
-ms.assetid: e52634ab-003d-4f1e-85fa-794f6cd12ce4
 ms.service: cloud-services
 ms.workload: cloud-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.author: mmccrory
+ms.author: memccror
 
 ---
 # What to do in the event of an Azure service disruption that impacts Azure Cloud Services
