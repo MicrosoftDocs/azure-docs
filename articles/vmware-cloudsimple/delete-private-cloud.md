@@ -18,7 +18,7 @@ CloudSimple provides the flexibility to delete a Private Cloud.  A Private Cloud
 
 Deletion of a Private Cloud deletes the entire Private Cloud.  All components of the Private Cloud will be deleted.  If you want to keep any of the data, ensure you've backed up the data to on-premises storage or Azure storage. 
 
-Private Cloud components
+The components of a Private Cloud are:
 
 * CloudSimple Nodes
 * Virtual machines
