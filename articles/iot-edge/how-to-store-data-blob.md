@@ -118,7 +118,7 @@ For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/
 ## Granting directory access to container user on Linux
 If you have used [volume mount](https://docs.docker.com/storage/volumes/) for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used [bind mount](https://docs.docker.com/storage/bind-mounts/) then these steps are required to run the service correctly.
 
-Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
+Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, ID: 11000) and a user group (name: absie, ID: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
 
 This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by the container user (example: absie 11000). You can grant the container user access to the directory by executing the commands below on the host:
 
@@ -132,16 +132,16 @@ Example:<br>
 `sudo chmod -R 700 /srv/containerdata `
 
 
-If you need to run the service as a user other than **absie**, you can specify your custom user id in createOptions under "User" property in your deployment manifest. In such case you need to use default or root group id `0`.
+If you need to run the service as a user other than **absie**, you can specify your custom user ID in createOptions under "User" property in your deployment manifest. In such case you need to use default or root group ID `0`.
 
 ```json
 “createOptions”: { 
-  “User”: “<custom user id>:0” 
+  “User”: “<custom user ID>:0” 
 } 
 ```
 Now, grant the container user access to the directory
 ```terminal
-sudo chown -R <user id>:<group id> <blob-dir> 
+sudo chown -R <user ID>:<group ID> <blob-dir> 
 sudo chmod -R 700 <blob-dir> 
 ```
 
@@ -168,9 +168,9 @@ The Azure Blob Storage documentation includes quickstart sample code in several 
 The following quickstart samples use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
-- [Java](../storage/blobs/storage-quickstart-blobs-java.md)
+- [Java](../storage/blobs/storage-quickstart-blobs-java-v10.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md)
+- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10)
 
 ## Connect to your local storage with Azure Storage Explorer
 
