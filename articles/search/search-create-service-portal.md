@@ -42,7 +42,9 @@ If you have more than one subscription, choose one that also has data or file st
 
 A resource group is required and is useful for managing resources all-up, including cost management. A resource group can consist of one service, or multiple services used together. For example, if you are using Azure Search to index an Azure Cosmos DB database, you could make both services part of the same resource group for management purposes. 
 
-If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Search resource.
+If you aren't combining resources into a single group, or if existing resource groups are filled with resources used in unrelated solutions, create a new resource group just for your Azure Search resource. 
+
+As you use the service, you can track current and projected costs all-up (as shown in the screenshot) or scroll down to view charges for individual resources.
 
 ![Manage costs at the resource group level](./media/search-create-service-portal/resource-group-cost-management.png "Manage costs at the resource group level")
 
@@ -62,7 +64,7 @@ Service name requirements:
 * No consecutive dashes ("--") anywhere
 
 > [!TIP]
-> If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Search is in West US, and you have other services also in West US, a name like `mysearchservice-westus` can save you a trip to the properties page when combing resources into a resource group.
+> If you think you'll be using multiple services, we recommend including the region (or location) in the service name as a naming convention. Services within the same region can exchange data at no charge, so if Azure Search is in West US, and you have other services also in West US, a name like `mysearchservice-westus` can save you a trip to the properties page when deciding how to combine or attach resources.
 
 ## Select a location
 
