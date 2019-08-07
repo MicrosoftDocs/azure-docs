@@ -34,7 +34,7 @@ The following image shows a high-level overview of the interconnection:
 
 * Connectivity is only possible where an Azure ExpressRoute peering location is in proximity to or in the same peering location as the OCI FastConnect. See [preview limitations](oracle-oci-overview.md#preview-limitations).
 
-* Your Azure subscription must be whitelisted for this preview capability. Contact your Microsoft representative to enable this feature on your subscription.
+* Your Azure subscription must be whitelisted for this preview capability.
 
 ## Configure direct connectivity between ExpressRoute and FastConnect
 
