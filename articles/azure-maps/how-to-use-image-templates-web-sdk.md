@@ -47,7 +47,7 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 ## Use an image template with a symbol layer
 
-Once an image template is loaded into the map image sprite, it can be rendered as a symbol in a symbol layer by referencing the image resource id in the `image` option of the `iconOptions`.
+Once an image template is loaded into the map image sprite, it can be rendered as a symbol in a symbol layer by referencing the image resource ID in the `image` option of the `iconOptions`.
 
 The following sample renders a symbol layer using the `marker-flat` image template with a teal primary color and a white secondary color. 
 
@@ -76,7 +76,7 @@ The following sample renders a pink line on the map and uses a symbol layer usin
 
 ## Use an image template with a polygon layer
 
-Once an image template is loaded into the map image sprite, it can be rendered as a fill pattern in a polygon layer by referencing the image resource id in the `fillPattern` option of the layer.
+Once an image template is loaded into the map image sprite, it can be rendered as a fill pattern in a polygon layer by referencing the image resource ID in the `fillPattern` option of the layer.
 
 The following sample renders a polygon layer using the `dot` image template with a red primary color and a transparent secondary color.  
 
@@ -92,7 +92,7 @@ The following sample renders a polygon layer using the `dot` image template with
 
 ## Use an image template with an HTML marker
 
-An image template can retrieved using the `altas.getImageTemplate` function and used as the content of an HTML marker. The template can be passed into the `htmlContent` option of the marker, and then customized using the `color`, `secondaryColor`, and `text` options.
+An image template can be retrieved using the `altas.getImageTemplate` function and used as the content of an HTML marker. The template can be passed into the `htmlContent` option of the marker, and then customized using the `color`, `secondaryColor`, and `text` options.
 
 The following sample uses the `marker-arrow` template with a red primary color, a pink secondary color, and a text value of "00".
 
@@ -120,7 +120,7 @@ SVG image templates support the following placeholder values:
 | `{color}` | The primary color. | 
 | `{secondaryColor}` | The secondary color. | 
 | `{scale}` | The SVG image is converted to an png image when added to the map image sprite. This placeholder can be used to scale a template before it is converted to ensure it renders clearly. | 
-| `{text}` | The location to render text when used with a HTML Marker. |
+| `{text}` | The location to render text when used with an HTML Marker. |
 
 The following example shows how to take an SVG template and add it to the Azure Maps web SDK as a reusable icon template. 
 
@@ -133,7 +133,7 @@ The following example shows how to take an SVG template and add it to the Azure 
 
 ## List of image templates
 
-The following table list all image templates currently available within the Azure Maps web SDK with the template name above each image. By default the primary color is blue and the secondary color is white. To make the secondary color easier to see on a white background, the following images have the secondary color set to black.
+The following table lists all image templates currently available within the Azure Maps web SDK with the template name above each image. By default the primary color is blue and the secondary color is white. To make the secondary color easier to see on a white background, the following images have the secondary color set to black.
 
 **Symbol icon templates**
 
