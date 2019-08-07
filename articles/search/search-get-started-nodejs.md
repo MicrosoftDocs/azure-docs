@@ -199,7 +199,7 @@ In Azure Search, documents are data structures that are both inputs to indexing 
     
     ```
 
-Create a file **hotels_quickstart_index.json**.  This file defines how Azure Search works with the documents you just created in **hotels.json**. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich datastructures in your index.  You can read more about [supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [index attributes](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
+Create a file **hotels_quickstart_index.json**.  This file defines how Azure Search works with the documents you created in **hotels.json**. Each field will be identified by a `name` and have a specified `type`. Each field also has a series of index attributes that specify whether Azure Search can search, filter, sort, and facet upon the field. Most of the fields are simple data types, but some, like `AddressType` are complex types that allow you to create rich data structures in your index.  You can read more about [supported data types](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) and [index attributes](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
 
 Add the following to **hotels_quickstart_index.json** or [download the file](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/hotels_quickstart_index.json). 
 
@@ -509,7 +509,7 @@ Now add some basic queries:
 
 The first query will return all data (`*`) and a count of the number of records returned. The second will return only those documents that contain the word "historic" in any of the fields defined as "searchable" in **hotels_quickstart_index.json** and whose `Rating` field contains a value greater than 4. Read more about [how to compose a query in Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
 
-The [**nconf** package](https://github.com/indexzero/nconf) allows you to specify configuration data in a variety of formats, such as environment variables or the command-line. We're going to use **nconf** in a basic manner to read the file **azure_search_config.json** and return that file's contents as a dictionary. Using **nconf**'s `get(key)` function, we can do a quick check that the step ["Configure Azure Search service information"](#configure) wasn't skipped. Finally, we return the configuration:
+The [**nconf** package](https://github.com/indexzero/nconf) allows you to specify configuration data in a variety of formats, such as environment variables or the command line. We're going to use **nconf** in a basic manner to read the file **azure_search_config.json** and return that file's contents as a dictionary. Using **nconf**'s `get(key)` function, we can do a quick check that the step ["Configure Azure Search service information"](#configure) wasn't skipped. Finally, we return the configuration:
 
     ```javascript
     function getAzureConfiguration() {
@@ -521,7 +521,7 @@ The [**nconf** package](https://github.com/indexzero/nconf) allows you to specif
     }
     ```
 
-The `sleep` function creates a `Promise` that resolves after a specified amount of time. Using this allows the app to pause while waiting for asynchronous index operations to complete and become available. Adding such a delay is typically only necessary in demos, tests, and sample applications.
+The `sleep` function creates a `Promise` that resolves after a specified amount of time. Using this function allows the app to pause while waiting for asynchronous index operations to complete and become available. Adding such a delay is typically only necessary in demos, tests, and sample applications.
 
     ```javascript
     function sleep(ms)
@@ -550,7 +550,7 @@ The `doQueries()` function takes an `AzureSearchClient` object and applies the `
     }
     ```
 
-Finally, specify and call the main asynchronous `run` function. This function calls the other functions in order, `await`ing as necessary to resolve `Promise`s.
+Finally, specify and call the main asynchronous `run` function. This function calls the other functions in order, awaiting as necessary to resolve `Promise`s.
 
 * Retrieve the configuration with the `getAzureConfiguration()` you wrote previously
 * Create a new `AzureSearchClient` instance, passing in values from your configuration
