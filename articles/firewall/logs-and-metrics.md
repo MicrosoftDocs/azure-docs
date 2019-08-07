@@ -93,13 +93,15 @@ The following metrics are available for Azure Firewall:
 
     Unit: bytes<br>Reporting Frequency: every minute
 
-- **Firewall health state** - Indicates the health of the firewall. 
+- **Firewall health state** - Indicates the health of the firewall.
+
+    Unit: percent<br>Reporting Frequency: every minute
 
    This metric has two dimensions:
   - **Status**: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
   - **Reason**: Indicates the reason for the corresponding status of the firewall. For example, it can indicate *SNAT ports* if the firewall status is Degraded or Unhealthy.
 
-    Unit: percent<br>Reporting Frequency: every minute
+
 
 - **Network rules hit count**
 
