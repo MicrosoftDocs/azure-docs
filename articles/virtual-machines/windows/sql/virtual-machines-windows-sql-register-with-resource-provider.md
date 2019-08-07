@@ -32,9 +32,9 @@ To utilize the SQL VM resource provider, you must also register the SQL VM resou
 
 To register your SQL Server VM with the resource provider, you'll need the following: 
 
-- An [Azure subscription](https://azure.microsoft.com/free/)
-- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 
-- The [Azure CLI](/cli/azure/install-azure-cli) and [PowerShell](/powershell/azure/new-azureps-module-az) 
+- An [Azure subscription](https://azure.microsoft.com/free/).
+- A [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). 
+- The [Azure CLI](/cli/azure/install-azure-cli) and [PowerShell](/powershell/azure/new-azureps-module-az). 
 
 ## Register with the SQL VM resource provider
 If the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md) is already installed on the VM, then registering with the SQL VM resource provider simply creates a metadata resource of type Microsoft.SqlVirtualMachine/SqlVirtualMachines. 
