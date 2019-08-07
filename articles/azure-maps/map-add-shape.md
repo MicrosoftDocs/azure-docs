@@ -43,6 +43,9 @@ This sample shows how to add arrow icons along a line on the map. When using a s
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+> [!TIP]
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+
 ### <a name="line-stroke-gradient"></a> Add a stroke gradient to a line
 
 In addition to being able to apply a single stroke color to a line you can also fill a line with a gradient of colors to show transition from one line segment to the next. For example, line gradients can be used to represent changes over time and distance, or different temperatures across a connected line of objects. In order to apply this feature to a line, the data source must have the `lineMetrics` option set to true, and then a color gradient expression can be passed to the `strokeColor` option of the line. The stroke gradient expression has to reference the `['line-progress']` data expression that exposes the calculated line metrics to the expression.
@@ -111,6 +114,10 @@ In addition to filling a polygon with a color an image pattern can also be used.
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+
 ### Customize a polygon layer
 
 The Polygon layer only has a few styling options. Here is a tool to try them out.
@@ -177,3 +184,6 @@ For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [How to use image templates](how-to-use-image-templates-web-sdk.md)
