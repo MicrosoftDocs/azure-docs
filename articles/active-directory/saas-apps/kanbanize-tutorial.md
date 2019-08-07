@@ -130,7 +130,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Kanbanize integrations](./media/kanbanize-tutorial/tutorial-kanbanize-save.png)
 
-	a. In the **Idp Entity Id** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
+	a. In the **Idp Entity ID** textbox, paste the value of **Azure AD Identifier**, which you have copied from the Azure portal.
 
 	b. In the **Idp Login Endpoint** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
 
