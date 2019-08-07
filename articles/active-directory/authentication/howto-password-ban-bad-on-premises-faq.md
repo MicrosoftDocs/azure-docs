@@ -31,6 +31,8 @@ Microsoft's current guidance on this topic can be found at the following link:
 
 No - on-premises Azure AD Password Protection is only supported in the public cloud. No date has been announced for non-public cloud availability.
 
+Although on-premises Azure AD Password Protection is not supported in non-public clouds, the Azure management portal will allow modification of the on-premises-specific "Password protection for Windows Server Active Directory" configuration even in such clouds. These configuration changes do not currently have any effect since registration of on-premises forests or proxy agents is unsupported when non-public cloud credentials are used; such registration attempts will always fail.
+
 **Q: How can I apply Azure AD Password Protection benefits to a subset of my on-premises users?**
 
 Not supported. Once deployed and enabled, Azure AD Password Protection doesn't discriminate - all users receive equal security benefits.
