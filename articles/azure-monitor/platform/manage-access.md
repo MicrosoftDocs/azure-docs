@@ -29,7 +29,7 @@ This article explains how to manage access to logs and to administer the workspa
 
 ## Define access control mode
 
-## Configure from the Azure portal
+### Configure from the Azure portal
 
 You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
 
@@ -86,7 +86,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## Configure using a Resource Manager template
+### Configure using a Resource Manager template
 
 To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
 
