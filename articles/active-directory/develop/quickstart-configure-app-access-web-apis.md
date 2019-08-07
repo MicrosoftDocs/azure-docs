@@ -93,15 +93,19 @@ To add a redirect URI to your application:
 Depending on the application you're registering, there are some additional settings that you may need to configure, such as:
 
 * **Logout URL**
-* For single-page apps, you can enable **Implicit grant** and select the tokens that you'd like the authorization endpoint to issue
-* For apps that integrate with the Microsoft account service, you can configure **Live SDK support**
+* For single-page apps, you can enable **Implicit grant** and select the tokens that you'd like the authorization endpoint to issue.
+* For desktop apps that are acquiring tokens with Integrated Windows Authentication, device code flow, or username/password in the **Default client type** section, configure the **Treat application as public client** setting to **Yes**.
+* For legacy apps that were using the Live SDK to integrate with the Microsoft account service, configure **Live SDK support**. New apps don't need this setting.
 * **Default client type**
 
 ### Modify supported account types
 
 The **Supported account types** specify who can use the application or access the API.
 
-Once you've [configured the supported account types](quickstart-register-app.md) when you initially registered the application, you can only change this setting using the application manifest editor.
+Once you've [configured the supported account types](quickstart-register-app.md) when you initially registered the application, you can only change this setting using the application manifest editor if:
+
+* You change account types from **AzureADMyOrg** or **AzureADMultipleOrgs** to **AzureADandPersonalMicrosoftAccount**, or vice versa.
+* You change account types between **AzureADMyOrg** and **AzureADMultipleOrgs**, or vice versa.
 
 To change the supported account types for an existing app registration:
 
@@ -123,15 +127,17 @@ To configure application settings based on the platform or device, you're target
    |-------------------------|----------------------|-----------------------------------|
    | **Web applications**    | **Web**              | Enter the **Redirect URI** for your application. |
    | **Mobile applications** | **iOS**              | Enter the app's **Bundle ID**, which you can find in XCode in Info.plist, or Build Settings. Adding the bundle ID automatically creates a redirect URI for the application. |
-   |                         | **Android**          | * Provide the app's **Package name**, which you can find in the manifest.<br/>* Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application.  |
-   | **Desktop + devices**   | **Desktop + devices** | * Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>* Optional. Enter a **Custom redirect URI**, which is used the location where Azure AD will redirect users in response to authentication requests. |
+   |                         | **Android**          | * Provide the app's **Package name**, which you can find in the AndroidManifest.xml file.<br/>* Generate and enter the **Signature hash**. Adding the signature hash automatically creates a redirect URI for the application.  |
+   | **Desktop + devices**   | **Desktop + devices** | * Optional. Select one of the recommended **Suggested redirect URIs** if you're building apps for desktop and devices.<br/>* Optional. Enter a **Custom redirect URI**, which is used as the location where Azure AD will redirect users in response to authentication requests. For example, for .NET Core applications where you want interaction, use `https://localhost`. |
 
    > [!IMPORTANT]
    > For mobile applications that aren't using the latest MSAL library or not using a broker, you must configure the redirect URIs for these applications in **Desktop + devices**.
 
 1. Depending on the platform you chose, there may be additional settings that you can configure. For **Web** apps, you can:
     * Add more redirect URIs
-    * Enable **Implicit grant** and select the tokens that you'd like the authorization endpoint to issue if the app is a single-page web app
+    * Configure **Implicit grant** to select the tokens you'd like to be issued by the authorization endpoint:
+        * For single-page apps, select both **Access tokens** and **ID tokens**
+        * For web apps, select **ID tokens**
 
 ## Add credentials to your web application
 
