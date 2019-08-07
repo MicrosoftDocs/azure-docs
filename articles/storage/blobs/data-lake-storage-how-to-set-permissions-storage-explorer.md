@@ -1,15 +1,13 @@
 ---
 title: "Set permissions for Data Lake Storage Gen2 with Azure Storage Explorer"
 description: In this how to, you learn how to set permissions with Azure Storage Explorer on files and directories inside your Azure Data Lake Storage Gen2 capable storage account.
-services: storage
 author: normesta
-
-ms.custom: mvc
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: normesta
+ms.reviewer: stewu
 ---
 
 # Set file and directory level permissions using Azure Storage Explorer with Azure Data Lake Storage Gen2
