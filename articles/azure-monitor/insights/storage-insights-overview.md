@@ -146,7 +146,7 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
 1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
 
-2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit**.
+2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit** from the command bar.
 
 3. Next to the metrics section, select **Edit**. 
 
@@ -170,8 +170,13 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold.  By default, the tile and grid reporting percent availability are configured with a minimum value of 90 and maximum value of 99. We are going to change the minimum value of the **Availability %** in the **Availability by API** grid to 80. 
 
-1. 
+1. Select **Storage accounts** from the portal and then select a storage account from the list.
 
+2. Select **Insights (preview)** from the left hand pane.
+
+3. In the workbook, select **Availability** to switch to the availability workbook, and then select **Edit** from the command bar. 
+
+4. 
 ## Next steps
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
