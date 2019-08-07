@@ -18,7 +18,7 @@ You can now use the power of the Speech Services to easily voice-enable a chat b
 
 In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 
-This tutorial is designed for developers who are just starting their journey with Azure, Bot-Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed. At the end of this exercise, you'll have set up a simple system with a client app, channel, and bot service all communicating with each other.
+This tutorial is designed for developers who are just starting their journey with Azure, Bot-Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed. At the end of this exercise, you'll have set up a simple system with a client app, channel service, and bot service all communicating with each other, as shown in following diagram.
 
 ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
 
@@ -27,13 +27,12 @@ This tutorial is designed for developers who are just starting their journey wit
 
 Here's what this tutorial covers:
 > [!div class="checklist"]
-> * Create an Azure resource group and resources for your bot
+> * Create a new Azure resource group for your bot
 > * Build, test, and deploy the Echo Bot sample to an Azure App Service
-> * Enable web sockets for streaming
-> * Create a Bot-Framework channel registration and register the Direct Line Speech channel
-> * Download and run the Direct Line Speech client to interact with your Echo Bot
-> * Add custom wake word activation to your bot using the Speech SDK
-> * Learn to change the language that your bot will understand and respond in
+> * Register your bot with Direct Line Speech channel
+> * Build and run the Direct Line Speech Client to interact with your Echo Bot
+> * Add custom wake word activation
+> * Learn to change the language of the recognized and spoken speech
 
 ## Prerequisites
 
@@ -65,7 +64,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 If you'd like to use a different region for this tutorial these factors may limit your choices:
 
 * The Direct Line Speech channel is a preview service. As such, it may be limited to specific Azure regions. For more information about available regions, see [Voice-first virtual assistants](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
-* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. The higher quality Neural voices are [limited to specific Azure regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 * Free trial keys may be restricted to a specific region.
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -82,13 +81,13 @@ Follow these instructions to create a Speech resource:
 2. In the search bar, type **Speech**.
 3. Select **Speech**, then click **Create**.
 4. You'll be prompted to provide some information:
-   * Give your resource a **Name**. We recommend **SpeechEchoBotTutorial-SpeechService**
+   * Give your resource a **Name**. We recommend **SpeechEchoBotTutorial-Speech**
    * For **Subscription**, make sure **Free Trial** is selected.
    * For **Location**, select **West US**.
    * For **Pricing tier**, select **F0**. This is the free tier.
    * For **Resource group**, select **SpeechEchoBotTutorial-ResourceGroup**.
 5. After you've entered all required information, click **Create**. It may take a few minutes to create your resource.
-6. Later in this tutorial you'll need subscription keys for this service. You can access these keys at any time from your resource's **Overview**.
+6. Later in this tutorial you'll need subscription keys for this service. You can access these keys at any time from your resource's **Overview** (Manage keys) or **Keys**.
 
 At this point, check that your resource group (**SpeechEchoBotTutorial-ResourceGroup**) has a Speech resource:
 
@@ -134,7 +133,7 @@ Now that you've created some resources, let's build a bot. We're going to start 
    git clone https://github.com/Microsoft/botbuilder-samples.git
    ```
 2. Launch Visual Studio.
-3. From the toolbar, select **File** > **Open** > **Project/Solution**. The Echo Bot solution is located in the following folder:
+3. From the toolbar, select **File** > **Open** > **Project/Solution**, and open the project file of the Echo Bot that's been configured for use with Direct Line Speech channel:
    ```
    experimental\directline-speech\csharp_dotnetcore\02.echo-bot\EchoBot.csproj
    ```
@@ -151,7 +150,9 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
    ```
    http://localhost:3978/api/messages
    ```
-4. Use the UI to communicate with your bot and test.
+4. Use the UI to communicate with your bot using typed text and see its replied text. 
+
+You verified that the bot is functioning properly as a chat bot (text input, text output), when running locally.
 
 ## Deploy your bot to an Azure App Service
 
@@ -160,7 +161,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 > [!NOTE]
 > Alternatively, you can deploy a bot using the [Azure CLI](https://docs.microsoft.com/azure/bot-service/bot-builder-deploy-az-cli) and [deployment templates](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/directline-speech/csharp_dotnetcore/02.echo-bot/DeploymentTemplates).
 
-1. From Visual Studio, open the Echo Bot that's been configured for use with the Direct Line Speech channel:
+1. From Visual Studio, open the Echo Bot that's been configured for use with Direct Line Speech channel:
    ```
    experimental\directline-speech\csharp_dotnetcore\02.echo-bot\EchoBot.csproj
    ```
@@ -177,14 +178,14 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 7. You should see a success message in Visual Studio that looks like this:
    ```
    Publish Succeeded.
-   Web App was published successfully https://speechechobottutorial.azurewebsites.net/
+   Web App was published successfully https://EchoBot20190805125647.azurewebsites.net/
    ```
 8. Your default browser should open and display a page that reads: "Your bot is ready!".
 9. At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup** in the Azure portal, and confirm there are three resources:
 
 | NAME | TYPE  | LOCATION |
 |------|-------|----------|
-| SpeechEchoBotTutorial | App Service | West US |
+| EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
 
@@ -192,7 +193,7 @@ The next step is to deploy the Echo Bot to Azure. There are a few ways to deploy
 
 You'll need to make a small configuration change so that your bot can communicate with the Direct Line Speech channel using web sockets. Follow these steps to enable web sockets:
 
-1. Navigate to the [Azure portal](https://portal.azure.com), and locate your App Service. The resource should be named **SpeechEchoBotTutorial**.
+1. Navigate to the [Azure portal](https://portal.azure.com), and locate your App Service. The resource should be named similar to **EchoBot20190805125647** (your unique app name).
 2. In the left navigation, select **Settings**, then click **Configuration**.
 3. Select the **General settings** tab.
 4. Locate the toggle for **Web sockets** and set it to **On**.
@@ -217,7 +218,7 @@ Now that you've created an Azure App Service to host your bot, the next step is 
    * For **Resource group**, select **SpeechEchoBotTutorial-ResourceGroup**.
    * For **Location**, select **West US**.
      * For **Pricing tier**, select **F0**.
-     * For **Messaging endpoint**, enter the URL for your web app with the `/api/messages` path appended at the end. For example: if your globally unique App Name was **SpeechEchoBotTutorial**, your messaging endpoint would be: `https://speechechobottutorial.azurewebsites.net/api/messages/`.
+     * For **Messaging endpoint**, enter the URL for your web app with the `/api/messages` path appended at the end. For example: if your globally unique App Name was **EchoBot20190805125647**, your messaging endpoint would be: `https://EchoBot20190805125647.azurewebsites.net/api/messages/`.
      * For **Application insights**, you can set this to **Off**. For more information, see [Bot analytics](https://docs.microsoft.com/azure/bot-service/bot-service-manage-analytics?view=azure-bot-service-4.0).
      * Ignore **Auto create App ID and password**.
 5. Navigate back to the **Bot Channels Registration** and click **Create**.
@@ -226,7 +227,7 @@ At this point, check your Resource Group **SpeechEchoBotTutorial-ResourceGroup**
 
 | NAME | TYPE  | LOCATION |
 |------|-------|----------|
-| SpeechEchoBotTutorial | App Service | West US |
+| EchoBot20190805125647 | App Service | West US |
 | SpeechEchoBotTutorial-AppServicePlan | App Service plan | West US |
 | SpeechEchoBotTutorial-BotRegistration | Bot Channels Registration | Global |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | West US |
@@ -242,7 +243,7 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 2. From the left navigation, select **Channels**.
    * Look for **More channels**, locate and click **Direct Line Speech**.
    * Review the text on the page titled **Configure Direct line Speech (Preview)**, then click **Save**.
-   * As part of creation, two **Secret keys** were generated. These keys are unique to your bot. When you write a client app using the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/), you'll provide one of these keys to establish a connection between the client app, the Direct Line Speech channel, and your bot service. In this tutorial, you'll use the Direct Line Speech client (WPF, C#).
+   * As part of creation, two **Secret keys** were generated. These keys are unique to your bot. When you write a client app using the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/), you'll provide one of these keys to establish a connection between the client app, the Direct Line Speech channel, and your bot service. In this tutorial, you'll use the Direct Line Speech Client (WPF, C#).
    * Click **Show** and copy one of the keys somewhere you'll be able to easily access it. Don't worry, you can always access the keys from the Azure portal.
 3. From the left navigation, click **Settings**.
    * Check the box labeled **Enable Streaming Endpoint**. This is needed to enable a communication protocol built on web sockets between your bot and the Direct Line Speech channel.
@@ -251,18 +252,19 @@ Now it's time to register your bot with the Direct Line Speech channel. This cha
 > [!TIP]
 > If you'd like to learn more, see [Connect a bot to Direct Line Speech (Preview)](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0). This page includes additional information and known issues.
 
-## Build the Direct Line Speech client
+## Build the Direct Line Speech Client
 
-In this step, you're going to build the Direct Line Speech client. The client is a Windows Presentation Foundation (WPF) app in C# that uses the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your bot using the Direct Line Speech channel. Use it to interact with and test your bot before writing a custom client app.
+In this step, you're going to build the Direct Line Speech Client. The client is a Windows Presentation Foundation (WPF) app in C# that uses the [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk) to manage communication with your bot using the Direct Line Speech channel. Use it to interact with and test your bot before writing a custom client app.
 
-The Direct Line Speech client has a simple UI that allows you to configure the connection to your bot, view the text conversation, view Bot-Framework activities in JSON format, and display adaptive cards. It also supports the use of custom wake words. You'll use this client to speak with your bot and receive a voice response.
+The Direct Line Speech Client has a simple UI that allows you to configure the connection to your bot, view the text conversation, view Bot-Framework activities in JSON format, and display adaptive cards. It also supports the use of custom wake words. You'll use this client to speak with your bot and receive a voice response.
 
 Before we move on, make sure that your microphone and speakers are enabled and working.
 
 1. Navigate to the GitHub repository for the [Direct Line Speech Client](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/README.md).
 2. Follow the instructions provided to clone the repository, build the project, configure the client, and launch the client.
 3. Click **Reconnect** and make sure you see the message **Press the mic button, or type to start talking to your bot**.
-4. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will return the final result, a representation of what you spoke prefixed with "echo". You can also use text to communicate with the bot.
+4. Let's test it out. Click the microphone button, and speak a few words in English. The recognized text will appear as you speak. When you're done speaking, the bot will reply in its own voice, saying "echo" followed by the recognized words.
+5. You can also use text to communicate with the bot. Just type in the text at the bottom bar. 
 
 ### Troubleshooting errors in Direct Line Speech Client
 
@@ -280,7 +282,7 @@ If your issue isn't addressed in the table, see [Voice-first virtual assistants 
 
 ### View bot activities
 
-Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech client, you'll see timestamped logs with each activity that the client has received from the bot. When you select a log item, it will show the details of the associated activity as JSON.
+Every bot sends and receives **Activity** messages. In the **Activity Log** window of Direct Line Speech Client, you'll see timestamped logs with each activity that the client has received from the bot. When you select a log item, it will show the details of the associated activity as JSON.
 
 Here's a sample log:
 ```json
@@ -321,7 +323,7 @@ To learn more about what's returned in the JSON output, see [fields in the Activ
 
 ### View client source code for calls to the Speech SDK
 
-The Direct Line Speech client uses the NuGet package [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/), which contains the Speech SDK. A good place to start reviewing the sample code is the method [`InitSpeechConnector()`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs#L187) in file `DLSpeechClient\MainWindow.xaml.cs`, which creates these two Speech SDK objects:
+The Direct Line Speech Client uses the NuGet package [Microsoft.CognitiveServices.Speech](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/), which contains the Speech SDK. A good place to start reviewing the sample code is the method InitSpeechConnector() in file [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs), which creates these two Speech SDK objects:
 - [`DialogServiceConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconfig) - For configuration settings (speech subscription key, key region, bot secret)
 - [`DialogServiceConnector`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.-ctor) - To manage the channel connection and client subscription events for handling recognized speech and bot responses.
 
@@ -334,15 +336,15 @@ The Speech SDK supports custom wake word activation. Similar to "Hey Cortana" fo
 
 Wake word detection is done on the client app. If using a wake word, audio is only streamed to the Direct Line Speech channel if the wake word is detected. The Direct Line Speech channel includes a component called *key word verification (KWV)*, which does more complex processing in the cloud to verify that the wake word you've chosen is at the start of the audio stream. If key word verification succeeds, then the channel will communicate with the bot.
 
-Follow these steps to create a wake word model, configure the Direct Line Speech client to use this model, and finally, test it with your bot.
+Follow these steps to create a wake word model, configure the Direct Line Speech Client to use this model, and finally, test it with your bot.
 
 1. Follow these instructions to [create a custom wake word by using the Speech service](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-create-kws).
 2. Unzip the model file that you downloaded in the previous step. It should be named for your wake word. You're looking for a file named `kws.table`.
 3. In the Direct Line Speech client, locate the **Settings** menu (look for the gear icon in the top right). Locate **Model file path** and enter the full path name for the `kws.table` file from step 2.
 4. Make sure to check the box labeled **Enabled**. You should see this message next to the check box: "Will listen for the wake word upon next connection". If you've provided the wrong file or an invalid path, you should see an error message.
-5. Enter your speech **subscription key**, **subscription key region, and **language**, and then click **OK** to close the **Settings** menu.
+5. Enter your speech **subscription key**, **subscription key region**, and then click **OK** to close the **Settings** menu.
 6. Select a **Bot Secret**, then click **Reconnect**. You should see a message that reads: "New conversation started - type, press the microphone button, or say the wake word". The app is now continuously listening.
-7. Speak any phrase that starts with your wake word. For example: "Hey **{your wake word}**, what time is it?". You don't need to pause after uttering the wake word. When finished, two things happen:
+7. Speak any phrase that starts with your wake word. For example: "**{your wake word}**, what time is it?". You don't need to pause after uttering the wake word. When finished, two things happen:
    * You'll see a transcription of what you spoke
    * Shortly after, you'll hear the bot's response
 8. Continue to experiment with the three input types that your bot supports:
@@ -354,7 +356,7 @@ Follow these steps to create a wake word model, configure the Direct Line Speech
 
 In the Direct Line Client source code, take a look at these files to review the code that's used to enable wake word detection:
 
-1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) includes a call to the Speech SDK method [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile), which is used to instantiate the model from a local file on disk.
+1. [`DLSpeechClient\Models.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/Models.cs) includes a call to the Speech SDK method [`KeywordRecognitionModel.fromFile()`](https://docs.microsoft.com/en-us/javascript/api/microsoft-cognitiveservices-speech-sdk/keywordrecognitionmodel?view=azure-node-latest#fromfile-string-), which is used to instantiate the model from a local file on disk.
 1. [`DLSpeechClient\MainWindow.xaml.cs`](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client/blob/master/DLSpeechClient/MainWindow.xaml.cs) includes a call to Speech SDK method [`DialogServiceConnector.StartKeywordRecognitionAsync()`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.startkeywordrecognitionasync), which activates continuous wake word detection.
 
 ## (Optional) Change the language and redeploy your bot
@@ -365,21 +367,21 @@ The bot that you've created will listen for and respond in English. However, you
 
 1. Let's start by opening `\experimental\directline-speech\csharp_dotnetcore\02.echo-bot\Bots\echo-bot.cs`.
 2. Next, locate the SSML. It's easy to find, as it's enclosed in `<speak></speak>` tags.
-3. In the SSML string, locate the `<voice name>` tag, replace it with `<voice name='de-DE-Stefan-Apollo'>`, and save. This formatted string tells the text to speech service to return a synthesized speech response using the voice `de-DE-Stefan-Apollo`, which is optimized for German.
+3. In the SSML string, locate the `<voice name>` tag, replace it with `<voice name='de-DE-Stefan-Apollo'>`, and save. This formatted string tells the text-to-speech service to return a synthesized speech response using the voice `de-DE-Stefan-Apollo`, which is optimized for German.
 
 >[!NOTE]
 > You're not limited to German and can choose from the list of available voices from the [Speech service](language-support.md#text-to-speech).
 
 ### Redeploy your bot
 
-Now that you've made all the necessary changes, the next step is to republish your bot to an Azure App Service and try it out:
+Now that you've made the necessary change to the bot, the next step is to republish it to your Azure App Service and try it out:
 
 1. Build your solution in Visual Studio and fix any build errors.
 2. In the Solution Explorer window, right-click on the **EchoBot** project and select **Publish**.
-3. Your previous deployment configuration has already been loaded as the default. Simply click **Publish** next to **SpeechEchoBotTutorial - Web Deploy**.
+3. Your previous deployment configuration has already been loaded as the default. Simply click **Publish** next to **EchoBot20190805125647 - Web Deploy**.
 4. The **Publish Succeeded** message will appear in the Visual Studio output window, and a web page will launch with the message "Your bot is ready!".
 5. Open the Direct Line Speech Client app, click on the settings button (upper-right gear icon), and enter `de-de` in the Language field. This sets the spoken language to be recognized, overriding the default `en-us`.
-6. Follow the instructions in [Build the Direct Line Speech client](#build-the-direct-line-speech-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
+6. Follow the instructions in [Build the Direct Line Speech Client](#build-the-direct-line-speech-client) to reconnect with your newly deployed bot, speak in the new language and hear you bot reply in that language with the new voice.
 
 ## Clean up resources
 
@@ -396,11 +398,11 @@ If you're not going to continue using the echo-bot deployed in this tutorial, yo
 
 ## See also
 
-* Deploy to an [Azure region closer to you](https://azure.microsoft.com/global-infrastructure/locations/) to see bot response time improvement
-* Deploy to an [Azure region that supports Neural TTS voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
-* Learn more about pricing:
+* Deploying to an [Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see bot response time improvement
+* Deploying to an [Azure region that supports high quality Neural TTS voices](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices)
+* Pricing associated with Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech Services](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)
-* Build and deploy your own voice-enabled bot:
+* Building and deploying your own voice-enabled bot:
     * Build a [Bot-Framework bot](https://dev.botframework.com/). Register it with [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech?view=azure-bot-service-4.0) and [customize your bot for voice](https://docs.microsoft.com/azure/bot-service/directline-speech-bot?view=azure-bot-service-4.0)
     * Explore existing [Bot-Framework solutions](https://github.com/microsoft/botframework-solutions): Build a [custom voice-first virtual assistant](https://docs.microsoft.com/azure/cognitive-services/speech-service/voice-first-virtual-assistants) and [voice-enable it](https://github.com/microsoft/botframework-solutions/blob/master/docs/howto/assistant/csharp/speechenablement.md)
