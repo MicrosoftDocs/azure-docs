@@ -3,7 +3,7 @@ title: Troubleshoot common errors
 description: Learn how to troubleshoot issues querying Azure resources with Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/24/2019
+ms.date: 08/07/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
 manager: carmonm
@@ -60,6 +60,23 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 # View the completed results of the query on all subscriptions
 $response
 ```
+
+### <a name="rest-contenttype"></a>Scenario: Unsupported Content-Type REST header
+
+#### Issue
+
+Customers querying the Azure Resource Graph REST API get a _500_ (Internal Server Error) response
+returned.
+
+#### Cause
+
+The Azure Resource Graph REST API only supports a `Content-Type` of **application/json**. Some REST
+tools or agents default to **text/plain**, which is unsupported by the REST API.
+
+#### Resolution
+
+Validate that the tool or agent you're using to query Azure Resource Graph has the REST API header
+`Content-Type` configured for **application/json**.
 
 ## Next steps
 
