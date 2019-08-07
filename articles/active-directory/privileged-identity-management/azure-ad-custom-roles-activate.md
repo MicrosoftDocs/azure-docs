@@ -23,38 +23,50 @@ ms.collection: M365-identity-device-management
 
 # Activate an Azure AD custom role in Privileged Identity Management
 
-Azure AD Privileged Identity Management now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. View the details here [insert link to Vince’s docs] to learn more about and create custom roles for delegated application management.
+Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../active-directory/users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will appear as in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience.
 
 ## Activate a role
 
 When you need to activate an Azure AD custom role, request activation by selecting the My roles navigation option in PIM.
-1.	Sign in to the Azure portal.
-2.	Open Azure AD Privileged Identity Management.
-3.	Click My roles.
- 
-4.	Click Azure AD custom roles to see a list of your eligible Azure AD custom role assignments.
- 
-5.	In the Azure AD custom roles list, find the assignment you need to use
- 
-6.	Click Activate to open the Activate pane
-7.	If your role requires multi-factor authentication (MFA), click Verify your identity before proceeding. You only have to authenticate once per session.
- 
-8.	Click Verify my identity and follow the instructions to provide additional security verification.
-  
-9.	To specify an application scope, click Scope to open the filter pane.
- 
-It's a best practice to only request access to the role at the scope you need. If your assignment was at an application scope, you will only be able to activate at that scope.
-10.	If necessary, specify a custom activation start time. The member would be activated after the selected time.
-11.	In the Ticket system, Ticket number, reason box, enter the reason for the activation request. These can be made required or not in the role setting
-12.	Click Activate.
-If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role, follow the steps in next section.
+
+1. Sign in to [the Azure portal](https://portal.azure.com).
+1. Open Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
+1. Select **My roles**.
+
+    ![Select My Roles to the the list of eligible role assignments](./media/azure-ad-custom-roles-activate/my-roles.png)
+
+1. Select **Azure AD custom roles** to see a list of your eligible Azure AD custom role assignments.
+
+   ![See the list of eligible Azure AD custom role assignments](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
+
+1. On the **Azure AD custom roles (Preview)** page, find the assignment you need.
+1. Select **Activate** to open the Activate page.
+1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You only have to authenticate once per session.
+
+    ![Verify your identity to use multi-factor authentication](./media/azure-ad-custom-roles-activate/verify-identity.png)
+
+1. Select **Verify my identity** and follow the instructions to provide additional security verification.
+
+    ![Provide additional verification on the sign-in page](./media/azure-ad-custom-roles-activate/sign-in-page.png)
+
+1. To specify a custom application scope, select **Scope** to open the filter pane.
+You should request access to a role at the minimum scope needed. If your assignment is at an application scope, you can activate only at that scope.
+assign-scope
+    ![Assign an Azure AD resource scope to the role assignment](./media/azure-ad-custom-roles-activate/assign-scope.png)
+
+1. If necessary, specify a custom activation start time. When used, the role member is activated at the specified time.
+1. In the **Reason** box, enter the reason for the activation request. These can be made required or not in the role setting.
+1. Select **Activate**.
+
+If the role does not require approval, it is activated according to your settings and is added to the list of active roles. If you want to use the role, begin with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md).
+
 If the role requires approval to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
- 
+
 ## Next steps
 
 - [License requirements to use PIM](subscription-requirements.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Role definitions in Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 - [Deploy PIM](pim-deployment-plan.md)
