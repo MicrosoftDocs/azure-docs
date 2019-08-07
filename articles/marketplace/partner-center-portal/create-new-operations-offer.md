@@ -1,6 +1,6 @@
 ---
-title: Create a new Dynamics 365 for Finance and Operations offer in the Commercial Marketplace 
-description: How to create a new Dynamics 365 for Finance and Operations offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
+title: Create a new Dynamics 365 for Operations offer in the Commercial Marketplace 
+description: How to create a new Dynamics 365 for Operations offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
 author: JnHs 
 manager: evansma
 ms.author: jenhayes 
@@ -11,7 +11,7 @@ ms.date: 08/07/2019
 
 # Create a new SaaS offer
 
-To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
+To begin creating Dynamics 365 for Operations offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
