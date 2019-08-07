@@ -31,7 +31,7 @@ There are some problems that seem to happen more frequently than any of us would
 
 ### I forgot my mobile device at home
 
-It happens. You left your mobile device at home and now you can't use your phone to verify you are who you say you are. If you previously added another method to sign-in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
+It happens. You left your mobile device at home and now you can't use your phone to verify you are who you say you are. If you previously added another method to sign in to your account, such as your office phone, you should be able to use that method now. If you never added an additional verification method, you'll have to contact your Help desk and have them help you get back into your account.
 
 #### To sign in to your work or school account using another verification method
 
@@ -50,15 +50,15 @@ If you've lost or had your mobile device stolen, you can either sign in using a 
 
 ### I'm not getting the verification code sent to my mobile device
 
-This is a really common problem and it's typically related to your mobile device and its settings. Some possible things to check:
+Not getting your verification code is a common problem and it's typically related to your mobile device and its settings. Some possible things to try:
 
 - **Restart your mobile device.** Sometimes your device just needs a refresh. Restarting your device ends any background processes or services that are currently running and could cause problems, along with refreshing your device's core components, restarting them in case they crashed at some point.
 
-- **Verify your verification information is correct.** You need to make sure that your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
+- **Verify your security information is correct.** Make sure your security verification method information is accurate, especially your phone numbers. If you put in the wrong phone number, all of your alerts will go to that incorrect number. Fortunately, that user won't be able to do anything with the alerts, but it also won't help you sign in to your account. To make sure your information is correct, see the instructions in the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article.
 
-- **Verify your notifications are turned on.** You must make sure that your mobile device has notifications turned on and that you've selected a notification method that allows phone calls, your authentication app, and your messaging app (for text messages)to send visible alert notifications to your mobile device.
+- **Verify your notifications are turned on.** Make sure your mobile device has notifications turned on and that you've selected a notification method that allows phone calls, your authentication app, and your messaging app (for text messages) to send visible alert notifications to your mobile device.
 
-- **Make sure you have a device signal and Internet connection.** You must make sure your phone calls and text messages are getting through to your mobile device. Have a friend call you and send you a text message to make sure you receive both. If you don't, first check to make sure your mobile device is turned on. If your device is turned on, but you're still not getting the call or text, it's most likely a problem with your network and you'll need to talk to your provider. If you often have signal-related problems, we recommend you install and use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. The authenticator app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.
+- **Make sure you have a device signal and Internet connection.** Make sure your phone calls and text messages are getting through to your mobile device. Have a friend call you and send you a text message to make sure you receive both. If you don't, first check to make sure your mobile device is turned on. If your device is turned on, but you're still not getting the call or text, it's most likely a problem with your network and you'll need to talk to your provider. If you often have signal-related problems, we recommend you install and use the [Microsoft Authenticator app](user-help-auth-app-download-install.md) on your mobile device. The authenticator app can generate random security codes for sign-in, without requiring any cell signal or Internet connection.
 
 - **Turn off Do not disturb.** Make sure you haven't turned on the **Do not disturb** feature for your mobile device. When this feature is turned on, notifications aren't allowed to alert you on your mobile device. Refer to your mobile device's manual for instructions about how to turn off this feature.
 
@@ -66,11 +66,11 @@ This is a really common problem and it's typically related to your mobile device
 
 ### I'm not getting prompted for my second verification information
 
-If you've signed in to your work or school account using your user name and password, but haven't been prompted about your additional security verification information, it might be that you haven't set up your device yet. Your mobile device must specifically be set up to work with your additional security verification method. To make sure you've turned on your mobile device and that its available to use with your verification method, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article. If you know you haven't set up your device or your account, you can do it now by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
+If you've signed in to your work or school account using your user name and password, but haven't been prompted about your additional security verification information, it might be that you haven't set up your device yet. Your mobile device must specifically be set up to work with your additional security verification method. To make sure you've turned on your mobile device and that it's available to use with your verification method, see the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md) article. If you know you haven't set up your device or your account, you can do it now by following the steps in the [Set up my account for two-step verification](multi-factor-authentication-end-user-first-time.md) article.
 
 ### I got a new phone number, how do I change it for two-factor verification?
 
-If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do this, follow the steps in the **I want to change my phone number, or add a secondary number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#i-want-to-change-my-phone-number-or-add-a-secondary-number) article.
+If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do update your verification method, follow the steps in the **I want to change my phone number, or add a secondary number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#i-want-to-change-my-phone-number-or-add-a-secondary-number) article.
 
 ### I got a new mobile device, how do I add it?
 
