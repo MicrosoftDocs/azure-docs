@@ -105,11 +105,11 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
    ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
 
 9. Select the storage account that you created in step 3.
-> [!NOTE]
-> NSG Flow Logs do not work with storage accounts if:
-> * The storage accounts have a firewall enabled.
-> * The storage accounts have [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
-4. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
+   > [!NOTE]
+   > NSG Flow Logs do not work with storage accounts if:
+   > * The storage accounts have a firewall enabled.
+   > * The storage accounts have [hierarchical namespace](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) enabled.
+1. In the top, left corner of portal, select **All services**. In the **Filter** box, type *Network Watcher*. When **Network Watcher** appears in the search results, select it.
 10. Set **Retention (days)** to 5, and then select **Save**.
 
 ## Download flow log
