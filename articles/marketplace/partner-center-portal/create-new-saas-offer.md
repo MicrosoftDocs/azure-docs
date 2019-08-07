@@ -6,7 +6,7 @@ manager: evansma
 ms.author: mattwoj 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 08/07/2019
 ---
 
 # Create a new SaaS offer
@@ -17,7 +17,7 @@ To begin creating Software as a Service (SaaS) offers, ensure that you first [Cr
 
 Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
-If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
+If you select another offer type, you may be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/). Only SaaS and Dynamics 365 offers are available in the Commercial Marketplace portal on Partner Center at this time.
 
 ![Create offer window on Partner Center](./media/new-offer-click.png)
 
