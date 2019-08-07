@@ -78,6 +78,7 @@ Dsv3-series sizes are based on the 2.4 GHz Intel Xeon® E5-2673 v3 (Haswell) pro
 ## Dasv3-series
 
 Premium Storage: Supported
+
 Premium Storage caching: Supported
 
 Dasv3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz and use premium storage. The Dasv3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads.
@@ -120,6 +121,7 @@ Data disk storage is billed separately from virtual machines. To use premium sto
 ## Dav3-series
 
 Premium Storage: Not Supported
+
 Premium Storage caching: Not Supported
 
 Dav3-series sizes are based on the 2.35Ghz AMD EPYC<sup>TM</sup> 7452V processor that can achieve a boosted Fmax of 3.35GHz. The Dav3-series sizes offer a combination of vCPU, memory and temporary storage for most production workloads. Data disk storage is billed separately from virtual machines. To use premium storage disks, use the Dasv3 sizes. The pricing and billing meters for Dasv3 sizes are the same as the Dav3-series.
