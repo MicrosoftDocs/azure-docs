@@ -28,7 +28,7 @@ Hyper-V VM | Hyper-V VM assessment with the Azure Migrate Assessment tool. | Dow
 
 ## Appliance access
 
-After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: ``` https://<appliance-ip-or-name>:44368 ```.
+After you have configured the appliance, you can remotely access the appliance VM through TCP port 3389. You can also remotely access the web management app for the appliance, on port 44368 with URL: `https://<appliance-ip-or-name>:44368`.
 
 ## Appliance license
 The appliance comes with a Windows Server 2016 evaluation license, which is valid for 180 days. If the evaluation period is close to expiry, we recommend that you download and deploy a new appliance, or that you activate the operating system license of the appliance VM.
@@ -38,7 +38,7 @@ The appliance has these agents installed.
 
 **Agent** | **Details**
 --- | ---
-Discovery agent | Collects configuration data from on-premises VMs.
+Discovery agent | Gathers configuration data of on-premise virtual machines
 Assessment agent | Profiles the on-premises environment to collect VM performance data.
 Migration adapter | Orchestrates VM replication, and coordinates communication between VMs and Azure.
 Migration gateway | Sends replicated VM data to Azure.
@@ -148,7 +148,7 @@ VM version | Msvm_ProcessorSettingData | VirtualQuantity
 Memory (bytes) | Msvm_MemorySettingData | VirtualQuantity
 Maximum memory that can be consumed by VM | Msvm_MemorySettingData | Limit
 Dynamic memory enabled | Msvm_MemorySettingData | DynamicMemoryEnabled
-Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsciExchangeItems Name Data
+Operating system name/version/FQDN | Msvm_KvpExchangeComponent | GuestIntrinsicExchangeItems Name Data
 VM power status | Msvm_ComputerSystem | EnabledState
 **Per disk details** | 
 Disk identifier | Msvm_VirtualHardDiskSettingData | VirtualDiskId
@@ -196,8 +196,8 @@ The appliance is upgraded as the Azure Migrate agents running on the appliance a
 
 - This happens automatically because the auto-update is enabled on the appliance by default.
 - You can change this default setting to update the agents manually.
-- To disable automatic updates, set registry key Appliance Auto Update, in HKLM\SOFTWAREMicrosoft\Azure.
-
+- To disable the auto-update, go to the Registry Editor>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance and set the registry key- "AutoUpdate" to 0 (DWORD).
+ 
 ### Set agent updates to manual
 
 For manual updates, make sure that you update all the agents on the appliance at the same time, using the **Update** button for each outdated agent on the appliance. You can switch the update setting back to automatic updates at any time.

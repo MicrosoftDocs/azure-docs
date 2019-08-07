@@ -3,7 +3,7 @@ title: Add a shape with Azure Maps | Microsoft Docs
 description: How to add a shape to a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 10/30/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -42,6 +42,9 @@ This sample shows how to add arrow icons along a line on the map. When using a s
   See the Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>Show arrow along line</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
 
 ### <a name="line-stroke-gradient"></a> Add a stroke gradient to a line
 
@@ -111,6 +114,10 @@ In addition to filling a polygon with a color an image pattern can also be used.
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+
+> [!TIP]
+> The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+
 ### Customize a polygon layer
 
 The Polygon layer only has a few styling options. Here is a tool to try them out.
@@ -140,7 +147,7 @@ Azure Maps uses an extended version of the GeoJSON schema that provides a defini
 }  
 ```
 
-The Azure Maps Web SDK converts these `Pooint` features into `Polygon` features under the covers and can be rendered on the map using polygon and line layers as shown here.
+The Azure Maps Web SDK converts these `Point` features into `Polygon` features under the covers and can be rendered on the map using polygon and line layers as shown here.
 
 <iframe height='500' scrolling='no' title='Add a circle to a map' src='//codepen.io/azuremaps/embed/PRmzJX/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/PRmzJX/'>Add a circle to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
@@ -177,3 +184,6 @@ For more code examples to add to your maps, see the following articles:
 
 > [!div class="nextstepaction"]
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [How to use image templates](how-to-use-image-templates-web-sdk.md)

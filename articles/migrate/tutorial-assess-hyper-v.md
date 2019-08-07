@@ -105,15 +105,17 @@ Download the zipped VHD template for the appliance.
 Check that the zipped file is secure, before you deploy it.
 
 1. On the machine to which you downloaded the file, open an administrator command window.
-2. Run the following command to generate the hash for the VHD
-    - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  For appliance version 1.19.06.27, the generated hash should match these settings.
+
+2. Run the following PowerShell command to generate the hash for the ZIP file
+    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
+    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v1.19.06.27.zip -Algorithm SHA256```
+
+3.  For appliance version 2.19.07.30, the generated hash should match these settings.
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 3681f745fa2b0a0a6910707d85161ec5
-  SHA256 | e6ca109afab9657bdcfb291c343b3e3abced9a273d25273059171f9954d25832
+  MD5 | d0a68e76ea24ba4e4a494c0dab95e90e
+  SHA256 | 0551221d2a9de75c352c201ccc88f7f10e87e5df1ecda42bfd4ec6c8defc57c0
 
 
 
@@ -153,9 +155,9 @@ Set up the appliance for the first time.
 1. In the web app > **Set up prerequisites**, do the following:
     - **License**: Accept the license terms, and read the third-party information.
     - **Connectivity**: The app checks that the VM has internet access. If the VM uses a proxy:
-        - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
-        - Specify credentials if the proxy needs authentication.
-        - Only HTTP proxy is supported.
+      - Click **Proxy settings**, and specify the proxy address and listening port, in the form http://ProxyIPAddress or http://ProxyFQDN.
+      - Specify credentials if the proxy needs authentication.
+      - Only HTTP proxy is supported.
     - **Time sync**: Time is verified. The time on the appliance should be in sync with internet time for VM discovery to work properly.
     - **Install updates**: Azure Migrate Server Assessment checks that the appliance has the latest updates installed.
 
@@ -173,19 +175,31 @@ Set up the appliance for the first time.
 
 ### Delegate credentials for SMB VHDs
 
-If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. If you didn't do this on each host in the [previous tutorial](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), do this now from the appliance:
+If you're running VHDs on SMBs, you must enable delegation of credentials from the appliance to the Hyper-V hosts. This requires the following:
 
-1. On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
+- You enable each host to act as a delegate for the appliance. You should have done this in the previous tutorial, when you prepared Hyper-V for assessment and migration. You should have either set up CredSSP for the hosts [manually](tutorial-prepare-hyper-v.md#enable-credssp-on-hosts), or by [running the Hyper-V Prerequisites Configuration script](tutorial-prepare-hyper-v.md#hyper-v-prerequisites-configuration-script).
+- Enable CredSSP delegation so that the Azure Migrate appliance can act as the client, delegating credentials to a host.
 
-    ```
-    Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
-    ```
+Enable on the appliance as follows:
 
-2. Alternatively, do this in the Local Group Policy Editor on the appliance:
-    - In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
-    - Double-click **Allow delegating fresh credentials**, and select **Enabled**.
-    - In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
-    - In  **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+#### Option 1
+
+On the appliance VM, run this command. HyperVHost1/HyperVHost2 are example host names.
+
+```
+Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force
+```
+
+Example: ` Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com HyperVHost2.contoso.com -Force `
+
+#### Option 2
+
+Alternatively, do this in the Local Group Policy Editor on the appliance:
+
+1. In **Local Computer Policy** > **Computer Configuration**, click **Administrative Templates** > **System** > **Credentials Delegation**.
+2. Double-click **Allow delegating fresh credentials**, and select **Enabled**.
+3. In **Options**, click **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
+4. Then, in **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
 ## Start continuous discovery
 
