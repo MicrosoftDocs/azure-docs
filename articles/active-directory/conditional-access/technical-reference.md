@@ -124,8 +124,8 @@ This setting works with all browsers. However, to satisfy a device policy, like 
 | Windows Phone          | Microsoft Edge, Internet Explorer               |
 | Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
 | Windows Server 2016    | Microsoft Edge, Internet Explorer               |
-| Windows Server 2012 R2 | Internet Explorer, Chrome                       |
-| Windows Server 2008 R2 | Internet Explorer, Chrome                       |
+| Windows Server 2012 R2 | Internet Explorer                       |
+| Windows Server 2008 R2 | Internet Explorer                       |
 | macOS                  | Chrome, Safari                                  |
 
 
