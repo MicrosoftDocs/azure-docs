@@ -97,10 +97,11 @@ Download two different NYC taxi data sets into dataflow objects. The datasets ha
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"])
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"])
+
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 green_df_raw = dprep.read_csv(
     path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
@@ -110,9 +111,6 @@ yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 display(green_df_raw.head(5))
 display(yellow_df_raw.head(5))
 ```
-
-> [!Note]
-> The URL in this same example is not a complete URL. Instead, it refers to the demo folder in the blob. The full URL to some of the data is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
 A `Dataflow` object is similar to a dataframe, and represents a series of lazily-evaluated, immutable operations on data. Operations can be added by invoking the different transformation and filtering methods available. The result of adding an operation to a `Dataflow` is always a new `Dataflow` object.
 
