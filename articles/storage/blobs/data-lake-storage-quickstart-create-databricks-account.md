@@ -7,7 +7,7 @@ ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 02/15/2019
-ms.reviewer: Jeff.King
+ms.reviewer: jeking
 ---
 
 # Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks
