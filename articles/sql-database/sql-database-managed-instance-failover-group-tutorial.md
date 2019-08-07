@@ -73,8 +73,8 @@ To create a virtual network, follow these steps:
     | --- | --- |
     | **Name** |  The name for the virtual network to be used by the secondary managed instance, such as `vnet-sql-mi-secondary`. |
     | **Address space** | The address space for your virtual network, such as `10.128.0.0/16`. | 
-    | **Subscription** | The subscription where your primary managed instance and resource group reside.  |
-    | **Location** | The location where you will deploy your secondary managed instance; this should be in a [paired region](/azure/best-practices-availability-paired-regions) to the primary managed instance.  |
+    | **Subscription** | The subscription where your primary managed instance and resource group reside. |
+    | **Region** | The location where you will deploy your secondary managed instance; this should be in a [paired region](/azure/best-practices-availability-paired-regions) to the primary managed instance.  |
     | **Subnet** | The name for your subnet. `default` is provided for you by default. |
     | **Address range**| The address range for your subnet. This must be different than the subnet address range used by the virtual network of your primary managed instance, such as `10.128.0.0/24`.  |
     | &nbsp; | &nbsp; |
