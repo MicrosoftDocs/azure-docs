@@ -66,6 +66,8 @@ const TextAnalyticsAPIClient = require("azure-cognitiveservices-textanalytics");
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 ```javascript
 let endpoint = "https://westus.api.cognitive.microsoft.com/";
 let key = var apiKey = process.env.TEXTANALYTICS_SUBSCRIPTION_KEY;

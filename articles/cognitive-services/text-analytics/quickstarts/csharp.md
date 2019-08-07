@@ -38,12 +38,12 @@ Use the Text Analytics client library for Python to perform:
 
 ### Create a Text Analytics Azure resource
 
-Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text Analytics using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
+Get a key to authenticate your applications by Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for Text Analytics using the [Azure portal](../../cognitive-services-apis-create-account.md) or [Azure CLI](../../cognitive-services-apis-create-account-cli.md) on your local machine. You can also:
 
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure Portal](https://portal.azure.com/)
 
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXTANALYTICS_SUBSCRIPTION_KEY`.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXT_ANALYTICS_SUBSCRIPTION_KEY`.
 
 ### Create a new C# application
 
@@ -83,24 +83,20 @@ using Microsoft.Azure.CognitiveServices.Language.TextAnalytics;
 using Microsoft.Azure.CognitiveServices.Language.TextAnalytics.Models;
 using Microsoft.Rest;
 ```
-<!-- 
-[!code-csharp[import declarations](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=imports)]
--->
 
-In the application's `Main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later. Call the sample methods that you want to invoke. 
-<!--
-[!code-csharp[main method](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=main)]
--->
+In the application's `Main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
 ```csharp
 static void Main(string[] args)
 {
-    Console.OutputEncoding = System.Text.Encoding.UTF8;
-    string location = "westus2";
-    string endpoint = $"https://{location}.api.cognitive.microsoft.com";
+    // replace this endpoint with the correct one for your Azure resource. 
+    string endpoint = $"https://westus2.api.cognitive.microsoft.com";
     //This sample assumes you have created an environment variable for your key
     string key = Environment.GetEnvironmentVariable("TEXTANALYTICS_SUBSCRIPTION_KEY");
     ITextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
-
+    Console.OutputEncoding = System.Text.Encoding.UTF8;
     SentimentAnalysisExample(client);
     // languageDetectionExample(client);
     // RecognizeEntitiesExample(client);
@@ -158,9 +154,6 @@ class ApiKeyServiceClientCredentials : ServiceClientCredentials
 }
 ```
 
-<!--
-[!code-csharp[Client class](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=client-class)]
--->
 In the `main()` method, instantiate the client.
 
 ```csharp
@@ -179,9 +172,6 @@ static void SentimentAnalysisExample(ITextAnalyticsClient client){
     Console.WriteLine($"Sentiment Score: {result.Score:0.00}");
 }
 ```
-<!--
-[!code-csharp[Sentiment Analysis example](~/cognitive-services-dotnet-sdk-samples/samples/language/Program.cs?name=sentiment)]
--->
 
 ### Output
 

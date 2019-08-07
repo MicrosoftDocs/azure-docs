@@ -40,8 +40,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services/#decision) valid for 7 days for free. After signing up it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).
 * View your resource on the [Azure portal](https://portal.azure.com).
 
-<!-- rename TBD_KEY to something meaningful for your service, like TEXT_ANALYTICS_KEY -->
-After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TBD_KEY`.
+After you get a key from your trial subscription or resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `TEXT_ANALYTICS_SUBSCRIPTION_KEY`.
 
 ### Create a new Go project
 
@@ -110,6 +109,15 @@ func BoolPointer(v bool) *bool {
 }
 ```
 
+In the main function of your project, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
+
+```golang
+subscriptionKey := os.Getenv("TEXT_ANALYTICS_SUBSCRIPTION_KEY")
+endpoint := "https://eastus.api.cognitive.microsoft.com"
+```
+
 ## Object model 
 
 The Text Analytics client is a [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object that authenticates to Azure using your key. The client provides several methods for analyzing text, as a single string, or a batch. 
@@ -130,18 +138,10 @@ These code snippets show you how to do the following with the Text Analytics cli
 
 ## Authenticate the client
 
-In the main function of your project, create a new [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object. Use the correct Azure endpoint for your Text Analytics subscription. For example: `https://eastus.api.cognitive.microsoft.com`. If you're using a trial key, you don't need to update the location.
+In the main function of your project, create a new [BaseClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics#New) object. Pass your key to the [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) function, which will then be passed to the client's `authorizer` property.
 
 ```golang
-//Replace 'eastus' with the correct region for your Text Analytics subscription
-endpoint := "https://eastus.api.cognitive.microsoft.com"
 textAnalyticsClient := textanalytics.New(endpoint)
-```
-
-Create a variable for your key and pass it to the [autorest.NewCognitiveServicesAuthorizer()](https://godoc.org/github.com/Azure/go-autorest/autorest#NewCognitiveServicesAuthorizer) function, which will then be passed to the client's `authorizer` property.
-
-```golang
-subscriptionKey := "<<subscriptionKey>>"
 textAnalyticsClient.Authorizer = autorest.NewCognitiveServicesAuthorizer(subscriptionKey)
 ```
 

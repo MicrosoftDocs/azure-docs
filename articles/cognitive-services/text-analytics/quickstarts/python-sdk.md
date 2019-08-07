@@ -61,18 +61,16 @@ Create a new Python application in your preferred editor or IDE. Then import the
 from azure.cognitiveservices.language.textanalytics import TextAnalyticsClient
 from msrest.authentication import CognitiveServicesCredentials
 ```
-<!--[!code-python[import declarations](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=imports)]-->
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
 ```python
 text_analytics_url = "https://westcentralus.api.cognitive.microsoft.com/"
 key = os.environ["ANOMALY_DETECTOR_KEY"]
 credentials = CognitiveServicesCredentials(key)
 ```
-<!--
-[!code-python[initial variables](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=key-and-endpoint)]
--->
 
 ## Object model
 
@@ -100,9 +98,6 @@ Create a new [TextAnalyticsClient](https://docs.microsoft.com/python/api/azure-c
 text_analytics = TextAnalyticsClient(endpoint=text_analytics_url, credentials=credentials)
 ```
 
-<!--
-[!code-python[client creation and auth](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=client)]
--->
 ## Sentiment analysis
 
 Call the [sentiment()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#sentiment-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and sentiment score. A score closer to 0 indicates a negative sentiment, while a score closer to 1 indicates a positive sentiment.
@@ -120,9 +115,6 @@ for document in response.documents:
     print("Document Id: ", document.id, ", Sentiment Score: ",
           "{:.2f}".format(document.score))
 ```
-<!--
-[!code-python[Sentiment analysis](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=sentiment-analysis)]
--->
 
 ### Output
 
@@ -134,9 +126,6 @@ Document Id:  1 , Sentiment Score:  0.87
 
 Using the client created earlier, call [detect_language()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#detect-language-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) and get the result. Then iterate through the results, and print each document's ID, and the first returned language.
 
-<!--
-[!code-python[Language detection](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=language-detection)]
--->
 ```python
 documents = [
     {
@@ -160,9 +149,6 @@ Document Id:  1 , Language:  English
 
 Using the client created earlier, call [entities()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#entities-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the entities contained in it.
 
-<!--
-[!code-python[Entity recognition](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=entity-recognition)]
--->
 ```python
 documents = [
     {
@@ -209,9 +195,6 @@ Document Id:  1
 
 Using the client created earlier, call [key_phrases()](https://docs.microsoft.com/python/api/azure-cognitiveservices-language-textanalytics/azure.cognitiveservices.language.textanalytics.textanalyticsclient?view=azure-python#key-phrases-show-stats-none--documents-none--custom-headers-none--raw-false----operation-config-) function and get the result. Then iterate through the results, and print each document's ID, and the key phrases contained in it.
 
-<!--
-[!code-python[Key phrase extraction](~/samples-cognitive-services-python-sdk/samples/language/text_analytics_samples.py?name=key-phrases)]
--->
 ```python
 documents = [
     {
