@@ -8,22 +8,23 @@ title:  Configuration Based On STIG
 > Applies To: Windows PowerShell 5.1
 
 Creating configuration content for the first time can be challenging.
-In many cases the goal is to automate configuration of servers
+In many cases,
+the goal is to automate configuration of servers
 following a "baseline" that hopefully aligns to an industry recommendation.
 
 A community project named
 [PowerSTIG](https://github.com/microsoft/powerstig)
-aims to resolve this by generating DSC content based on
+aims to resolve this issue by generating DSC content based on
 [public information](https://iase.disa.mil/stigs/Pages/index.aspx)
 provided about STIG (Security Technical Implementation Guide),
 
-Dealing with baselines is actually more complicated than it sounds.
+Dealing with baselines is more complicated than it sounds.
 Many organizations need to
 [document exceptions](https://github.com/microsoft/powerstig#powerstigdata)
 to rules and manage that data at scale.
-PowerSTIG includes solutions to this problem and
+PowerSTIG addresses the problem by providing
 [Composite Resources](https://github.com/microsoft/powerstig#powerstigdsc)
-to address automating different areas of the configuration
+to address each area of the configuration
 rather than trying to address the entire range of settings
 in one large file.
 
