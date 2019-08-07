@@ -7,7 +7,7 @@ ms.author: normesta
 ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.reviewer: Rukmani.Gopalan
+ms.reviewer: rugopala
 ---
 
 # Upgrade your big data analytics solutions from Azure Data Lake Storage Gen1 to Azure Data Lake Storage Gen2
