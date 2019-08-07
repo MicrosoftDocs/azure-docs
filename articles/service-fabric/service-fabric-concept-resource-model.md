@@ -61,7 +61,8 @@ The application is now staged. We are now ready to create the ARM template to de
 ### Create the ARM Template
 The sample application contains [ARM Templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) that can be used to deploy the application. The template files are named **UserApp.json** and **UserApp.Parameters.json**. 
 
-> [!NOTE] The **UserApp.Parameters.json** file must be updated with the name of your cluster.
+> [!NOTE] 
+> The **UserApp.Parameters.json** file must be updated with the name of your cluster.
 >
 >
 
