@@ -60,12 +60,12 @@ To build the generated C code on Windows in this guide, you need:
 * A local copy of the Azure IoT C SDK:
 
     ```cmd
-    git clone https://github.com/Azure/azure-iot-sdk-c-pnp.git --recursive -b public-preview
+    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
 ## Create device template
 
-Create folder called **pnp_app** in the **azure-iot-sdk-c-pnp** folder that contains the Azure IoT C SDK you cloned. Download the [EnvironmentalSensor.capabilitymodel.json](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) device capability model from GitHub and save the file in the **pnp_app** folder. Replace the two instances of `<YOUR_COMPANY_NAME_HERE>` with your name. Use only the characters a-z, A-Z, 0-9, and underscore. Make a note of the full value of the `"@id"` field that uniquely identifies your device capability model, you need it later. This model includes two interfaces:
+Create folder called **pnp_app** in the **azure-iot-sdk-c** folder that contains the Azure IoT C SDK you cloned. Download the [EnvironmentalSensor.capabilitymodel.json](https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensorInline.capabilitymodel.json) device capability model from GitHub and save the file in the **pnp_app** folder. Replace the two instances of `<YOUR_COMPANY_NAME_HERE>` with your name. Use only the characters a-z, A-Z, 0-9, and underscore. Make a note of the full value of the `"@id"` field that uniquely identifies your device capability model, you need it later. This model includes two interfaces:
 
 * The **DeviceManagement** common interface.
 * the **EnvironmentalSensor** custom interface.
@@ -138,7 +138,7 @@ To add the connection information to your device client, open **main.c** in the 
 
 To build and run the client, you need to customize the build for the Azure IoT C SDK:
 
-1. Open the file **CMakeLists.txt** in the root of the **azure-iot-sdk-c-pnp** folder.
+1. Open the file **CMakeLists.txt** in the root of the **azure-iot-sdk-c** folder.
 
 1. Add the following line at the end of this file to include the new client app in the build:
 
@@ -148,7 +148,7 @@ To build and run the client, you need to customize the build for the Azure IoT C
 
 1. Save the changes.
 
-1. Open a command prompt and navigate to the **azure-iot-sdk-c-pnp** folder.
+1. Open a command prompt and navigate to the **azure-iot-sdk-c** folder.
 
 1. To build the application, run the following commands:
 
