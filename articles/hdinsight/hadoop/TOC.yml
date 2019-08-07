@@ -56,6 +56,10 @@
     maintainContext: true
   - name: Troubleshoot
     items:
+    - name: Cluster creation failures
+      href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+    - name: Out of disk space
+      href: ./hdinsight-troubleshoot-out-disk-space.md
     - name: Soft lockup - CPU
       href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
     - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
@@ -72,6 +76,8 @@
       href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
     - name: Apache Ambari heartbeat issues
       href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+    - name: Apache Ambari shows down hosts and services
+      href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
