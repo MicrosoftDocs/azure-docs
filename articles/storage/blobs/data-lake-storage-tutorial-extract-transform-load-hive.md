@@ -234,7 +234,7 @@ You need the server name from your SQL database for this operation. Complete the
 
     ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
-    There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+    There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](https://www.freetds.org/) from the HDInsight cluster.
 
 5. To install FreeTDS, use the following command from an SSH connection to the cluster:
 

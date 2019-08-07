@@ -8,9 +8,10 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: KyleStorck
+ms.author: kylsto
+ROBOTS: NOINDEX
 ---
 # Project Acoustics Bake Resolution
 This conceptual overview describes the difference between coarse and fine resolutions while baking acoustics. You choose this setting during the Probes step of the baking workflow.

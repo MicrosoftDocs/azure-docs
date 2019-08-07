@@ -1,6 +1,6 @@
 ---
 title: Configure your Bing Custom Search experience | Microsoft Docs
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Describes how to create site and vertical search services
 services: cognitive-services
 author: aahill

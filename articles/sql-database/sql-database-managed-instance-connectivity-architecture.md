@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
-manager: craigg
 ms.date: 04/16/2019
 ---
 
@@ -223,7 +222,7 @@ Deploy a managed instance in a dedicated subnet inside the virtual network. The 
 
 In addition, you can add entries to the route table to route traffic that has on-premises private IP ranges as a destination through the virtual network gateway or virtual network appliance (NVA).
 
-If the virtual network includes a custom DNS, the custom DNS server must be able to resolve host names in \*.core.windows.net zone. Using additional features like Azure AD Authentication might require resolving additional FQDNs. For more information, see [Set up a custom DNS](sql-database-managed-instance-custom-dns.md).
+If the virtual network includes a custom DNS, the custom DNS server must be able to resolve public dns records. Using additional features like Azure AD Authentication might require resolving additional FQDNs. For more information, see [Set up a custom DNS](sql-database-managed-instance-custom-dns.md).
 
 ## Next steps
 

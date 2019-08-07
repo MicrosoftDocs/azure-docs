@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: markvi
 
 ms.collection: M365-identity-device-management

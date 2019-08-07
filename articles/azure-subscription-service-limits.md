@@ -40,10 +40,10 @@ In the following list of limits, a new table reflects any differences in limits 
 * [API Management](#api-management-limits)
 * [App Service](#app-service-limits)
 * [Application Gateway](#application-gateway-limits)
-* [Application Insights](#application-insights-limits)
 * [Automation](#automation-limits)
 * [Azure Cache for Redis](#azure-cache-for-redis-limits)
 * [Azure Cloud Services](#azure-cloud-services-limits)
+* [Azure Cognitive Services](#azure-cognitive-services-limits)
 * [Azure Cosmos DB](#azure-cosmos-db-limits)
 * [Azure Database for MySQL](#azure-database-for-mysql)
 * [Azure Database for PostgreSQL](#azure-database-for-postgresql)
@@ -53,7 +53,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Azure Kubernetes Service](#azure-kubernetes-service-limits)
 * [Azure Machine Learning Service](#azure-machine-learning-service-limits)
 * [Azure Maps](#azure-maps-limits)
-* [Azure Monitor](#monitor-limits)
+* [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
 * [Azure Search](#azure-search-limits)
 * [Azure SignalR Service](#azure-signalr-service-limits)
@@ -74,7 +74,6 @@ In the following list of limits, a new table reflects any differences in limits 
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
-* [Log Analytics](#log-analytics-limits)
 * [Media Services](#media-services-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication-limits)
@@ -183,7 +182,7 @@ The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise s
 
 For more information on storage account limits, see [Azure Storage scalability and performance targets](storage/common/storage-scalability-targets.md).
 
-#### Storage resource provider limits 
+#### Storage resource provider limits
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -222,6 +221,9 @@ For more information, see [Virtual machine sizes](virtual-machines/linux/sizes.m
 
 ### Azure Cloud Services limits
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
+
+### Azure Cognitive Services limits
+[!INCLUDE [azure-cloud-services-limits](../includes/azure-cognitive-services-limits.md)]
 
 ### App Service limits
 The following App Service limits include limits for Web Apps, Mobile Apps, and API Apps.
@@ -277,8 +279,30 @@ To learn more about limits on a more granular level, such as document size, quer
 ### Mobile Services limits
 [!INCLUDE [mobile-services-limits](../includes/mobile-services-limits.md)]
 
-### Monitor limits
-[!INCLUDE [monitoring-limits](../includes/monitoring-limits.md)]
+### Azure Monitor limits
+
+#### Alerts
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-alerts.md)]
+
+#### Action groups
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-action-groups.md)]
+
+#### Log queries and language
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-log-queries.md)]
+
+#### Log Analytics workspaces
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-workspaces.md)]
+
+#### Application Insights
+
+[!INCLUDE [monitoring-limits](../includes/azure-monitor-limits-app-insights.md)]
+
+
+
 
 ### Notification Hubs limits
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
@@ -325,9 +349,6 @@ To learn more about limits on a more granular level, such as document size, quer
 ### StorSimple System limits
 [!INCLUDE [storsimple-limits-table](../includes/storsimple-limits-table.md)]
 
-### Log Analytics limits
-[!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
-
 ### Backup limits
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
@@ -336,9 +357,6 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### Site Recovery limits
 [!INCLUDE [site-recovery-limits](../includes/site-recovery-limits.md)]
-
-### Application Insights limits
-[!INCLUDE [application-insights-limits](../includes/application-insights-limits.md)]
 
 ### API Management limits
 [!INCLUDE [api-management-service-limits](../includes/api-management-service-limits.md)]

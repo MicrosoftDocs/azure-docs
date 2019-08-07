@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services for Azure Cloud Solution Provider
 description: Azure Active Directory Domain Services for Azure Cloud Solution Providers.
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: mahesh-unnikrishnan
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
-ms.author: ergreenl
+ms.author: iainfou
 ---
 
 # Azure Active Directory (AD) Domain Services for Azure Cloud Solution Providers (CSP)

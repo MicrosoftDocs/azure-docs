@@ -8,7 +8,7 @@ manager: danielgi
 editor: mdgattuso
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na

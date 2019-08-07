@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: kumud;tyao 
+ms.author: kumud
+ms.reviewer: tyao 
 ---
 
 # What is Azure web application firewall for Azure Front Door?
@@ -24,7 +25,7 @@ Preventing such attacks in application code can be challenging and may require r
 
 WAF for Front Door is a global and centralized solution. It is deployed on Azure network edge locations around the globe and every incoming request for a WAF enabled web application delivered by Front Door is inspected at the network edge. This allows WAF to prevent malicious attacks close to the attack sources, before they enter your virtual network and offers global protection at scale without sacrificing performance. A WAF policy can be easily linked to any Front Door profile in your subscription and new rules can be deployed within minutes, allowing you to respond quickly to changing threat patterns.
 
-![Azure web application firewall](./media/waf-overview/web-application-firewall-overview2.png)
+![Azure web application firewall](./media/waf-overview/web-application-firewall-overview.png)
 
 Azure WAF can also be enabled with Application Gateway. For more information, see [Web application firewall](../application-gateway/waf-overview.md).
 

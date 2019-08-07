@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot System State Backup with Azure Backup
 description: Troubleshoot issues in System State Backup.
-services: backup
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 keywords: how to backup; backup system state
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: srinathvasireddy
+ms.date: 07/22/2019
+ms.author: dacurwin
 ---
 
 # Troubleshoot System State Backup
@@ -113,7 +113,7 @@ To validate Windows Server Backup status, perform the below:
 
   * Ensure WSB backup is working properly, by running the below command from elevated command prompt:
 
-      ` wbadmin start systemstatebackup -backuptarget:X: -quiet `
+      `wbadmin start systemstatebackup -backuptarget:X: -quiet`
 
       > [!NOTE]
       >Replace X with the drive letter of the volume where you want to store the system state back up image.

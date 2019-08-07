@@ -6,8 +6,8 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: minxia
-author: mx-iao
+ms.author: maxluk
+author: maxluk
 ms.date: 06/10/2019
 ms.custom: seodec18
 ---
@@ -18,20 +18,28 @@ This article shows you how to train and register a TensorFlow model using Azure 
 
 TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, Azure Machine Learning service can help you build production-ready models.
 
 ## Prerequisites
 
-- An Azure subscription. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
-- [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-- [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
-- [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
+Run this code on either of these environments:
 
-You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
+ - Azure Machine Learning Notebook VM - no downloads or installation necessary
+
+     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
+ 
+ - Your own Jupyter Notebook server
+
+    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
+    - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow) `mnist-tf.py` and `utils.py`
+     
+    You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-tensorflow/train-hyperparameter-tune-deploy-with-tensorflow.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
 
-This section sets up the training experiment by loading the required python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
+This section sets up the training experiment by loading the required Python packages, initializing a workspace, creating an experiment, and uploading the training data and training scripts.
 
 ### Import packages
 
@@ -128,7 +136,7 @@ The [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-c
 
 The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
-If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
+If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting Docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
 
 ```Python
 script_params = {
@@ -157,7 +165,7 @@ run.wait_for_completion(show_output=True)
 
 As the Run is executed, it goes through the following stages:
 
-- **Preparing**: A docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
+- **Preparing**: A Docker image is created according to the TensorFlow estimator. The image is uploaded to the workspace's container registry and cached for later runs. Logs are also streamed to the run history and can be viewed to monitor progress.
 
 - **Scaling**: The cluster attempts to scale up if the Batch AI cluster requires more nodes to execute the run than are currently available.
 
@@ -277,7 +285,7 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ## Next steps
 
-In this article, you trained and registered a TensorFlow model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
+In this article, you trained and registered a TensorFlow model. To learn how to deploy a model to a GPU-enabled cluster, continue on to our GPU model deployment article.
 
-> [!div class="nextstepaction"]
-> [How and where to deploy models](how-to-deploy-and-where.md)
+[How to deploy for inferencing with GPUs](how-to-deploy-inferencing-gpus.md)
+[How to monitor with Tensorboard](how-to-monitor-tensorboard.md)

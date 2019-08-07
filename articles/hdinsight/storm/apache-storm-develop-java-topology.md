@@ -14,7 +14,7 @@ ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 
 # Create an Apache Storm topology in Java
 
-Learn how to create a Java-based topology for [Apache Storm](https://storm.apache.org/). Here, you create a Storm topology that implements a word-count application. You use [Apache Maven](https://maven.apache.org/) to build and package the project. Then, you learn how to define the topology using the [Apache Storm Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) framework.
+Learn how to create a Java-based topology for [Apache Storm](https://storm.apache.org/). Here, you create a Storm topology that implements a word-count application. You use [Apache Maven](https://maven.apache.org/) to build and package the project. Then, you learn how to define the topology using the [Apache Storm Flux](https://storm.apache.org/releases/2.0.0/flux.html) framework.
 
 After completing the steps in this document, you can deploy the topology to Apache Storm on HDInsight.
 
@@ -617,11 +617,11 @@ There is a 5-second interval between emission of words and counts. The **WordCou
 
 ## Convert the topology to Flux
 
-[Flux](https://storm.apache.org/releases/2.0.0-SNAPSHOT/flux.html) is a new framework available with Storm 0.10.0 and higher, which allows you to separate configuration from implementation. Your components are still defined in Java, but the topology is defined using a YAML file. You can package a default topology definition with your project, or use a standalone file when submitting the topology. When submitting the topology to Storm, you can use environment variables or configuration files to populate values in the YAML topology definition.
+[Flux](https://storm.apache.org/releases/2.0.0/flux.html) is a new framework available with Storm 0.10.0 and higher, which allows you to separate configuration from implementation. Your components are still defined in Java, but the topology is defined using a YAML file. You can package a default topology definition with your project, or use a standalone file when submitting the topology. When submitting the topology to Storm, you can use environment variables or configuration files to populate values in the YAML topology definition.
 
 The YAML file defines the components to use for the topology and the data flow between them. You can include a YAML file as part of the jar file or you can use an external YAML file.
 
-For more information on Flux, see [Flux framework (https://storm.apache.org/releases/1.0.6/flux.html)](https://storm.apache.org/releases/1.0.6/flux.html).
+For more information on Flux, see [Flux framework (https://storm.apache.org/releases/current/flux.html)](https://storm.apache.org/releases/current/flux.html).
 
 > [!WARNING]  
 > Due to a [bug (https://issues.apache.org/jira/browse/STORM-2055)](https://issues.apache.org/jira/browse/STORM-2055) with Storm 1.0.1, you may need to install a [Storm development environment](https://storm.apache.org/releases/current/Setting-up-development-environment.html) to run Flux topologies locally.

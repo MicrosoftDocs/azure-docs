@@ -1,19 +1,19 @@
 ---
-title: Purchase nodes for VMware Solution by CloudSimple - Azure 
+title: Provision nodes for VMware Solution by CloudSimple - Azure 
 description: Learn how to add nodes to your VMWare with CloudSimple deployment
 author: dikamath
 ms.author: dikamath
 ms.date: 04/10/2019
 ms.topic: article
-ms.service: vmware
+ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
 ---
-# Purchase nodes for VMware Solution by CloudSimple - Azure
+# Provision nodes for VMware Solution by CloudSimple - Azure
 
 Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity for your CloudSimple private cloud environment.
 
-## Add a purchased node to your CloudSimple private cloud
+## Add a provisioned node to your CloudSimple private cloud
 
 1. Select **All services**.
 2. Search for **CloudSimple Nodes**.
@@ -25,7 +25,7 @@ Provision nodes in the Azure portal. Then you can set up pay-as-you go capacity 
 
     ![Add CloudSimple Nodes](media/create-cloudsimple-node-add.png)
 
-5. Select the subscription where you want to purchase CloudSimple nodes.
+5. Select the subscription where you want to provision CloudSimple nodes.
 6. Select the resource group for the nodes. To add a new resource group, click **Create New**.
 7. Enter the prefix to identify the nodes.
 8. Select the location for the node resources.

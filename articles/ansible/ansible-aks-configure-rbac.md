@@ -34,7 +34,7 @@ AKS can be configured to use [Azure Active Directory (AD)](/azure/active-directo
 
 ## Configure Azure AD for AKS authentication
 
-When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-server-application). 
+When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator. For more information, see [Integrate Azure Active Directory with AKS](/azure/aks/aad-integration#create-the-server-application). 
 
 From the Azure tenant administrator, get the following values:
 
@@ -68,7 +68,7 @@ Save the following playbook as `aks-create.yml`:
       location: "{{ location }}"
 
 - name: List supported kubernetes version from Azure
-  azure_rm_aks_version:
+  azure_rm_aksversion_facts:
       location: "{{ location }}"
   register: versions
 

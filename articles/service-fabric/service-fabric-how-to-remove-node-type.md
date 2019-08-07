@@ -3,7 +3,7 @@ title: Remove a node type in Azure Service Fabric | Microsoft Docs
 description: Learn how to remove a node type from a Service Fabric cluster running in Azure.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chakdan
 editor: vturecek
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/14/2019
-ms.author: aljo 
+ms.author: atsenthi 
 
 ---
 
@@ -49,7 +49,7 @@ When removing a node type that is Bronze, all the nodes in the node type go down
 
 ## Recommended node type removal process
 
-To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The cmdlet takes some time to complete.  Then run [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) on each of the nodes that you want removed.
+To remove the node type, run the [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype) cmdlet.  The cmdlet takes some time to complete.  Once all VMs are gone (represented as "Down") the fabric:/System/InfrastructureService/[nodetype name] will show an Error state.
 
 ```powershell
 $groupname = "mynodetype"
@@ -63,7 +63,14 @@ Connect-ServiceFabricCluster -ConnectionEndpoint mytestcluster.eastus.cloudapp.a
           -X509Credential -ServerCertThumbprint <thumbprint> `
           -FindType FindByThumbprint -FindValue <thumbprint> `
           -StoreLocation CurrentUser -StoreName My
+```
 
+Then, you can update the cluster resource to remove the node type. You can either use the ARM template deployment, or edit the cluster resource through the [Azure resource manager](https://resources.azure.com). This will start a cluster upgrade which will remove the fabric:/System/InfrastructureService/[nodetype name] service that is in error state.
+
+You will still see the nodes are "Down" in the Service Fabric Explorer. Run [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) on each of the nodes that you want removed.
+
+
+```powershell
 $nodes = Get-ServiceFabricNode | Where-Object {$_.NodeType -eq $nodetype} | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending
 
 Foreach($node in $nodes)

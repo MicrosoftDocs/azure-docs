@@ -84,6 +84,8 @@ A SOA record set is created automatically at the apex of each zone (name = '\@')
 
 You can modify all properties of the SOA record except for the 'host' property, which is pre-configured to refer to the primary name server name provided by Azure DNS.
 
+The zone serial number in the SOA record is not updated automatically when changes are made to the records in the zone. It can be updated manually by editing the SOA record, if necessary.
+
 ### SPF records
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]

@@ -14,15 +14,15 @@ ms.custom: mvc
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to create an Azure Databricks workspace and an Apache Spark cluster within that workspace. Finally, you learn how to run a Spark job on the Databricks cluster. For more information on Azure Databricks, see [What is Azure Databricks?](what-is-azure-databricks.md)
+In this quickstart, you use the Azure portal to create an Azure Databricks workspace with an Apache Spark cluster. You run a job on the cluster and use custom charts to produce real-time reports from Boston safety data.
 
-In this quickstart, as part of the Spark job, you analyze Boston safety data to gain insights into different reporting methods.
+## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 
 ## Sign in to the Azure portal
 
-Sign in to the [Azure portal](https://portal.azure.com).
+Sign in to the [Azure portal](https://portal.azure.com). This tutorial cannot be carried out using the Azure Free Trial Subscription. To use a free account to create the Azure Databricks cluster, before creating the cluster, go to your profile and change your subscription to **pay-as-you-go**. For more information, see [Azure free account](https://azure.microsoft.com/free/).
 
 ## Create an Azure Databricks workspace
 

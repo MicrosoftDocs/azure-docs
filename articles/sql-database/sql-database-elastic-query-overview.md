@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-manager: craigg
-ms.date: 01/19/2019
+ms.date: 07/01/2019
 ---
 
 # Azure SQL Database elastic query overview (preview)
@@ -135,9 +134,10 @@ Elastic query is included into the cost of Azure SQL Database databases. Note th
 * Scripting of external data sources or external tables from SSMS or SSDT is not yet supported.
 * Import/Export for SQL DB does not yet support external data sources and external tables. If you need to use Import/Export, drop these objects before exporting and then re-create them after importing.
 * Elastic query currently only supports read-only access to external tables. You can, however, use full T-SQL functionality on the database where the external table is defined. This can be useful to, e.g., persist temporary results using, for example, SELECT <column_list> INTO <local_table>, or to define stored procedures on the elastic query database that refer to external tables.
-* Except for nvarchar(max), LOB types are not supported in external table definitions. As a workaround, you can create a view on the remote database that casts the LOB type into nvarchar(max), define your external table over the view instead of the base table and then cast it back into the original LOB type in your queries.
+* Except for nvarchar(max), LOB types (including spatial types) are not supported in external table definitions. As a workaround, you can create a view on the remote database that casts the LOB type into nvarchar(max), define your external table over the view instead of the base table and then cast it back into the original LOB type in your queries.
 * Columns of nvarchar(max) data type in result set disable advanced batching technics used in Elastic Query implementation and may affect performance of query for an order of magnitude, or even two orders of magnitude in non-canonical use cases where large amount of non-aggregated data is being transferred as a result of query.
 * Column statistics over external tables are currently not supported. Table statistics are supported, but need to be created manually.
+* Elastic query works with Azure SQL Database only. You cannot use it for querying on-premises SQL Server, or SQL Server in a VM.
 
 ## Feedback
 

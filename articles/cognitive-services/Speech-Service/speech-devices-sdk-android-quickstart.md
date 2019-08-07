@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Run the Speech Devices SDK on Android - Speech Services"
+title: "Quickstart: Run the Speech Devices SDK on Android - Speech Service"
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with an Android Speech Devices SDK.
 services: cognitive-services
@@ -8,8 +8,8 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
-ms.topic: conceptual
-ms.date: 05/02/2019
+ms.topic: quickstart
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 
@@ -33,7 +33,7 @@ Before you start using the Speech Devices SDK, you'll need to:
 
 * To get an [Azure subscription key for Speech Services](get-started.md)
 
-* If you plan to use the Conversation Transcription you must use a [circular microphone device](get-speech-devices-sdk.md) and the service is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
+* If you plan to use the Conversation Transcription you must use a [circular microphone device](get-speech-devices-sdk.md) and this feature is currently only available for "en-US" and "zh-CN" in regions, “centralus” and “eastasia”. You must have a speech key in one of those regions to use Conversation Transcription.
 
 * If you plan to use the Speech Services to identify intents (or actions) from user utterances, you'll need a [Language Understanding Service (LUIS)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) subscription. To learn more about LUIS and intent recognition, see [Recognize speech intents with LUIS, C#](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp).
 

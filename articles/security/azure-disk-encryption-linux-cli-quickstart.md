@@ -28,14 +28,14 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a virtual machine
 
-Create a VM with [az vm create](/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*.
+Create a VM with [az vm create](https://docs.microsoft.com/cli/azure/vm?view=azure-cli-latest#az-vm-create). The following example creates a VM named *myVM*.
 
 ```azurecli-interactive
 az vm create \
     --resource-group myResourceGroup \
     --name myVM \
-    --image Canonical:UbuntuServer:16.04-LTS:latest
-    --size Standard_D2S_V3 \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --size Standard_D2S_V3
 ```
 
 It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
@@ -72,7 +72,7 @@ Encrypt your VM with [az vm encryption](/cli/azure/vm/encryption?view=azure-cli-
 az vm encryption enable -g MyResourceGroup --name MyVM --disk-encryption-keyvault myKV
 ```
 
-After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/show?view=azure-cli-latest).
+After a moment the process will return, "The encryption request was accepted. Please use 'show' command to monitor the progress.". The "show" command is [az vm show](/cli/azure/vm/encryption#az-vm-encryption-show).
 
 ```azurecli-interactive
 az vm show --name MyVM -g MyResourceGroup

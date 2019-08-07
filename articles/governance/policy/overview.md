@@ -31,6 +31,8 @@ over more details on how to create and implement policies with Azure Policy.
 > regardless of pricing tier. If your assignments do not show the compliance data, please ensure that
 > the subscription is registered with the Microsoft.PolicyInsights resource provider.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## How is it different from RBAC?
 
 There are a few key differences between Azure Policy and role-based access control (RBAC). RBAC

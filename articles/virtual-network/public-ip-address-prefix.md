@@ -29,7 +29,7 @@ You create a public IP address prefix in an Azure region and subscription by spe
 
 ## Why create a public IP address prefix?
 
-When you create public IP address resources, Azure assign an available public IP address from any of the ranges used in a region. Once Azure assigns the address, you know what the address is, but until Azure assigns the address, you don't know what address might be assigned. This can be problematic when, for example, you, or your business partners, setup firewall rules that allow specific IP addresses. Each time you assign a new public IP address to a resource, the address has to be added to the firewall rule. When you assign addresses to your resources from a public IP address prefix, firewall rules don't need to be updated each time you assign one of the addresses, because the whole range could be added to a rule.
+When you create public IP address resources, Azure assigns an available public IP address from any of the ranges used in the region. Once Azure assigns the address, you know what the address is, but until Azure assigns the address, you don't know what address might be assigned. This can be problematic when, for example, you, or your business partners, setup firewall rules that allow specific IP addresses. Each time you assign a new public IP address to a resource, the address has to be added to the firewall rule. When you assign addresses to your resources from a public IP address prefix, firewall rules don't need to be updated each time you assign one of the addresses, because the whole range could be added to a rule.
 
 ## Benefits
 

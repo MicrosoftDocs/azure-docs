@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 07/31/2019
 ---
 
 # Azure Database for MySQL pricing tiers
@@ -46,9 +46,33 @@ The storage you provision is the amount of storage capacity available to your Az
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
 
-You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
+You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
+
+>[!NOTE]
+> Storage can only be scaled up, not down.
+
+The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
+
+### Large storage (Preview)
+
+We are increasing the storage limits in our General Purpose and Memory Optimized tiers. Newly created servers that opt-in to the preview can provision up to 16 TB of storage. The IOPS scale at a 3:1 ratio up to 20,000 IOPS. As with the current generally available storage, you can add additional storage capacity after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload.
+
+|              | **General Purpose** | **Memory Optimized** |
+|:-------------|:--------------------|:---------------------|
+| Storage type | Azure Premium Storage | Azure Premium Storage |
+| Storage size | 32 GB to 16 TB| 32 GB to 16 TB |
+| Storage increment size | 1 GB | 1 GB |
+| IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20,000 IOPS |
+
+> [!IMPORTANT]
+> Large storage is currently in public preview in the following regions: East US, East US 2, Central US, West US, North Europe, West Europe, UK South, UK West, Southeast Asia, East Asia, Japan East, Japan West, Korea Central, Korea South, Australia East, Australia South East.
+>
+> The large storage preview currently does not support:
+>
+> * Geographically redundant backups
+> * Cross region replication
 
 ### Reaching the storage limit
 
@@ -62,9 +86,11 @@ We recommend that you turn on storage auto-grow or to set up an alert to notify 
 
 ### Storage auto-grow
 
-If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified above apply.
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified above apply.
 
 For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 950 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+
+Remember that storage can only be scaled up, not down.
 
 ## Backup
 

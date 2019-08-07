@@ -79,8 +79,8 @@ No. Managed identities do not currently support cross-directory scenarios.
 
 ### What Azure RBAC permissions are required to managed identity on a resource? 
 
-- System-assigned managed identity: You need write permissions over the resource. For example: Microsoft.Compute/virtualMachines/write or This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
-- User-assigned managed identity: You need write permissions over the resource. For example: Microsoft.Compute/virtualMachines/write . In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity. 
+- System-assigned managed identity: You need write permissions over the resource. For exampl, for virtual machines you need Microsoft.Compute/virtualMachines/write. This action is included in resource specific built-in roles like [Virtual Machine Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+- User-assigned managed identity: You need write permissions over the resource. For example, for virtual machines you need Microsoft.Compute/virtualMachines/write. In addition to [Managed Identity Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-identity-operator) role assignment over the managed identity.
 
 ### How do you restart the managed identities for Azure resources extension?
 On Windows and certain versions of Linux, if the extension stops, the following cmdlet may be used to manually restart it:

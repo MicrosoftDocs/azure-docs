@@ -1,0 +1,63 @@
+- name: Azure Lighthouse documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Azure Lighthouse?
+    displayName: management at scale, service providers
+    href: overview.md
+- name: Samples
+  items:
+  - name: Index
+    displayName: template, sample
+    href: ./samples/index.md
+- name: Concepts
+  items:
+  - name: Azure delegated resource management
+    displayName: delegation
+    href: ./concepts/azure-delegated-resource-management.md
+  - name: Cross-tenant management experiences
+    displayName: scenarios
+    href: ./concepts/cross-tenant-management-experience.md
+  - name: Managed services offers in Azure Marketplace
+    displayName: managed services offer, azure marketplace
+    href: ./concepts/managed-services-offers.md
+  - name: Recommended security practices
+    displayName: mfa, authentication, secure, group
+    href: ./concepts/recommended-security-practices.md
+  - name: Cloud Solution Provider program considerations
+    displayName: csp, aobo, partner
+    href: ./concepts/cloud-solution-provider.md
+- name: How-to guides
+  items:
+  - name: Onboard a customer to Azure delegated resource management
+    displayName: resource management
+    href: ./how-to/onboard-customer.md
+  - name: Publish Managed Services offers to Azure Marketplace 
+    displayName: managed services offer, azure marketplace, publish
+    href: ./how-to/publish-managed-services-offers.md
+  - name: View and manage customers 
+    displayName: managed services offer, azure marketplace, publish
+    href: ./how-to/view-manage-customers.md
+  - name: View and manage service providers 
+    displayName: managed services offer, azure marketplace, publish
+    href: ./how-to/view-manage-service-providers.md
+- name: Reference
+  items:
+  - name: Azure SDK for .NET
+    href: https://docs.microsoft.com/dotnet/api/Microsoft.Azure.Management.ManagedServices?view=azure-dotnet
+  - name: Azure SDK for .NET (NuGet)
+    href: https://www.nuget.org/packages/Microsoft.Azure.Management.ManagedServices/
+  - name: Azure SDK for Python
+    href: https://docs.microsoft.com/python/api/azure-mgmt-managedservices
+  - name: REST
+    href: https://docs.microsoft.com/rest/api/managedservices/
+  - name: OpenAPI
+    href: https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managedservices/resource-manager/Microsoft.ManagedServices/preview/2018-06-01-preview
+- name: Resources
+  items:
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Pricing calculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: UserVoice
+    href: https://feedback.azure.com/forums/922753

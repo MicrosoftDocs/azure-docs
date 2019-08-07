@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: virtual-machines
-author: jpconnock
+author: singhkays
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 05/18/2018
-ms.author: jeconnoc
+ms.author: kasing
 ms.custom: include file
 
 ---
@@ -78,7 +78,7 @@ Post your issues and questions about migration to our [VM forum](https://social.
 
 ## What if I don't like the names of the resources that the platform chose during migration? 
 
-All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](http://feedback.azure.com).
+All the resources that you explicitly provide names for in the classic deployment model are retained during migration. In some cases, new resources are created. For example: a network interface is created for every VM. We currently don't support the ability to control the names of these new resources created during migration. Log your votes for this feature on the [Azure feedback forum](https://feedback.azure.com).
 
 ## Can I migrate ExpressRoute circuits used across subscriptions with authorization links? 
 

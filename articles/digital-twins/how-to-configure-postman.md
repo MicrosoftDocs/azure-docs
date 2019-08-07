@@ -36,7 +36,7 @@ Configure your Azure Active Directory app to use the OAuth 2.0 implicit grant fl
 
     [![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
-1. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
+1. Select **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 
     [![Azure Active Directory implicit flow](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
@@ -106,7 +106,7 @@ After completing the previous steps, configure Postman to make an authenticated 
    > * You do not need to specify those headers for each part.
    > * You must select `multipart/mixed` or another appropriate  **Content-Type** for the entire request.
 
-1. Lastly, click **Send** to submit your multipart HTTP POST request.
+1. Lastly, select **Send** to submit your multipart HTTP POST request.
 
 ## Next steps
 

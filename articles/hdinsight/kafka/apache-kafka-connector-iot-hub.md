@@ -33,7 +33,7 @@ For more information on the Connect API, see [https://kafka.apache.org/documenta
 
 * An edge node in the Kafka cluster. For more information, see the [Use edge nodes with HDInsight](../hdinsight-apps-use-edge-node.md) document.
 
-* An Azure IoT Hub. For this tutorial, I recommend the [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
+* An Azure IoT Hub. For this article, I recommend the [Connect Raspberry Pi online simulator to Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-raspberry-pi-web-simulator-get-started) document.
 
 * An SSH client. The steps in this document use SSH to connect to the cluster. For more information, see the [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md) document.
 

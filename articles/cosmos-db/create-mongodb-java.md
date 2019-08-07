@@ -28,7 +28,7 @@ This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos D
 ## Prerequisites
 
 Before you can run this sample, you must have the following prerequisites:
-* [Install the JDK for Azure and Azure Stack JDK version 8] (https://aka.ms/azure-jdks)
+* [Install the JDK for Azure and Azure Stack JDK version 8](https://aka.ms/azure-jdks)
 * Maven (Run `apt-get install maven` if you don't have Maven)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]

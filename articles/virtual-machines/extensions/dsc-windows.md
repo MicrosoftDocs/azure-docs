@@ -67,7 +67,7 @@ The following JSON shows the schema for the settings portion of the DSC Extensio
             "dataCollection": "enable"
         },
     	"advancedOptions": {
-			"forcePullAndApply": false
+			"forcePullAndApply": false,
         	"downloadMappings": {
             	"specificDependencyKey": "https://myCustomDependencyLocation"
         	}

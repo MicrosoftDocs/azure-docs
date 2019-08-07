@@ -74,7 +74,7 @@ The following elements are used to define the claim:
 
 #### DropdownSingleSelect
 
-![Screenshot of dropdown option](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
+![Single-select dropdown control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/dropdown-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -91,7 +91,7 @@ The following elements are used to define the claim:
 
 #### CheckboxMultiSelect
 
-![Screenshot of multiselect option](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
+![Multi-select checkbox control showing several options](./media/active-directory-b2c-configure-signup-self-asserted-custom/multiselect-menu-example.png)
 
 ```xml
 <ClaimType Id="city">
@@ -230,7 +230,7 @@ The following elements are used to define the claim:
       <IncludeTechnicalProfile ReferenceId="AAD-Common" />
     </TechnicalProfile>
     ```
-   
+
 4. Add the `<OutputClaim ClaimTypeReferenceId="city" />` claim to the SignUporSignIn.xml file so that this claim is sent to the application in the token after a successful user journey.
 
     ```xml

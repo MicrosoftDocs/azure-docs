@@ -7,10 +7,9 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: rohitnayakmsft
+ms.author: rohitna
 ms.reviewer: vanto, genemi
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Use virtual network service endpoints and rules for database servers

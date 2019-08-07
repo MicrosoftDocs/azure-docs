@@ -6,7 +6,7 @@ services: time-series-insights
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.reviewer: jasonh, kfile, anshan
+ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
@@ -242,4 +242,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 
 ## Next steps
 
-- Read the [reference data API](/rest/api/time-series-insights/ga-reference-data-api).
+- Read the [reference data API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api).

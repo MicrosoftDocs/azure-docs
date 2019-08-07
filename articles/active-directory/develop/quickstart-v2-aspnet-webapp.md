@@ -9,13 +9,14 @@ editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
+ms.subservice: develop
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
 ms.collection: M365-identity-device-management
 ---
@@ -79,6 +80,9 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
     <add key="ClientId" value="Enter_the_Application_Id_here" />
 	<add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.	
 
 > [!div renderon="docs"]
 > Where:
@@ -193,3 +197,8 @@ Try out the ASP.NET tutorial for a complete step-by-step guide on building appli
 > [Sign-in tutorial](./tutorial-v2-asp-webapp.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

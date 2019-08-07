@@ -60,7 +60,7 @@ You have several options to secure the connection between the API Management gat
 
 * Use HTTP basic authentication. For more information, see [Import and publish your first API](import-and-publish.md).
 * Use SSL mutual authentication as described in [How to secure back-end services by using client certificate authentication in Azure API Management](api-management-howto-mutual-certificates.md).
-* Use IP whitelisting on your back-end service. In all tiers of API Management, the IP address of the gateway remains constant, with a few [caveats](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
+* Use IP whitelisting on your back-end service. In all tiers of API Management with the exception of Consumption tier, the IP address of the gateway remains constant, with a few [caveats](#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules). You can set your whitelist to allow this IP address. You can get the IP address of your API Management instance on the Dashboard in the Azure portal.
 * Connect your API Management instance to an Azure Virtual Network.
 
 ### How do I copy my API Management service instance to a new instance?
@@ -82,7 +82,7 @@ Here's how you can add a user to the Administrators group:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Go to the resource group that has the API Management instance you want to update.
-3. In API Management, assign the **Api Management Contributor** role to the user.
+3. In API Management, assign the **Api Management Service Contributor** role to the user.
 
 Now the newly added contributor can use Azure PowerShell [cmdlets](https://docs.microsoft.com/powershell/azure/overview). Here's how to sign in as an administrator:
 

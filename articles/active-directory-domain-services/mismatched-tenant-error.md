@@ -1,9 +1,9 @@
 ---
-title: 'Resolve mismatched directory errors for existing Azure AD Domain Services managed domains | Microsoft Docs'
+title: Resolve mismatched directory errors in Azure AD Domain Services | Microsoft Docs
 description: Understand and resolve mismatched directory errors for existing Azure AD Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Resolve mismatched directory errors for existing Azure AD Domain Services managed domains

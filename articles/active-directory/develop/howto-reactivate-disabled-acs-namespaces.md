@@ -86,7 +86,7 @@ Further extensions will no longer be automatically approved. If you need additio
 
 ### To request an extension
 
-1. Log in to the Azure portal and create a [new support request](https://portal.azure.com/#create/Microsoft.Support).
+1. Sign in to the Azure portal and create a [new support request](https://portal.azure.com/#create/Microsoft.Support).
 1. Fill in the new support request form as shown in the following example.
 
     | Support request field | Value |
@@ -98,7 +98,7 @@ Further extensions will no longer be automatically approved. If you need additio
     | **Problem type** | `ACS to SAS Migration` |
     | **Subject** | Describe the issue |
 
-   ![New technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
+   ![Shows an example of a new technical support request](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
 <!--
 
