@@ -1,6 +1,6 @@
 ---
-title: Service Fabric application resource model  | Microsoft Docs
-description: This article provides an overview of managing a Service Fabric application with Azure Resource Manager
+title: Azure Service Fabric application resource model  | Microsoft Docs
+description: This article provides an overview of managing an Azure Service Fabric application with Azure Resource Manager
 services: service-fabric
 author: athinanthny 
 
@@ -10,13 +10,13 @@ ms.date: 08/07/2019
 ms.author: atsenthi 
 ---
 
-# What is the Service Fabric Application Resource Model?
-It is recommended that Service Fabric applications are deployed onto your Service Fabric cluster via Azure Resource Manager. This method makes it possible to describe applications and services in JSON and deploy them in the same Resource Manager template as your cluster. As opposed to deploying and managing applications via Powershell or Azure CLI, there is no need to wait for the cluster to be ready. The process of application registration, provisioning, and deployment can all happen in one step. This is the best practice to manage application life cycle in your cluster. For more information, look at [best practices](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
+# What is the Service Fabric application resource model?
+It is recommended that Service Fabric applications are deployed onto your Service Fabric cluster via Azure Resource Manager. This method makes it possible to describe applications and services in JSON and deploy them in the same Resource Manager template as your cluster. As opposed to deploying and managing applications via PowerShell or Azure CLI, there is no need to wait for the cluster to be ready. The process of application registration, provisioning, and deployment can all happen in one step. This is the best practice to manage application life cycle in your cluster. For more information, look at [best practices](https://docs.microsoft.com/azure/service-fabric/service-fabric-best-practices-infrastructure-as-code#azure-service-fabric-resources).
 
 When applicable, manage your applications as Resource Manager resources to improve:
 * Audit trail: Resource Manager audits every operation and keeps a detailed *Activity Log* that can help you trace any changes made to these applications and your cluster.
 * Role-based access control: Managing access to clusters as well as applications deployed on the cluster can be done via the same Resource Manager template.
-* Azure Resource Manager (via Azure portal) becomes a one-stop-shop for managing your cluster and critical application deployments.
+* Azure Resource Manager (via the Azure portal) becomes a one-stop-shop for managing your cluster and critical application deployments.
 
 ## Service Fabric application life cycle with Azure Resource Manager 
 In this document, you will learn how to:
@@ -31,35 +31,31 @@ To deploy an application and its services using the Azure Resource Manager appli
           
 Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
 
-### Create a Storage Account 
-Deploying an application from a resource manager template requires a storage account to stage the application image. You can re-use an existing storage account or create a new storage account to stage your applications. If you would like to use an existing storage account, you can skip this step. 
+### Create a Storage account 
+Deploying an application from a Resource Manager template requires a storage account to stage the application image. You can re-use an existing storage account or create a new storage account to stage your applications. If you would like to use an existing storage account, you can skip this step. 
 
 ![Create a storage account][CreateStorageAccount]
 
-### Configure Storage Account 
-Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure Portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Add a new container with Blob Public access level.
+### Configure Storage account 
+Once the storage account has been created, you need to create a blob container where the applications can be staged. In the Azure portal, navigate to the storage account that you would like to store your applications. Select the **Blobs** blade, and click the **Add Container** button. Add a new container with Blob Public access level.
    
 ![Create blob][CreateBlob]
 
-### Stage application in a Storage Account
+### Stage application in a Storage account
 Before the application can be deployed, it must be staged in blob storage. In this tutorial we will create the application package manually, however this step can be automated.  For more information, view [Package an application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg). In the following steps the [Voting sample application](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart) will be used.
 
-1. In Visual Studio right-click on the Voting project and select package. 
-
+1. In Visual Studio right-click on the Voting project and select package.   
 ![Package Application][PackageApplication]  
-2. Open the **.\service-fabric-dotnet-quickstart\Voting\pkg\Debug** directory that was just create, and zip the contents into a file called **Voting.zip** such that the ApplicationManifest.xml is at the root of the zip file. 
-
+2. Open the **.\service-fabric-dotnet-quickstart\Voting\pkg\Debug** directory that was just create, and zip the contents into a file called **Voting.zip** such that the ApplicationManifest.xml is at the root of the zip file.  
 ![Zip Application][ZipApplication]  
-
 3. Rename the extension of the file from .zip to **.sfpkg**.
-4. In the Azure Portal, in the **apps** container of your storage account, click **Upload** and upload **Voting.sfpkg**.
-
+4. In the Azure portal, in the **apps** container of your storage account, click **Upload** and upload **Voting.sfpkg**.  
 ![Upload App Package][UploadAppPkg]
 
-The application is now staged. We are now ready to create the ARM template to deploy the application.      
+The application is now staged. We are now ready to create the Azure Resource Manager template to deploy the application.      
    
-### Create the ARM Template
-The sample application contains [ARM Templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) that can be used to deploy the application. The template files are named **UserApp.json** and **UserApp.Parameters.json**. 
+### Create the Azure Resource Manager template
+The sample application contains [Azure Resource Manager Templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) that can be used to deploy the application. The template files are named **UserApp.json** and **UserApp.Parameters.json**. 
 
 > [!NOTE] 
 > The **UserApp.Parameters.json** file must be updated with the name of your cluster.
@@ -111,13 +107,13 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 
 ## Upgrade application resources
 Applications already deployed to a Service Fabric cluster will be upgraded for the following reasons:
-1. A new service is added to the application. 
-2. A new version of an existing service is added to the application.
+* A new service is added to the application. 
+* A new version of an existing service is added to the application.
      
 ## Delete application resources
 Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below methods
-1. Delete the application resources using Azure Remove.
-2. Delete the application type using PowerShell/Azure CLI or from Service Fabric Explorer.
+* Delete the application resources using Azure Remove.
+* Delete the application type using PowerShell/Azure CLI or from Service Fabric Explorer.
            
 ## Next steps
 Get information about the application resource model:
