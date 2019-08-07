@@ -20,7 +20,7 @@ open **Policy** in the Azure portal and select the **Definitions** page. Then, f
 Audit IRS 1075 controls and deploy specific VM Extensions to support audit requirements**
 built-in policy initiative.
 
-## AC-2 Account Management
+## 9.3.2.1 AC-2 Account Management
 
 This blueprint helps you review accounts that may not comply with your organization’s account 
 management requirements. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
@@ -34,7 +34,7 @@ appropriate action to ensure account management requirements are met.
 - External accounts with read permissions should be removed from your subscription
 - External accounts with write permissions should be removed from your subscription
 
-## AC-2 (7) Account Management | Role-Based Schemes
+## 9.3.2.1 AC-2 (7) Account Management | Role-Based Schemes
 
 Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
 (RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
@@ -50,7 +50,7 @@ RBAC rules are error prone.
 - Audit usage of custom RBAC rules
 - Service Fabric clusters should only use Azure Active Directory for client authentication
 
-## AC-2 (12) Account Management | Account Monitoring / Atypical Usage
+## 9.3.2.1 AC-2 (12) Account Management | Account Monitoring / Atypical Usage
 
 Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure virtual machines,
 reducing exposure to attacks while providing easy access to connect to VMs when needed. All JIT
@@ -61,7 +61,7 @@ configured.
 
 - Just-In-Time network access control should be applied on virtual machines
 
-## AC-4 Information Flow Enforcement
+## 9.3.1.4 AC-4 Information Flow Enforcement
 
 Cross origin resource sharing (CORS) can allow App Services resources to be requested from an
 outside domain. Microsoft recommends that you allow only required domains to interact with your API,
@@ -72,7 +72,7 @@ implemented.
 
 - CORS should not allow every resource to access your Web Application
 
-## AC-5 Separation of Duties
+## 9.3.1.5 AC-5 Separation of Duties
 
 Having only one Azure subscription owner doesn't allow for administrative redundancy. Conversely,
 having too many Azure subscription owners can increase the potential for a breach via a compromised
@@ -90,7 +90,7 @@ separation of duties.
 - Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
 - There should be more than one owner assigned to your subscription
 
-## AC-6 (7) Least Privilege | Review of User Privileges
+## 9.3.1.6 AC-6 (7) Least Privilege | Review of User Privileges
 
 Azure implements [role-based access control](../../../../role-based-access-control/overview.md)
 (RBAC) to help you manage who has access to resources in Azure. Using the Azure portal, you can
@@ -105,21 +105,7 @@ indicators can help you ensure least privilege controls are implemented.
 - Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
 - There should be more than one owner assigned to your subscription
 
-## AC-16 Security Attributes
-
-The data discovery and classification capability of advanced data security for Azure SQL Database 
-provides capabilities for discovering, classifying, labeling, and protecting the sensitive data in 
-your databases. It can be used to provide visibility into your database classification state, and 
-to track the access to sensitive data within the database and beyond its borders. Advanced data 
-security can help you ensure information as associated with the appropriate security attributes 
-for your organization. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
-definitions to monitor and enforce use of advanced data security on SQL server. 
-
-- Advanced data security should be enabled on your managed instances
-- Advanced data security should be enabled on your SQL servers
-- Deploy Advanced Data Security on SQL servers
-
-## AC-17 (1) Remote Access | Automated Monitoring / Control
+## 9.3.1.12 AC-17 (1) Remote Access | Automated Monitoring / Control
 
 This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
 definitions to monitors that remote debugging for Azure App Service application is turned off and
@@ -135,7 +121,7 @@ access methods comply with your security policy.
 - Remote debugging should be turned off for Function App
 - Remote debugging should be turned off for Web Application
 
-## AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
+## 9.3.1.3 AU-3 (2) Content of Audit Records | Centralized Management of Planned Audit Record Content
 
 Log data collected by Azure Monitor is stored in a Log Analytics workspace enabling centralized
 configuration and management. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
@@ -149,7 +135,7 @@ definitions that audit and enforce deployment of the Log Analytics agent on Azur
 - \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
-## AU-5 Response to Audit Processing Failures
+## 9.3.3.5 AU-5 Response to Audit Processing Failures
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that monitor
 audit and event logging configurations. Monitoring these configurations can provide an indicator of
@@ -160,7 +146,7 @@ an audit system failure or misconfiguration and help you take corrective action.
 - Advanced data security should be enabled on your managed instances
 - Advanced data security should be enabled on your SQL servers
 
-## AU-6 (4) Audit Review, Analysis, and Reporting | Central Review and Analysis
+## 9.3.3.6 AU-6 (4) Audit Review, Analysis, and Reporting | Central Review and Analysis
 
 Log data collected by Azure Monitor is stored in a Log Analytics workspace enabling centralized
 reporting and analysis. This blueprint helps you ensure events are logged by assigning [Azure Policy](../../../policy/overview.md)
@@ -174,7 +160,7 @@ definitions that audit and enforce deployment of the Log Analytics agent on Azur
 - \[Preview\]: Deploy Log Analytics Agent for Windows VM Scale Sets (VMSS)
 - \[Preview\]: Deploy Log Analytics Agent for Windows VMs
 
-## AU-12 Audit Generation
+## 9.3.3.11 AU-12 Audit Generation
 
 This blueprint helps you ensure system events are logged by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit log settings on Azure resources. These policy definitions audit and enforce
@@ -198,7 +184,7 @@ and Advanced Data Security are configured on SQL servers.
 - Deploy Auditing on SQL servers
 - Deploy Diagnostic Settings for Network Security Groups
 
-## CM-7 (2) Least Functionality | Prevent Program Execution
+## 9.3.5.7 CM-7 (2) Least Functionality | Prevent Program Execution
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
 application whitelisting solution that can block or prevent specific software from running on your
@@ -208,7 +194,7 @@ virtual machines where an application whitelist is recommended but has not yet b
 
 - Adaptive Application Controls should be enabled on virtual machines
 
-## CM-7 (5) Least Functionality | Authorized Software / Whitelisting
+## 9.3.5.7 CM-7 (5) Least Functionality | Authorized Software / Whitelisting
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
 application whitelisting solution that can block or prevent specific software from running on your
@@ -219,7 +205,7 @@ been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
 
-## CM-11 User-Installed Software
+## 9.3.5.11 CM-11 User-Installed Software
 
 Adaptive application control in Azure Security Center is an intelligent, automated end-to-end
 application whitelisting solution that can block or prevent specific software from running on your
@@ -230,7 +216,7 @@ has not yet been configured.
 
 - Adaptive Application Controls should be enabled on virtual machines
 
-## CP-7 Alternate Processing Site
+## 9.3.6.6 CP-7 Alternate Processing Site
 
 Azure Site Recovery replicates workloads running on virtual machines from a primary location to a
 secondary location. If an outage occurs at the primary site, the workload fails over the secondary
@@ -240,7 +226,7 @@ ensure necessary contingency controls are in place.
 
 - Audit virtual machines without disaster recovery configured
 
-## IA-2 (1) Identification and Authentication (Organizational Users) | Network Access to Privileged Accounts
+## 9.3.7.2 IA-2 (1) Identification and Authentication (Organizational Users) | Network Access to Privileged Accounts
 
 This blueprint helps you restrict and control privileged access by assigning [Azure Policy](../../../policy/overview.md)
 definitions to audit accounts with owner and/or write permissions that don't have multi-factor
@@ -251,7 +237,7 @@ authentication enabled, you can identify accounts that may be more likely to be 
 - MFA should be enabled on accounts with owner permissions on your subscription
 - MFA should be enabled on accounts with write permissions on your subscription
 
-## IA-2 (2) Identification and Authentication (Organizational Users) | Network Access to Non-Privileged Accounts
+## 9.3.7.2 IA-2 (2) Identification and Authentication (Organizational Users) | Network Access to Non-Privileged Accounts
 
 This blueprint helps you restrict and control access by assigning an [Azure Policy](../../../policy/overview.md)
 definition to audit accounts with read permissions that don't have multi-factor authentication
@@ -261,7 +247,7 @@ can identify accounts that may be more likely to be compromised.
 
 - MFA should be enabled on accounts with read permissions on your subscription
 
-## IA-5 Authenticator Management
+## 9.3.7.5 IA-5 Authenticator Management
 
 This blueprint assigns [Azure Policy](../../../policy/overview.md) definitions that audit Linux
 virtual machines that allow remote connections from accounts without passwords and/or have incorrect
@@ -277,7 +263,7 @@ identification and authentication policy.
 - \[Preview\]: Deploy requirements to audit Linux VMs that have accounts without passwords
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
-## IA-5 (1) Authenticator Management | Password-Based Authentication
+## 9.3.7.5 IA-5 (1) Authenticator Management | Password-Based Authentication
 
 This blueprint helps you enforce strong passwords by assigning [Azure Policy](../../../policy/overview.md)
 definitions that audit Windows virtual machines that don't enforce minimum strength and other
@@ -298,7 +284,7 @@ with your organization’s password policy.
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not restrict the minimum password length to 14 characters
 - \[Preview\]: Deploy requirements to audit Windows VMs that do not store passwords using reversible encryption
 
-## RA-5 Vulnerability Scanning
+## 9.3.14.3 RA-5 Vulnerability Scanning
 
 This blueprint helps you manage information system vulnerabilities by assigning [Azure Policy](../../../policy/overview.md)
 definitions that monitor operating system vulnerabilities, SQL vulnerabilities, and virtual machine
@@ -316,7 +302,7 @@ capabilities to help you understand vulnerabilities in your deployed resources.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
-## SC-5 Denial of Service Protection
+## 9.3.16.4 SC-5 Denial of Service Protection
 
 Azure’s distributed denial of service (DDoS) standard tier provides additional features and
 mitigation capabilities over the basic service tier. These additional features include Azure Monitor
@@ -327,7 +313,7 @@ protections for your Azure environment.
 
 - DDoS Protection Standard should be enabled
 
-## SC-7 Boundary Protection
+## 9.3.16.5 SC-7 Boundary Protection
 
 This blueprint helps you manage and control the system boundary by assigning an [Azure Policy](../../../policy/overview.md)
 definition that monitors for network security group hardening recommendations in Azure
@@ -343,7 +329,7 @@ contained within the information system.
 - The NSGs rules for web applications on IaaS should be hardened
 - Audit unrestricted network access to storage accounts
 
-## SC-7 (3) Boundary Protection | Access Points
+## 9.3.16.5 SC-7 (3) Boundary Protection | Access Points
 
 Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure virtual machines,
 reducing exposure to attacks while providing easy access to connect to VMs when needed. JIT virtual
@@ -353,7 +339,7 @@ virtual machines that can support just-in-time access but have not yet been conf
 
 - Just-In-Time network access control should be applied on virtual machines
 
-## SC-7 (4) Boundary Protection | External Telecommunications Services
+## 9.3.16.5 SC-7 (4) Boundary Protection | External Telecommunications Services
 
 Just-in-time (JIT) virtual machine access locks down inbound traffic to Azure virtual machines,
 reducing exposure to attacks while providing easy access to connect to VMs when needed. JIT virtual
@@ -364,7 +350,7 @@ yet been configured.
 
 - Just-In-Time network access control should be applied on virtual machines
 
-## SC-8 (1) Transmission Confidentiality and Integrity | Cryptographic or Alternate Physical Protection
+## 9.6.16.3 SC-8 (1) Transmission Confidentiality and Integrity | Cryptographic or Alternate Physical Protection
 
 This blueprint helps you protect the confidential and integrity of transmitted information by 
 assigning [Azure Policy](../../../policy/overview.md) definitions that help you monitor 
@@ -380,7 +366,7 @@ from unauthorized disclosure and modification.
 - Secure transfer to storage accounts should be enabled
 - Web Application should only be accessible over HTTPS
 
-## SC-28 (1) Protection of Information at Rest | Cryptographic Protection
+## 9.3.16.6 SC-28 (1) Protection of Information at Rest | Cryptographic Protection
 
 This blueprint helps you enforce your policy on the use of cryptograph controls to protect
 information at rest by assigning [Azure Policy](../../../policy/overview.md) definitions that
@@ -399,7 +385,7 @@ encryption on SQL databases, virtual machine disks, and automation account varia
 - Require encryption on Data Lake Store accounts
 - Transparent Data Encryption on SQL databases should be enabled
 
-## SI-2 Flaw Remediation
+## 9.3.17.2 SI-2 Flaw Remediation
 
 This blueprint helps you manage information system flaws by assigning [Azure Policy](../../../policy/overview.md)
 definitions that monitor missing system updates, operating system vulnerabilities, SQL
@@ -416,7 +402,7 @@ of the operating system for virtual machine scale sets.
 - Vulnerabilities on your SQL databases should be remediated
 - Vulnerabilities should be remediated by a Vulnerability Assessment solution
 
-## SI-3 Malicious Code Protection
+## 9.3.17.3 SI-3 Malicious Code Protection
 
 This blueprint helps you manage endpoint protection, including malicious code protection, by
 assigning [Azure Policy](../../../policy/overview.md) definitions that monitor for missing
@@ -427,7 +413,7 @@ antimalware solution on Windows virtual machines.
 - Endpoint protection solution should be installed on virtual machine scale sets
 - Monitor missing Endpoint Protection in Azure Security Center
 
-## SI-3 (1) Malicious Code Protection | Central Management
+## 9.3.17.3 SI-3 (1) Malicious Code Protection | Central Management
 
 This blueprint helps you manage endpoint protection, including malicious code protection, by
 assigning [Azure Policy](../../../policy/overview.md) definitions that monitor for missing
@@ -438,7 +424,7 @@ security state of deployed Azure resources.
 - Endpoint protection solution should be installed on virtual machine scale sets
 - Monitor missing Endpoint Protection in Azure Security Center
 
-## SI-4 Information System Monitoring
+## 9.3.17.4 SI-4 Information System Monitoring
 
 This blueprint helps you monitor your system by auditing and enforcing logging and data security
 across Azure resources. Specifically, the policies assigned audit and enforce deployment of the Log
@@ -461,7 +447,7 @@ you can take appropriate action.
 - Deploy network watcher when virtual networks are created
 - Deploy Threat Detection on SQL servers
 
-## SI-4 (18) Information System Monitoring | Analyze Traffic / Covert Exfiltration
+## 9.3.17.4 SI-4 (18) Information System Monitoring | Analyze Traffic / Covert Exfiltration
 
 Advanced Threat Protection for Azure Storage detects unusual and potentially harmful attempts to
 access or exploit storage accounts. Protection alerts include anomalous access patterns, anomalous
@@ -481,7 +467,6 @@ articles to learn about the blueprint and how to deploy this sample:
 
 > [!div class="nextstepaction"]
 > [IRS 1075 blueprint - Overview](./index.md)
-> [IRS 1075 blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 
