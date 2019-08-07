@@ -18,16 +18,18 @@ You can now use the power of the Speech Services to easily voice-enable a chat b
 
 In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 
-This tutorial is designed for developers who are just starting their journey with Azure, Bot-Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed. At the end of this exercise, you'll have set up a system that will operate as follows:
+This tutorial is designed for developers who are just starting their journey with Azure, Bot-Framework bots, Direct Line Speech, or the Speech SDK, and want to quickly build a working system with limited coding. No experience or familiarity with these services is needed.
+
+At the end of this exercise, you'll have set up a system that will operate as follows:
 
 1. The sample client application is configured to connect to Direct Line Speech channel and the Echo Bot
 2. Audio is recorded from the default microphone on button press (or continuously recorded if custom wake word is activated)
 3. Optionally, custom wake word detection happens, gating audio streaming to the cloud
-4. Using Speech SDK, the app connects to Direct Line Speech channel
+4. Using Speech SDK, the app connects to Direct Line Speech channel and streams audio
 5. Optionally, higher accuracy wake word verification happens on the service
 6. The audio is passed to the speech recognition service and transcribed to text
-7. The recognized text is passed to the Echo-Bot
-8. The response text is turned in to audio using the Text-to-Speech (TTS) service and streamed back to the application
+7. The recognized text is passed to the Echo-Bot as a Bot Framework Activity 
+8. The response text is turned in to audio by the Text-to-Speech (TTS) service, and streamed back to the client application for playback
 
 ![diagram-tag](media/tutorial-voice-enable-your-bot-speech-sdk/diagram.png "The Speech Channel flow")
 
