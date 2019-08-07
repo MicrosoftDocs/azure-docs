@@ -48,7 +48,7 @@ With SSO, on an Azure AD joined device you can:
 - Access a UNC path on an AD member server
 - Access an AD member web server configured for Windows-integrated security 
 
-If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/en-us/download/details.aspx?id=45520).
+If you want to manage your on-premises AD from a Windows device, install the [Remote Server Administration Tools for Windows 10](https://www.microsoft.com/download/details.aspx?id=45520).
 
 You can use:
 

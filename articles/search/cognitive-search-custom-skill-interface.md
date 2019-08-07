@@ -9,7 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 
 # How to add a custom skill to a cognitive search pipeline
@@ -22,13 +22,13 @@ Building a custom skill gives you a way to insert transformations unique to your
 
 ## Web API custom skill interface
 
-Custom WebAPI skill endpoints by default timeout if they don't return a response within a 30 second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that window.  It is possible to configure the timeout to be up to 90 seconds, by setting the timeout parameter:
+Custom WebAPI skill endpoints by default timeout if they don't return a response within a 30 second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that window.  It is possible to configure the timeout to be up to 230 seconds, by setting the timeout parameter:
 
 ```json
         "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
-        "description": "This skill has a 90 second timeout",
+        "description": "This skill has a 230 second timeout",
         "uri": "https://[your custom skill uri goes here]",
-        "timeout": "PT90S",
+        "timeout": "PT230S",
 ```
 
 Currently, the only mechanism for interacting with a custom skill is through a Web API interface. The Web API needs must meet the requirements described in this section.

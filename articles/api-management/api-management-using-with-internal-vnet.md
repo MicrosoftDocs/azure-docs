@@ -14,7 +14,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 07/31/2019
 ms.author: apimpm
 
 ---
@@ -88,7 +88,9 @@ When you create an API Management service, named "contosointernalvnet" for examp
 
    * Gateway or proxy: contosointernalvnet.azure-api.net
 
-   * The Azure portal and the Developer portal: contosointernalvnet.portal.azure-api.net
+   * The Developer portal: contosointernalvnet.portal.azure-api.net
+
+   * The new Developer portal: contosointernalvnet.developer.azure-api.net
 
    * Direct management endpoint: contosointernalvnet.management.azure-api.net
 
@@ -99,6 +101,8 @@ To access these API Management service endpoints, you can create a virtual machi
    * 10.1.0.5     contosointernalvnet.azure-api.net
 
    * 10.1.0.5     contosointernalvnet.portal.azure-api.net
+
+   * 10.1.0.5     contosointernalvnet.developer.azure-api.net
 
    * 10.1.0.5     contosointernalvnet.management.azure-api.net
 

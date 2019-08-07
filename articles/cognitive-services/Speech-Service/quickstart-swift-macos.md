@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Recognize speech, Swift - Speech Services'
+title: 'Quickstart: Recognize speech, Swift - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Swift on macOS using the Speech SDK
 services: cognitive-services

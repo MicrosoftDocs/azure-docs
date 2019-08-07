@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MashaMSFT
 ms.author:  mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/08/2019
 ---
 # Transactional replication with single, pooled, and instance databases in Azure SQL Database

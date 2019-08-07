@@ -1,6 +1,6 @@
 ---
-title: Keyphrase Prebuilt entity
-titleSuffix: Azure
+title: Keyphrase Prebuilt entity - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains keyphrase prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
