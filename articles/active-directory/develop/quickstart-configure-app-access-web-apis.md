@@ -105,7 +105,7 @@ The **Supported account types** specify who can use the application or access th
 Once you've [configured the supported account types](quickstart-register-app.md) when you initially registered the application, you can only change this setting using the application manifest editor if:
 
 * You change account types from **AzureADMyOrg** or **AzureADMultipleOrgs** to **AzureADandPersonalMicrosoftAccount**, or vice versa.
-* You change account types between **AzureADMyOrg** and **AzureADMultipleOrgs**, or vice versa.
+* You change account types from **AzureADMyOrg** to **AzureADMultipleOrgs**, or vice versa.
 
 To change the supported account types for an existing app registration:
 
