@@ -22,9 +22,9 @@ The table summarizes supported scenarios for Hyper-V VMs.
 **Deployment** | **Details***
 --- | ---
 **Assess on-premises Hyper-V VMs** | [Set up](tutorial-prepare-hyper-v.md) your first assessment.<br/><br/> [Run](scale-hyper-v-assessment.md) a large-scale assessment.
-**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure.
+**Migrate Hyper-V VMs to Azure** | [Try out](tutorial-migrate-hyper-v.md) migration to Azure. 
 
-
+Migration of Hyper-V servers managed with System Center Virtual Machine Manager (VMM) isn't supported by Azure Migrate Server Migration. 
 
 ## Azure Migrate projects
 

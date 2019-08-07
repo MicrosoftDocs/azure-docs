@@ -6,6 +6,11 @@
       "redirect_document_id": true
     }, 
     {
+      "source_path": "articles/machine-learning/service/setup-create-workspace.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
       "redirect_document_id": true
@@ -32297,6 +32302,16 @@
     {
       "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
       "redirect_document_id": false
     },
     {
