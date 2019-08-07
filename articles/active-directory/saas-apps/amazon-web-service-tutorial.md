@@ -81,8 +81,8 @@ To configure and test Azure AD SSO with AWS, complete the following building blo
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
 2. **[Configure AWS](#configure-amazon-web-services-aws)** to configure the SSO settings on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD single sign-on.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD SSO with B.Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD SSO.
 5. **[Create an AWS test user](#create-amazon-web-services-aws-test-user)** to have a counterpart of B.Simon in AWS who is linked to the Azure AD representation of the user.
 6. **[Test SSO](#test-sso)** to verify whether the configuration works.
 
@@ -128,7 +128,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	e. From the **Source attribute** list, type the attribute value shown for that row.
 
-	f. Select **Ok**
+	f. Select **Ok**.
 
 	g. Select **Save**.
 
@@ -138,7 +138,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the **Set up Amazon Web Services (AWS)** section, copy the appropriate URLs, based on your requirement.
 
-   ![Screenshot of Set up Amazon Web Service (AWS) section, with configuration URLs highlighted](common/copy-configuration-urls.png)
+   ![Screenshot of Set up Amazon Web Services (AWS) section, with configuration URLs highlighted](common/copy-configuration-urls.png)
 
 ### Configure AWS
 
@@ -180,7 +180,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     ![Screenshot of Create role page][19]
 
-    a. Under **Select type of trusted entity**, select **SAML 2.0 federation** .
+    a. Under **Select type of trusted entity**, select **SAML 2.0 federation**.
 
 	b. Under **Choose a SAML 2.0 Provider**, select the **SAML provider** you created previously (for example: *WAAD*).
 
@@ -317,7 +317,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	c. Select **Test Connection**.
 
-	d. Save the setting by clicking on the **Save** button at the top.
+	d. Save the setting by selecting **Save**.
 
 23. In the **Settings** section, for **Provisioning Status**, select **On**. Then select **Save**.
 
@@ -337,7 +337,7 @@ In this section, you create a test user, B.Simon, in the Azure portal.
 
 ### Assign the Azure AD test user
 
-In this section, you enable B.Simon to use Azure single sign-on by granting access to AWS.
+In this section, you enable B.Simon to use Azure SSO by granting access to AWS.
 
 1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
 1. In the applications list, select **Amazon Web Services (AWS)**.
@@ -355,13 +355,13 @@ In this section, you enable B.Simon to use Azure single sign-on by granting acce
 
 ### Test single sign-on
 
-When you select the AWS tile in the Access Panel, you should be automatically signed in to the AWS for which you set up single sign-on. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you select the AWS tile in the Access Panel, you should be automatically signed in to the AWS for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Known issues
 
  * In the **Provisioning** section, the **Mappings** sub-section shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
  
- * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant. Multiple AWS tenants (represented by `servicePrincipals`) can be added to Azure AD from the gallery for provisioning. There's a known issue, however, with not being able to automatically write all of the imported roles from the multiple AWS `servicePrincipals` used for provisioning into the single `servicePrincipal` used for single sign-on. As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where single sign-on is configured.
+ * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant. Multiple AWS tenants (represented by `servicePrincipals`) can be added to Azure AD from the gallery for provisioning. There's a known issue, however, with not being able to automatically write all of the imported roles from the multiple AWS `servicePrincipals` used for provisioning into the single `servicePrincipal` used for SSO. As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where SSO is configured.
 
 ## Additional resources
 
