@@ -40,7 +40,7 @@ To do an in-place change of the edition of SQL Server, you will need the followi
 
 - An [Azure subscription](https://azure.microsoft.com/free/).
 - A Windows [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) registered with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md).
-- Setup media with the desired edition of SQL Server. Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers do not have software assurance can use the setup media from a marketplace SQL Server VM image that has their desired edition.
+- Setup media with the desired edition of SQL Server. Customers who have [software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) can obtain their installation media from the [Volume Licensing Center](https://www.microsoft.com/Licensing/servicecenter/default.aspx). Customers that do not have software assurance can use the setup media from a marketplace SQL Server VM image that has their desired edition.
 
 
 ## Upgrade edition

@@ -84,7 +84,7 @@ You can view the current mode of your SQL IaaS agent by using PowerShell:
      $sqlvm.Properties.sqlManagement
   ```
 
-For SQL Server VMs that have the *NoAgent* or *lightweight* IaaS extension installed, you can upgrade the mode to *full* using the Azure portal. It is not possible to downgrade - to do so, you will need to completely uninstall the SQL IaaS extension and install it again. 
+SQL Server VMs that have the *lightweight* IaaS extension installed can upgrade the mode to _full_ using the Azure portal. SQL Server VMs in _No-Agent_ mode can upgrade to _full_ after the OS is upgraded to Windows 2008 R2 and above. It is not possible to downgrade - to do so, you will need to completely uninstall the SQL IaaS extension and install it again. 
 
 To upgrade agent mode to *full*, do the following: 
 
