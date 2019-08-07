@@ -28,8 +28,8 @@ The following key resource configurations can be provided for the failover VM wh
 
 ## Pre-requisites
 
-- Ensure that you plan you recovery side configurations in advance.
-- You need to pre-create the networking resources in advance, and provide it as an input so that Azure Site Recovery service can honor these settings and ensure that the failover VM adheres to these settings.
+- Ensure that you plan your recovery side configurations in advance.
+- You need to pre-create the networking resources in advance, provide it as an input so that Azure Site Recovery service can honor these settings and ensure that the failover VM adheres to these settings.
 
 ## Steps to customize failover networking configurations
 
@@ -39,7 +39,7 @@ The following key resource configurations can be provided for the failover VM wh
 
       ![customize](media/azure-to-azure-customize-networking/Edit-networking-properties.JPG)
 
-4. Click on edit near the NIC you want to edit, in the next blade that opens up, select the corresponding pre-created resource in the target.
+4. Click **Edit** near the NIC you want to configure, in the next blade that opens up, select the corresponding pre-created resources in the target.
 
     ![NIC-drilldown.JPG](media/azure-to-azure-customize-networking/NIC-drilldown.JPG)
 
@@ -48,6 +48,8 @@ The following key resource configurations can be provided for the failover VM wh
 Site Recovery will now honor these settings and ensure that the VM on failover is connected to the selected resource via the corresponding NIC.
 
 ## Troubleshooting
+
+### Unable to view or select a resource
 
 If you are unable to select or view a networking resource, please go through the following checks & conditions
 
