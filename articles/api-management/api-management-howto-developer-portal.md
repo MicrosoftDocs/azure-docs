@@ -92,10 +92,6 @@ A *layout* gets applied to a page by matching its URL template to the *page's* U
 
 It is likely related to CORS. The interactive console makes a client-side API request from the browser. You can resolve the CORS problem by adding [a CORS policy](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) on your API(s). You can either specify all the parameters manually (for example, origin as https://contoso.com) or use a wildcard `*` value.
 
-### Where can I file bugs?
-
-[In the GitHub repository](http://aka.ms/apimdevportal).
-
 ## Next steps
 
 Learn more about the new developer portal:

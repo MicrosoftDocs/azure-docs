@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
+ms.date: 08/07/2019
 ---
 
 # Enterprise security for Azure Machine Learning service
@@ -171,12 +171,24 @@ Key Vault instance associated with the workspace is used by Azure Machine Learni
 * Passwords to Azure Container Repository instances
 * Connection Strings to data stores.
 
-SSH passwords and keys to compute targets such as HDI HDInsight and VM are stored in a separate Key Vault that is associated with Microsoft subscription. Azure Machine Learning service does store any passwords or keys provided by the user instead it generates, authorizes, and stores its own SSH keys in order to connect to VM/HDInsight to run the experiments.
+SSH passwords and keys to compute targets such as HDI HDInsight and VM are stored in a separate Key Vault that is associated with Microsoft subscription. Azure Machine Learning service does not store any passwords or keys provided by the user instead it generates, authorizes, and stores its own SSH keys in order to connect to VM/HDInsight to run the experiments.
 Each workspace has an associated system-assigned Managed Identity (with the same name as the workspace) that has access to all keys, secrets, and certificates in the Key Vault.
 
 ## Monitoring
 
-Users can see the activity log under the workspace to see various operations performed on the workspace and get the basic information like the operation name, event initiated by, timestamp etc.
+### Metrics
+
+Azure Monitor metrics can be used to view and monitor metrics for your Azure Machine Learning service workspace. From the [Azure portal](https://portal.azure.com), select your workspace and then use the __Metrics__ link.
+
+![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)
+
+Metrics includes information on runs, deployments, and registrations.
+
+For more information, see [Metrics in Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+
+### Activity log
+
+You can see the activity log under the workspace to see various operations performed on the workspace and get the basic information like the operation name, event initiated by, timestamp etc.
 
 The following screenshot shows the activity log for a workspace:
 

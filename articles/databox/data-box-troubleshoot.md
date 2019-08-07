@@ -158,7 +158,7 @@ For more information, see [Copy to managed disks](data-box-deploy-copy-data-from
 
 ## Non-critical blob or file errors
 
-All the errors that are seen during data copy are summarized in the following sections.
+All the non-critical errors related to names of blobs, files, or containers that are seen during data copy are summarized in the following section. If these errors are present, then the names will be modified to conform to the Azure naming conventions. The corresponding order status for data upload will be **Completed with warnings**.  
 
 ### ERROR_BLOB_OR_FILE_NAME_CHARACTER_CONTROL
 
