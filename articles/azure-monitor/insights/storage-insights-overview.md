@@ -117,23 +117,22 @@ This section highlights common scenarios for editing the workbook to customize i
 
 The customizations are saved to a custom workbook to prevent overwriting the default configuration in our published workbook.  
 
-To edit a workbook and save your changes to a custom workbook, perform the following steps.
+### Specifying a subscription or storage account
 
-1. With the Azure Monitor for Storage workbook open, from the command bar select **Edit**. 
+If you want a workbook to specify a subscription or storage account to scope to on every run, perform the following steps.
 
-1. In the workbook editor, to specify a subscription or storage account to scope to on every run, select **Edit** to the right of the parameter selectors at the top of the workbook.
+1. Open the Azure Monitor for Storage workbook and from the command bar select **Edit**. 
 
-    ![Edit workbook parameter example](./media/storage-insights-overview/edit-workbook-parameters-01.png)
+2. Select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  
 
-    1. In the grid, to modify the **Subscription** parameter, select the checkbox to the left of it and then select the pencil icon from the command bar.
+3. Select from the **Storage Accounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts. 
 
-        ![Edit parameter properties example](./media/storage-insights-overview/edit-parameter-properties-01.png)
+4. Select **Save as** from the command bar to save a copy of the workbook with your customizations and then click **Done editing** to return to reading mode.  
 
-    1. In the **Edit parameters** pane, under the **Previews** section, select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  Click **Save** to commit your changes.
+### Modify metrics visualized in the workbook
 
-    1. To modify the **StorageAccounts** parameter, select the checkbox to the left of it and then select the pencil icon from the command bar.
+If you want a workbook to specify a subscription or storage account to scope to on every run, perform the following steps.
 
-    1. In the **Edit parameters** pane, under the **Previews** section, select from the **StorageAccounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts.  Click **Save** to commit your changes.
 
 ## Next steps
 
