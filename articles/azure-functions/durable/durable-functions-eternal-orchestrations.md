@@ -72,7 +72,8 @@ The difference between this example and a timer-triggered function is that clean
 ## Starting an eternal orchestration
 Triggering an eternal orchestration is no different from any other orchestration function. Use the [StartNewAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_StartNewAsync_) method to start it. 
 
-> [!NOTE] If you need to ensure a singleton eternal orchestration is running, it is important to maintain the same instance ```id``` when starting the orchestration. For more information, see [Instance Management](durable-functions-instance-management.md).
+> [!NOTE]
+> If you need to ensure a singleton eternal orchestration is running, it's important to maintain the same instance `id` when starting the orchestration. For more information, see [Instance Management](durable-functions-instance-management.md).
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
