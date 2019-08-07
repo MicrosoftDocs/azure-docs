@@ -472,7 +472,14 @@
           href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
         - name: SaaS fulfillment APIs - FAQ
           href: ./partner-center-portal/saas-fulfillment-apis-faq.md        
-  - name: Publishing status
+    - Dynamics 365 offers
+      items:
+        - name: Create a Dynamics 365 Business Central offer
+          href: ./partner-center-portal/create-new-business-central-offer.md
+        - name: Create a Dynamics 365 for Customer Engagement offer
+          href: ./partner-center-portal/create-new-customer-engagement-offer.md
+        - name: Create a Dynamics 365 for Finance and Operations offer
+    name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
     href: ./partner-center-portal/update-existing-offer.md
