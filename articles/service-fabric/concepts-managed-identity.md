@@ -58,12 +58,12 @@ For preview release, we ONLY allow these actions to be deployed in Azure Service
 
 Get started with Managed Identity for Azure Service Fabric applications by following the "How-To" documents in a sequential order.
 
-* [How to Configure New Service Fabric cluster to enable Managed Identity for their applications](configure-new-azure-service-fabric-enable-managed-identity.md)
+1. [How to Configure New Service Fabric cluster to enable Managed Identity for their applications](configure-new-azure-service-fabric-enable-managed-identity.md)
 
-* [How to Configure Existing Service Fabric cluster to enable Managed Identity for their applications](configure-existing-cluster-enable-managed-identity-token-service.md)
+2. [How to Configure Existing Service Fabric cluster to enable Managed Identity for their applications](configure-existing-cluster-enable-managed-identity-token-service.md)
 
-* [How to Enable MI(Managed Identity) in Service Fabric application ](how-to-deploy-service-fabric-application-managed-identity.md)
+3. [How to Enable MI(Managed Identity) in Service Fabric application ](how-to-deploy-service-fabric-application-managed-identity.md)
 
-* [How to Use MI(Managed Identity) in Service Fabric application Code ](how-to-managed-identity-token-service-app-code.md)
+4. [How to Use MI(Managed Identity) in Service Fabric application Code ](how-to-managed-identity-token-service-app-code.md)
 
-* [How to Grant Service Fabric application access to other Azure resources](how-to-grant-access-other-resources.md)
+5. [How to Grant Service Fabric application access to other Azure resources](how-to-grant-access-other-resources.md)

@@ -35,7 +35,7 @@ In this document, you will learn how to:
 ## Deploy application resources using Azure Resource Manager  
 To deploy an application and its services using the Azure Resource Manager application resource model, you need to package application code, upload the package, and then reference the location of package in an Azure Resource Manager template as an application resource. For more information, view [Package an application](https://docs.microsoft.com/azure/service-fabric/service-fabric-package-apps#create-an-sfpkg).
           
-Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here
+Then, create an Azure Resource Manager template, update the parameters file with application details, and deploy it on the Service Fabric cluster. Refer to samples here:
            
            
           
@@ -69,15 +69,17 @@ Then, create an Azure Resource Manager template, update the parameters file with
 
 ## Upgrade application resources
 
-Applications already deployed to a Service Fabric cluster will be upgraded for below reasons,
-1. To add new service to application
-2. To upgrade existing service
+Applications already deployed to a Service Fabric cluster will be upgraded for below reasons:
+
+* To add new service to application
+* To upgrade existing service
      
 ## Delete application resources
 
-Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below methods
-1. delete application resources using Azure Remove
-2. delete application type
+Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below methods:
+
+* Delete application resources using Azure Remove
+* Delete application type
            
 ## Next steps
 
