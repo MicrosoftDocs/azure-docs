@@ -30,7 +30,7 @@ in one large file.
 
 Once the configurations have been generated,
 you can use the
-[DSC Configuration scripts](powershell/dsc/configurations.md)
+[DSC Configuration scripts](/powershell/dsc/configurations.md)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
@@ -47,6 +47,6 @@ to view the
 
 ## See Also
 
-- [Windows PowerShell Desired State Configuration Overview](powershell/dsc/overview/overview.md)
-- [DSC Resources](powershell/dsc/resources/resources.md)
-- [Configuring The Local Configuration Manager](powershell/dsc/managing-nodes/metaconfig.md)
+- [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview.md)
+- [DSC Resources](/powershell/dsc/resources/resources.md)
+- [Configuring The Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig.md)
