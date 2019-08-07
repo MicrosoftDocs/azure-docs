@@ -115,13 +115,13 @@ This section highlights common scenarios for editing the workbook to customize i
 * Change the availability threshold
 * Change the color rendering
 
-The customizations are saved to a custom workbook to prevent overwriting the default configuration in our published workbook.
+The customizations are saved to a custom workbook to prevent overwriting the default configuration in our published workbook. 
 
 Workbooks are saved within a resource group, either in the **My Reports** section that's private to you or in the **Shared Reports** section that's accessible to everyone with access to the resource group. 
 
 ### Specifying a subscription or storage account
 
-If you want a workbook to specify a subscription or storage account to scope to on every run, perform the following steps.
+To configure the multi-subscription **Overview** or **Capacity** workbooks to be scoped to a particular subscription(s) or storage account(s) on every run, perform the following steps.
 
 1. Open the Azure Monitor for Storage workbook and from the command bar select **Edit**. 
 
@@ -133,7 +133,13 @@ If you want a workbook to specify a subscription or storage account to scope to 
 
 ### Modify metrics visualized in the workbook
 
-If you want a workbook to specify a subscription or storage account to scope to on every run, perform the following steps.
+The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. Perform the following steps to remove a metric, modify the availability threshold, or change color rendering. In our example, we are using the multi-subscription capacity workbook, but you can perform the same changes against any one of the prebuilt workbooks scoped to **Failures**, **Performance**, **Availability**, and **Capacity** for a specific storage account.
+
+1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
+
+2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit**.
+
+1. In the metrics section, select **Edit** and  
 
 
 ## Next steps
