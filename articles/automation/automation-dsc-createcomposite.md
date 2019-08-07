@@ -21,7 +21,7 @@ Examples would be:
 
 If you are interested in sharing this work with others,
 the best option is to package the configuration as a
-[Composite Resource](powershell/dsc/resources/authoringresourcecomposite.md).
+[Composite Resource](../../powershell/dsc/resources/authoringresourcecomposite.md).
 Creating composite resources for the first time can be overwhelming.
 
 A community maintained solution named
@@ -71,6 +71,6 @@ to view the
 
 ## See Also
 
-- [Windows PowerShell Desired State Configuration Overview](powershell/dsc/overview/overview.md)
-- [DSC Resources](powershell/dsc/resources/resources.md)
-- [Configuring The Local Configuration Manager](powershell/dsc/managing-nodes/metaconfig.md)
+- [Windows PowerShell Desired State Configuration Overview](../../powershell/dsc/overview/overview.md)
+- [DSC Resources](../../powershell/dsc/resources/resources.md)
+- [Configuring The Local Configuration Manager](../../powershell/dsc/managing-nodes/metaconfig.md)
