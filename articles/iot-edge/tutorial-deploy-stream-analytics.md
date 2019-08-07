@@ -201,7 +201,7 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
     }
     ```
 
-   The routes that you declare here define the flow of data through the IoT Edge device. The telemetry data from tempSensor are sent to IoT Hub and to the **temperature** input that was configured in the Stream Analytics job. The **alert** output messages are sent to IoT Hub and to the tempSensor module to trigger the reset command. 
+   The routes that you declare here define the flow of data through the IoT Edge device. The telemetry data from SimulatedTemperatureSensor are sent to IoT Hub and to the **temperature** input that was configured in the Stream Analytics job. The **alert** output messages are sent to IoT Hub and to the SimulatedTemperatureSensor module to trigger the reset command. 
 
 1. Select **Next**.
 
@@ -211,11 +211,11 @@ For this tutorial, you deploy two modules. The first is **SimulatedTemperatureSe
 
     You should see the new Stream Analytics module running, along with the IoT Edge agent and IoT Edge hub modules. It may take a few minutes for the information to reach your IoT Edge device, and then for the new modules to start. If you don't see the modules running right away, continue refreshing the page.
 
-    ![tempSensor and ASA module reported by device](./media/tutorial-deploy-stream-analytics/module-output2.png)
+    ![SimulatedTemperatureSensor and ASA module reported by device](./media/tutorial-deploy-stream-analytics/module-output2.png)
 
 ## View data
 
-Now you can go to your IoT Edge device to check out the interaction between the Azure Stream Analytics module and the tempSensor module.
+Now you can go to your IoT Edge device to check out the interaction between the Azure Stream Analytics module and the SimulatedTemperatureSensor module.
 
 1. Check that all the modules are running in Docker:
 
