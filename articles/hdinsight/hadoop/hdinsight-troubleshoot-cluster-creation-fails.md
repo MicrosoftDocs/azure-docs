@@ -12,7 +12,7 @@ ms.date: 08/06/2019
 ---
 # Troubleshoot cluster creation failures with Azure HDInsight
 
-The most common root causes for cluster creation issues include the following:
+The following issues are most common root causes for cluster creation failures:
 
 1. Permission issues
 1. Resource policy restrictions
@@ -26,13 +26,13 @@ The most common root causes for cluster creation issues include the following:
 
 If you are using Data Lake Storage Gen 2, ensure that the user-assigned managed identity assigned to your HDInsight cluster is in the **Storage Blob Data Contributor** role or in the **Storage Blob Data Owner Role**. See [Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters](../hdinsight-hadoop-use-data-lake-storage-gen2.md#set-up-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account) for complete setup instructions.
 
-If you are using Data Lake Storage Gen 1, please see setup and configuration instructions [here](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen 1 isn't supported for HBase clusters, and is not supported in HDInsight version 4.0.
+If you are using Data Lake Storage Gen 1, see setup and configuration instructions [here](../hdinsight-hadoop-use-data-lake-store.md). Data Lake Storage Gen 1 isn't supported for HBase clusters, and is not supported in HDInsight version 4.0.
 
 If using Azure Storage, ensure that storage account name is valid during the cluster creation.
 
 ## Resource policy restrictions
 
-Subscription based Azure policies can deny the creation of public IP addresses. HDInsight cluster creation requires two public IPs.  
+Subscription-based Azure policies can deny the creation of public IP addresses. HDInsight cluster creation requires two public IPs.  
 
 In general, the following policies can impact cluster creation:
 
@@ -44,7 +44,7 @@ In general, the following policies can impact cluster creation:
 
 Firewalls on your virtual network or storage account can deny communication with HDInsight management IP addresses.
 
-You must always allow traffic from the IP addresses in the table below.
+Allow traffic from the IP addresses in the table below.
 
 | Source IP address | Destination | Direction |
 |---|---|---|
@@ -53,9 +53,9 @@ You must always allow traffic from the IP addresses in the table below.
 | 168.61.48.131 | *:443 | Inbound |
 | 138.91.141.162 | *:443 | Inbound |
 
-You must also add the IP addresses specific to the region where the cluster is created. See [HDInsight management IP addresses](../hdinsight-management-ip-addresses.md) for a listing of the addresses for each Azure region.
+Also add the IP addresses specific to the region where the cluster is created. See [HDInsight management IP addresses](../hdinsight-management-ip-addresses.md) for a listing of the addresses for each Azure region.
 
-If you are using an express route or your own custom DNS server please see [Plan a virtual network for Azure HDInsight - connecting multiple networks](../hdinsight-plan-virtual-network-deployment.md#multinet).
+If you are using an express route or your own custom DNS server, see [Plan a virtual network for Azure HDInsight - connecting multiple networks](../hdinsight-plan-virtual-network-deployment.md#multinet).
 
 ## Resources locks  
 
