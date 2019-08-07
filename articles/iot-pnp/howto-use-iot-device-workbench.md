@@ -188,7 +188,7 @@ To build the device code together with the device C SDK on Windows using CMake a
     ```
 
 > [!TIP]
-> You can read [Build CMake project](https://docs.microsoft.com/en-us/cpp/build/cmake-projects-in-visual-studio?view=vs-2019#building-cmake-projects) to learn more about using CMake in Visual Studio.
+> You can read [Build CMake project](https://docs.microsoft.com/cpp/build/cmake-projects-in-visual-studio?view=vs-2019#building-cmake-projects) to learn more about using CMake in Visual Studio.
 
 ### macOS
 
