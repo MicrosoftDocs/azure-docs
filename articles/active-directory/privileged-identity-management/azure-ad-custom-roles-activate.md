@@ -69,6 +69,6 @@ If the role requires approval to activate, a notification appears in the upper r
 
 ## Next steps
 
-- [License requirements to use PIM](subscription-requirements.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [License requirements to use PIM](subscription-requirements.md)
 - [Deploy PIM](pim-deployment-plan.md)
