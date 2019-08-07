@@ -102,7 +102,7 @@ When the expression following the **Node** keyword in the DSC configuration eval
 Any of the following solutions fix the problem:
 
 * Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
-* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md#managing-configurationdata-when-compiling-configuration-in-azure-automatation).
+* If you are passing ConfigurationData when compiling the configuration, make sure that you are passing the expected values that the configuration requires from [ConfigurationData](../automation-dsc-compile.md).
 
 ### <a name="dsc-in-progress"></a>Scenario: The DSC node report becomes stuck "in progress" state
 
