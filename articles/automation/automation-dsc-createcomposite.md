@@ -21,7 +21,7 @@ Examples would be:
 
 If you are interested in sharing this work with others,
 the best option is to package the configuration as a
-[Composite Resource](authoringresourcecomposite.md).
+[Composite Resource](powershell/dsc/resources/authoringresourcecomposite.md).
 This can be challenging if you are thinking about creating a Composite for the first time.
 
 A community maintained solution named
@@ -50,7 +50,7 @@ you can use them in the
 [Composable Authoring Experience](/azure/automation/compose-configurationwithcompositeresources)
 in Azure,
 or add them to 
-[DSC Configuration scripts](configurations.md)
+[DSC Configuration scripts](powershell/dsc/resources/configurations.md)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
@@ -71,6 +71,6 @@ to view the
 
 ## See Also
 
-- [Windows PowerShell Desired State Configuration Overview](overview.md)
-- [DSC Resources](resources.md)
-- [Configuring The Local Configuration Manager](metaConfig.md)
+- [Windows PowerShell Desired State Configuration Overview](powershell/dsc/overview/overview.md)
+- [DSC Resources](powershell/dsc/resources/resources.md)
+- [Configuring The Local Configuration Manager](powershell/dsc/managing-nodes/metaconfig.md)
