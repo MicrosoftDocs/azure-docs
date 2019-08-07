@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/07/2019
 ms.author: alkohli
 ---
 
@@ -207,6 +207,8 @@ The copylog path is also displayed on the **Overview** blade for the portal.
 
 ![Path to copylog in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
 
+### Upload completed successfully 
+
 The following sample describes the general format of a copylog file for a Data Box upload that completed successfully:
 
 ```
@@ -217,6 +219,8 @@ The following sample describes the general format of a copylog file for a Data B
 <FilesErrored>0</FilesErrored>
 </CopyLog>
 ```
+
+### Upload completed with errors 
 
 Upload to Azure may also complete with errors.
 
@@ -241,6 +245,10 @@ Here is an example of a copylog where the upload completed with errors:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
+### Upload completed with warnings
+
+Upload to Azure completes with warnings if your data had container/blob/file names that didn't conform to Azure naming conventions and the names were modified to upload the data to Azure.
+
 Here is an example of a `copylog` where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
 
 The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The `copylog` specifies the old and the new container name for container.
