@@ -200,7 +200,7 @@ If this still doesn’t work, contact your AAD admin to acquire the correct perm
 
 ### What will happen if I take no action?
 
-The `GET /configurations` and `POST /configurations/gateway` will no longer return any information and the `GET /configurations/{configurationName}` call will no longer return sensitive parameters, such as storage account key or cluser password. The same is true of corresponding SDK methods and PowerShell cmdlets.
+The `GET /configurations` and `POST /configurations/gateway` will no longer return any information and the `GET /configurations/{configurationName}` call will no longer return sensitive parameters, such as storage account key or cluster password. The same is true of corresponding SDK methods and PowerShell cmdlets.
 
 If you are using an older version of one of the tools for Visual Studio, VSCode, IntelliJ or Eclipse mentioned above, they will no longer function until you update.
 
