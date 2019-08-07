@@ -9,11 +9,6 @@
   - name: How the service works
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
-- name: Setup
-  items:
-  - name: Create a workspace
-    displayName: install sdk workspace
-    href: setup-create-workspace.md
 
 - name: Tutorials
   items:
