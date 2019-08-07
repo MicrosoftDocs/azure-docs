@@ -27,7 +27,9 @@ This article explains how to manage access to logs and to administer the workspa
 
 * How to grant access to users who need access to log data in a specific table in the workspace using Azure RBAC.
 
-## Define access control mode in Azure portal
+## Define access control mode
+
+## Configure from the Azure portal
 
 You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
 
@@ -40,7 +42,7 @@ You can change this setting from the **Properties** page of the workspace. Chang
 
 ![Change workspace access mode](media/manage-access/change-access-control-mode.png)
 
-## Define access control mode using PowerShell
+### Configure using PowerShell
 
 Use the following command to examine the access control mode for all workspaces in the subscription:
 
@@ -84,7 +86,7 @@ else
 Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 ```
 
-## Define access mode using Resource Manager template
+## Configure using a Resource Manager template
 
 To configure the access mode in an Azure Resource Manager template, set the **enableLogAccessUsingOnlyResourcePermissions** feature flag on the workspace to one of the following values.
 
