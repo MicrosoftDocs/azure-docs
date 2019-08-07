@@ -12,7 +12,7 @@ ms.custom: include file
 
 ## Create a module identity
 
-In this section, you create a .NET console app that creates a device identity and a module identity in the identity registry in your hub. A device or module can't connect to hub unless it has an entry in the identity registry. For more information, see the [Identity Registry section of the IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
+In this section, you create a .NET console app that creates a device identity and a module identity in the identity registry in your hub. A device or module can't connect to hub unless it has an entry in the identity registry. For more information, see the [Identity Registry section of the IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
 When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify themselves when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
@@ -106,4 +106,4 @@ When you run this console app, it generates a unique ID and key for both device 
 1. Run this app, and make a note of the device key and module key.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device and module identities to enable secure access to the hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your app needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your app needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
