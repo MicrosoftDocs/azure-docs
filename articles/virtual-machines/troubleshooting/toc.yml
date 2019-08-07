@@ -71,7 +71,7 @@
   - name: Windows
     items:
     - name: How to use PerfInsights
-      href: how-to-use-perfInsights.md
+      href: how-to-use-perfinsights.md
     - name: Performance diagnostics extension
       href: performance-diagnostics-vm-extension.md
   - name: Linux

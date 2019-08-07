@@ -36,7 +36,7 @@ ms.author: genli
 - Troubleshoot VM performance
     - [Performance issues with VMs](performance-diagnostics.md)
     - Windows
-        - [How to use PerfInsights](how-to-use-perfInsights.md)
+        - [How to use PerfInsights](how-to-use-perfinsights.md)
         - [Performance diagnostics extension](performance-diagnostics-vm-extension.md)
 	- Linux
 	    - [How to use PerfInsights](how-to-use-perfinsights-linux.md)
