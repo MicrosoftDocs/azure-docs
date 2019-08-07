@@ -22,7 +22,7 @@ ms.author: rogirdh
 To create an [integrated multi-cloud experience](oracle-oci-overview.md) (preview), Microsoft and Oracle offer direct interconnection between Azure and Oracle Cloud Infrastructure (OCI) through [ExpressRoute](../../../expressroute/expressroute-introduction.md) and [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Through the ExpressRoute and FastConnect interconnection, customers can experience low latency, high throughput, private direct connectivity between the two clouds.
 
 > [!IMPORTANT]
-> The connection between Microsoft Azure and OCI is in the preview stage. To enable low latency connectivity between Azure and OCI, the Azure subscription must first be whitelisted for this capability.
+> The connection between Microsoft Azure and OCI is in the preview stage. To enable low latency connectivity between Azure and OCI, the Azure subscription must first be whitelisted for this capability. You must enroll in the preview by sending an email to oracleconnect@microsoft.com with your subscription ID. You will receive an email back once your subscription has been enrolled. You aren't able to use the capability until you receive a confirmation email. You may also contact your Microsoft representative to be enabled for this preview. This preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for Microsoft Azure Previews for details.
 
 The following image shows a high-level overview of the interconnection:
 
