@@ -13,29 +13,23 @@ manager: carmonm
 # Compiling DSC configurations in Azure Automation State Configuration
 
 You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation
-State Configuration: in the Azure portal and with Windows PowerShell. The following table helps you
+State Configuration: in Azure and in Windows PowerShell. The following table helps you
 determine when to use which method based on the characteristics of each:
 
-**Azure portal**
+- Azure State Configuration compilation service
+  - Beginner method with interactive user interface
+   - Easily track job state
 
-- Simplest method with interactive user interface
-- Form to provide simple parameter values
-- Easily track job state
-- Access authenticated with Azure logon
+- Windows PowerShell
+  - Call from Windows PowerShell on local workstation or build service
+  - Integrate with development test pipeline
+  - Provide complex parameter values
+  - Work with node and non-node data at scale
+  - Significant performance improvement
 
-**Windows PowerShell**
+## Compiling a DSC Configuration in Azure State Configuration
 
-- Call from command line with Windows PowerShell cmdlets
-- Can be included in automated solution with multiple steps
-- Provide simple and complex parameter values
-- Track job state
-- Client required to support PowerShell cmdlets
-- Pass ConfigurationData
-- Compile configurations that use credentials
-
-Once you have decided on a compilation method, use the following procedures to start compiling.
-
-## Compiling a DSC Configuration with the Azure portal
+### Portal
 
 1. From your Automation account, click **State configuration (DSC)**.
 1. Click on the **Configurations** tab, then click on the configuration name to compile.
@@ -43,7 +37,7 @@ Once you have decided on a compilation method, use the following procedures to s
 1. If the configuration has no parameters, you are prompted to confirm whether you want to compile it. If the configuration has parameters, the **Compile Configuration** blade opens so you can provide parameter values. See the following [**Basic Parameters**](#basic-parameters) section for further details on parameters.
 1. The **Compilation Job** page is opened so that you can track the compilation job's status, and the node configurations (MOF configuration documents) it caused to be placed on the Azure Automation State Configuration Pull Server.
 
-## Compiling a DSC Configuration with Windows PowerShell
+### Azure PowerShell
 
 You can use [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/start-azurermautomationdsccompilationjob)
 to start compiling with Windows PowerShell. The following sample code starts compilation of a DSC configuration called **SampleConfig**.
@@ -72,7 +66,7 @@ while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $
 $CompilationJob | Get-AzureRmAutomationDscCompilationJobOutput –Stream Any
 ```
 
-## Basic Parameters
+###  Basic Parameters
 
 Parameter declaration in DSC configurations, including parameter types and properties, works the
 same as in Azure Automation runbooks. See [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
@@ -113,13 +107,13 @@ Configuration ParametersExample
 You can compile DSC Configurations that use basic parameters in the Azure Automation State
 Configuration portal or with Azure PowerShell:
 
-### Portal
+#### Portal
 
 In the portal, you can enter parameter values after clicking **Compile**.
 
 ![Configuration compile parameters](./media/automation-dsc-compile/DSC_compiling_1.png)
 
-### PowerShell
+#### Azure PowerShell
 
 PowerShell requires parameters in a [hashtable](/powershell/module/microsoft.powershell.core/about/about_hash_tables)
 where the key matches the parameter name, and the value equals the parameter value.
@@ -135,7 +129,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 For information about passing PSCredentials as parameters, see [Credential Assets](#credential-assets) below.
 
-## Composite Resources
+### Compiling configurations in Azure Automation that contain Composite Resources
 
 **Composite Resources** allow you to use DSC configurations as nested resources inside of a
 configuration. This enables you to apply multiple configurations to a single resource. See
@@ -143,53 +137,20 @@ configuration. This enables you to apply multiple configurations to a single res
 to learn more about **Composite Resources**.
 
 > [!NOTE]
-> In order for **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first installed in the Azure Automation Account Modules repository or it doesn't import properly.
+> In order for configurations containing **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first imported in to Azure Automation.
 
-To add a DSC **Composite Resource**, you must add the resource module to an archive (*.zip). Go to
-the Modules repository on your Azure Automation Account. Then click on the 'Add a Module' button.
+Adding a DSC **Composite Resource** is no different than adding any PowerShell module to Azure Automation.
+The step by step instruction for this process is documented in the article
+[Manage Modules in Azure Automation](/azure/automation/shared-resources/modules).
 
-![Add Module](./media/automation-dsc-compile/add_module.png)
-
-Navigate to the directory where your archive is located. Select the archive file, and click OK.
-
-![Select Module](./media/automation-dsc-compile/select_dscresource.png)
-
-You are taken back to the modules directory, where you can monitor the status of your **Composite
-Resource** while it unpacks and registers with Azure Automation.
-
-![Import Composite Resource](./media/automation-dsc-compile/register_composite_resource.png)
-
-Once the module is registered, you can then click on it to validate that the **Composite
-Resources** are now available to be used in a configuration.
-
-![Validate Composite Resource](./media/automation-dsc-compile/validate_composite_resource.png)
-
-Then you can call the **Composite Resource** into your configuration like so:
-
-```powershell
-Node ($AllNodes.Where{$_.Role -eq 'WebServer'}).NodeName
-{
-    DomainConfig myCompositeConfig
-    {
-        DomainName = $DomainName
-        Admincreds = $Admincreds
-    }
-
-    PSWAWebServer InstallPSWAWebServer
-    {
-        DependsOn = '[DomainConfig]myCompositeConfig'
-    }
-}
-```
-
-## ConfigurationData
+### Managing ConfigurationData when compiling configuration in Azure Automation
 
 **ConfigurationData** allows you to separate structural configuration from any environment-specific
 configuration while using PowerShell DSC. See [Separating "What" from "Where" in PowerShell DSC](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx)
 to learn more about **ConfigurationData**.
 
 > [!NOTE]
-> You can use **ConfigurationData** when compiling in Azure Automation State Configuration using Azure PowerShell, but not in the Azure portal.
+> You can use **ConfigurationData** when compiling in Azure Automation State Configuration using Azure PowerShell but not in the Azure portal.
 
 The following example DSC configuration uses **ConfigurationData** via the **$ConfigurationData**
 and **$AllNodes** keywords. You also need the [**xWebAdministration** module](https://www.powershellgallery.com/packages/xWebAdministration/)
@@ -214,8 +175,8 @@ Configuration ConfigurationDataSample
 }
 ```
 
-You can compile the preceding DSC configuration with PowerShell. The following PowerShell adds two
-node configurations to the Azure Automation State Configuration Pull Server:
+You can compile the preceding DSC configuration with Windows PowerShell. The following script adds two
+node configurations to the Azure Automation State Configuration Pull Service:
 **ConfigurationDataSample.MyVM1** and **ConfigurationDataSample.MyVM3**:
 
 ```powershell
@@ -243,17 +204,17 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ConfigurationDataSample' -ConfigurationData $ConfigData
 ```
 
-## Assets
+### Working with Assets in Azure Automation during compilation
 
-Asset references are the same in Azure Automation State Configuration and runbooks. See the
-following for more information:
+Asset references are the same in Azure Automation State Configuration and runbooks. For more information, see the
+following:
 
 - [Certificates](automation-certificates.md)
 - [Connections](automation-connections.md)
 - [Credentials](automation-credentials.md)
 - [Variables](automation-variables.md)
 
-### Credential Assets
+#### Credential Assets
 
 DSC configurations in Azure Automation can reference Automation credential assets using the 
 `Get-AutomationPSCredential` cmdlet. If a configuration has a parameter that has a **PSCredential**
@@ -270,7 +231,7 @@ because PowerShell DSC doesn’t know that Azure Automation will be encrypting t
 after its generation via a compilation job.
 
 You can tell PowerShell DSC that it is okay for credentials to be outputted in plain text in the
-generated node configuration MOFs using [**ConfigurationData**](#configurationdata). You should
+generated node configuration MOFs using Configuration Data. You should
 pass `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** for each node block’s name
 that appears in the DSC configuration and uses credentials.
 
@@ -320,32 +281,30 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 > [!NOTE]
 > When compilation is complete you may receive an error stating: **The 'Microsoft.PowerShell.Management' module was not imported because the 'Microsoft.PowerShell.Management' snap-in was already imported.** This warning can safely be ignored.
 
-## Partial Configuration
+## Compiling configurations in Windows PowerShell and publishing to Azure Automation
 
-Azure Automation State Configuration supports usage of
-[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs).
-In this scenario, DSC is configured to manage multiple configurations independently,
-and each configuration is retreieved from Azure Automation.
-However, only one configuration can be assigned to a node per automation account.
-This means if you are using two configurations for a node you will require two automation accounts.
-For more information about how teams can work together to collaboratively manage servers
-using configuration as code see
-[Understanding DSC's role in a CI/CD Pipeline](https://docs.microsoft.com/powershell/dsc/overview/authoringadvanced).
-
-## Importing node configurations
-
-You can also import node configurations (MOFs) that have been compiled outside of Azure. One
-advantage of this is that node configurations can be signed. A signed node configuration is
-verified locally on a managed node by the DSC agent, ensuring that the configuration being applied
-to the node comes from an authorized source.
-
-> [!NOTE]
-> You can use import signed configurations into your Azure Automation account, but Azure Automation does not currently support compiling signed configurations.
+You can also import node configurations (MOFs) that have been compiled outside of Azure.
+This includes compiling from a developer workstation or in a service such as
+[Azure DevOps](https://dev.azure.com).
+There are multiple advantages to this approach including performance and reliability.
+Compiling in Windows PowerShell also provides the option to sign configuration content.
+A signed node configuration is verified locally on a managed node by the DSC agent,
+ensuring that the configuration being applied to the node comes from an authorized source.
 
 > [!NOTE]
 > A node configuration file must be no larger than 1 MB to allow it to be imported into Azure Automation.
 
 For more information about how to sign node configurations, see [Improvements in WMF 5.1 - How to sign configuration and module](/powershell/wmf/5.1/dsc-improvements#dsc-module-and-configuration-signing-validations).
+
+### Compiling a configuration in Windows PowerShell
+
+The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC documentation
+[Write, Compile, and Apply a Configuration](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+This can be executed from a developer workstation or within a build service such as
+[Azure DevOps](https://dev.azure.com).
+
+The MOF file or files produced by compiling the configuration can then be imported directly
+in to the Azure State Configuration service.
 
 ### Importing a node configuration in the Azure portal
 
@@ -358,7 +317,7 @@ For more information about how to sign node configurations, see [Improvements in
 1. Enter a name in the **Configuration Name** textbox. This name must match the name of the configuration from which the node configuration was compiled.
 1. Click **OK**.
 
-### Importing a node configuration with PowerShell
+### Importing a node configuration with Azure PowerShell
 
 You can use the [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration)
 cmdlet to import a node configuration into your automation account.

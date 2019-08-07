@@ -198,7 +198,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     The terminal window displays notifications that the keyspace and table are created. It then selects and returns all users in the table and displays the output, and then selects a row by ID and displays the value.  
 
-    Press CTRL + C to stop execution of the program and close the console window.
+    Select **CTRL + C** to stop execution of the program and close the console window.
 
 4. In the Azure portal, open **Data Explorer** to query, modify, and work with this new data. 
 
