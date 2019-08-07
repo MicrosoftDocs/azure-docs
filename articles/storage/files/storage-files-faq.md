@@ -163,7 +163,7 @@ This article answers common questions about Azure Files features and functionali
     
 ## Security, authentication, and access control
 * <a id="ad-support"></a>
-**Is Identity-based authentication and access control supported by Azure Files?**  
+**Is identity-based authentication and access control supported by Azure Files?**  
     
     Yes, Azure Files supports identity-based authentication and access control leveraging Azure AD Domain Service(Azure AD DS). Azure AD DS authentication over SMB for Azure Files enables Azure AD DS domain-joined Windows VMs to access shares, directories, and files using Azure AD credentials. For more details, see [Overview of Azure Files Azure Active Directory Domain Service (Azure AD DS) Authentication Support for SMB Access](storage-files-active-directory-overview.md). 
 
@@ -276,7 +276,7 @@ This article answers common questions about Azure Files features and functionali
     Standard transaction and standard storage cost will apply to snapshot. Snapshots are incremental in nature. The base snapshot is the share itself. All the subsequent snapshots are incremental and will only store the diff from the previous snapshot. This means that the delta changes that will be seen in the bill will be minimal if your workload churn is minimal. See [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for Standard Azure Files pricing information. Today the way to look at size consumed by share snapshot is by comparing the billed capacity with used capacity. We are working on tooling to improve the reporting.
 
 * <a id="ntfs-acls-snaphsots"></a>
-**Are NTFS ACLs on directories and files persisted in share snapshots?**
+**Are NTFS ACLs on directories and files persisted in share snapshots?**  
     NTFS ACLs on directories and files are persisted in share snapshots.
 
 ### Create share snapshots
