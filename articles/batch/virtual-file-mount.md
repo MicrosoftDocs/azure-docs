@@ -11,7 +11,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 08/07/2019
 ms.author: lahugh
 ---
 
@@ -43,6 +43,8 @@ All mount configuration objects need the following base parameters. Some mount c
 - **Mount options or blobfuse options**: These options describe specific parameters for mounting a file system.
 
 Once the `MountConfiguration` object is created, assign the object to the `MountConfigurationList` property when you create the pool. The file system is mounted either when a node joins a pool or when the node is restarted or re-imaged.
+
+When the file system is mounted, an environment variable `AZ_BATCH_NODE_MOUNTS_DIR` is created which points to the location of the mounted file systems as well as log files, which are useful for troubleshooting and debugging. This is explained in more detail in the [Diagnose mount errors](#diagnose-mount-errors) section.  
 
 > [!IMPORTANT]
 > The maximum number of mounted file systems on a pool is 10. See [Batch service quotas and limits](batch-quota-limit.md) for details and other limits.
@@ -78,7 +80,12 @@ new PoolAddParameter
 
 ### Azure Blob file system
 
-Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). For additional information on using blobfuse, see the blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ).
+
+In addition to the troubleshooting guide, GitHub issues in the blobfuse repository are a helpful way to check on current blobfuse issues and resolutions. For more details, see [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
+
+> [!NOTE]
+> Blobfuse is not currently supported on Debian. See [Supported SKUs](#supported-skus) for more information.
 
 ```csharp
 new PoolAddParameter
@@ -127,7 +134,7 @@ new PoolAddParameter
 
 ### Common Internet File System
 
-Common Internet File Systems (CIFS) can also be mounted to pool nodes allowing traditional file systems to be easily accessed by Azure Batch nodes. CIFS is a file-sharing protocol that provides an open and cross-platform mechanism for requesting network server files and services. CIFS is based on the enhanced version of Microsoft's Server Message Block (SMB) protocol for internet and intranet file sharing and is generally used to mount external file systems on Windows nodes.
+Common Internet File Systems (CIFS) can also be mounted to pool nodes allowing traditional file systems to be easily accessed by Azure Batch nodes. CIFS is a file-sharing protocol that provides an open and cross-platform mechanism for requesting network server files and services. CIFS is based on the enhanced version of Microsoft's Server Message Block (SMB) protocol for internet and intranet file sharing and is generally used to mount external file systems on Windows nodes. To learn more about SMB, see [File Server and SMB](https://docs.microsoft.com/windows-server/storage/file-server/file-server-smb-overview).
 
 ```csharp
 new PoolAddParameter
@@ -154,12 +161,12 @@ new PoolAddParameter
 
 If a mount configuration fails, the compute node in the pool will fail and the node state becomes unusable. To diagnose a mount configuration failure, inspect the [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
 
-TODO: add common mount errors and solutions
+TODO: Add example of getting a log file and how to troubleshoot
 
 ## Supported SKUs
 
-| Publisher | Offer | SKU | File share | Blobfuse | NFS mount | CIFS mount | 
-|-----------|-------|-----|------------|----------|-----------|------------|
+| Publisher | Offer | SKU | Azure Files Share | Blobfuse | NFS mount | CIFS mount |
+|---|---|---|---|---|---|---|
 | batch | rendering-centos73 | rendering | :heavy_check_mark: <br>Note: Compatible with CentOS 7.7</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
@@ -170,7 +177,8 @@ TODO: add common mount errors and solutions
 | microsoft-dsvm | linux-data-science-vm-ubuntu | linuxdsvmubuntu | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | OpenLogic | CentOS-HPC | 7.4, 7.3, 7.1 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: | 
+| Oracle | Oracle-Linux | 7.6 | :x: | :x: | :x: | :x: |
+| Windows | WindowsServer | 2012, 2016, 2019 | :heavy_check_mark: | :x: | :x: | :x: |
 
 ## Next steps
 
