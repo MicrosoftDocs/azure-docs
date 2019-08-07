@@ -10,9 +10,9 @@ ms.date: 08/07/2019
 ms.author: rajanaki
 
 ---
-# Customize networking configurations in Azure to Azure replication
+# Customize networking configurations of the target Azure VM
 
-This article provides guidance on customizing networking configurations when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
+This article provides guidance on customizing networking configurations on the target Azure VM when you're replicating and recovering Azure VMs from one region to another, using [Azure Site Recovery](site-recovery-overview.md).
 
 ## Before you start
 

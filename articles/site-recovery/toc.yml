@@ -155,6 +155,8 @@
       items:
       - name: Prepare networking for Azure VM disaster recovery
         href: azure-to-azure-about-networking.md
+      - name: Customize networking configurations of the target Azure VM
+        href: azure-to-azure-about-networking.md
       - name: Set up network mapping and retain IP addresses after failover
         href: azure-to-azure-network-mapping.md
       - name: Examples for retaining IP addresses after failover
