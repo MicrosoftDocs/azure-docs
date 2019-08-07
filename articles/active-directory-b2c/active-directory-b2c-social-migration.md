@@ -30,7 +30,7 @@ This article is a continuation of the user migration article, and focuses on soc
 
 * `UserIdentity` Type - Contains information about the identity of a social account user in an Azure AD B2C tenant:
   * `issuer` The string representation of the identity provider that issued the user identifier, such as facebook.com.
-  * `issuerUserId` The unique user identifier used by the social identity provider in base64 encoded format.
+  * `issuerUserId` The unique user identifier used by the social identity provider in Base64-encoded format.
 
     ```JSON
     "userIdentities": [{
