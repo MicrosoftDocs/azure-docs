@@ -24,7 +24,7 @@ The following table shows a summary of the Data Box or Data Box Heavy order step
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
-| Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
+| Data upload to Azure       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy order. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
@@ -205,7 +205,7 @@ By default, logs are written to a container named `copylog`. The logs are store
 
 The copy log path is also displayed on the **Overview** blade for the portal.
 
-![Path to copylog in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
+![Path to copy log in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
 
 ### Upload completed successfully 
 
@@ -224,7 +224,7 @@ The following sample describes the general format of a copy log for a Data Box u
 
 Upload to Azure may also complete with errors.
 
-![Path to copylog in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
+![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
 
 Here is an example of a copy log where the upload completed with errors:
 
@@ -291,7 +291,7 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Audit logs
 
-Audit logs contain information on power-on and share access on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on how to power on and access shares on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
 Here is a sample of the audit log from a Data Box:
 
@@ -354,7 +354,7 @@ If you scroll through the order history, you see:
 
 - Carrier tracking information for your device.
 - Events with *SecureErase* activity. These events correspond to the erasure of the data on the disk.
-- Data Box log links. The paths for the *audit logs*, *copylogs*, and *BOM* files are presented.
+- Data Box log links. The paths for the *audit logs*, *copy logs*, and *BOM* files are presented.
 
 Here is a sample of the order history log from Azure portal:
 
