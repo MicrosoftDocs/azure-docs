@@ -51,7 +51,9 @@ To use the default Azure Storage account for the workspace in a virtual network,
 > [!IMPORTANT]
 > The __default storage account__ for your Azure Machine Learning service can be placed in a virtual network __only while doing experimentation__.
 >
-> For __non-default storage accounts for experimentation__, or if you are using a storage account for __inference__, you must have __unrestricted access to the storage account__.
+> __Non-default storage accounts__ can also be placed in a virtual network, but __only for experimentation__.
+>
+> Default or non-default storage accounts used for __inference__ must have __unrestricted access to the storage account__.
 >
 > If you aren't sure if you've modified these settings or not, see __Change the default network access rule__ in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Use the steps to allow access from all networks during inference, or model scoring.
 

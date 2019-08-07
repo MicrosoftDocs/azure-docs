@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 07/10/2019
+ms.date: 08/07/2019
 ---
 
 # Enterprise security for Azure Machine Learning service
@@ -176,7 +176,19 @@ Each workspace has an associated system-assigned Managed Identity (with the same
 
 ## Monitoring
 
-Users can see the activity log under the workspace to see various operations performed on the workspace and get the basic information like the operation name, event initiated by, timestamp etc.
+### Metrics
+
+Azure Metrics Monitor can be used to view and monitor metrics for your Azure Machine Learning service workspace. From the [Azure portal](https://portal.azure.com), select your workspace and then use the __Metrics__ link.
+
+![Screenshot showing example metrics for a workspace](./media/enterprise-readiness/workspace-metrics.png)
+
+Metrics includes information on runs, deployments, and registrations.
+
+For more information, see [Metrics in Azure Monitor](/azure/azure-monitor/platform/data-platform-metrics).
+
+### Activity log
+
+You can see the activity log under the workspace to see various operations performed on the workspace and get the basic information like the operation name, event initiated by, timestamp etc.
 
 The following screenshot shows the activity log for a workspace:
 
