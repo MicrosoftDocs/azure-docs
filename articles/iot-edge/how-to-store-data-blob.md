@@ -108,27 +108,39 @@ Example: <br>
 
 This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive. 
 
-For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**.
+Make sure the user in IoT device can read/write to the remote SMB share.
 
-Make sure the user in IoT device can read/write to the remote SMB share. 
+For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**. 
 
 ## Granting directory access to container user on Linux
 If you have used [volume mount](https://docs.docker.com/storage/volumes/) for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used [bind mount](https://docs.docker.com/storage/bind-mounts/) then these steps are required to run the service correctly.
 
 Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, id: 11000) and a user group (name: absie, id: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
 
-If any other user is specified through **user create option**, the service is started as that **user**. 
-
-This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by the container user (example: absie 11000). You can grant the container user the access to a directory by executing the commands below on the host:
+This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by the container user (example: absie 11000). You can grant the container user access to the directory by executing the commands below on the host:
 
 ```terminal
-sudo chown -R <user id>:<group id> <blob-dir> 
+sudo chown -R 11000:11000 <blob-dir> 
 sudo chmod -R 700 <blob-dir> 
 ```
 
 Example:<br>
 `sudo chown -R 11000:11000 /srv/containerdata` <br>
 `sudo chmod -R 700 /srv/containerdata `
+
+
+If you need to run the service as a user other than **absie**, you can specify your custom user id in createOptions under "User" property in your deployment manifest. In such case you need to use default or root group id `0`.
+
+```json
+“createOptions”: { 
+  “User”: “<custom user id>:0” 
+} 
+```
+And then, grant the container user access to the directory
+```terminal
+sudo chown -R <user id>:<group id> <blob-dir> 
+sudo chmod -R 700 <blob-dir> 
+```
 
 ## Configure log files
 

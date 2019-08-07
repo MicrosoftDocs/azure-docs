@@ -63,8 +63,8 @@ A deployment manifest is a JSON document that describes which modules to deploy,
        "Binds":[
            "<storage mount>"
        ],
-     "PortBindings":{
-       "11002/tcp":[{"HostPort":"11002"}]
+       "PortBindings":{
+         "11002/tcp":[{"HostPort":"11002"}]
        }
      }
    }
