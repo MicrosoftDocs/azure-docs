@@ -1,4 +1,4 @@
-﻿---
+---
 title: Article about known issues/migration limitations with online migrations to Azure Database for MySQL | Microsoft Docs
 description: Learn about known issues/migration limitations with online migrations to Azure Database for MySQL.
 services: database-migration
@@ -161,12 +161,12 @@ When you try to perform an online migration from AWS RDS PostgreSQL to Azure Dat
   **Limitation**: This error occurs when the number of tables is different between the source and target databases.
   **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
 
-- **Error:** The source database {database} is empty.**
+- **Error:** The source database {database} is empty.
 
   **Limitation**: This error occurs when the source database is empty. This is most likely because you have selected the wrong database as source.
   **Workaround**: Double-check the source database you selected for migration, and then try again.
 
-- **Error:** The target database {database} is empty.** Please migrate the schema.
+- **Error:** The target database {database} is empty. Please migrate the schema.
 
   **Limitation**: This error occurs when there is no schema on the target database. Make sure schema on the target matches schema on the source.
   **Workaround**: Ensure that the schema on the target matches schema on the source. For detail on migrating schema, refer to the [Azure PostgreSQL online migration documentation](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online#migrate-the-sample-schema).
