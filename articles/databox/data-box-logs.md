@@ -191,11 +191,11 @@ The BOM or manifest files are also copied to the Azure storage account. You can 
 
 ## Review copy log during upload to Azure
 
-During the data upload to Azure, a *copylog* is created.
+During the data upload to Azure, a copy log is created.
 
 ### Copylog
 
-For each order that is processed, the Data Box service creates *copylog* in the associated storage account. The *copylog* has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
+For each order that is processed, the Data Box service creates copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
 A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
@@ -203,13 +203,13 @@ By default, logs are written to a container named `copylog`. The logs are store
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-The copylog path is also displayed on the **Overview** blade for the portal.
+The copy log path is also displayed on the **Overview** blade for the portal.
 
 ![Path to copylog in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
 
 ### Upload completed successfully 
 
-The following sample describes the general format of a copylog file for a Data Box upload that completed successfully:
+The following sample describes the general format of a copy log for a Data Box upload that completed successfully:
 
 ```
 <?xml version="1.0"?>
@@ -226,7 +226,7 @@ Upload to Azure may also complete with errors.
 
 ![Path to copylog in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
 
-Here is an example of a copylog where the upload completed with errors:
+Here is an example of a copy log where the upload completed with errors:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -249,9 +249,9 @@ Here is an example of a copylog where the upload completed with errors:
 
 Upload to Azure completes with warnings if your data had container/blob/file names that didn't conform to Azure naming conventions and the names were modified to upload the data to Azure.
 
-Here is an example of a `copylog` where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
+Here is an example of a copy log where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
 
-The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The `copylog` specifies the old and the new container name for container.
+The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The copy log specifies the old and the new container name for container.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -262,7 +262,7 @@ The new unique names for containers are in the format `DataBox-GUID` and the dat
 </ErroredEntity>
 ```
 
-Here is an example of a `copylog` where the blobs or files that did not conform to Azure naming conventions, were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to path based on destination type. The destination can be block blobs, page blobs, or Azure Files.
+Here is an example of a copy log where the blobs or files that did not conform to Azure naming conventions, were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to path based on destination type. The destination can be block blobs, page blobs, or Azure Files.
 
 The `copylog` specifies the old and the new blob or file name and the path in Azure.
 
