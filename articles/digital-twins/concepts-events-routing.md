@@ -1,12 +1,12 @@
 ---
-title: Routing events and messages with Azure Digital Twins | Microsoft Docs
+title: 'Routing events and messages with Azure Digital Twins | Microsoft Docs'
 description: Overview of routing events and messages to service endpoints with Azure Digital Twins
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/14/2018
+ms.date: 07/29/2019
 ms.author: alinast
 ---
 

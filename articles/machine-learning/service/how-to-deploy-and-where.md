@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/08/2019
+ms.date: 08/06/2019
 
 ms.custom: seoapril2019
 ---
@@ -53,7 +53,7 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 + **Using the CLI**
 
   ```azurecli-interactive
-  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment
+  az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
   > [!TIP]
@@ -138,7 +138,7 @@ The below example will return a path to a single file called `sklearn_mnist_mode
 model_path = Model.get_model_path('sklearn_mnist')
 ```
 
-#### (Optional) Automatic Swagger schema generation
+#### (Optional) Automatic schema generation
 
 To automatically generate a schema for your web service, provide a sample of the input and/or output in the constructor for one of the defined type objects, and the type and sample are used to automatically create the schema. Azure Machine Learning service then creates an [OpenAPI](https://swagger.io/docs/specification/about/) (Swagger) specification for the web service during deployment.
 
@@ -149,9 +149,10 @@ The following types are currently supported:
 * `pyspark`
 * standard Python object
 
-To use schema generation, include the `inference-schema` package in your conda environment file. The following example uses `[numpy-support]` since the entry script uses a numpy parameter type: 
+To use schema generation, include the `inference-schema` package in your conda environment file.
 
-#### Example dependencies file
+##### Example dependencies file
+
 The following YAML is an example of a Conda dependencies file for inference.
 
 ```YAML
@@ -164,14 +165,11 @@ dependencies:
     - inference-schema[numpy-support]
 ```
 
-If you want to use automatic schema generation, your entry script **must** import the `inference-schema` packages. 
+If you want to use automatic schema generation, your entry script **must** import the `inference-schema` packages.
 
 Define the input and output sample formats in the `input_sample` and `output_sample` variables, which represent the request and response formats for the web service. Use these samples in the input and output function decorators on the `run()` function. The scikit-learn example below uses schema generation.
 
-> [!TIP]
-> After deploying the service, use the `swagger_uri` property to retrieve the schema JSON document.
-
-#### Example entry script
+##### Example entry script
 
 The following example demonstrates how to accept and return JSON data:
 
@@ -212,9 +210,7 @@ def run(data):
         return error
 ```
 
-#### Example script with dictionary input (Support consumption from Power BI)
-
-The following example demonstrates how to define input data as <key: value> dictionary, using Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+The following example demonstrates how to define the input data as a `<key: value>` dictionary, using a Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -262,6 +258,7 @@ def run(data):
         error = str(e)
         return error
 ```
+
 For more example scripts, see the following examples:
 
 * Pytorch: [https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-pytorch)
@@ -363,7 +360,11 @@ See [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.
 ## Consume web services
 
 Every deployed web service provides a REST API, so you can create client applications in a variety of programming languages. 
-If you have enabled authentication for your service, you need to provide a service key as a token in your request header.
+If you have enabled key authentication for your service, you need to provide a service key as a token in your request header.
+If you have enabled token authentication for your service, you need to provide an Azure Machine Learning JWT token as a bearer token in your request header.
+
+> [!TIP]
+> You can retrieve the schema JSON document after deploying the service. Use the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri) from the deployed web service, such as `service.swagger_uri`, to get the URI to the local web service's Swagger file.
 
 ### Request-response consumption
 
@@ -376,6 +377,8 @@ headers = {'Content-Type': 'application/json'}
 
 if service.auth_enabled:
     headers['Authorization'] = 'Bearer '+service.get_keys()[0]
+elif service.token_auth_enabled:
+    headers['Authorization'] = 'Bearer '+service.get_token()[0]
 
 print(headers)
 
@@ -393,6 +396,147 @@ print(response.json())
 
 For more information, see [Create client applications to consume webservices](how-to-consume-web-service.md).
 
+### Web service schema (OpenAPI specification)
+
+If you used the automatic schema generation with the deployment, you can get the address of the OpenAPI specification for the service by using the [swagger_uri property](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#swagger-uri). For example, `print(service.swagger_uri)`. Use a GET request (or open the URI in a browser) to retrieve the specification.
+
+The following JSON document is an example of a schema (OpenAPI specification) generated for a deployment:
+
+```json
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "myservice",
+        "description": "API specification for the Azure Machine Learning service myservice",
+        "version": "1.0"
+    },
+    "schemes": [
+        "https"
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "securityDefinitions": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": "For example: Bearer abc123"
+        }
+    },
+    "paths": {
+        "/": {
+            "get": {
+                "operationId": "ServiceHealthCheck",
+                "description": "Simple health check endpoint to ensure the service is up at any given point.",
+                "responses": {
+                    "200": {
+                        "description": "If service is up and running, this response will be returned with the content 'Healthy'",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "examples": {
+                            "application/json": "Healthy"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        },
+        "/score": {
+            "post": {
+                "operationId": "RunMLService",
+                "description": "Run web service's model and get the prediction output",
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "serviceInputPayload",
+                        "in": "body",
+                        "description": "The input payload for executing the real-time machine learning service.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceInput"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "The service processed the input correctly and provided a result prediction, if applicable.",
+                        "schema": {
+                            "$ref": "#/definitions/ServiceOutput"
+                        }
+                    },
+                    "default": {
+                        "description": "The service failed to execute due to an error.",
+                        "schema": {
+                            "$ref": "#/definitions/ErrorResponse"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "ServiceInput": {
+            "type": "object",
+            "properties": {
+                "data": {
+                    "type": "array",
+                    "items": {
+                        "type": "array",
+                        "items": {
+                            "type": "integer",
+                            "format": "int64"
+                        }
+                    }
+                }
+            },
+            "example": {
+                "data": [
+                    [ 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 ]
+                ]
+            }
+        },
+        "ServiceOutput": {
+            "type": "array",
+            "items": {
+                "type": "number",
+                "format": "double"
+            },
+            "example": [
+                3726.995
+            ]
+        },
+        "ErrorResponse": {
+            "type": "object",
+            "properties": {
+                "status_code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
+```
+
+For more information on the specification, see the [Open API specification](https://swagger.io/specification/).
+
+For a utility that can create client libraries from the specification, see [swagger-codegen](https://github.com/swagger-api/swagger-codegen).
 
 ### <a id="azuremlcompute"></a> Batch inference
 Azure Machine Learning Compute targets are created and managed by the Azure Machine Learning service. They can be used for batch prediction from Azure Machine Learning Pipelines.

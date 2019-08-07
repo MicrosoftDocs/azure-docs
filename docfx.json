@@ -259,8 +259,11 @@
         "articles/cognitive-services/text-analytics/**/*.md": "https://cognitive.uservoice.com/forums/555922-text-analytics",
         "articles/cognitive-services/Translator/**/*.md": "https://cognitive.uservoice.com/forums/558796-translator",
         "articles/cognitive-services/translator-speech/**/*.md": "https://cognitive.uservoice.com/forums/558796-translator",
-        "articles/cognitive-services/video-indexer/**/*.md": "https://cognitive.uservoice.com/forums/598144-video-indexer",
+        "articles/media-services/video-indexer/**/*.md": "https://cognitive.uservoice.com/forums/598144-video-indexer",
         "articles/cognitive-services/Web-Language-Model/**/*.md": "https://cognitive.uservoice.com/forums/555943-weblm",
+        "articles/cognitive-services/form-recognizer/**/*.md": "https://cognitive.uservoice.com/forums/921556-form-recognizer",
+        "articles/cognitive-services/Ink-Recognizer/**/*.md": "https://cognitive.uservoice.com/forums/921559-ink-recognizer",
+        "articles/cognitive-services/speech-service/**/*.md": "https://cognitive.uservoice.com/forums/912208-speech-service",
         "articles/connectors/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/container-instances/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/container-registry/**/*.md": "https://feedback.azure.com/forums/903958-azure-container-registry",
@@ -388,6 +391,9 @@
         "articles/governance/policy/**/*.md": "Azure Policy",
         "articles/governance/resource-graph/**/*.md": "Azure Resource Graph",
         "articles/lighthouse/**/*.md": "Azure Lighthouse"
+      },
+      "manager": {
+        "articles/sql-database/**/*.md": "jroth"
       },
       "featureFlags": {
         "articles/**/*.md": [

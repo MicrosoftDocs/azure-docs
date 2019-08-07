@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Index data from Azure SQL databases in a C# example code - Azure Search'
+title: 'C# Tutorial: Index data from Azure SQL databases - Azure Search'
 description: A C# code example showing how to connect to Azure SQL database, extract searchable data, and load it into an Azure Search index.
 author: HeidiSteen
 manager: cgronlun

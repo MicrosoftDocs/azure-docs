@@ -9,21 +9,21 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/29/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
 # Batch testing with 1000 utterances in LUIS portal
 
-Batch testing validates your [active](luis-concept-version.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model in a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
+Batch testing validates your [active](luis-concept-version.md#active-version) trained model to measure its prediction accuracy. A batch test helps you view the accuracy of each intent and entity in your current trained model, displaying results with a chart. Review the batch test results to take appropriate action to improve accuracy, such as adding more example utterances to an intent if your app frequently fails to identify the correct intent.
 
 ## Group data for batch test
 
-It is important that utterances used for batch testing are new to LUIS. If you have a dataset of utterances, divide the utterances into three sets: utterances added to an intent, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained. 
+It is important that utterances used for batch testing are new to LUIS. If you have a data set of utterances, divide the utterances into three sets: example utterances added to an intent, utterances received from the published endpoint, and utterances used to batch test LUIS after it is trained. 
 
-## A dataset of utterances
+## A data set of utterances
 
-Submit a batch file of utterances, known as a *dataset*, for batch testing. The dataset is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to 10 datasets in an app. If you need to test more, delete a dataset and then add a new one.
+Submit a batch file of utterances, known as a *data set*, for batch testing. The data set is a JSON-formatted file containing a maximum of 1,000 labeled **non-duplicate** utterances. You can test up to 10 data sets in an app. If you need to test more, delete a data set and then add a new one.
 
 |**Rules**|
 |--|
@@ -101,7 +101,7 @@ Common errors include:
 
 ## Batch test state
 
-LUIS tracks the state of each dataset's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
+LUIS tracks the state of each data set's last test. This includes the size (number of utterances in the batch), last run date, and last result (number of successfully predicted utterances).
 
 <a name="sections-of-the-results-chart"></a>
 
@@ -109,7 +109,7 @@ LUIS tracks the state of each dataset's last test. This includes the size (numbe
 
 The batch test result is a scatter graph, known as an error matrix. This graph is a 4-way comparison of the utterances in the batch file and the current model's predicted intent and entities. 
 
-Data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. If all data points are on the **True Positive** and **True Negative** sections, then your app's accuracy is perfect on this dataset.
+Data points on the **False Positive** and **False Negative** sections indicate errors, which should be investigated. If all data points are on the **True Positive** and **True Negative** sections, then your app's accuracy is perfect on this data set.
 
 ![Four sections of chart](./media/luis-concept-batch-test/chart-sections.png)
 
