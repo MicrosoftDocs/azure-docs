@@ -6,7 +6,7 @@ author: athinanthny
 
 ms.service: service-fabric
 ms.topic: conceptual 
-ms.date: 08/02/2019
+ms.date: 08/07/2019
 ms.author: atsenthi 
 ---
 
@@ -59,13 +59,20 @@ Before the application can be deployed, it must be staged in blob storage. In th
 The application is now staged. We are now ready to create the ARM template to deploy the application.      
    
 ### Create the ARM Template
-The sample application already contains an ARM template for the sample application called **UserApp.json**. 
+The sample application contains [ARM Templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) that can be used to deploy the application. The template files are named **UserApp.json** and **UserApp.Parameters.json**. 
+
+> [!NOTE] The **UserApp.Parameters.json** file must be updated with the name of your cluster.
+>
+>
 
 | Parameter              | Description                                 | Example                                                      | Comments                                                     |
 | ---------------------- | ------------------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | clusterName            | The name of the cluster you're deploying to | sf-cluster123                                                |                                                              |
-| applicationTypeName    | The type name of the sample application     | VotingType                                                   | Must match what's in ApplicationManifest.xml                 |
+| application            | The name of the application                 | Voting                                                       |
+| applicationTypeName    | The type name of the  application           | VotingType                                                   | Must match what's in ApplicationManifest.xml                 |
 | applicationTypeVersion | The version of the application type         | 1.0.0                                                        | Must match what's in ApplicationManifest.xml                 |
+| serviceName            | The name of the service the service         | Voting~VotingWeb                                             | Must be in the format ApplicationName~ServiceType            |
+| serviceTypeName        | The type name of the service                | VotingWeb                                                    | Must match what's in the ServiceManifest.xml                 |
 | appPackageUrl          | The blob storage URL of the application     | https://servicefabricapps.blob.core.windows.net/apps/Voting.sfpkg | The URL of the application package in blob storage (the procedure to set this is described below) |
        
 ```json
