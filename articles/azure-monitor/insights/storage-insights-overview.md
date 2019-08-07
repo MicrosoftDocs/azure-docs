@@ -131,7 +131,7 @@ You can configure the multi-subscription and storage account **Overview** or **C
 
 4. Select from the **Storage Accounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts. 
 
-5. Select **Save as** from the command bar to save a copy of the workbook with your customizations and then click **Done editing** to return to reading mode.  
+5. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.  
 
 ### Modify metrics and colors in the workbook
 
@@ -166,6 +166,8 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 3. Select **Save and close** to commit your change.
 
+4. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.  
+
 ### Modify the availability threshold
 
 In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold.  By default, the tile and grid reporting percent availability are configured with a minimum value of 90 and maximum value of 99. We are going to change the minimum value of the **Availability %** in the **Availability by API** grid to 80. 
@@ -176,7 +178,14 @@ In this example, we are working with the storage account capacity workbook and d
 
 3. In the workbook, select **Availability** to switch to the availability workbook, and then select **Edit** from the command bar. 
 
-4. 
+4. Scroll down to the bottom of the page and on the left-hand side next to the **Availability by API** grid, select **Edit**.
+
+5. Select **Column settings** and then the **Edit column settings** pane select under the columns section **Availability (%) (Thresholds + Formatted)**.
+
+6. Change the value for the **<** less than operator to **80** and then click **Save and Close**.
+
+7. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.
+
 ## Next steps
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
