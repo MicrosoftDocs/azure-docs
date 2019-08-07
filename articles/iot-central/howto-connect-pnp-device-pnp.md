@@ -49,6 +49,9 @@ To work with the device capability model in this guide, you need:
     1. Search for **Azure IoT Device Workbench**.
     1. Select **Install**.
 
+    > [!NOTE]
+    > The current version of the code generator in the extension doesn't support the **Geopoint** and **Vector** schema types or the **Acceleration**, **Velocity**, and **Location** semantic types. These schema and semantic types are supported by IoT Central.
+
 To build the generated C code on Windows in this guide, you need:
 
 * [Visual Studio (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload when you install Visual Studio.
