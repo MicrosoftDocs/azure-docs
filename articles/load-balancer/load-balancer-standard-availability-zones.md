@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/27/2018
+ms.date: 08/07/2019
 ms.author: allensu
 ---
 
@@ -47,9 +47,6 @@ You can change the zonality of a frontend of an internal Load Balancer by removi
 When using multiple frontends, review [multiple frontends for Load Balancer](load-balancer-multivip-overview.md) for important considerations.
 
 #### Zone redundant by default
-
->[!IMPORTANT]
->Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
 In a region with Availability Zones, a Standard Load Balancer frontend is zone-redundant by default.  A single frontend IP address can survive zone failure and can be used to reach all backend pool members irrespective of the zone. This doesn't mean hitless data path, but any retries or reestablishment will succeed. DNS redundancy schemes aren't required. The frontend's single IP address is served simultaneously by multiple independent infrastructure deployments in multiple Availability Zones.  Zone-redundant means that all inbound or outbound flows are served by multiple Availability Zones in a region simultaneously using a single IP address.
 
@@ -203,9 +200,6 @@ Avoid introducing unintended cross-zone dependencies, which will nullify availab
   - When a zone returns, does your application understand how to converge safely?
 
 ### <a name="zonalityguidance"></a> Zone-redundant versus zonal
-
->[!IMPORTANT]
->Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
 Zone-redundant can provide a zone-agnostic and at the same time resilient option with a single IP address for the service.  It can reduce complexity in turn.  Zone-redundant also has mobility across zones, and can be safely used on resources in any zone.  Also, it's future proof in regions without Availability Zones, which can limit changes required once a region does gain Availability Zones.  The configuration syntax for a zone-redundant IP address or frontend succeeds in any region including those without Availability Zones.
 
