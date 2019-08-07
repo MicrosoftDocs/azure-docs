@@ -118,35 +118,35 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-	### Create an Azure AD test user
+### Create an Azure AD test user
 
-	In this section, you'll create a test user in the Azure portal called B.Simon.
+In this section, you'll create a test user in the Azure portal called B.Simon.
 
-	1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-	1. Select **New user** at the top of the screen.
-	1. In the **User** properties, follow these steps:
-   		1. In the **Name** field, enter `B.Simon`.  
-   		1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   		1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   		1. Click **Create**.
+1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+1. Select **New user** at the top of the screen.
+1. In the **User** properties, follow these steps:
+	1. In the **Name** field, enter `B.Simon`.  
+	1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+	1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+	1. Click **Create**.
 
-	### Assign the Azure AD test user
+### Assign the Azure AD test user
 
-	In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Apptio.
+In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Apptio.
 
-	1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-	1. In the applications list, select **Apptio**.
-	1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+1. In the applications list, select **Apptio**.
+1. In the app's overview page, find the **Manage** section and select **Users and groups**.
 
-   		![The "Users and groups" link](common/users-groups-blade.png)
+   	![The "Users and groups" link](common/users-groups-blade.png)
 
-	1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
 
-		![The Add User link](common/add-assign-user.png)
+	![The Add User link](common/add-assign-user.png)
 
-	1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-	1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-	1. In the **Add Assignment** dialog, click the **Assign** button.
+1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ## Configure Apptio SSO
 
