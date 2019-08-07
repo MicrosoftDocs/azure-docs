@@ -29,7 +29,7 @@ Combined it delivers:
 * **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics tailored and delivered in a child workbook.  
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-Azure Monitor for Storage are several Azure Monitor workbooks tied together, which combines text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Azure Monitor for Storage is several Azure Monitor workbooks tied together, which combines text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 This feature does not require you to enable or configure anything, the metrics are already collected by default. If you are unfamiliar with the comprehensive set of metrics available with Azure Storage and need a description of their purpose and how to interpret their values, review [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
 
@@ -48,7 +48,7 @@ To view the utilization and availability of your storage accounts across all of 
 
     ![Multiple storage accounts view](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-On the Overview workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to ten storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop down lists:
+On the Overview workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to ten storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
@@ -56,13 +56,13 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 * **Time Range** - by default, displays the last 4 hours of information based on the corresponding selections made.
 
-The counter tile under the drop down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
+The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
 Select any column, including **Availability**, **E2E Latency**, **Server Latency**, and errors reported.  For details on which errors can be shown in the report, see [Transaction Table schema](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema?redirectedfrom=MSDN#transactions-table-schema) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**.  Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
 
-* **Availability** opens the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
+* **Availability** open the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
     ![Availability report example](./media/storage-insights-overview/storage-account-availability-01.png)
 
@@ -70,7 +70,7 @@ You're directed to a report tailored to specific type of storage KPIs that match
 
     ![Performance report example](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Selecting any of the error categories listed in the grid opens the **Failure** workbook. The report shows metric tiles of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
+* Selecting any of the error categories listed in the grid open the **Failure** workbook. The report shows metric tiles of all other client-side errors except described ones and successful requests, client-throttling errors, a performance chart for the transaction **Response Type** dimension metric specific to ClientOtherError attribute, and two tables - **Transactions by API name** and **Transactions by Response type**.
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
@@ -102,7 +102,7 @@ On the **Overview** workbook for the storage account, it shows several storage k
 
 * Metric and status tiles highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
 
-Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens that workbook. The **Capacity** workbook shows the amount of storage used for each device type in the account, and total storage used across the account.  
+Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens the respective workbook. The **Capacity** workbook shows the amount of storage used for each device type in the account, and total storage used across the account.  
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
@@ -123,13 +123,13 @@ Workbooks are saved within a resource group, either in the **My Reports** sectio
 
 You can configure the multi-subscription and storage account **Overview** or **Capacity** workbooks to scope to a particular subscription(s) or storage account(s) on every run, perform the following steps.
 
-1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
+1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left-hand pane.
 
 2. On the **Overview** workbook, from the command bar select **Edit**.
 
-3. Select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  
+3. Select from the **Subscriptions** drop-down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  
 
-4. Select from the **Storage Accounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts. 
+4. Select from the **Storage Accounts** drop-down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts. 
 
 5. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.  
 
@@ -144,7 +144,7 @@ In our example, we are working with the multi-subscription and storage account c
 
 You can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks.
 
-1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
+1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left-hand pane.
 
 2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit** from the command bar.
 
@@ -154,7 +154,7 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
 4. We are going to remove the **Account used capacity timeline** column, so select **Column Settings** in the metrics grid.
 
-5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop down list **Column renderer" select **Hidden**. 
+5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop-down list **Column renderer" select **Hidden**. 
 
 6. Select **Save and close** to commit your change.
 
@@ -162,7 +162,7 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 1. Select **Column Settings** in the metrics grid.
 
-2. In the **Edit column settings** pane, select under the columns section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**, and under the drop down list **Color palette** select **Green**.
+2. In the **Edit column settings** pane, select under the columns section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**, and under the drop-down list **Color palette** select **Green**.
 
 3. Select **Save and close** to commit your change.
 
@@ -174,7 +174,7 @@ In this example, we are working with the storage account capacity workbook and d
 
 1. Select **Storage accounts** from the portal and then select a storage account from the list.
 
-2. Select **Insights (preview)** from the left hand pane.
+2. Select **Insights (preview)** from the left-hand pane.
 
 3. In the workbook, select **Availability** to switch to the availability workbook, and then select **Edit** from the command bar. 
 
