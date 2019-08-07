@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Index multiple data sources - Azure Search'
+title: 'C# Tutorial: Index multiple data sources - Azure Search'
 description: Learn how to import data from multiple data sources into a single Azure Search index.
 author: RobDixon22
 manager: HeidiSteen
