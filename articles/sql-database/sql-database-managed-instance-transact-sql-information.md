@@ -408,30 +408,30 @@ If replication is enabled on a database in a [failover group](sql-database-auto-
 1. Stop all replication jobs running on the database, if there are any.
 2. Drop subscription metadata from publisher by running the following script on publisher database:
 
-  ```sql
-  EXEC sp_dropsubscription @publication='<name of publication>',@article='all',@subscriber='<name of subscriber>'
-  ```             
-
+   ```sql
+   EXEC sp_dropsubscription @publication='<name of publication>', @article='all',@subscriber='<name of subscriber>'
+   ```             
+ 
 1. Drop subscription metadata from the subscriber. Run the following script in the subscription database on subscriber instance:
 
- ```sql
-  EXEC sp_subscription_cleanup
-     @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
-     @publisher_db = N'<publisher database>', 
-     @publication = N'<name of publication>'; 
-  ```                
+   ```sql
+   EXEC sp_subscription_cleanup
+      @publisher = N'<full DNS of publisher, e.g. example.ac2d23028af5.database.windows.net>', 
+      @publisher_db = N'<publisher database>', 
+      @publication = N'<name of publication>'; 
+   ```                
 
 1. Forcefully drop all replication objects from publisher by running the following script in the published database:
 
-  ```sql
-  EXEC sp_removedbreplication
-  ```
+   ```sql
+   EXEC sp_removedbreplication
+   ```
 
 1. Forcefully drop old distributor from original primary instance (if failing back over to an old primary that used to have a distributor). Run the following script on the master database in old distributor managed instance:
 
-  ```sql
-  EXEC sp_dropdistributor 1,1
-  ```
+   ```sql
+   EXEC sp_dropdistributor 1,1
+   ```
 
 ### RESTORE statement 
 
