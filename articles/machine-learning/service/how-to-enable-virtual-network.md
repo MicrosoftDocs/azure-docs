@@ -23,7 +23,7 @@ This article provides detailed information on **advanced security settings**, an
 
 ## Prerequisites
 
-Create an Azure Machine Learning service [workspace](setup-create-workspace.md) if you don't already have one. This document assumes that you are familiar with Azure Virtual Networks, and IP networking in general. This document also assumes that you have created a virtual network and subnet to use with your compute resources. If you are not familiar with Azure Virtual Networks, read the following articles to learn about the service:
+Create an Azure Machine Learning service [workspace](how-to-manage-workspace.md) if you don't already have one. This document assumes that you are familiar with Azure Virtual Networks, and IP networking in general. This document also assumes that you have created a virtual network and subnet to use with your compute resources. If you are not familiar with Azure Virtual Networks, read the following articles to learn about the service:
 
 * [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
