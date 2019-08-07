@@ -136,7 +136,7 @@ If you need to run the service as a user other than **absie**, you can specify y
   “User”: “<custom user id>:0” 
 } 
 ```
-And then, grant the container user access to the directory
+Now, grant the container user access to the directory
 ```terminal
 sudo chown -R <user id>:<group id> <blob-dir> 
 sudo chmod -R 700 <blob-dir> 
