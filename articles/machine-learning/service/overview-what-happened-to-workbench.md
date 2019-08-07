@@ -76,7 +76,7 @@ run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
 ```
 
-[Create a workspace](show-to-manage-workspace.md) to get started.
+[Create a workspace](how-to-manage-workspace.md) to get started.
 
 ## What about my registered models and images?
 
