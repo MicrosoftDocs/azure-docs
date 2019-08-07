@@ -4,9 +4,11 @@ description: Use PowerShell cmdlets to manage manage file and directory level pe
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: quickstart
+ms.subservice: data-lake-storage-gen2
+ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: normesta
+ms.reviewer: prishet
 ---
 
 # Manage file and directory level permissions in Azure Storage by using PowerShell

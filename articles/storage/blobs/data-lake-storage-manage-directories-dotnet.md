@@ -1,13 +1,13 @@
 ---
 title: Create and manage directories in Azure Storage by using .NET
 description: Use the Azure Storage Client Library for .NET to create and manage directories in Azure Blob storage accounts that have a hierarchical namespace.
-services: storage
 author: normesta
 ms.service: storage
 ms.date: 06/26/2019
 ms.author: normesta
-ms.topic: article
-ms.component: data-lake-storage-gen2
+ms.topic: conceptual
+ms.subservice: data-lake-storage-gen2
+ms.reviewer: prishet
 ---
 
 # Create and manage directories in Azure Storage by using .NET

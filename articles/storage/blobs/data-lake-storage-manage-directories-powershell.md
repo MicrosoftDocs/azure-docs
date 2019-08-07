@@ -4,9 +4,11 @@ description: Use PowerShell cmdlets to create and manage directories in Azure Bl
 services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.subservice: data-lake-storage-gen2
+ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: normesta
+ms.reviewer: prishet
 ---
 
 # Create and manage directories in Azure Storage by using PowerShell

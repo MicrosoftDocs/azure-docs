@@ -1,13 +1,13 @@
 ---
 title: Create and manage directories in Azure Storage by using Python
 description: Use the Azure Storage Client Library to create and managed directories in Azure Blob storage accounts that have a hierarchical namespace
-services: storage
 author: normesta
 ms.service: storage
 ms.date: 06/28/2019
 ms.author: normesta
 ms.topic: article
-ms.component: data-lake-storage-gen2
+ms.subservice: data-lake-storage-gen2
+ms.reviewer: prishet
 ---
 
 # Create and manage directories in Azure Storage by using Python
