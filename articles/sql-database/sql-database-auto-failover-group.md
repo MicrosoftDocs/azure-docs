@@ -128,9 +128,13 @@ To fail over a failover group, you need RBAC write access to the failover group 
 
 ## Best practices of using failover groups with single databases and elastic pools
 
-The auto-failover group must be configured on the primary SQL Database server and will connect it to the secondary SQL Database server in a different Azure region.  The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
+The auto-failover group must be configured on the primary SQL Database server and will connect it to the secondary SQL Database server in a different Azure region. The groups can include all or some databases in these servers. The following diagram illustrates a typical configuration of a geo-redundant cloud application using multiple databases and auto-failover group.
 
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group.png)
+
+> [!NOTE]
+> See [Add single database to a failover group](sql-database-single-database-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a single database to a failover group. 
+
 
 When designing a service with business continuity in mind, follow these general guidelines:
 
@@ -162,12 +166,17 @@ When designing a service with business continuity in mind, follow these general 
 
 ## Best practices of using failover groups with managed instances
 
-The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
+> [!IMPORTANT]
+> Auto-failover groups for Managed Instance is in public preview.
+
+The auto-failover group must be configured on the primary instance and will connect it to the secondary instance in a different Azure region.  All databases in the instance will be replicated to the secondary instance. 
+
+The following diagram illustrates a typical configuration of a geo-redundant cloud application using managed instance and auto-failover group.
 
 ![auto failover](./media/sql-database-auto-failover-group/auto-failover-group-mi.png)
 
-> [!IMPORTANT]
-> Auto-failover groups for Managed Instance is in public preview.
+> [!NOTE]
+> See [Add managed instance to a failover group](sql-database-managed-instance-failover-group-tutorial.md) for a detailed step-by-step tutorial adding a managed instance to use failover group. 
 
 If your application uses managed instance as the data tier, follow these general guidelines when designing for business continuity:
 

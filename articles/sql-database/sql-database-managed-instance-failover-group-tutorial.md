@@ -23,7 +23,7 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 > - Test failover
 
   > [!NOTE]
-  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. 
+  > Creating a managed instance can take a significant amount of time. As a result, this tutorial could take several hours to complete. For more information on provisioning times, see [managed instance management operations](sql-database-managed-instance.md#managed-instance-management-operations). 
   > Using failover groups with managed instances is in currently in preview. 
 
 ## Prerequisites
@@ -94,7 +94,7 @@ To create your secondary managed instance, follow these steps:
 
 1. In the [Azure portal](http://portal.azure.com), select **Create a resource** and search for *Azure SQL Managed Instance*. 
 1. Select the **Azure SQL Managed Instance** option published by Microsoft, and then select **Create** on the next page.
-1. On the **Create Azre SQL Database Managed Instance** page, under the **Basics** tab, fill out the required fields to configure your secondary managed instance. 
+1. On the **Create Azurere SQL Database Managed Instance** page, under the **Basics** tab, fill out the required fields to configure your secondary managed instance. 
 
    The following table shows the values necessary for the secondary managed instance:
  
@@ -112,7 +112,7 @@ To create your secondary managed instance, follow these steps:
 
    ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/networking-settings-for-secondary-mi.png)
 
-1. Under the **Additional settings** tab, for **Geo-Replication**, choose to _Use as failover secondary_. Select the primary managed instance from the drop down.
+1. Under the **Additional settings** tab, for **Geo-Replication**, choose to _Use as failover secondary_. Select the primary managed instance from the drop down. Be sure that the collation and time zone matches that of the primary managed instance. The primary managed instance in this tutorial used `SQL_Latin1_General_CP1_CI_AS` collation and the `(UTC) Coordinated Universal Time` time zone. 
 
    ![Secondary MI networking](media/sql-database-managed-instance-failover-group-tutorial/secondary-mi-failover.png)
 
