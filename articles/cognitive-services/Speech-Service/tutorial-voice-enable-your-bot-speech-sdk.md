@@ -1,7 +1,7 @@
 ---
 title: "Tutorial: Voices enable your bot using Speech SDK"
 titleSuffix: Azure Cognitive Services
-description: TODO
+description: In this tutorial, you'll create an Echo Bot using Microsoft Bot-Framework, deploy it to Azure, and register it with the Bot-Framework Direct Line Speech channel. Then you'll configure a sample client app for Windows that lets you speak to your bot and hear it respond back to you.
 services: cognitive-services
 author: dargilco
 manager: nitinme
