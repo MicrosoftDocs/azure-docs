@@ -180,6 +180,12 @@
       href: apache-troubleshoot-hbase.md
     - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+    - name: Apache HBase REST not responding
+      href: ./hbase-troubleshoot-rest-not-spending.md
+    - name: Pegged CPU on region server
+      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
+    - name: Timeouts with 'hbase hbck' command
+      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
     - name: Resources
       items:
       - name: Information about using HDInsight on Linux
