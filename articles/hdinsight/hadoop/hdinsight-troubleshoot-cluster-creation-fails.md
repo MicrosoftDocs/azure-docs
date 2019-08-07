@@ -14,13 +14,13 @@ ms.date: 08/06/2019
 
 The following issues are most common root causes for cluster creation failures:
 
-1. Permission issues
-1. Resource policy restrictions
-1. Firewalls
-1. Resource locks
-1. Unsupported component versions
-1. Storage account name restrictions
-1. Service outages
+- Permission issues
+- Resource policy restrictions
+- Firewalls
+- Resource locks
+- Unsupported component versions
+- Storage account name restrictions
+- Service outages
 
 ## Permissions issues
 
