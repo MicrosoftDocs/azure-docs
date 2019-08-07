@@ -23,7 +23,7 @@ ms.collection: M365-identity-device-management
 
 # Activate an Azure AD custom role in Privileged Identity Management
 
-Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../active-directory/users-groups-roles/roles-custom-overview.md).
+Privileged Identity Management (PIM) in Azure Active Directory (Azure AD) now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md).
 
 > [!NOTE]
 > Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience.
@@ -61,12 +61,12 @@ assign-scope
 1. In the **Reason** box, enter the reason for the activation request. These can be made required or not in the role setting.
 1. Select **Activate**.
 
-If the role does not require approval, it is activated according to your settings and is added to the list of active roles. If you want to use the role, begin with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md).
+If the role does not require approval, it is activated according to your settings and is added to the list of active roles. If you want to use the activated role, begin with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md).
 
 If the role requires approval to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
 ## Next steps
 
 - [License requirements to use PIM](subscription-requirements.md)
-- [Role definitions in Azure AD](../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
 - [Deploy PIM](pim-deployment-plan.md)
