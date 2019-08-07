@@ -26,7 +26,7 @@ When you have errors executing runbooks in Azure Automation, you can use the fol
    - **Syntax Errors**
    - **Logic Errors**
 
-2. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). For more information see, [Troubleshoot Modules](shared-resources.md#modules).
+2. **Ensure your Nodes and Automation workspace have the required modules:** If your runbook imports any modules, ensure they are available into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). For more information, see [Troubleshoot Modules](shared-resources.md#modules).
 
 ## Authentication errors when working with Azure Automation runbooks
 
