@@ -211,6 +211,12 @@ In every automated machine learning experiment, your data is [automatically scal
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
+
 ### Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
 1. time_column_name - This is a required parameter which defines the name of the column in your training data containing date/time series.
