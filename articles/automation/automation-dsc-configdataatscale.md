@@ -9,7 +9,7 @@ title:  Configuration Data At Scale
 
 Managing hundreds or thousands of servers can be a challenge.
 Customers have provided feedback that the most difficult aspect is actually managing
-[configuration data](/powershell/dsc/configurations/configdata.md).
+[configuration data](/powershell/dsc/configurations/configdata).
 Organizing information across logical constructs like location, type, and environment.
 
 A community maintained solution named
@@ -34,7 +34,7 @@ from each file in to single view of a server or server role.
 
 Once the data files have been generated,
 you can use them with
-[DSC Configuration scripts](/powershell/dsc/configurations/write-compile-apply-configuration.md)
+[DSC Configuration scripts](/powershell/dsc/configurations/write-compile-apply-configuration)
 to generate MOF files
 and
 [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
@@ -51,6 +51,6 @@ to view the
 
 ## See Also
 
-- [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview.md)
-- [DSC Resources](/powershell/dsc/resources/resources.md)
-- [Configuring The Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig.md)
+- [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview)
+- [DSC Resources](/powershell/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/dsc/managing-nodes/metaconfig)
