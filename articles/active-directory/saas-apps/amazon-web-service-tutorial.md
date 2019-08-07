@@ -79,12 +79,12 @@ Configure and test Azure AD SSO with AWS by using a test user called **B.Simon**
 
 To configure and test Azure AD SSO with AWS, complete the following building blocks:
 
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** to enable your users to use this feature.
-2. **[Configure AWS](#configure-amazon-web-services-aws)** to configure the SSO settings on the application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD SSO with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable B.Simon to use Azure AD SSO.
-5. **[Create an AWS test user](#create-amazon-web-services-aws-test-user)** to have a counterpart of B.Simon in AWS who is linked to the Azure AD representation of the user.
-6. **[Test SSO](#test-sso)** to verify whether the configuration works.
+1. **Configure Azure AD SSO** to enable your users to use this feature.
+2. **Configure AWS** to configure the SSO settings on the application side.
+3. **Create an Azure AD test user** to test Azure AD SSO with B.Simon.
+4. **Assign the Azure AD test user** to enable B.Simon to use Azure AD SSO.
+5. **Create an AWS test user** to have a counterpart of B.Simon in AWS who is linked to the Azure AD representation of the user.
+6. **Test SSO** to verify whether the configuration works.
 
 ### Configure Azure AD SSO
 
