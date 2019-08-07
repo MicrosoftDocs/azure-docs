@@ -121,25 +121,29 @@ Workbooks are saved within a resource group, either in the **My Reports** sectio
 
 ### Specifying a subscription or storage account
 
-To configure the multi-subscription **Overview** or **Capacity** workbooks to be scoped to a particular subscription(s) or storage account(s) on every run, perform the following steps.
+You can configure the multi-subscription and storage account **Overview** or **Capacity** workbooks to scope to a particular subscription(s) or storage account(s) on every run, perform the following steps.
 
-1. Open the Azure Monitor for Storage workbook and from the command bar select **Edit**. 
+1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
 
-2. Select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  
+2. On the **Overview** workbook, from the command bar select **Edit**.
 
-3. Select from the **Storage Accounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts. 
+3. Select from the **Subscriptions** drop down list one or more subscriptions you want it to default to. Remember, the workbook supports selecting up to a total of 10 subscriptions.  
 
-4. Select **Save as** from the command bar to save a copy of the workbook with your customizations and then click **Done editing** to return to reading mode.  
+4. Select from the **Storage Accounts** drop down list one or more accounts you want it to default to. Remember, the workbook supports selecting up to a total of 200 storage accounts. 
+
+5. Select **Save as** from the command bar to save a copy of the workbook with your customizations and then click **Done editing** to return to reading mode.  
 
 ### Modify metrics visualized in the workbook
 
-The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. Perform the following steps to remove a metric, modify the availability threshold, or change color rendering. In our example, we are using the multi-subscription capacity workbook, but you can perform the same changes against any one of the prebuilt workbooks scoped to **Failures**, **Performance**, **Availability**, and **Capacity** for a specific storage account.
+The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. Perform the following steps to remove a metric, modify the availability threshold, or change color rendering. In our example, we are working with the multi-subscription and storage account capacity workbook, but you can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks.
 
 1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
 
 2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit**.
 
-1. In the metrics section, select **Edit** and  
+    ![Select Edit to modify capacity workbook metrics](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
+
+3. Next to the metrics section, select **Edit** and  
 
 
 ## Next steps
