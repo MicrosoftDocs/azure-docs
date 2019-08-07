@@ -1,14 +1,12 @@
 ---
 title: Use Azure CDN to access blobs with custom domains over HTTPS
 description: Learn how to integrate Azure CDN with Blob storage to access blobs with custom domains over HTTPS
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
 ---
 

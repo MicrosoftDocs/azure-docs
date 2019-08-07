@@ -1,14 +1,13 @@
 ---
 title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
 description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI.
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: normesta
+ms.reviewer: stewu
 ---
 
 # Create an Azure Data Lake Storage Gen2 storage account
