@@ -168,10 +168,12 @@ role](../../role-based-access-control/custom-roles.md).
 
 The following is a list of limitations that exist for certain fields:
 
-|Object|Field|Characters|Max. Length|
+|Object|Field|Allowed Characters|Max. Length|
 |-|-|-|-|
-|Blueprint|Version|letters, numbers, and hyphens|20|
-|Blueprint assignment|Name| |90|
+|Blueprint|Name|letters, numbers, hyphens, and periods|48|
+|Blueprint|Version|letters, numbers, hyphens, and periods|20|
+|Blueprint assignment|Name|letters, numbers, hyphens, and periods|90|
+|Blueprint artifact|Name|letters, numbers, hyphens, and periods|48|
 
 ## Video overview
 
