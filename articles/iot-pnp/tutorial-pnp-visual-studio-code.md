@@ -352,7 +352,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 
     Make a note of the connection string.
 
-1. At a command prompt, navigate to the **azure-iot-sdk-c-pnp** folder where you built the SDK and samples. Then navigate to the **cmake\\sensorbox_app\\Release** folder.
+1. At a command prompt, navigate to the **azure-iot-sdk-c** folder where you built the SDK and samples. Then navigate to the **cmake\\sensorbox_app\\Release** folder.
 
 1. Run the following command:
 
