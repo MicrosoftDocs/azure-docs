@@ -5,29 +5,32 @@ services: iot-hub
 author: chrissie926
 ms.service: iot-hub
 ms.topic: include
-ms.date: 04/26/2018
+ms.date: 08/07/2019
 ms.author: menchi
 ms.custom: include file
 ---
 
 ## Create a module identity
 
-In this section, you create a .NET console app that creates a device identity and a module identity in the identity registry in your hub. A device or module can't connect to hub unless it has an entry in the identity registry. For more information, see the [Identity Registry section of the IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+In this section, you create a .NET console app that creates a device identity and a module identity in the identity registry in your hub. A device or module can't connect to hub unless it has an entry in the identity registry. For more information, see the [Identity Registry section of the IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
 
 When you run this console app, it generates a unique ID and key for both device and module. Your device and module use these values to identify themselves when it sends device-to-cloud messages to IoT Hub. The IDs are case-sensitive.
 
 1. Open Visual Studio, and select **Create a new project**.
+
 1. In **Create a new project**, select **Console App (.NET Framework)**.
+
 1. Select **Next** to open **Configure your new project**. Name the project *CreateIdentities* and name the solution *IoTHubGetStarted*. Make sure the .NET Framework version is 4.6.1 or later.
 
     ![Enter name and framework for your Visual Studio solution](./media/iot-hub-get-started-create-module-identity-csharp/configure-createidentities-project.png)
 
 1. In Visual Studio, open **Tools** > **NuGet Package Manager** > **Manage NuGet Packages for Solution**. Select the **Browse** tab.
+
 1. Search for **Microsoft.Azure.Devices**. Select it and then select **Install**.
 
     ![Install Azure IoT Hub .NET service SDK current version](./media/iot-hub-get-started-create-module-identity-csharp/install-service-sdk.png)
 
-1. Add the following `using` statements at the top of the **Program.xaml.cs** file:
+1. Add the following `using` statements at the top of the **Program.cs** file:
 
    ```csharp
    using Microsoft.Azure.Devices;
@@ -43,7 +46,7 @@ When you run this console app, it generates a unique ID and key for both device 
    ```
 
 1. Add the following code to the **Main** class.
-   
+
    ```csharp
    static void Main(string[] args)
    {
@@ -103,4 +106,4 @@ When you run this console app, it generates a unique ID and key for both device 
 1. Run this app, and make a note of the device key and module key.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device and module identities to enable secure access to the hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your app needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
+> The IoT Hub identity registry only stores device and module identities to enable secure access to the hub. The identity registry stores device IDs and keys to use as security credentials. The identity registry also stores an enabled/disabled flag for each device that you can use to disable access for that device. If your app needs to store other device-specific metadata, it should use an application-specific store. There is no enabled/disabled flag for module identities. For more information, see [IoT Hub developer guide](iot-hub-devguide-identity-registry.md).
