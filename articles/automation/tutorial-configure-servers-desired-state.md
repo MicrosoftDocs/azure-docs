@@ -151,7 +151,7 @@ This means if you are using two configurations for a node you will require two a
 
 For details about how to register a partial configuration from pull service,
 see the documentation for
-[partial configurations](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
+[partial configurations](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
 For more information about how teams can work together to collaboratively manage servers
 using configuration as code see
