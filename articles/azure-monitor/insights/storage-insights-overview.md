@@ -141,10 +141,11 @@ The prebuilt workbooks contain metric data and you have the ability to modify or
 
 2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit**.
 
+3. Next to the metrics section, select **Edit**. 
+
     ![Select Edit to modify capacity workbook metrics](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-3. Next to the metrics section, select **Edit** and  
-
+4. 
 
 ## Next steps
 
