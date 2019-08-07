@@ -123,7 +123,7 @@ The *Access control mode* is a setting on each workspace that defines how permis
     > [!NOTE]
     > If a user has only resource permissions to the workspace, they are only able to access the workspace using resource-context mode assuming the workspace access mode is set to **Use resource or workspace permissions**.
 
-To learn how to change the access control mode in the portal, with PowerShell, or using a Resource Manager template, see [Define access control mode](manage.access.md#define-access-control-mode).
+To learn how to change the access control mode in the portal, with PowerShell, or using a Resource Manager template, see [Define access control mode](manage-access.md#define-access-control-mode).
 
 ## Recommendations
 
