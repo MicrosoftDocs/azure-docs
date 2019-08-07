@@ -13,7 +13,7 @@ ms.reviewer: vanto
 ms.date: 08/05/2019
 ---
 
-# Azure SQL Database and Data Warehouse Network Access Controls
+# Azure SQL Database and Data Warehouse network access controls
 
 > [!NOTE]
 > This article applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
@@ -21,8 +21,8 @@ ms.date: 08/05/2019
 > [!IMPORTANT]
 > This article does *not* apply to **Azure SQL Database Managed Instance**. for more information about the networking configuration, see [connecting to a Managed Instance](sql-database-managed-instance-connect-app.md) .
 
-## Overview
-When you create a new Azure SQL Server [from Azure portal](sql-database-single-database-get-started.md), all access is  denied. You can then use the following network access controls to allow access to the database
+When you create a new Azure SQL Server [from Azure portal](sql-database-single-database-get-started.md), the result is a public endpoint in the format *yourservername.database.windows.net*. By design, all access to the public endpoint is denied. 
+You can then use the following network access controls to selectively allow access to the SQl Database via the public endpoint
 - Allow Azure Services: - When set to ON, other resources within the Azure boundary, for example an Azure Virtual Machine, can access SQL Database
 
 - IP firewall rules: - Use this feature to explicitly allow connections from a specific IP address, for example from on-premises machines.
@@ -65,10 +65,22 @@ Azure SQL Database has the Data Sync feature that connects to your databases usi
 Ip based firewall is a feature of Azure SQL Server that prevents all access to your database server until you explicitly [add IP addresses](sql-database-server-level-firewall-rule.md) of the client machines.
 
 
-### Virtual Network firewall rules
+## Virtual Network firewall rules
 
 In addition to IP rules, the Azure SQL Server firewall allows you to define *virtual network rules*.  
 To learn more, see [Virtual Network service endpoints and rules for Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+
+ ### Azure Networking terminology  
+Be aware of the following Azure Networking terms as you explore Virtual Network firewall rules
+
+**Virtual network:** You can have virtual networks associated with your Azure subscription 
+
+**Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
+
+**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
+
+**Virtual network rule:** A virtual network rule for your SQL Database server is a subnet that is listed in the access control list (ACL) of your SQL Database server. To be in the ACL for your SQL Database, the subnet must contain the **Microsoft.Sql** type name. A virtual network rule tells your SQL Database server to accept communications from every node that is on the subnet.
+
 
 ## IP vs. Virtual Network firewall rules
 
@@ -80,21 +92,6 @@ Virtual network rules are easier alternative to establish and to manage access f
 
 > [!NOTE]
 > You cannot yet have SQL Database on a subnet. If your Azure SQL Database server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your SQL Database. In this case, your VMs could communicate with SQL Database without needing any virtual network rules or IP rules.
-
-
-
-## Azure Networking Terminology 
-**Virtual network:** You can have virtual networks associated with your Azure subscription.
-
-**Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
-
-**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
-
-**Virtual network rule:** A virtual network rule for your SQL Database server is a subnet that is listed in the access control list (ACL) of your SQL Database server. To be in the ACL for your SQL Database, the subnet must contain the **Microsoft.Sql** type name.
-
-A virtual network rule tells your SQL Database server to accept communications from every node that is on the subnet.
-
-
 
 ## Next steps
 
