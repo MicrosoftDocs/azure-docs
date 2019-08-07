@@ -16,14 +16,14 @@ ms.custom:
 
 [Azure Functions](../azure-functions/functions-overview.md) is a serverless compute service that can run scripts or code in response to a variety of events, such as an HTTP request, a timer, or a message in an Azure Storage queue.
 
-In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of a container group. This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
+In this tutorial, you create an Azure function that takes an HTTP request and triggers deployment of a [container group](container-instances-container-groups.md). This example shows the basics of using Azure Functions to automatically create resources in Azure Container Instances. Modify or extend the example for more complex scenarios or other event triggers. 
 
 You learn how to:
 
 > [!div class="checklist"]
 > * Use Visual Studio Code with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create a basic HTTP-triggered PowerShell function locally. Then, deploy it to a function app in Azure.
 > * Enable an identity in the function app and give it permissions to create Azure resources.
-> * Modify and republish the PowerShell function code to automate deployment of a single-container [container group](container-instances-container-groups.md).
+> * Modify and republish the PowerShell function code to automate deployment of a single-container container group.
 > * Verify the HTTP-triggered deployment of the container.
 
 > [!IMPORTANT]
@@ -198,9 +198,9 @@ az group delete --name myfunctionapp
 In this tutorial, you created an Azure function that takes an HTTP request and triggers deployment of a container group. You learned how to:
 
 > [!div class="checklist"]
-> * Use Visual Studio Code with the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) to create a basic HTTP-triggered PowerShell function locally. Then, deploy it to a function app in Azure.
+> * Use Visual Studio Code with the Azure Functions extension to create a basic HTTP-triggered PowerShell function locally. Then, deploy it to a function app in Azure.
 > * Enable an identity in the function app and give it permissions to create Azure resources.
-> * Modify and republish the PowerShell function code to automate deployment of a single-container [container group](container-instances-container-groups.md).
+> * Modify and republish the PowerShell function code to automate deployment of a single-container container group.
 > * Verify the HTTP-triggered deployment of the container.
 
 For a detailed example to launch and monitor a containerized job, see the blog post [Event-Driven Serverless Containers with PowerShell Azure Functions and Azure Container Instances](https://dev.to/azure/event-driven-serverless-containers-with-powershell-azure-functions-and-azure-container-instances-e9b) and accompanying [code sample](https://github.com/anthonychu/functions-powershell-run-aci).
