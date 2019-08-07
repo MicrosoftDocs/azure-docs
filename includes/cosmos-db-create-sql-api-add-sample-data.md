@@ -5,17 +5,17 @@
  author: SnehaGunda
  ms.service: cosmos-db
  ms.topic: include
- ms.date: 04/13/2018
+ ms.date: 08/07/2019
  ms.author: sngun
  ms.custom: include file
 ---
-You can now add data to your new collection using Data Explorer.
+You can now add data to your new container using Data Explorer.
 
-1. In Data Explorer, the new database appears in the Collections pane. Expand the **Tasks** database, expand the **Items** collection, click **Documents**, and then click **New Documents**. 
+1. From the **Data Explorer**, expand the **Tasks** database, expand the **Items** container. Select **Items**, and then click **New Item**.
 
    ![Create new documents in Data Explorer in the Azure portal](./media/cosmos-db-create-sql-api-add-sample-data/azure-cosmosdb-data-explorer-new-document.png)
   
-2. Now add a document to the collection with the following structure.
+2. Now add a document to the container with the following structure.
 
      ```json
      {
