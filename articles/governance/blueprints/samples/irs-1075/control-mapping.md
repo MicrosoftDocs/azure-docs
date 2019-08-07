@@ -105,20 +105,6 @@ indicators can help you ensure least privilege controls are implemented.
 - Deploy requirements to audit Windows VMs in which the Administrators group does not contain all of the specified members
 - There should be more than one owner assigned to your subscription
 
-## AC-16 Security Attributes
-
-The data discovery and classification capability of advanced data security for Azure SQL Database 
-provides capabilities for discovering, classifying, labeling, and protecting the sensitive data in 
-your databases. It can be used to provide visibility into your database classification state, and 
-to track the access to sensitive data within the database and beyond its borders. Advanced data 
-security can help you ensure information as associated with the appropriate security attributes 
-for your organization. This blueprint assigns [Azure Policy](../../../policy/overview.md) 
-definitions to monitor and enforce use of advanced data security on SQL server. 
-
-- Advanced data security should be enabled on your managed instances
-- Advanced data security should be enabled on your SQL servers
-- Deploy Advanced Data Security on SQL servers
-
 ## 9.3.1.12 AC-17 (1) Remote Access | Automated Monitoring / Control
 
 This blueprint helps you monitor and control remote access by assigning [Azure Policy](../../../policy/overview.md)
