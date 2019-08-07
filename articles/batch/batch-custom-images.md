@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: batch
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 08/07/2019
 ms.author: lahugh
 ---
 
@@ -19,6 +19,8 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 When you use the Shared Image Gallery for your custom image, you have control over the operating system type and configuration, as well as the type of data disks. Your Shared Image can include applications and reference data that become available on all the Batch pool nodes as soon as they are provisioned.
 
+You can also have multiple versions of an image as needed for your environment. When you use an image version to create a VM, the image version is used to create new disks for the VM. 
+
 Using a Shared Image saves time in preparing your pool's compute nodes to run your Batch workload. It's possible to use an Azure Marketplace image and install software on each compute node after provisioning, but using a Shared Image is typically more efficient. Additionally, you can specify multiple replicas for the Shared Image so when you create pools with many VMs (more than 600 VMs), you'll save time on pool creation.
 
 Using a Shared Image configured for your scenario can provide several advantages:
@@ -29,6 +31,7 @@ Using a Shared Image configured for your scenario can provide several advantages
 * **Copy large amounts of data once.** Make static data part of the managed Shared Image by copying it to a managed image's data disks. This only needs to be done once and makes data available to each node of the pool.
 * **Grow pools to larger sizes.** With the Shared Image Gallery, you can create larger pools with your customized images along with more Shared Image replicas.
 * **Better Performance than custom image.** Using Shared Images, the time it takes for the pool to reach the steady state is up to 25% faster, and the VM idle latency is up to 30% shorter.
+* **Image versioning and grouping for easier management.** The image grouping definition contains information about why the image was created, what OS it is for, and information about using the image. Grouping images allows for easier image management. For more information, see [Image definitions](../virtual-machines/windows/shared-image-galleries.md#image-definitions).
 
 ## Prerequisites
 
@@ -92,16 +95,6 @@ If you plan to create a pool with hundreds or thousands of VMs or more using a S
 * **Shared Image Gallery replica numbers.**  For every pool with up to 600 instances, we recommend you keep at least one replica. For example, if you are creating a pool with 3000 VMs, you should keep at least 5 replicas of your image. We always suggest keeping more replicas than minimum requirements for better performance.
 
 * **Resize timeout** If your pool contains a fixed number of nodes (if it doesn't autoscale), increase the `resizeTimeout` property of the pool depending on the pool size. For every 1000 VMs, the recommended resize timeout is at least 15 minutes. For example, the recommended resize timeout for a pool with 2000 VMs is at least 30 minutes.
-
-## Considerations for using Packer
-
-Creating a managed image resource directly with Packer can only be done with user subscription mode Batch accounts. For Batch service mode accounts, you need to create a VHD first, then import the VHD to a managed image resource. Depending on your pool allocation mode (user subscription, or Batch service), your steps to create a managed image resource will vary.
-
-Ensure that the resource used to create the managed image exists for the lifetimes of any pool referencing the custom image. Failure to do so can result in pool allocation failures and/or resize failures.
-
-If the image or the underlying resource is removed, you may get an error similar to: `There was an error encountered while performing the last resize on the pool. Please try resizing the pool again. Code: AllocationFailed`. If this happens, ensure that the underlying resource has not been removed.
-
-For more information on using Packer to create a VM, see [Build a Linux image with Packer](../virtual-machines/linux/build-image-with-packer.md) or [Build a Windows image with Packer](../virtual-machines/windows/build-image-with-packer.md).
 
 ## Next steps
 
