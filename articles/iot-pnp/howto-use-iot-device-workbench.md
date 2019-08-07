@@ -22,7 +22,7 @@ This article shows you how to:
 - Use the generated code in your device project.
 - Iterate by regenerating the scaffolding code.
 
-To learn more about using Device Workbench to develop IoT devices, you can find in [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
+To learn more about using the Device Workbench extension to develop IoT devices, see [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
 ## Prerequisites
 
@@ -72,7 +72,7 @@ After code generation finishes, the extension opens a new VS Code window with th
 
 ## Use the generated code
 
-The following instructions describe how to use the generated code in your own device project on different development machine platforms, with the assumption of using IoT Hub device connection string for the generated code:
+The following instructions describe how to use the generated code in your own device project on different development machine platforms. The instructions assume you're using an IoT Hub device connection string with the generated code:
 
 ### Linux
 
@@ -134,11 +134,11 @@ To build the device code together with the device C SDK using CMake in a Linux e
 
 ### Windows
 
-To build the device code together with the device C SDK on Windows using CMake and the Visual Studio C/C++ compilers in command line, see the [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md). The following steps show you how build the device code together with the device C SDK as CMake project in Visual Studio.
+To build the device code together with the device C SDK on Windows using CMake and the Visual Studio C/C++ compilers at the command line, see the [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md). The following steps show you how to build the device code together with the device C SDK as CMake project in Visual Studio.
 
 1. Install [Visual Studio 2019 (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload.
 
-1. Open Visual Studio, in the Get Started page, select **Clone or check out code**:
+1. Open Visual Studio, and on the **Get Started** page select **Clone or check out code**:
 
 1. In **Repository location**, clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) repository:
 
@@ -146,9 +146,9 @@ To build the device code together with the device C SDK on Windows using CMake a
     https://github.com/Azure/azure-iot-sdk-c
     ```
 
-    You should expect this operation to take several minutes to complete, you can see the progress in Team Explorer pane.
+    You should expect this operation to take several minutes to complete, you can see the progress in the **Team Explorer** pane.
 
-1. Open **azure-iot-sdk-c** repository in Team Explorer, select **Branches**, search for **public-preview** branch and checkout it.
+1. Open **azure-iot-sdk-c** repository in the **Team Explorer**, select **Branches**, search for **public-preview** branch and check it out.
 
     ![Public preview](media/howto-use-iot-device-workbench/vs-public-preview.png)
 
@@ -164,7 +164,7 @@ To build the device code together with the device C SDK on Windows using CMake a
     add_subdirectory({generated_code_folder_name})
     ```
 
-1. In the General toolbar, find the **Configurations** dropdown. Select **Manage Configuration** to add CMake setting for your project.
+1. In the **General** toolbar, find the **Configurations** dropdown. Select **Manage Configuration** to add the CMake setting for your project.
 
     ![Manage configuration](media/howto-use-iot-device-workbench/vs-manage-config.png)
 
@@ -178,9 +178,9 @@ To build the device code together with the device C SDK on Windows using CMake a
 
 1. Save the file.
 
-1. In the Solution Explorer, right click on the `CMakeLists.txt` in the root folder and select **Build** from the context menu to build the device SDK and the generated code stub.
+1. In the **Solution Explorer**, right-click on the `CMakeLists.txt` in the root folder, and select **Build** from the context menu to build the device SDK and the generated code stub.
 
-1. After the build succeeds, in Command Prompt, run the application specifying the IoT Hub device connection string as parameter.
+1. After the build succeeds, at the command prompt, run the application specifying the IoT Hub device connection string as a parameter.
 
     ```cmd
     cd %USERPROFILE%\CMakeBuilds\{workspaceHash}\build\x64-Release\{generated_code_folder_name}\
@@ -188,7 +188,7 @@ To build the device code together with the device C SDK on Windows using CMake a
     ```
 
 > [!TIP]
-> You can read [Build CMake project](https://docs.microsoft.com/cpp/build/cmake-projects-in-visual-studio?view=vs-2019#building-cmake-projects) to learn more about using CMake in Visual Studio.
+> To learn more about using CMake in Visual Studio, see [Build CMake project](https://docs.microsoft.com/cpp/build/cmake-projects-in-visual-studio?view=vs-2019#building-cmake-projects) .
 
 ### macOS
 
