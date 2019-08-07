@@ -135,7 +135,7 @@ You can configure the multi-subscription and storage account **Overview** or **C
 
 ### Modify metrics visualized in the workbook
 
-The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. Perform the following steps to remove a metric, modify the availability threshold, or change color rendering. In our example, we are working with the multi-subscription and storage account capacity workbook, but you can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks.
+The prebuilt workbooks contain metric data and you have the ability to modify or remove any one of the visualizations and customize to your team's specific needs. Perform the following steps to remove a metric, modify the availability threshold, or change color rendering. In our example, we are working with the multi-subscription and storage account capacity workbook, but you can perform the same changes against any one of the prebuilt **Failures**, **Performance**, **Availability**, and **Capacity** workbooks. 
 
 1. Select **Monitor** from the portal and then select **Storage Accounts (preview)** from the left hand pane.
 
@@ -145,7 +145,21 @@ The prebuilt workbooks contain metric data and you have the ability to modify or
 
     ![Select Edit to modify capacity workbook metrics](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-4. 
+4. We are going to remove the **Account used capacity timeline** column, so select **Column Settings** in the metrics grid.
+
+5. In the **Edit column settings** pane, select under the **Columns** section **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$**, and under the drop down list **Column renderer" select **Hidden**. 
+
+6. Select **Save and close** to commit your change.
+
+Now let's change the color theme for the capacity metrics in the report to use green instead of blue.
+
+1. Select **Column Settings** in the metrics grid.
+
+2. In the **Edit column settings** pane, select under the columns section **microsoft.storage/storageaccounts-Capacity-UsedCapacity$|microsoft.storage/storageaccounts/blobservices-Capacity-BlobCapacity$|microsoft.storage/storageaccounts/fileservices-Capacity-FileCapacity$|microsoft.storage/storageaccounts/queueservices-Capacity-QueueCapacity$|microsoft.storage/storageaccounts/tableservices-Capacity-TableCapacity$**, and under the drop down list **Color palette** select **Green**.
+
+3. Select **Save and close** to commit your change.
+
+
 
 ## Next steps
 
