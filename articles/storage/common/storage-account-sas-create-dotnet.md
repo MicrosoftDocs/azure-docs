@@ -14,18 +14,20 @@ ms.subservice: common
 
 # Create an account shared access signature (SAS) with .NET
 
-A shared access signature (SAS) enables you to grant limited access to objects in your storage account. When you create a SAS, you specify its constraints, including which object or objects a client is allowed to access, what permissions they have on those objects, and how long the SAS is valid. You can use an account SAS to grant access to service-level operations or to more than one Azure Storage service at a time with a single SAS.
+[!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to create an account SAS with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
+This article shows how to use the storage account key to create an account SAS with the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage/client).
 
 ## Create an account SAS
+
+To create an account SAS for a container, call the [CloudStorageAccount.GetSharedAccessSignature](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.getsharedaccesssignature) method.
 
 The following code example creates an account SAS that is valid for the Blob and File services, and gives the client permissions read, write, and list permissions to access service-level APIs. The account SAS restricts the protocol to HTTPS, so the request must be made with HTTPS. Remember to replace placeholder values in angle brackets with your own values:
 
 ```csharp
 static string GetAccountSASToken()
 {
-    // To create the account SAS, you need to use your shared key credentials. Modify for your account.
+    // To create the account SAS, you need to use Shared Key credentials. Modify for your account.
     const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=<storage-account>;AccountKey=<account-key>";
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
@@ -91,4 +93,4 @@ static void UseAccountSAS(string sasToken)
 ## See also
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-shared-access-signatures.md)
-- [Create an account SAS](/rest/api/storageservices/create-an-account-sas)
+- [Create an account SAS](/rest/api/storageservices/create-account-sas)

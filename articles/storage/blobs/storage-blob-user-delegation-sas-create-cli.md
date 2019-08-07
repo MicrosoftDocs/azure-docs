@@ -1,6 +1,6 @@
 ---
 title: Create a shared access signature (SAS) using Azure Active Directory credentials with the Azure CLI (preview) - Azure Storage
-description: Learn how to create a shared access signature (SAS) using Azure Active Directory credentials in Azure Storage using the Azure CLI.
+description: Learn how to create a user delegation SAS using Azure Active Directory credentials in Azure Storage using the Azure CLI.
 services: storage
 author: tamram
 
