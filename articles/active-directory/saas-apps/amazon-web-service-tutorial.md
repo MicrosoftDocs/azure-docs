@@ -26,7 +26,7 @@ In this tutorial, you'll learn how to integrate Amazon Web Services (AWS) with A
 
 * Control in Azure AD who has access to AWS.
 * Enable your users to be automatically signed-in to AWS with their Azure AD accounts.
-* Manage your accounts in one central location - the Azure portal.
+* Manage your accounts in one central location, the Azure portal.
 
 To learn more about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
@@ -67,7 +67,7 @@ In this tutorial, you configure and test Azure AD SSO in a test environment. AWS
 To configure the integration of AWS into Azure AD, you need to add AWS from the gallery to your list of managed SaaS apps.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) by using either a work or school account, or a personal Microsoft account.
-1. On the left navigation pane, select the **Azure Active Directory** service.
+1. In the left pane, select the **Azure Active Directory** service.
 1. Go to **Enterprise Applications**, and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Amazon Web Services (AWS)** in the search box.
@@ -271,7 +271,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	* Enter the user name as **AzureADRoleManager**.
 
-	* For the access type, select **Programmatic access**. This way the user can invoke the APIs and fetch the roles from the AWS account.
+	* For the access type, select **Programmatic access**. This way, the user can invoke the APIs and fetch the roles from the AWS account.
 
 	* Select **Next Permissions**.
 
@@ -350,7 +350,7 @@ In this section, you enable B.Simon to use Azure SSO by granting access to AWS.
 	![Screenshot of Add user](common/add-assign-user.png)
 
 1. In the **Users and groups** dialog box, select **B.Simon**. Then choose **Select**.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. The choose **Select**.
+1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog box, select the appropriate role for the user from the list. Then choose **Select**.
 1. In the **Add Assignment** dialog box, select **Assign**.
 
 ### Test single sign-on
@@ -359,9 +359,13 @@ When you select the AWS tile in the Access Panel, you should be automatically si
 
 ## Known issues
 
- * In the **Provisioning** section, the **Mappings** sub-section shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
+ * In the **Provisioning** section, the **Mappings** subsection shows a "Loading..." message, and never displays the attribute mappings. The only provisioning workflow supported today is the import of roles from AWS into Azure AD for selection during a user or group assignment. The attribute mappings for this are predetermined, and aren't configurable.
  
- * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant. Multiple AWS tenants (represented by `servicePrincipals`) can be added to Azure AD from the gallery for provisioning. There's a known issue, however, with not being able to automatically write all of the imported roles from the multiple AWS `servicePrincipals` used for provisioning into the single `servicePrincipal` used for SSO. As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where SSO is configured.
+ * The **Provisioning** section only supports entering one set of credentials for one AWS tenant at a time. All imported roles are written to the `appRoles` property of the Azure AD [`servicePrincipal` object](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) for the AWS tenant. 
+ 
+   Multiple AWS tenants (represented by `servicePrincipals`) can be added to Azure AD from the gallery for provisioning. There's a known issue, however, with not being able to automatically write all of the imported roles from the multiple AWS `servicePrincipals` used for provisioning into the single `servicePrincipal` used for SSO. 
+   
+   As a workaround, you can use the [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta) to extract all of the `appRoles` imported into each AWS `servicePrincipal` where provisioning is configured. You can subsequently add these role strings to the AWS `servicePrincipal` where SSO is configured.
 
 ## Additional resources
 
