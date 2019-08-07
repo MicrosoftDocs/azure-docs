@@ -113,7 +113,8 @@ The first activity calls the **AuthenticateTo-Azure** runbook and the second act
 
 The resulting output is the name of the subscription.<br> ![Test-ChildOutputType Runbook Results](media/automation-runbook-output-and-messages/runbook-test-childoutputtype-results.png)
 
-One note about the behavior of the Output Type control. When you type a value in the Output Type field on the Input and Output properties blade, you have to click outside of the control  after you type it, in order for your entry to be recognized by the control.
+> [!NOTE]
+> After you enter a value in the **Output Type** box in the **Input and Output properties** pane, you have to click outside the control so that your entry can be recognized by the control.
 
 ## Message streams
 
