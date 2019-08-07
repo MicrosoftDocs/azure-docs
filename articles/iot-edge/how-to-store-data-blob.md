@@ -95,6 +95,7 @@ The name of this setting is `deviceAutoDeleteProperties`
 
 ## Using SMB share as your local storage
 You can provide SMB share as your local storage path, when you deploy Windows container of this module on Windows host.
+Make sure the SMB share and IoT device are in mutually trusted domains.
 You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows.
 
 Below are the configuration steps:
