@@ -22,7 +22,7 @@ Use the QnA Maker client library for Node.js to:
 * Manage a knowledge base
 * Publish a knowledge base
 
-[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/qnamaker?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
+[Reference documentation](https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/qnamaker?view=azure-node-latest) | [Library source code](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [Package (NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js)
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Use the QnA Maker client library for Node.js to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
 
-After getting a key from your resource, [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `QNAMAKER_SUBSCRIPTION_KEY`.
+After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_SUBSCRIPTION_KEY` and `QNAMAKER_HOST`. Use the key and host values found in the Resource's **Keys** and **Overview** pages in the Azure portal.
 
 ### Create a new Node.js application
 
@@ -45,10 +45,10 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init` command to create a node application with a `package.json` file. 
+Run the `npm init -y` command to create a node application with a `package.json` file. 
 
 ```console
-npm init
+npm init -y
 ```
 
 ### Install the client library
@@ -59,7 +59,7 @@ Install the `ms-rest-azure` and `azure-cognitiveservices-qnamaker` NPM packages:
 npm install azure-cognitiveservices--qnamaker ms-rest-azure --save
 ```
 
-Your app's `package.json` file will be updated with the dependencies.
+Your app's `package.json` file is updated with the dependencies.
 
 
 ## Object model
@@ -83,24 +83,25 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ## Add the dependencies
 
-Create a file named `index.js`. Add the QnA Maker library and the Azure REST library to the file using 
+Create a file named `index.js`. Add the QnA Maker library and the Azure REST library to the file.
 
 [!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=dependencies)]
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
+
 |Environment variable|Node.js variable|Example|
 |--|--|--|
 |`QNAMAKER_SUBSCRIPTION_KEY`|`subscription_key`|32 character GUID|
 |`QNAMAKER_HOST`|`endpoint`|`https://westus.api.cognitive.microsoft.com`|
+||||
 
 [!code-javascript[Azure resource variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=resourcekeys)]
 
 ## Authenticate the client
 
-Next, create an ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#qnamakerclient-serviceclientcredentials--string--msrest-serviceclientoptions-) object.
+Next, create a ServiceClientCredentials object with your key, and use it with your endpoint to create an [QnAMakerClient](https://docs.microsoft.com/javascript/api/%40azure/cognitiveservices-qnamaker/qnamakerclient?view=azure-node-latest#qnamakerclient-serviceclientcredentials--string--msrest-serviceclientoptions-) object. Use the client object to get a [knowledge base](https://docs.microsoft.com/en-us/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest) object.
 
-If your key is not in the `westus` region, as this sample code shows, change the location for the **Endpoint** variable. This location is found on the **Overview** page for your QnA Maker resource in the Azure portal.
 
 [!code-javascript[Authorization to resource key](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=authorization)]
 
@@ -114,7 +115,7 @@ A knowledge base stores question and answer pairs for the [CreateKbDTO](https://
 
 Call the [create](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#create-createkbdto--servicecallback-operation--) method then pass the returned operation ID to the [Operations.getDetails](#get-status-of-an-operation) method to poll for status. 
 
-[!code-javascript[Operation from creating a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=createkb&highlight=29,30)]
+[!code-javascript[Create a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=createkb)]
 
 
 ## Update a knowledge base
@@ -147,7 +148,7 @@ The _setTimeout_ in the following code block are used to asynchronous code. Repl
 
 Run the application with `node index.js` command from your application directory.
 
-```dotnet
+```console
 node index.js
 ```
 
