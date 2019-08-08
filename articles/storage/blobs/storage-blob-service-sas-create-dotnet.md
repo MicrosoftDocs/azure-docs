@@ -117,5 +117,5 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 
 ## See also
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-shared-access-signatures.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-shared-access-signatures.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)

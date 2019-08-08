@@ -23741,7 +23741,7 @@
     },
     {
       "source_path": "articles/storage/common/storage-dotnet-shared-access-signature-part-1.md",
-      "redirect_url": "/azure/storage/common/storage-shared-access-signatures",
+      "redirect_url": "/azure/storage/common/storage-sas-overview",
       "redirect_document_id": true
     },
     {

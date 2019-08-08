@@ -106,11 +106,11 @@
       - name: Authorization
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
-        - name: Authenticate and authorize with Azure AD
+        - name: Authorize with Azure AD
           href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
-        - name: Authorize with SAS
+        - name: Delegate access with SAS
           href: ../common/storage-shared-access-signatures.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
@@ -343,7 +343,7 @@
             - name: .NET
               href: storage-blob-user-delegation-sas-create-dotnet.md
           - name: Create a service SAS (.NET)
-            href: ../common/storage-blob-service-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            href: storage-blob-service-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Create an account SAS (.NET)
             href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Define a stored access policy
