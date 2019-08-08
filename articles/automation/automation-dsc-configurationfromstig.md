@@ -1,7 +1,14 @@
 ---
-ms.date:  11/13/2018
-keywords:  dsc,powershell,configuration,community
+keywords:  dsc,powershell,configuration,setup
 title:  Configuration Based On STIG
+services: automation
+ms.service: automation
+ms.subservice: dsc
+author: mgreenegit
+ms.author: migreene
+ms.date: 08/08/2019
+ms.topic: community
+manager: carmonm
 ---
 # Configuration Based On STIG
 
