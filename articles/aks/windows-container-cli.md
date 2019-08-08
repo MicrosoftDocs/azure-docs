@@ -77,7 +77,7 @@ az provider register --namespace Microsoft.ContainerService
 
 The following limitations apply when you create and manage AKS clusters that support multiple node pools:
 
-* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* and *VMSSPreview* features for your subscription. You can't add or manage node pools with an existing AKS cluster created before these features were successfully registered.
+* Multiple node pools are available for clusters created after you've successfully registered the *WindowsPreview*. Multiple node pools are also available if you register the *MultiAgentpoolPreview* feature for your subscription. You can't add or manage node pools with an existing AKS cluster created before this feature was successfully registered.
 * You can't delete the first node pool.
 
 While this feature is in preview, the following additional limitations apply:
