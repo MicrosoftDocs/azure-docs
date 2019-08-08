@@ -109,8 +109,6 @@ For information about when recommendations are generated for each of these prote
 | Trend Micro – All version | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
-| Kaspersky| Windows Server Family  | No | No  |
-| Sophos| Windows Server Family  | No | No  |
 | McAfee v10+ | Linux Server Family  | No | Yes **\*** |
 | Sophos V9+| Linux Server Family  | No | Yes  **\***  |
 
