@@ -83,7 +83,6 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In the **Storage account** window, select **Access keys**.
 
-    ![Access keys](media/tutorial-hybrid-copy-powershell/storage-account-name-key.png)
 
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial. 
 
@@ -91,8 +90,6 @@ You use the name and key of your storage account in this tutorial. To get the na
 In this section, you create a blob container named **adftutorial** in your Blob storage. 
 
 1. In the **Storage account** window, switch to **Overview**, and then select **Blobs**. 
-
-    ![Select Blobs option](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
 1. In the **Blobs** window, select **+ Container**. 
 
@@ -104,8 +101,6 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 
 1. Keep the **Container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
-
-    ![Container window](media/tutorial-hybrid-copy-powershell/container-page.png)
 
 
 ## Create a data factory
