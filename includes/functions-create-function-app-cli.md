@@ -17,7 +17,7 @@ func init MyFunctionProj
 When prompted, select a worker runtime from the following language choices:
 
 + `dotnet`: creates a .NET class library project (.csproj).
-+ `node`: creates a Node.js-based project. Choose either `javascript` or `typescript`. A TypeScript project requires a few additional steps to run locally and publish.
++ `node`: creates a Node.js-based project. Choose either `javascript` or `typescript`. 
 + `python`: for a Python project, please instead complete [Create an HTTP triggered function in Azure](../articles/azure-functions/functions-create-first-function-python.md).
 + `powershell`: for a PowerShell project, please instead complete [Create your first PowerShell function in Azure](../articles/azure-functions/functions-create-first-function-powershell.md). 
 
