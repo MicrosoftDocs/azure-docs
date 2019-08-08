@@ -35,7 +35,7 @@ Follow these steps to open the settings for an Azure AD role.
     ![Select Azure AD custom roles preview to see eligible role assignments](./media/azure-ad-custom-roles-configure/settings-list.png)
 
 1. Select **Setting** to open the **Settings** page. Select the role for the settings you want to configure.
-1. Select **Edit** to open the Role settings pane.
+1. Select **Edit** to open the **Role settings** page.
 
     ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
@@ -45,43 +45,41 @@ There are several settings you can configure.
 
 ### Assignment duration
 
-You can choose from two assignment duration options for each assignment type (eligible or active) when you configure settings for a role. These options become the default maximum duration when a member is assigned to the role in PIM.
+You can choose from two assignment duration options for each assignment type (eligible or active) when you configure settings for a role. These options become the default maximum duration when a member is assigned to the role in Privileged Identity Management.
 
 You can choose one of these *eligible* assignment duration options.
 
-Option | Description
-------- | -----------
-Allow permanent eligible assignment | Administrators can assign permanent eligible membership.
-Expire eligible assignment after | Administrators can require that all eligible assignments have a specified start and end date.
+- **Allow permanent eligible assignment**: Administrators can assign permanent eligible membership.
+- **Expire eligible assignment after**: Administrators can require that all eligible assignments have a specified start and end date.
 
 Also, you can choose one of these *active* assignment duration options:
 
-Option | Description
-------- | -----------
-Allow permanent active assignment | Administrators can assign permanent active membership.
-Expire active assignment after | Administrators can require that all active assignments have a specified start and end date.
+- **Allow permanent active assignment**: Administrators can assign permanent active membership.
+- **Expire active assignment after**: Administrators can require that all active assignments have a specified start and end date.
 
-### Require multi-factor authentication
+### Require Azure Multi-Factor Authentication
 
-Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication (MFA) for two distinct scenarios.
+Privileged Identity Management provides optional enforcement of Azure Multi-Factor Authentication for two distinct scenarios.
 
-### Require Multi-Factor Authentication on active assignment
+- **Require Multi-Factor Authentication on active assignment**
 
-In some cases, you might want to assign a member to a role for a short duration (one day, for example). In this case, they don't need the assigned members to request activation. In this scenario, PIM cannot enforce MFA when the member uses their role assignment, since they are already active in the role from the moment they are assigned.
-To ensure that the administrator fulfilling the assignment is who they say they are, you can enforce MFA on active assignment by checking the Require Multi-Factor Authentication on active assignment box.
+  If you only want to assign a member to a role for a short duration (one day, for example), it might be too slow to require the assigned members to request activation. In this scenario, Privileged Identity Management can't enforce multi-factor authentication when the user activates their role assignment, because they are already active in the role from the moment they are assigned. To ensure that the administrator fulfilling the assignment is who they say they are, select the **Require Multi-Factor Authentication on active assignment** box.
 
-### Require Multi-Factor Authentication on activation
+- **Require Multi-Factor Authentication on activation**
 
-You can require eligible members of a role to enroll in Multi-Factor Authentication before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical roles in situations when the user account might have been compromised.
+  You can require eligible users assigned to a role to enroll in Azure Multi-Factor Authentication before they can activate. This process ensures that the user who is requesting activation is who they say they are with reasonable certainty. Enforcing this option protects critical roles in situations when the user account might have been compromised.
 
-To require an eligible member to run MFA before activation, check the Require Multi-Factor Authentication on activation box.
-For more information, see Multi-factor authentication (MFA) and PIM.
+To require an eligible member to run Azure Multi-Factor Authentication before activation, select the **Require Multi-Factor Authentication on activation** box.
+
+For more information, see [Multi-factor authentication and Privileged Identity Management](pim-how-to-require-mfa.md).
 
 ### Activation maximum duration
 
-Use the Activation maximum duration slider to set the maximum time, in hours, that a role stays active before it expires. This value can be between 1 and 24 hours.
-Require justification
-You can require that members enter a justification on active assignment or when they activate. To require justification, check the Require justification on active assignment box or the Require justification on activation box.
+Use the **Activation maximum duration** slider to set the maximum time, in hours, that a role stays active before it expires. This value can be from, 1 and 24 hours.
+
+### Require justification
+
+You can require that members enter a justification on active assignment or when they activate. To require justification, select the **Require justification on active assignment** check box or the **Require justification on activation** box.
 
 ### Require approval to activate
 
