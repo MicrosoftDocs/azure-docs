@@ -1,14 +1,14 @@
 ---
 title: "Azure Active Directory (Azure AD) authentication"
 titleSuffix: Azure Cognitive Services
-description: Reference for the Immersive Reader SDK
+description: This article will show you how to create a new Immersive Reader resource with a custom subdomain and then configure Azure AD in your Azure tenant.
 services: cognitive-services
 author: rwaller
 manager: guillasi
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
-ms.topic: reference
+ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
 ---

@@ -25,8 +25,7 @@ adjusting the configuration file, you can enable or disable Telemetry Modules an
 some of them.
 
 The configuration file is named `ApplicationInsights.config` or `ApplicationInsights.xml`, depending on the type of your
-application. It is automatically added to your project when you [install most versions of the SDK][start]. It is also added to a web app
-by [Status Monitor on an IIS server][redfield]. The configuration file is ignored if [extension for Azure website](azure-web-apps.md) or [extension for Azure VM and virtual machine scale set](azure-vm-vmss-apps.md) is used.
+application. It is automatically added to your project when you [install most versions of the SDK][start].The SDK creates the  `ApplicationInsights.config` file in the project root folder and when complied is copied to the bin folder. It is also added to a web app by [Status Monitor on an IIS server][redfield]. The configuration file is ignored if [extension for Azure website](azure-web-apps.md) or [extension for Azure VM and virtual machine scale set](azure-vm-vmss-apps.md) is used.
 
 There isn't an equivalent file to control the [SDK in a web page][client].
 
@@ -48,7 +47,7 @@ You can also write your own dependency tracking code using the [TrackDependency 
 * `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) NuGet package.
 
-Dependencies can be auto-collected without modifying your code by using agent-based (codeless) attach. To use it in Azure web apps enable the [Application Insights extension](azure-web-apps.md). To use it in Azure VM or Azure virtual machine scale set enable the [Application Monitoring extension for VM and virtual machine scale set](azure-vm-vmss-apps.md).
+Dependencies can be auto-collected without modifying your code by using agent-based (codeless) attach. To use it in Azure web apps, enable the [Application Insights extension](azure-web-apps.md). To use it in Azure VM or Azure virtual machine scale set enable the [Application Monitoring extension for VM and virtual machine scale set](azure-vm-vmss-apps.md).
 
 ### Performance collector
 [Collects system performance counters](../../azure-monitor/app/performance-counters.md) such as CPU, memory, and network load from IIS installations. You can specify which counters to collect, including performance counters you have set up yourself.
