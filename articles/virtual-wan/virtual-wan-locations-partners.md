@@ -35,9 +35,7 @@ Some connectivity partners may extend the automation to include creating the Azu
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
->[!NOTE]
-> The following partners are slated in our roadmap for the near future: Fortinet, Silver-Peak, Velocloud, Versa, Nuage Nokia
->
+The following partners are slated on our roadmap for the near future: Fortinet, Silver-Peak, Velocloud, Versa, Nuage Nokia.
 
 ## <a name="locations"></a>Locations
 
