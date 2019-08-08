@@ -56,16 +56,14 @@ Privileged Identity Management (PIM) can manage custom roles you can create in A
 
 1. Select a user you want to assign to the role and then click **Select**. The **Membership settings** page opens.
 
-    ![Set the role assignment type to eligible or active](./media/azure-ad-custom-roles-assign/assignment-type.png)
+    ![Set the role assignment type to eligible or active](./media/azure-ad-custom-roles-assign/membership-settings.png)
 
 1. On the **Membership settings** page, select **Eligible** or **Active**:
 
-    - **Eligible** assignments require the user assigned to the role to perform an action before they can use the role. Actions might include performing a multi-factor authentication (MFA) check, providing a business justification, or requesting approval from designated approvers.
-    - **Active** assignments don't require the assigned user to perform any action to use the role. Users assigned as active have the privileges assigned to the role at all times.
+    - **Eligible** assignments require the user assigned to the role to perform an action before they can use the role. Actions might include passing a multi-factor authentication check, providing a business justification, or requesting approval from designated approvers.
+    - **Active** assignments don't require the assigned user to perform any action to use the role. Active users have the privileges assigned to the role at all times.
 
-1. Specify whether the assignment is permanent:
-    - Select the **Permanent** check box to to make the assignment permanent (permanently eligible or permanently assigned). Depending on the role settings, the check box might not appear or might be unavailable.
-    - Clear the **Permanent** check box and update the start and end date and time boxes to specify an assignment duration.
+1. If the **Permanent** check box is present and available (depending on role settings), you can specify whether the assignment is permanent. Select the check box to to make the assignment permanently eligible or permanently assigned. Clear the check box to specify an assignment duration.
 
 1. To create the new role assignment, click **Save** and then **Add**. A notification of the status is displayed.
 
