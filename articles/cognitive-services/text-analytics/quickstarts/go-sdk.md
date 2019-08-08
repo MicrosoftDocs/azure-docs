@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Text Analytics client library for Go | Microsoft Docs'
 titleSuffix: Azure Cognitive Services
-description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services.
+description: Get information and code samples to help you quickly get started using the Text Analytics API in Azure Cognitive Services.
 services: cognitive-services
 author: laramume
 manager: assafi
