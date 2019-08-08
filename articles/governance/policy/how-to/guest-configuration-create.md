@@ -390,6 +390,17 @@ The easiest way to release an updated package is to repeat the process described
 and provide an updated version number.
 That will guarantee all properties have been correctly updated.
 
+## Converting Windows Group Policy content to Azure Policy Guest Configuration
+
+Guest Configuration for Windows is an implementation of the PowerShell Desired State Configuration syntax.
+The DSC community has published tooling to convert exported Group Policy templates to DSC format.
+By using this tool together with the Guest Configuration cmdlets described above,
+you can convert Windows Group Policy content and package/publish it for Azure Policy to audit.
+For details about using the tool, see the article
+[Quickstart: Convert Group Policy into DSC](https://docs.microsoft.com/en-us/powershell/dsc/quickstarts/gpo-quickstart).
+Once the content has been converted, the steps above to create a pakcage and publish it
+as Azure Policy will be the same as for any DSC content.
+
 ## OPTIONAL: Signing Guest Configuration packages
 
 Guest Configuration custom policies by default use SHA256 hash to validate that the policy package
