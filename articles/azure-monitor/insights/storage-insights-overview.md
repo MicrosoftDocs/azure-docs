@@ -199,7 +199,7 @@ In this example, we are working with the storage account capacity workbook and d
 
 6. Change the value for the **Critical** health state from **90** to **85** and then click **Save and Close**.
 
-    ![Modify the availability threshold value for critical state](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)]
+    ![Modify the availability threshold value for critical state](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
 7. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.
 
