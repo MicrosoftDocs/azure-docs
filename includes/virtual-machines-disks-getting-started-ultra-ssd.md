@@ -16,13 +16,13 @@ Azure Ultra disks offer high throughput, high IOPS, and consistent low latency d
 
 ## Determine your availability zone
 
-Once approved, you need to determine which availability zone you are in, in order to use Ultra disks. Run either of the following commands to determine which zone in East US 2 to deploy your ultra disk to:
+Once approved, you need to determine which availability zone you are in, in order to use Ultra disks. Run either of the following commands to determine which zone to deploy your ultra disk to:
 
 PowerShell: `Get-AzComputeResourceSku | where {$_.ResourceType -eq "disks" -and $_.Name -eq "UltraSSD_LRS" }`
 
 CLI: `az vm list-skus --resource-type disks --query "[?name=='UltraSSD_LRS'].locationInfo"`
 
-The response will be similar to the form below, where X is the zone to use for deploying in East US 2. X could be either 1, 2, or 3.
+The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3. Currently, only three regions support Ultra disks, they are: East US 2, SouthEast Asia, and North Europe.
 
 Preserve the **Zones** value, it represents your availability zone and you will need it in order to deploy an Ultra disk.
 
