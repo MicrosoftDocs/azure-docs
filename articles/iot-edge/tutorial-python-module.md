@@ -104,7 +104,7 @@ Currently, Visual Studio Code can develop C modules for Linux AMD64 and Linux AR
 
 ### Update the module with custom code
 
-Each template includes sample code, which takes simulated sensor data from the **tempSensor** module and routes it to the IoT hub. In this section, add the code that expands the **PythonModule** to analyze the messages before sending them. 
+Each template includes sample code, which takes simulated sensor data from the **SimulatedTemperatureSensor** module and routes it to the IoT hub. In this section, add the code that expands the **PythonModule** to analyze the messages before sending them. 
 
 1. In the VS Code explorer, open **modules** > **PythonModule** > **main.py**.
 
@@ -220,7 +220,7 @@ Make sure that your IoT Edge device is up and running.
 
 3. Select the **deployment.json** file in the **config** folder and then click **Select Edge Deployment Manifest**. Do not use the deployment.template.json file.
 
-4. Click the refresh button. You should see the new **PythonModule** running along with the **TempSensor** module and the **$edgeAgent** and **$edgeHub**. 
+4. Click the refresh button. You should see the new **PythonModule** running along with the **SimulatedTemperatureSensor** module and the **$edgeAgent** and **$edgeHub**. 
 
 ## View generated data
 

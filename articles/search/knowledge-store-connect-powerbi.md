@@ -5,6 +5,7 @@ description: Create a knowledge store using the Import data wizard in Azure port
 author: heidisteen
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/30/2019
@@ -152,7 +153,7 @@ Use the Import Data wizard to create the knowledge store. You will import the da
 
 1. Click **Close and Apply** on the far left of the Power Query command bar.
 
-1. Validate that Power BI recognizes the relationships that knowledge store created within your data. Click on the relationships tile on the left navigation pane. All three tables should be related.
+1. Validate that Power BI recognizes the relationships that knowledge store created within your data. Click on the relationships tile on the left navigation pane. All three tables should be related. Edit the relationships and ensure that the "Cross-filter direction" is set to both, this will ensure that all your visuals refresh when a filter is applied.
 
    ![Validate relationships](media/knowledge-store-howto-powerbi/powerbi-relationships.png "Validate relationships")
 

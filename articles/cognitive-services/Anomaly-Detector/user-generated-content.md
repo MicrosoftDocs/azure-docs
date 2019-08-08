@@ -17,6 +17,11 @@ ms.author: aahi
 Use this article to discover how other customers are thinking about and using the Anomaly Detector API. The following resources were created by the community of Anomaly Detector users. They include technical blogs, open-source projects, and other contributions created by both Microsoft and third-party users. 
 Some of the following links are hosted on websites that are external to Microsoft and Microsoft is not responsible for the content there. Use discretion when you refer to these resources.
 
+## Demos
+
+* [Interactive demo with animation](https://aka.ms/adDemo)
+* [Azure Notebook demo](https://aka.ms/adNotebook)
+
 ## Technical blogs
 
 * [Introducing Azure Anomaly Detector API](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)
