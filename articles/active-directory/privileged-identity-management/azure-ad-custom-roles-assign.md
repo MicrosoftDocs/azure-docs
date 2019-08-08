@@ -36,7 +36,7 @@ This article tells you how to use Privileged Identity Management (PIM) to create
 
 Privileged Identity Management can manage custom roles you can create in Azure Active Directory (Azure AD) application management.  The following steps make an eligible assignment to a custom directory role.
 
-1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged Role administrator role.
+1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged role administrator role.
 1. Select **Azure AD custom roles (Preview)**.
 
     ![Select Azure AD custom roles preview to see eligible role assignments](./media/azure-ad-custom-roles-assign/view-custom.png)

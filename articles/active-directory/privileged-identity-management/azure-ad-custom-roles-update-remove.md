@@ -35,18 +35,20 @@ This article tells you how to use Privileged Identity Management (PIM) to update
 
 Follow these steps to update or remove an existing custom role assignment.
 
-1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged Role administrator role.
+1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged role administrator role.
 1. Select **Azure AD custom roles (Preview)**.
 
     ![Select Azure AD custom roles preview to see eligible role assignments](./media/azure-ad-custom-roles-assign/view-custom.png)
 
 1. Select **Roles** to see a the **Assignments** list of custom roles for Azure AD applications.
 
-    ![Select Roles see the list of eligible role assignments](./media/azure-ad-custom-roles-assign/view-roles.png)
+    ![Select Roles see the list of eligible role assignments](./media/azure-ad-custom-roles-update-remove/assignments-list.png)
 
 1. Select the role that you want to update or remove.
 1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
 1. Select **Update** or **Remove** to update or remove the role assignment.
+
+    ![Select remove or update in the eligible role assignment](./media/azure-ad-custom-roles-update-remove/remove-update.png)
 
 ## Next steps
 
