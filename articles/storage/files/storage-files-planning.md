@@ -21,7 +21,7 @@ ms.subservice: files
 
 * **Storage Account**: All access to Azure Storage is done through a storage account. See [Scalability and Performance Targets](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) for details about storage account capacity.
 
-* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares, and a share can store an unlimited number of files, up to the 5 TiB total capacity of the file share.
+* **Share**: A File Storage share is an SMB file share in Azure. All directories and files must be created in a parent share. An account can contain an unlimited number of shares and a share can store an unlimited number of files, up to the total capacity of the file share. For standard file shares, the total capacity is up to 5 TiB (GA) or 100 TiB (preview) and for premium file shares, that capacity is up to 100 TiB.
 
 * **Directory**: An optional hierarchy of directories.
 
