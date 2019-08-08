@@ -221,10 +221,8 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **Don't forget the additional configuration steps after provisioning your managed domain.**
 > After your managed domain is provisioned, you still need to complete the following tasks:
-> * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-  > * Select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
-> * Create the required network security group rules to restrict traffic inbound for the managed domain.
-  > * Select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create the appropriate network security group rules.
+> * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication. To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+> * Create the required network security group rules to restrict traffic inbound for the managed domain. To create the network security group rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create the appropriate network security group rules.
 > * Enable password synchronization to Azure AD Domain Services so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
