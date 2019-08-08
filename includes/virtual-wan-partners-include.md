@@ -22,7 +22,3 @@ You can check the links in this section for more information about services offe
 |[Palo Alto Networks](https://researchcenter.paloaltonetworks.com/2018/09/azure-vwan-integration/) |
 |[Riverbed Technology](https://www.riverbed.com/go/steelconnect-azurewan.html)|
 |[128 Technology](https://www.128technology.com/partners/azure) |
-
->[NOTE!]
-> The following partners are slated in our roadmap for the near future: Fortinet, Silver-Peak, Velocloud, Versa, Nuage Nokia.
->
