@@ -8,9 +8,10 @@ ms.subservice: dsc
 author: mgreenegit
 ms.author: migreene
 ms.date: 08/08/2019
-conceptual
+ms.topic: conceptual
 manager: carmonm
 ---
+
 # Configuration Data at Scale
 
 > Applies To: Windows PowerShell 5.1
