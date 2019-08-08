@@ -21,8 +21,8 @@ The release notes are continuously updated, and as critical issues requiring a w
 
 This release corresponds to the software versions:
 
-- **Data Box Gateway 1906 (1.6.928.679)**
-- **Data Box Edge 1906 (1.6.928.679)**
+- **Data Box Gateway 1906 (1.6.948.701)**
+- **Data Box Edge 1906 (1.6.948.701)**
 
 > [!NOTE]
 > Update 1906 can be applied only to Data Box Edge devices that are running general availability (GA) or 1905 version of the software.
