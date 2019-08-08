@@ -41,7 +41,8 @@ Azure DevTest Labs has a [public repository of Azure Resource Manager templates]
 
 In the public repository, the DevTest Labs team and others have created and shared frequently used templates like Azure Web Apps, Service Fabric Cluster, and a development SharePoint Farm environment. You can use these templates directly, or customize them to suit your needs. For more information, see [Configure and use public environments in DevTest Labs](devtest-lab-configure-use-public-environments.md). After you create your own templates, you can store them in this repository to share them with others, or set up your own Git repository.
 
-## <a name="#configure-your-own-template-repositories"></a> Create your own template repositories
+<a name="#configure-your-own-template-repositories"></a> 
+## Create your own template repositories
 
 As one of the best practices with infrastructure-as-code and configuration-as-code, you should manage environment templates in source control. Azure DevTest Labs follows this practice, and loads all Azure Resource Manager templates directly from your GitHub or Azure Repos repositories. As a result, you can use Resource Manager templates across the entire release cycle, from the test environment to the production environment.
 
@@ -70,12 +71,12 @@ After you create and configure your repository, you can add it to your lab by us
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
-1. From the list of labs, select the desired lab. 
-1. On the lab's **Overview** pane, select **Configuration and Policies**.
+1. From the list of labs, select the lab you want. 
+1. On the lab's **Overview** pane, select **Configuration and policies**.
    
    ![Configuration and policies](./media/devtest-lab-create-environment-from-arm/configuration-and-policies-menu.png)
    
-1. From the **Configuration and Policies** settings list, select **Repositories**. The **Public Artifact Repo** repository is automatically generated for all labs, and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab).
+1. From the **Configuration and policies** settings list, select **Repositories**. The **Public Artifact Repo** repository is automatically generated for all labs, and connects to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab).
    
    ![Public repo](./media/devtest-lab-create-environment-from-arm/public-repo.png)
    
@@ -84,18 +85,18 @@ After you create and configure your repository, you can add it to your lab by us
 1. In the **Repositories** pane, enter the following information:
    
    |Field|Value|
-   |   |   |
+   |     |     |
    |**Name**|Enter a repository name to use in the lab.|
    |**Git clone URL**|Enter the Git HTTPS clone URL from GitHub or Azure Repos. |
-   |**Branch**|Enter the branch name to access your Azure Resource Manager template definitions.| 
-   |**Personal access token**|Enter the personal access token that is used to securely access your repository. <br /><br />To get your token from Azure Repos, under your profile, select **User settings** > **Security** > **Personal access tokens**.<br /><br />To get your token from GitHub, under your profile, select **Settings** > **Developer Settings** > **Personal access tokens**. 
-   |**Folder paths**|Enter the folder path that is relative to your Git clone URI for either your artifact definitions or your Azure Resource Manager template definitions. 
+   |**Branch**|Enter the branch name to access your Azure Resource Manager template definitions.|
+   |**Personal access token**|Enter the personal access token that is used to securely access your repository. <br /><br />To get your token from Azure Repos, under your profile, select **User settings** > **Security** > **Personal access tokens**.<br /><br />To get your token from GitHub, under your profile, select **Settings** > **Developer Settings** > **Personal access tokens**. |
+   |**Folder paths**|Enter the folder path that is relative to your Git clone URI for either your artifact definitions or your Azure Resource Manager template definitions. |
    
    ![Add new repository](./media/devtest-lab-create-environment-from-arm/repo-values.png)
    
 1. Select **Save**.
    
-The next section will walk you through creating environments from an Azure Resource Manager template.
+The next section walks you through creating environments from an Azure Resource Manager template.
 
 ## Create environments from templates in the Azure portal
 
@@ -105,7 +106,7 @@ Once you add an Azure Resource Manager template to the lab, your lab users can c
    
 1. Select **All Services**, and then select **DevTest Labs** from the list.
    
-1. From the list of labs, select the desired lab. 
+1. From the list of labs, select the lab you want. 
    
 1. On the lab's page, select **Add**.
    
@@ -145,13 +146,12 @@ Once you add an Azure Resource Manager template to the lab, your lab users can c
    
    ![Environment actions](./media/devtest-lab-create-environment-from-arm/environment-actions.png)
 
-## <a name="automate-deployment-of-environments></a> Automate environment creation with PowerShell
+<a name="automate-deployment-of-environments"></a> 
+## Automate environment creation with PowerShell
 
 It's feasible to use the Azure portal to add a single environment to a lab, but when a development or testing scenario must create multiple environments, automated deployment is a better experience. 
 
-Before you proceed, make sure you have an Azure Resource Manager template that defines the resources to create. Add and configure the template in a Git repository, and add that Git repository to the lab.
-
-### Save and run the PowerShell script to deploy the Resource Manager template
+Before you proceed, make sure you have an Azure Resource Manager template that defines the resources to create. [Add and configure the template in a Git repository](#configure-your-own-template-repositories), and [add the repository to the lab](#add-template-repositories-to-the-lab).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -268,7 +268,7 @@ To give your lab users **Contributor** role so they can edit the resources in th
 
 1. In the [Azure portal](https://portal.azure.com), on your lab's **Overview** pane, select **Configuration and policies**, and then select **Lab settings**.
    
-1. In the **Lab Settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
+1. In the **Lab settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
    
    ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
 
