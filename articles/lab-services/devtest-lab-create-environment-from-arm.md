@@ -83,15 +83,17 @@ After you create and configure your repository, you can add it to your lab by us
    
 1. In the **Repositories** pane, enter the following information:
    
-	- **Name** - Enter the repository name that is used in the lab.
-	- **Git clone URL** - Enter the GIT HTTPS clone URL from GitHub or Azure DevOps Services.  
-	- **Branch** - Enter the branch name to access your Azure Resource Manager template definitions. 
-	- **Personal access token** - The personal access token is used to securely access your repository. To get your token from Azure DevOps Services, select **&lt;YourName> > My profile > Security > Public access token**. To get your token from GitHub, select your avatar followed by selecting **Settings > Public access token**. 
-	- **Folder paths** - Using one of the two input fields, enter the folder path that starts with a forward slash - / - and is relative to your Git clone URI to either your artifact definitions (first input field) or your Azure Resource Manager template definitions.   
+   |Field|Value||
+   |   |   |
+   |**Name**|Enter a repository name to use in the lab.|
+   |**Git clone URL**|Enter the GIT HTTPS clone URL from GitHub or Azure Repos. |
+   |**Branch**|Enter the branch name to access your Azure Resource Manager template definitions.| 
+   |**Personal access token**|The personal access token that is used to securely access your repository. <br /><br />To get your token from Azure Repos, under your profile, select **My profile** > **Security** > **Public access token**.<br /><br />To get your token from GitHub, under your profile, select **Settings** > **Public access token**. 
+   |**Folder paths**|Enter the folder path that is relative to your Git clone URI for either your artifact definitions or your Azure Resource Manager template definitions. 
    
    ![Public repo](./media/devtest-lab-create-environment-from-arm/repo-values.png)
    
-1. After you enter all the required fields, select **Save**.
+1. Select **Save**.
    
 The next section will walk you through creating environments from an Azure Resource Manager template.
 
