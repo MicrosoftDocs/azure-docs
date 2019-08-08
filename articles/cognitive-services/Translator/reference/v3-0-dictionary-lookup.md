@@ -136,13 +136,9 @@ A successful response is a JSON array with one result for each string in the inp
 
 This example shows how to lookup alternative translations in Spanish of the English term `fly` .
 
-# [curl](#tab/curl)
-
-```
+```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
 ```
-
----
 
 The response body (abbreviated for clarity) is:
 
