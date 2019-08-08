@@ -16,7 +16,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
-A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to:
+A _device capability model_ (DCM) describes the capabilities of an [IoT Plug and Play](https://aka.ms/iot-pnp-docs) device. IoT Central can use a DCM to create a device template and visualizations for a device when the device connects for the first time. This quickstart shows you how to:
 
 * Use Visual Studio Code to create an IoT Plug and Play device using a DCM.
 * Run the device code in Windows and see it connect to your IoT Central application.
