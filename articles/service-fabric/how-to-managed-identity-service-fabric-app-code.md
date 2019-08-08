@@ -140,7 +140,7 @@ namespace Azure.ServiceFabric.ManagedIdentity.Samples
 } // namespace Azure.ServiceFabric.ManagedIdentity.Samples
 ```
 ## Accessing Key Vault from a Service Fabric application using Managed Identity
-This sample, which you may find [here](to do: upload complete sample) in its entirety, builds on the above to demonstrate accessing a secret stored in a Key Vault using managed identity. 
+This sample builds on the above to demonstrate accessing a secret stored in a Key Vault using managed identity.
 
 ```C#
         /// <summary>
