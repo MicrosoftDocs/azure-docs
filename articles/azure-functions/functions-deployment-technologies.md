@@ -100,7 +100,13 @@ You can use an external package URL to reference a remote package (.zip) file th
 
 Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start [running from package](run-functions-from-deployment-package.md), or specify that a [remote build](#remote-build) occurs.
 
->__How to use it:__ Deploy by using your favorite client tool: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url). 
+>__How to use it:__ Deploy by using your favorite client tool: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url).
+
+To perform a zip deploy with a remote build, use the following [Core Tools](functions-run-local.md) command:
+
+```bash
+func azure functionapp publish <app name> --build remote
+```
 
 >When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
 
