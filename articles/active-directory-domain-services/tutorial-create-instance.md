@@ -173,12 +173,15 @@ With Azure AD DS successfully deployed, now configure the virtual network to all
 
 To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
+> [!NOTE]
+> Once appropriately configured, the usable password hashes are stored in the Azure AD DS managed domain. If you delete the Azure AD DS managed domain, any password hashes stored at that point are also deleted. Synchronized credential information in Azure AD can't be re-used if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. Previously domain-joined VMs or users won't be able to immediately authenticate - Azure AD needs to generate and store the password hashes in the new Azure AD DS managed domain. For more information, see [Password hash sync process for Azure AD DS and Azure AD Connect][password-hash-sync-process].
+
 The steps to generate and store these password hashes are different for cloud-only user accounts created in Azure AD versus user accounts that are synchronized from your on-premises directory using Azure AD Connect. A cloud-only user account is an account that was created in your Azure AD directory using either the Azure portal or Azure AD PowerShell cmdlets. These user accounts aren't synchronized from an on-premises directory. In this tutorial, let's work with a basic cloud-only user account. For more information on the additional steps required to use Azure AD Connect, see [Synchronize password hashes for user accounts synced from your on-premises AD to your managed domain][on-prem-sync].
 
 > [!TIP]
 > If your Azure AD tenant has a combination of cloud-only users and users from your on-premises AD, you need to complete both sets of steps.
 
-For cloud-only user accounts, users must change their passwords before they can use Azure AD DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure AD DS, which forces a password change on next sign in, or instruct them to manually change their passwords. For this tutorial, let's manually change a user password.
+For cloud-only user accounts, users must change their passwords before they can use Azure AD DS. This password change process causes the password hashes for Kerberos and NTLM authentication to be generated and stored in Azure AD. You can either expire the passwords for all users in the tenant who need to use Azure AD DS, which forces a password change on next sign-in, or instruct them to manually change their passwords. For this tutorial, let's manually change a user password.
 
 Before a user can reset their password, the Azure AD tenant must be [configured for self-service password reset][configure-sspr].
 
@@ -218,3 +221,4 @@ To see this managed domain in action, create and join a virtual machine to the d
 [scoped-sync]: scoped-synchronization.md
 [on-prem-sync]: active-directory-ds-getting-started-password-sync-synced-tenant.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
+[password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services

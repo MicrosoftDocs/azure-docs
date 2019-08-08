@@ -40988,6 +40988,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/manage-domain.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Academic-Knowledge/GraphSearchMethod.md",
       "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
       "redirect_document_id": false
