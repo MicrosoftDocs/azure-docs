@@ -155,14 +155,14 @@ Update to [Az PowerShell version 2.0.0](https://www.powershellgallery.com/packag
 
 ## Add the HDInsight Cluster Operator role assignment to a user
 
-A user with the [Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) or [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can assign the [HDInsight Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) role to users that you would want to have read/write access to sensitive HDInsight cluster configuration values (such as cluster gateway credentials and storage account keys).
+A user with the [Owner](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) role can assign the [HDInsight Cluster Operator](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#hdinsight-cluster-operator) role to users that you would want to have read/write access to sensitive HDInsight cluster configuration values (such as cluster gateway credentials and storage account keys).
 
 ### Using the Azure CLI
 
 The simplest way to add this role assignment is by using the `az role assignment create` command in Azure CLI.
 
 > [!NOTE]
-> This command must be run by a user with the Contributor or Owner roles, as only they can grant these permissions. The `--assignee` is the email address of the user to whom you want to assign the HDInsight Cluster Operator role.
+> This command must be run by a user with the Owner role, as only they can grant these permissions. The `--assignee` is the name of the service principal or email address of the user to whom you want to assign the HDInsight Cluster Operator role. If you receive an insufficient permissions error, see the FAQ below.
 
 #### Grant role at the resource (cluster) level
 
@@ -185,3 +185,23 @@ az role assignment create --role "HDInsight Cluster Operator" --assignee user@do
 ### Using the Azure portal
 
 You can alternatively use the Azure portal to add the HDInsight Cluster Operator role assignment to a user. See the documentation, [Manage access to Azure resources using RBAC and the Azure portal - Add a role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment).
+
+## FAQ
+
+### Why am I seeing a 403 (Forbidden) response after updating my API requests and/or tool?
+
+Cluster configurations are now behind granular role-based access control and require the `Microsoft.HDInsight/clusters/configurations/*` permission to access them. To obtain this permission, assign the HDInsight Cluster Operator, Contributor, or Owner role to the user or service principal trying to access configurations.
+
+### Why do I see “Insufficient privileges to complete the operation” when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
+
+In addition to having the Owner role, the user or service principal executing the command needs to have sufficient AAD permissions to look up the object IDs of the assignee. This message indicates insufficient AAD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) for more info.
+
+If this still doesn’t work, contact your AAD admin to acquire the correct permissions.
+
+### What will happen if I take no action?
+
+The `GET /configurations` and `POST /configurations/gateway` will no longer return any information and the `GET /configurations/{configurationName}` call will no longer return sensitive parameters, such as storage account key or cluster password. The same is true of corresponding SDK methods and PowerShell cmdlets.
+
+If you are using an older version of one of the tools for Visual Studio, VSCode, IntelliJ or Eclipse mentioned above, they will no longer function until you update.
+
+For more detailed information, see the corresponding section of this document for your scenario.

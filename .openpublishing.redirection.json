@@ -1,5 +1,10 @@
 {
   "redirections": [
+    { 
+        "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md", 
+        "redirect_url": "/azure/azure-government/documentation-government-welcome", 
+        "redirect_document_id": false 
+    },
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
@@ -32302,6 +32307,16 @@
     {
       "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
       "redirect_document_id": false
     },
     {
