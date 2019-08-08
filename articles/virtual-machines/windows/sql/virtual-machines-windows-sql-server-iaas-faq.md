@@ -52,7 +52,7 @@ This article provides answers to some of the most common questions about running
 
    Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups. When registering with the resource provider, you will also need to specify the license type for each SQL Server VM. 
 
-1. **Can i use my own VHD to deploy a SQL Server VM?**
+1. **Can I use my own VHD to deploy a SQL Server VM?**
 
    Yes, but you must then [register each SQL Server VM with the SQL Server VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md) to manage your SQL Server VM in the portal, as well as utilize features such as automated patching and automatic backups.
 
@@ -82,7 +82,7 @@ This article provides answers to some of the most common questions about running
    To have a free passive license for a standby secondary availability group or failover clustered instance, you must meet all of the following criteria as outlined by the [licensing guide PDF](https://download.microsoft.com/download/7/8/C/78CDF005-97C1-4129-926B-CE4A6FE92CF5/SQL_Server_2017_Licensing_guide.pdf):
 
    1. You have [license mobility](https://www.microsoft.com/licensing/licensing-programs/software-assurance-license-mobility?activetab=software-assurance-license-mobility-pivot:primaryr2) through [software assurance](https://www.microsoft.comlicensing/licensing-programs/software-assurance-default?activetab=software-assurance-default-pivot%3aprimaryr3). 
-   1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any "work", such cas additional backups from the secondary server, then it must be a paid licensed SQL Server instance. 
+   1. The passive SQL Server instance does not serve SQL Server data to clients or run active SQL Server workloads. It is only used to synchronize with the primary server and otherwise maintain the passive database in a warm standby state. If it is serving data, such as reports to clients running active SQL Server workloads, or performing any "work", such as additional backups from the secondary server, then it must be a paid licensed SQL Server instance. 
    1. The active SQL Server license is covered by Software Assurance and allows for **one** passive secondary SQL Server instance, with up to the same amount of compute as the licensed active server, only. 
    1. The secondary SQL Server VM utilizes the bring-your-own-license (BYOL) or Azure Hybrid Benefit (AHB) [license model](virtual-machines-windows-sql-ahb.md). 
 
@@ -124,7 +124,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Is it possible to switch licensing model on a SQL Server VM deployed using classic model?**
 
-   No. Changing licensing model is not supported on a classic VM. You may migrate your VM to the resource manager model (ARM) and register with the SQL Server VM resource provider. Once the VM is registered with the SQL Server VM resource provider, licensing model changes will be available on the VM. 
+   No. Changing licensing model is not supported on a classic VM. You may migrate your VM to the Azure Resource Manager model and register with the SQL Server VM resource provider. Once the VM is registered with the SQL Server VM resource provider, licensing model changes will be available on the VM. 
    
 
 
