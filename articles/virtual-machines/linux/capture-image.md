@@ -92,7 +92,7 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    >
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
    
-This command will return JSON describing the VM image.  Save this output for later reference.
+This command returns JSON that describes the VM image. Save this output for later reference.
 
 ## Step 3: Create a VM from the captured image
 Create a VM by using the image you created with [az vm create](/cli/azure/vm). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
