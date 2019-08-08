@@ -180,6 +180,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cognitive-services-python-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-python-sdk-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
       "branch": "docs-201809"

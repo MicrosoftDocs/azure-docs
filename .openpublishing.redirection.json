@@ -40979,6 +40979,11 @@
       "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
       "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/devtest-lab-integrate-ci-cd-vsts.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-integrate-ci-cd",
+      "redirect_document_id": true
     }
   ]
 }

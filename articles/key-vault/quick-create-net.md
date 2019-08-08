@@ -184,4 +184,4 @@ az keyvault delete --name
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
+> [Learn more about Key Vault](key-vault-whatis.md)
