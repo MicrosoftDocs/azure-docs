@@ -28,7 +28,7 @@ Azure AD role-based access control is a public preview feature of Azure AD and i
 
 Granting permission using custom RBAC roles is a two-step process that involves creating a custom role definition and then assigning it using a role assignment. <b>A custom role definition is a collection of permissions that you add from a preset list</b>. These are the same permissions used in the built-in roles. 
 Once you’ve created your role definition, you can assign it to someone by creating a role assignment. <b>A role assignment grants someone the permissions in a role definition at a specific scope</b>. This two-step process allows you to create one role definition and assign it many times at different scopes. <b>A scope defines the set of resources the role member has access to</b>. The most common scope is organization-wide (org wide) scope. A custom role can be assigned at org wide scope, meaning the role member has the role permissions over all resources in the organization. A custom role can also be assigned at an object scope. An example of an object scope would be a single application. This way the same role can be assigned to Sally over all applications in the organization and then Naveen over just the Contoso Expense Reports app.
-Azure AD RBAC operates on concepts similar to Azure role-based access control ([Azure RBAC](../../role-based-access-control/overview.md). The difference being Azure RBAC controls access to Azure resources such as virtual machines and websites, and Azure AD RBAC controls access to Azure AD. Both systems leverage the concept of role definitions and role assignments.
+Azure AD RBAC operates on concepts similar to [Azure role-based access control](../../role-based-access-control/overview.md). The difference being Azure RBAC controls access to Azure resources such as virtual machines and websites, and Azure AD RBAC controls access to Azure AD. Both systems leverage the concept of role definitions and role assignments.
 
 ### Role assignments
 
@@ -36,17 +36,16 @@ A role assignment is the process of attaching a role definition to a user at a p
 - User
 - Role definition
 - Resource scope
+
 You can [create role assignments](roles-create-custom.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [view the assignments for a custom role](roles-view-assignments.md#view-the-assignments-of-a-role-with-single-application-scope-using-the-azure-ad-portal-preview).
 
-The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the [App registration administrator](directory-assign-admin-roles.md#application-administrator) role at the scope of the Contoso Widget Builder app registration. This assignment grants Chris the permission in the App registration administrator role only on this specific app registration.
+The following diagram shows an example of a role assignment. In this example, Chris Green has been assigned the App registration administrator custom role at the scope of the Contoso Widget Builder app registration. This assignment grants Chris the permissions of the App registration administrator role only on this specific app registration.
 
 ![Role assignment is how permissions are enforced and has three parts](./media/roles-custom-overview/rbac-overview.png)
 
 ### Security principal
 
-A security principal represents the user or service principal that is to be assigned access to Azure AD resources. A *user* is an individual who has a user profile in Azure Active Directory. A *service principal* is a security identity used by applications or services to access specific Azure AD resources.
-
-A security principal is similar to a user identity in that it represents a username and password or certificate, but for an application or service instead of a user.
+A security principal represents the user that is to be assigned access to Azure AD resources. A *user* is an individual who has a user profile in Azure Active Directory.
 
 ### Role
 
