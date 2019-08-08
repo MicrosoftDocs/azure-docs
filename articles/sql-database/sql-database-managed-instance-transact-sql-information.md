@@ -128,7 +128,7 @@ A managed instance can't access files, so cryptographic providers can't be creat
 - SQL logins created by using `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY`, and `FROM SID` are supported. See [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD) server principals (logins) created with the [CREATE LOGIN](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) syntax or the [CREATE USER FROM LOGIN [Azure AD Login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) syntax are supported (public preview). These logins are created at the server level.
 
-    managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
+    Managed instance supports Azure AD database principals with the syntax `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. This feature is also known as Azure AD contained database users.
 
 - Windows logins created with the `CREATE LOGIN ... FROM WINDOWS` syntax aren't supported. Use Azure Active Directory logins and users.
 - The Azure AD user who created the instance has [unrestricted admin privileges](sql-database-manage-logins.md#unrestricted-administrative-accounts).
@@ -315,7 +315,7 @@ For information about how to create and alter tables, see [CREATE TABLE](https:/
 
 ## Functionalities
 
-### Bulk insert / openrowset
+### Bulk insert / OPENROWSET
 
 A managed instance can't access file shares and Windows folders, so the files must be imported from Azure Blob storage:
 
@@ -525,7 +525,7 @@ The maximum file size of `tempdb` can't be greater than 24 GB per core on a Gene
 
 ### Can't restore contained database
 
-managed instance can't restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases doesn't work on managed instance. This issue will be resolved soon. In the meantime, we recommend that you remove the containment option from your databases that are placed on managed instance. Don't use the containment option for the production databases. 
+Managed instance can't restore [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases). Point-in-time restore of the existing contained databases doesn't work on managed instance. In the meantime, we recommend that you remove the containment option from your databases that are placed on managed instance. Don't use the containment option for the production databases. 
 
 ### Exceeding storage space with small database files
 
@@ -574,7 +574,7 @@ Error logs that are available in managed instance aren't persisted, and their si
 
 ### Error logs are verbose
 
-A managed instance places verbose information in error logs, and much of it isn't relevant. The amount of information in error logs will decrease in the future.
+A managed instance places verbose information in error logs, and much of it isn't relevant. 
 
 **Workaround:** Use a custom procedure to read error logs that filters out some irrelevant entries. For more information, see [managed instance – sp_readmierrorlog](https://blogs.msdn.microsoft.com/sqlcat/2018/05/04/azure-sql-db-managed-instance-sp_readmierrorlog/).
 
