@@ -1,6 +1,6 @@
 ---
 title: Set up two-factor verification for your work or school account - Azure Active Directory | Microsoft Docs
-description: Learn about how to set up two-factor verification for your work or school account, the account provided to you by your organization, such as alain@contoso.com.
+description: Learn about how to set up two-factor verification for your work or school account, the account provided to you by your organization.
 services: active-directory
 author: eross-msft
 manager: daveba
