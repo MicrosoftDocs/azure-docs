@@ -2,9 +2,9 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: What is SQL Database
+  - name: What is SQL Database?
     href: sql-database-technical-overview.md
-  - name: Choose a version of Azure SQL
+  - name: Which SQL option should I choose?
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Release notes
     href: sql-database-release-notes.md
