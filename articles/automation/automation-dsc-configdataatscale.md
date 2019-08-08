@@ -8,7 +8,7 @@ ms.subservice: dsc
 author: mgreenegit
 ms.author: migreene
 ms.date: 08/08/2019
-ms.topic: community
+conceptual
 manager: carmonm
 ---
 # Configuration Data at Scale
