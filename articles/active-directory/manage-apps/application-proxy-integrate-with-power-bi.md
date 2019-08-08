@@ -29,7 +29,7 @@ This article assumes you've already deployed Report Services and [enabled Appl
 
 - Enabling Application Proxy requires installing a connector on a Windows server and completing the [prerequisites](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) so that the connector can communicate with Azure AD services.  
 - When publishing Power BI, we recommended you use the same internal and external domains. To learn more about custom domains, see [Working with custom domains in Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
-- This integration is currently only available for the **Power BI Mobile iOS** application.
+- This integration is available for the **Power BI Mobile iOS and Android** application.
 
 ## Step 1: Configure Kerberos Constrained Delegation (KCD)
 
