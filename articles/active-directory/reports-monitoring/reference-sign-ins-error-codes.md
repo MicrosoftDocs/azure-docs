@@ -180,6 +180,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
 |530032|Blocked by security policy.| 
+|700016|Application with identifier '{appIdentifier}' was not found in the directory '{tenantName}'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant. You may have sent your authentication request to the wrong tenant.|
 |900432|Confidential Client is not supported in Cross Cloud request.|
 |7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
 
