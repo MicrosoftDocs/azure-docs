@@ -33,9 +33,9 @@ This article gives links to the conceptual articles that explain the benefits of
  
 ## Person model
 
-* [Customizing language models overview](customize-person-model-overview.md)
-* [Customizing language models using the Video Indexer website](customize-language-model-with-website.md)
-* [Customizing language models using the Video Indexer API](customize-person-model-with-api.md)
+* [Customizing person models overview](customize-person-model-overview.md)
+* [Customizing person models using the Video Indexer website](customize-person-model-with-website.md)
+* [Customizing person models using the Video Indexer API](customize-person-model-with-api.md)
 
 ## Next steps
 
