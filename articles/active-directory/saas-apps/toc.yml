@@ -327,6 +327,8 @@
         href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
+      - name: CPQSync by Cincom
+        href: cpqsync-by-cincom-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
       - name: CyberArk SAML Authentication
