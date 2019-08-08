@@ -98,8 +98,8 @@ Download two different NYC taxi data sets into dataflow objects. The datasets ha
 ```python
 from IPython.display import display
 
-green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"])
-yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"
 
 # (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
 
