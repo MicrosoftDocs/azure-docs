@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.author: absha
 ---
 
@@ -98,6 +98,8 @@ To configure HTTP header rewrite, you need to complete these steps.
    - **Rewrite set**: Contains multiple rewrite rules that will be associated with a request routing rule.
 
 2. Attach the rewrite set (*rewriteRuleSet*) to a routing rule. The rewrite configuration is attached to the source listener via the routing rule. When you use a basic routing rule, the header rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the header rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site.
+   > [!NOTE]
+   > URL Rewrite alter the headers; it does change the URL for the path.
 
 You can create multiple HTTP header rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
 
