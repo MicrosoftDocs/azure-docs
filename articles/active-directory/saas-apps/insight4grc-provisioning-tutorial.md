@@ -104,11 +104,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-<<<<<<< HEAD
 5.	Under the Admin Credentials section, input `https://{Insight4GRC Domain Name}.insight4grc.com/public/api/scim/v2` in **Tenant URL** using the {Insight4GRC Domain Name} value that was retrieved earlier. Enter the **Token value** retrieved earlier into **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
-=======
-5.	Under the **Admin Credentials** section, input `https://{Insight4GRC Domain Name}.insight4grc.com/public/api/scim/v2` in **Tenant URL** using the `{Insight4GRC Domain Name}` value that was retrieved earlier. Enter the **Token value** retrieved earlier into  **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
->>>>>>> 4410843be0b44329e3e7a85057aa6e00640effeb
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -152,10 +148,6 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4410843be0b44329e3e7a85057aa6e00640effeb
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md).
