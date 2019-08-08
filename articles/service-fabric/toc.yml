@@ -763,7 +763,7 @@
       - name: How to deploy application with a user-managed identity
         href: how-to-deploy-service-fabric-application-user-managed-identity.md
     - name: Use MITS with Service Fabric application code
-      href: how-to-managed-identity-token-service-app-code.md
+      href: how-to-managed-identity-service-fabric-app-code.md
     - name: Grant access to other Azure resources
       href: how-to-grant-access-other-resources.md
 
