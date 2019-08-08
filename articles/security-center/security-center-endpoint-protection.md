@@ -112,8 +112,8 @@ The **"Resolve endpoint protection health issues on your machines"** recommendat
 
 Registry Paths:
 
-**"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
-**"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
+* **"HKLM:\Software\Symantec\Symantec Endpoint Protection" + $Path;**
+* **"HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection" + $Path**
 
 ## McAfee endpoint protection for Windows
 
@@ -135,7 +135,7 @@ The **"Resolve endpoint protection health issues on your machines"** recommendat
 
 ## McAfee Endpoint Security for Linux Threat Prevention 
 
-The **Install endpoint protection solutions on virtual machine** recommendation is generated pears if one or both of the following checks aren't met:  
+The **Install endpoint protection solutions on virtual machine** recommendation is generated if one or both of the following checks aren't met:  
 
 - File **/opt/isec/ens/threatprevention/bin/isecav** exits 
 
