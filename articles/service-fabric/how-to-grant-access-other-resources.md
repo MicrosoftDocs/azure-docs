@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric - Grant a Service Fabric application access to other Azure resources| Microsoft Docs
-description: This article explains how to grant your Managed-Identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
+description: This article explains how to grant your managed-identity-enabled Service Fabric application access to other Azure resources supporting Azure Active Directory-based authentication.
 services: service-fabric
 author: athinanthny
 
