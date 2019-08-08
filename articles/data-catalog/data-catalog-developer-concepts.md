@@ -13,7 +13,7 @@ Microsoft **Azure Data Catalog** is a fully managed cloud service that provides 
 ## Key concepts
 The **Azure Data Catalog** conceptual model is based on four key concepts: The **Catalog**, **Users**, **Assets**, and **Annotations**.
 
-![concept][1]
+![Data Catalog concepts](./media/data-catalog-developer-concepts/concept2.png)
 
 *Figure 1 - Azure Data Catalog simplified conceptual model*
 
@@ -293,7 +293,7 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
 > 
 
 **Body**
-
+```json
     {
         "roles": [
             {
@@ -306,9 +306,11 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
             }
         ]
     }
+```
 
   **Assign owners and restrict visibility for an existing root item**: **PUT** https:\//api.azuredatacatalog.com/catalogs/default/views/tables/042297b0...1be45ecd462a?api-version=2016-03-30
 
+```json
     {
         "roles": [
             {
@@ -350,11 +352,8 @@ Special security principal &lt;Everyone&gt; has objectId "00000000-0000-0000-000
             }
         ]
     }
+```
 
 > [!NOTE]
 > In PUT it’s not required to specify an item payload in the body: PUT can be used to update just roles and/or permissions.
 > 
-> 
-
-<!--Image references-->
-[1]: ./media/data-catalog-developer-concepts/concept2.png
