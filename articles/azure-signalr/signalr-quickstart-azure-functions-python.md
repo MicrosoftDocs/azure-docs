@@ -57,7 +57,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     source .venv/bin/activate
     ```
 
-    **Windows**
+    **Windows:**
 
     ```powershell
     py -3.6 -m venv .venv
