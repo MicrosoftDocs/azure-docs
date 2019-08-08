@@ -37,11 +37,11 @@ The following key resource configurations can be provided for the failover VM wh
 2. Click on the desired Azure VM.
 3. Click on **Compute and Network**, and **Edit**. You will notice that the NIC configuration settings include the corresponding resources at the source 
 
-      ![customize](media/azure-to-azure-customize-networking/Edit-networking-properties.JPG)
+     ![customize](media/azure-to-azure-customize-networking/edit-networking-properties.png)
 
 4. Click **Edit** near the NIC you want to configure, in the next blade that opens up, select the corresponding pre-created resources in the target.
 
-    ![NIC-drilldown.JPG](media/azure-to-azure-customize-networking/NIC-drilldown.JPG)
+    ![NIC-drilldown](media/azure-to-azure-customize-networking/nic-drilldown.png) 
 
 5. Click **Ok**
 
