@@ -20,7 +20,7 @@ This reference provides information about the [prebuilt domains](luis-how-to-use
 
 [Custom domains](luis-how-to-start-new-app.md), by contrast, start with no intents and models. You can add any prebuilt domain intents and entities to a custom model.
 
-# Supported domains across cultures
+## Supported domains across cultures
 
 The only supported culture is english. 
 

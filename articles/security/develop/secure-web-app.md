@@ -344,19 +344,19 @@ $$ LANGUAGE PLPGSQL;
 ```
 
 
-For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+For more information on how to setup SSL and Certificate Authority (CA) verification for PostgreSQL, see [Configure SSL connectivity in Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 A root certificate is included in the container. The steps taken to obtain the certificate are:
 
 1. Download the certificate file from the [Certificate Authority](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt).
-2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/en-us/azure/postgresql/concepts-ssl-connection-security).
+2. [Download and install OpenSSL on your machine](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 3. Decode your certificate file:
 
    ```powershell
    openssl x509 -inform DER -in BaltimoreCyberTrustRoot.crt -text -out root.crt
    ```
 
-Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](https://docs.microsoft.com/en-gb/azure/postgresql/concepts-ssl-connection-security).
+Read more on how to configure SSL security for PostgreSQL here [Configure SSL Connection Security](https://docs.microsoft.com/azure/postgresql/concepts-ssl-connection-security).
 
 #### Deploy Azure Web Apps on Linux
 You can easily build Linux services on top of Azure App Service as Azure provides a set of prebuilt containers and images for widely used languages like Python, Ruby, C#, and Java. Azure also supports custom containers, which can allow virtually all programming languages to run on the Azure App Service platform.
