@@ -44,7 +44,7 @@ Privileged Identity Management (PIM) can manage custom roles you can create in A
 1. Select **Add member** to open the assignment pane.
 1. To restrict the scope of the role assignment to a single application, select **Scope** to specify an application scope.
 
-    ![restrict the scope of eligible role assignments in Azure AD](./media/azure-ad-custom-roles-assign/view-scope.png)
+    ![restrict the scope of eligible role assignments in Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
 
 1. Select **Select a role** to open the **Select a role** page.
 
