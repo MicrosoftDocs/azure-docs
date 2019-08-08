@@ -25,7 +25,7 @@ This article shows you how you can render point data from a data source as a Sym
 
 The first block of code above constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
-In the second block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A [Feature] containing a [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometry is wrapped by the [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class to make it easier to update, then created and added to the data source.
+In the second block of code, a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A GeoJSON [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature) containing a [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) geometry is wrapped by the [Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class to make it easier to update, then created and added to the data source.
 
 The third block of code creates an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) and updates the point's coordinates upon mouse click using the shape class [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) method.
 
@@ -42,6 +42,9 @@ Symbol layers are rendered using WebGL. As such all resources, such as icon imag
 
 <iframe height='500' scrolling='no' title='Custom Symbol Image Icon' src='//codepen.io/azuremaps/embed/WYWRWZ/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WYWRWZ/'>Custom Symbol Image Icon</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+> [!TIP]
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
 
 ## Customize a symbol layer 
 
@@ -75,6 +78,9 @@ See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
+
+> [!div class="nextstepaction"]
+> [How to use image templates](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [Add a shape](map-add-shape.md)

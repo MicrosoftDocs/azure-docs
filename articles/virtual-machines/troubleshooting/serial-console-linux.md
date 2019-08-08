@@ -98,7 +98,7 @@ To enable the serial console for your custom Linux VM image, enable console acce
 
 You will also want to add ttys0 as the destination for serial output. For more information on configuring a custom image to work with the serial console, see the general system requirements at [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path. |
+If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path.
 
 ## Common scenarios for accessing the Serial Console
 
