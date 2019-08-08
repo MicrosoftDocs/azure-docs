@@ -151,13 +151,13 @@ The **Resolve endpoint protection health issues on your machines** recommendatio
 
 ## Sophos Antivirus for Linux 
 
-The **Install endpoint protection solutions on virtual machine** appears if  one or both of the following checks aren't met:
+The **Install endpoint protection solutions on virtual machine** recommendation appears if  one or both of the following checks aren't met:
 
 - File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
 
 - **"/opt/sophos-av/bin/savdstatus --version"** returns Sophos name = **Sophos Anti-Virus and Sophos version >= 9**
 
-The **Resolve endpoint protection health issues on your machines recommendation** appears if one or more of the following checks aren't met:
+The **Resolve endpoint protection health issues on your machines** recommendation appears if one or more of the following checks aren't met:
 
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value   
 
