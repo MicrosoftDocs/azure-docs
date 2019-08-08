@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
 ms.topic: conceptual
-ms.date: 07/15/2019
+ms.date: 08/07/2019
 ms.custom: seodec18
 ---
 
@@ -132,7 +132,7 @@ With this compute and training run configuration, use the `Experiment.submit('tr
 run = exp.submit(src)
 ```
 
-### Track Azure Databricks runs
+## Track Azure Databricks runs
 
 MLflow Tracking with Azure Machine Learning service lets you store the logged metrics and artifacts from your Databrick runs into your Azure Machine Learning workspace.
 
