@@ -47,7 +47,11 @@
     href: howto-manage-models.md
   - name: Connect to and interact with a device
     href: howto-develop-solution.md
-  - name: Generate a security token
+- name: Reference
+  items:
+  - name: REST
+    href: https://aka.ms/iot-pnp-rest
+  - name: Generate a REST security token
     href: howto-generate-sas-token.md
 - name: Related
   items:
