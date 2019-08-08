@@ -162,7 +162,7 @@ A user with the [Owner](https://docs.microsoft.com/azure/role-based-access-contr
 The simplest way to add this role assignment is by using the `az role assignemnt create` command in Azure CLI.
 
 > [!NOTE]
-> This command must be run by a user with the Owner role, as only they can grant these permissions. The `--assignee` is the name of the service principal or email address of the user to whom you want to assign the HDInsight Cluster Operator role. If you receive an insufficient permissions error, see the [FAQ](#faq-insufficient) below.
+> This command must be run by a user with the Owner role, as only they can grant these permissions. The `--assignee` is the name of the service principal or email address of the user to whom you want to assign the HDInsight Cluster Operator role. If you receive an insufficient permissions error, see the FAQ below.
 
 #### Grant role at the resource (cluster) level
 
@@ -192,7 +192,7 @@ You can alternatively use the Azure portal to add the HDInsight Cluster Operator
 
 Cluster configurations are now behind granular role-based access control and require the `Microsoft.HDInsight/clusters/configurations/*` permission to access them. To obtain this permission, assign the HDInsight Cluster Operator, Contributor, or Owner role to the user or service principal trying to access configurations.
 
-### Why do I see “Insufficient privileges to complete the operation” when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?<a name="#faq-insufficient"></a>
+### Why do I see “Insufficient privileges to complete the operation” when running the Azure CLI command to assign the HDInsight Cluster Operator role to another user or service principal?
 
 In addition to having the Owner role, the user or service principal executing the command needs to have sufficient AAD permissions to look up the object IDs of the assignee. This message indicates insufficient AAD permissions. Try replacing the `-–assignee` argument with `–assignee-object-id` and provide the object ID of the assignee as the parameter instead of the name (or the principal ID in the case of a managed identity). See the optional parameters section of the [az role assignment create documentation](https://docs.microsoft.com/cli/azure/role/assignment?view=azure-cli-latest#az-role-assignment-create) for more info.
 
