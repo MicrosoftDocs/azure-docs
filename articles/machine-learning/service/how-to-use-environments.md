@@ -19,7 +19,7 @@ settings for different runtimes, such as plain Python, Spark, or Docker.
 
 Environments are managed and versioned entities within the Workspace that enable reproducible, auditable machine learning workflows. Thet are portable across different compute targets. You can use an environment on local compute to develop your training script, then re-use that same environment on Azure Machine Learning Compute to train your model at scale, and finally deploy your model using that same environment.
 
-![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.png)
+![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.PNG)
 
 This article describes how you can
  * Create an environment and specify package dependencies
@@ -139,6 +139,8 @@ run = exp.submit(runconfig)
 
 If you don't specify the environment, the service will create a default environment for you.
 
+To get the environment used for a specific run afterwards, use [__Run.get_environment()__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--) method.
+
 If you are using [__Estimator__](how-to-train-ml-models.md), you can simply sumbit the Estimator instance directly, as it already encapsulates the environment and compute target. 
 
 > [!NOTE]
@@ -178,9 +180,24 @@ Learn more about [deploying web services](how-to-deploy-and-where.md).
 The environment is automatically registered with your workspace when you submit a run or deploy a web service. You can also manually register the environment using [__Environment.register__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#register-workspace-) method. This
 operation makes the environment into an entity that is tracked and versioned in cloud, and can be shared between workspace users.
 
+### Build environment manually
+
+You can build an environment as Docker image and monitor the output logs from image build using
+
+```python
+build = env.build()
+build.wait_for_completion(show_output=True)
+```
+
+The built image then appears under the Workspace Azure Container Registry.
+
 ### Retrieve existing environment
 
-You can use [__Environment.list__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-) method to view the environments in your workspace, and then select one to re-use.
+You can use [__Environment.list__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-) method to view the environments in your workspace, and then select one to re-use. To get a specific version of an environment, you can use [__Environment.get__](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) method.
+
+Also, registered environments appear as a dictionary under Workspace object. You can use _env = ws.environments["my-env"]_ to get a specific named environment from Workspace instance _ws_.
+
+
 
 ### Update existing environment 
 
