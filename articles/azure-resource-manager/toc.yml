@@ -87,6 +87,8 @@
     items:
     - name: Create template
       href: how-to-create-template.md
+    - name: Child resource name and type
+      href: child-resource-name-type.md
     - name: Create resource groups and resources at subscription
       displayName: subscription level deployment
       href: deploy-to-subscription.md

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: roiyz
 
 ---
@@ -28,10 +28,7 @@ Azure Monitor logs provides monitoring capabilities across cloud and on-premises
 
 ### Operating system
 
-The Log Analytics agent extension for Windows supports following versions of the Windows operating system:
-
-- Windows Server 2019
-- Windows Server 2008 R2, 2012, 2012 R2, 2016, version 1709 and 1803
+For details about the supported Windows operating systems, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Windows Azure Monitor VM extension and Log Analytics agent bundle for each release. 
@@ -102,7 +99,7 @@ Azure VM extensions can be deployed with Azure Resource Manager templates. The J
 >[!NOTE]
 >The template does not support specifying more than one workspace ID and workspace key when you want to configure the agent to report to multiple workspaces. To configure the agent to report to multiple workspaces, see [Adding or removing a workspace](../../azure-monitor/platform/agent-manage.md#adding-or-removing-a-workspace).  
 
-The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/resource-group-authoring-templates.md#child-resources). 
+The JSON for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/child-resource-name-type.md). 
 
 The following example assumes the Azure Monitor extension is nested inside the virtual machine resource. When nesting the extension resource, the JSON is placed in the `"resources": []` object of the virtual machine.
 

@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ms.collection: M365-identity-device-management
 ---
@@ -40,7 +40,7 @@ Tokens can be acquired from a number of application types: Web applications, Mob
 
 Authentication scenarios involve two activities:
 
-- **Acquiring security tokens** for a protected Web API. Microsoft recommends that you use [authentication libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens, in particular the MicroSoft Authentication Libraries family (MSAL)
+- **Acquiring security tokens** for a protected Web API. Microsoft recommends that you use [authentication libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens, in particular the Microsoft Authentication Libraries family (MSAL)
 - **Protecting a Web API** (or a Web App). One of the challenges of protecting a resource (Web app or Web API) is to validate the security token. Microsoft offers, on some platforms, [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### With users or without users
