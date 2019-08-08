@@ -306,6 +306,8 @@
       items:
       - name: Manage blob properties and metadata (.NET)
         href: storage-blob-properties-metadata.md
+      - name: Copy or abort a blob copy operation (.NET)
+        href: storage-blob-copy-abort.md
     - name: Secure blob data
       items:
       - name: Authorize access to blob data
