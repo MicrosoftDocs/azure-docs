@@ -77,6 +77,13 @@ group, results won't be returned.
 > new subscription added during an active session, the principal must refresh the context. This
 > action happens automatically when logging out and back in.
 
+Azure CLI and Azure PowerShell remove subscriptions from the subscription list that the user doesn't
+have access to prior to running the query. If this validation results in no subscriptions in the
+subscription list, the query is not submitted. When using REST API directly, the subscription list
+is first used to validate access to resources. If there are resources the user can access in the
+subscription list, then the query is run. If there are no subscriptions in the subscription list
+that the user has appropriate rights to, the response is a _403_ (Forbidden).
+
 ## Throttling
 
 As a free service, queries to Resource Graph are throttled to provide the best experience and
