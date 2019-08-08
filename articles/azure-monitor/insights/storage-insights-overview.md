@@ -183,7 +183,7 @@ Now let's change the color theme for the capacity metrics in the report to use g
 
 ### Modify the availability threshold
 
-In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold.  By default, the tile and grid reporting percent availability are configured with a minimum threshold of 90 and maximum threshold of 99. We are going to change the minimum threshold value of the **Availability %** in the **Availability by API** grid to 85%, which means the health state changes to critical if the threshold is 85 percent or less. 
+In this example, we are working with the storage account capacity workbook and demonstrating how to modify the availability threshold. By default, the tile and grid reporting percent availability are configured with a minimum threshold of 90 and maximum threshold of 99. We are going to change the minimum threshold value of the **Availability %** in the **Availability by API** grid to 85%, which means the health state changes to critical if the threshold is 85 percent or less. 
 
 1. Select **Storage accounts** from the portal and then select a storage account from the list.
 
