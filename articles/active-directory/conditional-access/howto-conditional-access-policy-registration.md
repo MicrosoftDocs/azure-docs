@@ -46,4 +46,6 @@ The following policy applies to all selected users, who attempt to register usin
 
 ## Next steps
 
-[Conditional Access policy templates](howto-conditional-access-policy-templates.md)
+[Conditional Access common policies](howto-conditional-access-policy-common.md)
+
+[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

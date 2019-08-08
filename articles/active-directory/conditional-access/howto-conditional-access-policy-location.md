@@ -54,4 +54,6 @@ More information about the location condition in Conditional Access can be found
 
 ## Next steps
 
-[Conditional Access policy templates](howto-conditional-access-policy-templates.md)
+[Conditional Access common policies](howto-conditional-access-policy-common.md)
+
+[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

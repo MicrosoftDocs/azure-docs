@@ -75,7 +75,9 @@ Most users have a normal behavior that can be tracked, when they fall outside of
 
 ## Next steps
 
-[Conditional Access policy templates](howto-conditional-access-policy-templates.md)
+[Conditional Access common policies](howto-conditional-access-policy-common.md)
+
+[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
 [How it works: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 
