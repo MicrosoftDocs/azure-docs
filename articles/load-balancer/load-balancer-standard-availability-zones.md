@@ -197,7 +197,7 @@ Avoid introducing unintended cross-zone dependencies, which will nullify availab
   - When a zone fails, does your end-to-end service understand this and if the state is lost, how will you recover?
   - When a zone returns, does your application understand how to converge safely?
 
-Review [Azure cloud design patterns](../patterns/index.md) to improve the resiliency of your application to failure scenarios.
+Review [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
 
 ### <a name="zonalityguidance"></a> Zone-redundant versus zonal
 
@@ -205,7 +205,7 @@ Zone-redundant can provide a simplicity with a zone-agnostic option and at the s
 
 Zonal can provide an explicit guarantee to a zone, explicitly sharing fate with the health of the zone. Creating a Load Balancer rule with a zonal IP address frontend or zonal internal Load Balancer frontend can be a desirable especially if your attached resource is a zonal virtual machine in the same zone.  Or perhaps your application requires explicit knowledge about which zone a resource is located in ahead of time and you wish to reason about availability in separate zones explicitly.  You can choose to expose multiple zonal frontends for an end-to-end service distributed across zones (that is, per zone zonal frontends for multiple zonal virtual machine scale sets).  And if your zonal frontends are public IP addresses, you can use these multiple zonal frontends for exposing your service with [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Or you can use multiple zonal frontends to gain per zone health and performance insights through third party monitoring solutions and expose the overall service with a zone-redundant frontend. You should only serve zonal resources with zonal frontends aligned to the same zone and avoid potentially harmful cross-zone scenarios for zonal resources.  Zonal resources only exist in regions where availability zones exist.
 
-There's no general guidance that one is a better choice than the other without knowing the service architecture.  Review [Azure cloud design patterns](../patterns/index.md) to improve the resiliency of your application to failure scenarios.
+There's no general guidance that one is a better choice than the other without knowing the service architecture.  Review [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
 
 ## Limitations
 
@@ -216,4 +216,4 @@ There's no general guidance that one is a better choice than the other without k
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md)
 - Learn how to [load balance VMs within a zone using a Standard Load Balancer with a zonal frontend](load-balancer-standard-public-zonal-cli.md)
 - Learn how to [load balance VMs across zones using a Standard Load Balancer with a zone-redundant frontend](load-balancer-standard-public-zone-redundant-cli.md)
-- Learn about [Azure cloud design patterns](../patterns/index.md) to improve the resiliency of your application to failure scenarios.
+- Learn about [Azure cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/) to improve the resiliency of your application to failure scenarios.
