@@ -74,7 +74,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
    After all these processes finish, the Azure DevOps Project dashboard displays in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal.
 
-   This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Azure Cosmos DB. You can configure additional CI/CD options in your Azure DevOps pipeline. On the right side of the dashboard, select **Azure Cosmos DB** to view these options.
+   This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Azure Cosmos DB database. You can configure additional CI/CD options in your Azure DevOps pipeline. On the right side of the dashboard, select **Azure Cosmos DB** to view these options.
 
 ## Examine Azure Cosmos DB
 
