@@ -1,5 +1,7 @@
 - name: Event Grid IoT Edge Documentation
   href: 
+- name: Switch to Azure Event Grid documentation
+  href: ../overview.md 
 - name: Tutorials
   items:
   - name: Publish and subscribe to events locally
