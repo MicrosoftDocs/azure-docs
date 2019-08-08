@@ -43,6 +43,7 @@ For a user to manually trigger a profiler session, they require at minimum "writ
 ![Trigger Settings Flyout][trigger-settings-flyout]
 
 Clicking the Triggers button on the menu bar opens the trigger settings box. You can set up trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
+
 | | |
 |-|-|
 On / Off Button | On: profiler can be started by this trigger; Off: profiler won't be started by this trigger.
@@ -52,6 +53,7 @@ Cooldown | Sets the length of time the profiler will wait before checking for th
 
 ## Recent Profiling Sessions
 This section of the page shows information about recent profiling sessions. A profiling session represents the period of time when the profiler agent was taking a profile on one of the machines hosting your application. You can open the profiles from a session by clicking on one of the rows. For each session, we show:
+
 | | |
 |-|-|
 Triggered by | How the session was started, either by a trigger, Profile Now, or default sampling. 
