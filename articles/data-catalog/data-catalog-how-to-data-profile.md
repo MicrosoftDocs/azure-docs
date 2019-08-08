@@ -16,7 +16,6 @@ The **Data Profiling** feature of **Azure Data Catalog** examines the data from 
 ## What is Data Profiling
 Data profiling examines the data in the data source being registered, and collects statistics and information about that data. During data source discovery, these statistics can help you determine the suitability of the data to solve their business problem.
 
-<!-- In [How to discover data sources](data-catalog-how-to-discover.md), you learn about **Azure Data Catalog's** extensive search capabilities including searching for data assets that have a profile. See [How to include a data profile when registering a data source](#howto). -->
 
 The following data sources support data profiling:
 
@@ -42,7 +41,7 @@ Including data profiles when registering data assets helps users answer question
 ## How to include a data profile when registering a data source
 It's easy to include a profile of your data source. When you register a data source, in the **Objects to be registered** panel of the data source registration tool, choose **Include Data Profile**.
 
-![](media/data-catalog-data-profile/data-catalog-register-profile.png)
+![IncludeData Profile checkbox](media/data-catalog-data-profile/data-catalog-register-profile.png)
 
 To learn more about how to register data sources, see [How to register data sources](data-catalog-how-to-register.md) and [Get started with Azure Data Catalog](data-catalog-get-started.md).
 
@@ -57,7 +56,7 @@ To discover data assets that include a data profile, you can include `has:tableD
 ## Viewing data profile information
 Once you find a suitable data source with a profile, you can view the data profile details. To view the data profile, select a data asset and choose **Data Profile** in the Data Catalog portal window.
 
-![](media/data-catalog-data-profile/data-catalog-view.png)
+![Data Profile tab](media/data-catalog-data-profile/data-catalog-view.png)
 
 A data profile in **Azure Data Catalog** shows table and column profile information including:
 
