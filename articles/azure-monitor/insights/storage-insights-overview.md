@@ -60,7 +60,7 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Select any column, including **Availability**, **E2E Latency**, **Server Latency**, and errors reported.  For details on which errors can be shown in the report, see [Transaction Table schema](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema?redirectedfrom=MSDN#transactions-table-schema) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**.  Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+Select any column, including **Availability**, **E2E Latency**, **Server Latency**, and errors reported.  For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**.  Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
 
@@ -76,7 +76,7 @@ You're directed to a report tailored to specific type of storage KPIs that match
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
-Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of storage used for each device type in the account, and total storage used across the account.  
+Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of storage used for each storage type in the account.  
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
