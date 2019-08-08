@@ -82,20 +82,21 @@ You have three options for storing your logs:
 
 ## Metrics
 
-Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected at regular intervals and are useful for alerting because they can be sampled frequently, and an alert can be fired quickly with relatively simple logic.
+Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time. Metrics are collected every minute, and are useful for alerting because they can be sampled frequently. An alert can be fired quickly with relatively simple logic.
 
 The following metrics are available for Azure Firewall:
 
-- **Application rules hit count**
+- **Application rules hit count** - The number of times an application rule has been hit.
 
-     The number of times an application rule has been hit.
+    Unit: count
+
 - **Data processed** - Amount of data traversing the firewall.
 
-    Unit: bytes<br>Reporting Frequency: every minute
+    Unit: bytes
 
 - **Firewall health state** - Indicates the health of the firewall.
 
-    Unit: percent<br>Reporting Frequency: every minute
+    Unit: percent
 
    This metric has two dimensions:
   - **Status**: Possible values are *Healthy*, *Degraded*, *Unhealthy*.
@@ -103,12 +104,13 @@ The following metrics are available for Azure Firewall:
 
 
 
-- **Network rules hit count**
+- **Network rules hit count** - The number of times a network rule has been hit.
 
-   The number of times a network rule has been hit.
+    Unit: count
+
 - **SNAT port utilization** - The percentage of SNAT ports that have been utilized by the firewall.
 
-    Unit: percent<br>Reporting Frequency: every minute
+    Unit: percent
 
    When you add more public IP addresses to your firewall, more SNAT ports are available, reducing the SNAT ports utilization. Additionally, when the firewall scales out for different reasons (for example, CPU or throughput) additional SNAT ports also become available. So effectively, a given percentage of SNAT ports utilization may go down without you adding any public IP addresses, just because the service scaled out. You can directly control the number of public IP addresses available to increase the ports available on your firewall. But, you can't directly control firewall scaling. Currently, SNAT ports are added only for the first five public IP addresses.   
 
