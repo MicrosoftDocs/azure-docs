@@ -1,7 +1,7 @@
 ---
-title: Deploy models with a custom Docker image 
+title: Deploy models with a custom base image
 titleSuffix: Azure Machine Learning service
-description: 'Learn how to use a custom Docker image when deploying your Azure Machine Learning service models. When deploying a trained model, a Docker image is created to host the image, web server, and other components needed to run the service. While Azure Machine Learning service provides a default image for you, you can also use your own image.'
+description: 'Learn how to use a custom Docker base image when deploying your Azure Machine Learning service models. When deploying a trained model, a base container image is deployed to run your model for inference. While Azure Machine Learning service provides a default base image for you, you can also use your own base image.'
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -12,15 +12,17 @@ ms.reviewer: larryfr
 ms.date: 07/11/2019
 ---
 
-# Deploy a model using a custom Docker image
+# Deploy a model using a custom Docker base image
 
-Learn how to use a custom Docker image when deploying trained models with the Azure Machine Learning service.
+Learn how to use a custom Docker base image when deploying trained models with the Azure Machine Learning service.
 
-When you deploy a trained model to a web service or IoT Edge device, a Docker image is created. This image contains the model, conda environment, and assets needed to use the model. It also contains a web server to handle incoming requests when deployed as a web service, and components needed to work with Azure IoT Hub.
+When you deploy a trained model to a web service or IoT Edge device, a package is created which contains a web server to handle incoming requests.
 
-Azure Machine Learning service provides a default Docker image so you don't have to worry about creating one. You can also use a custom image that you create as a _base image_. A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image before deploying it.
+Azure Machine Learning service provides a default Docker base image so you don't have to worry about creating one. You can also use a custom base image that you create as a _base image_. 
 
-Typically, you create a custom image when you want to control component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
+A base image is used as the starting point when an image is created for a deployment. It provides the underlying operating system and components. The deployment process then adds additional components, such as your model, conda environment, and other assets, to the image before deploying it.
+
+Typically, you create a custom base image when you want to use Docker to manage your dependencies, maintain tighter control over  component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
 
 > [!IMPORTANT]
 > When deploying a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
@@ -30,8 +32,8 @@ Typically, you create a custom image when you want to control component versions
 
 This document is broken into two sections:
 
-* Create a custom image: Provides information to admins and DevOps on creating a custom image and configuring authentication to an Azure Container Registry using the Azure CLI and Machine Learning CLI.
-* Use a custom image: Provides information to Data Scientists and DevOps/MLOps on using custom images when deploying a trained model from the Python SDK or ML CLI.
+* Create a custom base image: Provides information to admins and DevOps on creating a custom image and configuring authentication to an Azure Container Registry using the Azure CLI and Machine Learning CLI.
+* Deploy a model using a custom base image: Provides information to Data Scientists and DevOps / ML Engineers on using custom images when deploying a trained model from the Python SDK or ML CLI.
 
 ## Prerequisites
 
@@ -42,7 +44,7 @@ This document is broken into two sections:
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
 * The steps in this document assume that you are familiar with creating and using an __inference configuration__ object as part of model deployment. For more information, see the "prepare to deploy" section of [Where to deploy and how](how-to-deploy-and-where.md#prepare-to-deploy).
 
-## Create a custom image
+## Create a custom base image
 
 The information in this section assumes that you are using an Azure Container Registry to store Docker images. Use the following checklist when planning to create custom images for Azure Machine Learning service:
 
@@ -102,7 +104,7 @@ If you've already trained or deployed models using the Azure Machine Learning se
 
     The `<registry_name>` value is the name of the Azure Container Registry for your workspace.
 
-### Build a custom image
+### Build a custom base image
 
 The steps in this section walk-through creating a custom Docker image in your Azure Container Registry.
 
@@ -155,7 +157,7 @@ For more information on building images with an Azure Container Registry, see [B
 
 For more information on uploading existing images to an Azure Container Registry, see [Push your first image to a private Docker container registry](/azure/container-registry/container-registry-get-started-docker-cli).
 
-## Use a custom image
+## Use a custom base image
 
 To use a custom image, you need the following information:
 
@@ -167,7 +169,7 @@ To use a custom image, you need the following information:
 
     If you do not have this information, speak to the administrator for the Azure Container Registry that contains your image.
 
-### Publicly available images
+### Publicly available base images
 
 Microsoft provides several docker images on a publicly accessible repository, which can be used with the steps in this section:
 
