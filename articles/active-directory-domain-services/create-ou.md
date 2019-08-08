@@ -1,6 +1,6 @@
 ---
 title: Create an organizational unit (OU) in Azure AD Domain Services | Microsoft Docs'
-description: Learn how to create and manager a custom Organizational Unit (OU) in an Azure AD Domain Services managed domain.
+description: Learn how to create and manage a custom Organizational Unit (OU) in an Azure AD Domain Services managed domain.
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -16,9 +16,11 @@ ms.author: iainfou
 ---
 # Create an Organizational Unit (OU) in an Azure AD Domain Services managed domain
 
-Azure AD Domain Services managed domains include two built-in containers called 'AADDC Computers' and 'AADDC Users' respectively. The 'AADDC Computers' container has computer objects for all computers that are joined to the managed domain. The 'AADDC Users' container includes users and groups in the Azure AD tenant. Occasionally, it may be necessary to create service accounts on the managed domain to deploy workloads. For this purpose, you can create a custom Organizational Unit (OU) on the managed domain and create service accounts within that OU.
+Organizational units (OUs) in Active Directory Domain Services (AD DS) let you logically group objects such as user accounts, service accounts, or computer accounts. You can then assign administrators to specific OUs, and apply group policy to enforce targeted configuration settings.
 
-This article shows you how to create an OU in your managed domain.
+Azure AD DS managed domains include two built-in OUs - *AADDC Computers* and *AADDC Users*. The *AADDC Computers* OU contains computer objects for all computers that are joined to the managed domain. The *AADDC Users* OU includes users and groups synchronized in from the Azure AD tenant. As you create and run workloads that use Azure AD DS, you may need to create service accounts for applications to authenticate themselves. To organize these service accounts, you often create a custom OU in the Azure AD DS managed domain and then create service accounts within that OU.
+
+This article shows you how to create an OU in your Azure AD DS managed domain.
 
 [!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
@@ -38,11 +40,11 @@ To complete this article, you need the following resources and privileges:
 
 ## Custom OU considerations and limitations
 
-When you create custom OUs in an Azure AD DS managed domain, you gain additional management flexibility for user management and applying group policy.
+When you create custom OUs in an Azure AD DS managed domain, you gain additional management flexibility for user management and applying group policy. Compared to an on-premises AD DS environment, there are some limitations and considerations when creating and managing a custom OU structure in Azure AD DS:
 
 * To create custom OUs, users must be a member of the *AAD DC Administrators* group.
-* A user that creates a custom OU is granted administrative privileges (full control) over that OU. The user can then grant privileges to other users, or to the *AAD DC Administrators* group.
-    * This assignment of privileges should be performed for each custom OU to make sure that other Azure AD DS administrators can manage the custom OUs.
+* A user that creates a custom OU is granted administrative privileges (full control) over that OU and is the resource owner.
+    * By default, the *AAD DC Administrators* group also has full control of the custom OU.
 * A default OU for *AADDC Users* is created that contains the synchronized user accounts from your Azure AD tenant.
     * You can't move users or groups from the *AADDC Users* OU to custom OUs that you create. Only user accounts or resources created in the Azure AD DS managed domain can be moved into custom OUs.
 * User accounts, groups, service accounts, and computer objects that you create under custom OUs aren't available in your Azure AD tenant.
@@ -57,7 +59,7 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
 
 1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
 1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
-1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*. A list of existing OUs and resources are shown:
+1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*. A list of existing OUs and resources is shown:
 
     ![Select your Azure AD DS managed domain in the Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
@@ -74,6 +76,8 @@ To create a custom OU, you use the Active Directory Administrative Tools from a 
     ![Custom OU available for use in the Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/create-ou-done.png)
 
 ## Next steps
+
+For more information on using the administrative tools or creating and using service accounts, see the following articles:
 
 * [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
 * [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)
