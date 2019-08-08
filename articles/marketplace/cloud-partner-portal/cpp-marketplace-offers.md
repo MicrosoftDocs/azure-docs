@@ -13,7 +13,7 @@ ms.author: pabutler
 
 This first part of this section introduces the general operations used to create and manage offers for the Azure and AppSource Marketplaces.  This part provides the background you need to understand to manage specific offer types, as well as technical information that is common to all offer types.  The majority of this section contains detailed instructions on how to create and manage specific offer types.  
 
-The following video introduces the various capabilities and different offers types available in Azure Marketplace or AppSource.  It also covers important technical and business aspects of publishing an application or service in these marketplaces.
+The following video introduces the various capabilities and different offer types available in Azure Marketplace or AppSource.  It also covers important technical and business aspects of publishing an application or service in these marketplaces.
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
@@ -46,7 +46,7 @@ The following table lists the current offer types supported by the [Cloud Partne
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | A package that extends this enterprise resource planning (ERP) and business management system. |
 | [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | A package that extends this customer resource management (CRM) system, through its sales, service, project service, and field service modules  |
 | [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | A package that extends this enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management |
-| [IoT Edge module](./iot-edge-module/cpp-offer-process-parts.md) | Azure | A Docker-compatible container that runs on an IoT Edge device.  It contains of    Small computational modules that use a combination of custom code, other Azure services, and 3rd-party services. |
+| [IoT Edge module](./iot-edge-module/cpp-offer-process-parts.md) | Azure | A Docker-compatible container that runs on an IoT Edge device.  It consists of    Small computational modules that use a combination of custom code, other Azure services, and 3rd-party services. |
 | [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | A Power BI app that packages customizable Power BI content including datasets, reports, and dashboards |
 | [SaaS app](./saas-app/cpp-saas-offer.md) | Azure | Solution is a software-as-a-service subscription, managed by the publisher, which users sign in through a customized interface that uses Azure Active Directory. |
 | [Virtual machine](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Solution is contained within a single virtual machine deployed to the customer's subscription.  |

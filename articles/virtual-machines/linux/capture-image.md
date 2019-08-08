@@ -36,9 +36,9 @@ You'll need the following items before creating an image:
 
 * The latest [Azure CLI](/cli/azure/install-az-cli2) installed and be logged in to an Azure account with [az login](/cli/azure/reference-index#az-login).
 
-## Quick commands
+## Prefer a tutorial instead?
 
-For a simplified version of this article, and for testing, evaluating, or learning about VMs in Azure, see [Create a custom image of an Azure VM by using the CLI](tutorial-custom-images.md).
+For a simplified version of this article, and for testing, evaluating, or learning about VMs in Azure, see [Create a custom image of an Azure VM by using the CLI](tutorial-custom-images.md).  Otherwise, keep reading here to get the full picture.
 
 
 ## Step 1: Deprovision the VM
@@ -54,7 +54,7 @@ First you'll deprovision the VM by using the Azure VM agent to delete machine-sp
    > Only run this command on a VM that you'll capture as an image. This command does not guarantee that the image is cleared of all sensitive information or is suitable for redistribution. The `+user` parameter also removes the last provisioned user account. To keep user account credentials in the VM, use only `-deprovision`.
  
 3. Enter **y** to continue. You can add the `-force` parameter to avoid this confirmation step.
-4. After the command completes, enter **exit** to close the SSH client.
+4. After the command completes, enter **exit** to close the SSH client.  Note that the VM will still be running at this point.
 
 ## Step 2: Create VM image
 Use the Azure CLI to mark the VM as generalized and capture the image. In the following examples, replace example parameter names with your own values. Example parameter names include *myResourceGroup*, *myVnet*, and *myVM*.
@@ -89,6 +89,8 @@ Use the Azure CLI to mark the VM as generalized and capture the image. In the fo
    > The image is created in the same resource group as your source VM. You can create VMs in any resource group within your subscription from this image. From a management perspective, you may wish to create a specific resource group for your VM resources and images.
    >
    > If you would like to store your image in zone-resilient storage, you need to create it in a region that supports [availability zones](../../availability-zones/az-overview.md) and include the `--zone-resilient true` parameter.
+   
+This command will return JSON describing the VM image.  Save this output for later reference.  At this point, the VM from which the image was created will have been shut down by Azure in the process of executing the preceding commands. 
 
 ## Step 3: Create a VM from the captured image
 Create a VM by using the image you created with [az vm create](/cli/azure/vm). The following example creates a VM named *myVMDeployed* from the image named *myImage*.
