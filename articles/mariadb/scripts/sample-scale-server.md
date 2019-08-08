@@ -18,7 +18,8 @@ This sample CLI script scales compute and storage for a single Azure Database fo
 If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
 
 ## Sample script
-Replace the subscription ID with your own subscription id.
+Update the script with your subscription ID.
+[!code-azurecli-interactive[main](../../../cli_scripts/mariadb/scale-mariadb-server/scale-mariadb-server.sh?highlight=7 "Create and scale Azure Database for MariaDB.")]
 
 ## Clean up deployment
 Use the following command to remove the resource group and all resources associated with it after the script has been run. 

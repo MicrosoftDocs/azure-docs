@@ -18,6 +18,7 @@ If you choose to run the CLI locally, this article requires Azure CLI version 2.
 
 ## Sample script
 Replace the subscription ID with your own subscription id.
+[!code-azurecli-interactive[main](../../../cli_scripts/postgresql/scale-postgresql-server/scale-postgresql-server.sh?highlight=7 "Create and scale Azure Database for PostgreSQL.")]
 
 ## Clean up deployment
 Use the following command to remove the resource group and all resources associated with it after the script has been run. 
