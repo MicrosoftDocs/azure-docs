@@ -13,7 +13,7 @@ ms.author: sstein
 ms.reviewer: 
 ms.date: 03/11/2019
 ---
-# Choose the right SQL Server option in Azure
+# Choose the right deployment option in Azure SQL
 
 In Azure, you can have your SQL Server workloads running in a hosted infrastructure (IaaS) or running as a hosted service ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). Within PaaS, you have multiple deployment options and service tiers within each deployment option. The key question that you need to ask when deciding between PaaS or IaaS is do you want to manage your database, apply patches, take backups, or you want to delegate these operations to Azure?
 Depending on the answer, you have the following options:
