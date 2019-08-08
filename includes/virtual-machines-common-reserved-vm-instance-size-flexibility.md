@@ -320,14 +320,6 @@ For more information, see [High performance compute VM sizes](../articles/virtua
 
 For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
 
-## HBS-series
-
-| Size | Ratio|
-|---|---|
-|Standard_HB60rs|1|
-
-For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
-
 ## H Series Low Latency-series
 
 | Size | Ratio|
@@ -341,15 +333,6 @@ For more information, see [Storage optimized virtual machine sizes](../articles/
 | Size | Ratio|
 |---|---|
 |Standard_H16mr|1|
-
-For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
-
-## H-series
-
-| Size | Ratio|
-|---|---|
-|Standard_H8|1|
-|Standard_H16|2|
 
 For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
 
