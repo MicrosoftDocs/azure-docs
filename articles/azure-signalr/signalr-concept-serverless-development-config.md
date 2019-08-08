@@ -122,7 +122,7 @@ Example:
 To enable CORS on an Azure Function app, go to the CORS configuration screen under the *Platform features* tab of your Function app in the Azure portal.
 
 > [!NOTE]
-> CORS configuration is not yet available in the Azure Functions Linux Consumption plan. Use [Azure API Management](#cloud-azure-api-management) to enable CORS.
+> CORS configuration is not yet available in the Azure Functions Linux Consumption plan. Use [Azure API Management](#cloud---azure-api-management) to enable CORS.
 
 CORS with Access-Control-Allow-Credentials must be enabled for the SignalR client to call the negotiate function. Select the checkbox to enable it.
 
