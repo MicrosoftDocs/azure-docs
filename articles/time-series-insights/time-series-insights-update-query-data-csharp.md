@@ -10,7 +10,7 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 05/09/2019
+ms.date: 08/06/2019
 ms.custom: seodec18
 ---
 
