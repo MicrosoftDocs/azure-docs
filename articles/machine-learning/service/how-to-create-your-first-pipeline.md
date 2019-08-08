@@ -16,7 +16,10 @@ ms.custom: seodec18
 
 # Create and run a machine learning pipeline by using Azure Machine Learning SDK
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  These pipelines help create and manage the workflows that stitch together various machine learning phases. 
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with other.  
+
+While you can use an [Azure Pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) to automate (CI/CD) ml tasks as well, but this type of pipeline is not stored inside your workspace. [Compare these types of pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+
 Each phase of a pipeline, such as data preparation and model training, can include one or more steps.
 
 The pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
