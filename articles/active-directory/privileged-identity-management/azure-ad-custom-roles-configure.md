@@ -93,6 +93,7 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
-- [License requirements to use PIM](subscription-requirements.md)
+- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [License requirements to use Privileged Identity Management](subscription-requirements.md)
+- [Deploy Privileged Identity Management](pim-deployment-plan.md)
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Deploy PIM](pim-deployment-plan.md)
