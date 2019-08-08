@@ -88,20 +88,18 @@ Create a new role using the following PowerShell script:
 
 ``` PowerShell
 # Basic role information
-$description = "Application Support Administrator"
-$displayName = "Can manage basic aspects of application registrations."
+$displayName = "Application Support Administrator
+$description = "Can manage basic aspects of application registrations."
 $templateId = (New-Guid).Guid
-
+ 
 # Set of permissions to grant
 $allowedResourceAction =
 @(
     "microsoft.directory/applications/basic/update",
     "microsoft.directory/applications/credentials/update"
 )
-$resourceActions = @{'allowedResourceActions'= $allowedResourceAction}
-$rolePermission = @{'resourceActions' = $resourceActions}
-$rolePermissions = $rolePermission
-
+$rolePermissions = @{'allowedResourceActions'= $allowedResourceAction}
+ 
 # Create new custom admin role
 $customAdmin = New-AzureADMSRoleDefinition -RolePermissions $rolePermissions -DisplayName $displayName -Description $description -TemplateId $templateId -IsEnabled $true
 ```
@@ -113,14 +111,14 @@ Assign the role using the below PowerShell script:
 ``` PowerShell
 # Get the user and role definition you want to link
 $user = Get-AzureADUser -Filter "userPrincipalName eq 'cburl@f128.info'"
-$roleDefinition = Get-AzureADRoleDefinition -Filter "displayName eq ' Application Registration Creator'"
+$roleDefinition = Get-AzureADMSRoleDefinition -Filter "displayName eq 'Application Support Administrator'"
 
 # Get app registration and construct resource scope for assignment.
 $appRegistration = Get-AzureADApplication -Filter "displayName eq 'f/128 Filter Photos'"
-$resourceScopes = '/' + $appRegistration.objectId
+$resourceScope = '/' + $appRegistration.objectId
 
 # Create a scoped role assignment
-$roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -RoleDefinitionId $roleDefinition.objectId -PrincipalId $user.objectId
+$roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -RoleDefinitionId $roleDefinition.Id -PrincipalId $user.objectId
 ```
 
 ## Create a custom role using Microsoft Graph API
@@ -138,16 +136,20 @@ $roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -Rol
     Body
 
     ``` HTTP
-    {
-    "description":"Can manage basic aspects of application registrations.",
-    "displayName":"Application Support Administrator",
-    "isEnabled":true,
-    "rolePermissions":
-    [
-        "microsoft.directory/applications/basic/update",
-        "microsoft.directory/applications/credentials/update"
-    ]
-    }
+   {
+       "description": "Can manage basic aspects of application registrations.",
+       "displayName": "Application Support Administrator",
+       "isEnabled": true,
+       "templateId": "<GUID>",
+       "rolePermissions": [
+           {
+               "allowedResourceActions": [
+                   "microsoft.directory/applications/basic/update",
+                   "microsoft.directory/applications/credentials/update"
+               ]
+           }
+       ]
+   }
     ```
 
 1. Create the role assignment.
@@ -163,11 +165,11 @@ $roleAssignment = New-AzureADRoleAssignment -ResourceScopes $resourceScopes -Rol
     Body
 
     ``` HTTP
-    {
-    "principalId":"<GUID OF USER>",
-    "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
-    "resourceScope":["/<GUID OF APPLICATION REGISTRATION>"]
-    }
+   {
+       "principalId":"<GUID OF USER>",
+       "roleDefinitionId":"<GUID OF ROLE DEFINITION>",
+       "resourceScope":"/<GUID OF APPLICATION REGISTRATION>"
+   }
     ```
 
 ## Next steps

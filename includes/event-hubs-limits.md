@@ -32,6 +32,8 @@ The following table lists quotas and limits specific to [Azure Event Hubs](https
 | Number of consumer groups per event hub |Entity | - |1 |20 |
 | Number of AMQP connections per namespace |Namespace |Subsequent requests for additional connections are rejected, and an exception is received by the calling code. |100 |5,000|
 | Maximum retention period of event data |Entity | - |1 day |1-7 days |
+|Apache Kafka enabled namespace|Namespace |Event Hubs namespace streams applications using Kafka protocol |No | Yes |
+|Capture |Entity | When enabled, micro-batches on the same stream |No |Yes |
 
 
 ### Event Hubs Dedicated - quotas and limits
