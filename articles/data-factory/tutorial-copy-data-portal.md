@@ -67,29 +67,21 @@ Now, prepare your Blob storage and SQL database for the tutorial by performing t
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, take the following steps:
-
-    a. On the left, select **More services** > **SQL servers**.
-
-    b. Select your server, and under **SETTINGS** select **Firewall**.
-
-    c. On the **Firewall settings** page, select **ON** for **Allow access to Azure services**.
+1. Allow Azure services to access SQL Server. Ensure that **Allow access to Azure services** is turned **ON** for your SQL Server so that Data Factory can write data to your SQL Server. To verify and turn on this setting, go to Azure SQL server > Overview > Set server firewall> set the **Allow access to Azure services** option to **ON**.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
 
 1. Open **Microsoft Edge** or **Google Chrome**. Currently, Data Factory UI is supported only in Microsoft Edge and Google Chrome web browsers.
-2. On the left menu, select **Create a resource** > **Data + Analytics** > **Data Factory**: 
+2. On the left menu, select **Create a resource** > **Analytics** > **Data Factory**: 
   
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 
 3. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**. 
-      
-     ![New data factory](./media/tutorial-copy-data-portal/new-azure-data-factory.png)
  
-   The name of the Azure data factory must be *globally unique*. If you see the following error message for the name field, change the name of the data factory (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
-  
-   ![Error message](./media/tutorial-copy-data-portal/name-not-available-error.png)
+   The name of the Azure data factory must be *globally unique*. If you receive an error message about the name value, enter a different name for the data factory. (for example, yournameADFTutorialDataFactory). For naming rules for Data Factory artifacts, see [Data Factory naming rules](naming-rules.md).
+        
+     ![New data factory](./media/doc-common-process/name-not-available-error.png)
 4. Select the Azure **subscription** in which you want to create the data factory. 
 5. For **Resource Group**, take one of the following steps:
      
@@ -100,15 +92,10 @@ In this step, you create a data factory and start the Data Factory UI to create 
     To learn about resource groups, see [Use resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md). 
 6. Under **Version**, select **V2**.
 7. Under **Location**, select a location for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (for example, Azure Storage and SQL Database) and computes (for example, Azure HDInsight) used by the data factory can be in other regions.
-8. Select **Pin to dashboard**. 
-9. Select **Create**. 
-10. On the dashboard, you see the following tile with the status **Deploying Data Factory**: 
+8. Select **Create**. 
+9. After the creation is finished, you see the notice in Notifications center. Select **Go to resource** to navigate to the Data factory page.
+10. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
-	![Deploying data factory tile](media/tutorial-copy-data-portal/deploying-data-factory.png)
-1. After the creation is finished, you see the **Data factory** page as shown in the image.
-   
-    ![Data factory home page](./media/tutorial-copy-data-portal/data-factory-home-page.png)
-1. Select **Author & Monitor** to launch the Data Factory UI in a separate tab.
 
 ## Create a pipeline
 In this step, you create a pipeline with a copy activity in the data factory. The copy activity copies data from Blob storage to SQL Database. In the [Quickstart tutorial](quickstart-create-data-factory-portal.md), you created a pipeline by following these steps:
@@ -121,10 +108,10 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. On the **Let's get started** page, select **Create pipeline**. 
 
-   ![Create pipeline](./media/tutorial-copy-data-portal/create-pipeline-tile.png)
+   ![Create pipeline](./media/doc-common-process/get-started-page.png)
 1. In the **General** tab for the pipeline, enter **CopyPipeline** for **Name** of the pipeline.
 
-1. In the **Activities** tool box, expand the **Move andTransform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
+1. In the **Activities** tool box, expand the **Move and Transform** category, and drag and drop the **Copy Data** activity from the tool box to the pipeline designer surface. Specify **CopyFromBlobToSql** for **Name**.
 
     ![Copy activity](./media/tutorial-copy-data-portal/drag-drop-copy-activity.png)
 
@@ -132,39 +119,21 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. Go to the **Source** tab. Select **+ New** to create a source dataset. 
 
-1. In the **New Dataset** window, select **Azure Blob Storage**, and then select **Finish**. The source data is in Blob storage, so you select **Azure Blob Storage** for the source dataset. 
+1. In the **New Dataset** dialog box, select **Azure Blob Storage**, and then select **Continue**. The source data is in Blob storage, so you select **Azure Blob Storage** for the source dataset. 
 
-    ![Storage selection](./media/tutorial-copy-data-portal/select-azure-blob-dataset.png)
+1. In the **Select Format** dialog box, choose the format type of your data, and then select **Continue**.
 
-1. You see a new tab opened for blob dataset. On the **General** tab at the bottom of the **Properties** window, enter **SourceBlobDataset** for **Name**.
+    ![Data format type](./media/doc-common-process/select-data-format.png)
 
-    ![Dataset name](./media/tutorial-copy-data-portal/dataset-name.png)
+1. In the **Set Properties** dialog box, enter **SourceBlobDataset** for Name. Next to the **Linked service** text box, select **+ New**. 
+    
+1. In the **New Linked Service (Azure Blob Storage)** dialog box, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account name** list. Test connection, then select **Finish** to deploy the linked service.
 
-1. Go to the **Connection** tab of the **Properties** window. Next to the **Linked service** text box, select **+ New**. 
+1. After the linked service is created, it's navigated back to the **Set properties** page. Next to **File path**, select **Browse**.
 
-    ![New linked service button](./media/tutorial-copy-data-portal/source-dataset-new-linked-service-button.png)
+1. Navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then select **Finish**.
 
-1. In the **New Linked Service** window, enter **AzureStorageLinkedService** as name, select your storage account from the **Storage account name** list, then select **Save** to deploy the linked service.
-
-    ![New linked service](./media/tutorial-copy-data-portal/new-azure-storage-linked-service.png)
-
-1. After the linked service is created, you are back in the dataset settings. Next to **File path**, select **Browse**.
-
-    ![Browse button for file path](./media/tutorial-copy-data-portal/file-browse-button.png)
-
-1. Navigate to the **adftutorial/input** folder, select the **emp.txt** file, and then select **Finish**. 
-
-    ![Select input file](./media/tutorial-copy-data-portal/select-input-file.png)
-
-1. Confirm that **File format** is set to **Text format** and that **Column delimiter** is set to **Comma (`,`)**. If the source file uses different row and column delimiters, you can select **Detect Text Format** for **File format**. The Copy Data tool detects the file format and delimiters automatically for you. You can still override these values. To preview data on this page, select **Preview data**.
-
-    ![Detect text format](./media/tutorial-copy-data-portal/detect-text-format.png)
-
-1. Go to the **Schema** tab of the **Properties** window, and select **Import Schema**. Notice that the application detected two columns in the source file. You import the schema here so that you can map columns from the source data store to the sink data store. If you don't need to map columns, you can skip this step. For this tutorial, import the schema.
-
-    ![Detect source schema](./media/tutorial-copy-data-portal/detect-source-schema.png)  
-
-1. Now, go back to the pipeline -> **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**. 
+1. It automatically navigates to the pipeline page. In **Source** tab, confirm that **SourceBlobDataset** is selected. To preview data on this page, select **Preview data**. 
     
     ![Source dataset](./media/tutorial-copy-data-portal/source-dataset-selected.png)
 
@@ -172,17 +141,11 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
 1. Go to the **Sink** tab, and select **+ New** to create a sink dataset. 
 
-    ![Sink dataset](./media/tutorial-copy-data-portal/new-sink-dataset-button.png)
-1. In the **New Dataset** window, input "SQL" in the search box to filter the connectors, then select **Azure SQL Database**, and then select **Finish**. In this tutorial, you copy data to a SQL database. 
+1. In the **New Dataset** dialog box, input "SQL" in the search box to filter the connectors, select **Azure SQL Database**, and then select **Continue**. In this tutorial, you copy data to a SQL database. 
 
-    ![SQL database selection](./media/tutorial-copy-data-portal/select-azure-sql-dataset.png)
-1. On the **General** tab of the **Properties** window, in **Name**, enter **OutputSqlDataset**. 
-    
-    ![Output dataset name](./media/tutorial-copy-data-portal/output-dataset-name.png)
-1. Go to the **Connection** tab, and next to **Linked service**, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied. 
-    
-    ![Linked service](./media/tutorial-copy-data-portal/new-azure-sql-database-linked-service-button.png)       
-1. In the **New Linked Service** window, take the following steps: 
+1. In the **Set Properties** dialog box, enter **OutputSqlDataset** for Name. Next to the **Linked service** text box, select **+ New**. A dataset must be associated with a linked service. The linked service has the connection string that Data Factory uses to connect to the SQL database at runtime. The dataset specifies the container, folder, and the file (optional) to which the data is copied. 
+      
+1. In the **New Linked Service (Azure SQL Database)** dialog box, take the following steps: 
 
     a. Under **Name**, enter **AzureSqlDatabaseLinkedService**.
 
@@ -196,33 +159,19 @@ In this tutorial, you start with creating the pipeline. Then you create linked s
 
     f. Select **Test connection** to test the connection.
 
-    g. Select **Save** to save the linked service. 
+    g. Select **Finish** to deploy the linked service. 
     
     ![Save new linked service](./media/tutorial-copy-data-portal/new-azure-sql-linked-service-window.png)
 
-1. In **Table**, select **[dbo].[emp]**. 
+1. It automatically navigates to the **Set Properties** dialog box. In **Table**, select **[dbo].[emp]**. Then select **Finish**.
 
-    ![Table](./media/tutorial-copy-data-portal/select-emp-table.png)
-1. Go to the **Schema** tab, and select **Import Schema**. 
-
-    ![Select import schema](./media/tutorial-copy-data-portal/import-destination-schema.png)
-1. Select the **ID** column, and then select **Delete**. The **ID** column is an identity column in the SQL database, so the copy activity doesn't need to insert data into this column.
-
-    ![Delete ID column](./media/tutorial-copy-data-portal/delete-id-column.png)
 1. Go to the tab with the pipeline, and in **Sink Dataset**, confirm that **OutputSqlDataset** is selected.
 
-    ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)        
-
-### Configure mapping
-
-Go to the **Mapping** tab at the bottom of the **Properties** window, and select **Import Schemas**. Notice that the first and second columns in the source file are mapped to **FirstName** and **LastName** in the SQL database.
-
-![Map schemas](./media/tutorial-copy-data-portal/map-schemas.png)
-
+    ![Pipeline tab](./media/tutorial-copy-data-portal/pipeline-tab-2.png)       
 ## Validate the pipeline
 To validate the pipeline, select **Validate** from the tool bar.
  
-You can see the JSON code associated with the pipeline by clicking **Code** on the upper-right.
+You can see the JSON code associated with the pipeline by clicking **Code** on the upper right.
 
 ## Debug and publish the pipeline
 You can debug a pipeline before you publish artifacts (linked services, datasets, and pipeline) to Data Factory or your own Azure Repos Git repository. 
@@ -231,33 +180,32 @@ You can debug a pipeline before you publish artifacts (linked services, datasets
 
 1. Once the pipeline can run successfully, in the top toolbar, select **Publish All**. This action publishes entities (datasets, and pipelines) you created to Data Factory.
 
-    ![Publish](./media/tutorial-copy-data-portal/publish-button.png)
-
 1. Wait until you see the **Successfully published** message. To see notification messages, click the **Show Notifications**  on the top-right (bell button). 
 
 ## Trigger the pipeline manually
 In this step, you manually trigger the pipeline you published in the previous step. 
 
-1. Select **Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **Finish**.  
+1. Select **Add Trigger** on the toolbar, and then select **Trigger Now**. On the **Pipeline Run** page, select **Finish**.  
 
 1. Go to the **Monitor** tab on the left. You see a pipeline run that is triggered by a manual trigger. You can use links in the **Actions** column to view activity details and to rerun the pipeline.
 
     ![Monitor pipeline runs](./media/tutorial-copy-data-portal/monitor-pipeline.png)
-1. To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. In this example, there is only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Select **Pipelines** at the top to go back to the **Pipeline Runs** view. To refresh the view, select **Refresh**.
+
+1. To see activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. In this example, there's only one activity, so you see only one entry in the list. For details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. Select **Pipeline Runs** at the top to go back to the Pipeline Runs view. To refresh the view, select **Refresh**.
 
     ![Monitor activity runs](./media/tutorial-copy-data-portal/view-activity-runs.png)
+
 1. Verify that two more rows are added to the **emp** table in the SQL database. 
 
 ## Trigger the pipeline on a schedule
-In this schedule, you create a schedule trigger for the pipeline. The trigger runs the pipeline on the specified schedule, such as hourly or daily. In this example, you set the trigger to run every minute until the specified end datetime. 
+In this schedule, you create a schedule trigger for the pipeline. The trigger runs the pipeline on the specified schedule, such as hourly or daily. Here you set the trigger to run every minute until the specified end datetime. 
 
 1. Go to the **Author** tab on the left above the monitor tab. 
 
-1. Go to your pipeline, click **Trigger** on the tool bar, and select **New/Edit**. 
+1. Go to your pipeline, click **Add Trigger** on the tool bar, and select **New/Edit**. 
 
-1. In the **Add Triggers** window, select **Choose trigger**, and then select **+ New**. 
+1. In the **Add Triggers** dialog box, select **+ New** for **Choose trigger** area.
 
-    ![New button](./media/tutorial-copy-data-portal/add-trigger-new-button.png)
 1. In the **New Trigger** window, take the following steps: 
 
     a. Under **Name**, enter **RunEveryMinute**.
@@ -268,13 +216,11 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
     d. Select the **current day** option. By default, the end day is set to the next day.
 
-    e. Update the **minutes** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. If you set it to only a couple of minutes apart and you don't publish it by then, you don't see a trigger run.
+    e. Update the **End Time** part to be a few minutes past the current datetime. The trigger is activated only after you publish the changes. If you set it to only a couple of minutes apart, and you don't publish it by then, you don't see a trigger run.
 
     f. Select **Apply**. 
 
-    ![Trigger properties](./media/tutorial-copy-data-portal/set-trigger-properties.png)
-
-    g. Select the **Activated** option. You can deactivate it and activate it later by using this check box.
+    g. For **Activated** option, select **Yes**. 
 
     h. Select **Next**.
 
@@ -284,19 +230,16 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
     > A cost is associated with each pipeline run, so set the end date appropriately. 
 1. On the **Trigger Run Parameters** page, review the warning, and then select **Finish**. The pipeline in this example doesn't take any parameters. 
 
-    ![Trigger run parameters](./media/tutorial-copy-data-portal/trigger-pipeline-parameters.png)
-
 1. Click **Publish All** to publish the change. 
 
 1. Go to the **Monitor** tab on the left to see the triggered pipeline runs. 
 
-    ![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)    
-1. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Pipeline Runs** and then select **Trigger Runs**.
-    
-    ![Trigger runs](./media/tutorial-copy-data-portal/trigger-runs-menu.png)
+    ![Triggered pipeline runs](./media/tutorial-copy-data-portal/triggered-pipeline-runs.png)   
+ 
+1. To switch from the **Pipeline Runs** view to the **Trigger Runs** view, select **Trigger Runs** on the top of the window.
+
 1. You see the trigger runs in a list. 
 
-    ![Trigger runs list](./media/tutorial-copy-data-portal/trigger-runs-list.png)
 1. Verify that two rows per minute (for each pipeline run) are inserted into the **emp** table until the specified end time. 
 
 ## Next steps

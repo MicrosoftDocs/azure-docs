@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/01/2019
+ms.date: 08/06/2019
 ms.author: roiyz
 
 ---
@@ -33,36 +33,7 @@ Azure Monitor logs provides monitoring, alerting, and alert remediation capabili
 
 ### Operating system
 
-The Log Analytics Agent extension can be run against these Linux distributions.
-
-| Distribution | Version |
-|---|---|
-| CentOS Linux | 6 (x86/x64) and 7 (x64) |
-| Amazon Linux | 2017.09 (x64) | 
-| Oracle Linux | 6 and 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 6 (x86/x64) and 7 (x64) |
-| Debian GNU/Linux | 8 and 9 (x86/x64) |
-| Ubuntu | 14.04 LTS (x86/x64), 16.04 LTS (x86/x64), and 18.04 LTS (x64) |
-| SUSE Linux Enterprise Server | 12 (x64) and 15 (x64) |
-
->[!NOTE]
->OpenSSL lower than version 1.x is not supported on any platform, and version 1.10 is only supported on x86_64 platforms (64-bit).  
->
-
-### Agent prerequisites
-
-The following table highlights the packages required for supported Linux distros that the agent will be installed on.
-
-|Required package |Description |Minimum version |
-|-----------------|------------|----------------|
-|Glibc |	GNU C Library | 2.5-12 
-|Openssl	| OpenSSL Libraries | 1.0.x or 1.1.x |
-|Curl | cURL web client | 7.15.5 |
-|Python-ctypes | | 
-|PAM | Pluggable Authentication Modules | | 
-
->[!NOTE]
->Either rsyslog or syslog-ng are required to collect syslog messages. The default syslog daemon on version 5 of Red Hat Enterprise Linux, CentOS, and Oracle Linux version (sysklog) is not supported for syslog event collection. To collect syslog data from this version of these distributions, the rsyslog daemon should be installed and configured to replace sysklog.
+For details about the supported Linux distributions, refer to the [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) article.
 
 ### Agent and VM Extension version
 The following table provides a mapping of the version of the Azure Monitor VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
@@ -205,8 +176,8 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
-  --settings '{"workspaceId": "omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
+  --settings '{"workspaceId":"omsid"}'
 ```
 
 ## Troubleshoot and support
