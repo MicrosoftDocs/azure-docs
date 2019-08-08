@@ -1,10 +1,20 @@
 {
   "redirections": [
+    { 
+        "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md", 
+        "redirect_url": "/azure/azure-government/documentation-government-welcome", 
+        "redirect_document_id": false 
+    },
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
       "redirect_document_id": true
     }, 
+    {
+      "source_path": "articles/machine-learning/service/setup-create-workspace.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
@@ -27735,7 +27745,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/azure/active-directory/authentication/howto-authentication-phone-sign-in.md",
+      "source_path": "articles/active-directory/authentication/howto-authentication-phone-sign-in.md",
       "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
       "redirect_document_id": true
     },
@@ -32297,6 +32307,16 @@
     {
       "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
       "redirect_document_id": false
     },
     {

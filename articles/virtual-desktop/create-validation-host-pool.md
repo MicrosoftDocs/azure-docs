@@ -41,7 +41,7 @@ Set-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv
 Run the following PowerShell cmdlet to confirm that the validation property has been set. Replace the values in quotes by the values relevant to your session.
 
 ```powershell
-Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool" -ValidationEnv $true
+Get-RdsHostPool -TenantName $myTenantName -Name "contosoHostPool"
 ```
 
 The results from the cmdlet should look similar to this output:

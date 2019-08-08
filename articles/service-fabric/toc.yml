@@ -197,6 +197,8 @@
     items:
     - name: Application model
       href: service-fabric-application-model.md
+    - name: Create application model templates
+      href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
     - name: Application and service manifest examples
