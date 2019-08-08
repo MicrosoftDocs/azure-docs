@@ -23,7 +23,7 @@ This article provides detailed information about *advanced security settings*, b
 
 ## Prerequisites
 
-Create an Azure Machine Learning service [workspace](setup-create-workspace.md) if you don't already have one. This article assumes that you're familiar with Azure Virtual Networks, and with IP networking in general. The article also assumes that you've created a virtual network and subnet to use with your compute resources. If you're unfamiliar with Azure Virtual Networks, read the following articles to learn about the service:
+Create an Azure Machine Learning service [workspace](how-to-manage-workspace.md) if you don't already have one. This article assumes that you're familiar with both Azure Virtual Networks and IP networking in general. The article also assumes that you've created a virtual network and subnet to use with your compute resources. If you're unfamiliar with Azure Virtual Networks, read the following articles to learn about the service:
 
 * [IP addressing](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm)
 * [Security groups](https://docs.microsoft.com/azure/virtual-network/security-overview)
@@ -32,7 +32,7 @@ Create an Azure Machine Learning service [workspace](setup-create-workspace.md) 
 
 ## Storage account for your workspace
 
-To use the default Azure storage account for the workspace in a virtual network, do the following:
+To use an Azure storage account for the workspace in a virtual network, do the following:
 
 1. Create an experimentation compute instance (for example, a Machine Learning Compute instance) behind a virtual network, or attach an experimentation compute instance to the workspace (for example, an HDInsight cluster or virtual machine). 
 
@@ -54,11 +54,13 @@ To use the default Azure storage account for the workspace in a virtual network,
     ```
 
 > [!IMPORTANT]
-> You can place the default storage account for the Azure Machine Learning service in a virtual network _only when you're doing experimentation_.
+> You can place the default storage account for the Azure Machine Learning service in a virtual network _for experimentation only_.
 >
-> For non-default storage accounts for experimentation, or if you're using a storage account for _inference_, you must have unrestricted access to the storage account.
+> You can place _non-default storage accounts_ in a virtual network _for experimentation only_.
 >
-> If you aren't sure whether you've modified these settings, see the "Change the default network access rule" section in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Follow the instructions to allow access from all networks during inference, or model scoring.
+> Both default and non-default storage accounts that are used for _inference_ must have _unrestricted access to the storage account_.
+>
+> If you aren't sure whether you've modified the settings, see the "Change the default network access rule" section in [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security). Follow the instructions to allow access from all networks during inference, or model scoring.
 
 ## A key vault for your workspace
 

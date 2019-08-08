@@ -77,6 +77,10 @@ When you send a cloud-to-device message, the service can request the delivery of
 
 If the **Ack** value is *full*, and you don't receive a feedback message, it means that the feedback message has expired. The service can't know what happened to the original message. In practice, a service should ensure that it can process the feedback before it expires. The maximum expiration time is two days, which leaves time to get the service running again if a failure occurs.
 
+> [!NOTE]
+> When the device is deleted, any pending feedback is deleted as well.
+>
+
 As explained in [Endpoints](iot-hub-devguide-endpoints.md), the IoT hub delivers feedback through a service-facing endpoint, */messages/servicebound/feedback*, as messages. The semantics for receiving feedback are the same as for cloud-to-device messages. Whenever possible, message feedback is batched in a single message, with the following format:
 
 | Property     | Description |

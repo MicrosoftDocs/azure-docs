@@ -144,7 +144,7 @@ The VPN Gateway is a potential entry point for a wide range of communications in
 |Resources|Link|
 |---|---|
 |VPN Gateway Documentation|[https://docs.microsoft.com/azure/vpn-gateway/](https://docs.microsoft.com/azure/vpn-gateway)|
-|Australian Government specific VPN Gateway guidance|[https://aka.ms/AzGovAUSecurity](https://aka.ms/AzGovAUSecurity)|
+|Australian Government specific VPN Gateway guidance|[Azure VPN Gateway configuration](vpn-gateway.md)|
 |
 
 ### Azure Firewall
