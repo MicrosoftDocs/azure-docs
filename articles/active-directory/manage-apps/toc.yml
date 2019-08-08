@@ -209,10 +209,6 @@
          href: /azure/active-directory/saas-apps/
      - name: Concepts
        items: 
-       - name: Initial provisioning sync
-         href: user-provisioning.md
-       - name: Incremental provisioning sync
-         href: user-provisioning.md
        - name: Automatic provisioning for SCIM-enabled apps
          href: use-scim-to-provision-users-and-groups.md
      - name: How-to guides
@@ -221,6 +217,8 @@
          items:
          - name: User provisioning for gallery apps
            href: application-provisioning-config-how-to.md
+         - name: Enable automatic user provisioning for multi-tenant apps
+           href: isv-automatic-provisioning-multi-tenant-apps.md
          - name: Configure automatic user provisioning
            href: configure-automatic-user-provisioning-portal.md
          - name: Customize application attributes

@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 # Phrase list features in your LUIS app
@@ -29,7 +29,7 @@ Phrase lists are not linked to a specific intent or entity but are added as a si
 
 ## How to use phrase lists
 
-Create a phrase list when your app has words or phrases that are important to the app such as:
+[Create a phrase](luis-how-to-add-features.md) list when your app has words or phrases that are important to the app such as:
 
 * industry terms
 * slang
@@ -73,7 +73,7 @@ As the phrase list grows over time, you may find some terms have many forms (syn
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 
-## Phrase lists help identify simple Interchangeable entities
+## Phrase lists help identify simple interchangeable entities
 Interchangeable phrase lists are a good way to tune the performance of your LUIS app. If your app has trouble predicting utterances to the correct intent, or recognizing entities, think about whether the utterances contain unusual words, or words that might be ambiguous in meaning. These words are good candidates to include in a phrase list.
 
 ## Phrase lists help identify intents by better understanding context
@@ -82,7 +82,7 @@ A phrase list is not an instruction to LUIS to perform strict matching or always
 Adding a phrase list is an alternative to adding more example utterances to an intent. 
 
 ## When to use phrase lists versus list entities
-While both a phrase list and list entities can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
+While both a phrase list and [list entities](reference-entity-list.md) can impact utterances across all intents, each does this in a different way. Use a phrase list to affect intent prediction score. Use a list entity to affect entity extraction for an exact text match. 
 
 ### Use a phrase list
 With a phrase list, LUIS can still take context into account and generalize to identify items that are similar to, but not an exact match, as items in a list. If you need your LUIS app to be able to generalize and identify new items in a category, use a phrase list. 

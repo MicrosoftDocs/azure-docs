@@ -70,7 +70,7 @@ There is no restriction on the certificate signature methods. Elliptic Curve Cry
 
 You can use a wildcard certificate as long as the wildcard matches the desired external URL.
 
-You cannot use a certificate issued by your own public key infrastructure (PKI) due to security considerations.
+Certificates issued by your own public key infrastructure (PKI) can be used if the certificate chain is installed on your client devices. Intune can be used to deploy these certificates to managed devices. For non-managed devices these certificates must be manually installed.
 
 ### Changing the domain
 All verified domains appear in the External URL dropdown list for your application. To change the domain, just update that field for the application. If the domain you want isn't in the list, [add it as a verified domain](../fundamentals/add-custom-domain.md). If you select a domain that doesn't have an associated certificate yet, follow steps 5-7 to add the certificate. Then, make sure you update the DNS record to redirect from the new external URL. 
@@ -84,7 +84,7 @@ Currently all certificate management is through individual application pages so 
 
 ## Next steps
 * [Enable single sign-on](application-proxy-configure-single-sign-on-with-kcd.md) to your published apps with Azure AD authentication.
-* [Enable Conditional Access](application-proxy-integrate-with-sharepoint-server.md) to your published apps.
+* [Enable Conditional Access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/technical-reference#cloud-apps-assignments) to your published apps.
 * [Add your custom domain name to Azure AD](../fundamentals/add-custom-domain.md)
 
 
