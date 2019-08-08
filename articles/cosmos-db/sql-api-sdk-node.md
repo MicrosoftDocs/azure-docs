@@ -382,7 +382,7 @@ Not always the most visible changes, but they help our team ship better code, fa
 
 ### <a name="1.2.0"/>1.2.0</a>
 * Added support for GeoSpatial index.
-* Validates id property for all resources. Ids for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
+* Validates id property for all resources. IDs for resources cannot contain ?, /, #, &#47;&#47;, characters or end with a space.
 * Adds new header "index transformation progress" to ResourceResponse.
 
 ### <a name="1.1.0"/>1.1.0</a>
@@ -407,7 +407,7 @@ Microsoft provides notification at least **12 months** in advance of retiring an
 
 New features and functionality and optimizations are only added to the current SDK, as such it is  recommended that you always upgrade to the latest SDK version as early as possible.
 
-Any request to Cosmos DB using a retired SDK is be rejected by the service.
+Any request to Cosmos DB using a retired SDK will be rejected by the service.
 
 <br/>
 
