@@ -258,7 +258,7 @@ Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 For more information about how to choose between these Azure services,
 see a [comparison of Azure App Service, Virtual Machines, Service
 Fabric, and Cloud
-Services](../../architecture/guide/technology-choices/compute-decision-tree.md).
+Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ### Apply updates to components
 
