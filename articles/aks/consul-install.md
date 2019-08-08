@@ -2,12 +2,12 @@
 title: Install Hashicorp Consul in Azure Kubernetes Service (AKS)
 description: Learn how to install and use Consul to create a service mesh in an Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: davestrebel
+author: dstrebel
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/19/2019
-ms.author: dstrebel
+ms.author: dastrebe
 ---
 
 # Install and use Consul Connect in Azure Kubernetes Service (AKS)
