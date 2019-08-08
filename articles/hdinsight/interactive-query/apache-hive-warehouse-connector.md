@@ -45,7 +45,7 @@ Follow these steps to setup the Hive Warehouse Connector between a Spark and Int
 
         ![Spark2 Ambari configuration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
 
-    1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `@llap0`
+    1. Set `spark.hadoop.hive.llap.daemon.service.hosts` to the same value as the property **LLAP app name** under **Advanced hive-interactive-env**. For example, `llap0`
 
     1. Set `spark.sql.hive.hiveserver2.jdbc.url` to the JDBC connection string, which connects to Hiveserver2 on the Interactive Query cluster. The connection string for your cluster will look like URI below. `CLUSTERNAME` is the name of your Spark cluster and the `user` and `password` parameters are set to the correct values for your cluster.
 

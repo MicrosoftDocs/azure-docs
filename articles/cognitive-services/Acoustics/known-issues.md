@@ -3,14 +3,14 @@ title: Known issues with Project Acoustics plugin
 titlesuffix: Azure Cognitive Services
 description: You might encounter the following known issues when using the Designer Preview for Project Acoustics.
 services: cognitive-services
-author: kylestorck
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.author: kylsto
+ms.author: noelc
 ROBOTS: NOINDEX
 ---
 # Project Acoustics Known Issues

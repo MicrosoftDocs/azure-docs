@@ -47,7 +47,8 @@
 - name: How-to guides
   items:
   - name: Handle hit highlighting
-    href: hit-highlighting.md
+    href: ../Bing-Web-Search/hit-highlighting.md
+    maintainContext: true
   - name: Page news
     href: paging-news.md
   - name: Resize and crop thumbnails

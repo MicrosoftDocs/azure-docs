@@ -95,5 +95,5 @@ For more information about managing DNS, see the [DNS tools article on Technet](
 ## Related Content
 * [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md)
 * [DNS administration tools](https://technet.microsoft.com/library/cc753579.aspx)
