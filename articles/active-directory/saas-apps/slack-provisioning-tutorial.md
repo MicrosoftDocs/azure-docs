@@ -119,7 +119,7 @@ For more information on how to read the Azure AD provisioning logs, see [Reporti
   
 * Slack's **userName** attribute has to be under 21 characters and have a unique value.
 
-* Slack only allows matching with the attributes **userName** and **email**    
+* Slack only allows matching with the attributes **userName** and **email**.  
 
 ## Additional Resources
 
