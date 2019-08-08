@@ -167,7 +167,7 @@ If you run your application now, you should see a line on the map as seen below:
 
 <center>
 
-![Android map line](./media/how-to-add-a-tile-layer-android-map/xyz-tile-layer-android.png)</center>
+![Android map line](./media/how-to-add-tile-layer-android-map/xyz-tile-layer-android.png)</center>
 
 ## Next steps
 

@@ -140,7 +140,7 @@
     - name: Add shapes
       href: how-to-add-shapes-to-android-map.md
     - name: Add a tile layer
-      href: how-to-add-a-tile-layer-android-map.md
+      href: how-to-add-tile-layer-android-map.md
 - name: Reference
   items:
   - name: API and parameter extensions

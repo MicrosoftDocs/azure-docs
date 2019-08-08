@@ -41,7 +41,7 @@ The following code adds a [StyleControl](/javascript/api/azure-maps-control/atla
 <iframe height='500' scrolling='no' title='Adding the style picker' src='//codepen.io/azuremaps/embed/OwgyvG/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/OwgyvG/'>Adding the style picker</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-> [TIP]
+> [!TIP]
 > By default the style picker control lists all the styles available when using the S0 pricing tier of Azure Maps by default. If you want to reduce the number of styles in this list, pass an array of the styles you want to appear in the list into the `mapStyle` option of the style picker. If you are using S1 and want to show all the available styles, set the `mapStyles` option of the style picker to `"all"`.
 
 ## Next steps
@@ -54,7 +54,7 @@ To learn more about the classes and methods used in this article:
 Add controls to your maps:
 
 > [!div class="nextstepaction"]
-> [Add map controls](./map-add-controls.md)
+> [Add map controls](map-add-controls.md)
 
 > [!div class="nextstepaction"]
-> [Add a pin](./map-add-pin.md)
+> [Add a pin](map-add-pin.md)

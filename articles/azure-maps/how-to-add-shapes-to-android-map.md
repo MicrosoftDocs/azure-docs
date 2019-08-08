@@ -353,4 +353,4 @@ If you run your application now, you should see a polygon on the map as seen bel
 See the following article to learn more about ways to set map styles
 
 > [!div class="nextstepaction"]
-> [Change map styles in Android maps](https://docs.microsoft.com/azure/azure-maps/set-android-map-styles)
+> [Add a tile layer](how-to-add-tile-layer-android-map.md)
