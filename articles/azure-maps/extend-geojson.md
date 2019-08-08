@@ -43,7 +43,7 @@ A `Circle` geometry represented using the `GeoJSON Feature` object __must__ cont
     The circle's `radius` is represented using `GeoJSON Feature`'s properties. The radius value is in _meters_ and must be of the type `double`.
 
 - SubType
-    The circle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and it's value should be _Circle_
+    The circle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and its value should be _Circle_
 
 #### Example
 
@@ -65,15 +65,15 @@ Here's how you'll represent a circle centered at (latitude: 47.639754, longitude
 
 ## Rectangle
 
-The `Rectangle` geometry is not supported by the [GeoJSON spec][1]. We use a `GeoJSON Polygon Feature` object to represent a rectangle. This is primarily used by the Web SDK's drawing tools module.
+The `Rectangle` geometry is not supported by the [GeoJSON spec][1]. We use a `GeoJSON Polygon Feature` object to represent a rectangle. The rectangle extension is primarily used by the Web SDK's drawing tools module.
 
 A `Rectangle` geometry represented using the `GeoJSON Polygon Feature` object __must__ contain the following:
 
 - Corners
-    The rectangle's corners are represented using the coordinates of a `GeoJSON Polygon` object. There should be 5 coordinates, one for each corner and a 5th coordinate which is the same as the 1st to close the polygon ring. These coordinates are assumed to be aligned and rotated as desired by the developer.
+    The rectangle's corners are represented using the coordinates of a `GeoJSON Polygon` object. There should be five coordinates, one for each corner and a fifth coordinate that is the same as the 1st to close the polygon ring. These coordinates will be assumed to be aligned and rotated as desired by the developer.
 
 - SubType
-    The rectangle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and it's value should be _Rectangle_
+    The rectangle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and its value should be _Rectangle_
 
 ### Example
 
