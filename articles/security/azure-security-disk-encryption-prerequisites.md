@@ -24,7 +24,7 @@ Before you enable Azure Disk Encryption on Azure IaaS VMs for the supported scen
 
 ## Supported VM sizes
 
-Azure Disk Encryption is not available on [Basic, A-series VMs](/pricing/details/virtual-machines/series/). Azure Disk Encryption is available on other virtual machines that meet these minimum memory requirements:
+Azure Disk Encryption is not available on [Basic, A-series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/series/). Azure Disk Encryption is available on other virtual machines that meet these minimum memory requirements:
 
 | Virtual Machine | Minimum memory requirement |
 |--|--|
