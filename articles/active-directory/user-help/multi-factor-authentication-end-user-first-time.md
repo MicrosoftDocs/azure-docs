@@ -25,7 +25,13 @@ Your organization has turned on two-factor verification, meaning that your work 
 >
 >This content is also only intended for use with your work or school account, the account provided to you by your organization (for example, alain@contoso.com). If you're having problems with two-factor verification and your personal Microsoft account, the account you set up for yourself (for example, danielle@outlook.com), see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/en-us/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
-## Set up your account
+## How to set up two-factor verification
+
+
+
+
+
+
 
 When your company support requires you to start using two-factor verification, you'll see a screen that says **Your admin has required that you set up this account for additional security verification**:
 
@@ -34,6 +40,10 @@ When your company support requires you to start using two-factor verification, y
 To get started, select **Set it up now.**
 
 If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-factor verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options.
+
+
+>[!Note]
+>If what you're seeing on your screen doesn't match what's being covered in this article, it means that either your administrator has turned on the Security info (preview) experience or that your organization has their own custom portal. For more information about the security info experience, see [Security info (preview) overview](user-help-security-info-overview.md). For more information about your organization's custom portal, you must contact your Help desk.
 
 ## Decide how you want to verify your sign-ins
 
