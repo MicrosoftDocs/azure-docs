@@ -57,7 +57,7 @@ The following excerpt is an illustration for how to define a public IP a zone-re
             },
 ```
 
-Use the following excerpt is an illustration for how to define a zone-redundant frontend IP address for your internal Standard Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
+The following excerpt is an illustration for how to define a zone-redundant frontend IP address for your internal Standard Load Balancer. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -97,7 +97,7 @@ For a public Load Balancer frontend, you add a *zones* parameter to the public I
 
 For an internal Load Balancer frontend, add a *zones* parameter to the internal Load Balancer frontend IP configuration. The zonal frontend causes the Load Balancer to guarantee an IP address in a subnet to a specific zone.
 
-UUse the following excerpt is an illustration for how to define a zonal Standard Public IP address in Availability Zone 1. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
+The following excerpt is an illustration for how to define a zonal Standard Public IP address in Availability Zone 1. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -111,9 +111,7 @@ UUse the following excerpt is an illustration for how to define a zonal Standard
             },
 ```
 
-Use the following excerpt is an illustration for how to define an internal Standard Load Balancer front end in Availability Zone 1.
-
-If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates. Also, define the **zones** property in the frontend IP configuration for the child resource.
+The following excerpt is an illustration for how to define an internal Standard Load Balancer front end in Availability Zone 1. If you're using existing Resource Manager templates in your configuration, add the **sku** section to these templates. Also, define the **zones** property in the frontend IP configuration for the child resource.
 
 ```json
             "apiVersion": "2017-08-01",
