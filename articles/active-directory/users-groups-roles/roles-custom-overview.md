@@ -24,15 +24,6 @@ Granting permission using custom RBAC roles is a two-step process. First, you cr
 
 This first release of custom RBAC roles includes the ability to create a role to assign permissions for managing app registrations. Over time, additional permissions for organization resources like enterprise applications, users, and devices will be added.
 
-Preview features:
-
-- Portal UI updates for creating and managing custom roles and assigning them to users at organization-wide scope
-- A preview PowerShell module with new cmdlets to:
-  - Create and manage custom roles
-  - Assign custom roles with either an organization-wide or per-app registration scope
-  - Assign built-in roles at organization-wide scope (parity with GA cmdlets)
-  - Azure AD Graph API support
-
 Azure AD role-based access control is a public preview feature of Azure AD and is available with any paid Azure AD license plan. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Understand Azure AD role-based access control
