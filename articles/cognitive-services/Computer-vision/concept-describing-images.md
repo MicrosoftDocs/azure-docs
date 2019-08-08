@@ -1,5 +1,5 @@
 ---
-title: Describing images - Computer Vision
+title: Image descriptions - Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Concepts related to the image description feature of the Computer Vision API.
 services: cognitive-services
