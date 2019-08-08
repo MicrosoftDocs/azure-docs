@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/16/2018
-ms.author: Robinsh
+ms.author: robinsh
 ---
 
 # Develop for mobile devices using Azure IoT SDKs

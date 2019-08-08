@@ -7,7 +7,7 @@ services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 08/29/2017
-ms.author: Robinsh
+ms.author: robinsh
 ---
 
 # Azure IoT device SDK for C – more about IoTHubClient

@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.author: Robinsh
+ms.author: robinsh
 ---
 
 # Develop for constrained devices using Azure IoT C SDK

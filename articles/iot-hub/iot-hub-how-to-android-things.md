@@ -6,7 +6,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: Robinsh
+ms.author: robinsh
 ---
 # Develop for Android Things platform using Azure IoT SDKs
 
