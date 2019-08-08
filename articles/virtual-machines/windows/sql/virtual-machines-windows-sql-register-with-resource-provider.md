@@ -40,7 +40,7 @@ To register your SQL Server VM with the resource provider, you'll need the follo
 ## Register with SQL VM resource provider
 If the [SQL Server IaaS Agent Extensionn](virtual-machines-windows-sql-server-agent-extension.md) is not installed on the VM, then you can register with SQL VM resource provider by specifying the lightweight SQL management mode. In lightweight SQL management mode, SQL VM resource provider will auto install SQL IaaS Extension in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) and verify SQL Server instance metadata; this will not restart SQL Server service. You need to provide the type of SQL Server license desired when registering with SQL VM resource provider as either 'PAYG 'or 'AHUB'.
 
-Registering with the SQL VM resource provider in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only in lightweight mode. You can follow the directions found on Azure portal to upgrade to [full mode](virtual-machines-windows-sql-server-agent-extension.md#full-mode-installation) and enable comprehensive manageability feature set with a SQL Server restart anytime. 
+Registering with the SQL VM resource provider in [lightweight mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-lightweight-mode) will assure compliance and enable flexible licensing as well as in-place SQL Server edition updates. Failover Cluster Instances and multi-instance deployments can be registered with SQL VM resource provider only in lightweight mode. You can follow the directions found on the Azure portal to upgrade to [full mode](virtual-machines-windows-sql-server-agent-extension.md#install-in-full-mode) and enable comprehensive manageability feature set with a SQL Server restart anytime. 
 
 
 # [PowerShell](#tab/powershell)
@@ -159,6 +159,8 @@ Verify current SQL Server VM registration status using either Az CLI or PowerShe
   -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines
   ```
 
+---
+
 An error indicates that the SQL Server VM has not been registered with the resource provider. 
 
 ## Register the SQL VM resource provider with a subscription 
@@ -194,6 +196,7 @@ az provider register --namespace Microsoft.SqlVirtualMachine
 # Register the new SQL VM resource provider to your subscription
 Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 ```
+---
 
 ## Remarks
 

@@ -131,7 +131,7 @@ Run the following PowerShell code snippet:
 
 
 ##  Installation
-The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-the-sql-vm-resource-provider). If necessary, you can install the SQL Server IaaS agent manually by using full or lightweight mode. 
+The SQL Server IaaS extension is installed when you register your SQL Server VM with the [SQL VM resource provider](virtual-machines-windows-sql-register-with-resource-provider.md). If necessary, you can install the SQL Server IaaS agent manually by using full or lightweight mode. 
 
 The SQL Server IaaS Agent Extension in full mode is automatically installed when you provision one of the SQL Server virtual machine Azure Marketplace images by using the Azure portal. 
 
