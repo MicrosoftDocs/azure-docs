@@ -23,19 +23,19 @@ To open the **authoring canvas**, click on the pencil icon.
 
 ![Authoring Canvas](media/author-visually/authoring-canvas.png)
 
-Here, you will author the pipelines, activities, datasets, linked services, data flows, triggers and integration runtimes that comprise your factory. To get started building a pipeline using the authoring canvas, see [Copy data using the copy Activity](tutorial-copy-data-portal.md). 
+Here, you will author the pipelines, activities, datasets, linked services, data flows, triggers, and integration runtimes that comprise your factory. To get started building a pipeline using the authoring canvas, see [Copy data using the copy Activity](tutorial-copy-data-portal.md). 
 
-The default visual authoring experience is directly working with the Data Factory service. Azure Repos Git or Github integration is also supported to allow source control and collaboration for work on your data factory pipelines. To learn more about the differences between these authoring experiences, see [Source control in Azure Data Factory](source-control.md).
+The default visual authoring experience is directly working with the Data Factory service. Azure Repos Git or GitHub integration is also supported to allow source control and collaboration for work on your data factory pipelines. To learn more about the differences between these authoring experiences, see [Source control in Azure Data Factory](source-control.md).
 
 ## Expressions and functions
 
-Expressions and functions can be used instead of static values to specify many properties in Azure Data Factory. Parameters, pipeline variables, and activity output can be leveraged to dynamically specify property fields.
+Expressions and functions can be used instead of static values to specify many properties in Azure Data Factory.
 
 To specify an expression for a property value, select **Add Dynamic Content** or click **Alt + P** while focusing on the field.
 
 ![Add Dynamic Content](media/author-visually/dynamic-content-1.png)
 
-This opens the **Data Factory Expression Builder** where you can build expressions from a list of supported system variables, functions, and user-specified variables or parameters. 
+This opens the **Data Factory Expression Builder** where you can build expressions from supported system variables, activity output, functions, and user-specified variables or parameters. 
 
 ![Expression builder](media/author-visually/dynamic-content-2.png)
 
