@@ -89,6 +89,14 @@ When you select a storage account from the list in the table, you drill down to 
 
 ![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
 
+You can pin any one of the metric sections to an Azure Dashboard by selecting the pushpin icon at the top right of the section.
+
+![Metric section pin to dashboard example](./media/storage-insights-overview/workbook-pin-example.png)
+
+The multi-subscription and storage account **Overview** or **Capacity** workbooks support exporting the results in Excel format by selecting the down arrow icon to the right of the pushpin icon.
+
+![Export workbook grid results example](./media/storage-insights-overview/workbook-export-example.png)
+
 ## View from a storage account
 
 To access Azure Monitor for VMs directly from a storage account:
