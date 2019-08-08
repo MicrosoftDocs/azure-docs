@@ -25,7 +25,7 @@ Unsupervised learning allows the model to understand the layout and relationship
 
 ## Prebuilt receipt model
 
-Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipts model is trained to recognize and return all of the text on a receipt.
+Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
 
 ## What it includes
 

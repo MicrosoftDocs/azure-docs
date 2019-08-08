@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Explore the Azure Time Series Insights Preview demo environment | Microsoft Docs'
-description: Understand the Azure Time Series Insights Preview demo environment.
+description: Quickstart to understand the Azure Time Series Insights Preview demo environment.
 ms.service: time-series-insights 
 services: time-series-insights
 author: ashannon7
@@ -10,7 +10,7 @@ ms.reviewer: dpalled
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 04/22/2019
+ms.date: 07/29/2019
 ---
 
 # Quickstart: Explore the Azure Time Series Insights Preview demo environment
@@ -21,11 +21,12 @@ The Time Series Insights Preview demo environment contains a scenario company, C
 
 In this quickstart, you learn how to use Time Series Insights to find actionable insights in Contoso data. You also conduct a short root cause analysis to better predict critical failures and to perform maintenance.
 
+> [!IMPORTANT]
+> Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you don't have one.
+
 ## Explore the Time Series Insights explorer in a demo environment
 
 The Time Series Insights Preview explorer demonstrates historical data and root causes analysis. To get started:
-
-1. Create a [free Azure account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) if you don't have one.
 
 1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.  
 
@@ -68,10 +69,9 @@ The Time Series Insights Preview explorer demonstrates historical data and root 
 
 Using Time Series Insights and our sensor telemetry, we've discovered a long-term and problematic trend hidden in the historical data. With these new insights, we can:
 
-> [!div class="checklist"]
-> * Explain what actually occurred.
-> * Correct the problem.
-> * Put superior alert notification systems into place.
+* Explain what actually occurred.
+* Correct the problem.
+* Put superior alert notification systems into place.
 
 ## Root cause analysis
 
@@ -110,6 +110,13 @@ Using Time Series Insights and our sensor telemetry, we've discovered a long-ter
     * Change the display to overlay all **Generator System** sensors on the same chart scale.
 
       [![Change the display to include everything](media/v2-update-quickstart/quickstart-ten.png)](media/v2-update-quickstart/quickstart-ten.png#lightbox)
+
+## Clean up resources
+
+Now that you've completed the tutorial, clean up the resources you created:
+
+1. From the left menu in the [Azure portal](https://portal.azure.com), select **All resources**, locate your Azure Time Series Insights resource group.
+1. Either delete the entire resource group (and all resources contained within it) by selecting **Delete** or remove each resource individually.
 
 ## Next steps
 

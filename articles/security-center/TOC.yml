@@ -46,6 +46,8 @@
     href: security-center-incident.md
   - name: Incident response
     href: security-center-incident-response.md  
+  - name: Cross-tenant management
+    href: security-center-cross-tenant-management.md 
 
 - name: How-to guides
   items:
@@ -79,14 +81,14 @@
     href: security-center-provide-security-contact-details.md
   - name: Pricing tier
     href: security-center-pricing.md
-  - name: Security configurations
-    href: security-center-customize-os-security-config.md
   - name: Tenant-wide visibility
     href: security-center-management-groups.md
   - name: Implement security recommendations
     items:
     - name: What are security recommendations
       href: security-center-recommendations.md
+    - name: Remediate recommendations
+      href: security-center-remediate-recommendations.md
     - name: Strengthen security posture
       href: security-center-monitoring.md
     - name: Protect your machines and apps
@@ -188,6 +190,8 @@
       href: security-center-alerts-type.md
     - name: UEBA for Azure resources and users
       href: security-center-ueba-mcas.md
+    - name: Customize security configurations
+      href: security-center-customize-os-security-config.md
 
 - name: Reference
   items:

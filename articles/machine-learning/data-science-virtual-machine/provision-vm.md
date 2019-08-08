@@ -13,7 +13,7 @@ ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.workload: data-services
 ms.devlang: na
-ms.topic: article
+ms.topic: quickstart
 ms.date: 02/22/2019
 ms.author: vijetaj
 

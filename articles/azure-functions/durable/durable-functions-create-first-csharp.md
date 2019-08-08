@@ -10,7 +10,7 @@ keywords: azure functions, functions, event processing, compute, serverless arch
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 11/07/2018
+ms.date: 07/19/2019
 ms.author: azfuncdf
 
 ---
@@ -18,7 +18,7 @@ ms.author: azfuncdf
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
-In this article, you learn how to use the Visual Studio 2019 tools for Azure Functions to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
+In this article, you learn how to use the Visual Studio 2019 to locally create and test a "hello world" durable function.  This function orchestrates and chains-together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2019.
 
 ![Running durable function in Azure](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
@@ -26,9 +26,7 @@ In this article, you learn how to use the Visual Studio 2019 tools for Azure Fun
 
 To complete this tutorial:
 
-* Install [Visual Studio 2019](https://azure.microsoft.com/downloads/). Make sure that the **Azure development** workload is also installed.
-
-* Make sure you have the [latest Azure Functions tools](../functions-develop-vs.md#check-your-tools-version).
+* Install [Visual Studio 2019](https://visualstudio.microsoft.com/vs/). Make sure that the **Azure development** workload is also installed. Visual Studio 2017 also supports Durable Functions development, but the UI and steps differ.
 
 * Verify you have the [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) installed and running.
 
@@ -40,13 +38,15 @@ The Azure Functions template creates a project that can be published to a functi
 
 1. In Visual Studio, select **New** > **Project** from the **File** menu.
 
-2. In the **New Project** dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a **Name** for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
+1. In the **Add a new project** dialog, search for `functions`, choose the **Azure Functions** template, and select **Next**. 
 
     ![New project dialog to create a function in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
-3. Use the settings specified in the table that follows the image.
+1. Type a **Project name** for your project, and select **OK**. The project name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-    ![New function dialog in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
+1. In **Create a new Azure Functions Application**, use the settings specified in the table that follows the image.
+
+    ![Create a new Azure Functions Application dialog in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-function.png)
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
@@ -54,7 +54,7 @@ The Azure Functions template creates a project that can be published to a functi
     | **Template** | Empty | Creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 
-4. Click **OK** to create an empty function project. This project has the basic configuration files needed to run your functions.
+4. Select **Create** to create an empty function project. This project has the basic configuration files needed to run your functions.
 
 ## Add functions to the app
 
@@ -64,9 +64,9 @@ The following steps use a template to create the durable function code in your p
 
     ![Add new function](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
-2. Verify **Azure Function** is selected from the add menu, and give your C# file a name.  Press **Add**.
+1. Verify **Azure Function** is selected from the add menu, type a name for your C# file, and then select **Add**.
 
-3. Select the **Durable Functions Orchestration** template and click **Ok**
+1. Select the **Durable Functions Orchestration** template and then select **Ok**
 
     ![Select durable template](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 

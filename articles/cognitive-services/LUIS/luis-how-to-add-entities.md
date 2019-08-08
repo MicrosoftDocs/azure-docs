@@ -8,8 +8,8 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 04/01/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -109,13 +109,13 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 A role is a named subtype based on context. It is available in all entities including prebuilt and non-machine-learned entities. 
 
-The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {LocationUsingRoles:Origin} to {LocationUsingRoles:Destination}`.
+The syntax for a role is **`{Entityname:Rolename}`** where the entity name is followed by a colon, then the role name. For example, `Move {personName} from {Location:Origin} to {Location:Destination}`.
 
 1. From the **Build** section, select **Entities** in the left panel.
 
-1. Select **Create new entity**. Enter the name of `LocationUsingRoles`. Select the type **Simple** and select **Done**. 
+1. Select **Create new entity**. Enter the name of `Location`. Select the type **Simple** and select **Done**. 
 
-1. Select **Entities** from the left panel, then select the new entity **LocationUsingRoles** created in the previous step.
+1. Select **Entities** from the left panel, then select the new entity **Location** created in the previous step.
 
 1. In the **Role name** textbox, enter the name of the role `Origin` and enter. Add a second role name of `Destination`. 
 

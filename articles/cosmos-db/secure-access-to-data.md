@@ -23,7 +23,7 @@ Azure Cosmos DB uses two types of keys to authenticate users and provide access 
 
 ## Master keys 
 
-Master keys provide access to the all the administrative resources for the database account. Master keys:  
+Master keys provide access to all the administrative resources for the database account. Master keys:  
 - Provide access to accounts, databases, users, and permissions. 
 - Cannot be used to provide granular access to containers and documents.
 - Are created during the creation of an account.

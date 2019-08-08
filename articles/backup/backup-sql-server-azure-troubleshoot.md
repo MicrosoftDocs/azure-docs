@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot SQL Server database backup by using Azure Backup | Microsoft Docs
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
-
-author: anuragm
-manager: sivan
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: article
 ms.date: 06/18/2019
-ms.author: anuragm
+ms.author: dacurwin
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -114,6 +114,19 @@ To configure protection for a SQL Server database on a virtual machine, you must
 | Error message | Possible causes | Recommended action |
 |---|---|---|
 | Auto-protection Intent was either removed or is no more valid. | When you enable auto-protection on a SQL Server instance, **Configure Backup** jobs run for all the databases in that instance. If you disable auto-protection while the jobs are running, then the **In-Progress** jobs are canceled with this error code. | Enable auto-protection once again to help protect all the remaining databases. |
+
+### CloudDosAbsoluteLimitReached
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+Operation is blocked as you have reached the limit on number of operations permitted in 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. <br> For example: If you have hit the limit for the number of configure backup jobs that can be triggered per day, and you try to configure backup on a new item, you will see this error. | Typically, retrying the operation after 24 hours resolves this issue. However, if the issue persists, you can contact Microsoft support for help.
+
+### CloudDosAbsoluteLimitReachedWithRetry
+
+| Error message | Possible causes | Recommended action |
+|---|---|---|
+Operation is blocked as the vault has reached its maximum limit for such operations permitted in a span of 24 hours. | When you have reached the maximum permissible limit for an operation in a span of 24 hours, this error comes. This error usually comes in case of at-scale operations such as modify policy or auto-protection. Unlike in the case of CloudDosAbsoluteLimitReached, there is not much you can do to resolve this state, in fact, Azure Backup service will retry the operations internally for all the items in question.<br> For example: If you have a large number of datasources protected with a policy and you try to modify that policy, it will trigger configure protection jobs for each of the protected items and sometimes may hit the maximum limit permissible for such operations per day.| Azure Backup service will automatically retry this operation after 24 hours. 
+
 
 ## Re-registration failures
 
