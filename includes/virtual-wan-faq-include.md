@@ -120,7 +120,7 @@ Number of branches is limited to 1000 connections per hub/region and a total of 
 
 ### I don't see the 20 Gbps setting for the virtual hub in the portal. How do I configure that?
 
-Currently, you can configure the gateway scale units for 20 Gbps by using PowerShell or CLI. This setting is on the roadmap to be available in the portal.
+Currently, you can configure the gateway scale units for 20 Gbps by using the [Update-AzVpnGateway](https://docs.microsoft.com/powershell/module/az.network/update-azvpngateway) cmdlet. This setting is on the roadmap to be available in the portal.
 
 ### How many VPN connections does a Virtual WAN hub support?
 
