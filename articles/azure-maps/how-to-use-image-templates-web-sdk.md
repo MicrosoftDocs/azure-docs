@@ -19,7 +19,7 @@ Images can be used HTML markers and various layers within the Azure Maps web SDK
  - Polygon layers can be rendered with a fill pattern image. 
  - HTML markers can render points using images and other HTML elements.
 
-In order to ensure good performance with layers these images need to be loaded into the map image sprite resource before rendering. The [IconOptions](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.iconoptions) of the SymbolLayer preloads a couple of marker images in a handful of colors into the map image sprite by default. These same marker images and more are available as SVG templates and can be used to create images with custom scales, as well as a customer primary and secondary color. In total there are 42 image templates provided; 27 symbol icons, and 15 polygon fill patterns.
+In order to ensure good performance with layers these images need to be loaded into the map image sprite resource before rendering. The [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions) of the SymbolLayer preloads a couple of marker images in a handful of colors into the map image sprite by default. These same marker images and more are available as SVG templates and can be used to create images with custom scales, as well as a customer primary and secondary color. In total there are 42 image templates provided; 27 symbol icons, and 15 polygon fill patterns.
 
 Image templates can be added to the map image sprite resources by using the `map.imageSprite.createFromTemplate` function. This function allows up to five parameters to be passed in;
 
@@ -60,7 +60,7 @@ The following sample renders a symbol layer using the `marker-flat` image templa
 
 ## Use an image template along a lines path
 
-Once an image template is loaded into the map image sprite, it can be rendered along the path of a line by adding a LineString to a data source and using a symbol layer with a `lineSpacing`option and by referencing the id of the image resource in the `image` option of th `iconOptions`. 
+Once an image template is loaded into the map image sprite, it can be rendered along the path of a line by adding a LineString to a data source and using a symbol layer with a `lineSpacing`option and by referencing the ID of the image resource in the `image` option of th `iconOptions`. 
 
 The following sample renders a pink line on the map and uses a symbol layer using the `car` image template with a dodger blue primary color and a white secondary color. 
 
@@ -195,7 +195,7 @@ Learn more about the classes and methods used in this article:
 > [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [atlas namespace](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
+> [atlas namespace](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-maps-typescript-latest#functions
 )
 
 See the following articles for more code samples where image templates can be used:
