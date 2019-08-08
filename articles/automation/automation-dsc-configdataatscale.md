@@ -2,6 +2,14 @@
 ms.date:  11/13/2018
 keywords:  dsc,powershell,configuration,setup
 title:  Configuration Data At Scale
+services: automation
+ms.service: automation
+ms.subservice: dsc
+author: mgreenegit
+ms.author: migreene
+ms.date: 08/08/2019
+ms.topic: community
+manager: carmonm
 ---
 # Configuration Data at Scale
 
