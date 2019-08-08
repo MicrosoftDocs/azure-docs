@@ -29,6 +29,14 @@ This article explains how to manage access to logs and to administer the workspa
 
 ## Define access control mode
 
+You can view the access control mode configured on a workspace from the Azure portal or with Azure PowerShell.  You can change this setting using one of the following supported methods:
+
+* Azure portal
+
+* Azure PowerShell
+
+* Azure Resource Manager template
+
 ### Configure from the Azure portal
 
 You can view the current workspace access control mode on the **Overview** page for the workspace in the **Log Analytics workspace** menu. 
