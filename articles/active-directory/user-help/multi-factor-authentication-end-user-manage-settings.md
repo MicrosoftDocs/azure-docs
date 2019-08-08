@@ -24,7 +24,7 @@ After you set up your security verification methods for your work or school acco
 
 - Adding or updating your security verification method details, like your phone number.
 
-- Setting up a new authenticator app or token, or deleting a device from the authenticator app.
+- Setting up a new authenticator app or deleting a device from the authenticator app.
 
 ## Using the Additional security verification page
 
@@ -54,7 +54,7 @@ If your organization provided you with specific steps about how to turn on and m
 
 ## Change your default security verification method
 
-After you sign in to your work or school account with your user name and password, you'll automatically be presented with your chosen security verification method. Depending on your organization's requirements, this can be a notification or verification code through an authenticator app or token, a text message, or a phone call.
+After you sign in to your work or school account with your user name and password, you'll automatically be presented with your chosen security verification method. Depending on your organization's requirements, this can be a notification or verification code through an authenticator app, a text message, or a phone call.
 
 If you decide that you want to change the default security verification method you're using, you can do it from here.
 
@@ -70,7 +70,7 @@ If you decide that you want to change the default security verification method y
 
     - **Call my office phone.** You'll get a phone call on your office phone, asking you to verify your information.
 
-    - **Use verification code from app or token.** You'll use your authenticator app or security key to get a verification code you'll type into the prompt from your work or school account.
+    - **Use verification code from app.** You'll use your authenticator app to get a verification code you'll type into the prompt from your work or school account.
 
 2. Select **Save**.
 
@@ -119,9 +119,9 @@ You can delete your account from the Microsoft Authenticator app, and you can de
 
 - From the Microsoft Authenticator app, select the **Delete** button next to the device you want to delete.
 
-## Restart two-factor verification prompts on a trusted device
+## Turn on two-factor verification prompts on a trusted device
 
-Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've checked this box to stop two-factor verification prompts, and then you lose your device or your device is potentially compromised, you must turn two-factor verification prompts back on. Unfortunately, you can't turn the prompts back on for a single device. You must turn the prompts on for all of your devices at the same time.
+Depending on your organization settings, you may see a check box that says **Don't ask again for X days** when you perform two-factor verification on your browser. If you've checked this box to stop two-factor verification prompts, and then you lose your device or your device is potentially compromised, you should turn the two-factor verification prompts back on to help protect your account. Unfortunately, you can't turn the prompts back on for a single device. You must turn the prompts on for all of your devices at the same time.
 
 ### To turn two-factor verification prompts back on for your devices
 
