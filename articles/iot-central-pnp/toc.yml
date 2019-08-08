@@ -13,6 +13,8 @@
   items:
   - name: Create a new application
     href: ../iot-central/quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
+  - name: Connect a device
+    href: ../iot-central/quick-create-pnp-device-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json
 - name: Tutorials
   items:
   - name: 1 - Define a new device type
