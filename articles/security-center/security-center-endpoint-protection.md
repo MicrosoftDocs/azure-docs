@@ -135,31 +135,31 @@ The **"Resolve endpoint protection health issues on your machines"** recommendat
 
 ## McAfee Endpoint Security for Linux Threat Prevention 
 
-The **Install endpoint protection solutions on virtual machine** recommendation appears if one or both of the following checks are not met.  
+The **Install endpoint protection solutions on virtual machine** recommendation appears if one or both of the following checks aren't met:  
 
 - File **/opt/isec/ens/threatprevention/bin/isecav** exits 
 
 - **"/opt/isec/ens/threatprevention/bin/isecav --version"** output is: **McAfee name = McAfee Endpoint Security for Linux Threat Prevention and McAfee version >= 10**
 
-The **Resolve endpoint protection health issues on your machines** recommendation appears if one or both of the following checks are not met.
+The **Resolve endpoint protection health issues on your machines** recommendation appears if one or more of the following checks aren't met:
 
 - **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **Quick scan, Full scan** and both of the scans <= 7 days
 
 - **"/opt/isec/ens/threatprevention/bin/isecav --listtask"** returns **DAT and engine Update time** and both of them <= 7 days
 
-- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** returns **On Access Scan status**
+- **"/opt/isec/ens/threatprevention/bin/isecav --getoasconfig --summary"** returns **On Access Scan** status
 
 ## Sophos Antivirus for Linux 
 
-The **Install endpoint protection solutions on virtual machine** appears if  one or more of the following checks are not met.  
+The **Install endpoint protection solutions on virtual machine** appears if  one or both of the following checks aren't met:
 
 - File **/opt/sophos-av/bin/savdstatus** exits or search for customized location **"readlink $(which savscan)"**
 
 - **"/opt/sophos-av/bin/savdstatus --version"** returns Sophos name = **Sophos Anti-Virus and Sophos version >= 9**
 
-The **Resolve endpoint protection health issues on your machines recommendation** appears if one or more of the following checks are not met.
+The **Resolve endpoint protection health issues on your machines recommendation** appears if one or more of the following checks aren't met:
 
-- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .* completed" | tail -1"** , returns a value   
+- **"/opt/sophos-av/bin/savlog --maxage=7 | grep -i "Scheduled scan .\* completed" | tail -1"**, returns a value   
 
 - **"/opt/sophos-av/bin/savlog --maxage=7 | grep "scan finished"** | tail -1", returns a value   
 
@@ -168,8 +168,6 @@ The **Resolve endpoint protection health issues on your machines recommendation*
 - **"/opt/sophos-av/bin/savdstatus -v"** is equal to **"On-access scanning is running"** 
 
 - **"/opt/sophos-av/bin/savconfig get LiveProtection"** returns enabled  
-
-
 
 ## Troubleshoot and support
 
