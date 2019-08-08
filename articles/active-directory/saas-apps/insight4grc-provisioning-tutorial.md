@@ -53,15 +53,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Insight4GRC for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Insight4GRC.
 
-<<<<<<< HEAD
 1. To obtain the bearer token, end-customer needs to contact [support team](mailto:support.ss@rsmuk.com) and they will provide the bearer token to the customers.
 
 2. To obtain the SCIM endpoint URL, you will need to have your Insight4GRC domain name ready as it will be used to construct your SCIM endpoint URL. You can retrieve your Insight4GRC domain name as part of the initial software purchase with Insight4GRC.
-
-=======
-1. To obtain the bearer token, you will need to contact Insight4GRC at **support.ss@rsmuk.com**. This token value will be used in the **Secret Token** field in Azure AD.
-2. To obtain the SCIM endpoint URL, you will need to have your Insight4GRC domain name ready as it will be used to construct your SCIM endpoint URL. You can retrieve your Insight4GRC domain name as part of the initial software purchase with Insight4GRC.
->>>>>>> 4410843be0b44329e3e7a85057aa6e00640effeb
 
 ## Add Insight4GRC  from the gallery
 
