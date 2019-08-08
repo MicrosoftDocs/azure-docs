@@ -32,7 +32,7 @@ The objective of this tutorial is to demonstrate the steps to be performed in In
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * An Azure AD tenant.
-* [A Insight4GRC  tenant](https://www.insight4grc.com/).
+* [A Insight4GRC  tenant](https://www.rsmuk.com/).
 * A user account in Insight4GRC with Admin permissions.
 
 ## Assigning users to Insight4GRC 
@@ -56,6 +56,7 @@ Before configuring Insight4GRC for automatic user provisioning with Azure AD, yo
 1. To obtain the bearer token, end-customer needs to contact [support team](mailto:support.ss@rsmuk.com) and they will provide the bearer token to the customers.
 
 2. To obtain the SCIM endpoint URL, you will need to have your Insight4GRC domain name ready as it will be used to construct your SCIM endpoint URL. You can retrieve your Insight4GRC domain name as part of the initial software purchase with Insight4GRC.
+
 
 ## Add Insight4GRC  from the gallery
 
@@ -147,6 +148,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Insight4GRC .
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+
 
 ## Additional resources
 
