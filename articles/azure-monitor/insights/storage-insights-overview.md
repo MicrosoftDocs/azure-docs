@@ -15,7 +15,7 @@ ms.date: 08/07/2019
 ms.author: magoedte
 ---
 
-# Monitor performance and utilization with Azure Monitor for Storage (Preview)
+# Monitor Azure Storage with Azure Monitor for Storage (Preview)
 
 Azure Monitor for Storage (preview) provides comprehensive monitoring of Azure Storage accounts by delivering a consolidated and one holistic view of their health and performance that you would otherwise view from [Service Health](../../service-health/service-health-overview.md) and Storage metrics in [Azure Monitor](../../storage/common/storage-metrics-in-azure-monitor.md) independently. You can observe storage health and performance in two ways. View directly from a storage account or view from Azure Monitor to see across groups of storage accounts. This article will help you understand these two viewing methods and how to use this feature.
 
@@ -60,9 +60,12 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Select any column, including **Availability**, **E2E Latency**, **Server Latency**, and errors reported.  For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**.  Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type>/Errors**. 
 
-You're directed to a report tailored to specific type of storage KPIs that match the column selected. Specifically:
+>[!NOTE]
+>For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+
+You're directed to a report tailored to a specific type of storage KPIs that match the column selected. Specifically:
 
 * **Availability** open the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
