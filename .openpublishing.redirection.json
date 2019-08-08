@@ -4,7 +4,7 @@
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
       "redirect_document_id": true
-    },
+    }, 
     {
       "source_path": "articles/machine-learning/service/ui-quickstart-run-experiment.md",
       "redirect_url": "/azure/machine-learning/service/ui-tutorial-automobile-price-train-score",
@@ -99,7 +99,7 @@
       "source_path": "articles/batch-ai/resource-concepts.md",
       "redirect_url": "https://docs.microsoft.com/previous-versions/azure/batch-ai/resource-concepts",
       "redirect_document_id": true
-    },
+    }, 
     {
       "source_path": "articles/vmware-cloudsimple/enable-cloudsimple-service.md",
       "redirect_url": "/azure/vmware-cloudsimple/",
@@ -3054,7 +3054,7 @@
       "source_path": "articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
       "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/sql-database/sql-database-customer-implementations.md",
       "redirect_url": "http://customers.microsoft.com",
@@ -12389,7 +12389,7 @@
       "source_path": "articles/lab-services/devtest-lab-import-vm.md",
       "redirect_url": "/azure/lab-services/import-virtual-machines-from-another-lab",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/lab-services/how-to-manage-lab-accounts.md",
       "redirect_url": "/azure/lab-services/classroom-labs/how-to-manage-lab-accounts",
@@ -13909,7 +13909,7 @@
       "source_path": "articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
       "redirect_url": "/azure/service-bus-relay/service-bus-relay-tutorial",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/service-bus-relay/service-bus-dotnet-how-to-use-relay.md",
       "redirect_url": "/azure/service-bus-relay/relay-wcf-dotnet-get-started",
@@ -30953,7 +30953,7 @@
       "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
       "redirect_document_id": false
-    },
+    },    
     {
       "source_path": "articles/cognitive-services/QnAMaker/Guides/active-learning-qnamaker.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-publish-knowledge-base",
@@ -40918,156 +40918,6 @@
     {
       "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
       "redirect_url": "/azure/dev-spaces/quickstart-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-csharp-translate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-go-translate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-java-translate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-nodejs-translate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-python-translate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-csharp-transliterate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-go-transliterate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-java-transliterate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-nodejs-transliterate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-python-transliterate.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-csharp-detect.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-go-detect.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-java-detect.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-nodejs-detect.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-python-detect.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-csharp-languages.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-go-languages.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-java-languages.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-nodejs-languages.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-python-languages.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-csharp-sentences.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-go-sentences.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-java-sentences.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-nodejs-sentences.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-python-sentences.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-csharp-dictionary.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-go-dictionary.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-java-dictionary.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-nodejs-dictionary.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/cognitive-services/Translator/quickstart-python-dictionary.md",
-      "redirect_url": "/azure/cognitive-services/Translator/quickstart-translate",
       "redirect_document_id": false
     }
   ]
