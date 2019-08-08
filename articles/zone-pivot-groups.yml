@@ -1,17 +1,17 @@
 # YamlMime:ZonePivotGroups
 # GitHub repository = 'MicrosoftDocs/azure-docs-pr'
 groups:
-- id: cogsvcs1-programming-language
-  title: Programming language
+- id: programming-languages-set-one
+  title: Programming languages
   prompt: Choose a programming language
   pivots:
-  - id: cogsvcs1-programming-language-csharp
+  - id: programming-language-csharp
     title: C#
-  - id: cogsvcs1-programming-language-java
+  - id: programming-language-java
     title: Java
-  - id: cogsvcs1-programming-language-python
+  - id: programming-language-python
     title: Python
-  - id: cogsvcs1-programming-language-nodejs
+  - id: programming-language-nodejs
     title: Node.js
-  - id: cogsvcs1-programming-language-go
+  - id: programming-language-go
     title: Go

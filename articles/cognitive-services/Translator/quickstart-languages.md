@@ -10,38 +10,38 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 08/20/2019
 ms.author: erhopf
-zone_pivot_groups: cogsvcs1-programming-language
+zone_pivot_groups: programming-languages-set-one
 ---
 
 # Quickstart: Use the Translator Text API to get a list of supported languages
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 
-::: zone pivot="cogsvcs1-programming-language-csharp"
+::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [C# quickstart](includes/languages-csharp.md)]
 
 ::: zone-end
 
-::: zone pivot="cogsvcs1-programming-language-java"
+::: zone pivot="programming-language-java"
 
 [!INCLUDE [Java quickstart](includes/languages-java.md)]
 
 ::: zone-end
 
-::: zone pivot="cogsvcs1-programming-language-python"
+::: zone pivot="programming-language-python"
 
 [!INCLUDE [Python quickstart](includes/languages-python.md)]
 
 ::: zone-end
 
-::: zone pivot="cogsvcs1-programming-language-nodejs"
+::: zone pivot="programming-language-nodejs"
 
 [!INCLUDE [Node.js quickstart](includes/languages-nodejs.md)]
 
 ::: zone-end
 
-::: zone pivot="cogsvcs1-programming-language-go"
+::: zone pivot="programming-language-go"
 
 [!INCLUDE [Go quickstart](includes/languages-go.md)]
 
