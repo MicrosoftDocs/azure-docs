@@ -16,7 +16,7 @@ ms.author: cotresne
 
 # Deployment technologies in Azure Functions
 
-You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an exhaustive list of those technologies, describes which technologies are available for which flavors of Functions, explains what happens when you use each method, and provides recommendations for the best method to use in various scenarios. The various tools that support deploying to Azure Functions are tuned to the right technology based on their context.
+You can use a few different technologies to deploy your Azure Functions project code to Azure. This article provides an exhaustive list of those technologies, describes which technologies are available for which flavors of Functions, explains what happens when you use each method, and provides recommendations for the best method to use in various scenarios. The various tools that support deploying to Azure Functions are tuned to the right technology based on their context. In general, zip deployment is the recommended deployment technology for Azure Functions.
 
 ## Deployment technology availability
 
@@ -57,30 +57,32 @@ When you change any of your triggers, the Functions infrastructure must be aware
 
 ### Remote build
 
-Azure Functions will automatically perform builds on the code it receives after some deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds will not be performed if an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode. 
+Azure Functions can automatically perform builds on the code it receives after zip deployments. These builds behave slightly differently depending on whether your app is running on Windows or Linux. Remote builds will not be performed if an app has previously been set to run in [Run From Package](run-functions-from-deployment-package.md) mode.
 
 #### Remote build on Windows
 
-All function apps running on Windows have a small sidecar app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions (and Azure App Service).
+All function apps running on Windows have a small management app, the SCM (or [Kudu](https://github.com/projectkudu/kudu)) site. This site handles much of the deployment and build logic for Azure Functions (and Azure App Service).
 
-When apps are deployed to Windows, a few basic commands are run with the app content - `dotnet restore` and `npm install`, for instance. 
+When an app is deployed to Windows, language-specific commands, like `dotnet restore` (C#) or `npm install` (JavaScript) are run.
 
 #### Remote build on Linux
 
-In order for an app to be build using remote build on Linux, it must have the following application settings:
-* `ENABLE_ORYX_BUILD=true`
-* `SCM_DO_BUILD_DURING_DEPLOYMENT=1`
+To enable remote build on Linux, you must set the following application settings:
 
-Apps built using remote build on Linux will end up in [Run From Package](run-functions-from-deployment-package.md) mode.
+* `ENABLE_ORYX_BUILD=true`
+* `SCM_DO_BUILD_DURING_DEPLOYMENT=true`
+
+When apps are built remotely on Linux, they will [run from package](run-functions-from-deployment-package.md).
 
 ##### Consumption (preview) plan
-Linux function apps running in the consumption plan don't have an SCM/Kudu site, which explains why many deployment technologies aren't supported for that type of app. However, function apps on Linux running in the consumption plan do support remote builds. These builds use [Oryx](https://github.com/microsoft/Oryx).
+
+Linux function apps running in the Consumption plan don't have an SCM/Kudu site, which limits the deployment options. However, function apps on Linux running in the Consumption plan do support remote builds. These remote builds use [Oryx](https://github.com/microsoft/Oryx).
 
 ##### Dedicated and Premium (preview) plans
 
-Function apps running on Linux in the Dedicated and Premium (preview) plans also have a limited SCM/Kudu site, which itself takes advantage of [Oryx](https://github.com/microsoft/Oryx).
+Function apps running on Linux in the [Dedicated (App Service) plan](functions-scale.md#app-service-plan) and the [Premium plan](functions-scale.md#premium-plan) also have a limited SCM/Kudu site, which itself takes advantage of [Oryx](https://github.com/microsoft/Oryx).
 
-## Deployment technology details 
+## Deployment technology details
 
 The following deployment methods are available in Azure Functions.
 
@@ -96,13 +98,11 @@ You can use an external package URL to reference a remote package (.zip) file th
 
 ### Zip deploy
 
-Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start in [Run From Package](run-functions-from-deployment-package.md) mode, or specify that a [remote build](#remote-build) occurs.
+Use zip deploy to push a .zip file that contains your function app to Azure. Optionally, you can set your app to start [running from package](run-functions-from-deployment-package.md), or specify that a [remote build](#remote-build) occurs.
 
 >__How to use it:__ Deploy by using your favorite client tool: [VS Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), or the [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure). To manually deploy a .zip file to your function app, follow the instructions in [Deploy from a .zip file or URL](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url). 
 
->If running on Linux in the Consumption plan (preview), performing a zip deployment will automatically result in a remote build being performed.
-
->When you deploy by using zip deploy, you can set your app to run in [Run From Package](run-functions-from-deployment-package.md) mode. To set Run From Package mode, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
+>When you deploy by using zip deploy, you can set your app to [run from package](run-functions-from-deployment-package.md). To run from package, set the `WEBSITE_RUN_FROM_PACKAGE` application setting value to `1`. We recommend zip deployment. It yields faster loading times for your applications, and it's the default for VS Code, Visual Studio, and the Azure CLI. 
 
 >__When to use it:__ Zip deploy is the recommended deployment technology for Azure Functions.
 
