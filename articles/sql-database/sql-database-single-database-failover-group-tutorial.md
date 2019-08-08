@@ -176,6 +176,7 @@ Create your failover group and add your single database to it using AZ CLI.
       --partner-server $drServerName \
       --resource-group $resourceGroupName \
       --server $serverName \
+      --add-db $databaseName
       --failover-policy Automatic
    ```
 
