@@ -283,7 +283,7 @@ In batch files that have the `.cmd` extension, you'll have to escape the `%` cha
 
 ## Use AzCopy in Storage Explorer
 
-If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer. 
+If you want to leverage the performance advantages of AzCopy, but you prefer to use Storage Explorer rather than the command line to interact with your files, then enable AzCopy in Storage Explorer.
 
 In Storage Explorer, choose **Preview**->**Use AzCopy for Improved Blob Upload and Download**.
 
