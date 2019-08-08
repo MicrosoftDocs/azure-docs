@@ -136,7 +136,7 @@ Record a web test in the usual way. Delete cookies first.
 
 |Property name| Description|
 |----|-----|
-| Audience Uri | The audience URI for the SAML token.  This is the URI for the Assertion Consumer Service (ACS) – including ACS namespace and host name. |
+| Audience Uri | The audience URI for the SAML token.  This is the URI for the Access Control Service (ACS) – including ACS namespace and host name. |
 | Certificate Password | The password for the client certificate which will grant access to the embedded private key. |
 | Client Certificate  | The client certificate value with private key in Base64 encoded format. |
 | Name Identifier | The name identifier for the token |
