@@ -247,6 +247,18 @@ You can also use Azure CLI to deploy resources with Resource Manager templates. 
 > [!NOTE]
 > Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the CLI command [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
+## Configure environment resource group access rights for lab users
+
+Lab users can deploy Resource Manager templates, but by default, they have **Reader** role, so they can't change the resources in an environment resource group. For example, they can't stop or start their resources. 
+
+To give your lab users **Contributor** role so they can edit the resources in their environments, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), on your lab's **Overview** pane, select **Configuration and policies**, and then select **Lab settings**.
+   
+1. In the **Lab Settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
+   
+   ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
+
 ## Limitations of Resource Manager templates in DevTest Labs 
 
 Consider these limitations when using a Resource Manager template in DevTest Labs:
@@ -263,18 +275,6 @@ Consider these limitations when using a Resource Manager template in DevTest Lab
    - Number of premium VMs per lab user
    - Number of premium disks per lab user
 
-## Configure environment resource group access rights for lab users
-
-Lab users can deploy Resource Manager templates, but by default, they have **Reader** role, so they can't change the resources in an environment resource group. For example, they can't stop or start their resources. 
-
-To give your lab users **Contributor** role so they can edit the resources in their environments, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com), on your lab's **Overview** pane, select **Configuration and policies**, and then select **Lab settings**.
-   
-1. In the **Lab Settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
-   
-   ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
-   
 ## Next steps
 - Once you create a VM, you can connect to the VM by selecting **Connect** on the VM's management pane.
 - View and manage resources in an environment by selecting the environment in the **My virtual machines** list in your lab. 
