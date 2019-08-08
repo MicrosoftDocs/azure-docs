@@ -13,7 +13,7 @@ ms.author: diberry
 ---
 # Quickstart: Language Understanding (LUIS) authoring client library for Python
 
-Get started with the Language Understanding (LUIS) authoring client library for .NET. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
+Get started with the Language Understanding (LUIS) authoring client library for python. Follow these steps to install the package and try out the example code for basic tasks.  Language Understanding (LUIS) enables you to apply custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information. 
 
 Use the Language Understanding (LUIS) authoring client library for Python to:
 
@@ -22,7 +22,7 @@ Use the Language Understanding (LUIS) authoring client library for Python to:
 * Add features such as a phrase list
 * Train and publish app
 
-[Reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/languageunderstanding?view=azure-dotnet) | [Library source code](https://github.com/Azure/cognitive-services-dotnet-sdk-samples/tree/master/sdk/cognitiveservices/Language.LUIS.Authoring) | [Authoring Package (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring/) | [C# Samples](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs)
+[Reference documentation](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/index?view=azure-python) | [Library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-language-luis/azure/cognitiveservices/language/luis) | [Authoring Package (Pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py)
 
 ## Prerequisites
 
@@ -37,11 +37,37 @@ Get your [authoring key](luis-how-to-account-settings.md), and [create an enviro
 
 ### Install the Python library for LUIS
 
-Within the application directory, install the Language Understanding (LUIS) authoring client library for .NET with the following command:
+Within the application directory, install the Language Understanding (LUIS) authoring client library for python with the following command:
 
 ```console
-dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
+pip install azure-cognitiveservices-personalizer
 ```
+
+## Object model
+
+The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python) object that authenticates to Azure, which contains your authoring key.
+
+Once the client is created, use this client to access functionality including:
+
+* Apps - [create](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-), [delete](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#delete-app-id--force-false--custom-headers-none--raw-false----operation-config-), [publish](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#publish-app-id--version-id-none--is-staging-false--custom-headers-none--raw-false----operation-config-)
+* Example utterances - [add by batch](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#batch-app-id--version-id--example-label-object-array--custom-headers-none--raw-false----operation-config-), [delete by ID](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#delete-app-id--version-id--example-id--custom-headers-none--raw-false----operation-config-) 
+* Features - manage [phrase lists](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.featuresoperations?view=azure-python#add-phrase-list-app-id--version-id--phraselist-create-object--custom-headers-none--raw-false----operation-config-) 
+* Model - manage [intents](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python#add-intent-app-id--version-id--name-none--custom-headers-none--raw-false----operation-config-) and entities
+* Pattern - manage [patterns](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.patternoperations?view=azure-python#add-pattern-app-id--version-id--pattern-none--intent-none--custom-headers-none--raw-false----operation-config-)
+* Train - [train](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#train-version-app-id--version-id--custom-headers-none--raw-false----operation-config-) the app and poll for [training status](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.trainoperations?view=azure-python#get-status-app-id--version-id--custom-headers-none--raw-false----operation-config-)
+* [Versions](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.versionsoperations?view=azure-python) - manage with clone, export, and delete
+
+
+## Code examples
+
+These code snippets show you how to do the following with the Language Understanding (LUIS) authoring client library for python:
+
+* [Create an app](#create-a-luis-app)
+* [Add entities](#create-entities-for-the-app)
+* [Add intents](#create-intent-for-the-app)
+* [Add example utterances](#add-example-utterance-to-intent)
+* [Train the app](#train-the-app)
+* [Publish the app](#publish-a-language-understanding-app)
 
 ### Create a new python application
 
@@ -53,63 +79,20 @@ Create variables for your resource's Azure endpoint and key. If you created the 
 
 [!code-python[Create variables for your resource's Azure endpoint and key. ](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
 
-## Object model
-
-The Language Understanding (LUIS) authoring client is a [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object that authenticates to Azure, which contains your authoring key.
-
-Once the client is created, use this client to access functionality including:
-
-* Apps - [create](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet), [delete](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.deleteasync?view=azure-dotnet), [publish](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.publishasync?view=azure-dotnet)
-* Example utterances - [add by batch](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.batchasync?view=azure-dotnet), [delete by ID](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.examplesextensions.deleteasync?view=azure-dotnet) 
-* Features - manage [phrase lists](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.featuresextensions.addphraselistasync?view=azure-dotnet) 
-* Model - manage [intents](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) and entities
-* Pattern - manage [patterns](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.patternextensions?view=azure-dotnet)
-* Train - [train](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.trainversionasync?view=azure-dotnet) the app and poll for [training status](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.trainextensions.getstatusasync?view=azure-dotnet)
-* [Versions](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.versionsextensions?view=azure-dotnet) - manage with clone, export, and delete
-
-
-## Code examples
-
-These code snippets show you how to do the following with the Language Understanding (LUIS) authoring client library for .NET:
-
-* [Create an app](#create-a-luis-app)
-* [Add entities](#create-entities-for-the-app)
-* [Add intents](#create-intent-for-the-app)
-* [Add example utterances](#add-example-utterance-to-intent)
-* [Train the app](#train-the-app)
-* [Publish the app](#publish-a-language-understanding-app)
-
-## Add the dependencies
-
-From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
-
-[!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
-
 ## Authenticate the client
 
-1. Create a variables to manage your authoring key pulled from an environment variable named `COGNITIVESERVICES_AUTHORING_KEY`. If you created the environment variable after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later.
+1. Create an [CognitiveServicesCredentials](https://docs.microsoft.com/en-us/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) object with your key, and use it with your endpoint to create an [LUISAuthoringClient](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-python) object.
 
-1. Create variables to hold your authoring region and endpoint. The region of your authoring key depends on where you are authoring. The [three authoring regions](luis-reference-regions.md) are:
-
-    * Australia - `australiaeast`
-    * Europe - `westeurope`
-    * U.S. and other regions - `westus` (Default)
-    
-    [!code-csharp[Authorization to resource key](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Variables)]
-
-1. Create an [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.apikeyserviceclientcredentials?view=azure-dotnet) object with your key, and use it with your endpoint to create an [LUISAuthoringClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.luisauthoringclient?view=azure-dotnet) object.
-
-    [!code-csharp[Create LUIS client object](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateClient)]
+    [!code--python[Create LUIS client object](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Client)]
 
 ## Create a LUIS app
 
 1. Create a LUIS app to contain the natural language processing (NLP) model holding intents, entities, and example utterances. 
 
-1. Create a [ApplicationCreateObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.applicationcreateobject?view=azure-dotnet). The name and language culture are required properties. 
+1. Create a [AppsOperation](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python) object's [add](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.appsoperations?view=azure-python#add-application-create-object--custom-headers-none--raw-false----operation-config-) method to create the app. The name and language culture are required properties. 
 
-1. Call the [Apps.AddAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.appsextensions.addasync?view=azure-dotnet) method. The response is the app ID. 
-    
-    [!code-csharp[Create a LUIS app](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=AuthoringCreateApplication)]
+    [!code--python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=createApp)]
+
 
 ## Create intent for the app
 The primary object in a LUIS app's model is the intent. The intent aligns's with a grouping of user utterance _intentions_. A user may ask a question, or make a statement looking for a particular _intended_ response from a bot (or other client application). Examples of intentions are booking a flight, asking about weather in a destination city, and asking about contact information for customer service.   
