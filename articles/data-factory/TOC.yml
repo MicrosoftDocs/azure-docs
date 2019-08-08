@@ -166,6 +166,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Source control
+      href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
     - name: Iterative development and debugging
@@ -203,11 +205,13 @@
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-insance.md
+      href: connector-azure-sql-database-managed-instance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
+    - name: Binary format
+      href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
     - name: Common Data Service for Apps
@@ -253,7 +257,7 @@
     - name: Impala
       href: connector-impala.md
     - name: Informix
-      href: connector-odbc.md#ibm-informix-source
+      href: connector-informix.md
     - name: Jira
       href: connector-jira.md
     - name: Magento
@@ -263,7 +267,7 @@
     - name: Marketo
       href: connector-marketo.md
     - name: Microsoft Access
-      href: connector-odbc.md#microsoft-access-source
+      href: connector-microsoft-access.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -304,7 +308,7 @@
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce Service Cloud
-      href: connector-salesforce.md
+      href: connector-salesforce-service-cloud.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub
@@ -526,6 +530,8 @@
       href: create-shared-self-hosted-integration-runtime-powershell.md
   - name: Run SSIS packages in Azure
     items:
+    - name: Run SSIS packages in Azure from SSDT
+      href: how-to-invoke-ssis-package-ssdt.md
     - name: Run SSIS packages with Execute SSIS Package activity
       href: how-to-invoke-ssis-package-ssis-activity.md
     - name: Run SSIS packages with Stored Procedure activity
@@ -534,6 +540,8 @@
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
       href: join-azure-ssis-integration-runtime-virtual-network.md
+    - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
+      href: self-hosted-integration-runtime-proxy-ssis.md
     - name: Enable Azure AD authentication for Azure-SSIS IR
       href: enable-aad-authentication-azure-ssis-ir.md
     - name: Provision Enterprise Edition for Azure-SSIS IR
@@ -556,6 +564,8 @@
       href: how-to-create-schedule-trigger.md
     - name: Create a tumbling window trigger
       href: how-to-create-tumbling-window-trigger.md
+    - name: Create a tumbling window trigger dependency
+      href: tumbling-window-trigger-dependency.md
   - name: Templates
     items:
     - name: Overview of templates
@@ -580,6 +590,14 @@
       href: ssis-integration-runtime-management-troubleshoot.md
     - name: Troubleshooting Package Execution in Azure-SSIS IR
       href: ssis-integration-runtime-ssis-activity-faq.md
+- name: Scenarios
+  items:
+  - name: Data migration for data lake & EDW
+    items:
+    - name: Why Azure Data Factory
+      href: data-migration-guidance-overview.md
+    - name: Migrate data from AWS S3 to Azure
+      href: data-migration-guidance-s3-azure-storage.md
 - name: Reference
   items:
   - name: .NET

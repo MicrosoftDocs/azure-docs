@@ -1,6 +1,6 @@
 ---
-title: Simple entity type 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Simple entity type - LUIS
+titleSuffix: Azure Cognitive Services
 description: A simple entity is a generic entity that describes a single concept and is learned from the machine-learned context. Because simple entities are generally names such as company names, product names, or other categories of names, add a phrase list when using a simple entity to boost the signal of the names used.   
 services: cognitive-services
 author: diberry

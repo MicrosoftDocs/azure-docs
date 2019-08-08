@@ -6,7 +6,7 @@ metadata:
   description: Learn how to use the Bing Custom Search portal and API to create a custom search experience
   services: cognitive-services
   author: v-deken
-  manager: cgronlun
+  manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.tgt_pltfrm: na

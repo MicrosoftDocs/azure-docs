@@ -1,13 +1,13 @@
 ---
 title: Back up SQL Server databases in Azure VMs | Microsoft Docs
 description: Learn how to back up SQL Server databases in Azure VMs
-
-author: sachdevaswati
-manager: vijayts
+ms.reviewer: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.author: vijayts
+ms.author: dacurwin
 
 
 ---
@@ -173,19 +173,19 @@ How to discover databases running on a VM:
 
     ![Enable auto-protection for the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **Backup policy**, choose a policy and then select **OK**.
+5. In **Backup policy**, choose a policy and then select **OK**.
 
-   - Select the default policy as HourlyLogBackup.
+   - Select the default policy as HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
    - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. In **Backup**, select **Enable backup**.
+6. In **Backup**, select **Enable backup**.
 
     ![Enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Track the configuration progress in the **Notifications** area of the portal.
+7. Track the configuration progress in the **Notifications** area of the portal.
 
     ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -269,7 +269,7 @@ You can enable auto-protection to automatically back up all existing and future 
 
 - There's no limit on the number of databases you can select for auto-protection at one time.
 - You can't selectively protect or exclude databases from protection in an instance at the time you enable auto-protection.
-- If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
+- If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
 
 To enable auto-protection:
 
@@ -284,7 +284,7 @@ If you need to disable auto-protection, select the instance name under **Configu
 
 ![Disable auto-protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## Next steps
 
 Learn how to:

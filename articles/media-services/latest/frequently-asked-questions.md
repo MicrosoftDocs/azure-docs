@@ -108,28 +108,6 @@ Often, customers invested in a license server farm either in their own data cent
 * STS needs to issue tokens that are acceptable and can be verified by the license server farm. For example, the Widevine license servers provided by Axinom require a specific JWT that contains an entitlement message. Therefore, you need to have an STS to issue such a JWT. 
 * You no longer need to configure license delivery service in Media Services. You need to provide the license acquisition URLs (for PlayReady, Widevine, and FairPlay) when you configure ContentKeyPolicies.
 
-### What if I want to use a custom STS?
-
-A customer might choose to use a custom STS to provide JWTs. Reasons include:
-
-* The IDP used by the customer doesn't support STS. In this case, a custom STS might be an option.
-* The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. For example, an MVPD operator might offer multiple OTT subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
-
-When you use a custom STS, two changes must be made:
-
-* When you configure license delivery service for an asset, you need to specify the security key used for verification by the custom STS instead of the current key from Azure AD. (More details follow.) 
-* When a JTW token is generated, a security key is specified instead of the private key of the current X509 certificate in Azure AD.
-
-There are two types of security keys:
-
-* Symmetric key: The same key is used to generate and to verify a JWT.
-* Asymmetric key: A public-private key pair in an X509 certificate is used with a private key to encrypt/generate a JWT and with the public key to verify the token.
-
-> [!NOTE]
-> If you use .NET Framework/C# as your development platform, the X509 certificate used for an asymmetric security key must have a key length of at least 2048. This is a requirement of the class System.IdentityModel.Tokens.X509AsymmetricSecurityKey in .NET Framework. Otherwise, the following exception is thrown:
-> 
-> IDX10630: The 'System.IdentityModel.Tokens.X509AsymmetricSecurityKey' for signing cannot be smaller than '2048' bits.
-
 ## Media Services v2 vs v3 
 
 ### Can I use the Azure portal to manage v3 resources?

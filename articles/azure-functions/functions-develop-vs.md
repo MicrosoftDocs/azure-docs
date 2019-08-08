@@ -15,62 +15,61 @@ ms.author: glenga
 
 # Develop Azure Functions using Visual Studio  
 
-Azure Functions Tools is an extension for Visual Studio that lets you develop, test, and deploy C# functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
+Visual Studio lets you develop, test, and deploy C# class library functions to Azure. If this experience is your first with Azure Functions, you can learn more at [An introduction to Azure Functions](functions-overview.md).
 
-The Azure Functions Tools provides the following benefits: 
+Visual Studio provides the following benefits when develop your functions: 
 
 * Edit, build, and run functions on your local development computer. 
-* Publish your Azure Functions project directly to Azure. 
-* Use WebJobs attributes to declare function bindings directly in the C# code instead of maintaining a separate function.json for binding definitions.
+* Publish your Azure Functions project directly to Azure, and create Azure resources as needed. 
+* Use C# attributes to declare function bindings directly in the C# code.
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This article provides details about how to use the Azure Functions Tools for Visual Studio 2019 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
+This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
-> [!IMPORTANT]
-> Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2019. 
 
 ## Prerequisites
 
-Azure Functions Tools is included in the Azure development workload of [Visual Studio 2017](https://www.visualstudio.com/vs/), or a later version. Make sure you include the **Azure development** workload in your Visual Studio 2019 installation:
-
-![Install Visual Studio 2019 with the Azure development workload](./media/functions-create-your-first-function-visual-studio/functions-vs-workloads.png)
-
-Make sure that your Visual Studio is up-to-date and that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools.
-
-### Azure resources
+Azure Functions Tools is included in the Azure development workload of Visual Studio starting with Visual Studio 2017. Make sure you include the **Azure development** workload in your Visual Studio installation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
-### Check your tools version
+> [!NOTE]
+> In Visual Studio 2017, the Azure development workload installs the Azure Functions Tools as a separate extension. When you update your Visual Studio 2017, also make sure that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
+
+### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
 
 1. From the **Tools** menu, choose **Extensions and Updates**. Expand **Installed** > **Tools** and choose **Azure Functions and Web Jobs Tools**.
 
     ![Verify the Functions tools version](./media/functions-develop-vs/functions-vstools-check-functions-tools.png)
 
-2. Note the installed **Version**. You can compare this version with the latest version listed [in the release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
+1. Note the installed **Version**. You can compare this version with the latest version listed [in the release notes](https://github.com/Azure/Azure-Functions/blob/master/VS-AzureTools-ReleaseNotes.md). 
 
-3. If your version is older, update your tools in Visual Studio as shown in the following section.
+1. If your version is older, update your tools in Visual Studio as shown in the following section.
 
-### Update your tools
+### Update your tools in Visual Studio 2017
 
 1. In the **Extensions and Updates** dialog, expand **Updates** > **Visual Studio Marketplace**, choose **Azure Functions and Web Jobs Tools** and select **Update**.
 
     ![Update the Functions tools version](./media/functions-develop-vs/functions-vstools-update-functions-tools.png)   
 
-2. After the tools update is downloaded, close Visual Studio to trigger the tools update using the VSIX installer.
+1. After the tools update is downloaded, close Visual Studio to trigger the tools update using the VSIX installer.
 
-3. In the installer, choose **OK** to start and then **Modify** to update the tools. 
+1. In the installer, choose **OK** to start and then **Modify** to update the tools. 
 
-4. After the update is complete, choose **Close** and restart Visual Studio.
+1. After the update is complete, choose **Close** and restart Visual Studio.
+
+> [!NOTE]  
+In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio.  
 
 ## Create an Azure Functions project
 
 [!INCLUDE [Create a project using the Azure Functions](../../includes/functions-vstools-create.md)]
 
-The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. Functions 1.x targets the .NET Framework, and Functions 2.x targets .NET Standard. The new project has the following files:
+The project template creates a C# project, installs the `Microsoft.NET.Sdk.Functions` NuGet package, and sets the target framework. The new project has the following files:
 
 * **host.json**: Lets you configure the Functions host. These settings apply both when running locally and in Azure. For more information, see [host.json reference](functions-host-json.md).
 
@@ -91,19 +90,19 @@ The function app settings values can also be read in your code as environment va
 
 ## Configure the project for local development
 
-The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. Change this setting to an actual storage connection before deployment.
+The Functions runtime uses an Azure Storage account internally. For all trigger types other than HTTP and webhooks, you must set the **Values.AzureWebJobsStorage** key to a valid Azure Storage account connection string. Your function app can also use the [Azure storage emulator](../storage/common/storage-use-emulator.md) for the **AzureWebJobsStorage** connection setting that is required by the project. To use the emulator, set the value of **AzureWebJobsStorage** to `UseDevelopmentStorage=true`. Change this setting to an actual storage account connection string before deployment.
 
 To set the storage account connection string:
 
-1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then select **Properties** and copy the **Primary Connection String** value.
+1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then in the **Properties** tab copy the **Primary Connection String** value.
 
 2. In your project, open the local.settings.json file and set the value of the **AzureWebJobsStorage** key to the connection string you copied.
 
-3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions.
+3. Repeat the previous step to add unique keys to the **Values** array for any other connections required by your functions. 
 
 ## Add a function to your project
 
-In pre-compiled functions, the bindings used by the function are defined by applying attributes in the code. When you use the Azure Functions Tools to create your functions from the provided templates, these attributes are applied for you. 
+In C# class library functions, the bindings used by the function are defined by applying attributes in the code. When you create your function triggers from the provided templates, the trigger attributes are applied for you. 
 
 1. In **Solution Explorer**, right-click on your project node and select **Add** > **New Item**. Select **Azure Function**, type a **Name** for the class, and click **Add**.
 
@@ -128,7 +127,8 @@ In pre-compiled functions, the bindings used by the function are defined by appl
         public static class Function1
         {
             [FunctionName("QueueTriggerCSharp")]
-            public static void Run([QueueTrigger("myqueue-items", Connection = "QueueStorage")]string myQueueItem, ILogger log)
+            public static void Run([QueueTrigger("myqueue-items", 
+                Connection = "QueueStorage")]string myQueueItem, ILogger log)
             {
                 log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
             }

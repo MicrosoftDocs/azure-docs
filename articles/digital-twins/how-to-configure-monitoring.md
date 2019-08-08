@@ -118,7 +118,7 @@ Azure Monitor logs also provide powerful error and alert notification services, 
 
 ## Other options
 
-Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/azure-log-audit.md) article.
+Azure Digital Twins also supports application-specific logging and security auditing. For a thorough overview of all Azure logging options available to your Azure Digital Twins instance, see the [Azure log audit](../security/fundamentals/log-audit.md) article.
 
 ## Next steps
 

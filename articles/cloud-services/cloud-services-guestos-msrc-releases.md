@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/18/2019
+ms.date: 8/2/2019
 ms.author: raiye
 
 ---
@@ -21,13 +21,9 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 ## July 2019 Guest OS
 
->[!NOTE]
->The July Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the July Guest OS. This list is subject to change.
-
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  July 9, 2019  |
-|  Rel 19-07   |  [4506621]  |  Windows Security   |  2.88, 3.75, 4.68  |  July 9, 2019  |
 |  Rel 19-07   |  [4506966]  |  .NET 4.5.2 Security   |  2.88  |  July 9, 2019  |
 |  Rel 19-07   |  [4506976]  |  .NET 3.5.1 Security   |  2.88  |  July 9, 2019  |
 |  Rel 19-07   |  [4507456]  |  Windows Security   |  2.88  |  July 9, 2019  |

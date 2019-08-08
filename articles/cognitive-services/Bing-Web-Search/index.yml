@@ -7,7 +7,7 @@ metadata:
   description: Learn how to use the Bing Web Search API to search the web for webpages, images, videos, news and more. 
   services: cognitive-services
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.subservice: bing-web-search
   ms.tgt_pltfrm: na

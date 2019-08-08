@@ -27,6 +27,8 @@
         href: absorblms-tutorial.md
       - name: Abstract
         href: abstract-tutorial.md
+      - name: Academy Attendance
+        href: academy-attendance-tutorial.md
       - name: Acadia
         href: acadia-tutorial.md  
       - name: Accredible
@@ -57,7 +59,7 @@
         href: agiloft-tutorial.md
       - name: Aha!
         href: aha-tutorial.md
-      - name: AirStack
+      - name: Airstack
         href: airstack-tutorial.md  
       - name: AirWatch
         href: airwatch-tutorial.md
@@ -217,6 +219,8 @@
         href: canvas-lms-tutorial.md
       - name: Capriza Platform
         href: capriza-tutorial.md
+      - name: Carbonite Endpoint Backup
+        href: carbonite-endpoint-backup-tutorial.md
       - name: Carlson Wagonlit Travel
         href: carlsonwagonlit-tutorial.md
       - name: CBRE ServiceInsight
@@ -1023,6 +1027,8 @@
         href: ringcentral-tutorial.md
       - name: Riskware
         href: riskware-tutorial.md
+      - name: Robin
+        href: robin-tutorial.md
       - name: RStudio Connect
         href: rstudio-connect-tutorial.md
       - name: RolePoint
@@ -1303,7 +1309,7 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
-      - name: Viareport's Inativ Portal (Europe)
+      - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
@@ -1420,6 +1426,8 @@
       items:
       - name: 4me
         href: 4me-provisioning-tutorial.md
+      - name: 15Five
+        href: 15five-provisioning-tutorial.md
     - name: A - L
       items:
       - name: Amazon Web Services (AWS) - Role Provisioning
@@ -1428,6 +1436,8 @@
         href: asana-provisioning-tutorial.md
       - name: Atlassian Cloud
         href: atlassian-cloud-provisioning-tutorial.md
+      - name: BitaBIZ
+        href: bitabiz-provisioning-tutorial.md
       - name: BlueJeans
         href: bluejeans-provisioning-tutorial.md
       - name: Bonusly
@@ -1452,12 +1462,16 @@
         href: dynamic-signal-provisioning-tutorial.md
       - name: Dialpad
         href: dialpad-provisioning-tutorial.md
+      - name: Druva
+        href: druva-provisioning-tutorial.md
       - name: Envoy
         href: envoy-provisioning-tutorial.md
       - name: Figma
         href: figma-provisioning-tutorial.md
       - name: Federated Directory
         href: federated-directory-provisioning-tutorial.md
+      - name: Fuze
+        href: fuze-provisioning-tutorial.md
       - name: G Suite
         href: google-apps-provisioning-tutorial.md
       - name: GitHub
@@ -1478,16 +1492,26 @@
         href: leapsome-provisioning-tutorial.md
       - name: Merchlogix
         href: merchlogix-provisioning-tutorial.md
+      - name: myPolicies
+        href: mypolicies-provisioning-tutorial.md
     - name: N - Z
       items:
       - name: Netsuite
         href: netsuite-provisioning-tutorial.md
+      - name: Oracle Fusion ERP
+        href: oracle-fusion-erp-provisioning-tutorial.md
       - name: Pingboard
         href: pingboard-provisioning-tutorial.md
       - name: Proxyclick
         href: Proxyclick-provisioning-tutorial.md
       - name: Peakon
         href: peakon-provisioning-tutorial.md
+      - name: Reward Gateway
+        href: reward-gateway-provisioning-tutorial.md
+      - name: RFPIO
+        href: rfpio-provisioning-tutorial.md
+      - name: Rollbar
+        href: rollbar-provisioning-tutorial.md
       - name: Salesforce
         href: salesforce-provisioning-tutorial.md
       - name: Salesforce Sandbox
@@ -1498,10 +1522,20 @@
         href: servicenow-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
+      - name: Smartsheet
+        href: smartsheet-provisioning-tutorial.md
+      - name: Smartfile
+        href: smartfile-provisioning-tutorial.md
+      - name: Snowflake
+        href: snowflake-provisioning-tutorial.md
+      - name: StarLeaf
+        href: starleaf-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
+      - name: Templafy
+        href: templafy-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday

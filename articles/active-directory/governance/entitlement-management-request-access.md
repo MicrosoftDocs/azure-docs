@@ -42,7 +42,7 @@ The first step is to sign in to the My Access portal where you can request acces
 
 1. Sign in to the My Access portal.
 
-    Be sure you use your organizational account. If you unsure, check with your project or business manager.
+    Be sure you use your organizational (work or school) account. If you're unsure, check with your project or business manager.
 
 ## Request an access package
 
@@ -50,6 +50,9 @@ Once you have found the access package in the My Access portal, you can submit a
 
 **Prerequisite role:** Requestor
 
+1. Find the access package in the list.  If necessary, you can search by typing a search string and then selecting the **Name**, **Catalog**, or **Resources** filter.
+
+    ![My Access portal - Resource search](./media/entitlement-management-request-access/elm-myaccess-resource-search.png)
 1. Click the checkmark to select the access package.
 
     ![My Access portal - Access packages](./media/entitlement-management-shared/my-access-access-packages.png)

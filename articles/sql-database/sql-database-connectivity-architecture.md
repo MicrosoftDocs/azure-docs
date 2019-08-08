@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
-manager: craigg
 ms.date: 07/02/2019
 ---
 # Azure SQL Connectivity Architecture

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 07/28/2019
 ms.author: rkarlin
 
 ---
@@ -31,14 +31,15 @@ You can stream logs from [Azure Advanced Threat Protection](https://docs.microso
 ## Prerequisites
 
 - User with global administrator or security administrator permissions
-- You must be a private preview customer of Azure ATP
+- You must be a preview customer of Azure ATP
 
 ## Connect to Azure ATP
 
-Make sure the Azure ATP private preview version is [enabled on your network](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
+Make sure the Azure ATP preview version is [enabled on your network](https://docs.microsoft.com/azure-advanced-threat-protection/install-atp-step1).
 If Azure ATP is deployed and ingesting your data, the suspicious alerts can easily be streamed into Azure Sentinel. It may take up to 24 hours for the alerts to start streaming into Azure Sentinel.
 
 
+1. To connect Azure ATP to Azure Sentinel, you must first enable integration between Azure ATP and Microsoft Cloud App Security. For information on how to do this, see [Azure Advanced Threat Protection integration](https://docs.microsoft.com/cloud-app-security/aatp-integration).
 
 1. In Azure Sentinel, select **Data connectors** and then click the **Azure ATP** tile.
 

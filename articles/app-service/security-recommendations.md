@@ -15,7 +15,7 @@ ms.custom: security-recommendations
 
 # Security recommendations for App Service
 
-This article contains security recommendations for Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your Web App solutions. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../security/azure-security-infrastructure.md).
+This article contains security recommendations for Azure App Service. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model and will improve the overall security for your Web App solutions. For more information on what Microsoft does to fulfill service provider responsibilities, read [Azure infrastructure security](../security/fundamentals/infrastructure.md).
 
 ## General
 
@@ -59,4 +59,4 @@ This article contains security recommendations for Azure App Service. Implementi
 
 ## Next steps
 
-Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../security/abstract-develop-secure-apps.md).
+Check with your application provider to see if there are additional security requirements. For more information on developing secure applications, see [Secure Development Documentation](../security/fundamentals/abstract-develop-secure-apps.md).

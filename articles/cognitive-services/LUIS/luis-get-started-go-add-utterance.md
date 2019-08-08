@@ -1,7 +1,7 @@
 ---
-title: Change, train app, Go
+title: Change, train app, Go - LUIS
+titleSuffix: Azure Cognitive Services
 description: In this Go language quickstart, add example utterances to a Home Automation app and train the app. 
-titleSuffix: Language Understanding - Microsoft Cognitive Services
 author: diberry
 manager: nitinme
 services: cognitive-services

@@ -36,8 +36,6 @@ ms.author: sedusch
 
 [virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 
-> [!TIP]
-> Pacemaker on Red Hat Enterprise Linux uses the Azure Fence Agent to fence a cluster node if required. A new version of the Azure Fence Agent is available and failover no longer takes a long time, if a resource stop fails or the cluster nodes cannot communicate which each other anymore. For more information, read  [Azure VM running as a RHEL High Availability cluster member take a very long time to be fenced, or fencing fails / times-out before the VM shuts down](https://access.redhat.com/solutions/3408711)
 
 Read the following SAP Notes and papers first:
 

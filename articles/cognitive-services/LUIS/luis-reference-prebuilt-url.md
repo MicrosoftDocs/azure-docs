@@ -1,6 +1,6 @@
 ---
-title: URL Prebuilt entities
-titleSuffix: Azure
+title: URL Prebuilt entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: This article contains url prebuilt entity information in Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
