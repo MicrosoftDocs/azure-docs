@@ -81,12 +81,39 @@ Create a folder for your sample app. From your working directory, run the follow
 mkdir -p src/main/java
 ```
 
-Navigate to the new folder and create a file called *CustomSearch.java*. Open it in your preferred editor or IDE and add the following `import` statements:
+Navigate to the new folder and create a file called *CustomSearch.java*. Open it in your preferred editor or IDE and add the package statement, the following `import` statements, and a class named `CustomSearch`:
 
-[!code-java[import statements](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=imports)]
+```java
+package main.java;
 
+import com.microsoft.azure.cognitiveservices.search.customsearch.BingCustomSearchAPI;
+import com.microsoft.azure.cognitiveservices.search.customsearch.BingCustomSearchManager;
+import com.microsoft.azure.cognitiveservices.search.customsearch.models.SearchResponse;
+import com.microsoft.azure.cognitiveservices.search.customsearch.models.WebPage;
 
-In the application's `main` method, create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
+public class CustomSearch {
+}
+```
+
+Create a `main` method and variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable. You will define the methods later.
+
+```java
+public static void main(String[] args) {
+
+    // Set the environment variables below for your OS, and then be sure to reopen your command prompt or IDE.
+    // If you do not have a customConfigId, you can also use 1 as your value when setting your environment variable.
+
+    final String subscriptionKey = System.getenv("AZURE_BING_CUSTOM_SEARCH_API_KEY");
+    final String customConfigId = "1";//System.getenv("AZURE_BING_SAMPLES_CUSTOM_CONFIG_ID");
+    final String market = "en-us";
+
+    BingCustomSearchAPI client = BingCustomSearchManager.authenticate(subscriptionKey);
+    String query = "Xbox";
+
+    CallCustomSearch(client, customConfigId, market, query);
+
+}
+```
 
 [!code-java[main method](~/cognitive-services-java-sdk-samples/Search/BingCustomSearch/src/main/java/CustomSearch.java?name=main)]
 
