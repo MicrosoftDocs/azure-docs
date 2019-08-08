@@ -37,12 +37,15 @@ The `Circle` geometry is not supported by the [GeoJSON spec][1]. We use a `GeoJS
 A `Circle` geometry represented using the `GeoJSON Feature` object __must__ contain the following:
 
 - Center
+
     The circle's center is represented using a `GeoJSON Point` object.
 
 - Radius
+
     The circle's `radius` is represented using `GeoJSON Feature`'s properties. The radius value is in _meters_ and must be of the type `double`.
 
 - SubType
+
     The circle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and its value should be _Circle_
 
 #### Example
@@ -70,9 +73,11 @@ The `Rectangle` geometry is not supported by the [GeoJSON spec][1]. We use a `Ge
 A `Rectangle` geometry represented using the `GeoJSON Polygon Feature` object __must__ contain the following:
 
 - Corners
+
     The rectangle's corners are represented using the coordinates of a `GeoJSON Polygon` object. There should be five coordinates, one for each corner and a fifth coordinate that is the same as the 1st to close the polygon ring. These coordinates will be assumed to be aligned and rotated as desired by the developer.
 
 - SubType
+
     The rectangle geometry must also contain the `subType` property. This property must be a part of the `GeoJSON Feature`'s properties and its value should be _Rectangle_
 
 ### Example
