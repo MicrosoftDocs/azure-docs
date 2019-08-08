@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -54,21 +54,20 @@ To configure the integration of CPQSync by Cincom into Azure AD, you need to add
 1. In the **Add from the gallery** section, type **CPQSync by Cincom** in the search box.
 1. Select **CPQSync by Cincom** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for CPQSync by Cincom
 
 Configure and test Azure AD SSO with CPQSync by Cincom using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in CPQSync by Cincom.
 
 To configure and test Azure AD SSO with CPQSync by Cincom, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 2. **[Configure CPQSync by Cincom SSO](#configure-cpqsync-by-cincom-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-5. **[Create CPQSync by Cincom test user](#create-cpqsync-by-cincom-test-user)** - to have a counterpart of B.Simon in CPQSync by Cincom that is linked to the Azure AD representation of user.
-6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
+    1. **[Create CPQSync by Cincom test user](#create-cpqsync-by-cincom-test-user)** - to have a counterpart of B.Simon in CPQSync by Cincom that is linked to the Azure AD representation of user.
+3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -102,44 +101,45 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Configure CPQSync by Cincom SSO
+    ### Create an Azure AD test user
+
+    In this section, you'll create a test user in the Azure portal called B.Simon.
+
+    1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
+    1. Select **New user** at the top of the screen.
+    1. In the **User** properties, follow these steps:
+        1. In the **Name** field, enter `B.Simon`.  
+        1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
+        1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
+        1. Click **Create**.
+
+    ### Assign the Azure AD test user
+
+    In this section, you'll enable B.Simon to use Azure single sign-on by granting access to CPQSync by Cincom.
+
+    1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
+    1. In the applications list, select **CPQSync by Cincom**.
+    1. In the app's overview page, find the **Manage** section and select **Users and groups**.
+
+        ![The "Users and groups" link](common/users-groups-blade.png)
+
+    1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
+
+	    ![The Add User link](common/add-assign-user.png)
+
+    1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
+    1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
+    1. In the **Add Assignment** dialog, click the **Assign** button.
+
+## Configure CPQSync by Cincom SSO
 
 To configure single sign-on on **CPQSync by Cincom** side, you need to send the downloaded **Certificate (Raw)** and appropriate copied URLs from Azure portal to [CPQSync by Cincom support team](https://cpqsupport.cincomcpq.com). They set this setting to have the SAML SSO connection set properly on both sides.
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B.Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to CPQSync by Cincom.
-
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **CPQSync by Cincom**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-
-   ![The "Users and groups" link](common/users-groups-blade.png)
-
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-
-	![The Add User link](common/add-assign-user.png)
-
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
-1. In the **Add Assignment** dialog, click the **Assign** button.
 
 ### Create CPQSync by Cincom test user
 
 In this section, you create a user called B.Simon in CPQSync by Cincom. Work with [CPQSync by Cincom support team](https://cpqsupport.cincomcpq.com) to add the users in the CPQSync by Cincom platform. Users must be created and activated before you use single sign-on.
 
-### Test SSO 
+## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
