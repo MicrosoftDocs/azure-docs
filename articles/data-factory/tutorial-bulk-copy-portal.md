@@ -249,19 +249,15 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 
     a. Select **AzureSqlDWDataset** for **Sink Dataset**.
     
-    b. Click input box for the VALUE of DWTableName parameter -> select **Add dynamic content** below -> enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script -> select **Finish**.
+    b. Select correct procedure for **Stored Procedure Name**. 
     
-    c. Expand **Polybase Settings**, and select **Allow polybase**. 
+    c. Click input box for the **Table type parameter name** -> select **Add dynamic content** below -> enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script -> select **Finish**.
     
-    d. Clear the **Use Type default** option. 
-    
-    e. Click the **Pre-copy Script** input box -> select **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
+    d. Click the **Pre-copy Script** input box -> select **Add dynamic content** below -> enter the following expression as script -> select **Finish**.
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
-
-      ![Copy source settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
 1. Switch to the **Settings** tab, and do the following steps: 
 
     a. Select **True** for **Enable Staging**.
