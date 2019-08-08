@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<domainname>.chargebee.com`
 
 	> [!NOTE]
-	> `<domainname>` is the name of the domain that the user creates after claiming the account. In case of any other information, contact [Chargebee Client support team](mailto:support@chargebee.com or sandhya@chargebee.com or vinothini@chargebee.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> `<domainname>` is the name of the domain that the user creates after claiming the account. In case of any other information, contact [Chargebee Client support team](mailto:support@chargebee.com). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 4. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
