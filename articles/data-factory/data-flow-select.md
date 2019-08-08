@@ -27,9 +27,11 @@ Select can also be used as a way de-select columns from your data flow. For exam
 ## Options
 * The default setting for "Select" is to include all incoming columns and keep those original names. You can alias the stream by setting the name of the Select transform.
 * To alias individual columns, deselect "Select All" and use the column mapping at the bottom.
-* Chose Skip Duplicates to eliminate duplicate columns from Input or Output metadata.
+* Choose Skip Duplicates to eliminate duplicate columns from Input or Output metadata.
 
 ![Skip Duplicates](media/data-flow/select-skip-dup.png "Skip Duplicates")
+
+* When you choose to skip duplicates, the results will be visible in the Inspect tab. ADF will keep the first occurrence of the column and you'll see that each subsequent occurrence of that same column has been removed from your flow.
 
 > [!NOTE]
 > To clear mapping rules, press the **Reset** button.

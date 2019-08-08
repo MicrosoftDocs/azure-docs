@@ -7,8 +7,8 @@ ms.subservice: security
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: oslake
-ms.author: moslake
+author: rohitnayakmsft
+ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 03/12/2019
 ---
@@ -25,44 +25,7 @@ To create a virtual network rule, there must first be a [virtual network service
 
 If you only create a virtual network rule, you can skip ahead to the steps and explanation [later in this article](#anchor-how-to-by-using-firewall-portal-59j).
 
-<a name="anch-terminology-and-description-82f" />
-
-## Terminology and description
-
-**Virtual network:** You can have virtual networks associated with your Azure subscription.
-
-**Subnet:** A virtual network contains **subnets**. Any Azure virtual machines (VMs) that you have are assigned to subnets. One subnet can contain multiple VMs or other compute nodes. Compute nodes that are outside of your virtual network cannot access your virtual network unless you configure your security to allow access.
-
-**Virtual Network service endpoint:** A [Virtual Network service endpoint][vm-virtual-network-service-endpoints-overview-649d] is a subnet whose property values include one or more formal Azure service type names. In this article we are interested in the type name of **Microsoft.Sql**, which refers to the Azure service named SQL Database.
-
-**Virtual network rule:** A virtual network rule for your SQL Database server is a subnet that is listed in the access control list (ACL) of your SQL Database server. To be in the ACL for your SQL Database, the subnet must contain the **Microsoft.Sql** type name.
-
-A virtual network rule tells your SQL Database server to accept communications from every node that is on the subnet.
-
-<a name="anch-benefits-of-a-vnet-rule-68b" />
-
-## Benefits of a virtual network rule
-
-Until you take action, the VMs on your subnets cannot communicate with your SQL Database. One action that establishes the communication is the creation of a virtual network rule. The rationale for choosing the VNet rule approach requires a compare-and-contrast discussion involving the competing security options offered by the firewall.
-
-### A. Allow access to Azure services
-
-The firewall pane has an **ON/OFF** button that is labeled **Allow access to Azure services**. The **ON** setting allows communications from all Azure IP addresses and all Azure subnets. These Azure IPs or subnets might not be owned by you. This **ON** setting is probably more open than you want your SQL Database to be. The virtual network rule feature offers much finer granular control.
-
-### B. IP rules
-
-The SQL Database firewall allows you to specify IP address ranges from which communications are accepted into SQL Database. This approach is fine for stable IP addresses that are outside the Azure private network. But many nodes inside the Azure private network are configured with *dynamic* IP addresses. Dynamic IP addresses might change, such as when your VM is restarted. It would be folly to specify a dynamic IP address in a firewall rule, in a production environment.
-
-You can salvage the IP option by obtaining a *static* IP address for your VM. For details, see [Configure private IP addresses for a virtual machine by using the Azure portal][vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w].
-
-However, the static IP approach can become difficult to manage, and it is costly when done at scale. Virtual network rules are easier to establish and to manage.
-
-> [!NOTE]
-> You cannot yet have SQL Database on a subnet. If your Azure SQL Database server was a node on a subnet in your virtual network, all nodes within the virtual network could communicate with your SQL Database. In this case, your VMs could communicate with SQL Database without needing any virtual network rules or IP rules.
-
-However as of September 2017, the Azure SQL Database service is not yet among the services that can be assigned to a subnet.
-
-<a name="anch-details-about-vnet-rules-38q" />
+<!--<a name="anch-details-about-vnet-rules-38q"/> -->
 
 ## Details about virtual network rules
 
@@ -135,28 +98,7 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## Impact of removing 'Allow Azure services to access server'
 
-Many users want to remove **Allow Azure services to access server** from their Azure SQL Servers and replace it with a VNet Firewall Rule.
-However removing this affects the following features:
-
-### Import Export Service
-
-Azure SQL Database Import Export Service runs on VMs in Azure. These VMs are not in your VNet and hence get an Azure IP when connecting to your
-database. On removing **Allow Azure services to access server** these VMs will not be able to access your databases.
-You can work around the problem. Run the BACPAC import or export directly in your code by using the DACFx API. Ensure that this is deployed in a VM that is in the VNet-subnet for which you have set the firewall rule.
-
-### SQL Database Query Editor
-
-The Azure SQL Database Query Editor is deployed on VMs in Azure. These VMs are not in your VNet. Therefore the VMs get an Azure IP when connecting to your database. On removing **Allow Azure services to access server**, these VMs will not be able to access your databases.
-
-### Table Auditing
-
-At present there are two ways to enable auditing on your SQL Database. Table auditing fails after you have enabled service endpoints on your Azure SQL Server. Mitigation here is to move to Blob auditing.
-
-### Impact on Data Sync
-
-Azure SQL Database has the Data Sync feature that connects to your databases using Azure IPs. When using service endpoints, it is likely that you will turn off **Allow Azure services to access server** access to your SQL Database server. This will break the Data Sync feature.
 
 ## Impact of using VNet Service Endpoints with Azure storage
 
@@ -169,6 +111,7 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Azure 
 #### Prerequisites
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
 > The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 

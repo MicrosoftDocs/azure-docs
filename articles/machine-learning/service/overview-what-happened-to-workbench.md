@@ -34,7 +34,7 @@ The latest release of Azure Machine Learning service includes the following feat
 + A new, more comprehensive Python <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>.
 + The new expanded [Azure CLI extension](reference-azure-machine-learning-cli.md) for machine learning.
 
-The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal]((setup-create-workspace.md#portal). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
+The [architecture](concept-azure-machine-learning-architecture.md) was redesigned for ease of use. Instead of multiple Azure resources and accounts, you only need an [Azure Machine Learning service Workspace](concept-workspace.md). You can create workspaces quickly in the [Azure portal]((how-to-manage-workspace.md). By using a workspace, multiple users can store training and deployment compute targets, model experiments, Docker images, deployed models, and so on.
 
 Although there are new improved CLI and SDK clients in the current release, the desktop workbench application itself has been retired. Experiments can be managed in the [workspace dashboard in Azure portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use the dashboard to get your experiment history, manage the compute targets attached to your workspace, manage your models and Docker images, and even deploy web services.
 
@@ -44,7 +44,7 @@ Although there are new improved CLI and SDK clients in the current release, the 
 
 On January 9th, 2019 support for Machine Learning Workbench, Azure Machine Learning Experimentation and Model Management accounts, and their associated SDK and CLI has ended. 
 
-All the latest capabilities are available by using this <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](setup-create-workspace.md#portal).
+All the latest capabilities are available by using this <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, the [CLI](reference-azure-machine-learning-cli.md), and the [portal](how-to-manage-workspace.md).
 
 ## What about run histories?
 
@@ -76,7 +76,7 @@ run = exp.submit(source_directory=script_folder,
                  script='train.py', run_config=run_config_system_managed)
 ```
 
-[Create a workspace](setup-create-workspace.md#portal) to get started.
+[Create a workspace](how-to-manage-workspace.md) to get started.
 
 ## What about my registered models and images?
 
@@ -114,8 +114,8 @@ The domain packages for computer vision, text analytics, and forecasting can't b
 
 Learn about the [latest architecture for Azure Machine Learning service](concept-azure-machine-learning-architecture.md). 
 
-For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
+For an overview of the service, read [What is Azure Machine Learning service?](overview-what-is-azure-ml.md).
 
-For a quickstart showing you how to run a script, and explore the run history of the script with the latest version of Azure Machine Learning service, try [get started with Azure Machine Learning service](quickstart-run-cloud-notebook.md).
+Create your first experiment with the two-part tutorial to [setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) and [train your first model](tutorial-1st-experiment-sdk-train.md)
 
 For a more in-depth experience of this workflow, follow the [full-length tutorial](tutorial-train-models-with-aml.md) that contains detailed steps for training and deploying models with Azure Machine Learning service. 
