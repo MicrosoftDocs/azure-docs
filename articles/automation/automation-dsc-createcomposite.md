@@ -7,7 +7,7 @@ ms.subservice: dsc
 author: mgreenegit
 ms.author: migreene
 ms.date: 08/08/2019
-ms.topic: community
+ms.topic: conceptual
 manager: carmonm
 ---
 # Convert Configurations to Composite Resources
