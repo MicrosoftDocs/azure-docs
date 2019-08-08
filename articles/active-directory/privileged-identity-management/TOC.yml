@@ -59,7 +59,7 @@
         href: azure-ad-custom-roles-activate.md
       - name: Assign a custom role
         href: azure-ad-custom-roles-assign.md
-      - name: Remove a custom role assignment
+      - name: Remove a role assignment
         href: azure-ad-custom-roles-update-remove.md
       - name: Configure custom roles
         href: azure-ad-custom-roles-configure.md

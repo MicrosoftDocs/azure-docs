@@ -23,14 +23,18 @@ ms.collection: M365-identity-device-management
 
 # Assign an Azure AD custom role in Privileged Identity Management
 
-This article tells you how to use Privileged Identity Management (PIM) to create just-in-time and time-bound assignment to custom roles created for application management in the Azure Active Directory (Azure AD) administrative experience. For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md). If you haven't used Privileged Identity Management yet, get more information at [Start using PIM](pim-getting-started.md).
+This article tells you how to use Privileged Identity Management (PIM) to create just-in-time and time-bound assignment to custom roles created for managing applications in the Azure Active Directory (Azure AD) administrative experience.
+
+- For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md).
+- If you haven't used Privileged Identity Management yet, get more information at [Start using PIM](pim-getting-started.md).
+- For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will appear as in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will take place in the built-in roles experience.
 
 ## Assign a role
 
-Privileged Identity Management (PIM) can manage custom roles you can create in Azure Active Directory (Azure AD) application management. For information about how to grant another administrator access to manage Privileged Identity Management, see [Grant access to other administrators to manage PIM](pim-how-to-give-access-to-pim.md). The following steps make an eligible assignment to a custom directory role.
+Privileged Identity Management can manage custom roles you can create in Azure Active Directory (Azure AD) application management.  The following steps make an eligible assignment to a custom directory role.
 
 1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged Role administrator role.
 1. Select **Azure AD custom roles (Preview)**.
@@ -41,20 +45,20 @@ Privileged Identity Management (PIM) can manage custom roles you can create in A
 
     ![Select Roles see the list of eligible role assignments](./media/azure-ad-custom-roles-assign/view-roles.png)
 
-1. Select **Add member** to open the assignment pane.
+1. Select **Add member** to open the assignment page.
 1. To restrict the scope of the role assignment to a single application, select **Scope** to specify an application scope.
 
     ![restrict the scope of eligible role assignments in Azure AD](./media/azure-ad-custom-roles-assign/set-scope.png)
 
-1. Select **Select a role** to open the **Select a role** page.
+1. Select **Select a role** to open the **Select a role** list.
 
     ![select the eligible role to assign to a user](./media/azure-ad-custom-roles-assign/select-role.png)
 
-1. Select a role you want to assign and then click **Select**. The **Select a member** pane opens.
+1. Select a role you want to assign and then click **Select**. The **Select a member** list opens.
 
     ![select the user to whom you're assigning the role](./media/azure-ad-custom-roles-assign/select-member.png)
 
-1. Select a user you want to assign to the role and then click **Select**. The **Membership settings** page opens.
+1. Select a user you want to assign to the role and then click **Select**. The **Membership settings** list opens.
 
     ![Set the role assignment type to eligible or active](./media/azure-ad-custom-roles-assign/membership-settings.png)
 

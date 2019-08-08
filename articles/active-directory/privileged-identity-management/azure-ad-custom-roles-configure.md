@@ -29,17 +29,21 @@ A privileged role administrator can change the role settings that apply to a use
 
 Follow these steps to open the settings for an Azure AD role.
 
-1. Open Azure AD Privileged Identity Management
-1. Click Azure AD custom roles
-1. Click Settings
-1. Click the role for the settings you want to configure.
-1. Click Edit to open the Role settings pane.
+1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged Role administrator role.
+1. Select **Azure AD custom roles (Preview)**.
+
+    ![Select Azure AD custom roles preview to see eligible role assignments](./media/azure-ad-custom-roles-configure/settings-list.png)
+
+1. Select **Setting** to open the **Settings** page. Select the role for the settings you want to configure.
+1. Select **Edit** to open the Role settings pane.
+
+    ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/edit-settings.png)
 
 There are several settings you can configure.
 
 ## Assignment duration
 
-You can choose from two assignment duration options for each assignment type (eligible and active) when you configure settings for a role. These options become the default maximum duration when a member is assigned to the role in PIM.
+You can choose from two assignment duration options for each assignment type (eligible or active) when you configure settings for a role. These options become the default maximum duration when a member is assigned to the role in PIM.
 
 You can choose one of these *eligible* assignment duration options.
 

@@ -23,24 +23,34 @@ ms.collection: M365-identity-device-management
 
 # Update or remove an assigned Azure AD custom role in Privileged Identity Management
 
-Azure AD Privileged Identity Management now supports just-in-time and time-bound assignment to custom roles created for Application Management in the Identity and Access Management administrative experience. View the details here [insert link to Vince’s docs] to learn more about and create custom roles for delegated application management.
+This article tells you how to use Privileged Identity Management (PIM) to update or remove just-in-time and time-bound assignment to custom roles created for application management in the Azure Active Directory (Azure AD) administrative experience. 
+
+- For more information about creating custom roles to delegate application management in Azure AD, see [Custom administrator roles in Azure Active Directory (preview)](../users-groups-roles/roles-custom-overview.md). 
+- If you haven't used Privileged Identity Management yet, get more information at [Start using Privileged Identity Management](pim-getting-started.md).
 
 > [!NOTE]
-> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management will appear as in the built-in roles experience.
+> Azure AD custom roles are not integrated with the built-in directory roles during preview. Once the capability is generally available, role management role management will take place in the built-in roles experience.
 
 ## Update or remove an assignment
 
 Follow these steps to update or remove an existing custom role assignment.
 
-1. Open Azure AD Privileged Identity Management.
-1. Click Azure AD custom roles
-1. Under Manage, click Roles to see the list of Azure AD custom roles.
-1. Click the role that you want to update or remove.
-1. Find the role assignment on the Eligible roles or Active roles tabs.
-1. Click Update or Remove to update or remove the role assignment.
+1. Sign in to [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) in the Azure portal with a user account that is assigned to the Privileged Role administrator role.
+1. Select **Azure AD custom roles (Preview)**.
+
+    ![Select Azure AD custom roles preview to see eligible role assignments](./media/azure-ad-custom-roles-assign/view-custom.png)
+
+1. Select **Roles** to see a the **Assignments** list of custom roles for Azure AD applications.
+
+    ![Select Roles see the list of eligible role assignments](./media/azure-ad-custom-roles-assign/view-roles.png)
+
+1. Select the role that you want to update or remove.
+1. Find the role assignment on the **Eligible roles** or **Active roles** tabs.
+1. Select **Update** or **Remove** to update or remove the role assignment.
 
 ## Next steps
 
-- [License requirements to use PIM](subscription-requirements.md)
+- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
+- [License requirements to use Privileged Identity Management](subscription-requirements.md)
+- [Deploy Privileged Identity Management](pim-deployment-plan.md)
 - [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
-- [Deploy PIM](pim-deployment-plan.md)
