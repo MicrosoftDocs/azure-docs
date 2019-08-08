@@ -29,7 +29,7 @@ This article assumes you've already deployed Report Services and [enabled Appl
 
 - Enabling Application Proxy requires installing a connector on a Windows server and completing the [prerequisites](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) so that the connector can communicate with Azure AD services.  
 - When publishing Power BI, we recommended you use the same internal and external domains. To learn more about custom domains, see [Working with custom domains in Application Proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-custom-domain).
-- This integration is currently only available for the **Power BI Mobile iOS** application.
+- This integration is available for the **Power BI Mobile iOS and Android** application.
 
 ## Step 1: Configure Kerberos Constrained Delegation (KCD)
 
@@ -78,7 +78,7 @@ For more information, see [Kerberos Constrained Delegation for single sign-on to
 Now you're ready to configure Azure AD Application Proxy.
 
 1. Publish Report Services through Application Proxy with the following settings. For step-by-step instructions on how to publish an application through Application Proxy, see [Publishing applications using Azure AD Application Proxy](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad).
-   - **Internal URL**: Enter the URL to the Report Server that the connector can reach in the corporate network. Make sure this URL is reachable from the server the connector is installed on. A best practice is using a top-level domain such as `https://servername` to avoid issues with subpaths (for example, `https://servername/reports` and `https://servername/reportserver`) not published through Application Proxy.
+   - **Internal URL**: Enter the URL to the Report Server that the connector can reach in the corporate network. Make sure this URL is reachable from the server the connector is installed on. A best practice is using a top-level domain such as `https://servername/` to avoid issues with subpaths (for example, `https://servername/reports/` and `https://servername/reportserver/`) not published through Application Proxy.
      > [!NOTE]
      > We recommend using a secure HTTPS connection to the Report Server. See [Configure SSL connections on a native mode report server](https://docs.microsoft.com/sql/reporting-services/security/configure-ssl-connections-on-a-native-mode-report-server?view=sql-server-2017) for information how to.
    - **External URL**: Enter the public URL the Power BI mobile app will connect to. For example, it may look like `https://reports.contoso.com` if a custom domain is used. To use a custom domain, upload a certificate for the domain, and point a DNS record to the default msappproxy.net domain for your application. For detailed steps, see [Working with custom domains in Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
@@ -106,8 +106,8 @@ Native apps are programs developed to use on a platform or device. Before the Po
 1. Register the application in Azure AD by following [Step 2 in How to enable native client applications to interact with proxy applications](application-proxy-configure-native-client-application.md#step-2-register-your-native-application).
 
    When registering the app for Power BI Mobile **iOS**, add the following Redirect URIs:
-   - `msauth://code/mspbi-adal://com.microsoft.powerbimobile`
-   - `msauth://code/mspbi-adalms://com.microsoft.powerbimobilems`
+   - `msauth://code/mspbi-adal%3a%2f%2fcom.microsoft.powerbimobile`
+   - `msauth://code/mspbi-adalms%3a%2f%2fcom.microsoft.powerbimobilems`
    - `mspbi-adal://com.microsoft.powerbimobile`
    - `mspbi-adalms://com.microsoft.powerbimobilems`
    
