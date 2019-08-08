@@ -47,16 +47,16 @@ The app is a typical n-tier application with three tiers. The front end, back en
 
 The architecture consists of these components:
 
-- [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/). Provides the gateway and firewall for our application architecture.
-- [Azure Web Apps on Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro). Provides the container runtime to run the Python app in a Linux environment.
-- [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/). Stores and encrypts our app's secrets and manages the creation of access policies around them.
+- [Azure Application Gateway](../../application-gateway/index.yml). Provides the gateway and firewall for our application architecture.
+- [Azure Web Apps on Linux](../../app-service/containers/app-service-linux-intro.md). Provides the container runtime to run the Python app in a Linux environment.
+- [Azure Key Vault](../../key-vault/index.yml). Stores and encrypts our app's secrets and manages the creation of access policies around them.
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/). Securely stores our app's data.
-- [Azure Security Center](https://docs.microsoft.com/azure/security-center/) and [Azure Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). Provides monitoring and alerts on the operation of our app.
+- [Azure Security Center](../../security-center/index.yml) and [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md). Provides monitoring and alerts on the operation of our app.
 
 ## Threat model
 Threat modeling is the process of identifying potential security threats to your business and application and then ensuring that a proper mitigation plan is in place.
 
-This sample used the [Microsoft Threat Modeling Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. This saves time and money later.
+This sample used the [Microsoft Threat Modeling Tool](threat-modeling-tool.md) to implement threat modeling for the secure sample app. By diagramming the components and the data flows, you can identify issues and threats early in the development process. This saves time and money later.
 
 This is the threat model for the sample app:
 
