@@ -53,7 +53,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Insight4GRC for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Insight4GRC.
 
-1. To obtain the bearer token, end-customer needs to contact support.ss@rsmuk.com and they will provide the bearer token to the customers.
+1. To obtain the bearer token, end-customer needs to contact [support team](mailto:support.ss@rsmuk.com) and they will provide the bearer token to the customers.
+
+2. To obtain the SCIM endpoint URL, you will need to have your Insight4GRC domain name ready as it will be used to construct your SCIM endpoint URL. You can retrieve your Insight4GRC domain name as part of the initial software purchase with Insight4GRC.
 
 
 ## Add Insight4GRC  from the gallery
@@ -103,7 +105,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5.	Under the **Admin Credentials** section, input `https://[Insight4GRC Domain Name.insight4grc.com/public/api/scim/v2` in Tenant URL. In **Secret Token** textbox, enter the **Token value** which was given by Insight4GRC member. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
+5.	Under the Admin Credentials section, input `https://{Insight4GRC Domain Name}.insight4grc.com/public/api/scim/v2` in **Tenant URL** using the {Insight4GRC Domain Name} value that was retrieved earlier. Enter the **Token value** retrieved earlier into **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Insight4GRC. If the connection fails, ensure your Insight4GRC account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -147,7 +149,6 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
-## Connector limitations
 
 ## Additional resources
 
