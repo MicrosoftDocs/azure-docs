@@ -48,7 +48,7 @@ There are two ways you can set the displayed area of the map using the camera. Y
 
 ### Set the camera
 
-In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is created via `new atlas.Map()` and the center and zoom are set. Map properties such as center and zoom level are part of [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
+In the following code, a [Map object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is created and the center and zoom options are set. Map properties such as center and zoom level are part of the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions).
 
 <br/>
 
@@ -68,7 +68,7 @@ In the following code,  a [Map object](https://docs.microsoft.com/javascript/api
 
 ### Animate map view
 
-In the following code, the first code block creates a map and sets the map style, center and zoom values. In the second code block, a click event handler is created for the animate button. When this button is clicked the setCamera function is called in addition to specifying some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) are also passed in.
+In the following code, the first code block creates a map and sets the map style, center and zoom values. In the second code block, a click event handler is created for the animate button. When this button is clicked the setCamera function is called with some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions).
 
 <br/>
 
