@@ -35,38 +35,7 @@ Use the Language Understanding (LUIS) authoring client library for Python to:
 
 Get your [authoring key](luis-how-to-account-settings.md), and [create an environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the key, named `LUIS_AUTHORING_KEY` and an environment variable for the region of the key, `LUIS_REGION`.
 
-### Create a new python application
-
-Create a new Python application in your preferred editor or IDE. Then import the following libraries.
-
-[!code-python[Using statements](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Dependencies)]
-
-1. In a console window (such as cmd, PowerShell, or Bash), use the dotnet `new` command to create a new console app with the name `language-understanding-quickstart`. This command creates a simple "Hello World" C# project with a single source file: `Program.cs`. 
-
-    ```console
-    dotnet new console -n language-understanding-quickstart
-    ```
-
-1. Change your directory to the newly created app folder. 
-
-1. You can build the application with:
-
-    ```console
-    dotnet build
-    ```
-
-    The build output should contain no warnings or errors. 
-    
-    ```console
-    ...
-    Build succeeded.
-     0 Warning(s)
-     0 Error(s)
-    ...
-    ```
-
-
-### Install the SDK
+### Install the Python library for LUIS
 
 Within the application directory, install the Language Understanding (LUIS) authoring client library for .NET with the following command:
 
@@ -74,8 +43,15 @@ Within the application directory, install the Language Understanding (LUIS) auth
 dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring -Version 3.0.0
 ```
 
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
+### Create a new python application
 
+Create a new Python application in your preferred editor or IDE. Then import the following libraries. 
+
+[!code-python[Create a new Python application in your preferred editor or IDE. Then import the following libraries. ](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Dependencies)]
+
+Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+[!code-python[Create variables for your resource's Azure endpoint and key. ](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
 
 ## Object model
 
