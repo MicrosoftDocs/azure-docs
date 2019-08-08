@@ -38,7 +38,6 @@ Once you decide on a deployment source, your next step is to choose a build pipe
 The deployment mechanism is the action used to put your built application into the /home/site/wwwroot directory of your web app. The /wwwroot directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances will receive a notification to sync the new files. App Service supports the following deployment mechanisms:
 
 - Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service, and as a second container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as zipdeploy.
-- Cloud sync: 
 - FTP and WebDeploy: Using your [site or user credentials](deploy-configure-credentials.md), you can upload files [via FTP](deploy-ftp.md) or WebDeploy. These mechanisms do not go through Kudu.  
 
 Deployment tools such as Azure Pipelines, Jenkins, and editor plugins all use one of these three deployment mechanisms.
