@@ -55,6 +55,8 @@ There are several platforms supported.
 | Ubuntu 18.04 LTS    | x86  | Python 3.4 | openssl     |
 | MacOS High Sierra   | x64  | Python 2.7 | openssl     |
 
+[!NOTE] Python Device SDK v1 for MacOS does not support provisioning. This functionality is available currently available as a preview in the [Python SDK v2](https://github.com/Azure/azure-iot-sdk-python-preview).
+
 ### .NET SDK
 
 | OS                  | Arch | Framework            | Standard          |
