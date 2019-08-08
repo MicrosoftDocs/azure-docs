@@ -85,7 +85,7 @@ Sign in to the Azure portal at <https://portal.azure.com/> with your Azure accou
     func start
     ```
 
-    ![Create SignalR Service](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
+    ![Run function app](media/signalr-quickstart-azure-functions-python/signalr-quickstart-run-application.png)
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
