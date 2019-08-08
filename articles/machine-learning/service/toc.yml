@@ -217,6 +217,8 @@
     - name: Where and how to deploy
       displayName: publish, web, service, operationalize, aks, kubernetes, aci, container, cli, consume, docker
       href: how-to-deploy-and-where.md
+    - name: Notebook VMs
+      href: how-to-deploy-local-container-notebookvm.md
     - name: Azure Container Instances
       href: how-to-deploy-azure-container-instance.md
     - name: Azure Kubernetes Service
