@@ -73,11 +73,11 @@ These code snippets show you how to do the following with the Language Understan
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries. 
 
-[!code-python[Create a new Python application in your preferred editor or IDE. Then import the following libraries. ](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Dependencies)]
+[!code-python[Create a new Python application in your preferred editor or IDE. Then import the following libraries.](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=Dependencies)]
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
-[!code-python[Create variables for your resource's Azure endpoint and key. ](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
+[!code-python[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
 
 ## Authenticate the client
 
