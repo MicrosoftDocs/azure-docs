@@ -35,11 +35,11 @@ To complete this self-service process, follow these steps:
 
 1. Go to the **Billing** page in the **Administration** section.
 
-    ![Trial state](media/howto-administer-pnp/freetrialbilling.png)
+    ![Trial state](media/howto-view-bill-pnp/freetrialbilling.png)
 
 1. Select **Convert to Pay-As-You-Go**.
 
-    ![Convert trial](media/howto-administer-pnp/convert.png)
+    ![Convert trial](media/howto-view-bill-pnp/convert.png)
 
 1. Select the appropriate Azure Active Directory, and then the Azure subscription to use for your Pay-As-You-Go application.
 

@@ -27,13 +27,13 @@ For more information, see [Microsoft account help](https://support.microsoft.com
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Administration** section.
 
-    ![List of users](media/howto-administer-pnp/image1.png)
+    ![List of users](media/howto-manage-users-roles-pnp/image1.png)
 
 1. To add a user, on the **Users** page, choose **+ Add user**.
 
 1. Choose a role for the user from the **Role** drop-down menu. Learn more about roles in the [Manage roles](#manage-roles) section of this article.
 
-    ![Role selection](media/howto-administer-pnp/image3.png)
+    ![Role selection](media/howto-manage-users-roles-pnp/image3.png)
 
     > [!NOTE]
     >  To add users in bulk, enter the user IDs of all the users you'd like to add separated by semi-colons. Choose a role from the **Role** drop-down menu. Then select **Save**.
