@@ -89,7 +89,7 @@ The following steps use Homebrew to install the Core Tools on macOS.
 
 The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#linux).
 
-1. Register the Microsoft product key as trusted:
+1. Install the Microsoft package repository GPG key, to validate package integrity:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
