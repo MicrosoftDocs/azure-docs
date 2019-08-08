@@ -20,7 +20,7 @@ This quickstart demonstrates how to connect to an Azure Database for MySQL by us
 
 2. Ensure your Azure Database for MySQL connection security is configured with the firewall opened and SSL settings adjusted for your application to connect successfully.
 
-3. Obtain the MySQL Connector/J connector using one of the following approaches:
+3. Obtain the MariaDB Connector/J connector using one of the following approaches:
    - Use the Maven package [mariadb-java-client](https://search.maven.org/search?q=a:mariadb-java-client) to include the [mariadb-java-client dependency](https://mvnrepository.com/artifact/org.mariadb.jdbc/mariadb-java-client) in the POM file for your project.
    - Download the JDBC driver [MariaDB Connector/J](https://downloads.mariadb.org/connector-java/) and include the JDBC jar file (for example mariadb-java-client-2.4.3.jar) into your application classpath. If you have trouble with classpaths, consult your environment's documentation for class path specifics, such as [Apache Tomcat](https://tomcat.apache.org/tomcat-7.0-doc/class-loader-howto.html) or [Java SE](https://docs.oracle.com/javase/7/docs/technotes/tools/windows/classpath.html)
 
