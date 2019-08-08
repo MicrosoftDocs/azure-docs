@@ -392,7 +392,8 @@ That will guarantee all properties have been correctly updated.
 
 ## Converting Windows Group Policy content to Azure Policy Guest Configuration
 
-Guest Configuration for Windows is an implementation of the PowerShell Desired State Configuration syntax.
+Guest Configuration, when auditing Windows machines,
+is an implementation of the PowerShell Desired State Configuration syntax.
 The DSC community has published tooling to convert exported Group Policy templates to DSC format.
 By using this tool together with the Guest Configuration cmdlets described above,
 you can convert Windows Group Policy content and package/publish it for Azure Policy to audit.
