@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Control a device from Azure IoT Hub with Java'
+title: Quickstart: Control a device from Azure IoT Hub with Java
 description: In this quickstart, you run two sample Java applications. One application is a back-end application that can remotely control devices connected to your hub. The other application simulates a device connected to your hub that can be controlled remotely.
 author: wesmc7777
 manager: philmea
