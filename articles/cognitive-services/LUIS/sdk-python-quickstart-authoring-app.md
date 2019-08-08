@@ -109,7 +109,7 @@ This **add_entities** method created a `Location` simple entity with two roles, 
 
 It is important to know that entities are not marked with an intent. They can and usually do apply to many intents. Only example user utterances are marked for a specific, single intent.
 
-Creation methods for entities are part of the [Model](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.modelextensions?view=azure-dotnet) class. Each entity type has its own data transformation object (DTO) model, usually containing the word `model` in the [Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models?view=azure-dotnet) namespace. 
+Creation methods for entities are part of the [ModelOperations](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.modeloperations?view=azure-python) class. Each entity type has its own data transformation object (DTO) model. 
 
     [!code-python[Create LUIS client app](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=addEntities)]
 
@@ -117,7 +117,7 @@ Creation methods for entities are part of the [Model](https://docs.microsoft.com
 
 In order to determine an utterance's intention and extract entities, the app needs examples of utterances. The examples need to target a specific, single intent and should mark all custom entities. Prebuilt entities do not need to be marked. 
 
-Add example utterances by creating a list of [ExampleLabelObject](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-dotnet) objects, one object for each example utterance. Each example should mark all entities with a dictionary of name/value pairs of entity name and entity value. The entity value should be exactly as it appears in the text of the example utterance. 
+Add example utterances by creating a list of [ExampleLabelObject](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.models.examplelabelobject?view=azure-python) objects, one object for each example utterance. Each example should mark all entities with a dictionary of name/value pairs of entity name and entity value. The entity value should be exactly as it appears in the text of the example utterance. 
 
 Call [examples.batch](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.authoring.operations.examplesoperations?view=azure-python#batch-app-id--version-id--example-label-object-array--custom-headers-none--raw-false----operation-config-) with the app ID, version ID, and the list of examples. The call responds with a list of results. You need to check each example's result to make sure it was successfully added to the model. 
 
@@ -162,4 +162,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is the Language Understanding (LUIS) API?](what-is-luis.md)
 * [What's new?](whats-new.md)
 * [Intents](luis-concept-intent.md), [entities](luis-concept-entity-types.md), and [example utterances](luis-concept-utterance.md), and [prebuilt entities](luis-reference-prebuilt-entities.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/documentation-samples/quickstarts/LUIS/LUIS.cs).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/LUIS/application_quickstart.py).
