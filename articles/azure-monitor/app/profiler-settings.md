@@ -31,42 +31,42 @@ The **Configure Application Insights Profiler** page has these features:
 | | |
 |-|-|
 Profile Now | Starts profiling sessions for all apps that are linked to this instance of Application Insights.
-Triggers | Allows you to configure triggers that cause the profiler to run 
+Triggers | Allows you to configure triggers that cause the profiler to run. 
 Recent profiling sessions | Displays information about past profiling sessions.
 
 ## Profile Now
 This option allows you to start a profiling session on demand. When you click this link, all profiler agents that are sending data to this Application Insights instance will start to capture a profile. After 5 to 10 minutes, the profile session will show in the list below.
 
-For a user to manually trigger a profiler session they require at minimum "write" access on their role for the Application Insights component. In most cases you get this access automatically and no additional work is needed. If you are having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
+For a user to manually trigger a profiler session, they require at minimum "write" access on their role for the Application Insights component. In most cases, you get this access automatically and no additional work is needed. If you're having issues, the subscription scope role to add would be the "Application Insights Component Contributor" role. [See more about role access control with Azure Monitoring](https://docs.microsoft.com/azure/azure-monitor/app/resources-roles-access-control).
 
 ## Trigger Settings
 ![Trigger Settings Flyout][trigger-settings-flyout]
 
-Clicking the Triggers button on the the menu bar opens the trigger settings box. You can setup a CPU trigger or Memory trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
+Clicking the Triggers button on the menu bar opens the trigger settings box. You can set up trigger to start profiling when the percentage of CPU or Memory use hits the level you set.
 
 | | |
 |-|-|
-On / Off Button | On: profiler can be started by this trigger; Off: profiler won't be started by this trigger
+On / Off Button | On: profiler can be started by this trigger; Off: profiler won't be started by this trigger.
 Memory threshold | When this percentage of memory is in use, the profiler will be started.
-Duration | This sets the length of time the profiler will run when triggered.
-Cooldown | The sets the length of time the profiler will wait before checking for the memory or CPU usage again after it is triggered.
+Duration | Sets the length of time the profiler will run when triggered.
+Cooldown | Sets the length of time the profiler will wait before checking for the memory or CPU usage again after it's triggered.
 
 ## Recent Profiling Sessions
 This section of the page shows information about recent profiling sessions. A profiling session represents the period of time when the profiler agent was taking a profile on one of the machines hosting your application. You can open the profiles from a session by clicking on one of the rows. For each session, we show:
 
 | | |
 |-|-|
-Triggered by | How the session was started, either by a trigger, Profile Now, or default sampling 
-App Name | Name of the application that was profiled
-Machine Instance | Name of the machine the profiler agent ran on
-Timestamp | When the profile was taken
-Tracee | Number of traces that were attached to individual requests
-CPU % | Percentage of CPU that was being used while the profiler was running
-Memory % | Percentage of memory that was being used while the profiler was running
+Triggered by | How the session was started, either by a trigger, Profile Now, or default sampling. 
+App Name | Name of the application that was profiled.
+Machine Instance | Name of the machine the profiler agent ran on.
+Timestamp | Time when the profile was captured.
+Tracee | Number of traces that were attached to individual requests.
+CPU % | Percentage of CPU that was being used while the profiler was running.
+Memory % | Percentage of memory that was being used while the profiler was running.
 
 ## <a id="profileondemand"></a> Use web performance tests to generate traffic to your application
 
-You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is performing under load. Having control over when traces are captured is crucial, because you know when the load test will be running. But the random sampling interval might miss it.
+You can trigger Profiler manually with a single click. Suppose you're running a web performance test. You'll need traces to help you understand how your web app is running under load. Having control over when traces are captured is crucial, because you know when the load test will be running. But the random sampling interval might miss it.
 
 The next sections illustrate how this scenario works:
 
