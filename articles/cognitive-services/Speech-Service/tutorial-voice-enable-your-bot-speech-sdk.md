@@ -38,7 +38,7 @@ At the end of this exercise, you'll have set up a system that will operate as fo
 
 Here's what this tutorial covers:
 > [!div class="checklist"]
-> * Create a new Azure resource group for your bot
+> * Create new Azure resources
 > * Build, test, and deploy the Echo Bot sample to an Azure App Service
 > * Register your bot with Direct Line Speech channel
 > * Build and run the Direct Line Speech Client to interact with your Echo Bot
@@ -75,7 +75,7 @@ The client app that you'll create in this tutorial uses a handful of Azure servi
 If you'd like to use a different region for this tutorial these factors may limit your choices:
 
 * The Direct Line Speech channel is a preview service. As such, it may be limited to specific Azure regions. For more information about available regions, see [Voice-first virtual assistants](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#voice-first-virtual-assistants).
-* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. The higher quality Neural voices are [limited to specific Azure regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
+* The Direct Line Speech channel uses the text-to-speech service, which has standard and neural voices. Neural voices are [limited to specific Azure regions](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#standard-and-neural-voices).
 * Free trial keys may be restricted to a specific region.
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
@@ -161,9 +161,8 @@ The [Bot Framework Emulator](https://github.com/microsoft/botframework-emulator)
    ```
    http://localhost:3978/api/messages
    ```
-4. Use the UI to communicate with your bot using typed text and see its replied text. 
+4. Use the UI to communicate with your bot using typed text. Confirm that you get a response.
 
-You verified that the bot is functioning properly as a chat bot (text input, text output), when running locally.
 
 ## Deploy your bot to an Azure App Service
 
