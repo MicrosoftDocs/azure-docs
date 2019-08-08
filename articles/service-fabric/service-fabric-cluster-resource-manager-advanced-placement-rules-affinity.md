@@ -4,7 +4,7 @@ description: Overview of configuring affinity for Service Fabric Services
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4

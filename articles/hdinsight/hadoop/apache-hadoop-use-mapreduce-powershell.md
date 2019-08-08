@@ -1,7 +1,6 @@
 ---
 title: Use MapReduce and PowerShell with Apache Hadoop - Azure HDInsight 
 description: Learn how to use PowerShell to remotely run MapReduce jobs with Apache Hadoop on HDInsight.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 
@@ -20,10 +19,9 @@ This document provides an example of using Azure PowerShell to run a MapReduce j
 
 ## <a id="prereq"></a>Prerequisites
 
-* **An Azure HDInsight (Hadoop on HDInsight) cluster**
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
+* **An Azure HDInsight (Hadoop on HDInsight) cluster**
 
 * **A workstation with Azure PowerShell**.
 
@@ -33,15 +31,15 @@ Azure PowerShell provides *cmdlets* that allow you to remotely run MapReduce job
 
 The following cmdlets are used when running MapReduce jobs in a remote HDInsight cluster.
 
-* **Connect-AzureRmAccount**: Authenticates Azure PowerShell to your Azure subscription.
+* **Connect-AzAccount**: Authenticates Azure PowerShell to your Azure subscription.
 
-* **New-AzureRmHDInsightMapReduceJobDefinition**: Creates a new *job definition* by using the specified MapReduce information.
+* **New-AzHDInsightMapReduceJobDefinition**: Creates a new *job definition* by using the specified MapReduce information.
 
-* **Start-AzureRmHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
+* **Start-AzHDInsightJob**: Sends the job definition to HDInsight and starts the job. A *job* object is returned.
 
-* **Wait-AzureRmHDInsightJob**: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
+* **Wait-AzHDInsightJob**: Uses the job object to check the status of the job. It waits until the job completes or the wait time is exceeded.
 
-* **Get-AzureRmHDInsightJobOutput**: Used to retrieve the output of the job.
+* **Get-AzHDInsightJobOutput**: Used to retrieve the output of the job.
 
 The following steps demonstrate how to use these cmdlets to run a job in your HDInsight cluster.
 
@@ -88,7 +86,7 @@ If no information is returned when the job completes, view errors for the job. T
 ```powershell
 # Print the output of the WordCount job.
 Write-Host "Display the standard output ..." -ForegroundColor Green
-Get-AzureRmHDInsightJobOutput `
+Get-AzHDInsightJobOutput `
         -Clustername $clusterName `
         -JobId $wordCountJob.JobId `
         -HttpCredential $creds `

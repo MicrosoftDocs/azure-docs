@@ -1,5 +1,6 @@
 ---
-title: What is Language Understanding (LUIS) - Azure Cognitive Services | Microsoft Docs
+title: What is Language Understanding (LUIS)?
+titleSuffix: Azure Cognitive Services
 description: Language Understanding (LUIS) is a cloud-based API service that applies custom machine-learning intelligence to a user's conversational, natural language text to predict overall meaning, and pull out relevant, detailed information.
 services: cognitive-services
 author: diberry
@@ -7,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: overview
-ms.date: 01/23/2019
+ms.date: 06/11/2019
 ms.author: diberry
 #Customer intent: As a developer incorporating LUIS into my client application, I want to understand what natural language processing (LUIS) is, so that I can determine if it will meet my Cognitive Language needs.
 ---
@@ -49,7 +50,7 @@ A LUIS app contains a domain-specific natural language model. You can start the 
 * **Custom Entities** LUIS gives you several ways to identify your own custom intents and entities including machine-learned entities, specific or literal entities, and a combination of machine-learned and literal.
 
 ## Build the LUIS model
-Build the model with the [authoring](https://aka.ms/luis-authoring-apis) APIs or with the LUIS portal.
+Build the model with the [authoring](https://go.microsoft.com/fwlink/?linkid=2092087) APIs or with the LUIS portal.
 
 The LUIS model begins with categories of user intentions called **[intents](luis-concept-intent.md)**. Each intent needs examples of user **[utterances](luis-concept-utterance.md)**. Each utterance can provide a variety of data that needs to be extracted with **[entities](luis-concept-entity-types.md)**. 
 
@@ -61,7 +62,7 @@ The LUIS model begins with categories of user intentions called **[intents](luis
 
 ## Query prediction endpoint
 
-After the model is built and published to the endpoint, the client application sends utterances to the published prediction [endpoint](https://aka.ms/luis-endpoint-apis) API. The API applies the model to the text for analysis. The API responds with the prediction results in a JSON format.  
+After the model is built and published to the endpoint, the client application sends utterances to the published prediction [endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) API. The API applies the model to the text for analysis. The API responds with the prediction results in a JSON format.  
 
 The minimum JSON endpoint response contains the query utterance, and the top scoring intent. It can also extract data such as the following **Contact Type** entity. 
 
@@ -97,7 +98,7 @@ LUIS provides tools, versioning, and collaboration with other LUIS authors to in
 LUIS, as a REST API, can be used with any product, service, or framework that makes an HTTP request. The following list contains the top Microsoft products and services used with LUIS.
 
 The top client application for LUIS is:
-* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-3.0) quickly creates a LUIS-enabled chat bot to talk with a user via text input. Uses [Bot Framework][bot-framework] version [3.x](https://github.com/Microsoft/BotBuilder) or [4.x](https://github.com/Microsoft/botbuilder-dotnet) for a complete bot experience.
+* [Web app bot](https://docs.microsoft.com/azure/bot-service/?view=azure-bot-service-4.0) quickly creates a LUIS-enabled chat bot to talk with a user via text input. Uses [Bot Framework][bot-framework] version [4.x](https://github.com/Microsoft/botbuilder-dotnet) for a complete bot experience.
 
 Tools to quickly and easily use LUIS with a bot:
 * [LUIS CLI](https://github.com/Microsoft/botbuilder-tools/tree/master/packages/LUIS) The NPM package provides authoring and prediction with as either a stand-alone command line tool or as import. 
@@ -122,6 +123,6 @@ Author a new LUIS app with a [prebuilt](luis-get-started-create-app.md) or [cust
 
 [bot-framework]: https://docs.microsoft.com/bot-framework/
 [flow]: https://docs.microsoft.com/connectors/luis/
-[authoring-apis]: https://aka.ms/luis-authoring-api
-[endpoint-apis]: https://aka.ms/luis-endpoint-apis
+[authoring-apis]: https://go.microsoft.com/fwlink/?linkid=2092087
+[endpoint-apis]: https://go.microsoft.com/fwlink/?linkid=2092356
 [qnamaker]: https://qnamaker.ai/

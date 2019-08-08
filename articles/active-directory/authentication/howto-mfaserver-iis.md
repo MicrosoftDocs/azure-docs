@@ -1,5 +1,5 @@
 ---
-title: IIS Authentication and Azure MFA Server | Microsoft Docs
+title: IIS Authentication and Azure MFA Server - Azure Active Directory
 description: Deploying IIS Authentication and Azure Multi-Factor Authentication Server.
 
 services: multi-factor-authentication
@@ -19,9 +19,13 @@ ms.collection: M365-identity-device-management
 
 Use the IIS Authentication section of the Azure Multi-Factor Authentication (MFA) Server to enable and configure IIS authentication for integration with Microsoft IIS web applications. The Azure MFA Server installs a plug-in that can filter requests being made to the IIS web server to add Azure Multi-Factor Authentication. The IIS plug-in provides support for Form-Based Authentication and Integrated Windows HTTP Authentication. Trusted IPs can also be configured to exempt internal IP addresses from two-factor authentication.
 
-![IIS Authentication](./media/howto-mfaserver-iis/iis.png)
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
+![IIS Authentication in MFA Server](./media/howto-mfaserver-iis/iis.png)
 
 ## Using Form-Based IIS Authentication with Azure Multi-Factor Authentication Server
+
 To secure an IIS web application that uses form-based authentication, install the Azure Multi-Factor Authentication Server on the IIS web server and configure the Server per the following procedure:
 
 1. In the Azure Multi-Factor Authentication Server, click the IIS Authentication icon in the left menu.
@@ -45,6 +49,7 @@ To secure an IIS web application that uses form-based authentication, install th
 14. Once the URL and page variables have been detected or entered, the website data displays in the Form-Based panel.
 
 ## Using Integrated Windows Authentication with Azure Multi-Factor Authentication Server
+
 To secure an IIS web application that uses Integrated Windows HTTP authentication, install the Azure MFA Server on the IIS web server, then configure the Server with the following steps:
 
 1. In the Azure Multi-Factor Authentication Server, click the IIS Authentication icon in the left menu.
@@ -57,6 +62,7 @@ To secure an IIS web application that uses Integrated Windows HTTP authenticatio
 8. Click **OK**.
 
 ## Enable IIS Plug-ins for Azure Multi-Factor Authentication Server
+
 After configuring the Form-Based or HTTP authentication URLs and settings, select the locations where the Azure Multi-Factor Authentication IIS plug-ins should be loaded and enabled in IIS. Use the following procedure:
 
 1. If running on IIS 6, click the **ISAPI** tab. Select the website that the web application is running under (e.g. Default Web Site) to enable the Azure Multi-Factor Authentication ISAPI filter plug-in for that site.
@@ -64,9 +70,10 @@ After configuring the Form-Based or HTTP authentication URLs and settings, selec
 3. Click the **Enable IIS authentication** box at the top of the screen. Azure Multi-Factor Authentication is now securing the selected IIS application. Ensure that users have been imported into the Server.
 
 ## Trusted IPs
+
 The Trusted IPs allows users to bypass Azure Multi-Factor Authentication for website requests originating from specific IP addresses or subnets. For example, you may want to exempt users from Azure Multi-Factor Authentication while logging in from the office. For this, you would specify the office subnet as a Trusted IPs entry. To configure Trusted IPs, use the following procedure:
 
 1. In the IIS Authentication section, click the **Trusted IPs** tab.
 2. Click **Add**.
 3. When the Add Trusted IPs dialog box appears, select the **Single IP**, **IP range**, or **Subnet** radio button.
-4. Enter the IP address, range of IP addresses or subnet that should be whitelisted. If entering a subnet, select the appropriate Netmask and click **OK**. The whitelist has now been added.
+4. Enter the IP address, range of IP addresses or subnet that should be allowed. If entering a subnet, select the appropriate Netmask and click **OK**.

@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with webMethods Integration Cloud | Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and webMethods Integration Cloud.
+title: 'Tutorial: Azure Active Directory integration with webMethods Integration Suite | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and webMethods Integration Suite.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -17,13 +17,13 @@ ms.date: 02/15/2019
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with webMethods Integration Cloud
+# Tutorial: Azure Active Directory integration with webMethods Integration Suite
 
-In this tutorial, you learn how to integrate webMethods Integration Cloud with Azure Active Directory (Azure AD).
-Integrating webMethods Integration Cloud with Azure AD provides you with the following benefits:
+In this tutorial, you learn how to integrate webMethods Integration Suite with Azure Active Directory (Azure AD).
+Integrating webMethods Integration Suite with Azure AD provides you with the following benefits:
 
-* You can control in Azure AD who has access to webMethods Integration Cloud.
-* You can enable your users to be automatically signed-in to webMethods Integration Cloud (Single Sign-On) with their Azure AD accounts.
+* You can control in Azure AD who has access to webMethods Integration Suite.
+* You can enable your users to be automatically signed-in to webMethods Integration Suite (Single Sign-On) with their Azure AD accounts.
 * You can manage your accounts in one central location - the Azure portal.
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -31,24 +31,24 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-To configure Azure AD integration with webMethods Integration Cloud, you need the following items:
+To configure Azure AD integration with webMethods Integration Suite, you need the following items:
 
 * An Azure AD subscription. If you don't have an Azure AD environment, you can get one-month trial [here](https://azure.microsoft.com/pricing/free-trial/).
-* webMethods Integration Cloud single sign-on enabled subscription
+* webMethods Integration Suite single sign-on enabled subscription
 
 ## Scenario description
 
 In this tutorial, you configure and test Azure AD single sign-on in a test environment.
 
-* webMethods Integration Cloud supports **SP** and **IDP** initiated SSO
+* webMethods Integration Suite supports **SP** and **IDP** initiated SSO
 
-* webMethods Integration Cloud supports **just-in-time** user provisioning
+* webMethods Integration Suite supports **just-in-time** user provisioning
 
-## Adding webMethods Integration Cloud from the gallery
+## Adding webMethods Integration Suite from the gallery
 
-To configure the integration of webMethods Integration Cloud into Azure AD, you need to add webMethods Integration Cloud from the gallery to your list of managed SaaS apps.
+To configure the integration of webMethods Integration Suite into Azure AD, you need to add webMethods Integration Suite from the gallery to your list of managed SaaS apps.
 
-**To add webMethods Integration Cloud from the gallery, perform the following steps:**
+**To add webMethods Integration Suite from the gallery, perform the following steps:**
 
 1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
@@ -62,31 +62,31 @@ To configure the integration of webMethods Integration Cloud into Azure AD, you 
 
 	![The New application button](common/add-new-app.png)
 
-4. In the search box, type **webMethods Integration Cloud**, select **webMethods Integration Cloud** from result panel then click **Add** button to add the application.
+4. In the search box, type **webMethods Integration Suite**, select **webMethods Integration Suite** from result panel then click **Add** button to add the application.
 
-	 ![webMethods Integration Cloud in the results list](common/search-new-app.png)
+	 ![webMethods Integration Suite in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with webMethods Integration Cloud based on a test user called **Britta Simon**.
-For single sign-on to work, a link relationship between an Azure AD user and the related user in webMethods Integration Cloud needs to be established.
+In this section, you configure and test Azure AD single sign-on with webMethods Integration Suite based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in webMethods Integration Suite needs to be established.
 
-To configure and test Azure AD single sign-on with webMethods Integration Cloud, you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with webMethods Integration Suite, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-2. **[Configure webMethods Integration Cloud Single Sign-On](#configure-webmethods-integration-cloud-single-sign-on)** - to configure the Single Sign-On settings on application side.
+2. **[Configure webMethods Integration Suite Single Sign-On](#configure-webmethods-integration-suite-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-5. **[Create webMethods Integration Cloud test user](#create-webmethods-integration-cloud-test-user)** - to have a counterpart of Britta Simon in webMethods Integration Cloud that is linked to the Azure AD representation of user.
+5. **[Create webMethods Integration Suite test user](#create-webmethods-integration-suite-test-user)** - to have a counterpart of Britta Simon in webMethods Integration Suite that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
 In this section, you enable Azure AD single sign-on in the Azure portal.
 
-To configure Azure AD single sign-on with webMethods Integration Cloud, perform the following steps:
+To configure Azure AD single sign-on with webMethods Integration Suite, perform the following steps:
 
-1. In the [Azure portal](https://portal.azure.com/), on the **webMethods Integration Cloud** application integration page, select **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **webMethods Integration Suite** application integration page, select **Single sign-on**.
 
     ![Configure single sign-on link](common/select-sso.png)
 
@@ -98,9 +98,9 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, If you wish to configure the application in **IDP** initiated mode, perform the following steps:
+4. To configure the **webMethods Integration Cloud**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
 
-    ![webMethods Integration Cloud Domain and URLs single sign-on information](common/idp-intiated.png)
+    ![webMethods Integration Suite Domain and URLs single sign-on information](common/idp-intiated.png)
 
     a. In the **Identifier** text box, type a URL using the following pattern:
 
@@ -118,12 +118,12 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
 	| `https://<SUBDOMAIN>.webmethodscloud.eu/integration/live/saml/ssoResponse` |
 	| `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoResponse` |
 
-5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-    ![webMethods Integration Cloud Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+    ![webMethods Integration Suite Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
 
-    In the **Sign-on URL** text box, type a URL using the following pattern:
-	
+    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+
 	| |
 	|--|
 	| `https://<SUBDOMAIN>.webmethodscloud.com/integration/live/saml/ssoRequest` |
@@ -131,13 +131,48 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
 	| `https://<SUBDOMAIN>.webmethodscloud.de/integration/live/saml/ssoRequest` |
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [webMethods Integration Cloud Client support team](https://empower.softwareag.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [webMethods Integration Suite Client support team](https://empower.softwareag.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+
+5. To configure the **webMethods API Cloud**, on the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following steps:
+
+	![webMethods Integration Suite Domain and URLs single sign-on information](common/idp-intiated.png)
+
+    a. In the **Identifier** text box, type a URL using the following pattern:
+
+	| |
+	|--|
+	| `<SUBDOMAIN>.webmethodscloud.com` |
+	| `<SUBDOMAIN>.webmethodscloud.eu` |
+	| `<SUBDOMAIN>.webmethodscloud.de` |
+
+    b. In the **Reply URL** text box, type a URL using the following pattern:
+
+	| |
+	|--|
+	| `https://<SUBDOMAIN>.webmethodscloud.com/umc/rest/saml/initsso` |
+	| `https://<SUBDOMAIN>.webmethodscloud.eu/umc/rest/saml/initsso` |
+	| `https://<SUBDOMAIN>.webmethodscloud.de/umc/rest/saml/initsso` |
+
+	c. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
+
+    ![webMethods Integration Suite Domain and URLs single sign-on information](common/metadata-upload-additional-signon.png)
+
+    d. In the **Sign-on URL** text box, type a URL using the following pattern:
+
+	| |
+	|--|
+	| `https://api.webmethodscloud.com/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+	| `https://api.webmethodscloud.eu/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+	| `https://api.webmethodscloud.de/umc/rest/saml/initsso/?tenant=<TENANTID>` |
+
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [webMethods Integration Suite Client support team](https://empower.softwareag.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
 	![The Certificate download link](common/metadataxml.png)
 
-7. On the **Set up webMethods Integration Cloud** section, copy the appropriate URL(s) as per your requirement.
+7. On the **Set up webMethods Integration Suite** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
@@ -147,11 +182,11 @@ To configure Azure AD single sign-on with webMethods Integration Cloud, perform 
 
 	c. Logout URL
 
-### Configure webMethods Integration Cloud Single Sign-On
+### Configure webMethods Integration Suite Single Sign-On
 
-To configure single sign-on on **webMethods Integration Cloud** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [webMethods Integration Cloud support team](https://empower.softwareag.com/). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **webMethods Integration Suite** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [webMethods Integration Suite support team](https://empower.softwareag.com/). They set this setting to have the SAML SSO connection set properly on both sides.
 
-### Create an Azure AD test user 
+### Create an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
@@ -167,9 +202,9 @@ The objective of this section is to create a test user in the Azure portal calle
 
     ![The User dialog box](common/user-properties.png)
 
-    a. In the **Name** field enter **BrittaSimon**.
+    a. In the **Name** field, enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
+    b. In the **User name** field, type **brittasimon\@yourcompanydomain.extension**  
     For example, BrittaSimon@contoso.com
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
@@ -178,15 +213,15 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to webMethods Integration Cloud.
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to webMethods Integration Suite.
 
-1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **webMethods Integration Cloud**.
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **webMethods Integration Suite**.
 
 	![Enterprise applications blade](common/enterprise-applications.png)
 
-2. In the applications list, select **webMethods Integration Cloud**.
+2. In the applications list, select **webMethods Integration Suite**.
 
-	![The webMethods Integration Cloud link in the Applications list](common/all-applications.png)
+	![The webMethods Integration Suite link in the Applications list](common/all-applications.png)
 
 3. In the menu on the left, select **Users and groups**.
 
@@ -196,21 +231,21 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
     ![The Add Assignment pane](common/add-assign-user.png)
 
-5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+5. In the **Users and groups** dialog, select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
 6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
 
 7. In the **Add Assignment** dialog click the **Assign** button.
 
-### Create webMethods Integration Cloud test user
+### Create webMethods Integration Suite test user
 
-In this section, a user called Britta Simon is created in webMethods Integration Cloud. webMethods Integration Cloud supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in webMethods Integration Cloud, a new one is created after authentication.
+In this section, a user called Britta Simon is created in webMethods Integration Suite. webMethods Integration Suite supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in webMethods Integration Suite, a new one is created after authentication.
 
 ### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the webMethods Integration Cloud tile in the Access Panel, you should be automatically signed in to the webMethods Integration Cloud for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+When you click the webMethods Integration Suite tile in the Access Panel, you should be automatically signed in to the webMethods Integration Suite for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional Resources
 
@@ -218,5 +253,5 @@ When you click the webMethods Integration Cloud tile in the Access Panel, you sh
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

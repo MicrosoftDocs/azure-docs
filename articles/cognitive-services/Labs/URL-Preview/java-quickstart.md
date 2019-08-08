@@ -10,7 +10,8 @@ ms.service: cognitive-services
 ms.subservice: url-preview
 ms.topic: quickstart
 ms.date: 04/24/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
+ROBOTS: NOINDEX
 ---
 # Quickstart: URL Preview with Java
 
@@ -18,11 +19,11 @@ The following Java example creates a Url Preview for the SwiftKey Web site: http
 
 ## Prerequisites
 
-Get an access key for the free trial [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
+Get an access key for the free trial [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-answer-search)
 
 ## Request 
 
-The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https://swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
+The following code creates a `WebRequest`, sets the access key header, and adds a query string for "https:\//swiftkey.com/en".  It then sends the request and assigns the response to a string to contain the JSON text.
 
 ```
     // construct URL of search request (endpoint + query string)

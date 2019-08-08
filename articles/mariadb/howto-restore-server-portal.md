@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 04/15/2019
 ---
 
 # How to backup and restore a server in Azure Database for MariaDB using the Azure portal
@@ -74,7 +74,7 @@ The following steps restore the sample server to a point-in-time:
 ## Geo restore
 If you configured your server for geographically redundant backups, a new server can be created from the backup of that existing server. This new server can be created in any region that Azure Database for MariaDB is available.  
 
-1. Select the **Create a resource** button (+) in the upper-left corner of the portal. Type **Azure Database for MariaDB** in the search box to find the service.
+1. Select **Databases** > **Azure Database for MariaDB**. You can also type **MariaDB** in the search box to find the service.
 
    ![The "Azure Database for MariaDB" option](./media/howto-restore-server-portal/2_navigate-to-mariadb.png)
 

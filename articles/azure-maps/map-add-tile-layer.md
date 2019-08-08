@@ -3,7 +3,7 @@ title: Add a tile layer to Azure Maps | Microsoft Docs
 description: How to add a tile Layer to the Javascript map
 author: rbrundritt
 ms.author: richbrun
-ms.date: 12/3/2018
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -68,4 +68,4 @@ Learn more about the classes and methods used in this article:
 See the following articles for more code samples to add to your maps:
 
 > [!div class="nextstepaction"]
-> [Add a image layer](./map-add-image-layer.md)
+> [Add an image layer](./map-add-image-layer.md)

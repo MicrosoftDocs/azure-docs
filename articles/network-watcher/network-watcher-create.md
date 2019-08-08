@@ -3,8 +3,8 @@ title: Create an Azure Network Watcher instance | Microsoft Docs
 description: Learn how to enable Network Watcher in an Azure region.
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
@@ -14,12 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 ---
 
 # Create an Azure Network Watcher instance
 
 Network Watcher is a regional service that enables you to monitor and diagnose conditions at a network scenario level in, to, and from Azure. Scenario level monitoring enables you to diagnose problems at an end to end network level view. Network diagnostic and visualization tools available with Network Watcher help you understand, diagnose, and gain insights to your network in Azure. Network Watcher is enabled through the creation of a Network Watcher resource. This resource allows you to utilize Network Watcher capabilities.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## Network Watcher is automatically enabled
 When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact to your resources or associated charge for automatically enabling Network Watcher.
@@ -31,8 +34,8 @@ If you would like to opt out of Network Watcher automatic enablement, you can do
 > Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out you cannot opt-in without [contacting support](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -59,7 +62,7 @@ If you wish to customize the name of a Network Watcher instance and the resource
 To create an instance of Network Watcher, run the following example:
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## Create a Network Watcher with the Azure CLI

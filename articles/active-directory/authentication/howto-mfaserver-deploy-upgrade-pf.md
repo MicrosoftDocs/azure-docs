@@ -1,5 +1,5 @@
 ---
-title: Upgrade PhoneFactor to Azure MFA Server | Microsoft Docs
+title: Upgrade PhoneFactor to Azure MFA Server - Azure Active Directory
 description: Get started with Azure MFA Server when you upgrade from the older phonefactor agent.
 
 services: multi-factor-authentication
@@ -18,6 +18,9 @@ ms.collection: M365-identity-device-management
 # Upgrade the PhoneFactor Agent to Azure Multi-Factor Authentication Server
 
 To upgrade the PhoneFactor Agent v5.x or older to Azure Multi-Factor Authentication Server, uninstall the PhoneFactor Agent and affiliated components first. Then the Multi-Factor Authentication Server and its affiliated components can be installed.
+
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## Uninstall the PhoneFactor Agent
 

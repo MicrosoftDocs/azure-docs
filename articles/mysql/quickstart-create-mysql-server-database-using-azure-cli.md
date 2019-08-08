@@ -13,7 +13,7 @@ ms.custom: mvc
 # Quickstart: Create an Azure Database for MySQL server using Azure CLI
 
 > [!TIP]
-> Consider using the simpler [az mysql up](/cli/azure/ext/db-up/postgres#ext-db-up-az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
+> Consider using the simpler [az mysql up](/cli/azure/ext/db-up/mysql#ext-db-up-az-mysql-up) Azure CLI command (currently in preview). Try out the [quickstart](./quickstart-create-server-up-azure-cli.md).
 
 This quickstart describes how to use the Azure CLI to create an Azure Database for MySQL server in an Azure resource group in about five minutes. The Azure CLI is used to create and manage Azure resources from the command line or in scripts.
 

@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Stream Azure Active Directory logs to an Azure event hub (preview) | Microsoft Docs
-description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub (preview) 
+title: Tutorial - Stream Azure Active Directory logs to an Azure event hub | Microsoft Docs
+description: Learn how to set up Azure Diagnostics to push Azure Active Directory logs to an event hub
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: priyamo
+ms.date: 04/18/2019
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to route Azure AD logs to an event hub so I can integrate it with my third party SIEM system.
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Stream Azure Active Directory logs to an Azure event hub (preview)
+# Tutorial: Stream Azure Active Directory logs to an Azure event hub
 
 In this tutorial, you learn how to set up Azure Monitor diagnostics settings to stream Azure Active Directory (Azure AD) logs to an Azure event hub. Use this mechanism to integrate your logs with third-party Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
 
@@ -74,6 +74,9 @@ To use this feature, you need:
 After data is displayed in the event hub, you can access and read the data in two ways:
 
 * **Configure a supported SIEM tool**. To read data from the event hub, most tools require the event hub connection string and certain permissions to your Azure subscription. Third-party tools with Azure Monitor integration include, but are not limited to:
+    
+    * **ArcSight**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md).
+    
     * **Splunk**: For more information about integrating Azure AD logs with Splunk, see [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar**: The DSM and Azure Event Hub Protocol are available for download at [IBM support](https://www.ibm.com/support). For more information about integration with Azure, go to the [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0) site.
@@ -85,6 +88,7 @@ After data is displayed in the event hub, you can access and read the data in tw
 
 ## Next steps
 
+* [Integrate Azure Active Directory logs with ArcSight using Azure Monitor](howto-integrate-activity-logs-with-arcsight.md)
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md)
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md)

@@ -1599,7 +1599,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx).
+For more information about using appliers in a SELECT expression, see [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply).
 
 The user-defined applier base class definition is as follows:
 
@@ -1813,7 +1813,7 @@ Combine_Expression :=
 	USING_Clause.
 ```
 
-For more information, see [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx).
+For more information, see [COMBINE Expression (U-SQL)](/u-sql/statements-and-expressions/combine-expression).
 
 To define a user-defined combiner, we need to create the `ICombiner` interface with the [`SqlUserDefinedCombiner`] attribute, which is optional for a user-defined Combiner definition.
 
@@ -1878,7 +1878,7 @@ Input rowsets are passed as **left** and **right** `IRowset` type of interface. 
 
 For caching purposes, we can create a List\<T\> type of memory structure as a result of a LINQ query execution, specifically List<`IRow`>. The anonymous data type can be used during enumeration as well.
 
-See [Introduction to LINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) for more information about LINQ queries, and [IEnumerable\<T\> Interface](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) for more information about IEnumerable\<T\> interface.
+See [Introduction to LINQ Queries (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) for more information about LINQ queries, and [IEnumerable\<T\> Interface](/dotnet/api/system.collections.generic.ienumerable-1) for more information about IEnumerable\<T\> interface.
 
 To get the actual data values from the incoming `IRowset`, we use the Get() method of `IRow` interface.
 

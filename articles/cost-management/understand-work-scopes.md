@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
@@ -55,14 +55,14 @@ Cost Management supports the following built-in roles for each of the following 
 - [**Owner**](../role-based-access-control/built-in-roles.md#owner) – Can view costs and manage everything, including cost configuration.
 - [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) – Can view costs and manage everything, including cost configuration, but excluding access control.
 - [**Reader**](../role-based-access-control/built-in-roles.md#reader) – Can view everything, including cost data and configuration, but cannot make any changes.
-- [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs and manage cost configuration.
-- [**Cost Management Reader**](../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data and configuration.
+- [**Cost Management Contributor**](../role-based-access-control/built-in-roles.md#cost-management-contributor) – Can view costs, manage cost configuration, and view recommendations.
+- [**Cost Management Reader**](../role-based-access-control/built-in-roles.md#cost-management-reader) – Can view cost data, cost configuration, and view recommendations.
 
 Cost Management Contributor is the recommended least-privilege role. It allows people access to create and manage budgets and exports to more effectively monitor and report on costs. Cost Management Contributors might also require additional roles to support end-to-end cost management scenarios. Consider the following scenarios:
 
 - **Act when budgets are exceeded** – Cost Management Contributors also need access to create and/or manage action groups to automatically react to overages. Consider granting [Monitoring Contributor](../role-based-access-control/built-in-roles.md#monitoring-contributor) to a resource group that contains the action group to use when budget thresholds are exceeded. Automating specific actions requires additional roles for the specific services used, such as Automation and Azure Functions.
 - **Schedule cost data export** – Cost Management Contributors also need access to manage storage accounts to schedule an export to copy data into a storage account. Consider granting [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor) to a resource group that contains the storage account where cost data is exported.
-- **Viewing cost-saving recommendations** – Cost Management Readers and Contributors don't have access to recommendations by default. Access to recommendations requires read access to individual resources. Consider granting [Reader](../role-based-access-control/built-in-roles.md#reader) or a [service-specific role](../role-based-access-control/built-in-roles.md#built-in-role-descriptions).
+- **Viewing cost-saving recommendations** – Cost Management Readers and Cost Management Contributors have access to *view* cost recommendations by default. However, access to act on the cost recommendations requires access to individual resources. Consider granting a [service-specific role](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) if you want to act on a cost-based recommendation.
 
 ## Enterprise Agreement scopes
 
@@ -95,20 +95,20 @@ Azure subscriptions are nested under enrollment accounts. Billing users have acc
 
 Billing users don't have access to management groups because they don't fall explicitly under a specific billing account. Access must be granted to management groups explicitly. Management groups roll-up costs from all nested subscriptions. However, they only include usage-based purchases. They don't include purchases such as reservations and third-party Marketplace offerings. To view these costs, use the EA billing account.
 
-## Individual agreement (Pay-As-You-Go) scopes
+## Individual agreement scopes
 
-Pay-as-you-go (PAYG) subscriptions, including related types like free/trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
+Azure subscriptions created from individual offers like pay-as-you-go and related types like Free Trial and dev/test offers, don't have an explicit billing account scope. Instead, each subscription has an account owner or account admin, like the EA account owner.
 
 - [**Billing account**](../billing/billing-view-all-accounts.md) -
 Represents a single account owner for one or more Azure subscriptions. It doesn't currently support granting access to multiple people or access to aggregated cost views.
 
     Resource type: Not applicable
 
-PAYG subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
+Individual Azure subscription account admins can view and manage billing data, such as invoices and payments, from the [Azure Account Center](https://account.azure.com/subscriptions). However, they can't view cost data or manage resources in the Azure portal. To grant access to the account admin, use the Cost Management roles mentioned previously.
 
-Unlike EA, PAYG subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to PAYG invoices](../billing/billing-manage-access.md#give-access-to-billing).
+Unlike EA, individual Azure subscription account admins can see their invoices in the Azure portal. Keep in mind that Cost Management Reader and Cost Management Contributor roles don't provide access to invoices. For more information, see [How to grant access to invoices](../billing/billing-manage-access.md##give-read-only-access-to-billing).
 
-## Customer Agreement scopes
+## Microsoft Customer Agreement scopes
 
 Microsoft Customer Agreement billing accounts have the following scopes:
 
@@ -138,13 +138,25 @@ Azure subscriptions are nested under invoice sections, like how they are under E
 
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they are both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
 
+## AWS scopes
+
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
+
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
+
+    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
+    
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
+
+    Resource type: `Microsoft.CostManagement/externalSubscriptions`
+
 ## Cloud Solution Provider (CSP) scopes
 
 Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).
 
 ## Switch between scopes in Cost Management
 
-All Cost Management views in the Azure portal include a **Scope** pill at the top-left of the view. Use it to quickly change scope. Click the **Scope** pill to open the scope picker. It shows billing accounts, the root management group, and any subscriptions that aren't nested under the root management group. To select a scope, click the background to highlight it and then click **Select** at the bottom. To drill-in to nested scopes, like resource groups in a subscription, click the scope name link. To select the parent scope at any nested level, click **Select this &lt;scope&gt;** at the top of the scope picker.
+All Cost Management views in the Azure portal include a **Scope** selection pill at the top-left of the view. Use it to quickly change scope. Click the **Scope** pill to open the scope picker. It shows billing accounts, the root management group, and any subscriptions that aren't nested under the root management group. To select a scope, click the background to highlight it and then click **Select** at the bottom. To drill-in to nested scopes, like resource groups in a subscription, click the scope name link. To select the parent scope at any nested level, click **Select this &lt;scope&gt;** at the top of the scope picker.
 
 ## Identify the resource ID for a scope
 

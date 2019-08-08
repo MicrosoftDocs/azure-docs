@@ -1,14 +1,14 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable'
 description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
-services: backup
-author: genlin
-manager: cshepard
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
-ms.author: genli
+ms.date: 07/05/2019
+ms.author: dacurwin
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -46,7 +46,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorRpCollectionLimitReached <br>
 **Error message**: The Restore Point collection max limit has reached. <br>
 * This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery point.
-* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
+* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant restore points are retained for 1-5 days as per the configured snapshot retention and only 18 instant RPs can be associated with a VM at any given time. <br>
 
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
@@ -73,9 +73,9 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot extension operation failed
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
-**Error code**: ExtentionOperationFailedForManagedDisks <br>
+**Error code**: ExtensionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
@@ -97,19 +97,12 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 5: Backup service doesn't have permission to delete the old restore points because of a resource group lock** <br>
 **Cause 6: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB
+## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 4095GB
 
 **Error code**: UserErrorUnsupportedDiskSize <br>
-**Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
+**Error message**: Currently Azure Backup does not support disk sizes greater than 4095GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Instant Restore. Upgrading to Instant Restore will provide support up to 4TB, see this [article](backup-instant-restore-capability.md#upgrading-to-instant-restore). After you upgrade, it will take up to two hours for the subscription to avail this functionality. Provide sufficient buffer before you retry the operation.  
-
-## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
-
-**Error code**: UserErrorStandardSSDNotSupported <br>
-**Error message**: Currently Azure Backup does not support Standard SSD disks <br>
-
-Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to [Instant Restore](backup-instant-restore-capability.md).
+Your backup operation could fail when backing up VM with disk size greater than 4095GB. To sign up for private preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, write back to us AskAzureBackupTeam@microsoft.com.
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
@@ -123,9 +116,9 @@ Your recent backup job failed because there is an existing backup job in progres
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
 
 	* If a backup job is in progress, wait for it to complete or cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).
@@ -195,7 +188,7 @@ The following conditions might cause the snapshot task to fail:
 | Cause | Solution |
 | --- | --- |
 | The VM status is reported incorrectly because the VM is shut down in Remote Desktop Protocol (RDP). | If you shut down the VM in RDP, check the portal to determine whether the VM status is correct. If it’s not correct, shut down the VM in the portal by using the **Shutdown** option on the VM dashboard. |
-| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure Portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
+| The VM can't get the host or fabric address from DHCP. | DHCP must be enabled inside the guest for the IaaS VM backup to work. If the VM can't get the host or fabric address from DHCP response 245, it can't download or run any extensions. If you need a static private IP, you should configure it through the **Azure portal** or **PowerShell** and make sure the DHCP option inside the VM is enabled. [Learn more](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) about setting up a static IP address with PowerShell.
 
 ### The backup extension fails to update or load
 If extensions can't load, backup fails because a snapshot can't be taken.

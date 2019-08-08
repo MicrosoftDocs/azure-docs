@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: tutorial
-ms.date: 02/06/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a developer of image management software, I want to learn how to detect faces and display face data on the UI, so that I can follow a similar process for my specific features and needs.
 ---
 
 # Tutorial: Create a WPF app to display face data in an image
 
-In this tutorial, you will learn how to use the Azure Face API, through the .NET client SDK, to detect faces in an image and then present that data in the UI. You'll create a simple Windows Presentation Framework (WPF) application that detects faces, draws a frame around each face, and displays a description of the face in the status bar. 
+In this tutorial, you'll learn how to use the Azure Face API, through the .NET client SDK, to detect faces in an image and then present that data in the UI. You'll create a Windows Presentation Framework (WPF) application that detects faces, draws a frame around each face, and displays a description of the face in the status bar. 
 
 This tutorial shows you how to:
 
@@ -54,7 +54,7 @@ In this section, you will add the basic framework of the app without its face-sp
 
 ### Create the UI
 
-Open *MainWindow.xaml* and replace the contents with the following code&mdash;this creates the UI window. Note that `FacePhoto_MouseMove` and `BrowseButton_Click` are event handlers that you will define later on.
+Open *MainWindow.xaml* and replace the contents with the following code&mdash;this code creates the UI window. The `FacePhoto_MouseMove` and `BrowseButton_Click` methods are event handlers that you will define later on.
 
 [!code-xaml[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml?range=1-18)]
 
@@ -64,7 +64,7 @@ Open *MainWindow.xaml.cs* and add the client library namespaces, along with othe
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Next, insert the following code in the **MainWindow** class. This creates a **FaceClient** instance using the subscription key, which you must enter yourself. You must also set the region string in `faceEndpoint` to the correct region for your subscription (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
+Next, insert the following code in the **MainWindow** class. This code creates a **FaceClient** instance using the subscription key, which you must enter yourself. You need to set the region string in `faceEndpoint` to the correct region for your subscription (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 
@@ -72,7 +72,7 @@ Next paste the following code into the **MainWindow** method.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=50-61)]
 
-Finally, add the **BrowseButton_Click** and **FacePhoto_MouseMove** methods to the class. These correspond to the event handlers declared in *MainWindow.xaml*. The **BrowseButton_Click** method creates an **OpenFileDialog**, which allows the user to select a .jpg image. It then displays the image in the main window. You will insert the remaining code for **BrowseButton_Click** and **FacePhoto_MouseMove** in later steps. Also note the `faceList` reference&mdash;a list of **DetectedFace** objects. This is where your app will store and call the actual face data.
+Finally, add the **BrowseButton_Click** and **FacePhoto_MouseMove** methods to the class. These methods correspond to the event handlers declared in *MainWindow.xaml*. The **BrowseButton_Click** method creates an **OpenFileDialog**, which allows the user to select a .jpg image. It then displays the image in the main window. You will insert the remaining code for **BrowseButton_Click** and **FacePhoto_MouseMove** in later steps. Also note the `faceList` reference&mdash;a list of **DetectedFace** objects. This reference is where your app will store and call the actual face data.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=64-90,146)]
 
@@ -88,19 +88,19 @@ Press **Start** on the menu to test your app. When the app window opens, click *
 
 Your app will detect faces by calling the **FaceClient.Face.DetectWithStreamAsync** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API for uploading a local image.
 
-Insert the following method in the **MainWindow** class, below the **FacePhoto_MouseMove** method. This defines a list of face attributes to retrieve and reads the submitted image file into a **Stream**. Then it passes both of these objects to the **DetectWithStreamAsync** method call.
+Insert the following method in the **MainWindow** class, below the **FacePhoto_MouseMove** method. This method defines a list of face attributes to retrieve and reads the submitted image file into a **Stream**. Then it passes both of these objects to the **DetectWithStreamAsync** method call.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=189-226)]
 
 ## Draw rectangles around faces
 
-Next, you will add the code to draw a rectangle around each detected face in the image. In the **MainWindow** class, insert the following code at the end of the **BrowseButton_Click** method, after the `FacePhoto.Source = bitmapSource` line. This populates a list of detected faces from the call to **UploadAndDetectFaces**. Then it draws a rectangle around each face and displays the modified image in the main window.
+Next, you will add the code to draw a rectangle around each detected face in the image. In the **MainWindow** class, insert the following code at the end of the **BrowseButton_Click** method, after the `FacePhoto.Source = bitmapSource` line. This code populates a list of detected faces from the call to **UploadAndDetectFaces**. Then it draws a rectangle around each face and displays the modified image in the main window.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=92-145)]
 
 ## Describe the faces
 
-Add the following method to the **MainWindow** class, below the **UploadAndDetectFaces** method. This converts the retrieved face attributes into a string describing the face.
+Add the following method to the **MainWindow** class, below the **UploadAndDetectFaces** method. This method converts the retrieved face attributes into a string describing the face.
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=228-286)]
 

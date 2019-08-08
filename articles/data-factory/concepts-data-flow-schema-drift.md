@@ -3,13 +3,12 @@ title: Azure Data Factory Mapping Data Flow Schema Drift
 description: Build resilient Data Flows in Azure Data Factory with Schema Drift
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
 ---
 
-# Mapping Data Flow Schema Drift
+# Mapping data flow schema drift
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -21,7 +20,8 @@ In order to protect against Schema Drift, it is important to have the facilities
 * Define transformation parameters that can work with data patterns instead of hard-coded fields and values
 * Define expressions that understand patterns to match incoming fields, instead of using named fields
 
-In Azure Data Factory Data Flow, those facilities are surfaced through this workflow:
+## How to implement schema drift in ADF Mapping Data Flows
+ADF natively supports flexible schemas that change from execution to execution so that you can build generic data transformation logic without the need to recompile your data flows.
 
 * Choose "Allow Schema Drift" in your Source Transformation
 
@@ -29,11 +29,13 @@ In Azure Data Factory Data Flow, those facilities are surfaced through this work
 
 * When you've selected this option, all incoming fields will be read from your source on every Data Flow execution and will be passed through the entire flow to the Sink.
 
-* Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination:
+* All newly detected columns (drifted columns) will arrive as String data type by default. In your Source Transformation, choose "Infer drifted column types" if you wish to have ADF automatically infer data types from the source.
+
+* Make sure to use "Auto-Map" to map all new fields in the Sink Transformation so that all new fields get picked-up and landed in your destination and set "Allow Schema Drift" on the Sink as well.
 
 <img src="media/data-flow/automap.png" width="400">
 
-* Everything will work when new fields are introduced in that scenario with a simple Source -> Sink (aka Copy) mapping.
+* Everything will work when new fields are introduced in that scenario with a simple Source -> Sink (Copy) mapping.
 
 * To add transformations in that workflow that handles schema drift, you can use pattern matching to match columns by name, type, and value.
 
@@ -58,7 +60,19 @@ Then, we will round and sum the values for each of those matched columns:
 
 ```round(sum ($$))```
 
-You can test this out with the Azure Data Factory Data Flow sample "Taxi Demo". Switch on the Debug session using the Debug toggle at the top of the Data Flow design surface so that you can see your results interactively:
+You can see this schema drift functionality at work with the Azure Data Factory Data Flow sample "Taxi Demo". Switch on the Debug session using the Debug toggle at the top of the Data Flow design surface so that you can see your results interactively:
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## Access new columns downstream
+When you generate new columns with column patterns, you can access those new columns later in your data flow transformations with these methods:
+
+* Use "byPosition" to identify the new columns by position number.
+* Use "byName" to identify the new columns by their name.
+* In Column Patterns, use "Name", "Stream", "Position", or "Type" or any combination of those to match new columns.
+
+## Rule-based mapping
+The Select and Sink transformation support pattern matching via rule-based mapping. This will allow you to build rules that can map drifted columns to column aliases and to sink those columns to your destination.
+
+## Next steps
+In the [Data Flow Expression Language](data-flow-expression-functions.md) you will find additional facilities for column patterns and schema drift including "byName" and "byPosition".

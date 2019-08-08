@@ -36,7 +36,7 @@ psexec \\<computer>-u user -s cmd
 
 >[!Note]
 >* The command must be run on a computer that’s in the same VNET.
->* DIP or HostName can be used to replace <computer>.
+>* DIP or HostName can be used to replace \<computer>.
 >* The -s parameter makes sure that the command is invoked by using System Account (administrator permission).
 >* PsExec uses TCP ports 135 and 445. Therefore, the two ports have to be open on the Firewall.
 
@@ -88,7 +88,7 @@ Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccount
 
 ### For V2 VMs
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 #Setup the basic variables

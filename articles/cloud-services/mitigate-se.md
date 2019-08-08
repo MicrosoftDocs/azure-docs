@@ -4,7 +4,7 @@ description: Guidance for mitigating speculative execution side-channel vulnerab
 services: cloud-services
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: spectre,meltdown,specter

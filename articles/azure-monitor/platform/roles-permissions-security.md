@@ -13,7 +13,7 @@ ms.subservice: ""
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, devops engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
+Many teams need to strictly regulate access to monitoring data and settings. For example, if you have team members who work exclusively on monitoring (support engineers, DevOps engineers) or if you use a managed service provider, you may want to grant them access to only monitoring data while restricting their ability to create, modify, or delete resources. This article shows how to quickly apply a built-in monitoring RBAC role to a user in Azure or build your own custom role for a user who needs limited monitoring permissions. It then discusses security considerations for your Azure Monitor-related resources and how you can limit access to the data they contain.
 
 ## Built-in monitoring roles
 Azure Monitor’s built-in roles are designed to help limit access to resources in a subscription while still enabling those responsible for monitoring infrastructure to obtain and configure the data they need. Azure Monitor provides two out-of-the-box roles: A Monitoring Reader and a Monitoring Contributor.
@@ -22,20 +22,20 @@ Azure Monitor’s built-in roles are designed to help limit access to resources 
 People assigned the Monitoring Reader role can view all monitoring data in a subscription but cannot modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to be able to:
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
-* View alert rules defined in [Azure Alerts](../../azure-monitor/platform/alerts-overview.md)
-* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](../../azure-monitor/platform/powershell-quickstart-samples.md), or [cross-platform CLI](../../azure-monitor/platform/cli-samples.md).
+* View alert rules defined in [Azure Alerts](alerts-overview.md)
+* Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](powershell-quickstart-samples.md), or [cross-platform CLI](cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
-* View the [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) for a resource.
-* View the [log profile](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) for a subscription.
+* View the [diagnostic settings](diagnostic-logs-overview.md#diagnostic-settings) for a resource.
+* View the [log profile](activity-log-export.md) for a subscription.
 * View autoscale settings.
 * View alert activity and settings.
 * Access Application Insights data and view data in AI Analytics.
 * Search Log Analytics workspace data including usage data for the workspace.
 * View Log Analytics management groups.
-* Retrieve the Log Analytics search schema.
-* List Log Analytics intelligence packs.
-* Retrieve and execute Log Analytics saved searches.
-* Retrieve the Log Analytics storage configuration.
+* Retrieve the search schema in Log Analytics workspace.
+* List monitoring packs in Log Analytics workspace.
+* Retrieve and execute saved searches in Log Analytics workspace.
+* Retrieve the Log Analytics workspace storage configuration.
 
 > [!NOTE]
 > This role does not give read access to log data that has been streamed to an event hub or stored in a storage account. [See below](#security-considerations-for-monitoring-data) for information on configuring access to these resources.
@@ -46,14 +46,14 @@ People assigned the Monitoring Reader role can view all monitoring data in a sub
 People assigned the Monitoring Contributor role can view all monitoring data in a subscription and create or modify monitoring settings, but cannot modify any other resources. This role is a superset of the Monitoring Reader role, and is appropriate for members of an organization’s monitoring team or managed service providers who, in addition to the permissions above, also need to be able to:
 
 * Publish monitoring dashboards as a shared dashboard.
-* Set [diagnostic settings](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) for a resource.\*
-* Set the [log profile](../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile) for a subscription.\*
-* Set alert rules activity and settings via [Azure Alerts](../../azure-monitor/platform/alerts-overview.md).
+* Set [diagnostic settings](diagnostic-logs-overview.md#diagnostic-settings) for a resource.\*
+* Set the [log profile](activity-log-export.md) for a subscription.\*
+* Set alert rules activity and settings via [Azure Alerts](alerts-overview.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.
-* Enable or disable Log Analytics intelligence packs.
-* Create and delete and execute Log Analytics saved searches.
-* Create and delete the Log Analytics storage configuration.
+* Enable or disable monitoring packs in Log Analytics workspace.
+* Create and delete and execute saved searches in Log Analytics workspace.
+* Create and delete the Log Analytics workspace storage configuration.
 
 \*user must also separately be granted ListKeys permission on the target resource (storage account or event hub namespace) to set a log profile or diagnostic setting.
 

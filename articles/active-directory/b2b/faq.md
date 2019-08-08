@@ -6,13 +6,13 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 10/29/2018
+ms.date: 04/10/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -39,28 +39,28 @@ Yes. Guest users can reset their multi-factor authentication method the same way
 The inviting organization performs multi-factor authentication. The inviting organization must make sure that the organization has enough licenses for their B2B users who are using multi-factor authentication.
 
 ### What if a partner organization already has multi-factor authentication set up? Can we trust their multi-factor authentication, and not use our own multi-factor authentication?
-This feature is planned for a future release, so that then you can select specific partners to exclude from your (the inviting organization's) multi-factor authentication.
+This feature is currently not supported. If access to your organization's resources requires multi-factor authentication, the partner organization will need to register for multi-factor authentication in your (the inviting) organization.
 
 ### How can I use delayed invitations?
 An organization might want to add B2B collaboration users, provision them to applications as needed, and then send invitations. You can use the B2B collaboration invitation API to customize the onboarding workflow.
 
 ### Can I make guest users visible in the Exchange Global Address List?
-Yes. Guest objects aren't visible in your organization's global address list by default, but you can use Azure Active Directory PowerShell to make them visible. See **Can I make guest objects visible in the global address list?** in [Guest access in Office 365 Groups](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
+Yes. Guest objects aren't visible in your organization's global address list (GAL) by default, but you can use Azure Active Directory PowerShell to make them visible. See [Can I make guest objects visible in the global address list?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### Can I make a guest user a limited administrator?
 Absolutely. For more information, see [Adding guest users to a role](add-guest-to-role.md).
 
 ### Does Azure AD B2B collaboration allow B2B users to access the Azure portal?
-Unless a user is assigned the role of limited administrator or global administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator or global administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
+Unless a user is assigned the role of limited administrator, B2B collaboration users won't require access to the Azure portal. However, B2B collaboration users who are assigned the role of limited administrator can access the portal. Also, if a guest user who isn't assigned one of these admin roles accesses the portal, the user might be able to access certain parts of the experience. The guest user role has some permissions in the directory.
 
 ### Can I block access to the Azure portal for guest users?
 Yes! When you configure this policy, be careful to avoid accidentally blocking access to members and admins.
-To block a guest user's access to the [Azure portal](https://portal.azure.com), use a conditional access policy in the Windows Azure classic deployment model API:
+To block a guest user's access to the [Azure portal](https://portal.azure.com), use a Conditional Access policy in the Windows Azure classic deployment model API:
 1. Modify the **All Users** group so that it contains only members.
-   ![modify the group screenshot](media/faq/modify-all-users-group.png)
+   ![Screenshot showing All Users group where UserType is not equal Guest](media/faq/modify-all-users-group.png)
 2. Create a dynamic group that contains guest users.
-   ![create group screenshot](media/faq/group-with-guest-users.png)
-3. Set up a conditional access policy to block guest users from accessing the portal, as shown in the following video:
+   ![Screenshot showing a new All Guest Users group](media/faq/group-with-guest-users.png)
+3. Set up a Conditional Access policy to block guest users from accessing the portal, as shown in the following video:
   
    > [!VIDEO https://channel9.msdn.com/Blogs/Azure/b2b-block-guest-user/Player] 
 
@@ -108,7 +108,7 @@ We are removing the differences between B2B and business-to-consumer (B2C) colla
 All Azure AD-integrated applications can support Azure B2B guest users, but they must use an endpoint set up as a tenant to authenticate guest users. You might also need to [customize the claims](claims-mapping.md) in the SAML token that is issued when a guest user authenticates to the app. 
 
 ### Can we force multi-factor authentication for B2B guest users if our partners don't have multi-factor authentication?
-Yes. For more information, see [Conditional access for B2B collaboration users](conditional-access.md).
+Yes. For more information, see [Conditional Access for B2B collaboration users](conditional-access.md).
 
 ### In SharePoint, you can define an "allow" or "deny" list for external users. Can we do this in Azure?
 Yes. Azure AD B2B collaboration supports allow lists and deny lists. 

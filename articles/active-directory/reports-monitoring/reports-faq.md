@@ -3,7 +3,7 @@ title: Azure Active Directory Reports FAQ | Microsoft Docs
 description: Frequently asked quesitons around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management
@@ -86,7 +86,7 @@ This article includes answers to frequently asked questions about Azure Active D
 
 **Q: Can I get Office 365 activity log information through the Azure portal?**
 
-**A:** Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Office 365 activity logs, you should go to the Office 365 Admin Center to get Office 365 Activity log information.
+**A:** Even though Office 365 activity and Azure AD activity logs share a lot of the directory resources, if you want a full view of the Office 365 activity logs, you should go to the [Microsoft 365 admin center](https://admin.microsoft.com) to get Office 365 Activity log information.
 
 ---
 
@@ -128,11 +128,11 @@ This article includes answers to frequently asked questions about Azure Active D
 
 ---
 
-## Conditional access
+## Conditional Access
 
 **Q: What's new with this feature?**
 
-**A:** Customers can now troubleshoot conditional access policies through all sign-ins report. Customers can review the conditional access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
+**A:** Customers can now troubleshoot Conditional Access policies through all sign-ins report. Customers can review the Conditional Access status and dive into the details of the policies that applied to the sign-in and the result for each policy.
 
 **Q: How do I get started?**
 
@@ -140,20 +140,20 @@ This article includes answers to frequently asked questions about Azure Active D
 
 * Navigate to the sign-ins report in the [Azure portal](https://portal.azure.com).
 * Click on the sign-in that you want to troubleshoot.
-* Navigate to the **Conditional access** tab.
+* Navigate to the **Conditional Access** tab.
 Here, you can view all the policies that impacted the sign-in and the result for each policy. 
     
-**Q: What are all possible values for the conditional access status?**
+**Q: What are all possible values for the Conditional Access status?**
 
-**A:** Conditional access status can have the following values:
+**A:** Conditional Access status can have the following values:
 
 * **Not Applied**: This means that there was no CA policy with the user and app in scope. 
 * **Success**: This means that there was a CA policy with the user and app in scope and CA policies were successfully satisfied. 
 * **Failure**: This means that there was a CA policy with the user and app in scope and CA policies were not satisfied. 
     
-**Q: What are all possible values for the conditional access policy result?**
+**Q: What are all possible values for the Conditional Access policy result?**
 
-**A:** A conditional access policy can have the following results:
+**A:** A Conditional Access policy can have the following results:
 
 * **Success**: The policy was successfully satisfied.
 * **Failure**: The policy was not satisfied.
@@ -164,6 +164,6 @@ Here, you can view all the policies that impacted the sign-in and the result for
 
 **A:** The policy name in the all sign-in report is based on the CA policy name at the time of the sign-in. This can be inconsistent with the policy name in CA if you updated the policy name later, that is, after the sign-in.
 
-**Q: My sign-in was blocked due to a conditional access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
+**Q: My sign-in was blocked due to a Conditional Access policy, but the sign-in activity report shows that the sign-in succeeded. Why?**
 
-**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when conditional access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a conditional access policy. 
+**A:** Currently the sign-in report may not show accurate results for Exchange ActiveSync scenarios when Conditional Access is applied. There can be cases when the sign-in result in the report shows a successful sign-in, but the sign-in actually failed due to a Conditional Access policy. 

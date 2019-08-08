@@ -2,9 +2,9 @@
 title: Identity data storage for European customers - Azure Active Directory | Microsoft Docs
 description: Learn about where Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
-ms.author: lizross
+ms.author: ajburnle
 
 ms.service: active-directory
 ms.subservice: fundamentals
@@ -16,45 +16,35 @@ ms.collection: M365-identity-device-management
 ---
 
 # Identity data storage for European customers in Azure Active Directory
-Azure Active Directory (Azure AD) helps you to manage user identities and to create intelligence-driven access policies that help secure your organization's resources. Identity data is stored in a location that's based on the address your organization provided when you subscribed to the service. For example, when you subscribed to Office 365 or Azure. For specific info about where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+Identity data is stored by Azure AD in a geographical location  based on the address provided by your organization when subscribing for a Microsoft Online service such as  Office 365 and Azure. For information on where your identity data is stored, you can use the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
-While most Azure AD-related European identity data stays in European datacenters, there are some operational, service-specific data that's required for normal Azure AD operation, which are stored in the U.S. and doesn't include any personal data.
+For customers who provided an address in Europe, Azure AD keeps most of the identity data within European datacenters. This document provides information on any data that is stored outside of Europe by Azure AD services.
 
-## Data stored outside of European datacenters for European customers
-
-Most Azure AD-related European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's stored in European datacenters, and also replicated to United States datacenters, includes:
-
-- **Microsoft Azure multi-factor authentication (MFA) and Azure AD self-service password reset (SSPR)**
+## Microsoft Azure multi-factor authentication (MFA)
     
-    MFA stores all user data at-rest in European datacenters. However, some MFA service-specific data is stored in the U.S., including:
+- All two-factor authentication using phone calls or SMS originate from US datacenters and are also routed by global providers.
+- Push notifications using the Microsoft Authenticator app originate from US datacenters. In addition, device vendor specific services may also come into play and these services maybe outside Europe.
+- OATH codes are always validated in the U.S. 
+
+For more information about what user information is collected by Azure Multi-Factor Authentication Server (MFA Server) and cloud-based Azure MFA, see [Azure Multi-Factor Authentication user data collection](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting-datacollection).
+
+## Microsoft Azure Active Directory B2C (Azure AD B2C)
+
+Azure AD B2C policy configuration data and Key Containers are stored in U.S. datacenters. These do not contain any user personal data. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
+
+## Microsoft Azure Active Directory B2B (Azure AD B2B) 
     
-    - Two-factor authentication and its related personal data might be stored in the U.S. if you're using MFA or SSPR.
+Azure AD B2B stores invitations with redeem link and redirect URL information in US datacenters. In addition, email address of users that unsubscribe from receiving B2B invitations are  also stored in U.S. datacenters.
 
-        - All two-factor authentication using phone calls or SMS might be completed by U.S. carriers.
-    
-        - Push notifications using the Microsoft Authenticator app require notifications from the manufacturer's notification service (Apple or Google), which might be outside Europe.
-    
-        - OATH codes are always validated in the U.S. 
-    
-    - Some MFA and SSPR logs are stored in the U.S. for 30 days, regardless of authentication type.
+## Microsoft Azure Active Directory Domain Services (Azure AD DS)
 
-- **Microsoft Azure Active Directory B2C (Azure AD B2C)**
+Azure AD DS stores user data in the same location as the customer-selected Azure Virtual Network. So, if the network is outside Europe, the data is replicated and stored outside Europe.
 
-    Azure AD B2C stores all user data at-rest in European datacenters. However, operational logs (with personal data removed) stay at the location from where the person is accessing the services. For example, if a B2C user accesses the service in the U.S., the operational logs stay in the U.S. Additionally, all policy configuration data not containing personal data is stored only in the U.S. For more info about policy configurations, see the [Azure Active Directory B2C: Built-in policies](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies) article.
+## Other considerations
 
-- **Microsoft Azure Active Directory B2B (Azure AD B2B)** 
-    
-    Azure AD B2B stores all user data at-rest in European datacenters. However, B2B stores its non-personal metadata in tables within U.S. datacenters. This table includes fields like redeemUrl, invitationTicket, resource tenant Id, InviteRedirectUrl, and InviterAppId.
+Services and applications that integrate with Azure AD have access to identity data. Evaluate each service and application you use to determine how identity data is processed by that specific service and application, and whether they meet your company's data storage requirements.
 
-- **Microsoft Azure Active Directory Domain Services (Azure AD DS)**
-
-    Azure AD DS stores user data in the same location as the customer-selected Azure Virtual Network. So, if the network is outside Europe, the data is replicated and stored outside Europe.
-
-- **Services and apps integrated with Azure AD**
-
-    Any services and apps that integrate with Azure AD have access to identity data. Evaluate each service and app to determine how identity data is processed by that specific service and app, and whether they meet your company's data storage requirements.
-
-    For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
+For more information about Microsoft services' data residency, see the [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) section of the Microsoft Trust Center.
 
 ## Next steps
 For more information about any of the features and functionality described above, see these articles:

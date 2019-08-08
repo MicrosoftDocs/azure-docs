@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 02/26/2019
 
 ---
@@ -18,7 +17,7 @@ ms.date: 02/26/2019
 
 ## Overview
 
-[Resource Health](../service-health/resource-health-overview.md#getting-started) for SQL Database helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
+[Resource Health](../service-health/resource-health-overview.md#get-started) for SQL Database helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
 
 ![Overview](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 

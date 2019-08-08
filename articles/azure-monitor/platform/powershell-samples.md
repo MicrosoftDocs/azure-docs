@@ -1,6 +1,6 @@
 ---
-title: Azure Log Analytics PowerShell Samples | Microsoft Docs
-description: Azure Log Analytics PowerShell Samples
+title: Azure Monitor PowerShell Samples | Microsoft Docs
+description: Azure Monitor PowerShell Samples
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -17,13 +17,13 @@ ms.author: magoedte
 ms.custom: mvc
 ---
 
-# Azure Log Analytics PowerShell samples
+# Azure Monitor PowerShell samples
 
-The following table includes links to PowerShell scripts samples to perform various functions in Log Analytics.
+The following table includes links to PowerShell scripts samples to perform various functions in Azure Monitor.
 
 | | |
 |---|---|
 |**Create workspace**||
-| [Create a Log Analytics workspace](../scripts/powershell-sample-create-workspace.md) | Creates a workspace in Log Analytics.|
+| [Create a Log Analytics workspace](../scripts/powershell-sample-create-workspace.md) | Creates a Log Analytics workspace in Azure Monitor.|
 | | |
 

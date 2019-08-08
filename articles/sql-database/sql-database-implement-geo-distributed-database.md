@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Tutorial: Implement a geo-distributed database
@@ -33,7 +32,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 To complete the tutorial, make sure you've installed the following items:
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- An Azure SQL database. To create one use,
+- A single database in Azure SQL Database. To create one use,
   - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)

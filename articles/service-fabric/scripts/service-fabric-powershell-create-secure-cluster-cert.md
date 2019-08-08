@@ -3,8 +3,8 @@ title: Azure PowerShell Script Sample - Create a Service Fabric cluster | Micros
 description: Azure PowerShell Script Sample - Create a Service Fabric cluster.
 services: service-fabric
 documentationcenter: 
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: 
 tags: azure-service-management
 
@@ -14,7 +14,7 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
@@ -22,7 +22,9 @@ ms.custom: mvc
 
 This sample script creates a five-node Service Fabric cluster secured with an X.509 certificate.  The command creates a self-signed certificate and uploads it to a new key vault. The certificate is also copied to a local directory.  Set the *-OS* parameter to choose the version of Windows or Linux that runs on the cluster nodes.  Customize the parameters as needed.
 
-If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview) and then run `Connect-AzureRmAccount` to create a connection with Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+If needed, install the Azure PowerShell using the instruction found in the [Azure PowerShell guide](/powershell/azure/overview) and then run `Connect-AzAccount` to create a connection with Azure. 
 
 ## Sample script
 
@@ -34,7 +36,7 @@ After the script sample has been run, the following command can be used to remov
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## Script explanation
@@ -43,7 +45,7 @@ This script uses the following commands. Each command in the table links to comm
 
 | Command | Notes |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Creates a new Service Fabric cluster. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Creates a new Service Fabric cluster. |
 
 ## Next steps
 

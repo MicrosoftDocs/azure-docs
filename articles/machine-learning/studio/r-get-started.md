@@ -1315,7 +1315,7 @@ There are many books on R that can help you get started. Here are a few I find u
 * The **Art of R Programming: A Tour of Statistical Software Design** by Norman Matloff is an excellent introduction to programming in R.  
 * **R Cookbook** by Paul Teetor provides a problem and solution approach to using R.  
 * **R in Action** by Robert Kabacoff is another useful introductory book. The companion [Quick R website](https://www.statmethods.net/) is a useful resource.
-* **R Inferno** by Patrick Burns is a surprisingly humorous book that deals with a number of tricky and difficult topics that can be encountered when programming in R. The book is available for free at [The R Inferno](http://www.burns-stat.com/documents/books/the-r-inferno/).
+* **R Inferno** by Patrick Burns is a surprisingly humorous book that deals with a number of tricky and difficult topics that can be encountered when programming in R. The book is available for free at [The R Inferno](https://www.burns-stat.com/documents/books/the-r-inferno/).
 * If you want a deep dive into advanced topics in R, have a look at the book **Advanced R** by Hadley Wickham. The online version of this book is available for free at [http://adv-r.had.co.nz/](http://adv-r.had.co.nz/).
 
 A catalog of R time series packages can be found in [CRAN Task View: Time Series Analysis](https://cran.r-project.org/web/views/TimeSeries.html). For information on specific time series object packages, you should refer to the documentation for that package.

@@ -2,9 +2,9 @@
 title: Integrated Solutions | Azure
 description: Integrated Solutions in Azure Marketplace and AppSource
 services: Azure, Marketplace, Compute, Storage, Networking
-documentationcenter:
+
 author: qianw211
-manager: Patrick.Butler
+
 
 ms.service: marketplace
 ms.topic: article
@@ -28,6 +28,15 @@ Advantages of an integrated approach are:
 
 ## Next steps
 
-You can discover Integrated Solutions, and connect with these valued partners by visiting the Consulting Services section of [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
+You can discover Integrated Solutions, and connect with these valued partners by visiting their listings here:
+
+* [Customer 360 Powered by Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
+* [Rapid Commerce](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
+* [Credit Analytics](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
+* [Healthcare Cloud Security Stack](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [DevOps Acceleration Engine](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
+* [Windows Server End-of-Support](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
+
+and by also visiting the Consulting Services section of [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/consulting-services).
 
 ---

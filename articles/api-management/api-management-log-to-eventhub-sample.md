@@ -42,7 +42,7 @@ An Event Hub accepts event data as a simple string. The contents of that string 
 
 An alternative option was to use the `application/http` media type as described in the HTTP specification [RFC 7230](https://tools.ietf.org/html/rfc7230). This media type uses the exact same format that is used to actually send HTTP messages over the wire, but the entire message can be put in the body of another HTTP request. In our case, we are just going to use the body as our message to send to Event Hubs. Conveniently, there is a parser that exists in [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) libraries that can parse this format and convert it into the native `HttpRequestMessage` and `HttpResponseMessage` objects.
 
-To be able to create this message, we need to take advantage of C# based [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Here is the policy, which sends an HTTP request message to Azure Event Hubs.
+To be able to create this message, we need to take advantage of C# based [Policy expressions](/azure/api-management/api-management-policy-expressions) in Azure API Management. Here is the policy, which sends an HTTP request message to Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -310,4 +310,4 @@ Azure API Management service provides an ideal place to capture the HTTP traffic
 * Learn more about API Management and Event Hubs integration
   * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
   * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [log-to-eventhub policy reference](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

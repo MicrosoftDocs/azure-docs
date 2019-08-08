@@ -54,7 +54,7 @@ Important notes to take note of before you proceed:
 1.	Download Azure AD Connect installer (AzureADConnect.MSI) to the Windows server. Double-click the Azure AD Connect installer to start installing Azure AD Connect.
 2.	Once the MSI installation completes, the Azure AD Connect wizard starts with the Express mode setup. Close the screen by clicking the Exit icon.
 ![Welcome](./media/how-to-connect-install-existing-database/db1.png)
-3.	Start a new command prompt or PowerShell session. Navigate to folder <drive>\program files\Microsoft Azure AD Connect. Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
+3.	Start a new command prompt or PowerShell session. Navigate to folder "C:\Program Files\Microsoft Azure Active Directory Connect". Run command .\AzureADConnect.exe /useexistingdatabase to start the Azure AD Connect wizard in “Use existing database” setup mode.
 
 > [!NOTE]
 > Use the switch **/UseExistingDatabase** only when the database already contains data from an earlier Azure AD Connect installation. For instance, when you are moving from a local database to a full SQL Server database or when the Azure AD Connect server was rebuilt and you restored a SQL backup of the ADSync database from an earlier installation of Azure AD Connect. If the database is empty, that is, it doesn't contain any data from a previous Azure AD Connect installation, skip this step.

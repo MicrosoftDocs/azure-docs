@@ -10,9 +10,9 @@ ms.date: 05/23/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celestedg
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -51,7 +51,7 @@ To enable users to sign in using their organization account, you must manually c
 
 5. Sign in to Dropbox with the sign-on URL from the **Single sign-on** page.
 
-   ![The Dropbox sign-in page](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Screenshot showing the Dropbox sign-in page](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. On the menu, select **Admin Console**.
 
@@ -76,7 +76,7 @@ You can enable users to authenticate Box guest users with their Azure AD account
 
 2. Configure single sign-on in the following order:
 
-   ![Configure Box single sign-on](media/configure-saas-apps/configure-box-sso.png)
+   ![Screenshot showing the single sign-on configuration settings](media/configure-saas-apps/configure-box-sso.png)
 
    a. In the **Sign on URL** box, ensure that the sign-on URL is set appropriately for Box in the Azure portal. This URL is the URL of your Box.com tenant. It should follow the naming convention *https://.box.com*.  
    The **Identifier** does not apply to this app, but it still appears as a mandatory field.

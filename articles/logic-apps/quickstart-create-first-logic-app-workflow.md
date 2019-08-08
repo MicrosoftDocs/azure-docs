@@ -35,11 +35,11 @@ This logic app uses an Office 365 Outlook account. If you use another email acco
 the overall steps are the same, but your UI might slightly differ. 
 
 Also, if you don't have an Azure subscription, 
-<a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>.
+[sign up for a free Azure account](https://azure.microsoft.com/free/).
 
 ## Sign in to the Azure portal
 
-Sign in to the <a href="https://portal.azure.com" target="_blank">Azure portal</a> 
+Sign in to the [Azure portal](https://portal.azure.com) 
 with your Azure account credentials.
 
 ## Create your logic app 
@@ -49,7 +49,7 @@ with your Azure account credentials.
 
    ![Create logic app](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
 
-3. Under **Create logic app**, provide details about your logic app as shown here. 
+1. Under **Create logic app**, provide details about your logic app as shown here. 
 After you're done, choose **Create**.
 
    ![Provide logic app details](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
@@ -63,7 +63,7 @@ After you're done, choose **Create**.
    | **Log Analytics** | Off | Keep the **Off** setting for diagnostic logging. | 
    |||| 
 
-3. After Azure deploys your app, the Logic Apps Designer opens and shows a page 
+1. After Azure deploys your app, the Logic Apps Designer opens and shows a page 
 with an introduction video and commonly used triggers. Under **Templates**, 
 choose **Blank Logic App**.
 
@@ -79,12 +79,15 @@ that starts and runs your workflow.
 
 ## Check RSS feed with a trigger
 
-1. On the designer, enter "rss" in the search box. 
-Select this trigger: **RSS - When a feed item is published**
+1. In Logic App Designer, under the search box, choose **All**.
+
+1. In the search box, enter "rss". 
+From the triggers list, select this trigger: 
+**When a feed item is published - RSS**
 
    ![Select trigger: "RSS - When a feed item is published"](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
 
-2. Provide this information for your trigger as shown and described: 
+1. Provide this information for your trigger as shown and described:
 
    ![Set up trigger with RSS feed, frequency, and interval](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
 
@@ -98,12 +101,12 @@ Select this trigger: **RSS - When a feed item is published**
    Together, the interval and frequency define the schedule for your logic app's trigger. 
    This logic app checks the feed every minute.
 
-3. To hide the trigger details for now, 
+1. To hide the trigger details for now, 
 click inside the trigger's title bar.
 
    ![Collapse shape to hide details](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
-4. Save your logic app. On the designer toolbar, choose **Save**. 
+1. Save your logic app. On the designer toolbar, choose **Save**.
 
 Your logic app is now live but doesn't do anything other than 
 check the RSS feed. So, add an action that responds when the trigger fires.
@@ -111,16 +114,18 @@ check the RSS feed. So, add an action that responds when the trigger fires.
 ## Send email with an action
 
 Now add an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
-that sends email when a new item appears in the RSS feed. 
+that sends email when a new item appears in the RSS feed.
 
 1. Under the **When a feed item is published** trigger, 
 choose **New step**.
 
    ![Add an action](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
 
-2. Under **Choose an action**, enter "send an email" in the search box. 
-Under the search box, choose **All**. From the actions list, 
-select the "send an email" action for the email provider that you want. 
+1. Under **Choose an action** and the search box, 
+choose **All**.
+
+1. In the search box, enter "send an email". From the actions list, 
+select the "send an email" action for the email provider that you want.
 
    ![Select this action: "Office 365 Outlook - Send an email"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
@@ -132,11 +137,11 @@ select the "send an email" action for the email provider that you want.
    * For personal Microsoft accounts, 
    select Outlook.com.
 
-3. If asked for credentials, sign in to your email account 
+1. If asked for credentials, sign in to your email account 
 so that Logic Apps creates a connection to your email account.
 
-4. In the **Send an email** action, 
-specify the data that you want the email to include. 
+1. In the **Send an email** action, 
+specify the data that you want the email to include.
 
    1. In the **To** box, enter the recipient's email address. 
    For testing purposes, you can use your own email address.
@@ -147,12 +152,12 @@ specify the data that you want the email to include.
       parameters from the previous step that 
       you can include as inputs in your workflow. 
 
-   2. In the **Subject** box, enter this text 
-   with a trailing blank space: ```New RSS item: ```
+   1. In the **Subject** box, enter this text 
+   with a trailing blank space: ```New RSS item:```
 
       ![Enter the email subject](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
- 
-   3. From the **Add dynamic content** list, 
+
+   1. From the **Add dynamic content** list, 
    select **Feed title** to include the RSS item title.
 
       ![Dynamic content list - "Feed title"](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
@@ -170,7 +175,7 @@ specify the data that you want the email to include.
       To remove the loop, choose the **ellipses** (**...**) 
       on the loop's title bar, then choose **Delete**.
 
-   4. In the **Body** box, enter this text, 
+   1. In the **Body** box, enter this text, 
    and select these tokens for the email body. 
    To add blank lines in an edit box, press Shift + Enter. 
 
@@ -181,9 +186,9 @@ specify the data that you want the email to include.
       | **Feed title** | The item's title | 
       | **Feed published on** | The item's publishing date and time | 
       | **Primary feed link** | The URL for the item | 
-      ||| 
-   
-5. Save your logic app.
+      |||
+
+1. Save your logic app.
 
 Next, test your logic app.
 
@@ -226,7 +231,7 @@ On the **Overview** page, choose **Delete resource group**.
 
    !["Resource groups" > "Overview" > "Delete resource group"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
-2. Enter the resource group name as confirmation, and choose **Delete**.
+1. Enter the resource group name as confirmation, and choose **Delete**.
 
    ![Confirm deletion](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
@@ -238,8 +243,7 @@ On the **Overview** page, choose **Delete resource group**.
 
 ## Get support
 
-* For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
+For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/home?forum=azurelogicapps).
 
 ## Next steps
 

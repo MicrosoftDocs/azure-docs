@@ -22,7 +22,6 @@ robots: noindex
 # Tutorial: Create a data factory by using Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
 > * [Overview and prerequisites](data-factory-build-your-first-pipeline.md)
-> * [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 > * [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 > * [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 > * [Resource Manager Template](data-factory-build-your-first-pipeline-using-arm.md)
@@ -326,12 +325,12 @@ Important points to note:
 
 - If you receive the error: **This subscription is not registered to use namespace Microsoft.DataFactory**, do one of the following and try publishing again:
 	- In Azure PowerShell, run the following command to register the Data Factory provider.
-		```PowerShell	
+		```powershell	
 		Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
 		You can run the following command to confirm that the Data Factory provider is registered.
 
-		```PowerShell
+		```powershell
 		Get-AzResourceProvider
         ```
 	- Login using the Azure subscription in to the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.

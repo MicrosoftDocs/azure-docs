@@ -2,12 +2,12 @@
 title: Operator best practices - Storage in Azure Kubernetes Services (AKS)
 description: Learn the cluster operator best practices for storage, data encryption, and backups in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 12/04/2018
-ms.author: iainfou
+ms.date: 5/6/2019
+ms.author: mlearned
 ---
 
 # Best practices for storage and backups in Azure Kubernetes Service (AKS)
@@ -30,12 +30,11 @@ Applications often require different types and speeds of storage. Do your applic
 
 The following table outlines the available storage types and their capabilities:
 
-| Use case | Volume plugin | Read/write once | Read-only many | Read/write many |
-|----------|---------------|-----------------|----------------|-----------------|
-| Shared configuration       | Azure Files   | Yes | Yes | Yes |
-| Structured app data        | Azure Disks   | Yes | No  | No  |
-| App data, read-only shares | [Dysk (preview)][dysk] | Yes | Yes | No  |
-| Unstructured data, file system operations | [BlobFuse (preview)][blobfuse] | Yes | Yes | Yes |
+| Use case | Volume plugin | Read/write once | Read-only many | Read/write many | Windows Server container support |
+|----------|---------------|-----------------|----------------|-----------------|--------------------|
+| Shared configuration       | Azure Files   | Yes | Yes | Yes | Yes |
+| Structured app data        | Azure Disks   | Yes | No  | No  | Yes |
+| Unstructured data, file system operations | [BlobFuse (preview)][blobfuse] | Yes | Yes | Yes | No |
 
 The two primary types of storage provided for volumes in AKS are backed by Azure Disks or Azure Files. To improve security, both types of storage use Azure Storage Service Encryption (SSE) by default that encrypts data at rest. Disks cannot currently be encrypted using Azure Disk Encryption at the AKS node level.
 
@@ -87,9 +86,9 @@ For more information about storage class options, see [storage reclaim policies]
 
 ## Secure and back up your data
 
-**Best practice guidance** - Back up your data using an appropriate tool for your storage type, such as Heptio Ark or Azure Site Recovery. Verify the integrity, and security, of those backups.
+**Best practice guidance** - Back up your data using an appropriate tool for your storage type, such as Velero or Azure Site Recovery. Verify the integrity, and security, of those backups.
 
-When your applications store and consume data persisted on disks or in files, you need to take regular backups or snapshots of that data. Azure Disks can use built-in snapshot technologies. You may need to a hook for your applications to flush writes to disk before you perform the snapshot operation. [Heptio Ark][heptio-ark] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], back up the data from persistent volumes and regularly test the restore operations to verify data integrity and the processes required.
+When your applications store and consume data persisted on disks or in files, you need to take regular backups or snapshots of that data. Azure Disks can use built-in snapshot technologies. You may need to a hook for your applications to flush writes to disk before you perform the snapshot operation. [Velero][velero] can back up persistent volumes along with additional cluster resources and configurations. If you can't [remove state from your applications][remove-state], back up the data from persistent volumes and regularly test the restore operations to verify data integrity and the processes required.
 
 Understand the limitations of the different approaches to data backups and if you need to quiesce your data prior to snapshot. Data backups don't necessarily let you restore your application environment of cluster deployment. For more information about those scenarios, see [Best practices for business continuity and disaster recovery in AKS][best-practices-multi-region].
 
@@ -98,8 +97,7 @@ Understand the limitations of the different approaches to data backups and if yo
 This article focused on storage best practices in AKS. For more information about storage basics in Kubernetes, see [Storage concepts for applications in AKS][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
-[dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
+[velero]: https://github.com/heptio/velero
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 
 <!-- LINKS - Internal -->

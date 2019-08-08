@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Run TensorFlow model in Python - Custom Vision Service"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Run a TensorFlow model in Python.
 services: cognitive-services
 author: areddish
@@ -9,10 +9,10 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 07/03/2019
 ms.author: areddish
 ---
- 
+
 # Tutorial: Run TensorFlow model in Python
 
 After you have [exported your TensorFlow model](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/export-your-model) from the Custom Vision Service, this quickstart will show you how to use this model locally to classify images.
@@ -20,16 +20,14 @@ After you have [exported your TensorFlow model](https://docs.microsoft.com/azure
 > [!NOTE]
 > This tutorial applies only to models exported from image classification projects.
 
-## Install required components
-
-### Prerequisites
+## Prerequisites
 
 To use the tutorial, you need to do the following:
 
 - Install either Python 2.7+ or Python 3.5+.
 - Install pip.
 
-Also you will need to install the following packages:
+Next, you will need to install the following packages:
 
 ```
 pip install tensorflow
@@ -86,7 +84,7 @@ image = update_orientation(image)
 image = convert_to_opencv(image)
 ```
 
-### Deal with images with a dimension >1600
+### Handle images with a dimension >1600
 
 ```Python
 # If the image has either w or h greater than 1600 we resize it down respecting
@@ -110,7 +108,6 @@ max_square_image = crop_center(image, min_dim, min_dim)
 augmented_image = resize_to_256_square(max_square_image)
 ```
 
-
 ### Crop the center for the specific input size for the model
 
 ```Python
@@ -129,6 +126,7 @@ The steps above use the following helper functions:
 ```Python
 def convert_to_opencv(image):
     # RGB -> BGR conversion is performed as well.
+    image = image.convert('RGB')
     r,g,b = np.array(image).T
     opencv_image = np.array([b,g,r]).transpose()
     return opencv_image
@@ -170,7 +168,7 @@ def update_orientation(image):
 
 ## Predict an image
 
-Once the image is prepared as a tensor we can send it through the model for a prediction:
+Once the image is prepared as a tensor, we can send it through the model for a prediction:
 
 ```Python
 
@@ -181,6 +179,7 @@ input_node = 'Placeholder:0'
 with tf.Session() as sess:
     try:
         prob_tensor = sess.graph.get_tensor_by_name(output_layer)
+        predictions, = sess.run(prob_tensor, {input_node: [augmented_image] })
     except KeyError:
         print ("Couldn't find classification output layer: " + output_layer + ".")
         print ("Verify this a model exported from an Object Detection project.")
@@ -204,10 +203,10 @@ The results of running the image tensor through the model will then need to be m
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## Next steps
 
-You can also wrap the model into a mobile application:
+Next, learn how to wrap your model into a mobile application:
 * [Use your exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample)
 * [Use your exported CoreML model in an Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726)
 * [Use your exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel)
-

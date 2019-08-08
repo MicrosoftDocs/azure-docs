@@ -3,7 +3,7 @@ title: How to reprovision devices in the Azure IoT Hub Device Provisioning Servi
 description: How to reprovision devices with your device provisioning service instance
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
@@ -22,7 +22,7 @@ During the lifecycle of an IoT solution, it is common to move devices between Io
 
 * **Quarantine**: Similar to a solution change. A device that is malfunctioning, compromised, or out-of-date may be reassigned to an IoT hub where all it can do is update and get back in compliance. Once the device is functioning properly, it is then migrated back to its main hub.
 
-For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md).
+For more a more detailed overview of reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md).
 
 
 ## Configure the enrollment allocation policy
@@ -88,7 +88,7 @@ For example code of sending provisioning requests from a device during a boot se
 
 ## Next steps
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisoning concepts](concepts-device-reprovision.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
 - To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 

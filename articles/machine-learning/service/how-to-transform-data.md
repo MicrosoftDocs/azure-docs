@@ -6,17 +6,21 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cforbe
-author: cforbe
+ms.author: sihhu
+author: MayMSFT
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 12/04/2018
+ms.date: 07/16/2019
 ms.custom: seodec18
 ---
 
 # Transform data with the Azure Machine Learning Data Prep SDK
 
-In this article, you learn different methods of loading data using the Azure Machine Learning Data Prep SDK. The SDK offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. To see reference documentation for the SDK, see the [overview](https://aka.ms/data-prep-sdk).
+In this article, you learn different methods of transforming data using the `azureml-dataprep` package. The package offers functions that make it simple to add columns, filter out unwanted rows or columns, and impute missing values. See full reference documentation for the [azureml-dataprep package](https://aka.ms/data-prep-sdk).
+
+> [!Important]
+> If you are building a new solution, try the [Azure Machine Learning Datasets](how-to-explore-prepare-data.md) (preview) to transform your data, snapshot data, and store versioned dataset definitions. Datasets is the next version of the data prep SDK, offering expanded functionality for managing datasets in AI solutions. 
+> If you use the `azureml-dataprep` package to create a dataflow with your transformations instead of using the `azureml-datasets` package to create a dataset, you won't be able to use snapshots or versioned datasets later.
 
 This how-to shows examples for the following tasks:
 
@@ -30,7 +34,7 @@ This how-to shows examples for the following tasks:
 
 The Azure Machine Learning Data Prep SDK includes `substring` expressions you can use to calculate a value from existing columns, and then put that value in a new column. In this example, you load data and try to add columns to that input data.
 
-```python
+```Python
 import azureml.dataprep as dprep
 
 # loading data
@@ -47,7 +51,7 @@ dflow.head(3)
 
 Use the `substring(start, length)` expression to extract the prefix from the Case Number column and put that string in a new column, `Case Category`. Passing the `substring_expression` variable to the `expression` parameter creates a new calculated column that executes the expression on each record.
 
-```python
+```Python
 substring_expression = dprep.col('Case Number').substring(0, 2)
 case_category = dflow.add_column(new_column_name='Case Category',
                                     prior_column='Case Number',
@@ -62,10 +66,9 @@ case_category.head(3)
 |2|10140270|HY329253|HY|07/05/2015 11:20:00 PM|121XX S FRONT AVE|0486|BATTERY|DOMESTIC BATTERY SIMPLE|STREET|false|true|...|9|53|08B|||2015|07/12/2015 12:42:46 PM|
 
 
-
 Use the `substring(start)` expression to extract only the number from the Case Number column and create a new column. Convert it to a numeric data type using the `to_number()` function, and pass the string column name as a parameter.
 
-```python
+```Python
 substring_expression2 = dprep.col('Case Number').substring(2)
 case_id = dflow.add_column(new_column_name='Case Id',
                               prior_column='Case Number',
@@ -95,13 +98,13 @@ dflow.head(3)
 
 The third record is missing latitude and longitude values. To impute those missing values, you use [`ImputeMissingValuesBuilder`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.api.builders.imputemissingvaluesbuilder?view=azure-dataprep-py) to learn a fixed expression. It can impute the columns with either a calculated `MIN`, `MAX`, `MEAN` value, or a `CUSTOM` value. When `group_by_columns` is specified, missing values will be imputed by group with `MIN`, `MAX`, and `MEAN` calculated per group.
 
-Check the `MEAN` value of the latitude column using the [`summarize()`](https://docs.microsoft.com/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-dataprep-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow-summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts a `SummaryColumnsValue` call. This function call specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
+Check the `MEAN` value of the latitude column using the [`summarize()`](/python/api/azureml-dataprep/azureml.dataprep.dataflow?view=azure-ml-py#summarize-summary-columns--typing-union-typing-list-azureml-dataprep-api-dataflow--summarycolumnsvalue---nonetype----none--group-by-columns--typing-union-typing-list-str---nonetype----none--join-back--bool---false--join-back-columns-prefix--typing-union-str--nonetype----none-----azureml-dataprep-api-dataflow-dataflow) function. This function accepts an array of columns in the `group_by_columns` parameter to specify the aggregation level. The `summary_columns` parameter accepts a `SummaryColumnsValue` call. This function call specifies the current column name, the new calculated field name, and the `SummaryFunction` to perform.
 
 ```python
 dflow_mean = dflow.summarize(group_by_columns=['Arrest'],
-                       summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
-                                                                 summary_column_name='Latitude_MEAN',
-                                                                 summary_function=dprep.SummaryFunction.MEAN)])
+                             summary_columns=[dprep.SummaryColumnsValue(column_id='Latitude',
+                                                                        summary_column_name='Latitude_MEAN',
+                                                                        summary_function=dprep.SummaryFunction.MEAN)])
 dflow_mean = dflow_mean.filter(dprep.col('Arrest') == 'false')
 dflow_mean.head(1)
 ```
@@ -123,7 +126,7 @@ impute_custom = dprep.ImputeColumnArguments(column_id='Longitude',
                                             custom_impute_value=42)
 # get instance of ImputeMissingValuesBuilder
 impute_builder = dflow.builders.impute_missing_values(impute_columns=[impute_mean, impute_custom],
-                                                   group_by_columns=['Arrest'])
+                                                      group_by_columns=['Arrest'])
 
 impute_builder.learn()
 dflow_imputed = impute_builder.to_dataflow()
@@ -149,7 +152,8 @@ One of the more advanced tools in the Azure Machine Learning Data Prep SDK is th
 
 ```python
 import azureml.dataprep as dprep
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/BostonWeather.csv')
 dflow.head(4)
 ```
 
@@ -163,9 +167,11 @@ dflow.head(4)
 Assume that you need to join this file with a dataset where date and time are in a format 'Mar 10, 2018 | 2AM-4AM'.
 
 ```python
-builder = dflow.builders.derive_column_by_example(source_columns=['DATE'], new_column_name='date_timerange')
-builder.add_example(source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
-builder.preview(count=5) 
+builder = dflow.builders.derive_column_by_example(
+    source_columns=['DATE'], new_column_name='date_timerange')
+builder.add_example(
+    source_data=dflow.iloc[1], example_value='Jan 1, 2015 12AM-2AM')
+builder.preview(count=5)
 ```
 
 ||DATE|date_timerange|
@@ -200,7 +206,8 @@ builder.preview(skip=30, count=5)
 Here you see an issue with the generated program. Based solely on the one example you provided above, the derive program chose to parse the date as "Day/Month/Year", which is not what you want in this case. To fix this issue, target a specific record index and provide another example using the `add_example()` function on the `builder` variable.
 
 ```python
-builder.add_example(source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
+builder.add_example(
+    source_data=dflow.iloc[3], example_value='Jan 2, 2015 12AM-2AM')
 builder.preview(skip=30, count=5)
 ```
 
@@ -228,7 +235,8 @@ builder.preview(skip=75, count=5)
 |4|1/29/2015 7:54|None|
 
 ```python
-builder.add_example(source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
+builder.add_example(
+    source_data=dflow.iloc[77], example_value='Jan 29, 2015 6AM-8AM')
 builder.preview(skip=75, count=5)
 ```
 
@@ -269,10 +277,16 @@ The SDK includes the methods [`drop_columns()`](https://docs.microsoft.com/pytho
 
 ### Initial setup
 
+> [!Note]
+> The URL in this same example is not a complete URL. Instead, it refers to the demo folder in the blob. The full URL to the data is https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+What we are doing in the tutorial is to load all files inside the folder and aggregate the result into green_df_raw, and yellow_df_raw.
+
 ```python
 import azureml.dataprep as dprep
 from datetime import datetime
-dflow = dprep.read_csv(path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
+dflow = dprep.read_csv(
+    path='https://dprepdata.blob.core.windows.net/demo/green-small/*')
 dflow.head(5)
 ```
 
@@ -307,7 +321,8 @@ dflow.head(2)
 Alternatively, use the `ColumnSelector` expression to drop columns that match a regex expression. In this example, you drop all the columns that match the expression `Column*|.*longitude|.*latitude`.
 
 ```python
-dflow = dflow.drop_columns(dprep.ColumnSelector('Column*|.*longitud|.*latitude', True, True))
+dflow = dflow.drop_columns(dprep.ColumnSelector(
+    'Column*|.*longitud|.*latitude', True, True))
 dflow.head(2)
 ```
 
@@ -348,7 +363,8 @@ In this example, `dflow.filter()` returns a new data flow with the rows where `'
 
 ```python
 dflow = dflow.to_number(['Passenger_count', 'Tolls_amount'])
-dflow = dflow.filter(dprep.f_and(dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
+dflow = dflow.filter(dprep.f_and(
+    dprep.col('Passenger_count') < 5, dprep.col('Tolls_amount') > 0))
 dflow.head(2)
 ```
 
@@ -363,9 +379,10 @@ It is also possible to filter rows combining more than one expression builder to
 > `lpep_pickup_datetime` and `Lpep_dropoff_datetime` are first converted to datetime, which allows us to build an expression comparing it against other datetime values.
 
 ```python
-dflow = dflow.to_datetime(['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
+dflow = dflow.to_datetime(
+    ['lpep_pickup_datetime', 'Lpep_dropoff_datetime'], ['%Y-%m-%d %H:%M:%S'])
 dflow = dflow.to_number(['Total_amount', 'Trip_distance'])
-mid_2013 = datetime(2013,7,1)
+mid_2013 = datetime(2013, 7, 1)
 dflow = dflow.filter(
     dprep.f_and(
         dprep.f_or(
@@ -400,7 +417,8 @@ Start by loading some data from Azure Blob.
 import azureml.dataprep as dprep
 col = dprep.col
 
-dflow = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
+dflow = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv', skip_rows=1)
 dflow.head(2)
 ```
 
@@ -412,8 +430,10 @@ dflow.head(2)
 Trim down the data set and do some basic transforms including removing columns, replacing values and converting types.
 
 ```python
-dflow = dflow.keep_columns(['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
-dflow = dflow.replace_na(columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
+dflow = dflow.keep_columns(
+    ['stnam', 'leanm10', 'ncessch', 'MAM_MTH00numvalid_1011'])
+dflow = dflow.replace_na(
+    columns=['leanm10', 'MAM_MTH00numvalid_1011'], custom_na_list='.')
 dflow = dflow.to_number(['ncessch', 'MAM_MTH00numvalid_1011'])
 dflow.head(2)
 ```
@@ -493,5 +513,4 @@ dflow.head(2)
 
 ## Next steps
 
-* See the SDK [overview](https://aka.ms/data-prep-sdk) for design patterns and usage examples
 * See the Azure Machine Learning Data Prep SDK [tutorial](tutorial-data-prep.md) for an example of solving a specific scenario

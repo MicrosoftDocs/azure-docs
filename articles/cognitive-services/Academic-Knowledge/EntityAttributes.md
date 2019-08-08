@@ -11,11 +11,12 @@ ms.subservice: academic-knowledge
 ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
+ROBOTS: NOINDEX
 ---
 
 # Entity Attributes
 
-The academic graph is composed of 7 types of entity. All entities will have a Entity ID and a Entity type.
+The academic graph is composed of 7 types of entity. All entities will have an Entity ID and an Entity type.
 
 ## Common Entity Attributes
 Name	|Description	            |Type       | Operations

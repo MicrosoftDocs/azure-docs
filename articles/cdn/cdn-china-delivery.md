@@ -8,7 +8,7 @@ manager: danielgi
 editor: ''
 
 ms.assetid: 
-ms.service: cdn
+ms.service: azure-cdn
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -60,7 +60,7 @@ To learn more about Azure CDN China, see:
 
 - [Use the Azure Content Delivery Network](https://docs.azure.cn/en-us/cdn/cdn-how-to-use)
 
-- [Azure service availability in China](https://docs.microsoft.com/azure/china/china-get-started-service-availability)
+- [Azure service availability in China](https://docs.microsoft.com/azure/china/concepts-service-availability)
 
 
 

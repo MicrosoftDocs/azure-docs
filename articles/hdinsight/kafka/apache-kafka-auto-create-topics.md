@@ -1,7 +1,6 @@
 ---
 title: Enable automatic topic creation in Apache Kafka - Azure HDInsight 
 description: Learn how to configure Apache Kafka on HDInsight to automatically create topics. You can configure Kafka by setting auto.create.topics.enable to true through Ambari or during cluster creation through PowerShell or Resource Manager templates.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.service: hdinsight

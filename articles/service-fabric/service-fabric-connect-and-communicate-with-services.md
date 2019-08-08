@@ -4,7 +4,7 @@ description: Learn how to resolve, connect, and communicate with services in Ser
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: msfussell
 
 ms.assetid: 7d1052ec-2c9f-443d-8b99-b75c97266e6c

@@ -3,11 +3,11 @@ title: Device concepts for reprovisioning for the Azure IoT Hub Device Provision
 description: Describes device reprovisioning concepts for the Azure IoT Hub Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 11/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ---
 
 # IoT Hub Device reprovisioning concepts

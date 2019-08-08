@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory certificate-based authentication on iOS
+title: Certificate-based authentication on iOS - Azure Active Directory
 description: Learn about the supported scenarios and the requirements for configuring certificate-based authentication in solutions with iOS devices
 
 services: active-directory
@@ -32,16 +32,16 @@ This feature is available in preview in Office 365 US Government Defense and Fed
 
 | Apps | Support |
 | --- | --- |
-| Azure Information Protection app |![Check][1] |
-| Intune Company Portal |![Check][1] |
-| Microsoft Teams |![Check][1] |
-| OneNote |![Check][1] |
-| OneDrive |![Check][1] |
-| Outlook |![Check][1] |
-| Power BI |![Check][1] |
-| Skype for Business |![Check][1] |
-| Word / Excel / PowerPoint |![Check][1] |
-| Yammer |![Check][1] |
+| Azure Information Protection app |![Check mark signifying support for this application][1] |
+| Intune Company Portal |![Check mark signifying support for this application][1] |
+| Microsoft Teams |![Check mark signifying support for this application][1] |
+| OneNote |![Check mark signifying support for this application][1] |
+| OneDrive |![Check mark signifying support for this application][1] |
+| Outlook |![Check mark signifying support for this application][1] |
+| Power BI |![Check mark signifying support for this application][1] |
+| Skype for Business |![Check mark signifying support for this application][1] |
+| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
+| Yammer |![Check mark signifying support for this application][1] |
 
 ## Requirements
 

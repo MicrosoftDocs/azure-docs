@@ -15,7 +15,6 @@ ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
 ---
-
 #  Cannot RDP to Azure Virtual Machines because the DHCP Client service is disabled
 
 This article describes a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) after the DHCP Client service is disabled in the VM.
@@ -23,7 +22,6 @@ This article describes a problem in which you cannot remote desktop to Azure Win
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## Symptoms
-
 You cannot make an RDP connection a VM in Azure because the DHCP Client service is disabled in the VM. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you see the VM boots normally and waits for credentials in the login screen. You remotely view the event logs in the VM by using Event Viewer. You see that the DHCP Client Service isn't started or fails to start. The following a sample log:
 
 **Log Name**: System </br>
@@ -94,7 +92,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 1. Connect to [Serial Console](serial-console-windows.md) and open a PowerShell instance.
 2. Download the Process Monitor tool by running the following script:
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -163,6 +161,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 3. Try to connect to the VM by using Remote Desktop.
 
 #### DHCP Client service crashes or hangs
+
 1. If the service status is stuck in the **Starting** or **Stopping** state, try to stop the service:
 
         sc stop DHCP
@@ -201,5 +200,3 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 ## Next steps
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved.
-
-

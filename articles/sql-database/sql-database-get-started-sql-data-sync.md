@@ -9,8 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
-ms.reviewer: douglasl
-manager: craigg
+ms.reviewer: carlrab
 ms.date: 01/14/2019
 ---
 # Tutorial: Set up SQL Data Sync between Azure SQL Database and SQL Server on-premises

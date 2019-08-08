@@ -169,7 +169,7 @@ The device complies with EN55024.
 
 ## AC power cord compliance
 
-The plug and the complete power cord assembly must meet the standards appropriate for the country in which the device is being used, and they must have safety approvals that are acceptable in that country. The following tables list standards for the USA and Europe.
+The plug and the complete power cord assembly must meet the standards appropriate for the country/region in which the device is being used, and they must have safety approvals that are acceptable in that country/region. The following tables list standards for the USA and Europe.
 
 ### AC power cords - USA (must be NRTL listed)
 

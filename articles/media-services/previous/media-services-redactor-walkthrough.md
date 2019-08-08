@@ -13,8 +13,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: rli; juliako;
+ms.date: 03/20/2019
+ms.author: ril
+ms.reviewer: juliako
 
 ---
 # Redact faces with Azure Media Analytics walkthrough

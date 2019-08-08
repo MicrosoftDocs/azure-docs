@@ -4,7 +4,7 @@ description: Understand how to set up and configure Service Fabric's reverse pro
 services: service-fabric
 documentationcenter: na
 author: jimacoMS2
-manager: timlt
+manager: chackdan
 editor: 
 
 ms.assetid: 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 11/13/2018
-ms.author: v-jamebr
+ms.author: chackdan
 
 ---
 # Set up and configure reverse proxy in Azure Service Fabric

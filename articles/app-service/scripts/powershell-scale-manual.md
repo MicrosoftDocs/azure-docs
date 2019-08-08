@@ -37,7 +37,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 After the script sample has been run, the following command can be used to remove the resource group, web app, and all related resources.
 
 ```powershell
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ## Script explanation

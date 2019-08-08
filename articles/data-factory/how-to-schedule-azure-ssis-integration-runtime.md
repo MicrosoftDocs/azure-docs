@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: 
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 1/9/2019
+ms.date: 8/2/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -89,7 +89,7 @@ If you create a third trigger that is scheduled to run daily at midnight and ass
   
     2. For **Method**, select **POST**. 
     3. For **Body**, enter `{"message":"Start my IR"}`. 
-    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identiy for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article for more info.
+    4. For **Authentication**, select **MSI** to use the managed identity for your ADF, see [Managed identity for Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) article for more info.
     5. For **Resource**, enter `https://management.azure.com/`.
     
        ![ADF Web Activity Schedule SSIS IR](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -341,9 +341,11 @@ The following section provides steps for creating a PowerShell runbook. The scri
     
 7. Repeat the previous two steps using **STOP** as the value for **OPERATION**. Start your runbook again by selecting **Start** button on the toolbar. Enter your resource group, ADF, and Azure-SSIS IR names. For **OPERATION**, enter **STOP**. In the output window, wait for the message **##### Completed #####** after you see **##### Stopping #####**. Stopping Azure-SSIS IR does not take as long as starting it. Close **Job** window and get back to **Runbook** window.
 
+8. You can also trigger your runbook via a webhook that can be created by selecting the **Webhooks** menu item or on a schedule that can be created by selecting the **Schedules** menu item as specified below.  
+
 ## Create schedules for your runbook to start/stop Azure-SSIS IR
 
-In the previous section, you have created your Azure Automation runbook that can either start or stop Azure-SSIS IR. In this section, you will create two schedules for your runbook. When configuring the first schedule, you specify **START** for **OPERATION**. Similarly, when configuring the second one, you specify **STOP** for **OPERATION**. For detailed steps to create schedules, see [Create a schedule](../automation/automation-schedules.md#creating-a-schedule) article.
+In the previous section, you have created your Azure Automation runbook that can either start or stop Azure-SSIS IR. In this section, you will create two schedules for your runbook. When configuring the first schedule, you specify **START** for **OPERATION**. Similarly, when configuring the second one, you specify **STOP** for **OPERATION**. For detailed steps to create schedules, see [Create a schedule](../automation/shared-resources/schedules.md#creating-a-schedule) article.
 
 1. In **Runbook** window, select **Schedules**, and select **+ Add a schedule** on the toolbar. 
 
@@ -375,7 +377,7 @@ In the previous section, you have created your Azure Automation runbook that can
 
 ## Next steps
 See the following blog post:
--   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/)
+-   [Modernize and extend your ETL/ELT workflows with SSIS activities in ADF pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)
 
 See the following articles from SSIS documentation: 
 

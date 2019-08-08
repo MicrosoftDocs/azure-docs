@@ -10,7 +10,7 @@ editor: spelluru
 ms.service: service-bus
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 04/23/2019
 ms.author: aschhab
 
 ---
@@ -108,8 +108,8 @@ Template parameters:
         "type": "Microsoft.ServiceBus/namespaces",
         "location": "[parameters('location')]",
         "sku": {
-          "name": "Standard",
-          "tier": "Standard"
+          "name": "Premium",
+          "tier": "Premium"
         },
         "properties": { }
       },

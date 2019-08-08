@@ -34,7 +34,8 @@ The following sections show what sizes are in the same size series group when yo
 
 | Size | Ratio|
 |---|---|
-| Standard_B1s | 1 |
+|Standard_B1s | 1 |
+|Standard_B1ls | 2 |
 |Standard_B2s|4|
 
 For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
@@ -43,10 +44,13 @@ For more information, see [B-series burstable virtual machine sizes](../articles
 
 | Size | Ratio|
 |---|---|
-| Standard_B1ms |1|
+|Standard_B1ms |1|
 |Standard_B2ms|4|
 |Standard_B4ms|8|
 |Standard_B8ms|16|
+|Standard_B12ms|24|
+|Standard_B16ms|32|
+|Standard_B20ms|40|
 
 For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
 
@@ -104,7 +108,7 @@ For more information, see [Previous generations of virtual machine sizes](../art
 |Standard_DS4_v2|8|
 |Standard_DS5_v2|16|
 
-For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv2-series).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
 
 ## DSv2-series high memory
 
@@ -123,7 +127,15 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_DS14-8_v2|8|
 |Standard_DS15_v2|10|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dsv2-series-11-15).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
+
+## DSv2 High Memory Isolated-series
+
+| Size | Ratio|
+|---|---|
+|Standard_DS15i_v2|1|
+
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
 
 ## DSv3-series
 
@@ -148,7 +160,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_D4_v2|8|
 |Standard_D5_v2|16|
 
-For more information, see [General purpose virtual machine sizes](../articles/virtual-machines/windows/sizes-general.md#dv2-series).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
 
 ## Dv2-series high memory
 
@@ -160,7 +172,16 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_D14_v2|8|
 |Standard_D15_v2|10|
 
-For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#dv2-series-11-15).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
+
+## Dv2  High Memory Isolated-series
+
+| Size | Ratio|
+|---|---|
+|Standard_D15i_v2|1|
+
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
+
 
 ## Dv3-series
 
@@ -198,17 +219,31 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
+## ESv3 Series Isolated-series
+
+| Size | Ratio|
+|---|---|
+|Standard_E64is_v3|1|
+
 ## Ev3-series
 
 | Size | Ratio|
 |---|---|
-| Standard_E2_v3|1|
+|Standard_E2_v3|1|
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
 |Standard_E20_v3|10|
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#ev3-series).
+
+## Ev3 Series Isolated-series
+
+| Size | Ratio|
+|---|---|
+|Standard_E64i_v3|1|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#ev3-series).
 
@@ -222,7 +257,7 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 |Standard_F8|8|
 Standard_F16|16|
 
-For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#f-series).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
 
 ## FS-series
 
@@ -234,7 +269,7 @@ For more information, see [Compute optimized virtual machine sizes](../articles/
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-For more information, see [Compute optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1).
+For more information, see [Previous generations of virtual machine sizes](../articles/virtual-machines/windows/sizes-previous-gen.md).
 
 ## Fsv2-series
 
@@ -268,16 +303,52 @@ For more information, see [High performance compute VM sizes](../articles/virtua
 
 For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
 
-## Ls-series
+
+## HCS-series
 
 | Size | Ratio|
 |---|---|
-| Standard_L4s|1|
-|Standard_L8s|2|
-|Standard_L16s|4|
-|Standard_L32s|8|
+|Standard_HC44rs|1|
+
+For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
+
+## HBS-series
+
+| Size | Ratio|
+|---|---|
+|Standard_HB60rs|1|
+
+For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
+
+## H Series Low Latency-series
+
+| Size | Ratio|
+|---|---|
+|Standard_H16r|1|
 
 For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
+
+## H Series High Memory Low Latency-series
+
+| Size | Ratio|
+|---|---|
+|Standard_H16mr|1|
+
+For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
+
+## LSv2 Series-series
+
+| Size | Ratio|
+|---|---|
+|Standard_L8s_v2|1|
+|Standard_L16s_v2|2|
+|Standard_L32s_v2|4|
+|Standard_L48s_v2|6|
+|Standard_L64s_v2|8|
+|Standard_L80s_v2|10|
+|Standard_L96s_v2|12|
+
+For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-storage.md#lsv2-series).
 
 ## M-series
 
@@ -317,7 +388,7 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 
 | Size | Ratio|
 |---|---|
-| Standard_M32ls|1|
+|Standard_M32ls|1|
 |Standard_M64ls|2|
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
@@ -326,7 +397,7 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 
 | Size | Ratio|
 |---|---|
-| Standard_M64ms|1|
+|Standard_M64ms|1|
 |Standard_M64-16ms|1|
 |Standard_M64-32ms|1|
 |Standard_M128ms|2|
@@ -335,11 +406,37 @@ For more information, see [Memory optimized virtual machine sizes](../articles/v
 
 For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
 
+## MS Series Fractional Tiny
+
+| Size | Ratio|
+|---|---|
+|Standard_M32ls|1|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
+
+## MSv2 Series High Memory-series
+
+| Size | Ratio|
+|---|---|
+|Standard_M208ms_v2|1|
+|Standard_M416ms_v2|2|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
+
+## MSv2-series
+
+| Size | Ratio|
+|---|---|
+|Standard_M208s_v2|1|
+|Standard_M416s_v2|2|
+
+For more information, see [Memory optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-memory.md#m-series).
+
 ## NC-series
 
 | Size | Ratio|
 |---|---|
-| Standard_NC6|1|
+|Standard_NC6|1|
 |Standard_NC12|2|
 |Standard_NC24|4|
 
@@ -383,6 +480,45 @@ For more information, see [GPU optimized virtual machine sizes](../articles/virt
 |Standard_NV12|2|
 |Standard_NV24|4|
 
-For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#nv-series).
+## NVSv3-series
+
+| Size | Ratio|
+|---|---|
+|Standard_NV12s_v3|1|
+|Standard_NV24s_v3|2|
+|Standard_NV48s_v3|4|
+
+## NDS Series Low Latency-series
+
+| Size | Ratio|
+|---|---|
+|Standard_ND24rs|1|
+
+## NCSv3 Series Low Latency-series
+
+| Size | Ratio|
+|---|---|
+|Standard_NC24rs_v3|1|
+
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#ncv3-series).
+
+## NCSv2 Series Low Latency-series
+
+| Size | Ratio|
+|---|---|
+|Standard_NC24rs_v2|1|
+
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series).
+
+## NC Series Low Latency-series
+
+| Size | Ratio|
+|---|---|
+|Standard_NC24r|1|
+
+For more information, see [GPU optimized virtual machine sizes](../articles/virtual-machines/windows//sizes-gpu.md#ncv2-series).
+
+
+
 
 

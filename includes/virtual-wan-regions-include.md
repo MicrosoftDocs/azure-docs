@@ -5,12 +5,12 @@
  author: cherylmc
  ms.service: virtual-wan
  ms.topic: include
- ms.date: 03/04/2019
+ ms.date: 03/30/2019
  ms.author: cherylmc
  ms.custom: include file
 ---
 
-The following table lists available supported regions:
+The following table lists available supported regions for features that are GA.
 
 |Geopolitical region | Azure regions|
 |---|---|
@@ -23,3 +23,6 @@ The following table lists available supported regions:
 | Australia Government | Australia Central, Australia Central 2 |
 | India | India West, India Central, India South |
 | South Korea | Korea Central, Korea South |
+| South Africa | South Africa North, South Africa West |
+
+* For information about the ExpressRoute preview, see [Virtual WAN and ExpressRoute - preview](../articles/virtual-wan/virtual-wan-expressroute-portal.md#register).

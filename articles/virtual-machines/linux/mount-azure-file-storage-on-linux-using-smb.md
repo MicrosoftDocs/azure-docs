@@ -4,7 +4,7 @@ description: How to mount Azure File storage on Linux VMs using SMB with the Azu
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid:
@@ -38,7 +38,7 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a storage account
 
-Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
+Create a new storage account, within the resource group that you created, using [az storage account create](/cli/azure/storage/account). This example creates a storage account named *mySTORAGEACCT\<random number>* and puts the name of that storage account in the variable **STORAGEACCT**. Storage account names must be unique, using `$RANDOM` appends a number to the end to make it unique.
 
 ```bash
 STORAGEACCT=$(az storage account create \

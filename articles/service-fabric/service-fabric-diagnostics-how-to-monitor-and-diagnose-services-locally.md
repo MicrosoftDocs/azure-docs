@@ -4,7 +4,7 @@ description: Learn how to monitor and diagnose your services written using Micro
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: edcc0631-ed2d-45a3-851d-2c4fa0f4a326

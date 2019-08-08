@@ -1,7 +1,7 @@
 ---
-title: Migrate from Custom Speech Service to Speech Services
-titlesuffix: Azure Cognitive Services
-description: The Custom Speech Service is now part of the Speech Services. Switch to the Speech Services to benefit from the latest quality and feature updates.
+title: Migrate from Custom Speech Service to Speech Service
+titleSuffix: Azure Cognitive Services
+description: The Custom Speech Service is now part of the Speech Service. Switch to the Speech Service to benefit from the latest quality and feature updates.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -42,7 +42,7 @@ Migrate your existing resource keys to the Speech Services on the Speech Service
 > [!NOTE]
 > Resource keys can only be migrated within the same region.
 
-1. Sign in to the [cris.ai](https://www.cris.ai) portal, and select the subscription in the top right menu.
+1. Sign in to the [cris.ai](https://cris.ai/Home/CustomSpeech) portal, and select the subscription in the top right menu.
 
 2. Select **Migrate selected subscription**.
 

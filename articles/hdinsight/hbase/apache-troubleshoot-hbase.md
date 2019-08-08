@@ -1,7 +1,6 @@
 ---
 title: Troubleshoot HBase by using Azure HDInsight 
 description: Get answers to common questions about working with HBase and Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -64,7 +63,7 @@ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 The error you might see when you try to run the command looks like this:
 
 ```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -128,7 +127,7 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
    ```
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
    Safe mode is ON
    Configured Capacity: 3372381241344 (3.07 TB)
    Present Capacity: 3138625077248 (2.85 TB)
@@ -165,7 +164,7 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
 2. You also can check the integrity of the HDFS on the HDInsight cluster by using the following commands:
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+   hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
    ```
 
    ```apache
@@ -339,7 +338,7 @@ This is a known issue with the HMaster service. General cluster startup tasks ca
 
 ### Issue
 
-A restart failure on a region server might be prevented by following best practices. We recommend that you pause heavy workload activity when you are planning to restart HBase region servers. If an application continues to connect with region servers when shutdown is in progress, the region server restart operation will be slower by several minutes. Also, it's a good idea to first flush all the tables. For a reference on how to flush tables, see [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
+A restart failure on a region server might be prevented by following best practices. We recommend that you pause heavy workload activity when you are planning to restart HBase region servers. If an application continues to connect with region servers when shutdown is in progress, the region server restart operation will be slower by several minutes. Also, it's a good idea to first flush all the tables. For a reference on how to flush tables, see [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/).
 
 If you initiate the restart operation on HBase region servers from the Apache Ambari UI, you immediately see that the region servers went down, but they don't restart right away. 
 

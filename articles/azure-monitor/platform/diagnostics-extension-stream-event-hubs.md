@@ -281,10 +281,10 @@ namespace EventHubListener
     {
         static void Main(string[] args)
         {
-            string eventHubConnectionString = "Endpoint= <your connection string>”;
+            string eventHubConnectionString = "Endpoint= <your connection string>";
             string eventHubName = "<Event hub name>";
             string storageAccountName = "<Storage account name>";
-            string storageAccountKey = "<Storage account key>”;
+            string storageAccountKey = "<Storage account key>";
             string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
 
             string eventProcessorHostName = Guid.NewGuid().ToString();

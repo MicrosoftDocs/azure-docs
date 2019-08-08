@@ -1,9 +1,9 @@
 ---
-title: Use a Windows VM system-assigned managed identity to access Azure Storage
+title: Access Azure Storage using a Windows VM system-assigned managed identity | Microsoft Docs
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure Storage.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: daveba
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 
@@ -72,7 +72,7 @@ You can use the VM's system-assigned managed identity to retrieve the data in th
 1. Navigate back to your newly created storage account.
 2. Click the **Access control (IAM)** link in the left panel.
 3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM.
-4. Under **Role**, from the dropdown, select **Storage Blob Data Reader (Preview)**.
+4. Under **Role**, from the dropdown, select **Storage Blob Data Reader**.
 5. In the next dropdown, under **Assign access to**, choose **Virtual Machine**.
 6. Next, ensure the proper subscription is listed in **Subscription** dropdown and then set **Resource Group** to **All resource groups**.
 7. Under **Select**, choose your VM and then click **Save**.

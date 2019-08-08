@@ -43,7 +43,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  Can I define password reset data on behalf of my users?**
 
-  > **A:** Yes, you can do so with Azure AD Connect, PowerShell, the [Azure portal](https://portal.azure.com), or the Office 365 Admin center. For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md).
+  > **A:** Yes, you can do so with Azure AD Connect, PowerShell, the [Azure portal](https://portal.azure.com), or the [Microsoft 365 admin center](https://admin.microsoft.com). For more information, see [Data used by Azure AD self-service password reset](howto-sspr-authenticationdata.md).
   >
   >
 * **Q:  Can I synchronize data for security questions from on-premises?**
@@ -111,7 +111,7 @@ This FAQ is split into the following sections:
   >
 * **Q:  How can I educate my users about where to go to reset their passwords?**
 
-  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#sample-communication) article.
+  > **A:** Try some of the suggestions in our [SSPR deployment](howto-sspr-deployment.md#communications-plan) article.
   >
   >
 * **Q:  Can I use this page from a mobile device?**
