@@ -34,7 +34,8 @@ The following sections show what sizes are in the same size series group when yo
 
 | Size | Ratio|
 |---|---|
-| Standard_B1s | 1 |
+|Standard_B1s | 1 |
+|Standard_B1ls | 2 |
 |Standard_B2s|4|
 
 For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
@@ -43,10 +44,13 @@ For more information, see [B-series burstable virtual machine sizes](../articles
 
 | Size | Ratio|
 |---|---|
-| Standard_B1ms |1|
+|Standard_B1ms |1|
 |Standard_B2ms|4|
 |Standard_B4ms|8|
 |Standard_B8ms|16|
+|Standard_B12ms|24|
+|Standard_B16ms|32|
+|Standard_B20ms|40|
 
 For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
 

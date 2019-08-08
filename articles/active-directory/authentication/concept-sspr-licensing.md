@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Licensing requirements for Azure AD self-service password reset
 
-Azure Active Directory (Azure AD) comes in four editions: Free, Basic, Premium P1, and Premium P2. There are several different features that make up self-service password reset, including change, reset, unlock, and writeback, that are available in the different editions of Azure AD. This article tries to explain the differences. More details of the features included in each Azure AD edition can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
+Azure Active Directory (Azure AD) comes in several editions: Free, Premium P1, and Premium P2. There are several different features that make up self-service password reset, including change, reset, unlock, and writeback, that are available in the different editions of Azure AD. This article tries to explain the differences. More details of the features included in each Azure AD edition can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## Compare editions and features
 
@@ -31,7 +31,7 @@ Azure AD self-service password reset is licensed per user, to maintain complianc
 * Self-Service Password Reset for cloud users
    * I am a **cloud-only user** and have forgotten my password.
       * I would like to **reset** my password to something I know.
-   * This functionality is included in Azure AD Basic, Premium P1 or P2, or Microsoft 365 Business.
+   * This functionality is included in Azure AD Premium P1 or P2, or Microsoft 365 Business.
 
 * Self-Service Password Reset/Change/Unlock **with on-premises writeback**
    * I am a **hybrid user** my on-premises Active Directory user account is synchronized with my Azure AD account using Azure AD Connect. I would like to change my password, have forgotten my password, or been locked out.
