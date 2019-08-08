@@ -94,7 +94,7 @@ The user who creates the Azure-SSIS Integration Runtime must have the following 
 -   Don’t use a subnet which is exclusively occupied by other Azure services (for example, SQL Database Managed Instance, App Service, etc.). 
 
 ### <a name="dns_server"></a> Domain Name Services server 
-If you need to use your own Domain Name Services (DNS) server in a virtual network joined by your Azure-SSIS integration runtime, make sure it can resolve public Azure host names (for example, an Azure Storage blob name, `<your storage account>.blob.core.windows.net`). 
+If you need to use your own Domain Name Services (DNS) server in a virtual network joined by your Azure-SSIS integration runtime, make sure it can resolve global Azure host names (for example, an Azure Storage blob name, `<your storage account>.blob.core.windows.net`). 
 
 The following steps are recommended: 
 
