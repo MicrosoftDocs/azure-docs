@@ -56,7 +56,7 @@ The Azure Quickstart Templates utilize the SQL VM resource provider to deploy th
 For more information, see [Use Azure Quickstart Template to configure Always On availability group for SQL Server on an Azure VM](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
-## Automatically with an Azure Portal Template
+## Automatically with an Azure portal template
 
 [Configure Always On availability group in Azure VM automatically - Resource Manager](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
