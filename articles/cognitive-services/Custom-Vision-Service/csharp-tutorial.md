@@ -57,7 +57,7 @@ The created project will show up on the [Custom Vision website](https://customvi
 
 ### Upload and tag images
 
-The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_.
+The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_. You can upload up to 64 images in a single batch.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 

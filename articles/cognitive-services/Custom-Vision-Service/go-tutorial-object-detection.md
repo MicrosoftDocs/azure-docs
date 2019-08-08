@@ -153,7 +153,7 @@ scissorsImageRegions := map[string][4]float64{
     "scissors_20.jpg": [4]float64{ 0.158088237, 0.04047389, 0.6691176, 0.843137264 },
 }
 ```
-Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
+Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
 > [!NOTE]
 > You'll need to change the path to the images based on where you downloaded the Cognitive Services Go SDK Samples project earlier.

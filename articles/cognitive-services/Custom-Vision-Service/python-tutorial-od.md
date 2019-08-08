@@ -131,7 +131,7 @@ scissors_image_regions = {
 }
 ```
 
-Then, use this map of associations to upload each sample image with its region coordinates. Add the following code.
+Then, use this map of associations to upload each sample image with its region coordinates (you can upload up to 64 images in a single batch). Add the following code.
 
 ```Python
 # Update this with the path to where you downloaded the images.

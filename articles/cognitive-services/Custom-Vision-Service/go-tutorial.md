@@ -94,7 +94,7 @@ cherryTag, _ := trainer.CreateTag(ctx, *project.ID, "Japanese Cherry", "Japanese
 
 ### Upload and tag images
 
-To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You will need to enter the base image URL path, based on where you downloaded the Cognitive Services Go SDK Samples project.
+To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You can upload up to 64 images in a single batch.
 
 > [!NOTE]
 > You'll need to change the path to the images based on where you downloaded the Cognitive Services Go SDK Samples project earlier.

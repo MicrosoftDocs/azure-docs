@@ -60,7 +60,7 @@ When you tag images in object detection projects, you need to specify the region
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=41-84)]
 
-Then, this map of associations is used to upload each sample image with its region coordinates.
+Then, this map of associations is used to upload each sample image with its region coordinates. You can upload up to 64 images in a single batch.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=86-104)]
 
