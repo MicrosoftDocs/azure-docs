@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 05/08/2019
+ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 
@@ -124,6 +124,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |50177|External challenge is not supported for passthrough users.|
 |50178|Session Control  is not supported for passthrough users.|
 |50180|Windows Integrated authentication is needed. Enable the tenant for Seamless SSO.|
+|50201|This message prompt interrupt will be shown to the user during login when additional information should be provided to user.|
 |51001|Domain Hint is not present with On-Premises Security Identifier - On-Premises UPN.|
 |51004|User account doesn’t exist in the directory.|
 |51006|Windows Integrated authentication is needed. User logged in using session token that is missing via claim. Request the  user to re-login.|
@@ -178,6 +179,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |500121| Authentication failed during strong authentication request.|
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
+|530032|Blocked by security policy.| 
 |7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
 
 
