@@ -67,6 +67,8 @@ Privileged Identity Management (PIM) can manage custom roles you can create in A
 
 1. To create the new role assignment, click **Save** and then **Add**. A notification of the status is displayed.
 
+    ![Notification of success status when the role is assigned](./media/azure-ad-custom-roles-assign/notification.png)
+
 ## Next steps
 
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
