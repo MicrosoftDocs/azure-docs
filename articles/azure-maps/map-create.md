@@ -17,7 +17,7 @@ This article shows you ways to create a map and animate a map.
 
 ## Loading a map
 
-To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). When initializing the map a DIV element ID to render the map and a set of options to use when loading the map are passed in. If default authenication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performace. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map in that event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
+To load a map, create a new instance of the [Map class](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest). When initializing the map a DIV element ID to render the map and a set of options to use when loading the map are passed in. If default authentication information isn't specified on the `atlas` namespace, this information will need to be specified in the map options when loading the map. The map loads several resources asynchronously for performance. As such, after creating the map instance, attach a `ready` or `load` event to the map and then add any additional code that interacts with the map in that event handler. The `ready` event fires as soon as the map has enough resources loaded to be interacted with programmatically. The `load` event fires after the initial map view has finished loading completely. 
 
 <br/>
 
@@ -27,11 +27,11 @@ To load a map, create a new instance of the [Map class](https://docs.microsoft.c
 </iframe>
 
 > [!TIP]
-> Multiple maps can be loaded on the same page and each one can use the same or different authenication and language settings.
+> Multiple maps can be loaded on the same page and each one can use the same or different authentication and language settings.
 
 ## Show a single copy of the world
 
-When the map is zoomed out on a wide screen, multiple copies of the world will appear horitizontally. This is great for most scenarios, but some for some applications it may be desirable to only see a single copy of the world. This can be done by setting the maps `renderWorldCopies` option to `false`.
+When the map is zoomed out on a wide screen, multiple copies of the world will appear horizontally. This is great for most scenarios, but some for some applications it may be desirable to only see a single copy of the world. This can be done by setting the maps `renderWorldCopies` option to `false`.
 
 <br/>
 
@@ -42,7 +42,7 @@ When the map is zoomed out on a wide screen, multiple copies of the world will a
 
 ## Controlling the map camera
 
-There are two ways you can set the displayed area of the map using the camera. You can set camera options such as center and zoom, when loading the map, or call the `setCamera` option anytime after the map has loaded to programmatically update the map view.  
+There are two ways you can set the displayed area of the map using the camera. You can set camera options such as center, and zoom, when loading the map, or call the `setCamera` option anytime after the map has loaded to programmatically update the map view.  
 
 <a id="setCameraOptions"></a>
 
@@ -68,7 +68,7 @@ In the following code,  a [Map object](https://docs.microsoft.com/javascript/api
 
 ### Animate map view
 
-In the following code, the first code block creates a map and sets the map style, center and zoom values. In the second code block a click event handler is created for the animate button. When this button is clicked the setCamera function is called in addition to specifying some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) are also passed in.
+In the following code, the first code block creates a map and sets the map style, center and zoom values. In the second code block, a click event handler is created for the animate button. When this button is clicked the setCamera function is called in addition to specifying some random values for the [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [AnimationOptions](/javascript/api/azure-maps-control/atlas.animationoptions) are also passed in.
 
 <br/>
 
