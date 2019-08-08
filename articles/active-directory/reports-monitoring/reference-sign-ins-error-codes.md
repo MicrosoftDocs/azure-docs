@@ -180,6 +180,7 @@ You can also programmatically access the sign-in data using the [reporting API](
 |500133| The assertion is not within its valid time range. Ensure that the access token is not expired before using it for user assertion, or request a new token.|
 |530021|Application does not meet the Conditional Access approved app requirements.|
 |530032|Blocked by security policy.| 
+|900432|Confidential Client is not supported in Cross Cloud request.|
 |7000218|The request body must contain the following parameter: 'client_assertion' or 'client_secret'.|
 
 
