@@ -212,7 +212,7 @@ In this step, you link your Azure Storage Account to the data factory.
         }
     }
     ```
-2. In **Azure PowerShell**, switch to the **C:\ADFTutorials\IncCopyChgTrackingTutorial** folder.
+2. In **Azure PowerShell**, switch to the **C:\ADFTutorials\IncCopyChangeTrackingTutorial** folder.
 3. Run the **Set-AzDataFactoryV2LinkedService** cmdlet to create the linked service: **AzureStorageLinkedService**. In the following example, you pass values for the **ResourceGroupName** and **DataFactoryName** parameters. 
 
     ```powershell
