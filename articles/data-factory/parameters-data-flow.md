@@ -45,7 +45,7 @@ Once you've created your data flow with parameters, you can execute it from a pi
 
 ![Setting a Data Flow parameter](media/data-flow/parameter-assign.png "Setting a Data Flow parameter")
 
-If your parameter data type is string, when you click the text box to set parameter values, you can choose to enter either a pipeline or a data flow expression. If you choose pipeline expression, you will be presented with the pipeline expression panel. Make sure to include pipeline functions inside string interpolation syntax using '@{<expression>}', for example:
+If your parameter data type is string, when you click the text box to set parameter values, you can choose to enter either a pipeline or a data flow expression. If you choose pipeline expression, you will be presented with the pipeline expression panel. Make sure to include pipeline functions inside string interpolation syntax using `'@{<expression>}'`, for example:
 
 ```'@{pipeline().RunId}'```
 

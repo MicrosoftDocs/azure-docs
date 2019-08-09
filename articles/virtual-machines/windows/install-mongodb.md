@@ -4,7 +4,7 @@ description: Learn how to install MongoDB on an Azure VM running Windows Server 
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 53faf630-8da5-4955-8d0b-6e829bf30cba

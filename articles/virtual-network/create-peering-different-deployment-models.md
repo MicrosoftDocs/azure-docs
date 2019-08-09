@@ -15,7 +15,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2018
-ms.author: kumud;anavin
+ms.author: kumud
+ms.reviewer: anavin
 ---
 # Create a virtual network peering - different deployment models, same subscription
 

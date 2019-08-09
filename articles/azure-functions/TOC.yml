@@ -47,12 +47,16 @@
       href: functions-integrate-storage-queue-output-binding.md
     - name: Storage - Visual Studio Code
       href: functions-add-output-binding-storage-queue-vs-code.md
+    - name: Storage - Visual Studio
+      href: functions-add-output-binding-storage-queue-vs.md
 - name: Tutorials
   items:
   - name: Functions with Logic Apps
     href: functions-twitter-email.md
   - name: Create a serverless API
     href: functions-create-serverless-api.md
+  - name: Develop Python functions with VS Code
+    href: tutorial-vs-code-serverless-python.md
   - name: Create an OpenAPI definition
     href: functions-openapi-definition.md
   - name: Connect to a Virtual Network
@@ -61,6 +65,8 @@
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
     href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr  
+  - name: Machine learning with TensorFlow
+    href: functions-machine-learning-tensorflow.md 
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
@@ -117,7 +123,7 @@
     - name: Python
       href: functions-reference-python.md
   - name: Diagnostics
-    href: ../app-service/overview-diagnostics.md
+    href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Performance considerations
     href: functions-best-practices.md 
   - name: Functions Proxies

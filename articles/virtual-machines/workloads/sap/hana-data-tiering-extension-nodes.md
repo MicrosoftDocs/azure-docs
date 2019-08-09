@@ -4,7 +4,7 @@ description: Data tiering and extension nodes for SAP HANA on Azure (Large Insta
 services: virtual-machines-linux
 documentationcenter: 
 author: RicksterCDN
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux

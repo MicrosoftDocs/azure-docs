@@ -5,24 +5,62 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 editor: ''
-
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 6/14/2019
+ms.date: 8/2/2019
 ms.author: raiye
-
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
 
-## June 2019 Guest OS
+## July 2019 Guest OS
 
->[!NOTE]
->The June Guest OS is currently being rolled out to Cloud Service VMs that are configured for automatic updates. When the rollout is complete, this version will be made available for manual updates through the Azure portal and configuration files. The following patches are included in the June Guest OS. This list is subject to change.
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+|  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4506966]  |  .NET 4.5.2 Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4506976]  |  .NET 3.5.1 Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4507456]  |  Windows Security   |  2.88  |  July 9, 2019  |
+|  Rel 19-07   |  [4506965]  |  .NET 4.5.2 Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4506974]  |  .NET 3.5 Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4507464]  |  Windows Security   |  3.75  |  July 9, 2019  |
+|  Rel 19-07   |  [4506964]  |  .NET 4.5.2 Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4506977]  |  .NET 3.5 Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4507457]  |  Windows Security   |  4.68  |  July 9, 2019  |
+|  Rel 19-07   |  [4507460]  |  Windows Security   |  5.33  |  July 9, 2019  |
+|  Rel 19-07   |  [4506998]  |  .NET 3.5 & 4.7.2 Security   |  6.9  |  July 9, 2019  |
+|  Rel 19-07   |  [4507469]  |  Windows Security   |  6.9  |  July 9, 2019  |
+|  N/A  |  [4503537]  |  June '19 Servicing Stack Update for (Server 2016)   |  5.33  |  May 14, 2019  |
+|  N/A  |  [4504369]  |  June '19 Servicing Stack Update for (Server 2019)   |  6.9  |  May 14, 2019  |
+|  N/A  |  [4503292]  |  June '19 Non-Security (Server 2008 R2)   |  2.88  |  May 20, 2019  |
+|  N/A  |  [4503285]  |  June '19 Non-Security (Server 2012)   |  3.75  |  May 14, 2019  |
+|  N/A  |  [4503276]  |  June '19 Non-Security (Server 2012 R2)   |  4.68  |  May 14, 2019  |
+
+[4507434]: https://support.microsoft.com/kb/4507434
+[4506621]: https://support.microsoft.com/kb/4506621
+[4506966]: https://support.microsoft.com/kb/4506966
+[4506976]: https://support.microsoft.com/kb/4506976
+[4507456]: https://support.microsoft.com/kb/4507456
+[4506965]: https://support.microsoft.com/kb/4506965
+[4506974]: https://support.microsoft.com/kb/4506974
+[4507464]: https://support.microsoft.com/kb/4507464
+[4506964]: https://support.microsoft.com/kb/4506964
+[4506977]: https://support.microsoft.com/kb/4506977
+[4507457]: https://support.microsoft.com/kb/4507457
+[4507460]: https://support.microsoft.com/kb/4507460
+[4506998]: https://support.microsoft.com/kb/4506998
+[4507469]: https://support.microsoft.com/kb/4507469
+[4503537]: https://support.microsoft.com/kb/4503537
+[4504369]: https://support.microsoft.com/kb/4504369
+[4503292]: https://support.microsoft.com/kb/4503292
+[4503285]: https://support.microsoft.com/kb/4503285
+[4503276]: https://support.microsoft.com/kb/4503276
+
+
+## June 2019 Guest OS
 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |

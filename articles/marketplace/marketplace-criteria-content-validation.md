@@ -7,7 +7,7 @@ manager: nunoc
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/05/2018
-ms.author: yijenj
+ms.author: pabutler
 ---
 
 # Azure Marketplace listing guidelines

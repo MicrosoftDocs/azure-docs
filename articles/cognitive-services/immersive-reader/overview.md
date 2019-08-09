@@ -1,9 +1,10 @@
 ---
-title: About Immersive Reader
-titlesuffix: Azure Cognitive Services
-description: Learn about the Immersive Reader
+title: What is the Immersive Reader API?
+titleSuffix: Azure Cognitive Services
+description: Learn about the Immersive Reader API.
 services: cognitive-services
 author: metanMSFT
+manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: immersive-reader
@@ -56,5 +57,5 @@ The Immersive Reader is a standalone web app that, when invoked using the Immers
 Get started with Immersive Reader:
 
 * Jump into the [quickstart](./quickstart.md)
-* Explore the [Immersive Reader SDK on GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * Read the [Immersive Reader SDK Reference](./reference.md)

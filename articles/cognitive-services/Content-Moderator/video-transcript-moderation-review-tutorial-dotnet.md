@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Moderate videos and transcripts in .NET - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: This tutorial helps you understand how to build a complete video and transcript moderation solution with machine-assisted moderation and human-in-the-loop review creation.
 services: cognitive-services
 author: PatrickFarley
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 
 ---
@@ -34,7 +34,7 @@ This tutorial shows you how to:
 - Sign up for the [Content Moderator Review tool](https://contentmoderator.cognitive.microsoft.com/) web site and create custom tags. See [Use tags](Review-Tool-User-Guide/tags.md) if you need help with this step.
 
     ![screenshot of Video moderation custom tags](images/video-tutorial-custom-tags.png)
-- To run the sample application, you need an Azure account, an Azure Media Services resource, an Azure Content Moderator resource, and Azure Active Directory credentials. For instructions on how to get these, see the [Video Moderation API](video-moderation-api.md) guide.
+- To run the sample application, you need an Azure account, an Azure Media Services resource, an Azure Content Moderator resource, and Azure Active Directory credentials. For instructions on how to get these resources, see the [Video Moderation API](video-moderation-api.md) guide.
 - Download the [Video review console application](https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp) From GitHub.
 
 ## Enter credentials
@@ -222,7 +222,7 @@ A transcription of the audio from the video is also produced when the `GenerateV
 > [!NOTE]
 > The console application uses the [Azure Media Indexer API](https://docs.microsoft.com/azure/media-services/media-services-process-content-with-indexer2) to generate transcripts from the uploaded video's audio track. The results are provided in WebVTT format. For more information on this format, see [Web Video Text Tracks Format](https://developer.mozilla.org/en-US/docs/Web/API/WebVTT_API).
 
-## Create a the human-in-the-loop review
+## Create a human review
 
 The moderation process returns a list of key frames from the video, along with a transcript of its audio tracks. The next step is to create a review in the Content Moderator review tool for human moderators. Going back to the `ProcessVideo()` method in `Program.cs`, you see the call to the `CreateVideoReviewInContentModerator()` method. This method is in the `videoReviewApi` class, which is in `VideoReviewAPI.cs`, and is shown here.
 

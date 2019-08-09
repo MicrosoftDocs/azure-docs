@@ -3,7 +3,7 @@ title: Create a Windows container app on Service Fabric in Azure | Microsoft Doc
 description: In this quickstart, you create your first Windows container application on Azure Service Fabric.  
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: jpconnock
 editor: 'vturecek'
 ms.assetid: 
@@ -12,8 +12,8 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 01/31/2019
-ms.author: aljo
+ms.date: 07/10/2019
+ms.author: atsenthi
 ms.custom: mvc
 ---
 
@@ -39,7 +39,7 @@ In this quickstart you learn how to:
 
 * An Azure subscription (you can create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)).
 * A development computer running:
-  * Visual Studio 2015 or Windows 2019.
+  * Visual Studio 2019 or Windows 2019.
   * [Service Fabric SDK and tools](service-fabric-get-started.md).
 
 ## Package a Docker image container with Visual Studio
@@ -48,7 +48,7 @@ The Service Fabric SDK and tools provide a service template to help you deploy a
 
 Start Visual Studio as "Administrator".  Select **File** > **New** > **Project**.
 
-Select **Service Fabric application**, name it "MyFirstContainer", and click **OK**.
+Select **Service Fabric application**, name it "MyFirstContainer", and click **Create**.
 
 Select **Container** from the **Hosted Containers and Applications** templates.
 

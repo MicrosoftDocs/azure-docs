@@ -9,8 +9,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/31/2019
-ms.author: tyao;kumud
-
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Azure web application firewall monitoring and logging 

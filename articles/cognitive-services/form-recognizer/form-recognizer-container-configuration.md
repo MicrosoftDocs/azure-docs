@@ -1,11 +1,11 @@
 ---
-title: Configure container - Form Recognizer
+title: How to configure a container for Form Recognizer
 titleSuffix: Azure Cognitive Services
 description: Learn how to configure the Form Recognizer container to parse form and table data.
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: dapine
@@ -84,8 +84,8 @@ Replace {_argument_name_} in the following table with your own values:
 
 | Placeholder | Value |
 |-------------|-------|
-|{BILLING_KEY} | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page.  |
-|{BILLING_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
+|{FORM_RECOGNIZER_API_KEY} | The key that's used to start the container. It's available on the Azure portal Form Recognizer Keys page.  |
+|{FORM_RECOGNIZER_ENDPOINT_URI} | The billing endpoint URI value is available on the Azure portal Form Recognizer Overview page.|
 |{COMPUTER_VISION_API_KEY}| The key is available on the Azure portal Computer Vision API Keys page.|
 |{COMPUTER_VISION_ENDPOINT_URI}|The billing endpoint. If you're using a cloud-based Computer Vision resource, the URI value is available on the Azure portal Computer Vision API Overview page. If you're using a  *cognitive-services-recognize-text* container, use the billing endpoint URL that's passed to the container in the `docker run` command.|
 
@@ -107,8 +107,8 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 ```
@@ -121,13 +121,12 @@ docker run --rm -it -p 5000:5000 --memory 8g --cpus 2 \
 --mount type=bind,source=c:\output,target=/output \
 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer \
 Eula=accept \
-Billing={BILLING_ENDPOINT_URI} \
-ApiKey={BILLING_KEY} \
+Billing={FORM_RECOGNIZER_ENDPOINT_URI} \
+ApiKey={FORM_RECOGNIZER_API_KEY} \
 FormRecognizer:ComputerVisionApiKey={COMPUTER_VISION_API_KEY} \
 FormRecognizer:ComputerVisionEndpointUri={COMPUTER_VISION_ENDPOINT_URI}
 Logging:Console:LogLevel:Default=Information
 ```
-
 
 ## Next steps
 

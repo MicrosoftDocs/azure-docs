@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/09/2019
 ---
 # Create and configure Enterprise Security Package clusters in Azure HDInsight
@@ -305,7 +305,7 @@ click **Next**.
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | <Desired Number> |
+        | Priority | \<Desired Number\> |
         | Name | Port_LDAP_636 |
 
     ![inbound security rule](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
@@ -375,4 +375,4 @@ If you are able to login with this account, then you have configured your ESP cl
 
 ## Next steps
 
-* [An introduction to Apache Hadoop security with Enterprise Security Package](apache-domain-joined-introduction.md)
+* [An introduction to Apache Hadoop security with Enterprise Security Package](hdinsight-security-overview.md)

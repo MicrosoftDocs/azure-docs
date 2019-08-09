@@ -13,7 +13,7 @@
   - name: SAP
     href: workloads/sap/get-started.md
   - name: High performance computing
-    href: workloads/hpc/configure.md
+    href: workloads/hpc/overview.md
   - name: Mainframe rehosting
     href: workloads/mainframe-rehosting/overview.md
 - name: Classic deployments

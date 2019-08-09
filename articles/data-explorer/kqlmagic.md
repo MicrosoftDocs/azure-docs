@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/10/2019
 
 # Customer intent: I want to analyze data using Jupyter Notebooks and KQL magic.
 ---
@@ -34,9 +34,11 @@ Jupyter Notebook is an open-source web application that allows you to create and
 1. Load KQL magic:
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Change the Kernel version to Python 3.6 by clicking on Kernel > Change Kernel > Python 3.6
+    
 ## Connect to the Azure Data Explorer Help cluster
 
 Use the following command to connect to the *Samples* database hosted on the *Help* cluster. For non-Microsoft AAD users, replace the tenant name `Microsoft.com` with your AAD Tenant.
@@ -161,6 +163,9 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> To receive information about all available configurations use `%config KQLmagic`. To troubleshoot and capture Kusto errors, such as connection issues and incorrect queries, use `%config Kqlmagic.short_errors=False`
 
 ## Next steps
 

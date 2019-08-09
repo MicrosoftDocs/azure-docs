@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 1/11/2019
-ms.author: msangapu;
+ms.author: msangapu
 ms.custom: mvc
 ms.custom: seodec18
 

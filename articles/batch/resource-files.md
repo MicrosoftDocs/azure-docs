@@ -3,7 +3,7 @@ title: Creating and using resource files - Azure Batch | Microsoft Docs
 description: Learn how to create Azure Batch resource files from various input sources.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.topic: article

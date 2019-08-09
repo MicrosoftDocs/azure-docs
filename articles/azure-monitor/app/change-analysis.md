@@ -44,6 +44,11 @@ Change Analysis captures the deployment and configuration state of an applicatio
 ### Dependency changes
 
 Changes to resource dependencies can also cause issues in a web app. For example, if a web app calls into a Redis cache, the Redis cache SKU could affect the web app performance. To detect changes in dependencies, Change Analysis checks the web app's DNS record. In this way, it identifies changes in all app components that could cause issues.
+Currently the following dependencies are supported:
+- Web Apps
+- Azure Storage
+- Azure SQL
+
 
 ## Change Analysis for the Web Apps feature
 
@@ -131,5 +136,6 @@ If your subscription includes numerous web apps, enabling the service at the lev
 
 ## Next steps
 
-- Monitor App Service more effectively by [enabling Application Insights features](azure-web-apps.md) in Azure Monitor.
+- Enable Application Insights for [Azure App Services apps](azure-web-apps.md).
+- Enable Application Insights for [Azure VM and Azure virtual machine scale set IIS-hosted apps](azure-vm-vmss-apps.md).
 - Learn more about [Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/overview), which helps power Change Analysis.

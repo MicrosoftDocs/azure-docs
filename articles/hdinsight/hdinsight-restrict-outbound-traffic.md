@@ -6,7 +6,7 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 05/30/2019
 ---
 # Configure outbound network traffic for Azure HDInsight clusters using Firewall (Preview)
@@ -17,7 +17,7 @@ This article provides the steps for you to secure outbound traffic from your HDI
 
 Azure HDInsight clusters are normally deployed in your own virtual network. The cluster has dependencies on services outside of that virtual network that require network access to function properly.
 
-There are several dependencies that require inbound traffic. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
+There are several dependencies that require inbound traffic. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published [here](hdinsight-management-ip-addresses.md). You can also create Network Security Group (NSG) rules with this information to secure inbound traffic to the clusters.
 
 The HDInsight outbound traffic dependencies are almost entirely defined with FQDNs, which don't have static IP addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) can't be used to lock down the outbound traffic from a cluster. The addresses change often enough that one can't set up rules based on the current name resolution and use that to set up NSG rules.
 
@@ -93,7 +93,7 @@ Create the network rules to correctly configure your HDInsight cluster.
 
 Create a route table with the following entries:
 
-1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) with a next hop of **Internet**:
+1. Six addresses from [this list of required HDInsight management IP addresses](../hdinsight/hdinsight-management-ip-addresses.md) with a next hop of **Internet**:
     1. Four IP addresses for all clusters in all regions
     1. Two IP addresses that are specific for the region where the cluster is created
 1. One Virtual Appliance route for IP address 0.0.0.0/0 with the next hop being your Azure Firewall private IP address.
@@ -173,7 +173,7 @@ The previous instructions help you configure Azure Firewall for restricting outb
 | **Endpoint** | **Details** |
 |---|---|
 | \*:123 | NTP clock check. Traffic is checked at multiple endpoints on port 123 |
-| IPs published [here](hdinsight-extend-hadoop-virtual-network.md#hdinsight-ip) | These are HDInsight service |
+| IPs published [here](hdinsight-management-ip-addresses.md) | These are HDInsight service |
 | AAD-DS private IPs for ESP clusters |
 | \*:16800 for KMS Windows Activation |
 | \*12000 for Log Analytics |
