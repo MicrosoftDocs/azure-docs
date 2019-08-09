@@ -279,12 +279,33 @@ There are two required installers for Azure AD password protection. They're avai
 
    You can automate the software installation by using standard MSI procedures. For example:
 
-   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn`
+   `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
-   > [!WARNING]
-   > The example msiexec command here causes an immediate reboot. To avoid that, use the `/norestart` flag.
+   You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
 
 The installation is complete after the DC Agent software is installed on a domain controller, and that computer is rebooted. No other configuration is required or possible.
+
+## Upgrading the Proxy agent
+
+When a newer version of the Azure AD Password Protection Proxy software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionProxySetup.exe` software installer. The latest version of the software is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+It is not required to uninstall the current version of the Proxy software - the installer will perform an in-place upgrade. No reboot should be required when upgrading the Proxy software. The software upgrade may be automated using standard MSI procedures, for example: `AzureADPasswordProtectionProxySetup.exe /quiet`.
+
+The Proxy agent supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default, and may be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet. Microsoft recommends that the automatic upgrade be left enabled.
+
+The `Get-AzureADPasswordProtectionProxy` cmdlet may be used to query the software version of all currently installed Proxy agents in a forest.
+
+## Upgrading the DC agent
+
+When a newer version of the Azure AD Password Protection DC Agent software is available, the upgrade is accomplished by running the latest version of the `AzureADPasswordProtectionDCAgentSetup.msi` software package. The latest version of the software is available on the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
+
+It is not required to uninstall the current version of the DC agent software - the installer will perform an in-place upgrade. A reboot is always required when upgrading the DC agent software - this is caused by core Windows behavior. 
+
+The software upgrade may be automated using standard MSI procedures, for example: `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`.
+
+You may omit the `/norestart` flag if you prefer to have the installer automatically reboot the machine.
+
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to query the software version of all currently installed DC agents in a forest.
 
 ## Multiple forest deployments
 
@@ -298,7 +319,7 @@ Password changes/sets are not processed and persisted on read-only domain contro
 
 The main availability concern for password protection is the availability of proxy servers when the domain controllers in a forest try to download new policies or other data from Azure. Each DC Agent uses a simple round-robin-style algorithm when deciding which proxy server to call. The Agent skips proxy servers that aren't responding. For most fully connected Active Directory deployments that have healthy replication of both directory and sysvol folder state, two proxy servers is enough to ensure availability. This results in timely download of new policies and other data. But you can deploy additional proxy servers.
 
-The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually *days*, not hours or less. So, brief outages of the proxy servers don't significantly impact Azure AD password protection.
+The design of the DC Agent software mitigates the usual problems that are associated with high availability. The DC Agent maintains a local cache of the most recently downloaded password policy. Even if all registered proxy servers become unavailable, the DC Agents continue to enforce their cached password policy. A reasonable update frequency for password policies in a large deployment is usually days, not hours or less. So, brief outages of the proxy servers don't significantly impact Azure AD password protection.
 
 ## Next steps
 

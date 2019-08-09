@@ -52,6 +52,9 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Snowflake for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Snowflake.
 
+> [!NOTE]
+> This integration is in Private Preview in Snowflake today. If you would like to enable this feature in your Snowflake account, contact your Snowflake Sales Representative.
+
 1. Sign in to your Snowflake Admin Console. Enter the query shown below in the workspace highlighted and click **Run**.
 
 	![Snowflake Admin Console](media/Snowflake-provisioning-tutorial/image00.png)
@@ -111,9 +114,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the **Admin Credentials** section, input `https://<account>.<region>.<cloud>.Snowflakecomputing.com/scim/v2` in **Tenant URL**. Example URL:
-
-	![snowflake Account](media/snowflake-provisioning-tutorial/account.png)
+5. Under the Admin Credentials section, input `https://<Snowflake Account URL>/scim/v2` in tenant 	URL. An example of the tenant URL: `https://acme.snowflakecomputing.com/scim/v2`
 
 6. Input the **SCIM Authentication Token** value retrieved earlier in **Secret Token**. Click **Test Connection** to ensure Azure AD can connect to Snowflake. If the connection fails, ensure your Snowflake account has Admin permissions and try again.
 
@@ -161,7 +162,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 ## Connector limitations
 
-* Snowflake generated SCIM tokens expire in 6 months.
+* Snowflake generated SCIM tokens expire in 6 months. Be aware that these need to be refreshed before they expire to allow the provisioning syncs to continue working. 
 
 ## Additional resources
 

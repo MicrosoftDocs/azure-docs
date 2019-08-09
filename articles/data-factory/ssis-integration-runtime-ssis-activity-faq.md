@@ -126,12 +126,19 @@ One potential cause is that the username or password with Azure Multi-Factor Aut
 
 Make sure you don't configure the authentication method of Connection Manager as **Active Directory Password Authentication** when the parameter *ConnectUsingManagedIdentity* is **True**. You can configure it as **SQL Authentication** instead, which is ignored if *ConnectUsingManagedIdentity* is set.
 
+### Multiple Package executions are triggered unexpectedly
+
+* Potential cause & recommended action:
+  * ADF stored procedure activity are used to trigger SSIS package execution. The t-sql command may hit transient issue and trigger the rerun which would cause multiple package executions.
+  * Use ExecuteSSISPackage activity instead which ensures package execution won’t rerun unless user set retry count in activity. Detail can be found at [https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)
+
 ### Package execution takes too long
 
 Here are potential causes and recommended actions:
+
 * Too many package executions have been scheduled on the SSIS integration runtime. All these executions will be waiting in a queue for their turn.
-  * Determine the maximum by using this formula: 
-    
+  * Determine the maximum by using this formula:
+
     Max Parallel Execution Count per IR = Node Count * Max Parallel Execution per Node
   * To learn how to set the node count and maximum parallel execution per node, see [Create an Azure-SSIS integration runtime in Azure Data Factory](create-azure-ssis-integration-runtime.md).
 * The SSIS integration runtime is stopped or has an unhealthy status. To learn how to check the SSIS integration runtime status and errors, see [Azure-SSIS integration runtime](monitor-integration-runtime.md#azure-ssis-integration-runtime).
