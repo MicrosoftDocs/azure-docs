@@ -511,7 +511,7 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-    - name: Virtual machines
+    - name: Operating System (VM and more)
       items: 
       - name: Agents
         items:
