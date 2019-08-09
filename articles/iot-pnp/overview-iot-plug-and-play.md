@@ -60,7 +60,7 @@ As a device developer, you can develop an IoT hardware product that supports IoT
 
 1. Author the device software or firmware that implements the capabilities declared in the device capability model and interfaces. The Azure IoT SDK includes APIs to implement device capability models.
 
-The [IoT Device Workbench for VS Code](https://aka.ms/iot-workbench-pnp-pr) provides many features to assist you, however you can use any IDE to author and implement device capability models.
+The [IoT Device Workbench for VS Code](https://aka.ms/iot-workbench-pnp-pr) extension provides many features to assist you. For example, as a device developer you can use the extension to generate a skeleton C project from a capability model. However you can use any IDE to author and implement device capability models.
 
 ## Certify an IoT Plug and Play device
 
