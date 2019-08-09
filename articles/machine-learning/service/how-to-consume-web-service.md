@@ -78,6 +78,7 @@ Azure Machine Learning provides two ways to control access to your web services.
 |---|---|---|
 |Key|Disabled by default| Enabled by default|
 |Token| Not Available| Disabled by default |
+
 #### Authentication with keys
 
 When you enable authentication for a deployment, you automatically create authentication keys.
@@ -96,7 +97,6 @@ print(primary)
 
 > [!IMPORTANT]
 > If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
-
 
 #### Authentication with tokens
 
@@ -153,50 +153,17 @@ For example, the model in the [Train within notebook](https://github.com/Azure/M
             ]
         ]
 }
-``` 
+```
 
 The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
 
 ### Binary data
 
-If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data:
+For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary).
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### Cross-origin resource sharing (CORS)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> The `azureml.contrib` namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
->
-> If you need to test this on your local development environment, you can install the components in the `contrib` namespace by using the following command:
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors).
 
 ## Call the service (C#)
 
