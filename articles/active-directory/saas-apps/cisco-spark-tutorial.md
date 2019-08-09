@@ -173,7 +173,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Cisco Webex test user
 
-In this section, you create a user called Britta Simon in Cisco Webex. In this section, you create a user called Britta Simon in Cisco Webex.
+In this section, you create a user called B.Simon in Cisco Webex. In this section, you create a user called B.Simon in Cisco Webex.
 
 1. Go to the [Cisco Cloud Collaboration Management](https://admin.ciscospark.com/) with your full administrator credentials.
 
@@ -193,7 +193,7 @@ In this section, you create a user called Britta Simon in Cisco Webex. In this s
 
 	c. In the **Email address** textbox, type email address of user like b.simon@contoso.com.
 
-5. Click the plus sign to add Britta Simon. Then, click **Next**.
+5. Click the plus sign to add B.Simon. Then, click **Next**.
 
 6. In the **Add Services for Users** window, click **Save** and then **Finish**.
 
