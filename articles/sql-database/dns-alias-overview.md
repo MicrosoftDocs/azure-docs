@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: genemi, ayolubek, jrasnick
-manager: craigg
-ms.date: 06/19/2019
+ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
 
@@ -24,6 +23,7 @@ Common uses for a DNS alias include the following cases:
 - Create an easy to remember name for an Azure SQL Server.
 - During initial development, your alias can refer to a test SQL Database server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the configurations several clients that connect to the database server.
 - Suppose the only database in your application is moved to another SQL Database server. Here you can modify the alias without having to modify the configurations of several clients.
+- During a regional outage you use geo-restore to recover your database in a different server and region. You can modify your existing alias to point to the new server so that the existing client application could re-connect to it. 
 
 ## Domain Name System (DNS) of the Internet
 

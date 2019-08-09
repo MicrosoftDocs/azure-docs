@@ -2,12 +2,12 @@
 title: Deploy management tool - Azure
 description: How to install a user interface tool to manage Windows Virtual Desktop preview resources.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Tutorial: Deploy a management tool
 
@@ -52,8 +52,8 @@ Follow these instructions to deploy the Azure Resource Management template:
 ### Guidance for template parameters
 Here's how to enter parameters for configuring the tool:
 
-- This is the RD broker URL:  <https://rdbroker.wvd.microsoft.com/>
-- This is the resource URL:  <https://mrs-prod.ame.gbl/mrs-RDInfra-prod>
+- This is the RD broker URL:  https:\//rdbroker.wvd.microsoft.com/
+- This is the resource URL:  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
 - Use your AAD credentials with MFA disabled to sign in to Azure. See [What you need to run the Azure Resource Manager template](#what-you-need-to-run-the-azure-resource-manager-template).
 - Use a unique name for the application that will be registered in your Azure Active Directory for the management tool; for example, Apr3UX.
 

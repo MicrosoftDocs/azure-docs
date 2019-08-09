@@ -1,6 +1,6 @@
 ---
 title: Best practices - QnA Maker
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: Use these best practices to improve your knowledge base and provide better results to your application/chat bot's end users.
 services: cognitive-services
 author: diberry
@@ -92,7 +92,7 @@ Make sure you are making the best use of the ranking features QnA Maker supports
 
 ### Choosing a threshold
 
-The default [confidence score](confidence-score.md#) that is used as a threshold is 50, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. 
+The default [confidence score](confidence-score.md) that is used as a threshold is 50, however you can [change the threshold](confidence-score.md#set-threshold) for your KB based on your needs. Since every KB is different, you should test and choose the threshold that is best suited for your KB. 
 
 ### Choosing Ranker type
 By default, QnA Maker searches through questions and answers. If you want to search through questions only, to generate an answer, use the `RankerType=QuestionOnly` in the POST body of the GenerateAnswer request.

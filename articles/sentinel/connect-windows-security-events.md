@@ -8,7 +8,8 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: d51d2e09-a073-41c8-b396-91d60b057e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -27,10 +28,10 @@ ms.author: rkarlin
 You can stream all security events from the Windows Servers connected to your Azure Sentinel workspace. This connection enables you to view dashboards, create custom alerts, and improve investigation. This gives you more insight into your organization’s network and improves your security operation capabilities.  You can select which events to stream:
 
 - **All events** - All Windows security and AppLocker events.
-- **Common** - A standard set of events for auditing purposes. A full user audit trail is included in this set. For example, this set contains both user logins and user logoff (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
+- **Common** - A standard set of events for auditing purposes. A full user audit trail is included in this set. For example, this set contains both user sign in and user sign out events (event ID 4634). We include auditing actions like security group changes, key domain controller Kerberos operations, and other events that are recommended by industry organizations.
 
 Events that have very low volume were included in the Common set as the main motivation to choose it over all the events is to reduce the volume and not to filter out specific events.
-- **Minimal** - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.  This set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain logout which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the login events and process creation event (event ID 4688).
+- **Minimal** - A small set of events that might indicate potential threats. By enabling this option, you won't be able to have a full audit trail.  This set covers only events that might indicate a successful breach and important events that have a very low volume. For example, this set contains user successful and failed login (event IDs 4624, 4625), but it doesn’t contain sign out information which is important for auditing but not meaningful for detection and has relatively high volume. Most of the data volume of this set is the sign in events and process creation event (event ID 4688).
 - **None** - No security or AppLocker events.
 
 > [!NOTE]

@@ -4,7 +4,7 @@ description: Deploys Azure Disk Encryption for Linux to a virtual machine using 
 services: virtual-machines-linux 
 documentationcenter: ''
 author: ejarvi 
-manager: jeconnoc 
+manager: gwallace 
 editor: ''
 
 ms.assetid: 

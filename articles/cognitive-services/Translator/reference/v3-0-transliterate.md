@@ -1,6 +1,6 @@
 ---
 title: Translator Text API Transliterate Method
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Use the Translator Text API Transliterate method.
 services: cognitive-services
 author: swmachan
@@ -161,11 +161,9 @@ If an error occurs, the request will also return a JSON error response. The erro
 
 The following example shows how to convert two Japanese strings into Romanized Japanese.
 
-# [curl](#tab/curl)
-
 The JSON payload for the request in this example:
 
-```
+```json
 [{"text":"こんにちは","script":"jpan"},{"text":"さようなら","script":"jpan"}]
 ```
 
@@ -174,5 +172,3 @@ If you are using cURL in a command-line window that does not support Unicode cha
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/transliterate?api-version=3.0&language=ja&fromScript=Jpan&toScript=Latn" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d @request.txt
 ```
-
----

@@ -7,10 +7,10 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 
-author: sihhu
-ms.author: MayMSFT
+author: MayMSFT
+ms.author: sihhu
 ms.reviewer: trbye
-ms.date: 03/29/2019
+ms.date: 07/16/2019
 ms.custom: seodec18
 # As a Pro Data Scientist, I want to prepare data for regression modeling.
 ---
@@ -53,7 +53,7 @@ It's easy to get started with your own cloud-based notebook server. The Azure Ma
 
 Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-1. Complete the installation steps in [Azure Machine Learning Python quickstart](setup-create-workspace.md#sdk) to create a Miniconda environment and install the SDK.  Feel free to skip the **Create a workspace** section if you wish, but you will need it for [part 2](tutorial-auto-train-models.md) of this tutorial series.
+1. Complete the installation steps in [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 1. The `azureml-dataprep` package is automatically installed when you install the SDK.
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
@@ -97,12 +97,14 @@ Download two different NYC taxi data sets into dataflow objects. The datasets ha
 
 ```python
 from IPython.display import display
-dataset_root = "https://dprepdata.blob.core.windows.net/demo"
 
-green_path = "/".join([dataset_root, "green-small/*"])
-yellow_path = "/".join([dataset_root, "yellow-small/*"])
+green_path = "https://dprepdata.blob.core.windows.net/demo/green-small/*"])
+yellow_path = "https://dprepdata.blob.core.windows.net/demo/yellow-small/*"])
 
-green_df_raw = dprep.read_csv(path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
+# (optional) Download and view a subset of the data: https://dprepdata.blob.core.windows.net/demo/green-small/green_tripdata_2013-08.csv
+
+green_df_raw = dprep.read_csv(
+    path=green_path, header=dprep.PromoteHeadersMode.GROUPED)
 # auto_read_file automatically identifies and parses the file type, which is useful when you don't know the file type.
 yellow_df_raw = dprep.auto_read_file(path=yellow_path)
 
@@ -118,7 +120,8 @@ Now you populate some variables with shortcut transforms to apply to all dataflo
 
 ```python
 all_columns = dprep.ColumnSelector(term=".*", use_regex=True)
-drop_if_all_null = [all_columns, dprep.ColumnRelationship(dprep.ColumnRelationship.ALL)]
+drop_if_all_null = [all_columns, dprep.ColumnRelationship(
+    dprep.ColumnRelationship.ALL)]
 useful_columns = [
     "cost", "distance", "dropoff_datetime", "dropoff_latitude", "dropoff_longitude",
     "passengers", "pickup_datetime", "pickup_latitude", "pickup_longitude", "store_forward", "vendor"
@@ -130,24 +133,24 @@ You first work with the green taxi data to get it into a valid shape that can be
 
 ```python
 green_df = (green_df_raw
-    .replace_na(columns=all_columns)
-    .drop_nulls(*drop_if_all_null)
-    .rename_columns(column_pairs={
-        "VendorID": "vendor",
-        "lpep_pickup_datetime": "pickup_datetime",
-        "Lpep_dropoff_datetime": "dropoff_datetime",
-        "lpep_dropoff_datetime": "dropoff_datetime",
-        "Store_and_fwd_flag": "store_forward",
-        "store_and_fwd_flag": "store_forward",
-        "Pickup_longitude": "pickup_longitude",
-        "Pickup_latitude": "pickup_latitude",
-        "Dropoff_longitude": "dropoff_longitude",
-        "Dropoff_latitude": "dropoff_latitude",
-        "Passenger_count": "passengers",
-        "Fare_amount": "cost",
-        "Trip_distance": "distance"
-     })
-    .keep_columns(columns=useful_columns))
+            .replace_na(columns=all_columns)
+            .drop_nulls(*drop_if_all_null)
+            .rename_columns(column_pairs={
+                "VendorID": "vendor",
+                "lpep_pickup_datetime": "pickup_datetime",
+                "Lpep_dropoff_datetime": "dropoff_datetime",
+                "lpep_dropoff_datetime": "dropoff_datetime",
+                "Store_and_fwd_flag": "store_forward",
+                "store_and_fwd_flag": "store_forward",
+                "Pickup_longitude": "pickup_longitude",
+                "Pickup_latitude": "pickup_latitude",
+                "Dropoff_longitude": "dropoff_longitude",
+                "Dropoff_latitude": "dropoff_latitude",
+                "Passenger_count": "passengers",
+                "Fare_amount": "cost",
+                "Trip_distance": "distance"
+            })
+            .keep_columns(columns=useful_columns))
 green_df.head(5)
 ```
 
@@ -261,30 +264,30 @@ Run the same transformation steps on the yellow taxi data. These functions ensur
 
 ```python
 yellow_df = (yellow_df_raw
-    .replace_na(columns=all_columns)
-    .drop_nulls(*drop_if_all_null)
-    .rename_columns(column_pairs={
-        "vendor_name": "vendor",
-        "VendorID": "vendor",
-        "vendor_id": "vendor",
-        "Trip_Pickup_DateTime": "pickup_datetime",
-        "tpep_pickup_datetime": "pickup_datetime",
-        "Trip_Dropoff_DateTime": "dropoff_datetime",
-        "tpep_dropoff_datetime": "dropoff_datetime",
-        "store_and_forward": "store_forward",
-        "store_and_fwd_flag": "store_forward",
-        "Start_Lon": "pickup_longitude",
-        "Start_Lat": "pickup_latitude",
-        "End_Lon": "dropoff_longitude",
-        "End_Lat": "dropoff_latitude",
-        "Passenger_Count": "passengers",
-        "passenger_count": "passengers",
-        "Fare_Amt": "cost",
-        "fare_amount": "cost",
-        "Trip_Distance": "distance",
-        "trip_distance": "distance"
-    })
-    .keep_columns(columns=useful_columns))
+             .replace_na(columns=all_columns)
+             .drop_nulls(*drop_if_all_null)
+             .rename_columns(column_pairs={
+                 "vendor_name": "vendor",
+                 "VendorID": "vendor",
+                 "vendor_id": "vendor",
+                 "Trip_Pickup_DateTime": "pickup_datetime",
+                 "tpep_pickup_datetime": "pickup_datetime",
+                 "Trip_Dropoff_DateTime": "dropoff_datetime",
+                 "tpep_dropoff_datetime": "dropoff_datetime",
+                 "store_and_forward": "store_forward",
+                 "store_and_fwd_flag": "store_forward",
+                 "Start_Lon": "pickup_longitude",
+                 "Start_Lat": "pickup_latitude",
+                 "End_Lon": "dropoff_longitude",
+                 "End_Lat": "dropoff_latitude",
+                 "Passenger_Count": "passengers",
+                 "passenger_count": "passengers",
+                 "Fare_Amt": "cost",
+                 "fare_amount": "cost",
+                 "Trip_Distance": "distance",
+                 "trip_distance": "distance"
+             })
+             .keep_columns(columns=useful_columns))
 yellow_df.head(5)
 ```
 
@@ -445,20 +448,22 @@ From the summary statistics output, you see there are missing coordinates and co
 
 ```python
 latlong_filtered_df = (combined_df
-    .drop_nulls(
-        columns=["pickup_longitude", "pickup_latitude", "dropoff_longitude", "dropoff_latitude"],
-        column_relationship=dprep.ColumnRelationship(dprep.ColumnRelationship.ANY)
-    )
-    .filter(dprep.f_and(
-        dprep.col("pickup_longitude") <= -73.72,
-        dprep.col("pickup_longitude") >= -74.09,
-        dprep.col("pickup_latitude") <= 40.88,
-        dprep.col("pickup_latitude") >= 40.53,
-        dprep.col("dropoff_longitude") <= -73.72,
-        dprep.col("dropoff_longitude") >= -74.09,
-        dprep.col("dropoff_latitude") <= 40.88,
-        dprep.col("dropoff_latitude") >= 40.53
-    )))
+                       .drop_nulls(
+                           columns=["pickup_longitude", "pickup_latitude",
+                                    "dropoff_longitude", "dropoff_latitude"],
+                           column_relationship=dprep.ColumnRelationship(
+                               dprep.ColumnRelationship.ANY)
+                       )
+                       .filter(dprep.f_and(
+                           dprep.col("pickup_longitude") <= -73.72,
+                           dprep.col("pickup_longitude") >= -74.09,
+                           dprep.col("pickup_latitude") <= 40.88,
+                           dprep.col("pickup_latitude") >= 40.53,
+                           dprep.col("dropoff_longitude") <= -73.72,
+                           dprep.col("dropoff_longitude") >= -74.09,
+                           dprep.col("dropoff_latitude") <= 40.88,
+                           dprep.col("dropoff_latitude") >= 40.53
+                       )))
 latlong_filtered_df.keep_columns(columns=[
     "pickup_longitude", "pickup_latitude",
     "dropoff_longitude", "dropoff_latitude"
@@ -661,14 +666,16 @@ Notice that the data profile output in the `store_forward` column shows that the
 
 
 ```python
-replaced_stfor_vals_df = latlong_filtered_df.replace(columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
+replaced_stfor_vals_df = latlong_filtered_df.replace(
+    columns="store_forward", find="0", replace_with="N").fill_nulls("store_forward", "N")
 ```
 
 Execute the `replace` function on the `distance` field. The function reformats distance values that are incorrectly labeled as `.00`, and fills any nulls with zeros. Convert the `distance` field to numerical format. These incorrect data points are likely anomalies in the data collection system on the taxi cabs.
 
 
 ```python
-replaced_distance_vals_df = replaced_stfor_vals_df.replace(columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
+replaced_distance_vals_df = replaced_stfor_vals_df.replace(
+    columns="distance", find=".00", replace_with=0).fill_nulls("distance", 0)
 replaced_distance_vals_df = replaced_distance_vals_df.to_number(["distance"])
 ```
 
@@ -677,8 +684,8 @@ Split the pickup and dropoff datetime values into the respective date and time c
 
 ```python
 time_split_df = (replaced_distance_vals_df
-    .split_column_by_example(source_column="pickup_datetime")
-    .split_column_by_example(source_column="dropoff_datetime"))
+                 .split_column_by_example(source_column="pickup_datetime")
+                 .split_column_by_example(source_column="dropoff_datetime"))
 time_split_df.head(5)
 ```
 
@@ -816,12 +823,12 @@ Rename the columns generated by the `split_column_by_example()` function to use 
 
 ```python
 renamed_col_df = (time_split_df
-    .rename_columns(column_pairs={
-        "pickup_datetime_1": "pickup_date",
-        "pickup_datetime_2": "pickup_time",
-        "dropoff_datetime_1": "dropoff_date",
-        "dropoff_datetime_2": "dropoff_time"
-    }))
+                  .rename_columns(column_pairs={
+                      "pickup_datetime_1": "pickup_date",
+                      "pickup_datetime_2": "pickup_time",
+                      "dropoff_datetime_1": "dropoff_date",
+                      "dropoff_datetime_2": "dropoff_time"
+                  }))
 renamed_col_df.head(5)
 ```
 
@@ -842,39 +849,41 @@ Transforming the data in this way to create new time-based features will improve
 
 ```python
 transformed_features_df = (renamed_col_df
-    .derive_column_by_example(
-        source_columns="pickup_date",
-        new_column_name="pickup_weekday",
-        example_data=[("2009-01-04", "Sunday"), ("2013-08-22", "Thursday")]
-    )
-    .derive_column_by_example(
-        source_columns="dropoff_date",
-        new_column_name="dropoff_weekday",
-        example_data=[("2013-08-22", "Thursday"), ("2013-11-03", "Sunday")]
-    )
+                           .derive_column_by_example(
+                               source_columns="pickup_date",
+                               new_column_name="pickup_weekday",
+                               example_data=[
+                                   ("2009-01-04", "Sunday"), ("2013-08-22", "Thursday")]
+                           )
+                           .derive_column_by_example(
+                               source_columns="dropoff_date",
+                               new_column_name="dropoff_weekday",
+                               example_data=[
+                                   ("2013-08-22", "Thursday"), ("2013-11-03", "Sunday")]
+                           )
 
-    .split_column_by_example(source_column="pickup_time")
-    .split_column_by_example(source_column="dropoff_time")
-    # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
-    .split_column_by_example(source_column="pickup_time_1")
-    .split_column_by_example(source_column="dropoff_time_1")
-    .drop_columns(columns=[
-        "pickup_date", "pickup_time", "dropoff_date", "dropoff_time",
-        "pickup_date_1", "dropoff_date_1", "pickup_time_1", "dropoff_time_1"
-    ])
+                           .split_column_by_example(source_column="pickup_time")
+                           .split_column_by_example(source_column="dropoff_time")
+                           # The following two calls to split_column_by_example reference the column names generated from the previous two calls.
+                           .split_column_by_example(source_column="pickup_time_1")
+                           .split_column_by_example(source_column="dropoff_time_1")
+                           .drop_columns(columns=[
+                               "pickup_date", "pickup_time", "dropoff_date", "dropoff_time",
+                               "pickup_date_1", "dropoff_date_1", "pickup_time_1", "dropoff_time_1"
+                           ])
 
-    .rename_columns(column_pairs={
-        "pickup_date_2": "pickup_month",
-        "pickup_date_3": "pickup_monthday",
-        "pickup_time_1_1": "pickup_hour",
-        "pickup_time_1_2": "pickup_minute",
-        "pickup_time_2": "pickup_second",
-        "dropoff_date_2": "dropoff_month",
-        "dropoff_date_3": "dropoff_monthday",
-        "dropoff_time_1_1": "dropoff_hour",
-        "dropoff_time_1_2": "dropoff_minute",
-        "dropoff_time_2": "dropoff_second"
-    }))
+                           .rename_columns(column_pairs={
+                               "pickup_date_2": "pickup_month",
+                               "pickup_date_3": "pickup_monthday",
+                               "pickup_time_1_1": "pickup_hour",
+                               "pickup_time_1_2": "pickup_minute",
+                               "pickup_time_2": "pickup_second",
+                               "dropoff_date_2": "dropoff_month",
+                               "dropoff_date_3": "dropoff_monthday",
+                               "dropoff_time_1_1": "dropoff_hour",
+                               "dropoff_time_1_2": "dropoff_minute",
+                               "dropoff_time_2": "dropoff_second"
+                           }))
 
 transformed_features_df.head(5)
 ```
@@ -1037,7 +1046,8 @@ Notice that the data shows that the pickup and dropoff date and time components 
 
 
 ```python
-processed_df = transformed_features_df.drop_columns(columns=["pickup_datetime", "dropoff_datetime"])
+processed_df = transformed_features_df.drop_columns(
+    columns=["pickup_datetime", "dropoff_datetime"])
 ```
 
 Use the type inference functionality to automatically check the data type of each field, and display the inference results.

@@ -52,7 +52,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
 * [Docker CE](https://docs.docker.com/install/) configured to run Windows containers.
 
 > [!TIP]
-> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+> If you are using Visual Studio 2017 (version 15.7 or higher), plrease download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 
@@ -266,7 +266,7 @@ The default module code receives messages on an input queue and passes them alon
 
 8. Save the Program.cs file.
 
-9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **tempSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
+9. Open the **deployment.template.json** file in your IoT Edge solution. This file tells the IoT Edge agent which modules to deploy, in this case **SimulatedTemperatureSensor** and **CSharpModule**, and tells the IoT Edge hub how to route messages between them.
 
 10. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
 

@@ -2,12 +2,12 @@
 title: Install Office on a master VHD image - Azure
 description: How to install and customize Office on a Windows Virtual Desktop preview master image to Azure.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/02/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Install Office on a master VHD image
 
@@ -125,7 +125,7 @@ OneDrive is normally installed per-user. In this environment, it should be insta
 
 Here's how to install OneDrive in per-machine mode:
 
-1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc](file://unc) location is fine.
+1. First, create a location to stage the OneDrive installer. A local disk folder or [\\\\unc] (file://unc) location is fine.
 
 2. Download OneDriveSetup.exe to your staged location with this link: <https://aka.ms/OneDriveWVD-Installer>
 

@@ -9,11 +9,11 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/08/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
 ---
-# Quickstart: Extract printed text (OCR) using the REST API and Java in Computer Vision
+# Quickstart: Extract printed text (OCR) using the Computer Vision REST API and Java
 
 In this quickstart, you extract printed text with optical character recognition (OCR) from an image by using Computer Vision's REST API. With the [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) method, you can detect printed text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -212,10 +212,6 @@ REST Response:
   "language": "en"
 }
 ```
-
-## Clean up resources
-
-When no longer needed, delete the Java project, including the compiled class and imported libraries.
 
 ## Next steps
 

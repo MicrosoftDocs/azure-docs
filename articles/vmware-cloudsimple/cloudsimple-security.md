@@ -3,9 +3,9 @@ title: Security for CloudSimple services
 description: Describes the shared responsibility models for security of CloudSimple services
 author: sharaths-cs 
 ms.author: b-shsury 
-ms.date: 4/27/19 
+ms.date: 04/27/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
@@ -24,7 +24,7 @@ Azure infrastructure security considerations include the datacenters and equipme
 
 ### Datacenter security 
 
-Microsoft has an entire division devoted to designing, building, and operating the physical facilities that support Azure. This team is invested in maintaining state-of-the-art physical security. For more information on physical security, see [Azure facilities, premises, and physical security](https://docs.microsoft.com/azure/security/azure-physical-security).
+Microsoft has an entire division devoted to designing, building, and operating the physical facilities that support Azure. This team is invested in maintaining state-of-the-art physical security. For more information on physical security, see [Azure facilities, premises, and physical security](https://docs.microsoft.com/azure/security/fundamentals/physical-security.
 
 ### Equipment location
 

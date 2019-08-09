@@ -48,6 +48,12 @@ if (K4A_RESULT_SUCCEEDED != k4a_device_start_cameras(device, &config))
 
 Once cameras are started, they'll continue to capture data until [`k4a_device_stop_cameras()`](https://microsoft.github.io/Azure-Kinect-Sensor-SDK/master/group___functions_ga4fa0e0a011a7105309ad97f081a5d6b8.html#ga4fa0e0a011a7105309ad97f081a5d6b8) is called or the device is closed.
 
+## Stabilization
+
+When starting up devices using the multi device synchronization feature, it is highly recommended to do so using a fixed exposure setting.
+With a manual exposure set, it can take up to eight captures from the device before images and framerate stabilize. 
+With auto exposure, it can take up to 20 captures before images and framerate stabilize.
+
 ## Get a capture from the device
 
 Images are captured from the device in a correlated manner. Each captured image contains a depth image, an IR image, a color image, or a combination of images.

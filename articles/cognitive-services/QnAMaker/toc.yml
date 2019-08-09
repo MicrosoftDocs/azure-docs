@@ -53,6 +53,12 @@
       - name: Python
         href: Quickstarts/get-answer-from-knowledge-base-python.md
     
+  - name: Using SDKs
+    items: 
+    - name: C#
+      href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+    - name: Node.js
+      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
 - name: Tutorials
   items: 
   - name: Create and answer from KB
@@ -67,6 +73,8 @@
   - name: Knowledge base
     href: Concepts/knowledge-base.md
     displayName: metadata, pair
+  - name: Using LUIS and QnA Maker
+    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
   - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
@@ -89,7 +97,7 @@
       displayName: multi-turn dialogs, parent question, child question, filtering, metadata, state, context, prompt, follow-up, followup, flow, conversation, previous question
     - name: Add chit-chat 
       href: How-to/chit-chat-knowledge-base.md
-    - name: Add a secured Sharepoint file
+    - name: Add a secured SharePoint file
       href: How-To/add-sharepoint-datasources.md
       displayName: Sharepoint, secure, AAD, azure directory, admin, permission, authorization, file, authentication
   - name: Manage knowledge base
@@ -145,9 +153,16 @@
 - name: Reference
   items:
   - name: REST API Reference
+    items: 
+    - name: Authoring APIs
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase
+    - name: GenerateAnswer API
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer
+    - name: Train API
+      href: https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train
     href: https://go.microsoft.com/fwlink/?linkid=2092179 
-  - name: FAQ
-    href: faqs.md
+  - name: Troubleshooting
+    href: troubleshooting.md
   - name: Limits
     href: limits.md
   - name: Glossary
@@ -163,7 +178,9 @@
     items:
     - name: C#
       items:
-      - name: NuGet
+      - name: Reference Documentation
+        href: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
+      - name: NuGet package
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
     - name: Go
       items:

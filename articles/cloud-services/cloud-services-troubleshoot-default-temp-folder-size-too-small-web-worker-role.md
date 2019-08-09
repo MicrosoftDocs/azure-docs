@@ -7,16 +7,13 @@ author: simonxjx
 manager: felixwu
 editor: ''
 tags: top-support-issue
-
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-
 ---
 # Default TEMP folder size is too small on a cloud service web/worker role
 The default temporary directory of a cloud service worker or web role has a maximum size of 100 MB, which may become full at some point. This article describes how to avoid running out of space for the temporary directory.

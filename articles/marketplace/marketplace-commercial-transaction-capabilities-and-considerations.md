@@ -9,7 +9,7 @@ manager: nuno costa
 ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
-ms.author: yijenj
+ms.author: pabutler
 
 ---
 # Commercial marketplace transaction capabilities and considerations

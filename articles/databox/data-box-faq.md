@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/23/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -48,7 +48,7 @@ A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can t
 A.  For information on which countries/regions the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box?
-A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported. For more information, go to [Region availability](data-box-overview.md#region-availability).
+A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -165,7 +165,7 @@ A.  To speed up the copy process:
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
-A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
+A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. 
 
 
 ## Ship device

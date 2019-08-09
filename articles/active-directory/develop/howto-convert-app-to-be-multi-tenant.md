@@ -102,7 +102,7 @@ For a user to sign in to an application in Azure AD, the application must be rep
 
 For a multi-tenant application, the initial registration for the application lives in the Azure AD tenant used by the developer. When a user from a different tenant signs in to the application for the first time, Azure AD asks them to consent to the permissions requested by the application. If they consent, then a representation of the application called a *service principal* is created in the user’s tenant, and sign-in can continue. A delegation is also created in the directory that records the user’s consent to the application. For details on the application's Application and ServicePrincipal objects, and how they relate to each other, see [Application objects and service principal objects][AAD-App-SP-Objects].
 
-![Consent to single-tier app][Consent-Single-Tier]
+![Illustrates consent to single-tier app][Consent-Single-Tier]
 
 This consent experience is affected by the permissions requested by the application. Microsoft identity platform supports two kinds of permissions, app-only and delegated.
 
@@ -140,7 +140,7 @@ This can be a problem if your logical application consists of two or more applic
 
 This is demonstrated in a multi-tier native client calling web API sample in the [Related content](#related-content) section at the end of this article. The following diagram provides an overview of consent for a multi-tier app registered in a single tenant.
 
-![Consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
+![Illustrates consent to multi-tier known client app][Consent-Multi-Tier-Known-Client]
 
 #### Multiple tiers in multiple tenants
 
@@ -155,7 +155,7 @@ If it's an API built by an organization other than Microsoft, the developer of t
 
 The following diagram provides an overview of consent for a multi-tier app registered in different tenants.
 
-![Consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
+![Illustrates consent to multi-tier multi-party app][Consent-Multi-Tier-Multi-Party]
 
 ### Revoking consent
 

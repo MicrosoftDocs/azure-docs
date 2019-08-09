@@ -21,7 +21,7 @@ This quickstart shows you how to store a secret in Azure Key Vault and how to re
 * Store a secret in the key vault.
 * Retrieve a secret from the key vault.
 * Create an Azure web application.
-* Enable a [managed identity](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for the web app.
+* Enable a [managed identity](../active-directory/managed-service-identity/overview.md) for the web app.
 * Grant the required permissions for the web application to read data from the key vault.
 
 Before you proceed, make sure that you're familiar with the [basic concepts for Key Vault](key-vault-whatis.md#basic-concepts).

@@ -18,7 +18,7 @@ You will learn:
 
 > [!div class="checklist"]
 > * Which network settings might need to be updated after creating a cluster
-> * Which FXT Edge Filer use cases require an AD server or a DNS server 
+> * Which Azure FXT Edge Filer use cases require an AD server or a DNS server 
 > * How to configure round-robin DNS (RRDNS) to automatically load balance client requests to the FXT cluster
 
 The amount of time it takes to complete these steps depends on how many configuration changes are needed in your system:
@@ -100,7 +100,7 @@ For optimal performance, configure your DNS server to handle client-facing clust
 
 A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
 
-![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-rrdns-diagram.png) 
+![Cluster round-robin DNS diagram - detailed alt text link follows image](media/fxt-cluster-config/fxt-rrdns-diagram.png) 
 [detailed text description](https://azure.github.io/Avere/legacy/Azure-FXT-EdgeFilerDNSconfiguration-alt-text.html)
 
 Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)

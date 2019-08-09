@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Scoped synchronization | Microso
 description: Configure scoped synchronization from Azure AD to your managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Configure scoped synchronization from Azure AD to your managed domain

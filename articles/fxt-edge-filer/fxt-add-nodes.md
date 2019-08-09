@@ -46,7 +46,7 @@ The **FXT Nodes - Unjoined** list shows all unassigned FXT nodes (most data cent
 > If you cannot find the node you want on the **Unjoined** list, check that it meets these requirements:
 > 
 > * It is powered on and has had a [root password set](fxt-node-password.md).
-> * It is connected to a network you can access. If you use VLANs , it must be are on the same VLAN as the cluster.
+> * It is connected to a network you can access. If you use VLANs , it must be on the same VLAN as the cluster.
 > * It can be detected with the Bonjour protocol. 
 >
 >   Some firewall settings block the TCP/UDP ports used by Bonjour, which prevents the FXT operating system from automatically detecting the nodes.

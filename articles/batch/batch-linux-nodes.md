@@ -4,7 +4,7 @@ description: Learn how to process your parallel compute workloads on pools of Li
 services: batch
 documentationcenter: python
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2

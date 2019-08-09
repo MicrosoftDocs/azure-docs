@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administer a managed domain | Mi
 description: Administer Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: ergreenl
+ms.author: iainfou
 
 ---
 # Administer an Azure Active Directory Domain Services managed domain

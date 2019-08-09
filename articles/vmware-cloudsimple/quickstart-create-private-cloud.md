@@ -5,13 +5,20 @@ author: sharaths-cs
 ms.author: dikamath 
 ms.date: 04/10/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---
 # Quickstart - Configure a private cloud environment
 
 In this article, learn how to create a CloudSimple private cloud and set up your private cloud environment.
+
+## Before you begin
+
+Allocate a CIDR range for vSphere/vSAN subnets for the Private Cloud. A Private Cloud is created as an isolated VMware stack (ESXi hosts, vCenter, vSAN, and NSX) environment managed by a vCenter server. Management components are deployed in the network selected for vSphere/vSAN subnets CIDR. The network CIDR range is divided into different subnets during the deployment.  The vSphere/vSAN subnet address space must be unique. It must not overlap with any network that communicates with the CloudSimple environment.  The networks that communicate with CloudSimple include on-premises networks and Azure virtual networks.  For more information on vSphere/vSAN subnets, see [VLANs and subnets overview](cloudsimple-vlans-subnets.md).
+
+* Minimum vSphere/vSAN subnets CIDR range prefix: /24 
+* Maximum vSphere/vSAN subnets CIDR range prefix: /21
 
 ## Sign in to Azure
 Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
@@ -21,7 +28,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 1. Select **All services**.
 2. Search for **CloudSimple Services**.
 3. Select the CloudSimple service on which you want to create your Private Cloud.
-4. From overview, click **Create Private Cloud** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign in credentials.  
+4. From overview, click **Create Private Cloud** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign-in credentials.  
 
     ![Create Private Cloud from Azure](media/create-private-cloud-from-azure.png)
 
@@ -50,7 +57,7 @@ You can access CloudSimple portal from Azure portal.  CloudSimple portal will be
 1. Select **All services**.
 2. Search for **CloudSimple Services**.
 3. Select the CloudSimple service on which you want to create your Private Cloud.
-4. From overview, click **Go to the CloudSimple portal** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign in credentials.  
+4. From overview, click **Go to the CloudSimple portal** to open a new browser tab for CloudSimple portal.  If prompted, sign in with your Azure sign-in credentials.  
 
     ![Launch CloudSimple Portal](media/launch-cloudsimple-portal.png)
 
@@ -181,7 +188,10 @@ You can find the fully qualified domain name (FQDN) and IP address of NSX manage
 
     ![Find NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
 
-To change the password, follow the instructions in [NSX Manager Installation](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
+To change the password, follow the instructions in [Manage a User's Password](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.4/administration/GUID-DB31B304-66A5-4516-9E55-2712D12B4F27.html).
+
+> [!WARNING]
+> By default, the NSX administrator password expires after 90 days.
 
 ## Create a port group
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/18/2019
+ms.date: 08/10/2019
 ms.author: victorh
 ---
 
@@ -71,15 +71,17 @@ To run the script:
 
 1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
-   `AzureAppGwMigration.ps1
+   ```
+   AzureAppGwMigration.ps1
     -resourceId <v1 application gateway Resource ID>
     -subnetAddressRange <subnet space you want to use>
     -appgwName <string to use to append>
     -sslCertificates <comma-separated SSLCert objects as above>
     -trustedRootCertificates <comma-separated Trusted Root Cert objects as above>
     -privateIpAddress <private IP string>
-    -publicIpResourceName <public IP name string>
-    -validateMigration -enableAutoScale`
+    -publicIpResourceId <public IP name string>
+    -validateMigration -enableAutoScale
+   ```
 
    Parameters for the script:
    * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
@@ -176,6 +178,10 @@ The Azure PowerShell script creates a new v2 gateway with an appropriate size to
 ### I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
 
 No. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
+
+### Does this script support certificates uploaded to Azure KeyVault ?
+
+No. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
 
 ### I ran into some issues with using this script. How can I get help?
   

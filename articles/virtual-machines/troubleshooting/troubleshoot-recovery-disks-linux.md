@@ -5,7 +5,7 @@ description: Learn how to troubleshoot Linux VM issues by connecting the OS disk
 services: virtual-machines-linux
 documentationCenter: ''
 author: genlin
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.service: virtual-machines-linux

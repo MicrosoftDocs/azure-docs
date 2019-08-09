@@ -1,9 +1,9 @@
 ---
-title: 'Azure Active Directory Domain Services: Deploy Azure Active Directory Application Proxy | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Deploy Azure AD Application Proxy | Microsoft Docs'
 description: Use Azure AD Application Proxy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 
@@ -44,13 +44,10 @@ Perform the following steps to enable the Azure AD Application Proxy for your Az
 
 2. Click **Azure Active Directory** to bring up the directory overview. Click **Enterprise applications**.
 
-    ![Select Azure AD directory](./media/app-proxy/app-proxy-enable-start.png)
-3. Click **Application proxy**. If you do not have an Azure AD Basic or Azure AD Premium subscription, you see an option to enable a trial. Toggle **Enable Application Proxy?** to **Enable** and click **Save**.
+3. Click **Application proxy**.
 
-    ![Enable App Proxy](./media/app-proxy/app-proxy-enable-proxy-blade.png)
 4. To download the connector, click the **Connector** button.
 
-    ![Download connector](./media/app-proxy/app-proxy-enabled-download-connector.png)
 5. On the download page, accept the license terms and privacy agreement and click the **Download** button.
 
     ![Confirm download](./media/app-proxy/app-proxy-enabled-confirm-download.png)
@@ -73,7 +70,7 @@ Previously, you provisioned a Windows Server virtual machine and joined it to th
 
     ![Accept terms for install](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. During installation, you are prompted to register the connector with the Application Proxy of your Azure AD directory.
-   * Provide your **Azure AD global administrator credentials**. Your global administrator tenant may be different from your Microsoft Azure credentials.
+   * Provide your **Azure AD application administrator credentials**. Your application administrator tenant may be different from your Microsoft Azure credentials.
    * The administrator account used to register the connector must belong to the same directory where you enabled the Application Proxy service. For example, if the tenant domain is contoso.com, the admin should be admin@contoso.com or any other valid alias on that domain.
    * If IE Enhanced Security Configuration is turned on for the server where you are installing the connector, the registration screen might be blocked. To allow access, follow the instructions in the error message. Make sure that Internet Explorer Enhanced Security is off.
    * If connector registration does not succeed, see [Troubleshoot Application Proxy](../active-directory/manage-apps/application-proxy-troubleshoot.md).
@@ -84,7 +81,7 @@ Previously, you provisioned a Windows Server virtual machine and joined it to th
     ![Troubleshooter success](./media/app-proxy/app-proxy-connector-troubleshooter.png)
 5. You should see the newly installed connector listed on the Application proxy page in your Azure AD directory.
 
-    ![](./media/app-proxy/app-proxy-connector-page.png)
+    ![In the Azure portal, the installed connector shows as being available](./media/app-proxy/app-proxy-connector-page.png)
 
 > [!NOTE]
 > You may choose to install connectors on multiple servers to guarantee high availability for authenticating applications published through the Azure AD Application Proxy. Perform the same steps listed above to install the connector on other servers joined to your managed domain.

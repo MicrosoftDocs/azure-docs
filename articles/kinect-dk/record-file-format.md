@@ -29,9 +29,9 @@ from recording files.
 
 For example, the following command will extract the depth track as a sequence of 16-bit PNGs to the same folder:
 
-`
+```
 ffmpeg -i output.mkv -map 0:1 -vsync 0 depth%04d.png
-`
+```
 
 The `-map 0:1` parameter will extract track index 1, which for most recordings will be depth. If the recording doesn't contain a color track, `-map 0:0` would be used.
 

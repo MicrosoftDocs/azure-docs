@@ -274,7 +274,7 @@
       items:
       - name: Overview of Azure clusters
         href: service-fabric-azure-clusters-overview.md
-      - name: Node types and VM Scale Sets
+      - name: Node types and virtual machine scale sets
         href: service-fabric-cluster-nodetypes.md
       - name: Upgrading clusters in Azure
         href: service-fabric-cluster-upgrade.md
@@ -547,8 +547,8 @@
       href: service-fabric-cloud-services-migration-worker-role-stateless-service.md
     - name: Recommended practices
       href: /azure/architecture/service-fabric/migrate-from-cloud-services
-    - name: Refactor a migrated app
-      href: /azure/architecture/service-fabric/refactor-migrated-app
+    - name: Modernize your application
+      href: /azure/architecture/service-fabric/modernize-app-azure-service-fabric
   - name: Manage application lifecycle
     items:
     - name: Package an application

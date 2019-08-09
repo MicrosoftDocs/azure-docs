@@ -71,6 +71,8 @@ For Windows 10 devices on version 1703 or earlier, if your organization requires
 
 Beginning with Windows 10 1803, even if a hybrid Azure AD join attempt by a device in a federated domain through AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, the device will try to complete the hybrid Azure AD join by using the synced computer/device.
 
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+
 ## Verify configuration steps
 
 You can configure hybrid Azure AD joined devices for various types of Windows device platforms. This topic includes the required steps for all typical configuration scenarios.  
@@ -173,10 +175,19 @@ In a federated Azure AD configuration, devices rely on AD FS or an  on-premises 
 
 Windows current devices authenticate by using Integrated Windows Authentication to an active WS-Trust endpoint (either 1.3 or 2005 versions) hosted by the on-premises federation service.
 
+When you're using AD FS, you need to enable the following WS-Trust endpoints
+- `/adfs/services/trust/2005/windowstransport`
+- `/adfs/services/trust/13/windowstransport`
+- `/adfs/services/trust/2005/usernamemixed`
+- `/adfs/services/trust/13/usernamemixed`
+- `/adfs/services/trust/2005/certificatemixed`
+- `/adfs/services/trust/13/certificatemixed`
+
+> [!WARNING]
+> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust WIndows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
+
 > [!NOTE]
-> When you're using AD FS, either **adfs/services/trust/13/windowstransport** or **adfs/services/trust/2005/windowstransport** must be enabled. If you're using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
->
-> If you don’t have AD FS as your on-premises federation service, follow the instructions from your vendor to make sure they support WS-Trust 1.3 or 2005 endpoints and that these are published through the Metadata Exchange file (MEX).
+>If you don’t have AD FS as your on-premises federation service, follow the instructions from your vendor to make sure they support WS-Trust 1.3 or 2005 endpoints and that these are published through the Metadata Exchange file (MEX).
 
 For device registration to finish, the following claims must exist in the token that Azure DRS receives. Azure DRS will create a device object in Azure AD with some of this information. Azure AD Connect then uses this information to associate the newly created device object with the computer account on-premises.
 
