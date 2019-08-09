@@ -1,6 +1,6 @@
 ---
 title: Create a map with Azure Maps | Microsoft Docs
-description: How to create a Javascript map
+description: How to create a Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/26/2019
@@ -101,3 +101,6 @@ See code examples to add functionality to your app:
 
 > [!div class="nextstepaction"]
 > [Add controls to the map](map-add-controls.md)
+
+> [!div class="nextstepaction"]
+> [Code sample page (GitHub)](https://aka.ms/AzureMapsSamples)

@@ -1,6 +1,6 @@
 ---
 title: Show traffic with Azure Maps | Microsoft Docs
-description: How to display traffic data on a Javascript map
+description: How to display traffic data on the Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -13,16 +13,30 @@ ms.custom: codepen
 
 # Show traffic on the map
 
-This article shows you how to show traffic and incidents information on the map.
+There is two types of traffic data available in Azure Maps:
 
-## Understand the code
+- Incident data - consists of point and line based data for things such as construction, road closures, and accidents.
+- Flow data - provides metrics on the flow of traffic on the roads. This is often used to color the roads based on how much traffic is slowing down the flow relative to the speed limit or some other metric. The traffic flow data in Azure Maps has three different metrics of measurement:
+    - `relative` - is relative to the free-flow speed of the road.
+    - `absolute` - is the absolute speed of all vehicles on the road.
+    - `relative-delay` - displays areas that are slower than the average expected delay.
 
-<iframe height='456' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=456&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+The following code shows how to display traffic data on the map.
+
+```javascript
+//Show traffic on the map using the traffic options.
+map.setTraffic({
+    incidents: true,
+    flow: 'absolute'
+});
+```
+
+The following is a complete running code sample of the above functionality.
+
+<br/>
+
+<iframe height='500' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
-
-In the code above, the first block of code constructs a Map object. You can see [create a map](map-create.md) for instructions.
-
-The second block of code uses [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) function within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) function to render the traffic flows and incidents on the map.
 
 ## Next steps
 
@@ -31,10 +45,8 @@ Learn more about the classes and methods used in this article:
 > [!div class="nextstepaction"]
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-See the following articles for full code samples:
-
 > [!div class="nextstepaction"]
-> [Code sample page](https://aka.ms/AzureMapsSamples)
+> [TrafficOptions](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.trafficoptions?view=azure-maps-typescript-latest)
 
 Enhance your user experiences:
 
@@ -43,3 +55,6 @@ Enhance your user experiences:
 
 > [!div class="nextstepaction"]
 > [Building an accessible map](./map-accessibility.md)
+
+> [!div class="nextstepaction"]
+> [Code sample page](https://aka.ms/AzureMapsSamples)

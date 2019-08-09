@@ -209,3 +209,11 @@ Learn how to style a map:
 
 > [!div class="nextstepaction"]
 > [Choose a map style](choose-map-style.md)
+
+To add more data to your map:
+
+> [!div class="nextstepaction"]
+> [Create a map](map-create.md)
+
+> [!div class="nextstepaction"]
+> [Code sample page (GitHub)](https://aka.ms/AzureMapsSamples)

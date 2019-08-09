@@ -811,8 +811,11 @@ See the following articles for more code samples that implement expressions:
 > [!div class="nextstepaction"] 
 > [Add a bubble layer](map-add-bubble-layer.md)
 
-> [!div class="nextstepaction"] 
-> [Add shapes](map-add-shape.md)
+> [!div class="nextstepaction"]
+> [Add a line layer](map-add-line-layer.md)
+
+> [!div class="nextstepaction"]
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
 > [Add a heat map layer](map-add-heat-map-layer.md)
