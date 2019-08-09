@@ -87,6 +87,37 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics.
+
+```
+prometheus-data-collection-settings: |- ​
+# Custom Prometheus metrics data collection settings ​
+​
+[prometheus_data_collection_settings.cluster] ​
+interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
+​
+fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass thru ​
+fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting ​
+​
+urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from. ​
+​
+kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"] ## An array of Kubernetes services to scrape metrics from​
+​
+monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: ​
+ - prometheus.io/scrape: #Enable scraping for this pod ​
+ - prometheus.io/scheme: #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+ - prometheus.io/path: #If the metrics path is not /metrics, define it with this annotation. ​
+ - prometheus.io/port: #If port is not 9102 use this annotation​
+​
+[prometheus_data_collection_settings.node] ​
+# Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster ​
+​
+urls = ["http://$NODE_IP:9103/metrics"] ​
+​
+fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
+fielddrop = ["metric_to_drop"] ​
+```
+
 ### Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
