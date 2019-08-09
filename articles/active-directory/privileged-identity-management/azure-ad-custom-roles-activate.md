@@ -42,25 +42,18 @@ When you need to activate an Azure AD custom role, request activation by selecti
 1. On the **Azure AD custom roles (Preview)** page, find the assignment you need.
 1. Select **Activate your role** to open the **Activate** page.
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You are required to authenticate only once per session.
+1. Select **Verify my identity** and follow the instructions to provide any additional security verification.
+1. To specify a custom application scope, select **Scope** to open the filter pane. You should request access to a role at the minimum scope needed. If your assignment is at an application scope, you can activate only at that scope.
 
-    ![Verify your identity to use multi-factor authentication](./media/azure-ad-custom-roles-activate/verify-identity.png)
+   ![Assign an Azure AD resource scope to the role assignment](./media/azure-ad-custom-roles-activate/assign-scope.png)
 
-1. Select **Verify my identity** and follow the instructions to provide additional security verification.
-
-    ![Provide additional verification on the sign-in page](./media/azure-ad-custom-roles-activate/sign-in-page.png)
-
-1. To specify a custom application scope, select **Scope** to open the filter pane.
-You should request access to a role at the minimum scope needed. If your assignment is at an application scope, you can activate only at that scope.
-
-    ![Assign an Azure AD resource scope to the role assignment](./media/azure-ad-custom-roles-activate/assign-scope.png)
-
-1. If necessary, specify a custom activation start time. When used, the role member is activated at the specified time.
+1. If needed, specify a custom activation start time. When used, the role member is activated at the specified time.
 1. In the **Reason** box, enter the reason for the activation request. These can be made required or not in the role setting.
 1. Select **Activate**.
 
 If the role doesn't require approval, it's activated according to your settings and is added to the list of active roles. If you want to use the activated role, start with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md).
 
-If the role requires approval to activate, you will receive a notification in the corner of your browser informing you that the request is pending approval.
+If the role requires approval to activate, you will receive an Azure notification informing you that the request is pending approval.
 
 ## Next steps
 
