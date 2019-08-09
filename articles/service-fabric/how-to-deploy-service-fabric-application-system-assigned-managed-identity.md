@@ -12,7 +12,7 @@ ms.author: atsenthi
 
 # Deploy Service Fabric application with system-assigned managed identity
 
-Managed identities in Service Fabric are only supported for applications deployed as Azure resources, via Azure Resource Manager. This is typically done using an Azure Resource Manager template. Applications created or deployed directly to a Service Fabric cluster (for instance, by using the native Service Fabric API) cannot be assigned or use managed identities. For more information on how to deploy Service Fabric applications through Azure Resource Manager, refer to [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
+Managed identities in Service Fabric are only supported for applications deployed as Azure resources, via Azure Resource Manager. This is typically done using an Azure Resource Manager template. Applications created or deployed directly to a Service Fabric cluster (for instance, by using the native Service Fabric API) cannot be assigned or use managed identities. For more information on how to deploy Service Fabric applications through Azure Resource Manager, see [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
 
 > [!NOTE] 
 > Deployment of Service Fabric applications with managed identities are supported starting with API version `"2019-06-01-preview"`. You can also use the same API version for application type, application type version and service resources.
@@ -43,50 +43,50 @@ To enable application with a system-assigned managed identity, add the **identit
       }
     }
 ```
-This declares (to ARM, and the Managed Identity and Service Fabric Resource Providers, respectively, that this resource shall have an implicit (`system assigned`) managed identity.
+This property declares (to Azure Resource Manager, and the Managed Identity and Service Fabric Resource Providers, respectively, that this resource shall have an implicit (`system assigned`) managed identity.
 
 ### Application and service package
 
 1. Update the application manifest to add a **ManagedIdentity** element in the **Principals** section, containing a single entry as shown below:
 
-  **ApplicationManifest.xml**
-
-  ```xml
-  <Principals>
-    <ManagedIdentities>
-      <ManagedIdentity Name="SystemAssigned" />
-    </ManagedIdentities>
-  </Principals>
-  ```
-This maps the identity assigned to the application as a resource to a friendly name, for further assignment to the services comprising the application. 
-
-2. In the **ServiceManifestImport** section corresponding to the service which is being assigned the managed identity, add an **IdentityBindingPolicy** element, as indicated below:
-
-  **ApplicationManifest.xml**
+    **ApplicationManifest.xml**
 
     ```xml
-      <ServiceManifestImport>
-        <Policies>
-          <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="SystemAssigned" />
-        </Policies>
-      </ServiceManifestImport>
+    <Principals>
+      <ManagedIdentities>
+        <ManagedIdentity Name="SystemAssigned" />
+      </ManagedIdentities>
+    </Principals>
     ```
+    This maps the identity assigned to the application as a resource to a friendly name, for further assignment to the services comprising the application. 
 
-This assigns the identity of the application to the service; without this assignment, the service will not be able to access the identity of the application. In the snippet above, the `SystemAssigned` identity (which is a reserved keyword) is mapped to the service's definition under the friendly name `WebAdmin`.
+2. In the **ServiceManifestImport** section corresponding to the service that is being assigned the managed identity, add an **IdentityBindingPolicy** element, as indicated below:
+
+    **ApplicationManifest.xml**
+
+      ```xml
+        <ServiceManifestImport>
+          <Policies>
+            <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="SystemAssigned" />
+          </Policies>
+        </ServiceManifestImport>
+      ```
+
+    This element assigns the identity of the application to the service; without this assignment, the service will not be able to access the identity of the application. In the snippet above, the `SystemAssigned` identity (which is a reserved keyword) is mapped to the service's definition under the friendly name `WebAdmin`.
 
 3. Update the service manifest to add a **ManagedIdentity** element inside the **Resources** section with the name matching the value of the `ServiceIdentityRef` setting from the `IdentityBindingPolicy` definition in the application manifest:
 
-  **ServiceManifest.xml**
+    **ServiceManifest.xml**
 
-  ```xml
-    <Resources>
-      ...
-      <ManagedIdentities DefaultIdentity="WebAdmin">
-        <ManagedIdentity Name="WebAdmin" />
-      </ManagedIdentities>
-    </Resources>
-  ```
-This is the equivalent mapping of an identity to a service as described above, but from the perspective of the service definition. The identity is referenced here by its friendly name (`WebAdmin`), as declared in the application manifest.
+    ```xml
+      <Resources>
+        ...
+        <ManagedIdentities DefaultIdentity="WebAdmin">
+          <ManagedIdentity Name="WebAdmin" />
+        </ManagedIdentities>
+      </Resources>
+    ```
+    This is the equivalent mapping of an identity to a service as described above, but from the perspective of the service definition. The identity is referenced here by its friendly name (`WebAdmin`), as declared in the application manifest.
 
 ## Related articles
 

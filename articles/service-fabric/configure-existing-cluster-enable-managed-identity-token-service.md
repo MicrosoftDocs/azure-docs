@@ -20,7 +20,7 @@ In order to access the managed identity feature for Azure Service Fabric applica
 
 
 ## Enable the Managed Identity Token Service in an existing cluster
-To enable the Managed Identity Token Service in an existing cluster, you will need to initiate a cluster upgrade specifying 2 changes: enabling the Managed Identity Token Service, and requesting a restart of each node. To do so, add the following 2 snippets in the Azure Resource Manager template:
+To enable the Managed Identity Token Service in an existing cluster, you will need to initiate a cluster upgrade specifying two changes: enabling the Managed Identity Token Service, and requesting a restart of each node. To do so, add the following two snippets in the Azure Resource Manager template:
 
 ```json
 "fabricSettings": [
@@ -36,7 +36,7 @@ To enable the Managed Identity Token Service in an existing cluster, you will ne
 ]
 ```
 
-In order for the changes to take effect, you will also need to change the upgrade policy to specify a forceful restart of the Service Fabric runtime on each node as the upgrade progresses through the cluster. This ensures that the newly enabled system service is started and running on each node. In the snippet below, `forceRestart` is the essential setting; use your existing values for the remainder of the settings.  
+In order for the changes to take effect, you will also need to change the upgrade policy to specify a forceful restart of the Service Fabric runtime on each node as the upgrade progresses through the cluster. This restart ensures that the newly enabled system service is started and running on each node. In the snippet below, `forceRestart` is the essential setting; use your existing values for the remainder of the settings.  
 
 ```json
 "upgradeDescription": {
@@ -70,7 +70,7 @@ If the deployment fails with the following message, it means the cluster is not 
 * [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
 
-## See also
+## Related Articles
 * Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
 
 * [Enable managed identity support in an existing Azure Service Fabric cluster](./configure-existing-cluster-enable-managed-identity-token-service.md)
