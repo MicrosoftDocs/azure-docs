@@ -351,7 +351,7 @@ For more information, see the [az ml model deploy](https://docs.microsoft.com/cl
 
 ### <a id="notebookvm"></a> NotebookVM web service (DEVTEST)
 
-See [Deploy a model to Notebook VMs](how-to-deploy-local-container-notebookvm.md).
+See [Deploy a model to Notebook VMs](how-to-deploy-local-container-notebook-vm.md).
 
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
