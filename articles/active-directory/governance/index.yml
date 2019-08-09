@@ -14,10 +14,7 @@ metadata:
   ms.author: ajburnle
   manager: daveba
   ms.date: 08/08/2019
-# linkListType: architecture | deploy | download | get-started | how-to-guide | learn | overview | quickstart | tutorial
-
 landingContent:
-  # Card
   - title: Learn about Identity Governance
     linkLists:
       - linkListType: overview
@@ -28,8 +25,6 @@ landingContent:
         links:
           - text: Govern access to your resources
             url: https://www.youtube.com/watch?v=bFfowdpApu4&list=PLQXpv_NQsPIBg3op2xONM9KgwlayFDue6
-
-  # Card
   - title: Govern the lifecycle of access to groups, apps, and sites
     linkLists:
       - linkListType: overview
@@ -44,8 +39,6 @@ landingContent:
         links:
           - text: Edit and manage an existing access package
             url: entitlement-management-access-package-edit.md
-
-  # Card
   - title: Recertify access to groups, apps, and privileged roles
     linkLists:
       - linkListType: overview
@@ -58,16 +51,12 @@ landingContent:
             url: create-access-review.md
           - text: Review access to group or apps
             url: perform-access-review.md
-
-  # Card
   - title: Make users eligible for privileged roles
     linkLists:
       - linkListType: overview
         links:
           - text: What is Azure AD Privileged Identity Management?
             url: ../privileged-identity-management/pim-configure.md
-
-  # Card
   - title: Ensure users see disclaimers
     linkLists:
       - linkListType: how-to-guide
