@@ -39,7 +39,7 @@ There are several scenarios when you could use job automation:
 The following job scheduling technologies are available in Azure SQL Database:
 
 - **SQL Agent Jobs** are classic and battle-tested SQL Server job scheduling component that is available in Managed Instance. SQL Agent Jobs are not available in single databases.
-- **Elastic Database Jobs** are Job Scheduling services that execute custom jobs on one or many Azure SQL Databases.
+- **Elastic Database Jobs (preview)** are Job Scheduling services that execute custom jobs on one or many Azure SQL Databases.
 
 It is worth noting a couple of differences between SQL Agent (available on-premises and as part of SQL Database Managed Instance), and the Database Elastic Job agent (available for single databases in Azure SQL database and databases in SQL Data Warehouse).
 
@@ -163,7 +163,7 @@ Some of the SQL Agent features that are available in SQL Server are not supporte
 
 For information about SQL Server Agent, see [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent).
 
-## Elastic Database Jobs
+## Elastic Database Jobs (preview)
 
 **Elastic Database Jobs** provide the ability to run one or more T-SQL scripts in parallel, across a large number of databases, on a schedule or on-demand.
 
