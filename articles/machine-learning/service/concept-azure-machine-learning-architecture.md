@@ -46,7 +46,10 @@ Use these tools for Azure Machine Learning:
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 + Use the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
 
-## Glossary of concepts
+> [!NOTE]
+> Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
+## Glossary
 
 + <a href="#workspaces">Workspace</a>
 + <a href="#experiments">Experiments</a>
@@ -65,10 +68,6 @@ Use these tools for Azure Machine Learning:
 + <a href="#iot-module-deployments">IoT modules</a>
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#logging">Logging</a>
-
-> [!NOTE]
-> Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
-
 
 ### Workspaces
 
