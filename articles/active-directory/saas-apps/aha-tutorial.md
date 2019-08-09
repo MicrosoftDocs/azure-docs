@@ -64,8 +64,8 @@ To configure and test Azure AD SSO with Aha!, complete the following building bl
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
 	1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
 	1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-2. **[Configure Aha! SSO](#configure-Aha-sso)** - to configure the Single Sign-On settings on application side.
-	1. **[Create Aha! test user](#create-Aha-test-user)** - to have a counterpart of B.Simon in Aha! that is linked to the Azure AD representation of user.
+2. **[Configure Aha! SSO](#configure-aha-sso)** - to configure the Single Sign-On settings on application side.
+	1. **[Create Aha! test user](#create-aha-test-user)** - to have a counterpart of B.Simon in Aha! that is linked to the Azure AD representation of user.
 3. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ## Configure Azure AD SSO
