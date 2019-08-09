@@ -10,7 +10,7 @@ ms.date: 07/25/2019
 ms.author: atsenthi 
 ---
 
-# Managed Identity for Service Fabric Application (Preview)
+# Managed Identity for Service Fabric Application
 
 ## What is Managed Identity?
 
