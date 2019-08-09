@@ -158,8 +158,6 @@ In the example above, the resource name of the user-assigned identity is being u
   </Resources>
 ```
 
-TODO: add link to full sample
-
 ## Next steps
 
 * [How to Deploy Service Fabric Application with User-Managed Identity](how-to-deploy-service-fabric-application-user-managed-identity.md)
