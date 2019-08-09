@@ -450,7 +450,7 @@ AKS nodes do not require their own public IP addresses for communication. Howeve
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](##-manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it will be set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](##manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it will be set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
 
 ```
 "agentPoolProfiles":[  
