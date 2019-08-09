@@ -274,30 +274,6 @@ VirtualMachineScaleSets  1        110        nodepool1    1.13.5                
 
 It takes a few minutes for the *gpunodepool* to be successfully created.
 
-## Assign a public IP per node in a node pool
-
-AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
-
-```azurecli-interactive
-az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
-```
-
-After successful registration, deploy an Azure Resource Manager template to create a new node pool with the following boolean value property "enableNodePublicIP" on the node pool set to `true`. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
-
-```
-"agentPoolProfiles":[  
-    {  
-      "name":"agentpool1",
-      "count":3,
-      "vmSize":"Standard_D2_v2",
-      "storageProfile":"ManagedDisks",
-      "osType":"Linux",
-      "maxPods":30,
-      "type":"VirtualMachineScaleSets",
-      "enableNodePublicIP":true
-    }
-```
-
 ## Schedule pods using taints and tolerations
 
 You now have two node pools in your cluster - the default node pool initially created, and the GPU-based node pool. Use the [kubectl get nodes][kubectl-get] command to view the nodes in your cluster. The following example output shows one node in each node pool:
@@ -465,6 +441,29 @@ az group deployment create \
 ```
 
 It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
+
+## Assign a public IP per node in a node pool
+
+AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
+
+```azurecli-interactive
+az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
+```
+
+After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](##-manage-node-pools-using-a-resource-manager-template) and adding the following boolean value property "enableNodePublicIP" on the agentPoolProfiles. Set this to `true` as by default it will be set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+
+```
+"agentPoolProfiles":[  
+    {  
+      "maxPods": 30,
+      "osDiskSizeGB": 0,
+      "agentCount": 3,
+      "agentVmSize": "Standard_DS2_v2",
+      "osType": "Linux",
+      "vnetSubnetId": "[parameters('vnetSubnetId')]"
+      "enableNodePublicIP":true
+    }
+```
 
 ## Clean up resources
 
