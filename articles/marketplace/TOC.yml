@@ -67,6 +67,8 @@
       items:
 #      - name: Promote your business with Microsoft
 #        href: ./gtm-promote-your-business.md
+      - name: Co-sell partner engagement
+        href: ./marketplace-co-sell.md
       - name: Preferred solutions
         href: ./preferred-solutions.md
       - name: Integrated solutions
@@ -469,7 +471,9 @@
       - name: SaaS Fulfillment APIs v1 (deprecated)
         href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
       - name: SaaS fulfillment APIs - FAQ
-        href: ./partner-center-portal/saas-fulfillment-apis-faq.md        
+        href: ./partner-center-portal/saas-fulfillment-apis-faq.md   
+    - name: Co-sell option in Partner Center
+      href: ./partner-center-portal/commercial-marketplace-co-sell.md             
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
   - name: Update existing offers
