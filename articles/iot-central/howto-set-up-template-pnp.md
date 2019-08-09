@@ -169,7 +169,6 @@ Provided you haven't published the interface, you can edit the capabilities defi
 
 You can also export the interface as a JSON file if you want to reuse it in another capability model.
 
-
 ## Add cloud properties
 
 Use cloud properties to store information about devices in IoT Central. Cloud properties are never sent to a device. For example, you could use cloud properties to store the name of the customer who has installed the device, or the device's last service date.

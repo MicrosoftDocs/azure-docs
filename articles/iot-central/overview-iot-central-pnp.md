@@ -99,6 +99,8 @@ As a builder, you have several options for creating device templates:
 - Create a device capability model using Visual Studio code. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device capability model from a repository and creates a simple device template for you.
 - Create a device capability model using Visual Studio code. Implement your device code from the model. Manually import the device capability model into your IoT Central application and then add any cloud properties, customizations, and dashboards your IoT Central application needs.
 
+As a builder, you can use IoT Central to generate code for test devices to validate your device templates.
+
 ### Customize the UI
 
 As a builder, you can also customize the Azure IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations that a builder can make include:
