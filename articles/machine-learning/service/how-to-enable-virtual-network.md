@@ -17,7 +17,7 @@ ms.date: 08/05/2019
 
 In this article, you learn how to run experiments and inference, or model scoring, within a virtual network. A virtual network acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference. Inference is the phase during which the deployed model is used for prediction, most commonly on production data.
 
-The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources, or compute targets, are used to train and deploy models. The targets can be created within a virtual network. For example, you can use the Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+The Azure Machine Learning service relies on other Azure services for compute resources. Compute resources, or compute targets, are used to train and deploy models. The targets can be created within a virtual network. For example, you can use Microsoft Data Science Virtual Machine to train a model and then deploy the model to Azure Kubernetes Service (AKS). For more information about virtual networks, see [Azure Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
 
 This article provides detailed information about *advanced security settings*, information that isn't necessary for basic or experimental use cases. Certain sections of this article provide configuration information for a variety of scenarios. You don't need to complete the instructions in order or in their entirety.
 
@@ -262,7 +262,7 @@ To use a virtual machine or Azure HDInsight cluster in a virtual network with yo
 > [!IMPORTANT]
 > The Azure Machine Learning service supports only virtual machines that are running Ubuntu.
 
-## Use AKS
+## Use Azure Kubernetes Service (AKS)
 
 To add AKS in a virtual network to your workspace, do the following:
 
