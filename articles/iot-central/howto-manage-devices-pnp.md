@@ -16,7 +16,7 @@ manager: peterpr
 
 This article describes how, as an operator, to manage devices in your Azure IoT Central application. As an operator, you can:
 
-- Use the **Device Explorer** page to view, add, and delete devices connected to your Azure IoT Central application.
+- Use the **Devices** page to view, add, and delete devices connected to your Azure IoT Central application.
 - Maintain an up-to-date inventory of your devices.
 - Keep your device metadata up-to-date by changing the values stored in the device properties from your views.
 - Control the behavior of your devices by updating a setting on a specific device from your views.
@@ -25,17 +25,20 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 
 To view an individual device:
 
-1. Choose **Device Explorer** on the left navigation menu. Here you see a list of all devices and of your device templates.
+1. Choose **Devices** on the left navigation menu. Here you see a list of all devices and of your device templates.
 
 1. Choose a device template.
 
-1. In the right-hand pane of the **Device Explorer** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
+1. In the right-hand pane of the **Devices** page, you see a list of devices created from that device template. Choose an individual device to see the device details page for that device:
+
+    ![Device Details Page](./media/howto-manage-devices-pnp/devicelist.png)
+
 
 ## Add a device
 
 To add a device to your Azure IoT Central application:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Devices** on the left navigation menu.
 
 1. Choose the device template from which you want to create a device.
 
@@ -56,7 +59,7 @@ To connect large number of devices to your application, you can bulk import devi
 
 To bulk-register devices in your application:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Devices** on the left navigation menu.
 
 1. On the left panel, choose the device template for which you want to bulk create the devices.
 
@@ -65,11 +68,17 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
+    ![Import Action](./media/howto-manage-devices-pnp/bulkimport1a.png)
+
+
 1. Select the CSV file that has the list of Device IDs to be imported.
 
 1. Device import starts once the file has been uploaded. You can track the import status in the Device Operations panel. This panel appears automatically after the import starts or you can access it through the bell icon in the top right-hand corner.
 
 1. Once the import completes, a success message is shown in the Device Operations panel.
+
+    ![Import Success](./media/howto-manage-devices-pnp/bulkimport3a.png)
+
 
 If the device import operation fails, you see an error message on the Device Operations panel. A log file capturing all the errors is generated that you can download.
 
@@ -77,15 +86,21 @@ If the device import operation fails, you see an error message on the Device Ope
 
 If you register devices by starting the import under **All devices**, then the devices are created without any device template association. Devices must be associated with a template to explore the data and other details about the device. Follow these steps to associate devices with a template:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Devices** on the left navigation menu.
 
 1. On the left panel, choose **All devices**:
+
+    ![Unassociated Devices](./media/howto-manage-devices-pnp/unassociateddevices1a.png)
+
 
 1. Use the filter on the grid to determine if the value in the **Device Template** column is "Unassociated" for any of your devices.
 
 1. Select the devices you want to associate with a template:
 
 1. Select **Migrate**:
+
+    ![Associate Devices](./media/howto-manage-devices-pnp/unassociateddevices2a.png)
+
 
 1. Choose the template from the list of available templates and select **Migrate**.
 
@@ -98,17 +113,23 @@ To connect a real device to IoT Central, you need its connection string. You can
 
 To bulk export devices from your application:
 
-1. Choose **Device Explorer** on the left navigation menu.
+1. Choose **Devices** on the left navigation menu.
 
 1. On the left panel, choose the device template from which you want to export the devices.
 
 1. Select the devices that you want to export and then select the **Export** action.
+
+    ![Export](./media/howto-manage-devices-pnp/export1a.png)
+
 
 1. The export process starts. You can track the status using the Device Operations panel.
 
 1. When the export completes, a success message is shown along with a link to download the generated file.
 
 1. Select the **Download File** link to download the file to a local folder on the disk.
+
+    ![Export Success](./media/howto-manage-devices-pnp/export2a.png)
+
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
 
@@ -125,7 +146,7 @@ For more information about connection strings and connecting real devices to you
 
 To delete either a real or simulated device from your Azure IoT Central application:
 
-1. Choose **Device Explorer** on the navigation menu.
+1. Choose **Devices** on the navigation menu.
 
 1. Choose the device template of the device you want to delete.
 
@@ -137,7 +158,7 @@ To delete either a real or simulated device from your Azure IoT Central applicat
 
 Cloud properties are the device metadata associated with the device, such as city and serial number. Writeable properties control the behavior of a device. In other words, they enable you to provide inputs to your device.  Device properties are set by the device and are read-only within IoT Central. You can view and update properties on the **Device Details** views for your device.
 
-1. Choose **Device Explorer** on the navigation menu.
+1. Choose **Devices** on the navigation menu.
 
 1. Choose the device template of the device whose properties you want to change and select the target device.
 
