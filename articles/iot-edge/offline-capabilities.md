@@ -142,7 +142,7 @@ You can configure environment variables and the create options for the IoT Edge 
 1. For both IoT Edge hub and IoT Edge agent, add an environment variable called **storageFolder** that points to a directory in the module.
 1. For both IoT Edge hub and IoT Edge agent, add binds to connect a local directory on the host machine to a directory in the module. For example: 
 
-   [Add create options and environment variables for local storage](./media/offline-capabilities/offline-storage.png)
+   ![Add create options and environment variables for local storage](./media/offline-capabilities/offline-storage.png)
 
 Or, you can configure the local storage directly in the deployment manifest. For example: 
 
