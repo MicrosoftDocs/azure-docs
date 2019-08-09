@@ -46,4 +46,4 @@ ms.date: 07/31/2019
 
     Place this JSON file in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
 
-   If you will be using a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) there is no need to download this file, it is added to correct directory on the VM for you.
+   If you will be using a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) there is no need to download this file, it is added to correct directory on the VM for you.
