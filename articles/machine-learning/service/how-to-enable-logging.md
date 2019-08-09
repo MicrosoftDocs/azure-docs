@@ -9,7 +9,7 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
-ms.date: 02/20/2019
+ms.date: 07/12/2019
 ---
 
 # Enable logging in Azure Machine Learning service
@@ -22,7 +22,7 @@ The Azure Machine Learning Python SDK allows you to enable logging using both th
 > * Deployed models
 > * Python `logging` settings
 
-Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) to install the SDK, and [get started](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python) with the SDK to create a workspace in the Azure Portal.
+[Create an Azure Machine Learning service workspace](how-to-manage-workspace.md). Use the [guide](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) for more information the SDK.
 
 ## Training models and compute target logging
 
@@ -59,7 +59,7 @@ The SDK also supports using the default python logging package in certain scenar
 from azureml.train.automl import AutoMLConfig
 import logging
 
-automated_ml_config = AutoMLConfig(task = 'regression',
+automated_ml_config = AutoMLConfig(task='regression',
                                    verbosity=logging.INFO,
                                    X=your_training_features,
                                    y=your_training_labels,
@@ -73,7 +73,8 @@ You can also use the `show_output` parameter when creating a persistent compute 
 ```python
 from azureml.core.compute import ComputeTarget
 
-compute_target = ComputeTarget.attach(workspace=ws, name="example", attach_configuration=config)
+compute_target = ComputeTarget.attach(
+    workspace=ws, name="example", attach_configuration=config)
 compute.wait_for_completion(show_output=True)
 ```
 
@@ -85,9 +86,10 @@ Enabling logging during image creation will allow you to see any errors during t
 from azureml.core.webservice import Webservice
 
 service = Webservice.deploy_from_image(deployment_config=your_config,
-                                            image=image,
-                                            name="example-image",
-                                            workspace=ws)
+                                       image=image,
+                                       name="example-image",
+                                       workspace=ws
+                                       )
 
 service.wait_for_deployment(show_output=True)
 ```
@@ -110,7 +112,7 @@ You can also log custom stack traces for your web service by enabling Applicatio
 service.update(enable_app_insights=True)
 ```
 
-See the [how-to](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) for more information on how to work with Application Insights in the Azure portal.
+See the [how-to](how-to-enable-app-insights.md) for more information on how to work with Application Insights in the Azure portal.
 
 ## Python native logging settings
 

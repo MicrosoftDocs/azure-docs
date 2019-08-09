@@ -3,7 +3,7 @@ title: Bind using Secure LDAP (LDAPS) to an Azure AD Domain Services managed dom
 description: Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
 services: active-directory-ds
 documentationcenter: ''
-author: eringreenlee
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -14,8 +14,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2018
-ms.author: ergreenl
+ms.date: 06/28/2019
+ms.author: iainfou
 
 ---
 # Bind to an Azure AD Domain Services managed domain using secure LDAP (LDAPS)
@@ -31,6 +31,11 @@ First, open LDP and connect to the managed domain. Click **Connection** and clic
 
 Next, bind to the managed domain. Click **Connection** and click **Bind...** in the menu. Provide the credentials of a user account belonging to the 'AAD DC Administrators' group.
 
+> [!IMPORTANT]
+> Users (and service accounts) cannot perform LDAP simple binds if you have disabled NTLM password hash synchronization on your Azure AD Domain Services instance.  For more information on disabling NTLM password hash synchronization, read [Secure your Azure AD DOmain Services managed domain](secure-your-domain.md).
+>
+>
+
 Select **View**, and then select **Tree** in the menu. Leave the Base DN field blank, and click OK. Navigate to the container that you want to search, right-click the container, and select Search.
 
 > [!TIP]
@@ -39,7 +44,7 @@ Select **View**, and then select **Tree** in the menu. Leave the Base DN field b
 >
 >
 
-More information - [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
+More information - [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
 
 
 ## Task 6: Lock down secure LDAP access to your managed domain over the internet
@@ -60,13 +65,13 @@ The sample NSG in the following table locks down secure LDAP access over the int
 
 
 ## Related content
-* [Azure AD Domain Services - Getting Started guide](active-directory-ds-getting-started.md)
-* [Administer an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-domain.md)
-* [LDAP query basics](https://technet.microsoft.com/library/aa996205.aspx)
-* [Administer Group Policy on an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-administer-group-policy.md)
+* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [LDAP query basics](https://docs.microsoft.com/windows/desktop/ad/creating-a-query-filter)
+* [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
 * [Network security groups](../virtual-network/security-overview.md)
 * [Create a Network Security Group](../virtual-network/tutorial-filter-network-traffic.md)
 
 
 ## Next step
-[Troubleshoot secure LDAP on a managed domain](active-directory-ds-ldaps-troubleshoot.md)
+[Troubleshoot secure LDAP on a managed domain](tshoot-ldaps.md)

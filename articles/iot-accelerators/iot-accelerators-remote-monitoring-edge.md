@@ -242,7 +242,7 @@ Next, you create an IoT Edge deployment manifest that defines the modules to run
 
 1. Click the **oil-pump-device** deployment and then click **Download IoT Edge manifest**. Save the file as **oil-pump-device.json** to a suitable location on your local machine. You need this file in the next section of this tutorial.
 
-You've now created a IoT Edge manifest to import into the Remote Monitoring solution as a package. Typically, a developer creates the IoT Edge modules and manifest file.
+You've now created an IoT Edge manifest to import into the Remote Monitoring solution as a package. Typically, a developer creates the IoT Edge modules and manifest file.
 
 ## Import a package
 

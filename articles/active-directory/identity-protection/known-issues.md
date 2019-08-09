@@ -1,37 +1,29 @@
 ---
 title: FAQs and known issues with identity protection (refreshed) in Azure Active Directory | Microsoft Docs
 description: FAQs and known issues with identity protection (refreshed) in Azure Active Directory.
-services: active-directory
-keywords: azure active directory identity protection, cloud app discovery, managing applications, security, risk, risk level, vulnerability, security policy
-documentationcenter: ''
-author: MarkusVi
-manager: mtillman
 
-ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
+services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 01/24/2019
-ms.author: markvi
-ms.reviewer: raluthra
+
+ms.author: joflore
+author: MicrosoftGuyJFlo
+manager: daveba
+ms.reviewer: sahandle
 
 ms.collection: M365-identity-device-management
 ---
 # FAQs and known issues with identity protection (refreshed) in Azure Active Directory
 
-
 ## Dismiss user risk known issues
 
 **Dismiss user risk** in classic Identity Protection sets the actor in the user’s risk history in Identity Protection (refreshed) to **Azure AD**.
 
-
 **Dismiss user risk** in Identity Protection (refreshed) sets the actor in the user’s risk history in Identity Protection (refreshed) to **\<Admin’s name with a hyperlink pointing to user’s blade\>**.
 
 There is a current known issue causing latencies in the user risk dismissal flow. If you have a "User risk policy", this policy will stop applying to dismissed users within minutes of clicking on "Dismiss user risk". However, there are known delays with the UX refreshing the "Risk state" of dismissed users. As a workaround, refresh the page on the browser level to see the latest user "Risk state".
-
 
 ## Risky users report known issues
 
@@ -41,11 +33,9 @@ Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the 
 
 **Dismiss all events** in classic Identity Protection sets the status of the risk events to **Closed (resolved)**.
 
-
 ## Risky sign-ins report known issues
 
 **Resolve** on a risk event sets the status to **Users passed MFA driven by risk-based policy**.
-
 
 ## Frequently asked questions
 
@@ -53,11 +43,9 @@ Toggling **Show dates as** hides the **RISK LAST UPDATED** column. To readd the 
 
 Risk levels in Identity Protection are based on the precision of the detection and powered by our supervised machine learning. To customize what experience users are presented, administrator can include/exclude certain users/groups from the User Risk and Sign-In Risk Policies.
 
-
 ### Why does the location of a sign-in not match where the user truly signed in from?
 
 IP geolocation mapping is an industry-wide challenge. If you feel that the location listed in the sign-ins report does not match the actual location, please reach out to support. 
-
 
 ### How do the feedback mechanisms in Identity Protection work?
 
@@ -78,8 +66,6 @@ IP geolocation mapping is an industry-wide challenge. If you feel that the locat
 
     > [!NOTE]
     > If you believe the user is not compromised, use **Dismiss user risk** on the user level instead of using **Confirmed safe** on the sign-in level. A **Dismiss user risk** on the user level closes the user risk and all past risky sign-ins and risk events.
-
-
 
 ### Why am I seeing a user with a low (or above) risk score, even if no risky sign-ins or risk events are shown in Identity Protection?
 

@@ -41,9 +41,9 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 
 ```xml
 <cross-domain>
-    <cross-domain-policy>
+    <cross-domain>
         <allow-http-request-headers-from domain='*' headers='*' />
-    </cross-domain-policy>
+    </cross-domain>
 </cross-domain>
 ```
 
@@ -57,7 +57,7 @@ Use the `cross-domain` policy to make the API accessible from Adobe Flash and Mi
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** inbound
-- **Policy scopes:** global
+- **Policy scopes:** all scopes
 
 ## <a name="CORS"></a> CORS
 The `cors` policy adds cross-origin resource sharing (CORS) support to an operation or an API to allow cross-domain calls from browser-based clients.
@@ -140,7 +140,7 @@ This example demonstrates how to support pre-flight requests, such as those with
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** inbound
-- **Policy scopes:** global, API, operation
+- **Policy scopes:** all scopes
 
 ## <a name="JSONP"></a> JSONP
 The `jsonp` policy adds JSON with padding (JSONP) support to an operation or an API to allow cross-domain calls from JavaScript browser-based clients. JSONP is a method used in JavaScript programs to request data from a server in a different domain. JSONP bypasses the limitation enforced by most web browsers where access to web pages must be in the same domain.
@@ -177,7 +177,7 @@ If you add the callback parameter `?cb=XXX` it will return a JSONP result, wrapp
 This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 - **Policy sections:** outbound
-- **Policy scopes:** global, product, API, operation
+- **Policy scopes:** all scopes
 
 ## Next steps
 
@@ -186,4 +186,4 @@ For more information working with policies, see:
 + [Policies in API Management](api-management-howto-policies.md)
 + [Transform APIs](transform-api.md)
 + [Policy Reference](api-management-policy-reference.md) for a full list of policy statements and their settings
-+ [Policy samples](policy-samples.md)	
++ [Policy samples](policy-samples.md)

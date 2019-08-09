@@ -25,7 +25,7 @@
     href: tutorial-custom-images.md
   - name: 5 - Highly available VMs
     href: tutorial-availability-sets.md
-  - name: 6 - Create a VM scale set
+  - name: 6 - Create a scale set
     href: tutorial-create-vmss.md
   - name: 7 - Load balance VMs
     href: tutorial-load-balancer.md
@@ -61,11 +61,21 @@
   items:
   - name: Azure Resource Manager
     href: ../../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
-  - name: Regions and availability
-    href: regions-and-availability.md
+  - name: Regions
+    href: regions.md
+  - name: Availability and performance
+    items:
+    - name: Availability
+      href: availability.md
+    - name: Co-location
+      href: co-location.md
+    - name: Network performance
+      href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: VM types and sizes
     href: sizes.md
     items:
+    - name: Generation 2 VMs
+      href: generation-2.md
     - name: General purpose
       href: sizes-general.md
       items:
@@ -80,9 +90,13 @@
         href: constrained-vcpu.md
     - name: Storage optimized
       href: sizes-storage.md
-    - name: GPU optimized
-      href: sizes-gpu.md
       items:
+      - name: Optimize performance
+        href: storage-performance.md
+    - name: Accelerated compute
+      items:
+      - name: GPU optimized
+        href: sizes-gpu.md
       - name: Setup GPU drivers
         href: n-series-driver-setup.md
     - name: High performance compute
@@ -91,10 +105,14 @@
       href: sizes-previous-gen.md
     - name: Azure compute units (ACU)
       href: acu.md
+    - name: vCPU quotas
+      href: quotas.md
     - name: Benchmark scores
       href: compute-benchmark-scores.md
   - name: Endorsed distros
     href: endorsed-distros.md
+  - name: Dedicated hosts
+    href: dedicated-hosts.md
   - name: Maintenance and updates
     href: maintenance-and-updates.md
   - name: Disk storage
@@ -109,10 +127,12 @@
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks
       href: backup-and-disaster-recovery-for-azure-iaas-disks.md
+    - name: Ephemeral OS disks
+      href: ephemeral-os-disks.md
   - name: Networking
     href: network-overview.md
-  - name: Auto-scale applications
-    href: autoscale.md
+  - name: Scale sets
+    href: ../../virtual-machine-scale-sets/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
   - name: Infrastructure automation
     href: infrastructure-automation.md
   - name: Security and policy
@@ -123,12 +143,10 @@
     href: monitor.md
   - name: Backup and recovery
     href: backup-recovery.md
-  - name: Deployment considerations
-    items:
-    - name: Infrastructure guidelines
-      href: infrastructure-example.md
-    - name: vCPU quotas
-      href: quotas.md
+  - name: Infrastructure guidelines
+    href: infrastructure-example.md
+  - name: Security attributes
+    href: virtual-machines-linux-security-attributes.md
 - name: How-to guides
   items:
   - name: Create VMs
@@ -136,11 +154,18 @@
     - name: Use the CLI
       href: create-cli-complete.md
     - name: Use a template
+      displayName: Azure Resource Manager, ARM
       href: create-ssh-secured-vm-from-template.md
     - name: Use REST API
       href: create-vm-rest-api.md
     - name: Copy or clone a VM
       href: copy-vm.md
+    - name: Use dedicated hosts
+      items:
+      - name: CLI
+        href: dedicated-hosts-cli.md
+      - name: Portal
+        href: dedicated-hosts-portal.md
   - name: Secure VMs
     items:
     - name: Just-in-time access
@@ -210,12 +235,12 @@
       displayName: AAD
       items:
         - name: Red Hat Enterprise Linux
-          href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
+          href: ../../active-directory-domain-services/join-rhel-linux-vm.md
         - name: CentOS
-          href: ../../active-directory-domain-services/active-directory-ds-join-centos-linux-vm.md
+          href: ../../active-directory-domain-services/join-centos-linux-vm.md
         - name: Ubuntu
-          href: ../../active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm.md
-    - name: Log in with Azure Active Directory credentials
+          href: ../../active-directory-domain-services/join-ubuntu-linux-vm.md
+    - name: Sign in with Azure Active Directory credentials
       href: login-using-aad.md
     - name: Updates and patches
       items:
@@ -241,7 +266,7 @@
     items:
     - name: Prepay for VMs - Azure reservations
       href: prepay-reserved-vm-instances.md
-    - name: Prepay for SUSE software
+    - name: Prepay for Azure software plans
       href: prepay-suse-software-charges.md
     - name: What are Azure reservations?
       href: ../../billing/billing-save-compute-costs-reservations.md
@@ -249,14 +274,32 @@
       href: reserved-vm-instance-size-flexibility.md
   - name: Use Images
     items:
-    - name: Shared image galleries (preview)
+    - name: Shared image galleries 
       items:
       - name: Overview
         href: shared-image-galleries.md
-      - name: Create shared images using CLI
+      - name: CLI
         href: shared-images.md
+      - name: Portal
+        href: shared-images-portal.md
+      - name: Share images across tenants
+        href: share-images-across-tenants.md
       - name: Troubleshoot shared images
         href: troubleshooting-shared-images.md
+    - name: Image builder (preview)
+      items:
+      - name: Overview
+        href: image-builder-overview.md
+      - name: Use Azure CLI
+        href: image-builder.md
+      - name: Template reference
+        href: image-builder-json.md
+      - name: Build for image galleries
+        href: image-builder-gallery.md
+      - name: Update an existing image
+        href: image-builder-gallery-update-image-version.md
+      - name: Troubleshoot
+        href: https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md
     - name: Find and use images
       href: cli-ps-findimage.md
     - name: Create custom image
@@ -293,6 +336,8 @@
       href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: High availability
       href: manage-availability.md
+    - name: Create a proximity placement group
+      href: proximity-placement-groups.md 
     - name: Vertically scale
       href: vertical-scaling-automation.md
     - name: Create VM in availability zone
@@ -366,8 +411,8 @@
         href: openshift-prerequisites.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
-      - name: OKD
-        href: openshift-okd.md
+      - name: OpenShift Marketplace Self-Managed
+        href: openshift-marketplace-self-managed.md
       - name: Azure Stack
         href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks
@@ -384,8 +429,6 @@
       href: freebsd-pf-nat.md
     - name: Databases
       items:
-      - name: MySQL
-        href: mysql-install.md
       - name: MySQL on SUSE
         href: mysql-on-opensuse.md
       - name: MongoDB
@@ -413,6 +456,7 @@
     - name: Detach a disk
       href: detach-disk.md
     - name: Deploy disks with template
+      displayName: Azure Resource Manager, ARM
       href: using-managed-disks-template-deployments.md
     - name: Resize a disk
       href: expand-disks.md
@@ -480,6 +524,7 @@
     - name: PowerShell
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: Azure Resource Manager Template
+      displayName: ARM
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm?context=azure/virtual-machines/linux/context/linux-vm-context
     - name: REST
       href: /azure/active-directory/managed-identities-azure-resources/qs-configure-rest-vm?context=azure/virtual-machines/linux/context/linux-vm-context
@@ -540,13 +585,15 @@
 - name: Resources
   items:
   - name: Author templates
-    href: ../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+    displayName: Azure Resource Manager, ARM
+    href: /azure/azure-resource-manager/
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/
-  - name: Community templates
-    href: https://azure.microsoft.com/documentation/templates
+  - name: Azure Quickstart templates
+    displayName: Azure Resource Manager, ARM
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/#Linux
   - name: Regional availability

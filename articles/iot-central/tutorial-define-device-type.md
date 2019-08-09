@@ -3,7 +3,7 @@ title: Define a new device type in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to define a new device type in your Azure IoT Central application. You define the telemetry, state, properties and settings for your type.
 author: dominicbetts
 ms.author: dobett
-ms.date: 01/28/2019
+ms.date: 06/07/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -11,7 +11,7 @@ ms.custom: mvc
 manager: philmea
 ---
 
-# Tutorial: Define a new device type in your Azure IoT Central application (New UI design)
+# Tutorial: Define a new device type in your Azure IoT Central application
 
 This tutorial shows you, as a builder, how to use a device template to define a new type of device in your Microsoft Azure IoT Central application. A device template defines the telemetry, state, properties, and settings for your device type.
 
@@ -68,7 +68,7 @@ To complete this tutorial, you need an Azure IoT Central application. If you com
 
      For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 
-## Create a new custom device template
+## Create a device template
 
 As a builder, you can create and edit the device templates in your application. When you create a device template, Azure IoT Central generates a simulated device from the template. The simulated device generates telemetry that enables you to test the behavior of your application before you connect a real device.
 
@@ -80,11 +80,15 @@ To add a new device template to your application, you need to go to the **Device
 
 The following steps show you how to create a new **Connected Air Conditioner** device template for devices that send temperature telemetry to your application:
 
-1. On the **Device Templates** page, select **+**:
+1. On the **Device Templates** page, select **+ New**:
 
     ![Device Templates page, Create Device Template](./media/tutorial-define-device-type/newtemplate.png)
 
-3. On the **Custom Device Template** page, enter **Connected Air Conditioner** as the name of your device, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
+2. The page shows the templates you can choose from.
+
+    ![Device Template Library](./media/tutorial-define-device-type/devicetemplatelibrary.png)
+
+3. Select the **Custom**, enter **Connected Air Conditioner** as the name of your device template, and then select **Create**. You can also upload an image of your device that's visible to operators in the device explorer:
 
     ![Custom Device](./media/tutorial-define-device-type/createcustomdevice.png)
 
@@ -135,6 +139,9 @@ The following steps show you how to create a new **Connected Air Conditioner** d
      ![Configure Temperature simulation](./media/tutorial-define-device-type/temperaturesimulation.png)
 
 7. After a short while, the **Measurements** tab shows a chart of the temperature telemetry from your simulated connected air conditioner device. Use the controls to manage visibility, aggregation, or to edit the telemetry definition:
+ 
+    > [!NOTE]
+    > For telemetry, **Average** is set as the default aggregation. 
 
     ![View temperature simulation](./media/tutorial-define-device-type/viewsimulation.png)
 

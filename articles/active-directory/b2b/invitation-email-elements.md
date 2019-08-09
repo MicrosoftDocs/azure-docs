@@ -10,7 +10,7 @@ ms.date: 02/06/2019
 
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celestedg
 ms.reviewer: mal
 ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 Invitation emails are a critical component to bring partners on board as B2B collaboration users in Azure AD. You can use them to increase the recipient's trust. you can add legitimacy and social proof to the email, to make sure the recipient feels comfortable with selecting the **Get Started** button to accept the invitation. This trust is a key means to reduce sharing friction. And you also want to make the email look great!
 
-![Azure AD B2b invitation email](media/invitation-email-elements/invitation-email.png)
+![Screenshot showing the B2B invitation email](media/invitation-email-elements/invitation-email.png)
 
 ## Explaining the email
 Let's look at a few elements of the email so you know how best to use their capabilities.
@@ -51,12 +51,12 @@ The inviter's display name is included in the email. And in addition, if you've 
 
 If you haven't yet set up your profile picture, an icon with the inviter's initials in place of the picture is shown:
 
-  ![displaying the inviter's initials](media/invitation-email-elements/inviters-initials.png)
+  ![Screenshot showing the invitation with the inviter initials displayed](media/invitation-email-elements/inviters-initials.png)
 
 ### Body
 The body contains the message that the inviter composes when [inviting a guest user to the directory, group, or app](add-users-administrator.md) or [by using the invitation API](customize-invitation-api.md). It is a text area, so it does not process HTML tags for security reasons.
 
-  ![picture of email body](media/invitation-email-elements/invitation-email-body.png)
+  ![Screenshot showing the body of the invitation email](media/invitation-email-elements/invitation-email-body.png)
 
 ### Footer section
 The footer contains the Microsoft company brand and lets the recipient know if the email was sent from an unmonitored alias. 
@@ -65,12 +65,12 @@ Special cases:
 
 - The inviter doesn't have an email address in the inviting tenancy
 
-  ![picture of inviter doesn't have an email address in the inviting tenancy](media/invitation-email-elements/inviter-no-email.png)
+  ![Screenshot when an inviter doesn't have email in the inviting tenancy](media/invitation-email-elements/inviter-no-email.png)
 
 
 - The recipient doesn't need to redeem the invitation
 
-  ![when recipient doesn't need to redeem invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Screenshot when the recipient doesn't need to redeem invitation](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 ## How the language is determined
 The language presented to the guest user in the invitation email is determined by the following settings. These settings are listed in order of precedence. If a setting isn’t configured, the next setting in the list determines the language. 

@@ -3,7 +3,7 @@ title: Introduction to IoT solution accelerators - Azure | Microsoft Docs
 description: Learn about the Azure IoT solution accelerators. IoT solution accelerators are complete, end-to-end, ready to deploy IoT solutions.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/09/2018
+ms.date: 03/09/2019
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
@@ -40,7 +40,7 @@ You can use the remote monitoring dashboard to view the telemetry from your conn
 
 ### Connected Factory
 
-Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-sample-walkthrough.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
+Use the [Connected Factory solution accelerator](iot-accelerators-connected-factory-features.md) to collect telemetry from industrial assets with an [OPC Unified Architecture](https://opcfoundation.org/about/opc-technologies/opc-ua/) interface and to control them. Industrial assets might include assembly and test stations on a factory production line.
 
 You can use the connected factory dashboard to monitor and manage your industrial devices:
 

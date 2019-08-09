@@ -1,6 +1,6 @@
 ---
-title: Get started with Azure Relay Hybrid Connections Websockets in .NET | Microsoft Docs
-description: Write a C# console application for Azure Relay Hybrid Connections Websockets.
+title: Get started with Azure Relay Hybrid Connections WebSockets in .NET | Microsoft Docs
+description: Write a C# console application for Azure Relay Hybrid Connections WebSockets.
 services: service-bus-relay
 documentationcenter: .net
 author: spelluru
@@ -62,7 +62,7 @@ In Visual Studio, write a C# console application to send messages to the relay.
 
     ![running-applications](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
-Congratulations, you have created an end-to-end Hybrid Connections application!
+Congratulations, you've created a complete Hybrid Connections application!
 
 ## Next steps
 In this quickstart, you created .NET client and server applications that used WebSockets to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using HTTP to send and receive messages. To learn how to use HTTP with Azure Relay Hybrid Connections, see the [HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).

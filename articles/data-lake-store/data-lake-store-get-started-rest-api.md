@@ -3,8 +3,8 @@ title: 'REST API: Account management operations on Azure Data Lake Storage Gen1 
 description: Use Azure Data Lake Storage Gen1 and WebHDFS REST API to perform account management operations in the Data Lake Storage Gen1 account
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 57ac6501-cb71-4f75-82c2-acc07c562889
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Account management operations on Azure Data Lake Storage Gen1 using REST API

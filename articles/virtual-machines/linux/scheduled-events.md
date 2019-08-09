@@ -4,7 +4,7 @@ description: Schedule events by using Azure Metadata Service for your Linux virt
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: ''
 
@@ -43,8 +43,10 @@ With Scheduled Events, your application can discover when maintenance will occur
 
 Scheduled Events provides events in the following use cases:
 
-- Platform-initiated maintenance (for example, a host OS update)
+- [Platform initiated maintenance](https://docs.microsoft.com/azure/virtual-machines/linux/maintenance-and-updates) (for example, VM reboot, live migration or memory preserving updates for host)
+- Degraded hardware
 - User-initiated maintenance (for example, a user restarts or redeploys a VM)
+- [Low-Priority VM eviction](https://azure.microsoft.com/blog/low-priority-scale-sets) in scale sets
 
 ## The Basics  
 
@@ -53,6 +55,7 @@ Scheduled Events provides events in the following use cases:
 ### Scope
 Scheduled events are delivered to:
 
+- Standalone Virtual Machines.
 - All the VMs in a cloud service.
 - All the VMs in an availability set.
 - All the VMs in a scale set placement group. 
@@ -62,16 +65,17 @@ As a result, check the `Resources` field in the event to identify which VMs are 
 ### Endpoint Discovery
 For VNET enabled VMs, Metadata Service is available from a static nonroutable IP, `169.254.169.254`. The full endpoint for the latest version of Scheduled Events is: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 If the VM is not created within a Virtual Network, the default cases for cloud services and classic VMs, additional logic is required to discover the IP address to use. 
 To learn how to [discover the host endpoint](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), see this sample.
 
 ### Version and Region Availability
-The Scheduled Events service is versioned. Versions are mandatory; the current version is `2017-08-01`.
+The Scheduled Events service is versioned. Versions are mandatory; the current version is `2017-11-01`.
 
 | Version | Release Type | Regions | Release Notes | 
 | - | - | - | - | 
+| 2017-11-01 | General Availability | All | <li> Added support for Low-priority VM eviction EventType 'Preempt'<br> | 
 | 2017-08-01 | General Availability | All | <li> Removed prepended underscore from resource names for IaaS VMs<br><li>Metadata header requirement enforced for all requests | 
 | 2017-03-01 | Preview | All | <li>Initial release
 
@@ -110,7 +114,7 @@ In the case where there are scheduled events, the response contains an array of 
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -124,7 +128,7 @@ In the case where there are scheduled events, the response contains an array of 
 |Property  |  Description |
 | - | - |
 | EventId | Globally unique identifier for this event. <br><br> Example: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The VM is scheduled to pause for a few seconds. The CPU is suspended, but there is no effect on memory, open files, or network connections. <li>`Reboot`: The VM is scheduled for reboot. (Nonpersistent memory is lost.) <li>`Redeploy`: The VM is scheduled to move to another node. (Ephemeral disks are lost.) |
+| EventType | Impact this event causes. <br><br> Values: <br><ul><li> `Freeze`: The Virtual Machine is scheduled to pause for a few seconds. CPU and network connectivity may be suspended, but there is no impact on memory or open files.<li>`Reboot`: The Virtual Machine is scheduled for reboot (non-persistent memory is lost). <li>`Redeploy`: The Virtual Machine is scheduled to move to another node (ephemeral disks are lost). <li>`Preempt`: The Low-priority Virtual Machine is being deleted (ephemeral disks are lost).|
 | ResourceType | Type of resource this event affects. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event affects. The list is guaranteed to contain machines from at most one [update domain](manage-availability.md), but it might not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
@@ -138,6 +142,7 @@ Each event is scheduled a minimum amount of time in the future based on the even
 | Freeze| 15 minutes |
 | Reboot | 15 minutes |
 | Redeploy | 10 minutes |
+| Preempt | 30 seconds |
 
 ### Start an event 
 
@@ -156,7 +161,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 #### Bash sample
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -174,7 +179,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 

@@ -3,8 +3,8 @@ title: Monitor Azure Automation runbooks with metric alerts
 description: This article walks you through monitoring Azure Automation runbooks based off of metrics
 services: automation
 ms.service: automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
@@ -30,6 +30,9 @@ In the Azure portal, navigate to your Automation Account. Under **Monitoring**, 
 2. The **Configure signal logic** page is where you define the logic that triggers the alert. Under the historical graph you are presented with two dimensions, **Runbook Name** and **Status**. Dimensions are different properties for a metric that can be used to filter results. For **Runbook Name**, select the runbook you want to alert on or leave blank to alert on all runbooks. For **Status**, select a status from the drop-down you want to monitor for. The runbook name and status values that appear in the dropdown are only for jobs that have ran in the past week.
 
    If you want to alert on a status or runbook that isn't shown in the dropdown, click the **\+** next to the dimension. This action opens a dialog that allows you to enter in a custom value, which hasn't emitted for that dimension recently. If you enter a value that doesn't exist for a property your alert won't be triggered.
+
+   > [!NOTE]
+   > If you don't apply a name for the **RunbookName** dimension, if there are any runbooks that meet the status criteria, which includes hidden system runbooks, you will receive an alert.
 
 3. Under **Alert logic**, define the condition and threshold for your alert. A preview of your condition defined is shown underneath.
 

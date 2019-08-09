@@ -3,8 +3,8 @@ title: 'Python: Account management operations on Azure Data Lake Storage Gen1 | 
 description: Learn how to use Python SDK to work with Azure Data Lake Storage Gen1 account management operations.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: 75f6de6f-6fd8-48f4-8707-cb27d22d27a6
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 

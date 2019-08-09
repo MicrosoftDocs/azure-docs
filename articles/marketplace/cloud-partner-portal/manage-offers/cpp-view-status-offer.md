@@ -1,20 +1,12 @@
 ---
-title: View the status of Marketplace Offers - Azure Marketplace | Microsoft Docs
+title: View the status of marketplace offers | Azure Marketplace 
 description: View the status of offers on the Azure and AppSource Marketplaces using the Cloud Partner Portal
 services: Azure, AppSource, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # View the publishing status of Azure Marketplace and AppSource offers
@@ -42,7 +34,7 @@ The next example **Status** tab for a consulting service, showing a reported err
 
 ![Status tab for consulting service showing error](./media/consulting-service-error.png)
 
-The final example status of an Azure application shows a critical Microsoft review issue.  It contains a hot link to the VSTS item that contains detailed information about this review issue.  For more information, see [Publish Azure application offer](cpp-publish-offer.md).
+The final example status of an Azure application shows a critical Microsoft review issue.  It contains a hot link to the Azure DevOps item that contains detailed information about this review issue.  For more information, see [Publish Azure application offer](cpp-publish-offer.md).
 
 ![Status tab for Azure app showing review issue](../azure-applications/media/status-tab-ms-review.png)
 

@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use Azure PowerShell to create a
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -31,6 +31,8 @@ Custom images are like marketplace images, but you create them yourself. Custom 
 > * Create a VM from a custom image
 > * List all the images in your subscription
 > * Delete an image
+
+In public preview, we have the [Azure VM Image Builder](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview) service. Simply describe your customizations in a template, and it will handle the image creation steps in this article. [Try Azure Image Builder (preview)](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder).
 
 ## Before you begin
 
@@ -63,7 +65,7 @@ Sysprep removes all your personal account information, among other things, and p
 
 To create an image, the VM needs to be deallocated and marked as generalized in Azure.
 
-Deallocated the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
+Deallocate the VM using [Stop-AzVM](https://docs.microsoft.com/powershell/module/az.compute/stop-azvm).
 
 ```azurepowershell-interactive
 Stop-AzVM `
@@ -160,7 +162,7 @@ In this tutorial, you created a custom VM image. You learned how to:
 > * List all the images in your subscription
 > * Delete an image
 
-Advance to the next tutorial to learn about how highly available virtual machines.
+Advance to the next tutorial to learn about how to create highly available virtual machines.
 
 > [!div class="nextstepaction"]
 > [Create highly available VMs](tutorial-availability-sets.md)

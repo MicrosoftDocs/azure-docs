@@ -34,7 +34,7 @@ To keep this template simple, the template doesn't create a scheduled trigger. Y
 
 2.  Ensure you have an **Azure Databricks workspace** or create a new one.
 
-1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://Data Factorylabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
+1.  **Import the notebook for ETL**. Import the below Transform notebook to the Databricks workspace. (It does not have to be in the same location as below, but remember the path that you choose for later.) Import the notebook from the following URL by entering this URL in the URL field: `https://adflabstaging1.blob.core.windows.net/share/Transformations.html`. Select **Import**.
 
     ![2](media/solution-template-Databricks-notebook/Databricks-tutorial-image02.png)
 

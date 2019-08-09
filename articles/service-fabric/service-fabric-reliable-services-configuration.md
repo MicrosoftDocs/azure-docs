@@ -4,7 +4,7 @@ description: Learn about configuring stateful Reliable Services in Azure Service
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
-manager: timlt
+manager: chackdan
 editor: vturecek
 
 ms.assetid: 9f72373d-31dd-41e3-8504-6e0320a11f0e

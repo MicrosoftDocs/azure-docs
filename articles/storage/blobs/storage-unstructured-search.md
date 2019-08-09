@@ -2,7 +2,6 @@
 title: 'Tutorial: Search unstructured data in Azure Blob storage'
 description: 'Tutorial: Searching unstructured data in Blob storage using Azure search.'
 author: roygara
-
 services: storage
 
 ms.service: storage
@@ -30,7 +29,7 @@ In this tutorial you learn how to:
 > * Connect a search service to a storage account
 > * Create a data source
 > * Configure the index
-> * Create a indexer
+> * Create an indexer
 > * Use the search service to search your container
 
 ## Prerequisites

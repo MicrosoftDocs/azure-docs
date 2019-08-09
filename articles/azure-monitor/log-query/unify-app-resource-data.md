@@ -136,7 +136,7 @@ The following table shows the schema differences between Log Analytics and Appli
 | SessionId | session_Id | 
 | SourceSystem | operation_SyntheticSource |
 | TelemetryTYpe | type |
-| URL | _url |
+| URL | url |
 | UserAccountId | user_AccountId |
 
 ## Next steps

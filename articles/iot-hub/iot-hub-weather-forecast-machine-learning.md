@@ -1,15 +1,15 @@
 ---
 title: Weather forecast using Azure Machine Learning with data from IoT Hub | Microsoft Docs
 description: Use Azure Machine Learning to predict the chance of rain based on the temperature and humidity data your IoT hub collects from a sensor.
-author: rangv
-manager: 
+author: robinsh
+manager: philmea
 keywords: weather forecast machine learning
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
+ms.author: robinsh
 ---
 
 # Weather forecast using the sensor data from your IoT hub in Azure Machine Learning
@@ -36,7 +36,7 @@ You learn how to use Azure Machine Learning to do weather forecast (chance of ra
 
 ## What you need
 
-- Tutorial [Setup your device](iot-hub-raspberry-pi-kit-node-get-started.md) completed which covers the following requirements:
+- Complete the [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial or one of the device tutorials; for example, [Raspberry Pi with node.js](iot-hub-raspberry-pi-kit-node-get-started.md). These cover the following requirements:
   - An active Azure subscription.
   - An Azure IoT hub under your subscription.
   - A client application that sends messages to your Azure IoT hub.

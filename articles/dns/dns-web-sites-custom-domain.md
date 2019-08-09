@@ -37,7 +37,7 @@ In this tutorial, you learn how to:
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## Prerequisites
 
@@ -169,7 +169,7 @@ set-AzWebApp `
 Open a browser and browse to `http://www.<your domainname>` and `http://<you domain name>`.
 
 > [!NOTE]
-> Make sure you include the `http://` prefix, otherwise your browser may attempt predict a URL for you!
+> Make sure you include the `http://` prefix, otherwise your browser may attempt to predict a URL for you!
 
 You should see the same page for both URLs. For example:
 

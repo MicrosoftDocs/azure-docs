@@ -3,8 +3,8 @@ title: Azure Service Fabric application model | Microsoft Docs
 description: How to model and describe applications and services in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: mani-ramaswamy
 
 ms.assetid: 17a99380-5ed8-4ed9-b884-e9b827431b02
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: ryanwi
+ms.author: atsenthi
 
 ---
 # Model an application in Service Fabric

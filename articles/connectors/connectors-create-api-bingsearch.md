@@ -1,22 +1,18 @@
 ---
-# required metadata
-title: Connect to Bing Search - Azure Logic Apps | Microsoft Docs
+title: Connect to Bing Search - Azure Logic Apps
 description: Find news with Bing Search REST APIs and Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 05/21/2018
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-
-# optional metadata
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 05/21/2018
 tags: connectors
 ---
 
-# Find news with Bing Search and Azure Logic Apps 
+# Find news with Bing Search and Azure Logic Apps
 
 This article shows how you can find news, videos, and other items through 
 Bing Search from inside a logic app with the Bing Search connector. 
@@ -39,11 +35,11 @@ For connector-specific technical information, see the
 * A [Cognitive Services account](../cognitive-services/cognitive-services-apis-create-account.md)
 
 * A [Bing Search API key](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api), 
-which provides access from your logic app to the Bing Search APIs 
+which provides access from your logic app to the Bing Search APIs
 
 * The logic app where you want to access your Event Hub. 
 To start your logic app with a Bing Search trigger, you need a 
-[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+[blank logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 <a name="add-trigger"></a>
 
@@ -61,7 +57,7 @@ create a blank logic app, which opens Logic App Designer.
 This example uses the Azure portal.
 
 2. In the search box, enter "Bing search" as your filter. 
-From the triggers list, select the trigger you want. 
+From the triggers list, select the trigger you want.
 
    This example uses this trigger: 
    **Bing Search - On new news article**
@@ -69,21 +65,21 @@ From the triggers list, select the trigger you want.
    ![Find Bing Search trigger](./media/connectors-create-api-bing-search/add-trigger.png)
 
 3. If you're prompted for connection details, 
-[create your Bing Search connection now](#create-connection). 
+[create your Bing Search connection now](#create-connection).
 Or, if your connection already exists, 
 provide the necessary information for the trigger.
 
    For this example, provide criteria for returning 
    matching news articles from Bing Search.
 
-   | Property | Required | Value | Description | 
-   |----------|----------|-------|-------------| 
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
    | Search Query | Yes | <*search-words*> | Enter the search keywords you want to use. |
-   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. | 
-   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. | 
-   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. | 
-   | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
-   ||||| 
+   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. |
+   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. |
+   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. |
+   | Offset | No | <*skip-value*> | The number of results to skip before returning results |
+   |||||
 
    For example:
 
@@ -92,7 +88,7 @@ provide the necessary information for the trigger.
 4. Select the interval and frequency for how often 
 you want the trigger to check for results.
 
-5. When you're done, on the designer toolbar, choose **Save**. 
+5. When you're done, on the designer toolbar, choose **Save**.
 
 6. Now continue adding one or more actions to your logic app 
 for the tasks you want to perform with the trigger results.
@@ -104,7 +100,7 @@ for the tasks you want to perform with the trigger results.
 In Azure Logic Apps, an [action](../logic-apps/logic-apps-overview.md#logic-app-concepts) 
 is a step in your workflow that follows a trigger or another action. 
 For this example, the logic app starts with a Bing Search trigger 
-that returns news articles matching the specified criteria. 
+that returns news articles matching the specified criteria.
 
 1. In the Azure portal or Visual Studio, 
 open your logic app in Logic App Designer. 
@@ -112,7 +108,8 @@ This example uses the Azure portal.
 
 2. Under the trigger or action, choose **New step** > **Add an action**.
 
-   This example uses this trigger: 
+   This example uses this trigger:
+
    **Bing Search - On new news article**
 
    ![Add action](./media/connectors-create-api-bing-search/add-action.png)
@@ -125,7 +122,8 @@ This example uses the Azure portal.
 3. In the search box, enter "Bing search" as your filter.
 From the actions list, select the action you want.
 
-   This example uses this action: 
+   This example uses this action:
+
    **Bing Search - List news by query**
 
    ![Find Bing Search action](./media/connectors-create-api-bing-search/bing-search-select-action.png)
@@ -133,23 +131,23 @@ From the actions list, select the action you want.
 4. If you're prompted for connection details, 
 [create your Bing Search connection now](#create-connection). 
 Or, if your connection already exists, 
-provide the necessary information for the action. 
+provide the necessary information for the action.
 
    For this example, provide the criteria for 
    returning a subset of the trigger's results.
 
-   | Property | Required | Value | Description | 
-   |----------|----------|-------|-------------| 
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
    | Search Query | Yes | <*search-expression*> | Enter an expression for querying the trigger results. You can select from the fields in the dynamic content list, or create an expression with the expression builder. |
-   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. | 
-   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. | 
-   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. | 
-   | Offset | No | <*skip-value*> | The number of results to skip before returning results | 
-   ||||| 
+   | Market | Yes | <*locale*> | The search locale. The default is "en-US", but you can select another value. |
+   | Safe Search | Yes | <*search-level*> | The filter level for excluding adult content. The default is "Moderate", but you select another level. |
+   | Count | No | <*results-count*> | Return the specified number of results. The default is 20, but you can specify another value. The actual number of returned results might be less than the specified number. |
+   | Offset | No | <*skip-value*> | The number of results to skip before returning results |
+   |||||
 
    For example, suppose you want those results whose category 
-   name includes the word "tech". 
-   
+   name includes the word "tech".
+
    1. Click in the **Search Query** box so the dynamic content list appears. 
    From that list, choose **Expression** so the expression builder appears. 
 
@@ -168,7 +166,7 @@ provide the necessary information for the action.
    Add a comma after the first parameter, and after the comma, add this word: `'tech'` 
 
       ![Select a field](./media/connectors-create-api-bing-search/expression-select-field.png)
-   
+
    4. When you're done, choose **OK**.
 
       The expression now appears in the **Search Query** box in this format:
@@ -185,15 +183,15 @@ provide the necessary information for the action.
 
 ## Connect to Bing Search
 
-[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)] 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
 1. When you're prompted for connection information, 
 provide these details:
 
-   | Property | Required | Value | Description | 
-   |----------|----------|-------|-------------| 
+   | Property | Required | Value | Description |
+   |----------|----------|-------|-------------|
    | Connection Name | Yes | <*connection-name*> | The name to create for your connection |
-   | API Version | Yes | <*API-version*> | By default, the Bing Search API version is set to the current version. You can select an earlier version as necessary. | 
+   | API Version | Yes | <*API-version*> | By default, the Bing Search API version is set to the current version. You can select an earlier version as necessary. |
    | API Key | Yes | <*API-key*> | The Bing Search API key that you got earlier. If you don't have a key, get your [API key now](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
@@ -206,8 +204,8 @@ provide these details:
 ## Connector reference
 
 For technical details, such as triggers, actions, and limits, 
-as described by the connector's Swagger file, 
-see the [connector's reference page](/connectors/bingsearch/). 
+as described by the connector's OpenAPI (formerly Swagger) file, 
+see the [connector's reference page](/connectors/bingsearch/).
 
 ## Get support
 

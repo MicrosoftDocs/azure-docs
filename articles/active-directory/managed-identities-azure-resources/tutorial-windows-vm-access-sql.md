@@ -3,7 +3,7 @@ title: Use a Windows VM system-assigned managed identity to access Azure SQL
 description: A tutorial that walks you through the process of using a Windows VM system-assigned managed identity to access Azure SQL.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: bryanla
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2018
-ms.author: priyamo
+ms.author: markvi
 ms.collection: M365-identity-device-management
 ---
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure SQL

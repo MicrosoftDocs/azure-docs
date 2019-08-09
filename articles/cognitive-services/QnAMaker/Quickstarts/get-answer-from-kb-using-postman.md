@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Use Postman to get answer from knowledge base - QnA Maker"
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: This quickstart walks you through getting an answer from your knowledge base using Postman.
 services: cognitive-services
 author: diberry
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 01/03/2019
+ms.date: 07/16/2019
 ms.author: diberry
 #Customer intent: As an knowledge base manager new to the QnA Maker service, I want to get an answer from a published knowledge base using Postman. 
 ---
@@ -25,7 +25,7 @@ This Postman-based quickstart walks you through getting an answer from your know
 
 ## Publish to get endpoint
 
-When you are ready to generate an answer to a question from your knowledge base, [publish](../How-to/publish-knowledge-base.md) your knowledge base.
+When you are ready to generate an answer to a question from your knowledge base, [publish](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) your knowledge base.
 
 ## Use production endpoint with Postman
 
@@ -68,9 +68,7 @@ To generate an answer with Postman, complete the following steps:
 
 ## Use staging endpoint
 
-If you want to get an answer from the staging endpoint, append the URL with the querystring boolean parameter `isTest` with the value of `true`.
-
-`?isTest=true`
+If you want to get an answer from the staging endpoint, append the URL with the `isTest` body property.
 
 ## Next steps
 

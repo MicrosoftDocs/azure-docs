@@ -4,7 +4,7 @@ description: Learn about platform level events and logs used to monitor and diag
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

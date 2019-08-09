@@ -4,7 +4,7 @@ description: How to set up SMT server for SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
 author: hermanndms
-manager: jeconnoc
+manager: gwallace
 editor:
 
 ms.service: virtual-machines-linux
@@ -80,7 +80,7 @@ You can also use the YAST tool to install the smt packages. In YAST, go to **Sof
 ![Screenshot of SMT in YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Accept the selection for installation on the smtserver. After the installation completes, go to the SMT server configuration. Enter the organizational credentials from the SUSE Customer Center you retrieved earlier. Also enter your Azure virtual machine hostname as the SMT Server URL. In this demonstration, it's https://smtserver.
+Accept the selection for installation on the smtserver. After the installation completes, go to the SMT server configuration. Enter the organizational credentials from the SUSE Customer Center you retrieved earlier. Also enter your Azure virtual machine hostname as the SMT Server URL. In this demonstration, it's https:\//smtserver.
 
 ![Screenshot of SMT server configuration](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

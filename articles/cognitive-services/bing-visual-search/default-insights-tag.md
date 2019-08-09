@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 04/04/2019
 ms.author: scottwhi
 ---
 
@@ -96,7 +96,7 @@ The default insights tag is the one with the `displayName` field set to an empty
 
 ## PagesIncluding insight
 
-The PagesIncluding insight provides a list of webpages that include this image. It's actually a list of Image objects and the `hostPageUrl` field contains the URL to the webpage that includes the image. For example usage, see [PagesIncluding example](./bing-insights-usage.md#pagesincluding-insight-example). 
+The PagesIncluding insight provides a list of webpages that include this image. It's actually a list of `Image` objects, and the `hostPageUrl` field contains the URL to the webpage that includes the image. For example usage, see [PagesIncluding insight example](./bing-insights-usage.md#pagesincluding-insight-example).
 
 ```json
       {
@@ -135,7 +135,7 @@ The PagesIncluding insight provides a list of webpages that include this image. 
 
 ## ShoppingSources insight
 
-The ShoppingSources insight provides a list of websites where the user can buy the item shown in the image. The list of offers include the URL of the webpage where the user may buy the item, the price of the item, and rating or review details. For example usage, see [ShoppingSources example](./bing-insights-usage.md#shoppingsources-insight-example).
+The ShoppingSources insight provides a list of websites where the user can buy the item shown in the image. The list of offers includes the URL of the webpage where the user can buy the item, the price of the item, and rating or review details. For example usage, see [ShoppingSources example](./bing-insights-usage.md#shoppingsources-insight-example).
 
 ```json
       {
@@ -162,10 +162,9 @@ The ShoppingSources insight provides a list of websites where the user can buy t
       }
 ```
 
-
 ## MoreSizes insight
 
-The MoreSizes insight identifies the number of sizes (larger or smaller) of the image that Bing found on the Internet (see the `availableSizesCount` field).
+The MoreSizes insight identifies the number of sizes (larger or smaller) of the image that Bing found on the Internet (see the `availableSizesCount` field):
 
 ```json
       {
@@ -200,7 +199,7 @@ The MoreSizes insight identifies the number of sizes (larger or smaller) of the 
 
 ## VisualSearch insight
 
-The VisualSearch insight provides a list of images that are visually similar to the original image (contains content that's similar to the content shown in the original image). For example usage, see [VisualSearch example](./bing-insights-usage.md#visualsearch-insight-example).
+The VisualSearch insight provides a list of images that are visually similar to the original image (contains content that's similar to the content shown in the original image). For example usage, see [VisualSearch insight example](./bing-insights-usage.md#visualsearch-insight-example).
 
 ```json
       {
@@ -240,7 +239,7 @@ The VisualSearch insight provides a list of images that are visually similar to 
 
 ## Recipes insight
 
-The Recipes insight provides a list of webpages that include a recipe for making the food shown in the image. For example usage, see [Recipes example](./bing-insights-usage.md#recipes-insight-example).
+The Recipes insight provides a list of webpages that include a recipe for making the food shown in the image. For example usage, see [Recipes insight example](./bing-insights-usage.md#recipes-insight-example).
 
 ```json
       {
@@ -275,7 +274,7 @@ The Recipes insight provides a list of webpages that include a recipe for making
 
 ## ImageById insight
 
-The ImageById insight provides an `Image` object of the image that you requested insights of.
+The ImageById insight provides an `Image` object of the image that you requested insights for:
 
 ```json
       {
@@ -308,10 +307,9 @@ The ImageById insight provides an `Image` object of the image that you requested
       },
 ```
 
-
 ## ProductVisualSearch insight
 
-The ProductVisualSearch insight provides a list of images of products that are visually similar to products shown in the original image. The `insightsMetadata` field may contain information about offers where you can buy the product and the price of the product. 
+The ProductVisualSearch insight provides a list of images of products that are visually similar to products shown in the original image. The `insightsMetadata` field may contain information about offers where you can buy the product and the price of the product.
 
 ```json
       {
@@ -373,11 +371,9 @@ The ProductVisualSearch insight provides a list of images of products that are v
       }
 ```
 
-
 ## RelatedSearches insight
 
-The RelatedSearches insight provides a list of related searches made by others (based on other users' search terms). For example usage, see [RelatedSearches example](./bing-insights-usage.md#relatedsearches-insight-example).
-
+The RelatedSearches insight provides a list of related searches made by others (based on other users' search terms). For example usage, see [RelatedSearches insight example](./bing-insights-usage.md#relatedsearches-insight-example).
 
 ```json
       {
@@ -398,10 +394,9 @@ The RelatedSearches insight provides a list of related searches made by others (
       }
 ```
 
-
 ## DocumentLevelSuggestions insight
 
-The DocumentLevelSuggestions insight provides a list of suggested search terms based on the contents of the image. 
+The DocumentLevelSuggestions insight provides a list of suggested search terms based on the contents of the image:
 
 ```json
       {
@@ -422,10 +417,8 @@ The DocumentLevelSuggestions insight provides a list of suggested search terms b
       }
 ```
 
-
-
 ## Next steps
 
-Check out examples of how Bing might display the visual insights (see [Examples of Bing insights usage](bing-insights-usage.md)).
+Check out [Examples of Bing insights usage](bing-insights-usage.md) to see how Bing might display the visual insights.
 
 To get started quickly with your first request, see the quickstarts: [C#](quickstarts/csharp.md) | [Java](quickstarts/java.md) | [node.js](quickstarts/nodejs.md) | [Python](quickstarts/python.md).

@@ -17,7 +17,6 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ---
-
 # User Privacy and Azure AD Seamless Single Sign-On
 
 [!INCLUDE [Privacy](../../../includes/gdpr-intro-sentence.md)]
@@ -45,7 +44,7 @@ Check the contents of **%ProgramData%\AADConnect** folder and delete the trace l
 
 You can either review and delete these trace log files using Windows Explorer or you can use the following PowerShell script to perform the necessary actions:
 
-```
+```powershell
 $Files = ((Get-Item -Path "$env:programdata\aadconnect\trace-*.log").VersionInfo).FileName 
  
 Foreach ($file in $Files) { 
@@ -62,6 +61,7 @@ To learn more about related Azure AD Connect GDPR requirements, see [this articl
 If audit logging is enabled, this product may generate security logs for your Domain Controllers. To learn more about configuring audit policies, read this [article](https://technet.microsoft.com/library/dd277403.aspx).
 
 ## Next steps
+
 * [Review the Microsoft Privacy policy on Trust Center](https://www.microsoft.com/trustcenter)
   - [**Troubleshoot**](tshoot-connect-sso.md) - Learn how to resolve common issues with the feature.
   - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.

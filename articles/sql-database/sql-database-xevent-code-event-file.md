@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Event File target code for extended events in SQL Database
@@ -94,7 +93,7 @@ $resourceGroupName   = 'YOUR_RESOURCE-GROUP-NAME';
 $policySasExpiryTime = '2018-08-28T23:44:56Z';
 $policySasStartTime  = '2017-10-01';
 
-$storageAccountLocation = 'West US';
+$storageAccountLocation = 'YOUR_STORAGE_ACCOUNT_LOCATION';
 $storageAccountName     = 'YOUR_STORAGE_ACCOUNT_NAME';
 $contextName            = 'YOUR_CONTEXT_NAME';
 $containerName          = 'YOUR_CONTAINER_NAME';
@@ -417,6 +416,7 @@ SELECT
         sys.fn_xe_file_target_read_file
             (
                 -- TODO: Fill in Storage Account name, and the associated Container name.
+                -- TODO: The name of the .xel file needs to be an exact match to the files in the storage account Container (You can use Storage Account explorer from the portal to find out the exact file names or you can retrieve the name using the following DMV-query: select target_data from sys.dm_xe_database_session_targets. The 3rd xml-node, "File name", contains the name of the file currently written to.)
                 'https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent/anyfilenamexel242b',
                 null, null, null
             );
@@ -457,9 +457,9 @@ GO
 
 ## Output
 
-When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **<event>** element is displayed which shows one UPDATE statement.
+When the Transact-SQL script completes, click a cell under the **event_data_XML** column header. One **\<event>** element is displayed which shows one UPDATE statement.
 
-Here is one **<event>** element that was generated during testing:
+Here is one **\<event>** element that was generated during testing:
 
 
 ```xml

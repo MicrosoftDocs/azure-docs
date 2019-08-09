@@ -13,9 +13,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako;mingfeiy
-
+ms.date: 03/18/2019
+ms.author: juliako
 ---
 # Dynamic encryption: Configure a content key authorization policy
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]

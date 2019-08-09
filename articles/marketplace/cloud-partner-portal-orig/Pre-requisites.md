@@ -1,20 +1,20 @@
 ---
-title: Prerequisites for Application Curation | Microsoft Docs
+title: Prerequisites for Application Curation 
 description: List of prerequisites for application curation.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
+
 author: pbutlerm
 manager: Ricardo.Villalobos  
-editor:
 
-ms.assetid: 
+
+
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
+
+
+
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Prerequisites for Application Curation

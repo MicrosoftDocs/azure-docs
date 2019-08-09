@@ -1,28 +1,17 @@
 ---
 title: MapReduce with Apache Hadoop on HDInsight 
 description: Learn how to run MapReduce jobs on Apache Hadoop in HDInsight clusters.
-services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/20/2019
 ---
 # Use MapReduce in Apache Hadoop on HDInsight
 
-Learn how to run MapReduce jobs on HDInsight clusters. Use the following table to discover the various ways that MapReduce can be used with HDInsight:
-
-| **Use this**... | **...to do this** | ...with this **cluster operating system** | ...from this **client operating system** |
-|:--- |:--- |:--- |:--- |
-| [SSH](apache-hadoop-use-mapreduce-ssh.md) |Use the Hadoop command through **SSH** |Linux |Linux, Unix, Mac OS X, or Windows |
-| [REST](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** (examples use cURL) |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
-| [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
-
-> [!IMPORTANT]
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+Learn how to run MapReduce jobs on HDInsight clusters. 
 
 ## <a id="whatis"></a>What is MapReduce
 
@@ -53,15 +42,13 @@ Hadoop streaming communicates with the mapper and reducer over STDIN and STDOUT.
 
 For more information, see [Hadoop Streaming](https://hadoop.apache.org/docs/r1.2.1/streaming.html).
 
-For examples of using Hadoop streaming with HDInsight, see the following documents:
+For examples of using Hadoop streaming with HDInsight, see the following document:
 
 * [Develop C# MapReduce jobs](apache-hadoop-dotnet-csharp-mapreduce-streaming.md)
 
-* [Develop Python MapReduce jobs](apache-hadoop-streaming-python.md)
-
 ## <a id="data"></a>Example data
 
-HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo Da Vinci.
+HDInsight provides various example data sets, which are stored in the `/example/data` and `/HdiSamples` directory. These directories are in the default storage for your cluster. In this document, we use the `/example/data/gutenberg/davinci.txt` file. This file contains the notebooks of Leonardo da Vinci.
 
 ## <a id="job"></a>Example MapReduce
 
@@ -141,11 +128,9 @@ public class WordCount {
 }
 ```
 
-For instructions to write your own MapReduce applications, see the following documents:
+For instructions to write your own MapReduce applications, see the following document:
 
 * [Develop Java MapReduce applications for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Develop Python MapReduce applications for HDInsight](apache-hadoop-streaming-python.md)
 
 ## <a id="run"></a>Run the MapReduce
 
@@ -157,16 +142,11 @@ HDInsight can run HiveQL jobs by using various methods. Use the following table 
 | [Curl](apache-hadoop-use-mapreduce-curl.md) |Submit the job remotely by using **REST** |Linux or Windows |Linux, Unix, Mac OS X, or Windows |
 | [Windows PowerShell](apache-hadoop-use-mapreduce-powershell.md) |Submit the job remotely by using **Windows PowerShell** |Linux or Windows |Windows |
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 ## <a id="nextsteps"></a>Next steps
 
 To learn more about working with data in HDInsight, see the following documents:
 
 * [Develop Java MapReduce programs for HDInsight](apache-hadoop-develop-deploy-java-mapreduce-linux.md)
-
-* [Develop Python streaming MapReduce programs for HDInsight](apache-hadoop-streaming-python.md)
 
 * [Use Apache Hive with HDInsight][hdinsight-use-hive]
 

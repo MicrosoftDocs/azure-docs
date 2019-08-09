@@ -1,21 +1,13 @@
 ---
-title: Azure Applications Solution Template Offer Publishing Guide
+title: Azure Applications Solution Template Offer Publishing Guide | Azure Marketplace
 description: This article describes the requirements to publish a solution template in the Azure Marketplace.
 services:  Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-documentationcenter:
 author: ellacroi
 manager: nunoc
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 11/15/2018
 ms.author: ellacroi
-
 ---
 
 # Azure Applications: Solution Template Offer Publishing Guide
@@ -34,7 +26,7 @@ These solution templates are transaction offers, which are deployed and billed t
 |Billing and metering    |  The resources will be provisioned in the customer’s Azure subscription. Pay-as-you-go (PAYGO) virtual machines will be transacted with the customer via Microsoft, billed via the customer’s Azure subscription (PAYGO).  <br/> In the case of bring-your-own-license (BYOL), while Microsoft will bill infrastructure costs incurred in the customer subscription, you will transact your software licensing fees to the customer directly.   |
 |Azure-compatible virtual hard disk (VHD)  |   VMs must be built on Windows or Linux.  For more information, [see Create an Azure-compatible VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |
 | Customer Usage Attribution | Enabling customer usage attribution is required on all solution templates published to the Azure Marketplace. For more information on customer usage attribution and how to enable it, see [Azure partner customer usage attribution](./azure-partner-customer-usage-attribution.md).  |
-|  |  |
+| Use Managed Disks | [Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) is the default option for persisted disks of IaaS VMs in Azure. You must use Managed Disks in Solution Templates. <br> <br> 1. Follow the [guidance](https://docs.microsoft.com/azure/virtual-machines/windows/using-managed-disks-template-deployments) and [samples](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md) for using Managed Disks in the Azure ARM templates to update your solution templates. <br> <br> 2. Follow the instructions below to import the underlying VHD of the Managed Disks to a Storage account to publish the VHD as an image in the Marketplace: <br> <ul> <li> [PowerShell](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd?toc=%2fpowershell%2fmodule%2ftoc.json) </li> <li> [CLI](https://docs.microsoft.com/azure/virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd?toc=%2fcli%2fmodule%2ftoc.json) </li> </ul> |
 
 ## Next steps
 If you haven't already done so, [register](https://azuremarketplace.microsoft.com/sell) in the marketplace.

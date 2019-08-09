@@ -4,7 +4,7 @@ description: An overview of the integration points between the Cluster Resource 
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7

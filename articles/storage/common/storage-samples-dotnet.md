@@ -1,15 +1,15 @@
 ---
 title: Azure Storage samples using .NET | Microsoft Docs
 description: View, download, and run sample code and applications for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the .NET storage client libraries.
-services: storage
-author: seguler
+author: mhopkins-msft
+
+ms.author: mhopkins
+ms.date: 05/03/2019
 ms.service: storage
-ms.devlang: dotnet
-ms.topic: article
-ms.date: 01/12/2017
-ms.author: seguler
 ms.subservice: common
+ms.topic: sample
 ---
+
 # Azure Storage samples using .NET
 
 ## .NET sample index
@@ -20,7 +20,7 @@ The following table provides an overview of our samples repository and the scena
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Append Blob</td> 
-<td><a href="https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.cloudblobcontainer.getappendblobreference.aspx">CloudBlobContainer.GetAppendBlobReference Method Example</a></td> 
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144">Getting Started with Blobs</a></td> 
 </tr> 
 <tr> 
 <td>Block Blob</td>

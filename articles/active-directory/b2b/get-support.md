@@ -11,9 +11,9 @@ ms.date: 05/26/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
-
+manager: celested
+ms.reviewer: mal
+ms.custom: "it-pro, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
 ---
 
@@ -27,7 +27,7 @@ You’ve read through the documentation, you’ve done the right things, but sti
      - Service: Active Directory
      - Support Plan: Choose relevant support plan
 
-   ![new support request](media/get-support/new-support-request.png)
+   ![Screenshot showing a new support request](media/get-support/new-support-request.png)
 
 2. Describe your problem:
    - Choose the appropriate severity that reflects you needs.
@@ -35,6 +35,6 @@ You’ve read through the documentation, you’ve done the right things, but sti
    - Choose Category as Adding Users (B2B)
    - Include any error messages such as CorrelationID, affected users, and so on.
 
-   ![support ticket problem description](media/get-support/problem-description.png)
+   ![Screenshot showing a support ticket problem description](media/get-support/problem-description.png)
 
 3. For a support representative to contact you for further troubleshooting, add your contact information.

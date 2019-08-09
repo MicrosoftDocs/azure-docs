@@ -4,7 +4,7 @@ description: Install the runtime, SDK, and tools and create a local development 
 services: service-fabric
 documentationcenter: linux
 author: suhuruli
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid: bf84458f-4b87-4de1-9844-19909e368deb

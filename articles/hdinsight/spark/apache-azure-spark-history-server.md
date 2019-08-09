@@ -1,7 +1,6 @@
 ---
 title: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight 
 description: Use extended Spark History Server to debug and diagnose Spark applications - Azure HDInsight.
-services: hdinsight
 ms.service: hdinsight
 author: jejiang
 ms.author: jejiang
@@ -26,7 +25,7 @@ Apache Spark History Server is the web UI for completed and running Spark applic
     ![Spark History Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark History Server")
 
 ### Open the Spark History Server Web UI by URL
-Open the Spark History Server by browsing to the following URL, replace <ClusterName> with Spark cluster name of customer.
+Open the Spark History Server by browsing to the following URL, replace `<ClusterName>` with Spark cluster name of customer.
 
    ```
    https://<ClusterName>.azurehdinsight.net/sparkhistory
@@ -314,7 +313,7 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 ## Known issues
 
-1.	Currently, it only works for Spark 2.3 cluster.
+1.	Currently, it only works for Spark 2.3 and 2.4 cluster.
 
 2.	Input/output data using RDD will not show in data tab.
 

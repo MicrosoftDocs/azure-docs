@@ -4,7 +4,7 @@ description: Learn how to use Packer to create images of Windows virtual machine
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -22,7 +22,8 @@ Each virtual machine (VM) in Azure is created from an image that defines the Win
 
 This article was last tested on 2/21/2019 using the [Az PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) version 1.3.0 and [Packer](https://www.packer.io/docs/install/index.html) version 1.3.4.
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+> [!NOTE]
+> Azure now has a service, Azure Image Builder (preview), for defining and creating your own custom images. Azure Image Builder is built on Packer, so you can even use your existing Packer shell provisioner scripts with it. To get started with Azure Image Builder, see [Create a Windows VM with Azure Image Builder](image-builder.md).
 
 ## Create Azure resource group
 During the build process, Packer creates temporary Azure resources as it builds the source VM. To capture that source VM for use as an image, you must define a resource group. The output from the Packer build process is stored in this resource group.
@@ -30,7 +31,7 @@ During the build process, Packer creates temporary Azure resources as it builds 
 Create a resource group with [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 ```azurepowershell
-$rgName = "mypackerGroup"
+$rgName = "myResourceGroup"
 $location = "East US"
 New-AzResourceGroup -Name $rgName -Location $location
 ```
@@ -86,7 +87,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
     "tenant_id": "zzzzzzz-zzzz-zzzz-zzzz-zzzzzzzzzzzz",
     "subscription_id": "yyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyy",
 
-    "managed_image_resource_group_name": "myPackerGroup",
+    "managed_image_resource_group_name": "myResourceGroup",
     "managed_image_name": "myPackerImage",
 
     "os_type": "Windows",
@@ -97,7 +98,7 @@ Create a file named *windows.json* and paste the following content. Enter your o
     "communicator": "winrm",
     "winrm_use_ssl": true,
     "winrm_insecure": true,
-    "winrm_timeout": "3m",
+    "winrm_timeout": "5m",
     "winrm_username": "packer",
 
     "azure_tags": {
@@ -244,6 +245,4 @@ To see your VM, that includes the IIS install from the Packer provisioner, in ac
 
 
 ## Next steps
-In this example, you used Packer to create a VM image with IIS already installed. You can use this VM image alongside existing deployment workflows, such as to deploy your app to VMs created from the Image with Azure DevOps Services, Ansible, Chef, or Puppet.
-
-For additional example Packer templates for other Windows distros, see [this GitHub repo](https://github.com/hashicorp/packer/tree/master/examples/azure).
+You can also use existing Packer provisioner scripts with [Azure Image Builder](image-builder.md).

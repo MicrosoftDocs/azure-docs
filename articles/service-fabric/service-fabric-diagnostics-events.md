@@ -4,7 +4,7 @@ description: Learn about the Service Fabric events provided out of the box to he
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 
 ms.assetid:

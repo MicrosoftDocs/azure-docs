@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure portal customization documentation 
+title: Azure portal documentation 
 metadata:
-    description: Learn how to customize the Azure portal.
+    description: Learn how to use the Azure portal and create custom dashboards.
     services: azure portal
     documentationcenter: ''
     author: kfollis
-    manager: dougeby
+    manager: mtillman
     editor: ''
     ms.assetid: 3e12c488-9c8c-4d0d-9b07-e018dec42fc6
     ms.service: azure-portal

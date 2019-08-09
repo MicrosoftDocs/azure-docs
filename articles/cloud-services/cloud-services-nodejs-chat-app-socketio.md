@@ -3,18 +3,12 @@ title: Node.js application using Socket.io - Azure
 description: Learn how to use socket.io in a node.js application hosted on Azure.
 services: cloud-services
 documentationcenter: nodejs
-author: jpconnock
-manager: timlt
-editor: ''
-
-ms.assetid: 7f9435e0-7732-4aa1-a4df-ea0e894b847f
+author: georgewallace
 ms.service: cloud-services
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
-ms.author: jeconnoc
+ms.author: gwallace
 
 ---
 

@@ -39,7 +39,7 @@ The format of any UDF package has the path `/UserCustomCode/CLR/*`. Dynamic Link
 |dateTime  |  dateTime   |
 |struct  |  IRecord   |
 |object  |  IRecord   |
-|Array<object>  |  IArray   |
+|Array\<object>  |  IArray   |
 |dictionary<string, object>  |  IRecord   |
 
 ## CodeBehind

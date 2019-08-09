@@ -40,7 +40,7 @@ In this walkthrough, we set up Vamp on Azure Container Service with a DC/OS clus
 
 ## Set up Vamp
 
-Now that you have a running DC/OS cluster, you can install Vamp from the DC/OS UI (http://localhost:80). 
+Now that you have a running DC/OS cluster, you can install Vamp from the DC/OS UI (http:\//localhost:80). 
 
 ![DC/OS UI](./media/container-service-dcos-vamp-canary-release/01_set_up_vamp.png)
 

@@ -12,7 +12,7 @@ manager:
 
 # Geofencing GeoJSON data
 
-The Azure Maps [GET Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofencepreview) and [POST Geofence](https://docs.microsoft.com/rest/api/maps/spatial/postgeofencepreview) APIs allow you to retrieve proximity of a coordinate relative to a provided geofence or set of fences. This article details how to prepare the geofence data that can be used in the Azure Maps GET and POST API.
+The Azure Maps [GET Geofence](/rest/api/maps/spatial/getgeofence) and [POST Geofence](/rest/api/maps/spatial/postgeofence) APIs allow you to retrieve proximity of a coordinate relative to a provided geofence or set of fences. This article details how to prepare the geofence data that can be used in the Azure Maps GET and POST API.
 
 The data for geofence or set of geofences is represented by `Feature` Object and `FeatureCollection` Object in `GeoJSON` format, which is defined in [rfc7946](https://tools.ietf.org/html/rfc7946). In Addition to it:
 

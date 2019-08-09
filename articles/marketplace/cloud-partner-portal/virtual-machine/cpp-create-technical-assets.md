@@ -1,20 +1,12 @@
 ---
-title: Create technical assets for a virtual machine offer for the Azure Marketplace | Microsoft Docs
+title: Create technical assets for a virtual machine offer for the Azure Marketplace 
 description: Explains how to create the technical assets for a virtual machine offer in the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: pbutlerm
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 08/20/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Create technical assets for a virtual machine offer
@@ -33,6 +25,7 @@ You must configure the VM OS, the VM size, ports to open, and up to 15 attached 
 > [!IMPORTANT]
 > *Do not change disk count in a new image version.* If you must reconfigure Data disks in the image, define a new SKU. Publishing a new image version with different disk counts will have the potential of breaking new deployment based on the new image version in cases of auto-scaling, automatic deployments of solutions through Azure Resource Manager templates and other scenarios.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## Fundamental technical knowledge
 

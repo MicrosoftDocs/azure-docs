@@ -101,13 +101,13 @@ To configure Azure AD single sign-on with NetDocuments, perform the following st
     ![NetDocuments Domain and URLs single sign-on information](common/sp-reply.png)
 
 	a. In the **Sign on URL** text box, type a URL using the following pattern:
-    `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
     b. In the **Reply URL** text box, type a URL using the following pattern:
-    `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<user identifier>`
+    `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Sign on URL and Reply URL. Repository ID is a value starting with **CA-** followed by 8 character code associated with your NetDocuments Repository. You can check the [NetDocuments Federated Identity support document](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) for more information. Alternatively you can contact [NetDocuments Client support team](https://support.netdocuments.com/hc/) to get these values if you have difficulties configuring using the above information . You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Federation Metadata XML** from the given options as per your requirement and save it on your computer.
 
@@ -231,9 +231,9 @@ When you click the NetDocuments tile in the Access Panel, you should be automati
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

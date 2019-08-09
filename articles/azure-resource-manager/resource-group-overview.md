@@ -1,17 +1,10 @@
 ---
 title: Azure Resource Manager Overview | Microsoft Docs
 description: Describes how to use Azure Resource Manager for deployment, management, and access control of resources on Azure.
-services: azure-resource-manager
-documentationcenter: na
 author: tfitzmac
-
-ms.assetid: 76df7de1-1d3b-436e-9b44-e1b3766b3961
 ms.service: azure-resource-manager
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 03/04/2019
+ms.date: 05/31/2019
 ms.author: tomfitz
 
 ---
@@ -47,13 +40,15 @@ Resource Manager provides several benefits:
 * You can apply tags to resources to logically organize all the resources in your subscription.
 * You can clarify your organization's billing by viewing costs for a group of resources sharing the same tag.
 
-## Understand management scope
+## Understand scope
 
-Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. [Management groups](../governance/management-groups/index.md) are in a preview release. The following image shows an example of these layers.
+Azure provides four levels of scope: [management groups](../governance/management-groups/index.md), subscriptions, [resource groups](#resource-groups), and resources. The following image shows an example of these layers.
 
 ![Scope](./media/resource-group-overview/scope-levels.png)
 
-You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied the resource group and all its resources. However, another resource group does not have that policy assignment.
+You apply management settings at any of these levels of scope. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a [policy](../governance/policy/overview.md) to the subscription, the policy is applied to all resource groups and resources in your subscription. When you apply a policy on the resource group, that policy is applied the resource group and all its resources. However, another resource group doesn't have that policy assignment.
+
+You can deploy templates to management groups, subscriptions, or resource groups.
 
 ## Guidance
 
@@ -80,6 +75,8 @@ There are some important factors to consider when defining your resource group:
 * A resource can interact with resources in other resource groups. This interaction is common when the two resources are related but don't share the same lifecycle (for example, web apps connecting to a database).
 
 When creating a resource group, you need to provide a location for that resource group. You may be wondering, "Why does a resource group need a location? And, if the resources can have different locations than the resource group, why does the resource group location matter at all?" The resource group stores metadata about the resources. Therefore, when you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+
+If the resource group's region is temporarily unavailable, you can't update resources in the resource group because the metadata is unavailable. The resources in other regions will still function as expected, but you can't update them. For more information about building reliable applications, see [Designing reliable Azure applications](/azure/architecture/reliability/).
 
 ## Resource providers
 
@@ -168,7 +165,21 @@ After defining your template, you're ready to deploy the resources to Azure. To 
 
 When deploying a complex service to Azure, you might need to deploy your service to multiple regions, and check its health before proceeding to the next step. Use [Azure Deployment Manager](deployment-manager-overview.md) to coordinate a staged rollout of the service. By staging the rollout of your service, you can find potential problems before it has been deployed to all regions. If you don't need these precautions, the deployment operations in the preceding section are the better option.
 
-Deployment Manager is currently in private preview.
+Deployment Manager is currently in public preview.
+
+## Resiliency of Azure Resource Manager
+
+The Azure Resource Manager service is designed for resiliency and continuous availability. Resource Manager and control plane operations (requests sent to management.azure.com) in the REST API are:
+
+* Distributed across regions. Some services are regional.
+
+* Distributed across Availability Zones (as well regions) in locations that have multiple Availability Zones.
+
+* Not dependent on a single logical data center.
+
+* Never taken down for maintenance activities.
+
+This resiliency applies to services that receive requests through Resource Manager. For example, Key Vault benefits from this resiliency.
 
 [!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 

@@ -23,8 +23,8 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 | Programming language | SDK or samples location |
 | -------------------- | ----------------------- |
 | .NET, Java, and Management | https://github.com/Azure/azure-service-bus/ |
-| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/packages/%40azure/servicebus/data-plane/examples |
-| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/azure-servicebus |
+| Node.js | https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/servicebus/service-bus/samples |
+| Python | https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/servicebus/azure-servicebus |
 
 ## Service Bus Explorer
 

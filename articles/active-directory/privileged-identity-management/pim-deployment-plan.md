@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: Deploy Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Describes how to plan the deployment of Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -19,13 +19,13 @@ ms.collection: M365-identity-device-management
 
 # Deploy Azure AD Privileged Identity Management (PIM)
 
-This step-by-step guide describes how to plan the deployment of Azure AD Privileged Identity Management (PIM) in your organization.
+This step-by-step guide describes how to plan the deployment of Azure Active Directory (Azure AD) Privileged Identity Management (PIM) in your organization.
 
 > [!TIP]
 > Throughout this document, you will see items marked as:
->
+> 
 > :heavy_check_mark: **Microsoft recommends**
->
+> 
 > These are general recommendations, and you should only implement if they apply to your specific enterprise needs.
 
 ## Step 1. Learn about PIM
@@ -75,7 +75,7 @@ For more information, see [What is Azure AD Privileged Identity Management?](pim
 
 ### Roles that can be managed by PIM
 
-**Azure AD roles** – These roles are all the directory roles inside Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
+**Azure AD roles** – These roles are all in Azure Active Directory (such as Global Administrator, Exchange Administrator, and Security Administrator). You can read more about the roles and their functionality in [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). For help with determining which roles to assign your administrators, see [least privileged roles by task](../users-groups-roles/roles-delegate-by-task.md).
 
 **Azure resource roles** – These roles are linked to an Azure resource, resource group, subscription, or management group. PIM provides just-in-time access to both built-in roles like Owner, User Access Administrator, and Contributor, as well as [custom roles](../../role-based-access-control/custom-roles.md). For more information about Azure resource roles, see [role-based access control (RBAC)](../../role-based-access-control/overview.md).
 
@@ -139,7 +139,7 @@ Follow these steps to enforce the principle of least privilege for your Azure AD
 
 1. List who has privileged roles in your organization. You can use the [PIM wizard](pim-security-wizard.md#run-the-wizard) to get to a page like the following.
 
-    ![Discover privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Discover privileged roles pane showing who has privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. For all Global Administrators in your organization, find out why they need the role. Based on reading the previous documentation, if the person’s job can be performed by one or more granular administrator roles, you should remove them from the Global Administrator role and make assignments accordingly inside Azure Active Directory (As a reference: Microsoft currently only has about 10 administrators with the Global Administrator role. Learn more at [how Microsoft uses PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -147,7 +147,7 @@ Follow these steps to enforce the principle of least privilege for your Azure AD
 
 To automate steps 3 and 4, you can utilize the access review function inside PIM. Following the steps in [start an access review for Azure AD roles in PIM](pim-how-to-start-security-review.md), you can set up an access review for every Azure AD role that has one or more members.
 
-![Create an access review](./media/pim-deployment-plan/create-access-review.png)
+![Create an access review pane for Azure AD roles](./media/pim-deployment-plan/create-access-review.png)
 
 You should set the reviewers to **Members (self)**. This will send out an email to all members in the role to get them to confirm whether they need the access. You should also turn on **Require reason on approval** in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular administrator roles in the case of Global Administrators.
 
@@ -290,7 +290,7 @@ Now that you have identified the test users, use this step to configure PIM for 
 
 #### Configure PIM for Azure AD roles
 
-1. [Configure the Azure AD directory role settings](pim-how-to-change-default-settings.md) based on what you planned.
+1. [Configure the Azure AD role settings](pim-how-to-change-default-settings.md) based on what you planned.
 
 1. Navigate to **Azure AD roles**, click **Roles**, and then select the role you just configured.
 

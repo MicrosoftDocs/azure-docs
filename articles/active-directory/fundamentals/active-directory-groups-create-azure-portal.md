@@ -2,7 +2,7 @@
 title: Create a basic group and add members - Azure Active Directory | Microsoft Docs
 description: Instructions about how to create a basic group using Azure Active Directory.
 services: active-directory
-author: eross-msft
+author: msaburnley
 manager: daveba
 
 ms.service: active-directory
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
 ms.date: 03/01/2019
-ms.author: lizross
+ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: "it-pro, seodec18"                      
 ms.collection: M365-identity-device-management
@@ -27,7 +27,7 @@ You can create a basic group and add your members at the same time.
 
 2. Select **Azure Active Directory**, **Groups**, and then select **New group**.
 
-    ![Azure AD with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Azure AD page, with Groups showing](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. In the **Group** page, fill out the required information.
 
@@ -39,7 +39,7 @@ You can create a basic group and add your members at the same time.
         
        - **Office 365**. Provides collaboration opportunities by giving members access to a shared mailbox, calendar, files, SharePoint site, and more. This option also lets you give people outside of your organization access to the group. For more info about Office 365 Groups, see [Learn about Office 365 Groups](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-   - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense.
+   - **Group name (required).** Add a name for the group, something that you'll remember and that makes sense. A check will be performed to determine if the name is already used for another group. If the name is already in use, to avoid duplicate naming, you'll be asked to modify the name of your group.
 
    - **Group description.** Add an optional description to your group.
 

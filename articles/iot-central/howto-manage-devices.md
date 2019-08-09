@@ -3,14 +3,14 @@ title: Manage the devices in your Azure IoT Central application | Microsoft Docs
 description: As an operator, learn how to manage devices in your Azure IoT Central application.
 author: ellenfosborne
 ms.author: elfarber
-ms.date: 01/30/2019
+ms.date: 06/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
 ---
 
-# Manage devices in your Azure IoT Central application (New UI design)
+# Manage devices in your Azure IoT Central application
 
 This article describes how, as an operator, to manage devices in your Azure IoT Central application. As an operator, you can:
 
@@ -18,7 +18,6 @@ This article describes how, as an operator, to manage devices in your Azure IoT 
 - Maintain an up-to-date inventory of your devices.
 - Keep your device metadata up-to-date by changing the values stored in the device properties.
 - Control the behavior of your devices by updating a setting on a specific device from the **Settings** page.
-
 
 ## View your devices
 
@@ -62,7 +61,7 @@ To bulk-register devices in your application:
 
 1. Select **Import**.
 
-    ![Import Action](./media/howto-manage-devices/BulkImport1.png)
+    ![Import Action](./media/howto-manage-devices/bulkimport1a.png)
 
 1. Select the CSV file that has the list of Device IDs to be imported.
 
@@ -70,7 +69,7 @@ To bulk-register devices in your application:
 
 1. Once the import completes, a success message is shown on the device grid.
 
-    ![Import Success](./media/howto-manage-devices/BulkImport3.png)
+    ![Import Success](./media/howto-manage-devices/bulkimport3a.png)
 
 If the device import operation fails, you see an error message on the device grid. A log file capturing all the errors is generated that you can download.
 
@@ -82,13 +81,13 @@ If you register devices by starting the import under **Unassociated devices**, t
 
 1. On the left panel, choose **Unassociated devices**:
 
-    ![Unassociated Devices](./media/howto-manage-devices/UnassociatedDevices1.png)
+    ![Unassociated Devices](./media/howto-manage-devices/unassociateddevices1a.png)
 
 1. Select the devices you want to associate with a template:
 
 1. Select **Associate**:
 
-    ![Associate Devices](./media/howto-manage-devices/UnassociatedDevices2.png)
+    ![Associate Devices](./media/howto-manage-devices/unassociateddevices2a.png)
 
 1. Choose the template from the list of available templates and select **Associate**.
 
@@ -99,7 +98,7 @@ If you register devices by starting the import under **Unassociated devices**, t
 
 ## Export devices
 
-To connect a real device to IoT Central, you need its connection string. You can export device details in bulk to get connection strings and other properties. The export process creates a CSV file with the device identity, device name, and primary connection string for all the selected devices.
+To connect a real device to IoT Central, you need its connection string. You can export device details in bulk to get the information you need to create device connection strings. The export process creates a CSV file with the device identity, device name, and keys for all the selected devices.
 
 To bulk export devices from your application:
 
@@ -109,7 +108,7 @@ To bulk export devices from your application:
 
 1. Select the devices that you want to export and then select the **Export** action.
 
-    ![Export](./media/howto-manage-devices/Export1.png)
+    ![Export](./media/howto-manage-devices/export1a.png)
 
 1. The export process starts. You can track the status at the top of the grid.
 
@@ -117,7 +116,7 @@ To bulk export devices from your application:
 
 1. Select the **success message** to download the file to a local folder on the disk.
 
-    ![Export Success](./media/howto-manage-devices/Export2.png)
+    ![Export Success](./media/howto-manage-devices/export2a.png)
 
 1. The exported CSV file contains the following columns: device ID, device name, device keys, and X509 certificate thumbprints:
 
@@ -125,8 +124,10 @@ To bulk export devices from your application:
     * IOTC_DEVICENAME
     * IOTC_SASKEY_PRIMARY
     * IOTC_SASKEY_SECONDARY
-    * IOTC_X509THUMBPRINT_PRIMARY	
+    * IOTC_X509THUMBPRINT_PRIMARY
     * IOTC_X509THUMBPRINT_SECONDARY
+
+See [Device connectivity in Azure IoT Central](concepts-connectivity.md), for more information about connection strings and connecting real devices to your IoT Central application.
 
 ## Delete a device
 

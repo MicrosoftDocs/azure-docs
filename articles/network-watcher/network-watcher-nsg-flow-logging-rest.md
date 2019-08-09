@@ -3,8 +3,8 @@ title: Manage Network Security Group flow logs with Azure Network Watcher - REST
 description: This page explains how to manage Network Security Group flow logs in Azure Network Watcher with REST API
 services: network-watcher
 documentationcenter: na
-author: jimdial
-manager: timlt
+author: KumudD
+manager: twooley
 editor: 
 
 ms.assetid: 2ab25379-0fd3-4bfe-9d82-425dfc7ad6bb
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 02/22/2017
-ms.author: jdial
+ms.author: kumud
 
 ---
 
@@ -52,7 +52,7 @@ In this scenario, you will:
 
 Log in to armclient with your Azure credentials.
 
-```PowerShell
+```powershell
 armclient login
 ```
 

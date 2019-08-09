@@ -1,14 +1,14 @@
 ---
-title: Glossary 
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Glossary - LUIS
+titleSuffix: Azure Cognitive Services
 description: The glossary explains terms that you might encounter as you work with the LUIS API Service.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: reference
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -17,11 +17,11 @@ The Language Understanding (LUIS) glossary explains terms that you might encount
 
 ## <a name="active-version"></a>Active version
 
-The active LUIS version is the version that receives any changes to the model. In the [LUIS](luis-reference-regions.md) website, if you want to make changes to a version that is not the active version, you need to first set that version as active.
+The active LUIS version is the version that receives any changes to the model. In the [LUIS](luis-reference-regions.md) portal, if you want to make changes to a version that is not the active version, you need to first set that version as active.
 
 ## <a name="authoring"></a>Authoring
 
-Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), either using the [LUIS](luis-reference-regions.md) website or the [authoring APIs](https://aka.ms/luis-authoring-api).
+Authoring is the ability to create, manage and deploy a [LUIS app](#luis-app), either using the [LUIS](luis-reference-regions.md) portal or the [authoring APIs](https://go.microsoft.com/fwlink/?linkid=2092087).
 
 ## <a name="authoring-key"></a>Authoring Key
 
@@ -29,30 +29,12 @@ Previously named "Programmatic" key. Used to author the app. Not used for produc
 
 ## <a name="batch-test-json-file"></a>Batch text JSON file
 
-The batch file is a JSON array. Each element in the array has three properties: `text`, `intent`, and `entities`. The `entities` property is an array. The array can be empty. If the `entities` array is not empty, it needs to accurately identify the entities.
+Batch testing is the ability to validate a current LUIS app's model with a consistent and known test set of user utterances. The batch test is defined in a [JSON formatted file](luis-concept-batch-test.md#batch-file-format).
 
-```JSON
-[
-    {
-        "text": "drive me home",
-        "intent": "None",
-        "entities": []
-    },
-    {
-        "text": "book a flight to orlando on the 25th",
-        "intent": "BookFlight",
-        "entities": [
-            {
-                "entity": "orlando",
-                "type": "Location",
-                "startIndex": 18,
-                "endIndex": 25
-            }
-        ]
-    }
-]
-
-```
+See also: 
+* [Concepts](luis-concept-batch-test.md)
+* [How-to](luis-how-to-batch-test.md)
+* [Tutorial]luis-tutorial-batch-testing.md)
 
 
 ## <a name="collaborator"></a>Collaborator
@@ -69,7 +51,7 @@ In the LUIS context, a **domain** is an area of knowledge. Your domain is specif
 
 ## <a name="endpoint"></a>Endpoint
 
-The [LUIS endpoint](https://aka.ms/luis-endpoint-apis) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Keys and endpoints](luis-how-to-azure-subscription.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+The [LUIS endpoint](https://go.microsoft.com/fwlink/?linkid=2092356) URL is where you submit LUIS queries after the [LUIS app](#luis-app) is authored and published. The endpoint URL contains the region of the published app as well as the app ID. You can find the endpoint on the **[Keys and endpoints](luis-how-to-azure-subscription.md)** page of your app, or you can get the endpoint URL from the [Get App Info](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 An example endpoint looks like:
 
@@ -91,11 +73,11 @@ An example endpoint looks like:
 
 In [batch testing](luis-interactive-test.md#batch-testing), a measure of the test's accuracy.
 
-## <a name="false-negative"></a>False negative (TN)
+## <a name="false-negative"></a>False negative (FN)
 
 In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the absence of the target intent/entity.
 
-## <a name="false-positive"></a>False positive (TP)
+## <a name="false-positive"></a>False positive (FP)
 
 In [batch testing](luis-interactive-test.md#batch-testing), the data points represent utterances in which your app incorrectly predicted the existence of the target intent/entity.
 
@@ -109,7 +91,7 @@ An [intent](luis-concept-intent.md) represents a task or action the user wants t
 
 ## <a name="labeling"></a>Labeling
 
-Labeling is the process of associating a word or phrase in an intent's [utterance](#utterance) with an [entity](#entity) (datatype).
+Labeling, or marking, is the process of associating a word or phrase in an intent's [utterance](#utterance) with an [entity](#entity) (datatype).
 
 ## <a name="luis-app"></a>LUIS app
 

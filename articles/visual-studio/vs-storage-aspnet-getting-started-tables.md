@@ -543,7 +543,7 @@ specified partition.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a all entities where the **PartitionKey** (customer's last name) has a value of "Smith":
+1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for all entities where the **PartitionKey** (customer's last name) has a value of "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 

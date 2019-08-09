@@ -107,7 +107,7 @@ To configure Azure AD single sign-on with Help Scout, perform the following step
 	b. **Reply URL** is the **Post-back URL (Assertion Consumer Service URL)** from Help Scout, starts with `https://` 
 
 	> [!NOTE]
-	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
+	> The values in these URLs are for demonstration only. You need to update these values from actual Reply URL and Identifier. You get these values from the **Single Sign-On** tab under Authentication section, which is explained later in the tutorial.
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
@@ -153,7 +153,7 @@ To configure Azure AD single sign-on with Help Scout, perform the following step
 
 	![Configure Single Sign-On](./media/helpscout-tutorial/settings4.png)
 
-	a. In **Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	a. In **Single Sign-On URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
 	b. Click **Upload Certificate** to upload the **Certificate(Base64)** downloaded from Azure portal.
 
@@ -230,4 +230,4 @@ When you click the Help Scout tile in the Access Panel, you should be automatica
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

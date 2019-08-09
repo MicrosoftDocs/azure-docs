@@ -38,7 +38,7 @@ The following walkthrough provides step-by-step instructions for creating a cust
 
 ## Walkthrough: create a custom activity
 ### Prerequisites
-* Visual Studio 2012/2013/2015
+* Visual Studio 2012/2013/2015/2017
 * Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)
 
 ### Azure Batch prerequisites
@@ -94,10 +94,10 @@ The method returns a dictionary that can be used to chain custom activities toge
 ### Procedure
 1. Create a **.NET Class Library** project.
    <ol type="a">
-     <li>Launch <b>Visual Studio 2017</b> or <b>Visual Studio 2015</b> or <b>Visual Studio 2013</b> or <b>Visual Studio 2012</b>.</li>
+     <li>Launch Visual Studio.</li>
      <li>Click <b>File</b>, point to <b>New</b>, and click <b>Project</b>.</li>
      <li>Expand <b>Templates</b>, and select <b>Visual C#</b>. In this walkthrough, you use C#, but you can use any .NET language to develop the custom activity.</li>
-     <li>Select <b>Class Library</b> from the list of project types on the right. In VS 2017, choose <b>Class Library (.NET Framework)</b> </li>
+     <li>Select <b>Class Library</b> from the list of project types on the right. In Visual Studio, choose <b>Class Library (.NET Framework)</b> </li>
      <li>Enter <b>MyDotNetActivity</b> for the <b>Name</b>.</li>
      <li>Select <b>C:\ADFGetStarted</b> for the <b>Location</b>.</li>
      <li>Click <b>OK</b> to create the project.</li>
@@ -107,12 +107,12 @@ The method returns a dictionary that can be used to chain custom activities toge
 
 3. In the Package Manager Console, execute the following command to import **Microsoft.Azure.Management.DataFactories**.
 
-	```PowerShell
+	```powershell
 	Install-Package Microsoft.Azure.Management.DataFactories
     ```
 4. Import the **Azure Storage** NuGet package in to the project.
 
-	```PowerShell
+	```powershell
 	Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 
@@ -703,7 +703,7 @@ Troubleshooting consists of a few basic techniques:
 
 	If you can use the 4.3.0 version of Azure Storage package, remove the existing reference to Azure Storage package of version > 4.3.0. Then, run the following command from NuGet Package Manager Console.
 
-	```PowerShell
+	```powershell
 	Install-Package WindowsAzure.Storage -Version 4.3.0
     ```
 

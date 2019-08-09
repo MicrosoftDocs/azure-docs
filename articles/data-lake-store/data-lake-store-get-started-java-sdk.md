@@ -3,8 +3,8 @@ title: 'Java SDK: Filesystem operations on Azure Data Lake Storage Gen1 | Micros
 description: Use Azure Data Lake Storage Gen1 Java SDK to perform filesystem operations on Data Lake Storage Gen1 such as create folders, etc.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
@@ -12,7 +12,7 @@ ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
+ms.author: twooley
 
 ---
 # Filesystem operations on Azure Data Lake Storage Gen1 using Java SDK

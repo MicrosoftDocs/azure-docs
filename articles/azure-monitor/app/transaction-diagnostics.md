@@ -26,7 +26,7 @@ Components are independently deployable parts of your distributed/microservices 
 * Components can be separate Application Insights instrumentation keys (even if subscriptions are different) or different roles reporting to a single Application Insights instrumentation key. The new experience shows details across all components, regardless of how they have been set up.
 
 > [!NOTE]
-> * **Missing the related item links?** All of the related telemetry are in the [top](#cross-component-transaction-chart) and [bottom](#all-telemetry-with-this-Operation-Id) sections of the left side. 
+> * **Missing the related item links?** All of the related telemetry are in the [top](#cross-component-transaction-chart) and [bottom](#all-telemetry-with-this-operation-id) sections of the left side. 
 
 ## Transaction diagnostics experience
 This view has four key parts: results list, a cross-component transaction chart, a time-sequence list of all telemetry related to this operation, and the details pane for any selected telemetry item on the left.

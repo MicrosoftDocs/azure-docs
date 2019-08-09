@@ -1,11 +1,10 @@
 ---
-title: Failure to connect to a cluster in Azure Data Explorer
-description: This article describes troubleshooting steps for connecting to a cluster in Azure.Data Explorer.
+title: Troubleshoot Azure Data Explorer cluster connection failures
+description: This article describes troubleshooting steps for connecting to a cluster in Azure Data Explorer.
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
 ---
@@ -22,7 +21,7 @@ If you're not able to connect to a cluster in Azure Data Explorer, follow these 
 
 1. Verify that the cluster hasn't been deleted: review the activity log in your subscription.
 
-1. Check the [Azure service health dashboard](https://azure.microsoft.com/status/>). Look for the status of Azure Data Explorer in the region where you're trying to connect to a cluster.
+1. Check the [Azure service health dashboard](https://azure.microsoft.com/status/). Look for the status of Azure Data Explorer in the region where you're trying to connect to a cluster.
 
     If the status isn't **Good** (green check mark), try connecting to the cluster after the status improves.
 

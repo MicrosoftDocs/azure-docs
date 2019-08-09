@@ -20,6 +20,10 @@ ms.custom: seodec18
 ---
 # Configure your App Service app to use Azure Active Directory sign-in
 
+> [!NOTE]
+> At this time, AAD V2 (including MSAL) is not supported for Azure App Services and Azure Functions. Please check back for updates.
+>
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 This article shows you how to configure Azure App Services to use Azure Active Directory as an authentication provider.
@@ -36,8 +40,6 @@ This article shows you how to configure Azure App Services to use Azure Active D
 5. (Optional) To restrict access to your site to only users authenticated by Azure Active Directory, set **Action to take when request is not authenticated** to **Log in with Azure Active Directory**. This requires that all requests be authenticated, and all unauthenticated requests are redirected to Azure Active Directory for authentication.
 6. Click **Save**.
 
-You are now ready to use Azure Active Directory for authentication in your App Service app.
-
 ## <a name="advanced"> </a>Configure with advanced settings
 
 You can also provide configuration settings manually. This is the preferred solution if the Azure Active Directory tenant you wish to use is different from the tenant with which you sign into Azure. To complete the configuration, you must first create a registration in Azure Active Directory, and then you must provide some of the registration details to App Service.
@@ -50,8 +52,12 @@ You can also provide configuration settings manually. This is the preferred solu
 4. In a few seconds, you should see the new app registration you just created.
 5. Once the app registration has been added, click on the app registration name, click on **Settings** at the top, then click on **Properties** 
 6. In the **App ID URI** box, paste in the Application URL (from step 1), also in the **Home Page URL** paste in the Application URL (from step 1) as well, then click **Save**
-7. Now click on the **Reply URLs**, edit the **Reply URL**, paste in the Application URL (from step 1), then appended to the end of the URL, */.auth/login/aad/callback* (For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Click **Save**.   
-8.  At this point, copy the **Application ID** for the app. Keep it for later use. You will need it to configure your App Service app.
+7. Now click on the **Reply URLs**, edit the **Reply URL**, paste in the Application URL (from step 1), then append it to the end of the URL, */.auth/login/aad/callback* (For example, `https://contoso.azurewebsites.net/.auth/login/aad/callback`). Click **Save**.
+
+   > [!NOTE]
+   > You can use the same app registration for multiple domains by adding additional **Reply URLs**. Make sure to model each App Service instance with its own registration, so it has its own permissions and consent. Also consider using separate app registrations for separate site slots. This is to avoid permissions being shared between environments, so that a bug in new code you are testing does not affect production.
+    
+8. At this point, copy the **Application ID** for the app. Keep it for later use. You will need it to configure your App Service app.
 9. Close the **Registered app** page. On the **App registrations** page, click on the **Endpoints** button at the top, then copy the **WS-FEDERATION SIGN-ON ENDPOINT** URL but remove the `/wsfed` ending from the URL. The end result should look like `https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000`. The domain name may be different for a sovereign cloud. This will serve as the Issuer URL for later.
 
 ### <a name="secrets"> </a>Add Azure Active Directory information to your App Service app

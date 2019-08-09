@@ -1,15 +1,14 @@
 ---
 title: Azure Data Factory Mapping Data Flow Optimize Tab
-description: Optimize Azure Data Factory Mapping Data Flows with Optimize Tab Partition Settings
+description: Optimize Azure Data Factory Mapping Data Flows using the Optimize Tab with Partition Settings
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
 ---
 
-# Mapping Data Flow Transformation Optimize Tab
+# Mapping data flow transformation optimize tab
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -41,8 +40,13 @@ Dynamic Range will use Spark dynamic ranges based on the columns or expressions 
 
 ### Fixed Range
 
-You must build an expression that provides a fixed range for values within your partitioned data columns. You should have a good understanding of your data before using this option in order to avoid partition skew. The value that enter for the expression will be used as part of a partition function. You can set the number of physical partitions.
+You must build an expression that provides a fixed range for values within your partitioned data columns. You should have a good understanding of your data before using this option in order to avoid partition skew. The values you enter for the expression will be used as part of a partition function. You can set the number of physical partitions.
 
 ### Key
 
 If you have a good understanding of the cardinality of your data, key partitioning may be a good partition strategy. Key partitioning will create partitions for each unique value in your column. You cannot set the number of partitions because the number will be based on unique values in the data.
+
+## Next steps
+
+[Mapping data flow performance guide](concepts-data-flow-performance.md)
+[Data flow monitoring](concepts-data-flow-monitoring.md)

@@ -1,12 +1,12 @@
 ---
-title: Preventing brute-force attacks using Azure AD smart lockout
+title: Preventing brute-force attacks using Azure AD smart lockout - Azure Active Directory
 description: Azure Active Directory smart lockout helps protect your organization from brute-force attacks trying to guess passwords
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 07/25/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -26,7 +26,9 @@ Smart lockout tracks the last three bad password hashes to avoid incrementing th
  > [!NOTE]
  > Hash tracking functionality is not available for customers with pass-through authentication enabled as authentication happens on-premises not in the cloud.
 
-Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Basic or higher licenses for your users.
+Federated deployments using AD FS 2016 and AF FS 2019 can enable similar benefits using [AD FS Extranet Lockout and Extranet Smart Lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection).
+
+Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
 
 Using smart lockout does not guarantee that a genuine user will never be locked out. When smart lockout locks a user account, we try our best to not lockout the genuine user. The lockout service attempts to ensure that bad actors can’t gain access to a genuine user account.  
 
@@ -37,8 +39,10 @@ Smart lockout can be integrated with hybrid deployments, using password hash syn
 
 When using [pass-through authentication](../hybrid/how-to-connect-pta.md), you need to make sure that:
 
-   * The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
-   * The Azure AD lockout duration **in seconds** is **longer** than the Active Directory reset account lockout counter after duration **minutes**.
+* The Azure AD lockout threshold is **less** than the Active Directory account lockout threshold. Set the values so that the Active Directory account lockout threshold is at least two or three times longer than the Azure AD lockout threshold. 
+* The Azure AD lockout duration must be set longer than the Active Directory reset account lockout counter after duration. Be aware that the Azure AD duration is set in seconds, while the AD duration is set in minutes. 
+
+For example, if you want your Azure AD counter to be higher than AD, then Azure AD would be 120 seconds (2 minutes) while your on prem AD is set to 1 minute (60 seconds).
 
 > [!IMPORTANT]
 > Currently an administrator can't unlock the users' cloud accounts if they have been locked out by the Smart Lockout capability. The administrator must wait for the lockout duration to expire.
@@ -52,11 +56,11 @@ Use the following instructions to verify your on-premises Active Directory accou
 3. Browse to **Computer Configuration** > **Policies** > **Windows Settings** > **Security Settings** > **Account Policies** > **Account Lockout Policy**.
 4. Verify your **Account lockout threshold** and **Reset account lockout counter after** values.
 
-![Modify the on-premises Active Directory account lockout policy using a Group Policy Object](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modify the on-premises Active Directory account lockout policy](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## Manage Azure AD smart lockout values
 
-Based on your organizational requirements, smart lockout values may need to be customized. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Basic or higher licenses for your users.
+Based on your organizational requirements, smart lockout values may need to be customized. Customization of the smart lockout settings, with values specific to your organization, requires paid Azure AD licenses for your users.
 
 To check or modify the smart lockout values for your organization, use the following steps:
 
@@ -75,9 +79,7 @@ When the smart lockout threshold is triggered, you will get the following messag
 
 **Your account is temporarily locked to prevent unauthorized use. Try again later, and if you still have trouble, contact your admin.**
 
-
 ## Next steps
 
-[Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)
-
-[Configure self-service password reset to allow users to unlock their own accounts.](quickstart-sspr.md)
+* [Find out how to ban bad passwords in your organization using Azure AD.](howto-password-ban-bad.md)
+* [Configure self-service password reset to allow users to unlock their own accounts.](quickstart-sspr.md)

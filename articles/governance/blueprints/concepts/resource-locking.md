@@ -1,10 +1,9 @@
 ---
 title: Understand resource locking
 description: Learn about the locking options to protect resources when assigning a blueprint.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -67,10 +66,69 @@ blueprint assignment and can only be removed from the artifact resources by the 
 identity. This security measure enforces the locking mechanism and prevents removing the blueprint
 lock outside Blueprints.
 
+![Blueprint deny assignment on resource group](../media/resource-locking/blueprint-deny-assignment.png)
+
+The
+[deny assignment properties](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties)
+of each mode are as follows:
+
+|Mode |Permissions.Actions |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|-|-|-|-|-|-|
+|Read Only |**\*** |**\*/read** |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+|Do Not Delete |**\*/delete** | |SystemDefined (Everyone) |blueprint assignment and user-defined in **excludedPrincipals** |Resource group - _true_; Resource - _false_ |
+
 > [!IMPORTANT]
-> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny assignments deny action's
-> on blueprint resources may not immediately be in full effect. During this period of time, it might be
-> possible to delete a resource intended to be protected by blueprint locks.
+> Azure Resource Manager caches role assignment details for up to 30 minutes. As a result, deny
+> assignments deny action's on blueprint resources may not immediately be in full effect. During
+> this period of time, it might be possible to delete a resource intended to be protected by
+> blueprint locks.
+
+## Exclude a principal from a deny assignment
+
+In some design or security scenarios, it may be necessary to exclude a principal from the [deny assignment](../../../role-based-access-control/deny-assignments.md)
+the blueprint assignment creates. This is done in REST API by adding up to five values to the
+**excludedPrincipals** array in the **locks** property when [creating the assignment](/rest/api/blueprints/assignments/createorupdate).
+This is an example of a request body that includes **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
 
 ## Next steps
 

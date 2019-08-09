@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory user authentication
+title: Azure Active Directory user authentication - Azure Active Directory
 description: As an Azure AD Administrator how do I protect user authentication while reducing end-user impact?
 
 services: active-directory
@@ -48,6 +48,10 @@ Self-service password reset includes:
 ## Multi-Factor Authentication
 
 Azure Multi-Factor Authentication (MFA) is Microsoft's two-step verification solution. Using administrator approved authentication methods, Azure MFA helps safeguard your access to data and applications, while meeting the demand for a simple sign-in process.
+
+## License requirements
+
+[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
 
 ## Next steps
 

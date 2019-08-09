@@ -34,6 +34,9 @@ An example of this scenario is an inventory assortment update for multiple retai
 
 If you do not have an Azure subscription, create a [free account][] before you begin.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Prerequisites
 
 To complete this tutorial, make sure you have installed:
@@ -52,20 +55,20 @@ Issue the following commands to sign in to Azure. These steps are not necessary 
 1. Install the Service Bus PowerShell module:
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Run the following command to sign in to Azure:
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 4. Set the current subscription context, or see the currently active subscription:
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## Provision resources
@@ -74,19 +77,19 @@ After signing in to Azure, issue the following commands to provision Service Bus
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-After the `Get-AzureRmServiceBusKey` cmdlet runs, copy and paste the connection string and the queue name you selected to a temporary location, such as Notepad. You will need it in the next step.
+After the `Get-AzServiceBusKey` cmdlet runs, copy and paste the connection string and the queue name you selected to a temporary location, such as Notepad. You will need it in the next step.
 
 ## Send and receive messages
 
@@ -107,7 +110,7 @@ To run the code, do the following:
 4. If you have not done so already, obtain the connection string using the following PowerShell cmdlet. Be sure to replace `my-resourcegroup` and `namespace-name` with your specific values: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. At the PowerShell prompt, type the following command:
 
@@ -129,7 +132,7 @@ To run the code, do the following:
 Run the following command to remove the resource group, namespace, and all related resources:
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## Understand the sample code
@@ -265,6 +268,9 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 }
 ```
 
+> [!NOTE]
+> You can manage Service Bus resources with [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). The Service Bus Explorer allows users to connect to a Service Bus namespace and administer messaging entities in an easy manner. The tool provides advanced features like import/export functionality or the ability to test topic, queues, subscriptions, relay services, notification hubs and events hubs. 
+
 ## Next steps
 
 In this tutorial, you provisioned resources using Azure PowerShell, then sent and received messages from a Service Bus topic and its subscriptions. You learned how to:
@@ -284,4 +290,4 @@ Advance to the next tutorial to learn more about using the publish/subscribe cap
 > [Update inventory using PowerShell and topics/subscriptions](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Install and Configure Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[Install and Configure Azure PowerShell]: /powershell/azure/install-Az-ps

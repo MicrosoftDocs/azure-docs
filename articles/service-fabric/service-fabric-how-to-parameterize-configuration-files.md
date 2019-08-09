@@ -25,7 +25,7 @@ This article shows you how to parameterize a configuration file in Service Fabri
 
 In this example, you override a configuration value using parameters in your application deployment.
 
-1. Open the *<MyService>\PackageRoot\Config\Settings.xml* file in your service project.
+1. Open the *\<MyService>\PackageRoot\Config\Settings.xml* file in your service project.
 1. Set a configuration parameter name and value, for example cache size equal to 25, by adding the following XML:
 
    ```xml
@@ -35,7 +35,7 @@ In this example, you override a configuration value using parameters in your app
    ```
 
 1. Save and close the file.
-1. Open the *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* file.
+1. Open the *\<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml* file.
 1. In the ApplicationManifest.xml file, declare a parameter and default value in the `Parameters` element.  It's recommended that the parameter name contains the name of the service (for example, "MyService").
 
    ```xml
@@ -43,7 +43,7 @@ In this example, you override a configuration value using parameters in your app
       <Parameter Name="MyService_CacheSize" DefaultValue="80" />
     </Parameters>
    ```
-1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
+1. In the `ServiceManifestImport` section of the ApplicationManifest.xml file, add a `ConfigOverrides` and `ConfigOverride` element, referencing the configuration package, the section, and the parameter.
 
    ```xml
     <ConfigOverrides>

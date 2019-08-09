@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako
 
 ---
@@ -33,7 +33,7 @@ For information on how to configure the [Haivision KB Encoder](https://www.haivi
 For information on how to configure the [Telestream Wirecast](https://www.telestream.net/wirecast/overview.htm) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Wirecast](media-services-configure-wirecast-live-encoder.md).
 
 ## NewTek TriCaster
-For information on how to configure the [Tricaster](http://newtek.com/products/tricaster-40.html) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Tricaster](media-services-configure-tricaster-live-encoder.md).
+For information on how to configure the [Tricaster](https://newtek.com/products/tricaster-40.html) encoder to send a single bitrate live stream to an AMS Channel, see [Configuring Tricaster](media-services-configure-tricaster-live-encoder.md).
 
 ## Elemental Live
 For more information, see [Elemental Live](https://www.elementaltechnologies.com/products/elemental-live).

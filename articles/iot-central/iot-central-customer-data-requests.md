@@ -3,7 +3,7 @@ title: Customer data request features​ in Azure IoT Central | Microsoft Docs
 description: Customer data request features​ in Azure IoT Central 
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/17/2018
+ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
