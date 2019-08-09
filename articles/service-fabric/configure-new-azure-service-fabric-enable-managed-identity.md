@@ -58,7 +58,6 @@ If you are enabling the **Managed Identity Token Service** on an existing cluste
     "upgradeTimeout": "12:00:00"
 }
 ```
-### Troubleshooting 
 
 ## Errors
 
@@ -70,5 +69,3 @@ If the deployment fails with this message, it means the cluster is not on the re
     "message": "Section 'ManagedIdentityTokenService' and Parameter 'IsEnabled' is not allowed."
 }
 ```
-
-## Next steps

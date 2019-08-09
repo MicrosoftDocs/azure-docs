@@ -34,7 +34,7 @@ At this time, support for system-assigned Service Fabric managed identities does
 ## Granting access to Azure Key Vault
 Similarly with accessing storage, you can leverage the managed identity of a Service Fabric application to access an Azure key vault. The steps for granting access in the Azure portal are similar to those listed above, and won't be repeated here. 
 
-![Key Vault access policy](key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
+![Key Vault access policy](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
 The following example illustrates granting access to a vault via a template deployment; add the snippet below as another entry under the `resources` element of the template:
 
