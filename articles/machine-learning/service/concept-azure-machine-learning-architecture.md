@@ -71,13 +71,7 @@ Use these tools for Azure Machine Learning:
 
 ### Workspaces
 
-[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
-
-A taxonomy of the workspace is illustrated in the following diagram:
-
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-For more information about workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 ### Experiments
 
