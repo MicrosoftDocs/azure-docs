@@ -29,7 +29,18 @@ This article demonstrates how to create ConfigMap and configure data collection 
 
 ![Container monitoring architecture for Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
 
-Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics. Prometheus metrics can be collected thru a set of settings specified in a single ConfigMap file.    
+Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics by exposing a Prometheus endpoint. This endpoint is a HTTP interface that exposes a list of metrics and the current value of the metrics and scraped by Azure Monitor for containers. The metrics are collected through a set of settings specified in a single ConfigMap file, which is the same file used to configure collection of stdout, stderr, and environmental variables from container workloads. 
+
+Collection Settings are either cluster-wide or per-node, and the following table summarizes the metrics scraped from the endpoints.
+
+| Endpoint | Scope | Example | 
+|----------|-------|---------|
+| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
+| url/endpoint | Per-node | `http://myurl:9101/metrics` |
+| Exporter | Per-node or cluster-wide | `https://prometheus.io/docs/instrumenting/exporters/`​ |
+
+The collection interval can be set to seconds, minutes, or hours.  ​
 
 
 ## Configure your cluster with custom data collection settings
