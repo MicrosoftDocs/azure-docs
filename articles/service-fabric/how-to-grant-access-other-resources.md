@@ -32,7 +32,7 @@ Under Select, choose the UAI corresponding to the Service Fabric application and
 At this time, support for system-assigned Service Fabric managed identities does not yet include integration in the Azure portal; if your application uses a system-assigned identity, you will have to find first the client ID of the application's identity, and then repeat the steps above but selecting the `Azure AD user, group, or service principal` option in the Find control.
 
 ## Granting access to Azure Key Vault
-Similarly with accessing storage, you can leverage the managed identity of a Service Fabric application to access an Azure key vault. The steps for granting access in the Azure portal are similar to those listed above, and won't be repeated here. 
+Similarly with accessing storage, you can leverage the managed identity of a Service Fabric application to access an Azure key vault. The steps for granting access in the Azure portal are similar to those listed above, and won't be repeated here.
 
 ![Key Vault access policy](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 

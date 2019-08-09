@@ -353,7 +353,7 @@
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
   - name: App Resource model
-    href: concepts-app-resource-model.md
+    href: service-fabric-concept-resource-model.md
   - name: Managed Identity 
     href: concepts-managed-identity.md
   
