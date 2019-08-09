@@ -37,11 +37,17 @@ Project Acoustics' key innovation is to couple acoustic simulation with traditio
 * **Bake:** An analysis step is run locally, which does voxelization and other geometric analysis on the scene based on selections above. Results are visualized in editor to verify scene setup. On bake submission, voxel data is sent off to Azure and you get back an acoustics game asset.
 * **Runtime:** Load the asset into your level, and you're ready to listen to acoustics in your level. Design the acoustics live in editor using granular per-source controls. The controls can also be driven from level scripting.
 
-## Platforms
+## Runtime platforms
 The Project Acoustics runtime plugins can currently be deployed to the following platforms:
 * Windows
+* MacOS
 * Android
 * Xbox One
+
+## Editor platforms
+The Project Acoustics editor plugin is available for the following platforms:
+* Windows
+* MacOS (Unity only)
 
 ## Download
 * [Project Acoustics Unity plugin and samples](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
