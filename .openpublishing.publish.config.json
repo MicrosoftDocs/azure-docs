@@ -180,6 +180,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cognitive-services-python-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-python-sdk-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
       "branch": "docs-201809"
@@ -298,6 +303,11 @@
     {
       "path_to_root": "samples-cosmosdb-dotnet-core-web-app",
       "url": "https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cosmosdb-xamarin",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
       "branch": "master"
     },
     {
