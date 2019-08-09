@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/8/2019
+ms.date: 09/08/2019
 ms.author: rkarlin
 
 ---
@@ -29,12 +29,9 @@ Alert email notifications are sent:
 - Each email message contains a single alert, not an aggregation of alerts
  
 For example, if an email message was already sent to alert you about an RDP attack, you will not receive another email message about an RDP attack on the same day, even if another alert is triggered. 
- 
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
->
->
 
 ## Set up email notifications for alerts <a name="email"></a>
 
