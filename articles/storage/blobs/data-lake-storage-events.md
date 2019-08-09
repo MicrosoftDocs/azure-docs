@@ -48,6 +48,19 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 * Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
+## Add initial data to the storage account
+
+1. Open Storage explorer.
+2. Create a container named "data". Put screenshot here.
+3. Create a folder named input and then a subfolder named full.
+4. Create a csv file that contains this information:
+
+   ```
+   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+   536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
+   ```
+5. Open storage explorer and copy this file to the input/full directory.
+
 ## Create notebook to configure the customer table
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to set up the customer table in the storage account.
@@ -64,26 +77,58 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-4. Copy and paste the following code block into the first cell, and then press the **SHIFT + ENTER** keys to run the code in this block.
+4. Copy and paste the following code block into the first cell, but don't run this code yet.
 
-   ```python
-   adlsPath = 'abfss://data@contosoorders.dfs.core.windows.net/'
-   customerTablePath = adlsPath + 'delta-tables/customers'
-   ```
+    ```Python
+    configs = {"fs.azure.account.auth.type": "OAuth",
+           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
+           "fs.azure.account.oauth2.client.id": "<appId>",
+           "fs.azure.account.oauth2.client.secret": "<password>",
+           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
+           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
 
-   This code creates variables for the path of the storage account and the table that you are going to create in the next step.
+    dbutils.fs.mount(
+    source = "abfss://data@contosoorders.dfs.core.windows.net",
+    mount_point = "/mnt/data",
+    extra_configs = configs)
+    ```
 
-    > [!NOTE]
-    > This code block directly accesses the Data Lake Gen2 endpoint by using OAuth, but there are other ways to connect the Databricks workspace to your Data Lake Storage Gen2 account. For example, you could mount the file system by using OAuth or use a direct access with Shared Key. <br>To see examples of these approaches, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website.
-
-5. In this code block, replace the `storage-account-name`, `appID`, `password`, and `tenant-id` placeholder values in this code block with the values that you collected when you created the service principal. Set the `file-system-name` placeholder value to whatever name you want to give the file system.
-
-    > [!NOTE]
-    > In a production setting, consider storing your authentication key in Azure Databricks. Then, add a look up key to your code block instead of the authentication key. After you've completed this quickstart, see the [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) article on the Azure Databricks Website to see examples of this approach.
+5. In this code block, replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
 
 6. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-## Generate a widget
+6. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block. This code configures the structure of your databricks delta table and then loads some initial data from the csv file that you uploaded earlier.
+
+   ```Python
+   from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
+
+
+   inputSchema = StructType([
+      StructField("InvoiceNo", IntegerType(), True),
+      StructField("StockCode", StringType(), True),
+      StructField("Description", StringType(), True),
+      StructField("Quantity", IntegerType(), True),
+      StructField("InvoiceDate", StringType(), True),
+      StructField("UnitPrice", DoubleType(), True),
+      StructField("CustomerID", IntegerType(), True),
+      StructField("Country", StringType(), True)
+    ])
+
+    rawDataDF = (spark.read
+      .option("header", "true")
+      .schema(inputSchema)
+      .csv('/mnt/data/input/full')
+    )
+
+    customerTablePath = '/mnt/data/delta-tables/customers'
+
+
+    (rawDataDF.write
+       .mode("overwrite")
+      .format("delta")
+    ```
+
+## Create notebook to upsert data into the table
 
 Introduction
 
