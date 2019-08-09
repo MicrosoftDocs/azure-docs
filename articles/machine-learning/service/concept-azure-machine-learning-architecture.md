@@ -87,12 +87,6 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-> [!TIP]
-> There are two patterns that can be used when training:
->
-> * [Estimators](how-to-train-ml-models.md): An abstraction that makes it easier to train models that use deep learning frameworks.
-> * [Run configuration](how-to-set-up-training-targets.md#whats-a-run-configuration): More flexible than estimators, and provides more control.
-
 For an example of training a model using an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 The **model registry** keeps track of all the models in your Azure Machine Learning service workspace.
@@ -115,6 +109,14 @@ A run configuration is a set of instructions that defines how a script should be
 A run configuration can be persisted into a file inside the directory that contains your training script, or it can be constructed as an in-memory object and used to submit a run.
 
 For example run configurations, see [Select and use a compute target to train your model](how-to-set-up-training-targets.md).
+
+### Estimators
+
+To facilitate deep learning model training, estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+
+For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
+
+For more information, see [Train ML Models with estimators](how-to-train-ml-models.md).
 
 ### Datasets and datastores
 
