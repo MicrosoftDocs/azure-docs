@@ -82,43 +82,33 @@ These code snippets show you how to do the following with the Personalizer clien
 
 ## Create a new python application
 
-Create a new Python application in your preferred editor or IDE. Then import the following libraries. 
-
-[!code-python[Create a new Python application in your preferred editor or IDE.](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
-
-Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
-
-[!code-python[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
+Create a new Python application in your preferred editor or IDE named `sample.py`. 
 
 ## Add the dependencies
 
 From the project directory, open the **Program.cs** file in your preferred editor or IDE. Replace the existing `using` code with the following `using` directives:
 
-[!code-python[Using statements]()]
+[!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 
 ## Add Personalizer resource information
 
 In the **Program** class, create variables for your resource's Azure key and endpoint pulled from the environment variables, named `PERSONALIZER_RESOURCE_KEY` and `PERSONALIZER_RESOURCE_ENDPOINT`. If you created the environment variables after the application is launched, the editor, IDE, or shell running it will need to be closed and reloaded to access the variable. The methods will be created later in this quickstart.
 
-[!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.]()]
+[!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
 ## Create a Personalizer client
 
 Next, create a method to return a Personalizer client. The parameter to the method is the `PERSONALIZER_RESOURCE_ENDPOINT` and the ApiKey is the `PERSONALIZER_RESOURCE_KEY`.
 
-[!code-python[Create the Personalizer client]()]
+[!code-python[Create the Personalizer client](~/samples-personalizer/quickstarts/python/sample.py?name=Client)]
 
 ## Get content choices represented as actions
 
 Actions represent the content choices you want Personalizer to rank. Add the following methods to the Program class to get a user's input from the command line for the time of day and current food preference.
 
-[!code-python[Present time out day preference to the user]()]
+[!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTimeOfDay)]
 
-[!code-python[Present food taste preference to the user]()]
-
-Both methods use the `GetKey` method to read the user's selection from the command line. 
-
-[!code-python[Read user's choice from the command line]()]
+[!code-python[Present food taste preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=createUserFeatureTastePreference)]
 
 ## Create the learning loop
 
@@ -126,8 +116,7 @@ The Personalizer learning loop is a cycle of rank and reward calls. In this quic
 
 The following code in the `main` method of the program loops through a cycle of asking the user their preferences at the command line, sending that information to Personalizer to rank, presenting the ranked selection to the customer to choose from among the list, then sending a reward to Personalizer signaling how well the service did in ranking the selection.
 
-```python
-```
+[!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop)]
 
 ## Request a rank
 
@@ -135,7 +124,7 @@ To complete the rank request, the program asks the user's preferences to create 
 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](concept-feature-evaluation.md) [actions and features](concepts-features.md) can be a non-trivial matter.  
 
-[!code-python[The Personalizer learning loop ranks the request.]()]
+[!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=rank)]
 
 ## Send a reward
 
@@ -143,19 +132,17 @@ To complete the reward request, the program gets the user's selection from the c
 
 This quickstart assigns a simple number as a reward, either a zero or a 1. In production systems, determining when and what to send to the [reward](concept-rewards.md) call can be a non-trivial matter, depending on your specific needs. 
 
-[!code-python[The Personalizer learning loop ranks the request.]()]
+[!code-python[The Personalizer learning loop sends a reward.](~/samples-personalizer/quickstarts/python/sample.py?name=reward)]
 
 ## Run the program
 
 Run the application with the python from your application directory.
 
 ```console
-
+python sample.py
 ```
 
 ![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](media/python-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
-
-The [source code for this quickstart]() is available in the Personalizer samples GitHub repository.
 
 ## Clean up resources
 
@@ -172,4 +159,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is Personalizer?](what-is-personalizer.md)
 * [Where can you use Personalizer?](where-can-you-use-personalizer.md)
 * [Troubleshooting](troubleshooting.md)
-
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py).
