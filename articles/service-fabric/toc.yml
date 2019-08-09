@@ -761,7 +761,7 @@
       - name: How to deploy application with managed identity
         items:
           - name: How to deploy application with a system-assigned managed identity
-            href: how-to-deploy-service-fabric-application-managed-identity.md
+            href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
           - name: How to deploy application with a user-assigned managed identity
             href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
     - name: Use MITS with Service Fabric application code

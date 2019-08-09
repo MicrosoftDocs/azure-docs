@@ -29,7 +29,7 @@ Under Role, from the dropdown, select Storage Blob Data Reader.
 6. Next, ensure the proper subscription is listed in Subscription dropdown and then set Resource Group to All resource groups.
 7. Under Select, choose the UAI corresponding to the Service Fabric application and then click Save.
 
-At this time, support for system-assigned Service Fabric managed identities does not include integration in the Azure portal; if your application uses a system-assigned identity, you will have to find first the client ID of the application's identity, and then repeat the steps above but selecting the `Azure AD user, group, or service principal` option in the Find control.
+Support for system-assigned Service Fabric managed identities does not include integration in the Azure portal; if your application uses a system-assigned identity, you will have to find first the client ID of the application's identity, and then repeat the steps above but selecting the `Azure AD user, group, or service principal` option in the Find control.
 
 ## Granting access to Azure Key Vault
 Similarly with accessing storage, you can leverage the managed identity of a Service Fabric application to access an Azure key vault. The steps for granting access in the Azure portal are similar to those listed above, and won't be repeated here.
@@ -65,8 +65,8 @@ The following example illustrates granting access to a vault via a template depl
 For more details, please see [Vaults - Update Access Policy](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Next steps
-* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-managed-identity.md)
-* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-managed-identity.md)
+* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 
 ## Related articles
 

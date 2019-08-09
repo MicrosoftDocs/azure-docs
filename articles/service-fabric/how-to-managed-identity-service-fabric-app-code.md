@@ -306,8 +306,8 @@ It is recommended that requests failed due to throttling are retried with an exp
 See [Azure services that support Azure AD authentication](../active-directory/managed-identities-azure-resources/services-support-msi.md) for a list of resources that support Azure AD, and their respective resource IDs.
 
 ## Next steps
-* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-managed-identity.md)
-* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-managed-identity.md)
+* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 * [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
 
 ## See also

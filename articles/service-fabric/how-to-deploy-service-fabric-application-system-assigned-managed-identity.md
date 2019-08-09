@@ -160,9 +160,9 @@ In the example above, the resource name of the user-assigned identity is being u
   
 ## Next steps
 
-* [How to Deploy Service Fabric Application with User-Managed Identity](how-to-deploy-service-fabric-application-user-managed-identity.md)
+* [How to Deploy Service Fabric Application with user-assigned managed identity](how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
 
-* [How to Deploy Service Fabric Application with System-Managed Identity](how-to-deploy-service-fabric-application-managed-identity.md)
+* [How to Deploy Service Fabric Application with system-assigned managed identity](how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
 
 ## Related articles
-* [How to Grant Service Fabric Application with User Managed Identity to Access Other Azure Resources](how-to-grant-access-other-resources.md)
+* [How to Grant Service Fabric Application with managed identity access to other Azure Resources](how-to-grant-access-other-resources.md)

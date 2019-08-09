@@ -57,7 +57,7 @@ For preview release, we ONLY allow these actions to be deployed in Azure Service
 ## Next steps
 Get started with Managed Identity for Azure Service Fabric applications by following the "How-To" documents in a sequential order.
 
-1. [Configure New Service Fabric Cluster to enable Managed Identity Token Service](configure-new-azure-service-fabric-cluster-enable-managed-identity.md)
+1. [Configure New Service Fabric Cluster to enable Managed Identity Token Service](configure-new-azure-service-fabric-enable-managed-identity.md)
 
 2. [Configure Existing Service Fabric Cluster to enable Managed Identity Token Service](configure-existing-cluster-enable-managed-identity-token-service.md)
 
