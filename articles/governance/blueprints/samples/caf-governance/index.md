@@ -1,28 +1,28 @@
 ---
-title: Samples - CAF Governance blueprint - Overview
-description: Overview and architecture of the CAF Governance blueprint sample.
-author: absheik
-ms.author: absheik
+title: Samples - CAF foundation blueprint - Overview
+description: Overview and architecture of the CAF foundation blueprint sample.
+author: dacoulte
+ms.author: dacoulte
 ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
-manager: anushar
+manager: carmonm
 ms.custom: fasttrack-new
 ---
-# Overview of the CAF Governance blueprint sample
+# Overview of the Microsoft Cloud Adoption Framework for Azure foundation blueprint sample
 
-The CAF Governance Blueprint is a set of controls to help you manage your cloud estate in alignment with the Microsoft Cloud Adoption Framework for Azure (CAF).
+The Microsoft Cloud Adoption Framework for Azure(CAF) foundation blueprint is a set of controls to help you manage your cloud estate in alignment with the CAF.
 
 ## Architecture
 
-The CAF Governance blueprint sample deploys foundation infrastructure resources in Azure that can
-be used by organizations to put in place the governance controls necessary to manage their cloud estate.
+The CAF foundation blueprint sample deploys recommended infrastructure resources in Azure that can
+be used by organizations to put in place the foundation controls necessary to manage their cloud estate.
 This sample will deploy and enforce resources, policies and templates that will allow an organization to confidently get started with Azure.
 
-![CAF Governance](../../media/caf-blueprints/caf-governance-architecture.png)
+![CAF foundation, image describes what gets installed as part of CAF guidance for creating a foundation to get started with Azure](../../media/caf-blueprints/caf-governance-architecture.png)
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
-enterprise-ready governance. This environment is
+enterprise-ready foundation. This environment is
 composed of:
 
 - An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
@@ -49,19 +49,17 @@ The blueprint also defines and deploys [Azure Policies](../../../policy/overview
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 
 > [!NOTE]
-> The CAF Governance lays out a foundational architecture for workloads.
+> The CAF foundation lays out a foundational architecture for workloads.
 > You still need to deploy workloads behind this foundational architecture.
 
 For more information, see the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
 
 ## Next steps
 
-You've reviewed the overview and architecture of the CAF Governance blueprint sample.
-Next, visit the following articles to learn about the control mapping and how to deploy this
-sample:
+You've reviewed the overview and architecture of the CAF foundation blueprint sample.
 
 > [!div class="nextstepaction"]
->  [CAF Governance blueprint - Deploy steps](./deploy.md)
+>  [CAF foundation blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 

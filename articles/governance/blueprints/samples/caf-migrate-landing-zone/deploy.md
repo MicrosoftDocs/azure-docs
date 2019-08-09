@@ -1,12 +1,12 @@
 ---
 title: Sample - CAF migrate landing zone blueprint - Deploy steps
 description: Deploy steps of the CAF migrate landing zone blueprint sample.
-author: absheik
-ms.author: absheik
+author: dacoulte
+ms.author: dacoulte
 ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
-manager: anushar
+manager: carmonm
 ms.custom: fasttrack-new
 ---
 # Deploy the CAF migrate landing zone blueprint sample

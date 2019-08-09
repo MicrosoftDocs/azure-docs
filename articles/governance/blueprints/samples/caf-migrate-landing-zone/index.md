@@ -1,26 +1,26 @@
 ---
 title: Samples - CAF Migration landing zone blueprint - Overview
 description: Overview and architecture of the CAF Migration landing zone blueprint sample.
-author: absheik
-ms.author: absheik
+author: dacoulte
+ms.author: dacoulte
 ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
-manager: anushar
+manager: carmonm
 ms.custom: fasttrack-new
 ---
-# Overview of the CAF Migration landing zone blueprint sample
+# Overview of the Microsoft Cloud Adoption Framework for Azure Migration landing zone blueprint sample
 
-The CAF Migration landing zone blueprint is a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with the Microsoft Cloud Adoption Framework for Azure (CAF).
+The Microsoft Cloud Adoption Framework for Azure (CAF) migration landing zone blueprint is a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with CAF.
 
-The [CAF Governance](../caf-governance/index.md) blueprint sample extends this sample.
+The [CAF foundation](../caf-governance/index.md) blueprint sample extends this sample.
 
 ## Architecture
 
 The CAF Migration landing zone blueprint sample deploys foundation infrastructure resources in Azure that can be used by organizations to prepare their subscription for migrating virtual machines in to.  It also helps put in place the governance controls necessary to manage their cloud estate.
 This sample will deploy and enforce resources, policies and templates that will allow an organization to confidently get started with Azure.
 
-![CAF Migration landing zone](../../media/caf-blueprints/caf-migration-landing-zone-architecture.png)
+![CAF Migration landing zone, image describes what gets installed as part of CAF guidance for initial landing zone ](../../media/caf-blueprints/caf-migration-landing-zone-architecture.png)
 
 This environment is composed of several Azure services used to provide a secure, fully monitored,
 enterprise-ready governance. This environment is
@@ -45,8 +45,7 @@ For more information, see the [Microsoft Cloud Adoption Framework for Azure](/az
 ## Next steps
 
 You've reviewed the overview and architecture of the CAF Migrate landing zone blueprint sample.
-Next, visit the following articles to learn about the control mapping and how to deploy this
-sample:
+
 
 > [!div class="nextstepaction"]
 >  [CAF Migrate landing zone blueprint - Deploy steps](./deploy.md)

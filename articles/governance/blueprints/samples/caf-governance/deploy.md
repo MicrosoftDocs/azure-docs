@@ -1,17 +1,17 @@
 ---
-title: Samples - CAF governance blueprint - Deploy steps
-description: Deploy steps of the CAF governance blueprint sample.
-author: absheik
-ms.author: absheik
+title: Samples - CAF foundation blueprint - Deploy steps
+description: Deploy steps of the CAF foundation blueprint sample.
+author: dacoulte
+ms.author: dacoulte
 ms.date: 06/27/2019
 ms.topic: sample
 ms.service: blueprints
-manager: anushar
+manager: carmonm
 ms.custom: fasttrack-new
 ---
-# Deploy the CAF governance blueprint sample
+# Deploy the Microsoft Cloud Adoption Framework for Azure foundation blueprint sample
 
-To deploy the CAF governance blueprint sample, the following steps must be taken:
+To deploy the Microsoft Cloud Adoption Framework for Azure (CAF) foundation blueprint sample, the following steps must be taken:
 
 > [!div class="checklist"]
 > - Create a new blueprint from the sample
@@ -32,12 +32,12 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **CAF governance** blueprint sample under _Other Samples_ and select **Use
+1. Find the **CAF foundation** blueprint sample under _Other Samples_ and select **Use
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
 
-   - **Blueprint name**: Provide a name for your copy of the CAF governance blueprint
+   - **Blueprint name**: Provide a name for your copy of the CAF foundation blueprint
      sample.
    - **Definition location**: Use the ellipsis and select the management group to save your copy of
      the sample to.
@@ -54,7 +54,7 @@ sample as a starter.
 Your copy of the blueprint sample has now been created in your environment. It's created in
 **Draft** mode and must be **Published** before it can be assigned and deployed. The copy of the
 blueprint sample can be customized to your environment and needs, but that modification may move it
-away from the CAF governance blueprint.
+away from the CAF foundation blueprint.
 
 1. Select **All services** and search for and select **Policy** in the left pane. On the **Policy**
    page, select **Blueprints**.
@@ -62,7 +62,7 @@ away from the CAF governance blueprint.
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a  **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the CAF governance blueprint sample." Then select **Publish** at the bottom of the page.
+   modification later. Provide **Change notes** such as "First version published from the CAF foundation blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
 
@@ -138,10 +138,10 @@ The following table provides a list of the blueprint artifact parameters:
 
 ## Next steps
 
-Now that you've reviewed the steps to deploy the CAF Governance blueprint sample, visit the following articles to learn about the architecture:
+Now that you've reviewed the steps to deploy the CAF foundation blueprint sample, visit the following article to learn about the architecture:
 
 > [!div class="nextstepaction"]
-> [CAF Governance blueprint - Overview](./index.md)
+> [CAF foundation blueprint - Overview](./index.md)
 
 Addition articles about blueprints and how to use them:
 
