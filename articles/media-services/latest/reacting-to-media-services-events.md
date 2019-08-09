@@ -35,6 +35,9 @@ Applications that handle Media Services events should follow a few recommended p
 * Ignore fields you don’t understand.  This practice will help keep you resilient to new features that might be added in the future.
 * Use the "subject" prefix and suffix matches to limit events to a particular event.
 
+> [!NOTE]
+> Events are subject to the Event Grid [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/event-grid/v1_0/), if your workflow is dependent on getting the event notification consistently, you should query the [latest status](media-services-event-schemas.md) using the Media Services API.
+
 ## Next steps
 
 * [Monitor events - portal](monitor-events-portal-how-to.md)
