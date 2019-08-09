@@ -5,7 +5,7 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
-ms.date: 07/30/2019
+ms.date: 08/09/2019
 ---
 
 # Scenario: Permission denied error when trying to create an Apache Hive table in Azure HDInsight
