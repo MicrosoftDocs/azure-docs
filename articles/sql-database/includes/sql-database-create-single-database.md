@@ -14,7 +14,7 @@ In this step, you will create your resource group and an Azure SQL Database sing
 >
 > For information see [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database) or to determine the IP address used for the server-level firewall rule for your computer see [Create a server-level firewall](../sql-database-server-level-firewall-rule.md).  
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 Create your resource group and single database using the Azure portal.
 
@@ -70,7 +70,7 @@ Create your resource group and single database using the Azure portal.
 
 9. On the **SQL Database** form, select **Create** to deploy and provision the resource group, server, and database.
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -136,7 +136,7 @@ Create your resource group and single database using PowerShell.
    $database
    ```
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 Create your resource group and single database using AZ CLI.
 

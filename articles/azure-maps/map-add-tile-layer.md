@@ -15,7 +15,7 @@ ms.custom: codepen
 
 This article shows you how you can overlay a Tile layer on the map. Tile layers allow you to superimpose images on top of Azure Maps base map tiles. More information on Azure Maps tiling system can be found in the [Zoom levels and tile grid](zoom-levels-and-tile-grid.md) documentation.
 
-A Tile layer load in tiles from a server. These images can either be pre-rendered and stored like any other image on a server using a naming convention that the tile layer understands, or a dynamic service that generates the images on the fly. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class; 
+A Tile layer loads in tiles from a server. These images can either be pre-rendered and stored like any other image on a server using a naming convention that the tile layer understands, or a dynamic service that generates the images on the fly. There are three different tile service naming conventions supported by Azure Maps [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest) class: 
 
 * X, Y, Zoom notation - Based on the zoom level, x is the column and y is the row position of the tile in the tile grid.
 * Quadkey notation - Combination x, y, zoom information into a single string value that is a unique identifier for a tile.
@@ -35,7 +35,7 @@ The tile URL passed into a Tile layer must be an http/https URL to a TileJSON re
 
 ## Add a tile layer
 
- This sample shows how to create a tile layer that points to a set of tiles that use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/).
+ This sample shows how to create a tile layer that points to a set of tiles that use the x, y, zoom tiling system. The source of this tile layer is a weather radar overlay from the [Iowa Environmental Mesonet of Iowa State University](https://mesonet.agron.iastate.edu/ogc/). 
 
 <br/>
 
@@ -48,7 +48,7 @@ In the second block of code, an [TileLayer](https://docs.microsoft.com/javascrip
 
 ## Customize a tile layer
 
-The Tile layer only has a many styling options. Here is a tool to try them out.
+The tile layer class has many styling options. Here is a tool to try them out.
 
 <br/>
 
