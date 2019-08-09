@@ -40,8 +40,7 @@ Collection Settings are either cluster-wide or per-node, and the following table
 | url/endpoint | Per-node | `http://myurl:9101/metrics` |
 | Exporter | Per-node or cluster-wide | `https://prometheus.io/docs/instrumenting/exporters/`​ |
 
-The collection interval can be set to seconds, minutes, or hours.  ​
-
+The collection interval can be set to seconds, minutes, or hours. When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
 
 ## Configure your cluster with custom data collection settings
 
@@ -77,7 +76,7 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 | | `urls` | String | Comma-separated array | HTTP endpoint (Either IP address or valid URL path specified). For example: `urls=[$NODE_IP/metrics]`. ($NODE_IP is a specific Azure Monitor for containers parameter and can be used instead of node IP address. Must be all uppercase.) |
 | | `kubernetes_services` | String | Comma-separated array | An array of Kubernetes services to scrape metrics from kube-state-metrics. For example,`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics",http://my-service-dns.my-namespace:9100/metrics]`.|
 | | `monitor_kubernetes_pods` | Boolean | true or false | When set to `true` in the cluster-wide settings, Azure Monitor for containers agent will scrape Kubernetes pods across the entire cluster for the following Prometheus annotations:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. |
+| | `prometheus.io/scrape` | Boolean | true or false | Enables scraping of the pod. `monitor_kubernetes_pods` must be set to `true`. |
 | | `prometheus.io/scheme` | String | http or https | Defaults to scrapping over HTTP. If required, set to `https`. | 
 | | `prometheus.io/path` | String | Comma-separated array | The HTTP resource path on which to fetch metrics from. If the metrics path is not `/metrics`, define it with this annotation. |
 | | `prometheus.io/port` | String | 9102 | Specify a port to listen on. If port is not set, it will default to 9102. |
