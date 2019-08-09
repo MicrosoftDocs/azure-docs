@@ -23,12 +23,12 @@ Get started with the Personalizer client library for Python. Follow these steps 
  * Rank a list of actions for personalization.
  * Report reward score indicating success of top ranked action.
 
-[Reference documentation]() | [Library source code]() | [Package (pypi)]() | [Samples]()
+[Package (pypi)](https://pypi.org/project/azure-cognitiveservices-personalizer/) | [Samples](https://github.com/Azure-Samples/cognitive-services-personalizer-samples/blob/master/quickstarts/python/sample.py)
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/)
-* The current version of [Python]().
+* [Python 3.x](https://www.python.org/)
 
 ## Setting up
 
@@ -41,8 +41,18 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 
 After you get a key from your trial subscription or resource, create two [environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
-* `PERSONALIZER_RESOURCE_KEY` for the resource key.
-* `PERSONALIZER_RESOURCE_ENDPOINT` for the resource endpoint.
+* `PERSONALIZER_KEY` for the resource key.
+* `PERSONALIZER_ENDPOINT` for the resource endpoint.
+
+### Install the Python library for Personalizer
+
+Install the Personalizer client library for Python with the following command:
+
+```console
+pip install azure-cognitiveservices-personalizer
+```
+
+If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
 ### Change the model update frequency
 
@@ -52,29 +62,13 @@ In the Personalizer resource in the Azure portal, change the **Model update freq
 
 When a Personalizer loop is first instantiated, there is no model since there has been no Reward API calls to train from. Rank calls will return equal probabilities for each item. Your application should still always rank content using the output of RewardActionId.
 
-### Create a new python application
-
-
-
-
-
-### Install the SDK
-
-Within the application directory, install the Personalizer client library for Python with the following command:
-
-```console
-
-```
-
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
-
 ## Object model
 
-The Personalizer client is a [PersonalizerClient]() object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
+The Personalizer client is a PersonalizerClient object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
-To ask for a rank of the content, create a [RankRequest](), then pass it to [client.Rank]() method. The Rank method returns a RankResponse, containing the ranked content. 
+To ask for a rank of the content, create a RankRequest, then pass it to client.Rank method. The Rank method returns a RankResponse, containing the ranked content. 
 
-To send a reward to Personalizer, create a [RewardRequest](), then pass it to the [client.Reward]() method. 
+To send a reward to Personalizer, create a RewardRequest, then pass it to the client.Reward method. 
 
 Determining the reward, in this quickstart is trivial. In a production system, the determination of what impacts the [reward score](concept-rewards.md) and by how much can be a complex process, that you may decide to change over time. This should be one of the primary design decisions in your Personalizer architecture. 
 
@@ -85,6 +79,16 @@ These code snippets show you how to do the following with the Personalizer clien
 * [Create a Personalizer client](#create-a-personalizer-client)
 * [Request a rank](#request-a-rank)
 * [Send a reward](#send-a-reward)
+
+## Create a new python application
+
+Create a new Python application in your preferred editor or IDE. Then import the following libraries. 
+
+[!code-python[Create a new Python application in your preferred editor or IDE.](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
+
+Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+[!code-python[Create variables for your resource's Azure endpoint and key.](~/cognitive-services-quickstart-code/python/LUIS/application_quickstart.py?name=AuthorizationVariables)]
 
 ## Add the dependencies
 
