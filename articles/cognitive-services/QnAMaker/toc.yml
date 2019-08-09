@@ -57,6 +57,10 @@
     items: 
     - name: C#
       href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+    - name: Node.js
+      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+    - name: Python
+      href: ./Quickstarts/python-sdk.md
 - name: Tutorials
   items: 
   - name: Create and answer from KB
