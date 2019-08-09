@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - Configure New Service Fabric cluster to Enable Managed Identity Token Service | Microsoft Docs
+title: Azure Service Fabric - Deploy a new Azure Service Fabric cluster with support for Managed Identity  | Microsoft Docs
 description: This article shows you how to create a new Service Fabric cluster with Managed Identity enabled
 services: service-fabric
 author: athinanthny
@@ -10,26 +10,17 @@ ms.date: 07/25/2019
 ms.author: atsenthi
 ---
 
-# Configure New Azure Service Fabric cluster to enable Managed Identity Token Service
+# Create a new Azure Service Fabric cluster with Managed Identity support
 
-To support Service Fabric applications with managed identities, first the cluster needs to be configured to enable **Managed Identity Token Service** system service.
-When the service is enabled, you can see it from Service Fabric Explorer with name  **fabric:/System/ManagedIdentityTokenService** next to other system services in the left tree view under **System** section.
+In order to access the managed identity feature for Azure Service Fabric applications, you must first configure the cluster enable the **Managed Identity Token Service** system service. This service is responsible for the authentication of Service Fabric applications using their managed identities, and also for obtaining access tokens on their behalf. Once the service is enabled, you can see it in Service Fabric Explorer under the **System** section in the left pane, running under the name **fabric:/System/ManagedIdentityTokenService** next to other system services.
 
-  
-## Prerequisites
 
-To enable **Managed Identity Token Service**, the cluster needs to be running with Service Fabric 6.5.658.9590 or above version.  
+[!NOTE]
+> Service Fabric runtime version 6.5.658.9590 or higher is required to enable the **Managed Identity Token Service**.  
 
-## Create Azure Service Fabric cluster with Managed Identity Token Service enabled
-Creation of an Azure Service Fabric cluster can be done via Azure Resource Manager template deployment. Use the Azure Resource Manager template sample here to create a cluster with Managed Identity token service enabled.
+## Enable the Managed Identity Token Service 
+To enable the Managed Identity Token Service at cluster creation time, you may use the following snippet in an Azure Resource Manager template:
       
-* You can find the Service Fabric version from Azure portal by opening the cluster resource and check the **Service Fabric version** property in the **Essentials** section.
-
-* If your cluster is on **Manual** upgrade mode, you need to first upgrade it to 6.5.658.9590 or above.
-
-## Upgrade Azure Service Fabric cluster to Enable Managed Identity Token Service
-You can enable **Managed Identity Token Service** through Azure Resource Manager template deployment, by adding following section in the fabricSettings  section for the cluster resource:
-
 ```json
 "fabricSettings": [
     {
@@ -43,22 +34,6 @@ You can enable **Managed Identity Token Service** through Azure Resource Manager
     }
 ]
 ```
-
-If you are enabling the **Managed Identity Token Service** on an existing cluster, you also need to include an upgrade policy with **forceRestart** flag in the cluster resource:
-
-
-```json
-"upgradeDescription": {
-    "forceRestart": true,
-    "healthCheckRetryTimeout": "00:45:00",
-    "healthCheckStableDuration": "00:05:00",
-    "healthCheckWaitDuration": "00:05:00",
-    "upgradeDomainTimeout": "02:00:00",
-    "upgradeReplicaSetCheckTimeout": "1.00:00:00",
-    "upgradeTimeout": "12:00:00"
-}
-```
-
 ## Errors
 
 If the deployment fails with this message, it means the cluster is not on the required Service Fabric version:
@@ -69,3 +44,14 @@ If the deployment fails with this message, it means the cluster is not on the re
     "message": "Section 'ManagedIdentityTokenService' and Parameter 'IsEnabled' is not allowed."
 }
 ```
+
+## Next steps
+* [Deploy an Azure Service Fabric application with a system-assigned managed identity](./how-to-deploy-service-fabric-application-system-assigned-managed-identity.md)
+* [Deploy an Azure Service Fabric application with a user-assigned managed identity](./how-to-deploy-service-fabric-application-user-assigned-managed-identity.md)
+* [Leverage the managed identity of a Service Fabric application from service code](./how-to-managed-identity-service-fabric-app-code.md)
+* [Grant an Azure Service Fabric application access to other Azure resources](./how-to-grant-access-other-resources.md)
+
+## See also
+* Review [managed identity support](./concepts-managed-identity.md) in Azure Service Fabric
+
+* [Enable managed identity support in an existing Azure Service Fabric cluster](./configure-existing-cluster-enable-managed-identity-token-service.md)
