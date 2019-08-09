@@ -68,7 +68,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 Create a new Python application in your preferred editor or IDE. Then import the following libraries.
 
-[!code-python[Dependencies](~/samples-qnamaker-python/documentation-samples/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=dependencies)]
+[!code-python[Dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=dependencies)]
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
 
