@@ -34,7 +34,7 @@ The _pricing tier_ of an App Service plan determines what App Service features y
 
 - **Shared compute**: **Free** and **Shared**, the two base tiers, runs an app on the same Azure VM as other App Service apps, including apps of other customers. These tiers allocate CPU quotas to each app that runs on the shared resources, and the resources cannot scale out.
 - **Dedicated compute**: The **Basic**, **Standard**, **Premium**, and **PremiumV2** tiers run apps on dedicated Azure VMs. Only apps in the same App Service plan share the same compute resources. The higher the tier, the more VM instances are available to you for scale-out.
-- **Isolated**: This tier runs dedicated Azure VMs on dedicated Azure Virtual Networks, which provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities.
+- **Isolated**: This tier runs dedicated Azure VMs on dedicated Azure Virtual Networks. It provides network isolation on top of compute isolation to your apps. It provides the maximum scale-out capabilities.
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
@@ -74,7 +74,7 @@ This section describes how App Service apps are billed. For detailed, region-spe
 Except for **Free** tier, an App Service plan carries an hourly charge on the compute resources it uses.
 
 - In the **Shared** tier, each app receives a quota of CPU minutes, so _each app_ is charged hourly for the CPU quota.
-- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**), The App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan has an hourly charge. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
+- In the dedicated compute tiers (**Basic**, **Standard**, **Premium**, **PremiumV2**), the App Service plan defines the number of VM instances the apps are scaled to, so _each VM instance_ in the App Service plan has an hourly charge. These VM instances are charged the same regardless how many apps are running on them. To avoid unexpected charges, see [Clean up an App Service plan](app-service-plan-manage.md#delete).
 - In the **Isolated** tier, the App Service Environment defines the number of isolated workers that run your apps, and _each worker_ is charged hourly. In addition, there's an hourly base fee for the running the App Service Environment itself.
 
 You don't get charged for using the App Service features that are available to you (configuring custom domains, SSL certificates, deployment slots, backups, etc.). The exceptions are:
