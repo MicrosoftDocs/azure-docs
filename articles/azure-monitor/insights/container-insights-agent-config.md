@@ -40,7 +40,7 @@ Collection Settings are either cluster-wide or per-node, and the following table
 | url/endpoint | Per-node | `http://myurl:9101/metrics` |
 | Exporter | Per-node or cluster-wide | `https://prometheus.io/docs/instrumenting/exporters/`​ |
 
-The collection interval can be set to seconds, minutes, or hours. When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
+When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
 
 ## Configure your cluster with custom data collection settings
 
@@ -86,7 +86,7 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics.
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics in a 1 minute interval from a URL across the cluster.
 
 ```
 prometheus-data-collection-settings: |- ​
@@ -96,25 +96,43 @@ prometheus-data-collection-settings: |- ​
 interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
 ​
 fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass thru ​
-fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting ​
-​
+fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting 
+
 urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from. ​
 ​
-kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"] ## An array of Kubernetes services to scrape metrics from​
-​
-monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: ​
- - prometheus.io/scrape: #Enable scraping for this pod ​
- - prometheus.io/scheme: #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
- - prometheus.io/path: #If the metrics path is not /metrics, define it with this annotation. ​
- - prometheus.io/port: #If port is not 9102 use this annotation​
+```
+
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics in a 1 minute interval from an agent's DaemonSet running in every node in the cluster.
+
+```
+prometheus-data-collection-settings: |- ​
+# Custom Prometheus metrics data collection settings ​
 ​
 [prometheus_data_collection_settings.node] ​
+interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
+
 # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster ​
 ​
 urls = ["http://$NODE_IP:9103/metrics"] ​
 ​
 fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
 fielddrop = ["metric_to_drop"] ​
+```
+
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics in 1 minute interval based on specifying a pod annotation.
+
+```
+prometheus-data-collection-settings: |- ​
+# Custom Prometheus metrics data collection settings ​
+​
+[prometheus_data_collection_settings.cluster] ​
+interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
+​
+monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: ​
+ - prometheus.io/scrape:"true" #Enable scraping for this pod ​
+ - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+ - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
+ - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
 ```
 
 ### Configure and deploy ConfigMaps
