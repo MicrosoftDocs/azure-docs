@@ -88,6 +88,7 @@ The following table lists operating systems that aren't supported:
 |---------|---------|
 |Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.        |
 |Windows Server 2016 Nano Server     | Not supported.       |
+|Azure Kubernetes Service Nodes | Not supported. Use the patching process detailed in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### Client requirements
 
