@@ -56,7 +56,7 @@ All containers created inside a database with provisioned throughput must be cre
 
 If the workload on a logical partition consumes more than the throughput that's allocated to a specific logical partition, your operations are rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire database or retry the operations. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-The shards of shared database containers are co-located, and up to 25 containers can potentially use the provisioned throughput. Beyond 25 containers, for every additional 25 containers added throughput accessible for all the containers reduces linearly
+The shards of shared database containers are co-located, and up to 25 containers can potentially use the provisioned throughput. Beyond 25 containers, for every additional 25 containers added throughput accessible for all the containers reduces linearly.
 
 The following image shows how a physical partition can host one or more logical partitions that belong to different containers within a database:
 
@@ -74,7 +74,8 @@ You can combine the two models. Provisioning throughput on both the database and
 * The *"K"* RUs throughput is shared across the four containers *A*, *C*, *D*, and *E*. The exact amount of throughput available to *A*, *C*, *D*, or *E* varies. There are no SLAs for each individual container’s throughput.
 * The container named *B* is guaranteed to get the *"P"* RUs throughput all the time. It's backed by SLAs.
 
-**NOTE: A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput**
+> [!NOTE]
+> A container with provisioned throughput cannot be converted to shared database container. Conversely a shared database container cannot be converted to have a dedicated throughput.
 
 ## Update throughput on a database or a container
 
