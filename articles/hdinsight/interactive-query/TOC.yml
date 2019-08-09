@@ -195,6 +195,8 @@
       href: ./interactive-query-troubleshoot-query-performance.md
     - name: Slow reducer
       href: ./interactive-query-troubleshoot-slow-reducer.md
+    - name: Apache Hive View time out
+      href: ./interactive-query-troubleshoot-view-time-out.md
     - name: Permission error creating table
       href: ./interactive-query-troubleshoot-permission-error-create-table.md
     - name: GC overhead limit exceeded
