@@ -290,15 +290,21 @@ However, users still need to carry out day to day privileged operations, so enfo
 
 ### Reporting and monitoring
 
-Azure AD can provide additional insights into your organization’s user provisioning usage and operational health through audit logs and reports. 
+Azure AD provides additional insights into your organization’s application usage and operational health through [audit logs and reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs). Application Proxy also makes it very easy to monitor connectors from the Azure AD portal and Windows Event Logs.
 
 #### Application audit logs
 
-These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. Audit logs are located in the Azure portal and in Audit API for export.
+These logs provide detailed information about logins to applications configured with Application Proxy and the device and the user accessing the application. [Audit logs](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-audit-logs) are located in the Azure portal and in [Audit API](https://docs.microsoft.com/graph/api/resources/directoryaudit?view=graph-rest-beta) for export. Additionally, [usage and insights reports](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-usage-insights-report) are also available for your application.
+
+#### Application Proxy Connector monitoring
+
+The connectors and the service take care of all the high availability tasks. You can monitor the status of your connectors from the Application Proxy page in the Azure AD Portal. For more information about connector maintainence see [Understand Azure AD Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#maintenance).
+
+![Example: Azure AD Application Proxy connectors](./media/application-proxy-connectors/app-proxy-connectors.png)
 
 #### Windows event logs and performance counters
 
-Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs, and follow this [tutorial to configure event log data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
+Connectors have both admin and session logs. The admin logs include key events and their errors. The session logs include all the transactions and their processing details. Logs and counters are located in Windows Event Logs for more information see [Understand Azure AD Application Proxy Connectors](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-connectors#under-the-hood). Follow this [tutorial to configure event log data sources in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources-windows-events).
 
 ### Troubleshooting guide and steps
 

@@ -34,7 +34,8 @@ You can configure the following password settings using FGPP:
     * Account lockout duration
     * Number of failed logon attempts allowed
     * Reset failed logon attempts count after
-
+    
+FGPP only affects users created directly in Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD aren't affected by the password complexity settings. FGPP is distributed through groups association in the Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
 ## Default fine grained password policy settings on a managed domain
 The following screenshot illustrates the default fine grained password policy configured on an Azure AD Domain Services managed domain.
