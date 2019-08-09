@@ -58,8 +58,7 @@ You should request access to a role at the minimum scope needed. If your assignm
 1. In the **Reason** box, enter the reason for the activation request. These can be made required or not in the role setting.
 1. Select **Activate**.
 
-If the role doesn't require approval, it's activated according to your settings and is added to the list of active roles. If you want to use the activated role, start with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md). 
-To verify the operation, in an open role, select **Assignments** > **Assign** and verify that your role is properly identified as eligible or active.
+If the role doesn't require approval, it's activated according to your settings and is added to the list of active roles. If you want to use the activated role, start with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md).
 
 If the role requires approval to activate, you will receive a notification in the corner of your browser informing you that the request is pending approval.
 

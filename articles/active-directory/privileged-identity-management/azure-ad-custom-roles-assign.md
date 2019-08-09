@@ -68,10 +68,11 @@ Privileged Identity Management can manage custom roles you can create in Azure A
     - **Active** assignments don't require the assigned user to perform any action to use the role. Active users have the privileges assigned to the role at all times.
 
 1. If the **Permanent** check box is present and available (depending on role settings), you can specify whether the assignment is permanent. Select the check box to to make the assignment permanently eligible or permanently assigned. Clear the check box to specify an assignment duration.
-
-    ![Set the role assignment type to eligible or active](./media/azure-ad-custom-roles-assign/verify-assignments.png)
-
 1. To create the new role assignment, click **Save** and then **Add**. A notification of the assignment process status is displayed.
+
+To verify the role assignment, in an open role, select **Assignments** > **Assign** and verify that your role assignment is properly identified as eligible or active.
+
+ ![Check to see if the role assignment is visible as eligible or active](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
 ## Next steps
 
