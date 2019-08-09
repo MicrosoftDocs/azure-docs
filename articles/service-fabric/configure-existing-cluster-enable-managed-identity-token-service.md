@@ -13,7 +13,7 @@ ms.author: atsenthi
 # Configure an existing Azure Service Fabric cluster to enable Managed Identity support
 In order to access the managed identity feature for Azure Service Fabric applications, you must first configure the cluster enable the **Managed Identity Token Service** system service. This service is responsible for the authentication of Service Fabric applications using their managed identities, and also for obtaining access tokens on their behalf. Once the service is enabled, you can see it in Service Fabric Explorer under the **System** section in the left pane, running under the name **fabric:/System/ManagedIdentityTokenService** next to other system services.
 
-[!NOTE]
+> [!NOTE]
 > Service Fabric runtime version 6.5.658.9590 or higher is required to enable the **Managed Identity Token Service**.  
 * You can find the Service Fabric version of a cluster from the Azure portal by opening the cluster resource and checking the **Service Fabric version** property in the **Essentials** section.
 * If the cluster is on **Manual** upgrade mode, you will need to first upgrade it to 6.5.658.9590 or above.
@@ -50,7 +50,7 @@ In order for the changes to take effect, you will also need to change the upgrad
 }
 ```
 
-[!NOTE]
+> [!NOTE]
 > Upon the successful completion of the upgrade, do not forget to roll back the `forceRestart` setting, to minimize the impact of subsequent upgrades. 
 
 ## Errors and troubleshooting
