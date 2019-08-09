@@ -40,7 +40,7 @@ The deployment mechanism is the action used to put your built application into t
 - Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service, and as a second container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as zipdeploy.
 - FTP and WebDeploy: Using your [site or user credentials](deploy-configure-credentials.md), you can upload files [via FTP](deploy-ftp.md) or WebDeploy. These mechanisms do not go through Kudu.  
 
-Deployment tools such as Azure Pipelines, Jenkins, and editor plugins all use one of these three deployment mechanisms.
+Deployment tools such as Azure Pipelines, Jenkins, and editor plugins use one of these deployment mechanisms.
 
 ## Language-Specific Considerations
 
