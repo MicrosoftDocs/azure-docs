@@ -51,6 +51,7 @@ Sample request:
 GET 'http://localhost:2377/metadata/identity/oauth2/token?api-version=2019-07-01-preview&resource=https://keyvault.azure.com/' HTTP/1.1 Secret: 912e4af7-77ba-4fa5-a737-56c8e3ace132
 ```
 where:
+
 | Element | Description |
 | ------- | ----------- |
 | `GET` | The HTTP verb, indicating you want to retrieve data from the endpoint. In this case, an OAuth access token. | 
@@ -275,6 +276,7 @@ Sample error:
 ```
 
 Following is a list of typical Service Fabric errors specific to managed identities:
+
 | Code | Message | Description | 
 | ----------- | ----- | ----------------- |
 | SecretHeaderNotFound | Secret is not found in the request headers. | The authentication code was not provided with the request. | 
