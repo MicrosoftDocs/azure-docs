@@ -82,7 +82,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Basic SAML Configuration** section, upload the downloaded **Service Provider metadata** file and configure the application in **IDP** initiated mode, by performing the following steps:
 
 	>[!Note]
-	>You will get the Service Provider Metadata file, which is explained later in the **Configure Cisco Webex Meetings Single Sign-On** section of the tutorial. 
+	>You will get the Service Provider Metadata file, which is explained later in the **Configure Cisco Webex Meetings SSO** section of the tutorial. 
 
 	a. Click **Upload metadata file**.
 
