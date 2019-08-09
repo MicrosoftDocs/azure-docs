@@ -61,7 +61,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
    ```
 5. Open storage explorer and copy this file to the input/full directory.
 
-## Create notebook to configure the customer table
+## Create and populate delta databricks tables
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to set up the customer table in the storage account.
 
@@ -80,60 +80,69 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 4. Copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```Python
-    configs = {"fs.azure.account.auth.type": "OAuth",
-           "fs.azure.account.oauth.provider.type": "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider",
-           "fs.azure.account.oauth2.client.id": "<appId>",
-           "fs.azure.account.oauth2.client.secret": "<password>",
-           "fs.azure.account.oauth2.client.endpoint": "https://login.microsoftonline.com/<tenant>/oauth2/token",
-           "fs.azure.createRemoteFileSystemDuringInitialization": "true"}
+    spark.conf.set("fs.azure.account.auth.type", "OAuth")
+    spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
+    spark.conf.set("fs.azure.account.oauth2.client.id", "<appId")
+    spark.conf.set("fs.azure.account.oauth2.client.secret", "<password>")
+    spark.conf.set("fs.azure.account.oauth2.client.endpoint", "https://login.microsoftonline.com/<tenant>/oauth2/token")
+    spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
 
-    dbutils.fs.mount(
-    source = "abfss://data@contosoorders.dfs.core.windows.net",
-    mount_point = "/mnt/data",
-    extra_configs = configs)
+    adlsPath = 'abfss://data@contosoorders.dfs.core.windows.net/'
+    inputPath = adlsPath + dbutils.widgets.get('source_file')
+    customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
 5. In this code block, replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
 
 6. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-6. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block. This code configures the structure of your databricks delta table and then loads some initial data from the csv file that you uploaded earlier.
+7. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block. This code configures the structure of your databricks delta table and then loads some initial data from the csv file that you uploaded earlier.
 
    ```Python
+   dbutils.widgets.text('source_file', "", "Source File")
+
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
 
 
    inputSchema = StructType([
-      StructField("InvoiceNo", IntegerType(), True),
-      StructField("StockCode", StringType(), True),
-      StructField("Description", StringType(), True),
-      StructField("Quantity", IntegerType(), True),
-      StructField("InvoiceDate", StringType(), True),
-      StructField("UnitPrice", DoubleType(), True),
-      StructField("CustomerID", IntegerType(), True),
-      StructField("Country", StringType(), True)
-    ])
+   StructField("InvoiceNo", IntegerType(), True),
+   StructField("StockCode", StringType(), True),
+   StructField("Description", StringType(), True),
+   StructField("Quantity", IntegerType(), True),
+   StructField("InvoiceDate", StringType(), True),
+   StructField("UnitPrice", DoubleType(), True),
+   StructField("CustomerID", IntegerType(), True),
+   StructField("Country", StringType(), True)
+   ])
 
-    rawDataDF = (spark.read
-      .option("header", "true")
-      .schema(inputSchema)
-      .csv('/mnt/data/input/full')
-    )
+   rawDataDF = (spark.read
+    .option("header", "true")
+    .schema(inputSchema)
+    .csv(adlsPath + 'input/full')
+   )
 
-    customerTablePath = '/mnt/data/delta-tables/customers'
+   (rawDataDF.write
+     .mode("overwrite")
+     .format("delta")
+     .saveAsTable("customer_data", path=customerTablePath))
+   ```
 
+8. After this code block successfully runs, remove this code block from your notebook. You no longer need it.
 
-    (rawDataDF.write
-       .mode("overwrite")
-      .format("delta")
-    ```
+## Upsert data to delta table
 
-## Create notebook to upsert data into the table
+1. Copy and paste the following code block into a different cell, but don't run this cell.
 
-Introduction
+   ```Python
+   upsertDataDF = (spark
+     .read
+     .option("header", "true")
+     .csv(inputPath)
+   )
+   upsertDataDF.createOrReplaceTempView("customer_data_to_upsert")
+   ```
 
-1. Step 1.
-2. Step 2.
+   This code uploads and inserts data from a csv file identified by the widget that you added earlier. We'll populate that widget by using a function app when the event is triggered.
 
 ## Create the table structure in Databricks
 
@@ -161,7 +170,7 @@ Introduction
 Introduction
 
 1. Step 1.
-2. Step 2.
+. Step 2.
 
 ## Test it all out
 
