@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2019
+ms.date: 08/08/2019
 ms.author: magoedte
 ---
 
@@ -24,6 +24,13 @@ This article demonstrates how to create ConfigMap and configure data collection 
 >[!NOTE]
 >Support for Prometheus is a feature in public preview at this time.
 >
+
+## Overview of Prometheus support
+
+![Container monitoring architecture for Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
+
+Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics. Prometheus metrics can be collected thru a set of settings specified in a single ConfigMap file.    
+
 
 ## Configure your cluster with custom data collection settings
 
