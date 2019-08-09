@@ -55,7 +55,7 @@ using Microsoft.ApplicationInsights;
             ...
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             e.Cancel = true;
 
