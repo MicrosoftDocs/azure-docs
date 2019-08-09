@@ -52,7 +52,6 @@ For more information about how to encode and decode messages sent using differen
 | iothub-connection-device-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **deviceId** of the device that sent the message. | No | DeviceId |
 | iothub-connection-auth-generation-id |An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties](iot-hub-devguide-identity-registry.md#device-identity-properties)) of the device that sent the message. | No |DeviceGenerationId |
 | iothub-connection-auth-method |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. <!-- ROBINSH For more information, see [Device to cloud anti-spoofing][lnk-antispoofing].-->| No | AuthMethod |
-|iothub-creation-time-utc | Date and time the message was created on a device. A device must set this value explicitly. | No | TBD (waiting on response from engg) |
 
 ## System Properties of **C2D** IoT Hub messages
 
