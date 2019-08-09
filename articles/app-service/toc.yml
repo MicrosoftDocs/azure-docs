@@ -221,6 +221,8 @@
     href: /azure/templates/microsoft.web/allversions
 - name: Resources
   items:
+  - name: App Service Blog
+    href: https://aka.ms/appserviceblog
   - name: Build your skills with Microsoft Learn
     href: /learn/browse/
   - name: Azure Roadmap
