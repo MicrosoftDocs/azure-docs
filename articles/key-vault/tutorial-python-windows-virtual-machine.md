@@ -100,9 +100,9 @@ This secret stores the value **MySecret**.
 ## Create a virtual machine
 You can create a virtual machine by using one of the following methods:
 
-* [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [The Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [The Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
 ## Assign an identity to the VM
 In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
@@ -129,7 +129,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## Log on to the virtual machine
 
-To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
 
 ## Create and run a sample Python app
 
