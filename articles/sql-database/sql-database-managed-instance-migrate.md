@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
-ms.date: 11/07/2019
+ms.date: 07/11/2019
 ---
 # SQL Server instance migration to Azure SQL Database managed instance
 

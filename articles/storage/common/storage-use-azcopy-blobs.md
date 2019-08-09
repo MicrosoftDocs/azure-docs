@@ -1,13 +1,13 @@
 ---
 title: Transfer data to or from Azure Blob storage by using AzCopy v10 | Microsoft Docs
 description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize directories between local file systems and containers.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
+ms.reviewer: dineshm
 ---
 
 # Transfer data with AzCopy and Blob storage
@@ -146,7 +146,7 @@ You can use AzCopy to copy blobs to other storage accounts. The copy operation i
 > [!NOTE]
 > Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. 
 
-AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
 This section contains the following examples:
 

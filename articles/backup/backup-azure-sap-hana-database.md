@@ -11,7 +11,7 @@ ms.author: dacurwin
 
 
 ---
-# Back up an SAP HANA database
+# Back up an SAP HANA database to Azure
 
 [Azure Backup](backup-overview.md) supports the backup of SAP HANA databases to Azure.
 

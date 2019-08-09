@@ -9,18 +9,20 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a device or solution developer, I want to use the Azure IoT Device Workbench to author my device capability model (DCM) and interface, publish to model repository and generate C scaffolding code to implement the device application.
+# As a device or solution developer, I want to use the Azure IoT Device Workbench to author my device capability model (DCM) and interface, publish to model repository and generate skeleton C code to implement the device application.
 ---
 
 # Use Azure IoT Device Workbench extension in Visual Studio Code
 
-The Azure IoT Device Workbench Visual Studio Code extension provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate C scaffolding code to implement the device application.
+The Azure IoT Device Workbench Visual Studio Code extension provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate skeleton C code to implement the device application.
 
 This article shows you how to:
 
 - Generate device code and application project.
 - Use the generated code in your device project.
-- Iterate by regenerating the scaffolding code.
+- Iterate by regenerating the skeleton code.
+
+To learn more about using the Device Workbench extension to develop IoT devices, see [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
 ## Prerequisites
 
@@ -33,9 +35,9 @@ Use the following steps to install the extension in VS Code.
 
 ## Generate device code and project
 
-In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub** to configure the scaffold code and project type. The following list describes each step in detail:
+In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub** to configure the skeleton code and project type. The following list describes each step in detail:
 
-- **DCM file to be used for generating the code**. To generate the scaffolding device code, open the folder that contains the DCM and interface files it implements. If the code generator can't find an interface that a DCM requires, it downloads it from the model repository as needed.
+- **DCM file to be used for generating the code**. To generate the skeleton device code, open the folder that contains the DCM and interface files it implements. If the code generator can't find an interface that a DCM requires, it downloads it from the model repository as needed.
 
 - **Device code language**. Currently, the code generator only supports ANSI C.
 
@@ -44,7 +46,6 @@ In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug a
 - **Project type**. The code generator also generates a project file so that you can integrate the code into your own project or into the device SDK project. Currently, the supported project types are:
 
     - **CMake Project**: for a device project that uses [CMake](https://cmake.org/) as build system. This option generates a `CMakeLists.txt` file in the same folder as the C code.
-    - **Visual Studio Project**: for a device project that uses Visual Studio. This option generates a `.vcxproj` file that you can open in Visual Studio as a VC++ project.
     - **MXChip IoT DevKit project**: for a device project that runs on an [MXChip IoT DevKit](https://aka.ms/iot-devkit) device. This option generates an Arduino project that you can [use in VS Code](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started) or in the Arduino IDE to build and run on an IoT DevKit device.
 
 - **Method to connect to Azure IoT**. The generated files also contain code to configure the device to connect to Azure IoT Hub. You can choose to connect directly to [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub) or use the [Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps).
@@ -71,7 +72,7 @@ After code generation finishes, the extension opens a new VS Code window with th
 
 ## Use the generated code
 
-The following instructions describe how to use the generated code in your own device project on different development machine platforms:
+The following instructions describe how to use the generated code in your own device project on different development machine platforms. The instructions assume you're using an IoT Hub device connection string with the generated code:
 
 ### Linux
 
@@ -121,27 +122,73 @@ To build the device code together with the device C SDK using CMake in a Linux e
 1. Run the following commands to use CMake to build the device SDK and the generated code stub:
 
     ```cmd\sh
-    cmake ..
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON ..
     cmake --build .
 
 1. After the build succeeds, run the application specifying the IoT Hub device connection string as parameter.
 
     ```cmd\sh
-    cd azure-iot-sdk-c-pnp/cmake/{generated_code_folder_name}/
-    ./testing_device "[IoT Hub device connection string]"
+    cd azure-iot-sdk-c/cmake/{generated_code_folder_name}/
+    ./{generated_code_project_name} "[IoT Hub device connection string]"
     ```
 
 ### Windows
 
-To build the device code together with the device C SDK on Windows using CMake and the Visual Studio C/C++ compilers, see the [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md). If you prefer not to use CMake, the following steps show you how to include the `.vcxproj` file in your Visual Studio solution:
+To build the device code together with the device C SDK on Windows using CMake and the Visual Studio C/C++ compilers at the command line, see the [IoT Plug and Play quickstart](./quickstart-create-pnp-device.md). The following steps show you how to build the device code together with the device C SDK as CMake project in Visual Studio.
 
-1. Open your VS solution.
+1. Install [Visual Studio 2019 (Community, Professional, or Enterprise)](https://visualstudio.microsoft.com/downloads/) - make sure that you include the **NuGet package manager** component and the **Desktop Development with C++** workload.
 
-1. In the **Solution Explorer** panel, select the top solution node, from context menu, select **Add > Existing Project**.
+1. Open Visual Studio, and on the **Get Started** page select **Clone or check out code**:
 
-1. Select the `.vcxproj` file in the generated code folder to include it as part of the solution.
+1. In **Repository location**, clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) repository:
 
-1. From there, you can continue to implement your device code and build the solution in VS.
+    ```txt
+    https://github.com/Azure/azure-iot-sdk-c
+    ```
+
+    You should expect this operation to take several minutes to complete, you can see the progress in the **Team Explorer** pane.
+
+1. Open **azure-iot-sdk-c** repository in the **Team Explorer**, select **Branches**, search for **public-preview** branch and check it out.
+
+    ![Public preview](media/howto-use-iot-device-workbench/vs-public-preview.png)
+
+1. Copy the folder that contains the generated code into the device SDK root folder.
+
+1. Open the `azure-iot-sdk-c` folder in VS.
+
+1. Open the `CMakeLists.txt` file in the device SDK root folder.
+
+1. Add the following line at the end of the `CMakeLists.txt` file to include the device code stub folder when you compile the SDK:
+
+    ```txt
+    add_subdirectory({generated_code_folder_name})
+    ```
+
+1. In the **General** toolbar, find the **Configurations** dropdown. Select **Manage Configuration** to add the CMake setting for your project.
+
+    ![Manage configuration](media/howto-use-iot-device-workbench/vs-manage-config.png)
+
+1. In the **CMake Settings**, add a new configuration and select **x64-Release** as target.
+
+1. In **CMake Command Arguments**, add following line:
+
+    ```txt
+    -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
+    ```
+
+1. Save the file.
+
+1. In the **Solution Explorer**, right-click on the `CMakeLists.txt` in the root folder, and select **Build** from the context menu to build the device SDK and the generated code stub.
+
+1. After the build succeeds, at the command prompt, run the application specifying the IoT Hub device connection string as a parameter.
+
+    ```cmd
+    cd %USERPROFILE%\CMakeBuilds\{workspaceHash}\build\x64-Release\{generated_code_folder_name}\
+    {generated_code_project_name}.exe "[IoT Hub device connection string]"
+    ```
+
+> [!TIP]
+> To learn more about using CMake in Visual Studio, see [Build CMake project](https://docs.microsoft.com/cpp/build/cmake-projects-in-visual-studio?view=vs-2019#building-cmake-projects) .
 
 ### macOS
 
@@ -166,7 +213,7 @@ The following steps show you how to build the device code together with the devi
 
 1. Clone the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) repository:
 
-    ```sh
+    ```bash
     git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
     ```
 
@@ -184,25 +231,25 @@ The following steps show you how to build the device code together with the devi
 
 1. Create a folder called `cmake` in the device SDK root folder, and navigate to that folder.
 
-    ```sh
+    ```bash
     mkdir cmake
     cd cmake
     ```
 
 1. Run the following commands to use CMake to build the device SDK and the generated code stub:
 
-    ```cmd\sh
-    cmake -DOPENSSL_ROOT_DIR:PATH=/usr/local/opt/openssl ..
+    ```bash
+    cmake -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DOPENSSL_ROOT_DIR:PATH=/usr/local/opt/openssl ..
     cmake --build .
 
 1. After the build succeeds, run the application specifying the IoT Hub device connection string as parameter.
 
-    ```cmd\sh
-    cd azure-iot-sdk-c-pnp/cmake/{generated_code_folder_name}/
-    ./testing_device "[IoT Hub device connection string]"
+    ```bash
+    cd azure-iot-sdk-c/cmake/{generated_code_folder_name}/
+    ./{generated_code_project_name} "[IoT Hub device connection string]"
     ```
 
-## Iterate by regenerating the scaffolding code
+## Iterate by regenerating the skeleton code
 
 The code generator can regenerate the code if you update your DCM or interface files. Assuming you already generated your device code from a DCM file, to regenerate the code:
 
@@ -223,4 +270,4 @@ Azure IoT Device Workbench extension is an open-sourced project on GitHub. For a
 
 ## Next steps
 
-In this how-to article, you've learned how to use the Azure IoT Device Workbench to author DCM and interface files. You've also learned how to generate C scaffolding code to implement the device application. A suggested next step is to learn how to [Install and use Azure IoT explorer](./howto-install-iot-explorer.md) tool.
+In this how-to article, you've learned how to use the Azure IoT Device Workbench to author DCM and interface files. You've also learned how to generate skeleton C code to implement the device application. A suggested next step is to learn how to [Install and use Azure IoT explorer](./howto-install-iot-explorer.md) tool.

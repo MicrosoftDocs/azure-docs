@@ -5,10 +5,15 @@
   - name: What is IoT Plug and Play?
     href: overview-iot-plug-and-play.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Use a device capability model to create a device
     href: quickstart-create-pnp-device.md
-  - name: Connect a device to your solution
+  - name: Connect a device to IoT Hub
+    href: quickstart-connect-pnp-device.md
+  - name: Connect a device to IoT Central
+    href: https://aka.ms/iot-central-connect-qs
+  - name: Connect to a device in your solution
     href: quickstart-connect-pnp-device-solution.md
 - name: Tutorials
   items:
@@ -28,6 +33,8 @@
     href: concepts-common-interfaces.md
   - name: Model discovery
     href: concepts-model-discovery.md
+  - name: Limits and quotas
+    href: concepts-limits-quotas.md
 - name: How-to guides
   items:
   - name: Use IoT Device Workbench
@@ -42,6 +49,12 @@
     href: howto-manage-models.md
   - name: Connect to and interact with a device
     href: howto-develop-solution.md
+- name: Reference
+  items:
+  - name: REST
+    href: https://aka.ms/iot-pnp-rest
+  - name: Generate a REST security token
+    href: howto-generate-sas-token.md
 - name: Related
   items:
   - name: Solutions

@@ -9,14 +9,14 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a solution developer, I want to use the Azure IoT extension for Azure CLI to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
+# As a solution developer, I want to use the Azure IoT extension for the Azure CLI to interact with IoT Plug and Play devices connected to an IoT hub to test and verify their behavior.
 ---
 
-# Install and use the Azure IoT extension for Azure CLI
+# Install and use the Azure IoT extension for the Azure CLI
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. Azure CLI is available on Windows, Linux, and MacOS. The Azure CLI is also pre-installed in the [Azure Cloud Shell](https://shell.azure.com). Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
+[The Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) is an open-source cross platform command-line tool for managing Azure resources such as IoT Hub. The Azure CLI is available on Windows, Linux, and MacOS. The Azure CLI is also pre-installed in the [Azure Cloud Shell](https://shell.azure.com). The Azure CLI lets you manage Azure IoT Hub resources, Device Provisioning Service instances, and linked-hubs without installing any extensions.
 
-The Azure IoT extension for Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play Preview devices. You can use the extension to:
+The Azure IoT extension for the Azure CLI is a command-line tool for interacting with, and testing IoT Plug and Play Preview devices. You can use the extension to:
 
 - Connect to a device.
 - View the telemetry the device sends.
@@ -25,25 +25,25 @@ The Azure IoT extension for Azure CLI is a command-line tool for interacting wit
 
 This article shows you how to:
 
-- Install and configure the Azure IoT extension for Azure CLI.
+- Install and configure the Azure IoT extension for the Azure CLI.
 - Use the extension to interact with and test your devices.
 - Use the extension to manage interfaces in the model repository.
 
-## Install Azure IoT extension for Azure CLI
+## Install Azure IoT extension for the Azure CLI
 
 ### Step 1 - Install the Azure CLI
 
-Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az -–version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
+Follow the [installation instructions](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) to set up the Azure CLI in your environment. Your Azure CLI version must be version 2.0.67 or above. Use `az -–version` to validate. This version supports az extension commands and introduces the Knack command framework. One simple way to install on Windows is to download and install the [MSI](https://aka.ms/InstallAzureCliWindows).
 
 ### Step 2 - Install IoT extension
 
 [The IoT extension readme](https://github.com/Azure/azure-iot-cli-extension) describes several ways to install the extension. The simplest way is to run `az extension add --name azure-cli-iot-ext`. After installation, you can use `az extension list` to validate the currently installed extensions or `az extension show --name azure-cli-iot-ext` to see details about the IoT extension. To remove the extension, you can use `az extension remove --name azure-cli-iot-ext`.
 
-## Use Azure IoT extension for Azure CLI
+## Use Azure IoT extension for the Azure CLI
 
 ### Prerequisites
 
-To use the Azure IoT extension for Azure CLI, you need:
+To use the Azure IoT extension for the Azure CLI, you need:
 
 - An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub's connection string to run the Azure IoT extension commands. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 - A device registered in your IoT hub. You can use the following Azure CLI command to register a device, be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
@@ -52,7 +52,7 @@ To use the Azure IoT extension for Azure CLI, you need:
 az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
 ```
 
-- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third-party. A model repository for your organization is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
+- (Optional) The connection string for your organization's model repository, or a connection string that is shared to you from a third party. A model repository for your organization is created when you first [onboard to the Azure Certified for IoT portal](howto-onboard-portal.md).
 
 ### Interact with a device
 
@@ -198,8 +198,8 @@ Publish a device capability model in the IoT Plug and Play company model reposit
 az iot pnp model publish --interface {YourInterfaceName} --login {CompanyModelRepoConnectionString}
 ```
 
-You can't directly publish an model in the public model repository.
+You can't directly publish a model in the public model repository.
 
 ## Next steps
 
-In this how-to article, you've learned how to install and use Azure IoT extension for Azure CLI to interact with your IoT Plug and Play devices. To learn about IoT Plug and Play, continue to the next article.
+In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your Plug and Play devices. A suggested next step is to learn how to [Manage models](./howto-manage-models.md).

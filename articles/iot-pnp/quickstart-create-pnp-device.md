@@ -3,7 +3,7 @@ title: Create an Azure IoT Plug and Play Preview device | Microsoft Docs
 description: Use a device capability model to generate device code. Then run the device code and see the device connect to your IoT Hub.
 author: miagdp
 ms.author: miag
-ms.date: 07/11/2019
+ms.date: 08/02/2019
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
@@ -12,7 +12,7 @@ ms.custom: mvc
 # As a device builder, I want to try out generating device code from a model so I can understand the purpose of device capability models.
 ---
 
-# Quickstart: Use a device capability model to create a device
+# Quickstart: Use a device capability model to create an IoT Plug and Play device
 
 A _device capability model_ (DCM) describes the capabilities of an IoT Plug and Play device. A DCM is often associated with a product SKU. The capabilities defined in the DCM are organized into reusable interfaces. You can generate skeleton device code from a DCM. This quickstart shows you how to use VS Code to create an IoT Plug and Play device using a DCM.
 
@@ -37,13 +37,39 @@ Use the following steps to install the Azure IoT Device Workbench extension in V
 
 Download and install the Azure IoT explorer tool from the [latest release](https://github.com/Azure/azure-iot-explorer/releases) page.
 
-### Create an IoT hub and register a device
+### Get the connection string for your company model repository
 
-You also need an Azure IoT hub with at least one registered device in your Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+You can find your _company model repository connection string_ in the [Azure Certified for IoT portal](https://aka.ms/adbtest) portal when you sign in with a Microsoft work or school account, or your Microsoft Partner ID if you have one. After you sign in, select **Company repository** and then **Connection strings**.
 
-1. You can [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md) or [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md).
-1. Create a device identity in an Azure IoT Hub. If you don't have one, follow these instructions to [register a device](../iot-hub/quickstart-send-telemetry-node.md#create-an-iot-hub).
-1. Retrieve your hub connection string and make a note of it. You use this connection string later in this quickstart.
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Prepare an IoT hub
+
+You also need an Azure IoT hub in your Azure subscription to complete this quickstart. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Add the Microsoft Azure IoT Extension for Azure CLI:
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
+Run the following command to create the device identity in your IoT hub. Replace the **YourIoTHubName** and **YourDevice** placeholders with your actual names. If you don't have an IoT Hub, follow [these instructions to create one](../iot-hub/iot-hub-create-using-cli.md):
+
+```azurecli-interactive
+az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
+```
+
+Run the following commands to get the _device connection string_ for the device you just registered:
+
+```azurecli-interactive
+az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
+```
+
+Run the following commands to get the _IoT hub connection string_ for your hub:
+
+```azurecli-interactive
+az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
+```
 
 ## Prepare the development environment
 
@@ -59,10 +85,10 @@ In this quickstart, you prepare a development environment you can use to clone a
 
     You should expect this operation to take several minutes to complete.
 
-1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. This is the folder you use for the device model files and device code stub.
+1. Create a `pnp_app` subdirectory in the root of the local clone of the repository. You use this folder for the device model files and device code stub.
 
     ```cmd/sh
-    cd azure-iot-sdk-c-pnp
+    cd azure-iot-sdk-c
     mkdir pnp_app
     ```
 
@@ -125,7 +151,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. Run the following commands to build the device SDK and the generated code stub:
 
     ```cmd\sh
-    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -Dskip_samples:BOOL=ON
+    cmake .. -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON
     cmake --build . -- /m /p:Configuration=Release
     ```
 
@@ -135,7 +161,7 @@ You use the device SDK to build the generated device code stub. The application 
 1. After the build completes successfully, run your application passing the IoT hub device connection string as parameter.
 
     ```cmd\sh
-    cd azure-iot-sdk-c-pnp\cmake\pnp_app\sample_device\Release\
+    cd azure-iot-sdk-c\cmake\pnp_app\sample_device\Release\
     sample_device.exe "[IoT Hub device connection string]"
     ```
 
@@ -147,16 +173,16 @@ You use the device SDK to build the generated device code stub. The application 
 
 ### Publish device model files to model repository
 
-In order to validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
+To validate the device code with **Azure IoT Explorer**, you need to publish the files to the model repository.
 
 1. With the folder with DCM files open, use **Ctrl+Shift+P** to open the command palette, type and select **IoT Plug & Play: Submit files to Model Repository**.
 
 1. Select `SampleDevice.capabilitymodel.json` and `EnvironmentalSensor.interface.json` files.
 
-1. Enter your organizational Model Repository connection string, which you can get from [Azure Device Builder](https://aka.ms/adbtest) portal with signed in with a Microsoft work or school account, or your Microsoft Partner ID if you have one.
+1. Enter your company model repository connection string.
 
     > [!NOTE]
-    > The connection string is required for the first time.
+    > The connection string is only required the first time you connect to the repository.
 
 1. In VS Code output window and notification, you can check the files have been published successfully.
 
@@ -171,13 +197,13 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 1. After you connect, you see the device overview page.
 
-1. To add your company repository, select **Settings**, then **+ New**, and then **Organization repository**.
+1. To add your company repository, select **Settings**, then **+ New**, and then **Company repository**.
 
-1. Add the connection string for your company repository. You can find this on the connection strings page for your company repository in the [Azure Certified for IoT](https://aka.ms/adbtest) portal. Select **Connect**.
+1. Add your company model repository connection string. Select **Connect**.
 
 1. On the device overview page, find the device identity you created previously, and select it to view more details.
 
-1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands and telemetry.
+1. Expand the interface with ID **urn:azureiot:EnvironmentalSensor:1** to see the IoT Plug and Play primitives - properties, commands, and telemetry.
 
 1. Select the **Telemetry** page to view the telemetry data the device is sending.
 
@@ -197,7 +223,7 @@ In order to validate the device code with **Azure IoT Explorer**, you need to pu
 
 In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
 
-To learn more about DCMs and how to create your own models, continue to the tutorial:
+To learn more about IoT Plug and Play, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Create and test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)

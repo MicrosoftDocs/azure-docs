@@ -15,15 +15,15 @@ manager: philmea
 
 # Tutorial: Create and test a device capability model using Visual Studio Code
 
-This tutorial shows you how, as a device developer, to use Visual Studio Code to create a _device capability model_. You can use the model to generate code to run on a device that connects to an Azure IoT Hub instance in the cloud.
+This tutorial shows you how, as a device developer, to use Visual Studio Code to create a _device capability model_. You can use the model to generate skeleton code to run on a device that connects to an Azure IoT Hub instance in the cloud.
 
-The section in this tutorial that describes how to build the generated code assumes you're using Windows.
+The section in this tutorial that describes how to build the generated skeleton code assumes you're using Windows.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a device capability model
-> * Generate device code from the model
+> * Generate skeleton device code from the model
 > * Implement the stubs in the generated code
 > * Run the code to test the interactions with an IoT hub
 
@@ -74,7 +74,7 @@ To create an interface file that defines the capabilities of your IoT device in 
 
 1. Then enter **EnvironmentalSensor** as the name of the interface and press **Enter**. VS Code creates a sample interface file called **EnvironmentalSensor.interface.json**.
 
-1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). The interface ID must be unique to save the interface in the repository:
+1. Replace the contents of this file with the following JSON and replace `{your name}` in the `@id` field with a unique value. Use only the characters a-z, A-Z, 0-9, and underscore. For more information, see [Digital Twin identifier format](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL#digital-twin-identifier-format). The interface ID must be unique to save the interface in the repository:
 
     ```json
     {
@@ -245,7 +245,7 @@ To create a model file that specifies the interfaces your IoT Plug and Play devi
 
 ### Download the DeviceInformation interface
 
-Before you can generate code from the model, you must create a local copy of the **DeviceInformation** from the *public model repository*. The public model repository already contains the **DeviceInformation** interface.
+Before you can generate skeleton code from the model, you must create a local copy of the **DeviceInformation** from the *public model repository*. The public model repository already contains the **DeviceInformation** interface.
 
 To download the **DeviceInformation** interface from the public model repository using VS Code:
 
@@ -295,7 +295,7 @@ Your files are now stored in your company repository.
 
 ## Generate code
 
-You can use the **Azure IoT Device Workbench extension for VS Code** to generate skeleton C code from your model. To generate the stub code in VS Code:
+You can use the **Azure IoT Device Workbench extension for VS Code** to generate skeleton C code from your model. To generate the skeleton code in VS Code:
 
 1. Use **Ctrl+Shift+P** to open the command palette.
 
@@ -352,7 +352,7 @@ When you run the code, it connects to IoT Hub and starts sending sample telemetr
 
     Make a note of the connection string.
 
-1. At a command prompt, navigate to the **azure-iot-sdk-c-pnp** folder where you built the SDK and samples. Then navigate to the **cmake\\sensorbox_app\\Release** folder.
+1. At a command prompt, navigate to the **azure-iot-sdk-c** folder where you built the SDK and samples. Then navigate to the **cmake\\sensorbox_app\\Release** folder.
 
 1. Run the following command:
 
