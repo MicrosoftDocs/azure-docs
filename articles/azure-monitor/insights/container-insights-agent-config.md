@@ -86,7 +86,7 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics in a 1 minute interval from a URL across the cluster.
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from a specific URL across the cluster.
 
 ```
 prometheus-data-collection-settings: |- ​
@@ -102,7 +102,7 @@ urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from.
 ​
 ```
 
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics in a 1 minute interval from an agent's DaemonSet running in every node in the cluster.
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from an agent's DaemonSet running in every node in the cluster.
 
 ```
 prometheus-data-collection-settings: |- ​
@@ -119,7 +119,7 @@ fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
 fielddrop = ["metric_to_drop"] ​
 ```
 
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics in 1 minute interval based on specifying a pod annotation.
+The following is an example ConfigMap file configured with settings to scrape Prometheus metrics by specifying a pod annotation.
 
 ```
 prometheus-data-collection-settings: |- ​
