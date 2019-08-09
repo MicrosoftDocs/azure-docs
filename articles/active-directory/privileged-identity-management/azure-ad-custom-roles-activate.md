@@ -34,16 +34,13 @@ When you need to activate an Azure AD custom role, request activation by selecti
 
 1. Sign in to [the Azure portal](https://portal.azure.com).
 1. Open Azure AD [Privileged Identity Management](https://portal.azure.com/?Microsoft_AAD_IAM_enableCustomRoleManagement=true&Microsoft_AAD_IAM_enableCustomRoleAssignment=true&feature.rbacv2roles=true&feature.rbacv2=true&Microsoft_AAD_RegisteredApps=demo#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart).
-1. Select **My roles**.
-
-    ![Select My Roles to the the list of eligible role assignments](./media/azure-ad-custom-roles-activate/my-roles.png)
 
 1. Select **Azure AD custom roles** to see a list of your eligible Azure AD custom role assignments.
 
    ![See the list of eligible Azure AD custom role assignments](./media/azure-ad-custom-roles-activate/view-preview-roles.png)
 
 1. On the **Azure AD custom roles (Preview)** page, find the assignment you need.
-1. Select **Activate** to open the **Activate** page.
+1. Select **Activate your role** to open the **Activate** page.
 1. If your role requires multi-factor authentication, select **Verify your identity before proceeding**. You are required to authenticate only once per session.
 
     ![Verify your identity to use multi-factor authentication](./media/azure-ad-custom-roles-activate/verify-identity.png)
@@ -61,14 +58,14 @@ You should request access to a role at the minimum scope needed. If your assignm
 1. In the **Reason** box, enter the reason for the activation request. These can be made required or not in the role setting.
 1. Select **Activate**.
 
-If the role doesn't require approval, it's activated according to your settings and is added to the list of active roles. If you want to use the activated role, begin with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md).
+If the role doesn't require approval, it's activated according to your settings and is added to the list of active roles. If you want to use the activated role, start with the steps in [Assign an Azure AD custom role in Privileged Identity Management](azure-ad-custom-roles-assign.md). 
+To verify the operation, in an open role, select **Assignments** > **Assign** and verify that your role is properly identified as eligible or active.
 
-If the role requires approval to activate, a notification appears in the upper right corner of your browser informing you that the request is pending approval.
-
-![Notification of pending approval for your activation request](./media/azure-ad-custom-roles-activate/pending.png)
+If the role requires approval to activate, you will receive a notification in the corner of your browser informing you that the request is pending approval.
 
 ## Next steps
 
+- [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-remove-update.md)
+- [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
-- [License requirements to use PIM](subscription-requirements.md)
-- [Deploy PIM](pim-deployment-plan.md)

@@ -93,7 +93,7 @@ If you want to require approval to activate a role, follow these steps.
 
 ## Next steps
 
+- [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-remove-update.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
-- [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Deploy Privileged Identity Management](pim-deployment-plan.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

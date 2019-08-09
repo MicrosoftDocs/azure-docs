@@ -69,13 +69,13 @@ Privileged Identity Management can manage custom roles you can create in Azure A
 
 1. If the **Permanent** check box is present and available (depending on role settings), you can specify whether the assignment is permanent. Select the check box to to make the assignment permanently eligible or permanently assigned. Clear the check box to specify an assignment duration.
 
-1. To create the new role assignment, click **Save** and then **Add**. A notification of the status is displayed.
+    ![Set the role assignment type to eligible or active](./media/azure-ad-custom-roles-assign/verify-assignments.png)
 
-    ![Notification of success status when the role is assigned](./media/azure-ad-custom-roles-assign/notification.png)
+1. To create the new role assignment, click **Save** and then **Add**. A notification of the assignment process status is displayed.
 
 ## Next steps
 
+- [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-remove-update.md)
+- [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
-- [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Deploy Privileged Identity Management](pim-deployment-plan.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

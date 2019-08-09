@@ -52,7 +52,6 @@ Follow these steps to update or remove an existing custom role assignment.
 
 ## Next steps
 
-- [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
-- [License requirements to use Privileged Identity Management](subscription-requirements.md)
-- [Deploy Privileged Identity Management](pim-deployment-plan.md)
-- [Securing privileged access for hybrid and cloud deployments in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)
+- [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
+- [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
