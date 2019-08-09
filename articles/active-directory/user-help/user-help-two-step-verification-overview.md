@@ -34,7 +34,7 @@ For detailed information and instructions about setting up, using, and maintaini
 |Article |Description |
 |------|------------|
 | [Set up two-factor verification for my work or school account](multi-factor-authentication-end-user-first-time.md) | Describes how to set up two-factor verification for the first time. |
-| [How to sign in using your security verification method](user-help-sign-in.md) | Describes how to sign in using your specified verification method. |
 | [Changing your security verification method settings](multi-factor-authentication-end-user-manage-settings.md) | Describes how to change your settings such as phone number or preferred enrollment method. |
-| [Troubleshooting two-factor verification](multi-factor-authentication-end-user-troubleshoot.md) | Describes how to troubleshoot common problems with two-factor verification. |
+| [How to sign in using your security verification method](user-help-sign-in.md) | Describes how to sign in using your specified verification method. |
+| [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md) | Describes how to troubleshoot common problems with two-factor verification. |
 | [Manage your app passwords](multi-factor-authentication-end-user-app-passwords.md) | Describes how to create and use app passwords. |
