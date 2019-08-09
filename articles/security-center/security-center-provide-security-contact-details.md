@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/9/2018
+ms.date: 9/8/2019
 ms.author: rkarlin
 
 ---
@@ -36,11 +36,14 @@ For example, if an email message was already sent to alert you about an RDP atta
 >
 >
 
-## Implement the recommendation
-1. Under **Recommendations**, select **Provide security contact details**.
-   ![Provide security contact][1]
-2. Select the Azure subscription to provide contact information on.
-3. This opens **Email notifications**.
+## Set up email notifications for alerts <a name="email"></a>
+
+1. From the portal, select **Pricing & settings**.
+1. Click on the subscription.
+1. Click **Email notifications**.
+
+> [!NOTE]
+> If you are implementing a recommendation, then Under **Recommendations**, select **Provide security contact details**, select the Azure subscription to provide contact information on. This opens **Email notifications**.
 
    ![Provide security contact details][2]
 
