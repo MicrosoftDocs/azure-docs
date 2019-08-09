@@ -164,6 +164,8 @@
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: BindException - Address in use
       href: ./hbase-troubleshoot-bindexception-address-use.md
+    - name: Apache HBase fails to start
+      href: ./hbase-troubleshoot-start-fails.md
     - name: Issues with region servers
       href: ./hbase-troubleshoot-unassigned-regions.md
     - name: Apache Phoenix connectivity issues
