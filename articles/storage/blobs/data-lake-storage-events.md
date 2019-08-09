@@ -144,12 +144,93 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    This code uploads and inserts data from a csv file identified by the widget that you added earlier. We'll populate that widget by using a function app when the event is triggered.
 
-## Create the table structure in Databricks
+## Create a function app
 
-Introduction
+1. In the upper corner of the workspace, choose the people icon, and then choose **User settings**.
 
-1. Step 1.
-2. Step 2.
+   ![Manage account](./media/data-lake-storage-events/generate-token.png "User settings")
+
+2. Click the **Generate new token**, and then click **Generate**.
+
+   Make sure to copy to the token to safe place. You'll need this later.
+  
+3. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute > Function App**.
+
+   ![Create an Azure function](./media/data-lake-storage-events/function-app-create-flow.png "Create Azure function")
+
+4. Configure the function app
+
+   ![Configure the function app](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
+
+5. Add configuration variables.
+
+   ![Configure the function app](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
+
+6. Choose the **New application setting** button to add settings.
+
+   ![Add configuration setting](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
+
+   Add the following settings by using this approach:
+
+   |Setting name | Value |
+   |----|----|
+   |**DBX_INSTANCE**| The region of your databricks workspace. For example: `westus2.azuredatabricks.net`|
+   |**DBX_PAT**| The personal access token that you generated earlier. |
+   |**DBX_JOB_ID**|The identifier of the running job. In our case, this value is `1`.|
+
+7. In the overview page of the function app, click the **New function** button.
+
+   ![New function](./media/data-lake-storage-events/new-function.png "New function")
+
+8. Choose **Http Trigger**.
+
+   The **New Function** pane appears.
+
+9. In the **New Function** pane, name the function **UpsertOrder**, and then click the **Create** button.
+
+10. Replace the contents of the code file with this code:
+
+   ```cs
+   using "Microsoft.Azure.EventGrid"
+   using "Newtonsoft.Json"
+   using Microsoft.Azure.EventGrid.Models;
+   using Newtonsoft.Json;
+   using Newtonsoft.Json.Linq;
+
+   private static HttpClient httpClient = new HttpClient();
+
+   public static async Task Run(EventGridEvent eventGridEvent, ILogger log)
+   {
+       log.LogInformation("Event Subject: " + eventGridEvent.Subject);
+       log.LogInformation("Event Topic: " + eventGridEvent.Topic);
+       log.LogInformation("Event Type: " + eventGridEvent.EventType);
+       log.LogInformation(eventGridEvent.Data.ToString());
+
+       if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" || eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
+           var fileData = ((JObject)(eventGridEvent.Data)).ToObject<StorageBlobCreatedEventData>();
+           if (fileData.Api == "FlushWithClose") {
+               log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
+               var fileUrl = new Uri(fileData.Url);
+               var httpRequestMessage = new HttpRequestMessage {
+                   Method = HttpMethod.Post,
+                   RequestUri = new Uri(String.Format("https://{0}/api/2.0/jobs/run-now", System.Environment.GetEnvironmentVariable("DBX_INSTANCE", EnvironmentVariableTarget.Process))),
+                   Headers = { 
+                       { System.Net.HttpRequestHeader.Authorization.ToString(), "Bearer " + System.Environment.GetEnvironmentVariable("DBX_PAT", EnvironmentVariableTarget.Process)},
+                       { System.Net.HttpRequestHeader.ContentType.ToString(), "application/json" }
+                   },
+                   Content = new StringContent(JsonConvert.SerializeObject(new {
+                       job_id = System.Environment.GetEnvironmentVariable("DBX_JOB_ID", EnvironmentVariableTarget.Process),
+                       notebook_params = new {
+                           source_file = String.Join("", fileUrl.Segments.Skip(2))
+                       }
+                   }))
+                };
+               var response = await httpClient.SendAsync(httpRequestMessage);
+               response.EnsureSuccessStatusCode();
+           }
+       }  
+   }
+   ```
 
 ## Ingest starter data
 
