@@ -55,6 +55,7 @@ Use these tools for Azure Machine Learning:
 + <a href="#experiments">Experiments</a>
 + <a href="#models">Models</a>
 + <a href="#run-configurations">Run Configuration</a>
++ [Estimators](#estimators)
 + <a href="#datasets-and-datastores">Dataset & datastores</a>
 + <a href="#compute-targets">Compute targets</a>
 + <a href="#training-scripts">Training script</a>
