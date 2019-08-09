@@ -7,7 +7,7 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/08/2018
+ms.date: 08/08/2019
 ---
 
 # Azure Database for MySQL: Use Java to connect and query data
