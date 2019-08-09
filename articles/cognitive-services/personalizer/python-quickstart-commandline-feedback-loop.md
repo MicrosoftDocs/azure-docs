@@ -142,7 +142,7 @@ Run the application with the python from your application directory.
 python sample.py
 ```
 
-![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](media/python-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
+![The quickstart program asks a couple of questions to gather user preferences, known as features, then provides the top action.](./media/csharp-quickstart-commandline-feedback-loop/quickstart-program-feedback-loop-example.png)
 
 ## Clean up resources
 
