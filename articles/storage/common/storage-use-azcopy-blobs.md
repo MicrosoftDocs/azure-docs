@@ -146,7 +146,7 @@ You can use AzCopy to copy blobs to other storage accounts. The copy operation i
 > [!NOTE]
 > Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. 
 
-AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
 This section contains the following examples:
 
