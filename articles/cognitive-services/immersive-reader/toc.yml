@@ -17,7 +17,7 @@
     href: tutorial-nodejs.md
   - name: Launch the Immersive Reader (Python)
     href: tutorial-python.md
-    - name: Picture to Immersive Reader (Swift)
+  - name: Picture to Immersive Reader (Swift)
     href: tutorial-ios-picture-immersive-reader.md
 - name: How-To
   items:
