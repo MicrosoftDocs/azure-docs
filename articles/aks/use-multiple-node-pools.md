@@ -6,13 +6,16 @@ author: mlearned
 
 ms.service: container-service
 ms.topic: article
-ms.date: 05/17/2019
+ms.date: 08/9/2019
 ms.author: mlearned
 ---
 
 # Preview - Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
 
 In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) are defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. For example, use these additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
+
+> [!NOTE]
+> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
 
 This article shows you how to create and manage multiple node pools in an AKS cluster. This feature is currently in preview.
 
@@ -109,7 +112,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 
 ## Add a node pool
 
-The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks node pool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
+The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks nodepool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -181,7 +184,7 @@ As a best practice, you should upgrade all node pools in an AKS cluster to the s
 > 
 > To upgrade the Kubernetes version of the control plane, use `az aks upgrade`. If your cluster only has one node pool, the `az aks upgrade` command will also upgrade the Kubernetes version of the node pool.
 
-## Scale a node pool
+## Scale a node pool manually
 
 As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down.
 
@@ -210,6 +213,10 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 ```
 
 It takes a few minutes for the scale operation to complete.
+
+## Scale a specific node pool automatically by enabling the cluster autoscaler
+
+AKS offers a separate feature in preview to automatically scale node pools with a component called the [cluster autoscaler](cluster-autoscaler.md). This component is an AKS add-on that can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#enable-the-cluster-autoscaler-on-an-existing-node-pool-in-a-cluster-with-multiple-node-pools).
 
 ## Delete a node pool
 
@@ -265,6 +272,30 @@ VirtualMachineScaleSets  1        110        nodepool1    1.13.5                
 ```
 
 It takes a few minutes for the *gpunodepool* to be successfully created.
+
+## Assign a public IP per node in a node pool
+
+AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
+
+```azurecli-interactive
+az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
+```
+
+After successful registration, deploy an Azure Resource Manager template to create a new node pool with the following boolean value property "enableNodePublicIP" on the node pool set to `true`. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+
+```
+"agentPoolProfiles":[  
+    {  
+      "name":"agentpool1",
+      "count":3,
+      "vmSize":"Standard_D2_v2",
+      "storageProfile":"ManagedDisks",
+      "osType":"Linux",
+      "maxPods":30,
+      "type":"VirtualMachineScaleSets",
+      "enableNodePublicIP":true
+    }
+```
 
 ## Schedule pods using taints and tolerations
 
