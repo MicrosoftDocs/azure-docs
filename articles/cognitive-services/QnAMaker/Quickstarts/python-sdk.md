@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 08/09/2019
-ms.author: diberry
+ms.author: diberry 
 ---
 
 # Quickstart: QnA Maker client library for python
