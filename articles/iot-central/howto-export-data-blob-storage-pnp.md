@@ -54,14 +54,14 @@ Now that you have a Storage destination to export data to, follow these steps to
     > [!Note]
     > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
 
-    ![Create new cde Event Hub](media/howto-export-data-pnp/export_menu1.png)
+    ![Create new cde Event Hub](media/howto-export-data-pnp/export-menu1.png)
 
 3. Select the **+ New** button in the top right. Choose **Azure Blob Storage** as the destination of your export. 
 
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data-pnp/export_new1.png)
+    ![Create new continuous data export](media/howto-export-data-pnp/export-new1.png)
 
 4. In the drop-down list box, select your **Storage Account namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 

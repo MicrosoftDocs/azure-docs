@@ -61,14 +61,14 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     > [!Note]
     > If you don't see Continuous Data Export in the left menu, you are not an administrator in your app. Talk to an administrator to set up data export.
 
-    ![Create new cde Event Hub](media/howto-export-data-pnp/export_menu1.png)
+    ![Create new cde Event Hub](media/howto-export-data-pnp/export-menu1.png)
 
 3. Select the **+ New** button in the top right. Choose one of **Azure Event Hubs** or **Azure Service Bus** as the destination of your export. 
 
     > [!NOTE] 
     > The maximum number of exports per app is five. 
 
-    ![Create new continuous data export](media/howto-export-data-pnp/export_new1.png)
+    ![Create new continuous data export](media/howto-export-data-pnp/export-new1.png)
 
 4. In the drop-down list box, select your **Event Hubs namespace/Service Bus namespace**. You can also pick the last option in the list which is **Enter a connection string**. 
 
@@ -78,7 +78,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
     > [!NOTE] 
     > For 7 day trial apps, the only way to configure continuous data export is through a connection string. This is because 7 day trial apps do not have an associated Azure subscription.
 
-    ![Create new cde Event Hub](media/howto-export-data-pnp/export_create1.png)
+    ![Create new cde Event Hub](media/howto-export-data-pnp/export-create1.png)
 
 5. (Optional) If you chose **Enter a connection string**, a new box appears for you to paste your connection string. To get the connection string for your:
     - Event Hubs or Service Bus, go to the namespace in the Azure portal.
@@ -92,7 +92,7 @@ Now that you have a Event Hubs/Service Bus destination to export data to, follow
 
 6. To turn on continuous data export, make sure **Data export** is **On**. Select **Save**.
 
-    ![Configure continuous data export](media/howto-export-data-pnp/export_list1.png)
+    ![Configure continuous data export](media/howto-export-data-pnp/export-list1.png)
 
 7. After a few minutes, your data will appear in your chosen destination.
 

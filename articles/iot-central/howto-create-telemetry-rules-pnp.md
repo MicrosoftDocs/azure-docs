@@ -28,13 +28,13 @@ To create a telemetry rule, the device definition must have at least one telemet
 
 1. If you haven't created any rules yet, you see the following screen:
 
-    ![No rules yet](media/howto-create-telemetry-rules-pnp/rules_landing_page1.png)
+    ![No rules yet](media/howto-create-telemetry-rules-pnp/rules-landing-page1.png)
 
 1. Select **+ New Rule** to see the types of rules you can create.
 
 1. Select **Telemetry** to create a rule to monitor device telemetry.
 
-    ![Rule Types](media/howto-create-telemetry-rules-pnp/rule_types1.png)
+    ![Rule Types](media/howto-create-telemetry-rules-pnp/rule-types1.png)
 
 
 1. Enter a name that helps you to identify the rule and hit Enter.
@@ -54,7 +54,7 @@ Condition defines the criteria that is monitored by the rule.
 
 1. Next, choose an **Operator** and provide a **Value**.
 
-     ![Condition](media/howto-create-telemetry-rules-pnp/aggregate_condition_filled_out1.png)
+     ![Condition](media/howto-create-telemetry-rules-pnp/aggregate-condition-filled-out1.png)
 
 
 >[!NOTE]
@@ -66,7 +66,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Click the **+ Action** in the **Action** sections. Here you see the list of available actions.  
 
-    ![Add Action](media/howto-create-telemetry-rules-pnp/add_action1.png)
+    ![Add Action](media/howto-create-telemetry-rules-pnp/add-action1.png)
 
 
 1. Choose the **Email** action, enter a display name for the action, a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
@@ -74,7 +74,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
     > [!NOTE]
     > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
 
-   ![Configure Action](media/howto-create-telemetry-rules-pnp/configure_action1.png)
+   ![Configure Action](media/howto-create-telemetry-rules-pnp/configure-action1.png)
 
 
 1. To save the action, choose **Done**.
