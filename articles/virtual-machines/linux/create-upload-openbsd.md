@@ -4,7 +4,7 @@ description: Learn how to create and upload a virtual hard disk (VHD) that conta
 services: virtual-machines-linux
 documentationcenter: ''
 author: thomas1206
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

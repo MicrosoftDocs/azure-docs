@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use the Custom Script Extension 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

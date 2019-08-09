@@ -4,7 +4,7 @@ description: Learn to locally debug Azure functions triggered by an Event Grid e
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, serverless architecture
 
 ms.service: azure-functions

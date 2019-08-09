@@ -11,7 +11,7 @@ ms.date: 05/30/2019
 
 # Update an existing offer in the Commercial Marketplace
 
-You can view your existing offers on the **Offers** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
+You can view your existing offers on the **Overview** tab of the [Commercial Marketplace portal](https://partner.microsoft.com/dashboard/commercial-marketplace/offers) in Partner Center.
 
 To update an existing offer that is currently live in the marketplace: 
 

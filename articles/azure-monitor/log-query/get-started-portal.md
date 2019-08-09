@@ -6,7 +6,7 @@ author: bwren
 manager: carmonm
 ms.service: log-analytics
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 07/19/2019
 ms.author: bwren
 ---
 
@@ -50,7 +50,7 @@ Event | search "error"
 
 This query searches the _Event_ table for records that contain the term _error_ in any property.
 
-Queries can start with either a table name or a [search](/kusto/query/searchoperator) command. The above example starts with the table name _Event_, which retrieves all records from the Event table. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
+Queries can start with either a table name or a [search](/azure/kusto/query/searchoperator) command. The above example starts with the table name _Event_, which retrieves all records from the Event table. The pipe (|) character separates commands, so the output of the first one serves as the input of the following command. You can add any number of commands to a single query.
 
 Another way to write that same query would be:
 
@@ -173,6 +173,9 @@ Once you've created a useful query, you might want to save it or share with othe
 You can save either the entire query page, or a single query as a function. Functions are queries that can also be referenced by other queries. In order to save a query as a function, you must provide a function alias, which is the name used to call this query when referenced by other queries.
 
 ![Save function](media/get-started-portal/save-function.png)
+
+>[!NOTE]
+>The following characters are supported - `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` in the **Name** field when saving or editing the saved query.
 
 Log Analytics queries are always saved to a selected workspace, and shared with other users of that workspace.
 

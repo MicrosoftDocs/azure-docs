@@ -68,7 +68,7 @@ Here is a high-level data flow for the summary of steps for copying with a self-
 
 ## Prerequisites
 
-- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016. Installation of the self-hosted integration runtime on a domain controller is not supported.
+- The supported operating system versions are Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 and Windows Server 2019. Installation of the self-hosted integration runtime on a domain controller is not supported.
 - .NET Framework 4.6.1 or later is required. If you're installing the self-hosted integration runtime on a Windows 7 machine, install .NET Framework 4.6.1 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 - The recommended configuration for the self-hosted integration runtime machine is at least 2 GHz, four cores, 8 GB of RAM, and an 80-GB disk.
 - If the host machine hibernates, the self-hosted integration runtime does not respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installation prompts a message.

@@ -27,7 +27,7 @@ When you use the managed storage account key feature, consider the following poi
 
 > [!NOTE]
 > Azure Storage integration with Azure Active Directory (Azure AD) is Microsoft's cloud-based identity and access management service.
-> Azure AD integration is available for [Azure blobs and queues](https://docs.microsoft.com/azure/storage/common/storage-auth-aad).
+> Azure AD integration is available for [Azure blobs and queues](../storage/common/storage-auth-aad.md).
 > Use Azure AD for authentication and authorization.
 > Azure AD provides OAuth2 token-based access to Azure Storage just like Azure Key Vault.
 >
@@ -54,7 +54,7 @@ Key Vault is a Microsoft application that's pre-registered in all Azure AD tenan
 Before you use Key Vault to manage your storage account key, review the prerequisites:
 
 - Install the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
-- Create an [Azure storage account](https://azure.microsoft.com/services/storage/). Follow [these steps](https://docs.microsoft.com/azure/storage/).
+- Create an [Azure storage account](https://azure.microsoft.com/services/storage/). Follow [these steps](../storage/index.yml).
 - The storage account name must use only lowercase letters and numbers. The length of the name must be between 3 and 24 characters.        
       
 ## Manage storage account keys
@@ -146,7 +146,7 @@ After you complete the steps in the previous section, run the following commands
 
 ## Fetch tokens in code
 
-Execute operations on your storage account by fetching [shared access signature tokens](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) from Key Vault.
+Execute operations on your storage account by fetching [shared access signature tokens](../storage/common/storage-dotnet-shared-access-signature-part-1.md) from Key Vault.
 
 There are three ways to authenticate to Key Vault:
 

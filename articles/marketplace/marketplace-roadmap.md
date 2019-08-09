@@ -7,7 +7,7 @@ manager: MaggiePucciEvans
 ms.service: marketplace
 ms.topic: article
 ms.date: 06/17/2019
-ms.author: BrianLevenson
+ms.author: blevens
 
 ---
 

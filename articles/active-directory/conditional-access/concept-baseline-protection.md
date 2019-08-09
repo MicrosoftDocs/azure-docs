@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # What are baseline policies?
 
-Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
+Baseline policies are a set of predefined  policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
 
 Managing customized Conditional Access policies requires an Azure AD Premium license.
 
@@ -27,18 +27,18 @@ Managing customized Conditional Access policies requires an Azure AD Premium lic
 
 There are four baseline policies that organizations can enable:
 
-* [Require MFA for admins](howto-baseline-protect-administrators.md)
+* [Require MFA for admins (preview)](howto-baseline-protect-administrators.md)
 * [End user protection (preview)](howto-baseline-protect-end-users.md)
 * [Block legacy authentication (preview)](howto-baseline-protect-legacy-auth.md)
 * [Require MFA for service management (preview)](howto-baseline-protect-azure.md)
 
 All four of these policies will impact legacy authentication flows like POP, IMAP, and older Office desktop clients.
 
-### Require MFA for admins
+### Require MFA for admins (preview)
 
 Due to the power and access that administrator accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign in. In Azure Active Directory, you can get a stronger account verification by requiring administrators to register for and use Azure Multi-Factor Authentication.
 
-[Require MFA for admins](howto-baseline-protect-administrators.md) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
+[Require MFA for admins (preview)](howto-baseline-protect-administrators.md) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
 
 * Global administrator
 * SharePoint administrator
@@ -49,13 +49,16 @@ Due to the power and access that administrator accounts have, you should treat t
 * Billing administrator
 * User administrator
 
-If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude specific user accounts from the baseline policy.
+If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md).
 
 ### End user protection (preview)
 
 High privileged administrators aren’t the only ones targeted in attacks. Bad actors tend to target normal users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directory and perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification when a risky sign-in is detected.
 
-**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal.
+**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal. 
+
+[!NOTE]
+Any users previously flagged for risk are blocked until password reset and risk dismissal upon policy activation.
 
 ### Block legacy authentication (preview)
 
@@ -91,9 +94,9 @@ To enable a baseline policy:
 
 For more information, see:
 
-* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
+* [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 * [What is Conditional Access in Azure Active Directory?](overview.md)
-* [Require MFA for admins](howto-baseline-protect-administrators.md)
+* [Require MFA for admins (preview)](howto-baseline-protect-administrators.md)
 * [End user protection (preview)](howto-baseline-protect-end-users.md)
 * [Block legacy authentication (preview)](howto-baseline-protect-legacy-auth.md)
 * [Require MFA for service management (preview)](howto-baseline-protect-azure.md)

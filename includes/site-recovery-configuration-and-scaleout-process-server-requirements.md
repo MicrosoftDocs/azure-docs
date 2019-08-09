@@ -45,7 +45,7 @@ https:\//management.azure.com | Used for replication management operations and c
 time.nist.gov | Used to check time synchronization between system and global time.
 time.windows.com | Used to check time synchronization between system and global time.
 | <ul> <li> https:\//login.microsoftonline.com </li><li> https:\//secure.aadcdn.microsoftonline-p.com </li><li> https:\//login.live.com </li><li> https:\//graph.windows.net </li><li> https:\//login.windows.net </li><li> https:\//www.live.com </li><li> https:\//www.microsoft.com </li></ul> | OVF set up needs access to these URLs. They are used for access control and identity management by Azure Active Directory
-https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi | To complete MySQL download
+https:\//dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi  | To complete MySQL download. </br> In few regions, the download might be re-directed to CDN URL. Ensure that the CDN URL is also whitelisted, if required.
 |
 **SOFTWARE TO INSTALL** | 
 VMware vSphere PowerCLI | [PowerCLI version 6.0](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) should be installed if the Configuration Server is running on a VMware VM.

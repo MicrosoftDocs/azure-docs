@@ -25,11 +25,11 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 
 |  | Registration step | Duration | Details |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
+| 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | Create a Partner Center account | 15 min | [Create a Partner Center account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
-| 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Register in Microsoft Developer Center (Dev Center) (for Azure Marketplace transact offers) | 5-10 days | [Register in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  
+| 5 | Register in Microsoft Developer Center (Dev Center) (for Azure Marketplace transact offers) | 5-10 days | [Register in Dev Center](/azure/marketplace/deprecated/register-dev-center) |  
 
 
 ## 1. Register in Microsoft Partner Network  
@@ -53,9 +53,9 @@ A Microsoft account, e.g. *\@outlook.com or \@live.com*, is used to access many 
 [! IMPORTANT] Please note that a Microsoft account associated with your work email will not allow you to access the portal.
 
 > [!Note]
-> If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) to determine if it can be used for marketplace publishing. 
+> If you already have a Microsoft account, review the [Guidelines for creating a Microsoft ID to manage a marketplace account](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-tenants) to determine if it can be used for marketplace publishing. 
 > 
-> Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) before attempting to create or use your existing Microsoft Account.
+> Users with an Azure Active Directory federated corporate account should read [this article](https://docs.microsoft.com/azure/marketplace/partner-center-portal/manage-account#manage-users) before attempting to create or use your existing Microsoft Account.
 
 *	For help creating or managing your Microsoft account, visit the [Microsoft account help support pages](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 

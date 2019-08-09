@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/26/2019
+ms.subservice: load-data
+ms.date: 08/08/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -27,20 +27,16 @@ Before you begin this tutorial, download and install the newest version of [SQL 
 
 To run this tutorial, you need:
 
-* Azure Active Directory Application to use for Service-to-Service authentication if you are loading from Gen1. To create, follow [Active directory authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
-
->[!NOTE] 
-> If you are loading from Azure Data Lake Stroage Gen1, you need the client ID, Key, and OAuth2.0 Token Endpoint Value of your Active Directory Application to connect to your storage account from SQL Data Warehouse. Details for how to get these values are in the link above. For Azure Active Directory App Registration use the Application ID as the Client ID.
-> 
+* Azure Active Directory Application to use for Service-to-Service authentication. To create, follow [Active directory authentication](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 * An Azure SQL Data Warehouse. See [Create and query and Azure SQL Data Warehouse](create-data-warehouse-portal.md).
 
 * A Data Lake Storage account. See [Get started with Azure Data Lake Storage](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  Create a credential
-To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret used in the next step. You then create a Database Scoped Credential. For Gen1, the Database Scoped Credential stores the service principal credentials set up in AAD. You must use the storage account key in the Database Scoped Credential for Gen2. 
+To access your Data Lake Storage account, you will need to create a Database Master Key to encrypt your credential secret used in the next step. You then create a Database Scoped Credential. When authenticating using service principals, the Database Scoped Credential stores the service principal credentials set up in AAD. You can also use the storage account key in the Database Scoped Credential for Gen2. 
 
-To connect to Data Lake Storage Gen1, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Data Lake Storage Gen1 resource. For instructions, see [Authenticate to Azure Data Lake Storage Gen1 Using Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+To connect to Data Lake Storage using service principals, you must **first** create an Azure Active Directory Application, create an access key, and grant the application access to the Data Lake Storage account. For instructions, see [Authenticate to Azure Data Lake Storage Using Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -51,18 +47,19 @@ To connect to Data Lake Storage Gen1, you must **first** create an Azure Active 
 CREATE MASTER KEY;
 
 
--- B (for Gen1): Create a database scoped credential
+-- B (for service principal authentication): Create a database scoped credential
 -- IDENTITY: Pass the client id and OAuth 2.0 Token Endpoint taken from your Azure Active Directory Application
 -- SECRET: Provide your AAD Application Service Principal key.
 -- For more information on Create Database Scoped Credential: https://msdn.microsoft.com/library/mt270260.aspx
 
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
+    -- Always use the OAuth 2.0 authorization endpoint (v1)
     IDENTITY = '<client_id>@<OAuth_2.0_Token_EndPoint>',
     SECRET = '<key>'
 ;
 
--- B (for Gen2): Create a database scoped credential
+-- B (for Gen2 storage key authentication): Create a database scoped credential
 -- IDENTITY: Provide any string, it is not used for authentication to Azure storage.
 -- SECRET: Provide your Azure storage account key.
 
@@ -72,7 +69,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this for Gen1:
+-- It should look something like this when authenticating using service principals:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -104,7 +101,7 @@ WITH (
 CREATE EXTERNAL DATA SOURCE AzureDataLakeStorage
 WITH (
     TYPE = HADOOP,
-    LOCATION='abfs://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfs endpoint
+    LOCATION='abfs[s]://<container>@<AzureDataLake account_name>.dfs.core.windows.net', -- Please note the abfss endpoint for when your account has secure transfer enabled
     CREDENTIAL = ADLSCredential
 );
 ```
@@ -216,13 +213,9 @@ You did these things:
 > * Created database objects required to load from Data Lake Storage Gen1.
 > * Connected to a Data Lake Storage Gen1 directory.
 > * Loaded data into Azure SQL Data Warehouse.
-> 
+>
 
 Loading data is the first step to developing a data warehouse solution using SQL Data Warehouse. Check out our development resources.
 
 > [!div class="nextstepaction"]
->[Learn how to develop tables in SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
-
-
-
-
+> [Learn how to develop tables in SQL Data Warehouse](sql-data-warehouse-tables-overview.md)

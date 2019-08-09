@@ -4,7 +4,7 @@ description:  Learn how to configure and change the default indexing policy for 
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/14/2019
+ms.date: 07/23/2019
 ms.author: thweiss
 ---
 
@@ -68,6 +68,8 @@ Any indexing policy has to include the root path `/*` as either an included or a
 - Exclude the root path to selectively include paths that need to be indexed.
 
 - For paths with regular characters that include: alphanumeric characters and _ (underscore), you don’t have to escape the path string around double quotes (for example, "/path/?"). For paths with other special characters, you need to escape the path string around double quotes (for example, "/\"path-abc\"/?"). If you expect special characters in your path, you can escape every path for safety. Functionally it doesn’t make any difference if you escape every path Vs just the ones that have special characters.
+
+- The system property "etag" is excluded from indexing by default, unless the etag is added to the included path for indexing.
 
 See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples.
 

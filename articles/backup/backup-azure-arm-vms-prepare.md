@@ -2,12 +2,12 @@
 title: Back up Azure VMs in a Recovery Services vault using Azure Backup
 description: Describes how to back up Azure VMs in a Recovery Services vault using the Azure Backup
 service: backup
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 # Back up Azure VMs in a Recovery Services vault
 
@@ -66,7 +66,9 @@ In addition, there are a couple of things that you might need to do in some circ
 ![List of backup vaults](./media/backup-azure-arm-vms-prepare/rs-list-of-vaults.png)
 
 > [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.
+> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.<br>
+This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
+
 
 ### Modify storage replication
 
@@ -220,9 +222,9 @@ If an NSG manages the VM access, allow outbound access for the backup storage to
 4. In **Source port ranges**, enter an asterisk (*) to allow outbound access from any port.
 5. In **Destination**, select **Service Tag**. From the list, select **Storage.region**. The region is where the vault, and the VMs that you want to back up, are located.
 6. In **Destination port ranges**, select the port.
-    - Unmanaged VM with unencrypted storage account: 80
-    - Unmanaged VM with encrypted storage account: 443 (default setting)
-    - Managed VM: 8443.
+    - VM using unmanaged disks with unencrypted storage account: 80
+    - VM using unmanaged disks with encrypted storage account: 443 (default setting)
+    - VM using managed disks: 8443.
 7. In **Protocol**, select **TCP**.
 8. In **Priority**, specify a priority value less than any higher deny rules.
 

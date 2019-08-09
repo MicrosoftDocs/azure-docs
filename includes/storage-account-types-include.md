@@ -15,7 +15,7 @@ Azure Storage offers several types of storage accounts. Each type supports diffe
 - **General-purpose v2 accounts**: Basic storage account type for blobs, files, queues, and tables. Recommended for most scenarios using Azure Storage.
 - **General-purpose v1 accounts**: Legacy account type for blobs, files, queues, and tables. Use general-purpose v2 accounts instead when possible.
 - **Block blob storage accounts**: Blob-only storage accounts with premium performance characteristics. Recommended for scenarios with high transactions rates, using smaller objects, or requiring consistently low storage latency.
-- **FileStorage (preview) storage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
+- **FileStorage storage accounts**: Files-only storage accounts with premium performance characteristics. Recommended for enterprise or high performance scale applications.
 - **Blob storage accounts**: Blob-only storage accounts. Use general-purpose v2 accounts instead when possible.
 
 The following table describes the types of storage accounts and their capabilities:
@@ -25,7 +25,7 @@ The following table describes the types of storage accounts and their capabiliti
 | General-purpose V2   | Blob, File, Queue, Table, and Disk       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | Hot, Cool, Archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS, ZRS<div role="complementary" aria-labelledby="zone-redundant-storage"><sup>4</sup></div> | Resource Manager             | Encrypted              |
 | General-purpose V1   | Blob, File, Queue, Table, and Disk       | Standard, Premium<div role="complementary" aria-labelledby="premium-performance"><sup>5</sup></div> | N/A                            | LRS, GRS, RA-GRS                  | Resource Manager, Classic    | Encrypted              |
 | Block blob storage   | Blob (block blobs and append blobs only) | Premium                       | N/A                            | LRS                               | Resource Manager             | Encrypted              |
-| FileStorage (preview)   | Files only | Premium                       | N/A                            | LRS                               | Resource Manager             | Encrypted              |
+| FileStorage   | Files only | Premium                       | N/A                            | LRS                               | Resource Manager             | Encrypted              |
 | Blob storage         | Blob (block blobs and append blobs only) | Standard                      | Hot, Cool, Archive<div role="complementary" aria-labelledby="archive"><sup>3</sup></div> | LRS, GRS, RA-GRS                  | Resource Manager             | Encrypted              |
 
 <div id="deployment-model"><sup>1</sup>Using the Azure Resource Manager deployment model is recommended. Storage accounts using the classic deployment model can still be created in some locations, and existing classic accounts continue to be supported. For more information, see <a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model">Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources</a>.</div>

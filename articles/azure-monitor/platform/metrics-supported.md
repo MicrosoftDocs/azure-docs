@@ -902,15 +902,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|ClusterDataCapacityFactor|Cache Utilization|Percent|Average|Utilization level in the cluster scope|No Dimensions|
-|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|QueryStatus|
-|IngestionsLoadFactor|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|No Dimensions|
-|IsEngineAnsweringQuery|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|No Dimensions|
-|IngestCommandOriginalSizeInMb|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|No Dimensions|
-|IngestedEventAgeSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|No Dimensions|
-|EventRecievedFromEventHub|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|No Dimensions|
-|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|IngestionResultDetails|
-|EngineCPU|CPU|Percent|Average|CPU utilization level|No Dimensions|
+|CacheUtilization|Cache Utilization|Percent|Average|Utilization level in the cluster scope|None|
+|QueryDuration|Query Duration|Milliseconds|Average|Queries’ duration in seconds|Query Status|
+|IngestionUtilization|Ingestion Utilization|Percent|Average|Ratio of used ingestion slots in the cluster|None|
+|KeepAlive|Keep Alive|Count|Average|Sanity check indicates the cluster responds to queries|None|
+|IngestionVolumeInMB|Ingestion Volume (In MB)|Count|Total|Overall volume of ingested data to the cluster (in MB)|Database|
+|IngestionLatencyInSeconds|Ingestion Latency (In seconds)|Seconds|Average|Ingestion time from the source (e.g. message is in EventHub) to the cluster in seconds|None|
+|EventProcessedForEventHubs|Events Processed (for Event Hubs)|Count|Total|Number of events processed by the cluster when ingesting from Event Hub|None|
+|IngestionResult|Ingestion Result|Count|Count|Number of ingestion operations|Status|
+|CPU|CPU|Percent|Average|CPU utilization level|None|
+| ContinuousExportNumOfRecordsExported | Number of records exported in continuous export | Count | Total | Number of records exported for every storage artifact written during the export operation  | None |
+| ExportUtilization | Export Utilization | Percent | Maximum | Export utilization | None |
+| ContinuousExportPendingCount | Continuous Export Pending Count | Count | Maximum | The number of pending continuous export jobs ready for execution | None |
+| ContinuousExportMaxLatenessMinutes | Continuous Export Max Lateness Minutes | Count | Maximum | The max time in minutes of all continuous exports which are pending and ready for execution | None |
 
 ## Microsoft.LocationBasedServices/accounts
 
