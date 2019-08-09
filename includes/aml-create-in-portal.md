@@ -25,7 +25,7 @@ ms.date: 07/31/2019
 
     ![Create workspace](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
-   Field|Description
+   Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
    Subscription |Select the Azure subscription that you want to use.
@@ -39,3 +39,11 @@ ms.date: 07/31/2019
    When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.
 
    ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
+
+1. If you will be using this workspace in code you run on your own local computer, select  **Download config.json** from the **Overview** section of the workspace.
+
+   ![Download config.json](./media/aml-create-in-portal/configure.png)
+
+   This JSON file must be in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
+
+   If you will be using a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) there is no need to download this file, it is added to the VM for you.
