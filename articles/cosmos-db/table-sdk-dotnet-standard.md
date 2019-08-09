@@ -85,4 +85,4 @@ This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https:/
 To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md). 
 
 ## Contact
-For questions or issues, please file at: https://github.com/Azure/azure-cosmos-table-dotnet. 
+For questions or issues about this .NET Standard SDK, please file at: https://github.com/Azure/azure-cosmos-table-dotnet. 
