@@ -92,7 +92,29 @@ After creating your SQL Server VM, connect to it from applications or tools, suc
 ### Migrate your data
 If you have an existing database, you'll want to move that to the newly provisioned SQL VM. For a list of migration options and guidance, see [Migrating a Database to SQL Server on an Azure VM](virtual-machines-windows-migrate-sql.md).
 
-[!INCLUDE [sql-database-create-manage-portal](../../../sql-database/includes/sql-database-create-manage-portal.md)]
+## Create and manage Azure SQL resources with the Azure portal
+
+The Azure portal provides a single page where you can manage [all of your Azure SQL resources](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql) including your SQL virtual machines.
+
+To access the **Azure SQL resources** page, select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box.
+
+> [!NOTE]
+> **Azure SQL** provides a quick and easy way to access all of your SQL databases, elastic pools, database servers, SQL managed instances, and SQL virtual machines. Azure SQL is not a service or resource. 
+
+To manage existing resources, select the desired item in the list. To create new Azure SQL resources, select **+ Add**. 
+
+![Azure SQL portal page](./media/quickstart-sql-vm-create-portal/azure-sql.png)
+
+After selecting **+ Add**, view additional information about the different options by selecting **Show details** on any tile.
+
+![databases tile details](./media/quickstart-sql-vm-create-portal/sql-vm-details.png)
+
+For details, see:
+
+- [Create a single database](../sql-database-single-database-get-started.md)
+- [Create an elastic pool](../sql-database-elastic-pool.md#creating-a-new-sql-database-elastic-pool-using-the-azure-portal)
+- [Create a managed instance](../sql-database-managed-instance-get-started.md)
+- [Create a SQL virtual machine](../../virtual-machines/windows/sql/quickstart-sql-vm-create-portal.md)
 
 ## <a id="lifecycle"></a> SQL VM image refresh policy
 Azure only maintains one virtual machine image for each supported operating system, version, and edition combination. This means that over time images are refreshed, and older images are removed. For more information, see the **Images** section of the [SQL Server VMs FAQ](virtual-machines-windows-sql-server-iaas-faq.md#images).
