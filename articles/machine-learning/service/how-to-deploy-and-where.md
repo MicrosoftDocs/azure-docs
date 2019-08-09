@@ -439,6 +439,10 @@ az ml model deploy -m mymodel:1 -ic inferenceconfig.json -dc deploymentconfig.js
 
 For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference.
 
+### <a id="notebookvm"></a> NotebookVM web service (DEVTEST)
+
+See [Deploy a model to Notebook VMs](how-to-deploy-local-container-notebook-vm.md).
+
 ### <a id="aci"></a> Azure Container Instances (DEVTEST)
 
 See [Deploy to Azure Container Instances](how-to-deploy-azure-container-instance.md).
