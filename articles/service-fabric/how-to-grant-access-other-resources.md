@@ -20,14 +20,14 @@ The exact sequence of steps will then depend on the type of Azure resource being
 ## Granting access to Azure Storage
 You can use the Service Fabric application's managed identity (user-assigned in this case) to retrieve the data from an Azure storage blob. Grant the identity the required permissions in the Azure portal with the following steps:
 
-- Navigate to the storage account
-- Click the Access control (IAM) link in the left panel.
-- (optional) Check existing access: select System- or User-assigned managed identity in the 'Find' control; select the appropriate identity from the ensuing result list
-- Click + Add role assignment on top of the page to add a new role assignment for the application's identity.
+1. Navigate to the storage account
+2. Click the Access control (IAM) link in the left panel.
+3. (optional) Check existing access: select System- or User-assigned managed identity in the 'Find' control; select the appropriate identity from the ensuing result list
+4. Click + Add role assignment on top of the page to add a new role assignment for the application's identity.
 Under Role, from the dropdown, select Storage Blob Data Reader.
-In the next dropdown, under Assign access to, choose `User assigned managed identity`.
-Next, ensure the proper subscription is listed in Subscription dropdown and then set Resource Group to All resource groups.
-Under Select, choose the UAI corresponding to the Service Fabric application and then click Save.
+5. In the next dropdown, under Assign access to, choose `User assigned managed identity`.
+6. Next, ensure the proper subscription is listed in Subscription dropdown and then set Resource Group to All resource groups.
+7. Under Select, choose the UAI corresponding to the Service Fabric application and then click Save.
 
 At this time, support for system-assigned Service Fabric managed identities does not yet include integration in the Azure portal; if your application uses a system-assigned identity, you will have to find first the client ID of the application's identity, and then repeat the steps above but selecting the `Azure AD user, group, or service principal` option in the Find control.
 

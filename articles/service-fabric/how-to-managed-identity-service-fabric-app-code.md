@@ -30,7 +30,7 @@ Specifically, the environment of a managed-identity-enabled Service Fabric servi
 - 'MSI_SECRET': an authentication code, which is an opaque string and uniquely represents the service on the current node
 
 > [!NOTE]
-> The names 'MSI_ENDPOINT' and 'MSI_SECRET' refer to the previous designation of managed identities ("Managed Service Identity"), and which is now deprecated. The names are also consistent with the equivalent environment variable names used by other Azure services which support managed identities; they will be changed in the near future.
+> The names 'MSI_ENDPOINT' and 'MSI_SECRET' refer to the previous designation of managed identities ("Managed Service Identity"), and which is now deprecated. The names are also consistent with the equivalent environment variable names used by other Azure services which support managed identities.
 
 > [!IMPORTANT]
 > The application code should consider the value of the 'MSI_SECRET' environment variable as sensitive data - it should not be logged or otherwise disseminated. The authentication code has no value outside of the local node, or after the process hosting the service has terminated, but it does represent the identity of the Service Fabric service, and so should be treated with the same precautions as the access token itself.
@@ -267,7 +267,7 @@ If an error occurs, the corresponding HTTP response body contains a JSON object 
 | Element | Description |
 | ------- | ----------- |
 | code | Error code. |
-| correlationId | A correlation id that can be used for debugging. |
+| correlationId | A correlation ID that can be used for debugging. |
 | message | Verbose description of error. **Error descriptions can change at any time. Do not depend on the error message itself.**|
 
 Sample error:
@@ -287,7 +287,7 @@ Following is a list of typical Service Fabric errors specific to managed identit
 
 ## Retry guidance 
 
-Typically the only retriable error code is 429 (Too Many Requests); internal server errors/5xx error codes may be retriable, though the cause may be permanent. 
+Typically the only retryable error code is 429 (Too Many Requests); internal server errors/5xx error codes may be retryable, though the cause may be permanent. 
 
 Throttling limits apply to the number of calls made to the managed identity subsystem - specifically the 'upstream' dependencies (the Managed Identity Azure service, or the secure token service). Service Fabric caches tokens at various levels in the pipeline, but given the distributed nature of the involved components, the caller may experience inconsistent throttling responses (i.e. get throttled on one node/instance of an application, but not on a different node while requesting a token for the same identity.) When the throttling condition is set, subsequent requests from the same application may fail with the HTTP status code 429 (Too Many Requests) until the condition is cleared.  
 

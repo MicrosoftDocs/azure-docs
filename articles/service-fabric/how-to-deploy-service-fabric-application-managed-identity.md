@@ -47,40 +47,40 @@ To enable application with System Assigned identity, add **identity** property t
 
 1. Update the application manifest to add a **ManagedIdentity** with name `SystemAssigned` in the **Principals** section.
 
-**ApplicationManifest.xml**
+  **ApplicationManifest.xml**
 
-```xml
-<Principals>
-  <ManagedIdentities>
-    <ManagedIdentity Name="SystemAssigned" />
-  </ManagedIdentities>
-</Principals>
-```
+  ```xml
+  <Principals>
+    <ManagedIdentities>
+      <ManagedIdentity Name="SystemAssigned" />
+    </ManagedIdentities>
+  </Principals>
+  ```
 
 2. In the **ServiceManifestImport** section, for the service that uses the Managed Identity add a **IdentityBindingPolicy**, which maps the `SystemAssigned` identity to an identity name to be added to the service later. This enables the service to use the `SystemAssigned` identity of the application.
 
-**ApplicationManifest.xml**
+  **ApplicationManifest.xml**
 
-  ```xml
-    <ServiceManifestImport>
-      <Policies>
-        <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="SystemAssigned" />
-      </Policies>
-    </ServiceManifestImport>
-  ```
+    ```xml
+      <ServiceManifestImport>
+        <Policies>
+          <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="SystemAssigned" />
+        </Policies>
+      </ServiceManifestImport>
+    ```
 
 3. Update the service manifest to add a **ManagedIdentity** inside the **Resources** section with the name matching the `ServiceIdentityRef` in the `IdentityBindingPolicy` of the application manifest:
 
-**ServiceManifest.xml**
+  **ServiceManifest.xml**
 
-```xml
-  <Resources>
-    ...
-    <ManagedIdentities DefaultIdentity="WebAdmin">
-      <ManagedIdentity Name="WebAdmin" />
-    </ManagedIdentities>
-  </Resources>
-```
+  ```xml
+    <Resources>
+      ...
+      <ManagedIdentities DefaultIdentity="WebAdmin">
+        <ManagedIdentity Name="WebAdmin" />
+      </ManagedIdentities>
+    </Resources>
+  ```
 
 ## User-assigned identity
 
@@ -123,41 +123,41 @@ In the example above, the resource name of the user-assigned identity is being u
 
 1. For each identity defined in the `managedIdentities` section in the Azure Resource Manager template, add a `<ManagedIdentity>` in the application manifest under **Principals** section. The `Name` attribute needs to match the `name` property defined in the `managedIdentities` section.
 
-**ApplicationManifest.xml**
+  **ApplicationManifest.xml**
 
-```xml
-  <Principals>
-    <ManagedIdentities>
-      <ManagedIdentity Name="AdminUser" />
-    </ManagedIdentities>
-  </Principals>
-```
+  ```xml
+    <Principals>
+      <ManagedIdentities>
+        <ManagedIdentity Name="AdminUser" />
+      </ManagedIdentities>
+    </Principals>
+  ```
 
 2. In the **ServiceManifestImport** section, for the service that uses the Managed Identity, add a **IdentityBindingPolicy**, which maps the `AdminUser` identity to the identity name that needs to added to the service manifest later on.
 
 **ApplicationManifest.xml**
 
-```xml
-  <ServiceManifestImport>
-    <Policies>
-      <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="AdminUser" />
-    </Policies>
-  </ServiceManifestImport>
-```
+  ```xml
+    <ServiceManifestImport>
+      <Policies>
+        <IdentityBindingPolicy ServiceIdentityRef="WebAdmin" ApplicationIdentityRef="AdminUser" />
+      </Policies>
+    </ServiceManifestImport>
+  ```
 
 3. Update the service manifest to add a **ManagedIdentity** inside the **Resources** section with the name matching the `ServiceIdentityRef` in the `IdentityBindingPolicy` of the application manifest:
 
 **ServiceManifest.xml**
 
-```xml
-  <Resources>
-    ...
-    <ManagedIdentities DefaultIdentity="WebAdmin">
-      <ManagedIdentity Name="WebAdmin" />
-    </ManagedIdentities>
-  </Resources>
-```
-
+  ```xml
+    <Resources>
+      ...
+      <ManagedIdentities DefaultIdentity="WebAdmin">
+        <ManagedIdentity Name="WebAdmin" />
+      </ManagedIdentities>
+    </Resources>
+  ```
+  
 ## Next steps
 
 * [How to Deploy Service Fabric Application with User-Managed Identity](how-to-deploy-service-fabric-application-user-managed-identity.md)
