@@ -21,7 +21,9 @@ When creating an event subscription, you can customize the settings for event de
 To set a dead letter location, you need a storage account for holding events that can't be delivered to an endpoint. The examples get the resource ID of an existing storage account. They create an event subscription that uses a container in that storage account for the dead-letter endpoint.
 
 > [!NOTE]
-> Create a storage account and a blob container in the storage before running commands in this article.
+> - Create a storage account and a blob container in the storage before running commands in this article.
+> - The Event Grid service creates blobs in this container. The names of blobs will have the name of the Event Grid subscription with all the letters in upper case. For example, if the name of the subscription is My-Blob-Subscription, names of the dead letter blobs will have MY-BLOB-SUBSCRIPTION (myblobcontainer/MY-BLOB-SUBSCRIPTION/2019/8/8/5/111111111-1111-1111-1111-111111111111.json). This behavior is to protect against differences in case handling between Azure services.
+
 
 ### Azure CLI
 
