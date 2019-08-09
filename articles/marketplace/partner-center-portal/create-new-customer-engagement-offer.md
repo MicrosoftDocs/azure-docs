@@ -11,32 +11,21 @@ ms.date: 08/07/2019
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
 
+This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+
 To begin creating Dynamics 365 for Customer Engagement & PowerApps offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
-Select the + **New offer…** button, then select the **Software as a Service** menu item. 
-
-If you select one of the other offer types, you will be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/).  Only SaaS offers are available in the Commercial Marketplace portal on Partner Center at this time. 
-
-![Create offer window on Partner Center](./media/new-offer-click.png)
-
-The **New offer** dialog box is displayed. 
-
-![New offer dialog box](./media/new-offer-popup.png)
-
+Select the + **New offer…** button, then select the **Dynamics 365 for Customer Engagement & PowerApps** menu item. The **New offer** dialog box will appear.
 
 ## Offer ID and alias
 
-- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be changed after you select *Create*.  
-Example: test-offer-1 
-<br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase alphanumeric characters (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can’t be changed after you select **Create**.  For example, if you enter *test-offer-1* here, the offer URL will be `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
-- **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
+- **Offer alias**: The name used to refer to the offer within the Partner Center. This name won't be used in the marketplace, and is different than the **Offer Name** and other values that will be shown to customers. This value can't be changed after you select **Create**.
 
-<br>Example: Test Offer 1&#8482;
-
-Select **Create**.  An **Offer overview** page is created for this offer.  
+Once you enter your **Offer ID** and **Offer alias**, select **Create**.  An **Offer overview** page is created for this offer.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -56,83 +45,36 @@ The **Offer overview** page includes:
 
 ## Offer setup
 
-The **Offer setup** tab asks for the following information. Select **Save** after completing these fields.
+The **Offer setup** page asks for the following information. Be sure to select **Save** after completing these fields.
 
-- **Would you like to sell through Microsoft?** (Yes/No)
-    - **Yes**, you would like to sell your offer through Microsoft, with Microsoft hosting marketplace transactions on your behalf; or 
-    - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.    
+### How do you want potential customers to interact with this listing offer?
 
-### Sell through Microsoft
+Select the option you'd like to use for this offer.
 
-Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft’s globally available commerce capabilities.
+#### Get it now (free)
 
-#### SaaS Offer Requirements
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example: `https://contoso.com/my-app`
 
-In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
+#### Free trial (listing)
 
-- Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
-- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
-- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
-
-#### SaaS on Azure Billing infrastructure costs
-If the SaaS offer is hosted in Azure, you, as the publisher, must account for Azure infrastructure usage fees, and software licensing fees as a single cost item. This cost is represented as a flat monthly fee to the customer. Azure infrastructure usage is managed and billed to you, the partner, directly. Actual infrastructure usage fees are not seen by the customer. Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing. 
-
-Software licensing fees are presented as a monthly, recurring site-based subscription flat-rate fee and are not metered or consumption based.
-
-|**Your license cost**|**$100 per month**|
-|:---|:---|
-|Azure usage cost (D1/1-Core)|Billed directly to the publisher, not the customer|
-|Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
-
-- In this scenario, Microsoft bills $100.00 for your software license and pays out $80.00 to the publisher.
-- Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*) where they can get a trial.  For example: `https://contoso.com/trial/my-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
 
 > [!NOTE]
-> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure Active Directory (Azure AD) to automate account creation in your app. Microsoft accounts are not supported for authentication using this token.
 
-|**Microsoft bills**|**$100 per month**|
-|:---|:---|
-|Microsoft pays you 80% of your license cost <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|$80.00 per month <br>*$*90.00 per month*|
+#### Contact me
 
-
-#### CSP Program Opt-in
-The [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program enables software offers to reach millions of qualified Microsoft customers with minimal marketing and sales investment.
-
-- **Channels: Make my offer available in the CSP program** (check box)
-
-Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. 
-
-### List through Microsoft
-
-Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
-
-- **How do you want potential customers to interact with this listing offer?**
-
-##### Get it now (free)
-List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  For example: `https://contoso.com/saas-app`
-
-##### Free trial (listing)
-List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  For example: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
-
-> [!NOTE]
-> The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
-
-##### Contact me
 Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you’ve configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
-## Example marketplace offer listing
-
-![Example marketplace offer listing with notes](./media/marketplace-offer.svg)
-
-## Enable a test drive
+### Test drive
 
 A test drive is a great way to showcase your offer to potential customers by giving them the option to 'try before you buy', resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Enable a test drive** (checkbox) 
+To enable a test drive, check the **Enable a test drive** box. You'll then need to configure a demonstration environment for customers to try your offer for a fixed period of time. 
 
-By enabling test drive, you will be asked to configure a demonstration environment for customers to try your offer for a fixed period of time. 
+#### Type of test drive
 
-### Type of test drive
+Select from the following options:
 
 - **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)**: A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
 - **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)**: Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc.).  
@@ -148,57 +90,60 @@ By enabling test drive, you will be asked to configure a demonstration environme
 
 ## Connect lead management
 
-Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
+Connect with customers directly by hooking up your Customer Relationship Management (CRM) system. When you do so, you'll receive customer contact information when a customer expresses interest or deploys your product.
 
-- **Choose a lead destination** (drop-down menu): Provide connection details to the CRM system where you would like us to send customer leads. 
+To connect your CRM system, select **Connect**.
+
+### Choose a lead destination
+
+After you select **Connect**, you'll see a drop-down menu where you can select your CRM system, then provide connection details.
 
 Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
 
-- Azure Blob– Provide contact email, container name, and storage account connection string. 
-- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
-- [Https Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide contact email and HTTPS endpoint URL. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide contact email, form ID, Munchkin account ID, and server ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide contact email and organization ID. 
+- [Azure Table](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – Provide your storage account connection string. 
+- [Dynamics 365 for Customer Engagement (formerly Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – Provide your Dynamics 365 Instance URL and authentication mode (Office 365 or Azure Active Directory).
+- [HTTPS Endpoint](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – Provide your HTTPS endpoint URL. 
+- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – Provide your server ID, Munchkin account ID, and form ID.
+- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) -  Provide your organization ID. 
 
 #### Additional lead management resources
 - [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
 - [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
 - [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-Remember to **Save** before moving on to the next section!
-
 ## Properties
-The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
 
-Select **Save** after completing these fields. 
+The **Properties** page lets you define the categories and industries used to group your offer on the marketplace, your app version, and the legal contracts supporting your offer. Select **Save** after completing this page. 
 
 ### Category
-Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
+
+Select a minimum of one and a maximum of three categories. These will be used to place your offer into the appropriate marketplace search areas. Be sure to call out how your offer supports these categories in the offer description. 
 
 ### Industry
-Select up to two (2) industries used for grouping your offer into the appropriate marketplace search areas. If your offer is not specific to an industry, do not select one. Please call out how your offer supports the selected industries in the offer description. 
+
+You can optionally select up to two industries to help categorize your offer in the marketplace. If your offer is not specific to an industry, leave this section blank. Be sure to call out how your offer supports the selected industries in the offer description. 
+
+### Applicable Dynamics 365 products
+
+Select all of the Dynamics 365 products that this offer applies to.
 
 ### App version
-This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
 
-### Standard Contract
+Enter the version number of your offer. Customers will see this version listed on the offer's detail page. If you are only updating the version number due to marketing, check the **Marketing only change** box.
 
-- **Use Standard Contract?**
+### Standard contract
 
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace. 
 
-Rather than crafting custom terms and conditions, Azure Marketplace publishers can choose to offer their software under the Standard Contract, which customers only need to vet and accept once. 
+Rather than crafting custom terms and conditions, you can choose to offer your software under the Standard Contract, which customers only need to vet and accept once. 
 
 The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178.
 
+To use the Standard Contract, check the **Use Standard Contract?** box.
+
 #### Terms of use
 
-If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. You can also enter up to 10,000 characters of text in this field. If your terms of use require a longer description, enter a single URL link into this field where your additional license terms can be found. It will display to customers as an active link.
-
-Customers are required to accept these terms before they can try your app. 
-
-Remember to **Save** before moving on to the next section!
+If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of tex, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
 
 ## Offer listing
 
