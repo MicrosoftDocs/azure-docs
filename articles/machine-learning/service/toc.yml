@@ -6,7 +6,7 @@
   - name: What is Azure Machine Learning service?
     displayName: AML, services, overview, introduction
     href: overview-what-is-azure-ml.md
-  - name: How the service works
+  - name: Architecture & terms 
     displayName: architecture, concepts, definitions, glossary
     href: concept-azure-machine-learning-architecture.md
 
