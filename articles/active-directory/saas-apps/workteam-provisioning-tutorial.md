@@ -52,15 +52,15 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 Before configuring Workteam  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Workteam .
 
-1. Login into [Workteam](https://app.workte.am/account/signin). Click **Organization settings** > **SETTINGS**.
+1. Login into [Workteam](https://app.workte.am/account/signin). Navigate to **Organization settings > SETTINGS**.
 
 	![Workteam](media/workteam-provisioning-tutorial/settings.png)
 
-2. Scroll to bottom and  Turn on the **SCIM User Provisioning**. > **Setting Icon**.
+2. Scroll to bottom and enable the provisioning capabilities of Workteam.
 
 	![Workteam](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copy the **base Url** and **Bearer Token**. These values will be entered in the **Tenant URL**and **Secret Token** field in the Provisioning tab of your Workteam application in the Azure portal.
+3. Copy the **Base Url** and **Bearer Token**. These values will be entered in the **Tenant URL**and **Secret Token** field in the Provisioning tab of your Workteam application in the Azure portal.
 
 	![Workteam](media/workteam-provisioning-tutorial/scim.png)
 
@@ -112,7 +112,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning tab](common/provisioning-automatic.png)
 
-5. Under the Admin Credentials section, input the **BASE URL** and **Bearer Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Workteam. If the connection fails, ensure your Workteam account has Admin permissions and try again.
+5. Under the Admin Credentials section, input the **Base URL** and **Bearer Token** values retrieved earlier in **Tenant URL** and **Secret Token** respectively. Click **Test Connection** to ensure Azure AD can connect to Workteam. If the connection fails, ensure your Workteam account has Admin permissions and try again.
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -147,9 +147,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Workteam .
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-## Connector Limitations
-
 
 ## Additional resources
 
