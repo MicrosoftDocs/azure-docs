@@ -36,7 +36,7 @@ Similarly with accessing storage, you can leverage the managed identity of a Ser
 
 ![Key Vault access policy](../key-vault/media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
-The following example illustrates granting access to a vault via a template deployment; add the snippet below as another entry under the `resources` element of the template:
+The following example illustrates granting access to a vault via a template deployment; add the snippet below as another entry under the `resources` element of the template.
 
 ```json
 	{
@@ -61,6 +61,7 @@ The following example illustrates granting access to a vault via a template depl
 		}
 	},
 ```
+
 For more details, please see [Vaults - Update Access Policy](https://docs.microsoft.com/en-us/rest/api/keyvault/vaults/updateaccesspolicy).
 
 ## Next steps
