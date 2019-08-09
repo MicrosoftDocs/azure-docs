@@ -78,7 +78,7 @@ If you decide that you want to change the default security verification method y
 
 You can add new phone numbers, or update existing numbers, from the **Additional security verification** page.
 
->[Important]
+>[!Important]
 >We strongly recommend that you add a secondary phone number to help prevent being locked out of your account if your primary phone is lost or stolen, or if you get a new phone and no longer have your original, primary phone number.
 
 ### To change your phone numbers
