@@ -17,7 +17,9 @@ There are three partner selling motions:
 
 * *Sell through partner*: You can re/sell Microsoft technology through your own sellers.
 * *Services co-sell*: Sellers and partners collaborate to sell your project or managed services with Microsoft technology embedded.
-* *IP co-sell*: Sellers/partners collaborate to sell your repeatable, packaged IP solution*
+* *IP co-sell*: Sellers/partners collaborate to sell your repeatable, packaged IP solution*.
+
+\* Some of these 3rd party IP co-sell solutions may receive additional incentives when successfully sold and deployed with Microsoft's field sales teams.
 
 ![Co-sell happens](./media/marketplace-publishers-guide/marketplace-co-sell.png)
 

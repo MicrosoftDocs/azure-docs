@@ -43,7 +43,7 @@ File types? or external link?
 | *Verifiable customer wins* | Specific examples of customer successes after your solution has been deployed. |
 | *Channel pitch deck* | A slide deck with information that will help channel resellers learn more about your solution, and get their sales teams ready to sell your offer. It typically includes an elevator pitch, information about target customers, questions to ask customers, talking points, and links to videos, documentation, and support information. |
 | *Reference architecture diagrams* | A document showing the model that represents the IP created by the partner, along with its relationship with Microsoft cloud services, and how it meets the technical requirements of the IP Co-Sell program. |
-| *Other documents* | Optionally, you may upload up to `<x>`(How many?) additional documents to help Microsoft sales teams and channel resellers to learn more about your solution, organization, and/or differentiators. |
+| *Other documents* | Optionally, you may upload up to five additional documents to help Microsoft sales teams and channel resellers to learn more about your solution, organization, and/or differentiators. |
 | *External reference URL* | The link to your product’s site, where Microsoft sales teams and channel resellers can learn more about your solution. |
 
 ## Contacts     
