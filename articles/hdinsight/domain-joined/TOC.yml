@@ -58,6 +58,10 @@
   items:
   - name: Create ESP clusters and sync with on-premises
     href: apache-domain-joined-create-configure-enterprise-security-cluster.md
+  - name: Troubleshoot
+    items:
+    - name: Authentication issues
+      href: ./domain-joined-authentication-issues.md
 - name: Reference
   items:
   - name: Code samples
