@@ -9,18 +9,18 @@ ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
 
-# As a device or solution developer, I want to use the Azure IoT Device Workbench to author my device capability model (DCM) and interface, publish to model repository and generate C scaffolding code to implement the device application.
+# As a device or solution developer, I want to use the Azure IoT Device Workbench to author my device capability model (DCM) and interface, publish to model repository and generate skeleton C code to implement the device application.
 ---
 
 # Use Azure IoT Device Workbench extension in Visual Studio Code
 
-The Azure IoT Device Workbench Visual Studio Code extension provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate C scaffolding code to implement the device application.
+The Azure IoT Device Workbench Visual Studio Code extension provides an integrated environment to author device capability models (DCM) and interfaces, publish to model repositories, and generate skeleton C code to implement the device application.
 
 This article shows you how to:
 
 - Generate device code and application project.
 - Use the generated code in your device project.
-- Iterate by regenerating the scaffolding code.
+- Iterate by regenerating the skeleton code.
 
 To learn more about using the Device Workbench extension to develop IoT devices, see [https://github.com/microsoft/vscode-iot-workbench](https://github.com/microsoft/vscode-iot-workbench).
 
@@ -35,9 +35,9 @@ Use the following steps to install the extension in VS Code.
 
 ## Generate device code and project
 
-In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub** to configure the scaffold code and project type. The following list describes each step in detail:
+In VS Code, use **Ctrl+Shift+P** to open the command palette, enter **IoT Plug and Play**, and select **Generate Device Code Stub** to configure the skeleton code and project type. The following list describes each step in detail:
 
-- **DCM file to be used for generating the code**. To generate the scaffolding device code, open the folder that contains the DCM and interface files it implements. If the code generator can't find an interface that a DCM requires, it downloads it from the model repository as needed.
+- **DCM file to be used for generating the code**. To generate the skeleton device code, open the folder that contains the DCM and interface files it implements. If the code generator can't find an interface that a DCM requires, it downloads it from the model repository as needed.
 
 - **Device code language**. Currently, the code generator only supports ANSI C.
 
@@ -249,7 +249,7 @@ The following steps show you how to build the device code together with the devi
     ./{generated_code_project_name} "[IoT Hub device connection string]"
     ```
 
-## Iterate by regenerating the scaffolding code
+## Iterate by regenerating the skeleton code
 
 The code generator can regenerate the code if you update your DCM or interface files. Assuming you already generated your device code from a DCM file, to regenerate the code:
 
@@ -270,4 +270,4 @@ Azure IoT Device Workbench extension is an open-sourced project on GitHub. For a
 
 ## Next steps
 
-In this how-to article, you've learned how to use the Azure IoT Device Workbench to author DCM and interface files. You've also learned how to generate C scaffolding code to implement the device application. A suggested next step is to learn how to [Install and use Azure IoT explorer](./howto-install-iot-explorer.md) tool.
+In this how-to article, you've learned how to use the Azure IoT Device Workbench to author DCM and interface files. You've also learned how to generate skeleton C code to implement the device application. A suggested next step is to learn how to [Install and use Azure IoT explorer](./howto-install-iot-explorer.md) tool.
