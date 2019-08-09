@@ -28,13 +28,13 @@ To create an event rule, the device template must have at least one event measur
 
 1. If you haven’t created any rules yet, you see the following screen:
 
-![No rules yet](media/howto-create-event-rules-pnp/rules-landing-page1.png)
+   ![No rules yet](media/howto-create-event-rules-pnp/rules-landing-page1.png)
 
 1. Select **+ New Rule** to see the types of rules you can create.
 
 1. Choose **Event** to create an event monitoring rule.
 
-    ![Rule Types](media/howto-create-event-rules-pnp/rule-types1.png)
+   ![Rule Types](media/howto-create-event-rules-pnp/rule-types1.png)
 
 1. Enter a name that helps you to identify the rule and press Enter.
 
@@ -66,12 +66,12 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
 1. Click the **+ Action** in the **Action** sections. Here you see the list of available actions.  
 
-    ![Add Action](media/howto-create-event-rules-pnp/add-action1.png)
+   ![Add Action](media/howto-create-event-rules-pnp/add-action1.png)
 
 1. Choose the **Email** action, enter a display name for the action, a valid email address in the **To** field, and provide a note to appear in the body of the email when the rule triggers.
 
-> [!NOTE]
-> Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
+   > [!NOTE]
+   > Emails are only sent to the users that have been added to the application and have logged in at least once. Learn more about [user management](howto-administer-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) in Azure IoT Central.
 
    ![Configure Action](media/howto-create-event-rules-pnp/configure-action1.png)
 
