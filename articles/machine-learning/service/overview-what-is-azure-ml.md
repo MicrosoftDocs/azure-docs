@@ -1,6 +1,5 @@
 ---
-title: What is 
-titleSuffix: Azure Machine Learning service
+title: What is Azure Machine Learning service
 description: Overview of Azure Machine Learning service - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
@@ -8,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: j-martens
 ms.author: jmartens
-ms.date: 05/02/2019
+ms.date: 08/05/2019
 ms.custom: seodec18
 ---
 
@@ -24,7 +23,7 @@ Forecasts or predictions from machine learning can make apps and devices smarter
 
 ## What is Azure Machine Learning service?
 
-Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning. 
+Azure Machine Learning service provides a cloud-based environment you can use to prep data, train, test, deploy, manage, and track machine learning models. Start training on your local machine and then scale out to the cloud. The service fully supports open-source technologies such as PyTorch, TensorFlow, and scikit-learn and can be used for any kind of machine learning, from classical ml to deep learning, supervised and unsupervised learning.
 
 Explore and prepare data, train and test models, and deploy them using rich tools such as:
 + A [visual interface](ui-tutorial-automobile-price-train-score.md) in which you can drag-n-drop modules to build your experiments and then deploy models
@@ -50,20 +49,25 @@ You can also [automate model training and tuning](tutorial-auto-train-models.md)
 For code-free training, try:
 
 + The visual interface for drag-n-drop experimenting and deployment
-    
+
     ![Visual interface for Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
 
 + The Azure portal option for automated ML experiments
 
 ### Operationalization (MLOps)
 
-When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md). 
+When you have the right model, you can easily use it in a web service, on an IoT device, or from Power BI. For more information, see the article on [how to deploy and where](how-to-deploy-and-where.md).
 
-Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or the [Azure portal](https://portal.azure.com/). 
+Then you can manage your deployed models by using the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) or the [Azure portal](https://portal.azure.com/).
 
 These models can be consumed and return predictions in [real time](how-to-consume-web-service.md) or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
-And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment.
+And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
+
+* automate the end-to-end machine learning process in the cloud
+* reuse components and only re-run steps when you need to
+* use different compute resources in each step
+* run batch scoring tasks
 
 To get started using Azure Machine Learning service, see [Next steps](#next-steps).
 
@@ -81,7 +85,7 @@ Here is a quick comparison.
 |Modules for interface| Many | Initial set of popular modules|
 |Training compute targets| Proprietary compute target, CPU support only| Supports Azure Machine Learning compute, GPU or CPU.<br/>(Other computes supported in SDK)|
 |Deployment compute targets| Proprietary web service format, not customizable | Enterprise security options  & Azure Kubernetes Service. <br/>([Other computes](how-to-deploy-and-where.md) supported in SDK) |
-|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) | 
+|Automated model training and hyperparameter tuning | No | Not yet in visual interface. <br/> (Supported in the SDK and Azure portal.) |
 
 Try out the visual interface (preview) with [Tutorial: Predict automobile price with the visual interface](ui-tutorial-automobile-price-train-score.md).
 
@@ -96,10 +100,10 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- [Create a Machine Learning service workspace](setup-create-workspace.md) to get started.
+- [Create a Machine Learning service workspace](how-to-manage-workspace.md) to get started.
 
-- Follow the full-length tutorials: 
-  + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md) 
+- Follow the full-length tutorials:
+  + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md)
   + [Prepare data and use automated machine learning to auto-train a regression model](tutorial-data-prep.md)
 
 - Learn about [machine learning pipelines](/azure/machine-learning/service/concept-ml-pipelines) to build, optimize, and manage your machine learning scenarios.

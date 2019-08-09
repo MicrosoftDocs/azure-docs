@@ -222,4 +222,5 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 * View the [Node.js tutorial](./tutorial-nodejs.md) to see what else you can do with the Immersive Reader SDK using Node.js
 * View the [Python tutorial](./tutorial-python.md) to see what else you can do with the Immersive Reader SDK using Python
+* View the [iOS tutorial](./tutorial-ios-picture-immersive-reader.md) to see what else you can do with the Immersive Reader SDK using Swift
 * Explore the [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) and the [Immersive Reader SDK Reference](./reference.md)

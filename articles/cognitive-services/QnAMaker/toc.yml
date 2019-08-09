@@ -57,6 +57,10 @@
     items: 
     - name: C#
       href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+    - name: Node.js
+      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+    - name: Python
+      href: ./Quickstarts/python-sdk.md
 - name: Tutorials
   items: 
   - name: Create and answer from KB
@@ -71,6 +75,8 @@
   - name: Knowledge base
     href: Concepts/knowledge-base.md
     displayName: metadata, pair
+  - name: Using LUIS and QnA Maker
+    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
   - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
