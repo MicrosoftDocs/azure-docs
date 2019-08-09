@@ -119,7 +119,7 @@ Prerequisites for using the Microsoft Authenticator app to do passwordless sign 
 
 * End users are enabled for Azure Multi-Factor Authentication
 
-* It is recommended users to enroll their devices by using Microsoft Intune or a third-party mobile device management (MDM) solution to ease the deployment of the app
+* It is recommended users enroll their devices using Microsoft Intune or a third-party mobile device management (MDM) solution to ease the deployment of the app
 
 Assuming these requirements are met, administrators enable passwordless phone sign-in in the tenant by using [Windows PowerShell.](../../active-directory/authentication/howto-authentication-passwordless-phone.md) Once phone sign-in is enabled in the tenant, end users may opt to sign-in using their phone by selecting their work or school account on the **Accounts** screen of the app, then selecting **Enable phone sign-in**.
 
