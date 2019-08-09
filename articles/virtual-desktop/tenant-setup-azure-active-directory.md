@@ -40,7 +40,6 @@ To grant the service permissions:
 1. Open a browser and begin the admin consent flow to the [Windows Virtual Desktop server app](https://login.microsoftonline.com/common/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
    > [!NOTE]
    > If you manage a customer and need to grant admin consent for the customer's directory, enter the following URL into the browser and replace **{tenant}** with the Azure AD domain name of the customer, such as contoso.onmicrosoft.com.
-   
    >```
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
