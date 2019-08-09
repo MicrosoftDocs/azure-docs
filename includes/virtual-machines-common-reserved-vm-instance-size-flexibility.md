@@ -213,6 +213,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
 |Standard_E32-16s_v3|16|
+|Standard_E48s_v3|24|
 |Standard_E64s_v3|28.8|
 |Standard_E64-16s_v3|28.8|
 |Standard_E64-32s_v3|28.8|
