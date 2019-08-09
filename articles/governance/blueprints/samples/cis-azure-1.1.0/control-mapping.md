@@ -1,5 +1,5 @@
 ---
-title: Sample - CIS Microsoft Azure Foundations Benchmark blueprint - Control mapping
+title: Sample - CIS Microsoft Azure Foundations Benchmark blueprint - Recommendation mapping
 description: Recommendation mapping of the CIS Microsoft Azure Foundations Benchmark blueprint sample to Azure Policy.
 author: DCtheGeek
 ms.author: dacoulte
@@ -15,11 +15,11 @@ blueprint sample maps to the CIS Microsoft Azure Foundations Benchmark recommend
 information about the recommendations, see [CIS Microsoft Azure Foundations Benchmark](https://www.cisecurity.org/benchmark/azure/).
 
 The following mappings are to the **CIS Microsoft Azure Foundations Benchmark v1.1.0**
-recommendations. Use the navigation on the right to jump directly to a specific control mapping.
-Many of the mapped controls are implemented with an [Azure Policy](../../../policy/overview.md)
+recommendations. Use the navigation on the right to jump directly to a specific recommendation mapping.
+Many of the mapped recommendations are implemented with an [Azure Policy](../../../policy/overview.md)
 initiative. To review the complete initiative, open **Policy** in the Azure portal and select the
 **Definitions** page. Then, find and select the **\[Preview\] Audit CIS Microsoft Azure Foundations
-Benchmark v1.1.0 controls and deploy specific VM Extensions to support audit requirements** built-in
+Benchmark v1.1.0 recommendations and deploy specific VM Extensions to support audit requirements** built-in
 policy initiative.
 
 ## 1.1 Ensure that multi-factor authentication is enabled for all privileged users
@@ -236,16 +236,6 @@ This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition
 this CIS recommendation.
 
 - Web Application should only be accessible over HTTPS
-
-## Next steps
-
-Now that you've reviewed the recommendation mapping of the CIS Microsoft Azure Foundations Benchmark
-blueprint, visit the following articles to learn about the architecture and how to deploy this
-sample:
-
-> [!div class="nextstepaction"]
-> [CIS Microsoft Azure Foundations Benchmark blueprint - Overview](./index.md)
-> [CIS Microsoft Azure Foundations Benchmark blueprint - Deploy steps](./deploy.md)
 
 Addition articles about blueprints and how to use them:
 
