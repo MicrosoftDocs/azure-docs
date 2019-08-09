@@ -77,7 +77,7 @@ The following technologies provide identity management capabilities in the Azure
 - The citizen facing web application is configured for public access. To allow for account creation and authentication through active directory or social network identity providers [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) can be integrated if required.
 - [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detects potential vulnerabilities and risky accounts provides recommendations to enhance the security posture of your organization’s identities, configures automated responses to detected suspicious actions related to your organization’s identities, and investigates suspicious incidents and takes appropriate action to resolve them.
 - [Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) enables precisely focused access management for Azure. Subscription access is limited to the subscription administrator, and Azure Key Vault access is restricted only to users who require key management access.
-- Through leveraging [Azure Active Directory Conditional Access](../../active-directory/active-directory-conditional-access-azure-portal.md-azure-portal) customers can enforce additional security controls on access to apps or users in their environment based on specific conditions such as location, device, state and sign in risk.
+- Through leveraging [Azure Active Directory Conditional Access](../../active-directory/active-directory-conditional-access-azure-portal.md) customers can enforce additional security controls on access to apps or users in their environment based on specific conditions such as location, device, state and sign in risk.
 - [Azure DDoS Protection](../fundamentals/paas-deployments.md#security-advantages-of-a-paas-cloud-service-model) combined with application design best practices, provides defense against DDoS attacks, with always-on traffic monitoring, and real-time mitigation of common network-level attacks. With a PaaS architecture, platform level DDoS protection is transparent to the customer and incorporated into the platform but it is important to note that the application security design responsibility lies with the customer.
 
 #### Data in transit
@@ -190,7 +190,7 @@ This template uses the following Application Insights components:
 
 #### Azure Monitor
 
-[Azure Monitor](../../azure-monitor/overview.md-azure-monitor) enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. Azure Monitor provides base-level infrastructure metrics and logs for most services in Microsoft Azure.
+[Azure Monitor](../../azure-monitor/overview.md) enables core monitoring for Azure services by allowing the collection of metrics, activity logs, and diagnostic logs. Azure Monitor provides base-level infrastructure metrics and logs for most services in Microsoft Azure.
 
 ## Threat model
 

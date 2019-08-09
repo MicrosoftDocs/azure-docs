@@ -220,7 +220,7 @@ Configuration options for VPN devices and IPSec/ IKE parameters is [available](h
 Furthermore, [Azure Active Directory Connect](../../active-directory/hybrid/whatis-hybrid-identity.md) allows customers to configure federation with on-premises [Active Directory Federation Services]( ../../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) and Azure Active Directory. With federation sign-in, customers can enable users to sign in to Azure Active Directory-based services with their on-premises passwords and without having to enter their passwords again while on the corporate network. By using the federation option with Active Directory Federation Services, you can deploy a new installation of Active Directory Federation Services, or you can specify an existing installation in a Windows Server 2012 R2 farm.
 
 To prevent classified data from synchronizing to Azure Active Directory, customers can restrict the attributes that are replicated to Azure Active Directory by applying the following settings in Azure Active Directory Connect:
-- [Enable filtering](../../active-directory/hybrid/whatis-hybrid-identity.mdsync-configure-filtering)
+- [Enable filtering](../../active-directory/hybrid/how-to-connect-sync-configure-filtering.md)
 - [Disable password hash synchronization](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
 - [Disable password writeback](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 - [Disable device writeback](../../active-directory/hybrid/how-to-connect-device-writeback.md)

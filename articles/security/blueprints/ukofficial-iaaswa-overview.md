@@ -180,11 +180,11 @@ Storage
 
 **Active Directory Domain Services**: This architecture delivers an Active Directory Domain Services deployment in Azure. For specific recommendations on implementing Active Directory in Azure, see the following articles:
 
-[Extending Active Directory Domain Services (AD DS) to Azure](../../architecture/reference-architectures/identity/adds-extend-domain.md).
+[Extending Active Directory Domain Services (AD DS) to Azure](/azure/architecture/reference-architectures/identity/adds-extend-domain).
 
 [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines](https://msdn.microsoft.com/library/azure/jj156090.aspx).
 
-**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](../../architecture/reference-architectures/identity.md) integration or [Active Directory in Azure joined to an on-premises forest](../../architecture/reference-architectures/identity.md).
+**Active Directory Integration**: As an alternative to a dedicated AD DS architecture, customers may wish to use [Azure Active Directory](/azure/architecture/reference-architectures/identity.md) integration or [Active Directory in Azure joined to an on-premises forest](/azure/architecture/reference-architectures/identity.md).
 
 ### Security
 
@@ -198,7 +198,7 @@ Customers may also consider using an [enhanced security administrative model](ht
 
 **IP Ranges**: The IP ranges in the architecture are suggested ranges. Customers are advised to consider their own environment and use appropriate ranges.
 
-**Hybrid Connectivity**: The cloud based workloads are connected to the on-premises datacenter through IPSEC VPN using the Azure VPN Gateway. Customers should ensure that they are using an appropriate VPN Gateway to connect to Azure. Example - [VPN Gateway Resource Manager template](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Customers running large-scale, mission critical workloads with big data requirements may wish to consider a hybrid network architecture using [ExpressRoute](../../architecture/reference-architectures/hybrid-networking/expressroute.md) for private network connectivity to Microsoft cloud services.
+**Hybrid Connectivity**: The cloud based workloads are connected to the on-premises datacenter through IPSEC VPN using the Azure VPN Gateway. Customers should ensure that they are using an appropriate VPN Gateway to connect to Azure. Example - [VPN Gateway Resource Manager template](https://github.com/mspnp/template-building-blocks/tree/v1.0.0/templates/buildingBlocks/vpn-gateway-vpn-connection). Customers running large-scale, mission critical workloads with big data requirements may wish to consider a hybrid network architecture using [ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute.md) for private network connectivity to Microsoft cloud services.
 
 **Separation of Concerns**: This reference architecture separates the VNets for management operations and business operations. Separate VNets and subnets allow traffic management, including traffic ingress and egress restrictions, by using NSGs between network segments following [Microsoft cloud services and network security](../../https:/docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter.md) best practices.
 

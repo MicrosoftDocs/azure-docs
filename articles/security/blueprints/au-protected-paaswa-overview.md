@@ -249,7 +249,7 @@ Furthermore, [Azure Active Directory Connect](../../active-directory/hybrid/what
 
 To prevent classified data from synchronizing to Azure Active Directory, customers can restrict the attributes that are replicated to Azure Active Directory by applying the following settings in Azure Active Directory Connect:
 
-- [Enable filtering](../../active-directory/hybrid/whatis-hybrid-identity.mdsync-configure-filtering)
+- [Enable filtering](../../active-directory/hybrid/how-to-connect-sync-configure-filtering.md)
 - [Disable password hash synchronization](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md)
 -	[Disable password writeback](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 -	[Disable device writeback](../../active-directory/hybrid/how-to-connect-device-writeback.md)
