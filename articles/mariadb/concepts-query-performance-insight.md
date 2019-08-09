@@ -11,7 +11,7 @@ ms.date: 06/27/2019
 
 **Applies to:** Azure Database for MariaDB 10.2
 
-> [!NOTE]
+> [!IMPORTANT]
 > Query Performance Insight is in preview.
 
 Query Performance Insight helps you to quickly identify what your longest running queries are, how they change over time, and what waits are affecting them.
