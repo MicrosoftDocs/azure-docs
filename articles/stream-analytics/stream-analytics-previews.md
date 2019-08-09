@@ -7,7 +7,7 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 02/05/2019
+ms.date: 05/29/2019
 ---
 
 # Azure Stream Analytics preview features
@@ -18,13 +18,16 @@ This article summarizes all the features currently in preview for Azure Stream A
 
 The following features are in public preview. You can take advantage of these features today, but don't use them in your production environment.
 
+### One-click integration with Event Hubs 
+With this integration, you will now be able to visualize incoming data and start to write a Stream Analytics query with one click from the Event Hub portal. Once your query is ready, you will be able to productize it in few clicks and start to get real-time insights. This will significantly reduce the time and cost to develop real-time analytics solutions. Documentation is available [here](https://docs.microsoft.com/azure/event-hubs/process-data-azure-stream-analytics).
+
+### Visual Studio Code for Azure Stream Analytics
+
+Azure Stream Analytics jobs can be authored in Visual Studio Code. See our [VS Code getting started tutorial](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+
 ### Anomaly Detection
 
 Azure Stream Analytics introduces new machine learning models with support for *spike* and *dips* detection in addition to bi-directional, slow positive, and slow negative trends detection. For more information, visit [Anomaly detection in Azure Stream Analytics](stream-analytics-machine-learning-anomaly-detection.md).
-
-### SQL Database reference data
-
-Azure Stream Analytics supports Azure SQL Database as a source of input for reference data. You can use SQL Database as reference data for your Stream Analytics job in the Azure portal and in Visual Studio with Stream Analytics tools. For more information, visit, [Use reference data from a SQL Database for an Azure Stream Analytics job](sql-reference-data.md).
 
 ### Integration with Azure Machine Learning
 
@@ -42,20 +45,15 @@ Visual Studio tools for Azure Stream Analytics enhance the local testing feature
 
 With .NET standard user-defined functions, you can run .NET Standard code as part of your streaming pipeline. You can create simple C# classes or import full project and libraries. Full authoring and debugging experience is supported in Visual Studio. For more information, visit [Develop .NET Standard user-defined functions for Azure Stream Analytics Edge jobs](stream-analytics-edge-csharp-udf-methods.md).
 
-## Private previews
+## Other previews
 
-The following features are in private preview.
+The following features are also available in preview on request.
 
-### C# custom deserializer for Azure Stream Analytics on IoT Edge
+### C# custom deserializer for Azure Stream Analytics on IoT Edge and Cloud
 
-Developers can now implement custom deserializers in C# to deserialize events received by Azure Stream Analytics. Examples of formats that can be deserialized include Parquet, Protobuf, XML, or any binary format.
+Developers can implement custom deserializers in C# to deserialize events received by Azure Stream Analytics. Examples of formats that can be deserialized include Parquet, Protobuf, XML, or any binary format. Sign up for this preview [here](https://aka.ms/asapreview1).
 
-### Visual Studio Code for Azure Stream Analytics
+### Support for Azure Stack
+This feature enabled on the Azure IoT Edge runtime, leverages custom Azure Stack features, such as native support for local inputs and outputs running on Azure Stack (for example Event Hubs, IoT Hub, Blob Storage). This new integration enables you to build hybrid architectures that can analyze your data close to where it is generated, lowering latency and maximizing insights.
+Sign up for this preview [here](https://aka.ms/asapreview1).
 
-Azure Stream Analytics jobs can be authored in Visual Studio Code. For access to tooling private preview features, contact to *ASAToolsfeedback\@microsoft.com*.
-
-## Next steps
-
-* [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/)
-
-* [Four new features now available in Azure Stream Analytics](https://azure.microsoft.com/blog/4-new-features-now-available-in-azure-stream-analytics/)

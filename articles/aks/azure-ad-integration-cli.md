@@ -2,12 +2,12 @@
 title: Integrate Azure Active Directory with Azure Kubernetes Service
 description: Learn how to use the Azure CLI to create and Azure Active Directory-enabled Azure Kubernetes Service (AKS) cluster
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Integrate Azure Active Directory with Azure Kubernetes Service using the Azure CLI
@@ -21,7 +21,6 @@ For the complete sample script used in this article, see [Azure CLI samples - AK
 The following limitations apply:
 
 - Azure AD can only be enabled when you create a new, RBAC-enabled cluster. You can't enable Azure AD on an existing AKS cluster.
-- *Guest* users in Azure AD, such as if you use a federated sign in from a different directory, are not supported.
 
 ## Before you begin
 
@@ -40,7 +39,7 @@ Azure AD authentication is provided to AKS clusters with OpenID Connect. OpenID 
 From inside of the Kubernetes cluster, Webhook Token Authentication is used to verify authentication tokens. Webhook token authentication is configured and managed as part of the AKS cluster. For more information on Webhook token authentication, see the [webhook authentication documentation][kubernetes-webhook].
 
 > [!NOTE]
-> When configuring Azure AD for AKS authentication, two Azure AD application are configured. This operation must be completed by an Azure tenant administrator.
+> When configuring Azure AD for AKS authentication, two Azure AD applications are configured. This operation must be completed by an Azure tenant administrator.
 
 ## Create Azure AD server component
 
@@ -233,8 +232,9 @@ If you see an authorization error message after you've successfully signed in us
 error: You must be logged in to the server (Unauthorized)
 ```
 
-* The user you are signed in as is not a *Guest* in the Azure AD instance (this is often the case if you use a federated login from a different directory).
+* You defined the appropriate object ID or UPN, depending on if the user account is in the same Azure AD tenant or not.
 * The user is not a member of more than 200 groups.
+* Secret defined in the application registration for server matches the value configured using `--aad-server-app-secret`
 
 ## Next steps
 

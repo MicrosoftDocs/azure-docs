@@ -113,10 +113,10 @@ To configure Azure AD single sign-on with TextMagic, perform the following steps
 
 	| Name |   Source Attribute| Namespace  |
 	| --------------- | --------------- | --------------- |
-	| company | user.companyname | https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| firstName 			  | user.givenname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| lastName 			  | user.surname |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
-	| phone 			  | user.telephonenumber |  https://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| company | user.companyname | http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| firstName 			  | user.givenname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| lastName 			  | user.surname |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
+	| phone 			  | user.telephonenumber |  http://schemas.xmlsoap.org/ws/2005/05/identity/claims |
 	| | |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
@@ -163,13 +163,13 @@ To configure Azure AD single sign-on with TextMagic, perform the following steps
 
 	![TextMagic Configuration](./media/textmagic-tutorial/config2.png)
 
-	a. In **Identity provider Entity ID:** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
+	a. In **Identity provider Entity ID:** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-	b. In **Identity provider SSO URL:** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
+	b. In **Identity provider SSO URL:** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
-	c. In **Identity provider SLO URL:** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
+	c. In **Identity provider SLO URL:** textbox, paste the value of **Logout URL**, which you have copied from Azure portal.
 
-	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
+	d. Open your **base-64 encoded certificate** in notepad downloaded from Azure portal, copy the content of it into your clipboard, and then paste it to the **Public x509 certificate:** textbox.
 
 	e. Click **Save**.
 
@@ -240,4 +240,4 @@ When you click the TextMagic tile in the Access Panel, you should be automatical
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

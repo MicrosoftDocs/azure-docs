@@ -4,7 +4,7 @@ description: Applications built with Azure Resource Manager and the Batch resour
 services: batch
 documentationcenter: .net
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

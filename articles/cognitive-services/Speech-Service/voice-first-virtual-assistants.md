@@ -1,5 +1,5 @@
 ---
-title: Custom voice-first virtual assistants (Preview) - Speech Services
+title: Custom voice-first virtual assistants (Preview) - Speech Service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for custom voice-first virtual assistants using the Direct Line Speech channel on the Bot Framework and the Cognitive Services Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -8,9 +8,8 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: travisw
-ms.custom:
 ---
 
 # About custom voice-first virtual assistants preview
@@ -19,7 +18,9 @@ Custom virtual assistants using Azure Speech Services empower developers to crea
 
    ![Conceptual diagram of the direct line speech orchestration service flow](media/voice-first-virtual-assistants/overview.png "The Speech Channel flow")
 
-Direct Line Speech and its associated functionality for custom voice-first virtual assistants are an ideal supplement to the [Virtual Assistant Solution](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction) and [Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-virtual-assistant-introduction). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
+
+Direct Line Speech and its associated functionality for custom voice-first virtual assistants are an ideal supplement to the [Virtual Assistant Solution and Enterprise Template](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview). Though Direct Line Speech can work with any compatible bot, these resources provide a reusable baseline for high-quality conversational experiences as well as common supporting skills and models for getting started quickly.
+
 
 ## Core features
 
@@ -37,6 +38,7 @@ Sample code for creating a voice-first virtual assistant is available on GitHub.
 * [Voice-first virtual assistant samples (SDK)](https://aka.ms/csspeech/samples)
 * [Quickstart: voice-first virtual assistants (C#)](quickstart-virtual-assistant-csharp-uwp.md)
 * [Quickstart: voice-first virtual assistants (Java)](quickstart-virtual-assistant-java-jre.md)
+* [Direct Line Speech Client (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
 ## Customization
 

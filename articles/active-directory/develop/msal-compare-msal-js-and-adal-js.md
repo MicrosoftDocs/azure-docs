@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
@@ -56,11 +56,11 @@ In v2.0, using the `https://login.microsoftonline.com/common` authority, will al
 
     v2.0 protocol uses scopes instead of resource in the requests. In other words, when your application needs to request tokens with permissions for a resource such as MS Graph, the difference in values passed to the library methods is as follows:
 
-    v1.0: resource=https://graph.microsoft.com
+    v1.0: resource = https\://graph.microsoft.com
 
-    v2.0: scope = https://graph.microsoft.com/User.Read
+    v2.0: scope = https\://graph.microsoft.com/User.Read
 
-    You can request scopes for any resource API using the URI of the API in this format: appidURI/scope For example: https://mytenant.onmicrosoft.com/myapi/api.read
+    You can request scopes for any resource API using the URI of the API in this format: appidURI/scope For example: https:\//mytenant.onmicrosoft.com/myapi/api.read
 
     Only for the MS Graph API, a scope value `user.read` maps to https://graph.microsoft.com/User.Read and can be used interchangeably.
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 05/08/2019
+ms.date: 07/03/2019
 ms.author: alkohli
 ---
 # Azure Data Box: Frequently Asked Questions
@@ -48,7 +48,7 @@ A. Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can t
 A.  For information on which countries/regions the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
 
 ### Q. Which regions can I store data in with Data Box?
-A. Data Box is supported for all regions within US, West Europe, North Europe, France, and UK. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported. For more information, go to [Region availability](data-box-overview.md#region-availability).
+A. Data Box is supported for all regions within US, West Europe, North Europe, France, UK, Japan, Australia, and Canada. For more information, go to [Region availability](data-box-overview.md#region-availability).
 
 ### Q. Whom should I contact if I encounter any issues with Data Box?
 A. If you encounter any issues with Data Box, please [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
@@ -165,7 +165,7 @@ A.  To speed up the copy process:
 
 
 ### Q. Can I use multiple storage accounts with Data Box?
-A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. During the GA release, the storage accounts in all regions in US, West Europe, North Europe, France, and UK in the Azure public cloud are supported.
+A.  Yes. A maximum of 10 storage accounts, general purpose, classic, or blob storage are supported with Data Box. Both hot and cool blob are supported. 
 
 
 ## Ship device
@@ -177,6 +177,9 @@ A. If your device has arrived damaged or there is evidence of tampering, do not 
 
 ### Q. Can I use my own shipping carrier to ship Data Box?
 A. For Data Box service, Microsoft handles the shipping to and from the Azure datacenter. If you want to use your own carrier, you could use the Azure Import/Export service. For more information, go to [What is Azure Import/Export service?](../storage/common/storage-import-export-service.md)
+
+### Q. Will my Data Box devices cross country borders during shipping?
+A. All Data Box devices are shipped from within the same country as their destination and will not cross any international borders. The only exception is for orders in the European Union (EU), where devices can ship to and from any EU country. This applies to both the Data Box and the Data Box Heavy devices.
 
 ### Q. E-ink display is not showing the return shipment label. What should I do?
 A. If the E-ink display doesn't show the return shipment label, perform the following steps:

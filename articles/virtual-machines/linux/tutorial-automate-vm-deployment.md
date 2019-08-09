@@ -4,7 +4,7 @@ description: In this tutorial, you learn how to use cloud-init and Key Vault to 
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 
@@ -108,7 +108,7 @@ Before you can create a VM, create a resource group with [az group create](/cli/
 az group create --name myResourceGroupAutomate --location eastus
 ```
 
-Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myAutomatedVM*:
+Now create a VM with [az vm create](/cli/azure/vm#az-vm-create). Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. The following example creates a VM named *myVM*:
 
 ```azurecli-interactive
 az vm create \

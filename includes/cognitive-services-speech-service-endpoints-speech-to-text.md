@@ -28,4 +28,4 @@ ms.author: wolfma
 | West US 2 | `https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1` |
 
 > [!NOTE]
-> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: https://westus.stt.speech.microsoft.com/speech/recognition/conversation/speech/recognition/conversation/cognitiveservices/v1?language=en-US.
+> The language parameter must be appended to the URL to avoid receiving an 4xx HTTP error. For example, the language set to US English using the West US endpoint is: `https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US`.

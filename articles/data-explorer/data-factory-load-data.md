@@ -138,7 +138,7 @@ Azure Data Explorer new linked service is created to copy the data into the Azur
     * Select **Finish** to complete linked service creation.
 
     > [!NOTE]
-    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure/azure-stack/azure-stack-create-service-principals#manage-service-principal-for-azure-ad). Do not use the **Azure Key Vault** method.
+    > The service principal is used by Azure Data Factory to access the Azure Data Explorer service. For service principal, [create a Azure Active Directory (Azure AD) service principal](/azure-stack/operator/azure-stack-create-service-principals#manage-an-azure-ad-service-principal). Do not use the **Azure Key Vault** method.
 
 1. The **Destination data store** opens. The Azure Data Explorer data connection you created is available for use. Select **Next** to configure the connection.
 

@@ -36,6 +36,9 @@ For building the Android player apps, we outline three options:
 
 The article also answers some common questions related to offline streaming of Widevine protected content.
 
+> [!NOTE]
+> Offline DRM is only billed for making a single request for a license when you download the content. Any errors are not billed.
+
 ## Prerequisites 
 
 Before implementing offline DRM for Widevine on Android devices, you should first:

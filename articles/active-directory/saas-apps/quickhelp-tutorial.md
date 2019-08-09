@@ -148,11 +148,11 @@ To configure Azure AD single sign-on with QuickHelp, perform the following steps
    
     b. To upload your downloaded Azure metadata file, click **Browse**, navigate to the file, end then click **Upload Metadata**.
    
-    c. In the **Email** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    c. In the **Email** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
    
-    d. In the **First Name** textbox, `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
+    d. In the **First Name** textbox, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`.
    
-    e. In the **Last Name** textbox, `type https://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
+    e. In the **Last Name** textbox, `type http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`.
    
     f. In the **Action Bar**, click **Save**.
 
@@ -222,7 +222,7 @@ When you click the QuickHelp tile in the Access Panel, you should be automatical
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 <!--Image references-->
 

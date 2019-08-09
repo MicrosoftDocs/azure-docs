@@ -1,23 +1,19 @@
 ---
-title: Understand Azure reservations usage for Pay-As-You-Go subscription | Microsoft Docs
-description: Learn how to read your usage to understand how the Azure reservation for your Pay-As-You-Go subscription is applied.
-services: 'billing'
-documentationcenter: ''
-author: manish-shukla01
-manager: manshuk
-editor: ''
+title: Azure reservation usage for an individual subscription with pay-as-you-go rates
+description: Learn how to read your usage to understand how the Azure reservation for your individual subscription with pay-as-you-go rates is applied.
+author: bandersmsft
+manager: yashr
 tags: billing
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/13/2019
+ms.date: 07/01/2019
 ms.author: banders
 
 ---
-# Understand Azure reservation usage for your Pay-As-You-Go subscription
+# Understand Azure reservation usage for your individual subscription with pay-as-you-go rates subscription
 
 Use the ReservationId from [Reservation page](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Reservations&Microsoft_Azure_Reservations=true#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade) and the usage file from the [Azure Accounts portal](https://account.azure.com) to evaluate your reservation usage.
 
@@ -58,7 +54,7 @@ Filter on **Additional Info** and type in your **Reservation ID**. The following
 4. **Meter ID** is the meter ID for the reservation. The cost of this meter is $0. This meter id appears for any VM that qualifies for the reservation discount.
 5. Standard_DS1_v2 is one vCPU VM and the VM is deployed without Azure Hybrid Benefit. So, this meter covers the extra charge of the Windows software. To find the meter corresponding to D series 1 core VM, see [Azure Reserve VM Instances Windows software costs](billing-reserved-instance-windows-software-costs.md). If you have the Azure Hybrid Benefit, this extra charge is not applied.
 
-## Usage for SQL Database & Cosmos DB reserved capacity reservations
+## Usage for SQL Database & Cosmos DB reservations
 
 The following sections use Azure SQL Database as example to describe the usage report. You can use same steps to get usage for Azure Cosmos DB as well.
 

@@ -55,6 +55,15 @@ To verify that the extension has been installed, use the following command to di
 az ml -h
 ```
 
+## Update the extension
+
+To update the Machine Learning CLI extension, use the following command:
+
+```azurecli-interactive
+az extension update -n azure-cli-ml
+```
+
+
 ## Remove the extension
 
 To remove the CLI extension, use the following command:
@@ -161,31 +170,40 @@ The following commands demonstrate how to register a trained model, and then dep
     For more information, see [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile).
 
 + Deploy your model to AKS
-
     ```azurecli-interactive
-    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json
+    az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.json --ct akscomputetarget
     ```
-
-    The following is an example `inferenceconfig.json` document:
-
-    ```json
-    {
-    "entryScript": "score.py",
-    "runtime": "python",
-    "condaFile": "myenv.yml",
-    "extraDockerfileSteps": null,
-    "sourceDirectory": null,
-    "enableGpu": false,
-    "baseImage": null,
-    "baseImageRegistry": null
-    }
-    ```
+    
+    For more information on the inference configuration file schema, see [Inference configuration schema](#inferenceconfig).
+    
+    For more information on the deployment configuration file schema, see [Deployment configuration schema](#deploymentconfig).
 
     For more information, see [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy).
 
+<a id="inferenceconfig"></a>
+
+## Inference configuration schema
+
+[!INCLUDE [inferenceconfig](../../../includes/machine-learning-service-inference-config.md)]
+
+<a id="deploymentconfig"></a>
+
+## Deployment configuration schema
+
+### Local deployment configuration schema
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-local-deploy-config.md)]
+
+### Azure Container Instance deployment configuration schema 
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aci-deploy-config.md)]
+
+### Azure Kubernetes Service deployment configuration schema
+
+[!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
 ## Next steps
 
 * [Command reference for the Machine Learning CLI extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml?view=azure-cli-latest).
 
-* [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning?view=azure-devops)
+* [Train and deploy machine learning models using Azure Pipelines](/azure/devops/pipelines/targets/azure-machine-learning)

@@ -10,7 +10,7 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
@@ -53,7 +53,7 @@ It's also possible in MSAL.NET to access v1.0 resources. See details in [Scopes 
 
 - ADAL.NET uses [AuthenticationContext](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/AuthenticationContext:-the-connection-to-Azure-AD) as the representation of your connection to the Security Token Service (STS) or authorization server, through an Authority. On the contrary, MSAL.NET is designed around [client applications](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Client-Applications). It provides two separate classes: `PublicClientApplication` and `ConfidentialClientApplication`
 
-- Acquiring Tokens: ADAL.NET and MSAL.NET have the same authentication calls (`AcquireTokenAsync` and  `AcquireTokenSilentAsync` for ADAL.NET, and `AqquireTokenInteractive` and `AcquireTokenSilent` in MSAL.NET) but with different parameters required. One difference is the fact that, in MSAL.NET, you no longer have to pass in the `ClientID` of your application in every AcquireTokenXX call. Indeed, the `ClientID` is set only once when building the (`IPublicClientApplication` or `IConfidentialClientApplication`).
+- Acquiring Tokens: ADAL.NET and MSAL.NET have the same authentication calls (`AcquireTokenAsync` and  `AcquireTokenSilentAsync` for ADAL.NET, and `AcquireTokenInteractive` and `AcquireTokenSilent` in MSAL.NET) but with different parameters required. One difference is the fact that, in MSAL.NET, you no longer have to pass in the `ClientID` of your application in every AcquireTokenXX call. Indeed, the `ClientID` is set only once when building the (`IPublicClientApplication` or `IConfidentialClientApplication`).
 
 ### IAccount not IUser
 
@@ -190,7 +190,7 @@ This is because the Resource Manager API expects a slash in its audience claim (
 The logic used by Azure AD is the following:
 - For ADAL (v1.0) endpoint with a v1.0 access token (the only possible), aud=resource
 - For MSAL (v2.0 endpoint) asking an access token for a resource accepting v2.0 tokens, aud=resource.AppId
-- For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token (which is the case above), Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. Therefore if https://database.windows.net expects an audience of "https://database.windows.net/", you'll need to request a scope of https://database.windows.net//.default. See also issue #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure #747
+- For MSAL (v2.0 endpoint) asking an access token for a resource accepting a v1.0 access token (which is the case above), Azure AD parses the desired audience from the requested scope by taking everything before the last slash and using it as the resource identifier. Therefore if https:\//database.windows.net expects an audience of "https://database.windows.net/", you'll need to request a scope of https:\//database.windows.net//.default. See also issue #[747](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747): Resource url's trailing slash is omitted, which caused sql auth failure #747
 
 
 ### Scopes to request access to all the permissions of a v1.0 application

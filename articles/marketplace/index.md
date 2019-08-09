@@ -50,5 +50,23 @@ Learn about Azure Marketplace, an online applications and services marketplace t
             </div>
         </div>
         </a>
-    </li>    
+    </li>
+    <li>
+        <a href="/azure/marketplace/partner-center-portal/commercial-marketplace-overview">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_dashboard.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Commercial Marketplace Portal in Partner Center</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>

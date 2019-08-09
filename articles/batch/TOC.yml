@@ -27,6 +27,8 @@
     href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
     href: tutorial-r-doazureparallel.md
+  - name: OCR with Batch and Functions
+    href: tutorial-batch-functions.md
 - name: Samples
   items:
   - name: Code samples
@@ -59,13 +61,15 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
+    - name: Cost analysis and budgets
+      href: budget.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
       href: batch-aad-auth.md
     - name: Azure AD with Batch Management
       href: batch-aad-auth-management.md
-  - name: Create application packages
+  - name: Using application packages
     href: batch-application-packages.md
   - name: Create and manage pools
     items:

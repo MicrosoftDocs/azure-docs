@@ -3,7 +3,7 @@ title: How to Use iOS SDK for Azure Mobile Apps
 description: How to Use iOS SDK for Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: ios
-author: conceptdev
+author: elamalani
 editor: ''
 
 ms.assetid: 4e8e45df-c36a-4a60-9ad4-393ec10b7eb9
@@ -12,13 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 10/01/2016
-ms.author: crdun
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # How to Use iOS Client Library for Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=/app-service-mobile-ios-how-to-use-client-library) today.
+>
+
+## Overview
 This guide teaches you to perform common scenarios using the latest [Azure Mobile Apps iOS SDK][1]. If you are
 new to Azure Mobile Apps, first complete [Azure Mobile Apps Quick Start] to create a backend, create a table,
 and download a pre-built iOS Xcode project. In this guide, we focus on the client-side iOS SDK. To learn more
@@ -440,7 +445,7 @@ At minimum, the `id` attribute must be set when making deletes.
 
 ## <a name="customapi"></a>How to: Call Custom API
 
-With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format. To learn how to create a custom API on the backend, read [Custom APIs](app-service-mobile-node-backend-how-to-use-server-sdk.md#work-easy-apis)
+With a custom API, you can expose any backend functionality. It doesn't have to map to a table operation. Not only do you gain more control over messaging, you can even read/set headers and change the response body format.
 
 To call a custom API, call `MSClient.invokeAPI`. The request and response content are treated as JSON. To use
 other media types, [use the other overload of `invokeAPI`][5].  To make a `GET` request instead of a `POST`

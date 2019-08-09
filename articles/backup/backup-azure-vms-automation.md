@@ -1,12 +1,12 @@
 ---
 title: Back up and recover Azure VMs using Azure Backup with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
-ms.author: raynew
+ms.date: 07/31/2019
+ms.author: dacurwin
 ---
 
 # Back up and restore Azure VMs with PowerShell
@@ -155,7 +155,7 @@ Set-AzRecoveryServicesBackupProperty -Vault $vault -BackupStorageRedundancy GeoR
 
 When you create a Recovery Services vault, it comes with default protection and retention policies. The default protection policy triggers a backup job each day at a specified time. The default retention policy retains the daily recovery point for 30 days. You can use the default policy to quickly protect your VM and edit the policy later with different details.
 
-Use **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) to view the protection policies available in the vault. You can use this cmdlet to get a specific policy, or to view the policies associated with a workload type. The following example gets policies for workload type, AzureVM.
+Use **[Get-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy)** to view the protection policies available in the vault. You can use this cmdlet to get a specific policy, or to view the policies associated with a workload type. The following example gets policies for workload type, AzureVM.
 
 ```powershell
 Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
@@ -190,6 +190,9 @@ $UtcTime = $UtcTime.ToUniversalTime()
 $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
+> [!IMPORTANT]
+> You need to provide the start time in 30 minute multiples only. In the above example, it can be only "01:00:00" or "02:30:00". The start time cannot be "01:15:00"
+
 The following example stores the schedule policy and the retention policy in variables. The example uses those variables to define the parameters when creating a protection policy, *NewPolicy*.
 
 ```powershell
@@ -208,6 +211,9 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ### Enable protection
 
 Once you've defined the protection policy, you still must enable the policy for an item. Use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) to enable protection. Enabling protection requires two objects - the item and the policy. Once the policy has been associated with the vault, the backup workflow is triggered at the time defined in the policy schedule.
+
+> [!IMPORTANT]
+> While using PS to enable backup for multiple VMs at once, ensure that a single policy doesn't have more than 100 VMs associated with it. This is a [recommended best practice](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy). Currently, the PS client doesn't explicitly block if there are more than 100 VMs but the check is planned to be added in the future.
 
 The following examples enable protection for the item, V2VM, using the policy, NewPolicy. The examples differ based on whether the VM is encrypted, and what type of encryption.
 
@@ -443,7 +449,7 @@ $restorejob
 >
 >
 
-Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored. 
+Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
 > [!NOTE]
 > It is strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. Also, from Azure Powershell Az module 1.0 onwards, this parameter is mandatory in case of a restore with managed disks
@@ -479,6 +485,15 @@ $details = Get-AzRecoveryServicesBackupJobDetails -Job $restorejob
 ```
 
 Once you restore the disks, go to the next section to create the VM.
+
+## Replace disks in Azure VM
+
+To replace the disks and configuration information, perform the below steps:
+
+- Step 1: [Restore the disks](backup-azure-vms-automation.md#restore-the-disks)
+- Step 2: [Detach data disk using PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-powershell)
+- Step 3: [Attach data disk to Windows VM with PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/attach-disk-ps)
+
 
 ## Create a VM from restored disks
 
@@ -714,6 +729,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
       ```powershell  
       Set-AzVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -SkipVmBackup -VolumeType "All"
       ```
+
 
 ## Restore files from an Azure VM backup
 

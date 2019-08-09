@@ -6,7 +6,7 @@ author: charwen
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/21/2019
+ms.date: 07/01/2019
 ms.author: charwen
 ms.custom: seodec18
 
@@ -212,7 +212,30 @@ The cmdlets that you use for this configuration may be slightly different than w
    ```azurepowershell-interactive
    $vnet = Set-AzVirtualNetwork -VirtualNetwork $vnet
    ```
-4. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
+4. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, use the following examples:
+
+   Set the variables.
+
+    ```azurepowershell-interactive
+   $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet
+   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwIP = New-AzPublicIpAddress -Name "ERGatewayIP" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -AllocationMethod Dynamic
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   $gwConfig = New-AzVirtualNetworkGatewayIpConfig -Name "ERGatewayIpConfig" -SubnetId $gwSubnet.Id -PublicIpAddressId $gwIP.Id
+   ```
+
+   Create the gateway.
+
+   ```azurepowershell-interactive
+   $gw = New-AzVirtualNetworkGateway -Name <yourgatewayname> -ResourceGroupName <yourresourcegroup> -Location <yourlocation) -IpConfigurations $gwConfig -GatewayType "ExpressRoute" -GatewaySku Standard
+   ```
+
+   Create the connection.
+
+   ```azurepowershell-interactive
+   $ckt = Get-AzExpressRouteCircuit -Name "YourCircuit" -ResourceGroupName "YourCircuitResourceGroup"
+   New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName $resgrp.ResourceGroupName -Location $location -VirtualNetworkGateway1 $gw -PeerId $ckt.Id -ConnectionType ExpressRoute
+   ```
 
 ## To add point-to-site configuration to the VPN gateway
 

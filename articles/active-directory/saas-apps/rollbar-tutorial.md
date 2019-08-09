@@ -241,7 +241,7 @@ To enable Azure AD users to sign in to Rollbar, they must be provisioned into Ro
 
 	![Invite People](./media/rollbar-tutorial/user3.png)
 
-1. User receives an invitation and after accepting it he/she created in the system.
+1. User receives an invitation and after accepting it they are created in the system.
 
 ### Test single sign-on
 
@@ -255,5 +255,5 @@ When you click the Rollbar tile in the Access Panel, you should be automatically
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

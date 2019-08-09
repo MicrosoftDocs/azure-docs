@@ -8,7 +8,7 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/06/2019
 ms.author: jingwang
 
 ---
@@ -56,7 +56,10 @@ Azure Blob connector support the following authentication types, refer to the co
 - [Managed identities for Azure resources authentication](#managed-identity)
 
 >[!NOTE]
->HDInsights, Azure Machine Learning and Azure SQL Data Warehouse PolyBase load only support Azure Blob storage account key authentication.
+>When using PolyBase to load data into SQL Data Warehouse, if your source or staging Blob storage is configured with Virtual Network endpoint, you must use managed identity authentication as required by PolyBase, and use Self-hosted Integration Runtime with version 3.18 or above. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
+
+>[!NOTE]
+>HDInsights and Azure Machine Learning activities only support Azure Blob storage account key authentication.
 
 ### Account key authentication
 
@@ -269,6 +272,9 @@ Refer to [Authenticate access to Azure Storage using Azure Active Directory](../
     - **As source**, in Access control (IAM), grant at least **Storage Blob Data Reader** role.
     - **As sink**, in Access control (IAM), grant at least **Storage Blob Data Contributor** role.
 
+>[!IMPORTANT]
+>If you use PolyBase to load data from Blob (as source or as staging) into SQL Data Warehouse, when using managed identity authentication for Blob, make sure you also follow steps 1 and 2 in [this guidance](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) to 1) register your SQL Database server with Azure Active Directory (Azure AD) and 2) assign the Storage Blob Data Contributor role to your SQL Database server; the rest are handled by Data Factory. If your Blob storage is configured with an Azure Virtual Network endpoint, to use PolyBase to load data from it, you must use managed identity authentication as required by PolyBase.
+
 These properties are supported for an Azure Blob storage linked service:
 
 | Property | Description | Required |
@@ -302,12 +308,12 @@ These properties are supported for an Azure Blob storage linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet and delimited text format**, refer to [Parquet and delimited text format dataset](#parquet-and-delimited-text-format-dataset) section.
-- For other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### Parquet and delimited text format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
 
-To copy data to and from Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `location` settings in format-based dataset:
+To copy data to and from Blob storage in Parquet, delimited text or binary format, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -349,7 +355,7 @@ To copy data to and from Blob storage in Parquet or delimited text format, refer
 
 ### Other format dataset
 
-To copy data to and from Blob storage in ORC/Avro/JSON/Binary format, set the type property of the dataset to **AzureBlob**. The following properties are supported.
+To copy data to and from Blob storage in ORC/Avro/JSON format, set the type property of the dataset to **AzureBlob**. The following properties are supported.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -400,12 +406,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### Blob storage as a source type
 
-- For copy from **Parquet and delimited text format**, refer to [Parquet and delimited text format source](#parquet-and-delimited-text-format-source) section.
-- For copy from other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format source](#other-format-source) section.
+- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
 
-#### Parquet and delimited text format source
+### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
 
-To copy data from Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy source:
+To copy data to and from Blob storage in **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -463,7 +469,7 @@ To copy data from Blob storage in Parquet or delimited text format, refer to [Pa
 
 #### Other format source
 
-To copy data from Blob storage in ORC/Avro/JSON/Binary format, set the source type in the copy activity to **BlobSource**. The following properties are supported in the copy activity **source** section.
+To copy data from Blob storage in **ORC, Avro, or JSON format**, set the source type in the copy activity to **BlobSource**. The following properties are supported in the copy activity **source** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -505,12 +511,12 @@ To copy data from Blob storage in ORC/Avro/JSON/Binary format, set the source ty
 
 ### Blob storage as a sink type
 
-- For copy to **Parquet and delimited text format**, refer to [Parquet and delimited text format sink](#parquet-and-delimited-text-format-sink) section.
-- For copy to other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format sink](#other-format-sink) section.
+- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
 
-#### Parquet and delimited text format sink
+#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
 
-To copy data to Blob storage in Parquet or delimited text format, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity sink and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy sink:
+To copy data from Blob storage in **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for Azure Blob under `storeSettings` settings in format-based copy sink:
 
 | Property                 | Description                                                  | Required |
 | ------------------------ | ------------------------------------------------------------ | -------- |
@@ -558,7 +564,7 @@ To copy data to Blob storage in Parquet or delimited text format, refer to [Parq
 
 #### Other format sink
 
-To copy data to Blob storage, set the sink type in the copy activity to **BlobSink**. The following properties are supported in the **sink** section.
+To copy data to Blob storage in **ORC/Avro/JSON format**, set the sink type in the copy activity to **BlobSink**. The following properties are supported in the **sink** section.
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

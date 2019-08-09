@@ -1,12 +1,10 @@
 ---
 title: Best practices for using Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Learn the best practices about data ingestion, date security, and performance related to using Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store) 
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
@@ -22,7 +20,7 @@ Azure Data Lake Storage Gen2 offers POSIX access controls for Azure Active Direc
 
 ### Use security groups versus individual users
 
-WWhen working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to directories and files.
+When working with big data in Data Lake Storage Gen2, it is likely that a service principal is used to allow services such as Azure HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In all cases, strongly consider using Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to directories and files.
 
 Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the maximum number of access control entries per access control list (ACL). Currently, that number is 32, (including the four POSIX-style ACLs that are always associated with every file and directory): the owning user, the owning group, the mask, and other. Each directory can have two types of ACL, the access ACL and the default ACL, for a total of 64 access control entries. For more information about these ACLs, see [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md).
 
@@ -38,7 +36,7 @@ Azure Active Directory service principals are typically used by services like Az
 
 Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended to limit the vector of external attacks. Firewall can be enabled on a storage account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.
 
-Adding Azure Databricks clusters to a virtual network that may be allowed to access via the Storage Firewall requires the use of a preview feature of Databricks. To enable this feature, please place a support request.
+To access your storage account from Azure Databricks, deploy Azure Databricks to your virtual network, and then add that virtual network to your firewall. See [Configure Azure Storage firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ## Resiliency considerations
 

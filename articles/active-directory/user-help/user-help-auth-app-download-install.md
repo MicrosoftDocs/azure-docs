@@ -17,6 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 
 # Download and install the Microsoft Authenticator app
+
 >[!Important]
 >This content is intended for users. If you're an administrator, you can find more information about how to set up and manage your Azure Active Directory (Azure AD) environment in the [Azure Active Directory Documentation](https://docs.microsoft.com/azure/active-directory).
 
@@ -32,13 +33,14 @@ You can use the Microsoft Authenticator app in multiple ways, including:
 
 > [!Important]
 > The Microsoft Authenticator app works with any account that uses two-factor verification and supports the time-based one-time password (TOTP) standards.
-> 
+>
 > Your organization might require you to use an authenticator app to sign-in and access your organizational data and documents. Although your user name might appear in the app, the account isn't actually set up to act as a verification method until you complete the registration process. For more information, see [Add your work or school account](user-help-auth-app-add-work-school-account.md).
 > 
 > [!NOTE]
 > If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
 ## Download and install the app
+
 Install the latest version of the Microsoft Authenticator app, based on your operating system:
 
 - **Google Android.** On your Android device, go to Google Play to [download and install the Microsoft Authenticator app](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator).

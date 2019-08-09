@@ -2,14 +2,14 @@
 title:  Set up sign-in with a Google account in Azure Active Directory B2C using custom policies | Microsoft Docs
 description: Set up sign-in with a Google account in Azure Active Directory B2C using custom policies.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/20/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -26,7 +26,7 @@ This article shows you how to enable sign-in for users from a Google account by 
 
 ## Register the application
 
-To enable sign-in for users from a Google account, you need to create a Google application project. 
+To enable sign-in for users from a Google account, you need to create a Google application project.
 
 1. Sign in to the [Google Developers Console](https://console.developers.google.com/) with your account credentials.
 2. Enter a **Project Name**, click **Create**, and then make sure you are using the new project.
@@ -46,7 +46,7 @@ You need to store the client secret that you previously recorded in your Azure A
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your Azure AD B2C tenant. Select the **Directory and subscription filter** in the top menu and choose the directory that contains your tenant.
 3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
-4. On the Overview page, select **Identity Experience Framework - PREVIEW**.
+4. On the Overview page, select **Identity Experience Framework**.
 5. Select **Policy Keys** and then select **Add**.
 6. For **Options**, choose `Manual`.
 7. Enter a **Name** for the policy key. For example, `GoogleSecret`. The prefix `B2C_1A_` is added automatically to the name of your key.
@@ -56,7 +56,7 @@ You need to store the client secret that you previously recorded in your Azure A
 
 ## Add a claims provider
 
-If you want users to sign in by using a Google account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated. 
+If you want users to sign in by using a Google account, you need to define the account as a claims provider that Azure AD B2C can communicate with through an endpoint. The endpoint provides a set of claims that are used by Azure AD B2C to verify that a specific user has authenticated.
 
 You can define a Google account as a claims provider by adding it to the **ClaimsProviders** element in the extension file of your policy.
 
@@ -148,7 +148,7 @@ Now that you have a button in place, you need to link it to an action. The actio
     ```XML
     <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAuth" />
     ```
-    
+
     Update the value of **TechnicalProfileReferenceId** to the ID of the technical profile you created earlier. For example, `Google-OAuth`.
 
 3. Save the *TrustFrameworkExtensions.xml* file and upload it again for verification.

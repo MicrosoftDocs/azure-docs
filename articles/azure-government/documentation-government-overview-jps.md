@@ -19,7 +19,7 @@ ms.author: ryansoc
 ---
 # Justice and Public Safety (JPS) in Azure Government
 ## Overview
-Justice and Public Safety (JPS) agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. From intelligent policing awareness systems, to body camera systems across the country, to day-to-day mobile police collaboration, cloud computing is transforming the way law enforcement agencies approach their work.
+Justice and Public Safety (JPS) agencies are under mounting pressure to keep communities safe, reduce crime, and improve responsiveness. From intelligent policing awareness systems, to body camera systems across the country/region, to day-to-day mobile police collaboration, cloud computing is transforming the way law enforcement agencies approach their work.
 
 When they are properly planned and secured, cloud services can deliver powerful new capabilities for JPS. These capabilities include digital evidence management, data analysis, and real-time decision support--with solutions delivered on the latest mobile devices. However, not all cloud providers are equal. As law enforcement agencies embrace the cloud, they need a cloud service provider they can trust. The core of the law enforcement mission demands partners who are committed to meeting a full range of security, compliance, and operational needs.
 

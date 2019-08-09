@@ -3,8 +3,8 @@ title: How to assign users and groups to an application | Microsoft Docs
 description: Assign users to the application to grant access
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/26/2019
-ms.author: celested
+ms.author: mimart
 
 ms.collection: M365-identity-device-management
 ---
@@ -28,7 +28,7 @@ This article shows you how to assign users or groups to an application in Azure 
 
 -   See an application appear on their [Office 365 Application Launcher](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-The availability of group-based assignment is determined by your license agreement. Group-based assignment is supported for Security groups only, and nested group memberships are not currently supported.
+The availability of group-based assignment is determined by your license agreement. Group-based assignment is supported for Security groups only. Nested group memberships and O365 groups are not currently supported.
 
 ## Prerequisites
 Before you can assign users and groups to an application, you must require user assignment. To require user assignment:

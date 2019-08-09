@@ -4,7 +4,7 @@ description: Azure App Service on Linux FAQ.
 keywords: azure app service, web app, faq, linux, oss, web app for containers, multi-container, multicontainer
 services: app-service
 documentationCenter: ''
-author: yili
+author: msangapu-msft
 manager: stefsch
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: yili
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Azure App Service on Linux FAQ
@@ -34,13 +34,15 @@ You can find all Docker files on [GitHub](https://github.com/azure-app-service).
 
 **What are the expected values for the Startup File section when I configure the runtime stack?**
 
-| Stack     | Expected Value                                                                |
-|-----------|-------------------------------------------------------------------------------|
-| Java SE   | a command to start your `.jar` application                                    |
-| Tomcat    | the location of a script to execute any  configurations for your app          |
-| Node.js   | the PM2 configuration file or your script file                                |
-| .Net Core | the compiled DLL name as `dotnet <myapp>.dll`                                 |
-| Ruby      | the Ruby script that you want to initialize your app with                     |
+| Stack           | Expected Value                                                                         |
+|-----------------|----------------------------------------------------------------------------------------|
+| Java SE         | the command to start your JAR app (for example, `java -jar my-app.jar --server.port=80`) |
+| Tomcat, Wildfly | the location of a script to perform any necessary configurations (for example, `/home/site/deployments/tools/startup_script.sh`)          |
+| Node.js         | the PM2 configuration file or your script file                                |
+| .Net Core       | the compiled DLL name as `dotnet <myapp>.dll`                                 |
+| Ruby            | the Ruby script that you want to initialize your app with                     |
+
+These commands or scripts are executed after the built-in Docker container is started, but before your application code is started.
 
 ## Management
 
@@ -112,10 +114,7 @@ Yes, during a Git deployment, Kudu should detect that you're deploying a PHP app
 
 **I'm using my own custom container. I want the platform to mount an SMB share to the `/home/` directory.**
 
-You can do that by setting the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` app setting to *true*. Keep in mind that this will cause container restarts when the platform storage goes through a change.
-
->[!NOTE]
->If the `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is unspecified or set to *false*, the `/home/` directory will not be shared across scale instances, and files that are written there will not be persisted across restarts.
+If `WEBSITES_ENABLE_APP_SERVICE_STORAGE` setting is **unspecified** or set to *true*, the `/home/` directory **will be shared** across scale instances, and files written **will persist** across restarts. Explicitly setting `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to *false* will disable the mount.
 
 **My custom container takes a long time to start, and the platform restarts the container before it finishes starting up.**
 

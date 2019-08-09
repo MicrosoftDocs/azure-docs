@@ -49,7 +49,7 @@ Before you can configure the app, follow these steps:
 
 ## Expose a new scope through the UI
 
-[![Expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+[![Shows how to expose an API using the UI](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
 
 To expose a new scope through the UI:
 

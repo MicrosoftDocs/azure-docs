@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/26/2019
 ---
 # Controlling and granting database access to SQL Database and SQL Data Warehouse
@@ -58,7 +57,7 @@ When the server-level firewall is configured for an individual IP address or ran
 
 When the server-level firewall is properly configured, the **SQL server admin** and the **Azure Active Directory admin** can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
 
-![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+![configuration of the two administration accounts](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
 
 When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 

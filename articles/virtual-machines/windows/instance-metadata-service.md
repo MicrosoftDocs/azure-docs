@@ -1,6 +1,6 @@
 ---
 title: Azure Instance Metadata Service | Microsoft Docs
-description: RESTful interface to get information about Windows VM's compute, network and upcoming maintenance events.
+description: RESTful interface to get information about Windows VM's compute, network, and upcoming maintenance events.
 services: virtual-machines-windows
 documentationcenter: ''
 author: KumariSupriya
@@ -35,16 +35,12 @@ The service is available in generally available Azure regions. Not all API versi
 
 Regions                                        | Availability?                                 | Supported Versions
 -----------------------------------------------|-----------------------------------------------|-----------------
-[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01
-[Public West Central US](https://azure.microsoft.com/regions/)                           | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11 
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
+[Azure China](https://www.azure.cn/)                                                     | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | Generally Available | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11
 
 This table is updated when there are service updates and or new supported versions are available.
-
-> [!NOTE]
-> 2019-02-01 is currently getting rolled out and will be available in other regions shortly.
 
 To try out the Instance Metadata Service, create a VM from [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) or the [Azure portal](https://portal.azure.com) in the above regions and follow the examples below.
 
@@ -52,7 +48,9 @@ To try out the Instance Metadata Service, create a VM from [Azure Resource Manag
 
 ### Versioning
 
-The Instance Metadata Service is versioned. Versions are mandatory and the current version on Global Azure is `2018-10-01`. Current supported versions are (2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01).
+The Instance Metadata Service is versioned and specifying the API version in the HTTP request is mandatory.
+
+You can see the newest versions listed in this [availability table](#service-availability).
 
 As newer versions are added, older versions can still be accessed for compatibility if your scripts have dependencies on specific data formats.
 
@@ -191,7 +189,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/network/interfac
 **Request**
 
 ```bash
-curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"
+curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019-03-11"
 ```
 
 **Response**
@@ -202,7 +200,8 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
     "location": "westus",
     "name": "jubilee",
     "offer": "Windows-10",
@@ -219,6 +218,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "publicKeys": [],
     "publisher": "MicrosoftWindowsDesktop",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "rs4-pro",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
@@ -262,14 +262,14 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
 Instance metadata can be retrieved in Windows via the `curl` program:
 
 ```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2018-10-01 | select -ExpandProperty Content
+curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-03-11 | select -ExpandProperty Content
 ```
 
 Or through the `Invoke-RestMethod` PowerShell cmdlet:
 
 ```powershell
 
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2018-10-01 -Method get
+Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-03-11 -Method get
 ```
 
 **Response**
@@ -280,7 +280,8 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ```json
 {
   "compute": {
-    "azEnvironment": "AZUREPUBLICCLOUD",
+    "azEnvironment": "AzurePublicCloud",
+    "customData": "",
     "location": "westus",
     "name": "SQLTest",
     "offer": "SQL2016SP1-WS2016",
@@ -297,6 +298,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "publicKeys": [],
     "publisher": "MicrosoftSQLServer",
     "resourceGroupName": "myrg",
+    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
     "sku": "Enterprise",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
     "tags": "Department:IT;Environment:Test;Role:WebRole",
@@ -356,16 +358,17 @@ azEnvironment | Azure Environment where the VM is running in | 2018-10-01
 customData | See [Custom Data](#custom-data) | 2019-02-01
 location | Azure Region the VM is running in | 2017-04-02
 name | Name of the VM | 2017-04-02
-offer | Offer information for the VM image. This value is only present for images deployed from Azure image gallery. | 2017-04-02
+offer | Offer information for the VM image and is only present for images deployed from Azure image gallery | 2017-04-02
 osType | Linux or Windows | 2017-04-02
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its an Azure Marketplace Image, contains name, product and publisher | 2018-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) containing name, product, and publisher for a VM if its an Azure Marketplace Image | 2018-04-02
 platformUpdateDomain |  [Update domain](manage-availability.md) the VM is running in | 2017-04-02
 platformFaultDomain | [Fault domain](manage-availability.md) the VM is running in | 2017-04-02
 provider | Provider of the VM | 2018-10-01
 publicKeys | [Collection of Public Keys](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) assigned to the VM and paths | 2018-04-02
 publisher | Publisher of the VM image | 2017-04-02
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
+resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources/resources/getbyid) ID of the resource | 2019-03-11
 sku | Specific SKU for the VM image | 2017-04-02
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
@@ -405,7 +408,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 
 ```
 
-Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
+Api-version is a mandatory field. Refer to the [service availability section](#service-availability) for supported API versions.
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
@@ -437,7 +440,7 @@ curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?
 Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
 ```
 
-Api-version is a mandatory field and the version supported for attested data is 2018-10-01.
+Api-version is a mandatory field. Refer to the service availability section for supported API versions.
 Nonce is an optional 10-digit string provided. Nonce can be used to track the request and if not provided, in response encoded string the current UTC timestamp is returned.
 
  **Response**
@@ -535,8 +538,17 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 
 **Response**
 ```bash
-AZUREPUBLICCLOUD
+AzurePublicCloud
 ```
+
+The regions and the values of the Azure Environment are listed below.
+
+ Regions | Azure Environment
+---------|-----------------
+[All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | AzurePublicCloud
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | AzureUSGovernmentCloud
+[Azure China](https://azure.microsoft.com/global-infrastructure/china)                   | AzureChinaCloud
+[Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | AzureGermanCloud
 
 ### Getting the tags for the VM
 
@@ -617,11 +629,11 @@ Once you get the signature above, you can verify that the signature is from Micr
 > [!NOTE]
 > The certificate for Public cloud and sovereign cloud will be different.
 
- Regions | Certificate
+ Cloud | Certificate
 ---------|-----------------
 [All Generally Available Global Azure Regions](https://azure.microsoft.com/regions/)     | metadata.azure.com
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | metadata.azure.us
-[Azure China](https://www.azure.cn/)                                                           | metadata.azure.cn
+[Azure China](https://azure.microsoft.com/global-infrastructure/china/)                  | metadata.azure.cn
 [Azure Germany](https://azure.microsoft.com/overview/clouds/germany/)                    | metadata.microsoftazure.de
 
 ```bash
@@ -652,7 +664,7 @@ For certain scenarios, when querying Instance Metadata Service with Failover Clu
 route print
 ```
 
-> [!NOTE] 
+> [!NOTE]
 > The following example output from a Windows Server VM with Failover Cluster enabled contains only the IPv4 Route Table for simplicity.
 
 ```bat
@@ -686,9 +698,17 @@ route add 169.254.169.254/32 10.0.1.10 metric 1 -p
 ```
 
 ### Custom Data
-Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form. For details on how to create a VM with custom data, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
+Instance Metadata Service provides the ability for the VM to have access to its custom data. The binary data must be less than 64 KB and is provided to the VM in base64 encoded form.
+
+Azure custom data can be inserted to the VM through REST APIs, PowerShell Cmdlets, Azure Command Line Interface (CLI), or an ARM template.
+
+For an Azure Command Line Interface example, see [Custom Data and Cloud-Init on Microsoft Azure](https://azure.microsoft.com/blog/custom-data-and-cloud-init-on-windows-azure/).
+
+For an ARM template example, see [Deploy a Virtual Machine with CustomData](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-customdata).
 
 Custom data is available to all processes running in the VM. It is suggested that customers do not insert secret information into custom data.
+
+Currently, custom data is guaranteed to be available during bootstrap of a VM. If updates are made to the VM such as adding disks or resizing the VM, Instance Metadata Service will not provide custom data. Providing custom data persistently through Instance Metadata Service is currently in progress.
 
 #### Retrieving custom data in Virtual Machine
 Instance Metadata Service provides custom data to the VM in base64 encoded form. The following example decodes the base64 encoded string.

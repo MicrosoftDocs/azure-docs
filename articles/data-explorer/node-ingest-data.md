@@ -1,25 +1,25 @@
 ---
-title: 'Quickstart: Ingest data using the Azure Data Explorer Node library'
-description: In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Node.js.
+title: 'Ingest data using the Azure Data Explorer Node library'
+description: In this article, you learn how to ingest (load) data into Azure Data Explorer using Node.js.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-ms.topic: quickstart
-ms.date: 10/25/2018
+ms.topic: conceptual
+ms.date: 06/03/2019
 
 # Customer intent: As a Node.js developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
 
-# Quickstart: Ingest data using the Azure Data Explorer Node library
+# Ingest data using the Azure Data Explorer Node library
 
-Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Node: an [ingest library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue ingestion to the cluster and validate the results.
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Azure Data Explorer provides two client libraries for Node: an [ingest library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-ingest) and [a data library](https://github.com/Azure/azure-kusto-node/tree/master/azure-kusto-data). These libraries enable you to ingest (load) data into a cluster and query data from your code. In this article, you first create a table and data mapping in a test cluster. You then queue ingestion to the cluster and validate the results.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
-In addition to an Azure subscription, you need the following to complete this quickstart:
+In addition to an Azure subscription, you need the following to complete this article:
 
 * [A test cluster and database](create-cluster-database-portal.md)
 
@@ -30,7 +30,7 @@ In addition to an Azure subscription, you need the following to complete this qu
 Install *azure-kusto-ingest* and *azure-kusto-data*
 
 ```bash
-npm i --save azure-kusto-ingest azure-kusto-data
+npm i azure-kusto-ingest azure-kusto-data
 ```
 
 ## Add import statements and constants
@@ -155,7 +155,7 @@ Run the following command to view the status of all ingestion operations in the 
 
 ## Clean up resources
 
-If you plan to follow our other quickstarts and tutorials, keep the resources you created. If not, run the following command in your database to clean up the `StormEvents` table.
+If you plan to follow our other articles, keep the resources you created. If not, run the following command in your database to clean up the `StormEvents` table.
 
 ```Kusto
 .drop table StormEvents
@@ -163,5 +163,4 @@ If you plan to follow our other quickstarts and tutorials, keep the resources yo
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Write queries](write-queries.md)
+* [Write queries](write-queries.md)

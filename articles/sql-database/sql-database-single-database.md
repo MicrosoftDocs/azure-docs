@@ -7,10 +7,9 @@ ms.subservice: single-database
 ms.custom:
 ms.devlang: 
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database

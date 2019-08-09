@@ -3,7 +3,7 @@ title: Get Started with Azure Mobile Apps for Xamarin.Android apps
 description: Follow this tutorial to get started using Azure Mobile Apps for Xamarin Android development
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 
@@ -13,12 +13,15 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.author: crdun
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Create a Xamarin.Android App
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started) today.
+>
 
 ## Overview
 This tutorial shows you how to add a cloud-based backend service to a Xamarin.Android app. For more information, see
@@ -45,15 +48,27 @@ Follow these steps to create a Mobile App backend.
 You have now provisioned an Azure Mobile App backend that can be used by your mobile client applications. Next, download a server
 project for a simple "todo list" backend and publish it to Azure.
 
-## Configure the server project
+## Create a database connection and configure the client and server project
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## Download and run the Xamarin.Android app
-1. Under **Download and run your Xamarin.Android project**, click the **Download** button.
+## Run the Xamarin.Android app
+1. Open the Xamarin.Android project.
 
-      Save the compressed project file to your local computer, and make a note of where you save it.
-2. Press the **F5** key to build the project and start the app.
-3. In the app, type meaningful text, such as *Complete the tutorial* and then click the **Add** button.
+2. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
+
+3. Open the file `ToDoActivity.cs` in this folder - xamarin.android/ZUMOAPPNAME/ToDoActivity.cs. The application name is `ZUMOAPPNAME`.
+
+4. In `ToDoActivity` class, replace `ZUMOAPPURL` variable with public endpoint above.
+
+    `const string applicationURL = @"ZUMOAPPURL";`
+
+    becomes
+    
+    `const string applicationURL = @"https://test123.azurewebsites.net";`
+    
+5. Press the F5 key to deploy and run the app.
+
+6. In the app, type meaningful text, such as *Complete the tutorial* and then click the **Add** button.
 
     ![][10]
 
@@ -62,27 +77,14 @@ project for a simple "todo list" backend and publish it to Azure.
 
    > [!NOTE]
    > You can review the code that accesses your mobile app backend to query and insert data, which is found in the ToDoActivity.cs C# file.
-   >
-   >
-
+   
 ## Troubleshooting
 If you have problems building the solution, run the NuGet package manager and update the `Xamarin.Android` support packages. Quickstart projects might not always include the latest versions.
 
 Please note that all the support packages referenced in your project must have the same version. The [Azure Mobile Apps NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) has `Xamarin.Android.Support.CustomTabs` dependency for Android platform, so if your project uses newer support packages you need to install this package with required version directly to avoid conflicts.
 
-## Next steps
-* [Add Offline Sync to your app](app-service-mobile-xamarin-android-get-started-offline-data.md)
-* [Add authentication to your app](app-service-mobile-xamarin-android-get-started-users.md)
-* [Add push notifications to your Xamarin.Android app](app-service-mobile-xamarin-android-get-started-push.md)
-* [How to use the managed client for Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
-
 <!-- Images. -->
 [0]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-completed-android.png
-[6]: ./media/app-service-mobile-xamarin-android-get-started/mobile-portal-quickstart-xamarin.png
-[8]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-vs.png
-[9]: ./media/app-service-mobile-xamarin-android-get-started/mobile-xamarin-project-android-xs.png
 [10]: ./media/app-service-mobile-xamarin-android-get-started/mobile-quickstart-startup-android.png
-
 <!-- URLs. -->
-[Azure Portal]: https://azure.portal.com/
 [Visual Studio]: https://go.microsoft.com/fwLink/p/?LinkID=534203

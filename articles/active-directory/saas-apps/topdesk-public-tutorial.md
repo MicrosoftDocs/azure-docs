@@ -190,7 +190,7 @@ To configure Azure AD single sign-on with TOPdesk - Public, perform the followin
 
     c. To upload the logo file you got from the TOPdesk support team, under **Logo icon**, click **Browse**.
 
-    d. In the **User name attribute** textbox, type `https://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
+    d. In the **User name attribute** textbox, type `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`.
 
     e. In the **Display name** textbox, type a name for your configuration.
 
@@ -285,4 +285,4 @@ When you click the TOPdesk - Public tile in the Access Panel, you should be auto
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

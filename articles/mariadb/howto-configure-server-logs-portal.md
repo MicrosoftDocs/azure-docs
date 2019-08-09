@@ -1,16 +1,16 @@
 ---
-title: Configure and access server logs for Azure Database for MariaDB in Azure Portal
-description: This article describes how to configure and access the server logs in Azure Database for MariaDB from the Azure Portal.
+title: Configure and access server logs for Azure Database for MariaDB in Azure portal
+description: This article describes how to configure and access the server logs in Azure Database for MariaDB from the Azure portal.
 author: rachel-msft
 ms.author: raagyema
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 06/11/2019
 ---
 
 # Configure and access server logs in the Azure portal
 
-You can configure, list, and download the [Azure Database for MariaDB server logs](concepts-server-logs.md) from the Azure portal.
+You can configure, list, and download the [Azure Database for MariaDB slow query logs](concepts-server-logs.md) from the Azure portal.
 
 ## Prerequisites
 To step through this how-to guide, you need:
@@ -37,7 +37,7 @@ Configure access to the slow query log.
 6. Return to the list of logs by clicking the **close button** (X icon) on the **Server Parameters** page.
 
 ## View list and download logs
-Once logging begins, you can view a list of available logs and download individual log files on the Server Logs pane. 
+Once logging begins, you can view a list of available slow query logs and download individual log files on the Server Logs pane. 
 
 1. Open the Azure portal.
 
@@ -57,7 +57,7 @@ Once logging begins, you can view a list of available logs and download individu
    ![Click download icon](./media/howto-configure-server-logs-portal/5-download.png)
 
 ## Next steps
-- Learn more about [Server Logs](concepts-server-logs.md) in Azure Database for MariaDB.
+- Learn more about [slow query Logs](concepts-server-logs.md) in Azure Database for MariaDB.
 - For more information about the parameter definitions and logging, see the MariaDB documentation on [Logs](https://mariadb.com/kb/en/library/slow-query-log-overview/).
 
-<!-- - See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->
+<!--- See [Access Server Logs in CLI](howto-configure-server-logs-in-cli.md) to learn how to download logs programmatically. -->

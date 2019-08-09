@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Bing Entity Search single-page web app"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Shows how to use the Bing Entity Search API in a single-page Web application.
 services: cognitive-services
 author: aahill
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: tutorial
-ms.date: 02/01/2019
+ms.date: 07/15/2019
 ms.author: aahi
 ---
 # Tutorial: Single-page web app
@@ -530,7 +530,7 @@ It's easy to install a CORS proxy to allow our tutorial app to access the client
 
 Next, change the Bing Web Search endpoint in the HTML file to:
 
-    https://localhost:9090/httpss://api.cognitive.microsoft.com/bing/v7.0/search
+    http://localhost:9090/https://api.cognitive.microsoft.com/bing/v7.0/search
 
 Finally, start the CORS proxy with the following command:
 

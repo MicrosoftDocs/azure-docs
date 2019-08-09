@@ -61,7 +61,7 @@ If you don’t see the Kubernetes dashboard, check whether the `kube-proxy` pod 
 
 ## I can't get logs by using kubectl logs or I can't connect to the API server. I'm getting "Error from server: error dialing backend: dial tcp…". What should I do?
 
-Make sure that the default network security group isn't modified and that port 22 is open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
+Make sure that the default network security group isn't modified and that both port 22 and 9000 are open for connection to the API server. Check whether the `tunnelfront` pod is running in the *kube-system* namespace using the `kubectl get pods --namespace kube-system` command. If it isn't, force deletion of the pod and it will restart.
 
 ## I'm trying to upgrade or scale and am getting a "message: Changing property 'imageReference' is not allowed" error. How do I fix this problem?
 
@@ -114,3 +114,15 @@ Naming restrictions are implemented by both the Azure platform and AKS. If a res
 
 * The AKS *MC_* resource group name combines resource group name and resource name. The auto-generated syntax of `MC_resourceGroupName_resourceName_AzureRegion` must be no greater than 80 chars. If needed, reduce the length of your resource group name or AKS cluster name.
 * The *dnsPrefix* must start and end with alphanumeric values. Valid characters include alphanumeric values and hyphens (-). The *dnsPrefix* can't include special characters such as a period (.).
+
+## I’m receiving errors when trying to create, update, scale, delete or upgrade cluster, that operation is not allowed as another operation is in progress.
+
+*This troubleshooting assistance is directed from aka.ms/aks-pending-operation*
+
+Cluster operations are limited when a previous operation is still in progress. To retrieve a detailed status of your cluster, use the `az aks show -g myResourceGroup -n myAKSCluster -o table` command. Use your own resource group and AKS cluster name as needed.
+
+Based on the output of the cluster status:
+
+* If the cluster is in any provisioning state other than *Succeeded* or *Failed*, wait until the operation (*Upgrading / Updating / Creating / Scaling / Deleting / Migrating*) terminates. When the previous operation has completed, re-try your latest cluster operation.
+
+* If the cluster has a failed upgrade, follow the steps outlined [I'm receiving errors that my cluster is in failed state and upgrading or scaling will not work until it is fixed](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).

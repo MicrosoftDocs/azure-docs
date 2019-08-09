@@ -116,7 +116,7 @@ To configure Azure AD single sign-on with GetThere, perform the following steps:
 	| `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
 	| `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
 
-5. GetThere application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+5. GetThere application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
@@ -216,7 +216,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create GetThere test user
 
-In this section, you create a user called Britta Simon in GetThere. Work with [GetThere support team](mailto:dataintegration@sabre.com) to add the users in the GetThere platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in GetThere. Work with [GetThere support team](mailto:dataintegration@sabre.com) to add the users in the GetThere platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 
@@ -230,5 +230,5 @@ When you click the GetThere tile in the Access Panel, you should be automaticall
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
