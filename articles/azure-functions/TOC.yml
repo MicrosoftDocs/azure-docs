@@ -76,7 +76,7 @@
   - name: Azure Serverless Community Library
     href: https://www.serverlesslibrary.net/
   - name: Azure Samples
-    href: https://azure.microsoft.com/resources/samples/?service=functions
+    href: /samples/browse/?products=azure-functions
   - name: Azure CLI
     href: functions-cli-samples.md    
 - name: Concepts
