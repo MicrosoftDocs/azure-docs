@@ -81,7 +81,7 @@ To add roles and users to a deployed model database, you must be connected to th
 
 ## To add roles and users by using a TMSL script
 
-You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/en-us/bi-reference/tmsl/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) object.
+You can run a TMSL script in the XMLA window in SSMS or by using PowerShell. Use the [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) command and the [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) object.
 
 **Sample TMSL script**
 
