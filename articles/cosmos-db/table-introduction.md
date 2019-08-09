@@ -58,3 +58,6 @@ Here are a few pointers to get you started:
 * [Azure Cosmos DB Table Node.js API](table-sdk-nodejs.md)
 * [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
 
+## Contact
+* For questions or issues about [Microsoft.Azure.Cosmos.Table sdk](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), please open an issue at: https://github.com/Azure/azure-cosmos-table-dotnet.
+* For other questions, please send email to askcosmosdbtableapi@microsoft.com.
