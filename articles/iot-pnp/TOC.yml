@@ -11,7 +11,9 @@
     href: quickstart-create-pnp-device.md
   - name: Connect a device to IoT Hub
     href: quickstart-connect-pnp-device.md
-  - name: Connect a device to your solution
+  - name: Connect a device to IoT Central
+    href: https://aka.ms/iot-central-connect-qs
+  - name: Connect to a device in your solution
     href: quickstart-connect-pnp-device-solution.md
 - name: Tutorials
   items:
