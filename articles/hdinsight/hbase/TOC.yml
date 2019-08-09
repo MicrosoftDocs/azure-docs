@@ -162,6 +162,14 @@
     items:
     - name: Troubleshoot resources  
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+    - name: No data in Apache Phoenix views
+      href: ./hbase-troubleshoot-phoenix-no-data.md
+    - name: BindException - Address in use
+      href: ./hbase-troubleshoot-bindexception-address-use.md
+    - name: Apache HBase fails to start
+      href: ./hbase-troubleshoot-start-fails.md
+    - name: Issues with region servers
+      href: ./hbase-troubleshoot-unassigned-regions.md
     - name: Apache Phoenix connectivity issues
       href: ./hbase-troubleshoot-phoenix-connectivity.md
     - name: Apache HBase REST not responding
@@ -178,12 +186,6 @@
       href: apache-troubleshoot-hbase.md
     - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
-    - name: Apache HBase REST not responding
-      href: ./hbase-troubleshoot-rest-not-spending.md
-    - name: Pegged CPU on region server
-      href: ./hbase-troubleshoot-pegged-cpu-region-server.md
-    - name: Timeouts with 'hbase hbck' command
-      href: ./hbase-troubleshoot-timeouts-hbase-hbck.md
     - name: Resources
       items:
       - name: Information about using HDInsight on Linux
