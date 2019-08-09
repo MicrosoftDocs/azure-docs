@@ -452,7 +452,7 @@ Don't forget that final call to `run()`! It's the entrance point to your program
 
 Notice that `AzureSearchClient.indexExistsAsync()` and `AzureSearchClient.deleteIndexAsync()` do not take parameters. These functions call `AzureSearchClient.request()` with no `bodyJson` argument. Within `AzureSearchClient.request()`, since `bodyJson === null` is `true`, the `init` structure is set to be just the HTTP verb ("GET" for `indexExistsAsync()` and "DELETE" for `deleteIndexAsync()`) and the headers, which specify the request key.  
 
-In contrast, the `AzureSearchClient.createIndexAsync(indexDefinition)` method _does_ take a parameter. The `run` function in `index.js`, passes the contents of the file **hotels_quickstart_index.json** to the `AzureSearchClient.createIndexAsync(indexDefinition)` method. The `createIndexAsync()` method passes this to `AzureSearchClient.request()`. In `AzureSearchClient.request()`, since `bodyJson === null` is now `false`, the `init` structure includes not only the HTTP verb ("PUT") and the headers, but sets the `body` to the index definition data.
+In contrast, the `AzureSearchClient.createIndexAsync(indexDefinition)` method _does_ take a parameter. The `run` function in `index.js`, passes the contents of the file **hotels_quickstart_index.json** to the `AzureSearchClient.createIndexAsync(indexDefinition)` method. The `createIndexAsync()` method passes this definition to `AzureSearchClient.request()`. In `AzureSearchClient.request()`, since `bodyJson === null` is now `false`, the `init` structure includes not only the HTTP verb ("PUT") and the headers, but sets the `body` to the index definition data.
 
 ### Prepare and run the sample
 
@@ -464,9 +464,9 @@ Use a terminal window for the following commands.
 
 You should see a series of messages describing the actions being taken by the program. If you want to see more detail of the requests, you can uncomment the [lines at the beginning of the `AzureSearchClient.request()` method](https://github.com/Azure-Samples/azure-search-javascript-samples/quickstart/blob/master/AzureSearchClient.js#LL20-LL26) in **AzureSearchClient.js**. 
 
-Open the **Overview** of your search service in the Azure Portal. Select the **Indexes** tab. You should see something like the following:
+Open the **Overview** of your search service in the Azure portal. Select the **Indexes** tab. You should see something like the following:
 
-![Screenshot of Azure Portal, Search Service Overview, Indexes tab](media/search-get-started-nodejs/create-index-no-data.png)
+![Screenshot of Azure portal, Search Service Overview, Indexes tab](media/search-get-started-nodejs/create-index-no-data.png)
 
 In the next step, we'll add data to index. 
 
@@ -478,7 +478,7 @@ In Azure Search, documents are data structures that are both inputs to indexing 
  getPostDataUrl() { return `https://${this.searchServiceName}.search.windows.net/indexes/${this.indexName}/docs/index?api-version=${this.apiVersion}`;  }
 ```
 
-Like `AzureSearchClient.createIndexAsync(definition)`, you need a function that calls `AzureSearchClient.request()` and passes in the hotel data to be it's body. In **AzureSearchClient.js** add `postDataAsync(hotelsData)` after `createIndexAsync(definition)`:
+Like `AzureSearchClient.createIndexAsync(definition)`, you need a function that calls `AzureSearchClient.request()` and passes in the hotel data to be its body. In **AzureSearchClient.js** add `postDataAsync(hotelsData)` after `createIndexAsync(definition)`:
 
 ```javascript
 async postDataAsync(hotelsData) {
@@ -577,7 +577,7 @@ const hotelData = require('./hotels.json');
 const indexDefinition = require('./hotels_quickstart_index.json');
 ```
 
-Now modify the `run()` function in **index.js**. It can take a few seconds for the index to become available, so add a 2-second pause prior to calling `AzureSearchClient.postDataAsync(hotelData)`:
+Now modify the `run()` function in **index.js**. It can take a few seconds for the index to become available, so add a 2-second pause before calling `AzureSearchClient.postDataAsync(hotelData)`:
 
 ```javascript
 const run = async () => {
@@ -599,11 +599,11 @@ const run = async () => {
 }
 ```
 
-Run the program again with `node index.js`. You should see a slightly different set of messages from Step 1, since this time, the index _does_ exist and will be deleted prior to the new index defined and data posted to it. 
+Run the program again with `node index.js`. You should see a slightly different set of messages from those you saw in Step 1. This time, the index _does_ exist, and you should see message about deleting it deleted before the app creates the new index and posts data to it. 
 
 ## 3 - Search an index
 
-If you return to the **Indexes** tab in the **Overview** of your search service on the Azure Portal, you should now see that your index now contains 4 documents and consumes some amount of storage (it can take a few minutes for the UI to properly reflect the underlying state of the index). Click on the index name to be taken to the **Search Explorer**. This page allows you to experiment with data queries. Try searching on a query string of `*&$count=true` and you should get back all your documents and the number of results. Try with the query string `historic&highlight=Description&$filter=Rating gt 4` and you should get back a single document, with the word "historic" wrapped in `<em></em>` tags. Read more about [how to compose a query in Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
+Return to the **Indexes** tab in the **Overview** of your search service on the Azure portal. Your index now contains four documents and consumes some amount of storage (it can take a few minutes for the UI to properly reflect the underlying state of the index). Click on the index name to be taken to the **Search Explorer**. This page allows you to experiment with data queries. Try searching on a query string of `*&$count=true` and you should get back all your documents and the number of results. Try with the query string `historic&highlight=Description&$filter=Rating gt 4` and you should get back a single document, with the word "historic" wrapped in `<em></em>` tags. Read more about [how to compose a query in Azure Search](https://docs.microsoft.com/azure/search/search-query-overview). 
 
 Reproduce these queries in code by opening **index.js** and adding this code near the top:
 
@@ -672,7 +672,7 @@ async queryAsync(searchTerm) {
 }
 ```
 
-Search is done with the "GET" verb and no body, since the search term is part of the URL. Notice that, unlike the other functions that used `this.adminKey`, `queryAsync(searchTerm)` uses `this.queryKey`. Query keys, as the name implies, can only be used for querying the index and cannot be used to modify the index in any way. This makes them safer to distribute to client applications.
+Search is done with the "GET" verb and no body, since the search term is part of the URL. Notice that, unlike the other functions that used `this.adminKey`, `queryAsync(searchTerm)` uses `this.queryKey`. Query keys, as the name implies, can only be used for querying the index and can't be used to modify the index in any way. Query keys are therefore safer to distribute to client applications.
 
 Run the program with `node index.js`. Now, in addition to the previous steps, the queries will be sent and the results written to the console.
 
