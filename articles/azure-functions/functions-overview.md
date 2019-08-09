@@ -1,7 +1,6 @@
 ---
 title: Azure Functions Overview | Microsoft Docs
 description: Understand how to use Azure Functions to optimize asynchronous workloads in minutes.
-services: functions
 documentationcenter: na
 author: mattchenderson
 manager: jeconnoc
@@ -18,7 +17,7 @@ ms.custom: H1Hack27Feb2017, mvc
 
 ---
 # An introduction to Azure Functions  
-Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, Java, JavaScript, Python, or PHP. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure.
+Azure Functions is a solution for easily running small pieces of code, or "functions," in the cloud. You can write just the code you need for the problem at hand, without worrying about a whole application or the infrastructure to run it. Functions can make development even more productive, and you can use your development language of choice, such as C#, Java, JavaScript, PowerShell, and Python. Pay only for the time your code runs and trust Azure to scale as needed. Azure Functions lets you develop [serverless](https://azure.microsoft.com/solutions/serverless/) applications on Microsoft Azure.
 
 This topic provides a high-level overview of Azure Functions. If you want to jump right in and get started with Functions, start with [Create your first Azure Function](functions-create-first-azure-function.md). If you are looking for more technical information about Functions, see the [developer reference](functions-reference.md).
 
