@@ -2,7 +2,7 @@
 author: blackmist
 ms.service: machine-learning
 ms.topic: include
-ms.date: 05/10/2019
+ms.date: 08/08/2019
 ms.author: larryfr
 ---
 > [!IMPORTANT]
