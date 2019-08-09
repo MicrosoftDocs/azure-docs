@@ -33,7 +33,7 @@ In this tutorial you will:
 
 We will exemplify the solution for a scenario where a car rental company plans to monitor and log events for its rented out cars. Often car rental companies rent out cars for a specific geographic region and need to keep track of their whereabouts while rented. Any instance, which involves a car leaving the designated geographic region needs to be logged so that policies, fees, and other business aspects can be properly handled.
 
-The rental cars are equipped with IoT devices that send telemetry data to Azure IoT Hub on a regular basis and the data schema looks like:
+In our use case, the rental cars are equipped with IoT devices that send telemetry data to Azure IoT Hub on a regular basis. The telemetry includes the current location and indicates whether the car's engine is running or not. The device location schema adheres to the IoT [Plug and Play schema for geospatial data](https://github.com/Azure/IoTPlugandPlay/blob/master/Schemas/geospatial.md). The rental car's device telemetry schema looks like:
 
 ```JSON
 {
@@ -129,7 +129,7 @@ An IoT Hub is a managed service in the cloud that acts as a central message hub 
 > [!Note] 
 > IoT Hub's functionality to publish device telemetry events on Event Grid is in Public preview. Public preview features are available in all regions except **East US, West US, West Europe, Azure Government, Azure China 21Vianet,** and **Azure Germany**. 
 
-Create an Iot Hub by following the steps in [create an IoT Hub section](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-python#create-an-iot-hub).
+Create an Iot Hub by following the steps in [create an IoT Hub section](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet#create-an-iot-hub).
 
 
 ### Register a device 
@@ -287,6 +287,14 @@ For a complete list of Azure Maps REST APIs, see:
 
 * [Azure Maps REST APIs](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence)
 
+To learn more about IoT Plug and Play, see:
+
+* [IoT Plug and Play](https://aka.ms/iotpnpdocs)
+
+To get a list of devices that are Azure certified for IoT, visit:
+
+* [Azure certified devices](https://catalog.azureiotsolutions.com/)
+
 To learn more about how to send device to cloud telemetry and vice versa, see:
 
-* [Send telemetry from a device](https://docs.microsoft.com/en-us/azure/iot-hub/quickstart-send-telemetry-python)
+* [Send telemetry from a device](https://docs.microsoft.com/azure/iot-hub/quickstart-send-telemetry-dotnet)
