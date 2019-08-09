@@ -36,14 +36,12 @@ Watching this video helps you understand the Data Factory UI:
 1. Go to the [Azure portal](https://portal.azure.com). 
 1. Select **Create a resource** on the left menu, select **Analytics**, and then select **Data Factory**. 
    
-   ![Data Factory selection in the "New" pane](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+   ![Data Factory selection in the "New" pane](./media/doc-common-process/new-azure-data-factory-menu.png)
 1. On the **New data factory** page, enter **ADFTutorialDataFactory** for **Name**. 
-      
-   !["New data factory" page](./media/quickstart-create-data-factory-portal/new-azure-data-factory.png)
  
    The name of the Azure data factory must be *globally unique*. If you see the following error, change the name of the data factory (for example, **&lt;yourname&gt;ADFTutorialDataFactory**) and try creating again. For naming rules for Data Factory artifacts, see the [Data Factory - naming rules](naming-rules.md) article.
   
-   ![Error when a name is not available](./media/quickstart-create-data-factory-portal/name-not-available-error.png)
+   ![Error when a name is not available](./media/doc-common-process/name-not-available-error.png)
 1. For **Subscription**, select your Azure subscription in which you want to create the data factory. 
 1. For **Resource Group**, use one of the following steps:
      
@@ -60,7 +58,7 @@ Watching this video helps you understand the Data Factory UI:
 
 1. After the creation is complete, you see the **Data Factory** page. Select the **Author & Monitor** tile to start the Azure Data Factory user interface (UI) application on a separate tab.
    
-   ![Home page for the data factory, with the "Author & Monitor" tile](./media/quickstart-create-data-factory-portal/data-factory-home-page.png)
+   ![Home page for the data factory, with the "Author & Monitor" tile](./media/doc-common-process/data-factory-home-page.png)
 1. On the **Let's get started** page, switch to the **Author** tab in the left panel. 
 
     !["Let's get started" page](./media/quickstart-create-data-factory-portal/get-started-page.png)
@@ -70,11 +68,10 @@ In this procedure, you create a linked service to link your Azure storage accoun
 
 1. Select **Connections**, and then select the **New** button on the toolbar. 
 
-   ![Buttons for creating a new connection](./media/quickstart-create-data-factory-portal/new-connection-button.png)    
 1. On the **New Linked Service** page, select **Azure Blob Storage**, and then select **Continue**. 
 
    ![Selecting the "Azure Blob Storage" tile](./media/quickstart-create-data-factory-portal/select-azure-blob-linked-service.png)
-1. Complete the following steps: 
+1. In the New Linked Service (Azure Blob Storage) page, complete the following steps: 
 
    a. For **Name**, enter **AzureStorageLinkedService**.
 
@@ -83,8 +80,6 @@ In this procedure, you create a linked service to link your Azure storage accoun
    c. Select **Test connection** to confirm that the Data Factory service can connect to the storage account. 
 
    d. Select **Finish** to save the linked service. 
-
-   ![Azure Storage linked service settings](./media/quickstart-create-data-factory-portal/azure-storage-linked-service.png) 
 
 ## Create datasets
 In this procedure, you create two datasets: **InputDataset** and **OutputDataset**. These datasets are of type **AzureBlob**. They refer to the Azure Storage linked service that you created in the previous section. 
