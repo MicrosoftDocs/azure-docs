@@ -1,11 +1,9 @@
 ---
 title: "Azure Storage analytics metrics (Classic)"
 description: Learn how to use metrics in Azure Storage.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: normesta
 ms.reviewer: fryu

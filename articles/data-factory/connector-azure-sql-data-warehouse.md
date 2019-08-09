@@ -55,14 +55,14 @@ The following sections provide details about properties that define Data Factory
 
 The following properties are supported for an Azure SQL Data Warehouse linked service:
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The type property must be set to **AzureSqlDW**. | Yes |
-| connectionString | Specify the information needed to connect to the Azure SQL Data Warehouse instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes |
-| servicePrincipalId | Specify the application's client ID. | Yes, when you use Azure AD authentication with a service principal. |
+| Property            | Description                                                  | Required                                                     |
+| :------------------ | :----------------------------------------------------------- | :----------------------------------------------------------- |
+| type                | The type property must be set to **AzureSqlDW**.             | Yes                                                          |
+| connectionString    | Specify the information needed to connect to the Azure SQL Data Warehouse instance for the **connectionString** property. <br/>Mark this field as a SecureString to store it securely in Data Factory. You can also put password/service principal key in Azure Key Vault，and if it's SQL authentication pull the `password` configuration out of the connection string. See the JSON example below the table and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) article with more details. | Yes                                                          |
+| servicePrincipalId  | Specify the application's client ID.                         | Yes, when you use Azure AD authentication with a service principal. |
 | servicePrincipalKey | Specify the application's key. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes, when you use Azure AD authentication with a service principal. |
-| tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No |
+| tenant              | Specify the tenant information (domain name or tenant ID) under which your application resides. You can retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes, when you use Azure AD authentication with a service principal. |
+| connectVia          | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or a self-hosted integration runtime (if your data store is located in a private network). If not specified, it uses the default Azure Integration Runtime. | No                                                           |
 
 For different authentication types, refer to the following sections on prerequisites and JSON samples, respectively:
 
@@ -108,13 +108,13 @@ For different authentication types, refer to the following sections on prerequis
                 "type": "SecureString",
                 "value": "Server=tcp:<servername>.database.windows.net,1433;Database=<databasename>;User ID=<username>@<servername>;Trusted_Connection=False;Encrypt=True;Connection Timeout=30"
             },
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -228,9 +228,9 @@ For a full list of sections and properties available for defining datasets, see 
 
 To copy data from or to Azure SQL Data Warehouse, the following properties are supported:
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes |
+| Property  | Description                                                  | Required                    |
+| :-------- | :----------------------------------------------------------- | :-------------------------- |
+| type      | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes                         |
 | tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
@@ -261,12 +261,12 @@ For a full list of sections and properties available for defining activities, se
 
 To copy data from Azure SQL Data Warehouse, set the **type** property in the Copy Activity source to **SqlDWSource**. The following properties are supported in the Copy Activity **source** section:
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The **type** property of the Copy Activity source must be set to **SqlDWSource**. | Yes |
-| sqlReaderQuery | Use the custom SQL query to read data. Example: `select * from MyTable`. | No |
-| sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No |
-| storedProcedureParameters | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No |
+| Property                     | Description                                                  | Required |
+| :--------------------------- | :----------------------------------------------------------- | :------- |
+| type                         | The **type** property of the Copy Activity source must be set to **SqlDWSource**. | Yes      |
+| sqlReaderQuery               | Use the custom SQL query to read data. Example: `select * from MyTable`. | No       |
+| sqlReaderStoredProcedureName | The name of the stored procedure that reads data from the source table. The last SQL statement must be a SELECT statement in the stored procedure. | No       |
+| storedProcedureParameters    | Parameters for the stored procedure.<br/>Allowed values are name or value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. | No       |
 
 ### Points to note
 
@@ -364,18 +364,18 @@ GO
 
 To copy data to Azure SQL Data Warehouse, set the sink type in Copy Activity to **SqlDWSink**. The following properties are supported in the Copy Activity **sink** section:
 
-| Property | Description | Required |
-|:--- |:--- |:--- |
-| type | The **type** property of the Copy Activity sink must be set to **SqlDWSink**. | Yes |
-| allowPolyBase | Indicates whether to use PolyBase, when applicable, instead of the BULKINSERT mechanism. <br/><br/> We recommend that you load data into SQL Data Warehouse by using PolyBase. See the [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default).  | No |
-| polyBaseSettings | A group of properties that can be specified when the **allowPolybase** property is set to **true**. | No |
-| rejectValue | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. |No |
-| rejectType | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No |
+| Property          | Description                                                  | Required                                      |
+| :---------------- | :----------------------------------------------------------- | :-------------------------------------------- |
+| type              | The **type** property of the Copy Activity sink must be set to **SqlDWSink**. | Yes                                           |
+| allowPolyBase     | Indicates whether to use PolyBase, when applicable, instead of the BULKINSERT mechanism. <br/><br/> We recommend that you load data into SQL Data Warehouse by using PolyBase. See the [Use PolyBase to load data into Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) section for constraints and details.<br/><br/>Allowed values are **True** and **False** (default). | No                                            |
+| polyBaseSettings  | A group of properties that can be specified when the **allowPolybase** property is set to **true**. | No                                            |
+| rejectValue       | Specifies the number or percentage of rows that can be rejected before the query fails.<br/><br/>Learn more about PolyBase’s reject options in the Arguments section of [CREATE EXTERNAL TABLE (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx). <br/><br/>Allowed values are 0 (default), 1, 2, etc. | No                                            |
+| rejectType        | Specifies whether the **rejectValue** option is a literal value or a percentage.<br/><br/>Allowed values are **Value** (default) and **Percentage**. | No                                            |
 | rejectSampleValue | Determines the number of rows to retrieve before PolyBase recalculates the percentage of rejected rows.<br/><br/>Allowed values are 1, 2, etc. | Yes, if the **rejectType** is **percentage**. |
-| useTypeDefault | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default).<br><br>**See [troubleshooting tips](#polybase-troubleshooting) related to this setting.** | No |
-| writeBatchSize | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No |
-| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No |
-| preCopyScript | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No |
+| useTypeDefault    | Specifies how to handle missing values in delimited text files when PolyBase retrieves data from the text file.<br/><br/>Learn more about this property from the Arguments section in [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Allowed values are **True** and **False** (default).<br><br> | No                                            |
+| writeBatchSize    | Number of rows to inserts into the SQL table **per batch**. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **integer** (number of rows). By default, Data Factory dynamically determine the appropriate batch size based on the row size. | No                                            |
+| writeBatchTimeout | Wait time for the batch insert operation to finish before it times out. Applies only when PolyBase isn't used.<br/><br/>The allowed value is **timespan**. Example: “00:30:00” (30 minutes). | No                                            |
+| preCopyScript     | Specify a SQL query for Copy Activity to run before writing data into Azure SQL Data Warehouse in each run. Use this property to clean up the preloaded data. | No                                            |
 
 #### SQL Data Warehouse sink example
 
@@ -416,10 +416,10 @@ If the requirements aren't met, Azure Data Factory checks the settings and autom
 
 1. The **source linked service** is with the following types and authentication methods:
 
-    | Supported source data store type | Supported source authentication type |
-    |:--- |:--- |
-    | [Azure Blob](connector-azure-blob-storage.md) | Account key authentication, managed identity authentication |
-    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication |
+    | Supported source data store type                             | Supported source authentication type                        |
+    | :----------------------------------------------------------- | :---------------------------------------------------------- |
+    | [Azure Blob](connector-azure-blob-storage.md)                | Account key authentication, managed identity authentication |
+    | [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | Service principal authentication                            |
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Account key authentication, managed identity authentication |
 
     >[!IMPORTANT]
@@ -542,8 +542,6 @@ The solution is to unselect "**Use type default**" option (as false) in copy act
 
 **Others**
 
-For more known PolyBase issues, refer to [Troubleshooting Azure SQL Data Warehouse PolyBase load](../sql-data-warehouse/sql-data-warehouse-troubleshoot.md#polybase).
-
 ### SQL Data Warehouse resource class
 
 To achieve the best possible throughput, assign a larger resource class to the user that loads data into SQL Data Warehouse via PolyBase.
@@ -552,12 +550,12 @@ To achieve the best possible throughput, assign a larger resource class to the u
 
 The following table gives examples of how to specify the **tableName** property in the JSON dataset. It shows several combinations of schema and table names.
 
-| DB Schema | Table name | **tableName** JSON property |
-| --- | --- | --- |
-| dbo | MyTable | MyTable or dbo.MyTable or [dbo].[MyTable] |
-| dbo1 | MyTable | dbo1.MyTable or [dbo1].[MyTable] |
-| dbo | My.Table | [My.Table] or [dbo].[My.Table] |
-| dbo1 | My.Table | [dbo1].[My.Table] |
+| DB Schema | Table name | **tableName** JSON property               |
+| --------- | ---------- | ----------------------------------------- |
+| dbo       | MyTable    | MyTable or dbo.MyTable or [dbo].[MyTable] |
+| dbo1      | MyTable    | dbo1.MyTable or [dbo1].[MyTable]          |
+| dbo       | My.Table   | [My.Table] or [dbo].[My.Table]            |
+| dbo1      | My.Table   | [dbo1].[My.Table]                         |
 
 If you see the following error, the problem might be the value you specified for the **tableName** property. See the preceding table for the correct way to specify values for the **tableName** JSON property.
 
@@ -586,35 +584,35 @@ When you copy data from or to Azure SQL Data Warehouse, the following mappings a
 >[!TIP]
 >Refer to [Table data types in Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-tables-data-types.md) article on SQL DW supported data types and the workarounds for unsupported ones.
 
-| Azure SQL Data Warehouse data type | Data Factory interim data type |
-|:--- |:--- |
-| bigint | Int64 |
-| binary | Byte[] |
-| bit | Boolean |
-| char | String, Char[] |
-| date | DateTime |
-| Datetime | DateTime |
-| datetime2 | DateTime |
-| Datetimeoffset | DateTimeOffset |
-| Decimal | Decimal |
-| FILESTREAM attribute (varbinary(max)) | Byte[] |
-| Float | Double |
-| image | Byte[] |
-| int | Int32 |
-| money | Decimal |
-| nchar | String, Char[] |
-| numeric | Decimal |
-| nvarchar | String, Char[] |
-| real | Single |
-| rowversion | Byte[] |
-| smalldatetime | DateTime |
-| smallint | Int16 |
-| smallmoney | Decimal |
-| time | TimeSpan |
-| tinyint | Byte |
-| uniqueidentifier | Guid |
-| varbinary | Byte[] |
-| varchar | String, Char[] |
+| Azure SQL Data Warehouse data type    | Data Factory interim data type |
+| :------------------------------------ | :----------------------------- |
+| bigint                                | Int64                          |
+| binary                                | Byte[]                         |
+| bit                                   | Boolean                        |
+| char                                  | String, Char[]                 |
+| date                                  | DateTime                       |
+| Datetime                              | DateTime                       |
+| datetime2                             | DateTime                       |
+| Datetimeoffset                        | DateTimeOffset                 |
+| Decimal                               | Decimal                        |
+| FILESTREAM attribute (varbinary(max)) | Byte[]                         |
+| Float                                 | Double                         |
+| image                                 | Byte[]                         |
+| int                                   | Int32                          |
+| money                                 | Decimal                        |
+| nchar                                 | String, Char[]                 |
+| numeric                               | Decimal                        |
+| nvarchar                              | String, Char[]                 |
+| real                                  | Single                         |
+| rowversion                            | Byte[]                         |
+| smalldatetime                         | DateTime                       |
+| smallint                              | Int16                          |
+| smallmoney                            | Decimal                        |
+| time                                  | TimeSpan                       |
+| tinyint                               | Byte                           |
+| uniqueidentifier                      | Guid                           |
+| varbinary                             | Byte[]                         |
+| varchar                               | String, Char[]                 |
 
 ## Next steps
 For a list of data stores supported as sources and sinks by Copy Activity in Azure Data Factory, see [supported data stores and formats](copy-activity-overview.md##supported-data-stores-and-formats).

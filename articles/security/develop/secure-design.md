@@ -7,6 +7,7 @@ ms.author: terrylan
 ms.date: 06/11/2019
 ms.topic: article
 ms.service: security
+ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
@@ -44,7 +45,7 @@ with security best practices on Azure:
     in a more efficient and secure way.
 
   - [Get started guide for Azure
-    developers](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide)
+    developers](../../guides/developer/azure-developer-guide.md)
     provides essential information for developers who are looking to get
     started using the Azure platform for their development needs.
 
@@ -107,7 +108,7 @@ Ask security questions like:
   - Does my application contain sensitive data?
 
   - Does my application collect or store data that requires me to adhere
-    to industry standards and compliance programs like the [Federal Financial Institution Examination Council (FFIEC)](https://docs.microsoft.com/azure/security/blueprints/ffiec-analytics-overview) or the [Payment Card Industry Data Security Standards (PCI DSS)](https://docs.microsoft.com/azure/security/blueprints/pcidss-analytics-overview)?
+    to industry standards and compliance programs like the [Federal Financial Institution Examination Council (FFIEC)](../blueprints/ffiec-analytics-overview.md) or the [Payment Card Industry Data Security Standards (PCI DSS)](../blueprints/pcidss-analytics-overview.md)?
 
   - Does my application collect or contain sensitive personal or
     customer data that can be used, either on its own or with other
@@ -237,7 +238,7 @@ Azure offers a variety of services you can use to host websites and web
 applications. These services let you develop in your favorite language,
 whether that's .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 [Azure App Service Web
-Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)
+Apps](../../app-service/overview.md)
 (Web Apps) is one of these services.
 
 Web Apps adds the power of Microsoft Azure to your application. It
@@ -257,7 +258,7 @@ Machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 For more information about how to choose between these Azure services,
 see a [comparison of Azure App Service, Virtual Machines, Service
 Fabric, and Cloud
-Services](https://docs.microsoft.com/azure/app-service/choose-web-site-cloud-service-vm).
+Services](/azure/architecture/guide/technology-choices/compute-decision-tree).
 
 ### Apply updates to components
 
@@ -286,7 +287,7 @@ design phase can greatly reduce your total cost of development.
 
 To help facilitate the threat modeling process, we designed the [SDL
 Threat Modeling
-Tool](https://docs.microsoft.com/azure/security/azure-security-threat-modeling-tool)
+Tool](threat-modeling-tool.md)
 with non-security experts in mind. This tool makes threat modeling
 easier for all developers by providing clear guidance about how to
 create and analyze threat models.
@@ -303,11 +304,11 @@ situation.
 | Threat | Security property | Potential Azure platform mitigation |
 | ---------------------- | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Spoofing               | Authentication        | [Require HTTPS connections](https://docs.microsoft.com/aspnet/core/security/enforcing-ssl?view=aspnetcore-2.1&tabs=visual-studio). |
-| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](https://docs.microsoft.com/azure/key-vault/about-keys-secrets-and-certificates#key-vault-certificates). |
+| Tampering              | Integrity             | Validate SSL/TLS certificates. Applications that use SSL/TLS must fully verify the X.509 certificates of the entities they connect to. Use Azure Key Vault certificates to [manage your x509 certificates](../../key-vault/about-keys-secrets-and-certificates.md#key-vault-certificates). |
 | Repudiation            | Non-repudiation       | Enable Azure [monitoring and diagnostics](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).|
-| Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest) and [in transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit). |
-| Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
-| Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/privileged-identity-management/pim-configure).|
+| Information Disclosure | Confidentiality       | Encrypt sensitive data [at rest](../fundamentals/encryption-atrest.md) and [in transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit). |
+| Denial of Service      | Availability          | Monitor performance metrics for potential denial of service conditions. Implement connection filters. [Azure DDoS protection](../../virtual-network/ddos-protection-overview.md#next-steps), combined with application design best practices, provides defense against DDoS attacks.|
+| Elevation of Privilege | Authorization         | Use Azure Active Directory <span class="underline"> </span> [Privileged Identity Management](../../active-directory/privileged-identity-management/pim-configure.md).|
 
 ### Reduce your attack surface
 
@@ -384,7 +385,7 @@ security weaknesses that are inherent in username and password types of
 authentication. Access to the Azure management interfaces (Azure
 portal/remote PowerShell) and to customer-facing services should be
 designed and configured to use [Azure Multi-Factor
-Authentication](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication).
+Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 
 #### Use strong authentication and authorization platforms
 
@@ -393,11 +394,11 @@ instead of custom code. This is because developing custom authentication
 code can be prone to error. Commercial code (for example, from
 Microsoft) often is extensively reviewed for security. [Azure Active
 Directory (Azure
-AD)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)
+AD)](../../active-directory/fundamentals/active-directory-whatis.md)
 is the Azure solution for identity and access management. These Azure AD
 tools and services help with secure development:
 
-- [Azure AD identity platform (Azure AD for developers)](https://docs.microsoft.com/azure/active-directory/develop/about-microsoft-identity-platform)
+- [Azure AD identity platform (Azure AD for developers)](../../active-directory/develop/about-microsoft-identity-platform.md)
 is a cloud identity service that developers use to build apps that
 securely sign in users. Azure AD assists developers who are building
 single-tenant, line-of-business (LOB) apps and developers who are
@@ -407,7 +408,7 @@ custom APIs that are built on the Azure AD platform. The Azure AD
 identity platform supports industry-standard protocols like OAuth 2.0 and OpenID Connect.
 
 - [Azure Active Directory B2C (Azure AD
-B2C)](https://docs.microsoft.com/azure/active-directory-b2c/) is an
+B2C)](../../active-directory-b2c/index.yml) is an
 identity management service you can use to customize and control how
 customers sign up, sign in, and manage their profiles when they use
 your applications. This includes applications that are developed for
@@ -425,7 +426,7 @@ Would a software developer need domain admin rights? Would an
 administrative assistant need access to administrative controls on their
 personal computer? Evaluating access to software is no different. If you
 use [role-based access control
-(RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview)
+(RBAC)](../../role-based-access-control/overview.md)
 to give users different abilities and authority in your application, you
 wouldn’t give everyone access to everything. By limiting access to what
 is required for each role, you limit the risk of a security issue
@@ -443,7 +444,7 @@ access. We recommend that the rules of least privilege be applied to developers 
 
 Implement *just-in-time* (JIT) access to further lower the exposure time
 of privileges. Use [Azure AD Privileged Identity
-Management](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-admin-roles-secure#stage-3-build-visibility-and-take-full-control-of-admin-activity)
+Management](../../active-directory/users-groups-roles/directory-admin-roles-secure.md#stage-3-build-visibility-and-take-full-control-of-admin-activity)
 to:
 
 - Give users the permissions they need only JIT.
@@ -483,7 +484,7 @@ Always put your keys, certificates, secrets, and connection strings in a
 key management solution. You can use a centralized solution in which
 keys and secrets are stored in hardware security modules (HSMs). Azure
 provides you with an HSM in the cloud with [Azure Key
-Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis).
+Vault](../../key-vault/key-vault-whatis.md).
 
 Key Vault is a *secret store*: it's a centralized cloud service for
 storing application secrets. Key Vault keeps your confidential data safe
@@ -521,9 +522,9 @@ sensitive. These practices can help you protect your sensitive data:
 Protecting data should be an essential part of your security strategy.
 If your data is stored in a database or if it moves back and forth
 between locations, use encryption of [data at
-rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+rest](../fundamentals/encryption-atrest.md)
 (while in the database) and encryption of [data in
-transit](https://docs.microsoft.com/azure/security/azure-security-data-encryption-best-practices#protect-data-in-transit)
+transit](../fundamentals/data-encryption-best-practices.md#protect-data-in-transit)
 (on its way to and from the user, the database, an API, or service
 endpoint). We recommend that you always use SSL/TLS protocols to
 exchange data. Ensure that you use the latest version of TLS for
@@ -549,7 +550,7 @@ public knowledge when it is deployed. Avoid including sensitive data of
 any kind in the project.
 
 Earlier, we discussed [Azure Key
-Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis). You
+Vault](../../key-vault/key-vault-whatis.md). You
 can use Key Vault to store secrets like keys and passwords instead of
 hard-coding them. When you use Key Vault in combination with managed
 identities for Azure resources, your Azure web app can access secret
@@ -597,9 +598,9 @@ in the code.
 - Exceptions are logged and that they provide enough information for forensics or incident response teams to investigate.
 
 [Azure Logic
-Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview)
+Apps](../../logic-apps/logic-apps-overview.md)
 provides a first-class experience for [handling errors and
-exceptions](https://docs.microsoft.com/azure/logic-apps/logic-apps-exception-handling)
+exceptions](../../logic-apps/logic-apps-exception-handling.md)
 that are caused by dependent systems. You can use Logic Apps to create
 workflows to automate tasks and processes that integrate apps, data,
 systems, and services across enterprises and

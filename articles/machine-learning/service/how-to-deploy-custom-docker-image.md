@@ -1,5 +1,5 @@
 ---
-title: How to deploy a model using a custom Docker image 
+title: Deploy models with a custom Docker image 
 titleSuffix: Azure Machine Learning service
 description: 'Learn how to use a custom Docker image when deploying your Azure Machine Learning service models. When deploying a trained model, a Docker image is created to host the image, web server, and other components needed to run the service. While Azure Machine Learning service provides a default image for you, you can also use your own image.'
 services: machine-learning
@@ -35,8 +35,8 @@ This document is broken into two sections:
 
 ## Prerequisites
 
-* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](setup-create-workspace.md) article.
-* The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
+* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.

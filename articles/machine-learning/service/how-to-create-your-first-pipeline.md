@@ -1,7 +1,7 @@
 ---
 title: Create, run, & track ML pipelines
 titleSuffix: Azure Machine Learning service
-description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. You use pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inference/scoring. 
+description: Create and run a machine learning pipeline with the Azure Machine Learning SDK for Python. Use ML pipelines to create and manage the workflows that stitch together machine learning (ML) phases. These phases include data preparation, model training, model deployment, and inference/scoring. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,19 +9,22 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 05/02/2019
+ms.date: 08/07/2019
 ms.custom: seodec18
 
 ---
 
-# Create and run a machine learning pipeline by using Azure Machine Learning SDK
+# Create and run machine learning pipelines with Azure Machine Learning SDK
 
-In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  These pipelines help create and manage the workflows that stitch together various machine learning phases. 
-Each phase of a pipeline, such as data preparation and model training, can include one or more steps.
+In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with other.  ML pipelines are ideal for batch scoring scenarios, using various computes, reusing steps instead of rerunning them, as well as sharing ML workflows with others. 
 
-The pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
+While you can use a different kind of pipeline called an [Azure Pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) for CI/CD automation of ML tasks, that type of pipeline is never stored inside your workspace. [Compare these different pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
-Pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. Pipelines can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
+Each phase of an ML pipeline, such as data preparation and model training, can include one or more steps.
+
+The ML pipelines you create are visible to the members of your Azure Machine Learning service [workspace](how-to-manage-workspace.md). 
+
+ML pipelines use remote compute targets for computation and the storage of the intermediate and final data associated with that pipeline. They can read and write data to and from supported [Azure Storage](https://docs.microsoft.com/azure/storage/) locations.
 
 If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
@@ -44,7 +47,7 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Set up machine learning resources
 
-Create the resources required to run a pipeline:
+Create the resources required to run an ML pipeline:
 
 * Set up a datastore used to access the data needed in the pipeline steps.
 
@@ -55,7 +58,7 @@ Create the resources required to run a pipeline:
 ### Set up a datastore
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
 
-When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure File Storage is the default datastore for a workspace, but you can also use Blob storage as a datastore. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
+When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
 # Default datastore (Azure blob storage)
@@ -65,7 +68,7 @@ def_data_store = ws.get_default_datastore()
 def_data_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
-def_file_store = Datastore(ws, "workspacefileblobstore")
+def_file_store = Datastore(ws, "workspacefilestore")
 ```
 
 Upload data files or directories to the datastore for them to be accessible from your pipelines. This example uses the Blob storage version of the datastore:

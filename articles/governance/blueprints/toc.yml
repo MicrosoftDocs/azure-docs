@@ -27,6 +27,25 @@
   - name: Index
     displayName: list, examples
     href: ./samples/index.md
+  - name: IRS 1075
+    items:
+    - name: Overview
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/index.md
+    - name: Control mapping
+      displayName: standards, irs, 1075
+      href: ./samples/irs-1075/control-mapping.md
+  - name: ISO 27001
+    items:
+    - name: Overview
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/index.md
+    - name: Control mapping
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/control-mapping.md
+    - name: Steps to deploy
+      displayName: standards, iso, 27001
+      href: ./samples/iso27001/deploy.md
   - name: ISO 27001 - Shared Services
     items:
     - name: Overview

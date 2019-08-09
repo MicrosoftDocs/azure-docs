@@ -8,13 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
-# Test your LUIS app in the LUIS portal
 <a name="train-your-app"></a>
+
+# Test your LUIS app in the LUIS portal
+
 [Testing](luis-concept-test.md) an app is an iterative process. After training your LUIS app, test it with sample utterances to see if the intents and entities are recognized correctly. If they're not, make updates to the LUIS app, train, and test again. 
 
 <!-- anchors for H2 name changes -->
@@ -26,13 +28,13 @@ ms.author: diberry
 
 1. Access your app by selecting its name on the **My Apps** page. 
 
-2. To access the **Test** slide-out panel, select **Test** in your application's top panel.
+1. To access the **Test** slide-out panel, select **Test** in your application's top panel.
 
     ![Train & Test App page](./media/luis-how-to-interactive-test/test.png)
 
-3. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
+1. Enter an utterance in the text box and select Enter. You can type as many test utterances as you want in the **Test**, but only one utterance at a time.
 
-4. The utterance, its top intent, and score are added to the list of utterances under the text box.
+1. The utterance, its top intent, and score are added to the list of utterances under the text box.
 
     ![Interactive testing identifies the wrong intent](./media/luis-how-to-interactive-test/test-weather-1.png)
 
@@ -44,7 +46,7 @@ You inspect details of the test result in the **Inspect** panel.
 
     ![Select Inspect button to see more details about the test results](./media/luis-how-to-interactive-test/inspect.png)
 
-2. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
+1. The **Inspection** panel appears. The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.
 
     ![The panel includes the top scoring intent as well as any identified entities. The panel shows the result of the selected utterance.](./media/luis-how-to-interactive-test/inspect-panel.png)
 
@@ -52,7 +54,7 @@ You inspect details of the test result in the **Inspect** panel.
 
 1. If the top scoring intent is incorrect, select the **Edit** button.
 
-2.  In the drop-down list, select the correct intent for the utterance.
+1.  In the drop-down list, select the correct intent for the utterance.
 
     ![Select correct intent](./media/luis-how-to-interactive-test/intent-select.png)
 
@@ -98,16 +100,14 @@ Use the following procedure to include the [Bing Spell Check v7](https://azure.m
 
 1. In the **Test** pane, enter an utterance. When the utterance is predicted, select **[Inspect](#inspect-score)** underneath the utterance you entered. 
 
-2. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
+1. When the **Inspect** panel opens, select **[Compare with Published](#compare-with-published-version)**. 
 
-3. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
+1. When the **Published** panel opens, select **[Additional Settings](#additional-settings-in-test-panel)**.
 
-4. In the pop-up dialog, enter your **Bing Spell Check** service key. 
-    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+1. In the pop-up dialog, check **Enable Bing Spell Check** and enter the key, then select **Done**. 
+    ![Enter Bing Spell Check service key](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key-text.png)
 
-5. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
-
-    ![Corrected spelling JSON](./media/luis-how-to-interactive-test/interactive-with-spell-check-results.png)
+1. Enter a query with an incorrect spelling such as `book flite to seattle` and select enter. The incorrect spelling of the word `flite` is replaced in the query sent to LUIS and the resulting JSON shows both the original query, as `query`, and the corrected spelling in the query, as `alteredQuery`.
 
 <a name="json-file-with-no-duplicates"></a>
 <a name="import-a-dataset-file-for-batch-testing"></a>

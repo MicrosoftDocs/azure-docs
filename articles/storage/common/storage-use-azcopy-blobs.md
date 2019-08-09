@@ -1,13 +1,13 @@
 ---
 title: Transfer data to or from Azure Blob storage by using AzCopy v10 | Microsoft Docs
 description: This article contains a collection of AzCopy example commands that help you create containers, copy files, and synchronize directories between local file systems and containers.
-services: storage
 author: normesta
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/14/2019
 ms.author: normesta
 ms.subservice: common
+ms.reviewer: dineshm
 ---
 
 # Transfer data with AzCopy and Blob storage
@@ -146,7 +146,7 @@ You can use AzCopy to copy blobs to other storage accounts. The copy operation i
 > [!NOTE]
 > Currently, this scenario is supported only for accounts that don't have a hierarchical namespace. 
 
-AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/en-us/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
+AzCopy uses [server-to-server](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) [APIs](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url), so data is copied directly between storage servers. These copy operations don't use the network bandwidth of your computer.
 
 This section contains the following examples:
 
@@ -170,8 +170,8 @@ This section contains the following examples:
 
 |    |     |
 |--------|-----------|
-| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>" --recursive` |
-| **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer/myBlobDirectory" --recursive` |
+| **Syntax** | `azcopy cp "https://<source-storage-account-name>.blob.core.windows.net/<container-name>/<directory-path>?<SAS-token>" "https://<destination-storage-account-name>.blob.core.windows.net/<container-name>" --recursive` |
+| **Example** | `azcopy cp "https://mysourceaccount.blob.core.windows.net/mycontainer/myBlobDirectory?sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-04T05:30:08Z&st=2019-07-03T21:30:08Z&spr=https&sig=CAfhgnc9gdGktvB=ska7bAiqIddM845yiyFwdMH481QA8%3D" "https://mydestinationaccount.blob.core.windows.net/mycontainer" --recursive` |
 
 ### Copy a containers to another storage account
 
