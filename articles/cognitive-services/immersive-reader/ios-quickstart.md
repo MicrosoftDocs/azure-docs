@@ -42,13 +42,13 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
 2. Create a Podfile by running `pod init` in your Xcode project's root directory.
 3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`. Your Pofile should look like the following, with your target's name replacing quickstart-swift:
  ```ruby
-platform :ios, '9.0'
+  platform :ios, '9.0'
 
-target 'quickstart-swift' do
+  target 'quickstart-swift' do
   use_frameworks!
   # Pods for quickstart-swift
   pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
-end
+  end
 ```
 4. In the terminal, in the directory of your Xcode project, run the command `pod install` to install the Immersive Reader SDK pod.
 5. Add `import immersive_reader_sdk` to all files that need to reference the SDK.

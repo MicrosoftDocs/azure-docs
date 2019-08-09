@@ -1,5 +1,5 @@
 ---
-title: "Immersive Reader iOS SDK Reference"
+title: "Immersive Reader iOS SDK reference"
 titlesuffix: Azure Cognitive Services
 description: Reference for the Immersive Reader iOS SDK
 services: cognitive-services
@@ -12,7 +12,7 @@ ms.date: 08/01/2019
 ms.author: t-meroa
 ---
 
-# Immersive Reader SDK Reference
+# Immersive Reader SDK reference
 
 The Immersive Reader iOS SDK is a Swift CocoaPod that allows you to integrate the Immersive Reader into your iOS application.
 
@@ -92,7 +92,7 @@ struct Error {
 | Throttled | The call rate limit has been exceeded. |
 | InternalError | An internal error occurred inside the Immersive Reader View Controller. See `message` for details.|
 
-## OS Version support
+## OS version support
 
 The Immersive Reader iOS SDK is supported for iOS 9.0 or higher, on iPad and iPhone.
 

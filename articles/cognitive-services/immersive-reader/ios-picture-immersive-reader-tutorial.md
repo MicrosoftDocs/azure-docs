@@ -17,7 +17,7 @@ ms.author: t-meroa
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-The [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/en-us/azure/cognitive-services/computer-vision/concept-recognizing-text) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
+The [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
 
 In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/iOS/samples/picture-to-immersive-reader-swift).
 
@@ -45,13 +45,13 @@ The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via
 2. Create a Podfile by running `pod init` in your Xcode project's root directory.
 3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`. Your Podfile should look like the following, with your target's name replacing picture-to-immersive-reader-swift:
  ```ruby
-platform :ios, '9.0'
+  platform :ios, '9.0'
 
-target 'picture-to-immersive-reader-swift' do
+  target 'picture-to-immersive-reader-swift' do
   use_frameworks!
   # Pods for picture-to-immersive-reader-swift
   pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'
-end
+  end
 ```
 4. In the terminal, in the directory of your Xcode project, run the command `pod install` to install the Immersive Reader SDK pod.
 5. Add `import immersive_reader_sdk` to all files that need to reference the SDK.
@@ -78,7 +78,7 @@ Open AppDelegate.swift and replace the file with the following code.
 
 [!code-swift[AppDelegate](~/ImmersiveReaderSdk/iOS/samples/picture-to-immersive-reader-swift/picture-to-immersive-reader-swift/AppDelegate.swift)]
 
-## Create the Picture View Controller and add functionality for taking and uploading photos
+## Add functionality for taking and uploading photos
 
 Rename ViewController.swift to PictureLaunchViewController.swift and replace the file with the following code.
 

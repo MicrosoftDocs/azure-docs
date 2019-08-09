@@ -16,7 +16,7 @@
   - name: Launch the Immersive Reader (Node.js)
     href: tutorial.md
   - name: Picture to Immersive Reader (Swift)
-    href: ios-picture-to-immersive-reader-tutorial.md
+    href: ios-picture-immersive-reader-tutorial.md
 - name: How-To
   items:
   - name: Azure Active Directory authentication
