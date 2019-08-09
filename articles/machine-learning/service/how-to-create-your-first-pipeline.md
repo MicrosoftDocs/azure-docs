@@ -18,7 +18,7 @@ ms.custom: seodec18
 
 In this article, you learn how to create, publish, run, and track a [machine learning pipeline](concept-ml-pipelines.md) by using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk).  Use **ML pipelines** to create a workflow that stitches together various ML phases, and then publish that pipeline into your Azure Machine Learning workspace to access later or share with other.  
 
-While you can use an [Azure Pipeline](https://docs.microsoft.com/en-us/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) to automate (CI/CD) ml tasks as well, but this type of pipeline is not stored inside your workspace. [Compare these types of pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
+While you can use an [Azure Pipeline](https://docs.microsoft.com/azure/devops/pipelines/targets/azure-machine-learning?context=azure%2Fmachine-learning%2Fservice%2Fcontext%2Fml-context&view=azure-devops&tabs=yaml) to automate (CI/CD) ml tasks as well, but this type of pipeline is not stored inside your workspace. [Compare these types of pipelines](concept-ml-pipelines.md#which-azure-pipeline-technology-should-i-use).
 
 Each phase of a pipeline, such as data preparation and model training, can include one or more steps.
 
@@ -30,20 +30,19 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK.
+* Create an [Azure Machine Learning workspace](how-to-manage-workspace.md) to hold all your pipeline resources.
 
-* Create an [Azure Machine Learning workspace](how-to-configure-environment.md#workspace) to hold all your pipeline resources. 
+* [Configure your development environment](how-to-configure-environment.md) to install the Azure Machine Learning SDK, or use a [Notebook VM](tutorial-1st-experiment-sdk-setup.md#azure) with the SDK already installed.
 
-  ```python
-  from azureml.core import Workspace
-  
-  ws = Workspace.create(
-     name = '<workspace-name>',
-     subscription_id = '<subscription-id>',
-     resource_group = '<resource-group>',
-     location = '<workspace_region>',
-     exist_ok = True)
-  ```
+Start by attaching your workspace:
+
+```Python
+import azureml.core
+from azureml.core import Workspace, Datastore
+
+ws = Workspace.from_config()
+```
+
 
 ## Set up machine learning resources
 
@@ -56,6 +55,7 @@ Create the resources required to run a pipeline:
 * Set up the [compute targets](concept-azure-machine-learning-architecture.md#compute-targets) on which your pipeline steps will run.
 
 ### Set up a datastore
+
 A datastore stores the data for the pipeline to access. Each workspace has a default datastore. You can register additional datastores. 
 
 When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
@@ -115,7 +115,7 @@ Below are examples of creating and attaching compute targets for:
 * Azure Databricks 
 * Azure Data Lake Analytics
 
-### Azure Machine Learning Compute
+### Azure Machine Learning compute
 
 You can create an Azure Machine Learning compute for running your steps.
 
@@ -333,19 +333,21 @@ When you first run a pipeline, Azure Machine Learning:
 
 For more information, see the [Experiment class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) reference.
 
+
+
 ## GitHub tracking and integration
 
 When you start a training run where the source directory is a local Git repository, information about the repository is stored in the run history. For example, the current commit ID for the repository is logged as part of the history.
 
 ## Publish a pipeline
 
-You can publish a pipeline to run it with different inputs later. For the REST endpoint of an already published pipeline to accept parameters, you must parameterize the pipeline before publishing. 
+You can publish a pipeline to run it with different inputs later. For the REST endpoint of an already published pipeline to accept parameters, you must parameterize the pipeline before publishing.
 
 1. To create a pipeline parameter, use a [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) object with a default value.
 
    ```python
    pipeline_param = PipelineParameter(
-     name="pipeline_arg", 
+     name="pipeline_arg",
      default_value=10)
    ```
 
@@ -356,8 +358,8 @@ You can publish a pipeline to run it with different inputs later. For the REST e
      script_name="compare.py",
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
-     outputs=[out_data3],    
-     target=compute_target, 
+     outputs=[out_data3],
+     target=compute_target,
      source_directory=project_folder)
    ```
 
@@ -365,11 +367,11 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 
    ```python
    published_pipeline1 = pipeline1.publish(
-       name="My_Published_Pipeline", 
+       name="My_Published_Pipeline",
        description="My Published Pipeline Description")
    ```
 
-## Run a published pipeline
+### Run a published pipeline
 
 All published pipelines have a REST endpoint. This endpoint invokes the run of the pipeline from external systems, such as non-Python clients. This endpoint enables "managed repeatability" in batch scoring and retraining scenarios.
 
@@ -382,15 +384,28 @@ response = requests.post(published_pipeline1.endpoint,
                                "ParameterAssignments": {"pipeline_arg": 20}})
 ```
 
-## View results
+### View results of a published pipeline
 
-See the list of all your pipelines and their run details:
+See the list of all your published pipelines and their run details:
 1. Sign in to the [Azure portal](https://portal.azure.com/).  
 
 1. [View your workspace](how-to-manage-workspace.md#view) to find the list of pipelines.
  ![list of machine learning pipelines](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Select a specific pipeline to see the run results.
+
+### Disable a published pipeline
+
+To hide a pipeline from your list of published pipelines, you disable it:
+
+```
+# Get the pipeline by using its ID in the Azure portal
+p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
+p.disable()
+```
+
+You can enable it again with `p.enable()`.
+
 
 ## Caching & reuse  
 
@@ -412,6 +427,7 @@ step = PythonScriptStep(name="Hello World",
  
 
 ## Next steps
+
 - Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.
 - Read the SDK reference help for the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
