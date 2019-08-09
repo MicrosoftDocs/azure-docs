@@ -140,6 +140,52 @@ GPT partitioning can be used only on data disks, not OS disks. OS disks must use
 
 Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra SSDs do not support snapshots.
 
+## Ultra disks
+
+**How do I create an Ultra disk?**
+You can create an Ultra disk using Azure Resource Manager templates, the Azure portal, Azure SDKs, PowerShell, or CLI.
+
+**What regions currently support Ultra disks?**
+- East US 2
+- SouthEast Asia
+- North Europe
+
+**What VM series currently support Ultra disks?**
+- ESv3
+- DSv3
+
+**What should I set my Ultra disk throughput to?**
+If you are unsure what to set your disk throughput to, we recommend you start by assuming an IO size of 16 KiB and adjust the performance from there as you monitor your application. The formula is: Throughput in MBps = # of IOPS * 16 / 1000.
+
+**I configured my disk to 40000 IOPS but I'm only seeing 12800 IOPS, why am I not seeing the performance of the disk?**
+In addition to the disk throttle, there is an IO throttle that gets imposed at the VM level. Please ensure that the VM size you are using can support the levels that are configured on your disks. 
+
+**Can I use caching levels with an Ultra disk?**
+No, Ultra disks do not support the different caching methods that are supported on other disk types. Set the disk caching to None.
+
+**Can I attach an Ultra disk to my existing VM?**
+
+**Can I use an Ultra disk as the OS disk for my VM?**
+No. Ultra Disks are only supported as data disks and are only supported as 4K native disks.
+
+**Can I convert an existing disk to an Ultra disk?**
+No, but you can migrate the date from an existing disk to an Ultra disk. To migrate an existing disk to an Ultra Disk, attach both disks to the same VM, and copy the disk's data from one disk to the other or leverage a 3rd party solution for data migration.
+
+**Can I create snapshots for Ultra disks?**
+No, snapshots are not yet available.
+
+**Is Azure Backup available for Ultra disks?**
+No, Azure Backup support is not yet available.
+
+**Can I attach an Ultra disk to a VM running in an availability set?**
+No, this is not supported.
+
+**Can I enable Azure Site Recovery (ASR) for VMs using Ultra disks?**
+No, ASR is not yet supported for Ultra disks.
+
+**Do Ultra disks support single instance VM SLA?**
+Yes, they have a single instance VM SLA similar to premium SSDs.
+
 ## Standard SSD disks
 
 **What are Azure Standard SSD disks?**
