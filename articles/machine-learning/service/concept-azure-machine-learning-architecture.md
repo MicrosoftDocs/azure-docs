@@ -87,7 +87,13 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
+> [!TIP]
+> There are two patterns that can be used when training:
+>
+> * [Estimators](how-to-train-ml-models.md): An abstraction that makes it easier to train models that use deep learning frameworks.
+> * [Run configuration](how-to-set-up-training-targets.md#whats-a-run-configuration): More flexible than estimators, and provides more control.
+
+For an example of training a model using an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 The **model registry** keeps track of all the models in your Azure Machine Learning service workspace.
 
@@ -142,7 +148,6 @@ A run is a record that contains the following information:
 * A snapshot of the directory that contains your scripts, prior to the run
 
 You produce a run when you submit a script to train a model. A run can have zero or more child runs. For example, the top-level run might have two child runs, each of which might have its own child run.
-
 
 ### GitHub tracking and integration
 
