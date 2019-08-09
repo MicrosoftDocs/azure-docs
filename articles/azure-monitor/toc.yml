@@ -511,7 +511,7 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
-    - name: Operating System (VM and more)
+    - name: Operating System (VMs and more)
       items: 
       - name: Agents
         items:
@@ -636,13 +636,23 @@
         href: platform/computer-groups.md
       - name: Configuration Manager
         href: platform/collect-sccm.md
-    - name: Databases
-      items:
-      - name: Azure SQL
-        href: insights/azure-sql.md
-      - name: SQL Server
-        href: insights/sql-assessment.md
     - name: Azure resources
+      items:
+      - name: Diagnostic logs
+        items: 
+        - name: Overview
+          href: platform/diagnostic-logs-overview.md 
+        - name: Collect in Logs
+          href: platform/diagnostic-logs-stream-log-store.md
+        - name: Collect from Azure Storage
+          href: platform/azure-storage-iis-table.md
+        - name: Archive to storage
+          href: platform/archive-diagnostic-logs.md
+        - name: Stream data to Event Hubs
+          href: platform/diagnostic-logs-stream-event-hubs.md
+        - name: Enable with Resource Manager templates
+          href: platform/diagnostic-logs-stream-template.md
+    - name: Azure Subscription
       items:
       - name: Activity log
         items:
@@ -658,20 +668,6 @@
           href: platform/activity-log-export.md
         - name: Schema
           href: platform/activity-log-schema.md
-      - name: Diagnostic logs
-        items: 
-        - name: Overview
-          href: platform/diagnostic-logs-overview.md 
-        - name: Collect in Logs
-          href: platform/diagnostic-logs-stream-log-store.md
-        - name: Collect from Azure Storage
-          href: platform/azure-storage-iis-table.md
-        - name: Archive to storage
-          href: platform/archive-diagnostic-logs.md
-        - name: Stream data to Event Hubs
-          href: platform/diagnostic-logs-stream-event-hubs.md
-        - name: Enable with Resource Manager templates
-          href: platform/diagnostic-logs-stream-template.md
       - name: Stream data to Event Hubs
         href: platform/stream-monitoring-data-event-hubs.md   
       - name: Key Vault Analytics
@@ -680,6 +676,12 @@
         href: ../service-fabric/service-fabric-diagnostics-oms-agent.md
       - name: Monitor resource groups
         href: insights/resource-group-insights.md
+    - name: Databases
+      items:
+      - name: Azure SQL
+        href: insights/azure-sql.md
+      - name: SQL Server
+        href: insights/sql-assessment.md
     - name: Networks
       items:
       - name: Networking Analytics
