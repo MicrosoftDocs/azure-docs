@@ -76,6 +76,6 @@ Privileged Identity Management can manage custom roles you can create in Azure A
 ## Next steps
 
 - [Activate an Azure AD custom role](azure-ad-custom-roles-assign.md)
-- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-remove-update.md)
+- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
 - [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)

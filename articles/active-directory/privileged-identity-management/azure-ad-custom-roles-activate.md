@@ -66,6 +66,6 @@ If the role requires approval to activate, you will receive a notification in th
 ## Next steps
 
 - [Assign an Azure AD custom role](azure-ad-custom-roles-assign.md)
-- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-remove-update.md)
+- [Remove or update an Azure AD custom role assignment](azure-ad-custom-roles-update-remove.md)
 - [Configure an Azure AD custom role assignment](azure-ad-custom-roles-configure.md)
 - [Role definitions in Azure AD](../users-groups-roles/directory-assign-admin-roles.md)
