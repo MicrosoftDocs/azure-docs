@@ -366,9 +366,10 @@ You can publish a pipeline to run it with different inputs later. For the REST e
 3. Publish this pipeline that will accept a parameter when invoked.
 
    ```python
-   published_pipeline1 = pipeline1.publish(
-       name="My_Published_Pipeline",
-       description="My Published Pipeline Description")
+   published_pipeline1 = pipeline_run1.publish_pipeline(
+        name="My_Published_Pipeline",
+        description="My Published Pipeline Description",
+        version="1.0")
    ```
 
 ### Run a published pipeline
