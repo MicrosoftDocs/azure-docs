@@ -16,7 +16,7 @@ ms.custom: seodec18
 ---
 # Build a Python (Django) web app with PostgreSQL in Azure App Service
 
-[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Django web app, using PostgreSQL as the database back-end. When you are done, you have a Python (Django) application running in Azure App Service on Linux.
+[App Service on Linux](app-service-linux-intro.md) provides a highly scalable, self-patching web hosting service. This tutorial shows how to create a data-driven Python (Django) web app, using PostgreSQL as the database back-end. When you are done, you have a Django web application running in Azure App Service on Linux.
 
 ![Python Django web app in App Service on Linux](./media/tutorial-python-postgresql-app/django-admin-azure.png)
 
@@ -391,7 +391,7 @@ Navigate to `<app-name>.azurewebsites.net` and sign in using same admin user you
 
 [!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
-## Manage your app in the Azure Portal
+## Manage your app in the Azure portal
 
 Go to the [Azure portal](https://portal.azure.com) to see the app you created.
 
