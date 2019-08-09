@@ -6,7 +6,7 @@ services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
 ---
