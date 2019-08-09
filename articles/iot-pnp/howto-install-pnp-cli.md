@@ -202,4 +202,4 @@ You can't directly publish a model in the public model repository.
 
 ## Next steps
 
-In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your Plug and Play devices. To learn about IoT Plug and Play, continue to the next article.
+In this how-to article, you've learned how to install and use the Azure IoT extension for the Azure CLI to interact with your Plug and Play devices. A suggested next step is to learn how to [Manage models](./howto-manage-models.md).

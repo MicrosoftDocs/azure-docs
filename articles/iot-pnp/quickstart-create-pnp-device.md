@@ -223,7 +223,7 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 In this quickstart, you learned how to create an IoT Plug and Play device using a DCM.
 
-To learn more about DCMs and how to create your own models, continue to the tutorial:
+To learn more about IoT Plug and Play, continue to the tutorial:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Create a test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
+> [Create and test a device capability model using Visual Studio Code](tutorial-pnp-visual-studio-code.md)
