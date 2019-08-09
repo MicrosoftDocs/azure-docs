@@ -23,20 +23,20 @@ Configure a failover group for an Azure SQL Database single database and test fa
 
 ## Prerequisites
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 To complete this tutorial, make sure you have: 
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 
-# [AZ CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 To complete the tutorial, make sure you have the following items:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
