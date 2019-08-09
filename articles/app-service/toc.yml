@@ -69,6 +69,8 @@
     href: overview-hosting-plans.md
   - name: OS functionality
     href: operating-system-functionality.md
+  - name: Deployment best practices
+    href: deploy-best-practices.md
   - name: Security
     items:
     - name: Recommendations
@@ -111,8 +113,6 @@
       href: configure-connect-to-azure-storage.md
   - name: Deploy to Azure
     items:
-    - name: Deployment best practices
-      href: deploy-best-practices.md
     - name: Deploy the app
       items:
       - name: Deploy ZIP or WAR

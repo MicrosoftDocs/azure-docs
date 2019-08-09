@@ -27,15 +27,15 @@ Every development team has unique requirements that can make implementing an eff
 
 ### Deployment Source
 
-A deployment source is the location of your application code. For production apps, the deployment source will be a repository hosted by version control software such as GitHub, BitBucket, or Azure Repos. For development and test scenarios, the deployment source may be a project on your local machine. App Service also supports OneDrive and Dropbox folders as deployment sources. While cloud folders can make it easy to get started with App Service, we do not typically recommend this source for enterprise production applications. 
+A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as GitHub, BitBucket, or Azure Repos. For development and test scenarios, the deployment source may be a project on your local machine. App Service also supports OneDrive and Dropbox folders as deployment sources. While cloud folders can make it easy to get started with App Service, it is not typically recommended to use this source for enterprise-level production applications. 
 
 ### Build Pipeline
 
-Once you decide on a deployment source, your next step is to choose a build pipeline. The specific actions done by the build pipeline will depend on your language stack. In any case, a build pipeline will read your source code from the deployment source and execute a series of steps (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. These operations can be executed on a build server such as Azure Pipelines or executed locally.
+Once you decide on a deployment source, your next step is to choose a build pipeline. A build pipeline reads your source code from the deployment source and executes a series of steps (such as compiling code, minifying HTML and JavaScript, running tests, and packaging components) to get the application in a runnable state. The specific commands executed by the build pipeline depend on your language stack. These operations can be executed on a build server such as Azure Pipelines, or executed locally.
 
 ### Deployment Mechanism
 
-The deployment mechanism is the action used to put your built application into the /home/site/wwwroot directory of your web app. The /wwwroot directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances will receive a notification to sync the new files. App Service supports the following deployment mechanisms:
+The deployment mechanism is the action used to put your built application into the */home/site/wwwroot* directory of your web app. The */wwwroot* directory is a mounted storage location shared by all instances of your web app. When the deployment mechanism puts your application in this directory, your instances receive a notification to sync the new files. App Service supports the following deployment mechanisms:
 
 - Kudu endpoints: [Kudu](https://github.com/projectkudu/kudu/wiki) is the open-source developer productivity tool that runs as a separate process in Windows App Service, and as a second container in Linux App Service. Kudu handles continuous deployments and provides HTTP endpoints for deployment, such as zipdeploy.
 - FTP and WebDeploy: Using your [site or user credentials](deploy-configure-credentials.md), you can upload files [via FTP](deploy-ftp.md) or WebDeploy. These mechanisms do not go through Kudu.  
@@ -50,17 +50,17 @@ Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and
 
 ### Node
 
-By default, Kudu will execute the build steps for your Node application (`npm install`). If you are using a build service such as Azure Devops, then the Kudu build is unnecessary. Create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT` with a value of `false` to disable the Kudu build.
+By default, Kudu executes the build steps for your Node application (`npm install`). If you are using a build service such as Azure Devops, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ### .NET 
 
-By default, Kudu will execute the build steps for your Node application (`dotnet build`). If you are using a build service such as Azure Devops, then the Kudu build is unnecessary. Create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT` with a value of `false` to disable the Kudu build.
+By default, Kudu executes the build steps for your .Net application (`dotnet build`). If you are using a build service such as Azure Devops, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ## Other Deployment Considerations
 
 ### Use deployment slots
 
-Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation will warm up the necessary worker instances to match your production scale, thus eliminating downtime. 
+Whenever possible, use [deployment slots](deploy-staging-slots.md) when deploying a new production build. When using a Standard App Service Plan tier or better, you can deploy your app to a staging environment, validate your changes, and do smoke tests. When you are ready, you can swap your staging and production slots. The swap operation warms up the necessary worker instances to match your production scale, thus eliminating downtime. 
 
 ### Local Cache
 
