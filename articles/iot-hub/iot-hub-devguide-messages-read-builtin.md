@@ -7,7 +7,7 @@ ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2019
+ms.date: 08/08/2019
 ---
 
 # Read device-to-cloud messages from the built-in endpoint
