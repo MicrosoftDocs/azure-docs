@@ -42,7 +42,7 @@ To complete this quickstart:
 
 ## Provision a service instance on the Azure portal
 
-1. In a web browser, open the [Azure portal](portal.azure.com), and sign into your account.
+1. In a web browser, open the [Azure portal](https://portal.azure.com), and sign into your account.
 
 1. Search for the **Azure Managed Service for Java Spring Cloud** and click on it to go to the overview page. Click the **Create** button to get started.
 
@@ -143,5 +143,5 @@ In this quickstart, you learned how to:
 > * Assign public IP for your application gateway
 
 To learn more about Service Fabric and .NET, take a look at this tutorial:
-> [!div class="nextstepaction"]
-> [.NET application on Service Fabric](service-fabric-tutorial-create-dotnet-app.md)
+<!-- > [!div class="nextstepaction"]
+> [.NET application on Service Fabric](service-fabric-tutorial-create-dotnet-app.md) -->
