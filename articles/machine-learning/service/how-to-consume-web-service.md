@@ -159,11 +159,11 @@ The web service can accept multiple sets of data in one request. It returns a JS
 
 ### Binary data
 
-For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary) in the how to deploy article.
+For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary).
 
 ### Cross-origin resource sharing (CORS)
 
-For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors) in the how to deploy article.
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors).
 
 ## Call the service (C#)
 
