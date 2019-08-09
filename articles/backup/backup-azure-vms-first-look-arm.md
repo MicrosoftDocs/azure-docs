@@ -22,7 +22,7 @@ This article explains how to back up Azure VMs with the [Azure Backup](backup-ov
 
 1. [Learn](backup-architecture.md#how-does-azure-backup-work) how backup works, and [verify](backup-support-matrix.md#azure-vm-backup-support) support requirements.
 2. [Get an overview](backup-azure-vms-introduction.md) of Azure VM backup.
-3. If your VMs has disk greater than 4TB disk, then [enroll for public preview](https://docs.microsoft.com/azure/backup/quick-backup-vm-powershell##vm-with-disk-sizes-up-to-30tb)
+3. If your VMs has disk greater than 4TB disk, then [enroll for public preview](https://docs.microsoft.com/azure/backup/quick-backup-vm-powershell#vm-with-disk-sizes-up-to-30tb)
 
 ### Azure VM agent installation
 
