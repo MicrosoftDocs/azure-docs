@@ -164,6 +164,8 @@
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
     - name: Storage exception after connection reset
       href: ./hbase-troubleshoot-storage-exception-reset.md
+    - name: Apache HBase fails to start
+      href: ./hbase-troubleshoot-start-fails.md
     - name: Issues with region servers
       href: ./hbase-troubleshoot-unassigned-regions.md
     - name: Apache Phoenix connectivity issues
