@@ -2673,9 +2673,9 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2690,10 +2690,10 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/write | Returns the result of writing a file or creating a folder. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/delete | Returns the result of deleting a file/folder. |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/modifypermissions/action | Returns the result of modifying permission on a file/folder. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -2708,7 +2708,7 @@ The following table provides a brief description of each built-in role. Click th
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read |  |
+> | Microsoft.Storage/storageAccounts/fileServices/fileshares/files/read | Returns a file/folder or a list of files/folders. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
