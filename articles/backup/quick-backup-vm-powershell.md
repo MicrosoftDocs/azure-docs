@@ -125,17 +125,16 @@ Execute the following cmdlets from an elevated PowerShell terminal:
     ```
   4. To check the status, run the following cmdlets:
 
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
+        ```powershell
+        PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
+        ```
   5. Once the subscription shows as registered, run the following command:
 
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-[!NOTE]
->
-> Encrypted VMs with greater than 4TB disks are not supported as a part of this preview.
+        ```powershell
+        PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+        ```
+> [!NOTE]
+    > Encrypted VMs with greater than 4TB disks are not supported as a part of this preview.
 
 
 ## Start a backup job
