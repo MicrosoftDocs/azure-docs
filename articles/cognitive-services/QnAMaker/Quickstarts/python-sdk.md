@@ -61,6 +61,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 * [Create a knowledge base](#create-a-knowledge-base)
 * [Update a knowledge base](#update-a-knowledge-base)
 * [Publish a knowledge base](#publish-a-knowledge-base)
+* [Download a knowledge base](#download-a-knowledge-base)
 * [Delete a knowledge base](#delete-a-knowledge-base)
 * [Get status of an operation](#get-status-of-an-operation)
 
@@ -112,6 +113,12 @@ You can update a knowledge base by passing in the knowledge base ID and an [Upda
 Publish the knowledge base using the [publish](https://docs.microsoft.com/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#publish-kb-id--custom-headers-none--raw-false----operation-config-) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint. 
 
 [!code-python[Publish a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=publishkb)]
+
+## Download a knowledge base
+
+Use the [download](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.operations.knowledgebaseoperations?view=azure-python#download-kb-id--environment--custom-headers-none--raw-false----operation-config-) method to download the database as a list of [QnADocumentsDTO](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker.models.qnadocumentsdto?view=azure-python). This is _not_ equivalent to the QnA Maker portal's export from the **Settings** page because the result of this method is not a TSV file.
+
+[!code-csharp[Download a knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.py?name=downloadkb)]
 
 ## Delete a knowledge base
 
