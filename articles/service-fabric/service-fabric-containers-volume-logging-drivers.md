@@ -11,7 +11,7 @@ ms.date: 6/10/2018
 ms.author: atsenthi
 ---
 
-# Service Fabric Azure Files Volume Driver (Preview)
+# Service Fabric Azure Files Volume Driver
 The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](https:///azure/storage/files/storage-files-introduction) based volumes for Docker containers. This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
 
 > [!NOTE]
