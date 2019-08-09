@@ -24,4 +24,4 @@ There are three partner selling motions:
 ## Next steps
 
 - See [sell with Microsoft](https://partner.microsoft.com/membership/sell-with-microsoft) for more information.
-- See [Co-sell tab in Partner Center](./partner-center-portal/commercial-marketplace-cosell.md) for more information on making your Marketplace offers Co-sell Ready and IP Co-sell Ready.
+- See [Co-sell tab in Partner Center](./partner-center-portal/commercial-marketplace-co-sell.md) for more information on making your Marketplace offers Co-sell Ready and IP Co-sell Ready.
