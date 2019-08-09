@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Build a custom image and run in App Service from a private registry
+title: Build a custom image and run in App Service from a private registry
 description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
