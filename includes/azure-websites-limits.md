@@ -30,7 +30,7 @@ ms.author: jroth
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Staging slots](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
-| SLA | |  |99.9% |99.95%|99.95%|99.95%|  
+| SLA | |  |99.95%|99.95%|99.95%|99.95%|  
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
