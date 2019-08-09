@@ -618,25 +618,5 @@ In this Node.js quickstart, you worked through a series of tasks to create an in
  
 If you already have some background in Azure Search, you can use this sample as a springboard for trying suggesters (type-ahead or autocomplete queries), filters, and faceted navigation. If you're new to Azure Search, we recommend trying other tutorials to develop an understanding of what you can create. Visit our [documentation page](https://azure.microsoft.com/documentation/services/search/) to find more resources. 
 
-<<<<<<< HEAD
-<!--Image references-->
-[1]: ./media/search-get-started-Nodejs/create-search-portal-1.PNG
-[2]: ./media/search-get-started-Nodejs/create-search-portal-2.PNG
-[3]: ./media/search-get-started-Nodejs/create-search-portal-3.PNG
-[5]: ./media/search-get-started-Nodejs/AzSearch-Nodejs-configjs.png
-[9]: ./media/search-get-started-Nodejs/rogerwilliamsschool.png
-
-
-## Clean up resources
-
-If you're not going to continue to use this app, use the following steps to delete all resources created by this quickstart in the Azure portal.
-
-1. In [Azure portal](https://portal.azure.com), on the search service **Overview** page, locate the name of the resource group.
-
-2. From the left-hand menu in the Azure portal, click **Resource groups** and then click the name of the resource you created.
-
-3. On your resource group page, click **Delete**, type the name of the resource to delete in the text box, and then click **Delete**.
-=======
 > [!div class="nextstepaction"]
 > [Call Azure Search from a WebPage using Javascript](https://github.com/liamca/azure-search-javascript-samples)
->>>>>>> 90dd779656c16c1c306836d1b76a752d1e833592
