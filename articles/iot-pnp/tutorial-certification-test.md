@@ -97,11 +97,7 @@ On the review page, you can review the discovered IoT Plug and Play interfaces. 
 
 ## Next steps
 
-Now that you've learned about certifying IoT Plug and Play device, here are some additional resources:
+Now that you've learned about certifying IoT Plug and Play device, the suggested next step is to learn more about managing capability models:
 
 > [!div class="nextstepaction"]
-> [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL)<br>
->
-> [C device SDK](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)<br>
->
-> [IoT REST API](https://docs.microsoft.com/rest/api/iothub/device)
+> [Manage models](./howto-manage-models.md)
