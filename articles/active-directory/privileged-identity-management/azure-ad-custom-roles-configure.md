@@ -89,7 +89,7 @@ If you want to require approval to activate a role, follow these steps.
     ![Open the Azure AD custom role to edit settings](./media/azure-ad-custom-roles-configure/select-approvers.png)
 
 1. Select at least one member or group and then click **Select**. You must select at least one approver. There are no default approvers. Your selections will appear in the list of selected approvers.
-1. Once you have specified all your role settings, click **Update** to save your changes.
+1. Once you have specified the role settings, select **Update** to save your changes.
 
 ## Next steps
 
