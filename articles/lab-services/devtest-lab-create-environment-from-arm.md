@@ -96,7 +96,21 @@ After you create and configure your repository, you can add it to your lab by us
    
    ![Add new repository](./media/devtest-lab-create-environment-from-arm/repo-values.png)
 
-The next section walks you through creating environments from an Azure Resource Manager template.
+Once you add an Azure Resource Manager template to the lab, your lab users can create environments by using the template. 
+
+## Configure access rights for lab users
+
+Lab users have **Reader** role by default, so they can't change the resources in an environment resource group. For example, they can't stop or start their resources. 
+
+To give your lab users **Contributor** role so they can edit the resources in their environments, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), on your lab's **Overview** pane, select **Configuration and policies**, and then select **Lab settings**.
+   
+1. In the **Lab settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
+   
+   ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
+
+The next section walks through creating environments from an Azure Resource Manager template.
 
 ## Create environments from templates in the Azure portal
 
@@ -259,18 +273,6 @@ You can also use Azure CLI to deploy resources with Resource Manager templates. 
 > [!NOTE]
 > Only a user with lab owner permissions can create VMs from a Resource Manager template by using Azure PowerShell. If you want to automate VM creation using a Resource Manager template and you only have user permissions, you can use the CLI command [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
-## Configure access rights for lab users
-
-Lab users can deploy Resource Manager templates, but they have **Reader** role by default, so they can't change the resources in an environment resource group. For example, they can't stop or start their resources. 
-
-To give your lab users **Contributor** role so they can edit the resources in their environments, follow these steps:
-
-1. In the [Azure portal](https://portal.azure.com), on your lab's **Overview** pane, select **Configuration and policies**, and then select **Lab settings**.
-   
-1. In the **Lab settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
-   
-   ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
-
 ## Resource Manager template limitations in DevTest Labs 
 
 Consider these limitations when using Resource Manager templates in DevTest Labs:
@@ -283,9 +285,10 @@ Consider these limitations when using Resource Manager templates in DevTest Labs
   
   For example, you might have a lab policy that a user can create only five VMs. However, a user can deploy a Resource Manager template that creates dozens of VMs. Policies that aren't evaluated include:
   
-  
   - Number of VMs per user
+    
   - Number of premium VMs per lab user
+    
   - Number of premium disks per lab user
 
 ## Next steps
