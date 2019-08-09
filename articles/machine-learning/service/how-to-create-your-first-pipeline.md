@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 08/07/2019
+ms.date: 08/09/2019
 ms.custom: seodec18
 
 ---
@@ -61,17 +61,18 @@ A datastore stores the data for the pipeline to access. Each workspace has a def
 When you create your workspace, [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace. A default datastore is registered to connect to the Azure Blob storage. To learn more, see [Deciding when to use Azure Files, Azure Blobs, or Azure Disks](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks). 
 
 ```python
-# Default datastore (Azure blob storage)
+# Default datastore 
 def_data_store = ws.get_default_datastore()
 
-# The above call is equivalent to this
-def_data_store = Datastore(ws, "workspaceblobstore")
+# Get the blob storage associated with the workspace
+def_blob_store = Datastore(ws, "workspaceblobstore")
 
 # Get file storage associated with the workspace
 def_file_store = Datastore(ws, "workspacefilestore")
+
 ```
 
-Upload data files or directories to the datastore for them to be accessible from your pipelines. This example uses the Blob storage version of the datastore:
+Upload data files or directories to the datastore for them to be accessible from your pipelines. This example uses the Blob storage as the datastore:
 
 ```python
 def_blob_store.upload_files(
