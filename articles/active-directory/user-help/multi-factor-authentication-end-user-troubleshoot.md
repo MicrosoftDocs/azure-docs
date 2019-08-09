@@ -68,7 +68,7 @@ If you've signed in to your work or school account using your user name and pass
 
 ## I got a new phone number, how do I change it for two-factor verification?
 
-If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do update your verification method, follow the steps in the **I want to change my phone number, or add a secondary number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#i-want-to-change-my-phone-number-or-add-a-secondary-number) article.
+If you've gotten a new phone number, you'll need to update your security verification method details so your verification prompts go to the right location. To do update your verification method, follow the steps in the **Add or change your phone number** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#add-or-change-your-phone-number) article.
 
 ## I got a new mobile device, how do I add it?
 
@@ -80,7 +80,7 @@ If you've gotten a new mobile device, you'll need to set it up to work with two-
 
 3. Optional. Download, install, and set up the Microsoft Authenticator app on your mobile device by following the steps in the [Download and install the Microsoft Authenticator app](user-help-auth-app-download-install.md) article.
 
-4. Optional. Turn on two-factor verification for your trusted devices by following the steps in the **Restart two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#restart-two-factor-verification-prompts-on-a-trusted-device) article.
+4. Optional. Turn on two-factor verification for your trusted devices by following the steps in the **Turn on two-factor verification prompts on a trusted device** section of the [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) article.
 
 ## I'm having problems signing in on my mobile device while traveling
 
