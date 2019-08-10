@@ -24545,6 +24545,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-two-step-verification-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
       "redirect_document_id": false
@@ -40984,6 +40989,11 @@
       "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
       "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/devtest-lab-integrate-ci-cd-vsts.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-integrate-ci-cd",
+      "redirect_document_id": true
     }
   ]
 }

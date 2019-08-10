@@ -34,7 +34,8 @@ The following sections show what sizes are in the same size series group when yo
 
 | Size | Ratio|
 |---|---|
-| Standard_B1s | 1 |
+|Standard_B1s | 1 |
+|Standard_B1ls | 2 |
 |Standard_B2s|4|
 
 For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
@@ -43,10 +44,13 @@ For more information, see [B-series burstable virtual machine sizes](../articles
 
 | Size | Ratio|
 |---|---|
-| Standard_B1ms |1|
+|Standard_B1ms |1|
 |Standard_B2ms|4|
 |Standard_B4ms|8|
 |Standard_B8ms|16|
+|Standard_B12ms|24|
+|Standard_B16ms|32|
+|Standard_B20ms|40|
 
 For more information, see [B-series burstable virtual machine sizes](../articles/virtual-machines/windows/b-series-burstable.md).
 
@@ -209,6 +213,7 @@ For more information, see [General purpose virtual machine sizes](../articles/vi
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
 |Standard_E32-16s_v3|16|
+|Standard_E48s_v3|24|
 |Standard_E64s_v3|28.8|
 |Standard_E64-16s_v3|28.8|
 |Standard_E64-32s_v3|28.8|
@@ -316,14 +321,6 @@ For more information, see [High performance compute VM sizes](../articles/virtua
 
 For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
 
-## HBS-series
-
-| Size | Ratio|
-|---|---|
-|Standard_HB60rs|1|
-
-For more information, see [High performance compute VM sizes](../articles/virtual-machines/windows/sizes-hpc.md).
-
 ## H Series Low Latency-series
 
 | Size | Ratio|
@@ -337,15 +334,6 @@ For more information, see [Storage optimized virtual machine sizes](../articles/
 | Size | Ratio|
 |---|---|
 |Standard_H16mr|1|
-
-For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
-
-## H-series
-
-| Size | Ratio|
-|---|---|
-|Standard_H8|1|
-|Standard_H16|2|
 
 For more information, see [Storage optimized virtual machine sizes](../articles/virtual-machines/windows/sizes-storage.md).
 

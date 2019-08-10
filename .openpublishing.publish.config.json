@@ -180,6 +180,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cognitive-services-python-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-python-sdk-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-cognitive-services-speech-sdk",
       "url": "https://github.com/Azure-Samples/cognitive-services-speech-sdk",
       "branch": "docs-201809"
@@ -349,6 +354,12 @@
       "path_to_root": "cognitive-services-quickstart-code",
       "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
       "branch": "master"
+    },
+    {
+      "path_to_root": "ImmersiveReaderSdk",
+      "url": "https://github.com/microsoft/immersive-reader-sdk",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

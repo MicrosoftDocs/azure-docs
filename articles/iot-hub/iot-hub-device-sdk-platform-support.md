@@ -1,12 +1,12 @@
 ---
 title: Azure IoT Device SDKs Platform Support | Microsoft Docs
 description: Concepts - list of platforms supported by the Azure IoT Device SDKs
-author: yzhong94
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.author: yizhon
+ms.author: robinsh
 ---
 
 # Azure IoT SDKs Platform Support
