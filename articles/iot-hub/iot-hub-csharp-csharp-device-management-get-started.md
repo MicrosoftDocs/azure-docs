@@ -29,7 +29,7 @@ At the end of this tutorial, you have two .NET console apps:
 
 * **TriggerReboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
-# Prerequisites
+## Prerequisites
 
 To complete this tutorial, you need:
 

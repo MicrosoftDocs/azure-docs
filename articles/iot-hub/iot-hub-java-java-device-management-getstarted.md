@@ -46,7 +46,7 @@ At the end of this tutorial, you have two Java console apps:
 > [!NOTE]
 > For information about the SDKs that you can use to build applications to run on devices and your solution back end, see [Azure IoT SDKs](iot-hub-devguide-sdks.md).
 
-# Prerequisites
+## Prerequisites
 
 To complete this tutorial, you need:
 

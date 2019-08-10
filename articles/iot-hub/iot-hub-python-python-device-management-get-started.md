@@ -30,7 +30,7 @@ At the end of this tutorial, you have two Python console apps:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-# Prerequisites
+## Prerequisites
 
 To complete this tutorial, you need:
 
