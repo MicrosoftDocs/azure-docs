@@ -105,7 +105,7 @@ Properties that define a suggester include the following:
 
 #### Analysis of SourceFields in a suggester
 
-Azure Search analyzes the field content to enable querying on individual terms. Suggesters require prefixes to be indexed in addition to complete terms. Producing the prefixes and complete terms requires additional analysis over the source fields. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, **Azure Search prevents fields with custom analyzers from being included in a suggester**.
+Azure Search analyzes the field content to enable querying on individual terms. Suggesters require prefixes to be indexed in addition to complete terms, which requires additional analysis over the source fields. Custom analyzer configurations can combine any of the various tokenizers and filters, often in ways that would make producing the prefixes required for suggestions impossible. For this reason, **Azure Search prevents fields with custom analyzers from being included in a suggester**.
 
 > [!NOTE] 
 >  The recommended approach to work around the above limitation is to use 2 separate fields for the same content. This will allow one of the fields to have suggesters and the other can be set up with a custom analyzer configuration.
