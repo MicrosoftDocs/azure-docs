@@ -14,7 +14,6 @@ ms.author: sngun
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
-> * [.NET (Preview)](create-sql-api-dotnet-preview.md)
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
@@ -118,10 +117,10 @@ The following snippets are all taken from the `CosmosGetStarted.py` file.
     db = client.CreateDatabase({ 'id': config['DATABASE'] })
     ```
 
-* A new collection is created.
+* A new container is created.
 
     ```python
-    # Create collection options
+    # Create container options
     options = {
         'offerThroughput': 400
     }

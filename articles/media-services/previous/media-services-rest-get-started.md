@@ -907,7 +907,7 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 
 
 ## <a id="play"></a>Play your content
-To stream you video, use [Azure Media Services Player](http://aka.ms/azuremediaplayer).
+To stream you video, use [Azure Media Services Player](https://aka.ms/azuremediaplayer).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 

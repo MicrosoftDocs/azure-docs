@@ -45,7 +45,7 @@ For a REST example, see [Upload, encode, and stream files with REST](stream-file
 
 ### Monitor the bitrate of a video stream
 
-You can use the [Azure Media Player demo page](http://aka.ms/azuremediaplayer) to monitor the bitrate of a video stream. The demo page displays diagnostics info on the **Diagnostics** tab:
+You can use the [Azure Media Player demo page](https://aka.ms/azuremediaplayer) to monitor the bitrate of a video stream. The demo page displays diagnostics info on the **Diagnostics** tab:
 
 ![Azure Media Player diagnostics][amp_diagnostics]
  

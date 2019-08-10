@@ -55,7 +55,7 @@ In ASP.NET Core, a Web application signing-in users with the Microsoft identity 
     "Instance": "https://login.microsoftonline.com/",
 
     // Azure AD Audience among:
-    // - the tenant Id as a a GUID obtained from the azure portal to sign-in users in your organization
+    // - the tenant Id as a GUID obtained from the azure portal to sign-in users in your organization
     // - "organizations" to sign-in users in any work or school accounts
     // - "common" to sign-in users with any work and school account or Microsoft personal account
     // - "consumers" to sign-in users with Microsoft personal account only
@@ -107,7 +107,7 @@ In the same way, the sign out URI would be set to `https://localhost:44321/signo
 
 ### Initialization code
 
-In ASP.NET Core Web Apps (and Web APIs), the code doing the application initialization is located in the `Startup.cs` file, and, to add authentication with the Microsoft Identity platform (formerly Azure AD) v2.0, you'll need to add the following code. The comments in the code should be self-explanatory.
+In ASP.NET Core Web Apps (and Web APIs), the code doing the application initialization is located in the `Startup.cs` file, and, to add authentication with the Microsoft identity platform (formerly Azure AD v2.0), you'll need to add the following code. The comments in the code should be self-explanatory.
 
   > [!NOTE]
   > If you start your project with default ASP.NET core web project within Visual studio or using `dotnet new mvc` the method `AddAzureAD` is available by default because the related packages are automatically loaded. 
@@ -120,7 +120,7 @@ In ASP.NET Core Web Apps (and Web APIs), the code doing the application initiali
  services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
  {
   // The ASP.NET core templates are currently using Azure AD v1.0, and compute
-  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft Identity Platform v2.0 endpoint
+  // the authority (as {Instance}/{TenantID}). We want to use the Microsoft identity platform endpoint
   options.Authority = options.Authority + "/v2.0/";
 
   // If you want to restrict the users that can sign-in to specific organizations
@@ -131,7 +131,7 @@ In ASP.NET Core Web Apps (and Web APIs), the code doing the application initiali
 
   // Set the nameClaimType to be preferred_username.
   // This change is needed because certain token claims from Azure AD v1.0 endpoint
-  // (on which the original .NET core template is based) are different in Azure AD v2.0 endpoint.
+  // (on which the original .NET core template is based) are different in Microsoft identity platform endpoint.
   // For more details see [ID Tokens](https://docs.microsoft.com/azure/active-directory/develop/id-tokens)
   // and [Access Tokens](https://docs.microsoft.com/azure/active-directory/develop/access-tokens)
   options.TokenValidationParameters.NameClaimType = "preferred_username";
@@ -174,7 +174,7 @@ The code related to authentication in ASP.NET Web app / Web APIs is located in t
   app.UseOpenIdConnectAuthentication(
     new OpenIdConnectAuthenticationOptions
     {
-     // The `Authority` represents the v2.0 endpoint - https://login.microsoftonline.com/common/v2.0
+     // The `Authority` represents the identity platform endpoint - https://login.microsoftonline.com/common/v2.0
      // The `Scope` describes the initial permissions that your app will need.
      //  See https://azure.microsoft.com/documentation/articles/active-directory-v2-scopes/
      ClientId = clientId,

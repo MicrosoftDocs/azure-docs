@@ -1,7 +1,7 @@
 ---
-title: Azure Backup FAQ
+title: Answers to common questions about Azure Backup features
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
-services: backup
+
 author: dcurwin
 manager: carmonm
 ms.service: backup
@@ -20,6 +20,13 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
+
+### How many datasources/items can be protected in a vault? 
+You can protect up to 2000 datasources/items across all workloads (IaaS VM, SQL, AFS, etc.) in a vault.<br>  
+For e.g. If you have already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it. 
+
+### How many policies can I create per vault? 
+You can only have up to 200 policies per vault.
 
 ### If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
 Server data that you want to recover together should use the same passphrase when you set up backup. If you want to isolate recovery to a specific server or servers, use a passphrase for that server or servers only. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.

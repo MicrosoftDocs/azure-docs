@@ -76,4 +76,4 @@ In this quickstart, you learned how to view the applications in your Azure AD te
 Now that you've found the application you were looking for, you can continue to [Add more applications to your tenant](add-application-portal.md). Or, you can select the application to view or edit properties and configuration options. For example, you could configure single sign-on.
 
 > [!div class="nextstepaction"]
-> [Configure single sign-on](configure-single-sign-on-portal.md)
+> [Configure single sign-on](configure-single-sign-on-non-gallery-applications.md)

@@ -1,6 +1,6 @@
 ---
-title: Create a security module twin for Azure Security Center for IoT Preview| Microsoft Docs
-description: Learn how to create a Azure Security Center for IoT module twin for use with ASC for IoT.
+title: Create a security module twin for Azure Security Center for IoT| Microsoft Docs
+description: Learn how to create a Azure Security Center for IoT module twin for use with Azure Security Center for IoT.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -20,24 +20,22 @@ ms.author: mlottner
 ---
 # Quickstart: Create an azureiotsecurity module twin
 
-> [!IMPORTANT]
-> Azure Security Center for IoT is currently in public preview. This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-This quickstart explanations of how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.  
+This quickstart explains how to create individual _azureiotsecurity_ module twins for new devices, or batch create module twins for all devices in an IoT Hub.  
 
 ## Understanding azureiotsecurity module twins 
 
 For IoT solutions built in Azure, device twins play a key role in both device management and process automation. 
 
-Azure Security Center (ASC) for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities.
-ASC for IoT integration is achieved by making use of the IoT Hub twin mechanism.  
+Azure Security Center for IoT offers full integration with your existing IoT device management platform, enabling you to manage your device security status as well as make use of existing device control capabilities.
+Azure Security Center for IoT integration is achieved by making use of the IoT Hub twin mechanism.  
 
 See [IoT Hub module twins](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) to learn more about the general concept of module twins in Azure IoT Hub. 
  
-ASC for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
+Azure Security Center for IoT makes use of the module twin mechanism and maintains a security module twin named _azureiotsecurity_ for each of your devices.
+
 The security module twin holds all the information relevant to device security for each of your devices. 
  
-To make full use of ASC for IoT features, you'll need to create, configure and use these security module twins for every device in the service.  
+To make full use of Azure Security Center for IoT features, you'll need to create, configure and use these security module twins for every device in the service.  
 
 ## Create azureiotsecurity module twin 
 
@@ -50,9 +48,9 @@ _azureiotsecurity_ module twins can be created in two ways:
 
 See [agent configuration](how-to-agent-configuration.md) to learn how to modify or change the configuration of an existing module twin. 
 
-To create manually a new _azureiotsecurity_ module twin for a device use the following instructions: 
+To manually create a new _azureiotsecurity_ module twin for a device use the following instructions: 
 
-1. In your IoT Hub, locate and select the device you wish to create a security module twin for in your IoT Hub.
+1. In your IoT Hub, locate and select the device you wish to create a security module twin for.
 1. Click on your device, and then on **Add module identity**.
 1. In the **Module Identity Name** field, enter **azureiotsecurity**.
 
@@ -70,7 +68,7 @@ To verify if a security module twin exists for a specific device:
     ![Modules associated with a device](./media/quickstart/verify-security-module-twin-3.png)
 
 
-To learn more about customizing properties of ASC for IoT module twins, see [Agent configuration](how-to-agent-configuration.md).
+To learn more about customizing properties of Azure Security Center for IoT module twins, see [Agent configuration](how-to-agent-configuration.md).
 
 ## Next steps
 

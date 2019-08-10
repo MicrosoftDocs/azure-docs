@@ -5,8 +5,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/11/2019
-ms.author: raynew
+ms.date: 07/12/2019
+ms.author: hamusa
 ---
 
 # Assess VMware VMs with Azure Migrate: Server Assessment
@@ -80,6 +80,7 @@ Azure Migrate: Server Assessment runs a lightweight VMware VM appliance.
     - Download an OVA template file, and import it to vCenter Server.
     - Create the appliance, and check that it can connect to Azure Migrate Server Assessment.
     - Configure the appliance for the first time, and register it with the Azure Migrate project.
+- You can set up multiple appliances for a single Azure Migrate project. Across all appliances, discovery of up to 35,000 VMs is supported. A maximum of 10,000 servers can be discovered per appliance.
 
 ### Download the OVA template
 
@@ -98,12 +99,12 @@ Check that the OVA file is secure, before you deploy it.
 2. Run the following command to generate the hash for the OVA:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - Example usage: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. For version 1.19.06.27, the generated hash should match these values. 
+3. For version 2.19.07.30, the generated hash should match these values. 
 
   **Algorithm** | **Hash value**
   --- | ---
-  MD5 | 605d208ac5f4173383f616913441144e
-  SHA256 | 447d16bd55f20f945164a1189381ef6e98475b573d6d1c694f3e5c172cfc30d4
+  MD5 | 27230f3b012187860281b912ee661709
+  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
 
 
 ### Create the appliance VM
@@ -167,12 +168,24 @@ Set up the appliance using the following steps.
 Now, connect from the appliance to vCenter Server, and start VM discovery.
 
 1. In **Specify vCenter Server details**, specify the name (FQDN) or IP address of the vCenter Server. You can leave the default port, or specify a custom port on which your vCenter Server listens.
-2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions).
+2. In **User name** and **Password**, specify the read-only account credentials that the appliance will use to discover VMs on the vCenter server. Make sure that the account has the [required permissions for discovery](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions). You can scope the discovery by limiting access to the vCenter account accordingly; learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
 3. Click **Validate connection** to make sure that the appliance can connect to vCenter Server.
 4. After the connection is established, click **Save and start discovery**.
 
-
 This starts discovery. It takes around 15 minutes for metadata of discovered VMs to appear in the portal.
+
+### Scoping discovery
+
+Discovery can be scoped by limiting access of the vCenter account used for discovery. You can set the scope to vCenter Server datacenters, clusters, folder of clusters, hosts, folder of hosts, or individual VMs. 
+
+> [!NOTE]
+> Today, Server Assessment is not able to discover VMs if the vCenter account has access granted at vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level.  Following are instructions on how you can do this:
+>
+> 1. Assign read-only permissions on all the VMs in the VM folders to which you want to scope the discovery. 
+> 2. Grant read-only access to all the parent objects where the VMs are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters - in the hierarchy up to the data center are to be included. You do not need to propagate the permissions to all child objects.
+> 3. Use the credentials for discovery selecting datacenter as *Collection Scope*. The RBAC set up ensures that the corresponding vCenter user will have access to only tenant-specific VMs.
+>
+> Note that folder of hosts and clusters are supported.
 
 ### Verify VMs in the portal
 

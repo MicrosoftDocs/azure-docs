@@ -5,6 +5,7 @@ manager: cgronlun
 author: LuisCabrer
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/20/2019
@@ -27,6 +28,9 @@ You can enrich a limited number of documents for free. Or, you can attach a bill
 We require that Azure Search and Azure Cognitive Services exist within the same region. Otherwise, you will get this message at run time: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 There is no way to move a service across regions. If you get this error, you should create a new Cognitive Services resource in the same region as Azure Search.
+
+> [!NOTE]
+> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Be aware that if you add any of these skills to your skillset that your data is not guaranteed to stay in the same region as your Azure Search or Cognitive Services resource. See the [service status page](https://aka.ms/allinoneregioninfo) for more details.
 
 ## Use Free resources
 

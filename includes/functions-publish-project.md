@@ -18,7 +18,7 @@ After the function app is created in Azure, you can use the [`func azure functio
 func azure functionapp publish <APP_NAME>
 ```
 
-You will see output similar to the following, which has been truncated for readability.
+You'll see output similar to the following, which has been truncated for readability:
 
 ```output
 Getting site publishing info...
@@ -34,4 +34,4 @@ Functions in myfunctionapp:
         Invoke url: https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....
 ```
 
-Copy the Invoke URL value for your HttpTrigger, which you can now use to test your function in Azure. The URL contains a `code` query string value that is your function key. This key makes it difficult for others to call your HTTP trigger endpoint in Azure.
+Copy the `Invoke url` value for your `HttpTrigger`, which you can now use to test your function in Azure. The URL contains a `code` query string value that is your function key. This key makes it difficult for others to call your HTTP trigger endpoint in Azure.

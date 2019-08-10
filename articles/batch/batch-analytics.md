@@ -3,7 +3,7 @@ title: Azure Batch Analytics | Microsoft Docs
 description: Reference for Azure Batch Analytics.
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.assetid: 
 ms.service: batch

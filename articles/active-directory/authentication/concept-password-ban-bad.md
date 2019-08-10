@@ -46,7 +46,7 @@ Some organizations may want to improve security even further by adding their own
 - Company-specific internal terms
 - Abbreviations that have specific company meaning.
 
-Once terms are added to the custom banned password list, they will be added to the global banned password list when validating passwords.
+Once terms are added to the custom banned password list, they will be combined with the terms in the global banned password list when validating passwords.
 
 > [!NOTE]
 > The custom banned password list is limited to having a maximum of 1000 terms. It is not designed for blocking extremely large lists of passwords. In order to fully leverage the benefits of the custom banned password list, Microsoft recommends that you first review and understand the password evaluation algorithm (see [How are passwords evaluated](concept-password-ban-bad.md#how-are-passwords-evaluated)) before adding new terms to the custom banned list. Understanding how the algorithm works will enable your enterprise to efficiently detect and block large numbers of weak passwords and their variants.
@@ -87,11 +87,11 @@ Additional information on password-based security issues may be reviewed at [You
 
 ## On-premises hybrid scenarios
 
-Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. It is possible to install Azure AD password protection for Windows Server Active Directory agents on-premises to extend the banned password lists to your existing infrastructure. Now users and administrators who change, set, or reset passwords on-premises are required to comply with the same password policy as cloud-only users.
+Protecting cloud-only accounts is helpful but many organizations maintain hybrid scenarios including on-premises Windows Server Active Directory. The security benefits of Azure AD password protection may also be extended into your Windows Server Active Directory environment via the installation of on-premises agents. Now users and administrators who change or reset passwords in Active Directory are required to comply with the same password policy as cloud-only users.
 
 ## How are passwords evaluated
 
-Whenever a user changes or resets their password, the new password is checked for strength and complexity by validating it against both the global and the custom banned password list (if the latter is configured).
+Whenever a user changes or resets their password, the new password is checked for strength and complexity by validating it against the combined list of terms from the global and custom banned password lists (if the latter is configured).
 
 Even if a user’s password contains a banned password, the password may still be accepted if the overall password is strong enough otherwise. A newly configured password will go through the following steps to assess its overall strength to determine if it should be accepted or rejected.
 

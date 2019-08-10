@@ -1,21 +1,21 @@
 ---
-title: Diagnose and troubleshoot issues when using Azure Cosmos DB Trigger in Azure Functions
-description: Common issues, workarounds, and diagnostic steps, when using the Azure Cosmos DB Trigger with Azure Functions
+title: Diagnose and troubleshoot issues when using Azure Functions trigger for Cosmos DB
+description: Common issues, workarounds, and diagnostic steps, when using the Azure Functions trigger for Cosmos DB
 author: ealsur
 ms.service: cosmos-db
-ms.date: 05/23/2019
+ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ---
 
-# Diagnose and troubleshoot issues when using Azure Cosmos DB Trigger in Azure Functions
+# Diagnose and troubleshoot issues when using Azure Functions trigger for Cosmos DB
 
-This article covers common issues, workarounds, and diagnostic steps, when you use the [Azure Cosmos DB Trigger](change-feed-functions.md) with Azure Functions.
+This article covers common issues, workarounds, and diagnostic steps, when you use the [Azure Functions trigger for Cosmos DB](change-feed-functions.md).
 
 ## Dependencies
 
-The Azure Cosmos DB Trigger and bindings depend on the extension packages over the base Azure Functions runtime. Always keep these packages updated, as they might include fixes and new features that might address any potential issues you may encounter:
+The Azure Functions trigger and bindings for Cosmos DB depend on the extension packages over the base Azure Functions runtime. Always keep these packages updated, as they might include fixes and new features that might address any potential issues you may encounter:
 
 * For Azure Functions V2, see [Microsoft.Azure.WebJobs.Extensions.CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.CosmosDB).
 * For Azure Functions V1, see [Microsoft.Azure.WebJobs.Extensions.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
@@ -24,7 +24,7 @@ This article will always refer to Azure Functions V2 whenever the runtime is men
 
 ## Consume the Azure Cosmos DB SDK independently
 
-The key functionality of the extension package is to provide support for the Azure Cosmos DB trigger and bindings. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
+The key functionality of the extension package is to provide support for the Azure Functions trigger and bindings for Cosmos DB. It also includes the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), which is helpful if you want to interact with Azure Cosmos DB programmatically without using the trigger and bindings.
 
 If want to use the Azure Cosmos DB SDK, make sure that you don't add to your project another NuGet package reference. Instead, **let the SDK reference resolve through the Azure Functions' Extension package**. Consume the Azure Cosmos DB SDK separately from the trigger and bindings
 
@@ -76,7 +76,7 @@ If some changes are missing on the destination, this could mean that is some err
 In this scenario, the best course of action is to add `try/catch blocks` in your code and inside the loops that might be processing the changes, to detect any failure for a particular subset of items and handle them accordingly (send them to another storage for further analysis or retry). 
 
 > [!NOTE]
-> The Azure Cosmos DB Trigger, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
+> The Azure Functions trigger for Cosmos DB, by default, won't retry a batch of changes if there was an unhandled exception during your code execution. This means that the reason that the changes did not arrive at the destination is because that you are failing to process them.
 
 If, you find that some changes were not received at all by your trigger, the most common scenario is that there is **another Azure Function running**. It could be another Azure Function deployed in Azure or an Azure Function running locally on a developer's machine that has **exactly the same configuration** (same monitored and lease containers), and this Azure Function is stealing a subset of the changes you would expect your Azure Function to process.
 
@@ -84,7 +84,16 @@ Additionally, the scenario can be validated, if you know how many Azure Function
 
 One easy way to workaround this situation, is to apply a `LeaseCollectionPrefix/leaseCollectionPrefix` to your Function with a new/different value or, alternatively, test with a new leases container.
 
-### Binding can only be done with IReadOnlyList<Document> or JArray
+### Need to restart and re-process all the items in my container from the beginning 
+To re-process all the items in a container from the beginning:
+1. Stop your Azure function if it is currently running. 
+1. Delete the documents in the lease collection (or delete and re-create the lease collection so it is empty)
+1. Set the [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger attribute in your function to true. 
+1. Restart the Azure function. It will now read and process all changes from the beginning. 
+
+Setting [StartFromBeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) to true will tell the Azure function to start reading changes from the beginning of the history of the collection instead of the current time. This only works when there are no already created leases (i.e. documents in the leases collection). Setting this property to true when there are leases already created has no effect; in this scenario, when a function is stopped and restarted, it will begin reading from the last checkpoint, as defined in the leases collection. To re-process from the beginning, follow the above steps 1-4.  
+
+### Binding can only be done with IReadOnlyList\<Document> or JArray
 
 This error happens if your Azure Functions project (or any referenced project) contains a manual NuGet reference to the Azure Cosmos DB SDK with a different version than the one provided by the [Azure Functions Cosmos DB Extension](./troubleshoot-changefeed-functions.md#dependencies).
 

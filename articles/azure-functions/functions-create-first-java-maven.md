@@ -1,5 +1,5 @@
 ---
-title: Create your first function in Azure with Java and Maven| Microsoft Docs
+title: Use Java and Maven to publish a function - Azure Functions
 description: Create and publish a simple HTTP triggered function to Azure with Java and Maven.
 services: functions
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: java
 ms.date: 08/10/2018
 ms.author: routlaw
 ms.reviewer: glenga
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-july2019
 ---
 
 # Create your first function with Java and Maven
@@ -89,13 +89,13 @@ import com.microsoft.azure.functions.*;
 
 public class Function {
     /**
-     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
-     * 1. curl -d "HTTP Body" {your host}/api/hello
-     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     * This function listens at endpoint "/api/HttpTrigger-Java". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/HttpTrigger-Java
+     * 2. curl {your host}/api/HttpTrigger-Java?name=HTTP%20Query
      */
-    @FunctionName("hello")
+    @FunctionName("HttpTrigger-Java")
     public HttpResponseMessage run(
-            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            @HttpTrigger(name = "req", methods = { HttpMethod.GET, HttpMethod.POST }, authLevel = AuthorizationLevel.FUNCTION) HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) {
         context.getLogger().info("Java HTTP trigger processed a request.");
 
@@ -119,9 +119,9 @@ public class Function {
 
 ## Run the function locally
 
-Change directory to the newly created project folder and build and run the function with Maven:
+Change directory to the newly created project folder (the one containing your host.json and pom.xml files) and build and run the function with Maven:
 
-```
+```CMD
 cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
@@ -138,13 +138,13 @@ Hit CTRL-C to exit...
 
 Http Functions:
 
-   hello: http://localhost:7071/api/hello
+   hello: http://localhost:7071/api/HttpTrigger-Java
 ```
 
 Trigger the function from the command line using curl in a new terminal window:
 
-```
-curl -w "\n" http://localhost:7071/api/hello -d LocalFunction
+```CMD
+curl -w "\n" http://localhost:7071/api/HttpTrigger-Java -d LocalFunction
 ```
 
 ```Output
@@ -166,7 +166,7 @@ Deploy your code into a new Function app using the `azure-functions:deploy` Mave
 > [!NOTE]
 > When you use Visual Studio Code to deploy your Function app, remember to choose a non-free subscription, or you will get an error. You can watch your subscription on the left side of the IDE.
 
-```
+```azurecli
 mvn azure-functions:deploy
 ```
 
@@ -185,8 +185,8 @@ Test the function app running on Azure using `cURL`. You'll need to change the U
 > [!NOTE]
 > Make sure you set the **Access rights** to `Anonymous`. When you choose the default level of `Function`, you are required to present the [function key](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) in requests to access your function endpoint.
 
-```
-curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/hello -d AzureFunctions
+```azurecli
+curl -w "\n" https://fabrikam-function-20170920120101928.azurewebsites.net/api/HttpTrigger-Java -d AzureFunctions
 ```
 
 ```Output
@@ -210,7 +210,7 @@ return request.createResponse(200, "Hi, " + name);
 Save the changes. Run mvn clean package and redeploy by running `azure-functions:deploy` from the terminal as before. The function app will be updated and this request:
 
 ```bash
-curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/hello
+curl -w '\n' -d AzureFunctionsTest https://fabrikam-functions-20170920120101928.azurewebsites.net/api/HttpTrigger-Java
 ```
 
 Will have updated output:
