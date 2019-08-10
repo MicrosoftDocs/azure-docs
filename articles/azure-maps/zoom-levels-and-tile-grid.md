@@ -431,7 +431,7 @@ namespace AzureMaps
         /// <param name="height">The height of the map viewport in pixels.</param>
         /// <param name="tileSize">The size of the tiles in the tile pyramid.</param>
         /// <returns>A list of quadkey strings that are within the specified viewport.</returns>
-        public static string[] GetQuadKeysInView(double[] position, int zoom, int width, int height, int tileSize)
+        public static string[] GetQuadkeysInView(double[] position, int zoom, int width, int height, int tileSize)
         {
             var p = PositionToGlobalPixel(position, zoom, tileSize);
 
@@ -447,7 +447,7 @@ namespace AzureMaps
             //Boudning box in the format: [west, south, east, north];
             var bounds = new double[] { tl[0], br[1], br[0], tl[1] };
 
-            return GetQuadKeysInBoundingBox(bounds, zoom, tileSize);
+            return GetQuadkeysInBoundingBox(bounds, zoom, tileSize);
         }
 
         /// <summary>
@@ -457,7 +457,7 @@ namespace AzureMaps
         /// <param name="zoom">Zoom level to calculate tiles for.</param>
         /// <param name="tileSize">The size of the tiles in the tile pyramid.</param>
         /// <returns>A list of quadkey strings.</returns>
-        public static string[] GetQuadKeysInBoundingBox(double[] bounds, int zoom, int tileSize)
+        public static string[] GetQuadkeysInBoundingBox(double[] bounds, int zoom, int tileSize)
         {
             var keys = new System.Collections.Generic.List<string>();
 
@@ -814,7 +814,7 @@ module AzureMaps {
          * @param tileSize The size of the tiles in the tile pyramid.
          * @returns A list of quadkey strings that are within the specified viewport.
          */
-        public static GetQuadKeysInView(position: number[], zoom: number, width: number, height: number, tileSize: number): string[] {
+        public static GetQuadkeysInView(position: number[], zoom: number, width: number, height: number, tileSize: number): string[] {
             var p = this.PositionToGlobalPixel(position, zoom, tileSize);
 
             var top = p[1] - height * 0.5;
@@ -829,7 +829,7 @@ module AzureMaps {
             //Boudning box in the format: [west, south, east, north];
             var bounds = [tl[0], br[1], br[0], tl[1]];
 
-            return this.GetQuadKeysInBoundingBox(bounds, zoom, tileSize);
+            return this.GetQuadkeysInBoundingBox(bounds, zoom, tileSize);
         }
 
         /**
@@ -839,7 +839,7 @@ module AzureMaps {
          * @param tileSize The size of the tiles in the tile pyramid.
          * @returns A list of quadkey strings.
          */
-        public static GetQuadKeysInBoundingBox(bounds: number[], zoom: number, tileSize: number): string[] {
+        public static GetQuadkeysInBoundingBox(bounds: number[], zoom: number, tileSize: number): string[] {
             var keys: string[] = [];
 
             if (bounds != null && bounds.length >= 4) {
