@@ -1,6 +1,6 @@
 ---
 title: What is Azure Active Directory B2C?
-description: Learn about how you can use Azure Active Directory B2C to support external identities in your applications, including social login with Facebook, Google, and other identity providers.
+description: Learn how you can use Azure Active Directory B2C to support external identities in your applications, including social login with Facebook, Google, and other identity providers.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -27,19 +27,19 @@ Azure AD B2C is a white-label authentication solution. You can customize the ent
 
 Customize every page displayed by Azure AD B2C when your users sign up, sign in, and modify their profile information. Customize the HTML, CSS, and JavaScript in your user journeys so that the Azure AD B2C experience looks and feels like it's a native part of your application.
 
-![Customized sign up sign in page and background image](media/active-directory-b2c-overview/sign-in_small.png)
+![Customized sign-up and sign-in page and background image](media/active-directory-b2c-overview/sign-in_small.png)
 
 ## Single sign-on access with a user-provided identity
 
 Azure AD B2C uses standards-based authentication protocols including OpenID Connect, OAuth 2.0, and SAML. It can integrate with most modern applications and commercial off-the-shelf software.
 
-By serving as the central authentication authority for your web applications, mobile apps, and APIs, Azure AD B2C enables you to build a single sign-on (SSO) solution for them all. Centralize the collection of user profile and preference information, and capture detailed analytics about login behavior and sign-up conversion.
+By serving as the central authentication authority for your web applications, mobile apps, and APIs, Azure AD B2C enables you to build a single sign-on (SSO) solution for them all. Centralize the collection of user profile and preference information, and capture detailed analytics about sign-in behavior and sign-up conversion.
 
 ![Diagram of third-party identities federating to Azure AD B2C](media/active-directory-b2c-overview/scenario_singlesignon.png)
 
 ## Integrate with external user stores
 
-Use Azure AD B2C to integrate with an external system that stores user profile or personally identifying information (PII) data. Satisfy data residency requirements like regional or on-premises data storage.
+Use Azure AD B2C to integrate with an external system that stores user profile or personal data. Satisfy data residency requirements like regional or on-premises data storage policies.
 
 ![A logical diagram of Azure AD B2C communicating with an external user store](media/active-directory-b2c-overview/scenario_remoteprofile.png)
 
@@ -73,8 +73,8 @@ WoodGrove is an online grocery store that sells groceries to both individual con
 
 WoodGrove Groceries offers several sign-in options based on the relationship their customers have with the store:
 
-* **Individual** customers can sign-up or sign-in with individual accounts, such as with a social identity provider or an email address and password.
-* **Business** customers can sign-in with an enterprise credential.
+* **Individual** customers can sign up or sign in with individual accounts, such as with a social identity provider or an email address and password.
+* **Business** customers can sign in with an enterprise credential.
 * **Partners** and suppliers are individuals who supply the grocery store with products to sell. Partner identity is provided by [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 
 ![](media/active-directory-b2c-overview/woodgrove_overview.png)
@@ -83,7 +83,7 @@ WoodGrove Groceries offers several sign-in options based on the relationship the
 
 When a customer selects **Sign in with your personal account**, they're redirected a customized sign-in user interface (UI) hosted by Azure AD B2C. You can see in the following image that we've customized the UI to look and feel just like the WoodGrove Groceries website. Their customers should be unaware the authentication experience is hosted and secured by Azure AD B2C.
 
-Customers can sign up and sign in by using several social accounts. They can use Google, Facebook, or a Microsoft account as their identity provider. Or, they can sign up by using their email address and a password to create what's called a *local account*.
+WoodGrove allows their customers to sign up and sign in by using their Google, Facebook, or Microsoft accounts as their identity provider. Or, they can sign up by using their email address and a password to create what's called a *local account*.
 
 ![](media/active-directory-b2c-overview/sign-in.png)
 
@@ -99,7 +99,7 @@ Clicking the **Create** button causes Azure AD B2C to redirect the user back to 
 
 When a customer selects one of the options under **Business customers**, the WoodGrove Groceries website invokes a different Azure AD B2C policy than it does for individual customers.
 
-This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sigh in with any Office 365 or Azure AD account. The policy used here leverages a [multi-tenant Azure AD application](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) and the `/common` Azure AD endpoint to federate Azure AD B2C with every Office 365 customer in the world.
+This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sigh in with any Office 365 or Azure AD account. The policy used here uses a [multi-tenant Azure AD application](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) and the `/common` Azure AD endpoint to federate Azure AD B2C with every Office 365 customer in the world.
 
 ### Authenticate partners
 

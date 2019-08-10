@@ -158,6 +158,7 @@ During sign-up or password reset, an end user must supply a password that meets 
 
 Azure AD B2C emits audit logs containing activity information about B2C resources, issued tokens, and administrator access. Use the audit logs to understand platform activity and  diagnose issues. You can read the auditing logs entities a couple of minutes after the activity. In the auditing log you can find information such as:
 - Activities concerning the authorization of a user to access B2C resources (for example, an administrator accessing a list of B2C policies)
+-
 - Activities related to directory attributes retrieved when an administrator signs in using the Azure Portal
 - CRUD operations on B2C applications
 - CRUD operations on keys stored in B2C key container
