@@ -15,6 +15,9 @@ ms.subservice: B2C
 
 # Technical overview of Azure Active Directory B2C
 
+> [!WARNING]
+> This article is NOT ready for review. DO NOT review this article.
+
 ## Azure AD B2C Tenant
 
 In Azure AD B2C, a tenant represents your organization and is a directory of users. Each Azure AD B2C tenant is distinct and separate from other Azure AD B2C tenants. You may already have an Azure Active Directory tenant, the Azure AD B2C tenant is a different tenant.

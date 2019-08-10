@@ -49,7 +49,7 @@ Azure AD B2C can facilitate collecting the information from the user during regi
 
 ## Progressive profiling
 
-Other user journey options include progressive profiling. Progressive profiling allows your customers to quickly complete their first transaction by collecting a minimal amount of information. Then, gradually collect more profile data from the customer on future sign-ins.
+Another user journey option includes progressive profiling. Progressive profiling allows your customers to quickly complete their first transaction by collecting a minimal amount of information. Then, gradually collect more profile data from the customer on future sign-ins.
 
 ![A visual depiction of progressive profiling](media/active-directory-b2c-overview/scenario_progressive.png)
 
@@ -81,13 +81,13 @@ WoodGrove Groceries offers several sign-in options based on the relationship the
 
 ### Authenticate individual customers
 
-When a customer selects **Sign in with your personal account**, they're redirected to a customized sign-in page hosted by Azure AD B2C. You can see in the following image that we've customized the user interface (UI) to look and feel just like the WoodGrove Groceries website. Their customers should be unaware that the authentication experience is hosted and secured by Azure AD B2C.
+When a customer selects **Sign in with your personal account**, they're redirected to a customized sign-in page hosted by Azure AD B2C. You can see in the following image that we've customized the user interface (UI) to look and feel just like the WoodGrove Groceries website. WoodGrove's customers should be unaware that the authentication experience is hosted and secured by Azure AD B2C.
 
 ![Custom WoodGrove sign-in page hosted by Azure AD B2C](media/active-directory-b2c-overview/sign-in.png)
 
 WoodGrove allows their customers to sign up and sign in by using their Google, Facebook, or Microsoft accounts as their identity provider. Or, they can sign up by using their email address and a password to create what's called a *local account*.
 
-When a customer selects **Sign up with your personal account** and then **Sign up now**, they are presented with a custom sign-up page.
+When a customer selects **Sign up with your personal account** and then **Sign up now**, they're presented with a custom sign-up page.
 
 ![Custom WoodGrove sign-up page hosted by Azure AD B2C](media/active-directory-b2c-overview/sign-up.png)
 
@@ -101,7 +101,7 @@ Clicking the **Create** button causes Azure AD B2C to redirect the user back to 
 
 When a customer selects one of the options under **Business customers**, the WoodGrove Groceries website invokes a different Azure AD B2C policy than it does for individual customers.
 
-This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sigh in with any Office 365 or Azure AD account. The policy used here uses a [multi-tenant Azure AD application](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) and the `/common` Azure AD endpoint to federate Azure AD B2C with every Office 365 customer in the world.
+This policy presents the user with an option to use their corporate credentials for sign-up and sign-in. In the WoodGrove example, users are prompted to sign in with any Office 365 or Azure AD account. This policy uses a [multi-tenant Azure AD application](../active-directory/develop/howto-convert-app-to-be-multi-tenant.md) and the `/common` Azure AD endpoint to federate Azure AD B2C with any Office 365 customer in the world.
 
 ### Authenticate partners
 
@@ -121,7 +121,7 @@ For examples of how to construct many other scenarios in Azure AD B2C, visit the
 
 ## Next steps
 
-Now that you have an idea of what Azure Active Directory B2C is about and the scenarios it can help with, dig a little deeper into its technical aspects.
+Now that you have an idea of what Azure Active Directory B2C is and the scenarios it can help with, dig a little deeper into its features and technical aspects.
 
 > [!div class="nextstepaction"]
 > [Azure AD B2C technical overview >](technical-overview.md)
