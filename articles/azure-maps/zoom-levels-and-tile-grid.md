@@ -15,15 +15,19 @@ manager:
 Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles in order to create a square map. This significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
 
 1. It's a conformal projection, which means that it preserves the shape of relatively small objects. This is especially important when showing aerial imagery, because we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
-2. It's a cylindrical projection, which means that north and south are always straight up and down, and west and east are always straight left and right. 
+2. It's a cylindrical projection, which means that north and south are always straight up and down, and west and east is always straight left and right. 
 
-To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDKs use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
+To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
-![World tile](./media/zoom-levels-and-tile-grid/world0.png)
+<center>
+
+![World tile](./media/zoom-levels-and-tile-grid/world0.png)</center>
 
 Zoom level 1 uses four tiles to render the world: a 2 x 2 square
 
-![2x2 map tile layout](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)  
+<center>
+
+![2x2 map tile layout](media/zoom-levels-and-tile-grid/map-2x2-tile-layout.png)</center>
 
 Each additional zoom level quad-divides the tiles of the previous one, creating a grid of 2<sup>zoom</sup> x 2<sup>zoom</sup>. Zoom level 22 is a grid 2<sup>22</sup> x 2<sup>22</sup>, or 4,194,304 x 4,194,304 tiles (17,592,186,044,416 tiles in total).
 
@@ -63,7 +67,11 @@ The following table provides the full list of values for zoom levels where the t
 
 Having chosen the projection and scale to use at each zoom level, we can convert geographic coordinates into pixel coordinates. The full pixel width and height of a map image of the world for a particular zoom level can be calculated as:
 
-`mapWidth = mapHeight = (tileSize * 2)^zoom;`
+```javascript
+var mapWidth = tileSize * Math.pow(2, zoom);
+
+var mapHeight = mapWidth;
+```
 
 Since the map width and height is different at each zoom level, so are the pixel coordinates. The pixel at the upper-left corner of the map always has pixel coordinates (0, 0). The pixel at the lower-right corner of the map has pixel coordinates *(width-1, height-1)*, or referring to the equations in the previous section, *(tileSize \* 2<sup>zoom</sup>–1, tileSize \* 2<sup>zoom</sup>–1)*. For example, when using 512 square tiles at level 2, the pixel coordinates range from (0, 0) to (2047, 2047), like this:
 
@@ -73,12 +81,12 @@ Since the map width and height is different at each zoom level, so are the pixel
 
 Given latitude and longitude in degrees, and the level of detail, the pixel XY coordinates can be calculated as follows:
 
-```
-sinLatitude = sin(latitude * pi/180);
+```javascript
+var sinLatitude = Math.sin(latitude * Math.PI/180);
 
-pixelX = ((longitude + 180) / 360) * tileSize * 2^zoom;
+var pixelX = ((longitude + 180) / 360) * tileSize * Math.pow(2, zoom);
 
-pixelY = (0.5 – log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * pi)) * tileSize * 2^zoom;
+var pixelY = (0.5 – Math.log((1 + sinLatitude) / (1 – sinLatitude)) / (4 * Math.PI)) * tileSize * Math.pow(2, zoom);
 ```
 
 The latitude and longitude values are assumed to be on the WGS 84 datum. Even though Azure Maps uses a spherical projection, it's important to convert all geographic coordinates into a common datum, and WGS 84 was chosen to be that datum. The longitude value is assumed to range from -180 to +180 degrees, and the latitude value must be clipped to range from -85.05112878 to 85.05112878. This avoids a singularity at the poles, and it causes the projected map to be square.
@@ -87,7 +95,11 @@ The latitude and longitude values are assumed to be on the WGS 84 datum. Even th
 
 To optimize the performance of map retrieval and display, the rendered map is cut into tiles. As the number of pixels differs at each zoom level, so does the number of tiles:
 
-`numberOfTilesWide = numberOfTilesHigh = 2^zoom;`
+```javascript
+var numberOfTilesWide = Math.pow(2, zoom);
+
+var numberOfTilesHigh = numberOfTilesWide;
+```
 
 Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<sup>zoom</sup>–1, 2<sup>zoom</sup>–1)* in the lower right. For example, at zoom level 2, the tile coordinates range from (0, 0) to (7, 7) as follows:
 
@@ -97,10 +109,10 @@ Each tile is given XY coordinates ranging from (0, 0) in the upper left to *(2<s
 
 Given a pair of pixel XY coordinates, you can easily determine the tile XY coordinates of the tile containing that pixel:
 
-```
-tileX = floor(pixelX / tileSize);
+```javascript
+var tileX = Math.floor(pixelX / tileSize);
 
-tileY = floor(pixelY / tileSize);
+var tileY = Math.floor(pixelY / tileSize);
 ```
 
 Tiles are called by zoom level and the x and y coordinates corresponding to the tile's position on the grid for that zoom level.
@@ -121,10 +133,10 @@ Here is the zoom grid for zoom level 1:
 
 ## Quadkey indices
 
-Some mapping platforms use a quadkey indexing naming convention which combines the tile ZY coordinates into a one-dimension string called quadtree keys or "quadkeys" for short. Each quadkey uniquely identifies a single tile at a particular level of detail, and it can be used as an key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers which use quadkey naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
+Some mapping platforms use a quadkey indexing naming convention that combines the tile ZY coordinates into a one-dimension string called quadtree keys or "quadkeys" for short. Each quadkey uniquely identifies a single tile at a particular level of detail, and it can be used as a key in common database B-tree indexes. The Azure Maps SDKs support the overlaying of tile layers that use quadkey naming convention in addition to other naming conventions as documented in the [Add a tile layer](map-add-tile-layer.md) document.
 
 > [!NOTE]
-> The quadkeys naming convention only works for zoom levels of one or greater. The Azure Maps SDKs support zoom level 0 which is a single map tile for the whole world. 
+> The quadkeys naming convention only works for zoom levels of one or greater. The Azure Maps SDK's support zoom level 0 which is a single map tile for the whole world. 
 
 To convert tile coordinates into a quadkey, the bits of the Y and X coordinates are interleaved, and the result is interpreted as a base-4 number (with leading zeros maintained) and converted into a string. For instance, given tile XY coordinates of (3, 5) at level 3, the quadkey is determined as follows:
 
@@ -142,7 +154,7 @@ Quadkeys have several interesting properties. First, the length of a quadkey (th
 
 ![Quadkey tile pyramid](media/zoom-levels-and-tile-grid/quadkey-tile-pyramid.png)</center>
 
-Finally, quadkeys provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have quadkeys that are relatively close together. This is important for optimizing database performance, because neighboring tiles are usually requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
+Finally, quadkeys provide a one-dimensional index key that usually preserves the proximity of tiles in XY space. In other words, two tiles that have nearby XY coordinates usually have quadkeys that are relatively close together. This is important for optimizing database performance, because neighboring tiles are often requested in groups, and it's desirable to keep those tiles on the same disk blocks, in order to minimize the number of disk reads.
 
 ## Tile math source code
 
@@ -925,7 +937,7 @@ module AzureMaps {
 ```
 
 > [!NOTE]
-> The Azure Maps map controls in the SDKs have helper functions for converting between geospatial positions and viewport pixels. 
+> The Azure Maps map controls in the SDK's have helper functions for converting between geospatial positions and viewport pixels. 
 > - [Web SDK: Map pixel and position calculations](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## Next steps
