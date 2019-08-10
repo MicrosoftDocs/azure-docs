@@ -12,22 +12,22 @@ ms.author: atsenthi
 ---
 
 # Service Fabric Azure Files Volume Driver
-The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](https:///azure/storage/files/storage-files-introduction) based volumes for Docker containers. This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
+The Azure Files volume plugin is a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers. This Docker volume plugin is packaged as a Service Fabric application that can be deployed to Service Fabric clusters. Its purpose is to provide Azure Files based volumes for other Service Fabric container applications that are deployed to the cluster.
 
 > [!NOTE]
 > Version 6.5.516.9494 of the Azure Files volume plugin is a preview release that is available with this document. As a preview release, it is **not** supported for use in production environments.
 >
 
 ## Prerequisites
-* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](https:///windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only.
+* The Windows version of the Azure Files volume plugin works on [Windows Server version 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 version 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) or later operating systems only.
 
 * The Linux version of the Azure Files volume plugin works on all operating system versions supported by Service Fabric.
 
 * The Azure Files volume plugin only works on Service Fabric version 6.2 and newer.
 
-* Follow the instructions in the [Azure Files documentation](https:///azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
+* Follow the instructions in the [Azure Files documentation](/azure/storage/files/storage-how-to-create-file-share) to create a file share for the Service Fabric container application to use as volume.
 
-* You will need [Powershell with the Service Fabric module](https:///azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installed.
+* You will need [Powershell with the Service Fabric module](/azure/service-fabric/service-fabric-get-started) or [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) installed.
 
 * If you are using Hyper-V containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your Azure Resource Manager template (Azure cluster) or ClusterConfig.json (standalone cluster).
 
