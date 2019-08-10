@@ -30,7 +30,9 @@ At the end of this tutorial, you have two Python console apps:
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-The following are the installation instructions for the prerequisites.
+# Prerequisites
+
+To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -44,7 +46,7 @@ The following are the installation instructions for the prerequisites.
 
 ## Create a simulated device app
 
-In this section, you will:
+In this section, you:
 
 * Create a Python console app that responds to a direct method called by the cloud
 
@@ -65,7 +67,7 @@ In this section, you will:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-3. Add variables including a **CONNECTION_STRING** variable and the client initialization.  Replace the connection string with your device connection string.  
+3. Add variables including a **CONNECTION_STRING** variable and the client initialization.  Replace the `{deviceConnectionString}` placeholder value with your device connection string. You copied this connection string previously in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).  
 
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
@@ -171,7 +173,7 @@ In this section, you create a Python console app that initiates a remote reboot 
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-3. Add the following variable declarations. Only replace placeholder values for _IoTHubConnectionString_ and _deviceId_.
+3. Add the following variable declarations. Replace the `{IoTHubConnectionString}` placeholder value with the IoT hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string). Replace the `{deviceId}` placeholder value with the device ID you registered in [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
@@ -238,17 +240,17 @@ In this section, you create a Python console app that initiates a remote reboot 
 
 ## Run the apps
 
-You are now ready to run the apps.
+You're now ready to run the apps.
 
 1. At the command prompt, run the following command to begin listening for the reboot direct method.
 
-    ```
+    ```cmd/sh
     python dmpatterns_getstarted_device.py
     ```
 
 2. At another command prompt, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
 
-    ```
+    ```cmd/sh
     python dmpatterns_getstarted_service.py
     ```
 
