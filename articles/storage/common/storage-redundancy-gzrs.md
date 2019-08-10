@@ -5,7 +5,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 08/07/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
@@ -92,10 +92,9 @@ There are two options for migrating to GZRS or RA-GZRS from an LRS, GRS, or RA-G
 - You can manually copy or move data to a new GZRS or RA-GZRS account from an existing account.
 - You can request a live migration.
 
-> [!NOTE]
-> Microsoft strongly recommends that you perform a manual migration if possible. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
-
 #### Perform a manual migration
+
+If you need the migration to complete by a certain date, consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
 To manually migrate data from an existing account to a GZRS or RA-GZRS account, use a tool that can copy data efficiently. Some examples include:
 
@@ -105,8 +104,7 @@ To manually migrate data from an existing account to a GZRS or RA-GZRS account, 
 
 #### Perform a live migration
 
-A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A
-live migration is an in-place migration.
+A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration with no downtime.
 
 During a live migration, you can use your storage account while your data is migrated between source and destination storage accounts. During the live migration process, your account continues to meet its SLA for durability and availability. There is no downtime or data loss caused by the live migration.
 
