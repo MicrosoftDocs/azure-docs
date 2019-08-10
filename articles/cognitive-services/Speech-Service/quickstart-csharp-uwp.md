@@ -52,7 +52,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-uwp/helloworld/MainPage.xaml.cs#code)]
 
-1. In the source file's `Speak_ButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
+1. In the source file's `SpeechRecognitionFromMicrophone_ButtonClicked` handler, find the string `YourSubscriptionKey`, and replace it with your subscription key.
 
 1. In the `SpeechRecognitionFromMicrophone_ButtonClicked` handler, find the string `YourServiceRegion`, and replace it with the [region](regions.md) associated with your subscription. (For example, use `westus` for the free trial subscription.)
 
@@ -66,7 +66,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
    ![Sample UWP speech recognition application in C# - quickstart](media/sdk/qs-csharp-uwp-helloworld-window.png)
 
-1. Select **Enable Microphone**, and approve the permission request that pops up.
+1. Select **Enable Microphone**, and when the permission request that pops up, select **Yes**.
 
    ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 

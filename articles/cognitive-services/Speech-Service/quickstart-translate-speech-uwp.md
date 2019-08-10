@@ -28,7 +28,7 @@ For a complete list of languages available for speech translation, see [language
 
 This quickstart requires:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project
@@ -65,7 +65,7 @@ Now add the XAML code that defines the user interface of the application, and ad
 
    ![Sample UWP translation application in C# - quickstart](media/sdk/qs-translate-speech-uwp-helloworld-window.png)
 
-1. Select **Enable Microphone**, and approve the permission request that pops up.
+1. Select **Enable Microphone**, and when the permission request that pops up, select **Yes**.
 
    ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 

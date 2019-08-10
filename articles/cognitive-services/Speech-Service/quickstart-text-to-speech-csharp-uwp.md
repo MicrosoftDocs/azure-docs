@@ -14,7 +14,7 @@ ms.author: yinhew
 
 # Quickstart: Synthesize speech in a UWP app by using the Speech SDK
 
-Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech translation](quickstart-translate-speech-uwp.md) and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
+Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech translation](quickstart-translate-speech-uwp.md), and [voice-first virtual assistant](quickstart-virtual-assistant-csharp-uwp.md).
 
 In this article, you develop a C# Universal Windows Platform (UWP) application by using the Cognitive Services [Speech SDK](speech-sdk.md). The program synthesizes speech from text in real time to your device's speaker. You build the application using the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
@@ -25,7 +25,7 @@ In this article, you develop a C# Universal Windows Platform (UWP) application b
 
 This quickstart requires:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * An Azure subscription key for the Speech Service. [Get one for free](get-started.md).
 
 ## Create a Visual Studio project

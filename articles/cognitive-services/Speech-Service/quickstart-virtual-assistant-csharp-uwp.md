@@ -14,7 +14,7 @@ ms.author: travisw
 
 # Quickstart: Create a voice-first virtual assistant with the Speech SDK, UWP
 
-Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech synthesis](quickstart-text-to-speech-csharp-uwp.md) and [speech translation](quickstart-translate-speech-uwp.md).
+Quickstarts are also available for [speech recognition](quickstart-csharp-uwp.md), [speech synthesis](quickstart-text-to-speech-csharp-uwp.md), and [speech translation](quickstart-translate-speech-uwp.md).
 
 In this article, you'll develop a C# Universal Windows Platform (UWP) application by using the [Speech SDK](speech-sdk.md). The program will connect to a previously authored and configured bot to enable a voice-first virtual assistant experience from the client application. The application is built with the [Speech SDK NuGet Package](https://aka.ms/csspeech/nuget) and Microsoft Visual Studio 2019 (any edition).
 
@@ -25,9 +25,9 @@ In this article, you'll develop a C# Universal Windows Platform (UWP) applicatio
 
 This quickstart requires:
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * An Azure subscription key for Speech Services. [Get one for free](get-started.md) or create it on the [Azure portal](https://portal.azure.com).
-* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+* A previously created bot configured with the [Direct Line Speech channel](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
   > [!NOTE]
   > Direct Line Speech (Preview) is currently available in a subset of Speech Services regions. Please refer to [the list of supported regions for voice-first virtual assistants](regions.md#voice-first-virtual-assistants) and ensure your resources are deployed in one of those regions.
@@ -406,7 +406,7 @@ To add the code-behind source, follow these steps:
 
    ![Sample UWP virtual assistant application in C# - quickstart](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 
-1. Select **Enable Microphone**, and approve the permission request that pops up.
+1. Select **Enable Microphone**, and when the permission request that pops up, select **Yes**.
 
    ![Microphone access permission request](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
