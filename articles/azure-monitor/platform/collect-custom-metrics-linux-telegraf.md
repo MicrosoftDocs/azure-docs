@@ -27,23 +27,23 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 Create a new Linux VM: 
 
-1. Select the **Create a resource** option from the left-hand navigation pane. 
-1. Search for **Virtual Machine**.  
+1. Select the **Create a resource** option from the left-hand navigation pane. 
+1. Search for **Virtual Machine**.  
 1. Select **Ubuntu 16.04 LTS** and select **Create**. 
-1. Provide a VM name like **MyTelegrafVM**.  
-1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
-1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
-1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
+1. Provide a VM name like **MyTelegrafVM**.  
+1. Leave the disk type as **SSD**. Then provide a **username**, such as **azureuser**. 
+1. For **Authentication type**, select **Password**. Then enter a password you'll use later to SSH into this VM. 
+1. Choose to **Create new resource group**. Then provide a name, such as **myResourceGroup**. Choose your **Location**. Then select **OK**. 
 
     ![Create an Ubuntu VM](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 
-1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
+1. Select a size for the VM. You can filter by **Compute type** or **Disk type**, for example. 
 
     ![Virtual machine size Telegraph agent overview](./media/collect-custom-metrics-linux-telegraf/vm-size.png)
 
-1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
+1. On the **Settings** page in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **SSH (22)**. Leave the rest of the defaults and select **OK**. 
 
-1. On the summary page, select **Create** to start the VM deployment. 
+1. On the summary page, select **Create** to start the VM deployment. 
 
 1. The VM is pinned to the Azure portal dashboard. After the deployment finishes, the VM summary automatically opens. 
 
@@ -53,11 +53,11 @@ Create a new Linux VM:
  
 ## Connect to the VM 
 
-Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
+Create an SSH connection with the VM. Select the **Connect** button on the overview page for your VM. 
 
 ![Telegraf VM overview page](./media/collect-custom-metrics-linux-telegraf/connect-VM-button2.png)
 
-In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
+In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 22. In **Login using VM local account**, a connection command is shown. Select the button to copy the command. The following example shows what the SSH connection command looks like: 
 
 ```cmd
 ssh azureuser@XXXX.XX.XXX 
@@ -71,7 +71,7 @@ To install the Telegraf Debian package onto the VM, run the following commands f
 
 ```cmd
 # download the package to the VM 
-wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
+wget https://dl.influxdata.com/telegraf/releases/telegraf_1.8.0~rc1-1_amd64.deb 
 # install the package 
 sudo dpkg -i telegraf_1.8.0~rc1-1_amd64.deb
 ```
@@ -102,7 +102,7 @@ Now the agent will collect metrics from each of the input plug-ins specified and
 
 1. Open the [Azure portal](https://portal.azure.com). 
 
-1. Navigate to the new **Monitor** tab. Then select **Metrics**.  
+1. Navigate to the new **Monitor** tab. Then select **Metrics**.  
 
      ![Monitor - Metrics (preview)](./media/collect-custom-metrics-linux-telegraf/metrics.png)
 
@@ -122,7 +122,7 @@ Additionally, in this walkthrough, you used the Telegraf agent to emit metrics a
 
 ## Clean up resources 
 
-When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
+When they're no longer needed, you can delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the virtual machine and select **Delete**. Then confirm the name of the resource group to delete. 
 
 ## Next steps
 - Learn more about [custom metrics](metrics-custom-overview.md).

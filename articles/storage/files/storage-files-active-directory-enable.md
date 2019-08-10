@@ -1,19 +1,17 @@
 ---
-title: Enable Azure Active Directory authentication over SMB for Azure Files (preview) - Azure Storage
+title: Enable Azure Active Directory authentication over SMB for Azure Files - Azure Storage
 description: Learn how to enable identity-based authentication over Server Message Block (SMB) for Azure Files through Azure Active Directory Domain Services. Your domain-joined Windows virtual machines (VMs) can then access Azure file shares by using Azure AD credentials. 
-services: storage
 author: roygara
-
 ms.service: storage
-ms.topic: article
-ms.date: 07/05/2019
+ms.topic: conceptual
+ms.date: 08/08/2019
 ms.author: rogarana
 ---
 
-# Enable Azure Active Directory Domain Services authentication over SMB for Azure Files (preview)
+# Enable Azure Active Directory Domain Services authentication over SMB for Azure Files
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-For an overview of Azure AD authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](storage-files-active-directory-overview.md).
+For an overview of Azure AD authentication over SMB for Azure Files, see [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md).
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -75,7 +73,7 @@ To enable Azure AD DS authentication over SMB with the [Azure portal](https://po
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-quickstart-create-account.md).
 2. In the **Settings** section, select **Configuration**.
-3. Enable **Azure Active Directory authentication for Azure Files (preview)**.
+3. Select **Azure Active Directory Domain Services (Azure AD DS)** from the **Identity-based Directory Service for Azure File Authentication** dropdown list.
 
 The following image shows how to enable Azure AD DS authentication over SMB for your storage account.
 
@@ -83,13 +81,9 @@ The following image shows how to enable Azure AD DS authentication over SMB for 
   
 ### PowerShell  
 
-To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps):
+To enable Azure AD DS authentication over SMB with Azure PowerShell, install the latest Az module (2.4 or newer) or the Az.Storage module (1.5 or newer). For more information about installing PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-```powershell
-Install-Module -Name Az.Storage -AllowPrerelease -Force -AllowClobber
-```
-
-Create a new storage account, call [Set-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/set-azstorageaccount), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **EnableAzureFilesAadIntegrationForSMB**.)
+To create a new storage account, call [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), and then set the **EnableAzureActiveDirectoryDomainServicesForFile** parameter to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **EnableAzureFilesAadIntegrationForSMB**.)
 
 ```powershell
 # Create a new storage account
@@ -100,6 +94,7 @@ New-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Kind StorageV2 `
     -EnableAzureActiveDirectoryDomainServicesForFile $true
 ```
+
 To enable this feature on existing storage accounts, use the following command:
 
 ```powershell
@@ -112,18 +107,22 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 
 ### Azure CLI
 
-To enable Azure AD authentication over SMB from Azure CLI 2.0, first install the `storage-preview` extension:
+To enable Azure AD authentication over SMB with Azure CLI, install the latest CLI version (Version 2.0.70 or newer). For more information about installing Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-```cli-interactive
-az extension add --name storage-preview
-```
-  
-Next, create a new storage account, call [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update), and set the `--file-aad` property to **true**. In the following example, remember to replace the placeholder values with your own values.
+To create a new storage account, call[az storage account create](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create), and set the `--enable-files-aadds` property to **true**. In the following example, remember to replace the placeholder values with your own values. (If you were using the previous preview module, the parameter for feature enablement is **file-aad**.)
 
 ```azurecli-interactive
 # Create a new storage account
-az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
+az storage account create -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
 ```
+
+To enable this feature on existing storage accounts, use the following command:
+
+```azurecli-interactive
+# Update a new storage account
+az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
+```
+
 
 ## Assign access permissions to an identity
 
@@ -133,6 +132,7 @@ We have introduced two Azure built-in roles for granting share-level permissions
 
 - **Storage File Data SMB Share Reader** allows read access in Azure Storage file shares over SMB.
 - **Storage File Data SMB Share Contributor** allows read, write, and delete access in Azure Storage file shares over SMB.
+- **Storage File Data SMB Share Elevated Contributor** allows read, write, delete and modify NTFS permissions in Azure Storage file shares over SMB.
 
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
@@ -156,9 +156,9 @@ Before you run the following sample script, remember to replace placeholder valu
 
 ```powershell
 #Get the name of the custom role
-$FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
+$FileShareContributorRole = Get-AzRoleDefinition "<role-name>" #Use one of the built-in roles: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor
 #Constrain the scope to the target file share
-$scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+$scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 #Assign the custom role to the target identity with the specified scope.
 New-AzRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
@@ -170,17 +170,14 @@ The following CLI 2.0 command shows how to assign an RBAC role to an Azure AD id
 Before you run the following sample script, remember to replace placeholder values, including brackets, with your own values.
 
 ```azurecli-interactive
-#Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor
-az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
+#Assign the built-in role to the target identity: Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor, Storage File Data SMB Share Elevated Contributor
+az role assignment create --role "<role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshares/<share-name>"
 ```
 
 ## Configure NTFS permissions over SMB 
 After you assign share-level permissions with RBAC, you must assign proper NTFS permissions at the root, directory, or file level. Think of share-level permissions as the high-level gatekeeper that determines whether a user can access the share. Whereas NTFS permissions act at a more granular level to determine what operations the user can do at the directory or file level.
 
-Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
-
-> [!NOTE]
-> The preview release supports viewing permissions with Windows File Explorer only. Editing permissions are not yet supported.
+Azure Files supports the full set of NTFS basic and advanced permissions. You can view and configure NTFS permissions on directories and files in an Azure file share by mounting the share and then using Windows File Explorer or running the Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) or [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl) command. 
 
 To configure NTFS with superuser permissions, you must mount the share by using your storage account key from your domain-joined VM. Follow the instructions in the next section to mount an Azure file share from the command prompt and to configure NTFS permissions accordingly.
 
@@ -201,6 +198,17 @@ Use the Windows **net use** command to mount the Azure file share. Remember to r
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
+### Configure NTFS permissions with Windows File Explorer
+Use Windows File Explorer to grant full permission to all directories and files under the file share, including the root directory.
+
+1. Open Windows File Explorer and right click on the file/directory and select **Properties**
+2. Click on the **Security** tab
+3. Click on **Edit..**. button to change permissions
+4. You can change the permission of existing users, or click on **Add...** to grant permissions to new users
+5. In the prompt window for adding new users, enter the target user name you want to grant permission to in the **Enter the object names to select** box, and click on **Check Names** to find the full UPN name of the target user.
+7.	Click on **OK**
+8.	In the Security tab, select all permissions you want to grant to the newly add user
+9.	Click on **Apply**
 
 ### Configure NTFS permissions with icacls
 Use the following Windows command to grant full permissions to all directories and files under the file share, including the root directory. Remember to replace the placeholder values in the example with your own values.
@@ -232,5 +240,5 @@ You have now successfully enabled Azure AD authentication over SMB and assigned 
 For more information about Azure Files and how to use Azure AD over SMB, see these resources:
 
 - [Introduction to Azure Files](storage-files-introduction.md)
-- [Overview of Azure Active Directory authentication over SMB for Azure Files (preview)](storage-files-active-directory-overview.md)
+- [Overview of Azure Active Directory authentication over SMB for Azure Files](storage-files-active-directory-overview.md)
 - [FAQ](storage-files-faq.md)

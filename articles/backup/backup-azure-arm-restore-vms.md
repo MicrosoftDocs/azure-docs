@@ -1,16 +1,16 @@
 ---
 title: 'Azure Backup: Restore virtual machines by using the Azure portal'
 description: Restore an Azure virtual machine from a recovery point by using the Azure portal
-
-author: geethalakshmig
-manager: vijayts
+ms.reviewer: geg
+author: dcurwin
+manager: carmonm
 keywords: restore backup; how to restore; recovery point;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2019
-ms.author: geg
+ms.author: dacurwin
 ---
-# Restore Azure VMs
+# How to restore Azure VM data in Azure portal
 
 This article describes how to restore Azure VM data from the recovery points stored in [Azure Backup](backup-overview.md) Recovery Services vaults.
 
@@ -106,7 +106,8 @@ As one of the [restore options](#restore-options), you can create a disk from a 
 
 4. In **Restore configuration**, select **OK**. In **Restore**, click **Restore** to trigger the restore operation.
 
-During the VM restore, Azure Backup doesn’t use storage account. But in case of **Restore disks** and **Instant Restore**, storage account is used for storing template.
+When your virtual machine uses managed disks and you select the **Create virtual machine** option, Azure Backup doesn’t use the specified storage account. In the case of **Restore disks** and **Instant Restore**, the storage account is used only for storing the template. Managed disks are created in the specified resource group.
+When your virtual machine uses unmanaged disks, they are restored as blobs to the storage account.
 
 ### Use templates to customize a restored VM
 
@@ -157,7 +158,7 @@ There are a number of common scenarios in which you might need to restore VMs.
 **Zone Pinned VMs** | Azure Backup supports backup and restore of zoned pinned VMs. [Learn more](https://azure.microsoft.com/global-infrastructure/availability-zones/)
 
 ## Track the restore operation
-After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, click on the **Notifications** symbol to see them.
+After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. If they aren't visible, select the **Notifications** symbol, and then select **View all Jobs** to see the Restore Process Status.
 
 ![Restore triggered](./media/backup-azure-arm-restore-vms/restore-notification1.png)
 

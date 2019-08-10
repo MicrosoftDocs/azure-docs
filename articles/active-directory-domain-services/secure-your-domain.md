@@ -33,9 +33,12 @@ Follow the instructions in the article to [install the Azure PowerShell module a
 
 ## Disable weak cipher suites and NTLM credential hash synchronization
 Use the following PowerShell script to:
+
 1. Disable NTLM v1 support on the managed domain.
 2. Disable the synchronization of NTLM password hashes from your on-premises AD.
 3. Disable TLS v1 on the managed domain.
+
+If you receive an error with the `Get-AzResource` command that the *Microsoft.AAD/DomainServices* resource doesn't exist, [elevate your access to manage all Azure subscriptions and management groups](../role-based-access-control/elevate-access-global-admin.md).
 
 ```powershell
 // Login to your Azure AD tenant
