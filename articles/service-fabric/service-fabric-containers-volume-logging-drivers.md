@@ -78,7 +78,7 @@ Once you've successfully run the script, you can skip to the [configuring your a
 
 ### Manual deployment for standalone clusters
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). The application can be deployed to the cluster via [PowerShell](/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](../service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](../service-fabric-deploy-remove-applications-fabricclient.md).
+The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.516.9494.zip). The application can be deployed to the cluster via [PowerShell](/azure/service-fabric/service-fabric-deploy-remove-applications), [CLI](./service-fabric-application-lifecycle-sfctl.md) or [FabricClient APIs](./service-fabric-deploy-remove-applications-fabricclient.md).
 
 1. Using the command line, change directory to the root directory of the downloaded application package.
 
