@@ -500,7 +500,7 @@ You are now ready to run the console apps.
 
 ## Next steps
 
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You created a back-end app to run two jobs. The first job set desired property values, and the second job called a direct method.
+In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.
 
 Use the following resources to learn how to:
 
