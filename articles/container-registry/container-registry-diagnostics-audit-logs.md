@@ -8,7 +8,7 @@ manager: gwallace
 editor: ''
 
 ms.assetid: 
-ms.service: batch
+ms.service: container-registry
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
