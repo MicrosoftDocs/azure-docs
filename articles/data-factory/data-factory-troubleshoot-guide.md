@@ -2,11 +2,11 @@
 title: Troubleshoot Azure Data Factory | Microsoft Docs
 description: Learn how to troubleshoot external control activities in Azure Data Factory. 
 services: data-factory
-author: abnarain
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 6/26/2019
-ms.author: nabhishek
+ms.author: abnarain
 ms.reviewer: craigg
 ---
 
