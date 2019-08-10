@@ -58,7 +58,7 @@ You are returned to the Visual Studio IDE, with the new project created and visi
 
 ![helloworld project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-helloworld.png)
 
-Now, select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you're running 64-bit Windows, select **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can leave it set to **x86** if you prefer.
+Now, select your target platform architecture. In the Visual Studio toolbar, find the **Solution Platforms** drop-down box. If you're running 64-bit Windows, choose **x64** in the drop-down box. 64-bit Windows can also run 32-bit applications, so you can choose **x86** if you prefer.
 
 > [!NOTE]
 > The Speech SDK only supports Intel-compatible processors. ARM processors are currently not supported.
