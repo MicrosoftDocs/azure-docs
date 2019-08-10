@@ -170,3 +170,10 @@ The audit log is available at your Azure AD B2C tenant, or for a particular user
 ### Usage insights
 
 Azure AD B2C allows you to find out when people sign-up or sign-in to your web app, where your users are located, and what browsers and operating systems they use. By integrating Azure Application Insights into Azure AD B2C, you gain powerful insights into how people sign-up, sign-in, reset their password or edit the profile. With this knowledge, you can make data driven decisions about your next development cycles.
+
+## Next steps
+
+Now that you have deeper view into the features and technical aspects Azure Active Directory B2C, get started with the service by creating a B2C tenant:
+
+> [!div class="nextstepaction"]
+> [Tutorial: Create an Azure Active Directory B2C tenant >](tutorial-create-tenant.md)
