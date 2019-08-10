@@ -629,7 +629,7 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 });
 ```
 
-[See live example](map-add-shape.md#line-stroke-gradient)
+[See live example](map-add-line-layer.md#line-stroke-gradient)
 
 ### Text field format expression
 

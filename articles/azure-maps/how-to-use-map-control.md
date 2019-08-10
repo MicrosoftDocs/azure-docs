@@ -97,7 +97,7 @@ You can embed a map in a web page by using the Map Control client-side Javascrip
     </script>
     ```
 
-    For more information, see [Authentication with Azure Maps](azure-maps-authentication.md) for more details.
+    For more information, see the [Authentication with Azure Maps](azure-maps-authentication.md) document.
 
 6. Optionally, you may find adding the following meta tag elements to the head of your page helpful:
 
@@ -216,4 +216,4 @@ To add more data to your map:
 > [Create a map](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Code sample page (GitHub)](https://aka.ms/AzureMapsSamples)
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

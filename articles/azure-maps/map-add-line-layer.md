@@ -13,12 +13,12 @@ ms.custom: codepen
 
 # Add a line layer to the map
 
-A line layer can be usered to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it data to render. 
+A line layer can be used to render `LineString` and `MultiLineString` features as paths or routes on the map. A line layer can also be used to render the outline of `Polygon` and `MultiPolygon` features. A data source is connected to a line layer to provide it data to render. 
 
 > [!TIP]
 > Line layers by default will render the coordinates of polygons as well as lines in a data source. To limit the layer such that it only renders LineString features set the `filter` property of the layer to `['==', ['geometry-type'], 'LineString']` or `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` if you want to include MultiLineString features as well.
 
-The following code shows how to create a simple line, add it to a data source and render it with a line layer using the [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) class.
+The following code shows how to create a line, add it to a data source and render it with a line layer using the [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) class.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -35,7 +35,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 }));
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -56,7 +56,7 @@ This sample shows how to add arrow icons along a line on the map. When using a s
 </iframe>
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
 
 <a name="line-stroke-gradient"></a>
 

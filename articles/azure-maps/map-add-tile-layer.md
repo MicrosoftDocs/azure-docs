@@ -47,7 +47,7 @@ map.layers.add(new atlas.layer.TileLayer({
 }), 'labels');
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 

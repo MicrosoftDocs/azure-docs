@@ -47,7 +47,7 @@ map.events.add('click',marker, () => {
 });
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -64,7 +64,7 @@ The default `htmlContent` of an Html marker is an SVG template with place folder
 </iframe>
 
 > [!TIP]
-> The Azure Maps web SDK provides several SVG image templates that can be used with HTML markers. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+> The Azure Maps web SDK provides several SVG image templates that can be used with HTML markers. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
 
 ## Add a CSS styled HTML marker
 
@@ -77,7 +77,7 @@ One of the benefits of HTML markers is that there are many great customizations 
 
 ## Draggable HTML markers
 
-This sample shows how to make an HTML marker draggable. HTML markers support `drag`, `dragstart` and `dragend` events.
+This sample shows how to make an HTML marker draggable. HTML markers support `drag`, `dragstart`, and `dragend` events.
 
 <br/>
 

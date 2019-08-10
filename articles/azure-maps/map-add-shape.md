@@ -13,11 +13,11 @@ ms.custom: codepen
 
 # Add a polygon layer to the map
 
-This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle) which are transformed into polygons when rendered on the map. All feature geometries can also be easily updated if wrapped with the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class.
+This article shows you how to render the areas of `Polygon` and `MultiPolygon` feature geometries on the map using a polygon layer. The Azure Maps Web SDK also supports the creation of Circle geometries as defined in the [extended GeoJSON schema](extend-geojson.md#circle). These circles are transformed into polygons when rendered on the map. All feature geometries can also be easily updated if wrapped with the [atlas.Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) class.
 
 ## Use a polygon layer 
 
-When a polygon layer is connected to a data source and loaded on the map, it renders the area of a `Polygon` and `MultiPolygon` features. The following code shows how to create a simple polygon, add it to a data source and render it with a polygon layer using the [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) class.
+When a polygon layer is connected to a data source and loaded on the map, it renders the area of a `Polygon` and `MultiPolygon` features. The following code shows how to create a polygon, add it to a data source and render it with a polygon layer using the [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) class.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -42,7 +42,7 @@ map.layers.add(new atlas.layer.PolygonLayer(dataSource, null,{
 }));
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -58,7 +58,7 @@ A line layer can be used to render the outline of polygons. The following code s
 
 ## Fill a polygon with a pattern
 
-In addition to filling a polygon with a color an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
+In addition to filling a polygon with a color, an image pattern can also be used. Load an image pattern into the maps image sprite resources and then reference this image with the `fillPattern` property of the polygon layer.
 
 <br/>
 
@@ -69,7 +69,7 @@ In addition to filling a polygon with a color an image pattern can also be used.
 
 
 > [!TIP]
-> The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. See the [How to use image templates](how-to-use-image-templates-web-sdk.md) document for more information.
+> The Azure Maps web SDK provides several customizable image templates you can use as fill patterns. For more information, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
 
 ## Customize a polygon layer
 

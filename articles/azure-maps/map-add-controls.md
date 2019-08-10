@@ -25,7 +25,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 });
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -43,7 +43,7 @@ map.controls.add(new atlas.control.PitchControl(), {
 });
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -61,7 +61,7 @@ map.controls.add(new atlas.control.Compass(), {
 });
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -77,7 +77,7 @@ The following code sample adds the style picker, zoom, pitch, and compass contro
 <iframe height='500' scrolling='no' title='A map with all the controls' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>A map with all the controls</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The style picker control is defined by the [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) class. For more information on using the style picker control see [choose a map style](choose-map-style.md).
+The style picker control is defined by the [StyleControl](/javascript/api/azure-maps-control/atlas.control.stylecontrol) class. For more information on using the style picker control, see [choose a map style](choose-map-style.md).
 
 ## Customize controls
 
@@ -90,7 +90,7 @@ Here is a tool to test out the various options for customizing the controls.
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-If you want to create completely customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. HAve this UI control call the maps `setCamera` function to move the map. 
+If you want to create customized navigation controls, create a class that extends from the `atlas.Control` class or create an HTML element and position it above the map div. HAve this UI control call the maps `setCamera` function to move the map. 
 
 ## Next steps
 

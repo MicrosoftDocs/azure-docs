@@ -50,4 +50,4 @@ See the following articles for full code examples:
 > [Using the Azure Maps Services module](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Code sample page (GitHub)](https://aka.ms/AzureMapsSamples)
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

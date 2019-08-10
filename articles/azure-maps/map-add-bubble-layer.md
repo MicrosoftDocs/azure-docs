@@ -20,7 +20,7 @@ This article shows you how you can render point data from a data source as a bub
 
 ## Add a bubble layer
 
-The following code loads an array of points into a data source and connects it to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). The bubble layer is given options to render the radius of each bubble at 5 pixels, a fill color of white, a stroke color of blue, and stroke width of 6 pixels. 
+The following code loads an array of points into a data source and connects it to a [bubble layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest). The bubble layer is given options to render the radius of each bubble at five pixels, a fill color of white, a stroke color of blue, and stroke width of six pixels. 
 
 ```javascript
 //Add point locations.
@@ -48,7 +48,7 @@ map.layers.add(new atlas.layer.BubbleLayer(dataSource, null, {
 }));
 ```
 
-The following is a complete running code sample of the above functionality.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -95,4 +95,4 @@ See the following articles for more code samples to add to your maps:
 > [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Code sample page (GitHub)](https://aka.ms/AzureMapsSamples)
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)

@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Create a data source
 
-The Azure Maps Web SDK stores data in data sources which optimizes the data for querying and rendering. Currently there are two types of data sources:
+The Azure Maps Web SDK stores data in data sources that optimizes the data for querying and rendering. Currently there are two types of data sources:
 
 **GeoJSON data source**
 
@@ -22,16 +22,16 @@ A GeoJSON based data source can load and store data locally using the `DataSourc
 
 
 **Vector tile source**
-A vector tile source describes how to access a vector tile layer and can be created using the [VectorTileSource] class. Azure Maps aligns with the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec) which is an open standard. Vector tile layers are very similar to tile layers, however, instead of each tile being a raster image, they are a compressed file (PBF format) that contains vector map data and one or more layers which can be rendered and styled on the client based on the style of each layer. The data inside of vector tiles contain geographic features in the form of points, lines, and polygons. There are several advantages of vector tile layers over raster tile layers;
+A vector tile source describes how to access a vector tile layer and can be created using the [VectorTileSource] class. Azure Maps aligns with the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), which is an open standard. Vector tile layers are similar to tile layers, however, instead of each tile being a raster image, they're a compressed file (PBF format) that contains vector map data and one or more layers that can be rendered and styled on the client based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of vector tile layers over raster tile layers;
 
- - A file size of a vector tile is typically much smaller than an equivalent raster tile. This means less bandwidth usage and lower latency. This results in faster maps and better overall performance.
- - Since vector tiles are rendered on the client, they are able to adapt to the resolution of the device they are being displayed on. This makes allows the rendered maps that appear much more well defined and with crystal clear labels. 
- - Changing the style of the data in the vector maps doesn’t require downloading the data again since the new style can be applied on the client. Whereas changing the style of a raster tile layer typically requires loading tiles from the server that have the new style applied to them.
- - Since the data is delivered in vector form, there is less server-side processing required to prepare the data which means that newer data can be made available faster.
+ - A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used, which means lower latency and a faster map. This creates a better user experience.
+ - Since vector tiles are rendered on the client, they can adapt to the resolution of the device they're being displayed on. This makes allows the rendered maps that appear much more well defined and with crystal clear labels. 
+ - Changing the style of the data in the vector maps doesn’t require downloading the data again since the new style can be applied on the client. In contrast, changing the style of a raster tile layer typically requires loading tiles from the server that have the new style applied to them.
+ - Since the data is delivered in vector form, there's less server-side processing required to prepare the data, which means that newer data can be made available faster.
 
 All layers that use a vector source must specify a `sourceLayer` value. 
 
-Once created, data sources can be added to the map through the `map.sources` property which is a [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager?view=azure-maps-typescript-latest). The following code shows how to create a `DataSource` and add it to the map.
+Once created, data sources can be added to the map through the `map.sources` property, which is a [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager?view=azure-maps-typescript-latest). The following code shows how to create a `DataSource` and add it to the map.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -45,7 +45,7 @@ Data is rendered on the map using rendering layers. A single data source can be 
 
 - [Bubble layer](map-add-bubble-layer.md) - renders point data as scaled circles on the map.
 - [Symbol layer](map-add-pin.md) - renders point data as icons and/or text.
-- [Heat map layer](map-add-heat-map.md) - renders point data as a desnity heat map.
+- [Heat map layer](map-add-heat-map-layer.md) - renders point data as a density heat map.
 - [Line layer](map-add-shape.md) - can be used to render line and or the outline of polygons. 
 - [Polygon layer](map-add-shape.md) - fills the area of a polygon with a solid color or image pattern.
 
@@ -63,18 +63,18 @@ map.layers.add(new atlas.layer.BubbleLayer(datasource));
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/significant_month.geojson');
 ```
 
-There are additional rendering layers which don't connect to these data sources, but instead load the data they render directly. 
+There are additional rendering layers that don't connect to these data sources, but instead load the data they render directly. 
 
 - [Image layer](map-add-image-layer.md) - overlays a single image on top of the map and binds its corners to a set of specified coordinates.
 - [Tile layer](map-add-tile-layer.md) - superimposes a raster tile layer on top of the map.
 
 ## One data source with multiple layers
 
-Multiple layers can be connected to a single data source. This may sound odd, but there are many different scenarios where this becomes useful. Take for example the scenario of creating a polygon drawing experience. When letting a user draw a polygon we should render the fill polygon area as the user is adding points to the map. Adding a styled line that outlines the polygon will make it easier see the edges of the polygon as it is being drawn. Finally adding some sort of handle, such as a pin or marker, above each position in the polygon would make it easier to edit each individual position. Here is an image that demonstrates this scenario.
+Multiple layers can be connected to a single data source. This may sound odd, but there are many different scenarios where this becomes useful. Take, for example, the scenario of creating a polygon drawing experience. When letting a user draw a polygon, we should render the fill polygon area as the user is adding points to the map. Adding a styled line that outlines the polygon will make it easier see the edges of the polygon as it is being drawn. Finally adding some sort of handle, such as a pin or marker, above each position in the polygon would make it easier to edit each individual position. Here is an image that demonstrates this scenario.
 
 ![Map showing multiple layers rendering data from a single data source](media/create-data-source-web-sdk/multiple-layers-one-datasource.png)
 
-To accomplish this in most mapping platforms you would need to create a polygon object, a line object, and pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins. The work required to do this becomes complex very quickly.
+To accomplish this scenario in most mapping platforms you would need to create a polygon object, a line object, and pin for each position in the polygon. As the polygon is modified, you would need to manually update the line and pins, which can become complex quickly.
 
 With Azure Maps all you need is a single polygon in a data source as shown in the code below.
 
@@ -146,7 +146,7 @@ See the following articles for more code samples to add to your maps:
 > [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Add a heat map](map-add-heat-map.md)
+> [Add a heat map](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Code sample page (GitHub)](https://aka.ms/AzureMapsSamples)
+> [Code samples](https://docs.microsoft.com/samples/browse/?products=azure-maps)
