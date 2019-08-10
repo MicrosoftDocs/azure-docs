@@ -83,19 +83,19 @@ WoodGrove Groceries offers several sign-in options based on the relationship the
 
 When a customer selects **Sign in with your personal account**, they're redirected to a customized sign-in page hosted by Azure AD B2C. You can see in the following image that we've customized the user interface (UI) to look and feel just like the WoodGrove Groceries website. Their customers should be unaware that the authentication experience is hosted and secured by Azure AD B2C.
 
+![Custom WoodGrove sign-in page hosted by Azure AD B2C](media/active-directory-b2c-overview/sign-in.png)
+
 WoodGrove allows their customers to sign up and sign in by using their Google, Facebook, or Microsoft accounts as their identity provider. Or, they can sign up by using their email address and a password to create what's called a *local account*.
 
-![](media/active-directory-b2c-overview/sign-in.png)
-
 When a customer selects **Sign up with your personal account** and then **Sign up now**, they are presented with a custom sign-up page.
+
+![Custom WoodGrove sign-up page hosted by Azure AD B2C](media/active-directory-b2c-overview/sign-up.png)
 
 After entering an email address and selecting **Send verification code**, Azure AD B2C sends them the code. Once they enter their code, select **Verify code**, and then enter the other information on the form, they must also agree to the terms of service.
 
 Clicking the **Create** button causes Azure AD B2C to redirect the user back to the WoodGrove Groceries website. When it redirects, Azure AD B2C passes an OpenID Connect authentication token to the WoodGrove web application. The user is now signed-in and ready to go, their display name shown in the top-right corner to indicate they're signed in.
 
-The following animation shows the sign-up user journey provided by WoodGrove and Azure AD B2C:
-
-![Animated GIF showing WoodGrove's sign up user journey](media/active-directory-b2c-overview/sign-up1.gif)
+![WoodGrove Groceries website header showing user is signed in](media/active-directory-b2c-overview/signed-in-individual.png)
 
 ### Authenticate business customers
 
