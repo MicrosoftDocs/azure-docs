@@ -4,13 +4,14 @@ description: This quickstart provides a Java code sample you can use to connect 
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc, devcenter, seo-java-july2019
+ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
 ms.date: 08/08/2019
 ---
 
-# Azure Database for MySQL: Use Java to connect and query data
+# Quickstart: Use Java to connect to and query data in Azure Database for MySQL
+
 This quickstart demonstrates how to connect to an Azure Database for MySQL by using a Java application and the JDBC driver [MariaDB Connector/J](https://mariadb.com/kb/en/library/mariadb-connector-j/). It shows how to use SQL statements to query, insert, update, and delete data in the database. This article assumes that you are familiar with developing using Java and that you are new to working with Azure Database for MySQL.
 
 ## Prerequisites
