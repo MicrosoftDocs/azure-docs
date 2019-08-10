@@ -30,7 +30,7 @@ At the end of this tutorial, you have two Node.js console apps:
 
 ## Prerequisites
 
-To complete this tutorial, you need the following:
+To complete this tutorial, you need:
 
 * Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
@@ -46,7 +46,7 @@ To complete this tutorial, you need the following:
 
 ## Create a simulated device app
 
-In this section, you will perform the following steps:
+In this section, you will:
 
 * Create a Node.js console app that responds to a direct method called by the cloud
 
@@ -241,7 +241,7 @@ In this section, you create a Node.js console app that initiates a remote reboot
 
 ## Run the apps
 
-You are now ready to run the apps.
+You're now ready to run the apps.
 
 1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
 
