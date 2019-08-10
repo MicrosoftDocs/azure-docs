@@ -121,6 +121,8 @@
     href: /javascript/api/overview/azure/containerinstances
   - name: Resource Manager template
     href: /azure/templates/microsoft.containerinstance/containergroups
+  - name: YAML file reference  
+    href: container-instances-reference-yaml.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
