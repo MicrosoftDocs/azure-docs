@@ -11,9 +11,9 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019
 ---
-# Quickstart: Using Java to call the Text Analytics Cognitive Service
+# Quickstart: Use Java to call the Azure Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
 This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Java.
