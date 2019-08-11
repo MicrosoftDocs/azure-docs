@@ -1,5 +1,5 @@
 ---
-title: Create a shared access signature (SAS) using Azure Active Directory credentials with the Azure CLI (preview) - Azure Storage
+title: Create a user delegation SAS for a container or blob with the Azure CLI (preview) - Azure Storage
 description: Learn how to create a user delegation SAS using Azure Active Directory credentials in Azure Storage using the Azure CLI.
 services: storage
 author: tamram
@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 ms.subservice: blobs
 ---
 
-# Create a shared access signature (SAS) for a container or blob using Azure Active Directory credentials with the Azure CLI (preview)
+# Create a user delegation SAS for a container or blob with the Azure CLI (preview)
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 

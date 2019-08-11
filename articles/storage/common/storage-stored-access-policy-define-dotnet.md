@@ -56,6 +56,6 @@ private static async Task CreateStoredAccessPolicyAsync(CloudBlobContainer conta
 
 ## See also
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-shared-access-signatures.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Define a stored access policy](/rest/api/storageservices/define-stored-access-policy)
 

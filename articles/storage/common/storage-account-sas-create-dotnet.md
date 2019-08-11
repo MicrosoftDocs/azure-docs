@@ -1,5 +1,5 @@
 ---
-title: Create an account shared access signature (SAS) with .NET - Azure Storage
+title: Create an account SAS with .NET - Azure Storage
 description: Learn how to create an account shared access signature (SAS) using the .NET client library.
 services: storage
 author: tamram
@@ -12,7 +12,7 @@ ms.reviewer: cbrooks
 ms.subservice: common
 ---
 
-# Create an account shared access signature (SAS) with .NET
+# Create an account SAS with .NET
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
@@ -92,5 +92,5 @@ static void UseAccountSAS(string sasToken)
 
 ## See also
 
-- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-shared-access-signatures.md)
+- [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
 - [Create an account SAS](/rest/api/storageservices/create-account-sas)
