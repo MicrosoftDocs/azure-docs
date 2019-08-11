@@ -77,7 +77,7 @@ To bring your own license, you can either convert an existing pay-per-usage SQL 
 | **SQL Server 2014 SP2** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2EnterpriseWindowsServer2012R2), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2014SP2StandardWindowsServer2012R2) |
 | **SQL Server 2012 SP4** |Windows Server 2012 R2 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4EnterpriseWindowsServer2012R2), [Standard  BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2012SP4StandardWindowsServer2012R2) |
 
-It is possible to deploy an older image of SQL Server that is not available in the Azure Portal using PowerShell. To view all available images using Powershell, use the following command:
+It is possible to deploy an older image of SQL Server that is not available in the Azure portal using PowerShell. To view all available images using Powershell, use the following command:
 
   ```powershell
   Get-AzVMImageOffer -Location $Location -Publisher 'MicrosoftSQLServer'
