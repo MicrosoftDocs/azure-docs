@@ -2,12 +2,12 @@
 title: Use Availability Zones in Azure Kubernetes Service (AKS)
 description: Learn how to create a cluster that distributes nodes across availability zones in Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: iainfou
+ms.author: mlearned
 ---
 
 # Preview - Create an Azure Kubernetes Service (AKS) cluster that uses Availability Zones
