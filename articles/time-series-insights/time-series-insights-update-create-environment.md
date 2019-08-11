@@ -57,7 +57,7 @@ In this section, you create three simulated devices that send data to an Azure I
 
     [![Create Device Simulation solution page](media/v2-update-provision/device-two-create.png)](media/v2-update-provision/device-two-create.png#lightbox)
 
-## Create a Time Series Insights Preview PAYG environment
+## Create a Preview PAYG environment
 
 This section describes how to create an Azure Time Series Insights Preview environment and connect it to the IoT hub created by the IoT Solution Accelerator using the [Azure portal](https://portal.azure.com/).
 
@@ -125,7 +125,9 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
    If your credentials aren't listed, you must grant yourself permission to access the environment. To learn more about setting permissions, read [Grant data access](./time-series-insights-data-access.md).
 
-## Stream data into your environment
+## Stream data
+
+Now that you've deployed your Time Series Insights environment, stream data into it for analysis.
 
 1. Navigate back to the [Azure IoT solution accelerators page](https://www.azureiotsolutions.com/Accelerators). Locate your solution in your solution accelerator dashboard. Then, select **Launch**:
 
@@ -153,7 +155,7 @@ This section describes how to create an Azure Time Series Insights Preview envir
 
     [![Azure IoT simulation dashboard](media/v2-update-provision/device-seven-dashboard.png)](media/v2-update-provision/device-seven-dashboard.png#lightbox)
 
-## Analyze data in your environment
+## Analyze data
 
 In this section, you perform basic analytics on your time series data by using the [Azure Time Series Insights Preview explorer](./time-series-insights-update-explorer.md).
 

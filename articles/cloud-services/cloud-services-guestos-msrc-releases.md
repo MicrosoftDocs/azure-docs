@@ -5,16 +5,13 @@ services: cloud-services
 documentationcenter: na
 author: raiye
 editor: ''
-
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 7/26/2019
+ms.date: 8/2/2019
 ms.author: raiye
-
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
@@ -24,7 +21,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 |  Rel 19-07   |  [4507434]  |  Internet Explorer   |  2.88, 3.75, 4.68  |  July 9, 2019  |
-|  Rel 19-07   |  [4506621]  |  Windows Security   |  2.88, 3.75, 4.68  |  July 9, 2019  |
 |  Rel 19-07   |  [4506966]  |  .NET 4.5.2 Security   |  2.88  |  July 9, 2019  |
 |  Rel 19-07   |  [4506976]  |  .NET 3.5.1 Security   |  2.88  |  July 9, 2019  |
 |  Rel 19-07   |  [4507456]  |  Windows Security   |  2.88  |  July 9, 2019  |

@@ -24,7 +24,7 @@ You can select **Engine**, **Service**, and **Metrics** categories.
 
 ### Engine
 
-Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/sql/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
+Selecting **Engine** logs all [xEvents](https://docs.microsoft.com/analysis-services/instances/monitor-analysis-services-with-sql-server-extended-events). You cannot select individual events. 
 
 |XEvent categories |Event name  |
 |---------|---------|

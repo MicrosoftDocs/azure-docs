@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: dacurwin
 ---
-# Manage Azure VM backups
+# Manage Azure VM backups with Azure Backup service
 
 This article describes how to manage Azure virtual machines (VMs) that are backed up by using the [Azure Backup service](backup-overview.md). The article also summarizes the backup information you can find on the vault dashboard.
 
