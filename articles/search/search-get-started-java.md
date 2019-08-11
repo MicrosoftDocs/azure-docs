@@ -8,9 +8,9 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018, seo-java-july2019
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019
 ---
-# Quickstart: Create an Azure Search index in Java
+# Quickstart: Create, load, and query indexes using Azure Search REST APIs with Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
