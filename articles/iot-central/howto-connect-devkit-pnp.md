@@ -1,212 +1,205 @@
----
-title: Connect a DevKit device to your Azure IoT Central application | Microsoft Docs
-description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
-author: dominicbetts
-ms.author: dobett
-ms.date: 03/22/2019
-ms.topic: conceptual
-ms.service: iot-central
-services: iot-central
-manager: philmea
----
+# Connect an MXChip IoT DevKit device to your Azure IoT Central application via IoT Plug and Play
 
-# Connect an MXChip IoT DevKit device to your Azure IoT Central application
+This article describes how to connect MXChip IoT DevKit as a certified PnP device to Azure IoT Central.
 
-[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
+## What you learn
 
-This article describes how, as a device developer, to connect a MXChip IoT DevKit (DevKit) device to your Microsoft Azure IoT Central application.
+- Add and configure a real device in IoT Central application.
+- Prepare the device connect to IoT Central.
+- View the telemetry and properties from the device, and send commands to the device.
 
-## Before you begin
+## What you need
 
 To complete the steps in this article, you need the following resources:
 
-1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json).
-1. A DevKit device. To purchase a DevKit device, visit [MXChip IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/).
-
-> [!NOTE]
-> This is a device sample for a device that is not IoT Plug and Play compliant. You will need to model the device template in IoT Central as outlined below. 
-
-
-## MXChip Device template details
-
-Start by using a custom device template and modeling the device capability model to reflect the below template details. Be sure to publish your device template in order to begin connecting real devices.
-
-### Measurements
-
-#### Telemetry
-
-| Field name     | Units  | Minimum | Maximum | Decimal places |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
-
-#### Telemetry with State semantic type 
-| Name          | Display name   | NORMAL | CAUTION | DANGER | 
-| ------------- | -------------- | ------ | ------- | ------ | 
-| DeviceState   | Device State   | Green  | Orange  | Red    | 
-
-#### Telemetry with Event semantic type
-| Name             | Display name      | 
-| ---------------- | ----------------- | 
-| ButtonBPressed   | Button B Pressed  | 
-
-### Writeable properties
-
-Numeric writeable properties
-
-| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
-
-Toggle writeable properties
-
-| Display name | Field name | On text | Off text | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | Off     |
-
-### Properties
-
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Device property | Device Location   | location  | location    |
-| Text            | Manufactured In     | manufacturedIn   | N/A       |
-
-### Commands
-
-| Display name | Field name | Return type | Input field display name | Input field name | Input field type |
-| ------------ | ---------- | ----------- | ------------------------ | ---------------- | ---------------- |
-| Echo         | echo       | text        | value to display         | displayedValue   | text             |
-| Countdown    | countdown  | number      | Count from               | countFrom        | number           |
-
+1. An MXChip IoT DevKit. [Get it now](https://aka.ms/iot-devkit-purchase).
+1. An IoT Central application created from the **PnP application template**. You can follow the steps in [Create an PnP application](#/).
 
 ## Add a real device
 
+### Create and configure a device template
+
+1. In your Azure IoT Central application, select **Device templates** tab, click **New** and choose **MXChip IoT DevKit** from pre-certified device catalog to create a new device template.
+
+   ![Create device template](media/howto-connect-devkit-pnp/create-template.png)
+
+1. Choose **MXChip IoT DevKit** template, you can see all the capabilities in your device template.
+
+1. Select **View**, you can add and configure dashboard view in this pane. Click **Editing Device and Cloud Data**, to create a form to edit writable properties.
+
+   ![Edit data view](media/howto-connect-devkit-pnp/edit-data-view.png)
+
+1. Expand **Properties**, drag the labels which you want to edit or view to the blank canvas on the right. In this tutorial, you drag all the labels to the canvas, and click **Save**. Then click **Publish** button on the upper right corner.
+
+   ![Drag property labels](media/howto-connect-devkit-pnp/drag-property-labels.png)
+
 ### Get your device connection details
 
-In your Azure IoT Central application, add a real device from the **MXChip** device template and make a note of the device connection details: **Scope ID, Device ID, and Primary key**:
+1. Select **Devices** tab, choose **MXChip IoT DevKit**, and then click **New** to create a new device under the DevKit device template you just created.
 
-1. Add a **real device** from the **Devices** page, select **+New** and **Create** to add a real device.
+   Enter a unique Device ID and Device Name. Then create a real device.
 
-1. To get the device connection details, **Scope ID**, **Device ID**, and **Primary key**, select **Connect** on the device page.
+   ![Create new device](media/howto-connect-devkit-pnp/create-new-device2.png)
 
-    ![Connection details](media/howto-connect-devkit-pnp/device-connect.png)
+2. Select the device you created, and click **Connect** to view the device connection details. Make a note of the **Scope ID**, **Device ID**, and **Primary key**.
 
-1. Make a note of the connection details. You're temporarily disconnected from the internet when you prepare your DevKit device in the next step.
+   ![IoT Central device connection info](media/howto-connect-devkit-pnp/device-connection.png)
 
-### Prepare the DevKit device
+## Prepare th DevKit device
 
-If you've previously used the device and want to reconfigure it to use a different WiFi network, connection string, or telemetry measurement, press both the **A** and **B** buttons at the same time. If it doesn't work, press **Reset** button and try again.
+1. Download the latest [pre-built Azure IoT Central firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the MXChip from GitHub.
 
-#### To prepare the DevKit device
-
-1. Download the latest pre-built Azure IoT Central firmware for the MXChip from the [releases](https://aka.ms/iotcentral-docs-MXChip-releases) page on GitHub.
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
-1. Drag the **iotCentral.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
-1. When the DevKit device restarts, the following screen displays:
+1. Drag the **iotc_devkit.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
-    ```
-    Connect HotSpot:
-    AZ3166_??????
-    go-> 192.168.0.1
-    PIN CODE xxxxx
-    ```
+1. On the DevKit, hold down **button B**, push and release the **Reset** button, and then release **button B**. The device is now in access point (AP) mode. To confirm, the screen displays "IoT DevKit - AP" and configuration portal IP address.
 
-    > [!NOTE]
-    > If the screen displays anything else, reset the device and press the **A**  and **B** buttons on the device at the same time to reboot the device.
+1. On your computer or tablet connect to the WiFi network name shown on the screen of the device. The WiFi network starts with **AZ-** followed by the MAC address. When you connect to this network, you don't have internet access. This state is expected, and you're only connected to this network for a short time while you configure the device.
 
-1. The device is now in access point (AP) mode. You can connect to this WiFi access point from your computer or mobile device.
+1. Open your web browser and navigate to [http://192.168.0.1/](http://192.168.0.1/). The following web page displays:
 
-1. On your computer, phone, or tablet connect to the WiFi network name shown on the screen of the device. When you connect to this network, you don't have internet access. This state is expected, and you're only connected to this network for a short time while you configure the device.
-
-1. Open your web browser and navigate to [http://192.168.0.1/start](http://192.168.0.1/start). The following web page displays:
-
-    ![Device configuration page](media/howto-connect-devkit-pnp/configpage.png)
+    ![Config UI](media/howto-connect-devkit-pnp/config-ui.jpg)
 
     On the web page, enter:
-    - The name of your WiFi network
+
+    - The name of your WiFi network (SSID)
     - Your WiFi network password
-    - The PIN code shown on the device's display
-    - The connection details **Scope ID**, **Device ID**, and **Primary key** of your device (you should have already saved this following the steps)
-    - Select all the available telemetry measurements
+    - The connection details **Scope ID**, **Registration ID** (Device ID), and **Symmetric key** of your device (you should have already saved this following the steps)
 
-1. After you choose **Configure Device**, you see this page:
+    > [!NOTE]
+    > Currently, the IoT DevKit only can connect to 2.4 GHz Wi-Fi, 5 GHz is not supported due to hardware restrictions.
 
-    ![Device configured](media/howto-connect-devkit-pnp/deviceconfigured.png)
+1. After choose **Save**, the DevKit will reboot and runs the application.
 
-1. Press the **Reset** button on your device.
+    ![Reboot UI](media/howto-connect-devkit-pnp/reboot-ui.png)
 
-## View the telemetry
+Now the DevKit starts sending data to your IoT Central application. You can open serial monitor to see the device output log.
 
-When the DevKit device restarts, the screen on the device shows:
+1. Download the serial client such as [Tera Term](https://tera-term.en.lo4d.com/windows).
 
-* The number of telemetry messages sent.
-* The number of failures.
-* The number of desired properties received and the number of reported properties sent.
+1. Connect the DevKit to your computer by USB.
 
-> [!NOTE]
-> If the device appears to loop when it tries to connect, check if the device is **Blocked** in IoT Central, and **Unblock** the device so it can connect to the app.
+1. Open Tera Term, select **serial**, and then expand the port. The device should appear as an STMicroelectronics device. Choose **STMicroelectronics STLink Virtual COM Port**. Click OK.
 
-Shake the device to send a reported property. The device sends a random number as the **Die number** device property.
+   ![Select COM poart](media/howto-connect-devkit-pnp/select-port.png)
 
-You can view the telemetry measurements and reported property values, and configure writeable properties in Azure IoT Central through the views that have been configured for your device template.
+1. Click **Setup** on the menu bar, select **serial port**, and configure the connection speed to **115200** baud. Then choose **OK** to open the serial monitor.
+
+   ![Select COM speed](media/howto-connect-devkit-pnp/configure-speed.png)
+
+1. You can see the output log in the Window.
+
+    ![Serial monitor output](media/howto-connect-devkit-pnp/serial-message.png)
+
+## View the telemetry in IoT Central
+
+In this step, you view the telemetry and reported property values, and send commands in Azure IoT Central.
+
+1. In your IoT Central application, select **Devices** tab, select the device you added. In the **Overview** tab, you can see the telemetry coming from the DevKit.
+
+   ![IoT Central device overview](media/howto-connect-devkit-pnp/overview-page.png)
+
+1. In the **About** tab, you can view the properties reported by the DevKit.
+
+   ![IoT Central device property](media/howto-connect-devkit-pnp/property-page.png)
+
+1. In the **Form** tab, you can set **Current**, **Fan Speed**, **Voltage** and **IR**, which are writable properties.
+
+   ![IoT Central device form](media/howto-connect-devkit-pnp/form-page.png)
+
+1. In the **Commands** page, you can call the commands to execute actions on the DevKit. For example, you run **turnOnLED** command.
+
+   ![Turn on LED](media/howto-connect-devkit-pnp/turn-on-LED.png)
+
+   On the device, view command executed successfully log in the serial monitor. To confirm, see the **User LED** on DevKit board on.
+
+   ![Turn on LED output](media/howto-connect-devkit-pnp/turnon-output.png)
 
 ## Download the source code
 
-If you want to explore and modify the device code, you can download it from GitHub. If you plan to modify the code, you should follow these instructions to [prepare the development environment](https://microsoft.github.io/azure-iot-developer-kit/docs/get-started/#step-5-prepare-the-development-environment) for your desktop operating system.
+If you want to explore and modify the device code, you can download it from GitHub. If you plan to modify the code, you should follow these instructions to [prepare the development environment](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment) for your desktop operating system.
 
-To download the source code, run the following command on your desktop machine:
+1. To download sample code for DevKit, run the following command on your desktop machine.
 
-```cmd/sh
-git clone https://github.com/Azure/iot-central-firmware
-```
+   ```cmd/sh
+   git clone https://github.com/MXCHIP/IoTDevKit.git
+   ```
 
-The previous command downloads the source code to a folder called `iot-central-firmware`.
+    > [!TIP]
+    > If **git** is not installed in your development environment, you can download it from [https://git-scm.com/download](https://git-scm.com/download).
 
-> [!NOTE]
-> If **git** is not installed in your development environment, you can download it from [https://git-scm.com/download](https://git-scm.com/download).
+1. The source code is located in `pnp/iotc_devkit` folder.
 
 ## Review the code
 
-Use Visual Studio Code to open the `MXCHIP/mxchip_advanced` folder in the `iot-central-firmware` folder:
+Open repository folder, navigate to pnp/iotc_devkit, then open **iotc_devkit.code-workspace** file with VS Code.
 
-![Visual Studio Code](media/howto-connect-devkit-pnp/vscodeview.png)
+![open-workspace](media/howto-connect-devkit-pnp/open-workspace.png)
 
-To see how the telemetry is sent to the Azure IoT Central application, open the **telemetry.cpp** file in the `src` folder:
+To see how the telemetry is sent to the Azure IoT Central application, open the sensor_interface.c file.
 
-- The function `TelemetryController::buildTelemetryPayload` creates the JSON telemetry payload using data from the sensors on the device.
+- The function `SensorsInterface_Telemetry_SendAll` sends multiple telemetries including humidity, temperature, pressure, magnetometer, gyroscope and accelerometer .
+- The functions `Sensors_Serialize{XXXX}` in digitaltwin_serializer.c create the telemetry payload, using `Sensors_Telemetry_Read{XXXX}`functions in mxchip_iot_devkit_impl.c to get data from the sensors on the DevKit device.
 
-- The function `TelemetryController::sendTelemetryPayload` calls `sendTelemetry` in the **AzureIOTClient.cpp** to send the JSON payload to the IoT Hub your Azure IoT Central application uses.
+To see how property values are reported to the Azure IoT Central application, open the deviceinfo_interface.c file.
 
-To see how property values are reported to the Azure IoT Central application, open the **telemetry.cpp** file in the `src` folder:
+- The function `DeviceinfoInterface_Property_ReportAll` sends properties including manufacturer, device model, software version, operating system name, processor architecture, processor manufacturer, total storage and total memory.
+- The functions from line 213 to 419 in digitaltwin_serializer.c create the property payload.
 
-- The function `TelemetryController::loop` sends the **location** reported property approximately every 30 seconds. It uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
+To see how the DevKit device responds to commands for LED actions called from the IoT Central application, open the leds_interface.c file.
 
-- The function `TelemetryController::loop` sends the **dieNumber** reported property when the device accelerometer detects a double tap. It uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
+- The function `LedsInterface_Command_TurnOnLedCallback` processes the turnOnLed command. It uses `Leds_Command_TurnOnLed` function in mxchip_iot_devkit_impl.c to turn on the User LED.
+- The function `LedsInterface_Command_BlinkCallback` processes the blink command. It uses `Leds_Command_Blink` function in mxchip_iot_devkit_impl.c to blink the RGB LED.
 
-To see how the device responds to commands called from the IoT Central application, open the **registeredMethodHandlers.cpp** file in the `src` folder:
+## MXChip Device template details
 
-- The **dmEcho** function is the handler for the **echo** command. It shows the **displayedValue** filed in the payload on the device's screen.
+A device created from the MXChip IoT DevKit device template has the following characteristics:
 
-- The **dmCountdown** function is the handler for the **countdown** command. It changes the color of the device's LED and uses a reported property to send the countdown value back to the IoT Central application. The reported property has the same name as the command. The function uses the `sendReportedProperty` function in the **AzureIOTClient.cpp** source file.
+### Telemetry
 
-The code in the **AzureIOTClient.cpp** source file uses functions from the [Microsoft Azure IoT SDKs and libraries for C](https://github.com/Azure/azure-iot-sdk-c) to interact with IoT Hub.
+Field name|Units|Minimum|Maximum|Decimal places
+-|-|-|-|-|-
+humidity|%|0|100|0
+temp|°C|-40|120|0
+pressure|hPa|260|1260|0
+magnetometerX|mgauss|-1000|1000|0
+magnetometerY|mgauss|-1000|1000|0
+magnetometerZ|mgauss|-1000|1000|0
+accelerometerX|mg|-2000|2000|0
+accelerometerY|mg|-2000|2000|0
+accelerometerZ|mg|-2000|2000|0
+gyroscopeX|mdps|-2000|2000|0
+gyroscopeY|mdps|-2000|2000|0
+gyroscopeZ|mdps|-2000|2000|0
 
-For information about how to modify, build, and upload the sample code to your device, see the **readme.md** file in the `MXCHIP/mxchip_advanced` folder.
+### Properties
+
+Display name|Field name|Data type|Writable/Read only
+-|-|-|-
+Manufacturer|manufacturer|string|Read only
+Device model|model|string|Read only
+Software version|swVersion|string|Read only
+Operating system name|osName|string|Read only
+Processor architecture|processorArchitecture|string|Read only
+Processor manufacturer|processorManufacturer|string|Read only
+Total storage|totalStorage|long|Read only
+Total memory|totalMemory|long|Read only
+Fan Speed|fanSpeed|double|Writable
+Voltage|voltage|double|Writable
+Current|current|double|Writable
+IR|irSwitch|boolean|Writable
+
+### Commands
+
+Field name|Input field name|Input field type
+-|-|-|-|-
+blink|interval|long
+turnOnLed|/|/
+turnOffLed|/|/
+echo|text|string
+countdown|number|integer
 
 ## Next steps
 
-Now that you've learned how to connect a MXChip IoT DevKit to your Azure IoT Central application, the suggested next step is to learn how to [set up a custom device template](howto-set-up-template.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) for your own IoT device.
+Now that you've learned how to connect a MXChip IoT DevKit to your Azure IoT Central application via IoT Plug and Play, the suggested next step is to learn how to [set up a custom device template](https://docs.microsoft.com/azure/iot-central/howto-set-up-template) for your own IoT device.
