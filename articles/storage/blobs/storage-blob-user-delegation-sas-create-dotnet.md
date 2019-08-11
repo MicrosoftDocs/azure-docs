@@ -156,7 +156,7 @@ BlobSasBuilder builder = new BlobSasBuilder()
 var sas = builder.ToSasQueryParameters(key, "<storage-account>");
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## See also
 
