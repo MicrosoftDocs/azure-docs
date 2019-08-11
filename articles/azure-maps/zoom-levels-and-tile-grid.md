@@ -942,7 +942,7 @@ module AzureMaps {
 
 ## Next steps
 
-Directly acces map tiles from the Azure Maps REST services:
+Directly access map tiles from the Azure Maps REST services:
 
 > [!div class="nextstepaction"]
 > [Get map tiles](https://docs.microsoft.com/en-us/rest/api/maps/render/getmaptile)
