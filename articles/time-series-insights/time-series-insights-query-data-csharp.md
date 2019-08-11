@@ -10,7 +10,7 @@ reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/05/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
@@ -38,6 +38,6 @@ Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newton
 
 ## Next steps
 
-- To learn more about querying, read the [Query API reference](/rest/api/time-series-insights/ga-query-api).
+- To learn more about querying, read the [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Read how to [connect a JavaScript single-page app](tutorial-create-tsi-sample-spa.md) to Time Series Insights.

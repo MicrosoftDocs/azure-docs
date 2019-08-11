@@ -9,18 +9,18 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 07/05/2019
 ms.author: juliako
 ---
 
 # Scenes, shots, and keyframes
 
-Video Indexer supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic. The **scene detection** feature is currently in preview.   
+Video Indexer supports segmenting videos into temporal units based on structural and semantic properties. This capability enables customers to easily browse, manage, and edit their video content based on varying granularities. For example, based on scenes, shots, and keyframes, described in this topic.   
 
 ![Scenes, shots, and keyframes](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
-
-## Scene detection (preview)
-
+ 
+## Scene detection  
+ 
 Video Indexer determines when a scene changes in video based on visual cues. A scene depicts a single event and it is composed of a series of consecutive shots, which are semantically related. A scene thumbnail is the first keyframe of its underlying shot. Video indexer segments a video into scenes based on color coherence across consecutive shots and retrieves the beginning and end time of each scene. Scene detection is considered a challenging task as it involves quantifying semantic aspects of videos.
 
 > [!NOTE]

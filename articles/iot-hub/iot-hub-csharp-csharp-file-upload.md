@@ -11,7 +11,7 @@ ms.date: 07/04/2017
 ms.author: robinsh
 ---
 
-# Upload files from your device to the cloud with IoT Hub using .NET
+# Upload files from your device to the cloud with IoT Hub (.NET)
 
 [!INCLUDE [iot-hub-file-upload-language-selector](../../includes/iot-hub-file-upload-language-selector.md)]
 

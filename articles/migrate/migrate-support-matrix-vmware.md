@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/22/2019
+ms.date: 08/05/2019
 ms.author: raynew
 ---
 
@@ -37,8 +37,12 @@ The table summarizes supported scenarios for VMware VMs.
 **Geography** | **Metadata storage location**
 --- | ---
 Azure Government | US Gov Virginia
-Asia Pacific | Southeast Asia or East Asia
-Europe | South Europe or West Europe
+Asia Pacific | East Asia or Southeast Asia
+Australia | Australia East or Australia Southeast
+Canada | Canada Central or Canada East
+Europe | North Europe or West Europe
+India | Central India or South India
+Japan |  Japan East or Japan West
 United Kingdom | UK South or UK West
 United States | Central US or West US 2
 
@@ -65,7 +69,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 **Support** | **Details**
 --- | ---
-**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB of memory, 4 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
+**vCenter Server** | You need enough resources on the vCenter Server to allocate a VM with 32 GB RAM, 8 vCPUs, and an external virtual switch.<br/><br/> The appliance requires internet access, either directly or through a proxy.
 **ESXi** | The appliance VM must be deployed on an ESXi host running version 5.5 or later.
 **Azure Migrate project** | An appliance can be associated with a single project.
 **vCenter Server** | An appliance can discover up to 10,000 VMware VMs on a vCenter Server.<br/> An appliance can connect to one vCenter Server.
@@ -73,7 +77,7 @@ The Azure Migrate appliance for VMware is deployed using an OVA template importe
 
 ## Assessment-URL access requirements
 
-The Azure Migrate appliance needs internet connectivity to the internet.
+The Azure Migrate appliance needs connectivity to the internet.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the URLs summarized in the table below.
 - If you're using a URL-based proxy to connect to the internet, allow access to these URLs, making sure that the proxy resolves any CNAME records received while looking up the URLs.
@@ -181,8 +185,8 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Device** | **Connection**
 --- | ---
-Appliance | Outbound connections on port 3389 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
-vCenter server | Outbound connection on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots
+Appliance | Outbound connections on port 443 to upload replicated data to Azure, and to communicate with Azure Migrate services orchestrating replication and migration.
+vCenter server | Inbound connections on port 443 to allow the appliance to orchestrate replication - create snapshots, copy data, release snapshots
 vSphere/EXSI host | Inbound on TCP port 902 for the appliance to replicate data from snapshots.
 
 

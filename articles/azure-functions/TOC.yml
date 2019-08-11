@@ -65,6 +65,8 @@
     href: ../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Create a serverless web app
     href: /learn/modules/automatic-update-of-a-webapp-using-azure-functions-and-signalr  
+  - name: Machine learning with TensorFlow
+    href: functions-machine-learning-tensorflow.md 
   - name: Create a custom Linux image
     href: functions-create-function-linux-custom-image.md
   - name: Functions on IoT Edge device
@@ -74,7 +76,7 @@
   - name: Azure Serverless Community Library
     href: https://www.serverlesslibrary.net/
   - name: Azure Samples
-    href: https://azure.microsoft.com/resources/samples/?service=functions
+    href: /samples/browse/?products=azure-functions
   - name: Azure CLI
     href: functions-cli-samples.md    
 - name: Concepts
@@ -120,6 +122,8 @@
       href: functions-reference-powershell.md
     - name: Python
       href: functions-reference-python.md
+    - name: TypeScript
+      href: functions-reference-node.md#typescript
   - name: Diagnostics
     href: ../app-service/overview-diagnostics.md?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Performance considerations

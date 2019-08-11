@@ -9,6 +9,7 @@ editor: TomSh
 
 ms.assetid: 9dcb190e-e534-4787-bf82-8ce73bf47dba
 ms.service: security
+ms.subservice: security-fundamentals
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -156,7 +157,7 @@ For operations using encryption keys, a service identity can be granted access t
 To obtain a key for use in encrypting or decrypting data at rest the service identity that the Resource Manager service instance will run as must have UnwrapKey (to get the key for decryption) and WrapKey (to insert a key into key vault when creating a new key).
 
 >[!NOTE]
->For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).
+>For more detail on Key Vault authorization see the secure your key vault page in the [Azure Key Vault documentation](../../key-vault/key-vault-secure-your-key-vault.md).
 
 **Advantages**
 
@@ -232,14 +233,14 @@ Microsoft Azure Services each support one or more of the encryption at rest mode
 
 ### Azure disk encryption
 
-Any customer using Azure Infrastructure as a Service (IaaS) features can achieve encryption at rest for their IaaS VMs and disks through Azure Disk Encryption. For more information on Azure Disk encryption, see the [Azure Disk Encryption documentation](https://docs.microsoft.com/azure/security/azure-security-disk-encryption).
+Any customer using Azure Infrastructure as a Service (IaaS) features can achieve encryption at rest for their IaaS VMs and disks through Azure Disk Encryption. For more information on Azure Disk encryption, see the [Azure Disk Encryption documentation](../azure-security-disk-encryption-overview.md).
 
 #### Azure storage
 
 All Azure Storage services (Blob storage, Queue storage, Table storage, and Azure Files) support server-side encryption at rest; some services additionally support customer-managed keys and client-side encryption. 
 
-- Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/storage-service-encryption). Azure Blob storage and Azure Files also support RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](https://docs.microsoft.com/azure/storage/common/storage-service-encryption-customer-managed-keys).
-- Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-client-side-encryption).
+- Server-side: All Azure Storage Services enable server-side encryption by default using service-managed keys, which is transparent to the application. For more information, see [Azure Storage Service Encryption for Data at Rest](../../storage/common/storage-service-encryption.md). Azure Blob storage and Azure Files also support RSA 2048-bit customer-managed keys in Azure Key Vault. For more information, see [Storage Service Encryption using customer-managed keys in Azure Key Vault](../../storage/common/storage-encryption-keys-portal.md).
+- Client-side: Azure Blobs, Tables, and Queues support client-side encryption. When using client-side encryption, customers encrypt the data and upload the data as an encrypted blob. Key management is done by the customer. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](../../storage/common/storage-client-side-encryption.md).
 
 #### Azure SQL Database
 
@@ -262,7 +263,7 @@ Client-side encryption of Azure SQL Database data is supported through the [Alwa
 | Event Hubs                       | Yes                | -                  | -                  |
 | Azure Analysis Services          | Yes                | -                  | -                  |
 | Azure Data Catalog               | Yes                | -                  | -                  |
-| HDInsight                        | Yes                | Preview for Apache Kafka, All RSA Lengths | -                  |
+| Apache Kafka on Azure HDInsight  | Yes                | All RSA Lengths.   | -                  |
 | Azure Data Factory               | Yes                | -                  | -                  |
 | Azure Data Lake Store            | Yes                | Yes, RSA 2048-bit  | -                  |
 | **Containers**                   |                    |                    |                    |
