@@ -8,10 +8,10 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
-ms.custom: seo-java-july2019
+ms.custom: seo-java-july2019, seo-java-august2019
 
 ---
-# Quickstart: Create a graph database in Azure Cosmos DB using the Java SDK 
+# Quickstart: Build a graph database with the Java SDK and the Azure Cosmos DB Table API
 
 > [!div class="op_single_selector"]
 > * [Gremlin console](create-graph-gremlin-console.md)
