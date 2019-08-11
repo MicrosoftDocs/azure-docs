@@ -76,12 +76,8 @@ You can save pipelines as templates, and deploy them to a REST endpoint so you c
 
 To see how to build your own, see the [Python SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and the notebook in the next section.
 
-## Example notebooks
-
-The following notebooks demonstrate pipelines with Azure Machine Learning:  [how-to-use-azureml/machine-learning-pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
 ## Next steps
 
-Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
++ [Create your first pipeline](how-to-create-your-first-pipeline.md).
+
++ Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).
