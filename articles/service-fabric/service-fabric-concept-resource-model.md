@@ -109,12 +109,23 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 Applications already deployed to a Service Fabric cluster will be upgraded for the following reasons:
 * A new service is added to the application. 
 * A new version of an existing service is added to the application.
-     
+
 ## Delete application resources
-Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below methods
-* Delete the application resources using Azure Remove.
-* Delete the application type using PowerShell/Azure CLI or from Service Fabric Explorer.
-           
+Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below steps
+
+1) Get resource id for application using [Get-AzResource](https://docs.microsoft.com/powershell/module/az.resources/get-azresource?view=azps-2.5.0) command  
+
+    #### Get Resource ID for application
+    ```
+    Get-AzResource  -Name <String> | f1
+    ```
+2) Delete the application resources using [Remove-AzResource](https://docs.microsoft.com/powershell/module/az.resources/remove-azresource?view=azps-2.5.0)  
+
+    #### Delete application resource using its Resource ID
+    ```
+    Remove-AzResource  -ResourceId <String> [-Force] [-ApiVersion <String>]
+    ```
+
 ## Next steps
 Get information about the application resource model:
 
