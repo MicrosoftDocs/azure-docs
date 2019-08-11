@@ -22,4 +22,4 @@ Microsoft recommends that you use Azure AD credentials when possible as a securi
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
 
-For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../articles/storage/common/storage-shared-access-signatures.md).
+For more information about shared access signatures, see [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../articles/storage/common/storage-sas-overview.md).
