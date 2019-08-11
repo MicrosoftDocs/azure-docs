@@ -15,8 +15,10 @@ In order to access the managed identity feature for Azure Service Fabric applica
 
 > [!NOTE]
 > Service Fabric runtime version 6.5.658.9590 or higher is required to enable the **Managed Identity Token Service**.  
-* You can find the Service Fabric version of a cluster from the Azure portal by opening the cluster resource and checking the **Service Fabric version** property in the **Essentials** section.
-* If the cluster is on **Manual** upgrade mode, you will need to first upgrade it to 6.5.658.9590 or above.
+> 
+> You can find the Service Fabric version of a cluster from the Azure portal by opening the cluster resource and checking the **Service Fabric version** property in the **Essentials** section.
+> 
+> If the cluster is on **Manual** upgrade mode, you will need to first upgrade it to 6.5.658.9590 or later.
 
 
 ## Enable the Managed Identity Token Service in an existing cluster
