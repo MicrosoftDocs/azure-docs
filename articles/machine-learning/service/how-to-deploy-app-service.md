@@ -31,7 +31,7 @@ For more information on features provided by Azure App Service, see the [App Ser
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 * A trained machine learning model registered in your workspace. If you do not have a model, use the [Image classification tutorial: train model](tutorial-train-models-with-aml.md) to train and register one.
 * A Docker image created from the model. If you do not have an image, use the [Image classification: deploy model](tutorial-deploy-models-with-aml.md) to create one.
 

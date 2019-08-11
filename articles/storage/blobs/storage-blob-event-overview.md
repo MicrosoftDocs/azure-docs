@@ -1,14 +1,13 @@
 ---
 title: Reacting to Azure Blob storage events | Microsoft Docs
 description: Use Azure Event Grid to subscribe to Blob storage events. 
-services: storage,event-grid 
-author: cbrooksmsft
-
-ms.author: cbrooks
+author: normesta
+ms.author: normesta
 ms.date: 01/30/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
+ms.reviewer: cbrooks
 ---
 
 # Reacting to Blob storage events
@@ -26,8 +25,8 @@ If you want to try this out now, see any of these quickstart articles:
 |If you want to use this tool:    |See this article: |
 |--|-|
 |Azure Portal    |[Quickstart: Route Blob storage events to web endpoint with the Azure portal](https://docs.microsoft.com/azure/event-grid/blob-event-quickstart-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Azure CLI    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
-|Powershell    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|PowerShell    |[Quickstart: Route storage events to web endpoint with PowerShell](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure CLI    |[Quickstart: Route storage events to web endpoint with Azure CLI](https://docs.microsoft.com/azure/storage/blobs/storage-blob-event-quickstart?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## The event model
 

@@ -269,7 +269,7 @@ InsightsMetrics
 | where TimeGenerated < endDateTime
 | where TimeGenerated >= startDateTime
 | where Origin == 'container.azm.ms/telegraf'            
-| where Namespace == 'disk'            
+| where Namespace == 'container.azm.ms/disk'            
 | extend Tags = todynamic(Tags)            
 | project TimeGenerated, ClusterId = Tags['container.azm.ms/clusterId'], Computer = tostring(Tags.hostName), Device = tostring(Tags.device), Path = tostring(Tags.path), DiskMetricName = Name, DiskMetricValue = Val   
 | where ClusterId =~ clusterId       

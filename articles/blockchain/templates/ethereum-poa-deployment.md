@@ -983,8 +983,7 @@ additional information
 
 #### I notice there are many transactions on the network that I didn\'t send. Where are these coming from?
 
-It is insecure to unlock the [personal
-API](https://web3js.readthedocs.io/en/1.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to
+It is insecure to unlock the [personal API](https://web3js.readthedocs.io/en/v1.2.0/web3-eth-personal.html). Bots listen for unlocked Ethereum accounts and attempt to
 drain the funds. The bot assumes these accounts contain real-ether and
 attempt to be the first to siphon the balance. Do not enable the
 personal API on the network. Instead pre-sign the transactions either

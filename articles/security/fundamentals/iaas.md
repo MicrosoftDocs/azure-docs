@@ -1,24 +1,23 @@
 ---
-  title: Security best practices for IaaS workloads in Azure | Microsoft Docs
-  description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
-  services: security
-  documentationcenter: na
-  author: barclayn
-  manager: MBaldwin
-  editor: TomSh
+title: Security best practices for IaaS workloads in Azure | Microsoft Docs
+description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
+services: security
+documentationcenter: na
+author: barclayn
+manager: MBaldwin
+editor: TomSh
 
-  ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
-  ms.service: security
-  ms.devlang: na
-  ms.topic: article
-  ms.tgt_pltfrm: na
-  ms.workload: na
-  ms.date: 05/05/2019
-  ms.author: barclayn
-
-
-
+ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
+ms.service: security
+ms.subservice: security-fundamentals
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 05/05/2019
+ms.author: barclayn
 ---
+
 # Security best practices for IaaS workloads in Azure
 This article describes security best practices for VMs and operating systems.
 
@@ -76,7 +75,7 @@ You should install antimalware protection to help identify and remove viruses, s
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, you can use an antimalware extension to help protect your VMs and cloud services.
 
-You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](https://docs.microsoft.com/azure/security-center/) for ease of deployment and built-in detections (alerts and incidents).
+You can integrate Microsoft Antimalware and partner solutions with [Azure Security Center](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
 
 **Best practice**: Install an antimalware solution to protect against malware.   
 **Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../../security-center/security-center-install-endpoint-protection.md)
