@@ -3,7 +3,7 @@ title: Implement IoT spatial analytics using Azure Maps | Microsoft Docs
 description: Integrate IoT Hub with Azure Maps service APIs.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/30/2019
+ms.date: 08/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -101,7 +101,8 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
 ### Create an Azure Maps account 
 
-In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [manage account and keys](how-to-manage-account-keys.md) to create and manage your account subscription with S1 pricing tier.
+In order to implement business logic based on Azure Maps spatial analytics, we need to create an Azure Maps account in the resource group we created. Follow instructions in [manage account](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys) to create an Azure Maps account subscription with S1 pricing tier and see [authentication details](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) to learn how get your subscription key.
+
 
 ### Create a storage account
 
