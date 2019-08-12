@@ -11,7 +11,7 @@
 ---
 <!-- put the ## header in the file that includes this file -->
 
-In this section, you create a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md) 
+In this section, you create a device identity in the identity registry in your IoT hub. A device cannot connect to a hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
 
 1. In your IoT hub navigation menu, open **IoT Devices**, then select **New** to add a device in your IoT hub.
 
@@ -23,7 +23,7 @@ In this section, you create a device identity in the identity registry in your I
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-1. After the device is created, open the device from the list in the **IoT devices** pane. Copy the **Connection string (primary key)** to use later.
+1. After the device is created, open the device from the list in the **IoT devices** pane. Copy the **Primary Connection String** to use later.
 
     ![Device connection string](./media/iot-hub-include-create-device/device-details-vs2019.png)
 

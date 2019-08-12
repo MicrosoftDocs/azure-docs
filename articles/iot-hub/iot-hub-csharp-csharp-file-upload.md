@@ -56,7 +56,7 @@ In this section, you modify the device app you created in [Send cloud-to-device 
 
 1. In Visual Studio Solution Explorer, right-click the **SimulatedDevice** project, and select **Add** > **Existing Item**. Find an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
 
-1. Right-click the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
+1. Right-click the image, and then select **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
 
     ![Show where to update the image property for Copy to Output Directory](./media/iot-hub-csharp-csharp-file-upload/image-properties.png)
 
@@ -180,7 +180,7 @@ Now you are ready to run the applications.
 
 ## Next steps
 
-In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT hub features and scenarios with the following articles:
+In this tutorial, you learned how to use the file upload capabilities of IoT Hub to simplify file uploads from devices. You can continue to explore IoT Hub features and scenarios with the following articles:
 
 * [Create an IoT hub programmatically](iot-hub-rm-template-powershell.md)
 

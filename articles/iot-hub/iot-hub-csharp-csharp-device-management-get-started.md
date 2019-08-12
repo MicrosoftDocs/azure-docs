@@ -51,7 +51,7 @@ To complete this tutorial, you need the following prerequisites:
 
 ## Trigger a remote reboot on the device using a direct method
 
-In this section, you create a .NET console app (using C#) that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
+In this section, you create a .NET console app, using C#, that initiates a remote reboot on a device using a direct method. The app uses device twin queries to discover the last reboot time for that device.
 
 1. In Visual Studio, select **Create a new project**.
 
@@ -136,6 +136,8 @@ In this section, you do the following actions:
 
 * Use the reported properties to enable device twin queries to identify devices and when they were last rebooted.
 
+To create the simulated device app, follow these steps:
+
 1. In Visual Studio, in the TriggerReboot solution you already created, select **File** > **New** > **Project**. In **Create a new project**, find and select the **Console App (.NET Framework)** project template, and then select **Next**.
 
 1. In **Configure your new project**, name the project *SimulateManagedDevice*, and for **Solution**, select **Add to solution**. Select **Create**.
@@ -148,7 +150,7 @@ In this section, you do the following actions:
 
     ![NuGet Package Manager window Client app](./media/iot-hub-csharp-csharp-device-management-get-started/create-device-nuget-devices-client.png)
 
-   This procedure downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
+   This step downloads, installs, and adds a reference to the [Azure IoT device SDK](https://www.nuget.org/packages/Microsoft.Azure.Devices.Client/) NuGet package and its dependencies.
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
 
