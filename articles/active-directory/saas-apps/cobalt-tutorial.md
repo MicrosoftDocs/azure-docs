@@ -108,11 +108,11 @@ To configure Azure AD single sign-on with Cobalt, perform the following steps:
 	> [!NOTE]
 	> The value is not real. Update the value with the actual Sign-On URL. Contact [Cobalt Client support team](https://www.cobalt.net/support/) to get the value. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-5. Cobalt application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+5. Cobalt application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
 	![image](common/edit-attribute.png)
 
-6. In addition to above, Cobalt application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
+6. In addition to above, Cobalt application expects few more attributes to be passed back in SAML response. In the User Claims section on the User Attributes dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name | Source Attribute|
 	| ---------------| --------- |
@@ -207,7 +207,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 ### Create Cobalt test user
 
-In this section, you create a user called Britta Simon in Cobalt. Work with [Cobalt support team](https://www.cobalt.net/support/) to add the users in the Cobalt platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Cobalt. Work with [Cobalt support team](https://www.cobalt.net/support/) to add the users in the Cobalt platform. Users must be created and activated before you use single sign-on.
 
 ### Test single sign-on 
 

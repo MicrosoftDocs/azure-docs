@@ -286,6 +286,7 @@ These packages are the most common requirements for Storage Explorer on Linux:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
+---
 
 ### Patching Storage Explorer for newer versions of .NET Core
 

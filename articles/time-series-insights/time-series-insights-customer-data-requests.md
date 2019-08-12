@@ -4,7 +4,7 @@ description: Summary of Azure Time Series Insights customer data request feature
 author: ashannon7
 ms.author: dpalled
 manager: cshankar
-ms.date: 05/08/2019
+ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: time-series-insights
 services: time-series-insights

@@ -1,119 +1,122 @@
 ---
-title: 'Azure Active Directory Domain Services: Password policy | Microsoft Docs'
-description: Understand password policies on managed domains
+title: Create and use password policies in Azure AD Domain Services | Microsoft Docs
+description: Learn how and why to use fine-grained password policies to secure and control account passwords in an Azure AD DS managed domain.
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 
 ms.assetid: 1a14637e-b3d0-4fd9-ba7a-576b8df62ff2
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2019
+ms.date: 08/08/2019
 ms.author: iainfou
 
 ---
 # Password and account lockout policies on managed domains
-This article explains the default password policies on a managed domain. It also covers how you can configure these policies.
 
-## Fine grained password policies (FGPP)
-Use fine-grained password policies to specify many password policies within a single domain. FGPP enables you to apply different restrictions for password and account lockout policies to different sets of users in a domain. For example, you can apply strict password settings to privileged accounts.
+To manage account security in Azure Active Directory Domain Services (Azure AD DS), you can define fine-grained password policies that control settings such as minimum password length, password expiration time, or password complexity. A default password policy is applied to all users in an Azure AD DS managed domain. To provide granular control and meet specific business or compliance needs, additional policies can be created and applied to specific groups of users.
 
-You can configure the following password settings using FGPP:
+This article shows you how to create and configure a fine-grained password policy using the Active Directory Administrative Center.
+
+## Before you begin
+
+To complete this article, you need the following resources and privileges:
+
+* An active Azure subscription.
+  * If you don’t have an Azure subscription, [create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
+  * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
+* An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
+  * If needed, complete the tutorial to [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
+* A Windows Server management VM that is joined to the Azure AD DS managed domain.
+  * If needed, complete the tutorial to [create a management VM][tutorial-create-management-vm].
+* A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+
+## Fine-grained password policies (FGPP) overview
+
+Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. For example, to secure privileged accounts you can apply stricter password settings than regular non-privileged accounts. You can create multiple FGPPs to specify password policies within an Azure AD DS managed domain.
+
+The following password settings can be configured using FGPP:
+
 * Minimum password length
 * Password history
 * Passwords must meet complexity requirements
 * Minimum password age
 * Maximum password age
 * Account lockout policy
-    * Account lockout duration
-    * Number of failed logon attempts allowed
-    * Reset failed logon attempts count after
+  * Account lockout duration
+  * Number of failed logon attempts allowed
+  * Reset failed logon attempts count after
 
+FGPP only affects users created in Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD aren't affected by the password policies.
 
-## Default fine grained password policy settings on a managed domain
-The following screenshot illustrates the default fine grained password policy configured on an Azure AD Domain Services managed domain.
+Policies are distributed through group association in the Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
-![Default fine grained password policy](./media/how-to/default-fgpp.png)
+## Default fine-grained password policy settings
+
+In an Azure AD DS managed domain, the following password policies are configured by default and applied to all users:
+
+* **Minimum password length (characters):** 7
+* **Maximum password age (lifetime):** 90 days
+* **Passwords must meet complexity requirements**
+
+The following account lockout policies are then configured by default:
+
+* **Account lockout duration:** 30
+* **Number of failed logon attempts allowed:** 5
+* **Reset failed logon attempts count after:** 30 minutes
+
+With these default settings, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
+
+You can't modify or delete the default built-in fine-grained password policy. Instead, members of the *AAD DC Administrators* group can a create custom FGPP and configure it to override (take precedence over) the default built-in FGPP, as shown in the next section.
+
+## Create a custom fine-grained password policy
+
+As you build and applications in Azure, you may want to configure a custom FGPP. Some examples of the need to create a custom FGPP include to set a different account lockout policy, or to configure a default password lifetime setting for the managed domain.
+
+You can create a custom FGPP and apply it to specific groups in your Azure AD DS managed domain. This configuration effectively overrides the default FGPP. You can also create custom fine-grained password policies and apply them to any custom OUs you create in the Azure AD DS managed domain.
+
+To create a fine-grained password policy, you use the Active Directory Administrative Tools from a domain-joined VM. The Active Directory Administrative Center lets you view, edit, and create resources in an Azure AD DS managed domain, including OUs.
 
 > [!NOTE]
-> You can't modify or delete the default built-in fine grained password policy. Members of the 'AAD DC Administrators' group can create custom FGPP and configure it to override (take precedence over) the default built-in FGPP.
->
->
+> To create a fine-grained password policy in an Azure AD DS managed domain, you must be signed in to a user account that's a member of the *AAD DC Administrators* group.
 
-## Password policy settings
-On a managed domain, the following password policies are configured by default:
-* Minimum password length (characters): 7
-* Maximum password age (lifetime): 90 days
-* Passwords must meet complexity requirements
+1. From the Start screen, select **Administrative Tools**. A list of available management tools is shown that were installed in the tutorial to [create a management VM][tutorial-create-management-vm].
+1. To create and manage OUs, select **Active Directory Administrative Center** from the list of administrative tools.
+1. In the left pane, choose your Azure AD DS managed domain, such as *contoso.com*.
+1. In the **Tasks** panel on the right, select **New > Password Settings**.
+1. In the **Create Password Settings** dialog, enter a name for the policy, such as *MyCustomFGPP*. Set the precedence to appropriately to override the default FGPP (which is *200*), such as *1*.
 
-### Account lockout settings
-On a managed domain, the following account lockout policies are configured by default:
-* Account lockout duration: 30
-* Number of failed logon attempts allowed: 5
-* Reset failed logon attempts count after: 30 minutes
+    Edit other password policy settings as desired, such as **Enforce password history** to require the user to create a password that's different from the previous *24* passwords.
 
-Effectively, user accounts are locked out for 30 minutes if five invalid passwords are used within 2 minutes. Accounts are automatically unlocked after 30 minutes.
+    ![Create a custom fine-grained password policy](./media/how-to/custom-fgpp.png)
 
+1. Uncheck **Protect from accidental deletion**. If this option is selected, you can't save the FGPP.
+1. In the **Directly Applies To** section, select the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
 
-## Create a custom fine grained password policy (FGPP) on a managed domain
-You can create a custom FGPP and apply it to specific groups in your managed domain. This configuration effectively overrides the default FGPP configured for the managed domain.
+    ![Select the users and groups to apply the password policy to](./media/how-to/fgpp-applies-to.png)
 
-> [!TIP]
-> Only members of the **'AAD DC Administrators'** group have the permissions to create custom fine grained password policies.
->
->
+1. Fine-grained password policies can only be applied to groups. In the **Locations** dialog, expand the domain name, such as *contoso.com*, then select an OU, such as **AADDC Users**. If you have a custom OU that contains a group of users you wish to apply, select that OU.
 
-Additionally, you can also create custom fine grained password policies and apply them to any custom OUs you create on the managed domain.
+    ![Select the OU that the group belongs to](./media/how-to/fgpp-container.png)
 
-You can configure a custom FGPP for the following reasons:
-* To set a different account lockout policy.
-* To configure a default password lifetime setting for the managed domain.
+1. Type the name of the group you wish to apply the policy to, then select **Check Names** to validate that the group exists.
 
-To create a custom FGPP on your managed domain:
-1. Sign in to the Windows VM you use to administer your managed domain (must be a minimum of Windows Server 2012 R2). If you don't have one, follow the instructions to [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md).
-2. Launch the **Active Directory Administrative Center** on the VM.
-3. Click the domain name (for example, 'contoso.com').
-4. Double-click **System** to open the System container.
-5. Double-click **Password Settings Container**.
-6. You see the default built-in FGPP for the managed domain called **AADDSSTFPSO**. You can't modify this built-in FGPP. You can however, create a new custom FGPP override the default FGPP.
-7. On the **Tasks** panel in the right, click **New** and click **Password Settings**.
-8. In the **Create Password Settings** dialog, specify the custom password settings to apply as part of the custom FGPP. Remember to set the precedence appropriately to override the default FGPP.
+    ![Search for and select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
 
-   ![Create custom FGPP](./media/how-to/custom-fgpp.png)
-
-   > [!TIP]
-   > **Remember to uncheck the Protect from accidental deletion option.** If this option is selected, the FGPP cannot be saved.
-   >
-   >
-
-9. In **Directly Applies To**, click the **Add** button. In the **Select Users or Groups** dialog, click the **Locations** button.
-
-   ![Select users and groups](./media/how-to/fgpp-applies-to.png)
-
-10. In the **Locations** dialog, expand the domain name and click **AADDC Users**. You can now select a group from the built-in users OU, to which to apply the FGPP.
-
-    ![Select the OU that group belongs to](./media/how-to/fgpp-container.png)
-
-11. Type the name of the group and click the **Check Names** button to validate the group exists.
-
-    ![Select the group to apply FGPP](./media/how-to/fgpp-apply-group.png)
-
-12. The name of the group is displayed in **Directly Applies To** section. Click the **OK** button to save these changes.
-
-    ![FGPP applied](./media/how-to/fgpp-applied.png)
-
-> [!TIP]
-> **To apply custom password policies for user accounts in a custom OU:**
-> Fine grained password policies can be applied only to groups. To configure a custom password policy only for users from a custom OU, create a group that includes users in that OU.
->
->
+1. With the name of the group you selected now displayed in **Directly Applies To** section, select **OK** to save your custom password policy.
 
 ## Next steps
-* [Learn about Active Directory fine grained password policies](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
-* [Configure fine grained password policies using AD Administration Center](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
+
+For more information about fine-grained password policies and using the Active Directory Administration Center, see the following articles:
+
+* [Learn about fine-grained password policies](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
+* [Configure fine-grained password policies using AD Administration Center](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)
+
+<!-- INTERNAL LINKS -->
+[create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
+[associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
+[create-azure-ad-ds-instance]: tutorial-create-instance.md
+[tutorial-create-management-vm]: tutorial-create-management-vm.md
