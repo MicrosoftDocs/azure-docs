@@ -1028,7 +1028,7 @@ You can use Shared Access Signature (SAS) tokens to enable client applications t
 * You can offload some of the work that web and worker roles perform in managing your entities to client devices such as end-user computers and mobile devices.  
 * You can assign a constrained and time limited set of permissions to a client (such as allowing read-only access to specific resources).  
 
-For more information about using SAS tokens with the Table service, see [Using Shared Access Signatures (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md).  
+For more information about using SAS tokens with the Table service, see [Using Shared Access Signatures (SAS)](../../storage/common/storage-sas-overview.md).  
 
 However, you must still generate the SAS tokens that grant a client application to the entities in the table service: you should do this in an environment that has secure access to your storage account keys. Typically, you use a web or worker role to generate the SAS tokens and deliver them to the client applications that need access to your entities. Because there is still an overhead involved in generating and delivering SAS tokens to clients, you should consider how best to reduce this overhead, especially in high-volume scenarios.  
 

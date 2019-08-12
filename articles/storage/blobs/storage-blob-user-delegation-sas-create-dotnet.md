@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
@@ -28,9 +28,11 @@ To authenticate with Azure AD credentials via the Azure Identity client library,
 
 To create a service principal with Azure CLI and assign an RBAC role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. The role must include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For more information about the built-in roles provided for Azure Storage, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
-Additionally, provide the scope for the role assignment. The service principal will create the user delegation key, which is an operation performed at the level of the storage account, so the role assignment should be scoped at the level of the storage account, resource group, or subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas).  
+Additionally, provide the scope for the role assignment. The service principal will create the user delegation key, which is an operation performed at the level of the storage account, so the role assignment should be scoped at the level of the storage account, resource group, or subscription. For more information about RBAC permissions for creating a user delegation SAS, see the **Assign permissions with RBAC** section in [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas).
 
-The following example creates a new service principal and assigns the **Storage Blob Data Reader** role to it with account scope. Remember to replace placeholder values in angle brackets with your own values:
+If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
+
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope. Remember to replace placeholder values in angle brackets with your own values:
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n <service-principal> --role "Storage Blob Data Reader" --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -161,4 +163,4 @@ var sas = builder.ToSasQueryParameters(key, "<storage-account>");
 ## See also
 
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
-- [Create a user delegation SAS](/rest/api/storageservices/create-a-user-delegation-sas)
+- [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)

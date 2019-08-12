@@ -111,7 +111,7 @@ http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08
 
 The shared access signature created with this example is valid for one day. The signature grants full access (read, write, delete, list) to blobs within the container.
 
-For more information on shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](../storage-dotnet-shared-access-signature-part-1.md).
+For more information on shared access signatures, see [Using shared access signatures (SAS) in Azure Storage](../storage-sas-overview.md).
 
 ## Addressing resources in the storage emulator
 The service endpoints for the storage emulator are different from those of an Azure storage account. The difference is because the local computer does not perform domain name resolution, requiring the storage emulator endpoints to be local addresses.

@@ -22,7 +22,7 @@ Azure Storage provides a comprehensive set of security capabilities that togethe
     - Azure AD integration is supported for blob and queue data operations. You can assign RBAC roles scoped to a subscription, resource group, storage account, or an individual container or queue to a security principal or a managed identity for Azure resources. For more information, see [Authenticate access to Azure Storage using Azure Active Directory](storage-auth-aad.md).   
 - Data can be secured in transit between an application and Azure by using [Client-Side Encryption](../storage-client-side-encryption.md), HTTPS, or SMB 3.0.  
 - OS and data disks used by Azure virtual machines can be encrypted using [Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
-- Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-dotnet-shared-access-signature-part-1.md).
+- Delegated access to the data objects in Azure Storage can be granted using [Shared Access Signatures](../storage-sas-overview.md).
 
 This article provides an overview of each of these security features that can be used with Azure Storage. Links are provided to articles that will give details of each feature so you can easily do further investigation on each topic.
 
@@ -236,7 +236,7 @@ For more detailed information on using Shared Access Signatures and Stored Acces
   * [Constructing an account SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
 * This is a tutorial for using the .NET client library to create Shared Access Signatures and Stored Access Policies.
-  * [Using Shared Access Signatures (SAS)](../storage-dotnet-shared-access-signature-part-1.md)
+  * [Using Shared Access Signatures (SAS)](../storage-sas-overview.md)
 
     This article includes an explanation of the SAS model, examples of Shared Access Signatures, and recommendations for the best practice use of SAS. Also discussed is the revocation of the permission granted.
 
