@@ -21,7 +21,7 @@ From the Language Understanding (LUIS) portal, migrate all the apps you own to u
 
 Before you migrate to the Active Directory authoring experience, you need to have an Azure subscription. If you do not have an Azure subscription, [sign up](). 
 
-    ![Migration notice for authoring keys](./media/migrate-authoring-key/migration-notice.png)
+![Migration notice for authoring keys](./media/migrate-authoring-key/migration-notice.png)
 
 1. Choose to migrate now or migrate later. You have 9 months to migrate to the new authoring key in Active Directory.
 
