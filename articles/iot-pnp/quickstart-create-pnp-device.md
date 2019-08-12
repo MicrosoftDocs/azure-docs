@@ -39,7 +39,7 @@ Download and install the Azure IoT explorer tool from the [latest release](https
 
 ### Get the connection string for your company model repository
 
-You can find your _company model repository connection string_ in the [Azure Certified for IoT portal](https://aka.ms/adbtest) portal when you sign in with a Microsoft work or school account, or your Microsoft Partner ID if you have one. After you sign in, select **Company repository** and then **Connection strings**.
+You can find your _company model repository connection string_ in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) portal when you sign in with a Microsoft work or school account, or your Microsoft Partner ID if you have one. After you sign in, select **Company repository** and then **Connection strings**.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
