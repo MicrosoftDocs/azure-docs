@@ -26,7 +26,7 @@ ms.date: 03/18/2019
 |**Quickstart**|[Quickstart](create-table-dotnet.md)|
 |**Tutorial**|[Tutorial](tutorial-develop-table-dotnet.md)|
 |**Current supported framework**|[Microsoft .NET Standard 2.0](https://www.nuget.org/packages/NETStandard.Library)|
-|**Report Issue**|[Report Issue](https://github.com/Azure/azure-cosmos-table-dotnet)|
+|**Report Issue**|[Report Issue](https://github.com/Azure/azure-cosmos-table-dotnet/issues)|
 
 ## Release notes
 
@@ -82,7 +82,4 @@ This cross-platform .NET Standard library [Microsoft.Azure.Cosmos.Table](https:/
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## See also
-To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md). 
-
-## Contact
-For questions or issues about this .NET Standard SDK, please file at: https://github.com/Azure/azure-cosmos-table-dotnet. 
+To learn more about the Azure Cosmos DB Table API, see [Introduction to Azure Cosmos DB Table API](table-introduction.md).

@@ -53,11 +53,8 @@ Here are a few pointers to get you started:
 * [Develop with the Table API in .NET](tutorial-develop-table-dotnet.md)
 * [Query table data by using the Table API](tutorial-query-table.md)
 * [Learn how to set up Azure Cosmos DB global distribution by using the Table API](tutorial-global-distribution-table.md)
-* [Azure Cosmos DB Table .NET API](table-sdk-dotnet.md)
-* [Azure Cosmos DB Table Java API](table-sdk-java.md)
-* [Azure Cosmos DB Table Node.js API](table-sdk-nodejs.md)
+* [Azure Cosmos DB Table .NET Standard SDK](table-sdk-dotnet-standard.md)
+* [Azure Cosmos DB Table .NET SDK](table-sdk-dotnet.md)
+* [Azure Cosmos DB Table Java SDK](table-sdk-java.md)
+* [Azure Cosmos DB Table Node.js SDK](table-sdk-nodejs.md)
 * [Azure Cosmos DB Table SDK for Python](table-sdk-python.md)
-
-## Contact
-* For questions or issues about [Microsoft.Azure.Cosmos.Table sdk](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table), please open an issue at: https://github.com/Azure/azure-cosmos-table-dotnet.
-* For other questions, please send email to askcosmosdbtableapi@microsoft.com.
