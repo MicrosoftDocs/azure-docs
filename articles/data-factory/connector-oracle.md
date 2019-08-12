@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/13/2019
 ms.author: jingwang
 
 ---
@@ -30,11 +30,13 @@ You can copy data from an Oracle database to any supported sink data store. You 
 Specifically, this Oracle connector supports:
 
 - The following versions of an Oracle database:
-  - Oracle 12c R1 (12.1)
-  - Oracle 11g R1, R2 (11.1, 11.2)
-  - Oracle 10g R1, R2 (10.1, 10.2)
-  - Oracle 9i R1, R2 (9.0.1, 9.2)
-  - Oracle 8i R3 (8.1.7)
+    - Oracle 18c R1 (18.1) and higher
+    - Oracle 12c R1 (12.1) and higher
+    - Oracle 11g R1 (11.1) and higher
+    - Oracle 10g R1 (10.1) and higher
+    - Oracle 9i R2 (9.2) and higher
+    - Oracle 8i R3 (8.1.7) and higher
+    - Oracle Database Cloud Exadata Service
 - Copying data by using Basic or OID authentications.
 - Parallel copying from an Oracle source. See the [Parallel copy from Oracle](#parallel-copy-from-oracle) section for details.
 
