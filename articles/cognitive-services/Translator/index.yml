@@ -64,7 +64,7 @@ sections:
     - title: Translate text
       values:
       - href: quickstart-translate?pivots=programming-language-csharp
-      - href: quickstart-java-translate?pivots=programming-language-java
+      - href: quickstart-translate?pivots=programming-language-java
       - href: quickstart-translate?pivots=programming-language-nodejs
       - href: quickstart-translate?pivots=programming-language-python
       - href: quickstart-translate?pivots=programming-language-go
