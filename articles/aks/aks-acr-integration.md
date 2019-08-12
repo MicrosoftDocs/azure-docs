@@ -17,9 +17,10 @@ When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (
 
 You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with Azure CLI](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create) for information on using the Azure CLI with AKS.
 
-## Prerequisites
+## Before you begin
 
-* You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles to the service principal
+* You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles required for the service principal
+* You also need the Azure CLI version 2.0.70 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
 ## Create AKS and ACR integration with CLI during new cluster creation
 
@@ -28,7 +29,7 @@ You can set up AKS and ACR integration during the initial creation of your AKS c
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr-name <your-acr-name>]
 ```
 
-Optionally, You can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
+Optionally, you can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
 ```azurecli-interactive
 az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enable-acr [--acr-resource-id <your-acr-resource-id>]
 ```
@@ -37,8 +38,8 @@ az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enab
 
 For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 ```azurecli-interactive
-az aks update –n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-name <your-acr-name>
+az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-name <your-acr-name>
 ```
 
 <!-- LINKS - external -->
-[AKS AKS CLI]:  https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create
+[AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
