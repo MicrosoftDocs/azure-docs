@@ -41,7 +41,7 @@ An Azure AD DS managed domain connects to a subnet in an Azure virtual network. 
 
 * Azure AD DS must be deployed in its own subnet. Don't use an existing subnet or a gateway subnet.
 * A network security group is created during the deployment of an Azure AD DS managed domain. This network security group contains the required rules for correct service communication.
-    * Don't create or use an existing network security group with your own customer rules.
+    * Don't create or use an existing network security group with your own custom rules.
 * Azure AD DS requires between five and seven IP addresses. Make sure that your subnet IP address range can provide this number of addresses.
     * Restricting the available IP addresses can prevent Azure AD Domain Services from maintaining two domain controllers.
 
@@ -68,7 +68,7 @@ For more information, see [Azure virtual network peering overview](../virtual-ne
 
 ### Virtual Private Networking
 
-You can connect a virtual network to another virtual network (VNet-to-VNet) in the same way that you can configure a virtual network to an on-premises site location. Both connectivity types use a VPN gateway to create a secure tunnel using IPsec/IKE. This connection model lets you deploy Azure AD DS into an Azure virtual network and then connect on-premises locations or other clouds.
+You can connect a virtual network to another virtual network (VNet-to-VNet) in the same way that you can configure a virtual network to an on-premises site location. Both connections use a VPN gateway to create a secure tunnel using IPsec/IKE. This connection model lets you deploy Azure AD DS into an Azure virtual network and then connect on-premises locations or other clouds.
 
 ![Virtual network connectivity using a VPN Gateway](./media/active-directory-domain-services-design-guide/vnet-connection-vpn-gateway.jpg)
 
@@ -88,7 +88,7 @@ An Azure AD DS managed domain creates some networking resources during deploymen
 |:----------------------------------------|:---|
 | Network interface card                  | Azure AD DS hosts the managed domain on two domain controllers (DCs) that run on Windows Server as Azure VMs. Each VM has a virtual network interface that connects to your virtual network subnet. |
 | Dynamic basic public IP address         | Azure AD DS communicates with the synchronization and management service using a basic SKU public IP address. For more information about public IP addresses, see [IP address types and allocation methods in Azure](../virtual-network/virtual-network-ip-addresses-overview-arm.md). |
-| Azure basic load balancer               | Azure AD DS uses a basic SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md). |
+| Azure basic load balancer               | Azure AD DS uses a basic SKU load balancer for network address translation (NAT) and load balancing (when used with secure LDAP). For more information about Azure load balancers, see [What is Azure Load Balancer?](../load-balancer/load-balancer-overview.md) |
 | Network address translation (NAT) rules | Azure AD DS creates and uses three NAT rules on the load balancer - one rule for secure HTTP traffic, and two rules for secure PowerShell remoting. |
 | Load balancer rules                     | When an Azure AD DS managed domain is configured for secure LDAP on TCP port 636, three rules are created and used on a load balancer to distribute the traffic. |
 
@@ -109,14 +109,16 @@ The following network security group rules are required for Azure AD DS to provi
 | 636         | TCP      | Any                                | Any         | Allow  | No       | Only enabled when you configure secure LDAP (LDAPS). |
 
 > [!WARNING]
-> Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which Azure AD DS is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your Azure AD DS managed domain is also disrupted. The Azure SLA doesn't apply to deployments where an improperly configured network security group and/or user defined route tables have been applied that blocks Azure AD DS from updating and managing your domain.
+> Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which Azure AD DS is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your Azure AD DS managed domain is also disrupted.
 >
 > Default rules for *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*, and *DenyAllOutBound* also exist for the network security group. Don't edit or delete these default rules.
+>
+> The Azure SLA doesn't apply to deployments where an improperly configured network security group and/or user defined route tables have been applied that blocks Azure AD DS from updating and managing your domain.
 
 ### Port 443 - synchronization with Azure AD
 
 * Used to synchronize your Azure AD tenant with your Azure AD DS managed domain.
-* This network security group rule is required. Without access to this port, your Azure AD DS managed domain can't sync with your Azure AD tenant. Users may not be able to sign in as changes to their passwords wouldn't be synchronized to your Azure AD DS managed domain.
+* Without access to this port, your Azure AD DS managed domain can't sync with your Azure AD tenant. Users may not be able to sign in as changes to their passwords wouldn't be synchronized to your Azure AD DS managed domain.
 * Inbound access to this port to IP addresses is restricted by default using the **AzureActiveDirectoryDomainServices** service tag.
 * Do not restrict outbound access from this port.
 
@@ -134,13 +136,13 @@ The following network security group rules are required for Azure AD DS to provi
 ### Port 5986 - management using PowerShell remoting
 
 * Used to perform management tasks using PowerShell remoting in your Azure AD DS managed domain.
-* This network security group rule is required. Without access to this port, your Azure AD DS managed domain can't be updated, configured, backed-up, or monitored.
+* Without access to this port, your Azure AD DS managed domain can't be updated, configured, backed-up, or monitored.
 * For Azure AD DS managed domains that use a Resource Manager-based virtual network, you can restrict inbound access to this port to the *AzureActiveDirectoryDomainServices* service tag.
     * For legacy Azure AD DS managed domains using a Classic-based virtual network, you can restrict inbound access to this port to the following source IP addresses: *52.180.183.8*, *23.101.0.70*, *52.225.184.198*, *52.179.126.223*, *13.74.249.156*, *52.187.117.83*, *52.161.13.95*, *104.40.156.18*, and *104.40.87.209*.
 
 ## User-defined routes
 
-User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the 0.0.0.0 route. Changes to this route can disrupt Azure AD Domain Services.
+User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the *0.0.0.0* route. Changes to this route can disrupt Azure AD Domain Services.
 
 You must also route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. For more information on service tags and their associated IP address from, see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
 

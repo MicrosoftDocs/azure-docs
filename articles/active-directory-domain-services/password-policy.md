@@ -36,7 +36,7 @@ To complete this article, you need the following resources and privileges:
 
 ## Fine-grained password policies (FGPP) overview
 
-You can create multiple fine-grained password policies (FGPPs) to specify password policies within an Azure AD DS managed domain. FGPP lets you apply specific restrictions for password and account lockout policies to different users in a domain. For example, to secure privileged accounts you can apply stricter password settings than regular non-privileged accounts.
+Fine-grained password policies (FGPPs) let you apply specific restrictions for password and account lockout policies to different users in a domain. For example, to secure privileged accounts you can apply stricter password settings than regular non-privileged accounts. You can create multiple FGPPs to specify password policies within an Azure AD DS managed domain.
 
 The following password settings can be configured using FGPP:
 
@@ -50,7 +50,9 @@ The following password settings can be configured using FGPP:
   * Number of failed logon attempts allowed
   * Reset failed logon attempts count after
 
-FGPP only affects users created in Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD aren't affected by the password policies. FGPP is distributed through groups association in the Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
+FGPP only affects users created in Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD aren't affected by the password policies.
+
+Policies are distributed through group association in the Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
 ## Default fine-grained password policy settings
 
@@ -58,7 +60,7 @@ In an Azure AD DS managed domain, the following password policies are configured
 
 * **Minimum password length (characters):** 7
 * **Maximum password age (lifetime):** 90 days
-* Passwords must meet complexity requirements
+* **Passwords must meet complexity requirements**
 
 The following account lockout policies are then configured by default:
 
