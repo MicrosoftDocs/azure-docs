@@ -24,7 +24,7 @@ You cannot delete a Recovery Services vault that has dependencies such as protec
 
   ![Delete vault error](./media/backup-azure-delete-vault/error.png)
 
-- If you delete a on-premises protected item (MARS, MABS or DPM to Azure) from portal containing dependencies, a warning message is displayed:
+- If you delete an on-premises protected item (MARS, MABS or DPM to Azure) from portal containing dependencies, a warning message is displayed:
 
   ![Delete protected server error](./media/backup-azure-delete-vault/error-message.jpg)
 
@@ -46,7 +46,7 @@ Before you proceed further read **[this](#before-you-start)** section to underst
 
 To stop protection and delete the backup data, perform the below:
 
-1. From portal > **Recovery Services vault** > **Backup Items** choose the protected items in cloud(Example AzureVirtual Machine, Azure Storage (Azure Files), SQL un Azure VM and so on).
+1. From portal > **Recovery Services vault** > **Backup Items** choose the protected items in cloud(Example AzureVirtual Machine, Azure Storage (Azure Files), SQL on Azure VM and so on).
 
     ![select the backup type](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
@@ -126,7 +126,7 @@ To delete backup items from MARS Management console
 
   ![Security Pin](./media/backup-azure-delete-vault/security-pin.png)
 
-- In the **Modify Backup Progress** wizard you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
+- In the **Modify Backup Progress** wizard, you will see *Deleted backup data will be retained for 14 day. After that time, backup data will be permanently deleted.*  
 
     ![Delete Backup Infrastructure](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -156,7 +156,7 @@ The protected member status is now changed to **Inactive replica available**.
     ![Remove replicas on disk and online](./media/backup-azure-delete-vault/remove-replica-on-disk-and-online.png)
 
 **Method 2**
-Launch the **MABS Management** console. In the **Select data protection method** section, un-select **I want online protection**.
+Launch the **MABS Management** console. In the **Select data protection method** section, unselect **I want online protection**.
 
   ![select data protection method](./media/backup-azure-delete-vault/data-protection-method.png)
 
@@ -180,7 +180,7 @@ This option to delete the Recovery Services vault is only recommended when all t
 
 - From the **Essentials** pane in the vault menu, verify that there aren't any **Backup items**, **Backup management servers**, or **Replicated items** listed. If there are backup items, refer the [Before you start](#before-you-start) section..
 - Retry [deleting the vault from portal](#delete-the-recovery-services-vault).
-- If all the dependencies are removed and you are still getting the *Vault deletion error* then use ARMClient tool to perform the steps given below;
+- If all the dependencies are removed and you are still getting the *Vault deletion error*, then use ARMClient tool to perform the steps given below;
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
