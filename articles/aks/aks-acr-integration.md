@@ -22,7 +22,7 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 * You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles required for the service principal
 * You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
 
-## Create AKS and ACR integration with CLI during new cluster creation
+## Create new AKS cluster with ACR integration
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  The following CLI command creates an ACR in the resource group you specify with acrpull permissions. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```azurecli-interactive
