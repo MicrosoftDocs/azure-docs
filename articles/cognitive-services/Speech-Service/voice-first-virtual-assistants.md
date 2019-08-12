@@ -40,6 +40,9 @@ Sample code for creating a voice-first virtual assistant is available on GitHub.
 * [Quickstart: voice-first virtual assistants (Java)](quickstart-virtual-assistant-java-jre.md)
 * [Direct Line Speech Client (C#, WPF)](https://github.com/Azure-Samples/Cognitive-Services-Direct-Line-Speech-Client)
 
+## Tutorial
+A tutorial on how to [voice-enable your bot using the Speech SDK and Direct Line Speech channel](tutorial-voice-enable-your-bot-speech-sdk.md).
+
 ## Customization
 
 Voice-first virtual assistants built using Azure Speech Services can use the full range of customization options available for [speech-to-text](speech-to-text.md), [text-to-speech](text-to-speech.md), and [custom keyword selection](speech-devices-sdk-create-kws.md).
