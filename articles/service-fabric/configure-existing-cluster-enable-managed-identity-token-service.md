@@ -57,7 +57,7 @@ In order for the changes to take effect, you will also need to change the upgrad
 
 ## Errors and troubleshooting
 
-If the deployment fails with the following message, it means the cluster is not running on a high enough Service Fabric version:
+If the deployment fails with the following message, it means the cluster is not running on the minimum required Service Fabric runtime version:
 
 ```json
 {
