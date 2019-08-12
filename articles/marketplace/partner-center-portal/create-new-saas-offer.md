@@ -1,9 +1,9 @@
 ---
 title: Create a new SaaS offer in the Commercial Marketplace 
 description: How to create a new Software as a Service (SaaS) offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center. 
-author: mattwojo 
+author: qianw211 
 manager: evansma
-ms.author: mattwoj 
+ms.author: v-qiwe
 ms.service: marketplace 
 ms.topic: conceptual
 ms.date: 08/12/2019
