@@ -94,16 +94,16 @@ ApplicationTypeName    : Application1Type
 ApplicationTypeVersion : 1.0.0
 ApplicationStatus      : Ready
 HealthState            : Ok
-ApplicationParameters  : { "ImportantParameter" = "1" }
+ApplicationParameters  : { "ImportantParameter" = "1"; "NewParameter" = "testBefore" }
 ```
 
-Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an unmonitored upgrade, but a monitored upgrade can also be used.
+Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an monitored upgrade, but an unmonitored upgrade can also be used. To see a full description of flags accepted by this cmdlet, see the [Azure Service Fabric PowerShell module reference](/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters)
 
 ```PowerShell
-PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testValue"}
+PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testAfter"}
 
 PS C:\> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/Application1 -ApplicationTypeVers
-ion 1.0.0 -ApplicationParameter $appParams -UnmonitoredAuto
+ion 1.0.0 -ApplicationParameter $appParams -Monitored
 
 ```
 
@@ -117,10 +117,8 @@ ApplicationTypeName    : Application1Type
 ApplicationTypeVersion : 1.0.0
 ApplicationStatus      : Ready
 HealthState            : Ok
-ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testValue" }
+ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
 ```
-
-For more information, see the [Service Fabric PowerShell module reference](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters).
 
 ## Rolling back application upgrades
 
