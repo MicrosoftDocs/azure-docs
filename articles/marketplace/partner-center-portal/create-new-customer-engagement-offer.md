@@ -199,8 +199,6 @@ In the **Support contact** section, you must also provide the **Support URL** wh
 
 You must provide at least one (and up to three) related marketing documents here, such as white papers, brochures, checklists, or presentations. These documents must be in .pdf format.
 
-- **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
-
 ### Marketplace images
 
 In this section, you can provide logos and images that will be used when showing your offer to customer. All images must be in .png format.

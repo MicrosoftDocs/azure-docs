@@ -12,6 +12,7 @@ ms.date: 08/12/2019
 # Create a new Dynamics 365 for Operations offer
 
 This topic explains how to create a new Dynamics 365 for Operations offer. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management.  All apps for Dynamics 365 for Operations must go through our certification process. Microsoft requires specific reviews in order to validate the following requirements:
+
 - A partner's custom code meets Microsoft guidelines.
 - A Microsoft Dynamics Lifecycle Services (LCS) solution package can be successfully deployed.
 - Transactions can be completed.
@@ -119,7 +120,7 @@ You can optionally select up to two industries to help categorize your offer in 
 
 Enter the version number of your offer. Customers will see this version listed on the offer's detail page.
 
-### Standard contract
+### Standard Contract
 
 To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace.
 
@@ -250,29 +251,17 @@ Then, when you're ready to make your offer available and remove the preview rest
 
 The **Technical configuration** page defines the technical details used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it.
 
-### Base license model
+### Solution identifier
 
-The base license model determines how customers are assigned your application in the CRM Admin Center. Select **Resource** for instance-based licensing or **User** if licenses are assigned one per tenant.
+Provide the solution identifier (GUID) for your solution.
 
-### Requires S2S outbound and CRM Secure Store Access
+To find your solution identifier:
+1. In Microsoft Dynamics Lifecycle Services (LCS), select **Solution Management**.
+2. Select your solution, then look for the **Solution Identifier** in the **Package overview**. If the identifier is blank, select **Edit** and republish your package, then try again.
 
-Check this box to enable configuration of CRM Secure Store or Server-to-Server (S2S) outbound access. Note that this feature requires specialized consideration from the Dynamics 365 Team during the certification phase. Microsoft will contact you to complete additional steps to support this feature.
+### Release version
 
-### Application configuration URL
-
-Provide the URL for the configuration web page that enables the customer to configure your app.
-
-### CRM package
-
-In the **URL of your package location** field, enter the URL of an Azure Storage account that contains the uploaded CRM package .zip file. This URL should include a read-only SAS key to allow Microsoft to pick up your package for verification.
-
-Check the box labelled **There is more than one CRM package in my package file**, if applicable. If so, be sure to include all the packages in your .zip file.
-
-### CRM package availability
-
-In this section, select **+ Add region** to specify the geographic regions in which your CRM package will be available to customers. Deploying to the following sovereign regions require special permission and validation during the certification process: [Germany](https://docs.microsoft.com/azure/germany/), [US Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome), and TIP.
-
-By default, the **Application configuration URL** you entered above will be used for each region. If you prefer, you can enter a separate Application Configuration URL for one or more specific regions. 
+Select the version of Dynamics 365 for Finance and Operations that this solution works with.
 
 ## Test drive technical configuration
 
@@ -370,7 +359,9 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
-You must upload a .pdf file describing your offer's **Key usage scenario** in this page. 
+You must upload a .pdf file describing your offer's **Key usage scenario** in this page.
+
+Additionally, you must specify whether or not your solution includes localizations, and whether or not it enables translations.
 
 ## Publish
 
