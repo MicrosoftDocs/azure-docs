@@ -28,7 +28,7 @@ To perform the tasks listed in this article, you need:
 
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 4. A **domain-joined virtual machine** from which you administer the Azure AD Domain Services managed domain. If you don't have such a virtual machine, follow all the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 5. You need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, to administer Group Policy for your managed domain.
 
@@ -48,26 +48,21 @@ Perform the following steps to install the Group Policy Administration tools on 
 2. Click the **Connect** button on the Overview tab. A Remote Desktop Protocol (.rdp) file is created and downloaded.
 
     ![Connect to Windows virtual machine](./media/active-directory-domain-services-admin-guide/connect-windows-vm.png)
-3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@domainservicespreview.onmicrosoft.com' in our case. You may receive a certificate warning during the sign-in process. Click Yes or Continue to proceed with the connection.
+3. To connect to your VM, open the downloaded RDP file. If prompted, click **Connect**. At the login prompt, use the credentials of a user belonging to the 'AAD DC Administrators' group. For example, we use 'bob@contoso.onmicrosoft.com' in our case. You may receive a certificate warning during the sign-in process. Click Yes or Continue to proceed with the connection.
 4. From the Start screen, open **Server Manager**. Click **Add Roles and Features** in the central pane of the Server Manager window.
 
     ![Launch Server Manager on virtual machine](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager.png)
 5. On the **Before You Begin** page of the **Add Roles and Features Wizard**, click **Next**.
 
-    ![Before You Begin page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-begin.png)
 6. On the **Installation Type** page, leave the **Role-based or feature-based installation** option checked and click **Next**.
 
-    ![Installation Type page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-type.png)
 7. On the **Server Selection** page, select the current virtual machine from the server pool, and click **Next**.
 
-    ![Server Selection page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-server.png)
 8. On the **Server Roles** page, click **Next**. We skip this page since we are not installing any roles on the server.
 9. On the **Features** page, select the **Group Policy Management** feature.
 
     ![Features page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management.png)
 10. On the **Confirmation** page, click **Install** to install the Group Policy Management feature on the virtual machine. When feature installation completes successfully, click **Close** to exit the **Add Roles and Features** wizard.
-
-    ![Confirmation page](./media/active-directory-domain-services-admin-guide/install-rsat-server-manager-add-roles-gp-management-confirmation.png)
 
 ## Task 3 - Launch the Group Policy management console to administer Group Policy
 You can use the Group Policy management console on the domain-joined virtual machine to administer Group Policy on the managed domain.
@@ -87,7 +82,7 @@ You can use the Group Policy management console on the domain-joined virtual mac
 ## Task 4 - Customize built-in Group Policy Objects
 There are two built-in Group Policy Objects (GPOs) - one each for the 'AADDC Computers' and 'AADDC Users' containers in your managed domain. You can customize these GPOs to configure group policy on the managed domain.
 
-1. In the **Group Policy Management** console, click to expand the **Forest: contoso100.com** and **Domains** nodes to see the group policies for your managed domain.
+1. In the **Group Policy Management** console, click to expand the **Forest: contoso.com** and **Domains** nodes to see the group policies for your managed domain.
 
     ![Built-in GPOs](./media/active-directory-domain-services-admin-guide/builtin-gpos.png)
 2. You can customize these built-in GPOs to configure group policies on your managed domain. Right-click the GPO and click **Edit...** to customize the built-in GPO. The Group Policy Configuration Editor tool enables you to customize the GPO.
@@ -122,7 +117,7 @@ You can create or import your own custom group policy objects. You can also link
 More information about using [Group Policy Management Console](https://technet.microsoft.com/library/cc753298.aspx) is available on Technet.
 
 ## Related Content
-* [Azure AD Domain Services - Getting Started guide](create-instance.md)
+* [Azure AD Domain Services - Getting Started guide](tutorial-create-instance.md)
 * [Join a Windows Server virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md)
 * [Group Policy Management Console](https://technet.microsoft.com/library/cc753298.aspx)

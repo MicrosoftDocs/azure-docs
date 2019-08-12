@@ -24540,6 +24540,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-two-step-verification-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
       "redirect_document_id": false
@@ -40880,17 +40885,65 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/create-instance.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-network.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-admingroup.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/insights/container-overview.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/active-directory-domain-services/configure-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-ldaps-configure-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-ldaps-bind-lockdown.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
@@ -40938,6 +40991,11 @@
       "source_path": "articles/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi.md",
       "redirect_url": "https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/manage-domain.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
+      "redirect_document_id": true
     },
     {
       "source_path": "articles/cognitive-services/Academic-Knowledge/GraphSearchMethod.md",

@@ -28,12 +28,12 @@ To perform the tasks listed in this article, you need:
 
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](create-instance.md).
+3. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 4. A domain-joined virtual machine from which you administer the Azure AD Domain Services managed domain. If you don't have such a virtual machine, follow all the tasks outlined in the article titled [Join a Windows virtual machine to a managed domain](active-directory-ds-admin-guide-join-windows-vm.md).
 5. You need the credentials of a **user account belonging to the 'AAD DC Administrators' group** in your directory, to create a custom OU on your managed domain.
 
 ## Install AD administration tools on a domain-joined virtual machine for remote administration
-Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Tenant administrators do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. To administer the managed domain, install the AD administration tools feature on a virtual machine joined to the managed domain. Refer to the article titled [Manage an Azure AD Domain Services domain](manage-domain.md) for instructions.
+Azure AD Domain Services managed domains can be managed remotely using familiar Active Directory administrative tools such as the Active Directory Administrative Center (ADAC) or AD PowerShell. Tenant administrators do not have privileges to connect to domain controllers on the managed domain via Remote Desktop. To administer the managed domain, install the AD administration tools feature on a virtual machine joined to the managed domain. Refer to the article titled [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md) for instructions.
 
 ## Create an Organizational Unit on the managed domain
 Now that the AD Administrative Tools are installed on the domain joined virtual machine, we can use these tools to create an organization unit on the managed domain. Perform the following steps:
@@ -49,10 +49,10 @@ Now that the AD Administrative Tools are installed on the domain joined virtual 
 2. Click **Active Directory Administrative Center**.
 
     ![Active Directory Administrative Center](./media/active-directory-domain-services-admin-guide/adac-overview.png)
-3. To view the domain, click the domain name in the left pane (for example, 'contoso100.com').
+3. To view the domain, click the domain name in the left pane (for example, 'contoso.com').
 
     ![ADAC - view domain](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
-4. On the right side **Tasks** pane, click **New** under the domain name node. In this example, we click **New** under the 'contoso100(local)' node on the right side **Tasks** pane.
+4. On the right side **Tasks** pane, click **New** under the domain name node. In this example, we click **New** under the 'contoso(local)' node on the right side **Tasks** pane.
 
     ![ADAC - new OU](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 5. You should see the option to create an Organizational Unit. Click **Organizational Unit** to launch the **Create Organizational Unit** dialog.
@@ -77,7 +77,7 @@ Now that you have created a custom OU, you can go ahead and create users, groups
 >
 
 ## Related Content
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md)
 * [Manage Group Policy for Azure AD Domain Services](manage-group-policy.md)
 * [Active Directory Administrative Center: Getting Started](https://technet.microsoft.com/library/dd560651.aspx)
 * [Service Accounts Step-by-Step Guide](https://technet.microsoft.com/library/dd548356.aspx)

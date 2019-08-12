@@ -65,7 +65,7 @@ The following table lists some common attributes and describes how they are sync
 | SID history for users and groups |On-premises primary user and group SID |The SidHistory attribute for users and groups in your managed domain is set to match the corresponding primary user or group SID in your on-premises domain. This feature helps make lift-and-shift of on-premises applications to the managed domain easier, since you do not need to re-ACL resources. |
 
 > [!NOTE]
-> **Sign in to the managed domain using the UPN format:** The SAMAccountName attribute may be auto-generated for some user accounts in your managed domain. If multiple users have the same mailNickname attribute or users have overly long UPN prefixes, the SAMAccountName for these users may be auto-generated. Therefore, the SAMAccountName format (for example, 'CONTOSO100\joeuser') is not always a reliable way to sign in to the domain. Users' auto-generated SAMAccountName may differ from their UPN prefix. Use the UPN format (for example, 'joeuser@contoso100.com') to sign in to the managed domain reliably.
+> **Sign in to the managed domain using the UPN format:** The SAMAccountName attribute may be auto-generated for some user accounts in your managed domain. If multiple users have the same mailNickname attribute or users have overly long UPN prefixes, the SAMAccountName for these users may be auto-generated. Therefore, the SAMAccountName format (for example, 'CONTOSO\dee') is not always a reliable way to sign in to the domain. Users' auto-generated SAMAccountName may differ from their UPN prefix. Use the UPN format (for example, 'dee@contoso.com') to sign in to the managed domain reliably.
 
 ### Attribute mapping for user accounts
 The following table illustrates how specific attributes for user objects in your Azure AD tenant are synchronized to corresponding attributes in your managed domain.
@@ -112,7 +112,7 @@ The following table illustrates how specific attributes for group objects in you
 ## Password hash synchronization and security considerations
 When you enable Azure AD Domain Services, your Azure AD directory generates and stores password hashes in NTLM & Kerberos compatible formats. 
 
-For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](active-directory-ds-getting-started-password-sync.md) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
+For existing cloud user accounts, since Azure AD never stores their clear-text passwords, these hashes cannot be automatically generated. Therefore, Microsoft requires [cloud-users to reset/change their passwords](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) in order for their password hashes to be generated and stored in Azure AD. For any cloud user account created in Azure AD after enabling Azure AD Domain Services, the password hashes are generated and stored in the NTLM and Kerberos compatible formats. 
 
 For user accounts synced from on-premises AD using Azure AD Connect Sync, you need to [configure Azure AD Connect to synchronize password hashes in the NTLM and Kerberos compatible formats](active-directory-ds-getting-started-password-sync-synced-tenant.md).
 
@@ -125,4 +125,4 @@ As described in a preceding section of this article, there is no synchronization
 * [Features - Azure AD Domain Services](active-directory-ds-features.md)
 * [Deployment scenarios - Azure AD Domain Services](scenarios.md)
 * [Networking considerations for Azure AD Domain Services](network-considerations.md)
-* [Get started with Azure AD Domain Services](create-instance.md)
+* [Get started with Azure AD Domain Services](tutorial-create-instance.md)

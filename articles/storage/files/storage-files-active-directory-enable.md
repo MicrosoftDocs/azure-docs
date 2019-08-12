@@ -4,7 +4,7 @@ description: Learn how to enable identity-based authentication over Server Messa
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 08/08/2019
 ms.author: rogarana
 ---
 
@@ -41,7 +41,11 @@ Before you enable Azure AD over SMB for Azure Files, make sure you have complete
 
 2.  **Enable Azure AD Domain Services on the Azure AD tenant.**
 
+<<<<<<< HEAD
+    To support authentication with Azure AD credentials, you must enable Azure AD Domain Services for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services using the Azure portal](../../active-directory-domain-services/tutorial-create-instance.md).
+=======
     To support authentication with Azure AD credentials, you must enable Azure AD DS for your Azure AD tenant. If you aren't the administrator of the Azure AD tenant, contact the administrator and follow the step-by-step guidance to [Enable Azure Active Directory Domain Services by using the Azure portal](../../active-directory-domain-services/create-instance.md).
+>>>>>>> 5f049740fef320adb172d59f68bd161bdc4318e1
 
     It typically takes about 15 minutes for an Azure AD DS deployment to complete. Verify that the health status of Azure AD DS shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
@@ -137,7 +141,16 @@ We have introduced two Azure built-in roles for granting share-level permissions
 > [!IMPORTANT]
 > Full administrative control of a file share, including the ability to assign a role to an identity, requires using the storage account key. Administrative control is not supported with Azure AD credentials.
 
-You can use Azure PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
+You can use the Azure portal, PowerShell, or Azure CLI to assign the built-in roles to the Azure AD identity of a user for granting share-level permissions.
+
+#### Azure portal
+To assign an RBAC role to an Azure AD identity, using the [Azure portal](https://portal.azure.com), follow these steps:
+
+1. In the Azure portal, go to your file share, or [create a file share in Azure Files](storage-how-to-create-file-share.md).
+2. Select **Access Control (IAM)**.
+3. Select **Add a role assignment**
+4. In the **Add role assignment** blade, select the appropriate built-in role (Storage File Data SMB Share Reader, Storage File Data SMB Share Contributor) from the **Role** list. Keep the **Assign access to** option at the default setting: **Azure AD user, group, or service principal**. Select the target Azure AD identity by name or email address.
+5. Select **Save** to complete the role assignment operation.
 
 #### PowerShell
 

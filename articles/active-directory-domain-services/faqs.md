@@ -28,6 +28,9 @@ Refer to the [Troubleshooting guide](troubleshoot.md) for solutions to common is
 ### Can I create multiple managed domains for a single Azure AD directory?
 No. You can only create a single managed domain serviced by Azure AD Domain Services for a single Azure AD directory.  
 
+### Can I enable Azure AD Domain Services in a Classic virtual network?
+Classic virtual networks are not supported for new deployments. Existing managed domains deployed in classic virtual networks continue to be supported.
+
 ### Can I enable Azure AD Domain Services in an Azure Resource Manager virtual network?
 Yes. Azure AD Domain Services can be enabled in an Azure Resource Manager virtual network. Classic Azure virtual networks are no longer supported for creating new managed domains.
 
