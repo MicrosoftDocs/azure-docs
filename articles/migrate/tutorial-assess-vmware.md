@@ -195,7 +195,7 @@ To set the scope, you need to perform the following steps:
 3.	Select your vCenter Server from the drop-down menu.
 4.	Click on **Create role** action.
 5.	Type a name for the new role. (such as <em>Azure_Migrate</em>).
-6.	Assign these [permissions](https://docs.microsoft.com/en-us/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the newly defined role.
+6.	Assign these [permissions](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) to the newly defined role.
 7.	Click **OK**.
 
 **Assign permissions on vCenter objects**
@@ -203,7 +203,7 @@ To set the scope, you need to perform the following steps:
 There are 2 approaches to assign permissions on inventory objects in vCenter to the vCenter user account with a role assigned to it.
 - For Server Assessment, **Read-only** role must be applied to the vCenter user account for all the parent objects where the VMs to be discovered are hosted. All parent objects - host, folder of hosts, cluster, folder of clusters in the hierarchy up to the data center are to be included. These permissions are to be propagated to child objects in the hierarchy. 
 
-    Similarly for Server Migration, a user-defined role (can be named <em> Azure _Migrate</em>) with these [privileges](https://docs.microsoft.com/en-us/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assigned must be applied to the vCenter user account for all the parent objects where the VMs to be migrated are hosted.
+    Similarly for Server Migration, a user-defined role (can be named <em> Azure _Migrate</em>) with these [privileges](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions) assigned must be applied to the vCenter user account for all the parent objects where the VMs to be migrated are hosted.
 
 ![Assign permissions](./media/tutorial-assess-vmware/assign-perms.png)
 
