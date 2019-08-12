@@ -166,9 +166,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     b. As **Identity provider type**, select **SAML 2.0**.
 
-    c. In **Issuer URL** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
+    c. In **Issuer URL** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
 
-    d. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+    d. In **Login URL** textbox, paste the value of **Login URL**, which you have copied from Azure portal.
 
     e. Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.
 
@@ -205,7 +205,7 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
     
     d. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
 
-1. Click **Single sign-on** tab and make sure that the **Federated SSO user ID** in below screen shot and the **Source Attribute** value which is mapped with the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` in the **User Attributes** section in the Azure portal should be same.
+1. Click **Single sign-on** tab and make sure that the **Federated SSO user ID** in below screenshot and the **Source Attribute** value which is mapped with the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` in the **User Attributes** section in the Azure portal should be same.
 
 	![User Information](./media/intacct-tutorial/ic790044.png "User Information")
 
