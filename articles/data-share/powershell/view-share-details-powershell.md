@@ -17,10 +17,6 @@ ms.author: t-roupa
 
 This PowerShell script lists data shares from an existing account and gets the details of a specific share.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
-
 ## Prerequisites
 * **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) on creating one.
 * **Azure Data Share Account**. If you don't have an Azure data share account, see the [Create a data share account](/create-new-share.md) on creating one.

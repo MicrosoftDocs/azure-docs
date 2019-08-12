@@ -13,13 +13,9 @@ ms.date: 07/07/2019
 ms.author: t-roupa
 ---
 
-# Use PowerShell to send a data share invitation
+# Use PowerShell to get a data share invitation
 
 This PowerShell script gets invitations sent to a consumer.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) on creating one.
