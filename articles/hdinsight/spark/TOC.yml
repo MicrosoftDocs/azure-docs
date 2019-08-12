@@ -40,7 +40,9 @@
   - name: Python samples
     href: ../hdinsight-sdk-python-samples.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
 - name: Concepts
-  items: 
+  items:
+  - name: Spark best practices
+    href: ./spark-best-practices.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json 
   - name: Use VSCode to run Apache Spark queries
     href: ../hdinsight-for-vscode.md?toc=/azure/hdinsight/spark/toc.json&bc=/azure/hdinsight/spark/breadcrumb/toc.json
   - name: Apache Hadoop components on HDInsight
