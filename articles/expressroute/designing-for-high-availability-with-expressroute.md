@@ -21,7 +21,7 @@ ExpressRoute is designed for high availability to provide carrier grade private 
 
 ## Architecture considerations
 
-The following figure illustrates the recommended way to connect using an ExpressRoute circuit for maximizing the availability of an ExpressRoute circuit.
+The following figure illustrates the recommended way to connect using an ExpressRoute circuit for maximizing the availability the connectivity.
 
  [![1]][1]
 
