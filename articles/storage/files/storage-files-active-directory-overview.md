@@ -4,7 +4,7 @@ description: Azure Files supports identity-based authentication over SMB (Server
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 07/30/2019
+ms.date: 08/07/2019
 ms.author: rogarana
 ---
 
@@ -80,7 +80,7 @@ Azure Files now supports preserving directory or file ACLs when you copy data to
 ## Pricing
 There is no additional service charge to enable Azure AD authentication over SMB on your storage account. For more information on pricing, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/) and [Azure AD Domain Services pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) pages.
 
-## Next Steps
+## Next steps
 For more information about Azure Files and Azure AD authentication over SMB, see these resources:
 
 - [Introduction to Azure Files](storage-files-introduction.md)

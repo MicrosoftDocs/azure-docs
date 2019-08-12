@@ -59,7 +59,7 @@ FPGAs are available in these Azure regions:
 
     If you do not have quota, then submit a request at [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
 
-- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](setup-create-workspace.md).
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
  
 - The Python SDK for hardware-accelerated models:
 
