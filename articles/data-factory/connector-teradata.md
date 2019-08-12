@@ -183,11 +183,10 @@ To copy data from Teradata, the following properties are supported:
 
 This section provides a list of properties supported by Teradata source. For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
 
-### Teradata as a source type
+### Teradata as source
 
-> [!TIP]
->
-> To load data from Teradata efficiently by using data partitioning, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section.
+>[!TIP]
+>To load data from Teradata efficiently by using data partitioning, see the [Parallel copy from Teradata](#parallel-copy-from-teradata) section.
 
 To copy data from Teradata, the following properties are supported in the copy activity **source** section:
 

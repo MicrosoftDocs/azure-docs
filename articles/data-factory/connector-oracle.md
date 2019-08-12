@@ -192,11 +192,10 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
 
 This section provides a list of properties supported by the Oracle source and sink. For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
 
-### Oracle as a source type
+### Oracle as source
 
-> [!TIP]
->
-> To load data from Oracle efficiently by using data partitioning, see [Parallel copy from Oracle](#parallel-copy-from-oracle).
+>[!TIP]
+>To load data from Oracle efficiently by using data partitioning, see [Parallel copy from Oracle](#parallel-copy-from-oracle).
 
 To copy data from Oracle, set the source type in the copy activity to `OracleSource`. The following properties are supported in the copy activity **source** section.
 
@@ -243,7 +242,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 ]
 ```
 
-### Oracle as a sink type
+### Oracle as sink
 
 To copy data to Oracle, set the sink type in the copy activity to `OracleSink`. The following properties are supported in the copy activity **sink** section.
 
