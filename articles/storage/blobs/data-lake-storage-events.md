@@ -12,7 +12,7 @@ ms.reviewer: sumameh
 
 # Tutorial: Use events with Azure Data Lake Storage Gen2
 
-This tutorial shows you how to blah.
+This tutorial shows you how to do awesome stuff.
 
 In this tutorial, you will:
 
@@ -42,26 +42,42 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
 
-* Create an Azure Databricks service and cluster. This tutorial uses a service named `contoso-orders` and a cluster named `customer-order-cluster`.
+## Create an Azure Databricks workspace
 
-  See [Quickstart: Analyze data in Azure Data Lake Storage Gen2 by using Azure Databricks](data-lake-storage-quickstart-create-databricks-account.md).
+In this section, you create an Azure Databricks workspace using the Azure portal.
 
-* Install AzCopy v10. See [Transfer data with AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
+
+    ![Databricks on Azure portal](./media/data-lake-storage-quickstart-create-databricks-account/azure-databricks-on-portal.png "Databricks on Azure portal")
+
+2. Under **Azure Databricks Service**, provide the values to create a Databricks workspace.
+
+    ![Create an Azure Databricks workspace](./media/data-lake-storage-events/new-databricks-service.png "Create an Azure Databricks workspace")
+
+3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
 ## Add initial data to the storage account
 
-1. Open Storage explorer.
-2. Create a container named "data". Put screenshot here.
-3. Create a folder named input and then a subfolder named full.
-4. Create a csv file that contains this information:
+1. Open Azure Storage Explorer, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
+
+   ![data folder](./media/data-lake-storage-events/data-container.png "data folder")
+
+   For more information about how to use Storage Explorer, see [Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](data-lake-storage-explorer.md).
+
+2. In the **data** container, create a folder named **input**, and then a sub folder named **full**.
+
+3. Paste the following text into a text editor. 
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
    ```
-5. Open storage explorer and copy this file to the input/full directory.
 
-## Create and populate delta databricks tables
+4. Save this file to your local computer and give it the name **data.csv**.
+
+5. In Storage Explorer, upload this file to the **input/full** folder.  
+
+## Create Databricks Delta tables
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to set up the customer table in the storage account.
 
@@ -129,7 +145,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 8. After this code block successfully runs, remove this code block from your notebook. You no longer need it.
 
-## Upsert data to delta table
+## Add "Upsert" capability to the notebook
 
 1. Copy and paste the following code block into a different cell, but don't run this cell.
 
@@ -202,8 +218,6 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 4. Configure the function app.
 
    ![Configure the function app](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
-
-   Put something here for configuring an application insights logging.
 
 5. Add configuration variables.
 
@@ -279,21 +293,17 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 ## Create an event subscription
 
-Something here.
-
 1. In the function code page, click the **Add Event Grid subscription** button.
 
    ![New event subscription](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
 
-2. In the **Create Event Subscription** page, name the subscription, and then use the fields in the page to select your storage account. 
+2. In the **Create Event Subscription** page, name the subscription, and then use the fields in the page to select your storage account.
 
    ![New event subscription](./media/data-lake-storage-events/new-event-subscription-2.png "New event subscription")
 
 3. In the **Filter to Event Types** drop-down list, select the **Blob Created**, and **Blob Deleted** events, and then click the **Create** button.
 
 ## Test it all out
-
-Introduction
 
 1. In Storage Explorer, create a sub-folder named **upsert**.
 
@@ -330,5 +340,5 @@ When they're no longer needed, delete the resource group and all related resourc
 
 ## Next steps
 
-> [!div class="nextstepaction"] 
-> [Next step goes here](data-lake-storage-tutorial-extract-transform-load-hive.md)
+> [!div class="nextstepaction"]
+> [Reacting to Blob storage events](storage-blob-event-overview.md)
