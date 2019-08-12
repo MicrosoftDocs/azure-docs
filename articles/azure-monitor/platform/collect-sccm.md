@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 08/12/2019
 ms.author: magoedte
 ---
 
@@ -71,18 +71,47 @@ Review the article [Connect Windows computers to Azure Monitor in Azure](agent-w
 
 In order to add a Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://docs.microsoft.com/sccm/core/servers/deploy/configure/about-the-service-connection-point) configured for online mode.
 
-1. In the Configuration Manager console, go to the **Administration** workspace, expand **Cloud Services**, and select the **Azure Services** node.
+1. In the **Administration** workspace of Configuration Manager, select **OMS Connector**. This opens the **Add Log Analytics Connection Wizard**. Select **Next**.
 
    >[!NOTE]
    >OMS is now referred to as Log Analytics which is a feature of Azure Monitor.
    
-2. On the **Home** tab of the ribbon, in the **Azure Services** group, select **Configure Azure Services**.
+2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
 
-3. 
-1. 
-1. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
+3. On the Azure Services page of the Azure Services Wizard:
 
-   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../../active-directory/develop/quickstart-register-app.md).
+    1. Specify a **Name** for the object in Configuration Manager.
+    2. Specify an optional **Description** to help you identify the service.
+    3. Select the Azure service **OMS Connector**.
+
+4. Select **Next** to continue to the Azure app properties page of the Azure Services Wizard.
+
+5. On the **App** page of the Azure Services Wizard, first select the Azure environment from the list and then click **Import**.
+
+6. On the **Import Apps** page, specify the following information:
+
+    1. Specify the **Azure AD Tenant Name** for the app.
+
+    2. Specify for **Azure AD Tenant ID** the Azure AD tenant. You can find this information on the Azure Active Directory **Properties** page. 
+
+    3. Specify for **Application Name** the application name.
+
+    4. Specify for **Client ID**, the Application ID of the created Azure AD app created earlier.
+
+    5. Specify for **Secret key**, the Client secret key of the created Azure AD app.
+
+    6. Specify for **Secret Key Expiry**, the expiration date of your key.
+
+    7. Specify for **App ID URI**, the App ID URI of the created Azure AD app created earlier.
+
+   
+
+
+
+
+
+
+1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../../active-directory/develop/quickstart-register-app.md).
    2. In the Azure portal, you've created an app secret key for the registered app in Azure Active Directory.  
    3. In the Azure portal, you've provided the registered web app with permission to access to the Log Analytics workspace in Azure Monitor.  
       ![Connection to Log Analytics Wizard General page](./media/collect-sccm/sccm-console-general01.png)
