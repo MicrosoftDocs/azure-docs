@@ -35,6 +35,8 @@ Before you migrate to the Active Directory authoring experience, you need to hav
 
     If you do not have a LUIS authoring resource, create one. 
 
+    ![Create authoring resource](./media/migrate-authoring-key/create-luis-resources.png)
+
     ![Create authoring resource](./media/migrate-authoring-key/create-authoring-resource.png)
 
     When **creating a new authoring resource**, provide the following information: 
