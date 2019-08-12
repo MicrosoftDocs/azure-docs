@@ -6,12 +6,12 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 08/12/2019
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
 
-This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
+This topic explains how to create a new Dynamics 365 for Customer Engagement & PowerApps offer. All apps for Dynamics 365 for Customer Engagement (PowerApps, Sales, Service, Project Service, and Field Service) must go through our certification process and support a trial experience. The certification process checks your solution for standard requirements, compatibility, and proper practices. The trial experience allows users to deploy your solution to a live Dynamics 365 environment.
 
 To begin creating Dynamics 365 for Customer Engagement & PowerApps offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
@@ -70,6 +70,7 @@ Select from the following options:
 - **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)**: An embedded link to a custom-built dashboard. Products that want to demonstrate an interactive Power BI visual should use this type of Test Drive. All you need to upload here is your embedded Power BI URL.
 
 #### Additional test drive resources
+
 - [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [Test Drive Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [Test Drive Overview One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
@@ -124,7 +125,7 @@ To simplify the procurement process for customers and reduce legal complexity fo
 
 Rather than crafting custom terms and conditions, you can choose to offer your software under the Standard Contract, which customers only need to vet and accept once. 
 
-The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178.
+The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178
 
 To use the Standard Contract, check the **Use Standard Contract?** box.
 
@@ -224,7 +225,6 @@ You can optionally add up to four videos that demonstrate your offer. These vide
 
 - [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
-
 ## Availability
 
 The **Availability** page gives you options about where and how to make your offer available.
@@ -289,7 +289,7 @@ The following types of test drives are available, each with their own technical 
 - [Logic app](#technical-configuration-for-logic-app-test-drive)
 - [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (Technical configuration not required)
 
-#### Technical configuration for Azure Resource Manager test drive
+### Technical configuration for Azure Resource Manager test drive
 
 A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
@@ -305,7 +305,7 @@ A deployment template that contains all the Azure resources that comprise your s
 
 - **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).
 
-#### Technical configuration for Dynamics 365 test drive
+### Technical configuration for Dynamics 365 test drive
 
 Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deployment using this type of test drive. The configuration for this type of hosted test drive is the same regardless of whether the test drive is targeting a Business Central, Customer Engagement, or Operations audience.
 
@@ -319,7 +319,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Role name** (required): Provide the security role name you have defined in your custom Dynamics 365 test drive. This will be assigned to the user during their test drive (e.g. test-drive-role).
 
-#### Technical configuration for Logic app test drive
+### Technical configuration for Logic app test drive
 
 Any custom products should use this type of test drive deployment template which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
 
@@ -335,7 +335,7 @@ Any custom products should use this type of test drive deployment template which
 
 - **Deprovision logic app name** (required): Enter the name of the Logic app that deprovisions the test drive once the customer is finished. This Logic app must be saved in the Azure resources group above.
 
-#### Technical configuration not required for Power BI test drives
+### Technical configuration not required for Power BI test drives
 
 Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. Learn more about setting up[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) template apps.
 
@@ -376,7 +376,7 @@ You must upload a .pdf file describing your offer's **Key usage scenario** in th
 
 ## Publish
 
-#### Submit offer to preview
+### Submit offer to preview
 
 Once you have completed all the required sections of the offer, select **publish** in the upper right corner of the portal. You will be re-directed to the **Review and publish** page. 
 
