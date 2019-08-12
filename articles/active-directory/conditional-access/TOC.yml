@@ -38,16 +38,7 @@
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
-  - name: Baseline policies
-    items:
-    - name: Require MFA for admins
-      href: howto-baseline-protect-administrators.md
-    - name: End-user protection
-      href: howto-baseline-protect-end-users.md
-    - name: Block legacy authentication
-      href: howto-baseline-protect-legacy-auth.md
-    - name: Require MFA for service management
-      href: howto-baseline-protect-azure.md
+
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Conditional Access for MFA registration
@@ -66,6 +57,16 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Migrate classic policies
     href: policy-migration.md
+  - name: Baseline policies
+    items:
+    - name: Require MFA for admins
+      href: howto-baseline-protect-administrators.md
+    - name: End-user protection
+      href: howto-baseline-protect-end-users.md
+    - name: Block legacy authentication
+      href: howto-baseline-protect-legacy-auth.md
+    - name: Require MFA for service management
+      href: howto-baseline-protect-azure.md
   - name: Adopting Conditional Access
     href: howto-conditional-access-adoption-kit.md
   - name: Troubleshooting
