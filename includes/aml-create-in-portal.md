@@ -40,10 +40,13 @@ ms.date: 07/31/2019
 
    ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
 
-1. If your code references this workspace from your local environment, select  **Download config.json** from the **Overview** section of the workspace.  
+1. If you will be using a code-free option from the portal, such as the visual interface or automated ML experiments, you are done now. If you will be creating a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) you are also done. 
+
+1. If you plan to use code on your local environment that references this workspace, select  **Download config.json** from the **Overview** section of the workspace.  
 
    ![Download config.json](./media/aml-create-in-portal/configure.png)
+   
+   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to correct directory on the VM for you.
 
-    Place this JSON file in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
+    
 
-   If you will be using a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) there is no need to download this file, it is added to correct directory on the VM for you.
