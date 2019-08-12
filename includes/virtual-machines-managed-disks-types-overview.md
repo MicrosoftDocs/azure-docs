@@ -16,7 +16,7 @@ Azure managed disks currently offers four disk types, each type is aimed towards
 
 ## Disk comparison
 
-The following table provides a comparison of Ultra disks, premium solid-state-drives (SSD), standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.
+The following table provides a comparison of ultra disks, premium solid-state-drives (SSD), standard SSD, and standard hard disk drives (HDD) for managed disks to help you decide what to use.
 
 |   | Ultra disks   | Premium SSD   | Standard SSD   | Standard HDD   |
 |---------|---------|---------|---------|---------|
@@ -28,17 +28,17 @@ The following table provides a comparison of Ultra disks, premium solid-state-dr
 
 ## Ultra disks
 
-Azure Ultra disks delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of Ultra disks include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra disks can only be used as data disks. We recommend using premium SSDs as OS disks.
+Azure ultra disks delivers high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS VMs. Some additional benefits of ultra disks include the ability to dynamically change the performance of the disk, along with your workloads, without the need to restart your virtual machines. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads. Ultra disks can only be used as data disks. We recommend using premium SSDs as OS disks.
 
 ### Performance
 
 When you provision an ultra disk, you can independently configure the capacity and the performance of the disk. Ultra disks come in several fixed sizes, ranging from 4 GiB up to 64 TiB, and feature a flexible performance configuration model that allows you to independently configure IOPS and throughput.
 
-Some key capabilities of Ultra disks are:
+Some key capabilities of ultra disks are:
 
 - Disk capacity: Ultra disks capacity ranges from 4 GiB up to 64 TiB.
 - Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum disk IOPS per disk is 2 IOPS per GiB, up to an overall minimum of 100 IOPS.
-- Disk throughput: With Ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum throughput per disk is 4KiB/s for each provisioned IOPS, with an overal minimum of 1 MBps.
+- Disk throughput: With ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum throughput per disk is 4KiB/s for each provisioned IOPS, with an overall minimum of 1 MBps.
 - Ultra disks support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 
 ### Disk size
@@ -57,7 +57,7 @@ Some key capabilities of Ultra disks are:
 
 ### GA scope and limitations
 
-Ultra disks temporarily have additional limitations, they are as follows:
+For now, ultra disks have additional limitations, they are as follows:
 
 - Are supported in East US 2, SouthEast Asia, and North Europe, in two availability zones per region  
 - Can only be used with availability zones (availability sets and single VM deployments outside of zones will not have the ability to attach an ultra disk)
