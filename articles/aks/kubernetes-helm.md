@@ -71,7 +71,7 @@ With an RBAC-enabled Kubernetes cluster, you can control the level of access Til
 To deploy a basic Tiller into an AKS cluster, use the [helm init][helm-init] command. If your cluster is not RBAC enabled, remove the `--service-account` argument and value. If you configured TLS/SSL for Tiller and Helm, skip this basic initialization step and instead provide the required `--tiller-tls-` as shown in the next example.
 
 ```console
-helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
+helm init --history-max 200 --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
 ```
 
 If you configured TLS/SSL between Helm and Tiller provide the `--tiller-tls-*` parameters and names of your own certificates, as shown in the following example:
@@ -83,6 +83,7 @@ helm init \
     --tiller-tls-key tiller.key.pem \
     --tiller-tls-verify \
     --tls-ca-cert ca.cert.pem \
+    --history-max 200 \
     --service-account tiller \
     --node-selectors "beta.kubernetes.io/os"="linux"
 ```
