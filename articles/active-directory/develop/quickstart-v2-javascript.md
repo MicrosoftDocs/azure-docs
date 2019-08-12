@@ -23,16 +23,13 @@ ms.collection: M365-identity-device-management
 
 # Quickstart: Sign in users and acquire an access token from a JavaScript single-page application
 
-In this quickstart, you learn how to use a code sample that demonstrates how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API.
-
-![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+In this quickstart, you use a code sample to learn how a JavaScript single-page application (SPA) can sign in users of personal accounts, work accounts, and school accounts. A JavaScript SPA can also get an access token to call the Microsoft Graph API or any web API. A diagram of how the sample works is included under [More information](#more-information).
 
 ## Prerequisites
 
-This quickstart requires the following setup:
-* To run the project with a Node.js server, download and install [Node.js](https://nodejs.org/en/download/).
-* To edit the project files, download and install [Visual Studio Code](https://code.visualstudio.com/download).
-* To run the project as a Visual Studio solution, download and install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* Either [Visual Studio Code](https://code.visualstudio.com/download) (to edit project files), or [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (ro run the project as a Visual Studio Solution).
 
 > [!div renderon="docs"]
 > ## Register and download your quickstart application
@@ -79,8 +76,6 @@ Select the option that's suitable to your development environment:
 * To run the project with a web server by using Node.js, [download the core project files](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip). To open the files, use an editor such as [Visual Studio Code](https://code.visualstudio.com/).
 
 * (Optional) To run the project with the IIS server, [download the Visual Studio project](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extract the zip file to a local folder (for example, *C:\Azure-Samples*).
-
-
 
 #### Step 3: Configure your JavaScript app
 
@@ -141,6 +136,10 @@ var msalConfig = {
 After the browser loads the application, select **Sign In**. The first time that you sign in, you're prompted to provide your consent to allow the application to access your profile and to sign you in. After you're signed in successfully, your user profile information should be displayed on the page.
 
 ## More information
+
+### How the sample works
+
+![How the sample app in this quickstart works](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### msal.js
 
