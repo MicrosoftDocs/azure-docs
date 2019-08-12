@@ -265,7 +265,7 @@ The scope of the cmdlet’s query may be influenced using either the –Forest o
 
 If the HeartbeatUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that domain controller is not running, or has been uninstalled, or the machine was demoted and is no longer a domain controller.
 
-If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine has is not working properly.
+If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine is not working properly.
 
 ## DC agent newer version available
 

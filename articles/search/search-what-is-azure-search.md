@@ -1,5 +1,5 @@
 ---
-title: What is Azure Search service - Azure Search
+title: Introduction to Azure Search - Azure Search
 description: Azure Search is a fully managed hosted cloud search service from Microsoft. Review feature descriptions, a development workflow, how Azure Search compares to other Microsoft search products, and how to get started.
 manager: cgronlun
 author: HeidiSteen

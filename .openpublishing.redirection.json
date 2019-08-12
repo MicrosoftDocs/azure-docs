@@ -1,10 +1,20 @@
 {
   "redirections": [
+    { 
+        "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md", 
+        "redirect_url": "/azure/azure-government/documentation-government-welcome", 
+        "redirect_document_id": false 
+    },
     {
       "source_path": "articles/security/develop/security-code-analysis-install.md",
       "redirect_url": "/azure/security/develop/security-code-analysis-onboard",
       "redirect_document_id": true
     }, 
+    {
+      "source_path": "articles/machine-learning/service/setup-create-workspace.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
+      "redirect_document_id": true
+    },
     {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
@@ -14016,6 +14026,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/sql-data-warehouse/sql-data-warehouse-restore.md",
+      "redirect_url": "/azure/sql-data-warehouse/sql-data-warehouse-restore-points",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/sql-database/sql-database-auditing-get-started.md",
       "redirect_url": "/azure/sql-database/sql-database-auditing",
       "redirect_document_id": false
@@ -24525,6 +24540,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory/user-help/multi-factor-authentication-end-user.md",
+      "redirect_url": "/azure/active-directory/user-help/user-help-two-step-verification-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/user-help/security-info-manage-settings.md",
       "redirect_url": "/azure/active-directory/user-help/security-info-add-update-methods-overview",
       "redirect_document_id": false
@@ -25128,6 +25148,11 @@
       "source_path": "articles/data-factory/data-factory-amazon-redshift-connector.md",
       "redirect_url": "/azure/data-factory/v1/data-factory-amazon-redshift-connector",
       "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/data-factory/connector-azure-sql-database-managed-insance.md",
+      "redirect_url": "/azure/data-factory/connector-azure-sql-database-managed-instance",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/data-factory/data-factory-amazon-simple-storage-service-connector.md",
@@ -27722,6 +27747,11 @@
     {
       "source_path": "articles/security/azure-ad-choose-authn.md",
       "redirect_url": "/azure/security/fundamentals/choose-ad-authn",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/active-directory/authentication/howto-authentication-phone-sign-in.md",
+      "redirect_url": "/azure/active-directory/authentication/howto-authentication-passwordless-phone",
       "redirect_document_id": true
     },
     {
@@ -32282,6 +32312,16 @@
     {
       "source_path": "articles/cognitive-services/bing-custom-search/use-and-display-requirements.md",
       "redirect_url": "/azure/cognitive-services/bing-web-search/use-display-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-custom-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/cognitive-services/bing-news-search/hit-highlighting.md",
+      "redirect_url": "/azure/cognitive-services/bing-web-search/hit-highlighting",
       "redirect_document_id": false
     },
     {
@@ -40455,6 +40495,21 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-native-thread.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/hdinsight/spark/apache-spark-troubleshoot-outofmemory-heap-space.md",
+      "redirect_url": "/azure/hdinsight/spark/apache-spark-troubleshoot-outofmemory",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/active-directory-ds-troubleshoot-service-principals.md",
       "redirect_url": "/azure/active-directory-domain-services/alert-service-principal",
       "redirect_document_id": true
@@ -40830,17 +40885,65 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/create-instance.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-network.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-admingroup.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-getting-started-password-sync.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-instance",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-monitor/insights/container-overview.md",
       "redirect_url": "/azure/azure-monitor/insights/container-insights-overview",
       "redirect_document_id": false
     },
-
+    {
+      "source_path": "articles/active-directory-domain-services/configure-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-admin-guide-configure-secure-ldap-enable-ldaps.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-ldaps-configure-dns.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-ldaps-bind-lockdown.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-configure-ldaps",
+      "redirect_document_id": false
+    },
     {
       "source_path": "articles/storage/blobs/data-lake-storage-use-hdi-cluster.md",
       "redirect_url": "/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2",
       "redirect_document_id": false
     },
-
     {
       "source_path": "articles/hdinsight/domain-joined/apache-domain-joined-introduction.md",
       "redirect_url": "/azure/hdinsight/domain-joined/hdinsight-security-overview",
@@ -40890,6 +40993,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/manage-domain.md",
+      "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/cognitive-services/Academic-Knowledge/GraphSearchMethod.md",
       "redirect_url": "/azure/cognitive-services/Academic-Knowledge/Home",
       "redirect_document_id": false
@@ -40929,6 +41037,11 @@
       "source_path": "articles/dev-spaces/quickstart-cli-dockerfile.md",
       "redirect_url": "/azure/dev-spaces/quickstart-cli",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/lab-services/devtest-lab-integrate-ci-cd-vsts.md",
+      "redirect_url": "/azure/lab-services/devtest-lab-integrate-ci-cd",
+      "redirect_document_id": true
     }
   ]
 }
