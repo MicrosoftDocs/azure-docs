@@ -68,14 +68,16 @@ Install [Postman](https://www.getpostman.com/), a tool required to test the samp
 
     ![ADFS request body](./media/v2-saml-bearer-assertion/4.png)
 
-Once this request is posted successfully, you should receive a SAML Assertion from ADFS. Only the **SAML:Assertion** tag data is required, convert it to base64 encoding to use in further requests.
+Once this request is posted successfully, you should receive a SAML assertion from ADFS. Only the **SAML:Assertion** tag data is required, convert it to base64 encoding to use in further requests.
 
 ### Get the OAuth2 token using the SAML assertion 
 In this step, fetch an OAuth2 token using the ADFS assertion response.
 
 1. Create a POST request as shown below with the header values:
+
     ![POST request](./media/v2-saml-bearer-assertion/5.png)
-1. In the body of the request, replace client_id, client_secret, and assertion (base64 encoded SAML assertion obtained the previous step).
+1. In the body of the request, replace **client_id**, **client_secret**, and **assertion** (the base64 encoded SAML assertion obtained the previous step):
+
     ![Request body](./media/v2-saml-bearer-assertion/6.png)
 1. Upon successful request, you will receive an access token from Azure active directory.
 
