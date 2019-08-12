@@ -621,11 +621,6 @@ You can't execute `BACKUP DATABASE ... WITH COPY_ONLY` on a database that's encr
 
 **Workaround:** Use automatic backups and point-in-time restore, or use [customer-managed (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) instead. You also can disable encryption on the database.
 
-### Point-in-time restore follows time by the time zone set on the source instance
-
-Point-in-time restore currently interprets time to restore to by following time zone of the source instance instead by following UTC.
-Check [managed instance time zone known issues](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone#known-issues) for more details.
-
 ## Next steps
 
 - For more information about managed instances, see [What is a managed instance?](sql-database-managed-instance.md)
