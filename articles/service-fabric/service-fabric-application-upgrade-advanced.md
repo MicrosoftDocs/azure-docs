@@ -82,6 +82,45 @@ app1/
 
 In other words, create a complete application package normally, then remove any code/config/data package folders for which the version has not changed.
 
+## Upgrade application parameters independently of version
+
+Sometimes, it is desired to change the parameters of a Service Fabric application without changing the manifest version. This can be done conveniently by using the **-ApplicationParameter** flag with the **Start-ServiceFabricApplicationUpgrade** Azure Service Fabric PowerShell cmdlet. Assume we have a Service Fabric application with the following properties:
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "1" }
+```
+
+Our application can be upgraded like this:
+
+```PowerShell
+PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testValue"}
+
+PS C:\> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/Application1 -ApplicationTypeVers
+ion 1.0.0 -ApplicationParameter $appParams -UnmonitoredAuto
+
+```
+After upgrading, we can confirm that the application has the new parameters and the same version:
+
+```PowerShell
+PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
+
+ApplicationName        : fabric:/Application1
+ApplicationTypeName    : Application1Type
+ApplicationTypeVersion : 1.0.0
+ApplicationStatus      : Ready
+HealthState            : Ok
+ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testValue" }
+```
+
+For more information, see the [Service Fabric PowerShell module reference](https://docs.microsoft.com/en-us/powershell/module/servicefabric/start-servicefabricapplicationupgrade?view=azureservicefabricps#parameters).
+
 ## Rolling back application upgrades
 
 While upgrades can be rolled forward in one of three modes (*Monitored*, *UnmonitoredAuto*, or *UnmonitoredManual*), they can only be rolled back in either *UnmonitoredAuto* or *UnmonitoredManual* mode. Rolling back in *UnmonitoredAuto* mode works the same way as rolling forward with the exception that the default value of *UpgradeReplicaSetCheckTimeout* is different - see [Application Upgrade Parameters](service-fabric-application-upgrade-parameters.md). Rolling back in *UnmonitoredManual* mode works the same way as rolling forward - the rollback will suspend itself after completing each UD and must be explicitly resumed using [Resume-ServiceFabricApplicationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps) to continue with the rollback.
