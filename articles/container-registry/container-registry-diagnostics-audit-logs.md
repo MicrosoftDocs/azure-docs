@@ -1,7 +1,7 @@
 ---
 title: Diagnostic and audit logs - Azure Container Registry | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Container Registry such as authentication, image push, and image pull.
-services: batch
+services: container-registry
 documentationcenter: ''
 author: dlepow
 manager: gwallace
@@ -12,7 +12,7 @@ ms.service: container-registry
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: multiple
-ms.workload: big-compute
+ms.workload: 
 ms.date: 08/12/2019
 ms.author: danlep
 
@@ -50,7 +50,6 @@ To stream to Log Analytics, first create a workspace using the [Azure portal](..
 The following screenshot shows creation of a diagnostic setting for a registry using the portal.
 
 // screenshot
-
 
 
 After enabling this diagnostic setting, view and analyze diagnostic logs in Azure Monitor. After you enable streaming of diagnostic logs to Log Analytics, view the logs in Azure Monitor under the **Logs** tab.
