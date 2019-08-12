@@ -19,6 +19,10 @@ The most common approach is to [grant access using the AKS service principal](#g
 
 You can set up the AKS to ACR authentication with either the CLI or the Azure portal.
 
+# Prerequisites
+
+* You must currently be an owner of the subscription to assign the appropriate roles to the service principal
+
 ## Create AKS and ACR with CLI
 
 You can set up AKS and ACR integration during initial creation with the CLI.  The following command creates an ACR in the resource group created by the user with acrpull permissions. If acr-name does not exits, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  
@@ -26,7 +30,7 @@ You can set up AKS and ACR integration during initial creation with the CLI.  Th
 az aks create –n <kubernetes-cluster-name> -g <resource-group> --enable-acr [--acr-name <acr-name>] 
 ```
 
-Optionally, You can also specify resourceid instead of name with the following command:
+Optionally, You can also specify resource-id instead of acr-name with the following command:
 
 az aks create –n <cluster-name>  -g <resource-group> --enable-acr [--acr-resource-id <acr-resource-id>]
 ```
