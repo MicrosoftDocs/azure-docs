@@ -153,8 +153,8 @@ Restore of Zone-pinned VMs | Supported (for VM that is backed-up after Jan 2019 
 
 **Component** | **Support**
 --- | ---
-Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports disk sizes up to 4 TB.
-Data disk size | Individual disk can be up to 4095 GB.<br/><br/>To sign up for limited public preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, refer this [article](backup-azure-vms-introduction.md#vm-with-disk-sizes-up-to-30tb).
+Azure VM data disks | Back up a VM with 16 or less data disks. <br/><br/> Supports disk sizes up to 4 TB.<br/><br/>To sign up for limited public preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, refer this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Data disk size | Individual disk can be up to 4095 GB.<br/><br/>To sign up for limited public preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size, refer this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 Storage type | Standard HDD, Standard SSD, Premium SSD.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can’t be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
