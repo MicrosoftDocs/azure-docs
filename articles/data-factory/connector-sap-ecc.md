@@ -67,7 +67,7 @@ The following properties are supported for the SAP ECC linked service:
 | `url` | The URL of the SAP ECC OData service. | Yes |
 | `username` | The username used to connect to SAP ECC. | No |
 | `password` | The plaintext password used to connect to SAP ECC. | No |
-| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites). If you don't specify a runtime, the default Azure integration runtime is used. | No |
+| `connectVia` | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If you don't specify a runtime, the default Azure integration runtime is used. | No |
 
 ### Example
 

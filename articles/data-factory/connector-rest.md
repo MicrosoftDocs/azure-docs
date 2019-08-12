@@ -57,7 +57,7 @@ The following properties are supported for the REST linked service:
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server side SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal** and **ManagedServiceIdentity**. Refer to corresponding sections below on more properties and examples respectively. | Yes |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites). If not specified, this property uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
 ### Use basic authentication
 
