@@ -19,10 +19,6 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Adopting Conditional Access
-    href: howto-conditional-access-adoption-kit.md
-  - name: Baseline protection policies
-    href: concept-baseline-protection.md
   - name: Conditions
     href: conditions.md
   - name: Location conditions
@@ -33,6 +29,8 @@
     href: service-dependencies.md
   - name: What if tool
     href: what-if-tool.md
+  - name: Baseline protection policies
+    href: concept-baseline-protection.md
 - name: How-to guides
   expanded: true
   items:
@@ -68,6 +66,8 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Migrate classic policies
     href: policy-migration.md
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot using the What If tool 
