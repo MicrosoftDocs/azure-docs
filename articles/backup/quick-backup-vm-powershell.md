@@ -135,7 +135,7 @@ Execute the following cmdlets from an elevated PowerShell terminal:
     ```
 
 > [!NOTE]
-    > Encrypted VMs with greater than 4TB disks are not supported as a part of this preview.
+ > Encrypted VMs with greater than 4TB disks are not supported as a part of this preview.
 
 
 ## Start a backup job
