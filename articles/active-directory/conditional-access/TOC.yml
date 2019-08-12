@@ -38,7 +38,6 @@
     href: plan-conditional-access.md
   - name: Best practices
     href: best-practices.md
-
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Conditional Access for MFA registration
