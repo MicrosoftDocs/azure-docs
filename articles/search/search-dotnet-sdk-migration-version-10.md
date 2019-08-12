@@ -7,8 +7,8 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/10/2019
-ms.author: arv100kri
+ms.date: 08/12/2019
+ms.author: arjagann
 ms.custom: seodec2018
 ---
 # Upgrade to the Azure Search .NET SDK version 10
