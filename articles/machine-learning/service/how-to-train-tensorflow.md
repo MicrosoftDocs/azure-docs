@@ -1,24 +1,29 @@
 ---
-title: Train and register TensorFlow models
+title: Train a deep learning neural network with TensorFlow
 titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a TensorFlow model using Azure Machine Learning service.
+description: Learn how to run TensorFlow training scripts at scale using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
-ms.date: 06/10/2019
+ms.date: 08/10/2019
 ms.custom: seodec18
+
+# Customer intent: As a TensorFlow developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
-# Train and register TensorFlow models at scale with Azure Machine Learning service
+# Build a TensorFlow deep learning model at scale with Azure Machine Learning
 
-This article shows you how to train and register a TensorFlow model using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network built using the [TensorFlow Python library](https://www.tensorflow.org/overview).
+This article shows you how to run your [TensorFlow](https://www.tensorflow.org/overview) training scripts at scale using Azure Machine Learning's [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) class.
 
-TensorFlow is an open-source computational framework commonly used to create deep neural networks (DNN). With Azure Machine Learning service, you can rapidly scale out open-source training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
+ This example trains and registers a TensorFlow classification model to classify handwritten digits using a deep neural network (DNN).
 
-Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, Azure Machine Learning service can help you build production-ready models.
+
+Whether you're developing a TensorFlow model from the ground-up or you're bringing an [existing model](how-to-deploy-existing-model.md) into the cloud, you can use Azure Machine Learning to scale out open-source training jobs to build, deploy, version, and monitor production-grade models.
+
+Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
 
 ## Prerequisites
 
@@ -27,7 +32,7 @@ Run this code on either of these environments:
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
      - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
+    - In the samples deep learning folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-tensorflow** folder. 
  
  - Your own Jupyter Notebook server
 
@@ -68,7 +73,7 @@ Create a workspace object from the `config.json` file created in the [prerequisi
 ws = Workspace.from_config()
 ```
 
-### Create an experiment
+### Create a deep learning experiment
 
 Create an experiment and a folder to hold your training scripts. In this example, create an experiment called "tf-mnist".
 
@@ -288,4 +293,4 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 In this article, you trained and registered a TensorFlow model. To learn how to deploy a model to a GPU-enabled cluster, continue on to our GPU model deployment article.
 
 [How to deploy for inferencing with GPUs](how-to-deploy-inferencing-gpus.md)
-[How to monitor with Tensorboard](how-to-monitor-tensorboard.md)
+[How to monitor with TensorBoard](how-to-monitor-tensorboard.md)
