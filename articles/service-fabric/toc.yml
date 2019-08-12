@@ -197,6 +197,8 @@
     items:
     - name: Application model
       href: service-fabric-application-model.md
+    - name: Create application model templates
+      href: service-fabric-concept-resource-model.md
     - name: Application and service manifests
       href: service-fabric-application-and-service-manifests.md
     - name: Application and service manifest examples
@@ -350,6 +352,11 @@
       href: service-fabric-diagnostics-partners.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
+  - name: App Resource model
+    href: service-fabric-concept-resource-model.md
+  - name: Managed Identity 
+    href: concepts-managed-identity.md
+  
 - name: How-to guides
   items:
   - name: Set up your development environment
@@ -741,6 +748,26 @@
       href: service-fabric-reverse-proxy-diagnostics.md
     - name: Troubleshoot your local cluster
       href: service-fabric-troubleshoot-local-cluster-setup.md
+  - name: Use Managed Identity for Service Fabric apps
+    items:
+    - name: Cluster setup
+      items:
+      - name: Configure existing cluster with managed identity
+        href: configure-existing-cluster-enable-managed-identity-token-service.md
+      - name: Configure new Azure Service Fabric cluster with managed identity
+        href: configure-new-azure-service-fabric-enable-managed-identity.md
+    - name: Application setup
+      items:
+      - name: How to deploy application with managed identity
+        items:
+          - name: How to deploy application with a system-assigned managed identity
+            href: how-to-deploy-service-fabric-application-system-assigned-managed-identity.md
+          - name: How to deploy application with a user-assigned managed identity
+            href: how-to-deploy-service-fabric-application-user-assigned-managed-identity.md
+    - name: Use MITS with Service Fabric application code
+      href: how-to-managed-identity-service-fabric-app-code.md
+    - name: Grant access to other Azure resources
+      href: how-to-grant-access-other-resources.md
 
 - name: Reference
   items:
