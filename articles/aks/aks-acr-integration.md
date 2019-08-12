@@ -46,12 +46,12 @@ az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enabl
 ## Verify the AKS and ACR integration
 
 Login to your ACR
-```azurecli-interactive
+```
 az acr login -n <your-acr-name>
 ```
 
-```azurecli-interactive
-Pull an image from docker hub
+```
+# Pull an image from docker hub
 docker pull nginx
 ```
 
@@ -61,19 +61,26 @@ docker tag nginx $acrloginservername/nginx:v1
 ```
 
 Push the docker image to ACR
-```azurecli-interactive
+```
 docker push someacr1.azurecr.io/nginx:v1
 ```
 
 Credentials TODO
-```azurecli-interactive
+```
 az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
 ```
 
 heading TODO
-```azurecli-interactive
+```
 kubectl apply -f acr-nginx.yaml
 ```
+
+Verify pods, you should see 2 with a status of running
+```
+kubectl get pods
+```
+
+
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
