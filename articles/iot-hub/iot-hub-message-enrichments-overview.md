@@ -24,7 +24,7 @@ A message enrichment has three key elements:
 
 * One or more [endpoints](iot-hub-devguide-endpoints.md) for which the enrichment should be applied.
 
-The **key** is a string. A key can only contain alphanumeric characters or these special characters: hyphen, underscore, or period. (`-`, `_`, `.`)
+The **key** is a string. A key can only contain alphanumeric characters or these special characters: hyphen (`-`), underscore ('_'), and period (`.`).
 
 The **value** can be any of the following examples:
 
