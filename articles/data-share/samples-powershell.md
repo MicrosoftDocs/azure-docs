@@ -17,7 +17,7 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 | |  |
 |---|---|
 |**Powershell Samples**||
-|[Create a new data share account](powershell/create-new-share-account-powershell.md)| This PowerShell script creates a new data share account DONE. |
+|[Create a new data share account](powershell/create-new-share-account-powershell.md)| This PowerShell script creates a new data share account. |
 |[Create a new data share](powershell/create-new-share-powershell.md)| This PowerShell script creates a new data share. |
 |[Add datasets to a share](powershell/add-datasets-powershell.md)| This PowerShell script adds a blob dataset to an existing data share account. |
 |[Set and view synchronizations of a share](powershell/set-view-synchronizations-powershell.md)| This PowerShell script creates and views synchronizations of an existing data share. |
