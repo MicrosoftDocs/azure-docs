@@ -135,45 +135,46 @@ Data disk 2 | 4095 GB | 0 GB
 
 The actual size of the VM in this case is 17 GB + 30 GB + 0 GB = 47 GB. This protected-instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the VM grows, the protected-instance size used for billing changes to match.
 
-## Limited Public Preview: Backup of VM with disk sizes up to 30TB
+## Limited Public Preview: Backup of VM with disk sizes up to 30 TB
 
-Azure Backup now supports limited public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TiB size. This preview provides production level support for managed virtual machines.
-You can seamlessly enroll to the preview without any impact to your on-going backups. Once the subscription is enrolled into the preview, all the virtual machines with disk sizes up to 30TB should be successfully backed up. To enroll in the preview:
+Azure Backup now supports a limited public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TB in size. This preview provides production-level support for managed virtual machines.
+
+You can seamlessly enroll in the preview without any impact on your ongoing backups. After the subscription is enrolled in the preview, all the virtual machines with disk sizes up to 30 TB should be successfully backed up. To enroll in the preview:
  
 Execute the following cmdlets from an elevated PowerShell terminal:
 
-1. Login to Azure account.
+1. Sign in to your Azure account.
 
     ```powershell
     PS C:> Login-AzureRmAccount
     ```
 
-2. Select the subscription which you want to register for the upgrade:
+2. Select the subscription that you want to register for the upgrade:
 
     ```powershell
     PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
     ```
-3. Register this subscription to the preview program: 
+3. Register this subscription in the preview program: 
 
     ```powershell
     PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
     ```
 
-    Wait for 30 minutes for the subscription to get enrolled into the preview. 
+    Wait for 30 minutes for the subscription to be enrolled in the preview. 
 
  4. To check the status, run the following cmdlets:
 
     ```powershell
     PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
     ```
-5. Once the subscription shows as registered, run the following command:
+5. When the subscription shows as registered, run the following command:
     
     ```powershell
     PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
     ```
 
 > [!NOTE]
-> Encrypted VMs with greater than 4TB disks are not supported as a part of this preview.
+> Encrypted VMs with disks larger than 4 TB aren't supported in this preview.
 
 
 
