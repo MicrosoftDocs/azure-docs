@@ -15,24 +15,34 @@ ms.author: mlearned
 
 When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article details the recommended configurations for authentication between these two Azure services.
 
-The most common approach is to [grant access using the AKS service principal](#grant-aks-access-to-acr). If you have specific needs, you can optionally [grant access using Kubernetes secrets](#access-with-kubernetes-secret).
+The most common approach is to [grant access using the AKS service principal](#grant-aks-access-to-acr).
 
 You can set up the AKS to ACR authentication with either the CLI or the Azure portal.
 
-# Prerequisites
+## Prerequisites
 
 * You must currently be an owner of the subscription to assign the appropriate roles to the service principal
 
-## Create AKS and ACR with CLI
+## Create AKS and ACR integration with CLI during new cluster creation
 
 You can set up AKS and ACR integration during initial creation with the CLI.  The following command creates an ACR in the resource group created by the user with acrpull permissions. If acr-name does not exits, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  
 
-az aks create –n <kubernetes-cluster-name> -g <resource-group> --enable-acr [--acr-name <acr-name>] 
+az aks create –-n <kubernetes-cluster-name> -g <resource-group> --enable-acr [--acr-name <acr-name>] 
 ```
 
-Optionally, You can also specify resource-id instead of acr-name with the following command:
+Optionally, You can also specify acr-resource-id instead of acr-name with the following command:
 
 az aks create –n <cluster-name>  -g <resource-group> --enable-acr [--acr-resource-id <acr-resource-id>]
+```
+## Create AKS and ACR integration for existing AKS clusters
+
+For exisitng AKS clusters you can add integration with an existing ACR. This command does the following <TODO>  You must supply valid values for acr-name or acr-resource-id or the commands will fail.
+
+az aks update –n <kubernetes-cluster-name> -g <resource-group> --enable-acr --acr-name <acr-name>
+```
+Optionally, You can also specify resource-id instead of acr-name with the following command:
+
+az aks create –n <kubernetes-cluster-name> -g <resource-group> --enable-acr --acr-resource-id <acr-resource-id> 
 ```
 
 ## Grant AKS access to ACR with CLI
