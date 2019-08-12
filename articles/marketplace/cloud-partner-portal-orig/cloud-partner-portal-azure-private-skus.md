@@ -5,7 +5,7 @@ services: Azure, Marketplace, Cloud Partner Portal,
 author: dan-wesley
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 08/15/2019
 ms.author: pabutler
 ---
 
@@ -105,10 +105,19 @@ upon saving the offer.
 Managing private subscriptions
 -------------------------
 
-You can add or remove subscriptions to an existing private offer using the Cloud Partner Portal API without  having to republish the offer. In general, you simply need to retrieve your offer, update the `restrictedAudience` object, then submit those changes back to your offer. If you are managing 10 or fewer subscriptions, you can alternately add or remove them using the Cloud Partner Portal UI.
+You can add or remove subscriptions to an existing private offer using the Cloud Partner Portal API without having to republish the offer. Depending on the number of audience members to update you can either:
+
+1. Manage 10 or fewer audience members directly from the Cloud Partner Portal UI,
+2. Manage up to 20,000 audience members by uploading a `.csv` file to the Cloud Partner Portal, *or*
+3. Manage any number of audience members directly through the Cloud Partner Portal API, as described below.
 
 > [!NOTE]
 > Use the Azure subscription ID (Plans and SKUs) or Tenant ID (Plans only) to add an audience to your private offer.
+
+###  Managing subscriptions with the API
+
+In general, you simply need to retrieve your offer, update the `restrictedAudience` object, then submit those changes back to your offer in order to add or remove audience members.
+
 
 Here's how to programmatically update your audience list:
 
