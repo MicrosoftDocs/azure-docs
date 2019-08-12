@@ -25,21 +25,15 @@ ms.author: cynthn
 [!INCLUDE [common-use-low-priority](../common-use-low-priority.md)] 
 
 
-## Use the Azure portal
-
-The process to create a scale set that uses low-priority VMs is the same as detailed in the [getting started article](quick-create-portal.md). When you are deploying a scale set, you can choose to set the low-priority flag and the eviction policy:
-![Create a scale set with low-priority VMs](media/virtual-machine-scale-sets-use-low-priority/vmss-low-priority-portal.png)
-
 ## Use the Azure CLI
 
 The process to create a scale set with low-priority VMs is the same as detailed in the [getting started article](quick-create-cli.md). Just add the '--Priority' parameter to the cli call and set it to *Low* as shown in the example below:
 
 ```azurecli
-az vmss create \
+az vm create \
     --resource-group myResourceGroup \
-    --name myScaleSet \
+    --name myVM \
     --image UbuntuLTS \
-    --upgrade-policy-mode automatic \
     --admin-username azureuser \
     --generate-ssh-keys \
     --priority Low
@@ -58,6 +52,13 @@ $vmssConfig = New-AzVmssConfig `
     -UpgradePolicyMode Automatic `
     -Priority "Low"
 ```
+
+## Use the Azure portal
+
+When you are deploying a VM, you can choose to set the low-priority flag on the **General** tab in the portal.
+
+![Create a VM with low-priority](./media/low-priority-portal.png)
+
 
 ## Use Azure Resource Manager Templates
 
