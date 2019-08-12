@@ -6,7 +6,7 @@ manager: evansma
 ms.author: mattwoj 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 08/12/2019
 ---
 
 # Create a new SaaS offer

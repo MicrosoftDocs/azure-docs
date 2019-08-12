@@ -11,12 +11,7 @@ ms.date: 08/12/2019
 
 # Create a new Dynamics 365 for Operations offer
 
-This topic explains how to create a new Dynamics 365 for Operations offer. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management.  All apps for Dynamics 365 for Operations must go through our certification process. Microsoft requires specific reviews in order to validate the following requirements:
-
-- A partner's custom code meets Microsoft guidelines.
-- A Microsoft Dynamics Lifecycle Services (LCS) solution package can be successfully deployed.
-- Transactions can be completed.
-***WAITING TO SEE ABOUT THIS STUFF***
+This topic explains how to create a new Dynamics 365 for Operations offer. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management. All offers for Dynamics 365 for Operations must go through our certification process.
 
 To begin creating Dynamics 365 for Operations offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 

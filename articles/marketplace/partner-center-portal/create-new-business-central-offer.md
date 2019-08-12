@@ -11,7 +11,7 @@ ms.date: 08/12/2019
 
 # Create a new Dynamics 365 Business Central offer
 
-This topic explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM and project management and electronic commerce. Premium packages also support service management and manufacturing.
+This topic explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM and project management and electronic commerce. Premium packages also support service management and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
 
 To begin creating Dynamics 365 Business Central offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
