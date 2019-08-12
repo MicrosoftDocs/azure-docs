@@ -16,7 +16,7 @@ ms.custom: seoapril2019
 
 # Deploy models with the Azure Machine Learning service
 
-Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices. 
+Learn how to deploy your machine learning model as a web service in the Azure cloud, or to IoT Edge devices.
 
 The workflow is similar regardless of [where you deploy](#target) your model:
 
@@ -29,9 +29,32 @@ For more information on the concepts involved in the deployment workflow, see [M
 
 ## Prerequisites
 
+- An Azure Machine Learning service workspace. For more information, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
+
 - A model. If you do not have a trained model, you can use the model & dependency files provided in [this tutorial](https://aka.ms/azml-deploy-cloud).
 
 - The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://aka.ms/aml-sdk), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
+
+## Connect to your workspace
+
+The following code demonstrates how to connect to an Azure Machine Learning service workspace using information cached to the local development environment:
+
+**Using the SDK**
+
+```python
+from azureml.core import Workspace
+ws = Workspace.from_config(path=".file-path/ws_config.json")
+```
+
+For more information on using the SDK to connect to a workspace, see the [Azure Machine Learning SDK for Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace).
+
+**Using the CLI**
+
+When using the CLI, use the `-w` or `--workspace-name` parameter to specify the workspace for the command.
+
+**Using VS Code**
+
+When using VS Code, the workspace is selected using a graphical interface. For more information, see [Deploy and manage models](how-to-vscode-tools.md#deploy-and-manage-models) in the VS Code extension documentation.
 
 ## <a id="registermodel"></a> Register your model
 
@@ -41,7 +64,13 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 
 ### Register a model from an Experiment Run
 
-+ **Scikit-Learn example using the SDK**
+The code snippets in this section demonstrate registering a model from file:
+
+> [!IMPORTANT]
+> These snippets assume that you have previously performed a training run and have access to the `run` object (SDK example) or run ID value (CLI example). For more information on training models, see [Create and use compute targets for model training](how-to-set-up-training-targets.md).
+
++ **Using the SDK**
+
   ```python
   model = run.register_model(model_name='sklearn_mnist', model_path='outputs/sklearn_mnist_model.pkl')
   print(model.name, model.id, model.version, sep='\t')
@@ -70,22 +99,28 @@ Machine learning models are registered in your Azure Machine Learning workspace.
 You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 + **ONNX example with the Python SDK:**
-  ```python
-  onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
-  urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
-  !tar xvzf mnist.tar.gz
-  
-  model = Model.register(workspace = ws,
-                         model_path ="mnist/model.onnx",
-                         model_name = "onnx_mnist",
-                         tags = {"onnx": "demo"},
-                         description = "MNIST image classification CNN from ONNX Model Zoo",)
-  ```
+
+    ```python
+    import os
+    import urllib.request
+    from azureml.core import Model
+    # Download model
+    onnx_model_url = "https://www.cntk.ai/OnnxModels/mnist/opset_7/mnist.tar.gz"
+    urllib.request.urlretrieve(onnx_model_url, filename="mnist.tar.gz")
+    os.system('tar xvzf mnist.tar.gz')
+    # Register model
+    model = Model.register(workspace = ws,
+                            model_path ="mnist/model.onnx",
+                            model_name = "onnx_mnist",
+                            tags = {"onnx": "demo"},
+                            description = "MNIST image classification CNN from ONNX Model Zoo",)
+    ```
 
   > [!TIP]
   > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
 
 + **Using the CLI**
+
   ```azurecli-interactive
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
