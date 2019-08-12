@@ -1,5 +1,5 @@
 ---
-title: Azure Backup FAQ
+title: Answers to common questions about Azure Backup features
 description: 'Answers to common questions about: Azure Backup features including Recovery Services vaults, what it can back up, how it works, encryption, and limits. '
 
 author: dcurwin
@@ -21,11 +21,18 @@ Yes. You can create up to 500 Recovery Services vaults, per supported region of 
 ### Are there limits on the number of servers/machines that can be registered against each vault?
 You can register up to 1000 Azure Virtual machines per vault. If you are using the Microsoft Azure Backup Agent, you can register up to 50 MAB agents per vault. And you can register 50 MAB servers/DPM servers to a vault.
 
+### How many datasources/items can be protected in a vault? 
+You can protect up to 2000 datasources/items across all workloads (IaaS VM, SQL, AFS, etc.) in a vault.<br>  
+For example, if you have already protected 500 VMs and 400 Azure Files shares in the vault, you can only protect up to 1100 SQL databases in it. 
+
+### How many policies can I create per vault? 
+You can only have up to 200 policies per vault.
+
 ### If my organization has one vault, how can I isolate data from different servers in the vault when restoring data?
 Server data that you want to recover together should use the same passphrase when you set up backup. If you want to isolate recovery to a specific server or servers, use a passphrase for that server or servers only. For example, human resources servers could use one encryption passphrase, accounting servers another, and storage servers a third.
 
 ### Can I move my vault between subscriptions?
-Yes. To move a Recovery Services vault refer this [article](backup-azure-move-recovery-services-vault.md)
+Yes. To move a Recovery Services vault, refer this [article](backup-azure-move-recovery-services-vault.md)
 
 ### Can I move backup data to another vault?
 No. Backup data stored in a vault can't be moved to a different vault.
@@ -34,7 +41,7 @@ No. Backup data stored in a vault can't be moved to a different vault.
 No. A Recovery Services vault can only change storage options before any backups have been stored.
 
 ### Can I do an Item Level Restore (ILR) for VMs backed up to a Recovery Services vault?
-- ILR is supported for Azure VMs backed up by Azure VM backup. For more information see, [article](backup-azure-restore-files-from-vm.md)
+- ILR is supported for Azure VMs backed up by Azure VM backup. For more information, see [article](backup-azure-restore-files-from-vm.md)
 - ILR is not supported for online recovery points of on-premises VMs backed up by Azure backup Server or System Center DPM.
 
 
@@ -43,7 +50,7 @@ No. A Recovery Services vault can only change storage options before any backups
 ### Where can I find common questions about the Azure Backup agent for Azure VM backup?
 
 - For the agent running on Azure VMs, read this [FAQ](backup-azure-vm-backup-faq.md).
-- For the agent used to backup up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
+- For the agent used to back up Azure file folders, read this [FAQ](backup-azure-file-folder-backup-faq.md).
 
 
 ## General backup
@@ -114,7 +121,7 @@ No. All data that was transferred into the vault before the backup job was cance
 
 - Azure Backup uses a checkpoint mechanism to occasionally add checkpoints to the backup data during the backup.
 - Because there are checkpoints in the backup data, the next backup process can validate the integrity of the files.
-- The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equates to better utilization of bandwidth.
+- The next backup job will be incremental to the data previously backed up. Incremental backups only transfer new or changed data, which equate to better utilization of bandwidth.
 
 If you cancel a backup job for an Azure VM, any transferred data is ignored. The next backup job transfers incremental data from the last successful backup job.
 
@@ -127,7 +134,7 @@ Yes, they both have daily, weekly, monthly, and yearly retention policies.
 Yes, you have customize policies. For example, you can configure weekly and daily retention requirements, but not yearly and monthly.
 
 ### Can I use different times for backup scheduling and retention policies?
-No. Retention policies can only be applied on backup points. For example, this images shows a retention policy for backups taken at 12am and 6pm.
+No. Retention policies can only be applied on backup points. For example, this image shows a retention policy for backups taken at 12am and 6pm.
 
 ![Schedule Backup and Retention](./media/backup-azure-backup-faq/Schedule.png)
 

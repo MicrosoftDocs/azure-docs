@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: Monitor Azure Backup with Azure Monitor'
 description: Monitor Azure Backup workloads and create custom alerts by using Azure Monitor.
-
-author: pvrk
-manager: shivamg
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Log Analytics; Azure Backup; Alerts; Diagnostic Settings; Action groups
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
 ---
 
@@ -207,7 +207,7 @@ The diagnostic data from the vault is pumped to the Log Analytics workspace with
 - Across all solutions, ad hoc backup jobs and restore jobs are pushed as soon as they *finish*.
 - For all solutions except SQL backup, scheduled backup jobs are pushed as soon as they *finish*.
 - For SQL backup, because log backups can occur every 15 minutes, information for all the completed scheduled backup jobs, including logs, is batched and pushed every 6 hours.
-- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on is pushed at least *once per day.*
+- Across all solutions, other information such as the backup item, policy, recovery points, storage, and so on, is pushed at least *once per day.*
 - A change in the backup configuration (such as changing policy or editing policy) triggers a push of all related backup information.
 
 ## Using the Recovery Services vault's activity logs
@@ -233,7 +233,7 @@ To identify the appropriate log and create an alert:
 
    ![New alert rule](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
-Here the resource is the Recovery Services vault itself. You must repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
+Here the resource is the Recovery Services vault itself. Repeat the same steps for all of the vaults in which you want to be notified through activity logs. The condition won't have a threshold, period, or frequency because this alert is based on events. As soon as the relevant activity log is generated, the alert is raised.
 
 ## Using Log Analytics to monitor at scale
 

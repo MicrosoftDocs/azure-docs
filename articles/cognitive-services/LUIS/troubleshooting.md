@@ -8,8 +8,8 @@ ms.custom: seodec18
 services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 06/18/2019
+ms.topic: conceptual
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 # Language Understanding Frequently Asked Questions (FAQ)
@@ -117,7 +117,7 @@ Get-AzCognitiveServicesAccountUsage -ResourceGroupName <your-resource-group> -Na
 ``` 
 
 ### My LUIS app was working yesterday but today I'm getting 403 errors. I didn't change the app. How do I fix it?
-Following the [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) in the next FAQ to create a LUIS endpoint key and assign it to the app. Then you must change the HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query).
+Follow these [instructions](#how-do-i-create-and-assign-a-luis-endpoint-key) to create a LUIS endpoint key and assign it to the app. Then you must change the client application's HTTP request to the endpoint to [use the new endpoint key](luis-concept-keys.md#use-endpoint-key-in-query). If you created a new resource in a different region, change the HTTP client request's region too.
 
 ### How do I secure my LUIS endpoint?
 See [Securing the endpoint](luis-concept-security.md#securing-the-endpoint).

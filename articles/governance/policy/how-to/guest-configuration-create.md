@@ -31,8 +31,8 @@ with the [Azure PowerShell Docker image](https://hub.docker.com/rsdk-powershell/
 
 The Guest Configuration resource module requires the following software:
 
-- PowerShell. If it isn't yet installed, follow [these instructions](/powershell/powershell#get-powershell)
-- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/install-az-ps).
+- PowerShell. If it isn't yet installed, follow [these instructions](/powershell/scripting/install/installing-powershell).
+- Azure PowerShell 1.5.0 or higher. If it isn't yet installed, follow [these instructions](/powershell/azure/install-az-ps).
 
 ### Install the module
 
@@ -99,7 +99,7 @@ service:
 # Define the DSC configuration and import GuestConfiguration
 Configuration AuditBitLocker
 {
-    Import-DscResource -ModuleName 'GuestConfiguration'
+    Import-DscResource -ModuleName 'PSDscResources'
 
     Service 'Ensure BitLocker service is present and running'
     {
@@ -209,6 +209,7 @@ Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsS
 Parameters of the `Test-GuestConfigurationPackage` cmdlet:
 
 - **Name**: Guest Configuration Policy name.
+- **Parameter**: Policy parameters provided in hashtable format.
 - **Path**: Full path of the Guest Configuration package.
 
 The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
@@ -217,6 +218,10 @@ The cmdlet also supports input from the PowerShell pipeline. Pipe the output of
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
+
+For more information about how to test with parameters,
+see the section below
+[Using parameters in custom Guest Configuration policies](/azure/governance/policy/how-to/guest-configuration-create#using-parameters-in-custom-guest-configuration-policies).
 
 ## Create the Azure Policy definition and initiative deployment files
 
@@ -234,7 +239,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit BitLocker Service.' `
     -Description 'Audit if BitLocker is not enabled on Windows machine.' `
-    -DestinationPath '.\policyDefinitions' `
+    -Path '.\policyDefinitions' `
     -Platform 'Windows' `
     -Version 1.2.3.4 `
     -Verbose
@@ -270,7 +275,8 @@ means that the values in the MOF file in the package don't have to be considered
 override values are provided through Azure Policy and don't impact how the Configurations are
 authored or compiled.
 
-The `New-GuestConfigurationPolicy` cmdlet parameter **Parameters** takes a hashtable definition
+The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a parameter named **Parameters**.
+This parameter takes a hashtable definition
 including all details about each parameter and automatically creates all the required sections of
 the files used to create each Azure Policy definition.
 
@@ -295,7 +301,7 @@ New-GuestConfigurationPolicy
     -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' `
     -DisplayName 'Audit Windows Service.' `
     -Description 'Audit if a Windows Service is not enabled on Windows machine.' `
-    -DestinationPath '.\policyDefinitions' `
+    -Path '.\policyDefinitions' `
     -Parameters $PolicyParameterInfo `
     -Platform 'Windows' `
     -Version 1.2.3.4 `
@@ -315,7 +321,6 @@ Configuration FirewalldEnabled {
 
         ChefInSpecResource FirewalldEnabled {
             Name = 'FirewalldEnabled'
-            GithubPath = "guestConfiguration/Linux/InSpecProfiles/FirewalldEnabled/"
             AttributesYmlContent = "DefaultFirewalldProfile: [public]"
         }
     }
@@ -360,7 +365,7 @@ The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShe
 feature means you can create the policy files and publish them in a single set of piped commands.
 
 ```azurepowershell-interactive
-New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -DestinationPath '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
+New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -Path '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
 ```
 
 With the policy and initiative definitions created in Azure, the last step is to assign the
@@ -373,7 +378,31 @@ and [Azure PowerShell](../assign-policy-powershell.md).
 > assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are
 > compliant.
 
-### OPTIONAL: Signing Guest Configuration packages
+## Policy lifecycle
+
+After you have published a custom Azure Policy using your custom content package,
+there are two fields that must be updated if you would like to publish a new release.
+
+- **Version**: When you run the cmdlet `New-GuestConfigurationPolicy` cmdlet you must specify a version number greater than what is currently published.  This will update the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
+- **contentHash**: This is updated automatically by the `New-GuestConfigurationPolicy` cmdlet.  It is a hash value of the package created by `New-GuestConfigurationPackage`.  This must be correct for the `.zip` file you publish.  If only the `contentUri` property is updated, such as in the case where someone could make a manual change to the Policy definition from the portal, the Extension will not accept the content package.
+
+The easiest way to release an updated package is to repeat the process described in this article
+and provide an updated version number.
+That will guarantee all properties have been correctly updated.
+
+## Converting Windows Group Policy content to Azure Policy Guest Configuration
+
+Guest Configuration, when auditing Windows machines,
+is an implementation of the PowerShell Desired State Configuration syntax.
+The DSC community has published tooling to convert exported Group Policy templates to DSC format.
+By using this tool together with the Guest Configuration cmdlets described above,
+you can convert Windows Group Policy content and package/publish it for Azure Policy to audit.
+For details about using the tool, see the article
+[Quickstart: Convert Group Policy into DSC](/powershell/dsc/quickstarts/gpo-quickstart).
+Once the content has been converted, the steps above to create a pakcage and publish it
+as Azure Policy will be the same as for any DSC content.
+
+## OPTIONAL: Signing Guest Configuration packages
 
 Guest Configuration custom policies by default use SHA256 hash to validate that the policy package
 hasn't changed from when it was published to when it's read by the server that is being audited.
@@ -424,7 +453,7 @@ A good reference for creating GPG keys to use with Linux virtual machines is pro
 by an article on GitHub,
 [Generating a new GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key).
 
-After your content is published, append a tag with name '' and value `enabled` to all virtual
+After your content is published, append a tag with name `GuestConfigPolicyCertificateValidation` and value `enabled` to all virtual
 machines where code signing should be required. This tag can be delivered at scale using Azure
 Policy. See the [Apply tag and its default value](../samples/apply-tag-default-value.md) sample.
 Once this tag is in place, the policy definition generated using the `New-GuestConfigurationPolicy`

@@ -20,7 +20,7 @@ Security alerts are triggered when anomalies in activity occur. These security a
 > [!NOTE]
 >
 > * Advanced Threat Protection for Azure Cosmos DB is currently available only for the SQL API.
-> * Advanced Threat Protection for Azure Cosmos DB is currently available in Azure government and sovereign cloud regions.
+> * Advanced Threat Protection for Azure Cosmos DB is currently not available in Azure government and sovereign cloud regions.
 
 For a full investigation experience of the security alerts, we recommended enabling [diagnostic logging in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/logging), which logs operations on the database itself, including CRUD operations on all documents, containers, and databases.
 

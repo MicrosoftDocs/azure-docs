@@ -287,7 +287,7 @@ const listFiles = async () => {
 listButton.addEventListener("click", listFiles);
 ```
 
-This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL#listblobflatsegment-aborter--string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
+This code calls the [ContainerURL.listBlobFlatSegment](https://docs.microsoft.com/javascript/api/@azure/storage-blob/ContainerURL?view=azure-node-preview#listblobflatsegment-aborter--undefined---string--icontainerlistblobssegmentoptions-) function in a loop to ensure that all segments are retrieved. For each segment, it loops over the list of blob items it contains and updates the **Files** list.
 
 ### Upload blobs
 

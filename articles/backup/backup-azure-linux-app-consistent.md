@@ -1,14 +1,14 @@
 ---
 title: 'Azure Backup: application-consistent backups of Linux VMs'
 description: Create application-consistent backups of your Linux virtual machines to Azure. This article explains configuring the script framework to back up Azure-deployed Linux VMs. This article also includes troubleshooting information.
-
-author: anuragmehrotra
-manager: shivamg
+ms.reviewer: anuragm
+author: dcurwin
+manager: carmonm
 keywords: app-consistent backup; application-consistent Azure VM backup; Linux VM backup; Azure Backup
 ms.service: backup
 ms.topic: conceptual
 ms.date: 1/12/2018
-ms.author: anuragm
+ms.author: dacurwin
 ---
 
 # Application-consistent backup of Azure Linux VMs
@@ -19,7 +19,7 @@ When taking backup snapshots of your VMs, application consistency means your app
 
 The framework provides an option to run custom pre-scripts and post-scripts while you're taking VM snapshots. Pre-scripts run just before you take the VM snapshot, and post-scripts run immediately after you take the VM snapshot. Pre-scripts and post-scripts provide the flexibility to control your application and environment, while you're taking VM snapshots.
 
-Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-memory content to the disk. These actions ensure the snapshot is application consistent. Post-scripts use native application APIs to thaw the IOs, which enables the application to resume normal operations after the VM snapshot.
+Pre-scripts invoke native application APIs, which quiesce the IOs, and flush in-memory content to the disk. These actions ensure the snapshot is application consistent. Post-scripts use native application APIs to thaw the IOs, which enable the application to resume normal operations after the VM snapshot.
 
 ## Steps to configure pre-script and post-script
 
