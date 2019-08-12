@@ -20,7 +20,7 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 ## Before you begin
 
 * You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles required for the service principal
-* You also need the Azure CLI version 2.0.59 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+* You also need the Azure CLI version 2.0.59 or later
 
 ## Create new AKS cluster with ACR integration
 
