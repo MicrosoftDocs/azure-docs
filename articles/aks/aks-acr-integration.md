@@ -44,13 +44,24 @@ az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enabl
 ```
 
 ## Verify the AKS and ACR integration
+
 # Login to your ACR.
 ```azurecli-interactive
 az acr login -n <your-acr-name>
 
+```azurecli-interactive
 # Pull an image from docker hub
-```
 docker pull nginx
+```
+
+# Tag the image
+```azurecli-interactive
+docker tag nginx $acrloginservername/nginx:v1
+```
+
+# Push the docker image to ACR
+```
+docker push someacr1.azurecr.io/nginx:v1
 ```
 
 <!-- LINKS - external -->
