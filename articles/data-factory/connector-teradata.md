@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -40,7 +40,9 @@ Specifically, this Teradata connector supports:
 
 ## Prerequisites
 
-If your Teradata is not publicly accessible, you need to set up a [Self-hosted integration runtime](create-self-hosted-integration-runtime.md). The integration runtime provides a built-in Teradata driver, starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+The integration runtime provides a built-in Teradata driver, starting from version 3.18. You don't need to manually install any driver. The driver requires "Visual C++ Redistributable 2012 Update 4" on the self-hosted integration runtime machine. If you don't yet have it installed, download it from [here](https://www.microsoft.com/en-sg/download/details.aspx?id=30679).
 
 For any self-hosted integration runtime version earlier than 3.18, install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886), version 14 or later, on the integration runtime machine. 
 
@@ -60,7 +62,7 @@ The Teradata linked service supports the following properties:
 | connectionString | Specifies the information needed to connect to the Teradata Database instance. Refer to the following samples.<br/>You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. | Yes |
 | username | Specify a user name to connect to the Teradata database. Applies when you are using Windows authentication. | No |
 | password | Specify a password for the user account you specified for the user name. You can also choose to [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br>Applies when you are using Windows authentication, or referencing a password in Key Vault for basic authentication. | No |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. A self-hosted integration runtime is required, as mentioned in [Prerequisites](#prerequisites). |Yes |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites). If not specified, it uses the default Azure Integration Runtime. |Yes |
 
 **Example using basic authentication**
 
