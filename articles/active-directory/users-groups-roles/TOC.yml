@@ -102,7 +102,9 @@
       items: 
       - name: Create a dynamic group    
         href: groups-create-rule.md
-      - name: Dynamic group rules    
+      - name: Update a membership rule
+        href: groups-update-rule.md  
+      - name: Dynamic group rules & syntax  
         href: groups-dynamic-membership.md
       - name: Change group membership type  
         href: groups-change-type.md

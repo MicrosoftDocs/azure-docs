@@ -1,5 +1,5 @@
 ---
-title: Create a dynamic group and check status - Azure Active Directory | Microsoft Docs
+title: Update and manage a dynamic group rule and troubleshoot membership - Azure Active Directory | Microsoft Docs
 description: How to create a group membership rule in the Azure portal, check status.
 services: active-directory
 documentationcenter: ''
@@ -18,36 +18,28 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ---
 
-# Create a dynamic group and check status
+# Update a dynamic group to manage membership in Azure Active Directory
 
 In Azure Active Directory (Azure AD), you can use rules to determine group membership based on user or device properties. This article tells how to set up a rule for a dynamic group in the Azure portal.
 Dynamic membership is supported for security groups or Office 365 groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group.
 
 For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
 
-## To create a group membership rule
+## To update a group membership rule
 
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Intune administrator, or User administrator role in the tenant.
-2. Select **Groups**.
-3. Select **All groups**, and select **New group**.
+1. Select **Groups** > **All groups**.
+1. Select a group to open its profile.
+1. On the profile page for the group, select **Dynamic membership rules**. The query builder supports up to five query terms. To add a sixth and any subsequent query terms, you must use the text box.
 
-   ![Select the command to add new group](./media/groups-create-rule/new-group-creation.png)
+   ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-4. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. You can use the rule builder to build a simple rule, or [write a membership rule yourself](groups-dynamic-membership.md).
-
-   ![Add membership rule for a dynamic group](./media/groups-create-rule/add-dynamic-group-rule.png)
-
-5. To see the custom extension properties available for your membership query
+1. To see the custom extension properties available for your membership query:
    1. Select **Get custom extension properties**
    2. Enter the application ID, and then select **Refresh properties**.
-6. After creating the rule, select **Add query** at the bottom of the blade.
-7. Select **Create** on the **Group** blade to create the group.
+1. After updating the rule, select **Save**.
 
 If the rule you entered isn't valid, an explanation of why the rule couldn't be processed is displayed in the an Azure notification in the portal. Read it carefully to understand how to fix the rule.
-
-## Turn on or off welcome email
-
-When a new Office 365 group is created, a welcome email notification is sent the users who are added to the group. Later, if any attributes of a user or device change, all dynamic group rules in the organization are processed for membership changes. Users who are added then also receive the welcome notification. You can turn off this behavior in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps).
 
 ## Check processing status for a rule
 
@@ -65,7 +57,7 @@ The following status messages can be shown for **Membership processing** status:
 
 The following status messages can be shown for **Membership last updated** status:
 
-* &lt;**Date and time**&gt;: The last time the membership was updated.
+* **Date and time**: The last time the membership was updated.
 * **In Progress**: Updates are currently in progress.
 * **Unknown**: The last update time can't be retrieved. The group might be new.
 
@@ -73,10 +65,7 @@ If an error occurs while processing the membership rule for a specific group, an
 
 ![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
-These articles provide additional information on groups in Azure Active Directory.
+These articles provide additional information on groups in Azure AD.
 
-* [See existing groups](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Create a new group and adding members](../fundamentals/active-directory-groups-create-azure-portal.md)
-* [Manage settings of a group](../fundamentals/active-directory-groups-settings-azure-portal.md)
-* [Manage memberships of a group](../fundamentals/active-directory-groups-membership-azure-portal.md)
-* [Manage dynamic rules for users in a group](groups-dynamic-membership.md)
+* For a complete reference to dynamic rule structure, see [Dynamic membership rule syntax](groups-dynamic-membership.md).
+* [Create a static membership group and add members](../fundamentals/active-directory-groups-create-azure-portal.md)
