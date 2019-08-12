@@ -22,7 +22,9 @@ Azure Batch now supports mounting cloud storage or an external file system on Wi
 In this article, you'll learn how to mount a virtual file system on a pool of compute nodes using the [Batch Management Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
-> Mounting a virtual file system is supported on Batch pools created on or after (TODO date).
+> Mounting a virtual file system is supported on Batch pools created on or after 12 August 2019. Batch pools created prior to 12 August 2019 do not support this feature.
+> 
+> The APIs for mounting file systems on a compute node are part of the [Batch .NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.batch?view=azure-dotnet) library.
 
 ## Benefits of mounting on a pool
 
@@ -39,7 +41,7 @@ To mount a file system on a pool, create a `MountConfiguration` object. Choose t
 All mount configuration objects need the following base parameters. Some mount configurations have parameters specific to the file system being used, which are discussed in more detail in the code examples.
 
 - **Account name or source**: To mount a virtual file share, you need the name of the storage account or its source.
-- **Relative mount path**: This is where the file system is mounted on the compute node, relative to TODO.
+- **Relative mount path or Source**: This is where the file system is mounted on the compute node, relative to standard `fsmount` directory accessible in node via `AZ_BATCH_NODE_MOUNTS_DIR` (note: the exact location varies from the sku in use like in Ubuntu the physical location is mapped to `mnt\batch\tasks\fsmount` where as in Centos it is `mnt\resources\batch\tasks\fsmount`.
 - **Mount options or blobfuse options**: These options describe specific parameters for mounting a file system.
 
 Once the `MountConfiguration` object is created, assign the object to the `MountConfigurationList` property when you create the pool. The file system is mounted either when a node joins a pool or when the node is restarted or re-imaged.
@@ -47,7 +49,7 @@ Once the `MountConfiguration` object is created, assign the object to the `Mount
 When the file system is mounted, an environment variable `AZ_BATCH_NODE_MOUNTS_DIR` is created which points to the location of the mounted file systems as well as log files, which are useful for troubleshooting and debugging. This is explained in more detail in the [Diagnose mount errors](#diagnose-mount-errors) section.  
 
 > [!IMPORTANT]
-> The maximum number of mounted file systems on a pool is 10. See [Batch service quotas and limits](batch-quota-limit.md) for details and other limits.
+> The maximum number of mounted file systems on a pool is 10. See [Batch service quotas and limits](batch-quota-limit.md#other-limits) for details and other limits.
 
 ## Examples
 
@@ -67,10 +69,10 @@ new PoolAddParameter
         {
             AzureFileShareConfiguration = new AzureFileShareConfiguration
             {
-                AccountName = “AccountName”,
-                AzureFileUrl = “AzureFileShareUrl” ,
-                AccountKey = “StorageAccountKey”,
-                RelativeMountPath = “RelativeMountPath”,
+                AccountName = "AccountName",
+                AzureFileUrl = "AzureFileShareUrl",
+                AccountKey = "StorageAccountKey",
+                RelativeMountPath = "RelativeMountPath",
                 MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,sec=ntlmssp"
             },
         }
@@ -97,9 +99,9 @@ new PoolAddParameter
         {
             AzureBlobFileSystemConfiguration = new AzureBlobFileSystemConfiguration
             {
-                AccountName = “StorageAccountName”,
-                ContainerName = “containerName”,
-                AccountKey = “StorageAccountKey”,
+                AccountName = "StorageAccountName",
+                ContainerName = "containerName",
+                AccountKey = "StorageAccountKey",
                 SasKey = "",
                 RelativeMountPath = "RelativeMountPath",
                 BlobfuseOptions = "-o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120 "
@@ -146,10 +148,10 @@ new PoolAddParameter
         {
             CifsMountConfiguration = new CIFSMountConfiguration
             {
-                Username = “StorageAccountName”,
+                Username = "StorageAccountName",
                 RelativeMountPath = "cifsmountpoint",
-                Source = “source”,
-                Password = “StorageAccountKey”,
+                Source = "source",
+                Password = "StorageAccountKey",
                 MountOptions = "-o vers=3.0,dir_mode=0777,file_mode=0777,serverino"
             },
         }
@@ -161,7 +163,7 @@ new PoolAddParameter
 
 If a mount configuration fails, the compute node in the pool will fail and the node state becomes unusable. To diagnose a mount configuration failure, inspect the [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
 
-TODO: Add example of getting a log file and how to troubleshoot
+User can use the [OutputFiles](batch-task-output-files.md) for uploading the *.log files for mount at `AZ_BATCH_NODE_MOUNTS_DIR` location.
 
 ## Supported SKUs
 
