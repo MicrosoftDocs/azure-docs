@@ -97,7 +97,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1" }
 ```
 
-The application can be upgraded like this:
+Now, upgrade the application using the **Start-ServiceFabricApplicationUpgrade** cmdlet. This example shows an unmonitored upgrade, but a monitored upgrade can also be used.
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testValue"}
@@ -107,7 +107,7 @@ ion 1.0.0 -ApplicationParameter $appParams -UnmonitoredAuto
 
 ```
 
-After upgrading, confirm that the application has the new parameters and the same version:
+After upgrading, confirm that the application has the updated parameters and the same version:
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
