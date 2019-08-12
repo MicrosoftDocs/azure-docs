@@ -135,6 +135,7 @@ Data disk 2 | 4095 GB | 0 GB
 
 The actual size of the VM in this case is 17 GB + 30 GB + 0 GB = 47 GB. This protected-instance size (47 GB) becomes the basis for the monthly bill. As the amount of data in the VM grows, the protected-instance size used for billing changes to match.
 
+<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
 ## Limited Public Preview: Backup of VM with disk sizes up to 30 TB
 
 Azure Backup now supports a limited public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TB in size. This preview provides production-level support for managed virtual machines.
