@@ -47,7 +47,7 @@ The use of the SQL VM resource provider requires the SQL Server IaaS extension. 
 
 ## Change the license for VMs already registered with the resource provider 
 
-# [Azure portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
@@ -61,7 +61,7 @@ You can modify the license model directly from the portal:
 ![Azure Hybrid Benefit in the portal](media/virtual-machines-windows-sql-ahb/ahb-in-portal.png)
 
 
-# [Azure CLI](#tab/bash)
+# [Azure CLI](#tab/azure-cli)
 
 You can use the Azure CLI to change your license model.  
 
@@ -83,7 +83,7 @@ The following code snippet switches your bring-your-own-license model to pay-as-
 az sql vm update -n <VMName> -g <ResourceGroupName> --license-type PAYG
 ```
 
-# [PowerShell](#tab/powershell)
+# [PowerShell](#tab/azure-powershell)
 You can use PowerShell to change your license model.
 
 The following code snippet switches your pay-as-you-go license model to bring-your-own-license (or using Azure Hybrid Benefit):
