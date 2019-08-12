@@ -496,4 +496,4 @@ Once the web service is deployed, it's consumable from Power BI dataflows. [Lear
 
 ## Next steps
 
-To see a reference architecture for real-time scoring of Python and deep learning model, see [Azure architecture center](/azure/architecture/reference-architectures/ai/realtime-scoring-python)
+To view a reference architecture for real-time scoring of Python and deep learning models, go to the [Azure architecture center](/azure/architecture/reference-architectures/ai/realtime-scoring-python).
