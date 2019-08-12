@@ -132,5 +132,5 @@ Use the most recent versions of the following browsers for the best experience w
 
 ## Next steps
 
-* Explore the [Immersive Reader SDK on GitHub](https://github.com/Microsoft/immersive-reader-sdk)
+* Explore the [Immersive Reader SDK on GitHub](https://github.com/microsoft/immersive-reader-sdk)
 * [Quickstart: Create a web app that launches the Immersive Reader (C#)](./quickstart.md)

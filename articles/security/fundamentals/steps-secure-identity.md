@@ -1,11 +1,11 @@
 ---
 title: Five steps to secure your identity infrastructure in Azure Active Directory
 description: This document outlines a list of important actions administrators should implement to help them secure their organization using Azure AD capabilities
-services: active-directory
 author: martincoetzer
 manager: manmeetb
 tags: azuread
-ms.service: active-directory
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
