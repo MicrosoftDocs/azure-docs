@@ -34,6 +34,7 @@ Optionally, You can also specify **acr-resource-id** instead of **acr-name** wit
 ```azurecli-interactive
 az aks create -n <cluster-name>  -g <resource-group> --enable-acr [--acr-resource-id <acr-resource-id>]
 ```
+
 ## Create ACR integration for existing AKS clusters
 For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for acr-name and acr-resource-id or the commands will fail.
 ```azurecli-interactive
