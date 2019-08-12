@@ -80,6 +80,8 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 4. Copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```Python
+    dbutils.widgets.text('source_file', "", "Source File")
+
     spark.conf.set("fs.azure.account.auth.type", "OAuth")
     spark.conf.set("fs.azure.account.oauth.provider.type", "org.apache.hadoop.fs.azurebfs.oauth2.ClientCredsTokenProvider")
     spark.conf.set("fs.azure.account.oauth2.client.id", "<appId")
@@ -99,8 +101,6 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 7. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block. This code configures the structure of your databricks delta table and then loads some initial data from the csv file that you uploaded earlier.
 
    ```Python
-   dbutils.widgets.text('source_file', "", "Source File")
-
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
 
 
@@ -144,6 +144,47 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    This code uploads and inserts data from a csv file identified by the widget that you added earlier. We'll populate that widget by using a function app when the event is triggered.
 
+2. Add the following code to merge the temporary table with the actual table:
+
+   ```
+   %sql
+   MERGE INTO customer_data cd
+   USING customer_data_to_upsert cu
+   ON cd.CustomerID = cu.CustomerID
+   WHEN MATCHED THEN
+     UPDATE SET
+       cd.StockCode = cu.StockCode,
+       cd.Description = cu.Description,
+       cd.InvoiceNo = cu.InvoiceNo,
+       cd.Quantity = cu.Quantity,
+       cd.InvoiceDate = cu.InvoiceDate,
+       cd.UnitPrice = cu.UnitPrice,
+       cd.Country = cu.Country
+   WHEN NOT MATCHED
+     THEN INSERT (InvoiceNo, StockCode, Description, Quantity, InvoiceDate, UnitPrice, CustomerID, Country)
+     VALUES (
+       cu.InvoiceNo,
+       cu.StockCode,
+       cu.Description,
+       cu.Quantity,
+       cu.InvoiceDate,
+       cu.UnitPrice,
+       cu.CustomerID,
+       cu.Country)
+   ```
+
+## Create a Spark job
+
+1. Click **Jobs**.
+
+2. In the **Jobs** page, click **Create Job**.
+
+3. Give the job a name, and then choose the `upsert-order-data` workbook.
+
+   ![Create a job](./media/data-lake-storage-events/create-spark-job.png "Create a job")
+
+4. Start the job (put exact steps here)
+
 ## Create a function app
 
 1. In the upper corner of the workspace, choose the people icon, and then choose **User settings**.
@@ -158,9 +199,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    ![Create an Azure function](./media/data-lake-storage-events/function-app-create-flow.png "Create Azure function")
 
-4. Configure the function app
+4. Configure the function app.
 
    ![Configure the function app](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
+
+   Put something here for configuring an application insights logging.
 
 5. Add configuration variables.
 
@@ -182,13 +225,15 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    ![New function](./media/data-lake-storage-events/new-function.png "New function")
 
-8. Choose **Http Trigger**.
+8. Choose **Azure Event Grid Trigger**.
+
+   You might be prompted to install the **Microsoft.Azure.WebJobs.Extensions.EventGrid** extension. If you are, install it. If you have to install it, then you'll have to choose **Azure Event Grid Trigger** again to create the function.
 
    The **New Function** pane appears.
 
 9. In the **New Function** pane, name the function **UpsertOrder**, and then click the **Create** button.
 
-10. Replace the contents of the code file with this code:
+10. Replace the contents of the code file with this code, and then click the **Save** button:
 
    ```cs
    using "Microsoft.Azure.EventGrid"
@@ -232,33 +277,52 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    }
    ```
 
-## Ingest starter data
-
-Introduction
-
-1. Step 1.
-2. Step 2.
-
-## Create a function
-
-Introduction
-
-1. Step 1.
-2. Step 2.
-
 ## Create an event subscription
 
-Introduction
+Something here.
 
-1. Step 1.
-. Step 2.
+1. In the function code page, click the **Add Event Grid subscription** button.
+
+   ![New event subscription](./media/data-lake-storage-events/new-event-subscription.png "New event subscription")
+
+2. In the **Create Event Subscription** page, name the subscription, and then use the fields in the page to select your storage account. 
+
+   ![New event subscription](./media/data-lake-storage-events/new-event-subscription-2.png "New event subscription")
+
+3. In the **Filter to Event Types** drop-down list, select the **Blob Created**, and **Blob Deleted** events, and then click the **Create** button.
 
 ## Test it all out
 
 Introduction
 
-1. Step 1.
-2. Step 2.
+1. In Storage Explorer, create a sub-folder named **upsert**.
+
+2. Create a file named `customer-order.csv` and paste the following information into that file, and save it to your local.
+
+   ```
+   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+   536371,99999,EverGlow Single,228,1/1/2018 9:01,33.85,20993,Sierra Leone
+   ```
+
+3. In Storage Explorer, upload this file to the **upsert** folder to begin the process.
+
+4. Check that the job succeeded. Open your databricks workspace, and click **Jobs**, and then open the job that you started in an earlier step.
+
+5. Select the job to open the job page.
+
+   ![Spark job](./media/data-lake-storage-events/spark-job.png "Spark job")
+
+   When the job completes, you'll see a completion status.
+
+   ![Successfully completed job](./media/data-lake-storage-events/spark-job-completed.png "Successfully completed job")
+
+5. In a new workbook cell, run this query in a cell to see the updated delta table.
+
+   ```
+   %sql select * from customer_data
+   ```
+
+   The returned tabled shows the latest record.
 
 ## Clean up resources
 
