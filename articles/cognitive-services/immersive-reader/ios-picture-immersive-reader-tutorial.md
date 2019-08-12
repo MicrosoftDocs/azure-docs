@@ -19,7 +19,7 @@ The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively 
 
 The [Computer Vision Cognitive Services Read API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/concept-recognizing-text) detects text content in an image using Microsoft's latest recognition models and converts the identified text into a machine-readable character stream.
 
-In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/iOS/samples/picture-to-immersive-reader-swift).
+In this tutorial, you will build an iOS app from scratch and integrate the Read API, and the Immersive Reader by using the Immersive Reader SDK. A full working sample of this tutorial is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/picture-to-immersive-reader-swift).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -43,7 +43,7 @@ Choose **Single View App**.
 The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via Cocoapods:
 1. [Install CocoaPods](http://guides.cocoapods.org/using/getting-started.html) - Follow the getting started guide to install Cocoapods.
 2. Create a Podfile by running `pod init` in your Xcode project's root directory.
-3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`. Your Podfile should look like the following, with your target's name replacing picture-to-immersive-reader-swift:
+3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`. Your Podfile should look like the following, with your target's name replacing picture-to-immersive-reader-swift:
  ```ruby
   platform :ios, '9.0'
 
@@ -102,4 +102,4 @@ Inside the app, take or upload a photo of text by pressing the 'Take Photo' butt
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)
+* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)
