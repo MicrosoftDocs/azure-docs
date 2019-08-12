@@ -12,7 +12,7 @@ ms.author: atsenthi
 
 # Deploy Service Fabric application with system-assigned managed identity
 
-Managed identities in Service Fabric are only supported for applications deployed as Azure resources, via Azure Resource Manager. This is typically done using an Azure Resource Manager template. Applications created or deployed directly to a Service Fabric cluster (for instance, by using the native Service Fabric API) cannot be assigned or use managed identities. For more information on how to deploy Service Fabric applications through Azure Resource Manager, see [Manage applications and services as Azure Resource Manager resources](service-fabric-application-arm-resource.md).
+In order to access the managed identity feature for Azure Service Fabric applications, you must first enable the Managed Identity Token Service on the cluster. This service is responsible for the authentication of Service Fabric applications using their managed identities, and for obtaining access tokens on their behalf. Once the service is enabled, you can see it in Service Fabric Explorer under the **System** section in the left pane, running under the name **fabric:/System/ManagedIdentityTokenService** next to other system services.
 
 > [!NOTE] 
 > Deployment of Service Fabric applications with managed identities are supported starting with API version `"2019-06-01-preview"`. You can also use the same API version for application type, application type version and service resources. The minimum supported Service Fabric runtime is 6.5 CU2.
