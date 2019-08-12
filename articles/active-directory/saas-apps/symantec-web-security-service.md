@@ -159,10 +159,6 @@ This operation starts the initial synchronization of all users and/or groups def
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 2167adc6c83c2b9be96e3273f590a6d9474fd02d
 ## Additional resources
 
 * [Managing user account provisioning for Enterprise Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
