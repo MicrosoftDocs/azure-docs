@@ -43,7 +43,7 @@ To create and work with datasets, you need:
 Datasets are categorized into various types based on how users consume them in training. List of typed Datasets:
 - **FileDataset**: References single or multiple files in your datastores or public urls. The files can be of any format. FileDataset provides you with the ability to download the files to your compute.
 - **TabularDataset**: Represents data in a tabular format by parsing the provided file or list of files. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For the complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference). It provides you with the ability to materialize the data into a pandas DataFrame.
-- (upcoming) **LabeledDataset**: Represents labeled data that are produced by Azure Machine Learning Labeling service. LabaledDataset provides you with the ability to materialize the data into formats like [COCO ](http://cocodataset.org/#homeo) or [TFRecord](https://www.tensorflow.org/tutorials/load_data/tf_records) on your compute.
+- (upcoming) **LabeledDataset**: Represents labeled data that are produced by Azure Machine Learning Labeling service. LabaledDataset provides you with the ability to materialize the data into formats like [COCO](http://cocodataset.org/#homeo) or [TFRecord](https://www.tensorflow.org/tutorials/load_data/tf_records) on your compute.
 - (upcomping) **TimeSeriesDataset**: An extension of TabularDataset that allows for specification of a time column and filtering the Dataset by time.
 
 ## Create datasets 
@@ -77,12 +77,12 @@ Use the `from_delimited_files()` method on `TabularDatasetFactory` class to read
 
 ```Python
 # create a TabularDataset from multiple paths in datastore
-datastore_path = [
+datastore_paths = [
                   (datastore, 'weather/2018/11.csv'),
                   (datastore, 'weather/2018/12.csv'),
                   (datastore, 'weather/2019/*.csv')
                  ]
-weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_path)
+weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 
 # create a TabularDataset from a delimited file behind a public web url
 web_path ='https://dprepdata.blob.core.windows.net/demo/Titanic.csv'
@@ -103,19 +103,19 @@ Use the `from_files()` method on `FileDatasetFactory` class to load files in any
 
 ```Python
 # create a FileDataset from multiple paths in datastore
-datastore_path = [
+datastore_paths = [
                   (datastore, 'animals/dog/1.jpg'),
                   (datastore, 'animals/dog/2.jpg'),
                   (datastore, 'animals/dog/*.jpg')
                  ]
-animal_ds = Dataset.File.from_files(path=datastore_path)
+animal_ds = Dataset.File.from_files(path=datastore_paths)
 
 # create a FileDataset from image and label files behind public web urls
-web_path = [
+web_paths = [
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
             'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
            ]          
-mnist_ds = Dataset.File.from_files(path=web_path)
+mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 ## Register datasets
@@ -127,36 +127,34 @@ Use the `register()` method to register datasets to your workspace so they can b
 ```Python
 mnist_ds = mnist_ds.register(workspace = workspace,
                              name = 'mnist_ds',
-                             description = 'mnist training images and labels'
-                            )
+                             description = 'mnist training images and labels')
 ```
 
 ## Version datasets
 
-You can register a new dataset under the same namespace by creating a new version. Dataset versioning is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning: 
+You can register a new dataset under the same name by creating a new version. Dataset version is a way to bookmark the state of your data, so you can apply a specific version of the dataset for experimentation or future reproduction. Typical scenarios to consider versioning: 
 * When new data is available for retraining.
 * When you are applying different data preparation or feature engineering approaches.
 
 ```Python
 # create a FileDataset from new image and label files
-web_path = [
+web_paths = [
             'https://azureopendatastorage.blob.core.windows.net/mnist/t10k-images-idx3-ubyte.gz',
             'https://azureopendatastorage.blob.core.windows.net/mnist/t10k-labels-idx1-ubyte.gz'
            ]          
-mnist_ds2 = Dataset.File.from_files(path=web_path)
+mnist_ds2 = Dataset.File.from_files(path=web_paths)
 
 # create a new version of mnist_ds
 mnist_ds = mnist_ds.register(workspace = workspace,
                              name = 'mnist_ds',
                              description = 'new mnist training images and labels',
-                             create_new_version = True
-                            )
+                             create_new_version = True)
 ```
 
 
 ## Access data in datasets
 
-Registered datasets are accessible locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered Dataset across experiments, use the following code to get your workspace and registered dataset by name. `get_by_name` method on `Dataset` class by default returns the latest version of the dataset registered with the workspace.
+Registered datasets are accessible locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered Dataset across experiments, use the following code to get your workspace and registered dataset by name. The `get_by_name` method on the `Dataset` class by default returns the latest version of the dataset registered with the workspace.
 
 ```Python
 workspace = Workspace.from_config()
