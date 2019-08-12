@@ -72,7 +72,7 @@ To use storage account key authentication, the following properties are supporte
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is in a private network). If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
->Azure Blob secondary endpoint is not supported when using account key authentication. You can use the other authentication types.
+>Secondary Blob Service Endpoint is not supported when using account key authentication. You can use other authentication types.
 
 >[!NOTE]
 >If you were using "AzureStorage" type linked service, it is still supported as-is, while you are suggested to use this new "AzureBlobStorage" linked service type going forward.
