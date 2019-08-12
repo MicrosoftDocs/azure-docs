@@ -4,7 +4,7 @@ description: Run multiple actions from a single IoT Central rule and create reus
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/19/2019
+ms.date: 07/10/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea

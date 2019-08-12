@@ -64,7 +64,7 @@ Create the following sample folders (*Functions*, *Policies*, *Tables*) in your 
 
     ![Create variable](media/devops/create-variable.png)
 
-    To find your Endpoint_URL, the overview page of your **Azure Data Explorer Cluster** in the Azure portal contains the Azure Data Explorer cluster URI. Construct the URI in the following format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  For example, https://kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
+    To find your Endpoint_URL, the overview page of your **Azure Data Explorer Cluster** in the Azure portal contains the Azure Data Explorer cluster URI. Construct the URI in the following format `https://<Azure Data Explorer cluster URI>?DatabaseName=<DBName>`.  For example, https:\//kustodocs.westus.kusto.windows.net?DatabaseName=SampleDB
 
     ![Azure Data Explorer cluster URI](media/devops/adx-cluster-uri.png)
 

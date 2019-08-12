@@ -1,14 +1,14 @@
 ---
-title: 'Azure Backup: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell'
+title: Back up and restore SQL Databases in Azure VMs with PowerShell - Azure Backup
 description: Back up and restore SQL Databases in Azure VMs using Azure Backup and PowerShell.
-services: backup
-author: pvrk
-manager: vijayts
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 keywords: Azure Backup; SQL;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/15/2019
-ms.author: pullabhk
+ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
 ---
 
@@ -276,7 +276,7 @@ Use [Get-AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/power
 
 ````powershell
 $startDate = (Get-Date).AddDays(-7).ToUniversalTime()
-$endDate = Get-Date.ToUniversalTime()
+$endDate = (Get-Date).ToUniversalTime()
 Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $targetVault.ID -StartDate $startdate -EndDate $endDate
 ````
 

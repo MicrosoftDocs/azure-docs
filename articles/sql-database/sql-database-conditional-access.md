@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-manager: craigg
 ms.custom: sql-data-warehouse
 ms.date: 03/29/2019
 ---
@@ -28,14 +27,14 @@ The following steps show how to configure SQL Database to enforce a Conditional 
 - When multi-factor authentication is enabled, you must connect with at supported tool, such as the latest SSMS. For more information, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](sql-database-ssms-mfa-authentication-configure.md).  
 
 ## Configure CA for Azure SQL DB/DW  
-1. Sign in to the Portal, select **Azure Active Directory**, and then select **Conditional access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
-   ![conditional access blade](./media/sql-database-conditional-access/conditional-access-blade.png) 
+1. Sign in to the Portal, select **Azure Active Directory**, and then select **Conditional Access**. For more information, see [Azure Active Directory Conditional Access technical reference](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-technical-reference).  
+   ![Conditional Access blade](./media/sql-database-conditional-access/conditional-access-blade.png) 
      
 2. In the **Conditional Access-Policies** blade, click **New policy**, provide a name, and then click **Configure rules**.  
-3. Under **Assignments**, select **Users and groups**, check **Select users and groups**, and then select the user or group for conditional access. Click **Select**, and then click **Done** to accept your selection.  
+3. Under **Assignments**, select **Users and groups**, check **Select users and groups**, and then select the user or group for Conditional Access. Click **Select**, and then click **Done** to accept your selection.  
    ![select users and groups](./media/sql-database-conditional-access/select-users-and-groups.png)  
 
-4. Select **Cloud apps**, click **Select apps**. You see all apps available for conditional access. Select **Azure SQL Database**, at the bottom click **Select**, and then click **Done**.  
+4. Select **Cloud apps**, click **Select apps**. You see all apps available for Conditional Access. Select **Azure SQL Database**, at the bottom click **Select**, and then click **Done**.  
    ![select SQL Database](./media/sql-database-conditional-access/select-sql-database.png)  
    If you can’t find **Azure SQL Database** listed in the following third screenshot, complete the following steps:   
    - Sign in to your Azure SQL DB/DW instance using SSMS with an AAD admin account.  

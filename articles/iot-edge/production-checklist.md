@@ -210,7 +210,7 @@ Add (or append) this information to a file named `daemon.json` and place it the 
 | Platform | Location |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
-| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+| Windows | `C:\ProgramData\iotedge-moby\config\` |
 
 The container engine must be restarted for the changes to take effect.
 

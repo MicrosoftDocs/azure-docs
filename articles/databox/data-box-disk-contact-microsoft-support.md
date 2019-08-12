@@ -6,13 +6,13 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 05/24/2019
 ms.author: alkohli
 ms.subservice:
 ---
 # Open a support ticket for Azure Data Box 
 
-This article applies to Azure Data Box and Azure Data Box Disk, both of which are managed by the Azure Data Box service. If you encounter any issues with your Azure Data Box service, you can create a service request for technical support. This article walks you through:
+This article applies to Azure Data Box, Azure Data Box Heavy, and Azure Data Box Disk, all of which are managed by the Azure Data Box service. If you encounter any issues with your Azure Data Box service, you can create a service request for technical support. This article walks you through:
 
 * How to create a support request.
 * How to manage a support request lifecycle from within the portal.
@@ -29,7 +29,7 @@ Perform the following steps to create a support request:
     
     1. From the **Issue type** dropdown list, select **Technical**.
     2. Choose your **Subscription**.
-    3. Under **Service**, check **All Services**. From the dropdown list, select **Data Box - Preview**. 
+    3. Under **Service**, check **All Services**. From the dropdown list, select **Data Box**. 
     4. Specify your **Support plan**.
     5. Click **Next**.
 
@@ -79,3 +79,5 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 ## Next steps
 
 Learn how to [Troubleshoot issues related to Data Box Disk](data-box-disk-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Data Box](data-box-troubleshoot.md).
+Learn how to [Troubleshoot issues related to Data Box Blob storage](data-box-troubleshoot-rest.md).

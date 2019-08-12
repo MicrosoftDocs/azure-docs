@@ -213,7 +213,7 @@ The first step is to add the UI elements to your existing main activity that ena
 
         mainActivity = this;
 
-        MyHandler.createChannelAndHandleNotifications(getApplicationContext());
+        FirebaseService.createChannelAndHandleNotifications(getApplicationContext());
         notifications = new Notifications(this, NotificationSettings.HubName, NotificationSettings.HubListenConnectionString);
         notifications.subscribeToCategories(notifications.retrieveCategories());
     }
@@ -325,7 +325,7 @@ The app is now complete and can store a set of categories in the device local st
 In this tutorial, you sent broadcast notifications to specific Android devices that have registered for the categories. To learn how to push notifications to specific users, advance to the following tutorial:
 
 > [!div class="nextstepaction"]
->[Push notifications to specific users](notification-hubs-aspnet-backend-gcm-android-push-to-user-google-notification.md)
+>[Push notifications to specific users](push-notifications-android-specific-users-firebase-cloud-messaging.md)
 
 <!-- Images. -->
 [A1]: ./media/notification-hubs-aspnet-backend-android-breaking-news/android-breaking-news1.PNG

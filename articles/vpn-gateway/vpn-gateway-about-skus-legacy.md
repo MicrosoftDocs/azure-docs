@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.date: 06/10/2019
 ms.author: cherylmc
 
 ---
@@ -25,6 +25,8 @@ This article contains information about the legacy (old) virtual network gateway
 ## <a name="gwsku"></a>Gateway SKUs
 
 [!INCLUDE [Legacy gateway SKUs](../../includes/vpn-gateway-gwsku-legacy-include.md)]
+
+You can view legacy gateway pricing in the **Virtual Network Gateways** section, which is located in on the [ExpressRoute pricing page](https://azure.microsoft.com/pricing/details/expressroute).
 
 ## <a name="agg"></a>Estimated aggregate throughput by SKU
 

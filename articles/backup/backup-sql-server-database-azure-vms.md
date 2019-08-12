@@ -1,13 +1,13 @@
 ---
 title: Back up SQL Server databases in Azure VMs | Microsoft Docs
 description: Learn how to back up SQL Server databases in Azure VMs
-services: backup
-author: sachdevaswati
-manager: vijayts
+ms.reviewer: vijayts
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/23/2019
-ms.author: sachdevaswati
+ms.date: 06/18/2019
+ms.author: dacurwin
 
 
 ---
@@ -30,9 +30,9 @@ In this article, you'll learn how to:
 Before you back up a SQL Server database, check the following criteria:
 
 1. Identify or create a [Recovery Services vault](backup-sql-server-database-azure-vms.md#create-a-recovery-services-vault) in the same region or locale as the VM hosting the SQL Server instance.
-2. Check the [VM permissions needed](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) to back up SQL databases.
-3. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
-4. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
+2. Verify that the VM has [network connectivity](backup-sql-server-database-azure-vms.md#establish-network-connectivity).
+3. Make sure that the SQL Server databases follow the [database naming guidelines for Azure Backup](#database-naming-guidelines-for-azure-backup).
+4. Specifically for SQL 2008 and 2008 R2, [add registry key](#add-registry-key-to-enable-registration) to enable server registration. This step will be not be required when the feature is generally available.
 5. Check that you don't have any other backup solutions enabled for the database. Disable all other SQL Server backups before you back up the database.
 
 > [!NOTE]
@@ -45,9 +45,9 @@ For all operations, a SQL Server VM requires connectivity to Azure public IP add
 
 Establish connectivity by using one of the following options:
 
-- **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're whitelisting only region-specific IPs, you'll also need to whitelist the Azure Active Directory (Azure AD) service tag to enable authentication.
+- **Allow the Azure datacenter IP ranges**. This option allows [IP ranges](https://www.microsoft.com/download/details.aspx?id=41653) in the download. To access a network security group (NSG), use the Set-AzureNetworkSecurityRule cmdlet. If you're safe recipients list only region-specific IPs, you'll also need to update the safe recipients list the Azure Active Directory (Azure AD) service tag to enable authentication.
 
-- **Allow access using NSG tags**. If you use NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also need corresponding [rules](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer. The AzureBackup tag is currently available on PowerShell only. To create a rule by using the AzureBackup tag:
+- **Allow access using NSG tags**. If you use NSGs to restrict connectivity, this option adds a rule to your NSG that allows outbound access to Azure Backup by using the AzureBackup tag. In addition to this tag, you'll also need corresponding [rules](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) for Azure AD and Azure Storage to allow connectivity for authentication and data transfer. The AzureBackup tag is currently available on PowerShell only. To create a rule by using the AzureBackup tag:
 
     - Add Azure account credentials and update the national clouds<br/>
     `Add-AzureRmAccount`
@@ -63,7 +63,7 @@ Establish connectivity by using one of the following options:
 
   - Save the NSG<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
-- **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/en-us/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.
+- **Allow access by using Azure Firewall tags**. If you're using Azure Firewall, create an application rule by using the AzureBackup [FQDN tag](https://docs.microsoft.com/azure/firewall/fqdn-tags). This allows outbound access to Azure Backup.
 - **Deploy an HTTP proxy server to route traffic**. When you back up a SQL Server database on an Azure VM, the backup extension on the VM uses the HTTPS APIs to send management commands to Azure Backup and data to Azure Storage. The backup extension also uses Azure AD for authentication. Route the backup extension traffic for these three services through the HTTP proxy. The extensions are the only component that's configured for access to the public internet.
 
 Connectivity options include the following advantages and disadvantages:
@@ -75,16 +75,6 @@ Use NSG service tags | Easier to manage as range changes are automatically merge
 Use Azure Firewall FQDN tags | Easier to manage as the required FQDNs are automatically managed | Can be used with Azure Firewall only
 Use an HTTP proxy | Granular control in the proxy over the storage URLs is allowed <br/><br/> Single point of internet access to VMs <br/><br/> Not subject to Azure IP address changes | Additional costs to run a VM with the proxy software
 
-### Set VM permissions
-
-When you configure a backup for a SQL Server database, Azure Backup does the following:
-
-- Adds the AzureBackupWindowsWorkload extension.
-- Creates an NT SERVICE\AzureWLBackupPluginSvc account to discover databases on the virtual machine. This account is used for a backup and restore and requires SQL sysadmin permissions.
-- Discovers databases that are running on a VM, Azure Backup uses the NT AUTHORITY\SYSTEM account. This account must be a public sign-in on SQL.
-
-If you didn't create the SQL Server VM in the Azure Marketplace, you might receive a UserErrorSQLNoSysadminMembership error. For more information, see the Feature consideration and limitations section found in [About SQL Server Backup in Azure VMs](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
-
 ### Database naming guidelines for Azure Backup
 
 Avoid using the following elements in database names:
@@ -92,10 +82,27 @@ Avoid using the following elements in database names:
   * Trailing and leading spaces
   * Trailing exclamation marks (!)
   * Closing square brackets (])
-  * Starting with F:\
+  * Semicolon ';'
+  * Forward slash '/'
 
 Aliasing is available for unsupported characters, but we recommend avoiding them. For more information, see [Understanding the Table Service Data Model](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN).
 
+### Add registry key to enable registration
+
+1. Open Regedit
+2. Create the Registry Directory Path: HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook (you will need to create the 'Key' TestHook under WorkloadBackup which in turn needs to be created under Microsoft).
+3. Under the Registry Directory Path, create a new 'string value' with the string name **AzureBackupEnableWin2K8R2SP1** and value: **True**
+
+    ![RegEdit for enabling registration](media/backup-azure-sql-database/reg-edit-sqleos-bkp.png)
+
+Alternatively, you can automate this step by running .reg file with the following command:
+
+```csharp
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WorkloadBackup\TestHook]
+"AzureBackupEnableWin2K8R2SP1"="True"
+```
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -136,7 +143,7 @@ How to discover databases running on a VM:
     - Azure Backup creates the service account NT Service\AzureWLBackupPluginSvc on the VM.
       - All backup and restore operations use the service account.
       - NT Service\AzureWLBackupPluginSvc requires SQL sysadmin permissions. All SQL Server VMs created in the Marketplace come with the SqlIaaSExtension installed. The AzureBackupWindowsWorkload extension uses the SQLIaaSExtension to automatically get the required permissions.
-    - If you didn't create the VM from the Marketplace, the VM won't have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the [instructions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
+    - If you didn't create the VM from the Marketplace or if you are on SQL 2008 and 2008 R2, the VM may not have the SqlIaaSExtension installed, and the discovery operation fails with the error message UserErrorSQLNoSysAdminMembership. To fix this issue, follow the instructions under [Set VM permissions](backup-azure-sql-database.md#set-vm-permissions).
 
         ![Select the VM and database](./media/backup-azure-sql-database/registration-errors.png)
 
@@ -158,7 +165,7 @@ How to discover databases running on a VM:
 
      * To protect more than 50 databases, configure multiple backups.
      * To enable [](#enable-auto-protection) the entire instance or the Always On availability group. In the **AUTOPROTECT** drop-down list, select  **ON**, and then select **OK**.
-     
+
     > [!NOTE]
     > The [auto-protection](#enable-auto-protection) feature not only enables protection on all the existing databases at once, but also automatically protects any new databases added to that instance or the availability group.  
 
@@ -166,19 +173,19 @@ How to discover databases running on a VM:
 
     ![Enable auto-protection for the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-5. In **Backup policy**, choose a policy and then select **OK**.
+5. In **Backup policy**, choose a policy and then select **OK**.
 
-   - Select the default policy as HourlyLogBackup.
+   - Select the default policy as HourlyLogBackup.
    - Choose an existing backup policy previously created for SQL.
    - Define a new policy based on your RPO and retention range.
 
      ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-6. In **Backup**, select **Enable backup**.
+6. In **Backup**, select **Enable backup**.
 
     ![Enable the chosen backup policy](./media/backup-azure-sql-database/enable-backup-button.png)
 
-7. Track the configuration progress in the **Notifications** area of the portal.
+7. Track the configuration progress in the **Notifications** area of the portal.
 
     ![Notification area](./media/backup-azure-sql-database/notifications-area.png)
 
@@ -262,7 +269,7 @@ You can enable auto-protection to automatically back up all existing and future 
 
 - There's no limit on the number of databases you can select for auto-protection at one time.
 - You can't selectively protect or exclude databases from protection in an instance at the time you enable auto-protection.
-- If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
+- If your instance already includes some protected databases, they'll remain protected under their respective policies even after you turn on auto-protection. All unprotected databases added later will have only a single policy that you define at the time of enabling auto-protection, listed under **Configure Backup**. However, you can change the policy associated with an auto-protected database later.  
 
 To enable auto-protection:
 
@@ -277,7 +284,7 @@ If you need to disable auto-protection, select the instance name under **Configu
 
 ![Disable auto-protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
- 
+ 
 ## Next steps
 
 Learn how to:

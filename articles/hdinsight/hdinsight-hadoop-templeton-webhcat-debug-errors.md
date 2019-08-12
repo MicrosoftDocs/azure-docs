@@ -28,8 +28,6 @@ Learn about errors received when using WebHCat with HDInsight, and how to resolv
 
 * For **Linux** clusters: Use Apache Ambari (web or REST API) to modify the value. For more information, see [Manage HDInsight using Apache Ambari](hdinsight-hadoop-manage-ambari.md)
 
-> [!IMPORTANT]  
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ### Default configuration
 

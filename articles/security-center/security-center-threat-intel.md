@@ -21,7 +21,7 @@ ms.author: rkarlin
 This article helps you to use the Azure Security Center security alerts map and security event-based threat intelligence map to address security-related issues.
 
 > [!NOTE]
-> The Security *events* map button will be retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
+> The Security *events* map button has been retired on July 31st, 2019. For more information and alternative services, see [Retirement of Security Center features (July 2019)](security-center-features-retirement-july2019.md#menu_securityeventsmap).
 
 
 ## How the security alerts map works
@@ -52,51 +52,6 @@ The map provides alerts across any subscriptions you previously selected in Azur
 The alerts on the map are displayed according to the geographical location where they are detected as originating from, and they are color coded by severity. 
  	![Threat intelligence information](./media/security-center-threat-intel/security-center-alert-map.png)
 
-## Viewing the event-based Threat intelligence dashboard
-To view the Threat intelligence map based on raw security events, you can follow this procedure. This map displays only events that involve an IP address that is considered risk, for example an IP address of a known botnet.
-
-1. Open the **Security Center** dashboard.
-
-1. In the left pane, under **Threat Protection** select **Security alerts map**. The map opens.
-2. In the top right corner, click **Go to security events map**.
-3. Select the workspace for which you want to view the dashboard.
-4. At the top of the map, select **View classic threat intelligence**. The **Threat intelligence** dashboard opens.
-
-   > [!NOTE]
-   > If the far-right column shows **UPGRADE PLAN**, this workspace is using the free subscription. Upgrade to Standard to use this feature. If the far-right column shows **REQUIRES UPDATE**, update [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) to use this feature. For more information about the pricing plan, read Azure Security Center pricing.
-   >
-5. If you have more than one workspace to investigate, prioritize the investigation according to the **Malicious IP** column. It shows the current number of malicious IPs in this workspace. Select the workspace that you want to use, and the **Threat intelligence** dashboard appears.
-
-	![Threat intelligence information](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
-
-6. The dashboard is divided into four tiles:
-
-	a.  **Threat types**. Summarizes the type of threats that were detected in the selected workspace.
-
-	b.  **Origin country**. Aggregates the amount of traffic according to its source location.
-
-	c.  **Threat location**. Helps you to identify the current locations around the globe that communicate with your environment. In the map shown, orange (incoming) and red (outgoing) arrows identify the traffic directions. If you select one of these arrows, the type of threat and the traffic direction appears.
-
-	d.  **Threat details**. Shows more details about the threat that you selected in the map.
-
-Regardless of which option tile you select, the dashboard that appears is based on the Log Search query. The only difference is the type of query and the result.
-
-### Threat types
-Select the **Threat types** tile to open the **Log Search** dashboard. Filter options appear on the left, and query results appear on the right.
-
-![Log Search](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)
-
-The query result shows the threats by name. You can use the left pane to select the attribute that you want to filter. For example, to see only the threats that are currently connected to the machines, in **SESSIONSTATE**, select **Connected** > **Apply**.
-
-![Session State](./media/security-center-threat-intel/security-center-threat-intel-fig4.png)
-
-For Azure VMs, only the network data that flows through the agent appears in the **Threat intelligence** dashboard. The following data types also are used by threat intelligence:
-
-- CEF Data (Type=CommonSecurityLog)
-- WireData (Type= WireData)
-- IIS Logs (Type=W3CIISLog)
-- Windows Firewall (Type=WindowsFirewall)
-- DNS Events (Type=DnsEvents)
 
 
 ## See also

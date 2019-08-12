@@ -80,7 +80,7 @@ You can create a pipeline that has a copy activity. The pipeline moves data to o
 
 The easiest way to create a pipeline is to use the Copy wizard. See [Tutorial: Create a pipeline by using the Copy wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline by using the Copy Data wizard.
 
-You can also use one of the following tools to create a pipeline: the **Azure portal**, **Visual Studio**, **Azure PowerShell**, an **Azure Resource Manager template**, the **.NET API**, or the **REST API**. See the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions on how to create a pipeline that has a copy activity.
+You can also use one of the following tools to create a pipeline: **Visual Studio**, **Azure PowerShell**, an **Azure Resource Manager template**, the **.NET API**, or the **REST API**. See the [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions on how to create a pipeline that has a copy activity.
 
 Whether you use the tools or APIs, complete the following steps to create a pipeline that moves data from a source data store to a sink data store:
 
@@ -184,7 +184,7 @@ In Copy Activity, when the source is the **OracleSource** type, the following pr
 
 ## JSON examples for copying data to and from the Oracle database
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). The examples show how to copy data from or to an Oracle database and to or from Azure Blob storage. However, data can be copied to any of the sinks listed in [Supported data stores and formats](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 **Example: Copy data from Oracle to Azure Blob storage**
 

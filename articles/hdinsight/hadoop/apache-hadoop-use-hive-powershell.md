@@ -25,9 +25,6 @@ This document provides an example of using Azure PowerShell in the Azure Resourc
 
 * A Linux-based Apache Hadoop on HDInsight cluster version 3.4 or greater.
 
-  > [!IMPORTANT]  
-  > Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 * A client with Azure PowerShell.
 
 [!INCLUDE [upgrade-powershell](../../../includes/hdinsight-use-latest-powershell.md)]
@@ -56,7 +53,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
 
         .\hivejob.ps1
 
-    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to log in to your Azure subscription.
+    When the script runs, you are prompted to enter the cluster name and the HTTPS/Cluster Admin account credentials. You may also be prompted to sign in to your Azure subscription.
 
 3. When the job completes, it returns information similar to the following text:
 

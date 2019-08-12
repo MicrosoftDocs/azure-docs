@@ -7,7 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/11/2019
+ms.date: 05/20/2019
 ---
 # Get started with Azure Cosmos DB Table API and Azure Table storage using the .NET SDK
 
@@ -35,15 +35,15 @@ You need the following to complete this sample successfully:
 
 ## Create a .NET console project
 
-In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2017. The steps are similar in other versions of Visual Studio. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
+In Visual Studio, create a new .NET console application. The following steps show you how to create a console application in Visual Studio 2019. You can use the Azure Cosmos DB Table Library in any type of .NET application, including an Azure cloud service or web app, and desktop and mobile applications. In this guide, we use a console application for simplicity.
 
 1. Select **File** > **New** > **Project**.
 
-1. Select **Installed** > **Visual C#** > **Console App (.NET Core)**.
+1. Choose **Console App (.NET Core)**, and then select **Next**.
 
-1. In the **Name** field, enter a name for your application, for example, **CosmosTableSamples** (you can provide a different name as needed).
+1. In the **Project name** field, enter a name for your application, such as **CosmosTableSamples**. (You can provide a different name as needed.)
 
-1. Select **OK**.
+1. Select **Create**.
 
 All code examples in this sample can be added to the Main() method of your console application's **Program.cs** file.
 
@@ -104,9 +104,19 @@ To obtain the NuGet package, follow these steps:
 
 1. Define a method `CreateStorageAccountFromConnectionString` as shown below. This method will parse the connection string details and validate that the account name and account key details provided in the "Settings.json" file are valid. 
 
-   ```csharp
-   public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+ ```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Cosmos.Table;
+    using Microsoft.Azure.Documents;
+
+    public class Common
     {
+        public static CloudStorageAccount CreateStorageAccountFromConnectionString(string storageConnectionString)
+        {
             CloudStorageAccount storageAccount;
             try
             {
@@ -126,6 +136,8 @@ To obtain the NuGet package, follow these steps:
 
             return storageAccount;
         }
+    }
+}
    ```
 
 
@@ -372,6 +384,29 @@ The previous code creates a table that starts with “demo” and the generated 
 In this tutorial, you built code to perform basic CRUD operations on the data stored in Table API account. You can also perform advanced operations such as – batch inserting data, query all the data within a partition, query a range of data within a partition, Lists tables in the account whose names begin with the specified prefix. You can download the complete sample form [azure-cosmos-table-dotnet-core-getting-started](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started) GitHub repository. The [AdvancedSamples.cs](https://github.com/Azure-Samples/azure-cosmos-table-dotnet-core-getting-started/blob/master/CosmosTableSamples/AdvancedSamples.cs) class has more operations that you can perform on the data.  
 
 ## Run the project
+
+From your project **CosmosTableSamples**. Open the class named **Program.cs** and add the following code to it for calling BasicSamples when the project runs.
+
+```csharp
+using System;
+
+namespace CosmosTableSamples
+{
+    class Program
+    {
+        public static void Main(string[] args)
+        {
+            Console.WriteLine("Azure Cosmos Table Samples");
+            BasicSamples basicSamples = new BasicSamples();
+            basicSamples.RunSamples().Wait();
+           
+            Console.WriteLine();
+            Console.WriteLine("Press any key to exit");
+            Console.Read();
+        }
+    }
+}
+```
 
 Now build the solution and press F5 to run the project. When the project is run, you will see the following output in the command prompt:
 

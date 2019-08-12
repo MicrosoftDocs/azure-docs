@@ -21,9 +21,6 @@ Learn how to use [Apache Spark](https://spark.apache.org/) on HDInsight to analy
 
 * Familiarity with creating a Linux-based HDInsight cluster. For more information, see [Create Apache Spark on HDInsight](apache-spark-jupyter-spark-sql.md).
 
-  > [!IMPORTANT]  
-  > The steps in this document require an HDInsight cluster that uses Linux. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 * A web browser.
 
 The following resources were used in developing and testing this document:

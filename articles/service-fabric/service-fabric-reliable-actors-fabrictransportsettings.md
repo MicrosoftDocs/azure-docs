@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 
 ms.date: 04/20/2017
-ms.author: suchiagicha
+ms.author: chackdan
 
 ---
 # Configure FabricTransport settings for Reliable Actors

@@ -3,7 +3,7 @@ title: Containerize your Azure Service Fabric services on Windows
 description: Learn how to containerize your Service Fabric Reliable Services and Reliable Actors services on Windows.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: anmolah
 editor: 'roroutra'
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
-ms.author: aljo, anmola
+ms.author: anmola
 ---
 # Containerize your Service Fabric Reliable Services and Reliable Actors on Windows
 
@@ -114,6 +114,16 @@ This document provides guidance to get your service running inside a Windows con
    </ContainerHostPolicies>
    </Policies>
    ```
+
+> [!NOTE] 
+> By default, Service Fabric applications have access to the Service Fabric runtime, in the form of an endpoint accepting application-specific requests. Consider disabling this access when the application hosts untrusted code. For more information, please see [security best practices in Service Fabric](service-fabric-best-practices-security.md#platform-isolation). To disable access to the Service Fabric runtime, add the following setting in the Policies section of the application manifest corresponding to the imported service manifest, as follows:
+>
+```xml
+  <Policies>
+      <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+  </Policies>
+```
+>
 
 10. To test this application, you need to deploy it to a cluster that is running version 5.7 or higher. For runtime versions 6.1 or lower, you need to edit and update the cluster settings to enable this preview feature. Follow the steps in this [article](service-fabric-cluster-fabric-settings.md) to add the setting shown next.
     ```

@@ -5,7 +5,7 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 03/18/2019
+ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
 ---
@@ -101,4 +101,4 @@ Now that you've learned how to create jobs in your Azure IoT Central application
 
 - [Use device sets](howto-use-device-sets.md)
 - [Manage your devices](howto-manage-devices.md)
-- [Version your device template](howto-version-devicetemplate.md)
+- [Version your device template](howto-version-device-template.md)

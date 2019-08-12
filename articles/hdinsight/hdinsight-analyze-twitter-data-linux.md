@@ -17,8 +17,6 @@ Learn how to use [Apache Hive](https://hive.apache.org/) to process Twitter data
 
 > [!IMPORTANT]  
 > The steps in this document were tested on HDInsight 3.6.
->
-> Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Get the data
 
@@ -320,7 +318,7 @@ These commands store the data in a location that all nodes in the cluster can ac
 You have learned how to transform an unstructured JSON dataset into a structured [Apache Hive](https://hive.apache.org/) table. To learn more about Hive on HDInsight, see the following documents:
 
 * [Get started with HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
-* [Analyze flight delay data using HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze flight delay data using HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 
 [curl]: https://curl.haxx.se
 [curl-download]: https://curl.haxx.se/download.html

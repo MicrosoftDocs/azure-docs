@@ -1,15 +1,14 @@
 ---
-title: Search categories for the Bing Local Business Search API | Microsoft Docs
+title: Search categories for the Bing Local Business Search API
 titleSuffix: Azure Cognitive Services
 description: Use this article to learn how to specify search categories for the Bing Local Business search API endpoint.
-titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
-ms.topic: article
+ms.topic: concpetual
 ms.date: 11/01/2018
-ms.author: rosh, v-gedod
+ms.author: rosh
 ---
 
 # Search categories for the Bing Local Business Search API

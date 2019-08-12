@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-manager: craigg
-ms.date: 01/25/2019
+ms.date: 06/21/2019
 ---
 # Restore an Azure SQL Database or failover to a secondary
 
@@ -28,7 +27,7 @@ To learn about business continuity scenarios and the features supporting these s
 > If you are using zone-redundant Premium or Business Critical databases or pools, the recovery process is automated and the rest of this material does not apply.
 
 > [!NOTE]
-> Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. For more information, see [Upgrading or downgrading as primary database](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+> Both primary and secondary databases are required to have the same service tier. It is also strongly recommended that the secondary database is created with the same compute size (DTUs or vCores) as the primary. For more information, see [Upgrading or downgrading as primary database](sql-database-active-geo-replication.md#upgrading-or-downgrading-primary-database).
 
 > [!NOTE]
 > Use one or several failover groups to manage failover of multiple databases.

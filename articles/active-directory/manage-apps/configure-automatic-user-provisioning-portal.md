@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/01/2019
 ms.author: mimart
-ms.reviewer: asmalser
+ms.reviewer: arvinh
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,14 +27,11 @@ This article describes how to use the [Azure portal](https://portal.azure.com) t
 Use the Azure Active Directory portal to view and manage all applications that are configured for single sign-on in a directory. Enterprise apps are apps that are deployed and used within your organization. Follow these steps to view and manage your enterprise applications:
 
 1. Open the [Azure Active Directory portal](https://aad.portal.azure.com).
-
 1. Select **Enterprise applications** from the left pane. A list of all configured apps is shown, including apps that were added from the gallery.
-
 1. Select any app to load its resource pane, where you can view reports and manage app settings.
-
 1. Select **Provisioning** to manage user account provisioning settings for the selected app.
 
-   ![Application resource pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![Provisioning screen to manage user account provisioning settings](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## Provisioning modes
 
@@ -64,17 +61,17 @@ Expand **Mappings** to view and edit the user attributes that flow between Azure
 
 There's a preconfigured set of mappings between Azure AD user objects and each SaaS app’s user objects. Some apps manage other types of objects, such as Groups or Contacts. Select a mapping in the table to open the mapping editor to the right, where you can view and customize them.
 
-![Application resource pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![Shows the Attribute Mapping screen](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 Supported customizations include:
 
 * Enabling and disabling mappings for specific objects, such as the Azure AD user object to the SaaS app's user object.
 * Editing the attributes that flow from the Azure AD user object to the app's user object. For more information on attribute mapping, see [Understanding attribute mapping types](customize-application-attributes.md#understanding-attribute-mapping-types).
-* Filtering the provisioning actions that Azure AD runs on the targeted application. Instead of having Azure AD fully synchronize objects, you can limit the actions run. 
+* Filtering the provisioning actions that Azure AD runs on the targeted application. Instead of having Azure AD fully synchronize objects, you can limit the actions run.
 
   For example, only select **Update** and Azure AD only updates existing user accounts in an application but doesn't create new ones. Only select **Create** and Azure only creates new user accounts but doesn't update existing ones. This feature lets admins create different mappings for account creation and update workflows.
 
-* Adding a new attribute mapping. Select **Add New Mapping** at the bottom of the **Attribute Mapping** pane. Fill out the **Edit Attribute** form and select **Ok** to add the new mapping to the list. 
+* Adding a new attribute mapping. Select **Add New Mapping** at the bottom of the **Attribute Mapping** pane. Fill out the **Edit Attribute** form and select **Ok** to add the new mapping to the list.
 
 ### Settings
 

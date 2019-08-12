@@ -8,12 +8,13 @@ manager: rkarlin
 editor: ''
 
 ms.assetid: 0a8f4a58-e96a-4883-adf3-6b8b49208e6a
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 06/17/2019
 ms.author: rkarlin
 
 ---
@@ -31,6 +32,8 @@ Azure Sentinel enables you to collect data from [Azure Active Directory](../acti
 - If you want to export sign-in data from Active Directory, you must have an Azure AD P1 or P2 license.
 
 - User with global admin or security admin permissions on the tenant you want to stream the logs from.
+
+- To be able to see the connection status, you must have permission to access Azure AD diagnostic logs. 
 
 
 ## Connect to Azure AD

@@ -11,6 +11,7 @@ metadata:
   ms.author: tarcher
   ms.topic: landing-page
   ms.date: 08/27/2018
+  ms.custom: seo-java-july2019
 abstract:
     description: Use the open-source Jenkins server to build your apps in the cloud and deploy them to Azure. Learn how to install, configure, and scale Jenkins on Azure and set up continuous integration (CI) for your apps with our quickstarts, tutorials, and sample pipelines.
     aside: 

@@ -53,7 +53,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Create a NetApp account
 
-1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files (preview)** from the list that appears.
+1. In the Azure portal’s search box, enter **Azure NetApp Files** and then select **Azure NetApp Files** from the list that appears.
 
       ![Select Azure NetApp Files](../media/azure-netapp-files/azure-netapp-files-select-azure-netapp-files.png)
 
