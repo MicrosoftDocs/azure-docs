@@ -81,7 +81,7 @@ This message shows that your installation appears to be working correctly.
 After the scheduled time, run the [az acr task list-runs][az-acr-task-list-runs] command to verify that the timer triggered the task as expected:
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
+az acr task list-runs --name mytask --registry myregistry --output table
 ``` 
 
 When the timer is successful, output is similar to the following:
