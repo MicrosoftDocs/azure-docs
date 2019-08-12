@@ -30,7 +30,7 @@ For examples of syntax, supported properties, operators, and values for a member
 1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Intune administrator, or User administrator role in the tenant.
 1. Select **Groups** > **All groups**.
 1. Select a group to open its profile.
-1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five rule terms. To add a sixth or any subsequent rule terms, you must use the text box.
+1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add a sixth or any subsequent expressions, you must use the text box.
 
    ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 

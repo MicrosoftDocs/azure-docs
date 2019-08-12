@@ -33,7 +33,7 @@ For examples of syntax, supported properties, operators, and values for a member
 
    ![Select the command to add new group](./media/groups-create-rule/new-group-creation.png)
 
-4. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five rule terms. To add a sixth or any subsequent rule terms, you must use the text box.
+4. On the **Group** page, enter a name and description for the new group. Select a **Membership type** for either users or devices, and then select **Add dynamic query**. The rule builder supports up to five expressions. To add a sixth or any subsequent expressions, you must use the text box.
 
    ![Add membership rule for a dynamic group](./media/groups-create-rule/add-dynamic-group-rule.png)
 
