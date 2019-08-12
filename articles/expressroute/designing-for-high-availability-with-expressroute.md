@@ -21,7 +21,7 @@ ExpressRoute is designed for high availability to provide carrier grade private 
 
 ## Architecture considerations
 
-The following figure illustrates the recommended way to connect using an ExpressRoute circuit for maximizing the availability of an ExpressRoute circuit.
+The following figure illustrates the recommended way to maximize the availability of an ExpressRoute circuit.
 
  [![1]][1]
 
@@ -29,7 +29,7 @@ For high availability, it's essential to maintain the redundancy of the ExpressR
 
 ### First mile physical layer design considerations
 
- If you terminate both the primary and secondary connections of an ExpressRoute circuits on the same Customer Premises Equipment (CPE), you're compromising the high availability within your on-premises network. Additionally, if you configure both the primary and secondary connections via the same port of a CPE (either by terminating the two connections under different subinterfaces or by merging the two connections within the partner network), you're forcing the partner to compromise high availability on their network segment as well. This compromise is illustrated in the following figure.
+ If you terminate both the primary and secondary connections of an ExpressRoute circuit on the same Customer Premises Equipment (CPE), you're compromising the high availability within your on-premises network. Additionally, if you configure both the primary and secondary connections via the same port of a CPE (either by terminating the two connections under different subinterfaces or by merging the two connections within the partner network), you're forcing the partner to compromise high availability on their network segment as well. This compromise is illustrated in the following figure.
 
 [![2]][2]
 
@@ -39,7 +39,7 @@ For geo-redundant design considerations, see [Designing for disaster recovery wi
 
 ### Active-active connections
 
-Microsoft network is configured to operate the primary and secondary connections of ExpressRoute circuits in active-active mode. However, through your route advertisements, you  can force the redundant connections of an ExpressRoute circuit to operate in active-passive mode. Advertising more specific routes and BGP AS path prepending  are the common techniques used to make one path preferred over the other.
+Microsoft's network is configured to operate the primary and secondary connections of ExpressRoute circuits in active-active mode. However, through your route advertisements, you  can force the redundant connections of an ExpressRoute circuit to operate in active-passive mode. Advertising more specific routes and BGP AS path prepending  are the common techniques used to make one path preferred over the other.
 
 To improve high availability, it's recommended to operate both the connections of an ExpressRoute circuit in active-active mode. If you let the connections operate in active-active mode, Microsoft network will load balance the traffic across the connections on per-flow basis.
 
