@@ -32,7 +32,7 @@ For applications that do interactive browser-based sign-in to get a SAML asserti
 
 The OAuth SAML Bearer Assertion flow is also supported for users authenticating with identity providers such as Active Directory Federation Services (ADFS) federated to Azure Active Directory.  The SAML assertion obtained from ADFS can be used in an OAuth flow to authenticate the user.
 
-![](./media/v2-saml-bearer-assertion/1.png)
+![OAuth flow](./media/v2-saml-bearer-assertion/1.png)
 
 ## Get a SAML assertion, get an access token, and access Microsoft Graph
 Now let us understand on how we can actually fetch SAML assertion programatically. This approach is tested with ADFS. However this works with any IDP that is supporting return of SAML assertion programatically.
@@ -58,15 +58,15 @@ Install [Postman](https://www.getpostman.com/), a tool required to test the samp
 ### Get the SAML assertion from ADFS
 1. Create a POST request to the ADFS endpoint using SOAP envelope to fetch the SAML assertion:
 
-    ![](./media/v2-saml-bearer-assertion/2.png)
+    ![Get SAML assertion](./media/v2-saml-bearer-assertion/2.png)
 
     Header values:
 
-    ![](./media/v2-saml-bearer-assertion/3.png)
+    ![Header values](./media/v2-saml-bearer-assertion/3.png)
 
     ADFS request body:
 
-    ![](./media/v2-saml-bearer-assertion/4.png)
+    ![ADFS request body](./media/v2-saml-bearer-assertion/4.png)
 
 Once this request is posted successfully, you should receive a SAML Assertion from ADFS. Only the **SAML:Assertion** tag data is required, convert it to base64 encoding to use in further requests.
 
@@ -74,9 +74,9 @@ Once this request is posted successfully, you should receive a SAML Assertion fr
 In this step, fetch an OAuth2 token using the ADFS assertion response.
 
 1. Create a POST request as shown below with the header values:
-    ![](./media/v2-saml-bearer-assertion/5.png)
+    ![POST request](./media/v2-saml-bearer-assertion/5.png)
 1. In the body of the request, replace client_id, client_secret, and assertion (base64 encoded SAML assertion obtained the previous step).
-    ![(./media/v2-saml-bearer-assertion/6.png)
+    ![Request body](./media/v2-saml-bearer-assertion/6.png)
 1. Upon successful request, you will receive an access token from Azure active directory.
 
 ### Get the data with the Oauth token
@@ -85,6 +85,6 @@ After receiving the access token, call the Graph APIs (Outlook tasks in this exa
 
 1. Create a GET request with the access token fetched in the previous step:
 
-    ![](./media/v2-saml-bearer-assertion/7.png)
+    ![GET request](./media/v2-saml-bearer-assertion/7.png)
 
 1. Upon successful request, you will receive a JSON response.
