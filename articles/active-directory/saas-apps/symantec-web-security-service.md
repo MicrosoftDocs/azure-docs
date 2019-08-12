@@ -42,13 +42,13 @@ Azure Active Directory uses a concept called *assignments* to determine which us
 Before configuring and enabling automatic user provisioning, you should decide which users and/or groups in Azure AD need access to Symantec Web Security Service (WSS). Once decided, you can assign these users and/or groups to Symantec Web Security Service (WSS) by following the instructions here:
 * [Assign a user or group to an enterprise app](../manage-apps/assign-user-or-group-access-portal.md)
 
-## Important tips for assigning users to Symantec Web Security Service (WSS)
+##  Important tips for assigning users to Symantec Web Security Service (WSS)
 
 * It is recommended that a single Azure AD user is assigned to Symantec Web Security Service (WSS) to test the automatic user provisioning configuration. Additional users and/or groups may be assigned later.
 
 * When assigning a user to Symantec Web Security Service (WSS), you must select any valid application-specific role (if available) in the assignment dialog. Users with the **Default Access** role are excluded from provisioning.
 
-## Setup Symantec Web Security Service  (WSS)  for provisioning
+## Setup Symantec Web Security Service (WSS) for provisioning
 
 Before configuring Symantec Web Security Service (WSS) for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Symantec Web Security Service (WSS).
 
@@ -158,8 +158,6 @@ This section guides you through the steps to configure the Azure AD provisioning
 This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Symantec Web Security Service.
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-## Connector Limitations
 
 
 ## Additional resources
