@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/12/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -54,17 +54,17 @@ To configure the integration of Sage Intacct into Azure AD, you need to add Sage
 1. In the **Add from the gallery** section, type **Sage Intacct** in the search box.
 1. Select **Sage Intacct** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for Sage Intacct
 
 Configure and test Azure AD SSO with Sage Intacct using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Sage Intacct.
 
 To configure and test Azure AD SSO with Sage Intacct, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
+    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
+    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
 2. **[Configure Sage Intacct SSO](#configure-sage-intacct-sso)** - to configure the Single Sign-On settings on application side.
-3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-5. **[Create Sage Intacct test user](#create-sage-intacct-test-user)** - to have a counterpart of B.Simon in Sage Intacct that is linked to the Azure AD representation of user.
+    1. **[Create Sage Intacct test user](#create-sage-intacct-test-user)** - to have a counterpart of B.Simon in Sage Intacct that is linked to the Azure AD representation of user.
 6. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
 ### Configure Azure AD SSO
@@ -82,17 +82,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     In the **Reply URL** text box, type a URL:
     `https://www.intacct.com/ia/acct/sso_response.phtml`
 
-1. Sage Intacct application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
+1. Sage Intacct application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog..
 
 	![image](common/edit-attribute.png)
 
-1. In the **User Claims** section on the **User Attributes** dialog, edit the claims by using **Edit icon** or add the claims by using **Add new claim** to configure SAML token attribute as shown in the image above and perform the following steps:
+1. In addition to above, Sage Intacct application expects few more attributes to be passed back in SAML response. In the **User Claims** section on the **User Attributes** dialog, perform the following steps to add SAML token attribute as shown in the below table:
 
 	| Name  |  Source Attribute|
 	| ---------------| --------------- |
 	| Company Name | **Sage Intacct Company ID** |
-	| name | name should equal the Sage Intacct User ID, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
-	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | should equal the Sage Intacct User Federated SSO User ID, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
+	| name | Value should be same as the Sage Intacct **User ID**, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
+	| http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier | Value should be same as the Sage Intacct **Federated SSO User ID**, which you enter in the **Create Sage Intacct test user section**, which is explained later in the tutorial |
 
 	a. Click **Add new claim** to open the **Manage user claims** dialog.
 
@@ -115,34 +115,6 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up Sage Intacct** section, copy the appropriate URL(s) based on your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
-
-### Configure Sage Intacct SSO
-
-1. In a different web browser window, sign in to your Sage Intacct company site as an administrator.
-
-1. Click the **Company** tab, and then click **Company Info**.
-
-    ![Company](./media/intacct-tutorial/ic790037.png "Company")
-
-1. Click the **Security** tab, and then click **Edit**.
-
-    ![Security](./media/intacct-tutorial/ic790038.png "Security")
-
-1. In the **Single sign on (SSO)** section, perform the following steps:
-
-    ![Single sign on](./media/intacct-tutorial/ic790039.png "single sign on")
-
-    a. Select **Enable single sign on**.
-
-    b. As **Identity provider type**, select **SAML 2.0**.
-
-    c. In **Issuer URL** textbox, paste the value of **Azure Ad Identifier** which you have copied from Azure portal.
-
-    d. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
-
-    e. Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.
-
-    f. Click **Save**.
 
 ### Create an Azure AD test user
 
@@ -174,6 +146,34 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 1. If you're expecting any role value in the SAML assertion, in the **Select Role** dialog, select the appropriate role for the user from the list and then click the **Select** button at the bottom of the screen.
 1. In the **Add Assignment** dialog, click the **Assign** button.
 
+## Configure Sage Intacct SSO
+
+1. In a different web browser window, sign in to your Sage Intacct company site as an administrator.
+
+1. Click the **Company** tab, and then click **Company Info**.
+
+    ![Company](./media/intacct-tutorial/ic790037.png "Company")
+
+1. Click the **Security** tab, and then click **Edit**.
+
+    ![Security](./media/intacct-tutorial/ic790038.png "Security")
+
+1. In the **Single sign on (SSO)** section, perform the following steps:
+
+    ![Single sign on](./media/intacct-tutorial/ic790039.png "single sign on")
+
+    a. Select **Enable single sign on**.
+
+    b. As **Identity provider type**, select **SAML 2.0**.
+
+    c. In **Issuer URL** textbox, paste the value of **Azure AD Identifier** which you have copied from Azure portal.
+
+    d. In **Login URL** textbox, paste the value of **Login URL** which you have copied from Azure portal.
+
+    e. Open your **base-64** encoded certificate in notepad, copy the content of it into your clipboard, and then paste it to the **Certificate** box.
+
+    f. Click **Save**.
+
 ### Create Sage Intacct test user
 
 To set up Azure AD users so they can sign in to Sage Intacct, they must be provisioned into Sage Intacct. For Sage Intacct, provisioning is a manual task.
@@ -197,20 +197,22 @@ To set up Azure AD users so they can sign in to Sage Intacct, they must be provi
     a. Enter the **User ID**, the **Last name**, **First name**, the **Email address**, the **Title**, and the **Phone** of an Azure AD account that you want to provision into the **User Information** section.
 
 	> [!NOTE]
-	> The **User ID** value and the **name** attribute value in the **User Attributes** section in the Azure portal.
+	> Make sure that the **User ID** in above screenshot and the **Source Attribute** value which is mapped with the **name** attribute in the **User Attributes** section in the Azure portal should be same.
 
     b. Select the **Admin privileges** of an Azure AD account that you want to provision.
 
-    c. Click **Save**. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
+    c. Click **Save**. 
+    
+    d. The Azure AD account holder receives an email and follows a link to confirm their account before it becomes active.
 
-1. Click **Single sign-on** tab and make sure the **Federated SSO user ID** value and `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` attribute value in the **User Attributes** section in the Azure portal should be same.
+1. Click **Single sign-on** tab and make sure that the **Federated SSO user ID** in below screen shot and the **Source Attribute** value which is mapped with the `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` in the **User Attributes** section in the Azure portal should be same.
 
 	![User Information](./media/intacct-tutorial/ic790044.png "User Information")
 
 > [!NOTE]
 > To provision Azure AD user accounts, you can use other Sage Intacct user account creation tools or APIs that are provided by Sage Intacct.
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
