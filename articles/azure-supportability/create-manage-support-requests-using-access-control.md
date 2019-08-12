@@ -81,7 +81,7 @@ You wish to give access to your peer, Joe, the ability to create and manage supp
 
     ![User added](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    When Joe logs in the portal, they see the subscription to which he was added.
+    When Joe sign in to the portal, Joe sees the subscription to which Joe was added.
 
 7. Joe clicks "New Support request" from the "Help and Support" blade and can create support requests for "Visual Studio Ultimate with MSDN"
 
