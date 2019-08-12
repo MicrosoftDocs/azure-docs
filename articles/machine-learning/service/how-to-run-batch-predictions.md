@@ -356,5 +356,7 @@ RunDetails(published_pipeline_run).show()
 
 To see this working end-to-end, try the batch scoring notebook in [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
 
+Or see our [reference architecture for batch scoring on Azure](/azure/architecture/reference-architectures/ai/batch-scoring-python)
+
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

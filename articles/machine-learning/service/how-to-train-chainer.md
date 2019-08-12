@@ -212,4 +212,4 @@ In this article, you trained and registered a deep learning, neural network usin
 
 * [Track run metrics during training](how-to-track-experiments.md)
 
-* [View reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
+* [View our reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)
