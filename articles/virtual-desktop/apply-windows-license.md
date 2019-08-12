@@ -1,5 +1,5 @@
 ---
-title: Apply Windows license for Windows Virtual Desktop session hosts - Azure
+title: Apply Windows license to session host virtual machines - Azure
 description: Describes how to apply the Windows license for Windows Virtual Desktop VMs.
 services: virtual-desktop
 author: ChristianMontoya
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: chrimo
 ---
-# Apply Windows license to Windows Virtual Desktop session host virtual machines
+# Apply Windows license tosession host virtual machines
 
 Customers who are properly licensed to run Windows Virtual Desktop workloads are eligible to apply a Windows license to their session host virtual machines and run them without paying for another license. For more information, see [Windows Virtual Desktop pricing](https://azure.microsoft.com/pricing/details/virtual-desktop/).
 
