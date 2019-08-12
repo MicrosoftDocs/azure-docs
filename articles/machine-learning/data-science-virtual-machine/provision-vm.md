@@ -45,6 +45,7 @@ The following tools are included in a DSVM:
   * [Apache Drill](https://drill.apache.org/) - a schema-free SQL query engine for Apache Hadoop, NoSQL, and cloud storage. It supports ODBC and JDBC interfaces for querying NoSQL and files from standard BI tools like Power BI, Microsoft Excel, and Tableau.
 * Libraries in R and Python for use in Azure Machine Learning and other Azure services
 * Git, including Git Bash, to work with source code repositories that include GitHub and Azure DevOps. Git provides several popular Linux command-line utilities that are accessible both on Git Bash and a command prompt. Examples are awk, sed, perl, grep, find, wget, and curl.
+* Development tools and editors (RStudio, PyCharm)
 
 ### About data science
 
