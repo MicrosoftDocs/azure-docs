@@ -23,8 +23,11 @@ This article explains how to monitor an Azure container registry using features 
 
 * Audit configuration changes to a registry to ensure security and compliance 
 
-* Provide a complete activity trail of operations like pull, push, and delete so you can diagnose any issues with operation of your registry. 
+* Provide a complete activity trail on registry artifacts such as pull, push, and delete events so you can diagnose any issues with operation of your registry. 
 
+> [!NOTE]
+> You may incur additional costs to store or process diagnostic log data. 
+>
 
 ## Registry diagnostic logs
 
@@ -36,43 +39,33 @@ Diagnostic logs contain information emitted by Azure resources that describe the
   * Registry login account and account type, including assignment of roles and permissions
 * **Registry network configuration** 
 
-Custom views prefixed with **ACR** show data scoped to subsets of registry events. For example, the **ACRDelete** view shows events to delete tags, manifests, or repositories. 
+Custom views prefixed with **ACR** show data scoped to subsets of registry events. For example, the **ACRDelete** view shows events related to deleting tags, manifests, or repositories. 
 
-### Enable collection of diagnostic logs
+## Enable collection of diagnostic logs
 
-Collection of diagnostic logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. Following are steps to enable diagnostic logs using Azure Monitor in the [Azure portal](https://portal.azure.com).
+Collection of diagnostic logs for a container registry is not enabled by default. Explicitly enable diagnostic settings for each registry you want to monitor. To view log information in near real-time in Azure Monitor, enable *streaming* of diagnostic logs to a Log Analytics workspace. 
 
-1. In the portal, navigate to **Monitor**. Under **Settings**, select **Diagnostic settings**. 
-1. Use the dropdowns to select an Azure Container Registry resource.
-1. If no settings exist on the resource you selected, you are prompted to create a setting. Select **Turn on diagnostics**. 
-1. In **Diagnostic settings**, enter a name for the setting, and choose a [log destination](#log-destinations) (existing Storage account, Event Hub, or Log Analytics Workspace). 
-1. Click **Save**.
+To stream to Log Analytics, first create a workspace using the [Azure portal](../azure-monitor/learn/quick-create-workspace.md) or other Azure tools. Then, set up log streaming programmatically, via the portal, or using the Azure Monitor REST APIs. In each method, you create a diagnostic setting in which you specify a Log Analytics workspace and the log categories and metrics you want to send in to that workspace. For details, see [Stream Azure Diagnostic Logs to Log Analytics workspace in Azure Monitor](../azure-monitor/platform/diagnostic-logs-stream-log-store.md).
+
+The following screenshot shows creation of a diagnostic setting for a registry using the portal.
 
 // screenshot
 
 
 
-You can quickly view and analyze diagnostic logs in Azure Monitor, where the data is written immediately with no need to first write the data to storage. After you enable diagnostic logs for a registry, view the logs in Azure Monitor under the **Logs** tab.
+After enabling this diagnostic setting, view and analyze diagnostic logs in Azure Monitor. After you enable streaming of diagnostic logs to Log Analytics, view the logs in Azure Monitor under the **Logs** tab.
 
 //add screenshot
 
 
 Several default queries are enabled. To create your own log queries, see [Get started with log queries in Azure Monitor](../azure-monitor/log-query/get-started-queries.md).
  
-### Log destinations
+### Additional log destinations
 
-A common scenario is to select an Azure Storage account as a log destination. To archive logs in Azure Storage, create the account before enabling collection of logs. 
+In addition to streaming the logs to Log Analytics, or as an alternative, a common scenario is to select an Azure Storage account as a destination to archive logs. To archive logs in Azure Storage, create the account before enabling archiving through the diagnostic settings.
 
-Other destination options for diagnostic logs:
-
-* Stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
-
-* Send diagnostic logs to a [Log Analytics Workspace](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
-
-> [!NOTE]
-> You may incur additional costs to store or process diagnostic log data with Azure services. 
->
+You can also stream diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
 ## Next steps
 
-* Learn about ...
+* Learn more about using [Log Analytics](../azure-monitor/log-query/get-started-portal.md) and creating [log queries](../azure-monitor/log-query/get-started-queries.md)
