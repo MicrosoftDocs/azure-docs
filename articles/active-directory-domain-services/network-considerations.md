@@ -104,12 +104,14 @@ The following network security group rules are required for Azure AD DS to provi
 | Port number | Protocol | Source                             | Destination | Action | Required | Purpose |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
 | 443         | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Synchronization with your Azure AD tenant. |
-| 3389        | TCP      | Any                                | Any         | Allow  | Yes      | Management of your domain. |
+| 3389        | TCP      | CorpNetSaw                         | Any         | Allow  | Yes      | Management of your domain. |
 | 5986        | TCP      | AzureActiveDirectoryDomainServices | Any         | Allow  | Yes      | Management of your domain. |
 | 636         | TCP      | Any                                | Any         | Allow  | No       | Only enabled when you configure secure LDAP (LDAPS). |
 
 > [!WARNING]
 > Don't manually edit these network resources and configurations. When you associate a misconfigured network security group or a user defined route table with the subnet in which Azure AD DS is deployed, you may disrupt Microsoft's ability to service and manage the domain. Synchronization between your Azure AD tenant and your Azure AD DS managed domain is also disrupted. The Azure SLA doesn't apply to deployments where an improperly configured network security group and/or user defined route tables have been applied that blocks Azure AD DS from updating and managing your domain.
+>
+> Default rules for *AllowVnetInBound*, *AllowAzureLoadBalancerInBound*, *DenyAllInBound*, *AllowVnetOutBound*, *AllowInternetOutBound*, and *DenyAllOutBound* also exist for the network security group. Don't edit or delete these default rules.
 
 ### Port 443 - synchronization with Azure AD
 
@@ -121,11 +123,13 @@ The following network security group rules are required for Azure AD DS to provi
 ### Port 3389 - management using remote desktop
 
 * Used for remote desktop connections to domain controllers in your Azure AD DS managed domain.
-* You can restrict inbound access to the following source IP addresses: *207.68.190.32/27*, *13.106.78.32/27*, *13.106.174.32/27*, and *13.106.4.96/27*. The default network security group rules use the **CorpNetSaw** service tag, which includes these IP addresses.
+* The default network security group rule uses the *CorpNetSaw* service tag to further restrict traffic.
+    * This service tag permits only secure access workstations on the Microsoft corporate network to use remote desktop to the Azure AD DS managed domain.
+    * Access is only allowed with business justification, such as for management or troubleshooting scenarios.
 * This rule can be set to *Deny*, and only set to *Allow* when required. Most management and monitoring tasks are performed using PowerShell remoting. RDP is only used in the rare event that Microsoft needs to connect remotely to your managed domain for advanced troubleshooting.
 
 > [!NOTE]
-> You can't manually select the *CorpNetSaw* service tag from the portal when editing this network security group rule. You must use Azure PowerShell or the Azure CLI to manually configure a rule that uses the *CorpNetSaw* service tag.
+> You can't manually select the *CorpNetSaw* service tag from the portal if you try to edit this network security group rule. You must use Azure PowerShell or the Azure CLI to manually configure a rule that uses the *CorpNetSaw* service tag.
 
 ### Port 5986 - management using PowerShell remoting
 
@@ -136,9 +140,12 @@ The following network security group rules are required for Azure AD DS to provi
 
 ## User-defined routes
 
-Avoid making any changes to the route table, especially the 0.0.0.0 route, which can disrupt Azure AD Domain Services. A properly configured [network security group](../virtual-network/security-overview.md) provides access control to inbound traffic.
+User-defined routes aren't created by default, and aren't needed for Azure AD DS to work correctly. If you're required to use route tables, avoid making any changes to the 0.0.0.0 route. Changes to this route can disrupt Azure AD Domain Services.
 
-If you are required to use route tables, you must route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. You can download the [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519) a list of service tags and their associated IP address from the Microsoft Download Center. IP addresses can change without notice. Ensure you have processes to validate you have the latest IP addresses.
+You must also route inbound traffic from the IP addresses included in the respective Azure service tags to the Azure AD Domain Services subnet. For more information on service tags and their associated IP address from, see [Azure IP Ranges and Service Tags - Public Cloud](https://www.microsoft.com/en-us/download/details.aspx?id=56519).
+
+> [!CAUTION]
+> These Azure datacenter IP ranges can change without notice. Ensure you have processes to validate you have the latest IP addresses.
 
 ## Next steps
 

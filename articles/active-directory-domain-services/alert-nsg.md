@@ -25,7 +25,7 @@ This article helps you troubleshoot and resolve network-related configuration er
 **Alert message:**
  *Microsoft is unable to reach the domain controllers for this managed domain. This may happen if a network security group (NSG) configured on your virtual network blocks access to the managed domain. Another possible reason is if there is a user-defined route that blocks incoming traffic from the internet.*
 
-Invalid NSG configurations are the most common cause of network errors for Azure AD Domain Services. The Network Security Group (NSG) configured for your virtual network must allow access to [specific ports](network-considerations.md#ports-required-for-azure-ad-domain-services). If these ports are blocked, Microsoft cannot monitor or update your managed domain. Additionally, synchronization between your Azure AD directory and your managed domain is impacted. While creating your NSG, keep these ports open to avoid interruption in service.
+Invalid NSG configurations are the most common cause of network errors for Azure AD Domain Services. The Network Security Group (NSG) configured for your virtual network must allow access to [specific ports](network-considerations.md#network-security-groups-and-required-ports). If these ports are blocked, Microsoft cannot monitor or update your managed domain. Additionally, synchronization between your Azure AD directory and your managed domain is impacted. While creating your NSG, keep these ports open to avoid interruption in service.
 
 ### Checking your NSG for compliance
 

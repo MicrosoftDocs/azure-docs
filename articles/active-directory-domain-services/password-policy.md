@@ -52,12 +52,12 @@ The following password settings can be configured using FGPP:
 
 FGPP only affects users created in Azure AD DS. Cloud users and domain users synchronized into the Azure AD DS managed domain from Azure AD aren't affected by the password policies. FGPP is distributed through groups association in the Azure AD DS managed domain, and any changes you make are applied at the next user sign-in. Changing the policy doesn't unlock a user account that's already locked out.
 
-## Default fine grained password policy settings
+## Default fine-grained password policy settings
 
 In an Azure AD DS managed domain, the following password policies are configured by default and applied to all users:
 
 * **Minimum password length (characters):** 7
-***Maximum password age (lifetime):** 90 days
+* **Maximum password age (lifetime):** 90 days
 * Passwords must meet complexity requirements
 
 The following account lockout policies are then configured by default:
@@ -70,7 +70,7 @@ With these default settings, user accounts are locked out for 30 minutes if five
 
 You can't modify or delete the default built-in fine-grained password policy. Instead, members of the *AAD DC Administrators* group can a create custom FGPP and configure it to override (take precedence over) the default built-in FGPP, as shown in the next section.
 
-## Create a custom fine-grained password policy (FGPP) on a managed domain
+## Create a custom fine-grained password policy
 
 As you build and applications in Azure, you may want to configure a custom FGPP. Some examples of the need to create a custom FGPP include to set a different account lockout policy, or to configure a default password lifetime setting for the managed domain.
 
