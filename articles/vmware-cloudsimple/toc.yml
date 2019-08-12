@@ -58,6 +58,8 @@
       href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
       href: access-cloudsimple-portal.md
+    - name: On-premises firewall configuration
+      href: on-premises-firewall-configuration.md
     - name: Manage nodes
       items:
       - name: Provision nodes
