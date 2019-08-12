@@ -487,6 +487,8 @@
         href: freshservice-tutorial.md
       - name: Front
         href: front-tutorial.md
+      - name: Frontline Education
+        href: frontline-education-tutorial.md
       - name: Fulcrum
         href: fulcrum-tutorial.md
       - name: Fuse
@@ -619,7 +621,7 @@
         href: insperityexpensable-tutorial.md
       - name: InstaVR Viewer
         href: instavr-viewer-tutorial.md
-      - name: Intacct
+      - name: Sage Intacct
         href: intacct-tutorial.md
       - name: InTime
         href: intime-tutorial.md
