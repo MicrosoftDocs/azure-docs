@@ -193,6 +193,10 @@
     items:
     - name: Apache Tez application hangs
       href: ./interactive-query-troubleshoot-tez-hangs.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
+    - name: Slow reducer
+      href: ./interactive-query-troubleshoot-slow-reducer.md
     - name: Apache Hive View time out
       href: ./interactive-query-troubleshoot-view-time-out.md
     - name: Permission error creating table

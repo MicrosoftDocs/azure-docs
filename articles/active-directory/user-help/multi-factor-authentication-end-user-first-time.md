@@ -30,7 +30,7 @@ When your company support requires you to start using two-step verification, you
 
 To get started, select **Set it up now.**
 
-If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) to find the settings page where you can manage your verification options.
+If you do not see a screen like this when you sign in, follow the directions in [Manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md#using-the-additional-security-verification-page) to find the settings page where you can manage your verification options.
 
 ## Decide how you want to verify your sign-ins
 
