@@ -45,4 +45,5 @@ sections:
           values:
           - href: fhir-oss-portal-quickstart.md
           - href: fhir-oss-powershell-quickstart.md
-          - href: fhir-oss-cli-quickstart.md  
+          - href: fhir-oss-cli-quickstart.md
+          
