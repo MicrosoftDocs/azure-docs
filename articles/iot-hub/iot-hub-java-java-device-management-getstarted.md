@@ -84,7 +84,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
 
 1. Create an empty folder called **dm-get-started**.
 
-2. In the **dm-get-started** folder, create a Maven project called **trigger-reboot** using the following command at your command prompt. The following shows a single, long command:
+2. In the **dm-get-started** folder, create a Maven project called **trigger-reboot** using the following command at your command prompt:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=trigger-reboot -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -235,7 +235,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
 
 In this section, you create a Java console app that simulates a device. The app listens for the reboot direct method call from your IoT hub and immediately responds to that call. The app then sleeps for a while to simulate the reboot process before it uses a reported property to notify the **trigger-reboot** back-end app that the reboot is complete.
 
-1. In the **dm-get-started** folder, create a Maven project called **simulated-device** using the following command at your command prompt. The following is a single, long command:
+1. In the **dm-get-started** folder, create a Maven project called **simulated-device** using the following command at your command prompt:
 
     ```cmd/sh
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -255,6 +255,16 @@ In this section, you create a Java console app that simulates a device. The app 
 
     > [!NOTE]
     > You can check for the latest version of **iot-device-client** using [Maven search](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+
+4. Add the following dependency to the **dependencies** node. This dependency configures a NOP for the Apache [SLF4J](https://www.slf4j.org/) logging facade, which is used by the device client SDK to implement logging. This configuration is optional, but if you omit it, you may see a warning in the console when you run the app. For more information about logging in the device client SDK, see [Logging](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-samples/readme.md#logging)in the *Samples for the Azure IoT device SDK for Java* readme file.
+
+    ```xml
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-nop</artifactId>
+      <version>1.7.28</version>
+    </dependency>
+    ```
 
 4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
@@ -437,15 +447,17 @@ In this section, you create a Java console app that simulates a device. The app 
 
 18. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
-19. Build the **simulated-device** back-end app and correct any errors. At your command prompt, navigate to the simulated-device folder and run the following command:
+19. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
 
-    `mvn clean package -DskipTests`
+    ```cmd/sh
+    mvn clean package -DskipTests
+    ```
 
 ## Run the apps
 
 You're now ready to run the apps.
 
-1. At a command prompt in the simulated-device folder, run the following command to begin listening for reboot method calls from your IoT hub:
+1. At a command prompt in the **simulated-device** folder, run the following command to begin listening for reboot method calls from your IoT hub:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -453,7 +465,7 @@ You're now ready to run the apps.
 
     ![Java IoT Hub simulated device app to listen for reboot direct method calls](./media/iot-hub-java-java-device-management-getstarted/launchsimulator.png)
 
-2. At a command prompt in the trigger-reboot folder, run the following command to call the reboot method on your simulated device from your IoT hub:
+2. At a command prompt in the **trigger-reboot** folder, run the following command to call the reboot method on your simulated device from your IoT hub:
 
     ```cmd/sh
     mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
