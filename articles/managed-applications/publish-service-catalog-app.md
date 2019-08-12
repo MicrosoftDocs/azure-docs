@@ -80,20 +80,20 @@ Add the following JSON to your file. It defines the parameters for creating a st
 
 Save the mainTemplate.json file.
 
-## Create the user interface definition
+## Defining your create experience using CreateUiDefinition.json
 
-The Azure portal uses the **createUiDefinition.json** file to generate the user interface for users who create the managed application. You define how users provide input for each parameter. You can use options like a drop-down list, text box, password box, and other input tools. To learn how to create a UI definition file for a managed application, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
+As a publisher, you define your create experience using the **createUiDefinition.json** file which generates the interface for users creating managed applications. You define how users provide input for each parameter using [control elements] (create-uidefinition-elements.md) including drop-downs, text boxes, and password boxes.
 
-Create a file named **createUiDefinition.json**. The name is case-sensitive.
+Create a file named **createUiDefinition.json** (This name is case-sensitive)
 
-Add the following JSON to the file.
+Add the following starter JSON to the file and save it.
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
-    "handler": "Microsoft.Compute.MultiVm",
-    "version": "0.1.2-preview",
-    "parameters": {
+   "$schema": "https://schema.management.azure.com/schemas/0.1.2-preview/CreateUIDefinition.MultiVm.json#",
+   "handler": "Microsoft.Azure.CreateUIDef",
+   "version": "0.1.2-preview",
+   "parameters": {
         "basics": [
             {}
         ],
@@ -137,7 +137,7 @@ Add the following JSON to the file.
 }
 ```
 
-Save the createUiDefinition.json file.
+To learn more, see [Get started with CreateUiDefinition](create-uidefinition-overview.md).
 
 ## Package the files
 

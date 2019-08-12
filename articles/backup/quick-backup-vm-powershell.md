@@ -2,13 +2,13 @@
 title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
 
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
 ---
 
@@ -99,7 +99,6 @@ Enable backup as follows:
         -Name "myVM" `
         -Policy $policy
     ```
-
 
 ## Start a backup job
 

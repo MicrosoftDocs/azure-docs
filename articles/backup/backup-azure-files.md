@@ -1,16 +1,16 @@
 ---
-title: Back up Azure File Shares
+title: Back up and restore Azure File Shares
 description: This article details how to back up and restore your Azure file shares, and explains management tasks.
 
-author: rayne-wiselman
-ms.author: raynew
-ms.date: 01/31/2019
+author: dcurwin
+ms.author: dacurwin
+ms.date: 07/29/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ---
 
-# Back up Azure file shares
+# Back up and restore Azure file shares
 This article explains how to use the Azure portal to back up and restore [Azure file shares](../storage/files/storage-files-introduction.md).
 
 In this guide, you learn how to:
@@ -30,6 +30,7 @@ Backup for Azure file shares is in Preview. Azure file shares in both general-pu
 - Support for Backup of Azure File Shares in Storage Accounts with [zone redundant storage](../storage/common/storage-redundancy-zrs.md) (ZRS) replication is currently limited to [these regions](backup-azure-files-faq.md#in-which-geos-can-i-back-up-azure-file-shares-).
 - You can't protect Azure file shares in storage accounts that have Virtual Networks or Firewall enabled.
 - There is no CLI available for protecting Azure Files using Azure Backup.
+- Azure Backup currently supports configuring scheduled once-daily backups of Azure File Shares.
 - The maximum number of scheduled backups per day is one.
 - The maximum number of on-demand backups per day is four.
 - Use [resource locks](https://docs.microsoft.com/cli/azure/resource/lock?view=azure-cli-latest) on the storage account to prevent accidental deletion of backups in your Recovery Services vault.
@@ -45,7 +46,7 @@ This tutorial assumes you already have established an Azure file share. To back 
 
     ![Choose Azure Fileshare as Backup goal](./media/backup-file-shares/overview-backup-page.png)
 
-2. In the **Backup Goal** menu, from **What do you want to backup?**, choose Azure FileShare.
+2. In the **Backup Goal** menu, from **What do you want to back up?**, choose Azure FileShare.
 
     ![Choose Azure Fileshare as Backup goal](./media/backup-file-shares/choose-azure-fileshare-from-backup-goal.png)
 
@@ -61,7 +62,7 @@ This tutorial assumes you already have established an Azure file share. To back 
 
    ![click Backup to associate the Azure file share with vault](./media/backup-file-shares/discover-file-shares.png)
 
-5. From the **File Shares** list, select one or more of the file shares you want to backup, and click **OK**.
+5. From the **File Shares** list, select one or more of the file shares you want to back up, and click **OK**.
 
 6. After choosing your File Shares, the Backup menu switches to the **Backup policy**. From this menu either select an existing backup policy, or create a new one, and then click **Enable Backup**.
 
@@ -183,11 +184,11 @@ To resume protection for the file share, go to the Backup Item and click Resume 
 
 ### Delete Backup data
 
-You can delete the backup of a file share during the Stop backup job, or any time after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you can't choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
+You can delete the backup of a file share during the Stop backup job, or anytime after you have stopped protection. It may even be beneficial to wait days or weeks before deleting the recovery points. Unlike restoring recovery points, when deleting backup data, you can't choose specific recovery points to delete. If you choose to delete your backup data, you delete all recovery points associated with the item.
 
 The following procedure assumes the Backup job for the virtual machine has been stopped. Once the Backup job is stopped, the Resume backup and Delete Backup Data options are available in the Backup item dashboard. Click Delete Backup Data and type the name of the File share to confirm deletion. Optionally, provide a Reason to delete or Comment.
 
 ## See Also
-For additional information on Azure file shares, see
+For more information on Azure file shares, see
 - [FAQ for Azure file share backup](backup-azure-files-faq.md)
 - [Troubleshoot Azure file share backup](troubleshoot-azure-files.md)

@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-manager: craigg
 ms.date: 06/26/2019
 ---
 # Delete a subnet after deleting an Azure SQL Database managed instance

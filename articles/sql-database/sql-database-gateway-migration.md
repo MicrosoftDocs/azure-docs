@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
-manager: craigg
 ms.date: 07/01/2019
 ---
 # Azure SQL Database traffic migration to newer Gateways

@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2019
+ms.date: 07/25/2019
 ms.author: ccompy
 ms.custom: seodec18
 
@@ -82,6 +82,8 @@ This feature is in preview but, it is supported for Windows app production workl
 
 One address is used for each App Service plan instance. If you scaled your app to 5 instances, that is 5 addresses used. Since subnet size cannot be changed after assignment, you must use a subnet that is large enough to accommodate whatever scale your app may reach. A /27 with 32 addresses is the recommended size as that would accommodate a Premium App Service plan that is scaled to 20 instances.
 
+If you want your apps in another App Service plan to reach a VNet that is connected to already by apps in another App Service plan, you need to select a different subnet than the one being used by the pre-existing VNet Integration.  
+
 The feature is in preview also for Linux. To use the VNet Integration feature with a Resource Manager VNet in the same region:
 
 1. Go to the Networking UI in the portal. If your app is able to use the new feature, then you will see an option to Add VNet (preview).  
@@ -129,11 +131,10 @@ The Gateway required VNet Integration feature:
 * Enables up to five VNets to be integrated with in an App Service Plan 
 * Allows the same VNet to be used by multiple apps in an App Service Plan without impacting the total number that can be used by an App Service plan.  If you have 6 apps using the same VNet in the same App Service plan, that counts as 1 VNet being used. 
 * Requires a Virtual Network Gateway that is configured with Point to Site VPN
-* Is not supported for use with Linux apps
 * Supports a 99.9% SLA due to the SLA on the gateway
 
 This feature does not support:
-
+* Use with Linux apps
 * Accessing resources across ExpressRoute 
 * Accessing resources across Service Endpoints 
 

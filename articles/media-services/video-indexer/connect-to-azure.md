@@ -9,7 +9,7 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/05/2019
 ms.author: juliako
 ---
 
@@ -29,7 +29,7 @@ This article shows how to create a Video Indexer account that's linked to an Azu
 
     If you don't have an Azure AD domain, create this domain with your Azure subscription. For more information, see [Managing custom domain names in your Azure Active Directory](../../active-directory/users-groups-roles/domains-manage.md)
 
-* A user and member in your Azure AD domain. You'll use this member when connecting your Video Indexer account to Azure.
+* A user in your Azure AD domain with an **Application administrator** role. You'll use this member when connecting your Video Indexer account to Azure.
 
     This user should be an Azure AD user with a work or school account, not a personal account, such as outlook.com, live.com, or hotmail.com.
 
@@ -54,6 +54,9 @@ Search for **Microsoft.Media** and **Microsoft.EventGrid**. If not in the "Regis
 ![EventGrid](./media/create-account/event-grid.png)
 
 ## Connect to Azure
+
+> [!NOTE]
+> If your Azure subscription uses certificate-based multi-factor authentication, it is crucial that you perform the following steps on a device that has the required certificates installed.
 
 1. Browse to the [Video Indexer](https://www.videoindexer.ai/) website and sign in.
 
