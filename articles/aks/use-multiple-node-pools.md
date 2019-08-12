@@ -145,7 +145,10 @@ VirtualMachineScaleSets  1        110        nodepool1   1.13.5                 
 
 ## Upgrade a node pool
 
-When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.5* was specified. This sets the Kubernetes version for both the control plane and the initial node pool. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
+When your AKS cluster was created in the first step, a `--kubernetes-version` of *1.13.5* was specified. This sets the Kubernetes version for both the control plane and the initial node pool, as well as the OS image for all node pools. There are different commands for upgrading the Kubernetes version of the control plane and the node pool. The `az aks upgrade` command is used to upgrade the control plane, while the `az aks nodepool upgrade` is used to upgrade an individual node pool.
+
+> [!NOTE]
+> The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
 
 Let's upgrade the *mynodepool* to Kubernetes *1.13.7*. Use the [az aks node pool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
 
