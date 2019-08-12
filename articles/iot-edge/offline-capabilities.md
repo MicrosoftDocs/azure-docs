@@ -131,9 +131,9 @@ This setting is a desired property of the IoT Edge hub, which is stored in the m
 }
 ```
 
-### Additional offline storage
+### Store system module states in the host filesystem
 
-Messages are stored by default in the IoT Edge hub's container filesystem. You can also dedicate local storage on the IoT Edge device. Local storage is recommended for devices that operate offline. 
+Messages are stored by default in the IoT Edge hub's container filesystem. You can also dedicate local storage on the IoT Edge device. Using the host filesystem for storage is recommended for improved reliability, especially for devices that operate offline. 
 
 To set up local storage, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
 
