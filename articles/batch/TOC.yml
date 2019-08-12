@@ -45,6 +45,8 @@
     href: batch-api-basics.md
   - name: APIs and tools
     href: batch-apis-tools.md
+  - name: Best practices
+    href: best-practices.md
   - name: Quotas and limits
     href: batch-quota-limit.md
   - name: Supported VM sizes
