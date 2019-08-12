@@ -11,7 +11,7 @@
     - name: Set up an authenticator app 
       href: multi-factor-authentication-setup-auth-app.md
     - name: Set up a mobile device
-      href: multi-factor-authentication-setup-mobile-device.md
+      href: multi-factor-authentication-setup-phone-number.md
     - name: Set up an office phone        
       href: multi-factor-authentication-setup-office-phone.md      
   - name: Manage your settings
