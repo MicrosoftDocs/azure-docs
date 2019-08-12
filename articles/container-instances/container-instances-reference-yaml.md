@@ -132,8 +132,6 @@ properties: # Properties of container group
 
 ## Property values
 
-## Property values
-
 The following tables describe the values you need to set in the schema.
 
 <a id="Microsoft.ContainerInstance/containerGroups" />
@@ -427,8 +425,6 @@ The following tables describe the values you need to set in the schema.
 See the tutorial [Deploy a multi-container group using a YAML file](container-instances-multi-container-yaml.md).
 
 See examples of using a YAML file to deploy container groups in a [virtual network](container-instances-vnet.md) or that [mount an external volume](container-instances-volume-azure-files.md).
-
-For example
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create
