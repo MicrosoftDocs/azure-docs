@@ -38,7 +38,7 @@ If you are developing a project and need to share source code securely, use [Azu
 
     ![Create Azure Key Vault](./media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](https://docs.microsoft.com/azure/active-directory/active-directory-groups-create-azure-portal) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
+2. Grant you and your team members access to the Key Vault. If you have a large team, you can create an [Azure Active Directory group](../active-directory/active-directory-groups-create-azure-portal.md) and add that security group access to the Key Vault. In the *Secret Permissions* dropdown, check *Get* and *List* under *Secret Management Operations*.
 
     ![Add Key Vault access policy](./media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
 
