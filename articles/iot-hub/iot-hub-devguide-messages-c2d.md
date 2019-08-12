@@ -118,6 +118,7 @@ The body of a feedback message is shown in the following code:
 ```
 
 **Pending feedback for deleted devices**
+
 When a device is deleted, any pending feedback is deleted as well. Device feedback is sent in batches. If a device is deleted in the narrow window (often less than 1 second) between when the device confirms receipt of the message and when the next feedback batch is prepared, the feedback will not occur.
 
 You can address this behavior by waiting a period of time for pending feedback to arrive before deleting your device. Related message feedback should be assumed lost once a device is deleted.
