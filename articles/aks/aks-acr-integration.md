@@ -33,13 +33,13 @@ az aks create \
 --enable-acr [--acr-name <acr-name>] 
 ```
 
-Optionally, You can also specify acr-resource-id instead of acr-name with the following command:
-```
+Optionally, You can also specify **acr-resource-id** instead of **acr-name** with the following command:
+```azurecli-interactive
 az aks create -n <cluster-name>  -g <resource-group> --enable-acr [--acr-resource-id <acr-resource-id>]
 ```
 ## Create ACR integration for existing AKS clusters
 For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for acr-name and acr-resource-id or the commands will fail.
-```
+```azurecli-interactive
 az aks update –n <kubernetes-cluster-name> -g <resource-group> --enable-acr --acr-name <acr-name>
 
 az aks create –n <kubernetes-cluster-name> -g <resource-group> --enable-acr --acr-resource-id <acr-resource-id> 
