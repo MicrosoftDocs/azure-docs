@@ -131,7 +131,7 @@ To use the Standard Contract, check the **Use Standard Contract?** box.
 
 #### Terms of use
 
-If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of tex, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
+If you do not check the **Use Standard Contract?** box, you'll need to provide your own legal terms of use in the **Terms of use** field. Enter up to 10,000 characters of text, or, if your terms of use require a longer description, provide the URL where your additional license terms can be found. Customers will be required to accept these terms before they can try your app.
 
 ## Offer listing
 
@@ -219,7 +219,7 @@ Add screenshots that show how your offer works. At least one screenshot is requi
 
 #### Videos
 
-You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo videos. For each one, enter the video's name, it's URL, and a thumbnail image of the video (1280 x 720 pixels)
+You can optionally add up to four videos that demonstrate your offer. These videos should be hosted on YouTube and/or Vimeo. For each one, enter the video's name, its URL, and a thumbnail image of the video (1280 x 720 pixels)
 
 #### Additional marketplace listing resources
 
@@ -352,8 +352,6 @@ In order to deploy the Test Drive on your behalf, please create and provide a se
 - **Azure AD app ID** (required): Enter your Azure Active Directory (AD) [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in). To find this ID, sign in to the [Azure portal](https://portal.azure.com/), select the Active Directory tab in the left-menu, select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **Azure AD app client secret** (required): Enter your Azure AD application [client secret](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#certificates-and-secrets). To find this value, sign in to the [Azure portal](https://portal.azure.com/). Select the **Azure Active Directory** tab in the left menu, select **App registrations**, then select your test drive app. Next, select **Certificates and secrets**, select **New client secret**, enter a description, select **Never** under **Expires**, then choose **Add**. Make sure to copy down the value. (Don't navigate away from the page before you do this, or else you won't have access to the value.)
-
-Remember to **Save** before moving on to the next section!
 
 ### Test drive marketplace listings
 
