@@ -23,6 +23,8 @@ Using machine learning (ML) pipelines, data scientists, data engineers, and IT p
 + Model evaluation
 + Deployment
 
+Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
+
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipeline-flow.png)
 
 <a name="compare"></a>
@@ -68,8 +70,14 @@ Using declarative data dependencies, you can optimize your tasks. The SDK includ
 
 Save your pipelines as templates, and deploy them to a REST endpoint for batch-scoring or retraining jobs.
 
+There are two Python packages for pipelines with Azure Machine Learning: [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) and [azureml-pipeline-steps](https://docs.microsoft.com/en-us/python/api/azureml-pipeline-steps/?view=azure-ml-py).
+
 ## Next steps
 
-+ [Create your first pipeline](how-to-create-your-first-pipeline.md).
++ Learn how to [create your first pipeline](how-to-create-your-first-pipeline.md).
+
++ Learn how to [run batch predictions on large data](how-to-run-batch-predictions.md).
+
++ Read the [SDK reference docs for pipelines](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py)
 
 + Try out example Jupyter notebooks showcasing [Azure Machine Learning pipelines](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines). Learn how to [run notebooks to explore this service](samples-notebooks.md).
