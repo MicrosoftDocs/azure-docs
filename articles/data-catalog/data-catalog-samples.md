@@ -12,7 +12,7 @@ ms.date: 08/01/2019
 
 Get started developing Azure Data Catalog apps using the Data Catalog REST API. The Data Catalog REST API is a REST-based API that provides programmatic access to Data Catalog resources to register, annotate, and search data assets programmatically.
 
-Here are the samples we have on GitHub:
+## Samples available on GitHub.com
 
 * [Get started with Azure Data Catalog](https://github.com/Azure-Samples/data-catalog-dotnet-get-started/)
   
