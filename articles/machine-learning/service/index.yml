@@ -11,7 +11,7 @@ metadata:
   manager: jhubbard
   author: j-martens
   ms.author: jmartens
-  ms.date: 05/14/2019
+  ms.date: 08/13/2019
   ms.custom: seodec18
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -47,6 +47,7 @@ sections:
     - html: '<a href="tutorial-1st-experiment-sdk-setup">Set up your environment & train your first ML experiment.</a>'
     - html: '<a href="tutorial-train-models-with-aml">Train & deploy image classification models</a>.'
     - html: '<a href="tutorial-data-prep">Prepare data and use automated ML to predict taxi fares</b>.</a>'
+    - html: '<a href="how-to-run-batch-predictions">Run batch predictions on large data sets with ML pipelines</b>.</a>'
 
 - title: Samples
   items:
