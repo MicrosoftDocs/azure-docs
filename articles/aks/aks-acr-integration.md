@@ -17,11 +17,11 @@ When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (
 
 The most common approach is to [grant access using the AKS service principal](#grant-aks-access-to-acr).
 
-You can set up the AKS to ACR authentication with either the CLI or the Azure portal.
+You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with Azure CLI](https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create) for information on using the Azure CLI with AKS.
 
 ## Prerequisites
 
-* You must currently be an owner of the subscription to assign the appropriate roles to the service principal
+* You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles to the service principal
 
 ## Create AKS and ACR integration with CLI during new cluster creation
 
@@ -36,6 +36,7 @@ az aks create -n <cluster-name>  -g <resource-group> --enable-acr [--acr-resourc
 ```
 
 ## Create ACR integration for existing AKS clusters
+
 For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for acr-name and acr-resource-id or the commands will fail.
 ```azurecli-interactive
 az aks update –n <kubernetes-cluster-name> -g <resource-group> --enable-acr --acr-name <acr-name>
@@ -44,5 +45,3 @@ az aks create –n <kubernetes-cluster-name> -g <resource-group> --enable-acr --ac
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/en-us/cli/azure/aks?view=azure-cli-latest#az-aks-create
-[kubernetes-secret]: https://kubernetes.io/docs/concepts/configuration/secret/
-[image-pull-secret]: https://kubernetes.io/docs/concepts/configuration/secret/#using-imagepullsecrets
