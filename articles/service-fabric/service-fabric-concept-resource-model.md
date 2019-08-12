@@ -105,10 +105,29 @@ To deploy the application, run the New-AzResourceGroupDeployment to deploy to th
 New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParameterFile ".\UserApp.Parameters.json" -TemplateFile ".\UserApp.json" -Verbose
 ```
 
-## Upgrade application resources
+## Upgrade Service Fabric application using Azure Resource Manager
 Applications already deployed to a Service Fabric cluster will be upgraded for the following reasons:
-* A new service is added to the application. 
-* A new version of an existing service is added to the application.
+
+1. A new service is added to the application. A service definition must be added to service-manifest.xml and application-manifest.xml file. Then to reflect new version of application, you need to update the application type version from 1.0.0 to 1.0.1 [UserApp.parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json).
+
+    ```
+    "applicationTypeVersion": {
+        "value": "1.0.1"
+    },
+    "serviceName2": {
+        "value": "Voting~VotingData"
+    },
+    "serviceTypeName2": {
+        "value": "VotingDataType"
+    }
+    ```
+2. A new version of an existing service is added to the application. This involves application code changes and updates to app type version and name.
+
+    ```
+     "applicationTypeVersion": {
+        "value": "1.0.1"
+    },
+    ```
 
 ## Delete application resources
 Applications deployed using the application resource model in Azure Resource Manager can be deleted from cluster using below steps
