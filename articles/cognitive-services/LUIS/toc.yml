@@ -6,7 +6,13 @@
   - name: What is Language Understanding?
     href: what-is-luis.md
   - name: What's new
-    href: whats-new.md   
+    href: whats-new.md
+  - name: Migrating your authoring key
+    items: 
+    - name: Overview   
+      href: luis-migration-authoring.md
+    - name: How to Migrate
+      href: luis-migration-authoring-steps.md
 - name: Quickstarts
   items:
   - name: Build prebuilt domain app
