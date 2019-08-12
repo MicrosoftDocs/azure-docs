@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Interact with the map - mouse events
 
-This article shows you how to use [map class events](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest&viewFallbackFrom=azure-iot-typescript-latest#events) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
+This article shows you how to use [map class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) property to highlight events on the map and on different layers of the map. It also shows you how to use the map class events property to highlight events when you interact with an HTML marker.
 
 ## Interact with the map
 

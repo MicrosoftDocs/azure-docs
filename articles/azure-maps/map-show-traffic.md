@@ -27,7 +27,7 @@ The following code shows how to display traffic data on the map.
 //Show traffic on the map using the traffic options.
 map.setTraffic({
     incidents: true,
-    flow: 'absolute'
+    flow: 'relative'
 });
 ```
 
@@ -38,23 +38,34 @@ Below is the complete running code sample of the above functionality.
 <iframe height='500' scrolling='no' title='Show traffic on a map' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## Traffic overlay options
+
+The following tool lets you switch between the different traffic overlay settings to see how the rendering changes. 
+
+<br/>
+
+<iframe height="700" style="width: 100%;" scrolling="no" title="Traffic overlay options" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Traffic overlay options</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 ## Next steps
 
 Learn more about the classes and methods used in this article:
 
 > [!div class="nextstepaction"]
-> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [TrafficOptions](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.trafficoptions?view=azure-maps-typescript-latest)
+> [TrafficOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.trafficoptions)
 
 Enhance your user experiences:
 
 > [!div class="nextstepaction"]
-> [Map interaction with mouse events](./map-events.md)
+> [Map interaction with mouse events](map-events.md)
 
 > [!div class="nextstepaction"]
-> [Building an accessible map](./map-accessibility.md)
+> [Building an accessible map](map-accessibility.md)
 
 > [!div class="nextstepaction"]
 > [Code sample page](https://aka.ms/AzureMapsSamples)

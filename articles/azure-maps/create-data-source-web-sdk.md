@@ -17,12 +17,11 @@ The Azure Maps Web SDK stores data in data sources that optimizes the data for q
 
 **GeoJSON data source**
 
-A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/en-us/javascript/api/azure-maps-control/atlas.data?view=azure-maps-typescript-latest) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. 
-
-
+A GeoJSON based data source can load and store data locally using the `DataSource` class. GeoJSON data can be manually created or created using the helper classes in the [atlas.data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) namespace. The `DataSource` class provides functions for importing local or remote GeoJSON files. Remote GeoJSON files must be hosted on a CORs enabled endpoint. The `DataSource` class provides functionality for clustering point data. 
 
 **Vector tile source**
-A vector tile source describes how to access a vector tile layer and can be created using the [VectorTileSource] class. Azure Maps aligns with the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), which is an open standard. Vector tile layers are similar to tile layers, however, instead of each tile being a raster image, they're a compressed file (PBF format) that contains vector map data and one or more layers that can be rendered and styled on the client based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of vector tile layers over raster tile layers;
+
+A vector tile source describes how to access a vector tile layer and can be created using the [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) class. Azure Maps aligns with the [Mapbox Vector Tile Specification](https://github.com/mapbox/vector-tile-spec), which is an open standard. Vector tile layers are similar to tile layers, however, instead of each tile being a raster image, they're a compressed file (PBF format) that contains vector map data and one or more layers that can be rendered and styled on the client based on the style of each layer. The data in a vector tile contain geographic features in the form of points, lines, and polygons. There are several advantages of vector tile layers over raster tile layers;
 
  - A file size of a vector tile is typically much smaller than an equivalent raster tile. As such, less bandwidth is used, which means lower latency and a faster map. This creates a better user experience.
  - Since vector tiles are rendered on the client, they can adapt to the resolution of the device they're being displayed on. This makes allows the rendered maps that appear much more well defined and with crystal clear labels. 
@@ -31,7 +30,7 @@ A vector tile source describes how to access a vector tile layer and can be crea
 
 All layers that use a vector source must specify a `sourceLayer` value. 
 
-Once created, data sources can be added to the map through the `map.sources` property, which is a [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager?view=azure-maps-typescript-latest). The following code shows how to create a `DataSource` and add it to the map.
+Once created, data sources can be added to the map through the `map.sources` property, which is a [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). The following code shows how to create a `DataSource` and add it to the map.
 
 ```javascript
 //Create a data source and add it to the map.

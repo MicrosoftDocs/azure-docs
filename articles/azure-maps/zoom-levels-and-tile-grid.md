@@ -14,8 +14,8 @@ manager:
 
 Azure Maps use the Spherical Mercator projection coordinate system (EPSG: 3857). A projection is the mathematical model used to transform the spherical globe into a flat map. The Spherical Mercator projection stretches the map at the poles in order to create a square map. This significantly distorts the scale and area of the map but has two important properties that outweigh this distortion:
 
-1. It's a conformal projection, which means that it preserves the shape of relatively small objects. This is especially important when showing aerial imagery, because we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
-2. It's a cylindrical projection, which means that north and south are always straight up and down, and west and east is always straight left and right. 
+- It's a conformal projection, which means that it preserves the shape of relatively small objects. This is especially important when showing aerial imagery, because we want to avoid distorting the shape of buildings. Square buildings should appear square, not rectangular.
+- It's a cylindrical projection, which means that north and south are always straight up and down, and west and east is always straight left and right. 
 
 To optimize the performance of map retrieval and display, the map is divided into square tiles. The Azure Maps SDK's use tiles that have a size of 512 x 512 pixels for road maps, and smaller 256 x 256 pixels for satellite imagery. Azure maps provides raster and vector tiles for 23 zoom levels, numbered 0 through 22. At zoom level 0, the entire world fits on a single tile:
 
@@ -936,8 +936,10 @@ module AzureMaps {
 }
 ```
 
+* * *
+
 > [!NOTE]
-> The Azure Maps map controls in the SDK's have helper functions for converting between geospatial positions and viewport pixels. 
+> The interactive map controls in the Azure Maps SDK's have helper functions for converting between geospatial positions and viewport pixels. 
 > - [Web SDK: Map pixel and position calculations](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---)
 
 ## Next steps
@@ -945,7 +947,7 @@ module AzureMaps {
 Directly acces map tiles from the Azure Maps REST services:
 
 > [!div class="nextstepaction"]
-> [Get map tiles](https://docs.microsoft.com/en-us/rest/api/maps/render/getmaptile)
+> [Get map tiles](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 
 > [!div class="nextstepaction"]
 > [Get traffic flow tiles](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)
