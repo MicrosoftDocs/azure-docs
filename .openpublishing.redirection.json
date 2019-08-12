@@ -7457,7 +7457,7 @@
     },
 	{
       "source_path": "articles/active-directory/saas-apps/cisco-spark-provisioning-tutorial.md",
-      "redirect_url": "articles/active-directory/saas-apps/cisco-webex-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial",
       "redirect_document_id": false
     },
     {
