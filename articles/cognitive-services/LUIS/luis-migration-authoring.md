@@ -21,9 +21,9 @@ Language Understanding (LUIS) is changing the authoring authentication from emai
 
 All the apps you own need to migrate to use Active Directory by:
 
-* **May 2020** is the deadline.
+* **June 1, 2020** is the deadline.
 
-Currently the apps you own use a custom email authentication for both app owners and app collaborators. This makes some management tasks difficult:
+Currently the apps you own use email authentication for both app owners and app collaborators for authoring. This makes some management tasks difficult:
 
 * Collaboration.
 * Transferring ownership.

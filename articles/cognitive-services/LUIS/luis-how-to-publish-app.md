@@ -14,6 +14,10 @@ ms.date: 07/29/2019
 ms.author: diberry
 ---
 
+**Publish**
+* is readonly - new screen shots - new explanation
+* Publish button
+
 # Publish your active, trained app to a staging or production endpoint
 
 When you finish building and testing your active LUIS app, make it available to your client application by publishing it to the endpoint. 
