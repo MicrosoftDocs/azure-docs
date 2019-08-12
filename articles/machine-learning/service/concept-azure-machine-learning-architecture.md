@@ -46,7 +46,10 @@ Use these tools for Azure Machine Learning:
 + Write code in Visual Studio Code with [Azure Machine Learning VS Code extension](how-to-vscode-tools.md)
 + Use the [visual interface (preview) for Azure Machine Learning service](ui-concept-visual-interface.md)  to perform the workflow steps without writing code.
 
-## Glossary of concepts
+> [!NOTE]
+> Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
+
+## Glossary
 
 + <a href="#workspaces">Workspace</a>
 + <a href="#experiments">Experiments</a>
@@ -66,19 +69,9 @@ Use these tools for Azure Machine Learning:
 + <a href="#ml-pipelines">ML pipelines</a>
 + <a href="#logging">Logging</a>
 
-> [!NOTE]
-> Although this article defines terms and concepts used by Azure Machine Learning service, it does not define terms and concepts for the Azure platform. For more information about Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
-
-
 ### Workspaces
 
-[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service.
-
-A taxonomy of the workspace is illustrated in the following diagram:
-
-[![Workspace taxonomy](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
-
-For more information about workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
+[The workspace](concept-workspace.md) is the top-level resource for Azure Machine Learning service. It provides a centralized place to work with all the artifacts you create when you use Azure Machine Learning service. You can share a workspace with others. For a detailed description of workspaces, see [What is an Azure Machine Learning workspace?](concept-workspace.md).
 
 ### Experiments
 
@@ -233,5 +226,5 @@ When you develop your solution, use the Azure Machine Learning Python SDK in you
 To get started with Azure Machine Learning service, see:
 
 * [What is Azure Machine Learning service?](overview-what-is-azure-ml.md)
-* [Create an Azure Machine Learning service workspace](setup-create-workspace.md)
+* [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md)
 * [Tutorial (part 1): Train a model](tutorial-train-models-with-aml.md)

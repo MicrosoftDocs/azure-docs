@@ -22,7 +22,7 @@ Reasons may vary.
 
 ## Resolution
 
-Using the [Cluster size](/hdinsight-scaling-best-practices.md) feature, calculate the number of additional cores needed for the cluster. This is based on the total number of cores in the new worker nodes. Then try one or more of the following steps:
+Using the [Cluster size](../hdinsight-scaling-best-practices.md) feature, calculate the number of additional cores needed for the cluster. This is based on the total number of cores in the new worker nodes. Then try one or more of the following steps:
 
 * Check to see if there are any cores available in the cluster's location.
 

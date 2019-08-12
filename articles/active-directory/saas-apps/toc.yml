@@ -239,6 +239,8 @@
         href: certify-tutorial.md
       - name: Cezanne HR Software
         href: cezannehrsoftware-tutorial.md
+      - name: Chargebee
+        href: chargebee-tutorial.md
       - name: Cherwell
         href: cherwell-tutorial.md
       - name: Chromeriver
@@ -327,6 +329,8 @@
         href: costpoint-tutorial.md
       - name: Coupa
         href: coupa-tutorial.md
+      - name: CPQSync by Cincom
+        href: cpqsync-by-cincom-tutorial.md
       - name: CS Stars
         href: cs-stars-tutorial.md
       - name: CyberArk SAML Authentication
@@ -1309,7 +1313,7 @@
         href: veritas-tutorial.md
       - name: Versal
         href: versal-tutorial.md
-      - name: Viareport's Inativ Portal (Europe)
+      - name: Viareport (Europe)
         href: viareports-inativ-portal-europe-tutorial.md
       - name: Vibe HCM
         href: vibehcm-tutorial.md
@@ -1478,6 +1482,8 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Insight4GRC
+        href: insight4grc-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
@@ -1522,18 +1528,20 @@
         href: servicenow-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
-      - name: Snowflake
-        href: snowflake-provisioning-tutorial.md
       - name: Smartsheet
         href: smartsheet-provisioning-tutorial.md
       - name: Smartfile
         href: smartfile-provisioning-tutorial.md
+      - name: Snowflake
+        href: snowflake-provisioning-tutorial.md
       - name: StarLeaf
         href: starleaf-provisioning-tutorial.md
       - name: Tableau Online
         href: tableau-online-provisioning-tutorial.md
       - name: ThousandEyes
         href: thousandeyes-provisioning-tutorial.md
+      - name: Templafy
+        href: templafy-provisioning-tutorial.md
       - name: Velpic
         href: velpic-provisioning-tutorial.md
       - name: Workday

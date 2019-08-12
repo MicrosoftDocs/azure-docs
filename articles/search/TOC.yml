@@ -11,12 +11,14 @@
     href: search-create-service-portal.md
   - name: Portal
     items:
-    - name: Load and query an index
+    - name: Create and use an index
       href: search-get-started-portal.md
     - name: Enrich with AI (cognitive search)
       href: cognitive-search-quickstart-blob.md
   - name: C#
     href: search-get-started-dotnet.md
+  - name : Node.js
+    href: search-get-started-nodejs.md
   - name: Postman
     href: search-get-started-postman.md
   - name: PowerShell
@@ -113,8 +115,6 @@
       href: search-api-versions.md
     - name: Develop in .NET
       href: search-howto-dotnet-sdk.md
-    - name: Develop in Node.js
-      href: search-get-started-nodejs.md
     - name: Develop in Java
       href: search-get-started-java.md
     - name: Upgrade the SDK

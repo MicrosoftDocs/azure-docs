@@ -51,7 +51,7 @@ In either case, you are need to provide the fault domain count for your host gro
 
 You can also decide to use both availability zones and fault domains. 
 
-In this example, we will use [az vm host group create](/cli/azure/vm#az-vm-host-group-create) to create a host group using both availability zones and fault domains. 
+In this example, we will use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group using both availability zones and fault domains. 
 
 ```bash
 az vm host group create \
@@ -63,7 +63,7 @@ az vm host group create \
 
 ### Other examples
 
-You can also use [az vm host group create](/cli/azure/vm#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
+You can also use [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group in availability zone 1 (and no fault domains).
 
 ```bash
 az vm host group create \
@@ -73,7 +73,7 @@ az vm host group create \
    --platform-fault-domain-count 1 
 ```
  
-The following uses [az vm host group create](/cli/azure/vm#az-vm-host-group-create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported). 
+The following uses [az vm host group create](/cli/azure/vm/host/group#az-vm-host-group-create) to create a host group by using fault domains only (to be used in regions where availability zones are not supported). 
 
 ```bash
 az vm host group create \
@@ -89,7 +89,7 @@ Now let's create a dedicated host in the host group. In addition to a name for t
 
 For more information about the host SKUs and pricing, see [Azure Dedicated Host pricing](https://aka.ms/ADHPricing).
 
-Use [az vm host create](/cli/azure/vm#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
+Use [az vm host create](/cli/azure/vm/host#az-vm-host-create) to create a host. If you set a fault domain count for your host group, you will be asked to specify the fault domain for your host.  
 
 ```bash
 az vm host create \
@@ -124,7 +124,7 @@ az vm create \
 
 ## Check the status of the host
 
-You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm#az-vm-host-get-instance-view).
+You can check the host health status and how many virtual machines you can still deploy to the host using [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view).
 
 ```bash
 az vm host get-instance-view \
@@ -258,13 +258,13 @@ You can only delete a host when there are no any longer virtual machines using i
 az vm delete -n myVM -g myDHResourceGroup
 ```
 
-After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm#az-vm-host-delete).
+After deleting the VMs, you can delete the host using [az vm host delete](/cli/azure/vm/host#az-vm-host-delete).
 
 ```bash
 az vm host delete -g myDHResourceGroup --host-group myHostGroup --name myHost 
 ```
  
-Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm#az-vm-host-group-delete).  
+Once you have deleted all of your hosts, you may delete the host group using [az vm host group delete](/cli/azure/vm/host/group#az-vm-host-group-delete).  
  
 ```bash
 az vm host group delete -g myDHResourceGroup --host-group myHostGroup  

@@ -166,6 +166,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Source control
+      href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
     - name: Iterative development and debugging
@@ -203,11 +205,13 @@
     - name: Azure SQL Database
       href: connector-azure-sql-database.md
     - name: Azure SQL Database Managed Instance
-      href: connector-azure-sql-database-managed-insance.md
+      href: connector-azure-sql-database-managed-instance.md
     - name: Azure SQL Data Warehouse
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
+    - name: Binary format
+      href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
     - name: Common Data Service for Apps
@@ -253,7 +257,7 @@
     - name: Impala
       href: connector-impala.md
     - name: Informix
-      href: connector-odbc.md#ibm-informix-source
+      href: connector-informix.md
     - name: Jira
       href: connector-jira.md
     - name: Magento
@@ -263,7 +267,7 @@
     - name: Marketo
       href: connector-marketo.md
     - name: Microsoft Access
-      href: connector-odbc.md#microsoft-access-source
+      href: connector-microsoft-access.md
     - name: MongoDB
       href: connector-mongodb.md
       items:
@@ -304,7 +308,7 @@
     - name: Salesforce
       href: connector-salesforce.md
     - name: Salesforce Service Cloud
-      href: connector-salesforce.md
+      href: connector-salesforce-service-cloud.md
     - name: Salesforce Marketing Cloud
       href: connector-salesforce-marketing-cloud.md
     - name: SAP Business Warehouse Open Hub

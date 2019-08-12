@@ -118,10 +118,6 @@ Get started with [development here](index.yml).
 
 **A:** Support for Unreal will be considered in the future.
 
-**Q: Does it work with Xamarin?**
-
-**A:** Support for Xamarin will be considered in the future.
-
 **Q: What ports and protocols does Azure Spatial Anchors use?**
 
 **A:** Azure Spatial Anchors communicates over TCP port 443 using an encrypted protocol. For authentication, it uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/), which communicates using HTTPS over port 443.
