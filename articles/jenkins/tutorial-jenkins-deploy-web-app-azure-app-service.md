@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Deploy from GitHub to Azure App Service with Jenkins
+title: 'Tutorial: Deploy from GitHub to Azure App Service with Jenkins'
 description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure App Service for Java web apps
 services: jenkins
 ms.service: jenkins
@@ -8,6 +8,7 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
+ms.custom: seo-java-august2019
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service with Jenkins continuous integration and deployment
@@ -80,7 +81,7 @@ or [Azure Cloud Shell](/azure/cloud-shell/overview)
    If these plug-ins don't appear, make sure they're not 
    already installed by checking the **Installed** tab.
 
-1. To install your selected plug-ins, choose 
+1. To install your selected plug-ins, select 
 **Download now and install after restart**.
 
 1. After you're done, on the Jenkins menu, 
@@ -91,7 +92,7 @@ the Jenkins management page for future steps.
 
 1. [Sign in to GitHub repo for the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot). 
 
-1. In the upper-right corner in GitHub, choose **Fork**.
+1. In the upper-right corner in GitHub, select **Fork**.
 
    ![Fork sample repo from GitHub](media/tutorial-jenkins-deploy-web-app-azure-app-service/fork-github-repo.png)
 
@@ -126,7 +127,7 @@ From the **Add GitHub Server** list, select **GitHub Server**.
    ![Add GitHub server](media/tutorial-jenkins-deploy-web-app-azure-app-service/add-GitHub-server.png)
 
 1. If the **Manage hooks** property isn't selected, select this property. 
-Choose **Advanced** so you can specify other settings. 
+Select **Advanced** so you can specify other settings. 
 
    ![Choose "Advanced" for more settings](media/tutorial-jenkins-deploy-web-app-azure-app-service/advanced-GitHub-settings.png)
 
@@ -137,7 +138,7 @@ select **Convert login and password to token**.
 
 1. Select **From login and password** so you 
 can enter your GitHub username and password. 
-When you're done, choose **Create token credentials**, 
+When you're done, select **Create token credentials**, 
 which creates a [GitHub personal access token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Create GitHub PAT from login and password](media/tutorial-jenkins-deploy-web-app-azure-app-service/create-github-token-credentials.png)
@@ -218,7 +219,7 @@ subscription in the properties described by the table in this step:
    | **ID** | <*yourAzureServicePrincipalName*> | The `displayName` value for your Azure service principal | 
 
 1. To confirm that your service principal works, 
-choose **Verify Service Principal**. When you're done, choose **OK**.
+select **Verify Service Principal**. When you're done, select **OK**.
 
 Next, create the Jenkins pipeline that builds and deploys your app.
 
@@ -232,7 +233,7 @@ In Jenkins, create the pipeline job for building and deploying your app.
 
 1. Provide a name for your pipeline job, for example, 
 "My-Java-Web-App", and select **Pipeline**. 
-At the bottom, choose **OK**.  
+At the bottom, select **OK**.  
 
    ![Select "Pipeline"](media/tutorial-jenkins-deploy-web-app-azure-app-service/jenkins-select-pipeline.png)
 
@@ -253,7 +254,7 @@ can deploy to Azure without using your own credentials.
 
       ![Select "Prepare an environment for the run" and set environment variables](media/tutorial-jenkins-deploy-web-app-azure-app-service/prepare-environment-for-run.png)
 
-1. When you're done, choose **Save**.
+1. When you're done, select **Save**.
 
 Next, create build and deployment scripts for Jenkins.
 
@@ -337,7 +338,7 @@ select **Pipeline script from SCM**.
 
    ![Point pipeline at script](media/tutorial-jenkins-deploy-web-app-azure-app-service/set-up-jenkins-github.png)
 
-1. When you're done, choose **Save**.
+1. When you're done, select **Save**.
 
 Next, build and deploy your app to Azure App Service. 
 
@@ -378,7 +379,7 @@ Make sure your web app has a unique name.
 
    `complete/src/main/java/Hello/Application.java`
    
-1. From the upper-right corner in GitHub, choose **Edit this file**.
+1. From the upper-right corner in GitHub, select **Edit this file**.
 
 1. Make this change to the `commandLineRunner()` method, 
 and commit the change to the repo's `master` branch. 
