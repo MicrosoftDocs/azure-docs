@@ -164,7 +164,11 @@ received at least four seconds prior to the presentation time will be acted upon
 
 ## 2.2 Fragmented MP4 Ingest (Smooth Streaming)
 
-Refer to [MS-SSTR-Ingest] for requirements on live stream ingest. The following sections provide details regarding ingest of timed presentation metadata.  Timed presentation metadata is ingested as a sparse track, which is defined in both the Live Server Manifest Box (see MS-SSTR) and the Movie Box (‘moov’).  Each sparse fragment consists of a Movie Fragment Box (‘moof’) and Media Data Box (‘mdat’), where the ‘mdat’ box is the binary message.
+Refer to [MS-SSTR-Ingest] for requirements on live stream ingest. The following sections provide details regarding ingest of timed presentation metadata.  Timed presentation metadata is ingested as a sparse track, which is defined in both the Live Server Manifest Box (see MS-SSTR) and the Movie Box (‘moov’).  
+
+Each sparse fragment consists of a Movie Fragment Box (‘moof’) and Media Data Box (‘mdat’), where the ‘mdat’ box is the binary message.
+
+In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of type 1 or 2, as defined in [ISO-14496-12] Annex I. This allows the Azure Media Packager to properly generate an HLS manifest (with precised signaling) and a DASH multi-period manifest where the new Period begins at the frame-accurate splice conditioned presentation time.
 
 ### 2.2.1 Live Server Manifest Box
 
@@ -212,6 +216,12 @@ The ‘stsd’ box **SHOULD** contain a MetaDataSampleEntry box with a coding na
 
 Sparse track fragments consist of a Movie Fragment Box (‘moof’) and a Media Data
 Box (‘mdat’).
+
+> [!NOTE]
+> In order to achieve frame-accurate insertion of ads, the encoder MUST split the fragment at the presentation time where the cue is
+> required to be inserted.  A new fragment MUST be created that begins with a newly created IDR frame, or Stream Access Points (SAP) of
+> type 1 or 2, as defined in [ISO-14496-12] Annex I
+> 
 
 The MovieFragmentBox (‘moof’) box **MUST** contain a
 **TrackFragmentExtendedHeaderBox (‘uuid’)** box as defined in [MS-SSTR] with the
