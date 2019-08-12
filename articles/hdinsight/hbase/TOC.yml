@@ -162,6 +162,10 @@
     items:
     - name: Troubleshoot resources  
       href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hbase/toc.json&bc=/azure/hdinsight/hbase/breadcrumb/toc.json
+    - name: Storage exception after connection reset
+      href: ./hbase-troubleshoot-storage-exception-reset.md
+    - name: No data in Apache Phoenix views
+      href: ./hbase-troubleshoot-phoenix-no-data.md
     - name: BindException - Address in use
       href: ./hbase-troubleshoot-bindexception-address-use.md
     - name: Apache HBase fails to start

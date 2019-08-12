@@ -277,7 +277,7 @@ Response Body:
           "term": { //This gives the free trial term start and end date
             "startDate": "2019-05-31",
             "endDate": "2019-06-29",
-            "termUnit": "P1M"
+            "termUnit": "P1M" //where P1M: Monthly, P1Y: Yearly 
         },
 }
 ```
