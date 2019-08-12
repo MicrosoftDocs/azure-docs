@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: tedway
 author: tedway
-ms.date: 05/02/2019
+ms.date: 07/25/2019
 ms.custom: seodec18
 ---
 
@@ -38,18 +38,28 @@ FPGAs are available in these Azure regions:
 
 - An Azure subscription.  If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-- FPGA quota.  Use the Azure CLI to check whether you have quota.
+- FPGA quota. Use the Azure CLI to check whether you have quota:
+
     ```shell
-    az vm list-usage --location "eastus" -o table
+    az vm list-usage --location "eastus" -o table --query "[?localName=='Standard PBS Family vCPUs']"
     ```
 
-    The other locations are ``southeastasia``, ``westeurope``, and ``westus2``.
+    > [!TIP]
+    > The other possible locations are ``southeastasia``, ``westeurope``, and ``westus2``.
 
-    Under the "Name" column, look for "Standard PBS Family vCPUs" and ensure you have at least 6 vCPUs under "CurrentValue."
+    The command returns text similar to the following:
 
-    If you do not have quota, then submit a request form [here](https://aka.ms/accelerateAI).
+    ```text
+    CurrentValue    Limit    LocalName
+    --------------  -------  -------------------------
+    0               6        Standard PBS Family vCPUs
+    ```
 
-- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
+    Make sure you have at least 6 vCPUs under __CurrentValue__.
+
+    If you do not have quota, then submit a request at [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI).
+
+- An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. For more information, see [Create a workspace](how-to-manage-workspace.md).
  
 - The Python SDK for hardware-accelerated models:
 
@@ -161,23 +171,23 @@ print(output_tensors)
 The available models and the corresponding default classifier output tensors are below, which is what you would use for inference if you used the default classifier.
 
 + Resnet50, QuantizedResnet50
-  ```
+  ```python
   output_tensors = "classifier_1/resnet_v1_50/predictions/Softmax:0"
   ```
 + Resnet152, QuantizedResnet152
-  ```
+  ```python
   output_tensors = "classifier/resnet_v1_152/predictions/Softmax:0"
   ```
 + Densenet121, QuantizedDensenet121
-  ```
+  ```python
   output_tensors = "classifier/densenet121/predictions/Softmax:0"
   ```
 + Vgg16, QuantizedVgg16
-  ```
+  ```python
   output_tensors = "classifier/vgg_16/fc8/squeezed:0"
   ```
 + SsdVgg, QuantizedSsdVgg
-  ```
+  ```python
   output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
   ```
 

@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 05/10/2019
+ms.date: 07/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -68,8 +68,8 @@ PolyBase loads data from UTF-8 and UTF-16 encoded delimited text files. In addit
 |       timestamp       |                          datetime2                           |
 |       timestamp       |                           datetime                           |
 |       timestamp       |                             time                             |
-|       date        | 1) Load as int and cast to date </br> 2) [Use the Azure Databricks SQL DW connector](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) with </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**update coming soon**) |
-|        decimal        | [Use the Azure Databricks SQL DW connector](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse#load-data-into-azure-sql-data-warehouse) with </br> spark.conf.set( "spark.sql.parquet.writeLegacyFormat", "true" ) </br> (**update coming soon**) |
+|       date            |                             date                             |
+|        decimal        |                            decimal                           |
 
 ## 2. Land the data into Azure Blob storage or Azure Data Lake Store
 

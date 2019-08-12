@@ -4,7 +4,7 @@ description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 08/07/2019
 ms.author: snehaa
 ---
 
@@ -15,20 +15,8 @@ This article includes frequently asked questions about Azure Migrate. If you hav
 ## General
 
 ### Which Azure geographies are supported by Azure Migrate?
-Azure Migrate currently supports a number of geographies in which an Azure Migrate project can be created. Even though you can only create projects in these geographies, you can still assess or migrate your machines for other target locations. The project geography is only used to store the discovered metadata.
 
-
-**Geography** | **Metadata storage location**
---- | ---
-Azure Government | US Gov Virginia
-Asia | Southeast Asia or East Asia
-Europe | South Europe or West Europe
-United Kingdom | UK South or UK West
-United States | Central US or West US 2
-
-
-> [!NOTE]
-> Support for Azure Government is currently only available for the [older version](https://docs.microsoft.com/azure/migrate/migrate-services-overview#azure-migrate-versions) of Azure Migrate.
+You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#azure-migrate-projects) and for [Hyper-V here](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v#azure-migrate-projects).
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
@@ -46,7 +34,7 @@ For the URLs and ports needed for Azure Migrate to communicate with Azure, revie
 
 ### Can I harden the appliance VM I set up with the template?
 
-Additional components (for example anti-virus) can be added into the template, as long as the communication and firewall rules required for the Azure Migrate appliance re left as is.   
+Additional components (for example anti-virus) can be added into the template, as long as the communication and firewall rules required for the Azure Migrate appliance are left as is.   
 
 ### What data is collected by Azure Migrate appliance?
 
@@ -78,7 +66,8 @@ The appliance connects to the vCenter Server (port 443) using the credentials pr
 
 ### Can I connect the same appliance to multiple vCenter servers?
 
-Yes, a single Azure Migrate appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run discoveries one after another.
+No. There's a one-to-one mapping between an appliance and vCenter Server. If you have to discover VMs on multiple vCenter Servers, you need to deploy multiple appliances. 
+
 
 ### I changed my machine size. Can I rerun an assessment?
 

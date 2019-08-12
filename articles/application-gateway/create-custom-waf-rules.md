@@ -223,7 +223,7 @@ Here's the corresponding JSON:
             { 
               "matchVariable": "RemoteAddr", 
               "operator": "IPMatch", 
-              "negateCondition": true, 
+              "negateCondition": false, 
               "matchValues": [ 
                 "192.168.5.4/24" 
               ] 
@@ -488,14 +488,6 @@ Corresponding JSON:
     ]
   }
 ```
-
-Corresponding ModSecurity rule:
-
-`SecRule REQUEST_URI "@contains 1-1" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains --" "id:7001,deny"`
-
-`SecRule REQUEST_URI "@contains drop tables" "id:7001,deny"`
 
 ## Next steps
 

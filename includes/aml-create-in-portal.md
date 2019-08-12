@@ -8,14 +8,12 @@ ms.author: sgilley
 manager: cgronlund
 ms.custom: "include file"
 ms.topic: "include"
-ms.date: 07/21/2019
+ms.date: 07/31/2019
 ---
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) by using the credentials for the Azure subscription you use. 
 
-1. In the upper-left corner of the portal, select **Create a resource**.
-
-   ![Create a resource in Azure portal](./media/aml-create-in-portal/portal-create-a-resource-07-2019.png)
+1. In the upper-left corner of Azure portal, select **Create a resource**.
 
 1. Use the search bar to find **Machine Learning service workspace**.
 
@@ -27,7 +25,7 @@ ms.date: 07/21/2019
 
     ![Create workspace](./media/aml-create-in-portal/workspace-create-main-tab.png)
 
-   Field|Description
+   Field|Description 
    ---|---
    Workspace name |Enter a unique name that identifies your workspace. In this example, we use **docs-ws**. Names must be unique across the resource group. Use a name that's easy to recall and to differentiate from workspaces created by others.  
    Subscription |Select the Azure subscription that you want to use.
@@ -41,3 +39,11 @@ ms.date: 07/21/2019
    When the process is finished, a deployment success message appears. It's also present in the notifications section. To view the new workspace, select **Go to resource**.
 
    ![Workspace creation status](./media/aml-create-in-portal/notifications.png)
+
+1. If your code references this workspace from your local environment, select  **Download config.json** from the **Overview** section of the workspace.  
+
+   ![Download config.json](./media/aml-create-in-portal/configure.png)
+
+    Place this JSON file in the directory structure that contains your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory.
+
+   If you will be using a [Notebook VM](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md#azure) there is no need to download this file, it is added to correct directory on the VM for you.

@@ -5,6 +5,7 @@
   - name: What is Azure Maps?
     href: about-azure-maps.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a web app
     href: quick-demo-map-app.md
@@ -104,6 +105,8 @@
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
         href: data-driven-style-expressions-web-sdk.md
+      - name: How to use image templates
+        href: how-to-use-image-templates-web-sdk.md
       - name: Overlay an image
         href: map-add-image-layer.md
       - name: Add tile layers
@@ -130,12 +133,14 @@
     items:
     - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
+    - name: Change the style of the map
+      href: set-android-map-styles.md
     - name: Add a symbol layer
       href: how-to-add-symbol-to-android-map.md
     - name: Add shapes
       href: how-to-add-shapes-to-android-map.md
-    - name: Change the style of the map
-      href: set-android-map-styles.md
+    - name: Add a tile layer
+      href: how-to-add-tile-layer-android-map.md
 - name: Reference
   items:
   - name: API and parameter extensions

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 08/02/2019
 ms.author: alkohli
 ---
 
@@ -136,11 +136,11 @@ Create a C# solution template that you can customize with your own code.
             private const string OutputFolderPath = "/home/output";
     ```
 
-4. Add the **MessageBody** class to the Program class. These classes define the expected schema for the body of incoming messages.
+4. Add the **FileEvent** class to define the message body.
 
     ```
     /// <summary>
-    /// The MessageBody class defines the expected schema for the body of incoming messages. 
+    /// The FileEvent class defines the body of incoming messages. 
     /// </summary>
     private class FileEvent
     {

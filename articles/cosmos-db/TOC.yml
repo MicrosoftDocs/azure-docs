@@ -272,6 +272,8 @@
         - name: Role-based access control
           displayName: rbac
           href: role-based-access-control.md  
+        - href: cosmos-db-advanced-threat-protection.md
+          name: Advanced threat protection
         - name: Security attributes
           href: cosmos-db-security-attributes.md
     - name: Enterprise readiness 
@@ -577,6 +579,9 @@
       - name: Provision throughput on a database
         displayName: request units, RUs, RU, shared throughput, database level 
         href: how-to-provision-database-throughput.md
+      - name: Estimate RU/s with Cosmos capacity planner
+        displayName: request units, RUs, RU, capacity 
+        href: estimate-ru-with-capacity-planner.md        
       - name: Find request unit charge
         displayName: request units, RUs, RU, charge, consumption
         href: find-request-unit-charge.md
@@ -736,6 +741,14 @@
         maintainContext: true
       - name: ODBC driver 
         href: odbc-driver.md
+    - name: Migrate data to Cosmos DB
+      items: 
+      - name: Migrate to SQL API using Striim
+        href: cosmosdb-sql-api-migrate-data-striim.md
+      - name: Migrate to Cassandra API using Striim
+        href: cosmosdb-cassandra-api-migrate-data-striim.md
+      - name: Migrate hundreds of terabytes of data into Azure Cosmos DB 
+        href: migrate-cosmosdb-data.md
     - name: Bulk executor library
       items: 
       - name: About bulk executor library

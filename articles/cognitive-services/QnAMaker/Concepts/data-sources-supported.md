@@ -7,8 +7,8 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
-ms.topic: article
-ms.date: 03/26/2019
+ms.topic: conceptual
+ms.date: 07/25/2019
 ms.author: diberry
 ---
 
@@ -134,7 +134,7 @@ Below is an example of a structured QnA *.xls* file, with HTML content:
 
 ## Structured data format through import
 
-Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
+Importing a knowledge base replaces the content of the existing knowledge base. Import requires a structured .tsv file that contains data source information. This information helps QnA Maker group the question-answer pairs and attribute them to a particular data source.
 
 | Question  | Answer  | Source| Metadata (1 key: 1 value) |          
 |-----------|---------|----|---------------------|
@@ -145,14 +145,34 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 
 If you do not have pre-existing content to populate the knowledge base, you can add QnAs editorially in QnA Maker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
 
+<a href="#formatting-considerations"></a>
+
 ## Formatting considerations
 
-After importing a file or URL, it is converted into Markdown and stored in that format. If the conversion process is not correctly converting links in your files and URLs, you should edit the questions and answers on the **Edit** page. 
+After importing a file or URL, QnA Maker converts and stores your content in the [markdown format](https://en.wikipedia.org/wiki/Markdown). The conversion process adds new lines in the text, such as `\n\n`. A knowledge of the markdown format helps you to understand the converted content and manage your knowledge base content. 
 
-|Format|Purpose|
-|--|--|
-|`\n\n`| New line|
-|`\n*`|Bullet point for an ordered list|
+If you add or edit your content directly in your knowledge base, use **markdown formatting** to create rich text content or change the markdown format content that is already in the answer. QnA Maker supports much of the markdown format to bring rich text capabilities to your content. However, the client application, such as a chat bot may not support the same set of markdown formats. It is important to test the client application's display of answers. 
+
+Following is the list of markdown formats that you can use in QnA Maker: 
+
+|Purpose|Format|Example markdown|Rendering<br>as displayed in Chat bot|
+|--|--|--|--|
+A new line between 2 sentences.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![format new line between two sentences](../media/qnamaker-concepts-datasources/format-newline.png)|
+|Headers from h1 to h6, the number of `#` denotes which header. 1 `#` is the h1.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![format with markdown headers](../media/qnamaker-concepts-datasources/format-headers.png)<br>![format with markdown headers H1 to H5](../media/qnamaker-concepts-datasources/format-h1-h5.png)|
+|Italics |`*text*`|`How do I create a bot with *QnA Maker*?`|![format with italics](../media/qnamaker-concepts-datasources/format-italics.png)|
+|String (bold)|`**text**`|`How do I create a bot with **QnA Maker**?`|![format with strong marking for bold](../media/qnamaker-concepts-datasources/format-strong.png)|
+|URL for link|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![format for URL (hyperlink)](../media/qnamaker-concepts-datasources/format-url.png)|
+|*URL for public image|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![format for public image URL ](../media/qnamaker-concepts-datasources/format-image-url.png)|
+|Strikethrough|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![format for strikethrough](../media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|Bold and italics|`***text***`|`How can I create a ***QnA Maker*** bot?`|![format for bold and italics](../media/qnamaker-concepts-datasources/format-bold-italics.png)|
+|Bold URL for link|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![format for bold URL](../media/qnamaker-concepts-datasources/format-bold-url.png)|
+|Italics URL for link|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![format for italics URL](../media/qnamaker-concepts-datasources/format-url-italics.png)|
+|Escape markdown symbols|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![format for italics URL](../media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
+|Ordered list|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>The preceding example uses automatic numbering built into markdown.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>The preceding example uses explicit numbering.|![format for ordered list](../media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|Unordered list|`\n * item1 \n * item2`<br>or<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![format for unordered list](../media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|Nested lists|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>You can nest ordered and unordered lists together. The tab, `\t`, indicates the indentation level of the child element.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![format for nested unordered list](../media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![format for nested ordered list](../media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+
+*QnA Maker doesn't process the image in any way. It is the client application's role to render the image. 
 
 ## Editing your knowledge base locally
 

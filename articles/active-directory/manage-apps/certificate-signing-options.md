@@ -1,5 +1,5 @@
 ---
-title: Advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Docs
+title: Advanced SAML token certificate signing options for pre-integrated Azure AD apps | Microsoft Docs
 description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
 documentationcenter: ''

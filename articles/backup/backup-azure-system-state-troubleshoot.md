@@ -1,14 +1,14 @@
 ---
 title: Troubleshoot System State Backup with Azure Backup
 description: Troubleshoot issues in System State Backup.
-services: backup
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 keywords: how to backup; backup system state
 ms.service: backup
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: srinathv
+ms.date: 07/22/2019
+ms.author: dacurwin
 ---
 
 # Troubleshoot System State Backup
@@ -20,7 +20,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
-- Ensure Microsoft Azure Recovery Services is running (in Service console). If required restart and retry the operation
+- Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary restart and retry the operation
 - [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
 - [Check if another process or antivirus software is interfering with Azure Backup](https://aka.ms/AB-AA4dwtk)
 - [Scheduled backup fails, but manual backup works](https://aka.ms/ScheduledBackupFailManualWorks)
@@ -40,7 +40,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 ## Pre-requisite
 
-Before we troubleshoot System State Backup with Azure Backup, ensure you preform the below pre-requisites check.  
+Before we troubleshoot System State Backup with Azure Backup, ensure you perform the below pre-requisites check.  
 
 ### Verify Windows Server Backup is installed
 
@@ -63,7 +63,7 @@ To install Windows Server Backup using PowerShell, run the below command:
 
 To install Windows Server Backup using Server Manager, perform the below:
 
-1. In the **Sever Manger** and click **Add roles and features**. The **Add roles and features wizard** appears.
+1. In the **Server Manger** and click **Add roles and features**. The **Add roles and features wizard** appears.
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -109,7 +109,7 @@ To validate Windows Server Backup status, perform the below:
     > [!WARNING]
     > Get-WBJob: The term 'Get-WBJob' is not recognized as the name of a cmdlet, function, script file, or operable program. Check the spelling of the name, or if a path was included, verify that the path is correct and try again.
 
-    -	If it fails with this error then re-install the Windows Server Backup feature on the server machine as mentioned in the step 1 prerequisites.
+    -	If it fails with this error, then reinstall the Windows Server Backup feature on the server machine as mentioned in the step 1 prerequisites.
 
   * Ensure WSB backup is working properly, by running the below command from elevated command prompt:
 
@@ -121,7 +121,7 @@ To validate Windows Server Backup status, perform the below:
     - Periodically check the status of the job by running `Get-WBJob` command from elevated PowerShell        
     - After backup job completes check the final status of the job by running `Get-WBJob -Previous 1` command
 
-If the job fails, it indicates a WSB issue which would result in MARS agent System State Backups failure.
+If the job fails, it indicates a WSB issue that would result in MARS agent System State Backups failure.
 
 ## Common Errors
 
@@ -143,7 +143,7 @@ If the job fails, it indicates a WSB issue which would result in MARS agent Syst
 
 | Symptom | Resolution
 | -- | --
-| MARS agent fails with error message: “System state back up failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software” | -	If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> -	If a third-party backup software is running, then wait for it to finish and then retry back up
+| MARS agent fails with error message: “System state backup failed as the EFI system partition is locked. This can be due to system partition access by a third-party security or back up software” | -	If the issue is due to a third-party security software, then you need to contact the Anti Virus vendor so that they can allow MARS agent <br/><br/> -	If a third-party backup software is running, then wait for it to finish and then retry back up
 
 
 ## Next steps
