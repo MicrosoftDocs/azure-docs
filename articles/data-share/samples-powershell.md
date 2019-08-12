@@ -21,11 +21,12 @@ The following table includes links to sample Azure PowerShell scripts for Azure 
 |[Create a new data share](powershell/create-new-share-powershell.md)| This PowerShell script creates a new data share. |
 |[Add datasets to a share](powershell/add-datasets-powershell.md)| This PowerShell script adds a blob dataset to an existing data share account. |
 |[Set and view synchronizations of a share](powershell/set-view-synchronizations-powershell.md)| This PowerShell script creates and views synchronizations of an existing data share. |
-|[Create a data share invitation](powershell/create-share-invitation-powershell.md)| This sample PowerShell script sends an invitation to access an existing data share. |
+|[Create a data share invitation](powershell/create-share-invitation-powershell.md)| This sample PowerShell script creates an invitation for access to an existing data share. |
 |[View sent share invitations](powershell/view-sent-invitations-powershell.md)| This sample PowerShell script retrieves a list of invitations sent from an existing data share. |
+|[Accept received share invitations](powershell/accept-share-invitations-powershell.md)| This sample PowerShell script accepts a data share invitation|
 |[View details of a data shares](powershell/view-share-details-powershell.md)| This sample PowerShell script lists and retrieves details of data shares. |
 |[Monitor usage of shared data](powershell/monitor-usage-powershell.md)| This sample PowerShell script monitors the usage of sent shared data. |
-|[Create and view snapshot triggers](powershell/create-view-trigger-powershell.md)| This sample PowerShell script creates of a received share
+|[Create and view snapshot triggers](powershell/create-view-trigger-powershell.md)| This sample PowerShell script creates snapshot triggers of a share.
 
 
 
