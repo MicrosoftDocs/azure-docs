@@ -84,7 +84,7 @@ In other words, create a complete application package normally, then remove any 
 
 ## Upgrade application parameters independently of version
 
-Sometimes, it is desired to change the parameters of a Service Fabric application without changing the manifest version. This can be done conveniently by using the **-ApplicationParameter** flag with the **Start-ServiceFabricApplicationUpgrade** Azure Service Fabric PowerShell cmdlet. Assume we have a Service Fabric application with the following properties:
+Sometimes, it is desirable to change the parameters of a Service Fabric application without changing the manifest version. This can be done conveniently by using the **-ApplicationParameter** flag with the **Start-ServiceFabricApplicationUpgrade** Azure Service Fabric PowerShell cmdlet. Assume a Service Fabric application with the following properties:
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
@@ -97,7 +97,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "1" }
 ```
 
-Our application can be upgraded like this:
+The application can be upgraded like this:
 
 ```PowerShell
 PS C:\> $appParams = @{ "ImportantParameter" = "2"; "NewParameter" = "testValue"}
@@ -106,7 +106,8 @@ PS C:\> Start-ServiceFabricApplicationUpgrade -ApplicationName fabric:/Applicati
 ion 1.0.0 -ApplicationParameter $appParams -UnmonitoredAuto
 
 ```
-After upgrading, we can confirm that the application has the new parameters and the same version:
+
+After upgrading, confirm that the application has the new parameters and the same version:
 
 ```PowerShell
 PS C:\> Get-ServiceFabricApplication -ApplicationName fabric:/Application1
