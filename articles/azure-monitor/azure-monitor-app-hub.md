@@ -72,7 +72,6 @@ ms.author: mbullwin
                                                             <a href="./learn/quick-monitor-portal.md">ASP.NET</a><br>
                                                             <a href="./learn/dotnetcore-quick-start.md">ASP.NET Core</a><br>
 												            <a href="./learn/nodejs-quick-start.md">Node.js</a><br>
-												            <a href="./learn/java-quick-start.md">Java</a><br>
                                                             <a href="./learn/mobile-center-quickstart.md">Mobile</a><br>
 												            <a href="./app/website-monitoring.md">Browser/client-side monitoring</a>
 														</p>

@@ -619,7 +619,7 @@
         href: insperityexpensable-tutorial.md
       - name: InstaVR Viewer
         href: instavr-viewer-tutorial.md
-      - name: Intacct
+      - name: Sage Intacct
         href: intacct-tutorial.md
       - name: InTime
         href: intime-tutorial.md
@@ -1482,6 +1482,8 @@
         href: github-provisioning-tutorial.md
       - name: GoToMeeting
         href: citrixgotomeeting-provisioning-tutorial.md
+      - name: Insight4GRC
+        href: insight4grc-provisioning-tutorial.md
       - name: Jive
         href: jive-provisioning-tutorial.md
       - name: Keeper Password Manager & Digital Vault
