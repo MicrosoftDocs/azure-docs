@@ -1,5 +1,5 @@
 ---
-title: 'Pipelines: optimize machine learning workflows'
+title: 'What are ML Pipelines'
 titleSuffix: Azure Machine Learning service
 description: In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python and the advantages to using pipelines. Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows.
 services: machine-learning
@@ -13,19 +13,15 @@ ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
-# Build reusable ML pipelines in Azure Machine Learning service
+# What are ML pipelines in Azure Machine Learning service?
 
-In this article, learn about the machine learning pipelines you can build with the Azure Machine Learning SDK for Python, and the advantages to using pipelines.
-
-## What are machine learning pipelines?
+Learn how about the machine learning pipelines you can build and manage with Azure Machine Learning service. 
 
 Using machine learning (ML) pipelines, data scientists, data engineers, and IT professionals can collaborate on the steps involved in:
 + Data preparation, such as normalizations and transformations
 + Model training
 + Model evaluation
 + Deployment
-
-The following diagram shows an example pipeline process:
 
 ![Machine learning pipelines in Azure Machine Learning service](./media/concept-ml-pipelines/pipeline-flow.png)
 
@@ -42,9 +38,7 @@ The Azure cloud provides several other pipelines, each with a different purpose.
 
 ## Why build pipelines with Azure Machine Learning?
 
-You can use the [Azure Machine Learning SDK for Python](#the-python-sdk-for-pipelines) to create ML pipelines, as well as to submit and track individual pipeline runs.
-
-With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on your expertise, machine learning, rather than on infrastructure and automation.
+Machine learning pipelines optimize your workflow with speed, portability, and reuse so you can focus on your expertise, machine learning, rather than on infrastructure and automation.
 
 Pipelines are constructed from multiple **steps**, which are distinct computational units in the pipeline. Each step can run independently and use isolated compute resources. This allows multiple data scientists to work on the same pipeline at the same time without over-taxing compute resources, and also makes it easy to use different compute types/sizes for each step.
 
