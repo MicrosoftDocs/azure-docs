@@ -85,8 +85,8 @@ The Azure Migrate appliance needs connectivity to the internet.
 **URL** | **Details**  
 --- | --- |
 *.portal.azure.com  | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net | Log into your Azure subscription.
-*.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Log into your Azure subscription.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
@@ -99,7 +99,7 @@ http://aka.ms/latestapplianceservices<br/><br/> https://download.microsoft.com/d
 
 **Device** | **Connection**
 --- | ---
-Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443 to send discovery and performance metadata to Azure Migrate.
+Appliance | Inbound connections on TCP port 3389 to allow remote desktop connections to the appliance.<br/><br/> Inbound connections on port 44368 to remotely access the appliance management app using the URL: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Outbound connections on port 443, 5671 and 5672 to send discovery and performance metadata to Azure Migrate.
 vCenter server | Inbound connections on TCP port 443 to allow the appliance to collect configuration and performance metadata for assessments. <br/><br/> The appliance connects to vCenter on port 443 by default. If the vCenter server listens on a different port, you can modify the port when you set up discovery.
 
 
@@ -170,8 +170,8 @@ The Azure Migrate appliance needs internet connectivity to the internet.
 **URL** | **Details**  
 --- | ---
 *.portal.azure.com | Navigate to the Azure Migrate in the Azure portal.
-*.windows.net | Log into your Azure subscription.
-*.microsoftonline.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com  | Log into your Azure subscription.
+*.microsoftonline.com <br/> *.microsoftonline-p.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 management.azure.com | Create Active Directory apps for the appliance to communicate with the Azure Migrate service.
 dc.services.visualstudio.com | Upload app logs used for internal monitoring.
 *.vault.azure.net | Manage secrets in the Azure Key Vault.
