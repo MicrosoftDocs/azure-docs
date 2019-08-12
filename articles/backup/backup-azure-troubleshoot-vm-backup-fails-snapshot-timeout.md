@@ -24,10 +24,10 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 **Error code**: UserErrorGuestAgentStatusUnavailable <br>
 **Error message**: VM Agent unable to communicate with Azure Backup<br>
 
-Azure VM agent might be stopped, not installed, outdated or in an inconsistent state preventing Azure Backup service to trigger snapshots.  
+The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.  
 	
-- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (i.e. try adhoc backup…). For steps to restart the agent refer to [Windows VMs](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
-- If the VM agent is not installed or outdated, install/update the VM Agent and retry the backup operation. For steps to install/update the agent refer to [Windows VMs](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
+- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an ad-hoc backup). For steps to restart the agent, see [Windows VMs](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
+- If the VM agent is not installed or is outdated, install/update the VM agent and retry the backup operation. For steps to install/update the agent, see [Windows VMs](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -101,7 +101,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 4095GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 4095GB. To sign up for limited public preview of Azure Backup large disk support for disks greater than 4TB up to 30TB in size,refer this [article](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
+Your backup operation could fail when backing up a VM with a disk size greater than 4,095 GB. To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, see [An overview of Azure VM backup](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
