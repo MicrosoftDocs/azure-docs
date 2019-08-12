@@ -1,19 +1,31 @@
+---
+title: Connect a DevKit device to your Azure IoT Central application | Microsoft Docs
+description: As a device developer, learn how to connect an MXChip IoT DevKit device to your Azure IoT Central application.
+author: dominicbetts
+ms.author: liydu
+ms.date: 08/10/2019
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: jeffya
+---
+
 # Connect an MXChip IoT DevKit device to your Azure IoT Central application via IoT Plug and Play
 
-This article describes how to connect MXChip IoT DevKit as a certified PnP device to Azure IoT Central.
+This article describes how to connect MXChip IoT DevKit as a certified IoT Plug and Play device to Azure IoT Central.
 
 ## What you learn
 
-- Add and configure a real device in IoT Central application.
-- Prepare the device connect to IoT Central.
-- View the telemetry and properties from the device, and send commands to the device.
+- Add and configure a real device in Azure IoT Central application.
+- Prepare the device connect to Azure IoT Central.
+- View the telemetry and properties from the device, write properties (settings) and send commands to the device.
 
 ## What you need
 
 To complete the steps in this article, you need the following resources:
 
 1. An MXChip IoT DevKit. [Get it now](https://aka.ms/iot-devkit-purchase).
-1. An IoT Central application created from the **PnP application template**. You can follow the steps in [Create an PnP application](#/).
+1. An IoT Central application created from the **PnP application template**. You can follow the steps in [Create an IoT Plug and Play application](#/).
 
 ## Add a real device
 
@@ -47,7 +59,7 @@ To complete the steps in this article, you need the following resources:
 
 ## Prepare th DevKit device
 
-1. Download the latest [pre-built Azure IoT Central firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the MXChip from GitHub.
+1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the MXChip from GitHub.
 
 1. Connect the DevKit device to your development machine using a USB cable. In Windows, a file explorer window opens on a drive mapped to the storage on the DevKit device. For example, the drive might be called **AZ3166 (D:)**.
 
@@ -74,9 +86,9 @@ To complete the steps in this article, you need the following resources:
 
     ![Reboot UI](media/howto-connect-devkit-pnp/reboot-ui.png)
 
-Now the DevKit starts sending data to your IoT Central application. You can open serial monitor to see the device output log.
+Now the DevKit starts sending data to your IoT Central application. You can open a serial monitor to see the device output log.
 
-1. Download the serial client such as [Tera Term](https://tera-term.en.lo4d.com/windows).
+1. Download a serial client such as [Tera Term](https://tera-term.en.lo4d.com/windows).
 
 1. Connect the DevKit to your computer by USB.
 
@@ -108,6 +120,9 @@ In this step, you view the telemetry and reported property values, and send comm
 
    ![IoT Central device form](media/howto-connect-devkit-pnp/form-page.png)
 
+    > [!NOTE]
+    > It may take a few seconds for the dashboard in About tab to be refreshed.
+
 1. In the **Commands** page, you can call the commands to execute actions on the DevKit. For example, you run **turnOnLED** command.
 
    ![Turn on LED](media/howto-connect-devkit-pnp/turn-on-LED.png)
@@ -116,9 +131,9 @@ In this step, you view the telemetry and reported property values, and send comm
 
    ![Turn on LED output](media/howto-connect-devkit-pnp/turnon-output.png)
 
-## Download the source code
+## Review the code
 
-If you want to explore and modify the device code, you can download it from GitHub. If you plan to modify the code, you should follow these instructions to [prepare the development environment](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment) for your desktop operating system.
+If you want to explore and modify the device code, you can download it from GitHub.
 
 1. To download sample code for DevKit, run the following command on your desktop machine.
 
@@ -131,26 +146,72 @@ If you want to explore and modify the device code, you can download it from GitH
 
 1. The source code is located in `pnp/iotc_devkit` folder.
 
-## Review the code
+To see how the telemetry is sent to the Azure IoT Central application, open the `sensor_interface.c` file.
 
-Open repository folder, navigate to pnp/iotc_devkit, then open **iotc_devkit.code-workspace** file with VS Code.
+- The function **SensorsInterface_Telemetry_SendAll** sends multiple telemetries including humidity, temperature, pressure, magnetometer, gyroscope and accelerometer .
+- The functions **Sensors_Serialize{XXXX}** in `digitaltwin_serializer.c` create the telemetry payload, using **Sensors_Telemetry_Read{XXXX}** functions in `mxchip_iot_devkit_impl.c` to get data from the sensors on the DevKit device.
 
-![open-workspace](media/howto-connect-devkit-pnp/open-workspace.png)
+To see how property values are reported to the Azure IoT Central application, open the `deviceinfo_interface.c` file.
 
-To see how the telemetry is sent to the Azure IoT Central application, open the sensor_interface.c file.
+- The function **DeviceinfoInterface_Property_ReportAll** sends properties including manufacturer, device model, software version, operating system name, processor architecture, processor manufacturer, total storage and total memory.
+- The functions in `digitaltwin_serializer.c` create the property payload.
 
-- The function `SensorsInterface_Telemetry_SendAll` sends multiple telemetries including humidity, temperature, pressure, magnetometer, gyroscope and accelerometer .
-- The functions `Sensors_Serialize{XXXX}` in digitaltwin_serializer.c create the telemetry payload, using `Sensors_Telemetry_Read{XXXX}`functions in mxchip_iot_devkit_impl.c to get data from the sensors on the DevKit device.
+To see how the DevKit device responds to commands for LED actions called from the IoT Central application, open the `leds_interface.c` file.
 
-To see how property values are reported to the Azure IoT Central application, open the deviceinfo_interface.c file.
+- The function **LedsInterface_Command_TurnOnLedCallback** processes the turnOnLed command. It uses **Leds_Command_TurnOnLed** function in `mxchip_iot_devkit_impl.c` to turn on the User LED.
+- The function **LedsInterface_Command_BlinkCallback** processes the blink command. It uses **Leds_Command_Blink** function in `mxchip_iot_devkit_impl.c` to blink the RGB LED.
 
-- The function `DeviceinfoInterface_Property_ReportAll` sends properties including manufacturer, device model, software version, operating system name, processor architecture, processor manufacturer, total storage and total memory.
-- The functions from line 213 to 419 in digitaltwin_serializer.c create the property payload.
+## Compile and upload code
 
-To see how the DevKit device responds to commands for LED actions called from the IoT Central application, open the leds_interface.c file.
+If you plan to modify the code, you should follow these instructions to [prepare the development environment](https://docs.microsoft.com/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started#prepare-the-development-environment) for your desktop operating system.
 
-- The function `LedsInterface_Command_TurnOnLedCallback` processes the turnOnLed command. It uses `Leds_Command_TurnOnLed` function in mxchip_iot_devkit_impl.c to turn on the User LED.
-- The function `LedsInterface_Command_BlinkCallback` processes the blink command. It uses `Leds_Command_Blink` function in mxchip_iot_devkit_impl.c to blink the RGB LED.
+1. Configure Arduino extension to install latest DevKit. In VS Code, use **Ctrl+Shift+P** to open the command palette, enter and select **Preferences: Open User Settings**. Type **arduino** in the search bar and choose **Edit in settings.json**.
+
+    ![Arduino setting](media/howto-connect-devkit-pnp/arduino-setting.png)
+
+1. Add a line in `arduino.additionalUrls` section that points to the DevKit SDK that supports IoT Plug and Play.
+
+    ```json
+    https://raw.githubusercontent.com/VSChina/azureiotdevkit_tools/pnp/package_mxchip_board_index.json
+    ```
+
+    ![Arduino additional URL](media/howto-connect-devkit-pnp/add-url.png)
+
+1. Use **Ctrl+Shift+P** to open the command palette, enter and select **Arduino: Board Manager**.
+
+1. In the board manager page, choose **Refresh Package Indexes**.
+
+1. After the refresh completed, enter **AZ3166** in the search bar. Select and install latest version >= **1.9.3**.
+
+    ![Select DevKit SDK version](media/howto-connect-devkit-pnp/select-version.png)
+
+    It takes sometimes to download and install the latest SDK.
+
+1. Check the MXCHIP AZ3166 is shown as selected board in the status bar and serial port with STMicroelectronics is used.
+
+   ![Select serial port](media/howto-connect-devkit-pnp/select-serialport.png)
+
+   Your COM port may differ from the image. Click the serial port, choose the port with **STMicroelectronics** in command palette.
+
+   ![Select COM](media/howto-connect-devkit-pnp/select-COM.png)
+
+   If the board type is incorrect, or there is no board type selected, click the board type and select **MXCHIP AZ3166** in the window that pops up.
+
+   ![Select board](media/howto-connect-devkit-pnp/select-board.png)
+
+1. In `pnp/iotc_devkit` folder, open **iotc_devkit.code-workspace** in VS Code.
+
+1. Use **Ctrl+Shift+P** to open the command palette, enter and select **Arduino: Upload** to compile the project and upload to the DevKit.
+
+   In OUTPUT pane, you will see the compilation and upload progress.
+
+   ![Arduino upload done](media/howto-connect-devkit-pnp/arduino-upload-done.png)
+
+1. Click **Open Serial Monitor** button status bar, then you will see the messages sent from your DevKit in OUTPUT pane.
+
+   ![Open serial monitor](media/howto-connect-devkit-pnp/open-serial-monitor.png)
+
+   ![Serial monitor message](media/howto-connect-devkit-pnp/serial-message.png)
 
 ## MXChip Device template details
 
