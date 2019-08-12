@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/11/2019
 ---
 
 # Ingest sample data into Azure Data Explorer
@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 This article shows you how to ingest (load) sample data into an Azure Data Explorer database. There are [several ways to ingest data](ingest-data-overview.md); this article focuses on a basic approach that is suitable for testing purposes.
 
 > [!NOTE]
-> You already have this data if you completed [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md).
+> You already have this data if you completed [Ingest data using the Azure Data Explorer Python library](python-ingest-data.md).
 
 ## Prerequisites
 
