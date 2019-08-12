@@ -83,30 +83,34 @@ Before you can create a Data Science Virtual Machine for Linux, you must have an
 Here are the steps to create an instance of the Data Science Virtual Machine for Linux:
 
 1. Navigate to the virtual machine listing on the [Azure portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). You may be prompted to sign in to your Azure account if you are not already signed in. 
-1. Click **Create** (at the bottom) to bring up the wizard.![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
-1. The following sections provide the inputs for each of the steps in the wizard (enumerated on the right of the preceding figure) used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
+1. 
+1. Click **Create** to bring up the wizard.
+    ![configure-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
+1. The following sections provide the inputs for each of the steps in the wizard used to create the Microsoft Data Science Virtual Machine. Here are the inputs needed to configure each of these steps:
 
-   a. **Basics**:
+a. **Basics**:
 
-   * **Name**: Name of your data science server you are creating.
-   * **VM Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**. 
-   * **User Name**: First account sign-in ID.
-   * **Password**: First account password (you can use SSH public key instead of password).
-   * **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
-   * **Resource Group**: You can create a new one or use an existing group.
-   * **Location**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
+* **Subscription**: If you have more than one subscription, select the one on which the machine is to be created and billed. You must have resource creation privileges for this subscription.
+* **Resource Group**: You can create a new one or use an existing group.
+* **Virtual Machine Name**: Name of your data science server you are creating.
+* **Region**: Select the data center that is most appropriate. Usually it is the data center that has most of your data, or is closest to your physical location for fastest network access.
+* **Availability options**: Set this if you want to use this VM in availability sets/zones else leave the default.
+* **Image**: Leave the default value
+* **Size**: Select one of the server types that meets your functional requirement and cost constraints. Select an NC or ND-series VM for GPU-based VM instances. 
+* **User Name**: Administrator user name
+* **SSH Public Key**: RSA public key in single line format (you can use password instead of SSH key).
+* **VM Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**.
 
-   b. **Size**:
+b. **Disks**:
 
-   * Select one of the server types that meets your functional requirement and cost constraints. Select an NC or ND-class VM for GPU-based VM instances. The [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) page lists the regions with GPUs.
+* **OS Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**.
 
-   c. **Settings**:
+c. For rest of the settings you can just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
 
-   * In most cases, you can just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
+Finally, select **Review + create**
+d. **Review + create**:
 
-   d. **Summary**:
-
-   * Verify that all information you entered is correct. A link is provided to the terms of use. The VM does not have any additional charges beyond the compute for the server size you chose in the **Size** step. To start the provisioning, click **Create**. 
+* After validation passes, verify that all information you entered is correct. A link is provided to the terms of use. The VM does not have any additional charges beyond the compute for the server size you chose in the Size input. To start the provisioning, click **Create**.
 
 The provisioning should take about 5 minutes. The status of the provisioning is displayed on the Azure portal.
 
