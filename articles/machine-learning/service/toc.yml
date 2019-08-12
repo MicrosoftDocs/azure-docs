@@ -259,7 +259,7 @@
   - name: Create reusable workflows
     displayName: pipelines
     items:
-    - name: 'ML pipelines: batch, computes, reuse, share'
+    - name: ML pipelines
       href: how-to-create-your-first-pipeline.md
     - name: 'Azure pipelines for CI/CD'
       displayName: continuous, integration, delivery
