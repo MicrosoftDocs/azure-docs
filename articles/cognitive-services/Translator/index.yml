@@ -63,28 +63,28 @@ sections:
     rows:
     - title: Translate text from one language to another
       values:
-      - href: quickstart-csharp-translate
+      - href: quickstart-csharp-translate?programming-language-csharp
       - href: quickstart-java-translate
       - href: quickstart-nodejs-translate
       - href: quickstart-python-translate
       - href: quickstart-go-translate
     - title: Convert text from one script to another
       values:
-      - href: quickstart-csharp-transliterate
+      - href: quickstart-csharp-transliterate?programming-language-csharp
       - href: quickstart-java-transliterate
       - href: quickstart-nodejs-transliterate
       - href: quickstart-python-transliterate
       - href: quickstart-go-transliterate
     - title: Identify language of text
       values:
-      - href: quickstart-csharp-detect
+      - href: quickstart-csharp-detect?programming-language-csharp
       - href: quickstart-java-detect
       - href: quickstart-nodejs-detect
       - href: quickstart-python-detect
       - href: quickstart-go-detect
     - title: Get alternate translations and usage
       values:
-      - href: quickstart-csharp-dictionary
+      - href: quickstart-csharp-dictionary?programming-language-csharp
       - href: quickstart-java-dictionary
       - href: quickstart-nodejs-dictionary
       - href: quickstart-python-dictionary
