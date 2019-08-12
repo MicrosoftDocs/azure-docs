@@ -2,13 +2,13 @@
 title: Integrate Azure Container Registry with Azure Kubernetes Service
 description: Learn how to provide access to images in your private container registry from Azure Kubernetes Service by using an Azure Active Directory service principal.
 services: container-service
-author: dlepow
+author: mlearned
 manager: gwallace
 
 ms.service: container-service
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: danlep
+ms.author: mlearned
 ---
 
 # Authenticate with Azure Container Registry from Azure Kubernetes Service
