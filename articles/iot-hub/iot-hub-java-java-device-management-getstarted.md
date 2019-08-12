@@ -98,7 +98,7 @@ This console app connects to your IoT Hub to invoke the direct method and read t
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-service-client</artifactId>
-      <version>1.7.23</version>
+      <version>1.17.1</version>
       <type>jar</type>
     </dependency>
     ```
@@ -249,7 +249,7 @@ In this section, you create a Java console app that simulates a device. The app 
     <dependency>
       <groupId>com.microsoft.azure.sdk.iot</groupId>
       <artifactId>iot-device-client</artifactId>
-      <version>1.3.32</version>
+      <version>1.17.5</version>
     </dependency>
     ```
 
@@ -266,7 +266,7 @@ In this section, you create a Java console app that simulates a device. The app 
     </dependency>
     ```
 
-4. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
+5. Add the following **build** node after the **dependencies** node. This configuration instructs Maven to use Java 1.8 to build the app:
 
     ```xml
     <build>
@@ -284,11 +284,11 @@ In this section, you create a Java console app that simulates a device. The app 
     </build>
     ```
 
-5. Save and close the **pom.xml** file.
+6. Save and close the **pom.xml** file.
 
-6. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** source file.
+7. Using a text editor, open the **simulated-device\src\main\java\com\mycompany\app\App.java** source file.
 
-7. Add the following **import** statements to the file:
+8. Add the following **import** statements to the file:
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -302,7 +302,7 @@ In this section, you create a Java console app that simulates a device. The app 
     import java.util.HashSet;
     ```
 
-8. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
+9. Add the following class-level variables to the **App** class. Replace `{yourdeviceconnectionstring}` with the device connection string you noted in the [Register a new device in the IoT hub](#register-a-new-device-in-the-iot-hub) section:
 
     ```java
     private static final int METHOD_SUCCESS = 200;
@@ -313,7 +313,7 @@ In this section, you create a Java console app that simulates a device. The app 
     private static DeviceClient client;
     ```
 
-9. To implement a callback handler for direct method status events, add the following nested class to the **App** class:
+10. To implement a callback handler for direct method status events, add the following nested class to the **App** class:
 
     ```java
     protected static class DirectMethodStatusCallback implements IotHubEventCallback
@@ -325,7 +325,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-10. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
+11. To implement a callback handler for device twin status events, add the following nested class to the **App** class:
 
     ```java
     protected static class DeviceTwinStatusCallback implements IotHubEventCallback
@@ -337,7 +337,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-11. To implement a callback handler for property events, add the following nested class to the **App** class:
+12. To implement a callback handler for property events, add the following nested class to the **App** class:
 
     ```java
     protected static class PropertyCallback implements PropertyCallBack<String, String>
@@ -350,7 +350,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-12. To implement a thread to simulate the device reboot, add the following nested class to the **App** class. The thread sleeps for five seconds and then sets the **lastReboot** reported property:
+13. To implement a thread to simulate the device reboot, add the following nested class to the **App** class. The thread sleeps for five seconds and then sets the **lastReboot** reported property:
 
     ```java
     protected static class RebootDeviceThread implements Runnable {
@@ -371,7 +371,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-13. To implement the direct method on the device, add the following nested class to the **App** class. When the simulated app receives a call to the **reboot** direct method, it returns an acknowledgment to the caller and then starts a thread to process the reboot:
+14. To implement the direct method on the device, add the following nested class to the **App** class. When the simulated app receives a call to the **reboot** direct method, it returns an acknowledgment to the caller and then starts a thread to process the reboot:
 
     ```java
     protected static class DirectMethodCallback implements com.microsoft.azure.sdk.iot.device.DeviceTwin.DeviceMethodCallback
@@ -403,20 +403,20 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-14. Modify the signature of the **main** method to throw the following exceptions:
+15. Modify the signature of the **main** method to throw the following exceptions:
 
     ```java
     public static void main(String[] args) throws IOException, URISyntaxException
     ```
 
-15. To instantiate a **DeviceClient**, replace the code in the **main** method with the following code:
+16. To instantiate a **DeviceClient**, replace the code in the **main** method with the following code:
 
     ```java
     System.out.println("Starting device client sample...");
     client = new DeviceClient(connString, protocol);
     ```
 
-16. To start listening for direct method calls, add the following code to the **main** method:
+17. To start listening for direct method calls, add the following code to the **main** method:
 
     ```java
     try
@@ -434,7 +434,7 @@ In this section, you create a Java console app that simulates a device. The app 
     }
     ```
 
-17. To shut down the device simulator, add the following code to the **main** method:
+18. To shut down the device simulator, add the following code to the **main** method:
 
     ```java
     System.out.println("Press any key to exit...");
@@ -445,9 +445,9 @@ In this section, you create a Java console app that simulates a device. The app 
     System.out.println("Shutting down...");
     ```
 
-18. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
+19. Save and close the simulated-device\src\main\java\com\mycompany\app\App.java file.
 
-19. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
+20. Build the **simulated-device** app and correct any errors. At your command prompt, navigate to the **simulated-device** folder and run the following command:
 
     ```cmd/sh
     mvn clean package -DskipTests
