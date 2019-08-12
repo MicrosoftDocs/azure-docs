@@ -38,16 +38,6 @@ In this example, we will enable Security Center on a subscription with ID: d07c0
 
 6. Assign Security Center’s [default security policies](tutorial-security-policy.md).
 
-## Prerequisites
-
-These steps should be performed before you run the Security Center cmdlets:
-
-1.	Run PowerShell as admin.
-2.	Run the following commands in PowerShell:
-      
-        Set-ExecutionPolicy -ExecutionPolicy AllSigned
-        Install-Module -Name Az.Security -Force
-
 ## Onboard Security Center using PowerShell
 
 1.	Register your subscriptions to the Security Center Resource Provider:
