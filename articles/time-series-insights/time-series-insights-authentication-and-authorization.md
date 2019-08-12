@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/29/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
