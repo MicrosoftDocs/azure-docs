@@ -18,7 +18,6 @@ This article details how to enable backup when you create a virtual machine (VM)
 ## Before you start
 
 - [Check](backup-support-matrix-iaas.md#supported-backup-actions) which operating systems are supported if you enable backup when you create a VM.
-- If your VMs have disks larger than 4TB, then [enroll for public preview](https://docs.microsoft.com/azure/backup/quick-backup-vm-powershell#vm-with-disk-sizes-up-to-30tb)
 
 ## Sign in to Azure
 

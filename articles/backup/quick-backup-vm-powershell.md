@@ -100,44 +100,6 @@ Enable backup as follows:
         -Policy $policy
     ```
 
-## VM with disk sizes up to 30TB
-
-Azure Backup now supports limited public preview of larger and more powerful [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) of up to 30 TiB size. This preview provides production level support for managed virtual machines.
-You can seamlessly enroll to the preview without any impact to your on-going backups. Once the subscription is enrolled into the preview, all the virtual machines with disk sizes up to 30TB should be successfully backed up. To enroll in the preview:
- 
-Execute the following cmdlets from an elevated PowerShell terminal:
-
-1. Login to Azure account.
-
-    ```powershell
-    PS C:> Login-AzureRmAccount
-    ```
-
-2. Select the subscription which you want to register for the upgrade:
-
-    ```powershell
-    PS C:>  Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
-    ```
-3. Register this subscription to the preview program: 
-
-    ```powershell
-    PS C:> Register-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices
-    ```
- 4. To check the status, run the following cmdlets:
-
-    ```powershell
-    PS C:> Get-AzureRmProviderFeature -FeatureName "LargeDiskVMBackupPreview" –ProviderNamespace Microsoft.RecoveryServices 
-    ```
-5. Once the subscription shows as registered, run the following command:
-    
-    ```powershell
-    PS C:> Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-> [!NOTE]
-> Encrypted VMs with greater than 4TB disks are not supported as a part of this preview.
-
-
 ## Start a backup job
 
 Backups run in accordance with the schedule specified in the backup policy. You can also run an ad hoc backup:
