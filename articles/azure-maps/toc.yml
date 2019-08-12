@@ -99,7 +99,7 @@
         href: map-add-bubble-layer.md
       - name: Add a line layer
         href: map-add-line-layer.md
-      - name: Add a polyon layer
+      - name: Add a polygon layer
         href: map-add-shape.md
       - name: Add a heat map layer
         href: map-add-heat-map-layer.md  
