@@ -15,26 +15,45 @@ ms.date: 08/21/2019
 ---
 # Choose the right deployment option in Azure SQL
 
+Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
+
+## Microsoft's Azure SQL data platform
+
+One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Microsoft's data platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. SQL Server on Azure virtual machines (SQL virtual machines) enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
+
+   ![Cloud SQL Server options: SQL server on IaaS, or SaaS SQL database in the cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
+
+As seen in the diagram, each offering can be characterized by the level of administration you have over the infrastructure, and by the degree of cost efficiency achieved by database level consolidation and automation.
+
+When designing an application, four basic options are available for hosting the SQL Server part of the application:
+
+- SQL Server on non-virtualized physical machines
+- SQL Server in on-premises virtualized machines (private cloud)
+- SQL Server in Azure Virtual Machine (Microsoft public cloud)
+- Azure SQL Database (Microsoft public cloud)
+
+
 In Azure, you can have your SQL Server workloads running in a hosted infrastructure (IaaS) or running as a hosted service ([PaaS](https://azure.microsoft.com/overview/what-is-paas/)). Within PaaS, you have multiple deployment options and service tiers within each deployment option. The key question that you need to ask when deciding between PaaS or IaaS is do you want to manage your database, apply patches, take backups, or you want to delegate these operations to Azure?
+
 Depending on the answer, you have the following options:
 
 - [**Databases**](sql-database-technical-overview.md): Best for modern cloud applications that want to use the latest stable SQL Server features and have time constraints in development and marketing. A fully-managed SQL database engine, based on the latest stable Enterprise Edition of SQL Server. This is a relational database-as-a-service (DBaaS) hosted in the Azure cloud that falls into the industry category of *Platform-as-a-Service (PaaS)*. SQL database has multiple deployment options, each of which is built on standardized hardware and software that is owned, hosted, and maintained by Microsoft. With SQL Database, you can use built-in features and functionality that require extensive configuration when used in SQL Server (either on-premises or in an Azure virtual machine). When using SQL Database, you pay-as-you-go with options to scale up or out for greater power with no interruption. SQL Database has additional features that are not available in SQL Server, such as built-in high availability, intelligence, and management. 
 
-  Optimized to reduce overall management costs to the minimum for provisioning and managing many databases. It reduces ongoing administration costs because you do not have to manage any virtual machines, operating system or database software. You do not have to manage upgrades, high availability, or [backups](sql-database-automated-backups.md). In general, Azure SQL Database can dramatically increase the number of databases managed by a single IT or development resource. [Elastic pools](sql-database-elastic-pool.md) also support SaaS multi-tenant application architectures with features including tenant isolation and the ability to scale to reduce costs by sharing resources across databases. [Managed instance](sql-database-managed-instance.md) provides support for instance-scoped features enabling easy migration of existing applications, as well as sharing resources amongst databases.
 
   Databases offer the following deployment options:
-  - As a [single database](sql-database-single-database.md) with its own set of resources managed via a database server. A single database is similar to a [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server. This option is optimized for modern application development of new cloud-born applications. Hyperscale and serverless options are available.
-  - An [elastic pool](sql-database-elastic-pool.md), which is a collection of databases with a shared set of resources managed via a database server. Single databases can be moved into and out of an elastic pool. This option is optimized for modern application development of new cloud-born applications using the multi-tenant SaaS application. Elastic pools provide a cost-effective solution for managing the performance of multiple databases with variable usage patterns.
-  - A [database server](sql-database-servers.md), which is a logical construct that acts as a central administrative point for multiple single or pooled databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-auto-failover-group.md). Database servers are used to manage groups of single databases and elastic pools.
+  - As a [***single database***](sql-database-single-database.md) with its own set of resources managed via a database server. A single database is similar to a [contained databases](https://docs.microsoft.com/sql/relational-databases/databases/contained-databases) in SQL Server. This option is optimized for modern application development of new cloud-born applications. Hyperscale and serverless options are available.
+  - An [***elastic pool***](sql-database-elastic-pool.md), which is a collection of databases with a shared set of resources managed via a database server. Single databases can be moved into and out of an elastic pool. This option is optimized for modern application development of new cloud-born applications using the multi-tenant SaaS application. Elastic pools provide a cost-effective solution for managing the performance of multiple databases with variable usage patterns.
+  - A [***database server***](sql-database-servers.md), which is used to manage groups of single databases and elastic pools. Database servers act as a central administrative point for multiple single or pooled databases, [logins](sql-database-manage-logins.md), [firewall rules](sql-database-firewall-configure.md), [auditing rules](sql-database-auditing.md), [threat detection policies](sql-database-threat-detection.md), and [failover groups](sql-database-auto-failover-group.md).
 
 - [**Managed instances**](sql-database-managed-instance.md): Best for most migrations to the cloud. Managed instance is lift-and-shift ready. New applications or existing on-premises applications that want to use the latest stable SQL Server features and that are migrated to the cloud with minimal changes. A collection of system and user databases with a shared set of resources. A managed instance is similar to an instance of the [Microsoft SQL Server database engine] offering shared resources for databases and additional instance-scoped features. Managed instance supports database migration from on-premises with minimal to no database change. This option provides all of the PaaS benefits of Azure SQL Database but adds capabilities that were previously only available in SQL VMs. This includes a native virtual network (VNet) and near 100% compatibility with on-premises SQL Server. Managed instances provide full SQL Server access and feature compatibility for migrating SQL Servers to Azure.
+
 
 - [**SQL virtual machines**](../virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview.md): Best for migrations and applications requiring OS-level access. SQL virtual machines are lift-and-shift ready for existing applications that require fast migration to the cloud with minimal changes or no changes. SQL virtual machines offer full administrative control over the SQL Server instance and underlying OS for migration to Azure. Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware.SQL virtual machines fall into the industry category *Infrastructure-as-a-Service (IaaS)* and allows you to run SQL Server inside a fully-managed virtual machine (VM) in the Azure cloud. SQL virtual machines also run on standardized hardware that is owned, hosted, and maintained by Microsoft. When using SQL Server on a VM, you can either pay-as you-go for a SQL Server license already included in a SQL Server image or easily use an existing license. You can also stop or resume the VM as needed. SQL Server installed and hosted in the cloud on Windows Server or Linux virtual machines running on Azure, also known as an infrastructure as a service (IaaS). SQL Server on Azure virtual machines is a good option for migrating on-premises SQL Server databases and applications without any database change. All recent versions and editions of SQL Server are available for installation in an IaaS virtual machine. The most significant difference from SQL Database is that SQL Server VMs allow full control over the database engine. You can choose when to start maintenance/patching, change the recovery model to simple or bulk-logged, pause or start the service when needed, and you can fully customize the SQL Server database engine. With this additional control comes the added responsibility to manage the virtual machine.
 
   Optimized for migrating existing applications to Azure or extending existing on-premises applications to the cloud in hybrid deployments. In addition, you can use SQL Server in a virtual machine to develop and test traditional SQL Server applications. With SQL Server on Azure VMs, you have the full administrative rights over a dedicated SQL Server instance and a cloud-based VM. It is a perfect choice when an organization already has IT resources available to maintain the virtual machines. These capabilities allow you to build a highly customized system to address your application’s specific performance and availability requirements.
 
 
-The main differences are listed in the following table:
+The main differences are listed in the following table, but important to note ***both databases and managed instances are optimized to reduce overall management costs to the minimum for provisioning and managing many databases.*** It reduces ongoing administration costs because you do not have to manage any virtual machines, operating system or database software. You do not have to manage upgrades, high availability, or [backups](sql-database-automated-backups.md). In general, Azure SQL Database can dramatically increase the number of databases managed by a single IT or development resource. [Elastic pools](sql-database-elastic-pool.md) also support SaaS multi-tenant application architectures with features including tenant isolation and the ability to scale to reduce costs by sharing resources across databases. [Managed instance](sql-database-managed-instance.md) provides support for instance-scoped features enabling easy migration of existing applications, as well as sharing resources amongst databases.
 
 | Databases | Managed instances | SQL virtual machines |
 | :--- | :--- | :--- |
@@ -48,21 +67,7 @@ The main differences are listed in the following table:
 | Supports [SQL Server transactional replication](https://msdn.microsoft.com/library/mt589530.aspx) as a subscriber to replicate data. | Replication is supported for managed instance as a preview feature. | Fully supports [SQL Server transactional replication](https://msdn.microsoft.com/library/mt589530.aspx), [Always On Availability Groups](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services, and Log Shipping to replicate data. Also, traditional SQL Server backups are fully supported |
 
 
-## Microsoft's SQL data platform
-Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.
 
-One of the first things to understand in any discussion of Azure versus on-premises SQL Server databases is that you can use it all. Microsoft’s data platform leverages SQL Server technology and makes it available across physical on-premises machines, private cloud environments, third-party hosted private cloud environments, and public cloud. SQL Server on Azure virtual machines enables you to meet unique and diverse business needs through a combination of on-premises and cloud-hosted deployments, while using the same set of server products, development tools, and expertise across these environments.
-
-   ![Cloud SQL Server options: SQL server on IaaS, or SaaS SQL database in the cloud.](./media/sql-database-paas-vs-sql-server-iaas/SQLIAAS_SQL_Server_Cloud_Continuum.png)
-
-As seen in the diagram, each offering can be characterized by the level of administration you have over the infrastructure (on the X axis), and by the degree of cost efficiency achieved by database level consolidation and automation (on the Y axis).
-
-When designing an application, four basic options are available for hosting the SQL Server part of the application:
-
-- SQL Server on non-virtualized physical machines
-- SQL Server in on-premises virtualized machines (private cloud)
-- SQL Server in Azure Virtual Machine (Microsoft public cloud)
-- Azure SQL Database (Microsoft public cloud)
 
 
 ## Business motivations for choosing databases, managed instances, or SQL virtual machines
