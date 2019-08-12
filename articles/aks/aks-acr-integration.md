@@ -23,7 +23,7 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 
 ## Create AKS and ACR integration with CLI during new cluster creation
 
-You can set up AKS and ACR integration during initial creation with the CLI.  The following command creates an ACR in the resource group you specify with acrpull permissions. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
+You can set up AKS and ACR integration during the initial creation of your AKS cluster.  The following CLI command creates an ACR in the resource group you specify with acrpull permissions. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```azurecli-interactive
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr-name <your-acr-name>]
 ```
@@ -35,10 +35,9 @@ az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enab
 
 ## Create ACR integration for existing AKS clusters
 
-For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for *acr-name* and *acr-resource-id* or the commands will fail.
+For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 ```azurecli-interactive
 az aks update –n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-name <your-acr-name>
-az aks create –n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-resource-id <your-acr-resource-id> 
 ```
 
 <!-- LINKS - external -->
