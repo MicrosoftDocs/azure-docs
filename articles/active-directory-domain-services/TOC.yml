@@ -98,12 +98,20 @@
           href: join-rhel-linux-vm.md
         - name: Ubuntu Server
           href: join-ubuntu-linux-vm.md
-    - name: Troubleshoot Azure AD DS
+    - name: Troubleshoot
       items: 
         - name: Troubleshooting guide
           href: troubleshoot.md
+        - name: Domain-join issues
+          href: troubleshoot-domain-join.md
+        - name: Resolve mismatched tenant errors
+          href: mismatched-tenant-error.md
+        - name: Suspended domains
+          href: suspension.md
+        - name: Secure LDAP issues
+          href: tshoot-ldaps.md
         - name: Troubleshoot alerts
-          href: troubleshoot-alerts.md          
+          href: troubleshoot-alerts.md
           items: 
             - name: Fix a broken NSG configuration
               href: alert-nsg.md
@@ -111,12 +119,6 @@
               href: alert-service-principal.md
             - name: Secure LDAP errors
               href: alert-ldaps.md
-        - name: Resolve mismatched tenant errors
-          href: mismatched-tenant-error.md
-        - name: Suspended domains
-          href: suspension.md
-        - name: Troubleshoot secure LDAP
-          href: tshoot-ldaps.md
 - name: Resources
   items: 
     - name: FAQs
