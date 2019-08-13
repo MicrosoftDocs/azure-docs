@@ -1251,7 +1251,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/immersive-reader/tutorial.md",
+      "source_path": "articles/cognitive-services/immersive-reader/tutorial-python.md",
       "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-python",
       "redirect_document_id": true
     },
