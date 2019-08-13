@@ -14,7 +14,7 @@ ms.date: 07/25/2019
 ms.custom: seodec18
 ---
 
-# What are field-programmable gate arrays (FPGA)
+# What are field-programmable gate arrays (FPGA) and how to deploy
 
 This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning service to an Azure FPGA. 
 
@@ -76,7 +76,7 @@ The following scenarios use FPGAs:
 
 
 
-## Deploy a model as a web service on an FPGA with Azure Machine Learning service
+## Deploy models on FPGAs
 
 You can deploy a model as a web service on FPGAs with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
