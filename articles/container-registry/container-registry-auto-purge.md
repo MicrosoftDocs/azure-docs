@@ -78,7 +78,7 @@ Run the [az acr task show][az-acr-task-show] command to see that the timer trigg
 
 ### Purge large numbers of tags and manifests
 
-Purging a large number of tags and manifests could take several minutes or longer. To purge thousands of tags and manifests, the on-demand or scheduled task command might need to run longer than the default [timeout time](container-registry-tasks-reference-yaml.md#cmd) of 600 seconds (10 minutes). In this case, pass the `--timeout` parameter to set a larger value. 
+Purging a large number of tags and manifests could take several minutes or longer. To purge thousands of tags and manifests, the on-demand or scheduled task command might need to run longer than the default timeout time of 600 seconds for an on-demand task, or 3600 seconds for a scheduled task. In this case, pass the `--timeout` parameter to set a larger value. 
 
 For example, the following on-demand task times out after 3600 seconds (1 hour):
 
