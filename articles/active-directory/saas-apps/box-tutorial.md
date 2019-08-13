@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with Box
+# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Box
 
 In this tutorial, you'll learn how to integrate Box with Azure Active Directory (Azure AD). When you integrate Box with Azure AD, you can:
 
