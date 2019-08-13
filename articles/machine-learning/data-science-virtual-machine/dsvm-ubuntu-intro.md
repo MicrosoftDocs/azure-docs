@@ -98,7 +98,6 @@ a. **Basics**:
 * **Size**: Select one of the server types that meets your functional requirement and cost constraints. Select an NC or ND-series VM for GPU-based VM instances. 
 * **User Name**: Administrator user name
 * **SSH Public Key**: RSA public key in single line format (you can use password instead of SSH key).
-* **VM Disk Type**: Choose **Premium SSD** if you prefer a solid-state drive (SSD). Otherwise, choose **Standard HDD**.
 
 b. **Disks**:
 
