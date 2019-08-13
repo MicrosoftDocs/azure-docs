@@ -35,7 +35,7 @@ ms.subservice: files
 | Ubuntu Server | 14.04+ | 16.04+ |
 | RHEL | 7+ | 7.5+ |
 | CentOS | 7+ |  7.5+ |
-| Debian | 8+ |   |
+| Debian | 8+ | 9+  |
 | openSUSE | 13.2+ | 42.3+ |
 | SUSE Linux Enterprise Server | 12 | 12 SP3+ |
 
