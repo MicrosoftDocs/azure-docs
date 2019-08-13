@@ -1,6 +1,6 @@
 ---
-title: 'Use events with Azure Data Lake Storage Gen2 | Microsoft Docs'
-description: This tutorial shows you how to use an event.
+title: 'Use Azure Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2 | Microsoft Docs'
+description: This tutorial shows you how to use an Event Grid subscription, an Azure Function, and an Azure Databricks job to insert rows of data into a table that is stored in Azure DataLake Storage Gen2.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -10,26 +10,26 @@ ms.author: normesta
 ms.reviewer: sumameh
 ---
 
-# Tutorial: Use events with Azure Data Lake Storage Gen2
+# Tutorial: Use Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2
 
-This tutorial shows you how to do awesome stuff.
+This tutorial shows you how to handle events in storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial helps you build a solution that enables you to upload a file that describes a new sales order. An Event Grid subscription notifies an Azure Function and passes information to that function which describes the file that was uploaded. The Azure Function runs a Job in Azure Databricks which inserts a row into a Databricks Delta table that is located in the storage account.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Task here.
-> * Taske here.
-> * Task here.
+> * Create an Event Grid subscription that calls the Azure Function when a file that describes a new order is uploaded to the storage account.
+> * Create an Azure Function that receives a notification from an event, and then runs the job in Azure Databricks.
+> * Create a job that inserts a customer order row into a Databricks Delta table that is located in a storage account.
+
+We'll build this solution in reverse order, starting with the Azure Databricks workspace.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`.
+* Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
   See [Create an Azure Data Lake Storage Gen2 account](data-lake-storage-quickstart-create-account.md).
-
-* Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
 * Create a service principal. See [How to: Use the portal to create an Azure AD application and service principal that can access resources](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
@@ -42,7 +42,37 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
 
-## Create an Azure Databricks workspace
+## Create initial data
+
+1. Open Azure Storage Explorer, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
+
+   ![data folder](./media/data-lake-storage-events/data-container.png "data folder")
+
+   For more information about how to use Storage Explorer, see [Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](data-lake-storage-explorer.md).
+
+2. In the **data** container, create a folder named **input**.
+
+3. Paste the following text into a text editor.
+
+   ```
+   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
+   536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
+   ```
+
+4. Save this file to your local computer and give it the name **data.csv**.
+
+5. In Storage Explorer, upload this file to the **input** folder.  
+
+## Create a job in Azure Databricks
+
+In this section, you'll perform these tasks:
+
+* Create an Azure Databricks workspace.
+* Create and populate a Databricks Detla table.
+* Add upload and insert capability to the notebook.
+* Create a Job.
+
+### Create an Azure Databricks workspace
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
 
@@ -56,28 +86,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
-## Add initial data to the storage account
-
-1. Open Azure Storage Explorer, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
-
-   ![data folder](./media/data-lake-storage-events/data-container.png "data folder")
-
-   For more information about how to use Storage Explorer, see [Use Azure Storage Explorer to manage data in an Azure Data Lake Storage Gen2 account](data-lake-storage-explorer.md).
-
-2. In the **data** container, create a folder named **input**, and then a sub folder named **full**.
-
-3. Paste the following text into a text editor. 
-
-   ```
-   InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
-   536365,85123A,WHITE HANGING HEART T-LIGHT HOLDER,6,12/1/2010 8:26,2.55,17850,United Kingdom
-   ```
-
-4. Save this file to your local computer and give it the name **data.csv**.
-
-5. In Storage Explorer, upload this file to the **input/full** folder.  
-
-## Create Databricks Delta tables
+### Create and populate a Databricks Delta table
 
 In this section, you create a notebook in Azure Databricks workspace and then run code snippets to set up the customer table in the storage account.
 
@@ -134,7 +143,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    rawDataDF = (spark.read
     .option("header", "true")
     .schema(inputSchema)
-    .csv(adlsPath + 'input/full')
+    .csv(adlsPath + 'input')
    )
 
    (rawDataDF.write
@@ -145,7 +154,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 8. After this code block successfully runs, remove this code block from your notebook. You no longer need it.
 
-## Add "Upsert" capability to the notebook
+### Add upload and insert capability to the notebook
 
 1. Copy and paste the following code block into a different cell, but don't run this cell.
 
@@ -189,7 +198,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
        cu.Country)
    ```
 
-## Create a Spark job
+### Create a Job
 
 1. Click **Jobs**.
 
@@ -201,7 +210,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 4. Start the job (put exact steps here)
 
-## Create a function app
+## Create an Azure Function
 
 1. In the upper corner of the workspace, choose the people icon, and then choose **User settings**.
 
@@ -291,7 +300,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    }
    ```
 
-## Create an event subscription
+## Create an Event Grid subscription
 
 1. In the function code page, click the **Add Event Grid subscription** button.
 
@@ -303,18 +312,16 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 3. In the **Filter to Event Types** drop-down list, select the **Blob Created**, and **Blob Deleted** events, and then click the **Create** button.
 
-## Test it all out
+## Test the Event Grid subscription
 
-1. In Storage Explorer, create a sub-folder named **upsert**.
-
-2. Create a file named `customer-order.csv` and paste the following information into that file, and save it to your local.
+1. Create a file named `customer-order.csv` and paste the following information into that file, and save it to your local.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536371,99999,EverGlow Single,228,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-3. In Storage Explorer, upload this file to the **upsert** folder to begin the process.
+3. In Storage Explorer, upload this file to the **input** folder to begin the process.
 
 4. Check that the job succeeded. Open your databricks workspace, and click **Jobs**, and then open the job that you started in an earlier step.
 
