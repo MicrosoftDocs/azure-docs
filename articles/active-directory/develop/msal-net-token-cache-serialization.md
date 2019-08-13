@@ -10,10 +10,10 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/25/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
@@ -35,22 +35,22 @@ In MSAL.NET, an in-memory token cache is provided by default. Serialization is p
 
 ## Custom serialization for Windows desktop apps and web apps/web APIs
 
-Remember, custom serialization isn't available on mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android). MSAL already defines a secure and performant serialization mechanism for these platforms. .NET desktop and .NET Core applications, however, have varied architectures and MSAL cannot implement a general-purpose serialization mechanism. For example, web sites may choose to store tokens in a Redis cache, or desktop apps store tokens in an encrypted file. So serialization isn't provided out-of-the-box. To have a persistent token cache application in .NET desktop or .NET Core, you need to customize the serialization.
+Remember, custom serialization isn't available on mobile platforms (UWP, Xamarin.iOS, and Xamarin.Android). MSAL already defines a secure and performant serialization mechanism for these platforms. .NET desktop and .NET Core applications, however, have varied architectures and MSAL can't implement a general-purpose serialization mechanism. For example, web sites may choose to store tokens in a Redis cache, or desktop apps store tokens in an encrypted file. So serialization isn't provided out-of-the-box. To have a persistent token cache application in .NET desktop or .NET Core, you need to customize the serialization.
 
 The following classes and interfaces are used in token cache serialization:
 
-- `ITokenCache`, which defines events to subscribe to token cache serialization requests as well as methods to serialize or de-serialize the cache at various formats (ADAL v3.0, MSAL 2.x and MSAL 3.x = ADAL v5.0).
-- `TokenCacheCallback` is a callback passed to the events so that you can handle the serialization. They will be called with arguments of type `TokenCacheNotificationArgs`.
+- `ITokenCache`, which defines events to subscribe to token cache serialization requests as well as methods to serialize or de-serialize the cache at various formats (ADAL v3.0, MSAL 2.x, and MSAL 3.x = ADAL v5.0).
+- `TokenCacheCallback` is a callback passed to the events so that you can handle the serialization. They'll be called with arguments of type `TokenCacheNotificationArgs`.
 - `TokenCacheNotificationArgs` only provides the `ClientId` of the application and a reference to the user for which the token is available.
 
   ![Class diagram](media/msal-net-token-cache-serialization/class-diagram.png)
 
 > [!IMPORTANT]
-> MSAL.NET creates token caches for you and provides you with the `IToken` cache when you call an application's `GetUserTokenCache` and `GetAppTokenCache` methods. You are not supposed to implement the interface yourself. Your responsibility, when you implement a custom token cache serialization, is to:
-> - React to `BeforeAccess` and `AfterAccess` "events". The `BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
+> MSAL.NET creates token caches for you and provides you with the `IToken` cache when you call an application's `UserTokenCache` and `AppTokenCache` properties. You are not supposed to implement the interface yourself. Your responsibility, when you implement a custom token cache serialization, is to:
+> - React to `BeforeAccess` and `AfterAccess` "events" (or their Async flavors). The `BeforeAccess` delegate is responsible to deserialize the cache, whereas the `AfterAccess` one is responsible for serializing the cache.
 > - Part of these events store or load blobs, which are passed through the event argument to whatever storage you want.
 
-The strategies are different depending on if you are writing a token cache serialization for a [public client application](msal-client-applications.md) (desktop), or a [confidential client application](msal-client-applications.md)) (web app / web API, daemon app).
+The strategies are different depending on if you're writing a token cache serialization for a [public client application](msal-client-applications.md) (desktop), or a [confidential client application](msal-client-applications.md)) (web app / web API, daemon app).
 
 ### Token cache for a public client 
 
@@ -161,7 +161,7 @@ namespace CommonCacheMsalV3
  static class FilesBasedTokenCacheHelper
  {
   /// <summary>
-  /// Get the user token cache
+  /// Enables the serialization of the token cache
   /// </summary>
   /// <param name="adalV3CacheFileName">File name where the cache is serialized with the
   /// ADAL V3 token cache format. Can
@@ -172,20 +172,14 @@ namespace CommonCacheMsalV3
   /// ADAL V4 and MSAL V2 and above, and also across ADAL/MSAL on the same platform.
   ///  Should not be <c>null</c></param>
   /// <returns></returns>
-  public static void EnableSerialization(ITokenCache cache, string unifiedCacheFileName, string adalV3CacheFileName)
+  public static void EnableSerialization(ITokenCache tokenCache, string unifiedCacheFileName, string adalV3CacheFileName)
   {
-   usertokenCache = cache;
    UnifiedCacheFileName = unifiedCacheFileName;
    AdalV3CacheFileName = adalV3CacheFileName;
 
-   usertokenCache.SetBeforeAccess(BeforeAccessNotification);
-   usertokenCache.SetAfterAccess(AfterAccessNotification);
+   tokenCache.SetBeforeAccess(BeforeAccessNotification);
+   tokenCache.SetAfterAccess(AfterAccessNotification);
   }
-
-  /// <summary>
-  /// Token cache
-  /// </summary>
-  static ITokenCache usertokenCache;
 
   /// <summary>
   /// File path where the token cache is serialized with the unified cache format

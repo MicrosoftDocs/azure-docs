@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/17/2019
+ms.date: 08/08/2019
 
 
 ---
@@ -22,7 +22,7 @@ For security purposes, you may need to change the access keys for an Azure Stora
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](setup-create-workspace.md) article.
+* An Azure Machine Learning service workspace. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
 
 * The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
 
@@ -46,12 +46,14 @@ from azureml.core import Workspace, Datastore
 ws = Workspace.from_config()
 
 default_ds = ws.get_default_datastore()
-print("Default datstore: " + default_ds.name + ", storage account name: " + default_ds.account_name + ", container name: " + ds.container_name)
+print("Default datstore: " + default_ds.name + ", storage account name: " +
+      default_ds.account_name + ", container name: " + ds.container_name)
 
 datastores = ws.datastores
 for name, ds in datastores.items():
     if ds.datastore_type == "AzureBlob" or ds.datastore_type == "AzureFile":
-        print("datastore name: " + name + ", storage account name: " + ds.account_name + ", container name: " + ds.container_name)
+        print("datastore name: " + name + ", storage account name: " +
+              ds.account_name + ", container name: " + ds.container_name)
 ```
 
 This code looks for any registered datastores that use Azure Storage and lists the following information:
@@ -79,17 +81,13 @@ To update Azure Machine Learning service to use the new key, use the following s
         az login
         ```
 
-    1. To install the Azure Machine Learning extension, use the following command:
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
+
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 

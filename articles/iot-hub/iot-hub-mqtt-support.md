@@ -71,13 +71,13 @@ If a device cannot use the device SDKs, it can still connect to the public devic
   `SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`
 
   > [!NOTE]
-  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md)
+  > If you use X.509 certificate authentication, SAS token passwords are not required. For more information, see [Set up X.509 security in your Azure IoT Hub](iot-hub-security-x509-get-started.md) and follow code instructions [below](#tlsssl-configuration).
 
   For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens](iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app).
 
   When testing, you can also use the cross-platform [Azure IoT Tools for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools) or the [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/tools/DeviceExplorer) tool to quickly generate a SAS token that you can copy and paste into your own code:
 
-For Azure IoT Tools:
+### For Azure IoT Tools
 
 1. Expand the **AZURE IOT HUB DEVICES** tab in the bottom left corner of Visual Studio Code.
   
@@ -87,7 +87,7 @@ For Azure IoT Tools:
   
 4. The SAS token is created and copied to clipboard.
 
-For Device Explorer:
+### For Device Explorer
 
 1. Go to the **Management** tab in **Device Explorer**.
 
@@ -125,7 +125,7 @@ Connecting to IoT Hub over MQTT using a module identity is similar to the device
 
 * The twin status topic is identical for modules and devices.
 
-### TLS/SSL configuration
+## TLS/SSL configuration
 
 To use the MQTT protocol directly, your client *must* connect over TLS/SSL. Attempts to skip this step fail with connection errors.
 
@@ -153,17 +153,23 @@ Then, implement the client in a Python script. Replace the placeholders as follo
 from paho.mqtt import client as mqtt
 import ssl
 
-path_to_root_cert = "<local path to digicert.cer>"
+path_to_root_cert = "<local path to digicert.cer file>"
 device_id = "<device id from device registry>"
 sas_token = "<generated SAS token>"
 iot_hub_name = "<iot hub name>"
 
+
 def on_connect(client, userdata, flags, rc):
-  print ("Device connected with result code: " + str(rc))
+    print("Device connected with result code: " + str(rc))
+
+
 def on_disconnect(client, userdata, rc):
-  print ("Device disconnected with result code: " + str(rc))
+    print("Device disconnected with result code: " + str(rc))
+
+
 def on_publish(client, userdata, mid):
-  print ("Device sent message")
+    print("Device sent message")
+
 
 client = mqtt.Client(client_id=device_id, protocol=mqtt.MQTTv311)
 
@@ -171,9 +177,11 @@ client.on_connect = on_connect
 client.on_disconnect = on_disconnect
 client.on_publish = on_publish
 
-client.username_pw_set(username=iot_hub_name+".azure-devices.net/" + device_id + "/?api-version=2018-06-30", password=sas_token)
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
+                       device_id + "/?api-version=2018-06-30", password=sas_token)
 
-client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None, cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+client.tls_set(ca_certs=path_to_root_cert, certfile=None, keyfile=None,
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
 client.tls_insecure_set(False)
 
 client.connect(iot_hub_name+".azure-devices.net", port=8883)
@@ -182,7 +190,31 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-### Sending device-to-cloud messages
+The following are the installation instructions for the prerequisites.
+
+[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
+
+To authenticate using a device certificate, update the code snippet above with the following changes (see [How to get an X.509 CA certificate](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) on how to prepare for certificate-based authentication):
+
+```python
+# Create the client as before
+# ...
+
+# Set the username but not the password on your client
+client.username_pw_set(username=iot_hub_name+".azure-devices.net/" +
+                       device_id + "/?api-version=2018-06-30", password=None)
+
+# Set the certificate and key paths on your client
+cert_file = "<local path to your certificate file>"
+key_file = "<local path to your device key file>"
+client.tls_set(ca_certs=path_to_root_cert, certfile=cert_file, keyfile=key_file,
+               cert_reqs=ssl.CERT_REQUIRED, tls_version=ssl.PROTOCOL_TLSv1, ciphers=None)
+
+# Connect as before
+client.connect(iot_hub_name+".azure-devices.net", port=8883)
+```
+
+## Sending device-to-cloud messages
 
 After making a successful connection, a device can send messages to IoT Hub using `devices/{device_id}/messages/events/` or `devices/{device_id}/messages/events/{property_bag}` as a **Topic Name**. The `{property_bag}` element enables the device to send messages with additional properties in a url-encoded format. For example:
 
@@ -203,7 +235,7 @@ The following is a list of IoT Hub implementation-specific behaviors:
 
 For more information, see [Messaging developer's guide](iot-hub-devguide-messaging.md).
 
-### Receiving cloud-to-device messages
+## Receiving cloud-to-device messages
 
 To receive messages from IoT Hub, a device should subscribe using `devices/{device_id}/messages/devicebound/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive additional properties in the topic name. IoT Hub does not allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since IoT Hub is not a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
@@ -213,7 +245,7 @@ IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/
 
 When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub delivers messages to the device using QoS 1.
 
-### Retrieving a device twin's properties
+## Retrieving a device twin's properties
 
 First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request ID**. The service then sends a response message containing the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request ID** as the request.
 
@@ -245,7 +277,7 @@ The possible status codes are:
 
 For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
-### Update device twin's reported properties
+## Update device twin's reported properties
 
 To update reported properties, the device issues a request to IoT Hub via a publication over a designated MQTT topic. After processing the request, IoT Hub responds the success or failure status of the update operation via a publication to another topic. This topic can be subscribed by the device in order to notify it about the result of its twin update request. To implement this type of request/response interaction in MQTT, we leverage the notion of request id (`$rid`) provided initially by the device in its update request. This request id is also included in the response from IoT Hub to allow the device to correlate the response to its particular earlier request.
 
@@ -285,14 +317,15 @@ from paho.mqtt import client as mqtt
 client.subscribe("$iothub/twin/res/#")
 rid = "1"
 twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
-client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
+               rid, twin_reported_property_patch, qos=0)
 ```
 
 Upon success of twin reported properties update operation above, the publication message from IoT Hub will have the following topic: `$iothub/twin/res/204/?$rid=1&$version=6`, where `204` is the status code indicating success, `$rid=1` corresponds to the request ID provided by the device in the code, and `$version` corresponds to the version of reported properties section of device twins after the update.
 
 For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
-### Receiving desired properties update notifications
+## Receiving desired properties update notifications
 
 When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For example:
 
@@ -311,7 +344,7 @@ As for property updates, `null` values means that the JSON object member is bein
 
 For more information, see [Device twins developer's guide](iot-hub-devguide-device-twins.md).
 
-### Respond to a direct method
+## Respond to a direct method
 
 First, a device has to subscribe to `$iothub/methods/POST/#`. IoT Hub sends method requests to the topic `$iothub/methods/POST/{method name}/?$rid={request id}`, with either a valid JSON or an empty body.
 
@@ -319,7 +352,7 @@ To respond, the device sends a message with a valid JSON or empty body to the to
 
 For more information, see [Direct method developer's guide](iot-hub-devguide-direct-methods.md).
 
-### Additional considerations
+## Additional considerations
 
 As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway](iot-hub-protocol-gateway.md). This software enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
 

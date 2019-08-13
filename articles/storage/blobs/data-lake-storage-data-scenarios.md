@@ -1,15 +1,13 @@
 ---
 title: Data scenarios involving Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in Data Lake Storage Gen2 (previously known as Azure Data Lake Store)
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 07/23/2019
 ms.author: normesta
-
+ms.reviewer: stewu
 ---
 # Using Azure Data Lake Storage Gen2 for big data requirements
 
@@ -77,7 +75,7 @@ To grant access to specific file and folders, see these articles.
 
 * [Access control lists on files and directories](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
-To learn about setting up other aspects of security, see [Azure Data Lake Storage Gen2 security guide](https://review.docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To learn about setting up other aspects of security, see [Azure Data Lake Storage Gen2 security guide](https://docs.microsoft.com/azure/storage/common/storage-data-lake-storage-security-guide?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## Ingest the data
 

@@ -8,7 +8,7 @@
     href: whats-new.md
 - name: Tutorials
   items:
-  - name: VMware VM assessment and migration
+  - name: Assess and migrate VMware VMs
     items:
     - name: Prepare VMware for assessment and migration
       href: tutorial-prepare-vmware.md
@@ -22,7 +22,7 @@
         href: tutorial-migrate-vmware.md
       - name: Migrate VMware VMs with agent-based migration
         href: tutorial-migrate-vmware-agent.md
-  - name: Hyper-V assessment and migration
+  - name: Assess and migrate Hyper-V VMs
     items:
     - name: Prepare Hyper-V for assessment and migration
       href: tutorial-prepare-hyper-v.md
@@ -30,7 +30,7 @@
       href: tutorial-assess-hyper-v.md
     - name: Migrate Hyper-V VMs
       href: tutorial-migrate-hyper-v.md
-  - name: Migrate physical servers and virtual machines
+  - name: Migrate physical servers and VMs
     href: tutorial-migrate-physical-virtual-machines.md
 - name: Concepts
   items:
@@ -54,34 +54,32 @@
     href: migrate-replication-appliance.md
   - name: Best practices for assessments
     href: best-practices-assessment.md
-  - name: Assessment calculations
+  - name: Assessments overview
     href: concepts-assessment-calculation.md
   - name: Dependency visualization
     href: concepts-dependency-visualization.md
 - name: How-to guides
   items:
-  - name: Migration examples-Contoso series
-    href: contoso-migration-overview.md
-  - name: Deploy an appliance for VMware assessment/migration (agentless)
+  - name: Work with previous version
+    href: migrate-v1.md
+  - name: Deploy a VMware appliance
     href: how-to-set-up-appliance-vmware.md
-  - name: Deploy an appliance for Hyper-V assessment/migration
+  - name: Deploy a Hyper-V appliance
     href: how-to-set-up-appliance-hyper-v.md
-  - name: Add an assessment/migration tool for the first time
+  - name: Add a tool for the first time
     href: how-to-add-tool-first-time.md
   - name: Add assessment tools
     href: how-to-assess.md
-  - name: Add migration tools
-    href: how-to-migrate.md
   - name: Group machines for assessment
-    items:
-    - name: Create a group
-      href: how-to-create-a-group.md
-    - name: Group machines using machine dependencies
-      href: how-to-create-group-machine-dependencies.md
-    - name: Refine a group using group dependencies
-      href: how-to-create-group-dependencies.md
+    href: how-to-create-a-group.md
+  - name: Group machines using dependency visualization
+    href: how-to-create-group-machine-dependencies.md 
+  - name: Create an assessment
+    href: how-to-create-assessment.md
   - name: Customize an assessment
     href: how-to-modify-assessment.md
+  - name: Add migration tools
+    href: how-to-migrate.md
   - name: Scale assessment and migration
     items:
     - name: Assess large numbers of VMware VMs
@@ -90,6 +88,10 @@
       href: scale-hyper-v-assessment.md
     - name: Automate migration of large number of VMs
       href: how-to-migrate-at-scale.md
+  - name: Migration examples-Contoso series
+    href: contoso-migration-overview.md
+- name: Troubleshoot
+  items:
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources

@@ -1,22 +1,19 @@
 ---
 title: Workflow of Windows Azure VM Architecture | Microsoft Docs
-description: This article provides overview of the workflow processes when you deploy a service. 
+description: This article provides overview of the workflow processes when you deploy a service.
 services: cloud-services
 documentationcenter: ''
 author: genlin
 manager: Willchen
 editor: ''
 tags: top-support-issue
-
 ms.assetid: 9f2af8dd-2012-4b36-9dd5-19bf6a67e47d
 ms.service: cloud-services
-ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 04/08/2019
 ms.author: kwill
-
 ---
 #    Workflow of Windows Azure classic VM Architecture 
 This article provides an overview of the workflow processes that occur when you deploy or update an Azure resource such as a virtual machine. 
@@ -80,7 +77,7 @@ The following diagram presents the architecture of Azure resources.
 5. WindowsAzureGuestAgent sets up the guest OS (firewall, ACLs, LocalStorage, and so on), copies a new XML configuration file to c:\Config, and then starts the WaHostBootstrapper process.
 6. For Full IIS web roles, WaHostBootstrapper starts IISConfigurator and tells it to delete any existing AppPools for the web role from IIS.
 7. WaHostBootstrapper reads the **Startup** tasks from E:\RoleModel.xml and begins executing startup tasks. WaHostBootstrapper waits until all Simple startup tasks have finished and returned a “success” message.
-8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of <Sites> elements defined for the service.
+8. For Full IIS web roles, WaHostBootstrapper tells IISConfigurator to configure the IIS AppPool and points the site to `E:\Sitesroot\<index>`, where `<index>` is a 0 based index into the number of `<Sites>` elements defined for the service.
 9. WaHostBootstrapper will start the host process depending on the role type:
     1. **Worker Role**: WaWorkerHost.exe is started. WaHostBootstrapper executes the OnStart() method.After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation (if InputEndpoints are defined). WaHostBootsrapper then goes into a loop of checking the role status.
     1. **SDK 1.2 HWC Web Role**: WaWebHost is started. WaHostBootstrapper executes the OnStart() method. After it returns,  WaHostBootstrapper starts to execute the Run() method, and then simultaneously marks the role as Ready and puts it into the load balancer rotation. WaWebHost issues a warmup request (GET /do.rd_runtime_init). All web requests are sent to WaWebHost.exe. WaHostBootsrapper then goes into a loop of checking the role status.
@@ -98,27 +95,27 @@ This log contains status updates and heartbeat notifications and is updated ever
  
 **WaHostBootstrapper**
 
-C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log
+`C:\Resources\Directory\<deploymentID>.<role>.DiagnosticStore\WaHostBootstrapper.log`
  
 **WaWebHost**
 
-C:\Resources\Directory\<guid>.<role>\WaWebHost.log
+`C:\Resources\Directory\<guid>.<role>\WaWebHost.log`
  
 **WaIISHost**
 
-C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log
+`C:\Resources\Directory\<deploymentID>.<role>\WaIISHost.log`
  
 **IISConfigurator**
 
-C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log
+`C:\Resources\Directory\<deploymentID>.<role>\IISConfigurator.log`
  
 **IIS logs**
 
-C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1
+`C:\Resources\Directory\<guid>.<role>.DiagnosticStore\LogFiles\W3SVC1`
  
 **Windows Event logs**
 
-D:\Windows\System32\Winevt\Logs
+`D:\Windows\System32\Winevt\Logs`
  
 
 

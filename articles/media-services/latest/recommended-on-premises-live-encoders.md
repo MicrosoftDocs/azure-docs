@@ -7,7 +7,7 @@ keywords: encoding;encoders;media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 06/12/2019
+ms.date: 08/08/2019
 ms.topic: article
 # Use only one of the following. Use ms.service for services, ms.prod for on premises. Remove the # before the relevant field.
 ms.service: media-services
@@ -133,7 +133,7 @@ Follow the same steps as in [Pass-through Live Event verification](#pass-through
 
 ### Email your recorded settings
 
-Finally, email your recorded settings and live archive parameters to Azure Media Services at amslived@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
+Finally, email your recorded settings and live archive parameters to Azure Media Services at amshelp@microsoft.com as a notification that all self-verification checks have passed. Also, include your contact information for any follow-ups. You can contact the Azure Media Services team with any questions about this process.
 
 ## Next steps
 

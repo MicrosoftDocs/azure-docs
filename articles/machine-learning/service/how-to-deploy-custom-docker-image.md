@@ -1,5 +1,5 @@
 ---
-title: How to deploy a model using a custom Docker image 
+title: Deploy models by using a custom Docker image 
 titleSuffix: Azure Machine Learning service
 description: 'Learn how to use a custom Docker image when deploying your Azure Machine Learning service models. When deploying a trained model, a Docker image is created to host the image, web server, and other components needed to run the service. While Azure Machine Learning service provides a default image for you, you can also use your own image.'
 services: machine-learning
@@ -12,9 +12,9 @@ ms.reviewer: larryfr
 ms.date: 07/11/2019
 ---
 
-# Deploy a model using a custom Docker image
+# Deploy a model by using a custom Docker image
 
-Learn how to use a custom Docker image when deploying trained models with the Azure Machine Learning service.
+Learn how to use a custom Docker image when you deploy trained models with the Azure Machine Learning service.
 
 When you deploy a trained model to a web service or IoT Edge device, a Docker image is created. This image contains the model, conda environment, and assets needed to use the model. It also contains a web server to handle incoming requests when deployed as a web service, and components needed to work with Azure IoT Hub.
 
@@ -23,7 +23,7 @@ Azure Machine Learning service provides a default Docker image so you don't have
 Typically, you create a custom image when you want to control component versions or save time during deployment. For example, you might want to standardize on a specific version of Python, Conda, or other component. You might also want to install software required by your model, where the installation process takes a long time. Installing the software when creating the base image means that you don't have to install it for each deployment.
 
 > [!IMPORTANT]
-> When deploying a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
+> When you deploy a model, you cannot override core components such as the web server or IoT Edge components. These components provide a known working environment that is tested and supported by Microsoft.
 
 > [!WARNING]
 > Microsoft may not be able to help troubleshoot problems caused by a custom image. If you encounter problems, you may be asked to use the default image or one of the images Microsoft provides to see if the problem is specific to your image.
@@ -35,8 +35,8 @@ This document is broken into two sections:
 
 ## Prerequisites
 
-* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](setup-create-workspace.md) article.
-* The Azure Machine Learning SDK. For more information, see the Python SDK section of the [Create a workspace](setup-create-workspace.md#sdk) article.
+* An Azure Machine Learning service workgroup. For more information, see the [Create a workspace](how-to-manage-workspace.md) article.
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py). 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * The [CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * An [Azure Container Registry](/azure/container-registry) or other Docker registry that is accessible on the internet.
@@ -93,6 +93,8 @@ If you've already trained or deployed models using the Azure Machine Learning se
     ```azurecli-interactive
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
+
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
     The information returned is similar to the following text:
 

@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 5/7/2019
+ms.date: 07/17/2019
 ms.author: victorh
 ms.custom: mvc
 ---

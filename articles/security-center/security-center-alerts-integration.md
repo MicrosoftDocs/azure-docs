@@ -1,23 +1,21 @@
 ---
-title: Security Center integration with Azure Security products | Microsoft Docs
+title: Integration of Azure Security products in Azure Security Center| Microsoft Docs
 description: This topics presents Azure Security products that have been integrated with Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: ad4b0373-08ee-46ca-a573-638ed93a647c
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  7/02/2019
-ms.author: monhaber
-
+ms.date: 7/02/2019
+ms.author: "v-mohabe"
 ---
-# Security Center integration with Azure Security products in ASC
+# Integration of Azure Security products in Azure Security Center
 
 Security Center offers customers with additional Microsoft licenses to onboard their findings to Security Center and view them in a consolidated manner.
 

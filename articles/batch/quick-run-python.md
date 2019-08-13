@@ -3,7 +3,7 @@ title: Azure Quickstart - Run Batch job - Python
 description: Quickly run a Batch job and tasks using the Batch Python client library.
 services: batch
 author: laurenhughes
-manager: jeconnoc 
+manager: gwallace 
 
 ms.service: batch
 ms.devlang: python

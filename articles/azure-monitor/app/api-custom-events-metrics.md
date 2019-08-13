@@ -45,6 +45,7 @@ If you don't have a reference on Application Insights SDK yet:
 * Add the Application Insights SDK to your project:
 
   * [ASP.NET project](../../azure-monitor/app/asp-net.md)
+  * [ASP.NET Core project](../../azure-monitor/app/asp-net-core.md)
   * [Java project](../../azure-monitor/app/java-get-started.md)
   * [Node.js project](../../azure-monitor/app/nodejs.md)
   * [JavaScript in each webpage](../../azure-monitor/app/javascript.md) 
@@ -157,8 +158,6 @@ If [sampling](../../azure-monitor/app/sampling.md) is in operation, the itemCoun
 *C#*
 
 ```csharp
-#pragma warning disable CA1716  // Namespace naming
-
 namespace User.Namespace.Example01
 {
     using System;
@@ -947,7 +946,7 @@ long startTime = System.currentTimeMillis();
 
 long endTime = System.currentTimeMillis();
 Map<String, Double> metrics = new HashMap<>();
-metrics.put("ProcessingTime", endTime-startTime);
+metrics.put("ProcessingTime", (double)endTime-startTime);
 
 // Setup some properties
 Map<String, String> properties = new HashMap<>();

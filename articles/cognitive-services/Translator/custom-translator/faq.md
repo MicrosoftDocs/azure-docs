@@ -3,7 +3,7 @@ title: Frequently Asked Questions - Custom Translator
 titleSuffix: Azure Cognitive Services
 description: Provides answers to frequently asked questions about the Custom Translator.
 author: swmachan
-manager: christw
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.date: 02/21/2019

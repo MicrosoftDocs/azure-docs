@@ -87,13 +87,13 @@ The following two projects are in the sample solution:
 2. Open **Web.config** in the **TaskWebApp** project.
 3. To run the API locally, use the localhost setting for **api:TaskServiceUrl**. Change the Web.config as follows: 
 
-    ```C#
+    ```csharp
     <add key="api:TaskServiceUrl" value="https://localhost:44332/"/>
     ```
 
 3. Configure the URI of the API. This is the URI the web application uses to make the API request. Also, configure the requested permissions.
 
-    ```C#
+    ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
@@ -104,25 +104,25 @@ The following two projects are in the sample solution:
 1. Open **Web.config** in the **TaskService** project.
 2. Configure the API to use your tenant.
 
-    ```C#
+    ```csharp
     <add key="ida:Tenant" value="<Your tenant name>.onmicrosoft.com" />
     ```
 
 3. Set the client ID to the registered Application ID for your API.
 
-    ```C#
+    ```csharp
     <add key="ida:ClientId" value="<application-ID>"/>
     ```
 
 4. Update the user flow setting with the name of the sign up and sign-in user flow.
 
-    ```C#
+    ```csharp
     <add key="ida:SignUpSignInUserFlowId" value="B2C_1_signupsignin1" />
     ```
 
 5. Configure the scopes setting to match what you created in the portal.
 
-    ```C#
+    ```csharp
     <add key="api:ReadScope" value="Hello.Read" />
     <add key="api:WriteScope" value="Hello.Write" />
     ```

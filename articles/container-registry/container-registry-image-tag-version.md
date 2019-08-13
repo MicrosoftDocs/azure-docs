@@ -7,7 +7,7 @@ author: stevelasker
 ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
-ms.author: steve.lasker
+ms.author: stevelas
 ---
 
 # Recommendations for tagging and versioning container images

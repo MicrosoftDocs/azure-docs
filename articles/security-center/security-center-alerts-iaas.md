@@ -6,16 +6,14 @@ documentationcenter: na
 author: monhaber
 manager: rkarlin
 editor: ''
-
 ms.assetid: dd2eb069-4c76-4154-96bb-6e6ae553ef46
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date:  7/02/2019
-ms.author: monhaber
-
+ms.date: 7/02/2019
+ms.author: "v-mohabe"
 ---
 # Threat detection for VMs & servers in Azure Security Center
 

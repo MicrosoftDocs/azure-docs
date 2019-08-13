@@ -3,7 +3,7 @@ title: Azure Active Directory Reports FAQ | Microsoft Docs
 description: Frequently asked quesitons around Azure Active Directory reports.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: 534da0b1-7858-4167-9986-7a62fbd10439
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

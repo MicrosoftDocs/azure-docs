@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
 ---
 
@@ -24,3 +24,8 @@ ms.collection: M365-identity-device-management
 [!INCLUDE [3. Use](../../../includes/active-directory-develop-guidedsetup-windesktop-use.md)]
 [!INCLUDE [4. Configure](../../../includes/active-directory-develop-guidedsetup-windesktop-configure.md)]
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)
