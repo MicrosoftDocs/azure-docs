@@ -12,7 +12,7 @@ ms.reviewer: sumameh
 
 # Tutorial: Use Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2
 
-This tutorial shows you how to handle events in storage account that has a hierarchical namespace. You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma separated file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
+This tutorial shows you how to handle events in a storage account that has a hierarchical namespace. You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma-separated values (csv) file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
 
 In this tutorial, you will:
 
@@ -44,7 +44,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
 ## Create a sales order
 
-We'll create a comma separated file that describes a sales order, and then upload that file to the storage account. Later, we'll use the data in this file as the first row in our Databricks Delta table. 
+We'll create a csv file that describes a sales order, and then upload that file to the storage account. Later, we'll use the data from this file to populate the first row in our Databricks Delta table.
 
 1. Open Azure Storage Explorer. Then, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
 
@@ -87,11 +87,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     ![Create an Azure Databricks workspace](./media/data-lake-storage-events/new-databricks-service.png "Create an Azure Databricks workspace")
 
-3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
+    The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
 ### Create a notebook
 
-1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
+1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace that you created, and then select **Launch Workspace**.
 
 2. In the left pane, select **Workspace**. From the **Workspace** drop-down, select **Create** > **Notebook**.
 
@@ -105,7 +105,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ### Create and populate a Databricks Delta table
 
-1. In the notebook that you just created, copy and paste the following code block into the first cell, but don't run this code yet.
+1. In the notebook that you just created, copy and paste the following code block into the first cell, but don't run this code yet.  
+
+   Replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -122,13 +124,11 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-    This code creates a widget named **source_file**. Later, we'll create an Azure Function that calls this code and passes a file path to that value.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
+    This code creates a widget named **source_file**. Later, we'll create an Azure Function that calls this code and passes a file path to that widget.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
 
-2. In this code block, replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
+2. Press the **SHIFT + ENTER** keys to run the code in this block.
 
-3. Press the **SHIFT + ENTER** keys to run the code in this block.
-
-4. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block.
+3. Copy and paste the following code block into a different cell, and then press the **SHIFT + ENTER** keys to run the code in this block.
 
    ```Python
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
@@ -159,7 +159,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
    This code creates the Databricks Delta table in your storage account, and then loads some initial data from the csv file that you uploaded earlier.
 
-5. After this code block successfully runs, remove this code block from your notebook.
+4. After this code block successfully runs, remove this code block from your notebook.
 
 ### Add code that inserts rows into the Databricks Delta table
 
@@ -174,9 +174,9 @@ In this section, you create an Azure Databricks workspace using the Azure portal
    upsertDataDF.createOrReplaceTempView("customer_data_to_upsert")
    ```
 
-   This code inserts data into a temporary table view by using data from a csv file identified by the widget that you added earlier.
+   This code inserts data into a temporary table view by using data from a csv file. The path to that csv file comes from the input widget that you created in an earlier step.
 
-2. Add the following code to merge the temporary table view with the Databricks Delta table that is located in the storage account. 
+2. Add the following code to merge the contents of the temporary table view with the Databricks Delta table.
 
    ```
    %sql
@@ -207,6 +207,8 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ### Create a Job
 
+A Job runs a notebook. In this section you'll create a job that runs the notebook that you created earlier. Later, we'll created an Azure Function that runs this job when an event is raised.
+
 1. Click **Jobs**.
 
 2. In the **Jobs** page, click **Create Job**.
@@ -217,19 +219,21 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ## Create an Azure Function
 
+Create an Azure Function that runs the Job.
+
 1. In the upper corner of the Databricks workspace, choose the people icon, and then choose **User settings**.
  
    ![Manage account](./media/data-lake-storage-events/generate-token.png "User settings")
 
 2. Click the **Generate new token** button, and then click the **Generate** button.
 
-   Make sure to copy the token to safe place. You'll need this later.
+   Make sure to copy the token to safe place. Your Azure Function needs this token to authenticate with Databricks so that it can run the Job.
   
 3. Select the **Create a resource** button found on the upper left corner of the Azure portal, then select **Compute > Function App**.
 
    ![Create an Azure function](./media/data-lake-storage-events/function-app-create-flow.png "Create Azure function")
 
-4. In the **Create** page of the Function App, make sure to select **.NET Core** for the runtime stack, and configure an Application Insights instance.
+4. In the **Create** page of the Function App, make sure to select **.NET Core** for the runtime stack, and make sure to configure an Application Insights instance.
 
    ![Configure the function app](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
 
@@ -241,7 +245,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
    ![Add configuration setting](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
 
-   Add the following settings by using this approach:
+   Use this approach to add the following settings:
 
    |Setting name | Value |
    |----|----|
@@ -255,7 +259,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 8. Choose **Azure Event Grid Trigger**.
 
-   You might be prompted to install the **Microsoft.Azure.WebJobs.Extensions.EventGrid** extension. If you are, install it. If you have to install it, then you'll have to choose **Azure Event Grid Trigger** again to create the function.
+   Install the **Microsoft.Azure.WebJobs.Extensions.EventGrid** extension if you're prompted to do so. If you have to install it, then you'll have to choose **Azure Event Grid Trigger** again to create the function.
 
    The **New Function** pane appears.
 
@@ -263,49 +267,49 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 10. Replace the contents of the code file with this code, and then click the **Save** button:
 
-   ```cs
-   using "Microsoft.Azure.EventGrid"
-   using "Newtonsoft.Json"
-   using Microsoft.Azure.EventGrid.Models;
-   using Newtonsoft.Json;
-   using Newtonsoft.Json.Linq;
+    ```cs
+    using "Microsoft.Azure.EventGrid"
+    using "Newtonsoft.Json"
+    using Microsoft.Azure.EventGrid.Models;
+    using Newtonsoft.Json;
+    using Newtonsoft.Json.Linq;
 
-   private static HttpClient httpClient = new HttpClient();
+    private static HttpClient httpClient = new HttpClient();
 
-   public static async Task Run(EventGridEvent eventGridEvent, ILogger log)
-   {
-       log.LogInformation("Event Subject: " + eventGridEvent.Subject);
-       log.LogInformation("Event Topic: " + eventGridEvent.Topic);
-       log.LogInformation("Event Type: " + eventGridEvent.EventType);
-       log.LogInformation(eventGridEvent.Data.ToString());
+    public static async Task Run(EventGridEvent eventGridEvent, ILogger log)
+    {
+        log.LogInformation("Event Subject: " + eventGridEvent.Subject);
+        log.LogInformation("Event Topic: " + eventGridEvent.Topic);
+        log.LogInformation("Event Type: " + eventGridEvent.EventType);
+        log.LogInformation(eventGridEvent.Data.ToString());
 
-       if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" || eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
-           var fileData = ((JObject)(eventGridEvent.Data)).ToObject<StorageBlobCreatedEventData>();
-           if (fileData.Api == "FlushWithClose") {
-               log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
-               var fileUrl = new Uri(fileData.Url);
-               var httpRequestMessage = new HttpRequestMessage {
-                   Method = HttpMethod.Post,
-                   RequestUri = new Uri(String.Format("https://{0}/api/2.0/jobs/run-now", System.Environment.GetEnvironmentVariable("DBX_INSTANCE", EnvironmentVariableTarget.Process))),
-                   Headers = { 
-                       { System.Net.HttpRequestHeader.Authorization.ToString(), "Bearer " + System.Environment.GetEnvironmentVariable("DBX_PAT", EnvironmentVariableTarget.Process)},
-                       { System.Net.HttpRequestHeader.ContentType.ToString(), "application/json" }
-                   },
-                   Content = new StringContent(JsonConvert.SerializeObject(new {
-                       job_id = System.Environment.GetEnvironmentVariable("DBX_JOB_ID", EnvironmentVariableTarget.Process),
-                       notebook_params = new {
-                           source_file = String.Join("", fileUrl.Segments.Skip(2))
-                       }
-                   }))
-                };
-               var response = await httpClient.SendAsync(httpRequestMessage);
-               response.EnsureSuccessStatusCode();
-           }
-       }  
-   }
-   ```
+        if (eventGridEvent.EventType == "Microsoft.Storage.BlobCreated" | | eventGridEvent.EventType == "Microsoft.Storage.FileRenamed") {
+            var fileData = ((JObject)(eventGridEvent.Data)) .ToObject<StorageBlobCreatedEventData>();
+            if (fileData.Api == "FlushWithClose") {
+                log.LogInformation("Triggering Databricks Job for file: " + fileData.Url);
+                var fileUrl = new Uri(fileData.Url);
+                var httpRequestMessage = new HttpRequestMessage {
+                    Method = HttpMethod.Post,
+                    RequestUri = new Uri(String.Format("https://{0}/api/2.0/jobs/run-now", System.Environment.GetEnvironmentVariable("DBX_INSTANCE", EnvironmentVariableTarget.Process))),
+                    Headers = {
+                        { System.Net.HttpRequestHeader.Authorization.ToString(), "Bearer " +  System.Environment.GetEnvironmentVariable ("DBX_PAT", EnvironmentVariableTarget.Process)},
+                        { System.Net.HttpRequestHeader.ContentType.ToString (), "application/json" }
+                    },
+                    Content = new StringContent(JsonConvert.SerializeObject(new {
+                        job_id = System.Environment.GetEnvironmentVariable ("DBX_JOB_ID", EnvironmentVariableTarget.Process) ,
+                        notebook_params = new {
+                            source_file = String.Join("", fileUrl.Segments.Skip(2))
+                        }
+                    }))
+                 };
+                var response = await httpClient.SendAsync(httpRequestMessage);
+                response.EnsureSuccessStatusCode();
+            }
+        }
+    }
+    ```
 
-   This code, receives parses information about the storage event that was raised, and constructs an request message with url of the file that triggered the event. As part of this message, this function passes a value to the **source_file** widget that you created earlier. This code sends that message to the Databricks Job and authenticates with that job by using the token that you obtained earlier in the Databricks workspace.
+   This code, parses information about the storage event that was raised, and then creates a request message with url of the file that triggered the event. As part of this message, this function passes a value to the **source_file** widget that you created earlier. This code sends that message to the Databricks Job and uses the token that you obtained earlier as authentication.
 
 ## Create an Event Grid subscription
 
@@ -330,11 +334,13 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
    536371,99999,EverGlow Single,228,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-3. In Storage Explorer, upload this file to the **input** folder of your storage account to begin the process.
+2. In Storage Explorer, upload this file to the **input** folder of your storage account.
 
-4. To check if the job succeeded, open your databricks workspace, click the **Jobs** button, and then open your job.
+   This raises the **Microsoft.Storage.BlobCreated** event with Event Grid. Event Grid notifies all subscribers to that event. In our case, the Azure Function is the only subscriber. The Azure Function parses the event parameters to determine which event occurred and on which file. It then passes the URL of the file to the Databricks Job. The Databricks Job reads in the file and adds a row to the Databricks Delta table in your storage account.
 
-5. Select the job to open the job page.
+3. To check if the job succeeded, open your databricks workspace, click the **Jobs** button, and then open your job.
+
+4. Select the job to open the job page.
 
    ![Spark job](./media/data-lake-storage-events/spark-job.png "Spark job")
 
@@ -348,7 +354,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
    %sql select * from customer_data
    ```
 
-   The returned tabled shows the latest record.
+   The returned table shows the latest record.
 
 ## Clean up resources
 
