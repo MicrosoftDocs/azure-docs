@@ -109,3 +109,4 @@ You can also use the following Git commands to merge your working branch to its 
 [Execute of data science tasks](execute-data-science-tasks.md) shows how to use utilities to complete several common data science tasks such as interactive data exploration, data analysis, reporting, and model creation.
 
 Walkthroughs that demonstrate all the steps in the process for **specific scenarios** are also provided. They are listed and linked with thumbnail descriptions in the [Example walkthroughs](walkthroughs.md) article. They illustrate how to combine cloud, on-premises tools, and services into a workflow or pipeline to create an intelligent application. 
+
