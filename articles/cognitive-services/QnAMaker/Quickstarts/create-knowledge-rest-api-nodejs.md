@@ -22,7 +22,7 @@ Use the QnA Maker REST APIs for Node.js to:
 * Manage a knowledge base
 * Publish a knowledge base
 
-[Reference documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 ## Prerequisites
 
@@ -86,11 +86,13 @@ A knowledge base stores question and answer pairs, created from a JSON object of
 * **Files** - local files that do not require any permissions. 
 * **URLs** - publicly available URLs.
 
+Use the [REST API to create a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). 
+
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=createKb)]
 
 ## Replace a knowledge base
 
-Replace an existing knowledge base with new information:
+Use the [REST API to replace a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/replace).
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=replaceKb)]
 
@@ -98,11 +100,14 @@ Replace an existing knowledge base with new information:
 
 Publish the knowledge base. This process makes the knowledge base available from an HTTP query prediction endpoint.
 
+Use the [REST API to publish a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/publish).
+
+
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=publish)]
 
 ## Download the knowledge base 
 
-Download the knowledge base. This is a JSON object.
+Use the [REST API to download a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/download).
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=download)]
 
@@ -110,11 +115,16 @@ Download the knowledge base. This is a JSON object.
 
 When you are down using the knowledge base, delete it.
 
+Use the [REST API to delete a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
+
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=deleteKb)]
 
 ## Get status of an operation
 
 Long running processes such as the creation process returns an operation Id which needs to be checked with a separate REST API call. This function takes the body of the create response. The important key is the operationState which determines if you need to continue polling.
+
+Use the [REST API to monitor operations on a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
+
 
 [!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=operationDetails)]
 
