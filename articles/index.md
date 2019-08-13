@@ -159,12 +159,12 @@ featureFlags:
                                                             PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/javascript/azure/">
+                                                        <a class="barLink" href="/azure/javascript/">
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/">
+                                                        <a class="barLink" href="/azure/go/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
                                                             Go</a>
                                                     </li>
@@ -6392,7 +6392,7 @@ featureFlags:
                                                     Azure for Go Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Get started</a>
+                                                    <a href="/azure/go/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API Reference</a>

@@ -61,7 +61,7 @@ Let’s take an example – you are the owner of Subscription "Visual Studio MSD
 Joe is your peer who is a resource owner to some of the resource groups in this subscription and has read permission to the subscription.
 You wish to give access to your peer, Joe, the ability to create and manage support tickets for the resources under this subscription.
 
-1. The first step is to go to the subscription and under "Settings" you see a list of users. Click the user Joe who has reader access on the Subscription and let’s assign a new custom role to him.
+1. The first step is to go to the subscription. Under **Settings**, you see a list of users. Select the user Joe, who has reader access on the subscription. Let's assign a new custom role to Joe.
 
     ![Add role](./media/create-manage-support-requests-using-access-control/add-role.png)
 
@@ -81,7 +81,7 @@ You wish to give access to your peer, Joe, the ability to create and manage supp
 
     ![User added](./media/create-manage-support-requests-using-access-control/user-added.png)
 
-    When Joe logs in the portal, he sees the subscription to which he was added.
+    When Joe sign in to the portal, Joe sees the subscription to which Joe was added.
 
 7. Joe clicks "New Support request" from the "Help and Support" blade and can create support requests for "Visual Studio Ultimate with MSDN"
 
@@ -93,15 +93,15 @@ You wish to give access to your peer, Joe, the ability to create and manage supp
 ## Remove support request access in the Azure portal
 
 Just as it is possible to grant access to a user to create and manage support requests, it's possible to remove access for the user as well.
-To remove the ability to create and manage support requests, go to the Subscription, click "Settings" and click the user (in this case, Joe).
-Right-click the role name, "Support Request Contributor" and click "Remove"
+
+To remove the ability to create and manage support requests, go to the Subscription, click "Settings" and click the user (in this case, Joe). Right-click the role name, "Support Request Contributor" and click "Remove"
 
 ![Remove support request access](./media/create-manage-support-requests-using-access-control/remove-support-request-access.png)
 
-When Joe logs in to the portal and tries to create a support request, he encounters the following error
+When Joe logs in to the portal and tries to create a support request, Joe encounters the following error:
 
 ![Subscription error-2](./media/create-manage-support-requests-using-access-control/subscription-error-2.png)
 
-Joe cannot see any support requests when he clicks "All support requests"
+Joe cannot see any support requests when Joe selects "All support requests"
 
 ![case details view-2](./media/create-manage-support-requests-using-access-control/case-details-view-2.png)
