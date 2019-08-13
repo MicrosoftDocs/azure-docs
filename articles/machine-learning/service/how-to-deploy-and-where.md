@@ -21,7 +21,7 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 The workflow is similar regardless of [where you deploy](#target) your model:
 
 1. Register the model.
-1. Prepare to deploy (specify assets, usage, compute target)
+1. Prepare to deploy (specify assets, usage, compute target).
 1. Deploy the model to the compute target.
 1. Test the deployed model, also called web service.
 
@@ -186,7 +186,7 @@ To use schema generation, include the `inference-schema` package in your conda e
 
 ##### Example dependencies file
 
-The following YAML is an example of a Conda dependencies file for inference.
+The following YAML is an example of a Conda dependencies file for inference:
 
 ```YAML
 name: project_environment
@@ -243,7 +243,7 @@ def run(data):
         return error
 ```
 
-The following example demonstrates how to define the input data as a `<key: value>` dictionary, using a Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+The following example demonstrates how to define the input data as a `<key: value>` dictionary, using a Dataframe. This method is supported for consuming the deployed web service from Power BI ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -443,11 +443,11 @@ The following table provides an example of creating a deployment configuration f
 
 ## Deploy to target
 
-Deployment uses the inference configuration deployment configuration to deploy the model(s). The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different, as you must provide a reference to the AKS cluster.
+Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different, as you must provide a reference to the AKS cluster.
 
 ### <a id="local"></a> Local deployment
 
-To deploy locally, you need to have **Docker installed** on your local machine.
+To deploy locally, you need to have Docker installed on your local machine.
 
 #### Using the SDK
 
