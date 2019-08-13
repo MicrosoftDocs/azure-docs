@@ -152,7 +152,7 @@ public static async Task ReadBlobMetadataAsync(CloudBlob blob)
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## See also
 
