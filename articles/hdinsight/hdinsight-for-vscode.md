@@ -130,13 +130,13 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 ## Set the default cluster
 
-1. Reopen the **HDexample** folder that was created [earlier](#open-work-folder), if closed.  
+1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
-2. Select the **HelloWorld.hql** file that was created [earlier](#open-work-folder). It opens in the script editor.
+2. Select the **HelloWorld.hql** file that was created [earlier](#open-a-work-folder). It opens in the script editor.
 
 3. Right-click the script editor, and then select **Spark / Hive: Set Default Cluster**.  
 
-4. [Connect](#connect-to-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
 5. Select a cluster as the default cluster for the current script file. The tools automatically update the **.VSCode\settings.json** configuration file:
 
@@ -147,9 +147,9 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive queries and Hive batch scripts to your clusters.
 
-1. Reopen the **HDexample** folder that was created [earlier](#open-work-folder), if closed.  
+1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
-2. Select the **HelloWorld.hql** file that was created [earlier](#open-work-folder). It opens in the script editor.
+2. Select the **HelloWorld.hql** file that was discussed [earlier](#open-a-work-folder). It opens in the script editor.
 
 
 3. Copy and paste the following code into your Hive file, and then save it:
@@ -158,7 +158,7 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
     SELECT * FROM hivesampletable;
     ```
 
-4. [Connect](#connect-to-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
 5. Right-click the script editor, select **Hive: Interactive** to submit the query, or use the Ctrl+Alt+I keyboard shortcut.  Select **Hive: Batch** to submit the script, or use the Ctrl+Alt+H keyboard shortcut.  
 
@@ -174,9 +174,9 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 To submit interactive PySpark queries, follow these steps:
 
-1. Reopen the **HDexample** folder that was created [earlier](#open-work-folder), if closed.  
+1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
-2. Create a new **HelloWorld.py** file, following the [earlier](#open-work-folder) steps.
+2. Create a new **HelloWorld.py** file, following the [earlier](#open-a-work-folder) steps.
 
 3. Copy and paste the following code into the script file:
    ```python
@@ -193,7 +193,7 @@ To submit interactive PySpark queries, follow these steps:
         print(sortedCollection[i])
    ```
 
-4. [Connect](#connect-to-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
 5. Select all the code, right-click the script editor, and select **Spark: PySpark Interactive** to submit the query. Or, use the Ctrl+Alt+I shortcut.
 
@@ -222,9 +222,9 @@ To submit interactive PySpark queries, follow these steps:
 
 ## Submit PySpark batch job
 
-1. Reopen the **HDexample** folder that you created [earlier](#open-work-folder), if closed.  
+1. Reopen the **HDexample** folder that you discussed [earlier](#open-a-work-folder), if closed.  
 
-2. Create a new **BatchFile.py** file by following the [earlier](#open-work-folder) steps.
+2. Create a new **BatchFile.py** file by following the [earlier](#open-a-work-folder) steps.
 
 3. Copy and paste the following code into the script file:
 
@@ -249,7 +249,7 @@ To submit interactive PySpark queries, follow these steps:
         spark.stop()
     ```
 
-4. [Connect](#connect-to-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+4. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
 5. Right-click the script editor, and then select **Spark: PySpark Batch**, or use the Ctrl+Alt+H keyboard shortcut. 
 
@@ -322,7 +322,7 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
 
 **Azure HDInsight** has been added to Explorer view. You can browse and manage your clusters directly through **Azure HDInsight**.
 
-1. [Connect](#connect-to-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
+1. [Connect](#connect-to-an-azure-account) to your Azure account, or link a cluster if you haven't yet done so.
 
 2. From the menu bar, go to **View** > **Explorer**.
 
@@ -337,7 +337,7 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
 
 ## Preview Hive Table
 You can preview Hive Table in your clusters directly through the **Azure HDInsight** explorer:
-1. [Connect](#connect-to-azure-account) to your Azure account if you haven't yet done so.
+1. [Connect](#connect-to-an-azure-account) to your Azure account if you haven't yet done so.
 
 2. Select the **Azure** icon from leftmost column.
 
