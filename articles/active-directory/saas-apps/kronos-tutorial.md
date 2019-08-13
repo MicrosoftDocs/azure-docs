@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Kronos | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Kronos | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kronos.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Kronos
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Kronos
 
 In this tutorial, you'll learn how to integrate Kronos with Azure Active Directory (Azure AD). When you integrate Kronos with Azure AD, you can:
 
