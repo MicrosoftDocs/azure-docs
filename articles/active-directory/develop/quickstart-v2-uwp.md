@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/12/2019
+ms.date: 07/16/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 #Customer intent: As an application developer, I want to learn how my Universal Windows Platform (XAML) application can get an access token and call an API that's protected by an Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
 ---
@@ -53,12 +53,13 @@ This quickstart contains a code sample that demonstrates how a Universal Windows
 >      - In the **Supported account types** section, select **Accounts in any organizational directory and personal Microsoft accounts (for example, Skype, Xbox, Outlook.com)**.
 >      - Select **Register** to create the application.
 > 1. In the list of pages for the app, select **Authentication**.
-> 1. In the **Redirect URI** section, under **Suggested Redirect URIs for public clients (mobile, desktop)** check the box next to **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> 1. Expand the **Desktop + devices** section.  (If **Desktop + devices** is not visible, first click the top banner to view the preview Authentication experience)
+> 1. Under the **Redirect URI** section, select **Add URI**.  Type **urn:ietf:wg:oauth:2.0:oob**.
 > 1. Select **Save**.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
-> For the code sample for this quickstart to work, you need to add a redirect URI as **https://login.microsoftonline.com/common/oauth2/nativeclient**.
+> For the code sample for this quickstart to work, you need to add a redirect URI as **urn:ietf:wg:oauth:2.0:oob**.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Make this change for me]()
 >
@@ -153,7 +154,7 @@ authResult = await App.PublicClientApp.AcquireTokenInteractive(scopes)
 
 #### Get a user token silently
 
-Use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenAsync` method. You don’t want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction
+Use the `AcquireTokenSilent` method to obtain tokens to access protected resources after the initial `AcquireTokenInteractive` method. You don’t want to require the user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction
 
 ```csharp
 var accounts = await App.PublicClientApp.GetAccountsAsync();
@@ -175,3 +176,8 @@ Try out the Windows desktop tutorial for a complete step-by-step guide on buildi
 
 > [!div class="nextstepaction"]
 > [UWP - Call Graph API tutorial](tutorial-v2-windows-uwp.md)
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

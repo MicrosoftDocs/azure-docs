@@ -5,7 +5,7 @@ services: data-share
 author: joannapea
 
 ms.service: data-share
-ms.topic: overview
+ms.topic: troubleshooting
 ms.date: 07/10/2019
 ms.author: joanpo
 ---

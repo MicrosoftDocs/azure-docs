@@ -4,7 +4,7 @@ description: Conceptual reference and overview of the Authentication / Authoriza
 services: app-service
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/12/2019
 ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
@@ -52,7 +52,7 @@ The module runs separately from your application code and is configured using ap
 
 ### User claims
 
-For all language frameworks, App Service makes the user's claims available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](containers/configure-language-java.md#authenticate-users).
+For all language frameworks, App Service makes the user's claims available to your code by injecting them into the request headers. For ASP.NET 4.6 apps, App Service populates [ClaimsPrincipal.Current](/dotnet/api/system.security.claims.claimsprincipal.current) with the authenticated user's claims, so you can follow the standard .NET code pattern, including the `[Authorize]` attribute. Similarly, for PHP apps, App Service populates the `_SERVER['REMOTE_USER']` variable. For Java apps, the claims are [accessible from the Tomcat servlet](containers/configure-language-java.md#authenticate-users-easy-auth).
 
 For [Azure Functions](../azure-functions/functions-overview.md), `ClaimsPrincipal.Current` is not hydrated for .NET code, but you can still find the user claims in the request headers.
 
@@ -115,29 +115,23 @@ For client browsers, App Service can automatically direct all unauthenticated us
 
 ## Authorization behavior
 
-In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors.
+In the [Azure portal](https://portal.azure.com), you can configure App Service authorization with a number of behaviors when incoming request is not authenticated.
 
 ![](media/app-service-authentication-overview/authorization-flow.png)
 
 The following headings describe the options.
 
-### Allow all requests (default)
+### Allow Anonymous requests (no action)
 
-Authentication and authorization are not managed by App Service (turned off). 
+This option defers authorization of unauthenticated traffic to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
 
-Choose this option if you don't need authentication and authorization, or if you want to write your own authentication and authorization code.
+This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) to your users. However, you must write code. 
 
 ### Allow only authenticated requests
 
 The option is **Log in with \<provider>**. App Service redirects all anonymous requests to `/.auth/login/<provider>` for the provider you choose. If the anonymous request comes from a native mobile app, the returned response is an `HTTP 401 Unauthorized`.
 
 With this option, you don't need to write any authentication code in your app. Finer authorization, such as role-specific authorization, can be handled by inspecting the user's claims (see [Access user claims](app-service-authentication-how-to.md#access-user-claims)).
-
-### Allow all requests, but validate authenticated requests
-
-The option is **Allow Anonymous requests**. This option turns on authentication and authorization in App Service, but defers authorization decisions to your application code. For authenticated requests, App Service also passes along authentication information in the HTTP headers. 
-
-This option provides more flexibility in handling anonymous requests. For example, it lets you [present multiple sign-in providers](app-service-authentication-how-to.md#use-multiple-sign-in-providers) to your users. However, you must write code. 
 
 ## More resources
 

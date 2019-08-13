@@ -71,7 +71,7 @@ A policy-based approach to protect access to your cloud apps enables you to star
 
 ## Azure AD Conditional Access and federated authentication
 
-Conditional Access policies work seamlessly with [federated authentication](../../security/azure-ad-choose-authn.md#federated-authentication). This support includes all supported conditions and controls and visibility into how policy is applied to active user sign-ins using [Azure AD reporting](../reports-monitoring/concept-sign-ins.md).
+Conditional Access policies work seamlessly with [federated authentication](../../security/fundamentals/choose-ad-authn.md#federated-authentication). This support includes all supported conditions and controls and visibility into how policy is applied to active user sign-ins using [Azure AD reporting](../reports-monitoring/concept-sign-ins.md).
 
 *Federated authentication with Azure AD* means that a trusted authentication service handles user authentication to Azure AD. A trusted authentication service is, for example, Active Directory Federation Services (AD FS), or any other federation service. In this configuration, primary user authentication is performed at the service and then Azure AD is used to sign into individual applications. Azure AD Conditional Access is applied before access is granted to the application the user is accessing. 
 

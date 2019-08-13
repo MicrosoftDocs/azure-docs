@@ -1,5 +1,5 @@
 ---
-title: Single-page sign in using implicit flow - Azure Active Directory B2C | Microsoft Docs
+title: Single-page sign in using implicit flow - Azure Active Directory B2C
 description: Learn how to add single-page sign in using the OAuth 2.0 implicit flow with Azure Active Directory B2C.
 services: active-directory-b2c
 author: mmacy
@@ -8,20 +8,20 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
 
 # Single-page sign in using the OAuth 2.0 implicit flow in Azure Active Directory B2C
 
-Many modern applications have a single-page app front end that primarily is written in JavaScript. Often, the app is written by using a framework like React, Angular or Vue.js. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
+Many modern applications have a single-page app front end that is written primarily in JavaScript. Often, the app is written by using a framework like React, Angular, or Vue.js. Single-page apps and other JavaScript apps that run primarily in a browser have some additional challenges for authentication:
 
 - The security characteristics of these apps are different from traditional server-based web applications.
 - Many authorization servers and identity providers do not support cross-origin resource sharing (CORS) requests.
 - Full-page browser redirects away from the app can be invasive to the user experience.
 
-To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling are done entirely in the JavaScript client, without additional page redirects.
+To support these applications, Azure Active Directory B2C (Azure AD B2C) uses the OAuth 2.0 implicit flow. The OAuth 2.0 authorization implicit grant flow is described in [section 4.2 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749). In implicit flow, the app receives tokens directly from the Azure Active Directory (Azure AD) authorize endpoint, without any server-to-server exchange. All authentication logic and session handling is done entirely in the JavaScript client with either a page redirect or a pop-up box.
 
 Azure AD B2C extends the standard OAuth 2.0 implicit flow to more than simple authentication and authorization. Azure AD B2C introduces the [policy parameter](active-directory-b2c-reference-policies.md). With the policy parameter, you can use OAuth 2.0 to add policies to your app, such as sign-up, sign-in, and profile management user flows. In the example HTTP requests in this article, **fabrikamb2c.onmicrosoft.com** is used as an example. You can replace `fabrikamb2c` with the name of your tenant if you have one and have created a user flow.
 
@@ -169,10 +169,9 @@ If the only thing your web apps needs to do is execute user flows, you can skip 
 
 Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs that are secured by Azure AD. Even if you have already received a token by using the `token` response type, you can use this method to acquire tokens for additional resources without redirecting the user to sign in again.
 
-In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
+In a typical web app flow, you would make a request to the `/token` endpoint. However, the endpoint does not support CORS requests, so making AJAX calls to get a refresh token is not an option. Instead, you can use the implicit flow in a hidden HTML iframe element to get new tokens for other web APIs. Here's an example, with line breaks for legibility:
 
 ```
-
 https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
@@ -182,8 +181,6 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &state=arbitrary_data_you_can_receive_in_the_response
 &nonce=12345
 &prompt=none
-&domain_hint=organizations
-&login_hint=myuser@mycompany.com
 &p=b2c_1_sign_in
 ```
 
@@ -197,8 +194,8 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | state |Recommended |A value included in the request that is returned in the token response.  It can be a string of any content that you want to use.  Usually, a randomly generated, unique value is used, to prevent cross-site request forgery attacks.  The state also is used to encode information about the user's state in the app before the authentication request occurred. For example, the page or view the user was on. |
 | nonce |Required |A value included in the request, generated by the app, that is included in the resulting ID token as a claim.  The app can then verify this value to mitigate token replay attacks. Usually, the value is a randomized, unique string that identifies the origin of the request. |
 | prompt |Required |To refresh and get tokens in a hidden iframe, use `prompt=none` to ensure that the iframe does not get stuck on the sign-in page, and returns immediately. |
-| login_hint |Required |To refresh and get tokens in a hidden iframe, include the username of the user in this hint to distinguish between multiple sessions the user might have at a given  time. You can extract the username from an earlier sign-in by using the `preferred_username` claim. |
-| domain_hint |Required |Can be `consumers` or `organizations`.  For refreshing and getting tokens in a hidden iframe, include the `domain_hint` value in the request.  Extract the `tid` claim from the ID token of an earlier sign-in to determine which value to use.  If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`,  use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
+| login_hint |Required |To refresh and get tokens in a hidden iframe, include the username of the user in this hint to distinguish between multiple sessions the user might have at a given  time. You can extract the username from an earlier sign-in by using the `preferred_username` claim (the `profile` scope is required in order to receive the `preferred_username` claim). |
+| domain_hint |Required |Can be `consumers` or `organizations`.  For refreshing and getting tokens in a hidden iframe, include the `domain_hint` value in the request.  Extract the `tid` claim from the ID token of an earlier sign-in to determine which value to use (the `profile` scope is required in order to receive the `tid` claim). If the `tid` claim value is `9188040d-6c67-4c5b-b112-36a304b66dad`,  use `domain_hint=consumers`.  Otherwise, use `domain_hint=organizations`. |
 
 By setting the `prompt=none` parameter, this request either succeeds or fails immediately, and returns to your application.  A successful response is sent to your app at the indicated redirect URI, by using the method specified in the `response_mode` parameter.
 
@@ -258,6 +255,17 @@ p=b2c_1_sign_in
 | post_logout_redirect_uri |Recommended |The URL that the user should be redirected to after successful sign-out. If it is not included, Azure AD B2C displays a generic message to the user. |
 
 > [!NOTE]
-> Directing the user to the `end_session_endpoint` clears some of the user's single sign-on state with Azure AD B2C. However, it doesn't sign the user out of the user's social identity provider session. If the user selects the same identify provider during a subsequent sign-in, the user is reauthenticated, without entering their credentials. If a user wants to sign out of your Azure AD B2C application, it does not necessarily mean they want to completely sign out of their Facebook account, for example. However, for local accounts, the user's session will be ended properly.
+> Directing the user to the `end_session_endpoint` clears some of the user's single sign-on state with Azure AD B2C. However, it doesn't sign the user out of the user's social identity provider session. If the user selects the same identity provider during a subsequent sign-in, the user is re-authenticated, without entering their credentials. If a user wants to sign out of your Azure AD B2C application, it does not necessarily mean they want to completely sign out of their Facebook account, for example. However, for local accounts, the user's session will be ended properly.
 >
 
+## Next steps
+
+### Code sample: hello.js with Azure AD B2C
+
+[Single-page application built on hello.js with Azure AD B2C][github-hello-js-example] (GitHub)
+
+This sample on GitHub is intended to help get you started with Azure AD B2C in a simple web application built on [hello.js][github-hello-js] and using pop-up-style authentication.
+
+<!-- Links - EXTERNAL -->
+[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js]: https://github.com/MrSwitch/hello.js

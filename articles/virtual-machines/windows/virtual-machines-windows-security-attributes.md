@@ -1,6 +1,6 @@
 ---
 title: Security attributes for Azure Windows Virtual Machines
-description: A checklist of common security attributes for evaluating Azure Windows Virtual Machines
+description: A checklist of security attributes for evaluating Azure Windows Virtual Machines
 services: virtual-machines
 ms.service: virtual-machines
 documentationcenter: ''

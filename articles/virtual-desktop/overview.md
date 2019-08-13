@@ -6,7 +6,7 @@ author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 05/31/2019
+ms.date: 08/07/2019
 ms.author: helohr
 ---
 # What is Windows Virtual Desktop Preview? 
@@ -24,9 +24,11 @@ Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
 ## Introductory video
 
-In the following video, Scott Manchester demonstrates some of Windows Virtual Desktop's capabilities:
+Learn about Windows Virtual Desktop, why it’s unique, and what’s new in this video:
 
-<br></br><iframe src="https://www.youtube-nocookie.com/embed/30dOLcZ4_9U" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+<br></br><iframe src="https://www.youtube.com/embed/NQFtI3JLtaU" width="640" height="320" allowFullScreen="true" frameBorder="0"></iframe>
+
+For more videos about Windows Virtual Desktop, see [our playlist](https://www.youtube.com/watch?v=NQFtI3JLtaU&list=PLXtHYVsvn_b8KAKw44YUpghpD6lg-EHev).
 
 ## Key capabilities
 
@@ -100,10 +102,6 @@ Windows Virtual Desktop supports the following OS images:
 
 * Windows 10 Enterprise multi-session
 * Windows Server 2016
-
-## Provide feedback
-
-Visit the [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) to discuss the Windows Virtual Desktop service with the product team and active community members. We currently aren't taking support cases while Windows Virtual Desktop is in preview.
 
 ## Next steps
 

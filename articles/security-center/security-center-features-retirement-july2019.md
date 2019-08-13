@@ -11,6 +11,12 @@ ms.date: 4/16/2019
 ms.author: yoafr
 ---
 
+> [!NOTE]
+> This document details the list of features that have been retired from Azure Security Center on July 31st, 2019.
+>
+>
+
+
 # Retirement of Security Center features (July 2019)
 
 We've made several [improvements](https://azure.microsoft.com/updates/?product=security-center) to Azure Security Center over the last six months.

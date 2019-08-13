@@ -4,8 +4,8 @@ description: Release notes for the Azure File Sync agent.
 services: storage
 author: wmgries
 ms.service: storage
-ms.topic: article
-ms.date: 6/27/2019
+ms.topic: conceptual
+ms.date: 7/24/2019
 ms.author: wgries
 ms.subservice: files
 ---
@@ -20,8 +20,10 @@ The following versions are supported for the Azure File Sync agent:
 
 | Milestone | Agent version number | Release date | Status |
 |----|----------------------|--------------|------------------|
-| V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | June 19, 2019 | [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
-| June 2019 update rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | June 27, 2019 | Supported (recommended version) |
+| July 2019 update rollup - [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | July 24, 2019 | Supported - [Flighting](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#automatic-agent-lifecycle-management) |
+| July 2019 update rollup - [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | July 12, 2019 | Supported |
+| V7 Release - [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | June 19, 2019 | Supported |
+| June 2019 update rollup - [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | June 27, 2019 | Supported |
 | June 2019 update rollup - [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | June 13, 2019 | Supported |
 | May 2019 update rollup - [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | May 7, 2019 | Supported |
 | V6 Release - [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | April 21, 2019 | Supported |
@@ -39,6 +41,23 @@ The following versions are supported for the Azure File Sync agent:
 
 ### Azure File Sync agent update policy
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
+
+## Agent version 7.2.0.0
+The following release notes are for version 7.2.0.0 of the Azure File Sync agent released July 24, 2019. These notes are in addition to the release notes listed for version 7.0.0.0.
+
+List of issues fixed in this release:  
+- Storage Sync Agent (FileSyncSvc) crashes if the proxy configuration is null.
+- Server endpoint will start BCDR (error 0x80c80257 - ECS_E_BCDR_IN_PROGRESS) if multiple endpoints on the server have the same name.
+- Cloud tiering reliability improvements.
+
+## Agent version 7.1.0.0
+The following release notes are for version 7.1.0.0 of the Azure File Sync agent released July 12, 2019. These notes are in addition to the release notes listed for version 7.0.0.0.
+
+List of issues fixed in this release:  
+- Accessing or browsing a server endpoint location over SMB is slow on Windows Server 2012 R2. 
+- Increased CPU utilization after installing the Azure File Sync v6 agent.
+- Cloud tiering telemetry improvements.
+- Miscellaneous reliability improvements for cloud tiering and sync.
 
 ## Agent version 7.0.0.0
 The following release notes are for version 7.0.0.0 of the Azure File Sync agent (released June 19, 2019).

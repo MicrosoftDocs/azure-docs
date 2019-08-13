@@ -46,7 +46,7 @@ Use the following steps to deploy the Domain-joined HDInsight cluster:
 
 For more information, see the following articles:
 
-- [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](../domain-joined/apache-domain-joined-introduction.md)
+- [An introduction to Apache Hadoop security with domain-joined HDInsight clusters](../domain-joined/hdinsight-security-overview.md)
 
 - [Plan Azure domain-joined Apache Hadoop clusters in HDInsight](../domain-joined/apache-domain-joined-architecture.md)
 - [Configure a domain-joined HDInsight cluster by using Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md)

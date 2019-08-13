@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/19/2018
-ms.author: echuvyrov
+ms.author: gwallace
 ---
 
 # Install and configure Terraform to provision VMs and other infrastructure into Azure

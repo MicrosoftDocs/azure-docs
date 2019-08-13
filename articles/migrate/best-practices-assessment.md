@@ -4,15 +4,15 @@ description: Provides tips for creating assessments with Azure Migrate Server As
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 07/15/2019
 ms.author: raynew
 ---
 
 # Best practices for creating assessments
 
-[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings. 
+[Azure Migrate](migrate-overview.md) provides a hub of tools that help you to discover, assess, and migrate apps, infrastructure, and workloads to Microsoft Azure. The hub includes Azure Migrate tools, and third-party independent software vendor (ISV) offerings.
 
-This article summarizes best practices when creating assessments using the Azure Migrate Server Assessment tool. 
+This article summarizes best practices when creating assessments using the Azure Migrate Server Assessment tool.
 
 ## About assessments
 
@@ -20,42 +20,38 @@ Assessments you create with Azure Migrate Server Assessment are a point-in-time 
 
 **Assessment type** | **Details** | **Data**
 --- | --- | ---
-**Performance-based** | Assessments that make recommendations based on collected performance data | VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard or premium managed disks) is based on the IOPS and throughput of the on-premises disks.
+**Performance-based** | Assessments that make recommendations based on collected performance data | VM size recommendation is based on CPU and memory utilization data.<br/><br/> Disk type recommendation (standard HDD/SSD or premium-managed disks) is based on the IOPS and throughput of the on-premises disks.
 **As-is on-premises** | Assessments that don't use performance data to make recommendations. | VM size recommendation is based on the on-premises VM size<br/><br> The recommended disk type is based on what you select in the storage type setting for the assessment.
 
 ### Example
 As an example, if you have an on-premises VM with four cores at 20% utilization, and memory of 8 GB with 10% utilization, the assessments will be as follows:
 
 - **Performance-based assessment**:
-    - Recommends cores and memory based on core (0.8 cores), and memory (0.8 GB) utilization.
-    - The assessment applies a default comfort factor of 30%.
-    - VM recommendation: ~1.4 cores (0.8 x1.3) and ~1.4 GB memory.
-- **As-is (on-premises) assessment**:
+    - Identifies effective cores and memory based on core (4 x 0.20 = 0.8), and memory (8 GB x 0.10 = 0.8) utilization.
+    - Applies the comfort factor specified in assessment properties (le'ts say 1.3x) to get the values to be used for sizing. 
+    - Recommends the nearest VM size in Azure that can support ~1.4 cores (0.8 x 1.3) and ~1.4 GB (0.8 x 1.3) memory.
+
+- **As-is (as on-premises) assessment**:
     -  Recommends a VM with four cores; 8 GB of memory.
 
 ## Best practices for creating assessments
 
 The Azure Migrate appliance continuously profiles your on-premises environment, and sends metadata and performance data to Azure. Follow these best practices for creating assessments:
 
-- **Create as-is assessments**: You can create as-is assessments immediately after discovery.
+- **Create as-is assessments**: You can create as-is assessments immediately once your machines show up in the Azure Migrate portal.
 - **Create performance-based assessment**: After setting up discovery, we recommend that you wait at least a day before running a performance-based assessment:
     - Collecting performance data takes time. Waiting at least a day ensures that there are enough performance data points before you run the assessment.
-    - For performance data, the appliance collects real-time data points every 20 seconds for each performance metric, and rolls them up to a single five-minute data point. The appliance sends the five-minute data point to Azure every hour for assessment calculation.  
-- **Get the latest data**: Assessments aren't automatically updated with the latest data. To update an assessment with the latest data, you need to rerun it. 
-- **Make sure durations match**: When you're running performance-based assessments, make sure your profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to one week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't, the assessment won't get a five-star rating. 
-- **Avoid missing data points**: The following issues might result in missing data points in a performance-based assessment:
-    - VMs are powered off during the assessment and performance data isn't collected. 
-    - If you create VMs during the month on which you base performance history. the data for those VMs will be less than a month. 
-    - The assessment is created immediately after discovery, or the assessment time doesn't match the performance data collection time.
+    - When you're running performance-based assessments, make sure you profile your environment for the assessment duration. For example, if you create an assessment with a performance duration set to one week, you need to wait for at least a week after you start discovery, for all the data points to be collected. If you don't, the assessment won't get a five-star rating.
+- **Recalculate assessments**: Since assessments are point-in-time snapshots, they aren't automatically updated with the latest data. To update an assessment with the latest data, you need to recalculate it.
 
 ## Best practices for confidence ratings
 
 When you run performance-based assessments, a confidence rating from 1-star (lowest) to 5-star (highest) is awarded to the assessment. To use confidence ratings effectively:
-- Azure Migrate Server Assessment needs the utilization data for VM CPU/Memory, and the disk IOPS/throughput data.
-- For each network adapter attached to a VM, Azure Migrate needs the network in/out data.
-- If utilization data isn't available in vCenter Server, the size recommendation done by Azure Migrate might not be reliable. 
+- Azure Migrate Server Assessment needs the utilization data for VM CPU/Memory.
+- For each disk attached to the on-premises VM, it needs the read/write IOPS/throughput data.
+- For each network adapter attached to the VM, it needs the network in/out data.
 
-Depending on the percentage of data points available, the confidence ratings for an assessment are summarized in the following table.
+Depending on the percentage of data points available for the selected duration, the confidence rating for an assessment is provided as summarized in the following table.
 
    **Data point availability** | **Confidence rating**
    --- | ---
@@ -65,8 +61,6 @@ Depending on the percentage of data points available, the confidence ratings for
    61%-80% | 4 Star
    81%-100% | 5 Star
 
-- If you receive a confidence rating for an assessment that's below five stars, wait at least a day and then recalculate the assessment.
-- A low rating means that sizing recommendations might not be reliable. In this case, we recommend that you modify the assessment properties to use as-is on-premises assessment.
 
 ## Common assessment issues
 
@@ -80,13 +74,15 @@ If you add or remove machines from a group after you create an assessment, the a
 
 If there are on-premises changes to VMs that are in a group that's been assessed, the assessment is marked **outdated**. To reflect the changes, run the assessment again.
 
-### Missing data points
+### Low confidence rating
 
 An assessment might not have all the data points for a number of reasons:
 
-- VMs might be powered off during the assessment and performance data isn't collected. 
-- VMs might be created during the month on which performance history is based, thus their performance data is less than a month. 
-- The assessment was created immediately after discovery. In order to gather performance data for a specified amount of time, you need to wait the specified amount of time before you run an assessment. For example, if you want to assess performance data for a week, you need to wait a week after discovery. If you don't the assessment won't get a five-star rating. 
+- You did not profile your environment for the duration for which you are creating the assessment. For example, if you are creating a *performance-based assessment* with performance duration set to one week, you need to wait for at least a week after you start the discovery for all the data points to get collected. You can always click on **Recalculate** to see the latest applicable confidence rating. Confidence rating is applicable only when you create a *performance-based* assessment.
+
+- Few VMs were shut down during the period for which the assessment is calculated. If some VMs were powered off for some duration, Server Assessment will not be able to collect the performance data for that period.
+
+- Few VMs were created after discovery in Server Assessment had started. For example, if you are creating an assessment for the performance history of last one month, but few VMs were created in the environment only a week ago. In this case, the performance data for the new VMs will not be available for the entire duration and the confidence rating would be low.
 
 
 ## Next steps

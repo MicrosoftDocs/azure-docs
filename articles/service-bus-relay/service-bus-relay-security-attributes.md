@@ -1,6 +1,6 @@
 ---
-title: Common security attributes for Azure Service Bus Relay
-description: A checklist of common security attributes for evaluating Azure Service Bus Relay
+title: Security attributes for Azure Service Bus Relay
+description: A checklist of security attributes for evaluating Azure Service Bus Relay
 services: service-bus-relay
 ms.service: service-bus-relay
 documentationcenter: ''
@@ -22,8 +22,8 @@ This article documents the security attributes built into Azure Service Bus Rela
 
 | Security Attribute | Yes/No | Notes |
 |---|---|--|
-| Encryption at rest:<ul><li>Server-side encryption</li><li>Server-side encryption with customer-managed keys</li><li>Other encryption features (such as client-side, always encrypted, etc.)</ul>|  N/A | Relay is a web socket and does not persist data. |
-| Encryption in transit:<ul><li>Express route encryption</li><li>In VNet encryption</li><li>VNet-VNet encryption</ul>| Yes | Service requires TLS. |
+| Encryption at rest (such as server-side encryption, server-side encryption with customer-managed keys, and other encryption features)|  N/A | Relay is a web socket and does not persist data. |
+| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption)| Yes | Service requires TLS. |
 | Encryption key handling (CMK, BYOK, etc.)| No | Uses Microsoft TLS certs only.  |
 | Column level encryption (Azure Data Services)| N/A | |
 | API calls encrypted| Yes | HTTPS. |

@@ -5,7 +5,7 @@ author: jan-eng
 ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 5/6/2019
+ms.date: 07/31/2019
 ---
 
 # Pricing tiers in Azure Database for PostgreSQL - Single Server
@@ -46,7 +46,12 @@ The storage you provision is the amount of storage capacity available to your Az
 | Storage increment size | 1 GB | 1 GB | 1 GB |
 | IOPS | Variable |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
 
-You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
+You can add additional storage capacity during and after the creation of the server, and allow the system to grow storage automatically based on the storage consumption of your workload. 
+
+>[!NOTE]
+> Storage can only be scaled up, not down.
+
+The Basic tier does not provide an IOPS guarantee. In the General Purpose and Memory Optimized pricing tiers, the IOPS scale with the provisioned storage size in a 3:1 ratio.
 
 You can monitor your I/O consumption in the Azure portal or by using Azure CLI commands. The relevant metrics to monitor are [storage limit, storage percentage, storage used, and IO percent](concepts-monitoring.md).
 
@@ -84,9 +89,11 @@ We recommend that you turn on storage auto-grow or to set up an alert to notify 
 
 ### Storage auto-grow
 
-If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified above apply.
+Storage auto-grow prevents your server from running out of storage and becoming read-only. If storage auto grow is enabled, the storage automatically grows without impacting the workload. For servers with less than 100 GB provisioned storage, the provisioned storage size is increased by 5 GB as soon as the free storage is below the greater of 1 GB or 10% of the provisioned storage. For servers with more than 100 GB of provisioned storage, the provisioned storage size is increased by 5% when the free storage space is below 5% of the provisioned storage size. Maximum storage limits as specified above apply.
 
 For example, if you have provisioned 1000 GB of storage, and the actual utilization goes over 950 GB, the server storage size is increased to 1050 GB. Alternatively, if you have provisioned 10 GB of storage, the storage size is increase to 15 GB when less than 1 GB of storage is free.
+
+Remember that storage can only be scaled up, not down.
 
 ## Backup
 
@@ -95,6 +102,9 @@ The service automatically takes backups of your server. The minimum retention pe
 ## Scale resources
 
 After you create your server, you can independently change the vCores, the hardware generation, the pricing tier (except to and from Basic), the amount of storage, and the backup retention period. You can't change the backup storage type after a server is created. The number of vCores can be scaled up or down. The backup retention period can be scaled up or down from 7 to 35 days. The storage size can only be increased. Scaling of the resources can be done either through the portal or Azure CLI. For an example of scaling by using Azure CLI, see [Monitor and scale an Azure Database for PostgreSQL server by using Azure CLI](scripts/sample-scale-server-up-or-down.md).
+
+> [!NOTE] 
+> The storage size can only be increased. You cannot go back to a smaller storage size after the increase.
 
 When you change the number of vCores, the hardware generation, or the pricing tier, a copy of the original server is created with the new compute allocation. After the new server is up and running, connections are switched over to the new server. During the moment when the system switches over to the new server, no new connections can be established, and all uncommitted transactions are rolled back. This window varies, but in most cases, is less than a minute.
 

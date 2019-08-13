@@ -17,29 +17,22 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 - Migration with an agent for replication. Install an agent on the VM for replication.
 
 
-Although agentless replication is easier from a deployment perspective, it currently has a number of limitations.
 
-## Agentless migration limitations
 
-Limitations are as follows:
+## Compare migration methods
 
-- **Simultaneous replication**: A maximum of 50 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance.
-- **VM disks**: A VM that you want to migrate must have 60 or less disks.
-- **VM operating systems**: In general, Azure Migrate can migrate any Windows Server or Linux operating system, but it might require changes on VMs so that they can run in Azure. Azure Migrate makes the changes automatically for these operating systems:
-    - Red Hat Enterprise Linux 6.5+, 7.0+
-    - CentOS 6.5+, 7.0+
-    - SUSE Linux Enterprise Server 12 SP1+
-    - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS
-    - Debian 7,8
-    - For other operating systems, you need to make adjustments manually before migration. The [migrate tutorial](tutorial-migrate-vmware.md) explains how to do this.
-- **Linux boot**: If /boot is on a dedicated partition, it should reside on the OS disk, and not be spread across multiple disks.<br/> If /boot is part of the root (/) partition, then the ‘/’ partition should be on the OS disk, and not span other disks.
-- **UEFI boot**: VMs with UEFI boot aren't supported for migration.
-- **Encrypted disks/volumes (BitLocker, cryptfs)**: VMs with encrypted disks/volumes aren't supported for migration.
-- **RDM/passthrough disks**: If VMs have RDM or passthrough disks, these disks won't be replicated to Azure
-- **NFS**: NFS volumes mounted as volumes on the VMs won't be replicated.
-- **Target storage**: You can only migrate VMware VMs to Azure VMs with managed disks (Standard HDD, Premium
-SSD).
+Use these selected comparisons to help you decide which method to use. You can also review full support requirements for [agentless](migrate-support-matrix-vmware.md#agentless-migration-vmware-server-requirements) and [agent-based](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements) migration.
 
+**Setting** | **Agentless** | **Agent-based**
+--- | --- | ---
+**Azure permissions** | You need permissions to create an Azure Migrate project, and to register Azure AD apps created when you deploy the Azure Migrate appliance. | You need Contributor permissions on the Azure subscription. 
+**Simultaneous replication** | A maximum of 100 VMs can be simultaneously replicated from a vCenter Server.<br/> If you have more than 50 VMs for migration, create multiple batches of VMs.<br/> Replicating more at a single time will impact performance. | NA
+**Appliance deployment** | The [Azure Migrate appliance](migrate-appliance.md) is deployed on-premises. | The [Azure Migrate Replication appliance](migrate-replication-appliance.md) is deployed on-premises.
+**Site Recovery compatibility** | Compatible. | You can't replicate with Azure Migrate Server Migration if you've set up replication for a machine using Site Recovery.
+**Target disk** | Managed disks | Managed disks
+**Disk limits** | OS disk: 2 TB<br/><br/> Data disk: 4 TB<br/><br/> Maximum disks: 60 | OS disk: 2 TB<br/><br/> Data disk: 4 TB<br/><br/> Maximum disks: 63
+**Passthrough disks** | Not supported | Supported
+**UEFI boot** | Not supported | The migrated VM in Azure will be automatically converted to a BIOS boot VM.<br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
 
 
 ## Deployment steps comparison
@@ -62,7 +55,7 @@ After reviewing the limitations, understanding the steps involved in deploying e
 
 ## Next steps
 
-[Migrate VMware VMs](tutorial-migrate-vmware.md) using agentless migration.
+[Migrate VMware VMs](tutorial-migrate-vmware.md) with agentless migration.
 
 
 

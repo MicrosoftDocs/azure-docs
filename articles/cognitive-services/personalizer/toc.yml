@@ -8,9 +8,12 @@
     displayName: loop, context, feature, action, rank, reward, developer, use case
 - name: Quickstarts
   items:
-  - name: Create and use feedback loop
+  - name: Using C#
     href: csharp-quickstart-commandline-feedback-loop.md
     displayName: code, sample, quickstart, c#
+  - name: Using Python
+    href: python-quickstart-commandline-feedback-loop.md
+    displayName: code, sample, quickstart, python    
 - name: Concepts
   items:
   - name: How Personalizer works
@@ -26,7 +29,7 @@
     items: 
     - name: "Features Action and Context"
       href: concepts-features.md
-      displayName: action, context, feature, namespace, JSON, best practice, set
+      displayName: action, context, feature, namespace, JSON, best practice, set, ID, guid, event id, 
     - name: Active learning
       href: concept-active-learning.md
       displayName: active, inactive
@@ -43,8 +46,18 @@
     - name: Offline evaluation
       href: concepts-offline-evaluation.md
       displayName: learning policy, Counterfactual, features
+    - name: Feature evaluation
+      href: concept-feature-evaluation.md
   - name: Scalability and performance
     href: concepts-scalability-performance.md 
+- name: Demonstrations
+  items: 
+  - name: News content website
+    href: https://personalizerdemo-staging.azurewebsites.net/
+  - name: Shopping content website
+    href: http://personalizer-traveldemo.azurewebsites.net/
+  - name: Sample code for demonstrations
+    href: https://github.com/Azure-Samples/cognitive-services-personalizer-samples/tree/master/demos
 - name: How-to guides
   items:
   - name: Create and configure Personalizer

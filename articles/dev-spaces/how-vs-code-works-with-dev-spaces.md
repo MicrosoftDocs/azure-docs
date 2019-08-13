@@ -3,7 +3,6 @@ title: "How Visual Studio Code works with Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/08/2019
@@ -48,9 +47,9 @@ After you launch your project, you can debug your Java, Node.js, and .NET Core s
 
 You can see Visual Studio Code and the Azure Dev Spaces extension working with Azure Dev Spaces in the following quickstarts:
 
-* [Develop with Java][quickstart-java]
-* [Develop with .NET][quickstart-netcore]
-* [Develop with Node.js][quickstart-node]
+* [Rapidly iterate and debug with Visual Studio Code and Java][quickstart-java]
+* [Rapidly iterate and debug with Visual Studio Code and .NET][quickstart-netcore]
+* [Rapidly iterate and debug with Visual Studio Code and Node.js][quickstart-node]
 
 [azds-extension]: https://marketplace.visualstudio.com/items?itemName=azuredevspaces.azds
 [azds-yaml]: how-dev-spaces-works.md#prepare-your-code

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/10/2019
+ms.date: 07/26/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -99,11 +99,11 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![The Certificate download link](common/metadataxml.png)
 
-1. Oracle Cloud Infrastructure Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
+1. Oracle Cloud Infrastructure Console application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open User Attributes dialog.
 
    ![image](common/edit-attribute.png)
 
-1. In addition to above, Oracle Cloud Infrastructure Console application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
+1. In addition to above, Oracle Cloud Infrastructure Console application expects few more attributes to be passed back in SAML response. In the **User Attributes & Claims** section on the **Group Claims (Preview)** dialog, perform the following steps:
 
    1. Click the **pen** next to **Name identifier value**.
 
@@ -163,7 +163,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
       ![Configuration](./media/oracle-cloud-tutorial/config09.png)
 
-   1. For **IDENTITY PROVIDER GROUP** fields, enter the group name and group ID that are set up in Azure portal. The group needs to be mapped with corresponding group in **OCI GROUP** field.
+   1. The **IDENTITY PROVIDER GROUP** should be selected as Custom Group. The GROUP ID should be the GUID of the group from Azure Active Directory. The group needs to be mapped with corresponding group in **OCI GROUP** field.
 
    1. You can map multiple groups as per your setup in Azure portal and your organization need. Click on **+ Add mapping** to add as many groups as you need.
 

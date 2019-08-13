@@ -1,7 +1,7 @@
 ---
-title: Train and register Keras models running on TensorFlow
+title: Train deep learning neural network with Keras
 titleSuffix: Azure Machine Learning service
-description: This article shows you how to train and register a Keras model running on TensorFlow using Azure Machine Learning service.
+description: Learn how to train and register a Keras deep neural network classification model running on TensorFlow using Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,21 @@ ms.topic: conceptual
 ms.author: maxluk
 author: maxluk
 ms.reviewer: peterlu
-ms.date: 06/07/2019
+ms.date: 08/01/2019
 ms.custom: seodec18
+
+#Customer intent: As a Python Keras developer, I need to combine open-source with a cloud platform to train, evaluate, and deploy my deep learning models at scale. 
 ---
 
-# Train and register Keras models at scale with Azure Machine Learning service
+# Train and register a Keras classification model with Azure Machine Learning service
 
-This article shows you how to train and register a Keras model built on TensorFlow using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
+This article shows you how to train and register a Keras classification model built on TensorFlow using Azure Machine Learning service. It uses the popular [MNIST dataset](http://yann.lecun.com/exdb/mnist/) to classify handwritten digits using a deep neural network (DNN) built using the [Keras Python library](https://keras.io) running on top of [TensorFlow](https://www.tensorflow.org/overview).
 
 Keras is a high-level neural network API capable of running top of other popular DNN frameworks to simplify development. With Azure Machine Learning service, you can rapidly scale out training jobs using elastic cloud compute resources. You can also track your training runs, version models, deploy models, and much more.
 
 Whether you're developing a Keras model from the ground-up or you're bringing an existing model into the cloud, Azure Machine Learning service can help you build production-ready models.
+
+See the [conceptual article](concept-deep-learning-vs-machine-learning.md) for information on the differences between machine learning and deep learning.
 
 ## Prerequisites
 
@@ -27,15 +31,15 @@ Run this code on either of these environments:
 
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-     - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
-    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-keras** folder. 
- 
+     - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - In the samples folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training-with-deep-learning > train-hyperparameter-tune-deploy-with-keras** folder.
+
  - Your own Jupyter Notebook server
 
-     - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-    - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
+    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - [Download the sample script files](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras) `mnist-keras.py` and `utils.py`
-     
+
     You can also find a completed [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb) of this guide on the GitHub samples page. The notebook includes expanded sections covering intelligent hyperparameter tuning, model deployment, and notebook widgets.
 
 ## Set up the experiment
@@ -121,7 +125,7 @@ try:
     print('Found existing compute target')
 except ComputeTargetException:
     print('Creating a new compute target...')
-    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6', 
+    compute_config = AmlCompute.provisioning_configuration(vm_size='STANDARD_NC6',
                                                            max_nodes=4)
 
     compute_target = ComputeTarget.create(ws, cluster_name, compute_config)
@@ -135,7 +139,7 @@ For more information on compute targets, see the [what is a compute target](conc
 
 The [TensorFlow estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py) provides a simple way of launching TensorFlow training jobs on compute target. Since Keras runs on top of TensorFlow, you can use the TensorFlow estimator and import the Keras library using the `pip_packages` argument.
 
-The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
+The TensorFlow estimator is implemented through the generic [`estimator`](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) class, which can be used to support any framework. Additionally, create a dictionary `script_params` that contains the DNN hyperparameter settings. For more information about training models using the generic estimator, see [train models with Azure Machine Learning using estimator](how-to-train-ml-models.md)
 
 ```Python
 script_params = {
@@ -175,7 +179,7 @@ As the Run is executed, it goes through the following stages:
 
 ## Register the model
 
-Once you've trained the model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
+Once you've trained the DNN model, you can register it to your workspace. Model registration lets you store and version your models in your workspace to simplify [model management and deployment](concept-model-management-and-deployment.md).
 
 ```Python
 model = run.register_model(model_name='keras-dnn-mnist', model_path='outputs/model')
@@ -200,3 +204,7 @@ In this article, you trained and registered a Keras model on Azure Machine Learn
 
 > [!div class="nextstepaction"]
 > [How and where to deploy models](how-to-deploy-and-where.md)
+* [Track run metrics during training](how-to-track-experiments.md)
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

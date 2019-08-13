@@ -3,7 +3,7 @@ title: Azure Active Directory risk events | Microsoft Docs
 description: This artice gives you a detailed overview of what risk events are.
 services: active-directory
 keywords: azure active directory identity protection, security, risk, risk level, vulnerability, security policy
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 
 ms.collection: M365-identity-device-management

@@ -1,5 +1,5 @@
 ---
-title: Create a Java app on Service Fabric in Azure | Microsoft Docs
+title: 'Quickstart: Create a Java app on Azure Service Fabric'
 description: In this quickstart, you create a Java application for Azure using a Service Fabric reliable services sample application.
 services: service-fabric
 documentationcenter: java
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
-ms.custom: mvc, devcenter
+ms.custom: mvc, devcenter, seo-java-august2019
 
 ---
 # Quickstart: Deploy a Java reliable services application to Service Fabric
@@ -61,13 +61,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ![Local cluster healthy](./media/service-fabric-quickstart-java/localclusterup.png)
 
 2. Open Eclipse.
-3. Click File -> Import -> Gradle -> Existing Gradle Project and follow the wizard.
-4. Click Directory and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from GitHub. Click Finish.
+3. Select **File** > **Import** > **Gradle** > **Existing Gradle Project** and follow the wizard.
+4. Select **Directory** and choose the `Voting` directory from the `service-fabric-java-quickstart` folder you cloned from GitHub. Select **Finish**.
 
     ![Eclipse Import Dialog](./media/service-fabric-quickstart-java/eclipseimport.png)
 
 5. You now have the `Voting` project in the Package Explorer for Eclipse.
-6. Right click on the project and select **Publish Application...** under the **Service Fabric** dropdown. Choose **PublishProfiles/Local.json** as the Target Profile and click Publish.
+6. Right-click on the project and select **Publish Application** under the **Service Fabric** dropdown. Choose **PublishProfiles/Local.json** as the Target Profile and select **Publish**.
 
     ![Publish Dialog Local](./media/service-fabric-quickstart-java/localjson.png)
 
@@ -86,14 +86,14 @@ Service Fabric Explorer runs in all Service Fabric clusters and can be accessed 
 To scale the web front-end service, do the following:
 
 1. Open Service Fabric Explorer in your cluster - for example, `https://localhost:19080`.
-2. Click on the ellipsis (three dots) next to the **fabric:/Voting/VotingWeb** node in the treeview and choose **Scale Service**.
+2. Select the ellipsis (**...**) next to the **fabric:/Voting/VotingWeb** node in the treeview and select **Scale Service**.
 
     ![Service Fabric Explorer Scale Service](./media/service-fabric-quickstart-java/scaleservicejavaquickstart.png)
 
     You can now choose to scale the number of instances of the web front-end service.
 
-3. Change the number to **2** and click **Scale Service**.
-4. Click on the **fabric:/Voting/VotingWeb** node in the tree-view and expand the partition node (represented by a GUID).
+3. Change the number to **2** and select **Scale Service**.
+4. Select the **fabric:/Voting/VotingWeb** node in the tree-view and expand the partition node (represented by a GUID).
 
     ![Service Fabric Explorer Scale Service Complete](./media/service-fabric-quickstart-java/servicescaled.png)
 

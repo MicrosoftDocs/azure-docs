@@ -433,3 +433,13 @@ Despite the error message when running `az aks use-dev-spaces` with a version of
 
 ### Try
 Update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) to 2.0.63 or later. This will resolve the error message you receive when running `az aks use-dev-spaces`. Alternatively, you can continue to use your current version of the Azure CLI and the Azure Dev Spaces CLI.
+
+
+## Horizontal pod autoscaling not working in a dev space
+
+### Reason
+
+When you run a service in a dev space, that service's pod is [injected with additional containers for instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster). Those containers do not have resource requests or limits defined, which causes the horizontal pod autoscaler to be disabled for the pod.
+
+### Try
+Run the horizontal pod autoscaler in a namespace that does not have Dev Spaces enabled.
