@@ -1,6 +1,6 @@
 ---
-title: How to provide feedback to Azure Maps | Microsoft Docs
-description: Provide feedback using Azure Maps feedback tool.
+title: How to provide data feedback to Azure Maps | Microsoft Docs
+description: Provide data feedback using Azure Maps feedback tool.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/12/2019
@@ -11,11 +11,11 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Provide feedback to Azure Maps
+# Provide data feedback to Azure Maps
 
 Azure Maps has generally been available since May 2018, providing fresh map data, easy-to-use REST APIs, and powerful SDKs to support our enterprise customers on a variety of business use cases. The real world is changing every second and it’s crucial for us to provide a factual digital representation to our customers. Our customers that are planning to open or close facilities need to ensure our maps are updated promptly so that they can efficiently plan for delivery, maintenance, or customer service at the right facilities. We have created the Azure Maps data feedback tool to empower our customers to provide direct data feedback. Customers’ data feedback goes directly to our data providers and their map editors who can quickly evaluate and incorporate feedback into our mapping products.  
 
-Azure Maps Data feedback tool provides an easy way for our customers to provide map data feedback, especially on business points of interest and residential addresses. This article guides you on how to provide different types of feedback using the Azure Maps feedback tool.
+[Azure Maps Data feedback tool](https://feedback.azuremaps.com) provides an easy way for our customers to provide map data feedback, especially on business points of interest and residential addresses. This article guides you on how to provide different types of feedback using the Azure Maps feedback tool.
 
 ## Add a business place or a residential address 
 
@@ -33,7 +33,7 @@ Upon clicking, you will be directed to a form to provide the corresponding detai
 
 ## Fix a business place or a residential address 
 
-The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address if it's wrong. To do so use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place", if the address is wrong.
+The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address if required. To do so use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place".
 
   ![search place to fix](./media/how-to-use-feedback-tool/fix-place.png)
 
