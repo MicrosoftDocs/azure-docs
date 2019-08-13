@@ -131,11 +131,11 @@ This setting is a desired property of the IoT Edge hub, which is stored in the m
 }
 ```
 
-### Store system module states in the host filesystem
+### Persistent storage for system modules
 
-Messages are stored by default in the IoT Edge hub's container filesystem. You can also dedicate local storage on the IoT Edge device. Using the host filesystem for storage is recommended for improved reliability, especially for devices that operate offline. 
+Messages and module state information are stored in the IoT Edge hub's local container filesystem by default. For improved reliability, especially when operating offline, you can also dedicate storage on the host IoT Edge device.
 
-To set up local storage, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
+To set up storage on the host system, create environment variables for the IoT Edge hub and IoT Edge agent that point to a storage folder in the container. Then, use the create options to bind that storage folder to a folder on the host machine. 
 
 You can configure environment variables and the create options for the IoT Edge hub module in the Azure portal in the **Configure advanced Edge Runtime settings** section. 
 
