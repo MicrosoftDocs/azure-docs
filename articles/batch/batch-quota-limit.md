@@ -67,6 +67,7 @@ Additional limits set by the Batch service. Unlike [resource quotas](#resource-q
 | Application packages per application | 40 |
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
+| [Mounts](virtual-file-mount.md) per compute node | 10 |
 
 <sup>1</sup> The maximum lifetime of a task, from when it is added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime is not accessible.
 
