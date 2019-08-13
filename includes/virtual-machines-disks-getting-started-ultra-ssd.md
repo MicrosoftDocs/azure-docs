@@ -145,4 +145,4 @@ Update-AzDisk -ResourceGroupName $resourceGroup -DiskName $diskName -DiskUpdate 
 
 ## Next steps
 
-If you would like to try the new disk type [request access to the preview with this survey](https://aka.ms/UltraSSDPreviewSignUp).
+If you would like to try the new disk type [request access with this survey](https://aka.ms/UltraDiskSignup).
