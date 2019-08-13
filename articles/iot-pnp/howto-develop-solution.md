@@ -33,7 +33,7 @@ Use the following samples to explore the capabilities of the Node.js service SDK
 
 **get_digital_twin.js** gets the digital twin associated with your device and prints its component in the command line. It doesn't require a running device sample to succeed.
 
-**get_digital_twin_component.js** gets a single component of digital twin associated with your device and prints it in the command line. It doesn't require the device sample to run.
+**get_digital_twin_interface_instance.js** gets a single interface instance of digital twin associated with your device and prints it in the command line. It doesn't require the device sample to run.
 
 ### Get and set properties using the Node service SDK
 
