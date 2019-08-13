@@ -80,7 +80,7 @@ A knowledge base stores question and answer pairs, created from a JSON object of
 * **Files** - local files that do not require any permissions. 
 * **URLs** - publicly available URLs.
 
-[!code-javascript[Create a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=createKb)]
+[!code-javascript[Create a knowledge base]~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=createKb)]
 
 
 ## Replace a knowledge base
