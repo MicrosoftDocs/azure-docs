@@ -40,8 +40,10 @@ FPGAs make it possible to achieve low latency for real-time inference (or model 
 ### Reconfigurable power
 You can reconfigure FPGAs for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used. Because FPGAs are reconfigurable, you can stay current with the requirements of rapidly changing AI algorithms.
 
-### What's supported on Azure
-Microsoft Azure is the world's largest cloud investment in FPGAs. FPGAs on Azure supports:
+## What's supported on Azure
+Microsoft Azure is the world's largest cloud investment in FPGAs. Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+
+FPGAs on Azure supports:
 
 + Image classification and recognition scenarios
 + TensorFlow deployment
@@ -63,7 +65,7 @@ FPGAs are available in these Azure regions:
 > [!IMPORTANT]
 > To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
 
-Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+The **PBS Family of Azure VMs** contains Intel Arria 10 FPGAs. It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation. The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA. It is only used with Azure ML, and it cannot run arbitrary bitstreams. For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc.
 
 ### Scenarios and applications
 
@@ -76,12 +78,12 @@ The following scenarios use FPGAs:
 
 
 
-## Deploy models on FPGAs
+## Example: Deploy models on FPGAs 
 
 You can deploy a model as a web service on FPGAs with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
 
 
-## Prerequisites
+### Prerequisites
 
 - An Azure subscription.  If you do not have one, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
@@ -115,7 +117,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
     ```
 
 
-## Create and containerize your model
+## 1. Create & containerize models
 
 This document will describe how to create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
 
@@ -309,7 +311,7 @@ for i in Image.list(workspace=ws):
         i.name, i.version, i.creation_state, i.image_location, i.image_build_log_uri))
 ```
 
-## Model deployment
+## 2. Deploy to cloud or edge
 
 ### Deploy to the cloud
 
@@ -419,10 +421,6 @@ All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-onlin
 ## Secure FPGA web services
 
 To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
-
-## PBS Family VMs
-
-The PBS Family of Azure VMs contains Intel Arria 10 FPGAs.  It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation.  The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA.  It is only used with Azure ML, and it cannot run arbitrary bitstreams.  For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc. 
 
 ## Next steps
 
