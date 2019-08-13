@@ -21,7 +21,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 To back up your Windows Server System State, you need to create a Recovery Services vault in the region where you want to store the data. You also need to determine how you want your storage replicated.
 
 ### To create a Recovery Services vault
-1. If you haven't already done so, sign in to the [Azure Portal](https://portal.azure.com/) using your Azure subscription.
+1. If you haven't already done so, sign in to the [Azure portal](https://portal.azure.com/) using your Azure subscription.
 2. On the Hub menu, click **All services** and in the list of resources, type **Recovery Services** and click **Recovery Services vaults**.
 
     ![Create Recovery Services Vault step 1](./media/backup-azure-system-state/open-rs-vault-list.png) <br/>
@@ -93,7 +93,7 @@ Now that you've created a vault, configure it for backing up Windows System Stat
 
     You choose **On-premises** because your Windows Server or Windows computer is a physical machine that is not in Azure.
 
-3. From the **What do you want to backup?** menu, select **System State**, and click **OK**.
+3. From the **What do you want to back up?** menu, select **System State**, and click **OK**.
 
     ![Configuring files and folders](./media/backup-azure-system-state/backup-goal-system-state.png)
 
@@ -178,7 +178,7 @@ To complete the initial backup, use the Microsoft Azure Recovery Services agent.
 
 2. In the Recovery Services agent, click **Schedule Backup**.
 
-    ![Schedule a Windows Server back up](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
+    ![Schedule a Windows Server backup](./media/backup-try-azure-backup-in-10-mins/schedule-first-backup.png)
 
 3. On the Getting started page of the Schedule Backup Wizard, click **Next**.
 
