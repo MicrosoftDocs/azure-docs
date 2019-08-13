@@ -1,6 +1,5 @@
 ---
-title: What is
-titleSuffix: Azure Machine Learning service
+title: What is Azure Machine Learning service
 description: Overview of Azure Machine Learning service - An integrated, end-to-end data science solution for professional data scientists to develop, experiment, and deploy advanced analytics applications at cloud scale.
 services: machine-learning
 ms.service: machine-learning
@@ -101,7 +100,7 @@ You get credits to spend on Azure services. After they're used up, you can keep 
 
 ## Next steps
 
-- [Create a Machine Learning service workspace](setup-create-workspace.md) to get started.
+- [Create a Machine Learning service workspace](how-to-manage-workspace.md) to get started.
 
 - Follow the full-length tutorials:
   + [Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md)

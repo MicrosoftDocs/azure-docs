@@ -30,7 +30,7 @@ The steps to create a backup policy for an Azure Recovery Services vault are out
 - Retention can be defined for "daily", "weekly", "monthly", "yearly" backup points.
 - "weekly" refers to a backup on a certain day of the week, "monthly" means a backup on a certain day of the month and "yearly" refers to a backup on a certain day of the year.
 - Retention for "monthly", "yearly" backup points is referred to as "LongTermRetention".
-- When a vault is created, a policy for Azure VM backups called "DefaultPolicy" is also created and can be used to backup Azure VMs.
+- When a vault is created, a policy for Azure VM backups called "DefaultPolicy" is also created and can be used to back up Azure VMs.
 
 To create or update an Azure Backup policy, use the following *PUT* operation
 
