@@ -32,7 +32,7 @@ Additionally, provide the scope for the role assignment. The service principal w
 
 If you do not have sufficient permissions to assign a role to the service principal, you may need to ask the account owner or administrator to perform the role assignment.
 
-The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope. Remember to replace placeholder values in angle brackets with your own values:
+The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
 
 ```azurecli-interactive
 az ad sp create-for-rbac -n <service-principal> --role "Storage Blob Data Reader" --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -85,13 +85,11 @@ using Azure.Storage.Blobs.Models;
 
 To authenticate the service principal, create an instance the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The `DefaultAzureCredential` constructor reads the environment variables that you created previously.
 
-The following code snippet shows how to get the authenticated credential and use it to create a service client for Blob storage. Remember to replace placeholder values in angle brackets with your own values:
+The following code snippet shows how to get the authenticated credential and use it to create a service client for Blob storage
 
 ```csharp
-// Construct the blob endpoint from the account name.
 string blobEndpoint = string.Format("https://{0}.blob.core.windows.net", accountName);
 
-// Create a new Blob service client with Azure AD credentials.  
 BlobServiceClient blobClient = new BlobServiceClient(new Uri(blobEndpoint),
                                                      new DefaultAzureCredential());
 ```
@@ -110,12 +108,9 @@ Use one of the following methods to request the user delegation key:
 The following code snippet gets the user delegation key and writes out its properties:
 
 ```csharp
-// Get a user delegation key for the Blob service that's valid for seven days.
-// You can use the key to generate any number of shared access signatures over the lifetime of the key.
 UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
                                                                    DateTimeOffset.UtcNow.AddDays(7));
 
-// Read the key's properties.
 Console.WriteLine("User delegation key properties:");
 Console.WriteLine("Key signed start: {0}", key.SignedStart);
 Console.WriteLine("Key signed expiry: {0}", key.SignedExpiry);
@@ -130,7 +125,6 @@ Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 The following code snippet shows create a new [BlobSasBuilder](/dotnet/api/azure.storage.sas.blobsasbuilder) and provide the parameters for the user delegation SAS. The snippet then calls the [ToSasQueryParameters](/dotnet/api/azure.storage.sas.blobsasbuilder.tosasqueryparameters) to get the SAS token string. Finally, the code builds the complete URI, including the resource address and SAS token.
 
 ```csharp
-// Create a SAS token that's valid for one hour.
 BlobSasBuilder builder = new BlobSasBuilder()
 {
     ContainerName = containerName,
@@ -138,13 +132,11 @@ BlobSasBuilder builder = new BlobSasBuilder()
     Permissions = "r",
     Resource = "b",
     StartTime = DateTimeOffset.UtcNow,
-    ExpiryTime = DateTimeOffset.UtcNow.AddHours(1)
+    ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
 };
 
-// Use the key to get the SAS token.
 string sasToken = sasBuilder.ToSasQueryParameters(key, accountName).ToString();
 
-// Construct the full URI, including the SAS token.
 UriBuilder fullUri = new UriBuilder()
 {
     Scheme = "https",
@@ -154,7 +146,7 @@ UriBuilder fullUri = new UriBuilder()
 };
 ```
 
-## Example: Get a user delegation SAS token for a blob
+## Example: Get a user delegation SAS
 
 The following example method shows the complete code for authenticating the security principal and creating the user delegation SAS:
 
@@ -169,9 +161,9 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
                                                             new DefaultAzureCredential());
 
     // Get a user delegation key for the Blob service that's valid for seven days.
-    // You can use the key to generate any number of shared access signatures over the lifetime of the key.
-    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow, 
-                                                                        DateTimeOffset.UtcNow.AddDays(7));
+    // Use the key to generate any number of shared access signatures over the lifetime of the key.
+    UserDelegationKey key = await blobClient.GetUserDelegationKeyAsync(DateTimeOffset.UtcNow,
+                                                                       DateTimeOffset.UtcNow.AddDays(7));
 
     // Read the key's properties.
     Console.WriteLine("User delegation key properties:");
@@ -182,7 +174,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
     Console.WriteLine("Key signed service: {0}", key.SignedService);
     Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
-    // Create a SAS token that's valid for one hour.
+    // Create a SAS token that's valid a short interval.
     BlobSasBuilder sasBuilder = new BlobSasBuilder()
     {
         ContainerName = containerName,
@@ -190,7 +182,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
         Permissions = "r",
         Resource = "b",
         StartTime = DateTimeOffset.UtcNow,
-        ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(1)
+        ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
     };
 
     // Use the key to get the SAS token.
@@ -210,7 +202,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 }
 ```
 
-## Example: Test user delegation SAS
+## Example: Read a blob with a user delegation SAS
 
 The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to read the contents of the blob. If the SAS is invalid, for example if it has expired, Azure Storage returns error code 403 (Forbidden).
 
