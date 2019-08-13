@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 
-ms.assetid: 906b8276-3125-4f3d-ae42-dc63da7dc8bc
+ms.assetid: 3b565c8d-35e2-482a-b2f4-bf8fd7d8731f
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
