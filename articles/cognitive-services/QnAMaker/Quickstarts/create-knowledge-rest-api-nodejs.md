@@ -64,13 +64,11 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 Create a file named `rest-apis.js` and add the HTTP request package, `requestretry`. 
 
-[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js)]
+[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js)]
 
 ## Add Azure resource information
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
-
-[!code-javascript[Azure resource information](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=authorization)]
 
 ## Create a knowledge base
 
@@ -80,32 +78,22 @@ A knowledge base stores question and answer pairs, created from a JSON object of
 * **Files** - local files that do not require any permissions. 
 * **URLs** - publicly available URLs.
 
-[!code-javascript[Create a knowledge base]~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=createKb)]
-
-
 ## Replace a knowledge base
 
 Replace an existing knowledge base with new information:
 
-[!code-javascript[Replace a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=replaceKb)]
+
 
 ## Publish a knowledge base
 
-[!code-javascript[Publish a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?)]
+
 
 ## Delete a knowledge base
 
-Delete the knowledge base using the [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) method with a parameter of the knowledge base ID. 
-
-[!code-javascript[Delete a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?)]
 
 ## Get status of an operation
 
-Some methods, such as create and update, can take enough time that instead of waiting for the process to finish, an [operation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operations?view=azure-node-latest) is returned. Use the [operation ID](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/operation?view=azure-node-latest#operationid) from the operation to poll (with retry logic) to determine the status of the original method. 
 
-The _setTimeout_ call in the following code block is used to simulate asynchronous code. Replace this with retry logic. 
-
-[!code-javascript[Monitor an operation](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?)]
 
 ## Run the application
 
