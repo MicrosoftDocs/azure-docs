@@ -1251,11 +1251,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path": "articles/cognitive-services/immersive-reader/tutorial-python.md",
-      "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-python",
-      "redirect_document_id": true
-    },
-    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
