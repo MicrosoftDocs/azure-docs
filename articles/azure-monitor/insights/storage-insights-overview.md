@@ -71,16 +71,13 @@ Select a value in the columns **Availability**, **E2E Latency**, **Server Latenc
 
 ### Capacity workbook
 
-Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of total storage used in the account and capacity used by each storage type in the account.  
+Select **Capacity** at the top of the page and the **Capacity** workbook opens. It shows you the amount of total storage used in the account and capacity used by each data service in the account to help identify over and under utilized storage.
 
 ![Multiple storage accounts Capacity workbook](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-Selecting a value under any one of the columns will direct you 
+When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account that shows the average amount of storage used and number of data objects created.  
 
-
-When you select a storage account from the list in the table, you drill down to the **Overview** workbook for the selected storage account that helps you identify over and under utilized storage. Note that the [breadcrumb](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) in the portal reflects the workbook is scoped to the selected storage account. If you selected any one of the other column values while it is showing data for that storage account, the [left pane](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) does not reflect you are in Azure Monitor for Storage. 
-
-![Storage account overview workbook](./media/storage-insights-overview/storage-account-overview-01.png)
+![Selected storage account Capacity workbook](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
 ## View from a storage account
 
