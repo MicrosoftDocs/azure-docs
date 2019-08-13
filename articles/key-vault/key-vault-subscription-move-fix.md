@@ -3,12 +3,12 @@ title: Change the key vault tenant ID after a subscription move - Azure Key Vaul
 description: Learn how to switch the tenant ID for a key vault after a subscription is moved to a different tenant
 services: key-vault
 author: amitbapat
-manager: barbkess
+manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
-ms.topic: conceptual
-ms.date: 01/07/2019
+ms.topic: tutorial
+ms.date: 08/12/2019
 ms.author: ambapat
 
 ---

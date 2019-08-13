@@ -62,7 +62,3 @@ SSMS is now connected to your Azure Government subscription.
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/).
 * Get help on Stack Overflow by using the [`azure-gov`](https://stackoverflow.com/questions/tagged/azure-gov) tag.
 * Share feedback or request new features by using the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government).
-
-## Next steps
-
-[Develop with Visual Studio](documentation-government-get-started-connect-with-vs.md)

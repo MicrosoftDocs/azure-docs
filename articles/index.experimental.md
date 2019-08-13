@@ -132,7 +132,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     </a>
                                                 </div>
                                                 <div class="ico48Link">
-                                                    <a href="/go/azure/">
+                                                    <a href="/azure/go/">
                                                         <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt=""/>
                                                         <span>Go</span>
                                                     </a>
@@ -3235,10 +3235,10 @@ description: Learn how to build and manage powerful applications using Microsoft
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="/go/azure/">Get the Go SDK</a>
+                                                    <a href="/azure/go/">Get the Go SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/go/azure/azure-sdk-go-qs-vm">Get started</a>
+                                                    <a href="/azure/go/azure-sdk-go-qs-vm">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Reference</a>

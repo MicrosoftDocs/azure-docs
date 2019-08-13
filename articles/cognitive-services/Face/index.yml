@@ -92,7 +92,7 @@ sections:
     - title: APIs
       html: <p><a href="APIReference">Face API</a></p>
     - title: SDKs
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/face?view=azure-dotnet">.NET</a></p>
+      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/faceapi?view=azure-dotnet">.NET</a></p>
             <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/faceapi?view=azure-java-stable">Java</a></p>
             <p><a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-face/?view=azure-python">Python</a></p>
             <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-face/?view=azure-node-latest">Node</a></p>
