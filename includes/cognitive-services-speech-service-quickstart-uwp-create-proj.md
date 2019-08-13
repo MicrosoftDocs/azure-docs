@@ -34,7 +34,9 @@ Next, create your project:
 
    ![Create a new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-create-new-project.png)
 
-1. Double-click **Blank App (Universal Windows)** to display the **Configure your new project** screen.
+1. Find and select **Blank App (Universal Windows)**.
+
+1. Select **Next** to display the **Configure your new project** screen. 
 
    ![Configure your new project - Visual Studio](../articles/cognitive-services/Speech-Service/media/sdk/vs-enable-uwp-configure-your-new-project.png)
 
