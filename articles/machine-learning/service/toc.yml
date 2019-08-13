@@ -258,7 +258,7 @@
     items:
     - name: ML pipelines
       href: how-to-create-your-first-pipeline.md
-    - name: 'Azure pipelines for CI/CD'
+    - name: 'Azure Pipelines for CI/CD'
       displayName: continuous, integration, delivery
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context
   - name: Manage resource quotas
