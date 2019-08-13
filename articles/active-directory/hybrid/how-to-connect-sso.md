@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -57,7 +57,7 @@ Seamless SSO can be combined with either the [Password Hash Synchronization](how
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Yes\*|No|Yes|Yes\*\*\*|N/A
+|Windows 10|Yes\*|Yes|Yes|Yes\*\*\*|N/A
 |Windows 8.1|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 8|Yes\*|N/A|Yes|Yes\*\*\*|N/A
 |Windows 7|Yes\*|N/A|Yes|Yes\*\*\*|N/A
