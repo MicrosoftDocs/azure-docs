@@ -131,7 +131,7 @@ Use the [REST API to monitor operations on a knowledge base](https://docs.micros
 
 ## Run the application
 
-Run the application with `node index.js` command from your application directory.
+Run the application with `node rest-apis.js` command from your application directory.
 
 ```console
 node rest-apis.js
@@ -152,4 +152,4 @@ If you want to clean up and remove a Cognitive Services subscription, you can de
 * [What is the QnA Maker API?](../Overview/overview.md)
 * [Edit a knowledge base](../how-to/edit-knowledge-base.md)
 * [Get usage analytics](../how-to/get-analytics-knowledge-base.md)
-* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js).
+* The source code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/blob/master/documentation-samples/quickstarts/rest-api/rest-api.js).
