@@ -171,6 +171,8 @@
     items:
     - name: Azure portal
       href: howto-auto-grow-storage-portal.md
+    - name: Azure CLI
+      href: howto-auto-grow-storage-cli.md
   - name: Access server logs
     items:
     - name: Slow query logs
