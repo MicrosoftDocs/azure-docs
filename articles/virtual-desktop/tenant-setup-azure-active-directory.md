@@ -37,17 +37,25 @@ Granting permissions to the Windows Virtual Desktop service lets it query Azure 
 
 To grant the service permissions:
 
-1. Open a browser and connect to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
-2. For **Consent Option** > **Server App**, enter the Azure Active Directory tenant name or Directory ID, and then select **Submit**.
-        
-   For Cloud Solution Provider customers, the ID is the customer's Microsoft ID from the Partner Portal. For Enterprise customers, the ID is located under **Azure Active Directory** > **Properties** > **Directory ID**.
-3. Sign in to the Windows Virtual Desktop consent page with a global administrator account. For example, if you were with the Contoso organization, your account might be admin@contoso.com or admin@contoso.onmicrosoft.com.  
-4. Select **Accept**.
-5. Wait for one minute.
-6. Go back to the [Windows Virtual Desktop consent page](https://rdweb.wvd.microsoft.com).
-7. Go to **Consent Option** > **Client App**, enter the same Azure Active Directory tenant name or Directory ID, and then select **Submit**.
-8. Sign in to the Windows Virtual Desktop consent page as global administrator, as you did in step 3.
-9. Select **Accept**.
+1. Open a browser and begin the admin consent flow to the [Windows Virtual Desktop server app](https://login.microsoftonline.com/common/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
+   > [!NOTE]
+   > If you manage a customer and need to grant admin consent for the customer's directory, enter the following URL into the browser and replace {tenant} with the Azure AD domain name of the customer. For example, if the customer's organization has registered the Azure AD domain name of contoso.onmicrosoft.com, replace {tenant} with contoso.onmicrosoft.com.
+   >```
+   >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+2. Sign in to the Windows Virtual Desktop consent page with a global administrator account. For example, if you were with the Contoso organization, your account might be admin@contoso.com or admin@contoso.onmicrosoft.com.  
+3. Select **Accept**.
+4. Wait for one minute so Azure AD can record consent.
+5. Open a browser and begin the admin consent flow to the [Windows Virtual Desktop client app](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
+   >[!NOTE]
+   > If you manage a customer and need to grant admin consent for the customer's directory, enter the following URL into the browser and replace {tenant} with the Azure AD domain name of the customer. For example, if the customer's organization has registered the Azure AD domain name of contoso.onmicrosoft.com, replace {tenant} with contoso.onmicrosoft.com.
+   >```
+   > https://login.microsoftonline.com/{tenant}/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
+   >```
+
+6. Sign in to the Windows Virtual Desktop consent page as global administrator, as you did in step 2.
+7. Select **Accept**.
 
 ## Assign the TenantCreator application role to a user in your Azure Active Directory tenant
 

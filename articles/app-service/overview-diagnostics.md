@@ -93,18 +93,22 @@ Proactive CPU monitoring provides you an easy, proactive way to take an action w
 
 ![Proactive CPU monitoring](./media/app-service-diagnostics/proactive-cpu-monitoring-9.png)
 
-### Proactive auto-healing
+### Auto-healing and proactive auto-healing
 
-Like proactive CPU monitoring, proactive auto-healing offers an easy, proactive approach to mitigating unexpected behavior of your app. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. This tool can be used to temporarily mitigate an unexpected behavior until the real cause for the issue is found. For more information on proactive auto-healing, visit [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
+Auto-healing is a mitigation action you can take when your app is having unexpected behavior. You can set your own rules based on request count, slow request, memory limit, and HTTP status code to trigger mitigation actions. Use the tool to temporarily mitigate an unexpected behavior until you find the root cause.
 
-![Proactive auto-healing](./media/app-service-diagnostics/proactive-auto-healing-10.png)
+![Auto-healing](./media/app-service-diagnostics/auto-healing-10.png)
 
-## Change analysis (only for Windows app)
+Like proactive CPU monitoring, proactive auto-healing is a turn-key solution to mitigating unexpected behavior of your app. Proactive auto-healing restarts your app when App Service determines that your app is in an unrecoverable state. For more information, see [Announcing the new auto healing experience in app service diagnostics](https://azure.github.io/AppService/2018/09/10/Announcing-the-New-Auto-Healing-Experience-in-App-Service-Diagnostics.html).
 
-In a fast-paced development environment, sometimes it may be difficult to keep track of all the changes made to your app and let alone pinpoint on a change that caused unhealthy behavior. Change analysis can help you narrow down on the changes made to your app to facilitate trouble-shooting experience. Change analysis is found in **Application Changes** and also embedded in a diagnostic report such as **Application Crashes** so you can use it concurrently with other metrics.
+## Navigator and change analysis (only for Windows app)
 
-Change analysis has to be enabled before using the feature. For more information on change analysis, visit [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+In a large team with continuous integration and where your app has many dependencies, it can be difficult to pinpoint the specific change that causes an unhealthy behavior. Navigator helps get visibility on your app’s topology by automatically rendering a dependency map of your app and all the resources in the same subscription. Navigator lets you view a consolidated list of changes made by your app and its dependencies and narrow down on a change causing unhealthy behavior. It can be accessed through the homepage tile **Navigator** and needs to be enabled before you use it the first time. For more information, see [Get visibility into your app's dependencies with Navigator](https://azure.github.io/AppService/2019/08/06/Bring-visibility-to-your-app-and-its-dependencies-with-Navigator.html).
 
-![Change analysis default page](./media/app-service-diagnostics/change-analysis-default-page-11.png)
+![Navigator default page](./media/app-service-diagnostics/navigator-default-page-11.png)
 
 ![Diff view](./media/app-service-diagnostics/diff-view-12.png)
+
+Change analysis for app changes can be accessed through tile shortcuts, **Application Changes** and **Application Crashes** in **Availability and Performance** so you can use it concurrently with other metrics. Before using the feature, you must first enable it. For more information, see [Announcing the new change analysis experience in App Service Diagnostics](https://azure.github.io/AppService/2019/05/07/Announcing-the-new-change-analysis-experience-in-App-Service-Diagnostics-Analysis.html).
+
+Post your questions or feedback at [UserVoice](https://feedback.azure.com/forums/169385-web-apps​​​​​​​​​​​​​​) by adding "[Diag]" in the title.

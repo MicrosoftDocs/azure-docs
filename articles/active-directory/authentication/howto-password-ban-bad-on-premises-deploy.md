@@ -57,6 +57,7 @@ After the feature has been running in audit mode for a reasonable period, you ca
     |`https://login.microsoftonline.com`|Authentication requests|
     |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
 
+* All machines that host the proxy service for password protection must be configured to grant domain controllers the ability to logon to the proxy service. This is controlled via the "Access this computer from the network" privilege assignment.
 * All machines that host the proxy service for password protection must be configured to allow outbound TLS 1.2 HTTP traffic.
 * A Global Administrator account to register the proxy service for password protection and forest with Azure AD.
 * An account that has Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
