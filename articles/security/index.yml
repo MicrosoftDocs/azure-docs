@@ -14,8 +14,8 @@ metadata:
   ms.collection: na
   author: TerryLanfear
   ms.author: terrylan
-  manager: barbkess
-  ms.date: 07/25/2019
+  manager: rkarlin
+  ms.date: 08/13/2019
 
 highlightedContent: 
   items: 
@@ -42,7 +42,7 @@ conceptualContent:
   title: Security content
   summary: Security content
   items: 
-    - title: Security fundamentals
+    - title: Fundamentals
       links: 
         - url: azure-security.md
           itemType: overview
