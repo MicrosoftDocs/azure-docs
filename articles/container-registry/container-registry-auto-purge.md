@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/05/2019
+ms.date: 08/13/2019
 ms.author: danlep
 ---
 
@@ -40,7 +40,7 @@ At a minimum, specify the following when you run `acr purge`:
 
 * `--registry` - The Azure container registry where you run the command. 
 * `--filter` - A repository and a *regular expression* to filter tags in the repository. Examples: `--filter "hello-world:.*"` matches all tags in the `hello-world` repository, and `--filter "hello-world:^1.*"` matches tags beginning with `1`. Pass multiple `--filter` parameters to purge multiple repositories.
-* `--ago` - An expression in go style duration format to indicate a duration beyond which images are deleted. For example, `--ago 2d3h6m` selects all images last modified more than 2 days, 3 hours, and 6 minutes ago. 
+* `--ago` - An expression in Go duration format to indicate a duration beyond which images are deleted. For example, `--ago 2d3h6m` selects all images last modified more than 2 days, 3 hours, and 6 minutes ago. 
 
 `acr purge` supports several optional parameters. The following two are used in examples in this article:
 
@@ -53,27 +53,41 @@ For additional parameters, run `acr purge --help`.
 
 ### Run in an on-demand task
 
-The following example uses the [az acr run][az-acr-run] command to run the `acr purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The task runs without a source context.
+The following example uses the [az acr run][az-acr-run] command to run the `purge` command on-demand. This example deletes all image tags and manifests in the `hello-world` repository in *myregistry* that were modified more than 1 day ago. The task runs without a source context.
 
 ```azurecli
 az acr run \
-    --cmd "mcr.microsoft.com/acr-cli:0.1 purge --registry {{.Run.Registry}} 
-        --filter "hello-world:.*" --untagged --ago 1d" \ 
-    --registry myregistry \
-    /dev/null 
+  --cmd "mcr.microsoft.com/acr/acr-cli:0.1 purge --registry {{.Run.Registry}} --filter "hello-world:.*" --untagged --ago 1d" \
+  --registry myregistry \
+  /dev/null
 ```
 
 ### Run in a scheduled task
 
-The following example uses the [az acr task create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task runs `acr purge` to delete tags modified more than 7 days ago in the `hello-world` repository. The task runs without a source context.
+The following example uses the [az acr task create][az-acr-task-create] command to create a daily [scheduled ACR task](container-registry-tasks-scheduled.md). The task purges tags modified more than 7 days ago in the `hello-world` repository. The task runs without a source context.
 
 ```azurecli
 az acr task create --name purgeTask \
-    --cmd "mcr.microsoft.com}/acr-cli:0.1 purge --registry {{.Run.Registry}}
-        --filter "hello-world:.*"  --ago 7d" \
-    --context /dev/null \
-    --schedule "0 0 * * *" \
-    --registry myregistry
+  --cmd "mcr.microsoft.com/acr/acr-cli:0.1 purge --registry {{.Run.Registry}} --filter "hello-world:.*"  --ago 7d" \
+  --context /dev/null \
+  --schedule "0 0 * * *" \
+  --registry myregistry
+```
+
+Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured.
+
+### Purge large numbers of tags and manifests
+
+Purging a large number of tags and manifests could take several minutes or longer. To purge thousands of tags and manifests, the on-demand or scheduled task command might need to run longer than the default [timeout time](container-registry-tasks-reference-yaml.md#cmd) of 600 seconds (10 minutes). In this case, pass the `--timeout` parameter to set a larger value. 
+
+For example, the following on-demand task times out after 3600 seconds (1 hour):
+
+```azurecli
+az acr run \
+  --cmd "mcr.microsoft.com/acr/acr-cli:0.1 purge --registry {{.Run.Registry}} --filter "hello-world:.*" --untagged --ago 1d" \
+  --registry myregistry \
+  --timeout 3600 \
+  /dev/null
 ```
 
 ## Example: Scheduled purge of multiple repositories in a registry
@@ -88,10 +102,9 @@ In the following example, the filter in each repository selects all tags. The `-
 
 ```azurecli
 az acr run \
-    --cmd "mcr.microsoft.com/acr-cli:0.1 purge --registry {{.Run.Registry}} 
-        --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged --dry-run" \ 
-    --registry myregistry \
-    /dev/null
+  --cmd "mcr.microsoft.com/acr/acr-cli:0.1 purge --registry {{.Run.Registry}} --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged --dry-run" \
+  --registry myregistry \
+  /dev/null
 ```
 
 Review the command output to see the tags and manifests that match the selection parameters. Because the command is run with `--dry-run`, no data is deleted.
@@ -107,8 +120,8 @@ Deleting manifests for repository: devimage1
 myregistry.azurecr.io/devimage1@sha256:81b6f9c92844bbbb5d0a101b22f7c2a7949e40f8ea90c8b3bc396879d95e788b
 myregistry.azurecr.io/devimage1@sha256:3ded859790e68bd02791a972ab0bae727231dc8746f233a7949e40f8ea90c8b3
 Deleting tags for repository: devimage2
-myregistry.azurecr.io/devimage1:5e788ba
-myregistry.azurecr.io/devimage1:f336b7c
+myregistry.azurecr.io/devimage2:5e788ba
+myregistry.azurecr.io/devimage2:f336b7c
 Deleting manifests for repository: devimage2
 myregistry.azurecr.io/devimage2@sha256:8d2527cde610e1715ad095cb12bc7ed169b60c495e5428eefdf336b7cb7c0371
 myregistry.azurecr.io/devimage2@sha256:ca86b078f89607bc03ded859790e68bd02791a972ab0bae727231dc8746f233a
@@ -124,18 +137,17 @@ After you've verified the dry run, create a scheduled task to automate the purge
 
 ```azurecli
 az acr task create --name weeklyPurgeTask \
-    --cmd "mcr.microsoft.com/acr-cli:0.1 purge --registry {{.Run.Registry}} 
-        --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged" \ 
-    --context /dev/null \
-    --schedule "0 1 * * Sun" \
-    --registry myregistry
+  --cmd "mcr.microsoft.com/acr/acr-cli:0.1 purge --registry {{.Run.Registry}} --filter "devimage1:.*" --filter "devimage2:.*" --ago 0d --untagged" \
+  --context /dev/null \
+  --schedule "0 1 * * Sun" \
+  --registry myregistry
 ```
 
 Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured.
 
 ## Next steps
 
-Find out about other options to [delete image data](container-registry-delete.md) in Azure Container Registry.
+Learn about other options to [delete image data](container-registry-delete.md) in Azure Container Registry.
 
 For more information about image storage, see [Container image storage in Azure Container Registry](container-registry-storage.md).
 
