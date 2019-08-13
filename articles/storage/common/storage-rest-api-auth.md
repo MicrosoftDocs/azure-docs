@@ -84,7 +84,7 @@ There is no request body for ListContainers. Request Body is used on all of the 
 Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). To see error codes specific to the Storage REST APIs, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Response Headers](/rest/api/storageservices/List-Containers2#response-headers)**:**
-These include *Content Type*; *x-ms-request-id*, which is the request id you passed in; *x-ms-version*, which indicates the version of the Blob service used; and the *Date*, which is in UTC and tells what time the request was made.
+These include *Content Type*; *x-ms-request-id*, which is the request ID you passed in; *x-ms-version*, which indicates the version of the Blob service used; and the *Date*, which is in UTC and tells what time the request was made.
 
 [Response Body](/rest/api/storageservices/List-Containers2#response-body):
 This field is an XML structure providing the data requested. In this example, the response is a list of containers and their properties.

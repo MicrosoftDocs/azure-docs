@@ -1,6 +1,6 @@
 ---
 title: Using Azure Storage with a Jenkins continuous integration solution
-description: This tutorial show how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
+description: This tutorial shows how to use the Azure blob service as a repository for build artifacts created by a Jenkins continuous integration solution.
 ms.topic: article
 ms.author: tarcher
 
@@ -8,7 +8,7 @@ author: tarcher
 services: devops
 ms.service: storage
 custom: jenkins
-ms.date: 07/31/2018
+ms.date: 08/13/2019
 ms.subservice: common
 ---
 
@@ -63,9 +63,9 @@ To use the Blob service with Jenkins, you'll need to install the Azure Storage p
 1. Within the Jenkins dashboard, select **Manage Jenkins**.
 2. In the **Manage Jenkins** page, select **Configure System**.
 3. In the **Microsoft Azure Storage Account Configuration** section:
-   1. Enter your storage account name, which you can obtain from the [Azure Portal](https://portal.azure.com).
-   2. Enter your storage account key, also obtainable from the [Azure Portal](https://portal.azure.com).
-   3. Use the default value for **Blob Service Endpoint URL** if you are using the global Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure Portal](https://portal.azure.com) for your storage account. 
+   1. Enter your storage account name, which you can obtain from the [Azure portal](https://portal.azure.com).
+   2. Enter your storage account key, also obtainable from the [Azure portal](https://portal.azure.com).
+   3. Use the default value for **Blob Service Endpoint URL** if you are using the global Azure cloud. If you are using a different Azure cloud, use the endpoint as specified in the [Azure portal](https://portal.azure.com) for your storage account. 
    4. Select **Validate storage credentials** to validate your storage account. 
    5. [Optional] If you have additional storage accounts that you want made available to your Jenkins CI, select **Add more Storage Accounts**.
    6. Select **Save** to save your settings.
@@ -100,7 +100,7 @@ For instructional purposes, you first need to create a job that will create seve
 12. Select **Save** to save your settings.
 13. In the Jenkins dashboard, select **Build Now** to run **MyJob**. Examine the console output for status. Status messages for Azure storage will be included in the console output when the post-build action starts to upload build artifacts.
 14. Upon successful completion of the job, you can examine the build artifacts by opening the public blob.
-    1. Sign in to the [Azure Portal](https://portal.azure.com).
+    1. Sign in to the [Azure portal](https://portal.azure.com).
     2. Select **Storage**.
     3. Select the storage account name that you used for Jenkins.
     4. Select **Containers**.
@@ -131,7 +131,7 @@ This section provides an overview of the Blob service components.
   
     `http://storageaccount.blob.core.windows.net/container_name/blob_name`
   
-    (The format above applies to the global Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure Portal](https://portal.azure.com) to determine your URL endpoint.)
+    (The format above applies to the global Azure cloud. If you are using a different Azure cloud, use the endpoint within the [Azure portal](https://portal.azure.com) to determine your URL endpoint.)
   
     In the format above, `storageaccount` represents the name of your storage account, `container_name` represents the name of your container, and `blob_name` represents the name of your blob, respectively. Within the container name, you can have multiple paths, separated by a forward slash, **/**. The example container name used for this tutorial was **MyJob**, and **${BUILD\_ID}/${BUILD\_NUMBER}** was used for the common virtual path, resulting in the blob having a URL of the following form:
   
