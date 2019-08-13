@@ -64,7 +64,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 Create a file named `rest-apis.js` and add the HTTP request package, `requestretry`. 
 
-[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts//rest-api/rest-apis.js?name=dependencies)]
+[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=dependencies)]
 
 ## Add Azure resource information
 
