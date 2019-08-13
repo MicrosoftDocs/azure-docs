@@ -33,7 +33,7 @@ The user assignments report and Azure Active Directory audit log provide additio
 
 Watch the following video to learn how to use entitlement management to manage access for users in Azure Active Directory:
 
->[!VIDEO https://www.youtube.com/watch?v=omtNJ7ySjS0&feature=youtu.be]
+>[!VIDEO https://www.youtube.com/embed/omtNJ7ySjS0]
 
 ## View resources a user has access to
 

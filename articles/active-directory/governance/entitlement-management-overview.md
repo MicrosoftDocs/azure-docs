@@ -34,7 +34,7 @@ Azure Active Directory (Azure AD) entitlement management can help you manage acc
 
 This video provides an overview of entitlement management and its business value:
 
->[!VIDEO https://www.youtube.com/watch?v=_Lss6bFrnQ8&feature=youtu.be]
+>[!VIDEO https://www.youtube.com/embed/_Lss6bFrnQ8]
 
 ## Why use entitlement management?
 

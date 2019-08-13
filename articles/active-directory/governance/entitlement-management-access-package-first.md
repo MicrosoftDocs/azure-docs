@@ -44,7 +44,7 @@ In this tutorial, you learn how to:
 
 For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
 
->[!VIDEO https://www.youtube.com/watch?v=zaaKvaaYwI4&feature=youtu.be]
+>[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
 
 ## Prerequisites
 
