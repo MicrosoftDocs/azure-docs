@@ -179,7 +179,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
 }
 ```
 
-[!INCLUDE [storage-blob-dotnet-resources](../../../includes/storage-blob-dotnet-resources.md)]
+[!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
 ## See also
 
