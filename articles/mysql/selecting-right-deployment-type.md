@@ -10,6 +10,8 @@ ms.date: 08/05/2019
 
 # Choose the right MySQL Server option in Azure
 
+Learn how each deployment option fits into the Microsoft data platform and get help matching the right option to your business requirements. Whether you prioritize cost savings or minimal administration ahead of everything else, this article can help you decide which approach delivers against the business requirements you care about most.<br/>
+
 In Azure, you can have your MySQl server workloads running in a hosted infrastructure VM (IaaS) or running as a hosted service (PaaS). Within PaaS, you have multiple service tiers which gives you the option to select the best that suits your business needs. The key question that you need to ask when deciding between PaaS or IaaS is do you want to manage your database, apply patches take backups, or you want to delegate these operations to Azure? Depending on the answer, you have the following options: <br/><br/>
 **Azure Database for MySQL** is a fully managed MySQL database engine, based on the stable version of the community edition. This is a relational database-as-a-service (DBaaS) hosted in the Azure cloud that falls into the industry category of Platform-as-a-Service (PaaS). With a managed MySQL on Azure, you can use built-in features and functionality that require extensive configuration when using MySQL Server (either on-premises or in an Azure virtual machine). When using MySQL as a service you pay-as-you-go with options to scale up or out for greater power with no interruption. Azure Database for MySQL has additional features that are
 not available in standalone MySQL server, such as built-in high availability, intelligence, and management. <br/><br/>
@@ -50,9 +52,15 @@ These factors will be discussed in more details in the following sections.
 
 Whether you’re a startup that is strapped for cash, or a team in an established company that operates under tight budget constraints, limited funding is often the primary driver when deciding how to host your databases. In this section, you learn about the billing and licensing basics in Azure with regards to these two relational database options Azure Database for MySQL and MySQL on Azure VMs:
 
+#### Billing and licensing basics
+
+Currently, Azure Database for MySQL is sold as a service and is available in several service tiers with different prices for resources, all of which are billed hourly at a fixed rate based on the service tier and compute size you choose. For the latest information on the current supported service tiers, compute sizes, and storage amounts, see [vCore-based purchasing model](https://docs.microsoft.com/azure/mysql/concepts-pricing-tiers).
+
+In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/). You can dynamically adjust service tiers and compute sizes to match your application’s varied throughput needs.
+
 With Azure Database for MySQL, the database software is automatically configured, patched, and upgraded by Microsoft, which reduces your administration costs. In addition, its [built-in backup](https://docs.microsoft.com/azure/mysql/concepts-backup) capabilities help you achieve significant cost savings, especially when you have a large number of databases.
 
-With MySQL on Azure VMs you can use any of the MySQL version and run on the VMs. Any supported MySQL version can be used on the VMs. Regardless of the MySQL version you use, you pay for the VM provisioned and the costs for the specific license type used for MySQL. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). In addition, you are billed for outgoing Internet traffic at regular [data transfer rates](https://azure.microsoft.com/pricing/details/data-transfers/).
+With MySQL on Azure VMs you can use any of the MySQL version and run on the VMs. Any supported MySQL version can be used on the VMs. Regardless of the MySQL version you use, you pay for the VM provisioned and the costs for the specific license type used for MySQL. For more information on bring-your-own licensing, see [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 #### Calculating the total application cost
 
