@@ -148,4 +148,4 @@ When you click the Oracle Fusion ERP tile in the Access Panel, you should be aut
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Oracle Fusion ERP with Azure AD](aad.portal.azure.com)
+- [Try Oracle Fusion ERP with Azure AD](https://aad.portal.azure.com/)
