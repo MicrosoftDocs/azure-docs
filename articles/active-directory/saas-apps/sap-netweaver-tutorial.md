@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver
+# Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver
 
 In this tutorial, you'll learn how to integrate SAP NetWeaver with Azure Active Directory (Azure AD). When you integrate SAP NetWeaver with Azure AD, you can:
 
