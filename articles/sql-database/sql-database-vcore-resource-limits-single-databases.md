@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-ms.date: 04/22/2019
+ms.date: 08/14/2019
 ---
 # Resource limits for single databases using the vCore-based purchasing model
 
@@ -26,7 +26,7 @@ You can set the service tier, compute size, and storage amount for a single data
 > [!IMPORTANT]
 > For scaling guidance and considerations, see [Scale a single database](sql-database-single-database-scale.md).
 
-## General Purpose service tier: Storage sizes and compute sizes
+## General Purpose service tier for provisioned compute tier
 
 > [!IMPORTANT]
 > New Gen4 databases are no longer supported in the AustraliaEast region.
@@ -123,33 +123,59 @@ You can set the service tier, compute size, and storage amount for a single data
 |Read Scale-out|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
 
+## General Purpose service tier for serverless compute tier
+
 ### Serverless compute tier
 
 The [serverless compute tier](sql-database-serverless.md) is in preview and is only for single databases using the vCore purchasing model.
 
-#### Generation 5 compute platform
+#### Generation 5 compute platform (part 1)
 
-|Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4|
-|:--- | --: |--: |--: |
-|H/W generation|5|5|5|
-|Min-max vCores|0.5-1|0.5-2|0.5-4|
-|Min-max memory (GB)|2.02-3|2.05-6|2.10-12|
-|Min auto-pause delay (hours)|6|6|6|
-|Columnstore support|Yes|Yes|Yes|
-|In-memory OLTP storage (GB)|N/A|N/A|N/A|
-|Max data size (GB)|512|1024|1024|
-|Max log size (GB)|12|24|48|
-|TempDB size (GB)|32|64|128|
-|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
-|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
-|Target IOPS (64 KB)|500|1000|2000|
-|Log rate limits (MBps)|2.5|5.6|10|
-|Max concurrent workers (requests)|75|150|300|
-|Max allowed sessions|30000|30000|30000|
-|Number of replicas|1|1|1|
-|Multi-AZ|N/A|N/A|N/A|
-|Read Scale-out|N/A|N/A|N/A|
-|Included backup storage|1X DB size|1X DB size|1X DB size|
+|Compute size|GP_S_Gen5_1|GP_S_Gen5_2|GP_S_Gen5_4||GP_S_Gen5_6|GP_S_Gen5_8|
+|:--- | --: |--: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|
+|Min-max vCores|0.5-1|0.5-2|0.5-4|0.75-6|1.0-8|
+|Min-max memory (GB)|2.02-3|2.05-6|2.10-12|2.25-18|3.00-24|
+|Min auto-pause delay (hours)|1|1|1|1|1|
+|Columnstore support|Yes|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|N/A|
+|Max data size (GB)|512|1024|1024|1024|1536|
+|Max log size (GB)|154|307|307|307|461|
+|TempDB size (GB)|32|64|128|192|256|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Target IOPS (64 KB)|500|1000|2000|3000|4000|
+|Log rate limits (MBps)|2.5|5.6|10|15|20|
+|Max concurrent workers (requests)|75|150|300|450|600|
+|Max allowed sessions|30000|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|1X DB size|
+
+#### Generation 5 compute platform (part 2)
+
+|Compute size|GP_S_Gen5_10|GP_S_Gen5_12|GP_S_Gen5_14|GP_S_Gen5_16|
+|:--- | --: |--: |--: |--: |
+|H/W generation|5|5|5|5|5|
+|Min-max vCores|1.25-10|1.50-12|1.75-14|2.00-16|
+|Min-max memory (GB)|3.75-30|4.50-36|5.25-42|6.00-48|
+|Min auto-pause delay (hours)|1|1|1|1|
+|Columnstore support|Yes|Yes|Yes|Yes|
+|In-memory OLTP storage (GB)|N/A|N/A|N/A|N/A|
+|Max data size (GB)|1536|1536|1536|3072|
+|Max log size (GB)|461|461|461|922|
+|TempDB size (GB)|320|384|448|512|
+|Storage type|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|Premium (Remote) Storage|
+|IO latency (approximate)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|5-7 ms (write)<br>5-10 ms (read)|
+|Target IOPS (64 KB)|5000|6000|7000|8000|
+|Log rate limits (MBps)|20|20|20|20|
+|Max concurrent workers (requests)|750|900|1050|1200|
+|Max allowed sessions|30000|30000|30000|30000|
+|Number of replicas|1|1|1|1|
+|Multi-AZ|N/A|N/A|N/A|N/A|
+|Read Scale-out|N/A|N/A|N/A|N/A|
+|Included backup storage|1X DB size|1X DB size|1X DB size|1X DB size|
 
 ## Business Critical service tier for provisioned compute tier
 
