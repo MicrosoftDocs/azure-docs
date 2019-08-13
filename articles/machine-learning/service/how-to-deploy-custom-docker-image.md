@@ -94,6 +94,8 @@ If you've already trained or deployed models using the Azure Machine Learning se
     az ml workspace show -w <myworkspace> -g <resourcegroup> --query containerRegistry
     ```
 
+    [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
     The information returned is similar to the following text:
 
     ```text

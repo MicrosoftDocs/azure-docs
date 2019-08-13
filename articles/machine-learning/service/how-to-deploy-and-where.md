@@ -76,8 +76,7 @@ The code snippets in this section demonstrate registering a model from a trainin
   print(model.name, model.id, model.version, sep='\t')
   ```
 
-  > [!TIP]
-  > The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files.
 
 + **Using the CLI**
 
@@ -85,8 +84,9 @@ The code snippets in this section demonstrate registering a model from a trainin
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  > [!TIP]
-  > The `--asset-path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
+  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
+  The `--asset-path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
@@ -116,8 +116,7 @@ You can register an externally created model by providing a **local path** to th
                             description = "MNIST image classification CNN from ONNX Model Zoo",)
     ```
 
-  > [!TIP]
-  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  To include multiple files in the model registration, set `model_path` to the directory that contains the files.
 
 + **Using the CLI**
 
@@ -125,8 +124,7 @@ You can register an externally created model by providing a **local path** to th
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  > [!TIP]
-  > To include multiple files in the model registration, set `-p` to the directory that contains the files.
+  To include multiple files in the model registration, set `-p` to the directory that contains the files.
 
 **Time estimate**: Approximately 10 seconds.
 
