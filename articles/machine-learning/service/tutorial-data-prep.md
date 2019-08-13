@@ -151,7 +151,7 @@ green_df = (green_df_raw
                 "Trip_distance": "distance"
             })
             .keep_columns(columns=useful_columns))
-green_df.head(5)
+display(green_df.head(5))
 ```
 
 <div>
@@ -288,7 +288,7 @@ yellow_df = (yellow_df_raw
                  "trip_distance": "distance"
              })
              .keep_columns(columns=useful_columns))
-yellow_df.head(5)
+display(yellow_df.head(5))
 ```
 
 Call the `append_rows()` function on the green taxi data to append the yellow taxi data. A new combined dataframe is created.
