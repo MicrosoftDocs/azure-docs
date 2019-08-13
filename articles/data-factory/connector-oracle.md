@@ -45,7 +45,9 @@ Specifically, this Oracle connector supports:
 
 ## Prerequisites
 
-To copy data from and to an Oracle database that isn't publicly accessible, you need to set up a [Self-hosted integration runtime](create-self-hosted-integration-runtime.md). The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)] 
+
+The integration runtime provides a built-in Oracle driver. Therefore, you don't need to manually install a driver when you copy data from and to Oracle.
 
 ## Get started
 
@@ -61,7 +63,7 @@ The Oracle linked service supports the following properties:
 |:--- |:--- |:--- |
 | type | The type property must be set to **Oracle**. | Yes |
 | connectionString | Specifies the information needed to connect to the Oracle Database instance. <br/>Mark this field as a `SecureString` to store it securely in Data Factory. You can also put a password in Azure Key Vault, and pull the `password` configuration out of the connection string. Refer to the following samples and [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details. <br><br>**Supported connection type**: You can use **Oracle SID** or **Oracle Service Name** to identify your database:<br>- If you use SID: `Host=<host>;Port=<port>;Sid=<sid>;User Id=<username>;Password=<password>;`<br>- If you use Service Name: `Host=<host>;Port=<port>;ServiceName=<servicename>;User Id=<username>;Password=<password>;` | Yes |
-| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use self-hosted integration runtime or Azure integration runtime (if your data store is publicly accessible). If not specified, this property uses the default Azure integration runtime. |No |
+| connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, the default Azure Integration Runtime is used. |No |
 
 >[!TIP]
 >If you get an error, "ORA-01025: UPI parameter out of range", and your Oracle version is 8i, add `WireProtocolMode=1` to your connection string. Then try again.
@@ -190,11 +192,10 @@ To copy data from and to Oracle, set the type property of the dataset to `Oracle
 
 This section provides a list of properties supported by the Oracle source and sink. For a full list of sections and properties available for defining activities, see [Pipelines](concepts-pipelines-activities.md). 
 
-### Oracle as a source type
+### Oracle as source
 
-> [!TIP]
->
-> To load data from Oracle efficiently by using data partitioning, see [Parallel copy from Oracle](#parallel-copy-from-oracle).
+>[!TIP]
+>To load data from Oracle efficiently by using data partitioning, see [Parallel copy from Oracle](#parallel-copy-from-oracle).
 
 To copy data from Oracle, set the source type in the copy activity to `OracleSource`. The following properties are supported in the copy activity **source** section.
 
@@ -241,7 +242,7 @@ To copy data from Oracle, set the source type in the copy activity to `OracleSou
 ]
 ```
 
-### Oracle as a sink type
+### Oracle as sink
 
 To copy data to Oracle, set the sink type in the copy activity to `OracleSink`. The following properties are supported in the copy activity **sink** section.
 
