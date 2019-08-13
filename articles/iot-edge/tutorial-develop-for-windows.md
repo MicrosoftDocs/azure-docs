@@ -50,7 +50,7 @@ The following table lists the supported development scenarios for **Windows cont
 
 A development machine:
 
-* Windows 10 with 1809 update.
+* Windows 10 with 1809 update or newer.
 * You can use your own computer or a virtual machine, depending on your development preferences.
 * Install [Git](https://git-scm.com/). 
 
