@@ -138,7 +138,7 @@ In this section, a user called Britta Simon is created in Box. Box supports just
 > [!NOTE]
 > If you need to create a user manually, contact [Box support team](https://community.box.com/t5/custom/page/page-id/submit_sso_questionaire).
 
-### Test SSO
+## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
@@ -152,4 +152,4 @@ When you click the Box tile in the Access Panel, you should be automatically sig
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try Box with Azure AD](aad.portal.azure.com)
+- [Try Box with Azure AD](https://aad.portal.azure.com/)
