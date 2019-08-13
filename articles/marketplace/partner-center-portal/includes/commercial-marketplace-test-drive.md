@@ -20,7 +20,7 @@ ms.custom: include file
 
 The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **Offer setup** page and un-check **Enable test drive**.
 
-## Technical configuration
+### Technical configuration
 The following types of test drives are available, each with their own technical configuration requirements.
 
 - [Azure Resource Manager](#technical-configuration-for-azure-resource-manager-test-drive)
@@ -28,7 +28,7 @@ The following types of test drives are available, each with their own technical 
 - [Logic app](#technical-configuration-for-logic-app-test-drive)
 - [Power BI](#technical-configuration-not-required-for-power-bi-test-drives) (Technical configuration not required)
 
-### Technical configuration for Azure Resource Manager test drive
+#### Technical configuration for Azure Resource Manager test drive
 
 A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources. Learn more about setting up an [Azure Resource Manager test drive](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive).
 
@@ -44,7 +44,7 @@ A deployment template that contains all the Azure resources that comprise your s
 
 - **Test drive duration** (required): Enter the length of time that the Test Drive will stay active, in # of hours. The Test Drive terminates automatically after this time period ends. This duration may only bet set by a whole number of hours (e.g. "2" hours, "1.5" is not valid).
 
-### Technical configuration for Dynamics 365 test drive
+#### Technical configuration for Dynamics 365 test drive
 
 Microsoft can remove the complexity of setting up a test drive by hosting and maintaining the service provisioning and deployment using this type of test drive. The configuration for this type of hosted test drive is the same regardless of whether the test drive is targeting a Business Central, Customer Engagement, or Operations audience.
 
@@ -58,7 +58,7 @@ Microsoft can remove the complexity of setting up a test drive by hosting and ma
 
 - **Role name** (required): Provide the security role name you have defined in your custom Dynamics 365 test drive. This will be assigned to the user during their test drive (e.g. test-drive-role).
 
-### Technical configuration for Logic app test drive
+#### Technical configuration for Logic app test drive
 
 Any custom products should use this type of test drive deployment template which encompasses a variety of complex solution architectures. For more information about setting up Logic App test drives, visit [Operations](https://github.com/Microsoft/AppSource/blob/master/Setup-your-Azure-subscription-for-Dynamics365-Operations-Test-Drives.md) and [Customer Engagement](https://github.com/Microsoft/AppSource/wiki/Setting-up-Test-Drives-for-Dynamics-365-app) on GitHub.
 
@@ -74,11 +74,11 @@ Any custom products should use this type of test drive deployment template which
 
 - **Deprovision logic app name** (required): Enter the name of the Logic app that deprovisions the test drive once the customer is finished. This Logic app must be saved in the Azure resources group above.
 
-### Technical configuration not required for Power BI test drives
+#### Technical configuration not required for Power BI test drives
 
 Products that want to demonstrate an interactive Power BI visual can use an embedded link to share a custom-built dashboard as their test drive, no further technical configuration required. Learn more about setting up[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview) template apps.
 
-## Deployment subscription details
+### Deployment subscription details
 
 In order to deploy the Test Drive on your behalf, please create and provide a separate, unique Azure Subscription. (Not required for Power BI test drives).
 
@@ -94,7 +94,7 @@ In order to deploy the Test Drive on your behalf, please create and provide a se
 
 Remember to **Save** before moving on to the next section!
 
-## Test drive listings (optional)
+### Test drive listings (optional)
 
 The **Test Drive listings** option found under the **Test drive** tab displays the languages (and markets) where your test drive is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the test drive details (description, user manual, videos, etc.) for each language/market.
 
