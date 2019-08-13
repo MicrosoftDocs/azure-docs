@@ -269,7 +269,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
-14. Note that **user ID Source** and **user id mapping mode** values determine the link between SAP user and Azure AD claim.  
+14. Note that **user ID Source** and **user ID mapping mode** values determine the link between SAP user and Azure AD claim.  
 
 	#### Scenario: SAP User to Azure AD user mapping.
 
@@ -281,7 +281,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-	#### Scenario: Select SAP user id based on configured email address in SU01. In this case email id should be configured in su01 for each user who requires SSO.
+	#### Scenario: Select SAP user ID based on configured email address in SU01. In this case email ID should be configured in su01 for each user who requires SSO.
 
 	a.  NameID details screenshot from SAP.
 
