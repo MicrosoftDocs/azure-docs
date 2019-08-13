@@ -13,7 +13,7 @@ ms.service: container-service
 
 # Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster 
 
-In OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
+In an OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
 
 ## Self-provisioning projects
 
@@ -31,7 +31,7 @@ When a project request is submitted, the API substitutes the following parameter
 
 Access to the API is granted to developers with the self-provisioners cluster role binding. This feature is available to all authenticated developers by default.
 
-## Modifying the template for a new projects 
+## Modifying the template for a new project 
 
 1. Log in as a user with `customer-admin` privileges.
 
@@ -40,7 +40,7 @@ Access to the API is granted to developers with the self-provisioners cluster ro
 oc edit template project-request -n openshift
 ```
 
-Remove the default project template from the ARO update process by adding the following annotation:
+Remove the default project template from the Azure Red Hat Openshift (ARO) update process by adding the following annotation:
  `openshift.io/reconcile-protect: "true"`
 ```
 ...
@@ -116,3 +116,8 @@ metadata:
 
 Any individual object in the `openshift` namespace can be removed from the update process by adding annotation `openshift.io/reconcile-protect: "true"` to it.
 
+## Next steps
+
+Try the tutorial:
+> [!div class="nextstepaction"]
+> [Create an Azure Red Hat OpenShift cluster](tutorial-create-cluster.md)
