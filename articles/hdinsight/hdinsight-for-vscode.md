@@ -149,7 +149,7 @@ With Spark & Hive Tools for Visual Studio Code, you can submit interactive Hive 
 
 1. Reopen the **HDexample** folder that was discussed [earlier](#open-a-work-folder), if closed.  
 
-2. Select the **HelloWorld.hql** file that was discussed [earlier](#open-a-work-folder). It opens in the script editor.
+2. Select the **HelloWorld.hql** file that was created [earlier](#open-a-work-folder). It opens in the script editor.
 
 
 3. Copy and paste the following code into your Hive file, and then save it:
