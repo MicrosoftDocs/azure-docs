@@ -106,7 +106,7 @@ In order to implement business logic based on Azure Maps spatial analytics, we n
 
 ### Create a storage account
 
-In order to log event data, we will create a general-purpose **v2storage** account in the "ContosoRental" resource group to store data as blobs. To create a storage account, follow instruction in [create a storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Next we will need to create a container to store blobs. Follow the steps below to do so:
+In order to log event data, we will create a general-purpose **v2storage** account in the "ContosoRental" resource group to store data as blobs. To create a storage account, follow instruction in [create a storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal). Next we will need to create a container to store blobs. Follow the steps below to do so:
 
 1. In your storage account, navigate to Blobs.
 
@@ -198,7 +198,7 @@ Next we will create an Azure Function within the "ContosoRental" resource group 
 
 ## Create an Azure Function and add an Event Grid subscription
 
-Azure Functions is a serverless compute service that enables us to run code on-demand, without the need to explicitly provision or manage compute infrastructure. To learn more about Azure Functions, take a look at the [Azure functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) documentation. The logic we implement in the function is using the location data coming from the in-vehicle device telemetry for assessing the geofence status. In case a given vehicle goes outside the geofence, the function will then gather more information like address of the location via [Get Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) that translates a given location coordinate into a human understandable street address. All relevant event info is then stored in the blob store. Step 5 below points to the executable code implementing such logic. Follow the steps below to create an Azure Function that sends data logs to the blob container in the storage account and add an Event Grid subscription to it.
+Azure Functions is a serverless compute service that enables us to run code on-demand, without the need to explicitly provision or manage compute infrastructure. To learn more about Azure Functions, take a look at the [Azure functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) documentation. The logic we implement in the function is using the location data coming from the in-vehicle device telemetry for assessing the geofence status. In case a given vehicle goes outside the geofence, the function will then gather more information like address of the location via [Get Search Address Reverse API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) that translates a given location coordinate into a human understandable street address. All relevant event info is then stored in the blob store. Step 5 below points to the executable code implementing such logic. Follow the steps below to create an Azure Function that sends data logs to the blob container in the storage account and add an Event Grid subscription to it.
 
 1. In the Azure portal dashboard, select create a resource. Select **Compute** from the list of available resource types and then select **Function APP**.
 
@@ -206,7 +206,7 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 
 2. On the function App creation page, name your function app, under **Resource Group** select **Use existing**, and select "ContosoRental" from the dropdown list. Select ".NET Core" as the Runtime Stack, under **Storage** select **Use existing** and select "contosorentaldata" from the dropdown and click **Create**.
     
-    ![create-app](./media/tutorial-iothub-maps/rentalApp.png)
+    ![create-app](./media/tutorial-iothub-maps/rental-app.png)
 
 3. Once the app is created, we need to add a function to it. Go to the function app and click **New function** to add a function, choose **In-Portal** as the development environment, and select **Continue**.
 
@@ -216,7 +216,7 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 
 5. Select the template with an **Azure Event Grid Trigger**. Install extensions if prompted, name the function and hit **Create**.
 
-    ![function-template](./media/tutorial-iothub-maps/EG-funct.png)
+    ![function-template](./media/tutorial-iothub-maps/eventgrid-funct.png)
 
 6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function and click **Save**.
  
