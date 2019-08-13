@@ -178,7 +178,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 1. At the beginning of the file, replace the `deviceID` with your actual device ID. Update the constants with the following values, and then save the file:
 
     ```javascript
-    const componentName = 'environmentalSensor';
+    const interfaceInstanceName = 'environmentalSensor';
     const commandName = 'blink';
     ```
 
