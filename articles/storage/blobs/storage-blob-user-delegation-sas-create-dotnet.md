@@ -16,15 +16,27 @@ ms.subservice: blobs
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the [Azure Storage client library for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs). The examples in this article use the latest preview version of the client library for Blob storage.
-
-The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. The Azure Identity client library authenticates a security principal. The authenticated security principal can then create the user delegation SAS. For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
-
-To authenticate with Azure AD credentials via the Azure Identity client library, use either a service principal or a managed identity as the security principal, depending on where your code is running. If your code is running in a development environment, use a service principal for testing purposes. If your code is running in Azure, use a managed identity. This article assumes that you are running code from the development environment, and shows how to use a service principal to create the user delegation SAS.
+This article shows how to use Azure Active Directory (Azure AD) credentials to create a user delegation SAS for a container or blob with the [Azure Storage client library for .NET](https://www.nuget.org/packages/Azure.Storage.Blobs).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
+## Install the preview packages
+
+The examples in this article use the latest preview version of the Azure Storage client library for Blob storage. To install the preview package, run the following command from the NuGet package manager console:
+
+```
+Install-Package Azure.Storage.Blobs -IncludePrerelease
+```
+
+The examples in this article also use the latest preview version of the [Azure Identity client library for .NET](https://www.nuget.org/packages/Azure.Identity/) to authenticate with Azure AD credentials. The Azure Identity client library authenticates a security principal. The authenticated security principal can then create the user delegation SAS. For more information about the Azure Identity client library, see [Azure Identity client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity).
+
+```
+Install-Package Azure.Identity -IncludePrerelease
+```
+
 ## Create a service principal
+
+To authenticate with Azure AD credentials via the Azure Identity client library, use either a service principal or a managed identity as the security principal, depending on where your code is running. If your code is running in a development environment, use a service principal for testing purposes. If your code is running in Azure, use a managed identity. This article assumes that you are running code from the development environment, and shows how to use a service principal to create the user delegation SAS.
 
 To create a service principal with Azure CLI and assign an RBAC role, call the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command. Provide an Azure Storage data access role to assign to the new service principal. The role must include the **Microsoft.Storage/storageAccounts/blobServices/generateUserDelegationKey** action. For more information about the built-in roles provided for Azure Storage, see [Built-in roles for Azure resources](../../role-based-access-control/built-in-roles.md).
 
@@ -35,7 +47,10 @@ If you do not have sufficient permissions to assign a role to the service princi
 The following example uses the Azure CLI to create a new service principal and assign the **Storage Blob Data Reader** role to it with account scope
 
 ```azurecli-interactive
-az ad sp create-for-rbac -n <service-principal> --role "Storage Blob Data Reader" --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Reader" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
 The `az ad sp create-for-rbac` command returns a list of service principal properties in JSON format. Copy these values so that you can use them to create the necessary environment variables in the next step.
