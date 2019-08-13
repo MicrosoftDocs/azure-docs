@@ -133,9 +133,9 @@ In each retained record, `itemCount` indicates the number of original records th
 
 Application Insights is now onboarding a limited number of Application Insights customers to our variable retention preview. Information on how to participate in this preview program is available [here](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
 
-The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resources. The full set of available retention periods is 30, 60, 120, 180, 270, 365, 550 or 730 days. 
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 120, 180, 270, 365, 550 or 730 days. 
 
-When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).  Stay up to date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).  Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## Limits summary
 
