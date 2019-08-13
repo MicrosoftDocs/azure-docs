@@ -105,7 +105,7 @@ The customer’s information is sent via multiple fields. The following example 
 
 ### Where can I get help in setting up my lead destination?
 
-You can find documentation [here](??) or submit a support ticket through [aka.ms\/marketplacepublishersupport](aka.ms/marketplacepublishersupport) by selecting the offer type and lead management.
+You can find documentation [here](#connect-to-your-crm-system) or submit a support ticket through aka.ms/marketplacepublishersupport by selecting the offer type and lead management.
 
 ### Am I required to configure a lead destination in order to publish an offer on Marketplace?
 
@@ -141,7 +141,7 @@ The Azure Blob lead destination is no longer supported so you are missing any cu
 
 ### I received an email from Marketplace, why can't I find the lead in my CRM?
 
-It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass PII data from .edu domain. Submit a support ticket through [aka.ms\/marketplacepublishersupport](aka.ms/marketplacepublishersupport).
+It's possible that the end user's email domain is from .edu. For privacy reasons, we don't pass PII data from .edu domain. Submit a support ticket through aka.ms/marketplacepublishersupport.
 
 ### I have configured Azure Table as my lead destination, how can I view the leads?
 
