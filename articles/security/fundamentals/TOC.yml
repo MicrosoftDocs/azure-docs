@@ -51,49 +51,49 @@
       items:
       - name: About Azure Disk Encryption
         displayName: BitLocker, bek
-        href: azure-security-disk-encryption-overview.md
+        href: ./security/azure-security-disk-encryption-overview.md
       - name: Quickstarts
         items:
         - name: Encrypt a Linux VM with Azure CLI
-          href: azure-disk-encryption-linux-cli-quickstart.md
+          href: ./security/azure-disk-encryption-linux-cli-quickstart.md
         - name: Encrypt a Linux VM with Azure PowerShell
-          href: azure-disk-encryption-linux-powershell-quickstart.md
+          href: ./security/azure-disk-encryption-linux-powershell-quickstart.md
         - name: Encrypt a Windows VM with Azure CLI
-          href: azure-disk-encryption-windows-cli-quickstart.md
+          href: ./security/azure-disk-encryption-windows-cli-quickstart.md
         - name: Encrypt a Windows VM with Azure PowerShell
-          href: azure-disk-encryption-windows-powershell-quickstart.md
+          href: ./security/azure-disk-encryption-windows-powershell-quickstart.md
       - name: Azure Disk Encryption
         items:
         - name: Disk encryption prerequisites
-          href: azure-security-disk-encryption-prerequisites.md
+          href: ./security/azure-security-disk-encryption-prerequisites.md
         - name: Disk encryption for Windows VMs
-          href: azure-security-disk-encryption-windows.md
+          href: ./security/azure-security-disk-encryption-windows.md
         - name: Disk encryption for Linux VMs
-          href: azure-security-disk-encryption-linux.md
+          href: ./security/azure-security-disk-encryption-linux.md
         - name: Disk encryption with virtual machine scale set extension sequencing
-          href: azure-security-disk-encryption-extension-sequencing.md
+          href: ./security/azure-security-disk-encryption-extension-sequencing.md
         - name: Appendix for disk encryption
-          href: azure-security-disk-encryption-appendix.md
+          href: ./security/azure-security-disk-encryption-appendix.md
         - name: Disk encryption FAQ
-          href: azure-security-disk-encryption-faq.md
+          href: ./security/azure-security-disk-encryption-faq.md
         - name: Troubleshooting
-          href: azure-security-disk-encryption-tsg.md
+          href: ./security/azure-security-disk-encryption-tsg.md
         - name: Azure Disk Encryption with Azure AD app (previous release)
           displayName: active directory
           items:
           - name: Disk encryption with Azure AD app prerequisites 
             displayName: active directory
-            href: azure-security-disk-encryption-prerequisites-aad.md
+            href: ./security/azure-security-disk-encryption-prerequisites-aad.md
           - name: Disk encryption with Azure AD app for Windows VMs 
             displayName: active directory
-            href: azure-security-disk-encryption-windows-aad.md
+            href: ./security/azure-security-disk-encryption-windows-aad.md
           - name: Disk encryption with Azure AD app for Linux VMs 
             displayName: active directory
-            href: azure-security-disk-encryption-linux-aad.md
+            href: ./security/azure-security-disk-encryption-linux-aad.md
   - name: Azure Storage security
     href: storage-overview.md
   - name: Storage security guide
-    href: ../storage/common/storage-security-guide.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+    href: https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
     href: customer-lockbox-overview.md
 - name: Platform and infrastructure
@@ -160,7 +160,7 @@
     - name: DDoS Protection
       href: ddos-best-practices.md
     - name: Boundary security
-      href: ../best-practices-network-security.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: network-best-practices.md
 - name: Application
   items:
   - name: PaaS
@@ -176,11 +176,11 @@
     href: iot-overview.md
     items:
     - name: IoT security best practices
-      href: ../iot-accelerators/iot-security-best-practices.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: https://docs.microsoft.com/azure/iot-accelerators/iot-security-best-practices?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: IoT security
-      href: ../iot-accelerators/iot-security-architecture.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
+      href: https://docs.microsoft.com/azure/iot-accelerators/iot-security-architecture?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json#security-in-iot
     - name: Secure your IoT deployment
-      href: ../iot-accelerators/iot-accelerators-security-deployment.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-security-deployment?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Azure Service Fabric security
     href: service-fabric-overview.md
     items:
@@ -195,7 +195,7 @@
     items:
     - name: Security management
       displayName: vulnerability, incident, virus, 
-      href: ../security-center/security-center-intro.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+      href: https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Remote management security
       href: management.md
     - name: Azure log integration
@@ -209,7 +209,7 @@
         href: azure-log-integration-ad.md
       - name: Integrate Security Center alerts
         displayName: splunk
-        href: ../security-center/security-center-export-data-to-siem.md?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Integrate logs from Key Vault
         displayName: keyvault
         href: azure-log-integration-keyvault-eventhub.md
@@ -229,88 +229,88 @@
     displayName: blueprint, privacy, certifications
     items:
     - name: IaaS web application
-      href: ./blueprints/au-protected-iaaswa-overview.md
+      href: ../blueprints/au-protected-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/au-protected-paaswa-overview.md
+      href: ../blueprints/au-protected-paaswa-overview.md
   - name: FedRAMP
     displayName: blueprint, privacy, certifications
     items:
     - name: Azure Services by Audit Scope
-      href: ./compliance/azure-services-in-fedramp-auditscope.md
+      href: ../compliance/azure-services-in-fedramp-auditscope.md
     - name: Data analytics
-      href: ./blueprints/fedramp-analytics-overview.md
+      href: ../blueprints/fedramp-analytics-overview.md
     - name: Data warehouse
-      href: ./blueprints/fedramp-datawarehouse-overview.md
+      href: ../blueprints/fedramp-datawarehouse-overview.md
     - name: IaaS web application
-      href: ./blueprints/fedramp-iaaswa-overview.md
+      href: ../blueprints/fedramp-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/fedramp-paaswa-overview.md
+      href: ../blueprints/fedramp-paaswa-overview.md
   - name: FFIEC
     displayName: blueprint, privacy, certifications
     items:
     - name: Data analytics
-      href: ./blueprints/ffiec-analytics-overview.md
+      href: ../blueprints/ffiec-analytics-overview.md
     - name: Data warehouse
-      href: ./blueprints/ffiec-dw-overview.md
+      href: ../blueprints/ffiec-dw-overview.md
     - name: IaaS web application
-      href: ./blueprints/ffiec-iaaswa-overview.md
+      href: ../blueprints/ffiec-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/ffiec-paaswa-overview.md
+      href: ../blueprints/ffiec-paaswa-overview.md
   - name: HIPAA/HITRUST
     displayName: blueprint, privacy, certifications
     items:
     - name: Health Data and AI
-      href: ./blueprints/azure-health.md
+      href: ../blueprints/azure-health.md
   - name: NIST SP 800-171
     displayName: blueprint, privacy, certifications
     items:
       - name: Data analytics
-        href: ./blueprints/nist171-analytics-overview.md
+        href: ../blueprints/nist171-analytics-overview.md
       - name: Data warehouse
-        href: ./blueprints/nist171-datawarehouse-overview.md
+        href: ../blueprints/nist171-datawarehouse-overview.md
       - name: IaaS web application
-        href: ./blueprints/nist171-iaaswa-overview.md
+        href: ../blueprints/nist171-iaaswa-overview.md
       - name: PaaS web application
-        href: ./blueprints/nist171-paaswa-overview.md
+        href: ../blueprints/nist171-paaswa-overview.md
   - name: PCI DSS
     displayName: blueprint, privacy, certifications
     items:
     - name: Data analytics
-      href: ./blueprints/pcidss-analytics-overview.md
+      href: ../blueprints/pcidss-analytics-overview.md
     - name: Data warehouse
-      href: ./blueprints/pcidss-dw-overview.md
+      href: ../blueprints/pcidss-dw-overview.md
     - name: IaaS web application
-      href: ./blueprints/pcidss-iaaswa-overview.md
+      href: ../blueprints/pcidss-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/pcidss-paaswa-overview.md
+      href: ../blueprints/pcidss-paaswa-overview.md
   - name: SCCA 
     displayName: blueprint, privacy, certifications
     items:
     - name: Secure Azure Computing Architecture 
-      href: ./compliance/secure-azure-computing-architecture.md
+      href: ../compliance/secure-azure-computing-architecture.md
   - name: TIC
     displayName: blueprint, privacy, certifications
     items:
     - name: Trusted Internet Connection with Azure
-      href: ./compliance/compliance-tic.md
+      href: ../compliance/compliance-tic.md
   - name: UK NHS
     displayName: blueprint, privacy, certifications
     items:
       - name: Data analytics
-        href: ./blueprints/uknhs-analytics-overview.md
+        href: ../blueprints/uknhs-analytics-overview.md
       - name: Data warehouse
-        href: ./blueprints/uknhs-datawarehouse-overview.md
+        href: ../blueprints/uknhs-datawarehouse-overview.md
       - name: IaaS web application
-        href: ./blueprints/uknhs-iaaswa-overview.md
+        href: ../blueprints/uknhs-iaaswa-overview.md
       - name: PaaS web application
-        href: ./blueprints/uknhs-paaswa-overview.md
+        href: ../blueprints/uknhs-paaswa-overview.md
   - name: UK OFFICIAL
     displayName: blueprint, privacy, certifications
     items:
     - name: IaaS web application
-      href: ./blueprints/ukofficial-iaaswa-overview.md
+      href: ../blueprints/ukofficial-iaaswa-overview.md
     - name: PaaS web application
-      href: ./blueprints/ukofficial-paaswa-overview.md
+      href: ../blueprints/ukofficial-paaswa-overview.md
 - name: White papers
   href: white-papers.md
 - name: Azure security services
