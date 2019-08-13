@@ -22,7 +22,7 @@ Use the QnA Maker REST APIs for Node.js to:
 * Manage a knowledge base
 * Publish a knowledge base
 
-[Reference documentation]https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase) | | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
+[Reference documentation](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
 ## Prerequisites
 
@@ -62,15 +62,21 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 ## Add the dependencies
 
-Create a file named `rest-apis.js` and add the HTTP request package, `requestretry`. 
+From the console, app the `reqeuestretry` NPM package:
 
-[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.js?range=1-4 "Add the dependencies")]
+```console
+npm install requestretry
+```
 
-[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js)]
+Create a file named `rest-apis.js` and add the NPM package with a _requires_ statement. 
+
+[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=dependencies)]
 
 ## Add Azure resource information
 
 Create variables for your resource's Azure endpoint and key. If you created the environment variable after you launched the application, you will need to close and reopen the editor, IDE, or shell running it to access the variable.
+
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=authorization)]
 
 ## Create a knowledge base
 
@@ -80,21 +86,37 @@ A knowledge base stores question and answer pairs, created from a JSON object of
 * **Files** - local files that do not require any permissions. 
 * **URLs** - publicly available URLs.
 
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=createKb)]
+
 ## Replace a knowledge base
 
 Replace an existing knowledge base with new information:
 
-
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=replaceKb)]
 
 ## Publish a knowledge base
 
+Publish the knowledge base. This process makes the knowledge base available from an HTTP query prediction endpoint.
 
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=publish)]
+
+## Download the knowledge base 
+
+Download the knowledge base. This is a JSON object.
+
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=download)]
 
 ## Delete a knowledge base
 
+When you are down using the knowledge base, delete it.
+
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=deleteKb)]
 
 ## Get status of an operation
 
+Long running processes such as the creation process returns an operation Id which needs to be checked with a separate REST API call. This function takes the body of the create response. The important key is the operationState which determines if you need to continue polling.
+
+[!code-javascript[Add Azure resources from environment variables](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=operationDetails)]
 
 
 ## Run the application
