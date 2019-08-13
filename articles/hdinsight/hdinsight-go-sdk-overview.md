@@ -33,7 +33,7 @@ From your GOPATH location, run `go get github.com/Azure/azure-sdk-for-go/tree/ma
 The SDK first needs to be authenticated with your Azure subscription.  Follow the example below to create a service principal and use it to authenticate. After this is done, you will have an instance of a `ClustersClient`, which contains many functions (outlined in below sections) that can be used to perform management operations.
 
 > [!NOTE]  
-> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
+> There are other ways to authenticate besides the below example that could potentially be better suited for your needs. All functions are outlined here: [Authentication functions in the Azure SDK for Go](https://docs.microsoft.com/azure/go/azure-sdk-go-authorization)
 
 ### Authentication example using a service principal
 

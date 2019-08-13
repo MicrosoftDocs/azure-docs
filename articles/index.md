@@ -6367,7 +6367,7 @@ featureFlags:
                                                     Azure for Go Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Get started</a>
+                                                    <a href="/azure/go/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API Reference</a>
