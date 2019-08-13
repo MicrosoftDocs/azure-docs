@@ -42,12 +42,12 @@ You can set up your office phone to act as your two-factor verification method.
 
 ## Next steps
 
-After you've set up your mobile device verification method, you can add additional methods, manage your settings, or manage your app passwords.
-
-- [Set up your mobile device as your verification method](multi-factor-authentication-setup-phone-number.md)
-
-- [Set up the Microsoft Authenticator app as your verification method](multi-factor-authentication-setup-auth-app.md)
+After you've set up your two-factor verification method, you can add additional methods, manage your settings and app passwords, sign-in, or get help with some common two-factor verification-related problems.
 
 - [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md)
 
 - [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md)
+
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-sign-in.md)
+
+- [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)

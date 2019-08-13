@@ -52,3 +52,13 @@ After you've accessed the **Additional security verification** page, you must se
 - [Set up your office phone as your verification method](multi-factor-authentication-setup-office-phone.md)
 
 - [Set up the Microsoft Authenticator app as your verification method](multi-factor-authentication-setup-auth-app.md)
+
+## Related resources
+
+- [Manage your two-factor verification method settings](multi-factor-authentication-end-user-manage-settings.md)
+
+- [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md)
+
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-sign-in.md)
+
+- [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md) 
