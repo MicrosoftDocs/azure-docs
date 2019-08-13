@@ -67,8 +67,8 @@ Network throttling | Not available for backed-up machines that run Windows Serve
 
 You can use the MARS agent to back up directly to Azure on some operating systems that run on on-premises machines and Azure VMs. The operating systems must be 64 bit and should be running the latest services packs and updates. The following table summarizes these operating systems:
 
-**Operating system** | **Files/folders** | **System state**
---- | --- | ---
+**Operating system** | **Files/folders** | **System state** 
+--- | --- | --- 
 Windows 10 (Enterprise, Pro, Home) | Yes | No
 Windows 8.1 (Enterprise, Pro)| Yes |No
 Windows 8 (Enterprise, Pro) | Yes | No

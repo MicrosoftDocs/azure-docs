@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: trbye
-ms.date: 04/11/2019
+ms.date: 08/11/2019
 ms.custom: seodec18
 ---
 
@@ -49,7 +49,7 @@ Skip to [Set up your development environment](#start) to read through the notebo
 
 Get all these prerequisites from either of the sections below.
 
-* Use a [cloud notebook server in your workspace](#azure) 
+* Use a [cloud notebook server in your workspace](#azure)
 * Use [your own notebook server](#server)
 
 ### <a name="azure"></a>Use a cloud notebook server in your workspace
@@ -683,6 +683,12 @@ automated_ml_config = AutoMLConfig(task='regression',
                                    **automl_settings)
 ```
 
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
+
 ### Train the automatic regression model
 
 Start the experiment to run locally. Pass the defined `automated_ml_config` object to the experiment. Set the output to `True` to view progress during the experiment:
@@ -759,7 +765,7 @@ The same results are stored in your workspace.  You can get a link to the result
 ```
 local_run.get_portal_url()
 ```
-  
+
 
 ### Option 2: Get and examine all run iterations in Python
 

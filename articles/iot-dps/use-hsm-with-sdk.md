@@ -1,13 +1,12 @@
 ---
 title: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service Client SDK in Azure 
 description: Azure How to - How to use different attestation mechanisms with the Device Provisioning Service Client SDK in Azure
-author: yzhong94
-ms.author: yizhon
+author: robinsh
+ms.author: robinsh
 ms.date: 03/30/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps 
-manager: arjmands
 ms.custom: mvc
 ---
 # How to use different attestation mechanisms with Device Provisioning Service Client SDK for C
@@ -30,11 +29,11 @@ For more information, see IoT Hub Device Provisioning Service [security concepts
 
 ## Enable authentication for supported attestation mechanisms
 
-The SDK authentication mode (X**.**509 or TPM) must be enabled for the physical device or simulator before they can be enrolled in the Azure portal. First, navigate to the root folder for azure-iot-sdk-c. Then run the specified command, depending on the authentication mode you choose:
+The SDK authentication mode (X.509 or TPM) must be enabled for the physical device or simulator before they can be enrolled in the Azure portal. First, navigate to the root folder for azure-iot-sdk-c. Then run the specified command, depending on the authentication mode you choose:
 
-### Use X**.**509 with simulator
+### Use X.509 with simulator
 
-The provisioning service ships with a Device Identity Composition Engine (DICE) emulator that generates an X**.**509 certificate for authenticating the device. To enable X**.**509 authentication, run the following command: 
+The provisioning service ships with a Device Identity Composition Engine (DICE) emulator that generates an **X.509** certificate for authenticating the device. To enable **X.509** authentication, run the following command: 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -42,9 +41,9 @@ cmake -Ddps_auth_type=x509 ..
 
 Information regarding hardware with DICE can be found [here](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/).
 
-### Use X**.**509 with hardware
+### Use X.509 with hardware
 
-The provisioning service can be used with X**.**509 on other hardware. An interface between hardware and the SDK is needed to establish connection. Talk to your HSM manufacturer for information on the interface.
+The provisioning service can be used with **X.509** on other hardware. An interface between hardware and the SDK is needed to establish connection. Talk to your HSM manufacturer for information on the interface.
 
 ### Use TPM
 
@@ -136,15 +135,15 @@ Build the SDK prior to creating device enrollment.
 ### TPM
 If you are using TPM, follow instructions in ["Create and provision a simulated device using IoT Hub Device Provisioning Service"](./quick-create-simulated-device.md) to create a device enrollment entry in your Device Provisioning Service and simulate first boot.
 
-### X**.**509
+### X.509
 
 1. To enroll a device in the provisioning service, you need note down the Endorsement Key and Registration ID for each device, which are displayed in the Provisioning Tool provided by Client SDK. Run the following command to print out the root CA certificate (for enrollment groups) and the leaf certificate (for individual enrollment):
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning service.
-   - X**.**509 Individual Enrollment: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. Once complete, click the **Save** button. 
-   - X**.**509 Group Enrollment: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X**.**509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. Once complete, click the **Save** button. 
+   - **X.509 Individual Enrollment**: On the provisioning service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. Select **X.509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. Once complete, click the **Save** button. 
+   - **X.509 Group Enrollment**: On the provisioning service  summary blade, select **Manage enrollments**. Select **Group Enrollments** tab and click the **Add** button at the top. Select **X.509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. Once complete, click the **Save** button. 
 
 ## Enable authentication for devices using a custom attestation mechanism (optional)
 
@@ -176,7 +175,7 @@ Once your library successfully builds on its own, you need to integrate it with 
 
 ## Connecting to IoT Hub after provisioning
 
-Once the device has been provisioned with the provisioning service, this API uses the specified authentication mode (X**.**509 or TPM) to connect with IoT Hub: 
+Once the device has been provisioned with the provisioning service, this API uses the specified authentication mode (**X.509** or TPM) to connect with IoT Hub: 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
