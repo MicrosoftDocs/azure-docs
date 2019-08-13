@@ -11,7 +11,7 @@ ms.author: heidist
 ---
 # What is Azure Search?
 
-Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Your custom code controls data ingestion (indexing) and query requests and responses. The search experience is defined in your client application using functionality from Azure Search, with query execution over a persisted index that you create and own. 
+Azure Search is a search-as-a-service cloud solution that gives developers APIs and tools for adding a rich search experience over private, heterogenous content in web, mobile, and enterprise applications. Your custom code invokes data ingestion (indexing) and query requests and responses. The search experience is defined in your client code using functionality from Azure Search, with query execution over a persisted index that you create and own. 
 
 ![Azure Search architecture](media/search-what-is-azure-search/azure-search-diagram.png "Azure Search architecture")
 
@@ -28,11 +28,11 @@ Azure Search is well suited for the following application scenarios:
 
 + Consolidation of heterogeneous content types into a private, single, searchable index. Queries are always over an index that you create and load with documents, and the index always resides in the cloud on your Azure Search service. You can populate an index with streams of JSON documents from any source or platform. Alternatively, for content sourced on Azure, you can use an *indexer* to pull data into an index. Index definition and management/ownership is a key reason for using Azure Search.
 
-+ Easy implementation of search-related features. Azure Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. You can satisfy end-user expectations for a search experience similar to those of the commercial web search engines.
++ Easy implementation of search-related features. Azure Search APIs simplify query construction, faceted navigation, filters (including geo-spatial search), synonym mapping, typeahead queries, and relevance tuning. Using built-in features, you can satisfy end-user expectations for a search experience similar to commercial web search engines.
 
-+ Indexing unstructured text, or extracting text and information from image files. The cognitive search feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned documents to extract text, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
++ Indexing unstructured text, or extracting text and information from image files. The cognitive search feature of Azure Search adds AI processing to an indexing pipeline. Some common use-cases include OCR over scanned document, entity recognition and key phrase extraction over large documents, language detection and text translation, and sentiment analysis.
 
-+ Linguistic requirements satisfied by the custom and language analyzers of Azure Search. If you have non-English content, Azure Search supports both Lucene analyzers and Microsoft's natural language processors. You can also incorporate analyzers to achieve specialized processing of raw content, such as filtering out diacritics.
++ Linguistic requirements satisfied using the custom and language analyzers of Azure Search. If you have non-English content, Azure Search supports both Lucene analyzers and Microsoft's natural language processors. You can also configure analyzers to achieve specialized processing of raw content, such as filtering out diacritics.
 
 <a name="feature-drilldown"></a>
 
