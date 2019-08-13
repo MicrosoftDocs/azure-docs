@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Workplace by Facebook | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Facebook | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Workplace by Facebook.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Workplace by Facebook
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Workplace by Facebook
 
 In this tutorial, you'll learn how to integrate Workplace by Facebook with Azure Active Directory (Azure AD). When you integrate Workplace by Facebook with Azure AD, you can:
 
@@ -61,7 +61,7 @@ To configure the integration of Workplace by Facebook into Azure AD, you need to
 1. Select **Workplace by Facebook** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for Workplace by Facebook
+## Configure and test Azure AD SSO for Workplace by Facebook
 
 Configure and test Azure AD SSO with Workplace by Facebook using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Workplace by Facebook.
 
@@ -172,7 +172,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	You can choose to optionally configure a SAML Logout Url, which can be used to point at Azure AD's logout page. When this setting is enabled and configured, the user will no longer be directed to the Workplace logout page. Instead, the user will be redirected to the url that was added in the SAML Logout Redirect setting.
 
-### Configuring Reauthentication Frequency
+### Configuring reauthentication frequency
 
 You can configure Workplace to prompt for a SAML check every day, three days, week, two weeks, month or never.
 
@@ -196,7 +196,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Workplace by Facebook tile in the Access Panel, you should be automatically signed in to the Workplace by Facebook for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Test SSO for Workplace by Facebook (Mobile)
+## Test SSO for Workplace by Facebook (mobile)
 
 1. Open Workplace by Facebook Mobile application. On the sign in page, click on **LOG IN**.
 
@@ -218,7 +218,7 @@ When you click the Workplace by Facebook tile in the Access Panel, you should be
 
 	![The Home page](./media/workplacebyfacebook-tutorial/test01.png)
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
