@@ -93,7 +93,7 @@ We've created this content to help you set up and use security info and two-step
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-phone-number">Set up a mobile device</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-setup-office-phone">Set up an office phone</a><br/>
                         <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-manage-settings">Manage your settings</a><br/>
-                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">Troubeshoot common two-factor verification problems</a><br/>
+                        <a href="/azure/active-directory/user-help/multi-factor-authentication-end-user-troubleshoot">Get help with common problems</a><br/>
                         <a href="/azure/active-directory/user-help/user-help-sign-in">How to sign in</a>
                         </p>
                     </div>
