@@ -16,6 +16,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/how-to-understand-accuracy-metrics.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-understand-automated-ml",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/machine-learning/service/setup-create-workspace.md",
       "redirect_url": "/azure/machine-learning/service/how-to-manage-workspace",
       "redirect_document_id": true
