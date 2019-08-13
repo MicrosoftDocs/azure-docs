@@ -27,7 +27,7 @@ Your organization has turned on two-factor verification, meaning that your work 
 
 After your organization turns on and sets up two-factor verification, you’ll get a prompt telling you to provide more information to help keep your account secure.
 
-![More info required prompt](media\multi-factor-authentication-verification-methods\multi-factor-authentication-initial-prompt.png)
+![More info required prompt](media/multi-factor-authentication-verification-methods/multi-factor-authentication-initial-prompt.png)
 
 ### To access the Additional security verification page
 
