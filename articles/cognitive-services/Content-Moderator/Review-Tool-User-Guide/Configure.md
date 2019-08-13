@@ -8,7 +8,7 @@ manager: mikemcca
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sajagtap
 #How to set any of the configurations in the review tool.

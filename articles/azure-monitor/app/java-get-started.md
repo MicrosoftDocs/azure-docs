@@ -85,7 +85,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 ```
 
 #### If you're using Eclipse to create a Dynamic Web project ...
-Use the [Application Insights SDK for Java plug-in][eclipse]. Note: even though using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
+Use the Application Insights SDK for Java plug-in. Note: even though using this plugin will get you up and running with Application Insights quicker (assuming you're not using Maven/Gradle), it is not a dependency management system. As such, updating the plugin will not automatically update the Application Insights libraries in your project.
 
 * *Build or checksum validation errors?* Try using a specific version, such as: `version:'2.0.n'`. You'll find the latest version in the [SDK release notes](https://github.com/Microsoft/ApplicationInsights-Java#release-notes) or in the [Maven artifacts](https://search.maven.org/#search%7Cga%7C1%7Capplicationinsights).
 * *To update to a new SDK* Refresh your project's dependencies.
@@ -467,7 +467,6 @@ Application Insights can test your website at regular intervals to check that it
 [apiexceptions]: ../../azure-monitor/app/api-custom-events-metrics.md#trackexception
 [availability]: ../../azure-monitor/app/monitor-web-app-availability.md
 [diagnostic]: ../../azure-monitor/app/diagnostic-search.md
-[eclipse]: ../../azure-monitor/learn/java-quick-start.md
 [javalogs]: java-trace-logs.md
 [metrics]: ../../azure-monitor/app/metrics-explorer.md
 [usage]: javascript.md

@@ -68,6 +68,11 @@ Automated machine learning supports data that resides on your local desktop or i
 * Numpy arrays X (features) and y (target variable or also known as label)
 * Pandas dataframe
 
+>[!Important]
+> Requirements for training data:
+>* Data must be in tabular form.
+>* The value you want to predict (target column) must be present in the data.
+
 Examples:
 
 *	Numpy arrays
@@ -210,6 +215,12 @@ The primary metric; as shown in the examples above determines the metric to be u
 In every automated machine learning experiment, your data is [automatically scaled and normalized](concept-automated-ml.md#preprocess) to help algorithms perform well.  However, you can also enable additional preprocessing/featurization, such as missing values imputation, encoding, and transforms. [Learn more about what featurization is included](how-to-create-portal-experiments.md#preprocess).
 
 To enable this featurization, specify `"preprocess": True` for the [`AutoMLConfig` class](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
+
+> [!NOTE]
+> Automated machine learning pre-processing steps (feature normalization, handling missing data,
+> converting text to numeric, etc.) become part of the underlying model. When using the model for
+> predictions, the same pre-processing steps applied during training are applied to
+> your input data automatically.
 
 ### Time Series Forecasting
 For time series forecasting task type you have additional parameters to define.
