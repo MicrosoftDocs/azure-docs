@@ -92,11 +92,11 @@ The code snippets in this section demonstrate registering a model from a trainin
 
   Register models using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
-### Register an externally created model
+### Register a model from a local file
+
+You can register a model by providing a **local path** to the model. You can provide either a folder or a single file. You can use this method to register both models trained with Azure Machine Learning service and then downloaded, or models trained outside Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
-
-You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 + **ONNX example with the Python SDK:**
 
