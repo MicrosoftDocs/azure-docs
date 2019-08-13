@@ -14,7 +14,7 @@ ms.author: lizross
 ms.collection: M365-identity-device-management
 ---
 
-# Set up an Authenticator app as your two-factor verification method
+# Set up an authenticator app as your two-factor verification method
 
 You can set up an authenticator app to send a notification to your mobile device or to send you a verification code as your security verification method. You aren't required to use the Microsoft Authenticator app, and you can select a different app during the set up process. However, this article uses the Microsoft Authenticator app.
 
@@ -34,7 +34,7 @@ You can set up an authenticator app to send a notification to your mobile device
 
     The **Configure mobile app** page appears.
 
-    ![Screen that provides the QR code](/media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
+    ![Screen that provides the QR code](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
 
 3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
@@ -74,7 +74,7 @@ You can set up an authenticator app to send a notification to your mobile device
 
     The **Configure mobile app** page appears.
 
-    ![Screen that provides the QR code](/media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
+    ![Screen that provides the QR code](media/multi-factor-authentication-verification-methods/multi-factor-authentication-auth-app-barcode.png)
 
 3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
