@@ -58,7 +58,10 @@ When using VS Code, the workspace is selected using a graphical interface. For m
 
 ## <a id="registermodel"></a> Register your model
 
-A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+A registered model is a logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
+
+> [!TIP]
+> When registering a model, you provide either a path to a cloud location (from a training run) or a local directory. This path is just to locate the files for upload as part of the registration process; it does not need to match the path used in the entry script. For more information, see [What is get_model_path](#what-is-get_model_path).
 
 Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model:
 
@@ -704,7 +707,10 @@ You can continuously deploy models using the Machine Learning extension for [Azu
 
     ![enable-model-trigger](media/how-to-deploy-and-where/set-modeltrigger.png)
 
-For sample projects and examples, check out [the MLOps repository](https://github.com/Microsoft/MLOps)
+For more sample projects and examples, see the following sample repos:
+
+* [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
+* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.
