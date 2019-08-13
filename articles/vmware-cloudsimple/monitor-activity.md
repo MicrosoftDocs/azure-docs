@@ -103,3 +103,8 @@ The following columns of information are available for alerts. Click on **Edit c
 | Result | Result of the activity, such as **Success**. |
 | Time Taken | Time to complete the task. |
 | Description | Description of the action. |
+
+## Next steps
+
+* [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)
+* Learn more about [Private Clouds](cloudsimple-private-cloud.md)
