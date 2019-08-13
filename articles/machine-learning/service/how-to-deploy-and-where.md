@@ -710,7 +710,7 @@ You can continuously deploy models using the Machine Learning extension for [Azu
 For more sample projects and examples, see the following sample repos:
 
 * [https://github.com/Microsoft/MLOps](https://github.com/Microsoft/MLOps)
-* [https://github.com/microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
+* [https://github.com/Microsoft/MLOpsPython](https://github.com/microsoft/MLOpsPython)
 
 ## Clean up resources
 To delete a deployed web service, use `service.delete()`.
