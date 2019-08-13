@@ -27,7 +27,7 @@ This article provides instructions for developing and debugging modules in multi
 
 ## Prerequisites
 
-You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer running version 1607/build 14393 or newer. 
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
@@ -51,7 +51,7 @@ You'll also need to install some additional, language-specific tools to develop 
 
 To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
-- [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
+- [Docker Desktop](https://docs.docker.com/install/) on your development machine.
 
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 

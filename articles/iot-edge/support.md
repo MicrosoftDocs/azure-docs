@@ -65,7 +65,7 @@ The systems listed in the following table are supported by Microsoft, either gen
 | Windows 10 IoT Core, build 17763 | ![Windows IoT Core + AMD64](./media/tutorial-c-module/green-check.png) |  |  |
 
 
-The Windows operating systems listed above are the requirements for devices that run Windows containers on Windows. This configuration is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this configuration is for development and testing only. Use of Linux containers on Windows is not a supported configuration for production. Any version of Windows 10 build 14393 or newer and Windows Server 2016 or newer can be used for this development scenario.
+The Windows operating systems listed above are the requirements for devices that run Windows containers on Windows, which is the only supported configuration for production. The Azure IoT Edge installation packages for Windows allow the use of Linux containers on Windows; however, this configuration is for development and testing only. For more information, see [Use IoT Edge on Windows to run Linux containers](how-to-install-iot-edge-windows-with-linux.md).
 
 ### Tier 2
 
