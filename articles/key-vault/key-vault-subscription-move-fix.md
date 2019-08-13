@@ -27,12 +27,14 @@ When you create a new key vault in a subscription, it is automatically tied to t
 For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
 
 <pre>
-Select-AzSubscription -SubscriptionId YourSubscriptionID
-$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId
-$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties
-$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId
-$vault.Properties.AccessPolicies = @()
-Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties
+Select-AzSubscription -SubscriptionId YourSubscriptionID                   # Select your Azure Subscription
+$vaultResourceId = (Get-AzKeyVault -VaultName myvault).ResourceId          # Get your Keyvault's Resource ID 
+$vault = Get-AzResource –ResourceId $vaultResourceId -ExpandProperties     # Get the properties for your Keyvault
+$vault.Properties.TenantId = (Get-AzContext).Tenant.TenantId               # Change the Tenant that your Keyvault resides in
+$vault.Properties.AccessPolicies = @()                                     # Accesspolicies can be updated with real
+                                                                           # applications/users/rights so that it does not need to be                                                                              # done after this whole activity. Here we are not setting 
+                                                                           # any access policies. 
+Set-AzResource -ResourceId $vaultResourceId -Properties $vault.Properties  # Modifies the kevault's properties.
 </pre>
 
 Because this vault was in tenant A before the move, the original value of **$vault.Properties.TenantId** is tenant A, while **(Get-AzContext).Tenant.TenantId** is tenant B.
