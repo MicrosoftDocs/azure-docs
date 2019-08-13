@@ -91,6 +91,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 > [!NOTE]
 >**For a move across subscription, the resource and its dependent resources need to be located within the same source resource group before the move. All these resources need to be moved together to the new subscription.** 
+>
 
 1. Before moving the resource to the new subscription, check if its dependent resources are located in the same resource group. If not, check if the resources from other resource group could be moved to the source resource group. If so, bring all these resources to the source resource group using move across resource group.
 
@@ -99,9 +100,7 @@ There are some important steps to do before moving a resource. By verifying thes
 Moving resources from one subscription to another is a 3 step process.
 
 ![cross subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
-
-> [!NOTE]
-> **Resources and its dependent resource needs to be located within the same resource group before moving them together to the new target subscription.**
+For illustration purposes, we only have one dependent resource.
 
 1. Step 1: Move all dependent resources distributed across different resource groups into one resource group.
 1. Step 2: Move resource and dependent resources together from source subscription to target subscription.
