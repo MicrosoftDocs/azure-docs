@@ -44,7 +44,7 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 
 On the **Monitored clusters** tab, you learn the following:
 
-- How many clusters are in a critical or unhealthy state, versus how many are healthy or not reporting (referred to as an *unknown* state).
+- How many clusters are in a *Critical* or unhealthy state, versus how many are *Healthy* or not reporting (referred to as an *Unknown* state).
 - Whether all of the [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments are healthy.
 - How many nodes and user and system pods are deployed per cluster.
 - How much disk space is available and if there's a capacity issue.
@@ -54,14 +54,14 @@ The health statuses included are:
 * **Healthy**: No issues are detected for the VM, and it's functioning as required. 
 * **Critical**: One or more critical issues are detected that must be addressed to restore normal operational state as expected.
 * **Warning**: One or more issues are detected that must be addressed or the health condition could become critical.
-* **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an *unknown* state.
+* **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an *Unknown* state.
 * **Not found**: Either the workspace, the resource group, or subscription that contains the workspace for this solution was deleted.
 * **Unauthorized**: User doesn’t have required permissions to read the data in the workspace.
 * **Error**: An error occurred while attempting to read data from the workspace.
 * **Misconfigured**: Azure Monitor for containers wasn't configured correctly in the specified workspace.
 * **No data**: Data hasn't reported to the workspace for the last 30 minutes.
 
-Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is *unknown*, the overall cluster state shows **Unknown**. 
+Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is *Unknown*, the overall cluster state shows **Unknown**. 
 
 The following table provides a breakdown of the calculation that controls the health states for a monitored cluster on the multi-cluster view.
 
@@ -179,7 +179,7 @@ When you hover over the bar graph under the **Trend** column, each bar shows eit
 
 In the next example, for the first node in the list, *aks-nodepool1-*, the value for **Containers** is 9. This value is a rollup of the total number of containers deployed.
 
-![Rollup of containers per node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
+![Rollup of containers-per-node example](./media/container-insights-analyze/containers-nodes-containerstotal.png)
 
 This information can help you quickly identify whether you have a proper balance of containers between nodes in your cluster. 
 
@@ -198,7 +198,7 @@ The information that's presented when you view the **Nodes** tab is described in
 
 In the selector, select **Controllers**.
 
-![Select controllers view](./media/container-insights-analyze/containers-controllers-tab.png)
+![Select Controllers view](./media/container-insights-analyze/containers-controllers-tab.png)
 
 Here you can view the performance health of your controllers and Container Instances virtual node controllers or virtual node pods not connected to a controller.
 
@@ -231,7 +231,7 @@ The icons in the status field indicate the online status of the containers.
 | Icon | Status | 
 |--------|-------------|
 | ![Ready running status icon](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|
-| ![Waiting or paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
+| ![Waiting or Paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded for more than 30 minutes|
 | ![Successful status icon](./media/container-insights-analyze/containers-green-icon.png) | Successfully stopped or failed to stop|
 
@@ -239,15 +239,15 @@ The status icon displays a count based on what the pod provides. It shows the wo
 
 In the selector, select **Containers**.
 
-![Select containers view](./media/container-insights-analyze/containers-containers-tab.png)
+![Select Containers view](./media/container-insights-analyze/containers-containers-tab.png)
 
 Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers. 
 
-![\<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
+![\<Name> containers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Select the value under the **Pod** or **Node** column for the specific container.
 
-![Example drill down from node to controller in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
+![Example drill-down from node to containers in the performance view](./media/container-insights-analyze/drill-down-controller-node.png)
 
 The information that's displayed when you view containers is described in the following table.
 
@@ -268,7 +268,7 @@ The icons in the status field indicate the online statuses of pods, as described
 | Icon | Status |  
 |--------|-------------|  
 | ![Ready running status icon](./media/container-insights-analyze/containers-ready-icon.png) | Running (Ready)|  
-| ![Waiting or paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|  
+| ![Waiting or Paused status icon](./media/container-insights-analyze/containers-waiting-icon.png) | Waiting or Paused|  
 | ![Last reported running status icon](./media/container-insights-analyze/containers-grey-icon.png) | Last reported running but hasn't responded in more than 30 minutes|  
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
