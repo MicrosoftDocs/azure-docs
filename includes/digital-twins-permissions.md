@@ -36,11 +36,11 @@
     
     1. **Azure Digital Twins**. Select the **Azure Digital Twins** API.
 
-    ![Search API or Azure Digital Twins](./media/digital-twins-permissions/aad-aap-search-api-dt.png)
+        ![Search API or Azure Digital Twins](./media/digital-twins-permissions/aad-aap-search-api-dt.png)
 
     1. Alternatively, search for **Azure Smart Spaces**. Select the **Azure Smart Spaces Service** API.
 
-    ![Search API for Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)
+        ![Search API for Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)
 
     > [!NOTE]
     > The exact name that will appear when searched may vary depending on which Azure tenant you belong to.
