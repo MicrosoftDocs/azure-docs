@@ -64,7 +64,7 @@ These code snippets show you how to do the following with the QnA Maker client l
 
 Create a file named `rest-apis.js` and add the HTTP request package, `requestretry`. 
 
-[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?name=dependencies)]
+[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js)]
 
 ## Add Azure resource information
 
@@ -91,15 +91,13 @@ Replace an existing knowledge base with new information:
 
 ## Publish a knowledge base
 
-Publish the knowledge base using the [publish](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#publish-string--msrest-requestoptionsbase-) method. This takes the current saved and trained model, referenced by the knowledge base ID, and publishes that at an endpoint. 
-
-[!code-javascript[Publish a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=publishkb&highlight=2)]
+[!code-javascript[Publish a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?)]
 
 ## Delete a knowledge base
 
 Delete the knowledge base using the [delete](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-qnamaker/knowledgebase?view=azure-node-latest#deletemethod-string--msrest-requestoptionsbase-) method with a parameter of the knowledge base ID. 
 
-[!code-javascript[Delete a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=deletekbs&highlight=2)]
+[!code-javascript[Delete a knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?)]
 
 ## Get status of an operation
 
@@ -107,14 +105,14 @@ Some methods, such as create and update, can take enough time that instead of wa
 
 The _setTimeout_ call in the following code block is used to simulate asynchronous code. Replace this with retry logic. 
 
-[!code-javascript[Monitor an operation](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/knowledgebase_quickstart/knowledgebase_quickstart.js?name=monitorOperation&highlight=2,17)]
+[!code-javascript[Monitor an operation](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-apis.js?)]
 
 ## Run the application
 
 Run the application with `node index.js` command from your application directory.
 
 ```console
-node index.js
+node rest-apis.js
 ```
 
 ## Clean up resources
