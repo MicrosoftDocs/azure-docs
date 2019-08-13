@@ -86,7 +86,7 @@ ML pipelines are constructed from multiple **steps**, which are distinct computa
 > [!TIP]
 > ML Pipelines can use run configuration or estimators when training models.
 
-While ML pipelines can train models, they can also prepare data before training and deploy models after training. For more information, see [Pipelines: Optimize machine learning workflows](concept-ml-pipelines.md).
+While ML pipelines can train models, they can also prepare data before training and deploy models after training. One of the primary use cases for pipelines is batch scoring. For more information, see [Pipelines: Optimize machine learning workflows](concept-ml-pipelines.md).
 
 ## Set up in Python
 

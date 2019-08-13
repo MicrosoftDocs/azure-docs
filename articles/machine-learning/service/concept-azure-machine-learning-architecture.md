@@ -1,7 +1,7 @@
 ---
 title: 'Architecture & key concepts'
 titleSuffix: Azure Machine Learning service
-description: Learn about the architecture, terms, concepts, and workflow that make up Azure Machine Learning service.
+description: Learn about the architecture, terms, concepts, and workflows that make up the Azure Machine Learning service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -88,7 +88,7 @@ A model is produced by a run in Azure Machine Learning. You can also use a model
 
 Azure Machine Learning service is framework agnostic. When you create a model, you can use any popular machine learning framework, such as Scikit-learn, XGBoost, PyTorch, TensorFlow, and Chainer.
 
-For an example of training a model using an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
+For an example of training a model using Scikit-learn and an estimator, see [Tutorial: Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).
 
 The **model registry** keeps track of all the models in your Azure Machine Learning service workspace.
 
@@ -113,17 +113,22 @@ For example run configurations, see [Select and use a compute target to train yo
 
 ### Estimators
 
-To facilitate deep learning model training, estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
+To facilitate model training with popular frameworks, the estimator class allows you to easily construct run configurations. You can create and use a generic [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) to submit training scripts that use any learning framework you choose (such as scikit-learn).
 
 For PyTorch, TensorFlow, and Chainer tasks, Azure Machine Learning also provides respective [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py), and [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) estimators to simplify using these frameworks.
 
-For more information, see [Train ML Models with estimators](how-to-train-ml-models.md).
+For more information, see the following articles:
+
+* [Train ML Models with estimators](how-to-train-ml-models.md).
+* [Train Pytorch deep learning models at scale with Azure Machine Learning](how-to-train-pytorch.md).
+* [Train and register TensorFlow models at scale with Azure Machine Learning service](how-to-train-tensorflow.md).
+* [Train and register Chainer models at scale with Azure Machine Learning service](how-to-train-chainer.md).
 
 ### Datasets and datastores
 
 **Azure Machine Learning Datasets** (preview) make it easier to access and work with your data. Datasets manage data in various scenarios such as model training and pipeline creation. Using the Azure Machine Learning SDK, you can access underlying storage, explore and prepare data, manage the life cycle of different Dataset definitions, and compare between Datasets used in training and in production.
 
-Datasets provides methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
+Datasets provide methods for working with data in popular formats, such as using `from_delimited_files()` or `to_pandas_dataframe()`.
 
 For more information, see [Create and register Azure Machine Learning Datasets](how-to-create-register-datasets.md).  For more examples using Datasets, see the [sample notebooks](https://github.com/Azure/MachineLearningNotebooks/tree/master/work-with-data/datasets).
 
@@ -131,7 +136,7 @@ A **datastore** is a storage abstraction over an Azure storage account. The data
 
 ### Compute targets
 
-A [compute target](concept-compute-target.md) lets you to specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
+A [compute target](concept-compute-target.md) lets you specify the compute resource where you run your training script or host your service deployment. This location may be your local machine or a cloud-based compute resource. Compute targets make it easy to change your compute environment without changing your code.
 
 Learn more about the [available compute targets for training and deployment](concept-compute-target.md).
 
