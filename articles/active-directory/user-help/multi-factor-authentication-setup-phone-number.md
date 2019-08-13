@@ -27,15 +27,15 @@ You can set up your mobile device to act as your two-factor verification method.
 
 2. Select **Send me a code by text message** from the **Method** area, and then select **Next**.
 
-    ![Additional security verification page, with authentication phone and text message](media\multi-factor-authentication-verification-methods\multi-factor-authentication-text-message.png)
+    ![Additional security verification page, with authentication phone and text message](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message.png)
 
 3. Type the verification code from the text message sent from Microsoft into the **Step 2: We've sent a text message to your phone** area, and then select **Verify**.
 
-    ![Additional security verification page, with authentication phone and text message](media\multi-factor-authentication-verification-methods\multi-factor-authentication-text-message-test.png)
+    ![Additional security verification page, with authentication phone and text message](media/multi-factor-authentication-verification-methods/multi-factor-authentication-text-message-test.png)
 
 4. From the **Step 3: Keep using your existing applications** area, copy the provided app password and paste it somewhere safe.
 
-    ![App passwords area of the Additional security verification page](media\multi-factor-authentication-verification-methods\multi-factor-authentication-app-passwords.png)
+    ![App passwords area of the Additional security verification page](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
     >For information about how to use the app password with your older apps, see [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md). You only need to use app passwords if you're continuing to use older apps that don't support two-factor verification.
@@ -48,15 +48,15 @@ You can set up your mobile device to act as your two-factor verification method.
 
 2. Select **Call me** from the **Method** area, and then select **Next**.
 
-    ![Additional security verification page, with authentication phone and phone call](media\multi-factor-authentication-verification-methods\multi-factor-authentication-phone-call.png)
+    ![Additional security verification page, with authentication phone and phone call](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call.png)
 
 3. You'll receive a phone call from Microsoft, asking you press the pound (#) sign on your mobile device to verify your identity.
 
-    ![Testing the specified phone number](media\multi-factor-authentication-verification-methods\multi-factor-authentication-phone-call-test.png)
+    ![Testing the specified phone number](media/multi-factor-authentication-verification-methods/multi-factor-authentication-phone-call-test.png)
 
 4. From the **Step 3: Keep using your existing applications** area, copy the provided app password and paste it somewhere safe.
 
-    ![App passwords area of the Additional security verification page](media\multi-factor-authentication-verification-methods\multi-factor-authentication-app-passwords.png)
+    ![App passwords area of the Additional security verification page](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
     >For information about how to use the app password with your older apps, see [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md). You only need to use app passwords if you're continuing to use older apps that don't support two-factor verification.
