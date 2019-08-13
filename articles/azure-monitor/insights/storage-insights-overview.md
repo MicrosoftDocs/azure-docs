@@ -75,9 +75,7 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens. 
 
 ![Multiple storage accounts Capacity workbook](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account showing the average amount of storage used for each device object in the account and number of data objects created.  
-
-![Selected storage account Capacity workbook](./media/storage-insights-overview/storage-account-capacity-01.png) 
+When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account. Further details about the drill-down report are described in the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section.  
 
 ## View from a storage account
 
@@ -97,7 +95,7 @@ On the **Overview** workbook for the storage account, it shows several storage k
 
 * Metric and status tiles highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
 
-Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens the respective workbook. The **Capacity** workbook shows the amount of storage used for each device object in the account, and total storage used across the account. 
+Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens the respective workbook. 
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
@@ -117,9 +115,9 @@ Whether you selected a value in the columns **Availability**, **E2E Latency**, *
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
-Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of storage used for each storage data object in the account.  
+** **Capacity** opens the **Capacity** workbook.  It shows the amount of storage used for each storage data object in the account.  
 
-![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png) 
+![Selected storage account Capacity page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
 There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.
 
@@ -219,4 +217,6 @@ In this example, we are working with the storage account capacity workbook and d
 
 * Configure [metric alerts](../platform/alerts-metric.md) and [service health notifications](../../service-health/alerts-activity-log-service-notifications.md) to set up automated alerting to aid in detecting issues.
 
-* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md). 
+* Learn the scenarios workbooks are designed to support, how to author new and customize existing reports, and more by reviewing [Create interactive reports with Azure Monitor workbooks](../app/usage-workbooks.md).
+
+* For an in-depth guide on using Storage Analytics and other tools to identify, diagnose, and troubleshoot Azure Storage-related issues, see [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md).
