@@ -12,7 +12,7 @@ ms.reviewer: sumameh
 
 # Tutorial: Use Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2
 
-This tutorial shows you how to handle events in storage account that has a hierarchical namespace. You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma separated file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription with an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
+This tutorial shows you how to handle events in storage account that has a hierarchical namespace. You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma separated file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
 
 In this tutorial, you will:
 
@@ -42,9 +42,11 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
   :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
 
-## Create initial data
+## Create a sales order
 
-1. Open Azure Storage Explorer, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
+We'll create a comma separated file that describes a sales order, and then upload that file to the storage account. Later, we'll use the data in this file as the first row in our Databricks Delta table. 
+
+1. Open Azure Storage Explorer. Then, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
 
    ![data folder](./media/data-lake-storage-events/data-container.png "data folder")
 
@@ -68,8 +70,9 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 In this section, you'll perform these tasks:
 
 * Create an Azure Databricks workspace.
-* Create and populate a Databricks Detla table.
-* Add upload and insert capability to the notebook.
+* Create a notebook.
+* Create and populate a Databricks Delta table.
+* Add code that inserts rows into the Databricks Delta table.
 * Create a Job.
 
 ### Create an Azure Databricks workspace
@@ -86,9 +89,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 3. The account creation takes a few minutes. To monitor the operation status, view the progress bar at the top.
 
-### Create and populate a Databricks Delta table
-
-In this section, you create a notebook in Azure Databricks workspace and then run code snippets to set up the customer table in the storage account.
+### Create a notebook
 
 1. In the [Azure portal](https://portal.azure.com), go to the Azure Databricks workspace you created, and then select **Launch Workspace**.
 
@@ -102,7 +103,9 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
     Select **Create**.
 
-4. Copy and paste the following code block into the first cell, but don't run this code yet.
+### Create and populate a Databricks Delta table
+
+1. In the notebook that you just created, copy and paste the following code block into the first cell, but don't run this code yet.
 
     ```Python
     dbutils.widgets.text('source_file', "", "Source File")
@@ -119,11 +122,13 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-5. In this code block, replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
+    This code creates a widget named **source_file**. Later, we'll create an Azure Function that calls this code and passes a file path to that value.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
 
-6. Press the **SHIFT + ENTER** keys to run the code in this block.
+2. In this code block, replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
 
-7. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block. This code configures the structure of your databricks delta table and then loads some initial data from the csv file that you uploaded earlier.
+3. Press the **SHIFT + ENTER** keys to run the code in this block.
+
+4. Copy and paste the following code block into a different cell, then press the **SHIFT + ENTER** keys to run the code in this block.
 
    ```Python
    from pyspark.sql.types import StructType, StructField, DoubleType, IntegerType, StringType
@@ -152,9 +157,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
      .saveAsTable("customer_data", path=customerTablePath))
    ```
 
-8. After this code block successfully runs, remove this code block from your notebook. You no longer need it.
+   This code creates the Databricks Delta table in your storage account, and then loads some initial data from the csv file that you uploaded earlier.
 
-### Add upload and insert capability to the notebook
+5. After this code block successfully runs, remove this code block from your notebook.
+
+### Add code that inserts rows into the Databricks Delta table
 
 1. Copy and paste the following code block into a different cell, but don't run this cell.
 
@@ -167,9 +174,9 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    upsertDataDF.createOrReplaceTempView("customer_data_to_upsert")
    ```
 
-   This code uploads and inserts data from a csv file identified by the widget that you added earlier. We'll populate that widget by using a function app when the event is triggered.
+   This code inserts data into a temporary table view by using data from a csv file identified by the widget that you added earlier.
 
-2. Add the following code to merge the temporary table with the actual table:
+2. Add the following code to merge the temporary table view with the Databricks Delta table that is located in the storage account. 
 
    ```
    %sql
@@ -208,31 +215,29 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
    ![Create a job](./media/data-lake-storage-events/create-spark-job.png "Create a job")
 
-4. Start the job (put exact steps here)
-
 ## Create an Azure Function
 
-1. In the upper corner of the workspace, choose the people icon, and then choose **User settings**.
-
+1. In the upper corner of the Databricks workspace, choose the people icon, and then choose **User settings**.
+ 
    ![Manage account](./media/data-lake-storage-events/generate-token.png "User settings")
 
-2. Click the **Generate new token**, and then click **Generate**.
+2. Click the **Generate new token** button, and then click the **Generate** button.
 
-   Make sure to copy to the token to safe place. You'll need this later.
+   Make sure to copy the token to safe place. You'll need this later.
   
-3. Select the **Create a resource** button found on the upper left-hand corner of the Azure portal, then select **Compute > Function App**.
+3. Select the **Create a resource** button found on the upper left corner of the Azure portal, then select **Compute > Function App**.
 
    ![Create an Azure function](./media/data-lake-storage-events/function-app-create-flow.png "Create Azure function")
 
-4. Configure the function app.
+4. In the **Create** page of the Function App, make sure to select **.NET Core** for the runtime stack, and configure an Application Insights instance.
 
    ![Configure the function app](./media/data-lake-storage-events/new-function-app.png "Configure the function app")
 
-5. Add configuration variables.
+5. In the **Overview** page of the Function App, click **Configuration**.
 
    ![Configure the function app](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
 
-6. Choose the **New application setting** button to add settings.
+6. In the **Application Settings** page, choose the **New application setting** button.
 
    ![Add configuration setting](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
 
@@ -300,7 +305,11 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
    }
    ```
 
+   This code, receives parses information about the storage event that was raised, and constructs an request message with url of the file that triggered the event. As part of this message, this function passes a value to the **source_file** widget that you created earlier. This code sends that message to the Databricks Job and authenticates with that job by using the token that you obtained earlier in the Databricks workspace.
+
 ## Create an Event Grid subscription
+
+In this section, you'll create an Event Grid subscription that calls the Azure Function when files are uploaded to the storage account.
 
 1. In the function code page, click the **Add Event Grid subscription** button.
 
@@ -314,16 +323,16 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
 
 ## Test the Event Grid subscription
 
-1. Create a file named `customer-order.csv` and paste the following information into that file, and save it to your local.
+1. Create a file named `customer-order.csv`, paste the following information into that file, and save it to your local computer.
 
    ```
    InvoiceNo,StockCode,Description,Quantity,InvoiceDate,UnitPrice,CustomerID,Country
    536371,99999,EverGlow Single,228,1/1/2018 9:01,33.85,20993,Sierra Leone
    ```
 
-3. In Storage Explorer, upload this file to the **input** folder to begin the process.
+3. In Storage Explorer, upload this file to the **input** folder of your storage account to begin the process.
 
-4. Check that the job succeeded. Open your databricks workspace, and click **Jobs**, and then open the job that you started in an earlier step.
+4. To check if the job succeeded, open your databricks workspace, click the **Jobs** button, and then open your job.
 
 5. Select the job to open the job page.
 
