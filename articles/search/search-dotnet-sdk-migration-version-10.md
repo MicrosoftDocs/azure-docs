@@ -36,6 +36,7 @@ Version 10 of the Azure Search .NET SDK (like version 9) targets the latest gene
     - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
 * On certain occasions, errors and warnings that show up in [indexer execution status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) can have additional details that help in debugging. `IndexerExecutionResult` has been updated to reflect this behavior.
 * Individual skills defined within a [skillset](cognitive-search-defining-skillset.md) can optionally be identified by specifying a `name` property.
+* `ServiceLimits` shows limits for [complex types](https://docs.microsoft.com/en-us/azure/search/search-howto-complex-data-types) and `IndexerExecutionInfo` shows pertinent indexer limits/quotas.
 
 <a name="UpgradeSteps"></a>
 
