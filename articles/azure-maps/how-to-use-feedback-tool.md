@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Provide feedback using Azure Maps feedback tool
+# Provide feedback to Azure Maps
 
 Azure Maps has generally been available since May 2018, providing fresh map data, easy-to-use REST APIs, and powerful SDKs to support our enterprise customers on a variety of business use cases. The real world is changing every second and it’s crucial for us to provide a factual digital representation to our customers. Our customers that are planning to open or close facilities need to ensure our maps are updated promptly so that they can efficiently plan for delivery, maintenance, or customer service at the right facilities. We have created the Azure Maps data feedback tool to empower our customers to provide direct data feedback. Customers’ data feedback goes directly to our data providers and their map editors who can quickly evaluate and incorporate feedback into our mapping products.  
 
