@@ -77,7 +77,6 @@ Depending on the size of your directory (number of users, groups etc.), synchron
 > **Password hash sync** is a different process from user/object sync. You need to disable/enable password hash sync to get full password sync, then you will see the batch password hash updates in the application event log.
 
 * [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds)
-* [Enable password synchronization to AAD Domain Services for a cloud-only Azure AD directory](active-directory-ds-getting-started-password-sync.md)
-* [Manage an Azure AD Domain Services domain](manage-domain.md)
+* [Manage an Azure AD Domain Services domain](tutorial-create-management-vm.md)
 * [Join a Windows virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Join a Red Hat Enterprise Linux virtual machine to an Azure AD Domain Services managed domain](active-directory-ds-admin-guide-join-rhel-linux-vm.md)

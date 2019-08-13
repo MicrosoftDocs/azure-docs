@@ -4,6 +4,8 @@
   items:
     - name: What is Azure AD Domain Services?
       href: overview.md
+    - name: Compare identity services
+      href: compare-identity-solutions.md
 - name: Tutorials
   expanded: true
   items:
@@ -11,6 +13,8 @@
       href: tutorial-create-instance.md
     - name: Domain-join a Windows Server VM
       href: join-windows-vm.md
+    - name: Install management tools
+      href: tutorial-create-management-vm.md
     - name: Configure secure LDAP
       href: tutorial-configure-ldaps.md
 - name: Samples

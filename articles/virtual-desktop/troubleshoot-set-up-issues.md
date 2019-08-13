@@ -2,12 +2,12 @@
 title: Windows Virtual Desktop tenant and host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Tenant and host pool creation
 
