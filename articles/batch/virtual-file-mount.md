@@ -11,7 +11,7 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/13/2019
 ms.author: lahugh
 ---
 
@@ -22,15 +22,15 @@ Azure Batch now supports mounting cloud storage or an external file system on Wi
 In this article, you'll learn how to mount a virtual file system on a pool of compute nodes using the [Batch Management Library for .NET](https://docs.microsoft.com/dotnet/api/overview/azure/batch?view=azure-dotnet).
 
 > [!NOTE]
-> Mounting a virtual file system is supported on Batch pools created on or after 12 August 2019. Batch pools created prior to 12 August 2019 do not support this feature.
+> Mounting a virtual file system is supported on Batch pools created on or after 2019-08-19. Batch pools created prior to 2019-08-19 do not support this feature.
 > 
-> The APIs for mounting file systems on a compute node are part of the [Batch .NET](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.batch?view=azure-dotnet) library.
+> The APIs for mounting file systems on a compute node are part of the [Batch .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.batch?view=azure-dotnet) library.
 
 ## Benefits of mounting on a pool
 
 Mounting the file system to the pool, instead of letting tasks retrieve their own data from a large data set, makes it easier and more efficient for tasks to access the necessary data.
 
-Consider a scenario with multiple tasks requiring access to a common set of data, like rendering a movie. Each task renders one or more frames at a time from the scene files. By mounting a drive that contains the scene files, it's easier for compute nodes to access shared data. Additionally, the underlying file system can be chosen and scaled independently based on the performance and scale (throughput and IOPS) required by the number of compute nodes concurrently accessing the data. For example, an [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache can be used to support very large motion picture-scale renders with thousands of concurrent render nodes, accessing source data that resides on-premises. Alternatively, for data that already resides in cloud-based Blob storage, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) can be used to mount this data as a local file system. Blobfuse is only available on Linux nodes, however, [Azure Files](https://azure.microsoft.com/en-au/blog/a-new-era-for-azure-files-bigger-faster-better/) provides a similar workflow and is available on both Windows and Linux.
+Consider a scenario with multiple tasks requiring access to a common set of data, like rendering a movie. Each task renders one or more frames at a time from the scene files. By mounting a drive that contains the scene files, it's easier for compute nodes to access shared data. Additionally, the underlying file system can be chosen and scaled independently based on the performance and scale (throughput and IOPS) required by the number of compute nodes concurrently accessing the data. For example, an [Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) distributed in-memory cache can be used to support very large motion picture-scale renders with thousands of concurrent render nodes, accessing source data that resides on-premises. Alternatively, for data that already resides in cloud-based Blob storage, [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md) can be used to mount this data as a local file system. Blobfuse is only available on Linux nodes, however, [Azure Files](https://azure.microsoft.com/blog/a-new-era-for-azure-files-bigger-faster-better/) provides a similar workflow and is available on both Windows and Linux.
 
 ## Mount a virtual file system on a pool  
 
@@ -41,7 +41,7 @@ To mount a file system on a pool, create a `MountConfiguration` object. Choose t
 All mount configuration objects need the following base parameters. Some mount configurations have parameters specific to the file system being used, which are discussed in more detail in the code examples.
 
 - **Account name or source**: To mount a virtual file share, you need the name of the storage account or its source.
-- **Relative mount path or Source**: This is where the file system is mounted on the compute node, relative to standard `fsmount` directory accessible in node via `AZ_BATCH_NODE_MOUNTS_DIR` (note: the exact location varies from the sku in use like in Ubuntu the physical location is mapped to `mnt\batch\tasks\fsmount` where as in Centos it is `mnt\resources\batch\tasks\fsmount`.
+- **Relative mount path or Source**: This is where the file system is mounted on the compute node, relative to standard `fsmount` directory accessible on the node via `AZ_BATCH_NODE_MOUNTS_DIR`. The exact location varies depending on the operating system used on the node. For example, the physical location on an Ubuntu node is mapped to `mnt\batch\tasks\fsmount`, and on a CentOS node it is mapped to `mnt\resources\batch\tasks\fsmount`.
 - **Mount options or blobfuse options**: These options describe specific parameters for mounting a file system.
 
 Once the `MountConfiguration` object is created, assign the object to the `MountConfigurationList` property when you create the pool. The file system is mounted either when a node joins a pool or when the node is restarted or re-imaged.
@@ -163,7 +163,7 @@ new PoolAddParameter
 
 If a mount configuration fails, the compute node in the pool will fail and the node state becomes unusable. To diagnose a mount configuration failure, inspect the [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
 
-User can use the [OutputFiles](batch-task-output-files.md) for uploading the *.log files for mount at `AZ_BATCH_NODE_MOUNTS_DIR` location.
+To get the log files for debugging, use [OutputFiles](batch-task-output-files.md) to upload the `*.log` files. The `*.log` files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location.
 
 ## Supported SKUs
 
