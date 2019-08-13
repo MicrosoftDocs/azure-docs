@@ -23,7 +23,7 @@ Here's what the diagnostics tool for Windows Virtual Desktop can do for you:
 
 ## Prerequisites
 
-You need to create an Azure Active Directory App Registration and a Log Analytics workspace before you can deploy the Azure Resource Manager template for the tool. You or the administrator need the these permissions to do that:
+You need to create an Azure Active Directory App Registration and a Log Analytics workspace before you can deploy the Azure Resource Manager template for the tool. You or the administrator need these permissions to do that:
 
 - Owner of the Azure subscription
 - Permission to create resources in your Azure subscription
@@ -83,7 +83,7 @@ To run the PowerShell script:
 4. Enter the credentials of a user with delegated admin access.
 5. Sign in to the Azure portal with the same user's credentials.
 6. Write down or memorize the LogAnalyticsWorkspace ID for later.
-7. If you set up the Log Analytics workspace with the PowerShell script, then your performance counters should already be configured and you can skip ahead to [Validate the script results in the Azure portal](#validate-the-script-results-in-the-azure-portal). Otherwise, proceed to the next section.
+7. If you set up the Log Analytics workspace with the PowerShell script, then your performance counters should already be configured and you can skip ahead to [Validate the script results in the Azure portal](#validate-the-script-results-in-the-azure-portal). Otherwise, continue to the next section.
 
 ### Configure Windows performance counters in your existing Log Analytics workspace
 
@@ -138,10 +138,10 @@ To make sure your Log Analytics workspace has the preconfigured Windows performa
 
 ### Connect to VMs in your Log Analytics workspace
 
-In order to be able to view the health of VMs you will need to enable the Log Analytics connection. Follow these steps to connect your VMs:
+In order to be able to view the health of VMs, you'll need to enable the Log Analytics connection. Follow these steps to connect your VMs:
 
 1. Open a browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
-2. Go to to your Log Analytics Workspace.
+2. Go to your Log Analytics Workspace.
 3. In the left panel, under Workspace Data Sources, select **virtual machines**.
 4. Select the name of the VM you want to connect to.
 5. Select **Connect**.
@@ -167,11 +167,11 @@ After that, you need to set the Redirect URI.
 
 To set the Redirect URI:
 
-1.  In the [Azure portal](https://portal.azure.com/), go to **App Services** and locate the application you just created.
+1.  In the [Azure portal](https://portal.azure.com/), go to **App Services** and locate the application you created.
 2.  Go to the overview page and copy the URL you find there.
 3.  Navigate to **app registrations** and select the app you want to deploy.
 4.  In the left panel, under Manage section, select **Authentication**.
-5.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top left corner of the menu.
+5.  Enter the desired Redirect URI into the **Redirect URI** text box, then select **Save** in the top-left corner of the menu.
 6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
@@ -185,7 +185,7 @@ To set the Redirect URI:
 
 Before you make the diagnostics tool available to your users, make sure they have the following permissions:
 
-- Users need read access for log analytics. For more details, see [Get started with roles, permissions, and security with Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Users need read access for log analytics. For more information, see [Get started with roles, permissions, and security with Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
 -  Users also need read access for the Windows Virtual Desktop tenant (RDS Reader role). For more information, see [Delegated access in Windows Virtual Desktop Preview](delegated-access-virtual-desktop.md).
 
 You also need to give your users the following information:
@@ -204,7 +204,7 @@ Activities are sorted by timestamp, with the latest activity first. If the resul
 >[!NOTE]
 >Service errors are called "external errors" in the linked documentation. This will be changed when we update the PowerShell reference.
 
-Connection activities might have more than one error. You can expand the activity type to see any other errors the user has encountered. Select the name of the error code to open up a dialog to see more information about it.
+Connection activities might have more than one error. You can expand the activity type to see any other errors the user has come across. Select the name of the error code to open up a dialog to see more information about it.
 
 ### Investigate the session host 
 
@@ -212,13 +212,13 @@ In the search results, find and select the session host you want information abo
 
 You can analyze session host health:
 
-- Based on predefined threshold you will be able to retrieve the session host health information that Log Analytics queries.
-- When there's no activity or the session host isn't connected to Log Analytics, the information won't available.
+- Based on a predefined threshold, you can retrieve the session host health information that Log Analytics queries.
+- When there's no activity or the session host isn't connected to Log Analytics, the information won't be available.
 
 You can also interact with users on the session host:
 
 - You can either sign out or send a message to signed in users.
-- The user from the search result is selected by default, but you can also select additional users to send messages or sign out multiple users at once.
+- The user you originally searched for is selected by default, but you can also select additional users to send messages or sign out multiple users at once.
 
 ### Windows performance counter thresholds
 
