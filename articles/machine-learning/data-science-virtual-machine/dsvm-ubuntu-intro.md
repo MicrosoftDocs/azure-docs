@@ -107,6 +107,7 @@ b. **Disks**:
 c. For rest of the settings you can just use the default values. To consider non-default values, hover over the informational link for help on the specific fields.
 
 Finally, select **Review + create**
+
 d. **Review + create**:
 
 * After validation passes, verify that all information you entered is correct. A link is provided to the terms of use. The VM does not have any additional charges beyond the compute for the server size you chose in the Size input. To start the provisioning, click **Create**.
