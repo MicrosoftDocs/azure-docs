@@ -118,7 +118,7 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-For more information, see [Azure SDK for Go](https://docs.microsoft.com/go/azure/).
+For more information, see [Azure SDK for Go](https://docs.microsoft.com/azure/go/).
 
 ## Use Terraform
 
