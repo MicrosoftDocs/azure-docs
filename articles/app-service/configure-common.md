@@ -5,7 +5,7 @@ keywords: azure app service, web app, app settings, environment variables
 services: app-service\web
 documentationcenter: ''
 author: cephalin
-manager: erikre
+manager: gwallace
 editor: ''
 
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/25/2017
+ms.date: 08/13/2019
 ms.author: cephalin
 ms.custom: seodec18
 
@@ -29,7 +29,7 @@ In App Service, you use app settings like environment variables. In the [Azure p
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
-For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in *Web.config*, but the values in App Service override the ones in *Web.config*. You can keep development settings (e.g. local MySQL password) in *Web.config*, but production secrets (e.g. Azure MySQL database password) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
+For ASP.NET and ASP.NET Core developers, setting app settings in App Service are like setting them in `<appSettings>` in *Web.config* or *appsettings.json*, but the values in App Service override the ones in *Web.config* or *appsettings.json*. You can keep development settings (e.g. local MySQL password) in *Web.config* or *appsettings.json*, but production secrets (e.g. Azure MySQL database password) safe in App Service. The same code uses your development settings when you debug locally, and it uses your production secrets when deployed to Azure.
 
 Other language stacks, likewise, get the app settings as environment variables at runtime. For language-stack specific steps, see:
 
