@@ -112,7 +112,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 3. Enter the generic Livy endpoint. For example: http\://10.172.41.42:18080.
 
-4. Select authorization type **Basic** or **None**.  If you seelct **Basic**:  
+4. Select authorization type **Basic** or **None**.  If you select **Basic**:  
     &emsp;a. Enter your Ambari user name; the default is **admin**.  
     &emsp;b. Enter your Ambari password.
 
@@ -261,7 +261,7 @@ After you submit a Python job, submission logs appear in the **OUTPUT** window i
 
 ## Apache Livy configuration
 
-[Apache Livy](https://livy.incubator.apache.org/) configuration is supported. You can configure it in the **.VSCode\settings.json** file in the workspace folder. Currently, livy configuration only supports Python script. For more details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
+[Apache Livy](https://livy.incubator.apache.org/) configuration is supported. You can configure it in the **.VSCode\settings.json** file in the workspace folder. Currently, Livy configuration only supports Python script. For more details, see [Livy README](https://github.com/cloudera/livy/blob/master/README.rst ).
 
 <a id="triggerlivyconf"></a>**How to trigger Livy configuration**
 
@@ -420,15 +420,15 @@ When you submit a job to an HDInsight cluster by using ADLS Gen2, you're prompte
 
 > [!NOTE]
 > 
->You can get the access key for storage account from the Azure portal. For information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
+>You can get the access key for the storage account from the Azure portal. For more information, see [View and copy access keys](https://docs.microsoft.com/azure/storage/common/storage-account-manage#access-keys).
 
 ## Unlink cluster
 
 1. From the menu bar, go to **View** > **Command Palette**, and then enter **Spark / Hive: Unlink a Cluster**.  
 
-2. Select cluster to unlink.  
+2. Select a cluster to unlink.  
 
-3. Review **OUTPUT** view for verification.  
+3. See the **OUTPUT** view for verification.  
 
 ## Sign out  
 
@@ -436,4 +436,4 @@ From the menu bar, gp to **View** > **Command Palette**, and then enter **Azure:
 
 
 ## Next steps
-For a demonstration video of using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706)
+For a video that demonstrates using Spark & Hive for Visual Studio Code, see [Spark & Hive for Visual Studio Code](https://go.microsoft.com/fwlink/?linkid=858706).
