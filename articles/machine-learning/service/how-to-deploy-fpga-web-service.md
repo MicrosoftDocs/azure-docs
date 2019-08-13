@@ -117,7 +117,7 @@ You can deploy a model as a web service on FPGAs with Azure Machine Learning Har
     ```
 
 
-## 1. Create & containerize models
+## 1. Create and containerize models
 
 This document will describe how to create a TensorFlow graph to preprocess the input image, make it a featurizer using ResNet 50 on an FPGA, and then run the features through a classifier trained on the ImageNet data set.
 
