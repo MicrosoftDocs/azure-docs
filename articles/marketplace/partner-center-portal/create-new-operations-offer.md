@@ -356,6 +356,11 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 You must upload a .pdf file describing your offer's **Key usage scenario** in this page.
 
+Additionally, you must answer **Yes** or **No** to two questions:
+
+- **Does solution include localizations?** Answer **Yes** if the solution enables use of local standards and policies (for example, if it accommodates the different payroll rules required by different countries/regions).
+- ** Does solution enable translations?** Answer **Yes** if the text in your solution can be translated into other languages.
+
 Additionally, you must specify whether or not your solution includes localizations, and whether or not it enables translations.
 
 ## Publish
