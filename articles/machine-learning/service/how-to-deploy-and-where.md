@@ -60,11 +60,11 @@ When using VS Code, the workspace is selected using a graphical interface. For m
 
 A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
 
-Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model:
 
 ### Register a model from an Experiment Run
 
-The code snippets in this section demonstrate registering a model from file:
+The code snippets in this section demonstrate registering a model from a training run:
 
 > [!IMPORTANT]
 > These snippets assume that you have previously performed a training run and have access to the `run` object (SDK example) or run ID value (CLI example). For more information on training models, see [Create and use compute targets for model training](how-to-set-up-training-targets.md).
@@ -77,7 +77,7 @@ The code snippets in this section demonstrate registering a model from file:
   ```
 
   > [!TIP]
-  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  > The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files.
 
 + **Using the CLI**
 
@@ -86,7 +86,7 @@ The code snippets in this section demonstrate registering a model from file:
   ```
 
   > [!TIP]
-  > To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
+  > The `--asset-path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
