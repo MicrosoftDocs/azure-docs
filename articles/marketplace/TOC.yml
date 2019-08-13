@@ -470,7 +470,7 @@
         href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
       - name: SaaS fulfillment APIs - FAQ
         href: ./partner-center-portal/saas-fulfillment-apis-faq.md    
-      - name: Test Drive your offer
+    - name: Test Drive your offer
       href: ./partner-center-portal/test-drive.md
   - name: Publishing status
     href: ./partner-center-portal/publishing-status.md
