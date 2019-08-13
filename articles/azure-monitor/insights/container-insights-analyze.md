@@ -44,7 +44,7 @@ To view the health status of all AKS clusters deployed, select **Monitor** from 
 
 On the **Monitored clusters** tab, you learn the following:
 
-- How many clusters are in a *Critical* or unhealthy state, versus how many are *Healthy* or not reporting (referred to as an *Unknown* state).
+- How many clusters are in a Critical or unhealthy state, versus how many are Healthy or not reporting (referred to as an Unknown state).
 - Whether all of the [Azure Kubernetes Engine (AKS-engine)](https://github.com/Azure/aks-engine) deployments are healthy.
 - How many nodes and user and system pods are deployed per cluster.
 - How much disk space is available and if there's a capacity issue.
@@ -54,14 +54,14 @@ The health statuses included are:
 * **Healthy**: No issues are detected for the VM, and it's functioning as required. 
 * **Critical**: One or more critical issues are detected that must be addressed to restore normal operational state as expected.
 * **Warning**: One or more issues are detected that must be addressed or the health condition could become critical.
-* **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an *Unknown* state.
+* **Unknown**: If the service wasn't able to make a connection with the node or pod, the status changes to an Unknown state.
 * **Not found**: Either the workspace, the resource group, or subscription that contains the workspace for this solution was deleted.
 * **Unauthorized**: User doesn’t have required permissions to read the data in the workspace.
 * **Error**: An error occurred while attempting to read data from the workspace.
 * **Misconfigured**: Azure Monitor for containers wasn't configured correctly in the specified workspace.
 * **No data**: Data hasn't reported to the workspace for the last 30 minutes.
 
-Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is *Unknown*, the overall cluster state shows **Unknown**. 
+Health state calculates overall cluster status as the *worst of* the three states with one exception. If any of the three states is Unknown, the overall cluster state shows **Unknown**. 
 
 The following table provides a breakdown of the calculation that controls the health states for a monitored cluster on the multi-cluster view.
 
@@ -102,16 +102,16 @@ The performance charts display four performance metrics:
 
 - **Node CPU utilization&nbsp;%**: An aggregated perspective of CPU utilization for the entire cluster. To filter the results for the time range, select **Avg**, **Min**, **50th**, **90th**, **95th**, or **Max** in the percentiles selector above the chart. The filters can be used either individually or combined. 
 - **Node memory utilization&nbsp;%**: An aggregated perspective of memory utilization for the entire cluster. To filter the results for the time range, select **Avg**, **Min**, **50th**, **90th**, **95th**, or **Max** in the percentiles selector above the chart. The filters can be used either individually or combined. 
-- **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are *Total*, *Ready*, and *Not Ready*. They can be filtered individually or combined in the selector above the chart. 
-- **Active pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are *Total*, *Pending*, *Running*, *Unknown*, *Succeeded*, or *Failed*. They can be filtered individually or combined in the selector above the chart. 
+- **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are Total, Ready, and Not Ready. They can be filtered individually or combined in the selector above the chart. 
+- **Active pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are Total, Pending, Running, Unknown, Succeeded, or Failed. They can be filtered individually or combined in the selector above the chart. 
 
 Use the Left and Right arrow keys to cycle through each data point on the chart. Use the Up and Down arrow keys to cycle through the percentile lines. Select the pin icon in the upper-right corner of any one of the charts to pin the selected chart to the last Azure dashboard you viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard redirects you to Azure Monitor for containers and loads the correct scope and view.
 
-Azure Monitor for containers also supports the Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From the metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../platform/alerts-metric.md). 
+Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you also can use the criteria that you set to visualize your metrics as the basis of a [metric-based alert rule](../platform/alerts-metric.md). 
 
-## View container metrics in the metrics explorer
+## View container metrics in metrics explorer
 
-In the metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
+In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
 |Namespace | Metric |
 |----------|--------|
