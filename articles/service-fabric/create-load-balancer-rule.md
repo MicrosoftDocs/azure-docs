@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
