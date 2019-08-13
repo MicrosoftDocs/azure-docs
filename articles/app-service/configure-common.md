@@ -25,7 +25,9 @@ This topic explains how to configure common settings for web apps, mobile back e
 
 ## Configure app settings
 
-In App Service, you use app settings like environment variables. In the [Azure portal], navigate to your app's management page. In the app's left menu, click **Configuration** > **Application settings**.
+In App Service, app settings are variables passed as environment variables to the application code. For Linux apps and custom containers, App Service passes app settings to the container using the `--env` flag to set the environment variable in the container.
+
+In the [Azure portal], navigate to your app's management page. In the app's left menu, click **Configuration** > **Application settings**.
 
 ![Application Settings](./media/configure-common/open-ui.png)
 
