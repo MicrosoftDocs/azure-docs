@@ -7,7 +7,7 @@ editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 08/09/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ---
@@ -15,12 +15,11 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Collaborative coding with Git
 
-In this article we describe how to do collaborative code development for data science projects using Git as the shared code development framework. It covers how to link these coding activities to the work planned in [Agile development](agile-development.md) and how to do code reviews.
+This article describes how to do collaborative code development for data science projects in Azure Repos, using Git as the shared code development framework. The article covers how to link code in Azure Repos to [agile development](agile-development.md) work items in Azure Boards, and how to do code reviews.
 
+## <a name='Linkaworkitemwithagitbranch-1'></a>Link a work item with a Git branch 
 
-## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Link a work item with a Git branch 
-
-Azure DevOps Services provides a convenient way to connect a work item (a story or task) with a Git branch. This enables you to link your story or task directly to the code associated with it. 
+Azure DevOps provides a convenient way to connect an User Story or Task work item with a Git Repos repository branch. You can link your User Story or Task directly to the code associated with it. 
 
 To connect a work item to a new branch, double-click a work item, and in the pop-up window, click **Create a new branch** under **+ Add link**.  
 
