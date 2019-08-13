@@ -56,7 +56,7 @@ To configure the integration of Box into Azure AD, you need to add Box from the 
 1. In the **Add from the gallery** section, type **Box** in the search box.
 1. Select **Box** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for Box
 
 Configure and test Azure AD SSO with Box using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Box.
 
