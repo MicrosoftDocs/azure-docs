@@ -67,11 +67,11 @@ The following diagram gives you a high-level overview of the system.
  
   <center>
 
-  ![System overview](./media/tutorial-iothub-maps/system-diagram.png)</center>
+  ![System overview](./media/tutorial-iot-hub-maps/system-diagram.png)</center>
 
 The figure below represents the geofence area highlighted in blue and rental vehicle's route as a green line.
 
-  ![Geofence route](./media/tutorial-iothub-maps/geofence-route.png)
+  ![Geofence route](./media/tutorial-iot-hub-maps/geofence-route.png)
 
 
 ## Prerequisites 
@@ -84,18 +84,18 @@ To complete the steps in this tutorial, you first need to create a resource grou
 
 2. select **Resource groups**.
     
-   ![Resource groups](./media/tutorial-iothub-maps/resource-group.png)
+   ![Resource groups](./media/tutorial-iot-hub-maps/resource-group.png)
 
 3. Under Resource groups, select **Add**.
     
-   ![Add resource group](./media/tutorial-iothub-maps/add-resource-group.png) 
+   ![Add resource group](./media/tutorial-iot-hub-maps/add-resource-group.png) 
 
 4. Enter the following property values:
     * **Subscription:** Select you Azure subscription.
     * **Resource group:** Enter "ContosoRental" as the resource group name.
     * **Region:** Select a region for the resource group.  
 
-    ![Resource group details](./media/tutorial-iothub-maps/resource-details.png)
+    ![Resource group details](./media/tutorial-iot-hub-maps/resource-details.png)
 
     Click on **Review + create** and choose **Create** on the next page.
 
@@ -110,15 +110,15 @@ In order to log event data, we will create a general-purpose **v2storage** accou
 
 1. In your storage account, navigate to Blobs.
 
-    ![blobs](./media/tutorial-iothub-maps/blobs.png)
+    ![blobs](./media/tutorial-iot-hub-maps/blobs.png)
 
 2. Click the container button at the top left and name your container "contoso-rental-logs" and click "OK".
 
-    ![blob-container](./media/tutorial-iothub-maps/blob-container.png)
+    ![blob-container](./media/tutorial-iot-hub-maps/blob-container.png)
 
 3. Navigate to the **Access keys** blade in your storage account and copy the account name and access key, we will use them later.
 
-    ![access-keys](./media/tutorial-iothub-maps/access-keys.png)
+    ![access-keys](./media/tutorial-iot-hub-maps/access-keys.png)
 
 
 Now that we have a storage account and a container to log event data, next we will create an IoT hub.
@@ -139,11 +139,11 @@ In order to connect to the IoT Hub, a device must be registered. To register a d
 
 1. In your IoT Hub, click on the "IoT devices" blade and click "New".
 
-    ![add-device](./media/tutorial-iothub-maps/add-device.png)
+    ![add-device](./media/tutorial-iot-hub-maps/add-device.png)
 
 2. On the create a device page, name your IoT device, and click "Save".
     
-    ![register-device](./media/tutorial-iothub-maps/register-device.png)
+    ![register-device](./media/tutorial-iot-hub-maps/register-device.png)
 
 
 ## Upload geofence
@@ -154,7 +154,7 @@ Open the Postman app and follow the steps below to upload the geofence using the
 
 1. In the Postman app, click new | Create new, and select Request. Enter a Request name for Upload geofence data, select a collection or folder to save it to, and click Save.
 
-    ![Upload geofences using Postman](./media/tutorial-iothub-maps/postman-new.png)
+    ![Upload geofences using Postman](./media/tutorial-iot-hub-maps/postman-new.png)
 
 2. Select POST HTTP method on the builder tab and enter the following URL to make a POST request.
 
@@ -166,11 +166,11 @@ Open the Postman app and follow the steps below to upload the geofence using the
 
 3. Click **Params**, and enter the following Key/Value pairs to be used for the POST request URL. Replace subscription-key value with your Azure Maps subscription key.
    
-    ![Key-Value params Postman](./media/tutorial-iothub-maps/postman-key-vals.png)
+    ![Key-Value params Postman](./media/tutorial-iot-hub-maps/postman-key-vals.png)
 
 4. Click **Body** then select **raw** input format and choose **JSON (application/text)** as the input format from the dropdown list. Open the JSON data file [here](https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4), and copy the Json into the body section in Postman as the data to be uploaded and click **Send**.
     
-    ![post data](./media/tutorial-iothub-maps/post-json-data.png)
+    ![post data](./media/tutorial-iot-hub-maps/post-json-data.png)
     
 5. Review the response headers. Upon a successful request, the **Location** header will contain the status URI to check the current status of the upload request. The status URI will be of the following format. 
 
@@ -202,21 +202,21 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 
 1. In the Azure portal dashboard, select create a resource. Select **Compute** from the list of available resource types and then select **Function APP**.
 
-    ![create-resource](./media/tutorial-iothub-maps/create-resource.png)
+    ![create-resource](./media/tutorial-iot-hub-maps/create-resource.png)
 
 2. On the function App creation page, name your function app, under **Resource Group** select **Use existing**, and select "ContosoRental" from the dropdown list. Select ".NET Core" as the Runtime Stack, under **Storage** select **Use existing** and select "contosorentaldata" from the dropdown and click **Create**.
     
-    ![create-app](./media/tutorial-iothub-maps/rental-app.png)
+    ![create-app](./media/tutorial-iot-hub-maps/rental-app.png)
 
 3. Once the app is created, we need to add a function to it. Go to the function app and click **New function** to add a function, choose **In-Portal** as the development environment, and select **Continue**.
 
-    ![create-function](./media/tutorial-iothub-maps/function.png)
+    ![create-function](./media/tutorial-iot-hub-maps/function.png)
 
 4. Choose **More templates** and click **Finish and view templates**. 
 
 5. Select the template with an **Azure Event Grid Trigger**. Install extensions if prompted, name the function and hit **Create**.
 
-    ![function-template](./media/tutorial-iothub-maps/eventgrid-funct.png)
+    ![function-template](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
 
 6. Copy the [c# code](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx) into your function and click **Save**.
  
@@ -227,22 +227,22 @@ Azure Functions is a serverless compute service that enables us to run code on-d
 
 10. Click on **Add Event Grid subscription**.
     
-    ![add-event-grid](./media/tutorial-iothub-maps/add-egs.png)
+    ![add-event-grid](./media/tutorial-iot-hub-maps/add-egs.png)
 
 11. Fill out subscription details, under **EVENT SUBSCRIPTION DETAILS** name your subscription and for Event Schema choose "Event Grid Schema". Under **TOPIC DETAILS** select "Azure IoT Hub Accounts" as Topic type, choose the same subscription you used for creating the resource group, select "ContosoRental" as the "Resource Group" and choose the IoT Hub you created as a "Resource". Pick **Device Telemetry** as Event Type. After choosing these options, you will see the "Topic Type" change to "IoT Hub" automatically.
 
-    ![event-grid-subscription](./media/tutorial-iothub-maps/af-egs.png)
+    ![event-grid-subscription](./media/tutorial-iot-hub-maps/af-egs.png)
  
 
 ## Filter events using IoT Hub message routing
 
 After you add an Event Grid subscription to the Azure Function, you will now be able to see a default message route to Event Grid in IoT Hub's **Message Routing** blade. Message routing enables you to route different data types such as device telemetry messages, device life-cycle events, and device twin change events to various endpoints. To learn more about IoT hub message routing, see [Use IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-d2c).
 
-![hub-EG-route](./media/tutorial-iothub-maps/hub-route.png)
+![hub-EG-route](./media/tutorial-iot-hub-maps/hub-route.png)
 
 In our example scenario, we want to filter out all messages where the rental vehicle is moving. In order to publish such device telemetry events to Event Grid, we will use the routing query to filter the events where the `Engine` property is **"ON"**. There are various ways to query IoT device-to-cloud messages, to learn more about message routing syntax, see [IoT Hub message routing](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax). To create a routing query, click on the **RouteToEventGrid** route and replace the **Routing query** with **"Engine='ON'"** and click **Save**. Now IoT hub will only publish device telemetry where the Engine is ON.
 
-![hub-EG-filter](./media/tutorial-iothub-maps/hub-filter.png)
+![hub-EG-filter](./media/tutorial-iot-hub-maps/hub-filter.png)
 
 
 ## Send telemetry data to IoT Hub
@@ -267,15 +267,15 @@ Once our Azure Function is up and running, we will now send telemetry data to th
 
   Your local terminal should look like the one below.
 
-  ![Terminal output](./media/tutorial-iothub-maps/terminal.png)
+  ![Terminal output](./media/tutorial-iot-hub-maps/terminal.png)
 
 If you open the blob storage container now, you should be able to see four blobs for locations where the vehicle was outside the geofence.
 
-![Enter blob](./media/tutorial-iothub-maps/blob.png)
+![Enter blob](./media/tutorial-iot-hub-maps/blob.png)
 
 The map below shows four points where the vehicle was outside the geofence, logged at regular time intervals.
 
-![violation map](./media/tutorial-iothub-maps/violation-map.png)
+![violation map](./media/tutorial-iot-hub-maps/violation-map.png)
 
 ## Next steps
 
