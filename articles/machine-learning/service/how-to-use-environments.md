@@ -127,16 +127,18 @@ If you make changes to the environment, such as add a Python package, a new vers
 
 ### Attributes of environment
 
-[Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class has a name, a version and a dictionary of environment variables you want to pass to training run. Furthermore, Environment class contains sections, which are applicable depending on where your script executes.
+[Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class has a name, a version and a dictionary of environment variables you want to pass to training run. 
+
+Furthermore, Environment class contains sections, which are applicable depending on where your script executes. The sections are automatically created and populated with default values when you create the environment. You can change the properties under each section to control the behavior of training or scoring.
 
 Attributes| Description
 ---|---
 Name| Unique name of your new environment.
-Version| 
-Variables dictionary|
-PythonSection|Generally applicable, and can be used to control, for example, location of Python executable.
-DockerSection|Generally applicable, and can be used to control, for example, location of a Docker base image.
-SparkSection|Relevant only when submitting PySpark training scripts.
+Version| System-assigned version number for the environment.
+Variables dictionary| A dictionary of environment variables to pass to remote run. They are accessible from remote run, for example, using [os.getenv](https://docs.python.org/3.7/library/os.html#os.getenv).
+[PythonSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py)|Generally applicable, and can be used to control the Python packages and Python interpreter. For example, you can set the location of Python executable using `environment.python.interpreter_path`
+[DockerSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)|Generally applicable, and can be used to control the behavior of Docker execution. For example, you can enable or disable Docker execution using `environment.docker.enabled`, and pass additional arguments to Docker run command using `environment.docker.arguments`
+[SparkSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py)|Relevant only when submitting PySpark training scripts.
 DatabricksSection|Relevant only when executing [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) in Machine Learning Pipeline.
 
 ## Using environment for training
