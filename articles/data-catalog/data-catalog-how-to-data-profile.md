@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ---
 
-# Data profile data sources
+# How to data profile data sources in Azure Data Catalog
 
 ## Introduction
 
