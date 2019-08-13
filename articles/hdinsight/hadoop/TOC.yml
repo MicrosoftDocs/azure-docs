@@ -41,32 +41,6 @@
     href: ../hdinsight-hadoop-compare-storage-options.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
   - name: Understand managed identities
     href: ../hdinsight-managed-identities.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
-  - name: Troubleshoot
-    items:
-    - name: Cluster creation failures
-      href: ./hdinsight-troubleshoot-cluster-creation-fails.md
-    - name: Out of disk space
-      href: ./hdinsight-troubleshoot-out-disk-space.md
-    - name: Soft lockup - CPU
-      href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
-    - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
-      href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
-    - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
-      href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
-    - name: Unable to log into HDInsight cluster
-      href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
-    - name: Unable to add nodes to HDInsight cluster
-      href: ./hdinsight-troubleshoot-unable-add-nodes.md
-    - name: Converting service principal certificate
-      href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
-    - name: Local HDFS stuck in safe mode
-      href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
-    - name: Apache Ambari heartbeat issues
-      href: ./apache-ambari-troubleshoot-heartbeat-issues.md
-    - name: Apache Ambari UI 502 error
-      href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
-    - name: Apache Ambari shows down hosts and services
-      href: ./apache-ambari-troubleshoot-down-hosts-services.md
 - name: How to
   items:
   - name: Use Apache Hadoop sandbox
@@ -312,6 +286,30 @@
   - name: Troubleshoot
     href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     items:
+    - name: Cluster creation failures
+      href: ./hdinsight-troubleshoot-cluster-creation-fails.md
+    - name: Out of disk space
+      href: ./hdinsight-troubleshoot-out-disk-space.md
+    - name: Soft lockup - CPU
+      href: ./hdinsight-troubleshoot-soft-lockup-cpu.md
+    - name: InvalidNetworkConfigurationErrorCode - cluster creation fails
+      href: ./troubleshoot-invalidnetworkconfigurationerrorcode-cluster-creation-fails.md
+    - name: InvalidNetworkSecurityGroupSecurityRules - cluster creation fails
+      href: ./hdinsight-troubleshoot-invalidnetworksecuritygroupsecurityrules-cluster-creation-fails.md
+    - name: Unable to log into HDInsight cluster
+      href: ./hdinsight-troubleshoot-unable-log-in-cluster.md
+    - name: Unable to add nodes to HDInsight cluster
+      href: ./hdinsight-troubleshoot-unable-add-nodes.md
+    - name: Converting service principal certificate
+      href: ./hdinsight-troubleshoot-converting-service-principal-certificate.md
+    - name: Local HDFS stuck in safe mode
+      href: ./hdinsight-hdfs-troubleshoot-safe-mode.md
+    - name: Apache Ambari heartbeat issues
+      href: ./apache-ambari-troubleshoot-heartbeat-issues.md
+    - name: Apache Ambari UI 502 error
+      href: ./apache-ambari-troubleshoot-fivezerotwo-error.md
+    - name: Apache Ambari shows down hosts and services
+      href: ./apache-ambari-troubleshoot-down-hosts-services.md
     - name: Troubleshoot a slow or failing HDInsight cluster
       href: ../hdinsight-troubleshoot-failed-cluster.md?toc=/azure/hdinsight/hadoop/toc.json&bc=/azure/hdinsight/hadoop/breadcrumb/toc.json
     - name: Apache Hadoop HDFS troubleshooting

@@ -237,7 +237,7 @@ Using Key Vault also makes continuous integration and deployment easier as you w
 
 If the publish branch is out of sync with the master branch and contains out-of-date resources despite a recent publish, try following these steps:
 
-1. Remove your current Git repository/
+1. Remove your current Git repository
 1. Reconfigure Git with the same settings, but make sure **Import existing Data Factory resources to repository** is selected and choose **New branch**
 1. Delete all resources from your collaboration branch
 1. Create a Pull Request to merge the changes to the collaboration branch 
