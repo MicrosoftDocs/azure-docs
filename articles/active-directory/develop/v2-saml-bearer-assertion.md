@@ -34,10 +34,10 @@ The OAuth SAML Bearer Assertion flow is also supported for users authenticating 
 
 ![OAuth flow](./media/v2-saml-bearer-assertion/1.png)
 
-## Get a SAML assertion, get an access token, and access Microsoft Graph
-Now let us understand on how we can actually fetch SAML assertion programatically. This approach is tested with ADFS. However this works with any IDP that is supporting return of SAML assertion programatically.
+## Call Graph using SAML bearer assertion
+Now let us understand on how we can actually fetch SAML assertion programatically. This approach is tested with ADFS. However, this works with any identity provider that supports the return of SAML assertion programatically. The basic process is: get a SAML assertion, get an access token, and access Microsoft Graph.
 
-### Pre-requisites
+### Prerequisites
 
 Establish a trust relationship between the authorization server/environment (Microsoft 365) and the identity provider, or issuer of the SAML 2.0 bearer assertion (ADFS). To configure ADFS for single sign-on and as an identity provider you may refer to [this article](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/).
 
@@ -56,17 +56,17 @@ Register the application in the [portal](https://ms.portal.azure.com/#blade/Micr
 Install [Postman](https://www.getpostman.com/), a tool required to test the sample requests.  Later, you can convert the requests to code.
 
 ### Get the SAML assertion from ADFS
-1. Create a POST request to the ADFS endpoint using SOAP envelope to fetch the SAML assertion:
+Create a POST request to the ADFS endpoint using SOAP envelope to fetch the SAML assertion:
 
-    ![Get SAML assertion](./media/v2-saml-bearer-assertion/2.png)
+![Get SAML assertion](./media/v2-saml-bearer-assertion/2.png)
 
-    Header values:
+Header values:
 
-    ![Header values](./media/v2-saml-bearer-assertion/3.png)
+![Header values](./media/v2-saml-bearer-assertion/3.png)
 
-    ADFS request body:
+ADFS request body:
 
-    ![ADFS request body](./media/v2-saml-bearer-assertion/4.png)
+![ADFS request body](./media/v2-saml-bearer-assertion/4.png)
 
 Once this request is posted successfully, you should receive a SAML assertion from ADFS. Only the **SAML:Assertion** tag data is required, convert it to base64 encoding to use in further requests.
 
@@ -90,3 +90,7 @@ After receiving the access token, call the Graph APIs (Outlook tasks in this exa
     ![GET request](./media/v2-saml-bearer-assertion/7.png)
 
 1. Upon successful request, you will receive a JSON response.
+
+## Next steps
+
+Learn about the different [authentication flows and application scenarios](authentication-flows-app-scenarios.md).
