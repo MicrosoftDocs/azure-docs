@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Concur | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Concur.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Concur
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Concur
 
 In this tutorial, you'll learn how to integrate Concur with Azure Active Directory (Azure AD). When you integrate Concur with Azure AD, you can:
 
@@ -144,7 +144,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the Concur tile in the Access Panel, you should be automatically signed in to the Concur for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
