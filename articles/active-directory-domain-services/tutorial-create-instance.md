@@ -39,6 +39,7 @@ To complete this tutorial, you need the following resources and privileges:
 * An Azure Active Directory tenant associated with your subscription, either synchronized with an on-premises directory or a cloud-only directory.
     * If needed, [create an Azure Active Directory tenant][create-azure-ad-tenant] or [associate an Azure subscription with your account][associate-azure-ad-tenant].
 * You need *global administrator* privileges in your Azure AD tenant to enable Azure AD DS.
+* You need *Contributor* privileges in your Azure subscription to create the required Azure AD DS resources.
 * The Azure AD tenant must be [configured for self-service password reset][configure-sspr].
 
 ## Sign in to the Azure portal

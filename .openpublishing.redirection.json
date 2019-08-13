@@ -40993,6 +40993,22 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-features.md",
+      "redirect_url": "/azure/active-directory-domain-services/overview#azure-ad-ds-features",
+      "redirect_document_id": false
+    },
+
+    {
+      "source_path": "articles/active-directory-domain-services/active-directory-ds-compare-with-azure-ad-join.md",
+      "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/active-directory-domain-services/comparison.md",
+      "redirect_url": "/azure/active-directory-domain-services/compare-identity-solutions",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/active-directory-domain-services/manage-domain.md",
       "redirect_url": "/azure/active-directory-domain-services/tutorial-create-management-vm",
       "redirect_document_id": true
