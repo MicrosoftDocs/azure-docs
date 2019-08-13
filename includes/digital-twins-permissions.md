@@ -5,7 +5,7 @@
  author: dsk-2015
  ms.service: digital-twins
  ms.topic: include
- ms.date: 06/28/2019
+ ms.date: 08/12/2019
  ms.author: dkshir
  ms.custom: include file
 ---
@@ -32,15 +32,24 @@
 
     ![Azure Active Directory application ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
-1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for **Azure Smart Spaces**. Select the **Azure Smart Spaces Service** API.
+1. Open the **API permissions** pane for your app registration. Select **Add a permission** button. In the **Request API permissions** pane, select the **APIs my organization uses** tab, and then search for:
+    
+    1. **Azure Digital Twins**. Select the **Azure Digital Twins** API.
 
-    ![Search API](./media/digital-twins-permissions/aad-app-search-api.png)
+        ![Search API or Azure Digital Twins](./media/digital-twins-permissions/aad-aap-search-api-dt.png)
+
+    1. Alternatively, search for **Azure Smart Spaces**. Select the **Azure Smart Spaces Service** API.
+
+        ![Search API for Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)
+
+    > [!NOTE]
+    > The exact name that will appear when searched may vary depending on which Azure tenant you belong to.
 
 1. The selected API shows up as **Azure Digital Twins** in the same **Request API permissions** pane. Select the **Read (1)** drop down, and then select **Read.Write** checkbox. Select the **Add permissions** button.
 
     ![Add API permissions](./media/digital-twins-permissions/aad-app-req-permissions.png)
 
-1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your adminstrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
+1. Depending on your organization's settings, you might need to take additional steps to grant admin access to this API. Contact your administrator for more information. Once the admin access is approved, the **ADMIN CONSENT REQUIRED** column in the **API permissions** pane will show similar to the following for your APIs:
 
     ![Add API permissions](./media/digital-twins-permissions/aad-app-admin-consent.png)
 

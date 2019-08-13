@@ -1,5 +1,5 @@
 ---
-title: "Classification: Predict flight delays"
+title: "Visual interface example #6: Classification to predict  flight delays"
 titleSuffix: Azure Machine Learning service
 description: This article shows you how to build a machine learning model to predict flight delays using the drag-and-drop visual interface and custom R code.
 services: machine-learning
