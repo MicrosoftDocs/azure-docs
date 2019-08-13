@@ -35,6 +35,8 @@
     href: powershell-samples.md
   - name: Azure CLI
     href: cli-samples.md
+  - name: Resource Manager templates
+    href: resource-manager-template-samples.md
 - name: Concepts
   items:
   - name: Basics
@@ -95,9 +97,6 @@
       href: tutorial-manage-web-traffic-powershell.md
     - name: Azure CLI
       href: tutorial-manage-web-traffic-cli.md
-    - name: Template
-      displayName: ARM, Resource Manager, template
-      href: create-vmss-template.md
   - name: Configure internal load balancer
     items:
     - name: Azure portal
