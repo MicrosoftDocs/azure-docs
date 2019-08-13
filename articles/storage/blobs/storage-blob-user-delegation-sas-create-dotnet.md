@@ -66,6 +66,21 @@ The Azure Identity client library reads values from three environment variables 
 > [!IMPORTANT]
 > After you set the environment variables, close and re-open your console window. If you are using Visual Studio or another development environment, you may need to restart the development environment in order for it to register the new environment variables.
 
+## Add using directives
+
+Add the following `using` directives to your code to use the preview versions of the Azure Identity and Azure Storage client libraries.
+
+```dotnet
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Storage;
+using Azure.Storage.Sas;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
+```
+
 ## Authenticate the service principal
 
 To authenticate the service principal, create an instance the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class. The `DefaultAzureCredential` constructor reads the environment variables that you created previously.
@@ -163,7 +178,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
     Console.WriteLine("Key signed service: {0}", key.SignedService);
     Console.WriteLine("Key signed version: {0}", key.SignedVersion);
 
-    // Create a SAS token that's valid for one hour.
+    // Create a SAS token that's valid for a short interval.
     BlobSasBuilder sasBuilder = new BlobSasBuilder()
     {
         ContainerName = containerName,
@@ -171,7 +186,7 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
         Permissions = "r",
         Resource = "b",
         StartTime = DateTimeOffset.UtcNow,
-        ExpiryTime = DateTimeOffset.UtcNow.AddHours(1)
+        ExpiryTime = DateTimeOffset.UtcNow.AddMinutes(5)
     };
 
     // Use the key to get the SAS token.
@@ -188,6 +203,56 @@ async static Task<Uri> GetUserDelegationSasBlob(string accountName, string conta
 
     Console.WriteLine("User delegation SAS URI: {0}", fullUri);
     return fullUri.Uri;
+}
+```
+
+## Example: Test user delegation SAS
+
+The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to read the contents of the blob. If the SAS is invalid, for example if it has expired, Azure Storage returns error code 403 (Forbidden).
+
+```dotnet
+private static async Task ReadBlobWithSasAsync(Uri sasUri)
+{
+    // Try performing blob operations using the SAS provided.
+
+    // Create a blob client object for blob operations.
+    BlobClient blobClient = new BlobClient(sasUri, null);
+
+    // Download and read the contents of the blob.
+    try
+    {
+        // Download blob contents to a stream and read the stream.
+        BlobDownloadInfo blobDownloadInfo = await blobClient.DownloadAsync();
+        using (StreamReader reader = new StreamReader(blobDownloadInfo.Content, true))
+        {
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+            }
+        }
+
+        Console.WriteLine();
+        Console.WriteLine("Read operation succeeded for SAS {0}", sasUri);
+        Console.WriteLine();
+    }
+    catch (StorageRequestFailedException e)
+    {
+        // Check for a 403 (Forbidden) error. If the SAS is invalid, 
+        // Azure Storage returns this error.
+        if (e.Status == 403)
+        {
+            Console.WriteLine("Read operation failed for SAS {0}", sasUri);
+            Console.WriteLine("Additional error information: " + e.Message);
+            Console.WriteLine();
+        }
+        else
+        {
+            Console.WriteLine(e.Message);
+            Console.ReadLine();
+            throw;
+        }
+    }
 }
 ```
 
