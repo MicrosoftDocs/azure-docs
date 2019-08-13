@@ -31,9 +31,9 @@ When you use *b2clogin.com* as your redirect URI:
 
 There are several modifications you might need to make to migrate to *b2clogin.com*:
 
-* Set the redirect URLs in your identity provider's applications to use *b2clogin.com*.
-* Set your Azure AD B2C application to use *b2clogin.com* for its user flow references and token endpoints.
-* Change any **Allowed Origins** that you've defined in the CORS settings for [user-interface customization](active-directory-b2c-ui-customization-custom-dynamic.md).
+* Change the redirect URL in your identity provider's applications to use *b2clogin.com*.
+* Update your Azure AD B2C applications to use *b2clogin.com* in their user flow and token endpoint references.
+* Update any **Allowed Origins** that you've defined in the CORS settings for [user-interface customization](active-directory-b2c-ui-customization-custom-dynamic.md).
 
 ## Change identity provider redirect URLs
 
@@ -43,7 +43,7 @@ If you have it configured to redirect to a *login.microsoftonline.com* URL, modi
 
 ## Update your applications and APIs
 
-The code in your Azure AD B2C-enabled applications may refer to `login.microsoftonline.com` in several places, for example references to user flows and token endpoints. Update the following to instead reference `your-tenant-name.b2clogin.com`:
+The code in your Azure AD B2C-enabled applications and APIs may refer to `login.microsoftonline.com` in several places. For example, your code might have references to user flows and token endpoints. Update the following to instead reference `your-tenant-name.b2clogin.com`:
 
 * Authorization endpoint
 * Token endpoint
@@ -51,18 +51,16 @@ The code in your Azure AD B2C-enabled applications may refer to `login.microsoft
 
 ## Microsoft Authentication Library (MSAL)
 
-### Set the ValidateAuthority property
+### ValidateAuthority property
 
-If you're using [MSAL .NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` to allow redirects to b2clogin.com. This setting is not required for MSAL .NET v3 and above.
-
-For example
+If you're using [MSAL.NET][msal-dotnet] v2 or earlier, set the **ValidateAuthority** property to `false` on client instantiation to allow redirects to *b2clogin.com*. This setting is not required for MSAL.NET v3 and above.
 
 ```CSharp
- ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
- client.ValidateAuthority = false;
+ConfidentialClientApplication client = new ConfidentialClientApplication(...); // Can also be PublicClientApplication
+client.ValidateAuthority = false; // MSAL.NET v2 and earlier **ONLY**
 ```
 
-In [MSAL for Javascript][msal-js]:
+If you're using [MSAL for JavaScript][msal-js]:
 
 ```JavaScript
 this.clientApplication = new UserAgentApplication(
@@ -76,5 +74,5 @@ this.clientApplication = new UserAgentApplication(
 ```
 
 <!-- LINKS - External -->
-[msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet
+[msal-dotnet]: https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics
 [msal-js]: https://github.com/AzureAD/microsoft-authentication-library-for-js
