@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Perform a web search with Java - Bing Web Search REST API"
+title: "Quickstart: Use Java to call the Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to send requests to the Bing Web Search REST API using Java, and receive a JSON response
 services: cognitive-services
@@ -8,9 +8,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 03/12/2019
+ms.date: 07/22/2019
 ms.author: aahi
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 

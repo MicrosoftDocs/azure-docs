@@ -2,12 +2,12 @@
 title: Windows Virtual Desktop tenant and host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 07/10/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Tenant and host pool creation
 
@@ -92,7 +92,7 @@ Follow these instructions to troubleshoot unsuccessful deployments of Azure Reso
 3. Once the error is identified, use the error message and the resources in [Troubleshoot common Azure deployment errors with Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) to address the issue.
 4. Delete any resources created during the previous deployment and retry deploying the template again.
 
-### Error: Your deployment failed….<hostname>/joindomain
+### Error: Your deployment failed….\<hostname>/joindomain
 
 ![Your Deployment Failed screenshot.](media/e72df4d5c05d390620e07f0d7328d50f.png)
 

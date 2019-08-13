@@ -1,14 +1,14 @@
 ---
-title: Extact text match entities
+title: Extact text match entities - LUIS
+titleSuffix: Azure Cognitive Services
 description: Learn how to add a list entity to help LUIS label variations of a word or phrase.
 services: cognitive-services
 author: diberry
-titleSuffix: Azure
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
-ms.date: 01/23/2019
+ms.topic: tutorial
+ms.date: 07/29/2019
 ms.author: diberry 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: How to use an existing model
+title: Use and deploy existing models
 titleSuffix: Azure Machine Learning service
 description: 'Learn how you can use Azure Machine Learning service with models that were trained outside the service. You can register models created outside Azure Machine Learning service, and then deploy them as a web service or Azure IoT Edge module.'
 services: machine-learning
@@ -12,7 +12,7 @@ ms.reviewer: larryfr
 ms.date: 06/19/2019
 ---
 
-# How to use an existing model with Azure Machine Learning service
+# Use an existing model with Azure Machine Learning service
 
 Learn how to use an existing machine learning model with the Azure Machine Learning service.
 
@@ -27,14 +27,14 @@ If you have a machine learning model that was trained outside the Azure Machine 
 
 ## Prerequisites
 
-* An Azure Machine Learning service workspace. For more information, see [Create a workspace](setup-create-workspace.md).
+* An Azure Machine Learning service workspace. For more information, see [Create a workspace](how-to-manage-workspace.md).
 
     > [!TIP]
     > The Python examples in this article assume that the `ws` variable is set to your Azure Machine Learning service workspace.
     >
     > The CLI examples use a placeholder of `myworkspace` and `myresourcegroup`. Replace these with the name of your workspace and the resource group that contains it.
 
-* The Azure Machine Learning SDK. For more information, see the Python SDK section of [Create a workspace](setup-create-workspace.md#sdk).
+* The [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).  
 
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) and [Machine Learning CLI extension](reference-azure-machine-learning-cli.md).
 
@@ -206,7 +206,7 @@ For more information, see [Deploy models with Azure Machine Learning service](ho
 
 ## Define deployment
 
-The [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) package contains the classes used for deployment. The class you use determines where the model is deployed. For example, to deploy as a web service on Azure Kubernetes Service, use [AksWebService.deploy_configuration()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none-) to create the deployment configuration.
+The [Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice?view=azure-ml-py) package contains the classes used for deployment. The class you use determines where the model is deployed. For example, to deploy as a web service on Azure Kubernetes Service, use [AksWebService.deploy_configuration()](/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py#deploy-configuration-autoscale-enabled-none--autoscale-min-replicas-none--autoscale-max-replicas-none--autoscale-refresh-seconds-none--autoscale-target-utilization-none--collect-model-data-none--auth-enabled-none--cpu-cores-none--memory-gb-none--enable-app-insights-none--scoring-timeout-ms-none--replica-max-concurrent-requests-none--max-request-wait-time-none--num-replicas-none--primary-key-none--secondary-key-none--tags-none--properties-none--description-none--gpu-cores-none--period-seconds-none--initial-delay-seconds-none--timeout-seconds-none--success-threshold-none--failure-threshold-none--namespace-none--token-auth-enabled-none-) to create the deployment configuration.
 
 The following Python code defines a deployment configuration for a local deployment. This configuration deploys the model as a web service to your local computer.
 

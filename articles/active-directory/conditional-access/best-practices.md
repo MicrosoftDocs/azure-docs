@@ -22,7 +22,7 @@ With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-
 - Things you should know 
 - What it is you should avoid doing when configuring Conditional Access policies. 
 
-This article assumes that you familiar the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
+This article assumes that you are familiar with the concepts and the terminology outlined in [What is Conditional Access in Azure Active Directory?](../active-directory-conditional-access-azure-portal.md)
 
 ## What’s required to make a policy work?
 
@@ -47,7 +47,8 @@ More than one Conditional Access policy may apply when you access a cloud app. I
 All policies are enforced in two phases:
 
 - In the **first** phase, all policies are evaluated and all access controls that aren't satisfied are collected. 
-- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If any one of the policies block access, you are blocked and not prompted to satisfy other policy controls. If policies block you, you are prompted to satisfy other policy controls in the following order:
+
+- In the **second** phase, you are prompted to satisfy the requirements you haven't met. If any one of the policies block access, you are blocked and not prompted to satisfy other policy controls. If none of the policies block you, you are prompted to satisfy other policy controls in the following order:
 
    ![Order](./media/best-practices/06.png)
     

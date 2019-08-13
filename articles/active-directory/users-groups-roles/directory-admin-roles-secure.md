@@ -133,7 +133,7 @@ Stage 2 of the roadmap focuses on mitigating the most frequently used attack tec
 
 #### Conduct an inventory of services, owners, and admins
 
-With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/security-management-and-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
+With the increase in bring-your-own-device (BYOD) and work-from-home policies and the growth of wireless connectivity in businesses, it is critical that you monitor who is connecting to your network. An effective security audit often reveals devices, applications, and programs running on your network that are not supported by IT, and therefore potentially not secure. For more information, see [Azure security management and monitoring overview](../../security/fundamentals/management-monitoring-overview.md). Ensure that you include all of the following tasks in your inventory process. 
 
 * Identify the users who have administrative roles and the services where they can manage.
 * Use Azure AD PIM to find out which users in your organization have admin access to Azure AD, including additional roles beyond those listed in Stage 1.
@@ -289,7 +289,7 @@ Use Privileged identity Management with Azure AD administrator roles to manage, 
 
 #### Use Azure log integrations to send relevant Azure logs to your SIEM systems 
 
-Azure log integration enables you to integrate raw logs from your Azure resources to your organization’s existing Security Information and Event Management (SIEM) systems. [Azure log integration](../../security/security-azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs, and Azure resources from Azure Activity Logs, Azure Security Center alerts, and Azure Diagnostic logs. 
+Azure log integration enables you to integrate raw logs from your Azure resources to your organization’s existing Security Information and Event Management (SIEM) systems. [Azure log integration](../../security/fundamentals/azure-log-integration-overview.md) collects Windows events from Windows Event Viewer logs, and Azure resources from Azure Activity Logs, Azure Security Center alerts, and Azure Diagnostic logs. 
 
 
 ### Additional steps for organizations managing access to other cloud apps via Azure AD

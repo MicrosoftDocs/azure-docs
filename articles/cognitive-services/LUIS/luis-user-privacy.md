@@ -1,5 +1,5 @@
 ---
-title: Export & delete data
+title: Export & delete data - LUIS
 titleSuffix: Azure Cognitive Services 
 description: Delete customer data to ensure privacy and compliance. 
 services: cognitive-services

@@ -55,7 +55,6 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Microsoft Intune
 - Microsoft Intune Enrollment
 - Microsoft Planner
-- Microsoft Power BI
 - Microsoft PowerApps
 - Microsoft Search in Bing
 - Microsoft StaffHub
@@ -67,6 +66,7 @@ You can assign a Conditional Access policy to the following cloud apps from Micr
 - Office Delve
 - Office Sway
 - Outlook Groups
+- Power BI Service
 - Project Online
 - Skype for Business Online
 - Virtual Private Network (VPN)
@@ -95,6 +95,8 @@ In a Conditional Access policy, you can configure the device platform condition 
 
 ![Tie the access policy to the client OS](./media/technical-reference/41.png)
 
+If you block legacy authentication using the **Other clients** condition, you can also set the device platform condition.
+
 ## Client apps condition
 
 In your Conditional Access policy, you can configure the [client apps](conditions.md#client-apps) condition to tie the policy to the client app that has initiated an access attempt. Set the client apps condition to grant or block access when an access attempt is made from the following types of client apps:
@@ -112,19 +114,20 @@ In your Conditional Access policy, you can select **Browsers** as client app.
 
 This setting works with all browsers. However, to satisfy a device policy, like a compliant device requirement, the following operating systems and browsers are supported:
 
-| OS                     | Browsers                                      |
-| :--                    | :--                                           |
-| Windows 10             | Internet Explorer, Microsoft Edge, Chrome     |
-| Windows 8 / 8.1        | Internet Explorer, Chrome                     |
-| Windows 7              | Internet Explorer, Chrome                     |
-| iOS                    | Safari, Microsoft Edge, Intune Managed Browser |
-| Android                | Chrome, Microsoft Edge, Intune Managed Browser |
-| Windows Phone          | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Internet Explorer, Microsoft Edge             |
-| Windows Server 2016    | Chrome                                        |
-| Windows Server 2012 R2 | Internet Explorer, Chrome                     |
-| Windows Server 2008 R2 | Internet Explorer, Chrome                     |
-| macOS                  | Chrome, Safari                                |
+| OS                     | Browsers                                        |
+| :--                    | :--                                             |
+| Windows 10             | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows 8 / 8.1        | Internet Explorer, Chrome                       |
+| Windows 7              | Internet Explorer, Chrome                       |
+| iOS                    | Microsoft Edge, Intune Managed Browser, Safari  |
+| Android                | Microsoft Edge, Intune Managed Browser, Chrome  |
+| Windows Phone          | Microsoft Edge, Internet Explorer               |
+| Windows Server 2019    | Microsoft Edge, Internet Explorer, Chrome       |
+| Windows Server 2016    | Microsoft Edge, Internet Explorer               |
+| Windows Server 2012 R2 | Internet Explorer                       |
+| Windows Server 2008 R2 | Internet Explorer                       |
+| macOS                  | Chrome, Safari                                  |
+
 
 #### Why do I see a certificate prompt in the browser
 
@@ -141,7 +144,7 @@ To automatically deploy this extension to Chrome browsers, create the following 
 | Path | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
 | Name | 1 |
 | Type | REG_SZ (String) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https://clients2.google.com/service/update2/crx |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji;https\://clients2.google.com/service/update2/crx |
 
 For Chrome support in **Windows 8.1 and 7**, create the following registry key:
 
@@ -200,6 +203,8 @@ This setting applies to the following client apps:
 
 - Microsoft Azure Information Protection
 - Microsoft Bookings
+- Microsoft Cortana
+- Microsoft Dynamics 365
 - Microsoft Edge
 - Microsoft Excel
 - Microsoft Flow
@@ -238,8 +243,11 @@ In your Conditional Access policy, you can require an app protection policy be p
 
 This setting applies to the following client apps:
 
+- Microsoft Cortana
+- Microsoft Edge
 - Microsoft OneDrive
 - Microsoft Outlook
+- Microsoft Planner
 
 **Remarks**
 

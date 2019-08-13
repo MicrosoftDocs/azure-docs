@@ -4,7 +4,7 @@ description: A quick introduction to the Azure PowerShell cmdlets you can use to
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 

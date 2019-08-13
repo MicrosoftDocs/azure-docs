@@ -87,7 +87,7 @@ config.color_format     = K4A_IMAGE_FORMAT_COLOR_BGRA32;
 config.color_resolution = K4A_COLOR_RESOLUTION_3072P;
 
 // Start the camera with the given configuration
-k4a_device_start_cameras(device, &config)
+k4a_device_start_cameras(device, &config);
 
 // ...Camera capture and application specific code would go here...
 

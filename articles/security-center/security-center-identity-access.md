@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor identity and access in Azure Security Center | Microsoft Docs
 description: Learn how to use the identity and access capability in Azure Security Center to monitor your users' access activity and identity-related issues.
 services: security-center
@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.assetid: 9f04e730-4cfa-4078-8eec-905a443133da
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 # Monitor identity and access in Azure Security Center (Preview)
 This article helps you use Azure Security Center to monitor users' identity and access activity.

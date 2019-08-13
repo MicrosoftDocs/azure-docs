@@ -5,8 +5,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.author: raynew
+ms.date: 07/12/2019
+ms.author: hamusa
 ---
 
 # Assess large numbers of VMware VMs for migration to Azure
@@ -59,13 +59,11 @@ Multiple | > 10,000 | One Azure Migrate project.<br/> Multiple appliances.<br/> 
 
 ## Plan discovery in a multi-tenant environment
 
-If you're planning for a multi-tenant environment, you can scope discovery on vCenter Server.
+If you're planning for a multi-tenant environment, you can scope the discovery on the vCenter Server.
 
-- You can set the appliance discovery scope to a vCenter Server datacenter, cluster or folder of clusters, host or folder of hosts, or individual VMs.
-- If your environment is shared across tenants and you don't  want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 
-    - If the tenants share hosts, create credentials with read-only access for the VMs that belong to the specific tenant. 
-    - Use these credentials for Azure Migrate appliance discovery.
-    - Azure Migrate assessment can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. Folders of hosts and clusters are supported. 
+- You can set the appliance discovery scope to a vCenter Server datacenters, clusters or folder of clusters, hosts or folder of hosts, or individual VMs.
+- If your environment is shared across tenants and you want to discover each tenant separately, you can scope access to the vCenter account that the appliance uses for discovery. 
+    - You may want to scope by VM folders if the tenants share hosts. Azure Migrate can't discover VMs if the vCenter account has access granted at the vCenter VM folder level. If you are looking to scope your discovery by VM folders, you can do so by ensuring the vCenter account has read-only access assigned at a VM level. Learn more about scoping discovery [here](tutorial-assess-vmware.md#scoping-discovery).
 
 ## Prepare for assessment
 
@@ -74,7 +72,6 @@ Prepare Azure and VMware for server assessment.
 1. Verify [VMware support requirements and limitations](migrate-support-matrix-vmware.md).
 2. Set up permissions for your Azure account to interact with Azure Migrate.
 3. Prepare VMware for assessment.
-
 
 Follow the instructions in [this tutorial](tutorial-prepare-vmware.md) to configure these settings.
 

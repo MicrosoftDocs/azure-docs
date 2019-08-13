@@ -47,6 +47,8 @@
       href: data-box-gateway-monitor.md
     - name: Troubleshoot
       href: data-box-gateway-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: data-box-edge-contact-microsoft-support.md
   - name: Release notes
     items:
       - name: 1905 - Current
@@ -105,9 +107,11 @@
         href: data-box-edge-connect-powershell-interface.md
     - name: Troubleshoot 
       href: data-box-edge-troubleshoot.md
+    - name: Contact Microsoft Support
+      href: data-box-edge-contact-microsoft-support.md
     - name: Monitor
       href: data-box-edge-monitor.md
-    - name: Return device
+    - name: Return or replace device
       href: data-box-edge-return-device.md
   - name: Release notes
     items:

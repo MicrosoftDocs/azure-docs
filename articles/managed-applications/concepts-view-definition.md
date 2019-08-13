@@ -27,6 +27,8 @@ Sample JSON for view definition:
 
 ```json
 {
+    "$schema": "https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#",
+    "contentVersion": "0.0.0.1",
     "views": [
         {
             "kind": "Overview",
@@ -79,7 +81,7 @@ Sample JSON for view definition:
                         "displayName": "Custom Context Action",
                         "path": "testCustomResource/testContextAction",
                         "icon": "Stop",
-                        "createUIDefinition": { },
+                        "createUIDefinition": { }
                     }
                 ],
                 "columns": [
@@ -121,6 +123,8 @@ When you provide this view in **viewDefinition.json**, it overrides the default 
 |header|No|The header of the overview page.|
 |description|No|The description of your managed application.|
 |commands|No|The array of additional toolbar buttons of the overview page, see [commands](#commands).|
+
+![Overview](./media/view-definition/overview.png)
 
 ## Metrics
 
@@ -177,6 +181,8 @@ The metrics view enables you to collect and aggregate data from your managed app
 |resourceTagFilter|No|The resource tags array (will be separated with `or` word) for which metrics would be displayed. Applies on top of resource type filter.|
 |resourceType|Yes|The resource type for which metrics would be displayed.|
 
+![Metrics](./media/view-definition/metrics.png)
+
 ## Custom resources
 
 `"kind": "CustomResources"`
@@ -223,6 +229,8 @@ In this view you can perform GET, PUT, DELETE and POST operations for your custo
 |commands|No|The array of additional toolbar buttons of the CustomResources view, see [commands](#commands).|
 |columns|No|The array of columns of the custom resource. If not defined the `name` column will be shown by default. The column must have `"key"` and `"displayName"`. For key, provide the key of the property to display in a view. If nested, use dot as delimiter, for example, `"key": "name"` or `"key": "properties.property1"`. For display name, provide the display name of the property to display in a view. You can also provide an `"optional"` property. When set to true, the column is hidden in a view by default.|
 
+![CustomResources](./media/view-definition/customresources.png)
+
 ## Commands
 
 Commands is an array of additional toolbar buttons that are displayed on page. Each command represents a POST action from your Azure Custom Provider defined in **mainTemplate.json**. For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
@@ -247,7 +255,12 @@ Commands is an array of additional toolbar buttons that are displayed on page. E
 |icon|No|The icon of the command button. List of supported icons is defined in [JSON Schema](https://schema.management.azure.com/schemas/viewdefinition/0.0.1-preview/ViewDefinition.json#).|
 |createUIDefinition|No|Create UI Definition schema for command. For an introduction to creating UI definitions, see [Getting started with CreateUiDefinition](create-uidefinition-overview.md).|
 
+## Looking for help
+
+If you have questions about Azure Managed Applications, try asking on [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-managedapps). A similar question may have already been asked and answered, so check first before posting. Add the tag `azure-managedapps` to get a fast response!
+
 ## Next steps
 
 - For an introduction to managed applications, see [Azure Managed Application overview](overview.md).
 - For an introduction to custom providers, see [Azure Custom Providers overview](custom-providers-overview.md).
+- For creating an Azure Managed Application with Azure Custom Providers, see [Tutorial: Create managed application with custom provider actions and resource types](tutorial-create-managed-app-with-custom-provider.md)

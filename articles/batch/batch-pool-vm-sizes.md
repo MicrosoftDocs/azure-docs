@@ -4,7 +4,7 @@ description: How to choose from the available VM sizes for compute nodes in Azur
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 
