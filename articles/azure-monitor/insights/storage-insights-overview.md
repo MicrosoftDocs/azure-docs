@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/07/2019
+ms.date: 08/13/2019
 ms.author: magoedte
 ---
 
@@ -19,7 +19,7 @@ ms.author: magoedte
 
 Azure Monitor for Storage (preview) provides a comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage health, capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
 
-This article will help you understand the experience Azure Monitor for Storage (preview) delivers to derive actionable knowledge on the health and performance of Storage accounts at scale with a capability to focus on hotspots and diagnose latency, throttling and availability issues.
+This article will help you understand the experience Azure Monitor for Storage (preview) delivers to derive actionable knowledge on the health and performance of Storage accounts at scale with a capability to focus on hotspots and diagnose latency, throttling, and availability issues.
 
 ## Introduction to Azure Monitor for Storage
 
@@ -35,14 +35,14 @@ Combined it delivers:
 
 Azure Monitor for Storage is several Azure Monitor workbooks tied together, which combines text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
-This feature does not require you to enable or configure anything, the storage metrics are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md).
+This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md).
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
 
 ## View from Azure Monitor
 
-From Azure Monitor, you can view utilization and capacity details for multiple storage accounts in your subscription, and identify performance, capacity problems, and failures quickly before they affect your applications.
+From Azure Monitor, you can view utilization and capacity details for multiple storage accounts in your subscription, and help identify performance, capacity problems, and failures quickly before they affect your applications.
 
 To view the utilization and availability of your storage accounts across all of your subscriptions, perform the following steps.
 
@@ -52,9 +52,9 @@ To view the utilization and availability of your storage accounts across all of 
 
     ![Multiple storage accounts view](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
-### Overview perspective
+### Overview workbook
 
-On the Overview workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
@@ -64,30 +64,23 @@ On the Overview workbook for the selected subscription, the table displays inter
 
 The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type>/Errors**. 
+Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type>/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section below.
 
 >[!NOTE]
 >For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
-You're directed to a report tailored to a specific type of storage KPIs that match the column selected for a particular storage account. For more information about the workbooks for each category, see the [View from a storage account](#view-from-a-storage-account) section below.
-
-### Capacity perspective
+### Capacity workbook
 
 Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of total storage used in the account and capacity used by each storage type in the account.  
 
-![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-02.png) 
+![Multiple storage accounts Capacity workbook](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-When you select a storage account from the list in the table, you drill down to the **Overview** workbook to help you identify over and under utilized storage for the selected storage account. Note that the [breadcrumb](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) in the portal reflects the workbook is scoped to the selected storage account. If you selected any one of the other column values while it is showing data for that storage account, the [left pane](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) does not reflect you are in Azure Monitor for Storage. 
+Selecting a value under any one of the columns will direct you 
 
-![Storage account overview report](./media/storage-insights-overview/storage-account-overview-01.png)
 
-You can pin any one of the metric sections to an Azure Dashboard by selecting the pushpin icon at the top right of the section.
+When you select a storage account from the list in the table, you drill down to the **Overview** workbook for the selected storage account that helps you identify over and under utilized storage. Note that the [breadcrumb](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) in the portal reflects the workbook is scoped to the selected storage account. If you selected any one of the other column values while it is showing data for that storage account, the [left pane](../../azure-portal/azure-portal-overview.md#getting-around-the-portal) does not reflect you are in Azure Monitor for Storage. 
 
-![Metric section pin to dashboard example](./media/storage-insights-overview/workbook-pin-example.png)
-
-The multi-subscription and storage account **Overview** or **Capacity** workbooks support exporting the results in Excel format by selecting the down arrow icon to the right of the pushpin icon.
-
-![Export workbook grid results example](./media/storage-insights-overview/workbook-export-example.png)
+![Storage account overview workbook](./media/storage-insights-overview/storage-account-overview-01.png)
 
 ## View from a storage account
 
@@ -99,7 +92,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
-On the **Overview** workbook for the storage account, it shows several storage key performance indicators (KPIs) that help you quickly assess
+On the **Overview** workbook for the storage account, it shows several storage key performance indicators (KPIs) that help you quickly assess:
 
 * Health of the Storage service to immediately see if an issue outside of your control is affecting the Storage service in the region it is deployed to, which is stated under the **Summary** column.
 
@@ -111,7 +104,11 @@ Selecting any one of buttons for **Failures**, **Performance**, **Availability**
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
-* **Availability** open the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
+## Overview of drill-down workbooks
+
+Whether you selected a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type>/Errors** from the multiple storage account **Overview** workbook, or selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** from the **Overview** workbook from a specific storage account, each deliver a set of information tailored to that category.  
+
+* **Availability** opens the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
     ![Availability report example](./media/storage-insights-overview/storage-account-availability-01.png)
 
@@ -127,7 +124,15 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens t
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.  
+There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.
+
+You can pin any one of the metric sections to an Azure Dashboard by selecting the pushpin icon at the top right of the section.
+
+![Metric section pin to dashboard example](./media/storage-insights-overview/workbook-pin-example.png)
+
+The multi-subscription and storage account **Overview** or **Capacity** workbooks support exporting the results in Excel format by selecting the down arrow icon to the right of the pushpin icon.
+
+![Export workbook grid results example](./media/storage-insights-overview/workbook-export-example.png)
 
 ## Editing a workbook
 
