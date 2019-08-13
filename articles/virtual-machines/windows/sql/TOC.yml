@@ -2,6 +2,8 @@
   items:
   - name: What is a SQL Server VM?
     href: virtual-machines-windows-sql-server-iaas-overview.md
+  - name: Which SQL option should I choose?
+    href: ../sql-database/sql-database-paas-vs-sql-server-iaas.md?toc=/azure/virtual-machines/windows/sql/toc.json&bc=/azure/bread/toc.json
   - name: Release notes
     href: virtual-machines-windows-sql-server-iaas-release-notes.md
 - name: Quickstarts
