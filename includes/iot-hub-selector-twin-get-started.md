@@ -21,28 +21,32 @@ Use device twins to:
 
 * Report current state information such as available capabilities and conditions (for example, the connectivity method used) from your device app.
 
-* Synchronize the state of long-running workflows (such as firmware and configuration updates) between a device app and a back-end app.
+* Synchronize the state of long-running workflows, such as firmware and configuration updates, between a device app and a back-end app.
 
 * Query your device metadata, configuration, or state.
 
 Device twins are designed for synchronization and for querying device configurations and conditions. More information on when to use device twins can be found in [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md).
 
-Device twins are stored in an IoT hub and contain:
+Device twins are stored in an IoT hub and contain the following elements:
 
-* *tags*, device metadata accessible only by the solution back end;
+* **Tags**. Device metadata accessible only by the solution back end.
 
-* *desired properties*, JSON objects modifiable by the solution back end and observable by the device app; and
+* **Desired properties**. JSON objects modifiable by the solution back end and observable by the device app.
 
-* *reported properties*, JSON objects modifiable by the device app and readable by the solution back end. Tags and properties cannot contain arrays, but objects can be nested.
+* **Reported properties**. JSON objects modifiable by the device app and readable by the solution back end.
+
+Tags and properties cannot contain arrays, but objects can be nested.
+
+The following illustration shows device twin organization:
 
 ![Device twin image showing functionality](./media/iot-hub-selector-twin-get-started/twin.png)
 
 Additionally, the solution back end can query device twins based on all the above data.
-Refer to [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md) for more information about device twins, and to the [IoT Hub query language](../articles/iot-hub/iot-hub-devguide-query-language.md) reference for querying.
+For more information about device twins, see [Understand device twins](../articles/iot-hub/iot-hub-devguide-device-twins.md). For more information about querying, see [IoT Hub query language](../articles/iot-hub/iot-hub-devguide-query-language.md).
 
 
 This tutorial shows you how to:
 
-* Create a back-end app that adds *tags* to a device twin, and a simulated device app that reports its connectivity channel as a *reported property* on the device twin.
+* Create a back-end app that adds tags to a device twin, and a simulated device app that reports its connectivity channel as a reported property on the device twin.
 
 * Query devices from your back-end app using filters on the tags and properties previously created.
