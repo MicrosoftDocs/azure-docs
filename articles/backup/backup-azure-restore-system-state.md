@@ -1,13 +1,13 @@
 ---
 title: 'Azure Backup: Restore System State to a Windows Server'
 description: Step by step explanation for restoring Windows Server System State from a backup in Azure.
-
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse
+ms.author: dacurwin
 ---
 # Restore System State to Windows Server
 
@@ -165,7 +165,7 @@ System State backup includes Active Directory data. Use the following steps to r
 
 ## Troubleshoot failed System State restore
 
-If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use This option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution.
+If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use this option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution.
 
 1. Boot your Windows Server into the Windows Recovery Environment (Win RE).
 

@@ -4,7 +4,7 @@ description: Deploying pools of Data Science VMs as a shared resource for a team
 keywords: deep learning, AI, data science tools, data science virtual machine, geospatial analytics, team data science process
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 ms.custom: seodec18
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 

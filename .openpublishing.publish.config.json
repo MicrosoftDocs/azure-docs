@@ -10,6 +10,7 @@
       "moniker_ranges": [],
       "open_to_public_contributors": true,
       "type_mapping": {
+        "ZonePivotGroups": "Toc",
         "Conceptual": "Content",
         "ManagedReference": "Content",
         "LandingData": "Content",
@@ -140,6 +141,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-personalizer",
+      "url": "https://github.com/Azure-Samples/cognitive-services-personalizer-samples",
+      "branch": "master"
+    },
+    {
       "path_to_root": "samples-luis",
       "url": "https://github.com/Azure-Samples/cognitive-services-language-understanding",
       "branch": "master"
@@ -172,6 +178,11 @@
     {
       "path_to_root": "iot-samples-c",
       "url": "https://github.com/Azure/azure-iot-sdk-c",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "samples-cognitive-services-python-sdk",
+      "url": "https://github.com/Azure-Samples/cognitive-services-python-sdk-samples",
       "branch": "master"
     },
     {
@@ -296,6 +307,11 @@
       "branch": "master"
     },
     {
+      "path_to_root": "samples-cosmosdb-xamarin",
+      "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-xamarin-getting-started",
+      "branch": "master"
+    },
+    {
       "path_to_root": "cosmosdb-nodejs-get-started",
       "url": "https://github.com/Azure-Samples/azure-cosmos-db-sql-api-nodejs-getting-started",
       "branch": "master"
@@ -334,6 +350,17 @@
       "path_to_root": "VideoReviewConsoleApp",
       "url": "https://github.com/MicrosoftContentModerator/VideoReviewConsoleApp",
       "branch": "master"
+    },
+    {
+      "path_to_root": "cognitive-services-quickstart-code",
+      "url": "https://github.com/Azure-Samples/cognitive-services-quickstart-code",
+      "branch": "master"
+    },
+    {
+      "path_to_root": "ImmersiveReaderSdk",
+      "url": "https://github.com/microsoft/immersive-reader-sdk",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

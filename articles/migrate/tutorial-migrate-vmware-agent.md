@@ -51,7 +51,7 @@ You can migrate VMware VMs to Azure using the Azure Migrate Server Migration too
 To decide whether you want to use agentless or agent-based migration, review these articles:
 
 - [Learn about](server-migrate-overview.md) the VMware migration options.
-- [Review the limitations](server-migrate-overview.md#agentless-migration-limitations) for agentless migration.
+- [Compare migration methods](server-migrate-overview.md#compare-migration-methods).
 - [Follow this article](tutorial-migrate-vmware.md) to try out agentless migration.
 
 

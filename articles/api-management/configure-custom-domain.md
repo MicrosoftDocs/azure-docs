@@ -11,7 +11,7 @@ editor: ''
 ms.service: api-management
 ms.workload: integration
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 08/12/2019
 ms.author: apimpm
 ---
 
@@ -31,29 +31,36 @@ To perform the steps described in this article, you must have:
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 -   An API Management instance. For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
--   A custom domain name that is owned by you. The custom domain name you want to use, must be procured separately and hosted on a DNS server. This topic does not give instructions on how to host a custom domain name.
+-   A custom domain name that is owned by you or your organization. This topic does not provide instructions on how to procure a custom domain name.
+-   A CNAME record hosted on a DNS server that maps the custom domain name to the default domain name of your API Management instance. This topic does not provide instructions on how to host a CNAME record.
 -   You must have a valid certificate with a public and private key (.PFX). Subject or subject alternative name (SAN) has to match the domain name (this enables API Management instance to securely expose URLs over SSL).
 
 ## Use the Azure portal to set a custom domain name
 
 1. Navigate to your API Management instance in the [Azure portal](https://portal.azure.com/).
-1. Select **Custom domains and SSL**.
+1. Select **Custom domains**.
 
     There are a number of endpoints to which you can assign a custom domain name. Currently, the following endpoints are available:
 
-    - **Proxy** (default is: `<apim-service-name>.azure-api.net`),
+    - **Gateway** (default is: `<apim-service-name>.azure-api.net`),
     - **Portal** (default is: `<apim-service-name>.portal.azure-api.net`),
     - **Management** (default is: `<apim-service-name>.management.azure-api.net`),
     - **SCM** (default is: `<apim-service-name>.scm.azure-api.net`).
 
     > [!NOTE]
-    > You can update all of the endpoints or some of them. Commonly, customers update **Proxy** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL). **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name. In most cases only a single custom domain name can be set for a given endpoint. However, the **Premium** tier supports setting multiple host names for the **Proxy** endpoint.
+    > Only the **Gateway** endpoint in available for configuration in the Consumption tier.
+    > You can update all of the endpoints or some of them. Commonly, customers update **Gateway** (this URL is used to call the API exposed through API Management) and **Portal** (the developer portal URL).
+    > **Management** and **SCM** endpoints are used internally by the API Management instance owners only and thus are less frequently assigned a custom domain name.
+    > The **Premium** tier supports setting multiple host names for the **Gateway** endpoint.
 
 1. Select the endpoint that you want to update.
 1. In the window on the right, click **Custom**.
 
-    - In the **Custom domain name**, specify the name you want to use. For example, `api.contoso.com`. Wildcard domain names (for example, \*.domain.com) are also supported.
+    - In the **Custom domain name**, specify the name you want to use. For example, `api.contoso.com`.
     - In the **Certificate**, select a certificate from Key Vault. You can also upload a valid .PFX file and provide its **Password**, if the certificate is protected with a password.
+
+    > [!NOTE]
+    > Wildcard domain names, e.g. `*.contoso.com` are supported in all tiers except the Consumption tier.
 
     > [!TIP]
     > We recommend using Azure Key Vault for managing certificates and setting them to autorotate.
@@ -66,7 +73,7 @@ To perform the steps described in this article, you must have:
 1. Click Apply.
 
     > [!NOTE]
-    > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKU's do not have downtime.
+    > The process of assigning the certificate may take 15 minutes or more depending on size of deployment. Developer SKU has downtime, Basic and higher SKUs do not have downtime.
 
 [!INCLUDE [api-management-custom-domain](../../includes/api-management-custom-domain.md)]
 
@@ -74,8 +81,8 @@ To perform the steps described in this article, you must have:
 
 When configuring DNS for your custom domain name, you have two options:
 
-- Configure a CNAME-record that points to the endpoint of your configured custom domain name.
-- Configure an A-record that points to your API Management gateway IP address.
+-   Configure a CNAME-record that points to the endpoint of your configured custom domain name.
+-   Configure an A-record that points to your API Management gateway IP address.
 
 > [!NOTE]
 > Although the API Managment instance IP address is static, it may change in a few scenarios. Because of this it's recommended to use CNAME when configuring custom domain. Take that into consideration when choosing DNS configuration method. Read more in the [API Mananagement FAQ](https://docs.microsoft.com/azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules).

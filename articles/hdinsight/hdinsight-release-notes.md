@@ -7,9 +7,9 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/15/2019
+ms.date: 08/08/2019
 ---
-# Release notes for Azure HDInsight
+# Release notes
 
 This article provides information about the **most recent** Azure HDInsight release updates. For information on earlier releases, see [HDInsight Release Notes Archive](hdinsight-release-notes-archive.md).
 
@@ -32,14 +32,14 @@ The official Apache versions of all HDInsight 4.0 components are given below. Th
 - Apache Hadoop 3.1.1
 - Apache HBase 2.0.0
 - Apache Hive 3.1.0
-- Apache Kafka 1.1.1
+- Apache Kafka 1.1.1, 2.1.0
 - Apache Mahout 0.9.0+
 - Apache Oozie 4.2.0
 - Apache Phoenix 4.7.0
 - Apache Pig 0.16.0
 - Apache Ranger 0.7.0
 - Apache Slider 0.92.0
-- Apache Spark 2.3.1
+- Apache Spark 2.3.1, 2.4.0
 - Apache Sqoop 1.4.7
 - Apache TEZ 0.9.1
 - Apache Zeppelin 0.8.0

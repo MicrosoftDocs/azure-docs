@@ -17,7 +17,7 @@ You can use the Update Management solution in Azure Automation to manage operati
 You can enable Update Management for virtual machines directly from your Azure Automation account. To learn how to enable Update Management for virtual machines from your Automation account, see [Manage updates for multiple virtual machines](manage-update-multi.md). You can also enable Update Management for a virtual machine from the virtual machine page in the Azure portal. This scenario is available for [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) and [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) virtual machines.
 
 > [!NOTE]
-> The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [./how-to/region-mappings.md]. The region mappings do not affect the ability to manage virtual machines in a
+> The Update Management solution requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](./how-to/region-mappings.md). The region mappings do not affect the ability to manage virtual machines in a
 > separate region than your Automation account.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
@@ -79,6 +79,7 @@ The following table shows a list of supported operating systems:
 
 > [!NOTE]
 > Azure virtual machine scale sets can be managed with Update Management. Update Management works on the instances themselves and not the base image. You'll need to schedule the updates in an incremental way, as to not update all VM instances at once.
+> VMSS Nodes can be added by following the steps under [Onbaord a non-Azure machine](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
 ### Unsupported client types
 
@@ -88,12 +89,18 @@ The following table lists operating systems that aren't supported:
 |---------|---------|
 |Windows client     | Client operating systems (such as Windows 7 and Windows 10) aren't supported.        |
 |Windows Server 2016 Nano Server     | Not supported.       |
+|Azure Kubernetes Service Nodes | Not supported. Use the patching process detailed in [Apply security and kernel updates to Linux nodes in Azure Kubernetes Service (AKS)](../aks/node-updates-kured.md)|
 
 ### Client requirements
 
 #### Windows
 
 Windows agents must be configured to communicate with a WSUS server or they must have access to Microsoft Update. You can use Update Management with System Center Configuration Manager. To learn more about integration scenarios, see [Integrate System Center Configuration Manager with Update Management](oms-solution-updatemgmt-sccmintegration.md#configuration). The [Windows agent](../azure-monitor/platform/agent-windows.md) is required. The agent is installed automatically if you're onboarding an Azure virtual machine.
+
+> [!NOTE]
+> It is possible for a user to modify Group Policy so that machine reboots can only performed by the user, not by the system. Managed machines may get stuck, if Update Management does not have rights to reboot the machine without manual interaction from the user.
+>
+> For more information, see [Configure Group Policy Settings for Automatic Updates](https://docs.microsoft.com/en-us/windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates).
 
 #### Linux
 
@@ -349,6 +356,10 @@ The following addresses are required specifically for Update Management. Communi
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
 |*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
 |*.azure-automation.net|*.azure-automation.us|
+
+For Windows Machines, you must also allow traffic to any endpoints required by Windows Update.  You can find an updated list of required endoints in [Issues related to HTTP/Proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). If you have a local [Windows Update Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment), you must also allow traffic to the server specified in your [WSUS Key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
+
+For Red Hat Linux Machines, please refer to [The IPs for the RHUI content delivery servers](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) for required endpoints. For other Linux Distributions, refer to provider documentation.
 
 For more information about ports that the Hybrid Runbook Worker requires, see [Hybrid Worker role ports](automation-hybrid-runbook-worker.md#hybrid-worker-role).
 

@@ -159,12 +159,12 @@ featureFlags:
                                                             PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/javascript/azure/">
+                                                        <a class="barLink" href="/azure/javascript/">
                                                             <img src="media/index/logo_nodejs.svg" alt="">
                                                             Node.js</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/go/azure/">
+                                                        <a class="barLink" href="/azure/go/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_Go-lightblue.svg" alt="">
                                                             Go</a>
                                                     </li>
@@ -1671,7 +1671,7 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/security/azure-threat-detection">
+                                            <a href="/azure/security/fundamentals/threat-detection">
                                                 <img src="media/index/SecurityCenter.svg" alt="" />
                                                 <p>Azure Advanced Threat Protection</p>
                                             </a>
@@ -2320,7 +2320,7 @@ featureFlags:
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Stream Analytics</h3>
-                                                    <p>Real-time data stream processing from millions of IoT devices</p>
+                                                    <p>Real-time analytics on fast moving streams of data from applications and devices</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -5563,7 +5563,7 @@ featureFlags:
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/security/azure-threat-detection">
+                                <a href="/azure/security/fundamentals/threat-detection">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -6367,7 +6367,7 @@ featureFlags:
                                                     Azure for Go Developers
                                                 </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Get started</a>
+                                                    <a href="/azure/go/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">API Reference</a>

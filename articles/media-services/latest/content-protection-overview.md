@@ -195,7 +195,7 @@ A customer might choose to use a custom STS to provide tokens. Reasons include:
 * The identity provider (IDP) used by the customer doesn't support STS. In this case, a custom STS might be an option.
 * The customer might need more flexible or tighter control to integrate STS with the customer's subscriber billing system. 
 
-   For example, an [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services) operator might offer multiple subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
+   For example, an [OTT](https://en.wikipedia.org/wiki/Over-the-top_media_services) service operator might offer multiple subscriber packages, such as premium, basic, and sports. The operator might want to match the claims in a token with a subscriber's package so that only the contents in a specific package are made available. In this case, a custom STS provides the needed flexibility and control.
 * To include custom claims in the token to select between different ContentKeyPolicyOptions with different DRM license parameters (a subscription license versus a rental license).
 * To include a claim representing the content key identifier of the key that the token grants access to.
 

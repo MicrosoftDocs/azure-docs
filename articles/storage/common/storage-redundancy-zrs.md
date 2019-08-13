@@ -35,6 +35,11 @@ ZRS is generally available in the following regions:
 
 Microsoft continues to enable ZRS in additional Azure regions. Check the [Azure Service Updates](https://azure.microsoft.com/updates/) page regularly for information about new regions.
 
+**Known limitations**
+
+- Archive tier is not currently supported on ZRS accounts. See [Azure Blob storage: hot, cool, and archive access tiers](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) for more details.
+- Managed disks do not support ZRS. You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/).
+
 ## What happens when a zone becomes unavailable?
 Your data is still accessible for both read and write operations even if a zone becomes unavailable. Microsoft recommends that you continue to follow practices for transient fault handling. These practices include implementing retry policies with exponential back-off.
 
@@ -52,14 +57,14 @@ There are two primary options for migration to ZRS:
 - Manually copy or move data to a new ZRS account from an existing account.
 - Request a live migration.
 
-Microsoft strongly recommends that you perform a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
+If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
 To perform a manual migration, you have options:
 - Use existing tooling like AzCopy, one of the Azure Storage client libraries, or reliable third-party tools.
 - If you're familiar with Hadoop or HDInsight, attach both source and destination (ZRS) account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 - Build your own tooling using one of the Azure Storage client libraries.
 
-A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration. 
+A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration with no downtime. 
 
 During a live migration, you can use your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
 
@@ -71,7 +76,8 @@ Keep in mind the following restrictions on live migration:
 - You can only migrate data within the same region. If you want to migrate your data into a ZRS account located in a region different than the source account, then you must perform a manual migration.
 - Only standard storage account types support live migration. Premium storage accounts must be migrated manually.
 - Live migration from ZRS to LRS, GRS or RA-GRS is not supported. You will need to manually move the data to a new or an existing storage account.
-- Managed disks are only available for LRS and cannot be migrated to ZRS. For integration with availability sets see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets). You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). 
+- Managed disks are only available for LRS and cannot be migrated to ZRS. You can store snapshots and images for Standard SSD Managed Disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For integration with availability sets see [Introduction to Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
+- LRS or GRS accounts with Archive data cannot be migrated to ZRS.
 
 You can request live migration through the [Azure Support portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). From the portal, select the storage account you want to convert to ZRS.
 1. Select **New Support Request**

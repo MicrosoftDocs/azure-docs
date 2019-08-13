@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, Java - QnA Maker"
-titlesuffix: Azure Cognitive Services 
+titleSuffix: Azure Cognitive Services 
 description: This Java REST-based quickstart walks you through getting an answer from a knowledge base, programmatically.
 services: cognitive-services
 author: diberry
