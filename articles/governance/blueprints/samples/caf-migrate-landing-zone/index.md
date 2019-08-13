@@ -13,7 +13,7 @@ ms.custom: fasttrack-new
 
 The Microsoft Cloud Adoption Framework for Azure (CAF) migration landing zone blueprint is a set of controls to help you setup for migrating your first workload and manage your cloud estate in alignment with CAF.
 
-The [CAF foundation](../caf-governance/index.md) blueprint sample extends this sample.
+The [CAF Foundation](../caf-governance/index.md) blueprint sample extends this sample.
 
 ## Architecture
 
@@ -28,17 +28,17 @@ composed of:
 
 - An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used for the Certificates, Keys and Secrets deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) enabling diagnostics for the entire environment
-- Deploy [Azure Site Recovery](../../../../site-recovery/site-recovery-overview.md) to migrate your on-prem assets.
+- Deploy [Azure Security Center](../../../../security-center/security-center-intro.md),
+    standard.
 - Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) Hub
-- Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) Hub for discovery and assessment.
-
+- Deploy [Azure Migrate Project](../../../..//migrate/migrate-overview.md) Hub for discovery and assessment. We are adding the tools for Server assessment, Server migration, Database assessment and Database migration.  
 
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 
 > [!NOTE]
-> The CAF Governance lays out a foundational architecture for workloads.
-> You still need to deploy workloads behind this foundational architecture.
+> The CAF Migration blueprint lays out a landing zone for your workloads.
+> You still need to perform the assessment and migration of your Virtual Machines / Databases on top of this foundational architecture.
 
 For more information, see the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/).
 

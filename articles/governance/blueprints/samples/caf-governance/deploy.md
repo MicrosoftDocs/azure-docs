@@ -1,6 +1,6 @@
 ---
 title: Samples - CAF foundation blueprint - Deploy steps
-description: Deploy steps of the CAF foundation blueprint sample.
+description: Deploy steps of the CAF Foundation blueprint sample.
 author: dacoulte
 ms.author: dacoulte
 ms.date: 06/27/2019
@@ -32,7 +32,7 @@ sample as a starter.
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **CAF foundation** blueprint sample under _Other Samples_ and select **Use
+1. Find the **CAF Foundation** blueprint sample under _Other Samples_ and select **Use
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
@@ -62,7 +62,7 @@ away from the CAF foundation blueprint.
 1. Select the **Blueprint definitions** page on the left. Use the filters to find your copy of the blueprint sample and then select it.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a  **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the CAF foundation blueprint sample." Then select **Publish** at the bottom of the page.
+   modification later. Provide **Change notes** such as "First version published from the CAF Foundation blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
 
@@ -82,7 +82,8 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
        assignment will be created for each using the parameters entered.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+     - **Location**: Select a region for the managed identity to be created in.
+     - Azure Blueprint uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
@@ -94,7 +95,7 @@ Once the copy of the blueprint sample has been successfully **Published**, it ca
 
    - Managed Identity
 
-     Leave the default _system assigned_ managed identity option.
+     Choose either the default _system assigned_ managed identity option or the _user assigned_ identity option.
 
    - Blueprint parameters
 
@@ -134,8 +135,6 @@ The following table provides a list of the blueprint artifact parameters:
 |Deploy Key Vault|Resource Manager template|KV-AccessPolicy|**Locked** - Azure AD Group or User <Object ID> to grant permissions to in Key Vault|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_DataRetention|**Locked** - Number of days data will be retained in Log Analytics|
 |Deploy Log Analytics|Resource Manager template|LogAnalytics_Location|**Locked** - Region used when establishing the workspace|
-|Deploy vNET landing zone|Resource Manager template|IPAddress_Space|**Locked** - Virtual Network IP Addressspace - Provide first 2 octets example, 10.0|
-
 ## Next steps
 
 Now that you've reviewed the steps to deploy the CAF foundation blueprint sample, visit the following article to learn about the architecture:

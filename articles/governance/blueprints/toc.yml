@@ -76,13 +76,13 @@
     - name: Steps to deploy
       displayName: standards, uk official, uk nhs
       href: ./samples/ukofficial/deploy.md
-  - name: CAF Governance
+  - name: CAF Foundation
     items:
     - name: Overview
-      displayName: caf, governance
+      displayName: caf, foundation
       href: ./samples/caf-governance/index.md
     - name: Steps to deploy
-      displayName: caf, governance, deploy
+      displayName: caf, foundation, deploy
       href: ./samples/caf-governance/deploy.md
   - name: CAF Migrate landing zone
     items:

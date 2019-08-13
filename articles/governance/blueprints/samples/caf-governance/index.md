@@ -28,23 +28,21 @@ composed of:
 - An [Azure Key Vault](../../../../key-vault/key-vault-whatis.md) instance used to host secrets used
   for the VMs deployed in the shared services environment
 - Deploy [Log Analytics](../../../../azure-monitor/overview.md) for the
-    entire environment
+    entire environment and [Storage Accounts] (../../../../storage.md) for diagnostic logging
 - Deploy [Azure Security Center](../../../../security-center/security-center-intro.md),
     standard.
-- Deploy [Azure Virtual Network](../../../../virtual-network/virtual-networks-overview.md) Hub
-
 The blueprint also defines and deploys [Azure Policies](../../../policy/overview.md), for 
-- Tagging (CostCenter) 
-    - Tag Resource Group
+- Policies
+    - Tagging (CostCenter) applied to resources groups
     - Append resources in resource group with the CostCenter Tag
-    - Allowed Azure Region for Resources
-	- Allowed Storage Account SKUs
-	- Allowed Azure VM SKUs	
-	- Allowed Azure Resource Types
+    - Allowed Azure Region for Resources and Resource Groups
+	- Allowed Storage Account SKUs (choose while deploying)
+	- Allowed Azure VM SKUs	(choose while deploying)
 	- Require Network Watch to be deployed 
 	- Require Azure Storage Account Secure transfer Encryption
+	- Deny resource types (choose while deploying)  
  - Initiatives
-     - Enable Monitoring in Azure Security Center (78 Policies)
+     - Enable Monitoring in Azure Security Center (89 Policies)
 
 All these elements abide to the proven practices published in the [Azure Architecture Center - Reference Architectures](/azure/architecture/reference-architectures/).
 

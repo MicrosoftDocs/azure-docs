@@ -9,12 +9,14 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: fasttrack-new
 ---
-# Deploy the CAF migrate landing zone blueprint sample
+# Deploy the Microsoft Cloud Adoption Framework for Azure migrate landing zone blueprint sample
 
 To deploy the Azure Blueprints CAF migrate landing zone blueprint sample, the following steps must be taken:
 
-> [!div class="checklist"]
-> - Deploy the [CAF Governance](../caf-governance/index.md) blueprint sample
+> [!div class="checklist1"]
+> - Recommended to deploy the [CAF Foundation](../caf-governance/index.md) blueprint sample
+
+> [!div class="checklist2"]
 > - Create a new blueprint from the sample
 > - Mark your copy of the sample as **Published**
 > - Assign your copy of the blueprint to an existing subscription
@@ -32,21 +34,16 @@ First, implement the blueprint sample by creating a new blueprint in your enviro
 1. From the **Getting started** page on the left, select the **Create** button under _Create a
    blueprint_.
 
-1. Find the **CAF migrate landing zone** blueprint sample under _Other Samples_ and select **Use
+1. Find the **CAF migration landing zone** blueprint sample under _Other Samples_ and select **Use
    this sample**.
 
 1. Enter the _Basics_ of the blueprint sample:
-  - **Blueprint name**: Provide a name for your copy of the CAF governance blueprint
-     sample.
-   - **Definition location**: Use the ellipsis and select the management group to save your copy of
-     the sample to.
+  - **Blueprint name** Provide a name for your copy of the CAF migration landing zone blueprint sample.
+   - **Definition location** Use the ellipsis and select the management group to save your copy of the sample to.
 
-1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the
-   page.
+1. Select the _Artifacts_ tab at the top of the page or **Next: Artifacts** at the bottom of the page.
 
-1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have
-   parameters that we'll define later. Select **Save Draft** when you've finished reviewing the
-   blueprint sample.
+1. Review the list of artifacts that make up the blueprint sample. Many of the artifacts have parameters that we'll define later. Select **Save Draft** when you've finished reviewing the blueprint sample.
 
 ## Publish the sample copy
 
@@ -63,7 +60,7 @@ away from the CAF migrate landing zone guidance.
 
 1. Select **Publish blueprint** at the top of the page. In the new page on the right, provide a
    **Version** for your copy of the blueprint sample. This property is useful for if you make a
-   modification later. Provide **Change notes** such as "First version published from the CAF Migrate landing zone
+   modification later. Provide **Change notes** such as "First version published from the CAF migration landing zone
    blueprint sample." Then select **Publish** at the bottom of the page.
 
 ## Assign the sample copy
@@ -88,7 +85,8 @@ provided to make each deployment of the copy of the blueprint sample unique.
        assignment will be created for each using the parameters entered.
      - **Assignment name**: The name is pre-populated for you based on the name of the blueprint.
        Change as needed or leave as is.
-     - **Location**: Select a region for the managed identity to be created in. Azure Blueprint uses
+     - **Location**: Select a region for the managed identity to be created in.
+     - Azure Blueprint uses
        this managed identity to deploy all artifacts in the assigned blueprint. To learn more, see
        [managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Blueprint definition version**: Pick a **Published** version of your copy of the blueprint
@@ -100,7 +98,7 @@ provided to make each deployment of the copy of the blueprint sample unique.
 
    - Managed Identity
 
-     Leave the default _system assigned_ managed identity option.
+     Choose either the default _system assigned_ managed identity option or the _user assigned_ identity option.
 
    - Blueprint parameters
 
