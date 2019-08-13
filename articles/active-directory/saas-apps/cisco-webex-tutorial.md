@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/09/2019
+ms.date: 08/13/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -182,7 +182,10 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 	>[!NOTE]
 	>For enabling **just-in-time** user provisioning you need to check the **Auto Account Creation**. In addition to that SAML token attributes need to be passed in the SAML response.
 
-	f. Click **Save**. 
+	f. Click **Save**.
+
+	>[!NOTE]
+	>This configuration is only for the customers that use Webex UserID in email format.
 
 ### Create Cisco Webex Meetings test user
 
