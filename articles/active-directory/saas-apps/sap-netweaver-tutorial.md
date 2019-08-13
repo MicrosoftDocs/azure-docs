@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with SAP NetWeaver | Microsoft Docs'
+title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SAP NetWeaver.
 services: active-directory
 documentationCenter: na
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/08/2019
+ms.date: 08/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate SAP NetWeaver with Azure Active Directory
+# Tutorial: Azure Active Directory Single sign-on (SSO) integration with SAP NetWeaver
 
 In this tutorial, you'll learn how to integrate SAP NetWeaver with Azure Active Directory (Azure AD). When you integrate SAP NetWeaver with Azure AD, you can:
 
@@ -78,9 +78,9 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 
 1. Open a new web browser window and sign into your SAP NetWeaver company site as an administrator
 
-2. Make sure that **http** and **https** services are active and appropriate ports are assigned in **SMICM** T-Code.
+1. Make sure that **http** and **https** services are active and appropriate ports are assigned in **SMICM** T-Code.
 
-3. Sign on to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
+1. Sign on to business client of SAP System (T01), where SSO is required and activate HTTP Security session Management.
 
 	a. Go to Transaction code **SICF_SESSIONS**. It displays all relevant profile parameters with current values. They look like below:-
     ```
@@ -110,22 +110,22 @@ To configure Azure AD single sign-on with SAP NetWeaver, perform the following s
 	/sap/bc/webdynpro/sap/saml2
 	/sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
     ```
-4. Go to Transaction code **SAML2** in business client of SAP system [T01/122]. It will open a user interface in a browser. In this example, we assumed 122 as SAP business client.
+1. Go to Transaction code **SAML2** in business client of SAP system [T01/122]. It will open a user interface in a browser. In this example, we assumed 122 as SAP business client.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_sapbusinessclient.png)
 
-5. Provide your username and password to enter in user interface and click **Edit**.
+1. Provide your username and password to enter in user interface and click **Edit**.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_userpwd.png)
 
-6. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
+1. Replace **Provider Name** from T01122 to `http://T01122` and click on **Save**.
 
 	> [!NOTE]
 	> By default provider name come as `<sid><client>` format but Azure AD expects name in the format of `<protocol>://<name>`, recommending to maintain provider name as `https://<sid><client>` to allow multiple SAP NetWeaver ABAP engines to configure in Azure AD.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
-7. **Generating Service Provider Metadata**:- Once we are done with configuring the **Local Provider** and **Trusted Providers** settings on SAML 2.0 User Interface, the next step would be to generate the service provider’s metadata file (which would contain all the settings, authentication contexts and other configurations in SAP). Once this file is generated we need to upload this in Azure AD.
+1. **Generating Service Provider Metadata**:- Once we are done with configuring the **Local Provider** and **Trusted Providers** settings on SAML 2.0 User Interface, the next step would be to generate the service provider’s metadata file (which would contain all the settings, authentication contexts and other configurations in SAP). Once this file is generated we need to upload this in Azure AD.
 
 	![The Certificate download link](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_generatesp.png)
 
@@ -143,7 +143,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
+1. On the **Basic SAML Configuration** section, if you wish to configure the application in **IDP** initiated mode, perform the following step:
 
     a. Click **Upload metadata file** to upload the **Service Provider metadata file**, which you have obtained earlier.
 
@@ -165,7 +165,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/edit-attribute.png)
 
-13. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
+1. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
 	a. Click **Edit icon** to open the **Manage user claims** dialog.
 
@@ -269,7 +269,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_nameid.png)
 
-14. Note that **user ID Source** and **user id mapping mode** values determine the link between SAP user and Azure AD claim.  
+14. Note that **user ID Source** and **user ID mapping mode** values determine the link between SAP user and Azure AD claim.  
 
 	#### Scenario: SAP User to Azure AD user mapping.
 
@@ -281,7 +281,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-	#### Scenario: Select SAP user id based on configured email address in SU01. In this case email id should be configured in su01 for each user who requires SSO.
+	#### Scenario: Select SAP user ID based on configured email address in SU01. In this case email ID should be configured in su01 for each user who requires SSO.
 
 	a.  NameID details screenshot from SAP.
 
@@ -382,10 +382,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 5. Click **finish**.
 
-## Additional Resources
+## Additional resources
 
 - [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Try SAP NetWeaver with Azure AD](https://aad.portal.azure.com/)
