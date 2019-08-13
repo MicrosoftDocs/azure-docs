@@ -25,7 +25,7 @@ This article describes how to connect MXChip IoT DevKit as a certified IoT Plug 
 To complete the steps in this article, you need the following resources:
 
 1. An MXChip IoT DevKit. [Get it now](https://aka.ms/iot-devkit-purchase).
-1. An IoT Central application created from the **PnP application template**. You can follow the steps in [Create an IoT Plug and Play application](#/).
+1. An IoT Central application created from the **PnP application template**. You can follow the steps in [Create an IoT Plug and Play application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central).
 
 ## Add a real device
 
@@ -65,6 +65,9 @@ To complete the steps in this article, you need the following resources:
 
 1. Drag the **iotc_devkit.bin** file onto the drive window. When the copying is complete, the device reboots with the new firmware.
 
+    > [!NOTE]
+    > If you see errors on the screen such as **Init failed!**, this is because the DevKit has not yet been connected to WiFi.
+
 1. On the DevKit, hold down **button B**, push and release the **Reset** button, and then release **button B**. The device is now in access point (AP) mode. To confirm, the screen displays "IoT DevKit - AP" and configuration portal IP address.
 
 1. On your computer or tablet connect to the WiFi network name shown on the screen of the device. The WiFi network starts with **AZ-** followed by the MAC address. When you connect to this network, you don't have internet access. This state is expected, and you're only connected to this network for a short time while you configure the device.
@@ -89,9 +92,6 @@ To complete the steps in this article, you need the following resources:
     You can see on the DevKit screen **PnP Enabled** for confirm the success running of the application.
 
     ![DevKit running](media/howto-connect-devkit-pnp/devkit-running.jpg)
-
-    > [!NOTE]
-    > If you see errors on the screen such as **Init failed!**, try copy the firmware and re-configure the settings again. 
 
 Now the DevKit starts sending data to your IoT Central application. You can open a serial monitor to see the device output log.
 
