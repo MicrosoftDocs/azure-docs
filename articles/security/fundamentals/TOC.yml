@@ -51,45 +51,45 @@
       items:
       - name: About Azure Disk Encryption
         displayName: BitLocker, bek
-        href: ./security/azure-security-disk-encryption-overview.md
+        href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview
       - name: Quickstarts
         items:
         - name: Encrypt a Linux VM with Azure CLI
-          href: ./security/azure-disk-encryption-linux-cli-quickstart.md
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart
         - name: Encrypt a Linux VM with Azure PowerShell
-          href: ./security/azure-disk-encryption-linux-powershell-quickstart.md
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart
         - name: Encrypt a Windows VM with Azure CLI
-          href: ./security/azure-disk-encryption-windows-cli-quickstart.md
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart
         - name: Encrypt a Windows VM with Azure PowerShell
-          href: ./security/azure-disk-encryption-windows-powershell-quickstart.md
+          href: https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart
       - name: Azure Disk Encryption
         items:
         - name: Disk encryption prerequisites
-          href: ./security/azure-security-disk-encryption-prerequisites.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites
         - name: Disk encryption for Windows VMs
-          href: ./security/azure-security-disk-encryption-windows.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows
         - name: Disk encryption for Linux VMs
-          href: ./security/azure-security-disk-encryption-linux.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux
         - name: Disk encryption with virtual machine scale set extension sequencing
-          href: ./security/azure-security-disk-encryption-extension-sequencing.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-extension-sequencing
         - name: Appendix for disk encryption
-          href: ./security/azure-security-disk-encryption-appendix.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-appendix
         - name: Disk encryption FAQ
-          href: ./security/azure-security-disk-encryption-faq.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-faq
         - name: Troubleshooting
-          href: ./security/azure-security-disk-encryption-tsg.md
+          href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-tsg
         - name: Azure Disk Encryption with Azure AD app (previous release)
           displayName: active directory
           items:
           - name: Disk encryption with Azure AD app prerequisites 
             displayName: active directory
-            href: ./security/azure-security-disk-encryption-prerequisites-aad.md
+            href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-prerequisites-aad
           - name: Disk encryption with Azure AD app for Windows VMs 
             displayName: active directory
-            href: ./security/azure-security-disk-encryption-windows-aad.md
+            href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-windows-aad
           - name: Disk encryption with Azure AD app for Linux VMs 
             displayName: active directory
-            href: ./security/azure-security-disk-encryption-linux-aad.md
+            href: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad
   - name: Azure Storage security
     href: storage-overview.md
   - name: Storage security guide
