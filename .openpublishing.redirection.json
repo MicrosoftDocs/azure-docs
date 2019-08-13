@@ -16,6 +16,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/machine-learning/service/concept-accelerate-with-fpgas.md",
+      "redirect_url": "/azure/machine-learning/service/how-to-deploy-fpga-web-service",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/service/quickstart-run-local-notebook.md",
       "redirect_url": "/azure/machine-learning/service/how-to-configure-environment#local",
       "redirect_document_id": true
