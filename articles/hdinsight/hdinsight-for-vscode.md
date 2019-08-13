@@ -11,9 +11,9 @@ ms.date: 05/30/2019
 
 # Use Spark & Hive Tools for Visual Studio Code
 
-Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install the Spark & Hive tools in Visual Studio Code and then we'll walk through how to submit jobs to Hive and Spark.  
+Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install the Spark & Hive tools in Visual Studio Code, and then we'll walk through how to submit jobs to Hive and Spark.  
 
-Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. Below you'll find the prerequisites for different platforms.
+Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. What follows are the prerequisites for different platforms.
 
 
 ## Prerequisites
@@ -28,22 +28,22 @@ The following items are required for completing the steps in this article:
 
 ## Install Spark & Hive Tools
 
-After you have completed the prerequisites, you can install  Spark & Hive Tools for Visual Studio Code.  Complete the following steps to install Spark & Hive Tools:
+After you've completed the prerequisites, you can install Spark & Hive Tools for Visual Studio Code. To install Spark & Hive Tools, follow these steps:
 
 1. Open Visual Studio Code.
 
-2. From the menu bar, navigate to **View** > **Extensions**.
+2. On the menu bar, go to **View** > **Extensions**.
 
 3. In the search box, enter **Spark & Hive**.
 
-4. Select **Spark & Hive Tools** from the search results, and then select **Install**.  
+4. Select **Spark & Hive Tools** from the search results, and then select **Install**:
 
    ![Spark & Hive for Visual Studio Code Python install](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
 5. **Reload** when needed.
 
 
-## Open work folder
+## Open a work folder
 
 Complete the following steps to open a work folder, and create a file in Visual Studio Code:
 
@@ -59,7 +59,7 @@ Complete the following steps to open a work folder, and create a file in Visual 
 
 For national cloud user, follow the steps to set Azure environment first, then use **Azure: Sign In** command to sign into Azure.
    
-1. Click **File\Preferences\Settings**.
+1. Select **File\Preferences\Settings**.
 2. Search **Azure: Cloud**
 3. Select the national cloud from the list.
 
@@ -134,7 +134,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 2. Select the file  **HelloWorld.hql** created [earlier](#open-work-folder) and it will open in the script editor.
 
-3. Right-click the script editor, and select **Spark / Hive: Set Default Cluster**.  
+3. Right-click the script editor, and then select **Spark / Hive: Set Default Cluster**.  
 
 4. [Connect](#connect-to-azure-account) to your Azure account or link a cluster if you haven't yet done so.
 
@@ -271,7 +271,7 @@ Method 1
 3. Select **Edit in settings.json** for the relevant search result.
 
 Method 2   
-Submit a file, notice the .vscode folder is added automatically to the work folder. You can find the livy configuration by clicking **.vscode\settings.json**.
+Submit a file, notice the .vscode folder is added automatically to the work folder. You can find the livy configuration by selecting **.vscode\settings.json**.
 
 + The project settings:
 
@@ -339,13 +339,13 @@ Submit a file, notice the .vscode folder is added automatically to the work fold
 You can preview Hive Table in your cluster(s) directly through **Azure HDInsight** explorer.
 1. [Connect](#connect-to-azure-account) to your Azure account if you haven't yet done so.
 
-2. Click **Azure** icon from leftmost column.
+2. Select **Azure** icon from leftmost column.
 
 3. From the left pane, expand **AZURE HDINSIGHT**. The available subscriptions and clusters will be listed.
 
 4. Expand the cluster to view hive metadata database and table schema.
 
-5. Right-click on the Hive Table, e.g hivesampletable. Select **Preview**. 
+5. Right-click the Hive Table, e.g hivesampletable. Select **Preview**. 
 
    ![Spark & Hive for visual studio code preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
@@ -385,11 +385,11 @@ Users with cluster **Reader** **only** **role** can no longer submit job to the 
 
 ### Browse HDInsight Cluster  
 
-When clicking on the Azure HDInsight explorer to expand an HDInsight cluster, you will be prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
+When you select the Azure HDInsight explorer to expand an HDInsight cluster, you're prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
 
 ### Submit job to HDInsight cluster
 
-When submitting job to an HDInsight cluster, you will be prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
+When submitting job to an HDInsight cluster, you're prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
 
 ### Link to cluster
 
@@ -410,7 +410,7 @@ When submitting job to an HDInsight cluster, you will be prompted to link the cl
 
 ### Browse an ADLS Gen2 Account
 
-When clicking on the Azure HDInsight explorer to expand an ADLS Gen2 account, you will be prompted to enter the storage **Access key** if your Azure account has no access to the Gen2 storage. The ADLS Gen2 account will be auto expanded once the access key is validated successfully. 
+When you select the Azure HDInsight explorer to expand an ADLS Gen2 account, you're prompted to enter the storage **Access key** if your Azure account has no access to the Gen2 storage. The ADLS Gen2 account will be auto expanded once the access key is validated successfully. 
 
 ### Submit jobs to HDInsight cluster with ADLS Gen2
 
