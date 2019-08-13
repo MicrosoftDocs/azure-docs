@@ -89,9 +89,23 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-  1. **Resources and their dependent resources need to be always located within the same resource group and moved together.** Therefore, identify the dependent resources and check if they could be moved to the new subscription or resource group. Both cross subscription move and cross resource group move requires all resources to be moved to the same target resource group located within the target subscription at the same time. 
+> [!NOTE]
+>**For a move across subscription, the resource and its dependent resources need to be located within the same source resource group before the move. All these resources need to be moved together to the new subscription.** 
+
+1. Before moving the resource to the new subscription, check if its dependent resources are located in the same resource group. If not, check if the resources from other resource group could be moved to the source resource group. If so, bring all these resources to the source resource group using move across resource group.
 
 
+## Move Scenario Access Subscription
+Moving resources from one subscription to another is a 3 step process.
+
+![cross subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
+
+> [!NOTE]
+> **Resources and its dependent resource needs to be located within the same resource group before moving them together to the new target subscription.**
+
+1. Step 1: Move all dependent resources distributed across different resource groups into one resource group.
+1. Step 2: Move resource and dependent resources together from source subscription to target subscription.
+1. Step 3: Optionally redistribute the dependent resources to different resource groups within the target subscription. 
 
 ## Validate move
 
