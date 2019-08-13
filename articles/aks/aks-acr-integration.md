@@ -56,7 +56,7 @@ docker pull nginx
 ```
 
 Tag the image
-```azurecli-interactive
+```
 docker tag nginx $acrloginservername/nginx:v1
 ```
 
