@@ -61,14 +61,14 @@ There are two primary options for migration to ZRS:
 - Manually copy or move data to a new ZRS account from an existing account.
 - Request a live migration.
 
-Microsoft strongly recommends that you perform a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
+If you need the migration to complete by a certain date consider performing a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
 To perform a manual migration, you have options:
 - Use existing tooling like AzCopy, one of the Azure Storage client libraries, or reliable third-party tools.
 - If you're familiar with Hadoop or HDInsight, attach both source and destination (ZRS) account to your cluster. Then, parallelize the data copy process with a tool like DistCp.
 - Build your own tooling using one of the Azure Storage client libraries.
 
-A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration. 
+A manual migration can result in application downtime. If your application requires high availability, Microsoft also provides a live migration option. A live migration is an in-place migration with no downtime. 
 
 During a live migration, you can use your storage account while your data is migrated between source and destination storage stamps. During the migration process, you have the same level of durability and availability SLA as you normally do.
 
