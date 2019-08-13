@@ -1,5 +1,5 @@
 ---
-title: Deploy models on FPGAs
+title: What are FPGA - how to deploy 
 titleSuffix: Azure Machine Learning service
 description: Learn how to deploy a web service with a model running on an FPGA with Azure Machine Learning service for ultra-low latency inference. 
 services: machine-learning
@@ -14,11 +14,40 @@ ms.date: 07/25/2019
 ms.custom: seodec18
 ---
 
-# Deploy a model as a web service on an FPGA with Azure Machine Learning service
+# What are field-programmable gate arrays (FPGA)
 
-You can deploy a model as a web service on [field programmable gate arrays (FPGAs)](concept-accelerate-with-fpgas.md) with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+This article provides an introduction to field-programmable gate arrays (FPGA), and shows you how to deploy your models using Azure Machine Learning service to an Azure FPGA. 
 
-These models are currently available:
+FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways after manufacturing. Compared to other chips, FPGAs provide a combination of programmability and performance.
+
+## FPGAs vs. CPU, GPU, and ASIC
+
+The following diagram and table show how FPGAs compare to other processors.
+
+![Diagram of Azure Machine Learning service FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
+
+|Processor||Description|
+|---|:-------:|------|
+|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They can't be reconfigured as your needs change.|
+|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs. They are also flexible and reconfigurable over time, to implement new logic.|
+|Graphics processing units|GPUs|A popular choice for AI computations. GPUs offer parallel processing capabilities, making it faster at image rendering than CPUs.|
+|Central processing units|CPUs|General-purpose processors, the performance of which isn't ideal for graphics and video processing.|
+
+FPGAs on Azure are based on Intel's FPGA devices, which data scientists and developers use to accelerate real-time AI calculations. This FPGA-enabled architecture offers performance, flexibility, and scale, and is available on Azure.
+
+FPGAs make it possible to achieve low latency for real-time inference (or model scoring) requests. Asynchronous requests (batching) aren't needed. Batching can cause latency, because more data needs to be processed. Implementations of neural processing units don't require batching; therefore the latency can be many times lower, compared to CPU and GPU processors.
+
+### Reconfigurable power
+You can reconfigure FPGAs for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used. Because FPGAs are reconfigurable, you can stay current with the requirements of rapidly changing AI algorithms.
+
+### What's supported on Azure
+Microsoft Azure is the world's largest cloud investment in FPGAs. FPGAs on Azure supports:
+
++ Image classification and recognition scenarios
++ TensorFlow deployment
++ Intel FPGA hardware 
+
+These DNN models are currently available:
   - ResNet 50
   - ResNet 152
   - DenseNet-121
@@ -33,6 +62,24 @@ FPGAs are available in these Azure regions:
 
 > [!IMPORTANT]
 > To optimize latency and throughput, your client sending data to the FPGA model should be in one of the regions above (the one you deployed the model to).
+
+Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Azure can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
+
+### Scenarios and applications
+
+Azure FPGAs are integrated with Azure Machine Learning. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency, while freeing CPUs for other tasks.
+
+The following scenarios use FPGAs:
++ [Automated optical inspection system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
+
++ [Land cover mapping](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
+
+
+
+## Deploy a model as a web service on an FPGA with Azure Machine Learning service
+
+You can deploy a model as a web service on FPGAs with Azure Machine Learning Hardware Accelerated Models. Using FPGAs provides ultra-low latency inference, even with a single batch size. Inference, or model scoring, is the phase where the deployed model is used for prediction, most commonly on production data.
+
 
 ## Prerequisites
 
@@ -67,9 +114,6 @@ FPGAs are available in these Azure regions:
     pip install --upgrade azureml-accel-models
     ```
 
-## Sample notebooks
-
-For your convenience, [sample notebooks](https://aka.ms/aml-accel-models-notebooks) are available for the example below and other examples.
 
 ## Create and containerize your model
 
@@ -82,6 +126,8 @@ Follow the instructions to:
 * Deploy the model
 * Consume the deployed model
 * Delete deployed services
+
+Use the [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) to create a service definition. A service definition is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command automatically compresses the definition and graphs into a ZIP file, and uploads the ZIP to Azure Blob storage. The DNN is already deployed to run on the FPGA.
 
 ### Load Azure ML workspace
 
@@ -193,7 +239,7 @@ The available models and the corresponding default classifier output tensors are
 
 ### Register model
 
-[Register](./concept-model-management-and-deployment.md) the model that you created.  Adding tags and other metadata about the model helps you keep track of your trained models.
+[Register](./concept-model-management-and-deployment.md) the model by using the SDK with the ZIP file in Azure Blob storage. Adding tags and other metadata about the model helps you keep track of your trained models.
 
 ```python
 from azureml.core.model import Model
@@ -365,15 +411,27 @@ registered_model.delete()
 converted_model.delete()
 ```
 
-## Deploy to a local edge server
+### Deploy to a local edge server
 
 All [Azure Data Box Edge devices](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
 ) contain an FPGA for running the model.  Only one model can be running on the FPGA at one time.  To run a different model, just deploy a new container. Instructions and sample code can be found in [this Azure Sample](https://github.com/Azure-Samples/aml-hardware-accelerated-models).
 
 ## Secure FPGA web services
 
-For information on securing FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
+To secure your FPGA web services, see the [Secure web services](how-to-secure-web-service.md) document.
 
 ## PBS Family VMs
 
 The PBS Family of Azure VMs contains Intel Arria 10 FPGAs.  It will show as "Standard PBS Family vCPUs" when you check your Azure quota allocation.  The PB6 VM has six vCPUs and one FPGA, and it will automatically be provisioned by Azure ML as part of deploying a model to an FPGA.  It is only used with Azure ML, and it cannot run arbitrary bitstreams.  For example, you will not be able to flash the FPGA with bitstreams to do encryption, encoding, etc. 
+
+## Next steps
+
+Check out these notebooks, videos, and blogs:
+
++ Several [sample notebooks](https://aka.ms/aml-accel-models-notebooks).
+
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://channel9.msdn.com/events/Build/2018/BRK3202)
+
++ [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
+
++ [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/research/project/project-brainwave/)
