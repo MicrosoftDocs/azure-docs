@@ -67,7 +67,7 @@ For the best possible experience, we recommend you configure your Log Analytics 
 You can run a PowerShell script to create a Log Analytics workspace and configure the recommended Windows performance counters to monitor user experience and app performance.
 
 >[!NOTE]
->If you already have an existing Log Analytics workspace that you made without the PowerShell script that you want to use, skip ahead to [Validate the script results in the Azure Portal](#validate-the-script-results-in-the-azure-portal).
+>If you already have an existing Log Analytics workspace that you made without the PowerShell script that you want to use, skip ahead to [Validate the script results in the Azure portal](#validate-the-script-results-in-the-azure-portal).
 
 To run the PowerShell script:
 
@@ -78,12 +78,12 @@ To run the PowerShell script:
     - For **ResourceGroupName**, enter the name for the resource group.
     - For **LogAnalyticsWorkspaceName**, enter a unique name for your Log Analytics workspace.
     - For **Location**, enter the Azure region you're using.
-    - Enter the **Azure Subscription ID**, which you can find in the Azure Portal under **Subscriptions**.
+    - Enter the **Azure Subscription ID**, which you can find in the Azure portal under **Subscriptions**.
 
 4. Enter the credentials of a user with delegated admin access.
 5. Sign in to the Azure portal with the same user's credentials.
 6. Write down or memorize the LogAnalyticsWorkspace ID for later.
-7. If you set up the Log Analytics workspace with the PowerShell script, then your performance counters should already be configured and you can skip ahead to [Validate the script results in the Azure Portal](#validate-the-script-results-in-the-azure-portal). Otherwise, proceed to the next section.
+7. If you set up the Log Analytics workspace with the PowerShell script, then your performance counters should already be configured and you can skip ahead to [Validate the script results in the Azure portal](#validate-the-script-results-in-the-azure-portal). Otherwise, proceed to the next section.
 
 ### Configure Windows performance counters in your existing Log Analytics workspace
 
@@ -91,7 +91,7 @@ This section is for users who want to use an existing Azure Log Analytics worksp
 
 Here's how to manually configure the recommended performance counters:
 
-1. Open your internet browser and sign in to the [Azure Portal](https://portal.azure.com/) with your administrative account.
+1. Open your internet browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. Next, go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
 3. In the **Settings** section, select  **Advanced settings**.
 4. After that, navigate to **Data** > **Windows Performance Counters** and add the following counters:
@@ -107,7 +107,7 @@ Learn more about the performance counters at [Windows and Linux performance data
 >[!NOTE]
 >Any additional counters you configure won’t show up in the diagnostics tool itself. To make it appear in the diagnostics tool, you need to configure the tool's config file. Instructions for how to do this with advanced administration will be available in GitHub at a later date.
 
-## Validate the script results in the Azure Portal
+## Validate the script results in the Azure portal
 
 Before you continue deploying the diagnostics tool, we recommend that you verify that your Azure Active Directory application has API permissions and your Log Analytics workspace has the preconfigured Windows performance counters.
 
@@ -115,17 +115,17 @@ Before you continue deploying the diagnostics tool, we recommend that you verify
 
 To make sure your app registration has API permissions:
 
-1. Open a browser and connect to the [Azure Portal](https://portal.azure.com/) with your administrative account.
+1. Open a browser and connect to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. Go to **App registrations** and look for your Azure AD App registration.
 
-      ![The API permissions page.](media/62579307-42de2b80-b858-11e9-8fc5-d32b8b387efd.png)
+      ![The API permissions page.](media/api-permissions-page.png)
 
 
 ### Review your Log Analytics workspace
 
 To make sure your Log Analytics workspace has the preconfigured Windows performance counters:
 
-1. In the [Azure Portal](https://portal.azure.com/), go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
+1. In the [Azure portal](https://portal.azure.com/), go to **Log Analytics workspaces** to review the configured Windows Performance Counters.
 2. Under **Settings**, select **Advanced settings**.
 3. After that, go to **Data** > **Windows Performance Counters**.
 4. Make sure the following counters are preconfigured:
@@ -140,7 +140,7 @@ To make sure your Log Analytics workspace has the preconfigured Windows performa
 
 In order to be able to view the health of VMs you will need to enable the Log Analytics connection. Follow these steps to connect your VMs:
 
-1. Open a browser and sign in to the [Azure Portal](https://portal.azure.com/) with your administrative account.
+1. Open a browser and sign in to the [Azure portal](https://portal.azure.com/) with your administrative account.
 2. Go to to your Log Analytics Workspace.
 3. In the left panel, under Workspace Data Sources, select **virtual machines**.
 4. Select the name of the VM you want to connect to.
@@ -167,7 +167,7 @@ After that, you need to set the Redirect URI.
 
 To set the Redirect URI:
 
-1.  In the [Azure Portal](https://portal.azure.com/), go to **App Services** and locate the application you just created.
+1.  In the [Azure portal](https://portal.azure.com/), go to **App Services** and locate the application you just created.
 2.  Go to the overview page and copy the URL you find there.
 3.  Navigate to **app registrations** and select the app you want to deploy.
 4.  In the left panel, under Manage section, select **Authentication**.
@@ -175,7 +175,7 @@ To set the Redirect URI:
 6. Select **Web** in the drop-down menu under Type.
 7. Enter the URL from the app overview page and add **/security/signin-callback** to the end of it. For example: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
-   ![The redirect URI page](media/62579062-9c922600-b857-11e9-96f3-ba0dd9b915c5.png)
+   ![The redirect URI page](media/redirect-uri-page.png)
 
 8. Now, go to your Azure resources, select the Azure App Services resource with the name you provided in the template and navigate to the URL associated with it. (For example, if the app name you used in the template was `contosoapp45`, then your associated URL is <https://contosoapp45.azurewebsites.net>).
 9. Sign in using the appropriate Azure Active Directory user account.
