@@ -652,7 +652,7 @@ Below is an example of how to add a single value to the default parameterization
 
 If you've set up continuous integration and deployment (CI/CD) for your Data Factories, you may run into the Azure Resource Manager template limits as your factory grows bigger. An Example of a limit is the maximum number of resources in a Resource Manager template. To accommodate large factories, along with generating the full Resource Manager template for a factory, Data Factory now generates Linked Resource Manager templates. With this feature, the entire factory payload is broken down into several files so you don’t run into the limits.
 
-If you've configured Git , the linked templates are generated and saved alongside the full Resource Manager templates in the `adf_publish` branch under a new folder called `linkedTemplates`.
+If you've configured Git, the linked templates are generated and saved alongside the full Resource Manager templates in the `adf_publish` branch under a new folder called `linkedTemplates`.
 
 ![Linked Resource Manager templates folder](media/continuous-integration-deployment/linked-resource-manager-templates.png)
 
