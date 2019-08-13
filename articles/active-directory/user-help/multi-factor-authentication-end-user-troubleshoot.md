@@ -92,7 +92,7 @@ App passwords replace your normal password for older desktop applications that d
 
 ## Why can't I turn two-factor verification off?
 
-If you're using two-factor verification with your work or school account, it means that you've been required by your organization to use this added security feature. Because your organization controls your work or school account, you can't turn this feature off. If, however, you're using two-factor verification with a personal account, like alain@outlook.com or alain@gmail.com, you have the ability to turn the feature on and off. For instructions about how to turn on personal Microsoft accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). For information about turning of non-Microsoft personal accounts, see the online documentation for that feature. For example, review Google's online help to learn about how to control two-factor verification for Google apps.
+If you're using two-factor verification with your work or school account, it means that you've been required by your organization to use this added security feature. Because your organization controls your work or school account, you can't turn this feature off. If, however, you're using two-factor verification with a personal account, like alain@outlook.com, you have the ability to turn the feature on and off. For instructions about how to turn on personal Microsoft accounts, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## I didn't find an answer to my problem
 

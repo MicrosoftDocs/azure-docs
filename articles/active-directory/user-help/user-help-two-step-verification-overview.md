@@ -35,8 +35,6 @@ Depending on your account type, your organization might decide that you must use
 
 - **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com). If you're having problems with two-factor verification and your personal Microsoft account, see [Turning two-factor verification on or off for your Microsoft account](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off). Because you choose whether to use this feature, you can turn it on and off whenever you want.
 
-- **Non-Microsoft personal account.** You can choose to set up two-factor verification for your non-Microsoft personal accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in settings** areas for the app. Because you choose whether to use this feature, you can turn it on and off whenever you want. For assistance with turning two-factor verification on or off, you must look at the help provided by that app. For example, you must look at Google's online help if you're trying to turn on two-factor authentication for Google.
-
 ## Two-factor verification-related articles
 
 For detailed information and instructions about setting up, using, and maintaining two-factor verification, see the following articles:
