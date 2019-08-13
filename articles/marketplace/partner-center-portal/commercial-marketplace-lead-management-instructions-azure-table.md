@@ -132,6 +132,9 @@ In the next few steps you will set up the action to take based on the result of 
 
     ![Azure Table - Condition, **If yes**, send email.](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-condition-if-yes-send-email.png)
 
+    >[!Note]
+    >If you want to use a different email provider search for and select Send an email notification (Mail) as the action instead. The instructions will show you how to configure using Office 365 Outlook but the instructions are similar for a different email provider.
+
 19. In the **Office 365 Outlook** window, provide information for the following fields:
 
     1. **To** - Enter an email address for everyone that will get this notification.
@@ -180,6 +183,4 @@ When leads are generated, Microsoft sends leads to the Azure Table. If you confi
 ![Lead management - connection details](./media/commercial-marketplace-lead-management-instructions-azure-table/connection-details.png)
 
 ![Lead management - connection details storage account](./media/commercial-marketplace-lead-management-instructions-azure-table/azure-table-connection-details.png)
-
-## Next steps
 

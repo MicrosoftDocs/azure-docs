@@ -1,6 +1,6 @@
 ---
-title: Dynamics CRM | Azure Marketplace
-description: Configure lead management for Dynamics CRM.
+title: Lead management for Dynamics 365 for Customer Engagement | Azure Marketplace
+description: Configure lead management for Dynamics 365 for Customer Engagement.
 services: Azure, Marketplace, commercial marketplace, Partner Center
 author: qianw211
 ms.service: marketplace
@@ -10,16 +10,16 @@ ms.author: evansma
 ---
 
 
-# Configure lead management for Dynamics CRM online
+# Configure lead management for Dynamics 365 for Customer Engagement
 
-This article describes how to set up Dynamics 365 for Customer Engagement (previously Dynamics CRM) Online, read more about the change [here](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) to process sales leads from your marketplace offer. 
+This article describes how to set up Dynamics 365 for Customer Engagement Online, read more about the change [here](https://docs.microsoft.com/dynamics365/customer-engagement/admin/switch-dynamics-crm-online-dynamics-365) to process sales leads from your marketplace offer. 
 
 >[!Note]
 >These instructions are specific for the Microsoft hosted cloud Dynamics 365 for Customer Engagement environment. If you want to connect to a Dynamics on-prem environment, you should look at setting up a [https endpoint](./commercial-marketplace-lead-management-instructions-https.md) or an [Azure table](./commercial-marketplace-lead-management-instructions-azure-table.md) to receive leads.
 
 ## Prerequisites
 
-The following user permissions are need for completing the steps in this article:
+The following user permissions are needed for completing the steps in this article:
 
 * You need to be an admin on your Dynamics 365 for Customer Engagement instance to be able to install a solution and follow these instructions.
 * You need to be a tenant admin to create a new service account for the lead service used to send leads from marketplace offers.
@@ -45,7 +45,7 @@ The following user permissions are need for completing the steps in this article
 
 5. Once on the Solutions page, select **Import** and navigate to where you saved the *Microsoft Marketplace Lead Writer* solution that you downloaded in step 1.
 
-    ![Dynamics CRM - Import](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-crm-import.png)
+    ![Dynamics 365 for Customer Engagement - Import](./media/commercial-marketplace-lead-management-instructions-dynamics/dynamics-crm-import.png)
 
 6. Complete importing the solution by following the Import solution wizard.
 
@@ -56,7 +56,7 @@ To write leads into your Dynamics 365 for Customer Engagement instance, you must
 Use the following steps to create the service account and assign permissions. You can use **Azure Active Directory** or **Office 365**.
 
 >[!Note]
->The recommended option is using Azure Active Directory as with Office 365.  We require for you to update your username and password in the publishing portal every 90 days to continue getting leads.
+>Based on the authentication option you select, you can skip to the corresponding instructions based on your choice. See [Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/develop/) or [Office 365](??).
 
 ### Azure Active Directory
 

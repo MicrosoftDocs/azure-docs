@@ -9,61 +9,56 @@ ms.date: 08/01/2019
 ms.author: evansma
 ---
 
-# Get customer leads
+# Customer leads from your marketplace offer
 
-This article explains how to create customer leads. You can connect these leads to your CRM system, and integrate them into your sales pipeline.
+Leads are customers interested in, or deploying your offers from the [Azure Marketplace](https://azuremarketplace.microsoft.com) or from [AppSource](https://appsource.microsoft.com). You will receive customer leads once your offer is published to the marketplace. This article will explain:
 
-## Leads
+* How your marketplace offer generates customers leads, ensuring that you don’t miss out on business opportunities. 
+* Connect your CRM to your offer, so you can manage your leads in one central location.
+* Understand the lead data we send you, so you can follow up on those who reached out to you.
 
-Leads are customers that are interested in, or are deploying your products from the [Azure Marketplace](https://azuremarketplace.microsoft.com/) or from [AppSource](https://appsource.microsoft.com).
+## Generate customer leads
 
-### Azure Marketplace
+Here are places where a lead is generated:
 
-1.  Customer takes a "Test Drive" of your offer. Test Drives are an
-    accelerated opportunity for you to share your business instantly
-    with potential customers without any barriers to entry. All Test
-    Drives generate a lead for a customer that's interested in
-    trying your product to learn more. Learn more about Test Drives at  [Azure Marketplace Test Drive](https://azuremarketplace.azureedge.net/documents/azure-marketplace-test-drive-program.pdf).
+1. When a customer consents to sharing their information after selecting “Contact me” from the marketplace. This lead is an **initial interest** lead, where we share information about the customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
 
-    ![Marketplace test drive examples](./media/commercial-marketplace-get-customer-leads/test-drive-offer.png)
+      ![Dynamics 365 Contact Me](./media/commercial-marketplace-get-customer-leads/dynamics-365-contact-me.png)
 
-1. Customer consents to sharing their information after selecting "Get it now". This lead is an **initial interest** lead, where we share information about customer who has expressed interest in getting your product. The lead is the top of the acquisition funnel.
+2. When a customer selects “Get it Now” or "Create" (in the [Azure Portal](https://portal.azure.com/)) to get your offer. This lead is an **active lead**, where we share information about a customer who has started to deploy your product.
 
-   ![Get it now option](./media/commercial-marketplace-get-customer-leads/get-it-now-button.png)
+    ![SQL Get it Now](./media/commercial-marketplace-get-customer-leads/sql-get-it-now.png)
 
-1. Customer selects "Purchase" in the [Azure Portal](https://portal.azure.com/) to get your product. This lead is an **active** lead, where we share information about a customer who has started to deploy your product.
+    ![Windows Server Create](./media/commercial-marketplace-get-customer-leads/windows-server-create.png)
 
-   ![Purchase option](./media/commercial-marketplace-get-customer-leads/purchase-button.png)
+3. When a customer takes a "Test Drive" or starts a “Free Trial” of your offer. Test Drives or free trials are an accelerated opportunity for you to share your business instantly with potential customers without any barriers of entry. 
 
+    ![Dynamics 365 Test Drive](./media/commercial-marketplace-get-customer-leads/dynamics-365-test-drive.png)
 
-### AppSource
+    ![Dynamics 365 Test Drive](./media/commercial-marketplace-get-customer-leads/dynamics-365-free-trial.png)
 
-1.  Customer took a "Test Drive" for your offer. Test Drives are an
-    accelerated opportunity for you to share your business instantly
-    with potential customers without any barriers to entry. All Test
-    Drives will generate a lead of a customer that's interested in
-    trying your product to learn more. Learn more about Test Drives at [AppSource Test Drive](https://appsource.microsoft.com/blogs/want-to-try-an-app-take-a-test-drive).
+## Connect to your CRM system
 
-    ![Test drive example](./media/commercial-marketplace-get-customer-leads/test-drive-offer-2.png)
+While publishing your offer to the marketplace via Partner Center, you will need to connect your offer to your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
 
-2.  Customer consents to sharing their information after selecting "Get it now". This lead is an **initial interest** lead, where we share information about customer who expresses interest in getting your product. The lead is the top of the acquisition funnel.
+1. **Select a lead destination where you want us to send customer leads**. The following CRM systems are supported:
 
-      ![Get it now option](./media/commercial-marketplace-get-customer-leads/get-it-now-button-2.png)
+    * [Dynamics 365](./commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
+    * [Marketo](./commercial-marketplace-lead-management-instructions-marketo.md)
+    * [Salesforce](./commercial-marketplace-lead-management-instructions-salesforce.md)
 
-3.  Customer selects "Contact me" on your offer. This lead is an **active** lead, where we share information about a customer who asks to be followed up with about your product.
+    If your CRM system is not explicitly supported in the list above, you have the following options which allow you to store the customer lead data, and then you can export or import these data into your CRM system.
 
-    ![Contact me option](./media/commercial-marketplace-get-customer-leads/contact-me-image.png)
+2. Read the documentation linked above to your selected lead destination to see how to set up the lead destination to receive leads from your marketplace offer. 
+3. Connect your offer to the lead destination while publishing the offer to the marketplace in Partner Center. How to do this is covered in the documentation linked above.
+4. Confirm the connection to the lead destination is set up properly. Once you have configured your lead destination properly and have hit Publish on your offer in Partner Center, we will validate the connection and send you a test lead. When you are viewing the offer before you go live, you can also test your lead connection by trying to acquire the offer yourself in the preview environment. 
+5. Make sure the connection to the lead destination stays up-to-date so that you don’t lose any leads, so make sure you update these connections whenever something has changed on your end.
 
-## Lead Data
+## Understand lead data
 
-Each lead you receive during the customer acquisition process has data in specific fields. Because you'll get leads from multiple steps, the best way to handle the leads is to de-duplicate and personalize the follow-ups. This way each customer is getting an appropriate message, and you're creating a unique relationship.
+Each lead you receive during the customer acquisition process has data in specific fields. The first field to look out for is the `LeadSource` field which follows this format: **Source-Action** | **Offer**.
 
-### Lead Source
-
-The format for a lead source is **Source**-**Action** |  **Offer**
-
-**Sources**: "AzureMarketplace", "AzurePortal", "TestDrive", and
-"AppSource (SPZA)"
+**Sources**: The value for this field is populated based on the marketplace which generated the lead. Possible values are `"AzureMarketplace"`, `"AzurePortal"`, and `"AppSource (SPZA)"`.
 
 **Actions**:
 - "INS" -- Installation. This action is on Azure Marketplace or
@@ -76,13 +71,18 @@ listed on your app, but they don't need to be contacted.
 - "Create" -- This action is only inside the Azure Portal and is generated when a customer purchases your offer to their account.
 - "StartTestDrive" -- This action is for only for Test Drives, and is generated when a customer starts their test drive.
 
-**Offers**
+**Offers**: You may have multiple offers in the marketplace. The value for this field is populated based on the offer which generated the lead. The Publisher ID and Offer ID are both sent in this field and are values you provided when you published the offer to the marketplace.
 
-The following examples show unique identifiers that are assigned to a publisher and a specific offer: checkpoint.check-point-r77-10sg-byol, bitnami.openedxcypress, and docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145a.
+The following examples show example values in the expected format `publisherid.offerid`: 
 
-### Customer Info
+1. `checkpoint.check-point-r77-10sg-byol`
+1. `bitnami.openedxcypress`
+1. `docusign.3701c77e-1cfa-4c56-91e6-3ed0b622145`
 
-The fields in the following example show the customer information that's contained in a lead.
+## Customer Info
+
+The customer’s information is sent via multiple fields. The following example show the customer information that's contained in a lead.
+
 - FirstName: John
 - LastName: Smith
 - Email: jsmith\@microsoft.com
@@ -92,60 +92,80 @@ The fields in the following example show the customer information that's contain
 - Title: CTO
 
 >[!Note]
->Not all the data in the previous example is always available for each lead.
+>Not all the data in the previous example is always available for each lead. Because you'll get leads from multiple steps as mentioned in the Customer Leads section, the best way to handle the leads is to de-duplicate the records and personalize the follow-ups. This way each customer is getting an appropriate message, and you're creating a unique relationship.
 
-We are actively working on enhancing leads, so if there is a data field that you do not see here but would like to have, please [send us your feedback](mailto:AzureMarketOnboard@microsoft.com).
+## Best practices for lead management
 
-## Connect lead management
+1. *Process* - Define a clear sales process, with milestones, KPIs, and clear team ownership.
+2. *Qualification* - Define prerequisites which indicate whether a lead has been fully qualified. Ensure sales or marketing representatives qualify leads carefully before taking them through the full sales process.
+3. *Follow up* - Don’t forget to follow up, expect the typical transaction to require 5 to 12 follow up calls
+4. *Nurture* - Nurture your leads; this could get you on the way to a higher profit margin.
 
-Connect with customers directly by listing your offer in the marketplaces and hooking up your Customer Relationship Management (CRM) system so that you can receive customer contact information immediately after a customer expresses interest or deploys your product.
+## Leads frequently asked questions
 
-- **Choose a lead destination** (drop-down menu): Provide connection details to the CRM system where you would like us to send customer leads. 
+### Where can I get help in setting up my lead destination?
 
-Partner Center supports the following CRM systems for lead management. Select the link for setup instructions.
+You can find documentation [here](??) or submit a support ticket through [aka.ms\/marketplacepublishersupport](aka.ms/marketplacepublishersupport) by selecting the offer type and lead management.
 
-- [Azure Blob](./commercial-marketplace-lead-management-instructions-azure-blob.md) – Provide contact email, container name, and storage account connection string. 
-- [Azure Table](./commercial-marketplace-lead-management-instructions-azure-table.md) – Provide contact email and storage account connection string. 
-- [Dynamics CRM Online](./commercial-marketplace-lead-management-instructions-dynamics.md) – Provide contact email, URL, and authentication mode (Office 365 or Azure Active Directory).
-- [Https Endpoint](./commercial-marketplace-lead-management-instructions-https.md) – Provide contact email and HTTPS endpoint URL. 
-- [Marketo](./commercial-marketplace-lead-management-instructions-marketo.md) – Provide contact email, form ID, Munchkin account ID, and server ID.
-- [Salesforce](./commercial-marketplace-lead-management-instructions-salesforce.md) -  Provide contact email and organization ID. 
+### Am I required to configure a lead destination in order to publish an offer on Marketplace?
 
-#### Additional lead management resources
-- [Lead management FAQs](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [Common lead configuration errors](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+Only if you are publishing a Contact Me SaaS app, or a Consulting Services. However, it is recommended you configure a lead destination so you don’t miss out on business opportunities.
 
-Remember to **Save** before moving on to the next section!
+### How can I find the test lead?
 
-<!---
-How to connect your CRM system with the Cloud Partner Portal
-------------------------------------------------------------
+Search for `“MSFT_TEST”` in your lead destination, here’s a sample test lead data:
 
-To start getting leads, we've built our Lead Management connector on the Cloud Partner Portal so that you can easily plug in your CRM
-information, and we will make the connection for you. Now you can easily leverage the leads generated by the marketplace without a significant engineering effort to integrate with an external system.
+```
+company = MSFT_TEST_636573304831318844
+country = US
+description = MSFT_TEST_636573304831318844
+email = MSFT_TEST_636573304831318844@test.com
+encoding = UTF-8
+encoding = UTF-8
+first_name = MSFT_TEST_636573304831318844
+last_name = MSFT_TEST_636573304831318844
+lead_source = MSFT_TEST_636573304831318844-MSFT_TEST_636573304831318844|<Offer Name>
+oid = 00Do0000000ZHog
+phone = 1234567890
+title = MSFT_TEST_636573304831318844
+```
 
-![Lead management connector](./media/cloud-partner-portal-get-customer-leads/lead-management-connector.png)
+### I have a live offer, but I’m not seeing any leads?
 
-We can write leads into a variety of CRM systems or directly to an Azure Storage Table where you can manage the leads however you'd like. Each of the following links provide instructions for connecting to possible lead destinations:
+Make sure your connection to the lead destination is valid. We will send you a test lead after hitting publish on your offer in Partner Center. If you see the test lead then the connection is valid. You can also test your lead connection by trying to acquire the offer preview during the preview step by clicking “get it now” or “contact me” on the marketplace.
+Also, make sure you are looking for the right data. The content in the [Understand lead data]() section of this document describes the lead data we send to your lead destination.
 
--   [Dynamics CRM Online](./cloud-partner-portal-lead-management-instructions-dynamics.md) to get the instructions on how to configure Dynamics CRM Online for getting leads.
--   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md) to get the instructions for setting up Marketo Lead Configuration to get leads.
--    [Salesforce](./cloud-partner-portal-lead-management-instructions-salesforce.md) to get instructions for setting up your Salesforce instance to get leads.
--    [Azure Table](./cloud-partner-portal-lead-management-instructions-azure-table.md) to get the instructions for setting up your Azure storage account for getting leads in an Azure table.
--   [Https Endpoint](./cloud-partner-portal-lead-management-instructions-https.md) to get the instructions for setting up your Https Endpoint to get leads.
+### I have configured Azure BLOB as my lead destination, why don't I see the lead?
 
-After you configure your lead destination and Publish your offer, we'll validate the connection and send you a
-test lead. When you are viewing the offer before you go live, you can
-also test your lead connection by trying to acquire the offer yourself in the preview environment. It's important to make sure that your lead settings stay up-to-date so that you don't lose any leads, so make sure you update these connections whenever something has changed on your end.
---->
+The Azure Blob lead destination is no longer supported so you are missing out on any customer leads generated by your offer. Switch to any of the other [lead destination options](./commercial-marketplace-get-customer-leads.md). 
 
-## What next?
+### I received an email from Marketplace, why can't I find the lead in my CRM?
 
-Once the technical set up is in place, you should incorporate these
-leads into your current sales & marketing strategy and operational
-processes. We are very interested in better understanding your overall sales process and want to work closely with you on providing
-high-quality leads and enough data to make you successful. We welcome
-your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Please let us know if you're interested in [providing
-feedback](mailto:AzureMarketOnboard@microsoft.com) and suggestions to
-enable your sales team to be more successful with Marketplace Leads.
+It's possible that the end user's email domain is from .edu. For privacy reasons we don't pass PII data from .edu domain. Submit a support ticket through [aka.ms\/marketplacepublishersupport](aka.ms/marketplacepublishersupport).
+
+### I have configured Azure Table as my lead destination, how can I view the leads?
+
+You can access the table from the Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables.
+
+### I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?
+
+Yes, follow the instructions to set up a Microsoft flow with an Azure Table on the documentation [here](./commercial-marketplace-lead-management-instructions-azure-table.md).
+
+### I have configured Salesforce as my lead destination, why can't I find the leads?
+
+Check if the “web to lead” form is a mandatory field based on a picklist. If yes, switch over the field to a non-mandatory text field.
+
+### There was an issue with my lead destination, and I missed some leads. Can I have them sent to me in an email?
+
+Due to PII (Private Identifiable Information) policies, we cannot share lead information through unsecured email.
+
+### I have configured Azure Table as my lead destination, how much will it cost?
+
+Lead gen data is low (<1 GB for almost all publishers). The cost will depend on number of leads received, if 1,000 leads are received in a month, it costs around 50 cents. For more information about storage pricing, see [storage pricing](https://azure.microsoft.com/pricing/details/storage/).
+
+If your question is still not answered, contact Support through aka.ms/marketplacepublishersupport, then select **‘offer creation’** → **your type of offer** → **‘lead management configuration.’** 
+
+## Next steps
+
+Once the technical set up is in place, you should incorporate these leads into your current sales & marketing strategy and operational processes. We are very interested in better understanding your overall sales process and want to work closely with you on providing high-quality leads and enough data to make you successful. We welcome your feedback on how we can optimize and enhance the leads we send you with additional data to help make these customers successful. Please let us know if you're interested in [providing
+feedback](mailto:AzureMarketOnboard@microsoft.com) and suggestions to enable your sales team to be more successful with Marketplace Leads.

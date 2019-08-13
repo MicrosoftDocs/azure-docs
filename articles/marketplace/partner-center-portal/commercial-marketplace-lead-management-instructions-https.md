@@ -98,6 +98,9 @@ If your Customer Relationship Management (CRM) system is not explicitly supporte
     }
     ```
 
+>[!Note]
+>At this point in the configuration you can select to either connect to a CRM system or configure an email notification. Follow the remaining instructions based on your choice.
+
 ### To connect to a CRM system
 
 1. Select **+ New step**.
@@ -210,6 +213,3 @@ When leads are generated, Microsoft sends leads to the Flow, which get routed to
 
 ![Connection details](./media/commercial-marketplace-lead-management-instructions-https/connection-details-1.png)
 
-## Next steps
-
-If you haven't already done so, configure customer [leads](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads) in the Cloud Partner Portal.

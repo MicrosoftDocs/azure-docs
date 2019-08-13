@@ -11,7 +11,7 @@ ms.author: evansma
 
 # Configure lead management in Marketo
 
-This article describes how to set up Marketo to handle Microsoft sales leads.
+This article describes how to set up your Marketo CRM system to process sales leads from your marketplace offer.
 
 1. Sign in to Marketo.
 2. Select **Design Studio**.
@@ -54,7 +54,7 @@ This article describes how to set up Marketo to handle Microsoft sales leads.
 
     - Server ID is found in the URL of your Marketo instance,  for example, "`serverID.marketo.com`".
     - Get your subscription’s Munchkin ID by going to your Admin>Munchkin menu in the “Munchkin Account ID” field, or from the first part of your Marketo REST API host subdomain: `https://{Munchkin ID}.mktorest.com`.
-    - The ID of the Embed Code form you created to route leads from our marketplace.
+    - Form ID is the ID of the Embed Code form you created in step 7 to route leads from our marketplace.
 
 ## Configure your offer to send leads to Marketo
 
