@@ -85,7 +85,7 @@ To access Azure Monitor for VMs directly from a storage account:
 
 2. From the list, choose a storage account. In the Monitoring section, choose Insights (preview).
 
-![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 On the **Overview** workbook for the storage account, it shows several storage key performance indicators (KPIs) that help you quickly assess:
 
@@ -117,7 +117,7 @@ Whether you selected a value in the columns **Availability**, **E2E Latency**, *
 
 * **Capacity** opens the **Capacity** workbook. It shows the total amount of storage used for each storage data object in the account in the tiles and the chart, and how many data objects are defined in the account.  
 
-![Selected storage account Capacity page](./media/storage-insights-overview/storage-account-capacity-01.png) 
+    ![Selected storage account Capacity page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
 There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.
 
