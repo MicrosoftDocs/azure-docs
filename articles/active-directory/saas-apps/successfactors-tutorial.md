@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with SuccessFactors | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with SuccessFactors | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and SuccessFactors.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with SuccessFactors
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with SuccessFactors
 
 In this tutorial, you'll learn how to integrate SuccessFactors with Azure Active Directory (Azure AD). When you integrate SuccessFactors with Azure AD, you can:
 
@@ -55,7 +55,7 @@ To configure the integration of SuccessFactors into Azure AD, you need to add Su
 1. Select **SuccessFactors** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for SuccessFactors
+## Configure and test Azure AD SSO for SuccessFactors
 
 Configure and test Azure AD SSO with SuccessFactors using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in SuccessFactors.
 
@@ -238,7 +238,7 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the SuccessFactors tile in the Access Panel, you should be automatically signed in to the SuccessFactors for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional Resources
+## Additional resources
 
 - [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
