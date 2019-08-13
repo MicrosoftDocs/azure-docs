@@ -171,6 +171,8 @@ You can perform the same changes against any one of the prebuilt **Failures**, *
 
 2. Select **Capacity** to switch to the capacity workbook and from the command bar, select **Edit** from the command bar.
 
+    ![Select edit to modify a workbook](./media/storage-insights-overview/workbook-edit-workbook.png)
+
 3. Next to the metrics section, select **Edit**. 
 
     ![Select Edit to modify capacity workbook metrics](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
