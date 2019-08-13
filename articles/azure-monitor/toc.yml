@@ -97,20 +97,12 @@
     items:
     - name: Overview 
       href: platform/alerts-overview.md
-    - name: Classic alerts 
-      href: platform/alerts-classic.overview.md  
     - name: Metric alerts
       href: platform/alerts-metric-overview.md
     - name: Log alerts
       href: platform/alerts-unified-log.md
     - name: Activity log alerts
       href: platform/activity-log-alerts.md  
-    - name: Common alert schema
-      href: platform/alerts-common-schema.md
-    - name: Action rules
-      href: platform/alerts-action-rules.md
-    - name: Smart groups
-      href: platform/alerts-smartgroups-overview.md 
     - name: Change analysis
       href: app/change-analysis.md 
   - name: Visualize data
@@ -646,8 +638,6 @@
           href: platform/azure-storage-iis-table.md
         - name: Archive to storage
           href: platform/archive-diagnostic-logs.md
-        - name: Stream data to Event Hubs
-          href: platform/diagnostic-logs-stream-event-hubs.md
         - name: Enable with Resource Manager templates
           href: platform/diagnostic-logs-stream-template.md
     - name: Azure Subscription
@@ -720,18 +710,20 @@
       items:
       - name: Custom metrics
         href: platform/metrics-custom-overview.md   
+      - name: Metrics REST API
+        href: platform/metrics-store-custom-rest-api.md
       - name: Log Analytics Data collector API 
         href: platform/data-collector-api.md
       - name: Log Analytics Data Collector API Pipeline example
         href: platform/create-pipeline-datacollector-api.md
-      - name: Metrics REST API
-        href: platform/metrics-store-custom-rest-api.md
     - name: Use System Center
       items:
       - name: Connect Operations Manager
         href: platform/om-agents.md
       - name: Assess Operations Manager
         href: insights/scom-assessment.md
+    - name: Stream data to Event Hubs
+      href: platform/diagnostic-logs-stream-event-hubs.md
   - name: Analyze data
     items:
     - name: Metrics
@@ -864,7 +856,7 @@
         href: app/monitor-web-app-availability.md
       - name: Metric alerts
         href: app/alerts.md
-    - name: Platform metric alert rules
+    - name: Metric alert rules
       items:
       - name: Manage metric alerts
         href: platform/alerts-metric.md
@@ -890,14 +882,18 @@
         href: platform/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
         href: platform/migrate-management-alerts.md
+    - name: Action rules (Preview)
+      href: platform/alerts-action-rules.md
     - name: Action groups
       items:
       - name: Create action group
         href: platform/action-groups.md
-      - name: Webhook schema
-        href: platform/activity-log-alerts-webhook.md
+      - name: Common alert schema
+        href: platform/alerts-common-schema.md        
       - name: Common alert schema definition
         href: platform/alerts-common-schema-definitions.md    
+      - name: Webhook schema
+        href: platform/activity-log-alerts-webhook.md
       - name: SMS alert behavior
         href: platform/alerts-sms-behavior.md
       - name: Alert rate limiting
@@ -912,6 +908,8 @@
       href: platform/alert-management-solution.md
     - name: Alert user interface
       items:
+      - name: About smart groups
+        href: platform/alerts-smartgroups-overview.md 
       - name: Manage alert instances
         href: platform/alerts-managing-alert-instances.md
       - name: Manage smart groups
@@ -922,6 +920,8 @@
         href: platform/alerts-managing-nagios-zabbix-scom.md   
     - name: Migrate classic alert rules
       items:
+      - name: About classic alerts 
+        href: platform/alerts-classic.overview.md  
       - name: Prepare for migration
         href: platform/alerts-prepare-migration.md
       - name: Understand the migration tool
