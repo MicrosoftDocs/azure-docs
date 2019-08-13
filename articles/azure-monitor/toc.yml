@@ -511,6 +511,10 @@
           href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: insights/containers.md
+    - name: Storage
+      items:
+      - name: Azure Monitor for Storage
+        href: insights/storage-insights-overview.md
     - name: Virtual machines
       items: 
       - name: Agents
@@ -708,8 +712,6 @@
         href: insights/ad-replication-status.md
       - name: Office 365
         href: insights/solution-office-365.md
-      - name: Azure Monitor for Storage
-        href: insights/storage-insights-overview.md  
       - name: Surface Hub
         href: insights/surface-hubs.md
     - name: Use monitoring solutions
