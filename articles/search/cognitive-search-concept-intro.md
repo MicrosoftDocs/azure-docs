@@ -1,7 +1,7 @@
 ---
 title: Introduction to cognitive search and AI enrichment - Azure Search
 description: Content extraction, natural language processing (NLP) and image processing to create searchable content in Azure Search indexing using cognitive skills and AI algorithms.
-manager: cgronlun
+manager: nitinme
 author: HeidiSteen
 services: search
 ms.service: search
