@@ -171,7 +171,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 1. After adding extension to the browser, click on **Setup Zscaler** will direct you to the Zscaler application. From there, provide the admin credentials to sign into Zscaler. The browser extension will automatically configure the application for you and automate steps 3-6.
 
-	![Setup sso](common/setup-sso.png)
+	![Setup SSO](common/setup-sso.png)
 
 1. If you want to setup Zscaler manually, open a new web browser window and sign into your Zscaler company site as an administrator and perform the following steps:
 
