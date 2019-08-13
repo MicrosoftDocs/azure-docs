@@ -28,7 +28,7 @@ The following items are required for completing the steps in this article:
 
 ## Install Spark & Hive Tools
 
-After you've completed the prerequisites, you can install Spark & Hive Tools for Visual Studio Code by following these steps:
+After you meet the prerequisites, you can install Spark & Hive Tools for Visual Studio Code by following these steps:
 
 1. Open Visual Studio Code.
 
@@ -60,14 +60,14 @@ To open a work folder and to create a file in Visual Studio Code, follow these s
 For a national cloud user, follow these steps to set the Azure environment first, and then use the **Azure: Sign In** command to sign into Azure:
    
 1. Select **File\Preferences\Settings**.
-2. Search **Azure: Cloud**
+2. Search on **Azure: Cloud**.
 3. Select the national cloud from the list.
 
    ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
 
 ## Connect to an Azure account
 
-Before you can submit scripts to your clusters from Visual Studio Code, you must either connect to your Azure account or link a cluster (using Apache Ambari username/password credentials or a domain-joined account). Follow these steps to connect to Azure:
+Before you can submit scripts to your clusters from Visual Studio Code, you must either connect to your Azure account or link a cluster (using Apache Ambari username and password credentials or a domain-joined account). Follow these steps to connect to Azure:
 
 1. From the menu bar, go to **View** > **Command Palette**, and enter **Azure: Sign In**:
 
@@ -90,7 +90,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 
 3. Enter the HDInsight cluster URL.
 
-4. Enter your Ambari user name; the default is **admin**.
+4. Enter your Ambari username; the default is **admin**.
 
 5. Enter your Ambari password.
 
@@ -113,7 +113,7 @@ You can link a normal cluster by using an [Apache Ambari](https://ambari.apache.
 3. Enter the generic Livy endpoint. For example: http\://10.172.41.42:18080.
 
 4. Select authorization type **Basic** or **None**.  If you select **Basic**:  
-    &emsp;a. Enter your Ambari user name; the default is **admin**.  
+    &emsp;a. Enter your Ambari username; the default is **admin**.  
     &emsp;b. Enter your Ambari password.
 
 5. Review **OUTPUT** view for verification.
@@ -336,30 +336,30 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
 
 
 ## Preview Hive Table
-You can preview Hive Table in your clusters directly through the **Azure HDInsight** explorer.
+You can preview Hive Table in your clusters directly through the **Azure HDInsight** explorer:
 1. [Connect](#connect-to-azure-account) to your Azure account if you haven't yet done so.
 
 2. Select the **Azure** icon from leftmost column.
 
 3. From the left pane, expand **AZURE HDINSIGHT**. The available subscriptions and clusters are listed.
 
-4. Expand the cluster to view hive metadata database and table schema.
+4. Expand the cluster to view the Hive metadata database and table schema.
 
-5. Right-click the Hive table. For example, **hivesampletable**. Select **Preview**. 
+5. Right-click the Hive table. For example: **hivesampletable**. Select **Preview**. 
 
    ![Spark & Hive for visual studio code preview hive table](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-hive-table.png)
 
-6. The **Preview Results** window is opened:
+6. The **Preview Results** window opens:
 
    ![Spark & Hive for Visual Studio Code preview results window](./media/hdinsight-for-vscode/hdinsight-for-vscode-preview-results-window.png)
    
-- **RESULTS** panel
+- RESULTS panel
 
    You can save the whole result as a CSV, JSON, or Excel file to a local path, or just select multiple lines.
 
-- **MESSAGES** panel
+- MESSAGES panel
    1. When the number of rows in the table is greater than 100, you see the following message: "The first 100 rows are displayed for Hive table."
-   2. When the number of rows in the table is less than or equal to 100, you see the following message: "60 rows are displayed for Hive table."
+   2. When the number of rows in the table is less than or equal to 100, you see a message like the following: "60 rows are displayed for Hive table."
    3. When there's no content in the table, you see the following message: "0 rows are displayed for Hive table."
 
 >[!NOTE]
@@ -381,7 +381,7 @@ Spark & Hive for Visual Studio Code also supports the following features:
 
 ## Reader-only role
 
-Users who are assigned the reader-only role for the cluster can no longer submit job to the HDInsight cluster nor view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
+Users who are assigned the reader-only role for the cluster can no longer submit jobs to the HDInsight cluster, nor can they view the Hive database. Contact the cluster administrator to upgrade your role to [**HDInsight Cluster Operator**](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-granular-access-cluster-configurations#add-the-hdinsight-cluster-operator-role-assignment-to-a-user) in the [Azure portal](https://ms.portal.azure.com/). If you have valid Ambari credentials, you can manually link the cluster by using the following guidance.
 
 ### Browse HDInsight Cluster  
 
@@ -389,32 +389,32 @@ When you select the Azure HDInsight explorer to expand an HDInsight cluster, you
 
 ### Submit job to HDInsight cluster
 
-When submitting job to an HDInsight cluster, you're prompted to link the cluster if you are reader only role for the cluster. Follow the steps below to link to the cluster via Ambari credentials. 
+When submitting job to an HDInsight cluster, you're prompted to link the cluster if you're in the reader-only role for the cluster. Use the following steps to link to the cluster by using Ambari credentials.
 
 ### Link to cluster
 
 1.	Enter a valid Ambari username.
 2.	Enter a valid password.
 
-   ![Spark & Hive Tools for Visual Studio Code User Name](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
+   ![Spark & Hive Tools for Visual Studio Code Username](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-username.png)
 
    ![Spark & Hive Tools for Visual Studio Code Password](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-password.png)
 
 > [!NOTE]
 >
->You can use Spark / Hive: List Cluster to check the linked cluster:
+>You can use `Spark / Hive: List Cluster` to check the linked cluster:
 >
 >![Spark & Hive Tools for Visual Studio Code Reader Linked](./media/hdinsight-for-vscode/list-cluster-result.png)
 
 ## Azure Data Lake Storage Gen2 (ADLS Gen2)
 
-### Browse an ADLS Gen2 Account
+### Browse an ADLS Gen2 account
 
-When you select the Azure HDInsight explorer to expand an ADLS Gen2 account, you're prompted to enter the storage access key if your Azure account has no access to the Gen2 storage. After the access key is validated, the ADLS Gen2 account is auto-expanded.
+When you select the Azure HDInsight explorer to expand an ADLS Gen2 account, you're prompted to enter the storage access key if your Azure account has no access to Gen2 storage. After the access key is validated, the ADLS Gen2 account is auto-expanded.
 
 ### Submit jobs to HDInsight cluster with ADLS Gen2
 
-When you submit a job to an HDInsight cluster by using ADLS Gen2, you're prompted to enter the storage access key if your Azure account has no write access to the Gen2 storage. After the access key is validated, the job will be successfully submitted.
+When you submit a job to an HDInsight cluster by using ADLS Gen2, you're prompted to enter the storage access key if your Azure account has no write access to Gen2 storage. After the access key is validated, the job will be successfully submitted.
 
 ![Spark & Hive Tools for Visual Studio Code AccessKey](./media/hdinsight-for-vscode/hdi-azure-hdinsight-azure-accesskey.png)   
 
