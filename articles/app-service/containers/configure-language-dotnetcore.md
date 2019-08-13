@@ -123,7 +123,7 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 ## Deploy multi-project solutions
 
-When you deploy an ASP.NET repository to the deployment engine with a *.csproj* file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with an *.sln* file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
+When you deploy an ASP.NET repository to the deployment engine with a *.csproj* file in the root directory, the engine deploys the project. When you deploy an ASP.NET repository with a *.sln* file in the root directory, the engine picks the first Web Site or Web Application Project it finds as the App Service app. It's possible for the engine not to pick the project you want.
 
 To deploy a multi-project solution, you can specify the project to use in App Service in two different ways:
 
