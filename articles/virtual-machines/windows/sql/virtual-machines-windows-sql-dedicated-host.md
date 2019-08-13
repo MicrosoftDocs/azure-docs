@@ -53,7 +53,7 @@ When deciding to license your SQL Server VM at the host level, consider the foll
 ## Provisioning  
 Provisioning a SQL Server VM to the dedicated host is no different than any other Azure Virtual Machine. You can do so using [Azure PowerShell](../dedicated-hosts-powershell.md), the [Azure portal](../dedicated-hosts-portal.md), and [Azure CLI](../../linux/dedicated-hosts-cli.md).
 
-The process of adding a SQL Server VM to the dedicated host requires downtime, but will not impact data, and will not have data loss. Nonetheless, all databases, including system databases, should be backed up prior to the move.
+The process of adding an existing SQL Server VM to the dedicated host requires downtime, but will not impact data, and will not have data loss. Nonetheless, all databases, including system databases, should be backed up prior to the move.
 
 ## Virtualization 
 
