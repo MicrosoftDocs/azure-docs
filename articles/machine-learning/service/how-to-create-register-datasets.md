@@ -41,10 +41,15 @@ To create and work with datasets, you need:
 
 ## Dataset Types
 Datasets are categorized into various types based on how users consume them in training. List of typed Datasets:
-- **FileDataset**: References single or multiple files in your datastores or public urls. The files can be of any format. FileDataset provides you with the ability to download the files to your compute.
-- **TabularDataset**: Represents data in a tabular format by parsing the provided file or list of files. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For the complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference). It provides you with the ability to materialize the data into a pandas DataFrame.
-- (upcoming) **LabeledDataset**: Represents labeled data that are produced by Azure Machine Learning Labeling service. LabaledDataset provides you with the ability to materialize the data into formats like [COCO](http://cocodataset.org/#homeo) or [TFRecord](https://www.tensorflow.org/tutorials/load_data/tf_records) on your compute.
-- (upcomping) **TimeSeriesDataset**: An extension of TabularDataset that allows for specification of a time column and filtering the Dataset by time.
+
+|Type | Description
+|-----| -----
+|**TabularDataset**| Represents data in a tabular format by parsing the provided file or list of files. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For the complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference). It provides you with the ability to materialize the data into a pandas DataFrame.
+|**FileDataset** <br> (upcoming)| References single or multiple files in your datastores or public urls. The files can be of any format. FileDataset provides you with the ability to mount or download the files to your compute.
+|**LabeledDataset** <br> (upcoming)| Represents labeled data that are produced by Azure Machine Learning Labeling service. LabaledDataset provides you with the ability to materialize the data into formats like [COCO](http://cocodataset.org/#homeo) or [TFRecord](https://www.tensorflow.org/tutorials/load_data/tf_records) on your compute.
+|**TimeSeriesDataset** <br> (upcoming)| An extension of TabularDataset that allows for specification of a time column and filtering the Dataset by time.
+
+To find out more about about upcoming API changes, please visit [here](https://aka.ms/tabular-dataset).  
 
 ## Create datasets 
 
@@ -98,26 +103,6 @@ titanic_ds.take(3).to_pandas_dataframe()
 1|2|1|1|Cumings, Mrs. John Bradley (Florence Briggs Th...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|1|3|Heikkinen, Miss. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
-### Create FileDatasets
-Use the `from_files()` method on `FileDatasetFactory` class to load files in any format, and create an unregistered FileDataset.
-
-```Python
-# create a FileDataset from multiple paths in datastore
-datastore_paths = [
-                  (datastore, 'animals/dog/1.jpg'),
-                  (datastore, 'animals/dog/2.jpg'),
-                  (datastore, 'animals/dog/*.jpg')
-                 ]
-animal_ds = Dataset.File.from_files(path=datastore_paths)
-
-# create a FileDataset from image and label files behind public web urls
-web_paths = [
-            'https://azureopendatastorage.blob.core.windows.net/mnist/train-images-idx3-ubyte.gz',
-            'https://azureopendatastorage.blob.core.windows.net/mnist/train-labels-idx1-ubyte.gz'
-           ]          
-mnist_ds = Dataset.File.from_files(path=web_paths)
-```
-
 ## Register datasets
 
 To complete the creation process, register your datasets with workspace:
@@ -125,9 +110,9 @@ To complete the creation process, register your datasets with workspace:
 Use the `register()` method to register datasets to your workspace so they can be shared with others and reused across various experiments.
 
 ```Python
-mnist_ds = mnist_ds.register(workspace = workspace,
-                             name = 'mnist_ds',
-                             description = 'mnist training images and labels')
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'titanic training data')
 ```
 
 ## Version datasets
@@ -137,49 +122,43 @@ You can register a new dataset under the same name by creating a new version. Da
 * When you are applying different data preparation or feature engineering approaches.
 
 ```Python
-# create a FileDataset from new image and label files
+# create a TabularDataset from new Titanic training data
 web_paths = [
-            'https://azureopendatastorage.blob.core.windows.net/mnist/t10k-images-idx3-ubyte.gz',
-            'https://azureopendatastorage.blob.core.windows.net/mnist/t10k-labels-idx1-ubyte.gz'
+            'https://dprepdata.blob.core.windows.net/demo/Titanic.csv',
+            'https://dprepdata.blob.core.windows.net/demo/Titanic2.csv'
            ]          
-mnist_ds2 = Dataset.File.from_files(path=web_paths)
+titanic_ds = Dataset.Tabular.from_delimited_files(path=web_paths)
 
-# create a new version of mnist_ds
-mnist_ds = mnist_ds.register(workspace = workspace,
-                             name = 'mnist_ds',
-                             description = 'new mnist training images and labels',
-                             create_new_version = True)
+# create a new version of titanic_ds
+titanic_ds = titanic_ds.register(workspace = workspace,
+                                 name = 'titanic_ds',
+                                 description = 'new titanic training data',
+                                 create_new_version = True)
 ```
 
 
-## Access data in datasets
+## Access your data during training
 
 Registered datasets are accessible locally and remotely on compute clusters like the Azure Machine Learning compute. To access your registered Dataset across experiments, use the following code to get your workspace and registered dataset by name. The `get_by_name` method on the `Dataset` class by default returns the latest version of the dataset registered with the workspace.
 
 ```Python
-workspace = Workspace.from_config()
+%%writefile $script_folder/train.py
 
-# See list of datasets registered in workspace.
-print(workspace.datasets)
+from azureml.core import Dataset, Run
+
+run = Run.get_context()
+workspace = run.experiment.workspace
+
+dataset_name = 'titanic_ds'
 
 # Get a dataset by name
-titanic_ds = Dataset.get_by_name(workspace, 'titanic_ds')
-mnist_ds = Dataset.get_by_name(workspace, 'mnist_ds')
-
-# Get a specific version of the dataset
-mnist_ds_old = Dataset.get_by_name(workspace = workspace,
-                                   name = 'mnist_ds',
-                                   version = 1)
+titanic_ds = Dataset.get_by_name(workspace=workspace, name=dataset_name)
 
 # Load a TabularDataset into pandas DataFrame
-titanic_ds.to_pandas_dataframe()
-
-# Download a FileDataset to a path on compute
-mnist_ds.download('/data/')
-
+df = titanic_ds.to_pandas_dataframe()
 ```
 
 ## Next steps
 
-* Use automated machine learning to [train with TabularDatasets](tutorial-auto-train-models.md).
+* Use automated machine learning to [train with TabularDatasets](https://aka.ms/automl-dataset).
 * For more examples of training with datasets, see the [sample notebooks](https://aka.ms/dataset-tutorial).
