@@ -64,7 +64,7 @@ On the **Overview** workbook for the selected subscription, the table displays i
 
 The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected.  
 
-Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type>/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section below.
+Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type/>/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section below.
 
 >[!NOTE]
 >For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
@@ -75,7 +75,7 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens. 
 
 ![Multiple storage accounts Capacity workbook](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account that shows the average amount of storage used and number of data objects created.  
+When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account showing the average amount of storage used for each device object in the account and number of data objects created.  
 
 ![Selected storage account Capacity workbook](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
@@ -97,13 +97,13 @@ On the **Overview** workbook for the storage account, it shows several storage k
 
 * Metric and status tiles highlighting service availability, total count of transactions to the storage service, E2E latency, and server latency.
 
-Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens the respective workbook. The **Capacity** workbook shows the amount of storage used for each device type in the account, and total storage used across the account. 
+Selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** opens the respective workbook. The **Capacity** workbook shows the amount of storage used for each device object in the account, and total storage used across the account. 
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## Overview of drill-down workbooks
 
-Whether you selected a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **<transaction error type>/Errors** from the multiple storage account **Overview** workbook, or selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** from the **Overview** workbook from a specific storage account, each deliver a set of information tailored to that category.  
+Whether you selected a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** from the multiple storage account **Overview** workbook, or selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** from the **Overview** workbook from a specific storage account, each deliver a set of information tailored to that category.  
 
 * **Availability** opens the **Availability** workbook. It shows the current health state of Azure Storage service, a table showing the available health state of each object categorized by data service defined in the storage account with a trend line representing the time range selected, and an availability trend chart for each data service in the account.  
 
@@ -117,7 +117,7 @@ Whether you selected a value in the columns **Availability**, **E2E Latency**, *
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
-Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of storage used for each storage type in the account.  
+Select **Capacity** at the top of the page and the **Capacity** workbook opens to show the amount of storage used for each storage data object in the account.  
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
@@ -131,7 +131,7 @@ The multi-subscription and storage account **Overview** or **Capacity** workbook
 
 ![Export workbook grid results example](./media/storage-insights-overview/workbook-export-example.png)
 
-## Editing a workbook
+## Customize Azure Monitor for Storage (preview)
 
 This section highlights common scenarios for editing the workbook to customize in support of your data analytics needs:
 
