@@ -12,20 +12,20 @@ ms.reviewer: sumameh
 
 # Tutorial: Use Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2
 
-This tutorial shows you how to handle events in storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial helps you build a solution that enables you to upload a file that describes a new sales order. An Event Grid subscription notifies an Azure Function and passes information to that function which describes the file that was uploaded. The Azure Function runs a Job in Azure Databricks which inserts a row into a Databricks Delta table that is located in the storage account.
+This tutorial shows you how to handle events in storage account that has a hierarchical namespace. You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma separated file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription with an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
 
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create an Event Grid subscription that calls the Azure Function when a file that describes a new order is uploaded to the storage account.
+> * Create an Event Grid subscription that calls an Azure Function.
 > * Create an Azure Function that receives a notification from an event, and then runs the job in Azure Databricks.
-> * Create a job that inserts a customer order row into a Databricks Delta table that is located in a storage account.
+> * Create a Databricks job that inserts a customer order into a Databricks Delta table that is located the storage account.
 
 We'll build this solution in reverse order, starting with the Azure Databricks workspace.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
 ## Prerequisites
+
+* If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 * Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2). This tutorial uses a storage account named `contosoorders`. Make sure that your user account has the [Storage Blob Data Contributor role](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac) assigned to it.
 
