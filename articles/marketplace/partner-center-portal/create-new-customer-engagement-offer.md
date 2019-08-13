@@ -6,7 +6,7 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/14/2019
 ---
 
 # Create a new Dynamics 365 for Customer Engagement & PowerApps offer
@@ -135,7 +135,7 @@ If you do not check the **Use Standard Contract?** box, you'll need to provide y
 
 ## Offer listing
 
-The Offer listing tab displays the languages in which your offer will be listed. Note that currently, **English (United States)** is the only available option.
+The Offer listing page displays the languages in which your offer will be listed. Note that currently, **English (United States)** is the only available option.
 
 You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
 
@@ -278,7 +278,7 @@ By default, the **Application configuration URL** you entered above will be used
 
 If you selected **Enable a test drive** in the [Offer setup](#offer-setup) page, you'll need to provide details here to let customers experience a test drive of your offer.
 
-The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
+The **Test drive** page enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
 
 The following types of test drives are available, each with their own technical configuration requirements.
 
@@ -368,7 +368,11 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
-You must upload a .pdf file describing your offer's **Key usage scenario** in this page. 
+This page lets you provide additional required information about your offer.
+
+### Key usage scenario
+
+You must upload a .pdf file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
 
 ## Publish
 

@@ -6,14 +6,14 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/14/2019
 ---
 
 # Create a new Dynamics 365 for Operations offer
 
 This topic explains how to create a new Dynamics 365 for Operations offer. [Microsoft Dynamics 365 for Finance and Operations](https://dynamics.microsoft.com/finance-and-operations) is an enterprise resource planning (ERP) service that supports advanced finance, operations, manufacturing, and supply chain management. All offers for Dynamics 365 for Operations must go through our certification process.
 
-To begin creating Dynamics 365 for Operations offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
+To begin creating Dynamics 365 for Operations offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
@@ -131,7 +131,7 @@ If you do not check the **Use Standard Contract?** box, you'll need to provide y
 
 ## Offer listing
 
-The Offer listing tab displays the languages in which your offer will be listed. Note that currently, **English (United States)** is the only available option.
+The Offer listing page displays the languages in which your offer will be listed. Note that currently, **English (United States)** is the only available option.
 
 You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
 
@@ -262,7 +262,7 @@ Select the version of Dynamics 365 for Finance and Operations that this solution
 
 If you selected **Enable a test drive** in the [Offer setup](#offer-setup) page, you'll need to provide details here to let customers experience a test drive of your offer.
 
-The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
+The **Test drive** page enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
 
 The following types of test drives are available, each with their own technical configuration requirements.
 
@@ -354,7 +354,7 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
-Provide additional information and files in this section.
+This page lets you provide additional required information about your offer.
 
 ### Validation asset(s)
 

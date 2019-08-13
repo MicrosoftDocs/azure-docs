@@ -6,14 +6,14 @@ manager: evansma
 ms.author: jenhayes 
 ms.service: marketplace 
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/14/2019
 ---
 
 # Create a new Dynamics 365 Business Central offer
 
 This topic explains how to create a new Dynamics 365 Business Central offer. [Microsoft Dynamics 365 Business Central](https://dynamics.microsoft.com/business-central) is an enterprise resource planning (ERP) system that handles a wide range of business processes, including finance, operations, supply chain, CRM and project management and electronic commerce. Premium packages also support service management and manufacturing. All offers for Dynamics 365 Business Central must go through our certification process.
 
-To begin creating Dynamics 365 Business Central offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
+To begin creating Dynamics 365 Business Central offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** page selected.
 
 ![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
@@ -131,7 +131,7 @@ If you do not check the **Use Standard Contract?** box, you'll need to provide y
 
 ## Offer listing
 
-The Offer listing tab displays the languages in which your offer will be listed. Note that currently, **English (United States)** is the only available option.
+The Offer listing page displays the languages in which your offer will be listed. Note that currently, **English (United States)** is the only available option.
 
 You will need to define marketplace details (offer name, description, images, etc.) for each language/market. Select the language/market name to provide this info.
 
@@ -277,7 +277,7 @@ If you selected **Connect** above, provide the URL for your app installation her
 
 If you selected **Enable a test drive** in the [Offer setup](#offer-setup) page, you'll need to provide details here to let customers experience a test drive of your offer.
 
-The **Test drive** tab enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
+The **Test drive** page enables you to set up a demonstration (or "test drive") which will enable customers to try your offer before committing to purchase it. Learn more in the article [What is Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). If you no longer want to provide a test drive for your offer, return to the **[Offer setup](#offer-setup)** page and uncheck **Enable test drive**.
 
 The following types of test drives are available, each with their own technical configuration requirements.
 
@@ -369,17 +369,25 @@ The **Marketplace listing** option found under the **Test drive** tab displays t
 
 ## Supplemental content
 
+This page lets you provide additional required information about your offer.
+
 ### Target release
 
-Indicate which release your solution targets: **Current**, **Next major**, or **Next minor**.
+Indicate which release of Microsoft Dynamics Business Central your solution targets: **Current**, **Next major**, or **Next minor**. This information lets us test your solution appropriately.
 
 ### Supported editions
 
 Indicate whether your solution supports the Essentials and/or Premium edition of Microsoft Dynamics 365 Business Central. At least one value must be selected.
 
-After making the selections above, be sure to upload a .pdf, .doc, or .docx file describing your offer's **Key usage scenario**.
+### Key usage scenario
+
+You must upload a .pdf file that lists your offer's key usage scenarios listed out in a document (.pdf format). All scenarios listed here may be verified by our validation team before we approve your offer for the marketplace.
+
+### App tests automation
 
 You must also upload an **App tests automation** file here (.app).
+
+### Test accounts
 
 If a test account is needed in order for our certification team to properly review your offer, upload a .pdf, .doc, or .docx file with your **Test accounts** info.
 
