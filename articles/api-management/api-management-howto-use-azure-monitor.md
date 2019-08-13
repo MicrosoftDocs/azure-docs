@@ -69,7 +69,7 @@ To access metrics:
 You can configure to receive alerts based on metrics and activity logs. Azure Monitor allows you to configure an alert to do the following when it triggers:
 
 * Send an email notification
-* Call a web hook
+* Call a webhook
 * Invoke an Azure Logic App
 
 To configure alerts:
