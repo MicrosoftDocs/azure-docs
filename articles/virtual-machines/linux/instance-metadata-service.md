@@ -372,6 +372,7 @@ resourceId | The [fully qualified](https://docs.microsoft.com/rest/api/resources
 sku | Specific SKU for the VM image | 2017-04-02
 subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
+tagsList | Tags formatted as a JSON array for easier programmatic parsing  | 2019-06-04
 version | Version of the VM image | 2017-04-02
 vmId | [Unique identifier](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) for the VM | 2017-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
