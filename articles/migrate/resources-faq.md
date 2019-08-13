@@ -1,5 +1,5 @@
 ---
-title: Azure Migrate - Frequently Asked Questions (FAQ) | Microsoft Docs
+title: Azure Migrate - frequently asked questions (FAQ) | Microsoft Docs
 description: Addresses frequently asked questions about Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
@@ -8,9 +8,9 @@ ms.date: 08/07/2019
 ms.author: snehaa
 ---
 
-# Azure Migrate - Frequently Asked Questions (FAQ)
+# Azure Migrate: Frequently asked questions (FAQ)
 
-This article includes frequently asked questions about Azure Migrate. If you have any further queries after reading this article, post them on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
+This article answers frequently asked questions about Azure Migrate. If you have further queries after reading this article, post them on the [Azure Migrate forum](https://aka.ms/AzureMigrateForum).
 
 ## General
 
