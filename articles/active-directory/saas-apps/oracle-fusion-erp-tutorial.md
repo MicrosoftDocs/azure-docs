@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with Oracle Fusion ERP
+# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Oracle Fusion ERP
 
 In this tutorial, you'll learn how to integrate Oracle Fusion ERP with Azure Active Directory (Azure AD). When you integrate Oracle Fusion ERP with Azure AD, you can:
 
