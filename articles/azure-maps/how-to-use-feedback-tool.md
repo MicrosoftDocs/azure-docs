@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Provide feedback using Azure Maps feedback tool
 
-Azure Maps has generally been available since Mau 2018, providing fresh map data, easy-to-use REST APIs and powerful SDKs to support our enterprise customers on a variety of business use cases. The real world is changing every second and it’s crucial for us to provide a factual digital representation to our customers. Our customers that are planning to open or close facilities need to ensure our maps are updated promptly so that they can efficiently plan for delivery, maintenance or customer service at the right facilities. We have created the Azure Maps data feedback tool to empower our customers to provide direct data feedback. Customers’ data feedback goes directly to our data providers and their map editors who can quickly evaluate and incorporate feedback into our mapping products.  
+Azure Maps has generally been available since May 2018, providing fresh map data, easy-to-use REST APIs and powerful SDKs to support our enterprise customers on a variety of business use cases. The real world is changing every second and it’s crucial for us to provide a factual digital representation to our customers. Our customers that are planning to open or close facilities need to ensure our maps are updated promptly so that they can efficiently plan for delivery, maintenance or customer service at the right facilities. We have created the Azure Maps data feedback tool to empower our customers to provide direct data feedback. Customers’ data feedback goes directly to our data providers and their map editors who can quickly evaluate and incorporate feedback into our mapping products.  
 
 Azure Maps Data feedback tool provides an easy way for our customers to provide map data feedback, especially on business points of interest and residential addresses. This article guides you on how to provide different types of feedback using the Azure Maps feedback tool.
 
@@ -24,10 +24,26 @@ You may want to provide feedback for a missing point of interest or residential 
   ![search missing location](./media/how-to-use-feedback-tool/search-poi.png)
   ![add pin](./media/how-to-use-feedback-tool/add-poi.png)
 
-Upon clicking you will be you will be directed to a form to provide the corresponding place details.
+Upon clicking you will be directed to a form to provide the corresponding details for the place.
 
   ![add a place](./media/how-to-use-feedback-tool/add-a-place.png)
 
 ## Fix a business place or a residential address 
 
-The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address if its wrong. To do so use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place". 
+The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address if its wrong. To do so use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place", if the address is wrong. Fill out the "Fix a place" form then click on the "submit" button.
+
+  ![search place to fix](./media/how-to-use-feedback-tool/fix-place.png)
+  ![fix form](./media/how-to-use-feedback-tool/fix-form.png)
+
+
+## Add a comment 
+
+In addition to let you to search for a location, the feedback tool also lets you add a free form text comment for details related to the location. To add a comment search for the location or click on the location and click "Add a comment", write a comment then click "Submit". 
+
+  ![add comment](./media/how-to-use-feedback-tool/add-comment.png)
+
+## Track status 
+
+You can also track the status of your request by checking the "I want to track status" box and providing your email while making a request. You will receive a tracking link in the email that provides an up-to-date status of your request. 
+
+  ![feedback status](./media/how-to-use-feedback-tool/feedback-status.png)
