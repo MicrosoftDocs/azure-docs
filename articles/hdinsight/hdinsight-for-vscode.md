@@ -267,7 +267,7 @@ After you submit a Python job, submission logs appear in the **OUTPUT** window i
 
 Method 1  
 1. From the menu bar, go to **File** > **Preferences** > **Settings**.  
-2. In the **Search settings** box, enter **HDInsight Job Sumission: Livy Conf**.  
+2. In the **Search settings** box, enter **HDInsight Job Submission: Livy Conf**.  
 3. Select **Edit in settings.json** for the relevant search result.
 
 Method 2   
@@ -278,7 +278,7 @@ Submit a file, and notice that the .vscode folder is automatically added to the 
     ![Livy configuration](./media/hdinsight-for-vscode/hdi-livyconfig.png)
 
 >[!NOTE]
->For the **driverMomory** and **executorMomry** settings, set the value and unit. For example: 1g or 1024m.
+>For the **driverMemory** and **executorMemory** settings, set the value and unit. For example: 1g or 1024m.
 
 + Supported Livy configurations:   
 
@@ -432,7 +432,7 @@ When you submit a job to an HDInsight cluster by using ADLS Gen2, you're prompte
 
 ## Sign out  
 
-From the menu bar, gp to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
+From the menu bar, go to **View** > **Command Palette**, and then enter **Azure: Sign Out**.
 
 
 ## Next steps
