@@ -165,7 +165,7 @@ $ProtectedSettings = @{"workspaceKey" = "myWorkspaceKey"}
 Set-AzVMExtension -ExtensionName "MicrosoftMonitoringAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
-    -Publisher "MicrosoftMonitoringAgent" `
+    -Publisher "Microsoft.EnterpriseCloud.Monitoring" `
     -ExtensionType "MicrosoftMonitoringAgent" `
     -TypeHandlerVersion 1.0 `
     -Settings $PublicSettings `
