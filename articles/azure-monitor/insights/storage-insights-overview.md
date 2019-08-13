@@ -64,7 +64,7 @@ On the **Overview** workbook for the selected subscription, the table displays i
 
 The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected. There is conditional color-coding or heatmaps for columns in the workbook that report transaction metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.
 
-Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section below.
+Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage KPI workbooks](#detailed-storage-kpi-workbooks) section below.
 
 >[!NOTE]
 >For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
@@ -77,7 +77,7 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens. 
 
 There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics with a blue value. The deepest color has the highest value and a lighter color is based on the lowest values.
 
-When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account. Further details about the drill-down report are described in the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section. 
+When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account. Further details about the drill-down report are described in the [Detailed storage KPI workbooks](#detailed-storage-kpi-workbooks) section below. 
 
 ## View from a storage account
 
