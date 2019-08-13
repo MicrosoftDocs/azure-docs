@@ -141,3 +141,4 @@ Learn more about:
 * [Metrics and logs](platform/data-platform.md) for the data collected by Azure Monitor.
 * [Data sources](platform/data-sources.md) for how the different components of your application send telemetry.
 * [Log queries](log-query/log-query-overview.md) for analyzing collected data.
+* [Best practices](https://docs.microsoft.com/azure/architecture/best-practices/monitoring) for monitoring cloud applications and services.
