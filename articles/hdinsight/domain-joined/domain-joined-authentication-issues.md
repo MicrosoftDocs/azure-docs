@@ -12,7 +12,7 @@ ms.date: 08/09/2019
 
 This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign into the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway will try to obtain an OAuth token from AAD first and then get a Kerberos ticket from AAD DS. Authentication may fail in either of these stages. This document is aimed at debugging some of those issues.
+On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway will try to obtain an OAuth token from Azure Active Directory (Azure AD) first, and then get a Kerberos ticket from Azure AD DS. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
 
 When the authentication fails, you will get prompted for credentials. If you cancel this dialog, the error message will be printed. Here are some of the common error messages:
 
@@ -26,11 +26,11 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 ### Cause
 
-AAD error code 50126 means the `AllowCloudPasswordValidation` policy has not been set by the tenant.
+Azure AD error code 50126 means the `AllowCloudPasswordValidation` policy has not been set by the tenant.
 
 ### Resolution
 
-The Company Administrator of the AAD tenant should enable AAD to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
+The Company Administrator of the Azure AD tenant should enable Azure AD to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
@@ -111,11 +111,11 @@ Sign in is denied.
 
 ### Cause
 
-To get to this stage, your OAuth authentication is not an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in is not attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in AAD DS etc. Password hashes sync only when the user changes password - when you create the AAD DS instance, it will start syncing passwords that are changed after the creation (not retroactively sync passwords that were set before its inception).
+To get to this stage, your OAuth authentication is not an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in is not attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Azure AD DS, and so on. Password hashes sync only when the user changes password. When you create the Azure AD DS instance, it will start syncing passwords that are changed after the creation. It won't retroactively sync passwords that were set before its inception.
 
 ### Resolution
 
-If you think passwords may not be un sync, try changing the password and wait for a few minutes to sync.
+If you think passwords may not be in sync, try changing the password and wait for a few minutes to sync.
 
 Try to SSH into a You will need to try to authenticate (kinit) using the same user credentials, from a machine that is joined to the domain. SSH into the head / edge node with a local user and then run kinit.
 
