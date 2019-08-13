@@ -882,6 +882,12 @@
         href: platform/alerts-activity-log.md
       - name: Migrate management events to activity log alerts
         href: platform/migrate-management-alerts.md
+    - name: Service health alerts in activity log
+      items:
+      - name: View notifications
+        href: platform/service-notifications.md
+      - name: Configure alerts on notification events
+        href: platform/alerts-activity-log-service-notifications.md     
     - name: Notifications and actions
       items:
       - name: Action rules (Preview)
@@ -934,12 +940,6 @@
         href: platform/alerts-enable-template.md    
       - name: Classic metric alert calling a webhook
         href: platform/alerts-webhooks.md
-    - name: Service health alerts in activity log
-      items:
-      - name: View notifications
-        href: platform/service-notifications.md
-      - name: Configure alerts on notification events
-        href: platform/alerts-activity-log-service-notifications.md
     - name: Alert API
       href: platform/api-alerts.md
     - name: IT Service Management
