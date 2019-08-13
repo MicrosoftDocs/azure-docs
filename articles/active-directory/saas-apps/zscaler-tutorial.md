@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Zscaler | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Zscaler.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Zscaler
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Zscaler
 
 In this tutorial, you'll learn how to integrate Zscaler with Azure Active Directory (Azure AD). When you integrate Zscaler with Azure AD, you can:
 
