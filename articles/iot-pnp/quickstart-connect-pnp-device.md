@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Quickstart: Connect a sample IoT Plug and Play Preview device application to IoT Hub
 
-This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT bub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
+This quickstart shows you how to build a sample IoT Plug and Play device application, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written in C and is included in the Azure IoT device SDK for C. A solution developer can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
 ## Prerequisites
 
@@ -139,4 +139,4 @@ The device application starts sending data to IoT Hub.
 In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
-> [How-to: Connect to and interact with a device](howto-develop-solution.md)
+> [How-to: Connect to and interact with an IoT Plug and Play Preview device](howto-develop-solution.md)
