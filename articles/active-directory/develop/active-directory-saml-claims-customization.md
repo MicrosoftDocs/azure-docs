@@ -89,9 +89,17 @@ To add application-specific claims:
 1. Enter the **name** of the claims. The value doesn't strictly need to follow a URI pattern, per the SAML spec. If you need a URI pattern, you can put that in the **Namespace** field.
 1. Select the **Source** where the claim is going to retrieve its value. You can select a user attribute from the source attribute dropdown or apply a transformation to the user attribute before emitting it as a claim.
 
-## Claim Transformations
+### Claim Transformations
 
-You can use the following claims transformations functions.
+To apply a transformation to a user attribute:
+
+1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
+2. Select the function from the transformation dropdown. Depending on the function selected, you will have to provide parameters and a constant value to evaluate in the transformation. Refer to the table below for more information about the available functions.
+3. To apply multiple transformation, click on **Add transformation**.You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
+
+   ![Edit the NameID (name identifier) value](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+
+You can use the following functions to transform claims.
 
 | Function | Description |
 |----------|-------------|
