@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create, load, and query indexes using Postman and REST APIs - Azure Search'
+title: 'REST Quickstart: Create, load, and query indexes using Postman - Azure Search'
 description: Learn how to call the Azure Search REST APIs using Postman and sample data and definitions.
 author: HeidiSteen
 manager: cgronlun
@@ -9,7 +9,6 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 07/11/2019
 ms.author: heidist
-ms.custom: seodec2018
 ---
 
 # Quickstart: Create an Azure Search index in Postman using REST APIs
@@ -76,7 +75,7 @@ To do this in Postman:
 
 1. Change the verb to **PUT**.
 
-2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels?api-version=2019-05-06`.
+2. Copy in this URL `https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart?api-version=2019-05-06`.
 
 3. Provide the index definition (copy-ready code is provided below) in the body of the request.
 
@@ -294,6 +293,7 @@ If you are using a free service, remember that you are limited to three indexes,
 
 ## Next steps
 
-REST clients are invaluable for impromptu exploration, but now that you know how the REST APIs work, you can move forward with code. For your next step, see the following link:
+Now that you know how to perform core tasks, you can move forward with additional REST API calls for more advanced features, such as indexers or [setting up a cognitive search pipeline](cognitive-search-tutorial-blob.md). For your next step, we recommend the following link:
 
-+ [Quickstart: Create an index using .NET SDK](search-get-started-dotnet.md)
+> [!div class="nextstepaction"]
+> [REST Tutorial: Index and search semi-structured data (JSON blobs) in Azure Search](search-semi-structured-data.md)

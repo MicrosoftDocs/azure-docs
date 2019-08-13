@@ -1,5 +1,5 @@
 ---
-title: Run batch predictions on large data
+title: Run batch predictions on large data with pipelines
 titleSuffix: Azure Machine Learning service
 description: Learn how to make batch predictions asynchronously on large amounts of data using Azure Machine Learning service.
 services: machine-learning
@@ -11,9 +11,9 @@ ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
 ---
-# Run batch predictions on large data sets with Azure Machine Learning service
+# Run batch predictions on large data sets with Azure Machine Learning pipelines
 
-In this article, you learn how to make predictions on large quantities of data asynchronously using the Azure Machine Learning service.
+In this article, you learn how to make predictions on large quantities of data asynchronously using the ML pipelines with Azure Machine Learning service.
 
 Batch prediction (or batch scoring) provides cost-effective inference, with unparalleled throughput for asynchronous applications. Batch prediction pipelines can scale to perform inference on terabytes of production data. Batch prediction is optimized for high throughput, fire-and-forget predictions for a large collection of data.
 
@@ -354,7 +354,4 @@ RunDetails(published_pipeline_run).show()
 
 ## Next steps
 
-To see this working end-to-end, try the batch scoring notebook in [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines).
-
-[!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
-
+To see this working end-to-end, try the batch scoring notebook in [GitHub](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines), or go to the [Azure architecture center](/azure/architecture/reference-architectures/ai/batch-scoring-python) to see a sample solution architecture.
