@@ -100,6 +100,7 @@ Run your application by passing the IoT hub device connection string as paramete
 
 ```cmd\sh
 cd azure-iot-sdk-c\cmake\digitaltwin_client\samples\digitaltwin_sample_device\Release
+copy ..\EnvironmentalSensor.interface.json .
 digitaltwin_sample_device.exe "[IoT Hub device connection string]"
 ```
 
