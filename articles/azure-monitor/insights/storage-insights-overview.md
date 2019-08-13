@@ -75,7 +75,7 @@ Select **Capacity** at the top of the page and the **Capacity** workbook opens. 
 
 ![Multiple storage accounts Capacity workbook](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
-There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics with a blue value. The deepest color has the highest value and a lighter color is based on the lowest values. 
+There is conditional color-coding or heatmaps for columns in the workbook that report capacity metrics with a blue value. The deepest color has the highest value and a lighter color is based on the lowest values.
 
 When you select a value under any one of the columns in the workbook, you drill down to the **Capacity** workbook for the storage account. Further details about the drill-down report are described in the [Overview of drill-down workbooks](#overview-drill-down-workbooks) section. 
 
@@ -101,7 +101,7 @@ Selecting any one of buttons for **Failures**, **Performance**, **Availability**
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
-## Overview of drill-down workbooks
+## Detailed storage KPI workbooks
 
 Whether you selected a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** from the multiple storage account **Overview** workbook, or selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** from the **Overview** workbook from a specific storage account, each deliver a set of interactive storage-related information tailored to that category.  
 
@@ -121,7 +121,7 @@ Whether you selected a value in the columns **Availability**, **E2E Latency**, *
 
     ![Selected storage account Capacity page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
-
+### Pin and export
 
 You can pin any one of the metric sections to an Azure Dashboard by selecting the pushpin icon at the top right of the section.
 
