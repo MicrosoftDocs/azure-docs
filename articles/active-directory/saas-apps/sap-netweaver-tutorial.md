@@ -390,4 +390,4 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 - [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Try SAP NetWeaver with Azure AD](aad.portal.azure.com)
+- [Try SAP NetWeaver with Azure AD](https://aad.portal.azure.com/)
