@@ -48,6 +48,6 @@ After you've set up your two-factor verification method, you can add additional 
 
 - [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Sign-in using two-factor verification](multi-factor-authentication-end-user-sign-in.md)
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
 
 - [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)

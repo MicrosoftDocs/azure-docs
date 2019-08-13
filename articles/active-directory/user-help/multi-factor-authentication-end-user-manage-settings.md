@@ -135,6 +135,6 @@ After you add or update your two-factor verification settings, you can manage yo
 
 - [Manage app passwords for two-factor verification](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-factor verification.
 
-- [Sign-in using two-factor verification](multi-factor-authentication-end-user-sign-in.md)
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
 
 - [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md)

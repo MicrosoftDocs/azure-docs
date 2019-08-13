@@ -59,6 +59,6 @@ After you've accessed the **Additional security verification** page, you must se
 
 - [Manage app passwords](multi-factor-authentication-end-user-app-passwords.md)
 
-- [Sign-in using two-factor verification](multi-factor-authentication-end-user-sign-in.md)
+- [Sign-in using two-factor verification](multi-factor-authentication-end-user-signin.md)
 
 - [Get help with two-factor verification](multi-factor-authentication-end-user-troubleshoot.md) 
