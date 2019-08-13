@@ -5,7 +5,7 @@
  author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
- ms.date: 06/26/2019
+ ms.date: 08/12/2019
  ms.author: alinast
  ms.custom: include file
 ---
