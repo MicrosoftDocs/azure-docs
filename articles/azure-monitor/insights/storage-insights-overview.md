@@ -27,7 +27,7 @@ Before diving into the experience, you should understand how it presents and vis
 
 Combined it delivers:
 
-* **At scale perspective** showing a snapshot view of their availability based on the health of the storage service or the API operation, utilization showing total number of requests that the storage service receives, and latency showing the average time the storage service or API operation type is taking to process requests. You can also view capacity by each type - blob, file, table, and queues.
+* **At scale perspective** showing a snapshot view of their availability based on the health of the storage service or the API operation, utilization showing total number of requests that the storage service receives, and latency showing the average time the storage service or API operation type is taking to process requests. You can also view capacity by blob, file, table, and queues.
 
 * **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics tailored and delivered in a child workbook.  
 
@@ -35,7 +35,7 @@ Combined it delivers:
 
 Azure Monitor for Storage is several Azure Monitor workbooks tied together, which combines text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
-This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md).
+This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md). To learn more about the metrics collection configuration options in your storage account, review [Configure monitoring for a storage account](../../storage/common/storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account).
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
@@ -212,6 +212,19 @@ In this example, we are working with the storage account capacity workbook and d
     ![Modify the availability threshold value for critical state](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 
 7. Select **Save as** from the command bar to save a copy of the workbook with your customizations, and then click **Done editing** to return to reading mode.
+
+## Troubleshooting
+
+This section will help you with the diagnosis and troubleshooting of some of the common issues you may encounter when using Azure Monitor for Storage (preview). Use the list below to locate the information relevant to your specific issue.
+
+### Workbooks are not reporting any information
+
+When viewing any of the charts or grids in Azure Monitor for Storage (preview) if no data is presented, it could be caused by: 
+
+* Storage account is inactive
+* Metric collection has been disabled on the account
+
+Refer to the following article for [missing data troubleshooting](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).
 
 ## Next steps
 
