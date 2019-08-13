@@ -5,14 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 08/06/2019
+ms.date: 08/13/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ---
 
 # Tutorial: Use Event Grid to populate a Databricks Delta table in Azure Data Lake Storage Gen2
 
-This tutorial shows you how to handle events in a storage account that has a hierarchical namespace. You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma-separated values (csv) file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
+This tutorial shows you how to handle events in a storage account that has a hierarchical namespace.
+
+You'll build a small solution that enables a user to populate a Databricks Delta table by uploading a comma-separated values (csv) file that describes a sales order. You'll build this solution by connecting together an Event Grid subscription, an Azure Function, and a [Job](https://docs.azuredatabricks.net/user-guide/jobs.html) in Azure Databricks.
 
 In this tutorial, you will:
 
@@ -40,7 +42,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
   > [!IMPORTANT]
   > Make sure to assign the role in the scope of the Data Lake Storage Gen2 storage account. You can assign a role to the parent resource group or subscription, but you'll receive permissions-related errors until those role assignments propagate to the storage account.
 
-  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those soon.
+  :heavy_check_mark: When performing the steps in the [Get values for signing in](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) section of the article, paste the tenant ID, app ID, and password values into a text file. You'll need those values soon.
 
 ## Create a sales order
 
@@ -105,7 +107,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ### Create and populate a Databricks Delta table
 
-1. In the notebook that you just created, copy and paste the following code block into the first cell, but don't run this code yet.  
+1. In the notebook that you created, copy and paste the following code block into the first cell, but don't run this code yet.  
 
    Replace the `appId`, `password`, `tenant` placeholder values in this code block with the values that you collected while completing the prerequisites of this tutorial.
 
@@ -207,7 +209,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ### Create a Job
 
-A Job runs a notebook. In this section you'll create a job that runs the notebook that you created earlier. Later, we'll created an Azure Function that runs this job when an event is raised.
+A Job runs a notebook. In this section, you'll create a job that runs the notebook that you created earlier. Later, we'll create an Azure Function that runs this job when an event is raised.
 
 1. Click **Jobs**.
 
@@ -336,7 +338,7 @@ In this section, you'll create an Event Grid subscription that calls the Azure F
 
 2. In Storage Explorer, upload this file to the **input** folder of your storage account.
 
-   This raises the **Microsoft.Storage.BlobCreated** event with Event Grid. Event Grid notifies all subscribers to that event. In our case, the Azure Function is the only subscriber. The Azure Function parses the event parameters to determine which event occurred and on which file. It then passes the URL of the file to the Databricks Job. The Databricks Job reads in the file and adds a row to the Databricks Delta table in your storage account.
+   Uploading a file raises the **Microsoft.Storage.BlobCreated** event. Event Grid notifies all subscribers to that event. In our case, the Azure Function is the only subscriber. The Azure Function parses the event parameters to determine which event occurred. It then passes the URL of the file to the Databricks Job. The Databricks Job reads file, and adds a row to the Databricks Delta table that is located your storage account.
 
 3. To check if the job succeeded, open your databricks workspace, click the **Jobs** button, and then open your job.
 
