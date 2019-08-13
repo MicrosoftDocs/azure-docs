@@ -21,7 +21,7 @@ Learn how to deploy your machine learning model as a web service in the Azure cl
 The workflow is similar regardless of [where you deploy](#target) your model:
 
 1. Register the model.
-1. Prepare to deploy (specify assets, usage, compute target)
+1. Prepare to deploy (specify assets, usage, compute target).
 1. Deploy the model to the compute target.
 1. Test the deployed model, also called web service.
 
@@ -60,11 +60,11 @@ When using VS Code, the workspace is selected using a graphical interface. For m
 
 A registered model logical container for one or more files that make up your model. For example, if you have a model that is stored in multiple files, you can register them as a single model in the workspace. After registration, you can then download or deploy the registered model and receive all the files that were registered.
 
-Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model from file:
+Machine learning models are registered in your Azure Machine Learning workspace. The model can come from Azure Machine Learning or can come from somewhere else. The following examples demonstrate how to register a model:
 
 ### Register a model from an Experiment Run
 
-The code snippets in this section demonstrate registering a model from file:
+The code snippets in this section demonstrate registering a model from a training run:
 
 > [!IMPORTANT]
 > These snippets assume that you have previously performed a training run and have access to the `run` object (SDK example) or run ID value (CLI example). For more information on training models, see [Create and use compute targets for model training](how-to-set-up-training-targets.md).
@@ -76,8 +76,7 @@ The code snippets in this section demonstrate registering a model from file:
   print(model.name, model.id, model.version, sep='\t')
   ```
 
-  > [!TIP]
-  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  The `model_path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `model_path` to the directory that contains the files.
 
 + **Using the CLI**
 
@@ -85,18 +84,19 @@ The code snippets in this section demonstrate registering a model from file:
   az ml model register -n sklearn_mnist  --asset-path outputs/sklearn_mnist_model.pkl  --experiment-name myexperiment --run-id myrunid
   ```
 
-  > [!TIP]
-  > To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
+  [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
+
+  The `--asset-path` refers to the cloud location of the model. In this example, the path to a single file is used. To include multiple files in the model registration, set `--asset-path` to the directory that contains the files.
 
 + **Using VS Code**
 
   Register models using any model files or folders with the [VS Code](how-to-vscode-tools.md#deploy-and-manage-models) extension.
 
-### Register an externally created model
+### Register a model from a local file
+
+You can register a model by providing a **local path** to the model. You can provide either a folder or a single file. You can use this method to register both models trained with Azure Machine Learning service and then downloaded, or models trained outside Azure Machine Learning.
 
 [!INCLUDE [trusted models](../../../includes/machine-learning-service-trusted-model.md)]
-
-You can register an externally created model by providing a **local path** to the model. You can provide either a folder or a single file.
 
 + **ONNX example with the Python SDK:**
 
@@ -116,8 +116,7 @@ You can register an externally created model by providing a **local path** to th
                             description = "MNIST image classification CNN from ONNX Model Zoo",)
     ```
 
-  > [!TIP]
-  > To include multiple files in the model registration, set `model_path` to the directory that contains the files.
+  To include multiple files in the model registration, set `model_path` to the directory that contains the files.
 
 + **Using the CLI**
 
@@ -125,8 +124,7 @@ You can register an externally created model by providing a **local path** to th
   az ml model register -n onnx_mnist -p mnist/model.onnx
   ```
 
-  > [!TIP]
-  > To include multiple files in the model registration, set `-p` to the directory that contains the files.
+  To include multiple files in the model registration, set `-p` to the directory that contains the files.
 
 **Time estimate**: Approximately 10 seconds.
 
@@ -188,7 +186,7 @@ To use schema generation, include the `inference-schema` package in your conda e
 
 ##### Example dependencies file
 
-The following YAML is an example of a Conda dependencies file for inference.
+The following YAML is an example of a Conda dependencies file for inference:
 
 ```YAML
 name: project_environment
@@ -245,7 +243,7 @@ def run(data):
         return error
 ```
 
-The following example demonstrates how to define the input data as a `<key: value>` dictionary, using a Dataframe. This method is supported for consuming the deployed web service from Power BI ([learn more on how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
+The following example demonstrates how to define the input data as a `<key: value>` dictionary, using a Dataframe. This method is supported for consuming the deployed web service from Power BI ([Learn more about how to consume the web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration)):
 
 ```python
 import json
@@ -445,11 +443,11 @@ The following table provides an example of creating a deployment configuration f
 
 ## Deploy to target
 
-Deployment uses the inference configuration deployment configuration to deploy the model(s). The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different, as you must provide a reference to the AKS cluster.
+Deployment uses the inference configuration deployment configuration to deploy the models. The deployment process is similar regardless of the compute target. Deploying to AKS is slightly different, as you must provide a reference to the AKS cluster.
 
 ### <a id="local"></a> Local deployment
 
-To deploy locally, you need to have **Docker installed** on your local machine.
+To deploy locally, you need to have Docker installed on your local machine.
 
 #### Using the SDK
 

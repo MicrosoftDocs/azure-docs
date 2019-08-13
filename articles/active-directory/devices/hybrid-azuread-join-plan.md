@@ -98,7 +98,7 @@ Organizations may want to do a controlled validation of hybrid Azure AD join bef
 
 ## Select your scenario based on your identity infrastructure
 
-Hybrid Azure AD join works with both, managed and federated environments.  
+Hybrid Azure AD join works with both, managed and federated environments depending on whether the UPN is routable or non-routable. See bottom of the page for table on supported scenarios.  
 
 ### Managed environment
 
