@@ -52,7 +52,7 @@ Using the same instructions as for the service and device samples, you need to s
 * `AZURE_IOT_MODEL_REPO_KEY_SECRET`
 * `AZURE_IOT_MODEL_REPO_HOSTNAME`
 
-You can get these values from your company model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://aka.ms/ACFI) on the **Connection strings** tab for your **Company repository**.
+You can get these values from your company model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) on the **Connection strings** tab for your **Company repository**.
 
 The connection string looks like the following example:
 

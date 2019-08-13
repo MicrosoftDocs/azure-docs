@@ -23,7 +23,7 @@ IoT Plug and Play Preview enables solution developers to integrate devices with 
 
 You can reuse interfaces across device capability models to make collaboration easier and to speed up development.
 
-To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://aka.ms/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
+To make IoT Plug and Play work seamlessly with [Azure Digital Twins](../digital-twins/about-digital-twins.md), the IoT Plug and Play schema is defined using the [Digital Twin Definition Language (DTDL)](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). IoT Plug and Play and the DTDL are open to the community, and Microsoft welcomes collaboration with customers, partners, and the industry. Both are based on open W3C standards such as JSON-LD and RDF, which enable easier adoption across services and tooling. Additionally, there's no extra cost for using IoT Plug and Play and DTDL. Standard rates for [Azure IoT Hub](../iot-hub/about-iot-hub.md), [Azure IoT Central](../iot-central/overview-iot-central.md), and other Azure services remain the same.
 
 Solutions built on IoT Hub or IoT Central can benefit from IoT Plug and Play.
 
@@ -56,11 +56,11 @@ When you connect an IoT Plug and Play device, you can view its device capability
 
 As a device developer, you can develop an IoT hardware product that supports IoT Plug and Play. The process involves two key steps:
 
-1. Define the device capability model and interfaces. You author a set of JSON files that declare your device's capabilities using the [DTDL](https://aka.ms/DTDL). A device capability model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different device capability models.
+1. Define the device capability model and interfaces. You author a set of JSON files that declare your device's capabilities using the [DTDL](https://github.com/Azure/IoTPlugandPlay/tree/master/DTDL). A device capability model describes a complete entity such as a physical product, and defines the set of interfaces implemented by that entity. Interfaces are shared contracts that uniquely identify the telemetry, properties, and commands supported by a device. Interfaces can be reused across different device capability models.
 
 1. Author the device software or firmware that implements the capabilities declared in the device capability model and interfaces. The Azure IoT SDK includes APIs to implement device capability models.
 
-The [IoT Device Workbench for VS Code](https://aka.ms/iot-workbench-pnp-pr) extension provides many features to assist you. For example, as a device developer you can use the extension to generate a skeleton C project from a capability model. However you can use any IDE to author and implement device capability models.
+The [IoT Device Workbench for VS Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) extension provides many features to assist you. For example, as a device developer you can use the extension to generate a skeleton C project from a capability model. However you can use any IDE to author and implement device capability models.
 
 ## Certify an IoT Plug and Play device
 
