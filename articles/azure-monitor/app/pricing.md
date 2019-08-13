@@ -22,7 +22,7 @@ ms.author: dalek
 > This article describes how to analyze data usage Application Insights.  Refer to the following articles for related information.
 > - [Monitoring usage and estimated costs](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
+If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
 
 ## Pricing model
 
@@ -135,7 +135,7 @@ Application Insights is now onboarding a limited number of Application Insights 
 
 The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 120, 180, 270, 365, 550 or 730 days. 
 
-When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/en-us/pricing/details/monitor/).  Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## Limits summary
 
