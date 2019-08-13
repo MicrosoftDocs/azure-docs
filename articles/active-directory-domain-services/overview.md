@@ -19,7 +19,7 @@ ms.author: iainfou
 
 Azure Active Directory Domain Services (Azure AD DS) provides managed domain services such as domain join, group policy, LDAP, and Kerberos / NTLM authentication that is fully compatible with Windows Server Active Directory. You use these domain services without the need to deploy, manage, and patch domain controllers in the cloud. Azure AD DS integrates with your existing Azure AD tenant, which makes it possible for users to sign in using their existing credentials. You can also use existing groups and user accounts to secure access to resources, which provides a smoother lift-and-shift of on-premises resources to Azure.
 
-Azure AD DS works with Azure AD tenants that are cloud-only or synchronized with an on-premises Active Directory Domain Services (AD DS) environment. You can use the centralized identity services of Azure AD DS even without a traditional on-premises AD DS environment.
+Azure AD DS replicates identity information from Azure AD, so works with Azure AD tenants that are cloud-only, or synchronized with an on-premises Active Directory Domain Services (AD DS) environment. If you have an existing on-premises AD DS environment, you can synchronize user account information to provide a consistent identity for users. For cloud-only environments, you don't need a traditional on-premises AD DS environment to use the centralized identity services of Azure AD DS. The same set of Azure AS DS features exist for both types of Azure AD tenants.
 
 The following video provides an overview of how Azure AD DS integrates with your applications and workloads to provide identity services in the cloud:
 
