@@ -27,7 +27,7 @@ This article shows you how to:
 
 - Install and configure the Azure IoT extension for the Azure CLI.
 - Use the extension to interact with and test your devices.
-- Use the extension to manage interfaces in the model repository.
+- Use the extension to manage interfaces and capability models in the model repository.
 
 ## Install Azure IoT extension for the Azure CLI
 
@@ -46,6 +46,11 @@ Follow the [installation instructions](https://docs.microsoft.com/cli/azure/inst
 To use the Azure IoT extension for the Azure CLI, you need:
 
 - An Azure IoT hub. There are many ways to add an IoT hub to your Azure subscription, such as [Create an IoT hub using the Azure CLI](../iot-hub/iot-hub-create-using-cli.md). You need the IoT hub's connection string to run the Azure IoT extension commands. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- Login to your Azure account:
+```cmd/sh
+az login
+az account set --subscription {subscriptionName}
+```
 - A device registered in your IoT hub. You can use the following Azure CLI command to register a device, be sure to replace the `{YourIoTHubName}` and `{YourDeviceID}` placeholders with your values:
 
 ```cmd/sh
@@ -63,58 +68,57 @@ You can use the extension to view and interact with IoT Plug and Play devices th
 List all devices on an IoT Hub:
 
 ```cmd/sh
-az iot hub device-identity list --hub-name {YourIoTHubName} --login {YourIoTHubConnectionString}
+az iot hub device-identity list --hub-name {YourIoTHubName} 
 ```
 
 List all interfaces registered by an IoT Plug and Play device:
 
 ```cmd/sh
-az iot dt list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt list-interfaces --hub-name {YourIoTHubName}  --device-id {YourDeviceID} 
 ```
 
 #### Properties
 
-List all properties and property values for a device:
+List all properties and property values for a device. --source refers to the location of the model definition which can be on the device or in the model repository:
 
 ```cmd/sh
-az iot dt list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt list-properties --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --source {device;private;public}
 ```
 
 Set the value of a read-write property:
 
 ```cmd/sh
-az iot dt update-property --interface-payload {JSONPayload or filepath} --interface {YourInterfaceName} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt update-property --interface-payload {JSONPayload or filepath} --interface {YourInterfaceName} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} 
 ```
 
 #### Commands
 
-List all commands for a device:
+List all commands for a device: 
 
 ```cmd/sh
-az iot dt list-commands --login {YourIoTHubConnectionString} --device-id {YourDeviceID} --repo-login {PlugAndPlayRepositoryEndpoint} --login {YourIoTHubConnectionString}
+az iot dt list-commands --hub-name {YourIoTHubName} --device-id {YourDeviceID} --source {device;private;public} --repo-login {PlugAndPlayRepositoryEndpoint} 
 ```
 
-Without the `--repo-login` parameter, this command uses the public model repository.
+`--source` refers to the location of the model definition which can be on the device or in the model repository.
+`--repo-login` is needed if source is set to private or public.
 
 Invoke a command:
 
 ```cmd/sh
-az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceName} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} --login {YourIoTHubConnectionString}
+az iot dt invoke-command --command-name [Interface Command Name] --command-payload {CommandPayloadOrFilePath} --interface {YourInterfaceName} --hub-name {YourIoTHubName}  --device-id {YourDeviceID} 
 ```
 
 #### Telemetry
 
-Monitor all IoT Plug and Play telemetry from all devices and interfaces going to the $Default event hub endpoint:
-
-```cmd/sh
-az iot dt monitor-events --login {YourIoTHubConnectionString} 
-```
-
 Monitor all telemetry from a particular IoT Plug and Play device going to a specified event hub endpoint:
 
 ```cmd/sh
-az iot dt monitor-events --device-id {YourDeviceID} --login {YourIoTHubConnectionString} --consumer-group {YourConsumerGroup}
+az iot dt monitor-events --hub-name {YourIoTHubName} --device-id {YourDeviceID} --source {device;private;public} --interface {YourInterfaceName} --consumer-group {YourConsumerGroup} 
 ```
+
+Without the `--consumer-group` parameter, $Default is used.
+`--source` refers to the location of the model definition which can be on the device or in the model repository.
+`--interface` refers to the interface name, not the urn-id
 
 ### Manage interfaces in a model repository
 
