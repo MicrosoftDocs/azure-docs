@@ -9,8 +9,6 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: helohr
 ---
-<!--Remove screenshots you didn't use from media folder-->
-
 # Create an FSLogix profile container in Windows Virtual Desktop
 
 We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop Preview service](https://aka.ms/wvdpreview). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
@@ -43,7 +41,7 @@ To get started, you need to set up an Azure NetApp Files account.
 
 4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop. <!--Ask for clarification for step 4-->
 
-   ![The storage age with a red arrow pointing at the create storage button.](media/0058ca9f19a387c86319f51d5b4b9562.png)
+   ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
 
 5. Once Azure Cloud Shell loads, run the following two cmdlets.
 
@@ -57,7 +55,8 @@ To get started, you need to set up an Azure NetApp Files account.
 
 6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
 
-   ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/6546f1ab07c5c0ef0e04b68b5f426472.png)
+   ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
+
 
 7. Select **Azure NetApp Files** in the search results, then select **Create**.
 
@@ -91,15 +90,13 @@ Next, create a new capacity pool:
 
 5. When you're finished, select **OK**.
 
-<!--Break here-->
-
 ## Join an Active Directory connection
 
 After that, you need to join an Active Directory connection.
 
 1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
 
-![A screenshot of the Join Active Directory connections menu.](media/03f68f9f13b185c0521d694b1e9e225e.png)
+![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
 
 2. Enter the following values in the **Join Active Directory** page to join a connection:
 
@@ -111,8 +108,6 @@ After that, you need to join an Active Directory connection.
 
   >[!NOTE]
   >It's best practice to confirm that the computer account you created in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection) has appeared in your domain controller under **Computers** or **your enterprise's relevant OU**.
-
-<!--Break here-->
 
 ## Create a new volume
 
@@ -144,7 +139,7 @@ After you create the volume, configure the volume access parameters.
 
 6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
-   ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/3538527bfdd0d8a76b2ec3ce74f10890.png)
+   ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
 
 ## Configure FSLogix on session host virtual machines (VMs)
 
@@ -211,7 +206,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 <!--The corresponding volume for your user session?-->
 
-   ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/225c51fda15dbbd937616e1f1c302b1e.png)
+   ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
 
 6. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
 
@@ -220,4 +215,4 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
    Within this folder, there should be a profile VHD like the one in the following example.
 
-   ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/a2462ee25312ddfd310b625673360c4e.png)
+   ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
