@@ -33,14 +33,14 @@ When you've completed the guide, your application will accept sign-ins of person
 > [!div renderon="docs"]
 > ## Register and download your quickstart app
 > You have two options to start your quickstart application:
-> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
-> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+> * Express: [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * Manual: [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
 > 1. Go to the [Azure portal - App registrations](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps).
 > 1. Enter a name for your application and select **Register**.
-> 1. Follow the instructions to download and automatically configure your new application for you in one click.
+> 1. Follow the instructions to download and automatically configure your new application
 >
 > ### Option 2: Register and manually configure your application and code sample
 >
@@ -57,10 +57,10 @@ When you've completed the guide, your application will accept sign-ins of person
 > 1. Select the **Authentication** menu, and then add the following information:
 >    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/users`
 >    - Select **Save**.
-> 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the Client Secrets section:
+> 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the **Client Secrets** section:
 >     
 >    - Type a key description (of instance app secret),
->    - Select a key duration of either In 1 year, In 2 years, or Never Expires.
+>    - Select a key duration of In 1 year.
 >    - When you click on **Add**, the key value will be displayed. Copy and save the value in a safe location.
 >    - You'll need this key later to configure the project. This key value will not be displayed again, nor retrievable by any other means, so record it as soon as it is visible from the Azure portal.
 >
@@ -81,12 +81,12 @@ When you've completed the guide, your application will accept sign-ins of person
 
 #### Step 3: Configure the code sample 
 
-1. Extract the zip file to a local folder within the root folder - for example, **C:\Azure-Samples**
+1. Extract the zip file to a local folder
 1. If you use an integrated development environment, open up the sample in your favorite IDE (optional).
 1. Edit the **application.properties** file. 
-    1. Find `aad.clientId` and update the value of `YOUR_CLIENT_ID` with the **Application (client) ID** value of the application you registered. 
-    1. Find `aad.authority` and update the value of `YOUR_TENANT_NAME` with the **Directory (tenant) ID** value of the application you registered.
-    1. Find `aad.secretKey` and update the value of `YOUR_CLIENT_SECRET` with the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
+    1. Find `aad.clientId` and update the value of `YOUR_CLIENT_ID` with the **Application (client) ID** value of the application you registered in step 1. 
+    1. Find `aad.authority` and update the value of `YOUR_TENANT_NAME` with the **Directory (tenant) ID** value of the application you registered in step 1.
+    1. Find `aad.secretKey` and update the value of `YOUR_CLIENT_SECRET` with the **Client Secret** you created in **Certificates & Secrets** for the application you registered in step 1.
 
 
 
@@ -103,11 +103,19 @@ When you've completed the guide, your application will accept sign-ins of person
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 > > To find the value of **Client Secret**, go to *Certificates & Secrets*. If you didn't write this value down when created, you'll have to create another client secret, as they are not retrievable after creation
 
+#### Step 4: Run the code sample
+1. Run the code sample, and open up a browser and navigate to *http://localhost:8080*
+1. The front page contains a **sign-in** button. Clicking on this button will redirect the user to Azure Active Directory, where they will be prompted for their credentials. 
+1. After successfully authenticating on Azure Active Directory, they will be redirected to *http://localhost:8080/msal4jsamples/secure/aad*. They are officially signed in to the application, and the page should show information for the signed in account. It will also contain buttons for: 
+    - *Sign Out*: Will sign out the current user from the application, and redirect them the home page
+    - *Show Users*: Will acquire a token for the Microsoft Graph, then call the Microsoft Graph with the token attached to the request to get all of the users in the tenant
+
+
 ## More information
 
 ### Getting MSAL
 MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft Identity Platform. 
-You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies: 
+You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the pom.xml or build.gradle file in your application. 
 
 ```
 <dependency>
@@ -123,7 +131,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 
 
 ### Msal initialization
-You can add the reference for MSAL by adding the following code: 
+You can add the reference to MSAL4J by adding the following code to the top of the file where you will be using MSAL4J: 
 
 ```
 import com.microsoft.aad.msal4j.*;
