@@ -23,7 +23,8 @@ Eclipse is one of the most widely used integrated development environments (IDEs
 
 > [!NOTE]
 > The Eclipse plugin is currently not supported on Windows. 
->
+
+> [!IMPORTANT]
 > Be sure JDK 8 is installed on the system and selected in Eclipse.
 
 ## Install or update the Service Fabric plug-in in Eclipse

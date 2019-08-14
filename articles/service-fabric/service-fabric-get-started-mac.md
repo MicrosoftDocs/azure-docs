@@ -171,7 +171,7 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     brew install gradle
     ```
 
-    >[!TIP]
+    >[!IMPORTANT]
     > Current versions of `brew cask install java` may install a more recent version of the JDK.
     > Be sure to install JDK 8.
 
