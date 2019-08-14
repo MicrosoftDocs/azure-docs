@@ -52,17 +52,17 @@ az extension remove --name aks-preview
 az extension add -y --name aks-preview
 ```
 
-Set variable
+## Set variable and login to your ACR
 ```
 acrloginservername=$(az acr show -n <your-kubernetes-cluster-name> -g <your-resource-group> --query loginServer -o tsv)
 ```
 
-Login to your ACR
 ```
 az acr login -n <your-acr-name>
 ```
 
-Pull an image from docker hub, tag the image, and push the docker image to ACR.
+## Pull an image from docker hub
+
 ```
 docker pull nginx
 ```
@@ -75,17 +75,16 @@ docker tag nginx $acrloginservername/nginx:v1
 docker push someacr1.azurecr.io/nginx:v1
 ```
 
-Credentials heading TODO
+# Credentials heading TODO
 ```
 az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
 ```
 
-Update the state
+# Update the state and verify pods
 ```
 kubectl apply -f acr-nginx.yaml
 ```
 
-Verify pods, you should see 2 with a status of running
 ```
 kubectl get pods
 ```
