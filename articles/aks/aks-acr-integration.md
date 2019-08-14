@@ -64,8 +64,17 @@ az acr login -n <your-acr-name>
 
 ```console
 docker pull nginx
-docker tag nginx $acrloginservername/nginx:v1
-docker push someacr1.azurecr.io/nginx:v1
+```
+
+```
+$ docker tag nginx $acrloginservername/nginx:v1
+$ docker push someacr1.azurecr.io/nginx:v1
+
+The push refers to repository [someacr1.azurecr.io/nginx]
+fe6a7a3b3f27: Pushed
+d0673244f7d4: Pushed
+d8a33133e477: Pushed
+v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af958f size: 948
 ```
 
 ## Update the image property for the nginx container
@@ -97,7 +106,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: <replace this image property with you acr login server, image and tag>
+        image: TODO <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
 ```
