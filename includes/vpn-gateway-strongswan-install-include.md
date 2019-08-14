@@ -38,4 +38,4 @@ Use the following command to install the Azure command-line interface:
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 ```
 
-[Additional instructions on how to install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
+[Additional instructions on how to install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
