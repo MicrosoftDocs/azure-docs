@@ -29,7 +29,7 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
    * The administrator account must be a work or school account.
 * An Azure subscription.
 
-## Grant consent to the Windows Virtual Desktop Preview service
+## Grant permissions to Windows Virtual Desktop
 
 If you have already granted permissions to Windows Virtual Desktop for this Azure Active Directory instance, skip this section.
 
