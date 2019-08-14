@@ -92,10 +92,16 @@ In the application's `Main` method, create variables for your resource's Azure e
 static void Main(string[] args)
 {
     // replace this endpoint with the correct one for your Azure resource. 
-    string endpoint = $"https://westus2.api.cognitive.microsoft.com";
+    string endpoint = $"https://westus.api.cognitive.microsoft.com";
     //This sample assumes you have created an environment variable for your key
     string key = Environment.GetEnvironmentVariable("TEXT_ANALYTICS_SUBSCRIPTION_KEY");
-    TextAnalyticsClient client = new TextAnalyticsClient(new ApiKeyServiceClientCredentials(key));
+
+    var credentials = new ApiKeyServiceClientCredentials(key);
+    TextAnalyticsClient client = new TextAnalyticsClient(credentials)
+    {
+        Endpoint = endpoint
+    };
+
     Console.OutputEncoding = System.Text.Encoding.UTF8;
     SentimentAnalysisExample(client);
     // languageDetectionExample(client);
