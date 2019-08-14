@@ -29,7 +29,7 @@ Here's what you need to set up your Windows Virtual Desktop tenant:
    * The administrator account must be a work or school account.
 * An Azure subscription.
 
-## Grant Azure Active Directory permissions to the Windows Virtual Desktop Preview service
+## Grant consent to the Windows Virtual Desktop Preview service
 
 If you have already granted permissions to Windows Virtual Desktop for this Azure Active Directory instance, skip this section.
 
@@ -49,7 +49,7 @@ To grant the service permissions:
 8. Sign in to the Windows Virtual Desktop consent page as global administrator, as you did in step 3.
 9. Select **Accept**.
 
-## Assign the TenantCreator application role to a user in your Azure Active Directory tenant
+## Assign the TenantCreator application role
 
 Assigning an Azure Active Directory user the TenantCreator application role allows that user to create a Windows Virtual Desktop tenant associated with the Azure Active Directory instance. You'll need to use your global administrator account to assign the TenantCreator role.
 
