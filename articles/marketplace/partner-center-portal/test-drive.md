@@ -13,6 +13,6 @@ ms.date: 08/13/2019
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## Next steps
+**Next steps**
 
 - [Update an existing offer in the Commercial Marketplace](./update-existing-offer.md)
