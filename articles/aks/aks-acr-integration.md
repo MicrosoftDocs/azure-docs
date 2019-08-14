@@ -76,9 +76,6 @@ View the yaml file, and edit the image property by replacing the value with your
 
 ```
 cat acr-nginx.yaml
-```
-
-See snippet below:
 
 apiVersion: apps/v1
 kind: Deployment
