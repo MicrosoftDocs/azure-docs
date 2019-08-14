@@ -63,7 +63,7 @@ The following are the settings that can be configured to control data collection
 |`[log_collection_settings.stderr] exclude_namespaces =` |String |Comma-separated array |Array of Kubernetes namespaces for which stderr logs will not be collected. This setting is effective only if `log_collection_settings.stdout.enabled` is set to `true`. If not specified in ConfigMap, the default value is `exclude_namespaces = ["kube-system"]`. |
 | `[log_collection_settings.env_var] enabled =` |Boolean | true or false | This controls if environment variable collection is enabled. When set to `false`, no environment variables are collected for any container running across all pods/nodes in the cluster. If not specified in ConfigMap, the default value is `enabled = true`. |
 
-## Overview of configurable Prometheus scraping settings
+### Overview of configurable Prometheus scraping settings
 
 Active scraping of metrics from Prometheus is performed from one of two perspectives:
 
@@ -100,6 +100,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
     
     - The following examples demonstrates how to configure the ConfigMap file metrics from a URL cluster-wide, from an agent's DameonSet node-wide, and by specifying a pod annotation
+
         - Scrape Prometheus metrics from a specific URL across the cluster.
 
         ```
