@@ -61,7 +61,7 @@ To add an application from the Azure AD Gallery, follow these steps:
 
 9.  Select **Add** button, to add the application.
 
-After a short period of time, you be able to see the application’s configuration pane.
+After a short period, you should be able to see the application’s configuration pane.
 
 ## Configure single sign-on for an application from the Azure AD gallery
 
