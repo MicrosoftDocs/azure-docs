@@ -51,49 +51,49 @@ You must have the [Azure AD Identity Protection data connector](connect-azure-ad
 
 **Impossible travel to atypical locations leading to O365 Mailbox Exfiltration**
 
-This is an indication of a sign-in by \<*account name*>  from an impossible travel to \<*location*>, an atypical location, followed by a suspicious inbox forwarding rule was set on a user's inbox.
+This alert is an indication of a sign-in event by \<*account name*>  from an impossible travel to \<*location*>, an atypical location, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
 This may indicate that the account is compromised, and that the mailbox is being used to exfiltrate information from your organization. The user \<*account name*> created or updated an inbox forwarding rule that forwards all incoming email to the external address \<*external email address*>.
 
 **Impossible travel to atypical locations leading to Suspicious Cloud App Administrative Activity**
 
-This is an indication of a sign-in by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
+This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
 
 Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session
 
 **Impossible travel to atypical locations leading to Suspicious Cloud App Administrative Activity**
 
-This is an indication of a sign-in by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
+This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location.
 
 Next, the account \<*account name*> performed over \<*number*> administrative activities in a single session|
 
 **Impossible travel to atypical locations leading to mass File deletion**
 
-This is an indication of a sign-in by \<*account name*> to \<*location*>, an atypical location. 
+This alert is an indication of a sign-in event by \<*account name*> to \<*location*>, an atypical location. 
 
 Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
 
 **Impossible travel to atypical locations leading to mass file download**
 
-This is an indication of a sign-in by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
+This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
 **Impossible travel to atypical locations leading to O365 impersonation**
 
-This is an indication of  a sign-in by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
+This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
 Next, the account \<*account name*> impersonated over \<*number of*> different accounts in a single session.
 
 **Impossible travel to atypical locations leading to mass file sharing**
 
-This is an indication of  a sign-in by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
+This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
 Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
 
 **Impossible travel to atypical locations leading to ransomware in cloud app**
 
-This is an indication of a sign-in by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
+This alert is an indication of a sign-in event by \<*account name*> from an impossible travel to \<*location*>, an atypical location. 
 
 Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
 
@@ -104,43 +104,43 @@ This activity pattern is indicative of a potential ransomware attack
 
 **Sign-in from an unfamiliar location leading to O365 mailbox exfiltration**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location, followed by a suspicious inbox forwarding rule was set on a user's inbox.
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
 This may indicate that the account is compromised, and that the mailbox is being used to exfiltrate information from your organization. The user \<*account name*> created or updated an inbox forwarding rule that forwards all incoming email to the external address \<*email address*>. 
 
 **Sign-in from an unfamiliar location leading to suspicious cloud app administrative activity**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location. 
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
 Next, the account \<*account name*> performed over \<*number of*> administrative activities in a single session.
 
 **Sign-in from an unfamiliar location leading to mass file deletion**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location. 
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
 Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
 
 **Sign-in from an unfamiliar location leading to mass file download**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location. 
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
 **Sign-in from an unfamiliar location leading to O365 impersonation**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location.
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location.
 
 Next, the account \<*account name*> impersonated over \<*number of*> different accounts in a single session.
 
 **Sign-in from an unfamiliar location leading to mass file sharing**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location. 
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
 Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
 
 **Sign-in from an unfamiliar location leading to ransomware in cloud app**
 
-This is an indication of a sign-in by \<*account name*> from \<*location*>, an unfamiliar location. 
+This alert is an indication of a sign-in event by \<*account name*> from \<*location*>, an unfamiliar location. 
 
 Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
 
@@ -150,43 +150,43 @@ This activity pattern is indicative of a potential ransomware attack
 
 **Sign-in from an infected device leading to O365 mailbox exfiltration**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware, followed by a suspicious inbox forwarding rule was set on a user's inbox.
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
 This may indicate that the account is compromised, and that the mailbox is being used to exfiltrate information from your organization. The user \<*account name*> created or updated an inbox forwarding rule that forwards all incoming email to the external address \<*email address*>. 
 
 **Sign-in from an infected device leading to suspicious cloud app administrative activity**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware.
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware.
 
 Next, the account \<*account name*> performed over \<*number of*> administrative activities in a single session.
 
 **Sign-in from an infected device leading to mass file deletion**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware. 
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
 Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
 
 **Sign-in from an infected device leading to mass file download**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware. 
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
 **Sign-in from an infected device leading to O365 impersonation**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware. 
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
 Next, the account \<*account name*> impersonated over \<*number of*> different accounts in a single session.
 
 **Sign-in from an infected device leading to mass file sharing**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware. 
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
 Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
 
 **Sign-in from an infected device leading to ransomware in cloud app**
 
-This is an indication of a sign-in by \<*account name*> from a device potentially infected with malware. 
+This alert is an indication of a sign-in event by \<*account name*> from a device potentially infected with malware. 
 
 Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
 
@@ -196,43 +196,43 @@ This activity pattern is indicative of a potential ransomware attack.
 
 **Sign-in from an anonymous IP address leading to O365 mailbox exfiltration**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>, followed by a suspicious inbox forwarding rule was set on a user's inbox.
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>, followed by a suspicious inbox forwarding rule was set on a user's inbox.
 
 This may indicate that the account is compromised, and that the mailbox is being used to exfiltrate information from your organization. The user \<*account name*> created or updated an inbox forwarding rule that forwards all incoming email to the external address \<*email address*>. 
 
 **Sign-in from an anonymous IP address leading to suspicious cloud app administrative activity**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
 Next, the account \<*account name*> performed over \<*number of*> administrative activities in a single session.
 
 **Sign-in from an anonymous IP address leading to mass file deletion**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
 Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
 
 **Sign-in from an anonymous IP address leading to mass file download**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
 **Sign-in from an anonymous IP address leading to O365 impersonation**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
 Next, the account \<*account name*> impersonated over \<*number of*> different accounts in a single session.
 
 **Sign-in from an anonymous IP address leading to mass file sharing**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
 Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
 
 **Sign-in from an anonymous IP address to ransomware in cloud app**
 
-This is an indication of a sign-in by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
+This alert is an indication of a sign-in event by \<*account name*> from an anonymous proxy IP address \<*IP address*>. 
 
 Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
 
@@ -242,43 +242,43 @@ This activity pattern is indicative of a potential ransomware attack.
 
 **Sign-in from User with leaked credentials leading to O365 mailbox exfiltration**
 
-This is an indication that the sign-in by \<*account name*> used leaked credentials, followed by a suspicious inbox forwarding rule was set on a user's inbox. 
+This alert is an indication that the sign-in event by \<*account name*> used leaked credentials, followed by a suspicious inbox forwarding rule was set on a user's inbox. 
 
 This may indicate that the account is compromised, and that the mailbox is being used to exfiltrate information from your organization. The user \<*account name*> created or updated an inbox forwarding rule that forwards all incoming email to the external address \<*email address*>. 
 
 **Sign-in from user with leaked credentials leading to suspicious cloud app administrative activity**
 
-This is an indication that the  sign-in by \<*account name*> used leaked credentials.
+This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials.
 
 Next, the account \<*account name*> performed over \<*number of*> administrative activities in a single session.
 
 **Sign-in from User with leaked credentials leading to mass file deletion**
 
-This is an indication that the sign-in by \<*account name*> used leaked credentials.
+This alert is an indication that the sign-in event by \<*account name*> used leaked credentials.
 
 Next, the account \<*account name*> deleted \<*number of*> unique objects in a single session.
 
 **Sign-in from User with leaked credentials leading to mass file download**
 
-This is an indication that the  sign-in by \<*account name*> used leaked credentials.
+This alert is an indication that the sign-in event by \<*account name*> used leaked credentials.
 
 Next, the account \<*account name*> downloaded over \<*number of*> unique objects in a single session.
 
 **Sign-in from user with leaked credentials leading to O365 impersonation**
 
-This is an indication that the  sign-in by \<*account name*> used leaked credentials. 
+This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials. 
 
 Next, the account \<*account name*> impersonated over \<*number of*> different accounts in a single session.
 
 **Sign-in from User with leaked credentials leading to mass file sharing**
 
-This is an indication that the  sign-in by \<*account name*> used leaked credentials.
+This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials.
 
 Next, the account \<*account name*> shared over \<*number of*> unique objects in a single session.
 
 **Sign-in from User with leaked credentials to ransomware in cloud app**
 
-This is an indication that the  sign-in by \<*account name*> used leaked credentials. 
+This alert is an indication that the  sign-in event by \<*account name*> used leaked credentials. 
 
 Next, the account \<*account name*> uploaded \<*number of*> pdf files, and deleted a total of \<*number of*> files. 
 
