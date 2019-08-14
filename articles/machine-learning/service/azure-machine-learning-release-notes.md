@@ -70,11 +70,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Supported importing HTTP csv/tsv files in dataset python SDK.
     + Deprecated the Workspace.setup() method. Warning message shown to users suggests to use create() or get()/from_config() instead.
     + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages (.whl) to the workspace and securely using them to build/materialize the environment.
-  + **azureml-dataprep**
-    + Fixed Parquet issue when reading files that had columns consisting entirely of nulls. Can now read the files.
-    + Fix mounting AzureML Datastore files via FUSE driver.
-    + Added a `map_partition` function to `azureml.dataprep.Dataflow` which can transform the contents of a Dataflow by invoking a callable object on each partition.
-    + Lists of strings can now be passed in as input to read_* methods in azureml.dataprep.
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
     + Added `is_raw` tagging to explanations in memory and upload.
