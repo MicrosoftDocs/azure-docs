@@ -74,7 +74,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
     + Added `is_raw` tagging to explanations in memory and upload.
-    + Adding pytorch support and tests for azureml-explain-model package
+    + Added pytorch support and tests for azureml-explain-model package.
   + **azureml-opendatasets**
     + Support detecting and logging auto test environment.
     + Add classes to get US population by county and zip.
