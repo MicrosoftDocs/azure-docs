@@ -1,0 +1,46 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Azure Data Box Documentation - Offline Transfer 
+metadata:
+  title: Azure Data Box Documentation - Offline Transfer  
+  description:  Use the Data Box devices for offline data transfer to Azure when you are limited by time, network, or cost.
+  services: databox
+  author: alkohli
+  manager: twooley
+  ms.service: databox
+  ms.subservice: pod
+  ms.topic: landing-page
+  ms.date: 07/03/2019
+  ms.author: alkohli
+abstract:
+  description: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost.<p>Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy. For each device, transfer to Azure occurs in 4 easy steps – order, receive, copy data to device, and return device to Azure. In the Azure datacenter, data is uploaded and then erased.</p><p>Learn how to leverage Data Box for your offline data transfer with our quickstarts and tutorials.</p>
+sections:
+- title: Quickstart
+  items:
+  - type: list
+    style: icon48
+    items:    
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Set up Data Box in the Azure portal
+      href: /azure/databox/data-box-quickstart-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Set up Data Box Disk in the Azure portal 
+      href: /azure/databox/data-box-disk-quickstart-portal
+    - image:
+        src: https://docs.microsoft.com/media/common/i_quick-start.svg
+      text: Set up Data Box Heavy in the Azure portal
+      href: /azure/databox/data-box-heavy-quickstart-portal
+- title: Tutorials
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: For Data Box
+      html: <p><a href="/azure/databox/data-box-deploy-ordered">Order Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-set-up">Cable and connect Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-copy-data">Copy data to Azure Data Box</a></p><p><a href="/azure/databox/data-box-deploy-picked-up">Return Azure Data Box and verify upload</a></p>
+    - title: For Data Box Disk
+      html: <p><a href="/azure/databox/data-box-disk-deploy-ordered">Order Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-set-up">Unpack, connect, unlock Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-copy-data">Copy data to Azure Data Box Disk</a></p><p><a href="/azure/databox/data-box-disk-deploy-picked-up">Return Azure Data Box Disk and verify upload</a></p>
+    - title: For Data Box Heavy
+      html: <p><a href="/azure/databox/data-box-heavy-deploy-ordered">Order Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-set-up">Cable and connect Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-copy-data">Copy data to Azure Data Box Heavy</a></p><p><a href="/azure/databox/data-box-heavy-deploy-picked-up">Return Azure Data Box Heavy and verify upload</a></p>
