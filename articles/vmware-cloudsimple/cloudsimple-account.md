@@ -11,7 +11,7 @@ manager: dikamath
 ---
 # Account management overview
 
-When you create your CloudSimple service, it creates an account on CloudSimple.  The account is associated with your Azure subscription where the service is located.  All users with **owner** and **contributor** roles in the subscription have access to the CloudSimple portal.  The Azure subscription ID and tenant ID associated with the CloudSimple service are found on the [Accounts page](account/).
+When you create your CloudSimple service, it creates an account on CloudSimple.  The account is associated with your Azure subscription where the service is located.  All users with **owner** and **contributor** roles in the subscription have access to the CloudSimple portal.  The Azure subscription ID and tenant ID associated with the CloudSimple service are found on the [Accounts page](account.md).
 
 ## Additional alert emails
 
