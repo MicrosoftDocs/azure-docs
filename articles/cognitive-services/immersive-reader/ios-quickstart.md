@@ -17,7 +17,7 @@ ms.author: t-meroa
 
 The [Immersive Reader](https://www.onenote.com/learningtools) is an inclusively designed tool that implements proven techniques to improve reading comprehension.
 
-In this quickstart, you will build an iOS app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/iOS/samples/quickstart-swift).
+In this quickstart, you will build an iOS app from scratch and integrate the Immersive Reader by using the Immersive Reader SDK. A full working sample of this quickstart is available [here](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/samples/quickstart-swift).
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -40,7 +40,7 @@ Choose **Single View App**.
 The easiest way to use the Immersive Reader SDK is via CocoaPods. To install via Cocoapods:
 1. [Install Cocoapods](http://guides.cocoapods.org/using/getting-started.html) - Follow the getting started guide to install Cocoapods.
 2. Create a Podfile by running `pod init` in your Xcode project's root directory.
-3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/iOS/immersive-reader-sdk'`. Your Pofile should look like the following, with your target's name replacing quickstart-swift:
+3.  Add the CocoaPod to your Podfile by adding `pod 'immersive-reader-sdk', :path => 'https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS/immersive-reader-sdk'`. Your Pofile should look like the following, with your target's name replacing quickstart-swift:
  ```ruby
   platform :ios, '9.0'
 
@@ -99,4 +99,4 @@ When you click on the "Immersive Reader" button, you'll see the Immersive Reader
 
 ## Next steps
 
-* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)
+* Explore the [Immersive Reader iOS SDK](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS) and the [Immersive Reader iOS SDK Reference](./ios-reference.md)

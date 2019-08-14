@@ -15,7 +15,7 @@ ms.date: 10/04/2018
 
 ## Overview
 
-Azure Data Factory Mapping Data Flow's debug mode can be switched on with the "Data Flow Debug" button at the top of the design surface. When designing data flows, turning on debug mode will allow you to interactively watch the data shape transform while you build and debug your data flows. The Debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows.
+Azure Data Factory Mapping Data Flow's debug mode can be switched on with the "Data Flow Debug" button at the top of the design surface. When designing data flows, turning on debug mode allows you to interactively watch the data shape transform while you build and debug your data flows. The Debug session can be used both in Data Flow design sessions as well as during pipeline debug execution of data flows.
 
 ![Debug button](media/data-flow/debugbutton.png "Debug button")
 
@@ -69,7 +69,7 @@ Once you select a modification, the data preview will immediately refresh. Click
 
 ### Data profiling
 
-Selecting individual columns in your data preview tab and click **Statistics** in the data preview toolbar will pop up a chart on the far-right of your data grid with detailed statistics about each field. Azure Data Factory will make a determination based upon the data sampling of which type of chart to display. High-cardinality fields will default to NULL/NOT NULL charts while categorical and numeric data that has low cardinality will display bar charts showing data value frequency. You'll also see max/len length of string fields, min/max values in numeric fields, standard dev, percentiles, counts, and average.
+Selecting a columns in your data preview tab and clicking **Statistics** in the data preview toolbar will pop up a chart on the far-right of your data grid with detailed statistics about each field. Azure Data Factory will make a determination based upon the data sampling of which type of chart to display. High-cardinality fields will default to NULL/NOT NULL charts while categorical and numeric data that has low cardinality will display bar charts showing data value frequency. You'll also see max/len length of string fields, min/max values in numeric fields, standard dev, percentiles, counts, and average.
 
 ![Column statistics](media/data-flow/stats.png "Column statistics")
 
