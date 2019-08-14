@@ -44,8 +44,8 @@ This guide uses the following library:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Preview|
 
 > [!NOTE]
-> *msal.js* targets the *Microsoft identity platform endpoint* - which enables personal, school and work accounts to sign in and acquire tokens. The *Microsoft identity platform endpoint* has [some limitations](../articles/active-directory/develop/active-directory-v2-limitations.md).
-> To understand differences between the v1.0 and v2.0 endpoints read the [Endpoint comparison guide](../articles/active-directory/develop/azure-ad-endpoint-comparison.md).
+> *msal.js* targets the *Microsoft identity platform endpoint* which enables personal, school and work accounts to sign in and acquire tokens. The *Microsoft identity platform endpoint* has [some limitations](azure-ad-endpoint-comparison#limitations).
+> To understand differences between the v1.0 and v2.0 endpoints read the [Endpoint comparison guide](azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
 
@@ -333,7 +333,7 @@ Add the following code to your `index.html` file within the `<script></script>` 
 
 1. Select **Register**.
 1. On the app **Overview** page, note the **Application (client) ID** value for later use.
-1. This quickstart requires the [Implicit grant flow](../articles/active-directory/develop/v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
+1. This quickstart requires the [Implicit grant flow](v2-oauth2-implicit-grant-flow.md) to be enabled. In the left pane of the registered application, select **Authentication**.
 1. In **Advanced settings**, under **Implicit grant**, select the **ID tokens** and **Access tokens** check boxes. ID tokens and access tokens are required, because this app needs to sign in users and call an API.
 1. Select **Save**.
 
@@ -433,12 +433,7 @@ If a back-end API doesn't require a scope (not recommended), you can use the *cl
 
 <!--end-collapse-->
 
-## Help and support
-
-If you need help, want to report an issue, or want to learn more about your support options, see the following article:
-
-> [!div class="nextstepaction"]
-> [Help and support for developers](../articles/active-directory/develop/developer-support-help-options.md)
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 

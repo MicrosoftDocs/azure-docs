@@ -475,12 +475,7 @@ Learn about Web apps calling web APIs:.
 > [!div class="nextstepaction"]
 > [Web apps calling Web APIs]( https://aka.ms/msal-net-authorization-code)
 
-## Help and support
-
-If you need help, want to report an issue, or want to learn more about your support options, see the following article:
-
-> [!div class="nextstepaction"]
-> [Help and support for developers](../articles/active-directory/develop/developer-support-help-options.md)
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
