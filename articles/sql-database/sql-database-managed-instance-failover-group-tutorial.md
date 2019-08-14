@@ -197,7 +197,7 @@ To configure connectivity, follow these steps:
 1. Select **OK** to add your new primary-to-secondary gateway connection.
 1. Repeat these steps to create a connection from the gateway of the secondary managed instance to the gateway of the primary managed instance. 
 
-  ![Create secondary to primary connection](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
+   ![Create secondary to primary connection](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
 
 
 ## 7 - Create a failover group
