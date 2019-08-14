@@ -247,7 +247,7 @@ For more information about scheduled WebJobs, see [Create a scheduled WebJob by 
 
 ## How do I perform penetration testing for my App Service app?
 
-To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/en-us/engage/pentest).
+To perform penetration testing, [submit a request](https://portal.msrc.microsoft.com/engage/pentest).
 
 ## How do I configure a custom domain name for an App Service web app that uses Traffic Manager?
 
