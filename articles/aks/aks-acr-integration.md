@@ -39,7 +39,7 @@ You can set up AKS and ACR integration during the initial creation of your AKS c
 az aks create -n myAKSCluster -g myResourceGroup -enable-acr [--acr <your-acr-name>]
 ```
 
-Optionally, you can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
+Optionally, you can also specify **acr-resource-id** of an existing acr in the resource group you specified for the aks cluster with the following command.  Supply your valid values for the parameters below.
 ```console
 az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-id <your-acr-resource-id>]
 ```
