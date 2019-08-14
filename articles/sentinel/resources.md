@@ -42,7 +42,7 @@ Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 Post your questions on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel.
 
-View Azure Sentinel blog posts from the [TechCommunity blog](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) and the [Microsoft Azure blog](https://azure.microsoft.com/en-us/blog/tag/azure-sentinel/).
+View Azure Sentinel blog posts from the [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) and [Microsoft Azure](https://azure.microsoft.com/en-us/blog/tag/azure-sentinel/).
 
 
 ## Next steps
