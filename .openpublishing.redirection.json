@@ -25865,6 +25865,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/security-center/security-center-alerts-type.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-ueba-mcas.md",
+      "redirect_url": "/azure/security-center/security-center-alerts-service-layer#azure-management-layer-azure-resource-manager-preview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md",
       "redirect_url": "/azure/virtual-machines/linux/multiple-nics",
       "redirect_document_id": false
