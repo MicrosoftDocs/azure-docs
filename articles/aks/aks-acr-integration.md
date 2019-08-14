@@ -29,7 +29,7 @@ Subscription contributors can create the AKS cluster as well as the ACR, but can
 
 Ensure you have created and AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extension
 
-```console
+```azurecli
 az extension remove --name aks-preview 
 az extension add -y --name aks-preview
 ```
@@ -37,12 +37,12 @@ az extension add -y --name aks-preview
 ## Create a new AKS cluster with ACR integration
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
-```console
+```azurecli
 az aks create -n myAKSCluster -g myResourceGroup -enable-acr [--acr <acrName>]
 ```
 
 Optionally, you can also specify **acr-resource-id** of an existing acr in the resource group you specified for the aks cluster with the following command.  Supply your valid values for the parameters below.
-```console
+```azurecli
 az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-id <your-acr-resource-id>]
 ```
 
@@ -50,7 +50,7 @@ az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-i
 
 For existing AKS clusters you can add integration with an existing ACR. The following commands do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 
-```console
+```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
 az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
@@ -59,7 +59,7 @@ az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id 
 
 Login to your ACR.
 
-```console
+```azurecli
 acrloginservername=$(az acr show -n myAKSCluster -g myResourceGroup --query loginServer -o tsv)
 az acr login -n <acrName>
 ```
@@ -83,7 +83,7 @@ v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af9
 
 ## Update the image property for the nginx container
 
-```console
+```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
