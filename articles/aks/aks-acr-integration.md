@@ -22,7 +22,7 @@ You can set up the AKS to ACR integration in a few simple commands with the Azur
 Subscription contributors can create the AKS cluster and the ACR, but can't assign the **ACRPull** role to the AKS service principal unless they are an **Azure subscription owner**. AKS can only perform a role assignment for the acr resource ID if the ACR is in the same resource group as the AKS cluster in case the user is a contributor in the subscription and not the Owner.
 
 * **Owner** role on the **Azure subscription** if AKS and ACR are in different resource groups or **Contributor** role on the **Azure subscription** if AKS and ACR reside in the same resource group
-* You also need the Azure CLI version 2.0.70 or later
+* You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.8 extension
 * You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
 
 ## Install latest AKS CLI preview extension
