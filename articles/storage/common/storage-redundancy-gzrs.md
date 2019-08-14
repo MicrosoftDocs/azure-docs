@@ -64,7 +64,7 @@ When an availability zone becomes unavailable, Azure undertakes networking updat
 
 ### Regional outages
 
-If a failure affects the entire primary region, then Microsoft will first attempt to restore the primary region. If restoration is not possible, then Microsoft will fail over to the secondary region, so that the secondary region becomes the new primary region. If the storage account has RA-GZRS enabled, then applications designed for this scenario can read from the secondary region while waiting for failover. If the storage acccount does not have RA-GZRS enabled, then applications will not be able to read from the secondary until the failover is complete.
+If a failure affects the entire primary region, then Microsoft will first attempt to restore the primary region. If restoration is not possible, then Microsoft will fail over to the secondary region, so that the secondary region becomes the new primary region. If the storage account has RA-GZRS enabled, then applications designed for this scenario can read from the secondary region while waiting for failover. If the storage account does not have RA-GZRS enabled, then applications will not be able to read from the secondary until the failover is complete.
 
 > [!NOTE]
 > GZRS and RA-GZRS are currently in preview in the US East 2 region only. Customer-managed account failover (preview) is not yet available in US East 2, so customers cannot currently manage account failover events with GZRS and RA-GZRS accounts. During the preview, Microsoft will manage any failover events affecting GZRS and RA-GZRS accounts.
