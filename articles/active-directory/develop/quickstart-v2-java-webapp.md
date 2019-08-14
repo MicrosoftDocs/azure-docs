@@ -22,7 +22,7 @@ ms.custom: aaddev
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-In this quickstart, you'll learn how to integrate a Java web application with the Microsoft Identity platform. Your app 
+In this quickstart, you'll learn how to integrate a Java web application with the Microsoft identity platform. Your app 
 will sign in a user, get an access token to call the Microsoft Graph API, and make a request to the Microsoft Graph API. 
 
 When you've completed the guide, your application will accept sign-ins of personal Microsoft accounts (including outlook.com,
@@ -114,7 +114,7 @@ When you've completed the guide, your application will accept sign-ins of person
 ## More information
 
 ### Getting MSAL
-MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft Identity Platform. 
+MSAL4J is the library used to sign in users and request tokens used to access an API protected by the Microsoft identity Platform. 
 You can add MSAL4J to your application by using Maven or Gradle to manage your dependencies by making the following changes to the pom.xml or build.gradle file in your application. 
 
 ```
