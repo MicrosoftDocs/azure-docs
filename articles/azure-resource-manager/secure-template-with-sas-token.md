@@ -11,11 +11,11 @@ ms.author: tomfitz
 ---
 # Deploy private Resource Manager template with SAS token
 
-When your template resides in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This topic explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
+When your template is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
 
 ## Create storage account with secured container
 
-The following example sets up a private storage account container:
+The following script creates a storage account and container with public access turned off.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -41,10 +41,10 @@ New-AzStorageContainer `
 ```azurecli-interactive
 az group create \
   --name "ExampleGroup" \
-  --location "South Central US"
+  --location "Central US"
 az storage account create \
     --resource-group ExampleGroup \
-    --location "South Central US" \
+    --location "Central US" \
     --sku Standard_LRS \
     --kind Storage \
     --name {your-unique-name}
@@ -67,7 +67,9 @@ Now, you're ready to upload your template to the storage account. Provide the pa
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Set-AzStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
+Set-AzStorageBlobContent `
+  -Container templates `
+  -File c:\Templates\azuredeploy.json
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -75,8 +77,8 @@ Set-AzStorageBlobContent -Container templates -File c:\MyTemplates\storage.json
 ```azurecli-interactive
 az storage blob upload \
     --container-name templates \
-    --file vmlinux.json \
-    --name vmlinux.json \
+    --file azuredeploy.json \
+    --name azuredeploy.json \
     --connection-string $connection
 ```
 
@@ -93,21 +95,16 @@ To deploy a private template in a storage account, generate a SAS token and incl
 # [PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-Set-AzCurrentStorageAccount -ResourceGroupName ManageGroup -Name {your-unique-name}
-
 # get the URI with the SAS token
 $templateuri = New-AzStorageBlobSASToken `
   -Container templates `
-  -Blob storage.json `
+  -Blob azuredeploy.json `
   -Permission r `
   -ExpiryTime (Get-Date).AddHours(2.0) -FullUri
 
 # provide URI with SAS token during deployment
-New-AzResourceGroup `
-  -Name ResultGroup `
-  -Location "South Central US"
 New-AzResourceGroupDeployment `
-  -ResourceGroupName ResultGroup `
+  -ResourceGroupName ExampleGroup `
   -TemplateUri $templateuri
 ```
 
@@ -116,22 +113,24 @@ New-AzResourceGroupDeployment `
 ```azurecli-interactive
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
-    --resource-group ManageGroup \
+    --resource-group ExampleGroup \
     --name {your-unique-name} \
     --query connectionString)
 token=$(az storage blob generate-sas \
     --container-name templates \
-    --name vmlinux.json \
+    --name azuredeploy.json \
     --expiry $expiretime \
     --permissions r \
     --output tsv \
     --connection-string $connection)
 url=$(az storage blob url \
     --container-name templates \
-    --name vmlinux.json \
+    --name azuredeploy.json \
     --output tsv \
     --connection-string $connection)
-az group deployment create --resource-group ExampleGroup --template-uri $url?$token
+az group deployment create \
+  --resource-group ExampleGroup \
+  --template-uri $url?$token
 ```
 
 ---
