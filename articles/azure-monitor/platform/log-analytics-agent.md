@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 08/12/2019
 ms.author: magoedte
 ---
 
@@ -29,13 +29,21 @@ Before analyzing and acting on collected data, you first need to install and con
 
 The agent for Linux and Windows communicates outbound to the Azure Monitor service over TCP port 443, and if the machine connects through a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required. If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](gateway.md) and then configure the agent to connect through the gateway to Azure Monitor logs. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled in your workspace. 
 
-If you are monitoring a computer with System Center Operations Manager 2012 R2 or later, it can be multi-homed with the Azure Monitor service to collect data and forward to the service and still be monitored by [Operations Manager](../../azure-monitor/platform/om-agents.md). With Linux computers, the agent doesn't include a health service component as the Windows agent does, and information is collected and processes by a management server on its behalf. Because Linux computers are monitored differently with Operations Manager, they do not receive configuration or collect data directly, and forward through the management group like a Windows agent-managed system does. As a result, this scenario isn't supported with Linux computers reporting to Operations Manager and you need to configure the Linux computer to [report to an Operations Manager management group](../platform/agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group) and a Log Analytics workspace in two steps.
+When using the Log Analytics agents to collect data, you need to understand the following in order to plan your agent deployment:
 
-The Windows agent can report up to four Log Analytics workspaces, while the Linux agent only supports reporting to a single workspace.  
+* To collect data from Windows agents, you can [configure each agent to report to one or more workspaces](agent-windows.md), even while it is reporting to a System Center Operations Manager management group. The Windows agent can report up to four workspaces.
+* The Linux agent does not support multi-homing and can only report to a single workspace.
+
+If you are using System Center Operations Manager 2012 R2 or later:
+
+* Each Operations Manager management group can be [connected to only one workspace](om-agents.md).
+* Linux computers reporting to a management group must be configured to report directly to a Log Analytics workspace. If your Linux computers are already reporting directly to a workspace and you want to monitor them with Operations Manager, follow these steps to [report to an Operations Manager management group](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group).
+* You can install the Log Analytics Windows agent on the Windows computer and have it report to both Operations Manager integrated with a workspace, and a different workspace.
 
 The agent for Linux and Windows isn't only for connecting to Azure Monitor, it also supports Azure Automation to host the Hybrid Runbook worker role and other services such as [Change Tracking](../../automation/change-tracking.md), [Update Management](../../automation/automation-update-management.md), and [Azure Security Center](../../security-center/security-center-intro.md). For more information about the Hybrid Runbook Worker role, see [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md).  
 
 ## Supported Windows operating systems
+
 The following versions of the Windows operating system are officially supported for the Windows agent:
 
 * Windows Server 2019

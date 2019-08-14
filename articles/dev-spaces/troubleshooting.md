@@ -439,7 +439,14 @@ Update your installation of the [Azure CLI](/cli/azure/install-azure-cli?view=az
 
 ### Reason
 
-When you run a service in a dev space, that service's pod is [injected with additional containers for instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster). Those containers do not have resource requests or limits defined, which causes the horizontal pod autoscaler to be disabled for the pod.
+When you run a service in a dev space, that service's pod is [injected with additional containers for instrumentation](how-dev-spaces-works.md#prepare-your-aks-cluster) and all the containers in a pod need to have resource limits and requests set for Horizontal Pod Autoscaling. 
+
+
+Resource requests and limits can be applied for the injected container (devspaces-proxy) by adding the `azds.io/proxy-resources` annotation to your pod spec. The value should be set to a JSON object representing the resources section of the container spec for the proxy.
 
 ### Try
-Run the horizontal pod autoscaler in a namespace that does not have Dev Spaces enabled.
+
+Below is an example of a proxy-resources annotation that is to be applied to your pod spec.
+```
+azds.io/proxy-resources: "{\"Limits\": {\"cpu\": \"300m\",\"memory\": \"400Mi\"},\"Requests\": {\"cpu\": \"150m\",\"memory\": \"200Mi\"}}"
+```

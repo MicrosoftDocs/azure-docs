@@ -139,4 +139,4 @@ The device application starts sending data to IoT Hub.
 In this quickstart, you've learned how to connect an IoT Plug and Play device to an IoT hub. To learn more about how to build a solution that interacts with your IoT Plug and Play devices, see:
 
 > [!div class="nextstepaction"]
-> [How-to: Connect to and interact with a device](howto-develop-solution.md)
+> [How-to: Connect to and interact with an IoT Plug and Play Preview device](howto-develop-solution.md)

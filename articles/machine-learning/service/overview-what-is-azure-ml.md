@@ -44,15 +44,15 @@ Start training on your local machine using the <a href="https://aka.ms/aml-sdk" 
 
 You can also [automate model training and tuning](tutorial-auto-train-models.md) using the SDK.
 
-### Code-free / low code experience
+### UI-based, low-code experience
 
 For code-free training, try:
 
-+ The visual interface for drag-n-drop experimenting and deployment
++ Creating [automated ML experiments](tutorial-first-experiment-automated-ml.md) in the easy-to-use interface.
++ The [drag-n-drop experimenting in the visual interface](ui-tutorial-automobile-price-train-score.md).
+  ![Visual interface for Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
 
-    ![Visual interface for Azure Machine Learning service](media/overview-what-is-azure-ml/visual-interface.png)
 
-+ The Azure portal option for automated ML experiments
 
 ### Operationalization (MLOps)
 
@@ -64,10 +64,10 @@ These models can be consumed and return predictions in [real time](how-to-consum
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on each step from data preparation, model training and evaluation, through deployment. Pipelines allow you to:
 
-* automate the end-to-end machine learning process in the cloud
-* reuse components and only re-run steps when you need to
-* use different compute resources in each step
-* run batch scoring tasks
+* Automate the end-to-end machine learning process in the cloud
+* Reuse components and only re-run steps when needed
+* Use different compute resources in each step
+* Run batch scoring tasks
 
 To get started using Azure Machine Learning service, see [Next steps](#next-steps).
 
