@@ -25,7 +25,7 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with other Azure resources, an Azure Active Directory service principal is used. This service principal can be automatically created by the Azure CLI with the appropriate ACRPull role to allow the AKS cluster to pull images stored in ACR.  The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACrPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
+You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr <your-acr-name>]
 ```
