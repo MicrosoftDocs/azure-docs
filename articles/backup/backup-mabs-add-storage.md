@@ -76,7 +76,7 @@ Syntax:
 
 `Parameter Set: Volume`
 
-```
+```powershell
 Update-DPMDiskStorage [-Volume] <Volume> [[-FriendlyName] <String> ] [[-DatasourceType] <VolumeTag[]> ] [-Confirm] [-WhatIf] [ <CommonParameters>]
 ```
 The following screenshot shows the Update-DPMDiskStorage cmdlet in the PowerShell window.
