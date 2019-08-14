@@ -11,7 +11,7 @@ ms.date: 09/24/2018
 ms.custom: seo-java-august2019
 ---
 
-# Quickstart: Build a Cassandra app with Java SDK and Azure Cosmos DB
+# Quickstart: Build a profile app with the Cassandra API and Java SDK in Azure Cosmos DB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
