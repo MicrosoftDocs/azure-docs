@@ -1530,6 +1530,8 @@
         href: samanage-provisioning-tutorial.md
       - name: ServiceNow
         href: servicenow-provisioning-tutorial.md
+      - name: Signagelive
+        href: signagelive-provisioning-tutorial.md
       - name: Slack
         href: slack-provisioning-tutorial.md
       - name: Smartsheet
