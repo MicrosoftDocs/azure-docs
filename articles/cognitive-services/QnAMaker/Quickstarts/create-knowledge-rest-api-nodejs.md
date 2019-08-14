@@ -18,9 +18,12 @@ Get started with the QnA Maker REST APIs for Node.js. Follow these steps to try 
 
 Use the QnA Maker REST APIs for Node.js to:
 
-* Create a knowledge base 
-* Manage a knowledge base
+* Create a knowledge base
+* Replace a knowledge base
 * Publish a knowledge base
+* Delete a knowledge base
+* Download a knowledge base
+* Get status of an operation
 
 [Reference documentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node.js Samples](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
@@ -35,7 +38,7 @@ Use the QnA Maker REST APIs for Node.js to:
 
 Azure Cognitive Services are represented by Azure resources that you subscribe to. Create a resource for QnA Maker using the [Azure portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) or [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) on your local machine. 
 
-After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_RESOURCE_KEY` and `QNAMAKER_AUTHORING_ENDPOINT`. Use the key and host values found in the Resource's **Keys** and **Overview** pages in the Azure portal.
+After getting a key from your resource, [create environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) for the resource, named `QNAMAKER_RESOURCE_KEY` and `QNAMAKER_AUTHORING_ENDPOINT`. Use the key and host values found in the Resource's **Quickstart** page in the Azure portal.
 
 ### Create a new Node.js application
 
@@ -45,30 +48,34 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init -y` command to create a node application with a `package.json` file. 
+Run the `npm init -y` command to create a node `package.json` file. 
 
 ```console
 npm init -y
 ```
+
+Add the `reqeuestretry` and `request` NPM packages:
+
+```console
+npm install requestretry request --save
+```
+
 ## Code examples
 
-These code snippets show you how to do the following with the QnA Maker client library for Node.js:
+These code snippets show you how to do the following with the QnA Maker REST APIs for Node.js:
 
 * [Create a knowledge base](#create-a-knowledge-base)
 * [Replace a knowledge base](#replace-a-knowledge-base)
 * [Publish a knowledge base](#publish-a-knowledge-base)
 * [Delete a knowledge base](#delete-a-knowledge-base)
+* [Download a knowledge base](#download-a-knowledge-base)
 * [Get status of an operation](#get-status-of-an-operation)
 
 ## Add the dependencies
 
-From the console, app the `reqeuestretry` NPM package:
 
-```console
-npm install requestretry
-```
 
-Create a file named `rest-apis.js` and add the NPM package with a _requires_ statement. 
+Create a file named `rest-apis.js` and add the following _requires_ statement to make HTTP requests. 
 
 ```javascript
 const request = require("requestretry");
@@ -123,7 +130,7 @@ Use the [REST API to delete a knowledge base](https://docs.microsoft.com/rest/ap
 
 ## Get status of an operation
 
-Long running processes such as the creation process returns an operation ID, which needs to be checked with a separate REST API call. This function takes the body of the create response. The important key is the operationState, which determines if you need to continue polling.
+Long running processes such as the creation process returns an operation ID, which needs to be checked with a separate REST API call. This function takes the body of the create response. The important key is the `operationState`, which determines if you need to continue polling.
 
 Use the [REST API to monitor operations on a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
 
