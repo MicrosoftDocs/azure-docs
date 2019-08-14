@@ -28,7 +28,7 @@ ms.collection: M365-identity-device-management
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-With Azure AD entitlement management, access packages which enable a one-time setup of resources and policies that automatically administers access for the access package’s life span. 
+With Azure AD entitlement management, access packages which enable a one-time setup of resources and policies that automatically administers access for life of the access package. 
 
 An access package manager can configure policies to require approval for users to have access to access packages. A user that needs access to an access package can submit a request to get access. This article describes how to submit an access request.
 
