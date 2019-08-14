@@ -39,7 +39,7 @@ Azure Cognitive Services are represented by Azure resources that you subscribe t
 * Get a [trial key](https://azure.microsoft.com/try/cognitive-services) valid for 7 days for free. After signing up, it will be available on the [Azure website](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * View your resource on the [Azure portal](https://portal.azure.com/).
 
-After you get a key from your trial subscription or resource, create two [environment variable](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
+After you get a key from your trial subscription or resource, create two [environment variables](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication):
 
 * `PERSONALIZER_KEY` for the resource key.
 * `PERSONALIZER_ENDPOINT` for the resource endpoint.
@@ -52,7 +52,7 @@ In a console window (such as cmd, PowerShell, or Bash), create a new directory f
 mkdir myapp && cd myapp
 ```
 
-Run the `npm init -y` command to create a Node.js application with a `package.json` file. 
+Run the `npm init -y` command to create a `package.json` file. 
 
 ```console
 npm init -y
@@ -71,8 +71,6 @@ Install the remaining NPM packages for this quickstart:
 ```console
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
-
-If you're using the Visual Studio IDE, the client library is available as a downloadable NuGet package.
 
 ### Change the model update frequency
 
