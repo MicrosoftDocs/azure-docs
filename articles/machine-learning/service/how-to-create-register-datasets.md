@@ -40,14 +40,7 @@ To create and work with datasets, you need:
 > Some Dataset classes (preview) have dependencies on the [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) package. For Linux users, these classes are supported only on the following distributions:  Red Hat Enterprise Linux, Ubuntu, Fedora, and CentOS.
 
 ## Dataset Types
-Datasets are categorized into various types based on how users consume them in training. List of typed Datasets:
-
-|Type | Description
-|-----| -----
-|**TabularDataset**| Represents data in a tabular format by parsing the provided file or list of files. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For the complete list, please visit our [documentation](https://aka.ms/tabulardataset-api-reference). It provides you with the ability to materialize the data into a pandas DataFrame.
-|**FileDataset** <br> (upcoming)| References single or multiple files in your datastores or public urls. The files can be of any format. FileDataset provides you with the ability to mount or download the files to your compute.
-|**LabeledDataset** <br> (upcoming)| Represents labeled data that are produced by Azure Machine Learning Labeling service. LabaledDataset provides you with the ability to materialize the data into formats like [COCO](http://cocodataset.org/#homeo) or [TFRecord](https://www.tensorflow.org/tutorials/load_data/tf_records) on your compute.
-|**TimeSeriesDataset** <br> (upcoming)| An extension of TabularDataset that allows for specification of a time column and filtering the Dataset by time.
+Datasets are categorized into various types based on how users consume them in training. Currently we support TabularDatasets which represent data in a tabular format by parsing the provided file or list of files. This provides you with the ability to materialize the data into a pandas DataFrame. TabularDataset can be created from csv, tsv, parquet files, SQL query results etc. For a complete list, please visit our documentation.
 
 To find out more about about upcoming API changes, please visit [here](https://aka.ms/tabular-dataset).  
 
