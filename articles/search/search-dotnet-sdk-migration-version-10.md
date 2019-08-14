@@ -27,7 +27,7 @@ Version 10 adds several features and bug fixes, bringing it to the same function
 <a name="WhatsNew"></a>
 
 ## What's new in version 10
-Version 10 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API (`2019-05-06`) with these updates::
+Version 10 of the Azure Search .NET SDK targets the latest generally available version of the Azure Search REST API (`2019-05-06`) with these updates:
 
 * Introduction of two new skills - [Conditional skill](cognitive-search-skill-conditional.md) and [Text Translation skill](cognitive-search-skill-text-translation.md).
 * [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example json definition](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
@@ -72,8 +72,7 @@ For example, if you previously attempted to instantiate a `WebApiSkill` as follo
 var webApiSkill = new WebApiSkill(
             inputs, 
             outputs,
-            uri: "https://contoso.example.org",
-            context: RootPathString)
+            uri: "https://contoso.example.org")
 {
     HttpHeaders = new WebApiHttpHeaders()
     {
@@ -93,8 +92,7 @@ change it to the following, to avoid the validation error from the REST API:
 var webApiSkill = new WebApiSkill(
             inputs, 
             outputs,
-            uri: "https://contoso.example.org",
-            context: RootPathString)
+            uri: "https://contoso.example.org")
 {
     HttpHeaders = new Dictionary<string, string>()
     {
@@ -117,7 +115,7 @@ You will most likely not need to make any code changes - however note that only 
 If you decide to start making use of this new capability, make sure all your clients are updated to use version 10 first, before rolling out that change. Otherwise, there is a possibility that an update by a client (using an older version of the SDK) to the shaper skill may result in validation errors.
 
 > [!NOTE]
-> Even though the underlying `InputFieldMappingEntry` model has been modified to allow consolidation from nested contexts, it's use is only valid withing the definition of a shaper skill, at the moment. Using this capability in other skills, while valid at compile time, will result in a validation error.
+> Even though the underlying `InputFieldMappingEntry` model has been modified to allow consolidation from nested contexts, it's use is only valid withing the definition of a shaper skill, at the moment. Using this capability in other skills, while valid at compile time, will result in a validation error at runtime.
 
 ## Skills can be identified by a name
 
