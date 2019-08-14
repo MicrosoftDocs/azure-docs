@@ -25,23 +25,6 @@ This article demonstrates how to create ConfigMap and configure data collection 
 >Support for Prometheus is a feature in public preview at this time.
 >
 
-## Overview of Prometheus support
-
-![Container monitoring architecture for Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
-
-Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics by exposing a Prometheus endpoint. This endpoint is an HTTP interface that exposes a list of metrics with its current value, and scraped by Azure Monitor for containers. The metrics are collected through a set of settings specified in a single ConfigMap file, which is the same file used to configure collection of stdout, stderr, and environmental variables from container workloads. 
-
-Collection Settings are either cluster-wide or per-node, and the following table summarizes the metrics scraped from the endpoints.
-
-| Endpoint | Scope | Example | 
-|----------|-------|---------|
-| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
-| Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
-| url/endpoint | Per-node | `http://myurl:9101/metrics` |
-| Exporter | Per-node or cluster-wide | `https://prometheus.io/docs/instrumenting/exporters/`​ |
-
-When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
-
 ## Configure your cluster with custom data collection settings
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
@@ -65,10 +48,22 @@ The following are the settings that can be configured to control data collection
 
 ### Overview of configurable Prometheus scraping settings
 
+![Container monitoring architecture for Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
+
+Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics by multiple scraping through the following mechanisms as shown in the following table. The metrics are collected through a set of settings specified in a single ConfigMap file, which is the same file used to configure collection of stdout, stderr, and environmental variables from container workloads. 
+
 Active scraping of metrics from Prometheus is performed from one of two perspectives:
 
 * Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
 * Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
+
+| Endpoint | Scope | Example |
+|----------|-------|---------|
+| Pod annotation | Cluster-wide | annotations: <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Kubernetes service | Cluster-wide | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics`​ |
+| url/endpoint | Per-node and/or cluster-wide | `http://myurl:9101/metrics` |
+
+When a URL is specified, Azure Monitor for containers only scrapes the endpoint. When Kubernetes service is specified, the service name is resolved with the cluster DNS server to get the IP address and then the resolved service is scraped.
 
 |Scope | Key | Data type | Value | Description |
 |------|-----|-----------|-------|-------------|

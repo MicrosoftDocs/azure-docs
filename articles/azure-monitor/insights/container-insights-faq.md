@@ -8,7 +8,7 @@ editor: tysonn
 ms.service:  azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 08/02/2019
+ms.date: 08/14/2019
 ms.author: magoedte
 
 ---
@@ -82,6 +82,8 @@ If after you enable Azure Monitor for containers for an AKS cluster, you delete 
 - *.oms.opinsights.azure.com   443
 - *.blob.core.windows.net      443
 - dc.services.visualstudio.com 443
+- *.microsoftonline.com        443
+- *.monitoring.azure.com       443
 
 ## Next steps
 
