@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/08/2019
 ms.author: alkohli
 ---
 
@@ -193,7 +193,7 @@ The BOM or manifest files are also copied to the Azure storage account. You can 
 
 During the data upload to Azure, a copy log is created.
 
-### Copylog
+### Copy log
 
 For each order that is processed, the Data Box service creates copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
@@ -248,6 +248,8 @@ Here is an example of a copy log where the upload completed with errors:
 ### Upload completed with warnings
 
 Upload to Azure completes with warnings if your data had container/blob/file names that didn't conform to Azure naming conventions and the names were modified to upload the data to Azure.
+
+![Path to copy log in Overview blade when completed with warnings](media/data-box-logs/copy-log-path-3.png)
 
 Here is an example of a copy log where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
 

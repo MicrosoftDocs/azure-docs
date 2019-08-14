@@ -18,6 +18,7 @@ This tutorial is **part two of a two-part tutorial series**. In the previous tut
 
 In this tutorial, you learn the following tasks:
 
+> [!div class="checklist"]
 > * Connect your workspace and create an experiment
 > * Load data and train scikit-learn models
 > * View training results in the portal

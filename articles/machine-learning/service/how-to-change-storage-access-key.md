@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 05/17/2019
+ms.date: 08/08/2019
 
 
 ---
@@ -81,17 +81,13 @@ To update Azure Machine Learning service to use the new key, use the following s
         az login
         ```
 
-    1. To install the Azure Machine Learning extension, use the following command:
-
-        ```azurecli-interactive
-        az extension add -n azure-cli-ml 
-        ```
-
     1. To update the workspace to use the new key, use the following command. Replace `myworkspace` with your Azure Machine Learning workspace name, and replace `myresourcegroup` with the name of the Azure resource group that contains the workspace.
 
         ```azurecli-interactive
         az ml workspace sync-keys -w myworkspace -g myresourcegroup
         ```
+
+        [!INCLUDE [install extension](../../../includes/machine-learning-service-install-extension.md)]
 
         This command automatically syncs the new keys for the Azure storage account used by the workspace.
 
