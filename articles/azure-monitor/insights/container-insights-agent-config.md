@@ -111,7 +111,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from. ​
         ```
 
-    - The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from an agent's DaemonSet running in every node in the cluster.
+   - The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from an agent's DaemonSet running in every node in the cluster.
 
         ```
          prometheus-data-collection-settings: |- ​
