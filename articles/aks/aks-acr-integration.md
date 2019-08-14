@@ -67,7 +67,7 @@ docker tag nginx $acrloginservername/nginx:v1
 docker push someacr1.azurecr.io/nginx:v1
 ```
 
-# Update the image property for teh nginx container
+## Update the image property for the nginx container
 ```
 az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
 ```
