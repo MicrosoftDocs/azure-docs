@@ -1,12 +1,12 @@
 ---
-title: 
-description: Create a custom Conditional Access policy to 
+title: Conditional Access - Block access by location
+description: Create a custom Conditional Access policy to block access to resources by IP location
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 
+ms.date: 08/14/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -54,6 +54,6 @@ More information about the location condition in Conditional Access can be found
 
 ## Next steps
 
-[Conditional Access common policies](howto-conditional-access-policy-common.md)
+[Conditional Access common policies](concept-conditional-access-policy-common.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

@@ -1,6 +1,6 @@
 ---
-title: Conditional Access - Block legacy authentication
-description: Create a custom Conditional Access policy to block legacy authentication protocols
+title: Conditional Access - Require compliant devices
+description: Create a custom Conditional Access policy to require compliant devices
 
 services: active-directory
 ms.service: active-directory
@@ -15,13 +15,20 @@ ms.reviewer: calebb, rogoya
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Block legacy authentication
+# Conditional Access: Require compliant devices
 
-Due to the increased risk associated with legacy authentication protocols Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication.
+Organizations who have deployed Microsoft Intune can use the information returned from their devices to identify devices that meet compliance requirements such as:
+
+* Requiring a PIN to unlock
+* Requiring device encryption
+* Requiring a minimum or maximum operating system version
+* Requiring a device not be jailbroken or rooted
+
+This policy compiance information is forwarded to Azure AD where Conditional Access can make decisions to grant or block access to resources.
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require those assigned administrative roles to perform multi-factor authentication.
+The following steps will help create a Conditional Access policy to require devices accessing resources be marked as compliant with your organization's Intune complaince policies.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
@@ -29,7 +36,7 @@ The following steps will help create a Conditional Access policy to require thos
 1. Give your policy a name. We recommend that organizations create a meaningful standard for the names of their policies.
 1. Under **Assignments**, select **Users and groups**
    1. Under **Include**, select **All users**.
-   1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. 
+   1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. If you must exclude specific applications from your policy you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
@@ -37,7 +44,7 @@ The following steps will help create a Conditional Access policy to require thos
 1. Under **Conditions** > **Client apps (preview)**, set **Configure** to **Yes**.
    1. Check only the boxes **Mobile apps and desktop clients** > **Other clients**.
    2. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Block access**.
+1. Under **Access controls** > **Grant**, select **Require device to be marked as compliant**.
    1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
@@ -47,3 +54,5 @@ The following steps will help create a Conditional Access policy to require thos
 [Conditional Access common policies](concept-conditional-access-policy-common.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
+
+[Device compliance policies work with Azure AD](/intune/device-compliance-get-started.md#device-compliance-policies-work-with-azure-ad)

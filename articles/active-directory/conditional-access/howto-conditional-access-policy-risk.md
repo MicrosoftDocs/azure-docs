@@ -1,12 +1,12 @@
 ---
 title: Conditional Access - Risk-based Conditional Access
-description: Create a custom Conditional Access policy to 
+description: Create Conditional Access policies to enable Identity Protection enhancements to policies
 
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/14/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -75,7 +75,7 @@ Most users have a normal behavior that can be tracked, when they fall outside of
 
 ## Next steps
 
-[Conditional Access common policies](howto-conditional-access-policy-common.md)
+[Conditional Access common policies](concept-conditional-access-policy-common.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
 
