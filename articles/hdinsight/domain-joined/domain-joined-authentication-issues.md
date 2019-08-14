@@ -16,7 +16,9 @@ On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users s
 
 When the authentication fails, you will get prompted for credentials. If you cancel this dialog, the error message will be printed. Here are some of the common error messages:
 
-## Issue: invalid_grant or unauthorized_client, 50126
+## invalid_grant or unauthorized_client, 50126
+
+### Issue
 
 Sign in fails for federated users with error code 50126 (sign in succeeds for cloud users). Error message is similar to:
 
@@ -34,7 +36,9 @@ The Company Administrator of the Azure AD tenant should enable Azure AD to use p
 
 ---
 
-## Issue: invalid_grant or unauthorized_client, 50034
+## invalid_grant or unauthorized_client, 50034
+
+### Issue
 
 Sign in fails with error code 50034. Error message is similar to:
 
@@ -52,10 +56,9 @@ Use the same user name that works in that portal.
 
 ---
 
+## invalid_grant or unauthorized_client, 50053
 
-
-
-## Issue: invalid_grant or unauthorized_client, 50053
+### Issue
 
 User account is locked out, error code 50053. Error message is similar to:
 
@@ -73,7 +76,9 @@ Wait for 30 minutes or so, stop any applications that might be trying to authent
 
 ---
 
-## Issue: invalid_grant or unauthorized_client, 50053
+## invalid_grant or unauthorized_client, 50053
+
+### Issue
 
 Password expired, error code 50053. Error message is similar to:
 
@@ -91,7 +96,9 @@ Change the password in the Azure portal (on your on-premise system) and then wai
 
 ---
 
-## Issue: interaction_required
+## interaction_required
+
+### Issue
 
 Receive error message `interaction_required`.
 
@@ -105,7 +112,9 @@ Use conditional access policy and exempt the HDInisght clusters from MFA as show
 
 ---
 
-## Issue: Sign in denied
+## Sign in denied
+
+### Issue
 
 Sign in is denied.
 
@@ -121,7 +130,11 @@ Try to SSH into a You will need to try to authenticate (kinit) using the same us
 
 ---
 
-## Issue: kinit fails
+## kinit fails
+
+### Issue
+
+Kinit fails.
 
 ### Cause
 
@@ -143,7 +156,11 @@ Ways to find `sAMAccountName`:
 
 ---
 
-## Issue: kinit fails with Preauthentication failure
+## kinit fails with Preauthentication failure
+
+### Issue
+
+Kinit fails with `Preauthentication` failure.
 
 ### Cause
 
@@ -155,7 +172,11 @@ Check your username and password. Also check for other properties described abov
 
 ---
 
-## Issue: Job / HDFS command fails due to TokenNotFoundException
+## Job / HDFS command fails due to TokenNotFoundException
+
+### Issue
+
+Job / HDFS command fails due to `TokenNotFoundException`.
 
 ### Cause
 
