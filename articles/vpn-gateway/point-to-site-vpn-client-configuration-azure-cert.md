@@ -109,7 +109,13 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
+### <a name="InstallstrongSwan></a>Install strongSwan
+
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
+
 ### <a name="genlinuxcerts"></a>Generate certificates
+
+If you have not already generated certificates, use the following steps:
 
 [!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
@@ -144,10 +150,15 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 ### Install strongSwan
 
-You can use the following CLI commands, or use the strongSwan steps in the [GUI](#install) to install strongSwan.
+### <a name="InstallstrongSwan></a>Install strongSwan
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
+
+### <a name="genlinuxcerts"></a>Generate certificates
+
+If you have not already generated certificates, use the following steps:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### Install and configure
 
