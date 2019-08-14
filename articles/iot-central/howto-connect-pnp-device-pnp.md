@@ -51,6 +51,9 @@ To work with the device capability model in this guide, you need:
 
     > [!NOTE]
     > The current version of the code generator in the extension doesn't support the **Geopoint** and **Vector** schema types or the **Acceleration**, **Velocity**, and **Location** semantic types. These schema and semantic types are supported by IoT Central.
+    
+    > [!NOTE]
+    > The Device Capability Model should have all the interfaces defined inline in the same file for it to work with IoT Central. Make sure when you authot the DCM all the interfaces are inline.    
 
 To build the generated C code on Windows in this guide, you need:
 
