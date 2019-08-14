@@ -135,6 +135,12 @@ conceptualContent:
         - url: ./blueprints/au-protected-iaaswa-overview.md
           itemType: overview
           text:  Compliance solutions
+        - url: https://docs.microsoft.com/azure/governance/policy/
+          itemType: overview
+          text:  Azure Policy service
+        - url: https://docs.microsoft.com/azure/governance/blueprints/
+          itemType: overview
+          text:  Azure Blueprints service
       footerLink: 
         url: ./fundamentals/index.md
         text: See more
