@@ -11,7 +11,7 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: "user-help, seo-update-azuread-jan"
 ms.collection: M365-identity-device-management
@@ -19,7 +19,8 @@ ms.collection: M365-identity-device-management
 
 # Manage app passwords for two-step verification
 
-Certain non-browser apps, such as Outlook 2010, doesn't support two-step verification. This lack of support means that if you're using two-step verification, the app won't work. To get around this problem, you can create an auto-generated password to use with each non-browser app, separate from your normal password.
+>[!Important]
+>Your administrator may not allow you to use app passwords. If you don't see **App passwords** as an option, they're not available in your organization.
 
 When using app passwords, it's important to remember:
 
@@ -32,50 +33,45 @@ When using app passwords, it's important to remember:
     >[!Note]
     >Office 2013 clients (including Outlook) support new authentication protocols and can be used with two-step verification. This support means that after two-step verification is turned on, you'll no longer need app passwords for Office 2013 clients. For more info, see the [How modern authentication works for Office 2013 and Office 2016 client apps](https://support.office.com/article/how-modern-authentication-works-for-office-2013-and-office-2016-client-apps-e4c45989-4b1a-462e-a81b-2a13191cf517) article.
 
-## Where to create and delete your app passwords
+## Create new app passwords
 
-You're given an app password during your initial two-step verification registration. If you need more than that one password, you can create additional passwords, based on how you use two-step verification:
+During your initial two-factor verification registration process, you're provided with a single app password. If you require more than one, you'll have to create them yourself. You can create app passwords from multiple areas, depending on how two-factor verification is set up in your organization. For more information about registering to use two-factor verification with your work or school account, see [Overview for two-factor verification and your work or school account](multi-factor-authentication-end-user-first-time.md) and its related articles.
 
-- **You use two-step verification with your work or school account and the MyApps portal.** Create and delete your app passwords using the instructions in the Create and delete app passwords using the MyApps portal section of this article. For more info about the MyApps portal and how to use it, see [What is the MyApps portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
+### Where to create and delete your app passwords
 
-- **You use two-step verification with your work or school account and the Office 365 portal.** Create and delete your app passwords using the instructions in the [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) section of this article.
+You can create and delete app passwords, based on how you use two-factor verification:
 
-- **You use two-step verification with your personal Microsoft account.** Create and delete your app passwords using the [Security basics](https://account.microsoft.com/account/) page with your personal Microsoft account. For more info, see the [App passwords and two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) article.
+- **Your organization uses two-factor verification and the Additional security verification page.** If you're using your work or school account (such as, alain@contoso.com) with two-factor verification in your organization, you can manage your app passwords from the [Additional security verification page](https://account.activedirectory.windowsazure.com/Proofup.aspx). For detailed instructions, see [Create and delete app passwords using the Additional security verification page](#create-and-delete-app-passwords-using-the-additional-security-verification-page) in this article.
 
-## Create and delete app passwords using the MyApps portal
-You can create and delete app passwords through the MyApps portal.
+- **Your organization uses two-factor verification and the Office 365 portal.** If you're using your work or school account (such as, alain@contoso.com), two-factor verification, and Office 365 apps in your organization, you can manage your app passwords from the [Office 365 portal page](https://office.portal.com). For detailed instructions, see [Create and delete app passwords using the Office 365 portal](#create-and-delete-app-passwords-using-the-office-365-portal) in this article.
 
-### To create an app password using the MyApps portal
+- **You're using two-factor verification with a personal Microsoft account.** If you're using a personal Microsoft account (such as, alain@outlook.com) with two-factor verification, you can manage your app passwords from the [Security basics page](https://account.microsoft.com/security/). For detailed instructions, see [Using app passwords with apps that don't support two-step verification](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
-1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
+## Create and delete app passwords from the Additional security verification page
 
-2. Select your name at the top right, and choose **Profile**.
+You can create and delete app passwords from the **Additional security verification** page for your work or school account.
 
-3. Select **Additional Security Verification**.
+1. Sign in to the [Additional security verification page](https://account.activedirectory.windowsazure.com/Proofup.aspx), and then select **App passwords**.
 
-   ![Select additional security verification - screenshot](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+    ![App passwords page, with the App passwords tab highlighted](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-4. Select **App passwords**.
+2. Select **Create**, type the name of the app that requires the app password, and then select **Next**.
 
-   ![Select app passwords - screenshot](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+    ![Create app passwords page, with name of app that needs password](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-5. Click **Create**.
+3. Copy the password from the **Your app password** page, and then select **Close**.
 
-6. Type a name for the app password, and then select **Next**.
+    ![Your app password page with the password for your specified app](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-7. Copy the app password to the clipboard and paste it into your app.
-   
-    ![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+4. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it.
 
 ### To delete an app password using the MyApps portal
 
-1. Go to your profile, and then select **Additional Security Verification**.
+1. From the **App passwords** page, select **Delete** next to the app password you want to delete.
 
-2. Select **App passwords**, and then select **Delete** next to the app password you want to delete.
+   ![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)
 
-   ![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. Select **Yes** to confirm you want to delete the password, and then select **Close**.
+2. Select **Yes** to confirm you want to delete the password, and then select **Close**.
 
 ## Create and delete app passwords using the Office 365 portal
 
