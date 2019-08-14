@@ -21,22 +21,22 @@ highlightedContent:
   items: 
     - title: What is Azure security?
       itemType: overview 
-      url: azure-security.md
+      url: ./fundamentals/azure-security.md
     - title: How does Microsoft share security responsibilities with my organization? 
       itemType: overview 
       url: https://aka.ms/sharedresponsibility
     - title: Secure PaaS deployments
       itemType: concept
-      url: security-paas-deployments.md
+      url: ./fundamentals/security-paas-deployments.md
     - title: What monitoring and auditing options are available in Azure? 
       itemType: concept
-      url: security-management-and-monitoring-overview.md
+      url: ./fundamentals/security-management-and-monitoring-overview.md
     - title: How does Azure secure my data at rest?
       itemType: concept
-      url: azure-security-encryption-atrest.md
+      url: ./fundamentals/azure-security-encryption-atrest.md
     - title: How do I encrypt Azure virtual machines?
       itemType: overview
-      url: azure-security-disk-encryption-overview.md
+      url: ./fundamentals/azure-security-disk-encryption-overview.md
 
 conceptualContent: 
   title: Security content
@@ -44,32 +44,32 @@ conceptualContent:
   items: 
     - title: Fundamentals
       links: 
-        - url: azure-security.md
+        - url: ./fundamentals/azure-security.md
           itemType: overview
           text: Introduction to Azure security
-        - url: security-best-practices-and-patterns.md
+        - url: ./fundamentals/security-best-practices-and-patterns.md
           itemType: concept
           text: Security best practices
-        - url: azure-threat-detection.md
+        - url: ./fundamentals/azure-threat-detection.md
           itemType: overview
           text: Advanced threat detection
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/azure-security
+        url: ./fundamentals/index.md
         text: See More
 
     - title: Developers
       links: 
-        - url: https://docs.microsoft.com/azure/security/develop/secure-dev-overview
+        - url: ./develop/secure-dev-overview.md
           itemType: concept
           text: Secure development best practices
-        - url: https://docs.microsoft.com/azure/security/develop/secure-web-app
+        - url: ./develop/secure-web-app.md
           itemType: how-to-guide
           text: Secure sample apps
-        - url: azure-security-threat-modeling-tool.md
+        - url: ./develop/azure-security-threat-modeling-tool.md
           itemType: how-to-guide
           text: Secure development resources 
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/develop/
+        url: ./develop/index.yml
         text: See More
 
     - title: Data security
@@ -80,11 +80,11 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/dedicated-hsm/
           itemType: overview
           text:  Azure Dedicated HSM
-        - url: security-storage-overview.md
+        - url: ./fundamentals/security-storage-overview.md
           itemType: overview
           text:  Azure Storage security
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/security-azure-encryption-overview
+        url: ./fundamentals/security-azure-encryption-overview.md
         text: See more
 
     - title: Encryption
@@ -99,22 +99,22 @@ conceptualContent:
           itemType: overview
           text:  Azure Disk Encryption
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Identity management
       links: 
-        - url: security-identity-management-overview.md
+        - url: ./fundamentals/security-identity-management-overview.md
           itemType: overview
           text:  Security overview
-        - url: azure-ad-choose-authn.md
+        - url: ./fundamentals/azure-ad-choose-authn.md
           itemType: concept
           text:  Authentication for hybrid identity solution
-        - url: azure-security-global-admin.md
+        - url: ./fundamentals/azure-security-global-admin.md
           itemType: concept
           text:  Enforce MFA for subscription admins
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/security-identity-management-overview
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Compliance
@@ -128,52 +128,52 @@ conceptualContent:
 
     - title: Monitor, log & audit
       links: 
-        - url: security-management-and-monitoring-overview.md
+        - url: ./fundamentals/security-management-and-monitoring-overview.md
           itemType: overview
           text:  Monitoring overivew
-        - url: azure-log-audit.md
+        - url: ./fundamentals/azure-log-audit.md
           itemType: overview
           text:  What is Azure logging & auditing?
-        - url: security-azure-log-integration-overview.md
+        - url: ./fundamentals/security-azure-log-integration-overview.md
           itemType: overview
           text:  Azure Log Integration
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/security-management-and-monitoring-overview/
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Network security
       links: 
-        - url: security-network-overview.md
+        - url: ./fundamentals/security-network-overview.md
           itemType: overview
           text:  Security overview
-        - url: azure-security-network-security-best-practices.md
+        - url: ./fundamentals/azure-security-network-security-best-practices.md
           itemType: concept
           text:  Best practices
-        - url: azure-ddos-best-practices.md
+        - url: ./fundamentals/azure-ddos-best-practices.md
           itemType: concept
           text:  DDoS Protection
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/security-network-overview
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Virtual machine security
       links: 
-        - url: security-virtual-machines-overview.md
+        - url: ./fundamentals/security-virtual-machines-overview.md
           itemType: overview
           text:  Security overview
-        - url: azure-security-iaas.md
+        - url: ./fundamentals/azure-security-iaas.md
           itemType: concept
           text:  Best practices
-        - url: security-recommendations-azure-marketplace-images.md
+        - url: ./fundamentals/security-recommendations-azure-marketplace-images.md
           itemType: how-to-guide
           text:  Security configuration recommendations
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/security-virtual-machines-overview/
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Threat detection and protection
       links: 
-        - url: azure-security-antimalware.md
+        - url: ./fundamentals/azure-security-antimalware.md
           itemType: concept
           text:  Microsoft Antimalware
         - url: https://docs.microsoft.com/azure/security-center/
@@ -183,20 +183,20 @@ conceptualContent:
           itemType: overview
           text:  Azure Sentinel
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/azure-threat-detection
+        url: ./fundamentals/azure-threat-detection.md
         text: See more
 
     - title: Database security
       links: 
-        - url: azure-database-security-overview.md
+        - url: ./fundamentals/azure-database-security-overview.md
           itemType: overview
           text:  Security overview
-        - url: azure-database-security-best-practices.md
+        - url: ./fundamentals/azure-database-security-best-practices.md
           itemType: concept
           text:  Best practices
-        - url: azure-database-security-checklist.md
+        - url: ./fundamentals/azure-database-security-checklist.md
           itemType: concept
           text:  Security checklist
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/azure-database-security-overview
+        url: ./fundamentals/index.md
         text: See more
