@@ -16,18 +16,18 @@ Concerns about security issues, like malware, ransomware, and intrusion, are inc
 
 1. In order to delete the backup data of a VM, the backup must be stopped. In the recovery vault, right-click on the VM and choose **Stop backup**.
 
-![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
+    ![Screenshot of Azure portal Backup Items](./media/backup-azure-security-feature-cloud/backup-stopped.png)
 
 2. In the following window, you will be given a choice to delete or retain the backup data. If you choose **Delete backup data** and then **Stop backup**, the VM will not be permanently deleted. Rather, the backup data will be retained for 14 days in the soft deleted state. The deletion is deferred until after that period, when permanent deletion will occur.
     
-![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
+    ![Screenshot of Azure portal, Stop Backup screen](./media/backup-azure-security-feature-cloud/delete-backup-data.png)
 
 
 
 
 3. During those 14 days, in the Recovery Services Vault, the soft deleted VM will appear with a red “soft-delete” icon next to it.
 
-![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+    ![Screenshot of Azure portal, VM in soft delete state](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
 
     
@@ -38,7 +38,7 @@ Restore operation on a soft deleted item can only be performed after ‘undeleti
 
 4.  In order to restore the VM, it must first be undeleted. To undelete, choose the soft-deleted VM, and then click on the option **Undelete**. A window will appear warning that if undelete is chosen, all restore points for the VM will be undeleted and available for performing a restore operation. The VM will be retained in a “stop protection with retain data” state. Click on the button **Undelete**.
 
-![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+    ![Screenshot of Azure portal, Undelete VM](./media/backup-azure-security-feature-cloud/undelete-vm.png)
 
 
     
@@ -48,7 +48,35 @@ Restore operation on a soft deleted item can only be performed after ‘undeleti
 
 5. After the undelete process is completed, the status will return to “Stop backup with retain data” and then you can choose **Resume backup**. At this point, you can also restore the VM by selecting **Restore VM** from the chosen restore point.
 
-![Screenshot of Azure portal, Resume Backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
+    ![Screenshot of Azure portal, Resume Backup option](./media/backup-azure-security-feature-cloud/resume-backup.png)
+
+### Soft Delete FAQ
+
+#### Do I need to enable the soft-delete feature on every vault?
+No, it is built and enabled by default for all the recovery services vaults.
+
+
+#### Can I configure the number of days for which my data will be retained in soft-deleted state after delete operation is complete? 
+No, it is fixed to 14 days of additional retention after the delete operation. 
+  
+#### Do I need to pay the cost for this additional 14-day retention? 
+No, this 14-day additional retention comes for free of cost as a part of soft-delete functionality. 
+  
+#### Can I perform a restore operation when my data is in soft delete state? 
+No, you need to undelete the soft deleted resource in order to restore. The undelete operation will bring the resource back into the **Stop protection with retain data state** where you can restore to any point in time. Garbage collector remains paused in this state. 
+  
+#### Will my snapshots follow the same lifecycle as my recovery points in the vault? 
+Yes. 
+  
+#### How can I trigger the scheduled backups again for a soft-deleted resource? 
+Undelete followed by resume operation will protect the resource again. Resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that is past its expiry date, you are advised to do it before triggering the resume operation. 
+  
+#### Can I delete my vault if there are soft deleted items in the vault? 
+Recovery Services vault cannot be deleted if there are backup items in soft-deleted state in the vault. The soft-deleted items are permanently deleted after 14 days of delete operation. You can delete the vault only after all the soft deleted items have been purged.  
+ 
+#### How can I delete the data earlier than the 14 days soft-delete period after deletion?
+There is no way to purge the data before the 14 days after deletion. If it is a blocker or a compliance issue, please contact Microsoft support.
+
 
 ## Other security features
 
