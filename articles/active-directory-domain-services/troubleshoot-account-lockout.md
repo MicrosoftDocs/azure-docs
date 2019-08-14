@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/13/2019
+ms.date: 08/14/2019
 ms.author: iainfou
 
 #Customer intent: As a directory administrator, I want to troubleshoot why user accounts are locked out in an Azure Active Directory Domain Services managed domain.
@@ -17,18 +17,17 @@ ms.author: iainfou
 
 # Troubleshoot account lockout problems with an Azure AD Domain Services managed domain
 
+A security measure in Azure AD DS to prevent repeated sign-in attempts locks accounts after a defined threshold. This account lockout can happen by accident without a sign-in attack incident. If a user repeatedly enters the wrong password or a service attempts to use an old password, the account can get locked out.
 
+This article outlines why account lockouts happen and configuration options, and how to review security audits to troubleshoot lockout events.
 
-
-## What is account lockout?
+## What is an account lockout?
 
 A user account in Azure AD DS is locked out when a defined threshold for unsuccessful sign-in attempts has been met. This account lockout behavior is designed to protect you from repeated brute-force sign-in attempts that may indicate an automated digital attack.
 
-By default, if there are 5 bad password attempts in 2 minutes, the account is locked out for 30 minutes.
+**By default, if there are 5 bad password attempts in 2 minutes, the account is locked out for 30 minutes.**
 
-If you have a specific set of requirements, you can override these default account lockout thresholds. However, it's not recommended to increase the threshold limits to reduce the number account lockouts. Troubleshoot the source of the account lockout behavior first.
-
-The default account lockout threshold are configured using fine-grained password policy.
+The default account lockout thresholds are configured using fine-grained password policy. If you have a specific set of requirements, you can override these default account lockout thresholds. However, it's not recommended to increase the threshold limits to try to reduce the number account lockouts. Troubleshoot the source of the account lockout behavior first.
 
 ### Fine-grained password policy
 
@@ -40,15 +39,52 @@ For more information on fine-grained password policies, see [Configure password 
 
 ## Common account lockout reasons
 
-* You locked yourself out – did you forget your password?
-* There is something that has your old password and is constantly trying to log in using the old password.
-* You changed your password and the new password hasn’t sync’d in and you lock yourself out by trying the new password.
+The most common reasons for an account to be locked out, without any malicious intent or factors, include the following scenarios:
 
-## Enable security audits for Azure AD DS
+* **The user locked themselves out.**
+    * After a recent password change, has the user continued to use a previous password? The default account lockout policy of 5 failed attempts in 2 minutes can be caused by the user inadvertently retrying an old password.
+* **There's an application or service that has an old password.**
+    * If an account is used by applications or services, those resources may repeatedly try to sign in using an old password. This behavior causes the account to be locked out.
+    * Try to minimize account use across multiple different applications or services, and record where credentials are used. If an account password is changed, update the associated applications or services accordingly.
+* **Password has been changed in a different environment and the new password hasn’t synchronized yet.**
+    * If an account password is changed outside of Azure AD DS, such as in an on-prem AD DS environment, it can take a few minutes for the password change to synchronize through Azure AD and into Azure AD DS.
+    * A user that tries to sign in to a resource through Azure AD DS before that password synchronization process has completed causes their account to be locked out.
 
-[Enable security audits (currently in preview)[security-audit-events]. The first two sample queries show you how to review *Account Lockout Events*.
+## Troubleshoot account lockouts with security audits
+
+To troubleshoot when account lockout events occur and where they're coming from, [enable security audits for Azure AD DS (currently in preview)][security-audit-events]. Audit events are only captured from the time you enable the feature. Ideally, you should enable security audits *before* there's an account lockout issue to troubleshoot. If a user account repeatedly has lockout issues, you can enable security audits ready for the next time the situation occurs.
+
+Once you have enabled security audits, the following sample queries show you how to review *Account Lockout Events*, code *4740*.
+
+View all the account lockout events for the last seven days:
+
+```Kusto
+AADDomainServicesAccountManagement
+| where TimeGenerated >= ago(7d)
+| where OperationName has "4740"
+```
+
+View all the account lockout events for the last seven days for the account named *driley*.
+
+```Kusto
+AADDomainServicesAccountLogon
+| where TimeGenerated >= ago(7d)
+| where OperationName has "4740"
+| where "driley" == tolower(extract("Logon Account:\t(.+[0-9A-Za-z])",1,tostring(ResultDescription)))
+```
+
+View all the account lockout events between June 26, 2019 at 9 a.m. and July 1, 2019 midnight, sorted ascending by the date and time:
+
+```Kusto
+AADDomainServicesAccountManagement
+| where TimeGenerated >= datetime(2019-06-26 09:00) and TimeGenerated <= datetime(2019-07-01)
+| where OperationName has "4740"
+| sort by TimeGenerated asc
+```
 
 ## Next steps
+
+For more information on fine-grained password policies to adjust account lockout thresholds, see [Configure password and account lockout policies][configure-fgpp]
 
 <!-- INTERNAL LINKS -->
 [configure-fgpp]: password-policy.md
