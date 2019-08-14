@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 8/1/2019
+ms.date: 8/14/2019
 ms.author: dapine
 ---
 
@@ -27,6 +27,8 @@ The following prerequisites before using Computer Vision containers on-premises:
 | Kubernetes CLI | The [Kubernetes CLI][kubernetes-cli] is required for managing the shared credentials from the container registry. Kubernetes is also needed before Helm, which is the Kubernetes package manager. |
 | Helm CLI | As part of the [Helm CLI][helm-install] install, you'll also need to initialize Helm, which will install [Tiller][tiller-install]. |
 | Computer Vision resource |In order to use the container, you must have:<br><br>An Azure **Computer Vision** resource and the associated API key the endpoint URI. Both values are available on the Overview and Keys pages for the resource and are required to start the container.<br><br>**{API_KEY}**: One of the two available resource keys on the **Keys** page<br><br>**{ENDPOINT_URI}**: The endpoint as provided on the **Overview** page|
+
+[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ### The host computer
 
@@ -83,10 +85,13 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## Configure Helm chart values for deployment
 
-Visit the [Microsoft Helm Hub][ms-helm-hub] for all the publicly available helm charts offered by Microsoft. From the Microsoft Helm Hub, you'll find the **Cognitive Services Speech On-Premises Chart**. The **Cognitive Services Speech On-Premises** is the chart we'll install, but we must first create an `config-values.yaml` file with explicit configurations. Let's start by adding the Microsoft repository to our Helm instance.
+Start by creating a folder named *text-recognizer*, copy and paste the following YAML content into a new file named `Chart.yml`.
 
-```console
-helm repo add microsoft https://microsoft.github.io/charts/repo
+```yaml
+apiVersion: v1
+name: text-recognizer
+version: 1.0.0
+description: A Helm chart to deploy the microsoft/cognitive-services-recognize-text to a Kubernetes cluster
 ```
 
 Next, we'll configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Cognitive Services Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts). Replace the `billing` and `apikey` values with your own.
@@ -94,41 +99,63 @@ Next, we'll configure our Helm chart values. Copy and paste the following YAML i
 ```yaml
 # These settings are deployment specific and users can provide customizations
 
-# speech-to-text configurations
-speechToText:
+recognizeText:
   enabled: true
-  numberOfConcurrentRequest: 3
-  optimizeForAudioFile: true
   image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-speech-to-text
+    name: cognitive-services-recognize-text
+    registry: containerpreview.azurecr.io/
+    repository: microsoft/cognitive-services-recognize-text
     tag: latest
-    pullSecrets:
-      - containerpreview # Or an existing secret
+    pullSecret: containerpreview # Or an existing secret
     args:
       eula: accept
-      billing: # < Your billing URL >
-      apikey: # < Your API Key >
-
-# text-to-speech configurations
-textToSpeech:
-  enabled: true
-  numberOfConcurrentRequest: 3
-  optimizeForTurboMode: true
-  image:
-    registry: containerpreview.azurecr.io
-    repository: microsoft/cognitive-services-text-to-speech
-    tag: latest
-    pullSecrets:
-      - containerpreview # Or an existing secret
-    args:
-      eula: accept
-      billing: # < Your billing URL >
-      apikey: # < Your API Key >
+      billing: # {ENDPOINT_URI}
+      apikey: # {API_KEY}
 ```
 
 > [!IMPORTANT]
 > If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
+
+Finally, we need to create a *templates* folder under the *text-recognizer* folder. Copy and paste the following YAML into a file named `deployments.yaml`.
+
+```yaml
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: text-recognizer
+spec:
+  template:
+    metadata:
+      labels:
+        app: text-recognizer-app
+    spec:
+      containers:
+      - name: {{ .Values.recognizeText.image.name}}
+        image: {{.Values.recognizeText.image.registry}}{{.Values.recognizeText.image.repository}}
+        ports:
+        - containerPort: 5000
+        env:
+        - name: EULA
+          value: {{ .Values.recognizeText.image.args.eula }}
+        - name: billing
+          value: {{ .Values.recognizeText.image.args.billing }}
+        - name: apikey
+          value: {{ .Values.recognizeText.image.args.apikey }}
+      imagePullSecrets:
+      - name: {{ .Values.recognizeText.image.pullSecret }}
+
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: text-recognizer
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 5000
+  selector:
+    app: text-recognizer-app
+```
 
 ### The Kubernetes package (Helm chart)
 
@@ -138,15 +165,25 @@ The *Helm chart* contains the configuration of which docker image(s) to pull fro
 
 The provided *Helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the `containerpreview.azurecr.io` container registry.
 
-## Install the Helm chart on the Kubernetes cluster
+## Package and Install the Helm chart on the Kubernetes cluster
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument. The `microsoft/cognitive-services-speech-onpremise` Helm chart referenced below is available on the [Microsoft Helm Hub here][ms-helm-hub-speech-chart].
+To package the Helm chart use the [`helm package`][helm-package-cmd] command, given the chart name.
 
 ```console
-helm install microsoft/cognitive-services-speech-onpremise \
-    --version 0.1.0 \
-    --values <config-values.yaml> \
-    --name onprem-speech
+helm package text-recognizer
+```
+
+Here is the expected output from a successful package execution:
+
+```console
+Successfully packaged chart and saved it to: .\text-recognizer-1.0.0.tgz
+```
+
+To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument.
+
+```console
+helm install -f text-recognizer/config-values.yaml text-recognizer-1.0.0.tgz
+    --name text-recognizer
 ```
 
 Here is an example output you might expect to see from a successful install execution:
@@ -269,13 +306,12 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
 [helm-install]: https://helm.sh/docs/using_helm/#installing-helm
 [helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
+[helm-package-cmd]: https://helm.sh/docs/helm/#helm-pacakge
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
 [helm-charts]: https://helm.sh/docs/developing_charts
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test
-[ms-helm-hub]: https://hub.helm.sh/charts/microsoft
-[ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 
 <!-- LINKS - internal -->
 [vision-preview-access]: computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry
