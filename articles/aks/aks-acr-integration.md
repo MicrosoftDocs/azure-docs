@@ -48,7 +48,7 @@ az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-i
 
 ## Create ACR integration for existing AKS clusters
 
-For existing AKS clusters you can add integration with an existing ACR. The following commands do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
+For existing AKS clusters you can add integration with an existing ACR. You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
@@ -57,7 +57,7 @@ az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id 
 
 ## Set variable and login to your ACR
 
-Login to your ACR.
+Log in to your ACR.
 
 ```azurecli
 acrloginservername=$(az acr show -n myAKSCluster -g myResourceGroup --query loginServer -o tsv)
