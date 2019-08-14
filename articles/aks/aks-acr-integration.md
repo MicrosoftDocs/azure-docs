@@ -38,7 +38,7 @@ az extension add -y --name aks-preview
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```console
-az aks create -n myAKSCluster -g myResourceGroup -enable-acr [--acr <your-acr-name>]
+az aks create -n myAKSCluster -g myResourceGroup -enable-acr [--acr <acrName>]
 ```
 
 Optionally, you can also specify **acr-resource-id** of an existing acr in the resource group you specified for the aks cluster with the following command.  Supply your valid values for the parameters below.
@@ -51,7 +51,7 @@ az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-i
 For existing AKS clusters you can add integration with an existing ACR. The following commands do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 
 ```console
-az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <your-acr-name>
+az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
 az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
 
@@ -61,7 +61,7 @@ Login to your ACR.
 
 ```console
 acrloginservername=$(az acr show -n myAKSCluster -g myResourceGroup --query loginServer -o tsv)
-az acr login -n <your-acr-name>
+az acr login -n <acrName>
 ```
 
 ## Pull an image from docker hub and push to your ACR
