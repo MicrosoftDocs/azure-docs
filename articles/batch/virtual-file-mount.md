@@ -41,7 +41,7 @@ To mount a file system on a pool, create a `MountConfiguration` object. Choose t
 All mount configuration objects need the following base parameters. Some mount configurations have parameters specific to the file system being used, which are discussed in more detail in the code examples.
 
 - **Account name or source**: To mount a virtual file share, you need the name of the storage account or its source.
-- **Relative mount path or Source**: The location of the file system mounted on the compute node, relative to standard `fsmount` directory accessible on the node via `AZ_BATCH_NODE_MOUNTS_DIR`. The exact location varies depending on the operating system used on the node. For example, the physical location on an Ubuntu node is mapped to `mnt\batch\tasks\fsmount`, and on a CentOS node it is mapped to `mnt\resources\batch\tasks\fsmount`.
+- **Relative mount path or Source**: The location of the file system mounted on the compute node, relative to standard `fsmounts` directory accessible on the node via `AZ_BATCH_NODE_MOUNTS_DIR`. The exact location varies depending on the operating system used on the node. For example, the physical location on an Ubuntu node is mapped to `mnt\batch\tasks\fsmounts`, and on a CentOS node it is mapped to `mnt\resources\batch\tasks\fsmounts`.
 - **Mount options or blobfuse options**: These options describe specific parameters for mounting a file system.
 
 Once the `MountConfiguration` object is created, assign the object to the `MountConfigurationList` property when you create the pool. The file system is mounted either when a node joins a pool or when the node is restarted or reimaged.
@@ -82,7 +82,7 @@ new PoolAddParameter
 
 ### Azure Blob file system
 
-Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). For more information on using blobfuse, see the blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ).
+Another option is to use Azure Blob storage via [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md). Mounting a blob file system requires an `AccountKey` or `SasKey` for your storage account. For information on getting these keys, see [View account keys](../storage/common/storage-account-manage.md#view-account-keys-and-connection-string), or [Using shared access signatures (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md). For more information on using blobfuse, see the blobfuse [Troubleshoot FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ). Note: In order to get the default access to the blobfuse mounted directory user should run their task as "Admin", i.e. blobfuse mount the directory at the user space, at pool creation it is mounted as root, in Linux all "Admin" scope tasks are root. All options for the FUSE module is described in the [FUSE man page](http://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html).
 
 In addition to the troubleshooting guide, GitHub issues in the blobfuse repository are a helpful way to check on current blobfuse issues and resolutions. For more information, see [blobfuse issues](https://github.com/Azure/azure-storage-fuse/issues).
 
@@ -163,7 +163,7 @@ new PoolAddParameter
 
 If a mount configuration fails, the compute node in the pool will fail and the node state becomes unusable. To diagnose a mount configuration failure, inspect the [`ComputeNodeError`](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) property for details on the error.
 
-To get the log files for debugging, use [OutputFiles](batch-task-output-files.md) to upload the `*.log` files. The `*.log` files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location.
+To get the log files for debugging, use [OutputFiles](batch-task-output-files.md) to upload the `*.log` files. The `*.log` files contain information about the file system mount at the `AZ_BATCH_NODE_MOUNTS_DIR` location. Note: convention we follow for the mounts log is <type>-<mountDirOrDrive>.log for each mount i.e. for example for `cifs` mount at mount directory named `test` the log file created will be `cifs-test.log`.
 
 ## Supported SKUs
 
