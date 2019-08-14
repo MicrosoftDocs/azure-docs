@@ -134,7 +134,6 @@ az aks create \
     --name myAKSCluster \
     --enable-vmss \
     --node-count 1 \
-    --kubernetes-version 1.14.0 \
     --load-balancer-sku standard \
     --generate-ssh-keys
 ```
@@ -165,7 +164,7 @@ The following example output shows the single node created in the previous steps
 
 ```
 NAME                       STATUS   ROLES   AGE     VERSION
-aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.14.0
+aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.13.9
 ```
 
 ## Verify your cluster uses the *Standard* SKU
