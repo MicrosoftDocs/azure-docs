@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/08/2019
+ms.date: 08/14/2019
 ms.author: magoedte
 ---
 
@@ -86,54 +86,7 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from a specific URL across the cluster.
 
-```
-prometheus-data-collection-settings: |- ​
-# Custom Prometheus metrics data collection settings ​
-​
-[prometheus_data_collection_settings.cluster] ​
-interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
-​
-fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass thru ​
-fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting 
-
-urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from. ​
-​
-```
-
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from an agent's DaemonSet running in every node in the cluster.
-
-```
-prometheus-data-collection-settings: |- ​
-# Custom Prometheus metrics data collection settings ​
-​
-[prometheus_data_collection_settings.node] ​
-interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
-
-# Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster ​
-​
-urls = ["http://$NODE_IP:9103/metrics"] ​
-​
-fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
-fielddrop = ["metric_to_drop"] ​
-```
-
-The following is an example ConfigMap file configured with settings to scrape Prometheus metrics by specifying a pod annotation.
-
-```
-prometheus-data-collection-settings: |- ​
-# Custom Prometheus metrics data collection settings ​
-​
-[prometheus_data_collection_settings.cluster] ​
-interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
-​
-monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: ​
- - prometheus.io/scrape:"true" #Enable scraping for this pod ​
- - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
- - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
- - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
-```
 
 ### Configure and deploy ConfigMaps
 
@@ -143,8 +96,59 @@ Perform the following steps to configure and deploy your ConfigMap configuration
 1. Edit the ConfigMap yaml file with your customizations.
 
     - To exclude specific namespaces for stdout log collection, you configure the key/value using the following example: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
+    
     - To disable environment variable collection for a specific container, set the key/value `[log_collection_settings.env_var] enabled = true` to enable variable collection globally, and then follow the steps [here](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) to complete configuration for the specific container.
+    
     - To disable stderr log collection cluster-wide, you configure the key/value using the following example: `[log_collection_settings.stderr] enabled = false`.
+    
+    - The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from a specific URL across the cluster.
+
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings ​
+​
+        [prometheus_data_collection_settings.cluster] ​
+        interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
+​
+        fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass thru ​
+        fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting 
+
+        urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from. ​
+​
+        ```
+
+    - The following is an example ConfigMap file configured with settings to scrape Prometheus metrics from an agent's DaemonSet running in every node in the cluster.
+
+        ```
+        prometheus-data-collection-settings: |- ​
+        # Custom Prometheus metrics data collection settings ​
+​
+        [prometheus_data_collection_settings.node] ​
+        interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
+
+        # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster ​
+​
+        urls = ["http://$NODE_IP:9103/metrics"] ​
+​
+        fieldpass = ["metric_to_pass1", "metric_to_pass2"] ​
+        fielddrop = ["metric_to_drop"] ​
+        ```
+
+    - The following is an example ConfigMap file configured with settings to scrape Prometheus metrics by specifying a pod annotation.
+
+        ```
+       prometheus-data-collection-settings: |- ​
+       # Custom Prometheus metrics data collection settings ​
+​
+       [prometheus_data_collection_settings.cluster] ​
+       interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
+​
+        monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: ​
+         - prometheus.io/scrape:"true" #Enable scraping for this pod ​
+         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’​
+         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. ​
+         - prometheus.io/port:"8000" #If port is not 9102 use this annotation​
+        ```
 
 1. Create ConfigMap by running the following kubectl command: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
