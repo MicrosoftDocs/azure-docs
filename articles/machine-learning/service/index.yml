@@ -44,15 +44,15 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: '<a href="tutorial-1st-experiment-sdk-setup">Set up your environment & train your first ML experiment.</a>'
-    - html: '<a href="tutorial-train-models-with-aml">Train & deploy image classification models</a>.'
-    - html: '<a href="tutorial-data-prep">Prepare data and use automated ML to predict taxi fares</b>.</a>'
-    - html: '<a href="how-to-run-batch-predictions">Run batch predictions on large data sets with ML pipelines</b>.</a>'
+    - html: '<a href="tutorial-1st-experiment-sdk-setup">Set up your environment & train your first ML experiment</a>'
+    - html: '<a href="tutorial-train-models-with-aml">Train & deploy image classification models</a>'
+    - html: '<a href="tutorial-data-prep">Prepare data and use automated ML to predict taxi fares</b></a>'
+    - html: '<a href="how-to-run-batch-predictions">Run batch predictions on large data sets with ML pipelines</b></a>'
 
 - title: Samples
   items:
   - type: paragraph
-    text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to help you explore the service on Github.'
+    text: 'Find <a href="samples-notebooks">Jupyter notebooks</a> to help you explore the service on Github'
 
 - title: Reference
   items:
