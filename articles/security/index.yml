@@ -23,13 +23,13 @@ highlightedContent:
       itemType: overview 
       url: ./fundamentals/overview.md
     - title: How does Microsoft share security responsibilities with my organization? 
-      itemType: overview 
+      itemType: download
       url: https://aka.ms/sharedresponsibility
     - title: Secure PaaS deployments
-      itemType: concept
+      itemType: overview
       url: ./fundamentals/paas-deployments.md
     - title: What monitoring and auditing options are available in Azure? 
-      itemType: concept
+      itemType: overview
       url: ./fundamentals/management-monitoring-overview.md
     - title: How does Azure secure my data at rest?
       itemType: concept
@@ -49,7 +49,7 @@ conceptualContent:
           itemType: concept
           text: Security best practices
         - url: ./fundamentals/threat-detection.md
-          itemType: overview
+          itemType: concept
           text: Advanced threat detection
       footerLink: 
         url: ./fundamentals/index.md
@@ -58,14 +58,14 @@ conceptualContent:
     - title: Developers
       links: 
         - url: ./develop/secure-dev-overview.md
-          itemType: concept
+          itemType: overview
           text: Secure development best practices
         - url: ./develop/secure-web-app.md
-          itemType: how-to-guide
-          text: Secure sample apps
+          itemType: tutorial
+          text: Develop a secure web app
         - url: ./develop/threat-modeling-tool.md
-          itemType: how-to-guide
-          text: Secure development resources 
+          itemType: concept
+          text: Microsoft Threat Modeling tool 
       footerLink: 
         url: ./develop/index.yml
         text: See More
@@ -73,13 +73,13 @@ conceptualContent:
     - title: Security benchmarks
       links: 
         - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
-          itemType: concept
+          itemType: download
           text: Azure cloud security benchmark
         - url: https://docs.microsoft.com/azure/security-center/security-center-using-recommendations
-          itemType: how-to-guide
+          itemType: overview
           text: Azure Security Center recommendations
         - url: ./fundamentals/common-security-attributes.md
-          itemType: how-to-guide
+          itemType: concept
           text: Security attributes for Azure services 
       footerLink: 
         url: ./fundamentals/index.md
@@ -103,7 +103,7 @@ conceptualContent:
     - title: Encryption
       links: 
         - url: ./fundamentals/data-encryption-best-practices.md
-          itemType: overview
+          itemType: concept
           text:  Best practices
         - url: ./fundamentals/encryption-atrest.md
           itemType: concept
@@ -133,7 +133,7 @@ conceptualContent:
     - title: Compliance
       links: 
         - url: ./blueprints/au-protected-iaaswa-overview.md
-          itemType: overview
+          itemType: tutorial
           text:  Compliance solutions
         - url: https://docs.microsoft.com/azure/governance/policy/
           itemType: overview
@@ -151,7 +151,7 @@ conceptualContent:
           itemType: overview
           text:  Monitoring overivew
         - url: ./fundamentals/log-audit.md
-          itemType: overview
+          itemType: concept
           text:  What is Azure logging & auditing?
         - url: ./fundamentals/azure-log-integration-overview.md
           itemType: overview
@@ -184,7 +184,7 @@ conceptualContent:
           itemType: concept
           text:  Best practices
         - url: ./fundamentals/azure-marketplace-images.md
-          itemType: how-to-guide
+          itemType: concept
           text:  Security configuration recommendations
       footerLink: 
         url: ./fundamentals/index.md
