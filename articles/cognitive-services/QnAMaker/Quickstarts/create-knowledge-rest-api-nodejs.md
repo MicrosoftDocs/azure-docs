@@ -113,7 +113,7 @@ Use the [REST API to download a knowledge base](https://docs.microsoft.com/rest/
 
 ## Delete a knowledge base
 
-When you are down using the knowledge base, delete it.
+When you are done using the knowledge base, delete it.
 
 Use the [REST API to delete a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/delete).
 
@@ -121,7 +121,7 @@ Use the [REST API to delete a knowledge base](https://docs.microsoft.com/rest/ap
 
 ## Get status of an operation
 
-Long running processes such as the creation process returns an operation Id which needs to be checked with a separate REST API call. This function takes the body of the create response. The important key is the operationState which determines if you need to continue polling.
+Long running processes such as the creation process returns an operation ID, which needs to be checked with a separate REST API call. This function takes the body of the create response. The important key is the operationState, which determines if you need to continue polling.
 
 Use the [REST API to monitor operations on a knowledge base](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails).
 
