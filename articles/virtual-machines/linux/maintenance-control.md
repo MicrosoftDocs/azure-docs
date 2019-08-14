@@ -2,12 +2,9 @@
 title: Maintenance control for Azure virtual machines | Microsoft Docs
 description: Learn how to control when maintenace is applied to your Azure VMs using Maintenance Control.
 services: virtual-machines-linux
-documentationcenter: ''
 author: cynthn
 
-ms.assetid: 
 ms.service: virtual-machines-linux
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services

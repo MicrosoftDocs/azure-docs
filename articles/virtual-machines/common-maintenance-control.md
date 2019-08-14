@@ -58,6 +58,8 @@ Copy the configuration ID from the output to use later.
 
 Use [az maintenance assignment create]() to apply the configuration.
 
+To apply the configuration to a VM, use `--resource-type virtualMachines` and supply the name of the VM for `--resource-name` and the resource group for `-g`.
+
 ```bash
 az maintenance assignment create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
@@ -68,6 +70,31 @@ az maintenance assignment create \
    --configuration-assignment-name myConfig \
    -maintenance-configuration-id "/subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/resourcegroups/myResourceGroup/providers/Microsoft.Maintenance/maintenanceConfigura tions/myConfig" \
    -l eastus
+```
+
+To apply a configuration to a dedicated host, use `--resource-type hosts`. You will also need to supply the following
+
+- `-g` is the resource group for the host
+- `--resource-name` the name of the host
+-  `--resource-parent-name` the name of the host group 
+- `--resource-parent-type` should be set to `hostGroups` 
+- `--resource-id` is the ID of the host. You can use [az vm host get-instance-view](/cli/azure/vm/host#az-vm-host-get-instance-view) to get the ID of your dedicated host.
+
+```bash
+az maintenance assignment create \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   -g myHostResourceGroup \
+   --resource-name myHost \
+   --resource-type hosts \
+   --provider-name Microsoft.Compute \
+   --configuration-assignment-name myConfig \
+   --maintenanceconfiguration-id "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Maintenance/maintenanceConfigura tions/{config-name}" \
+   -l {location} \
+   --resource-parent-name myHostGroup \
+   --resource-parent-type hostGroups \
+   --resource-id /subscriptions/1111abcd-1a11-1a2b-1a12-123456789abc/re
+sourceGroups/myResourceGroup/providers/Microsoft.Compute/hostGroups/myHostGroup/hosts
+/myHost
 ```
 
 ## Check for pending updates
@@ -83,7 +110,54 @@ az maintenance update list \
    --provider-name Microsoft.Compute
 ```
 
+To check for pending updates 
 
+```bash
+az maintenance update list \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   -g myHostResourceGroup \
+  --resource-name myHost \
+  --resource-type hosts \
+  --provider-name Microsoft.Compute \
+  --resource-parentname myHostGroup \
+  --resource-parent-type hostGroups
+```
 
+## Apply updates
+
+Use [az maintenance apply update]() to apply pending updates.
+
+```bash
+az maintenance apply update \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   -g myResourceGroup\
+   --resource-name myVM \
+   --resource-type virtualMachines \
+   --providername Microsoft.Compute
+```
+
+To apply updates to a dedicated host.
+
+```bash
+az maintenance apply update \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   -g myHostResourceGroup \
+   --resource-name myHost \
+   --resource-type hosts \
+   --provider-name Microsoft.Compute \
+   --resource-parent-name myHostGroup \
+   --resource-parent-type hostGroups
+```
+
+## Delete a maintenance configuration
+
+Use [az maintenance configuration delete]() to delete a maintenance configuration.
+
+```bash
+az maintenance configuration delete \
+   --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
+   -g myResourceGroup \
+   --name myConfig
+```
 
 
