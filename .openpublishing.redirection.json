@@ -3266,6 +3266,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/azure-resource-manager/resource-manager-powershell-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-resource-manager/resource-manager-cli-sas-token.md",
+      "redirect_url": "/azure/azure-resource-manager/secure-template-with-sas-token",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-resource-manager/resource-manager-tutorial-move-resources.md",
       "redirect_url": "/azure/azure-resource-manager/resource-group-move-resources",
       "redirect_document_id": false
@@ -33686,7 +33696,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/user-help-my-apps-overview.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-overview",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-overview",
       "redirect_document_id": false
     },
     {
@@ -33696,7 +33706,7 @@
     },
     {
       "source_path": "articles/active-directory/user-help/active-directory-saas-access-panel-user-help.md",
-      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-troubleshoot",
+      "redirect_url": "/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot",
       "redirect_document_id": false
     },
     {
