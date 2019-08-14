@@ -65,7 +65,7 @@ The code in your Azure AD B2C-enabled applications and APIs may refer to `login.
 For example, the authority endpoint for Contoso's sign-up/sign-in policy would now be:
 
 ```
-https://contosob2c.b2clogin.com/tfp/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
+https://contosob2c.b2clogin.com/00000000-0000-0000-0000-000000000000/B2C_1_signupsignin1
 ```
 
 ## Microsoft Authentication Library (MSAL)
