@@ -163,7 +163,7 @@ If you use App Service Environment, you can use [Barracuda firewall](https://azu
 
 ## How do I block ports in an App Service web app?
 
-In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4016, 4018, and 4020 also might be open for Visual Studio remote debugging.
+In the App Service shared tenant environment, it is not possible to block specific ports because of the nature of the infrastructure. TCP ports 4020, 4022, and 4024 also might be open for Visual Studio remote debugging.
 
 In App Service Environment, you have full control over inbound  and outbound traffic. You can use Network Security Groups to restrict or block specific ports. For more information about App Service Environment, see [Introducing App Service Environment](https://azure.microsoft.com/blog/introducing-app-service-environment/).
 
