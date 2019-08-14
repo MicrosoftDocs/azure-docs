@@ -25,7 +25,7 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the initial creation of your AKS cluster.  The following CLI command creates an ACR in the resource group you specify and configures the appropriate **acrpull** permissions for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
+You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To grant the correct access for the AKS cluster to pull images stored in ACR, the ACRPull role must be configured.  The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACrPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr <your-acr-name>]
 ```
@@ -62,17 +62,15 @@ Login to your ACR
 az acr login -n <your-acr-name>
 ```
 
-Pull an image from docker hub
+Pull an image from docker hub, tag the image, and push the docker image to ACR.
 ```
 docker pull nginx
 ```
 
-Tag the image
 ```
 docker tag nginx $acrloginservername/nginx:v1
 ```
 
-Push the docker image to ACR
 ```
 docker push someacr1.azurecr.io/nginx:v1
 ```
