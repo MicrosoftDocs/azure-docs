@@ -275,7 +275,7 @@ Get-AzSqlDatabase `
 
 ## Resource limits
 
-For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute)
+For resource limits, see [Serverless compute tier](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).
 
 ## Billing
 
