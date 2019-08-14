@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://impl.workday.com/<tenant>/login-saml2.flex`
 
     b. In the **Identifier** text box, type a URL using the following pattern:
-    `https://www.workday.com`
+    `http://www.workday.com`
 
 	c. In the **Reply URL** text box, type a URL using the following pattern:
     `https://impl.workday.com/<tenant>/login-saml.htmld`
