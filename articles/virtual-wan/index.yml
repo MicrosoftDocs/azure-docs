@@ -25,12 +25,12 @@ landingContent:
         links:
           - text: What is Virtual WAN?
             url: virtual-wan-about.md
-          - text: FAQ
-            url: virtual-wan-faq.md
       - linkListType: concept
         links:
           - text: Working with locations and partners
             url: virtual-wan-locations-partners.md
+      - linkListType: reference
+        links:
           - text: FAQ
             url: virtual-wan-faq.md
   # Card
@@ -46,6 +46,10 @@ landingContent:
         links:
           - text: Route traffic from a virtual hub to an NVA
             url: virtual-wan-route-table-portal.md
+      - linkListType: reference
+        links:
+          - text: Default policies for IPsec connectivity
+            url: virtual-wan-ipsec.md
   # Card
   - title: Architecture
     linkLists:
@@ -55,14 +59,7 @@ landingContent:
             url: virtual-wan-global-transit-network-architecture.md
           - text: Office 365 control plane
             url: virtual-wan-office365-overview.md
-
-  - title: Resources
-    linkLists:
-      - linkListType: reference
-        links:
-          - text: Default policies for IPsec connectivity
-            url: virtual-wan-ipsec.md
-  # Card
+ # Card
   - title: Reference
     linkLists:
       - linkListType: reference
