@@ -3,7 +3,7 @@ title: How to provide data feedback to Azure Maps | Microsoft Docs
 description: Provide data feedback using Azure Maps feedback tool.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/12/2019
+ms.date: 08/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -33,7 +33,7 @@ Upon clicking, you will be directed to a form to provide the corresponding detai
 
 ## Fix a business place or a residential address 
 
-The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address if required. To do so use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place".
+The feedback tool also allows you to search and locate a business place or an address and provide feedback to fix address of the location if it is not correct. To provide feedback to fix the address, use the search bar to search for a business place or residential address. Click on the location of your interest from the results list, and click on "Fix this place".
 
   ![search place to fix](./media/how-to-use-feedback-tool/fix-place.png)
 
