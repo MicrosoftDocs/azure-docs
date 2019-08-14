@@ -46,7 +46,7 @@ We'll build this solution in reverse order, starting with the Azure Databricks w
 
 ## Create a sales order
 
-We'll create a csv file that describes a sales order, and then upload that file to the storage account. Later, we'll use the data from this file to populate the first row in our Databricks Delta table.
+First, create a csv file that describes a sales order, and then upload that file to the storage account. Later, you'll use the data from this file to populate the first row in our Databricks Delta table.
 
 1. Open Azure Storage Explorer. Then, navigate to your storage account, and in the **Blob Containers** section, create a new container named **data**.
 
@@ -126,7 +126,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     customerTablePath = adlsPath + 'delta-tables/customers'
     ```
 
-    This code creates a widget named **source_file**. Later, we'll create an Azure Function that calls this code and passes a file path to that widget.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
+    This code creates a widget named **source_file**. Later, you'll create an Azure Function that calls this code and passes a file path to that widget.  This code also authenticates your service principal with the storage account, and creates some variables that you'll use in other cells.
 
 2. Press the **SHIFT + ENTER** keys to run the code in this block.
 
@@ -209,7 +209,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
 ### Create a Job
 
-A Job runs a notebook. In this section, you'll create a job that runs the notebook that you created earlier. Later, we'll create an Azure Function that runs this job when an event is raised.
+Create a Job that runs the notebook that you created earlier. Later, you'll create an Azure Function that runs this job when an event is raised.
 
 1. Click **Jobs**.
 
@@ -243,18 +243,17 @@ Create an Azure Function that runs the Job.
 
    ![Configure the function app](./media/data-lake-storage-events/configure-function-app.png "Configure the function app")
 
-6. In the **Application Settings** page, choose the **New application setting** button.
+6. In the **Application Settings** page, choose the **New application setting** button to add each setting.
 
    ![Add configuration setting](./media/data-lake-storage-events/add-application-setting.png "Add configuration setting")
 
-   Use this approach to add the following settings:
+   Add the following settings:
 
    |Setting name | Value |
    |----|----|
    |**DBX_INSTANCE**| The region of your databricks workspace. For example: `westus2.azuredatabricks.net`|
    |**DBX_PAT**| The personal access token that you generated earlier. |
    |**DBX_JOB_ID**|The identifier of the running job. In our case, this value is `1`.|
-
 7. In the overview page of the function app, click the **New function** button.
 
    ![New function](./media/data-lake-storage-events/new-function.png "New function")
