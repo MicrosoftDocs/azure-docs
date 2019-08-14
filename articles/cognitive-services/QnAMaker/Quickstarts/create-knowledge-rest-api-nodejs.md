@@ -70,7 +70,9 @@ npm install requestretry
 
 Create a file named `rest-apis.js` and add the NPM package with a _requires_ statement. 
 
-[!code-javascript[Require statements](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/rest-api/rest-api.js?name=dependencies)]
+```javascript
+const request = require("requestretry");
+```
 
 ## Add Azure resource information
 
