@@ -5,7 +5,7 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 08/13/2019
 ms.author: cherylmc
 ---
 
@@ -109,23 +109,15 @@ Use the following steps to configure the native VPN client on Mac for certificat
 
 ## <a name="linuxgui"></a>Linux (strongSwan GUI)
 
-### Extract the key and certificate
+### <a name="installstrongswan"></a>Install strongSwan
 
-For strongSwan, you need to extract the key and the cert from the client certificate (.pfx file) and save them to individual .pem files.
-Follow the steps below:
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. Download and install OpenSSL from [OpenSSL](https://www.openssl.org/source/).
-2. Open a command-line window and change to the directory where you installed OpenSSL, for example, 'c:\OpenSLL-Win64\bin\'.
-3. Run the following command to extract the private key and save it to a new file called 'privatekey.pem' from your client certificate:
+### <a name="genlinuxcerts"></a>Generate certificates
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nocerts -out privatekey.pem -nodes
-   ```
-4. Now run the following command to extract the public cert and save it to a new file:
+If you have not already generated certificates, use the following steps:
 
-   ```
-   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
-   ```
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### <a name="install"></a>Install and configure
 
@@ -158,10 +150,13 @@ The following instructions were created through strongSwan 5.5.1 on Ubuntu 17.0.
 
 ### Install strongSwan
 
-You can use the following CLI commands, or use the strongSwan steps in the [GUI](#install) to install strongSwan.
+[!INCLUDE [install strongSwan](../../includes/vpn-gateway-strongswan-install-include.md)]
 
-1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
-2. `apt-get install libstrongswan-standard-plugins`
+### Generate certificates
+
+If you have not already generated certificates, use the following steps:
+
+[!INCLUDE [strongSwan certificates](../../includes/vpn-gateway-strongswan-certificates-include.md)]
 
 ### Install and configure
 
