@@ -251,21 +251,19 @@ If you like, navigate to `http://<front-end-app-name>.azurewebsites.net`. It sho
 
 Now that you've enabled authentication and authorization to both of your apps, each of them is backed by an AD application. In this step, you give the front-end app permissions to access the back end on the user's behalf. (Technically, you give the front end's _AD application_ the permissions to access the back end's _AD application_ on the user's behalf.)
 
-At this point, you should be in the **Azure Active Directory Settings** page for the front-end app. If not, go back to that page. 
-
-Click **Manage Permissions** > **Add** > **Select an API**.
+From the left menu in the portal, select **Azure Active Directory** > **App registrations** > **Owned applications** > **\<front-end-app-name>** > **API permissions**.
 
 ![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/add-api-access-front-end.png)
 
-In the **Select an API** page, type the AD application name of your back-end app, which is the same as your back-end app name by default. Select it in the list and click **Select**.
+Select **Add a permission**, then select **My APIs** > **\<back-end-app-name>**.
 
-Select the checkbox next to **Access _\<AD-application-name>_**. Click **Select** > **Done**.
+In the **Request API permissions** page for the back-end app, select **Delegated permissions** and **user_impersonation**, then select **Add permissions**.
 
 ![ASP.NET Core API running in Azure App Service](./media/tutorial-auth-aad/select-permission-front-end.png)
 
 ### Configure App Service to return a usable access token
 
-The front-end app now has the required permissions. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
+The front-end app now has the required permissions to access the back-end app as the signed-in user. In this step, you configure App Service authentication and authorization to give you a usable access token for accessing the back end. For this step, you need the back end's client ID, which you copied from [Enable authentication and authorization for back-end app](#enable-authentication-and-authorization-for-back-end-app).
 
 Sign in to [Azure Resource Explorer](https://resources.azure.com). At the top of the page, click **Read/Write** to enable editing of your Azure resources.
 
