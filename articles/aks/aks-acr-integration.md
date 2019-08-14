@@ -53,9 +53,7 @@ az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
 az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
 
-## Set variable and login to your ACR
-
-Log in to your ACR.
+## Log in to your ACR
 
 ```azurecli
 acrloginservername=$(az acr show -n myAKSCluster -g myResourceGroup --query loginServer -o tsv)
