@@ -9,15 +9,13 @@ ms.date: 05/31/2019
 ms.author: victorh
 ---
 
-# Azure Web Application Firewall for Azure Front Door?
+# Azure Web Application Firewall for Azure Front Door
 
 Azure Web Application Firewall (WAF) provides centralized protection for your web applications that are globally delivered using Azure Front Door. It is designed and operated to defend your web services against common exploits and vulnerabilities, and keep your service highly available for your users in addition to helping you meet compliance requirements.
 
 WAF for Front Door is a global and centralized solution. It is deployed on Azure network edge locations around the globe and every incoming request for a WAF enabled web application delivered by Front Door is inspected at the network edge. This allows WAF to prevent malicious attacks close to the attack sources, before they enter your virtual network and offers global protection at scale without sacrificing performance. A WAF policy can be easily linked to any Front Door profile in your subscription and new rules can be deployed within minutes, allowing you to respond quickly to changing threat patterns.
 
 ![Azure web application firewall](../media/afds-overview/web-application-firewall-overview.png)
-
-Azure WAF can also be enabled with Application Gateway. For more information, see [Web application firewall](../application-gateway/waf-overview.md).
 
 ## WAF policy and rules
 
@@ -94,7 +92,7 @@ Custom rules are always applied before rules in the Default Rule Set are evaluat
 
 A managed Bot protection rule set can be enabled for your WAF to take custom actions on requests from known malicious IP addresses. The IP addresses are sourced from the Microsoft Threat Intelligence feed. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence) powers Microsoft threat intelligence and is used by multiple services including Azure Security Center.
 
-![Bot Protection Rule Set](../media/afds-overview\botprotect2.png)
+![Bot Protection Rule Set](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
 > Bot protection rule set is currently in public preview and is provided with a preview service level agreement. Certain features may not be supported or may have constrained capabilities.  See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
@@ -111,4 +109,4 @@ Monitoring for WAF at Front Door is integrated with Azure Monitor to track alert
 
 ## Next steps
 
-- Learn how to [configure a WAF policy for Front Door using the Azure portal](waf-front-door-create-portal.md)
+- Learn about [Web Application Firewall on Azure Application Gateway](../ag/ag-overview.md)

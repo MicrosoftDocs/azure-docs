@@ -189,4 +189,4 @@ Pricing is based on an hourly gateway instance charge and a data-processing char
 
 ## Next steps
 
-See [How to configure web application firewall on Application Gateway](tutorial-restrict-web-traffic-powershell.md).
+- Learn about [Web Application Firewall on Azure Front Door](../afds/afds-overview.md)
