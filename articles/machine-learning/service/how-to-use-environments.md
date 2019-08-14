@@ -39,11 +39,11 @@ Environments can broadly be divided into two categories: user-managed  system-ma
 
 For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. If your training environment is already configured, you can skip the setup step by setting `user_managed_dependencies=True` parameter in the [PythonSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py).
 
-System managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. Th service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
+System managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
 
 ### Attributes of an environment
 
-The [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class contains a name, a version and a dictionary of environment variables you want to pass to training run.
+The [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class contains a name, a version and a dictionary of environment variables you want to pass to your training run.
 
 Furthermore, Environment class contains sections, which are applicable depending on where your script executes. The sections are automatically created and populated with default values when you create the environment. You can change the properties under each section to control the behavior of training or scoring.
 
@@ -51,9 +51,9 @@ Attributes| Description
 ---|---
 Name| Unique name of your new environment.
 Version| System-assigned version number for the environment.
-Variables dictionary| A dictionary of environment variables to pass to remote run. They are accessible from remote run, for example, using [os.getenv](https://docs.python.org/3.7/library/os.html#os.getenv).
+Variables dictionary| A dictionary of environment variables to pass to remote run. They are accessible from remote run, for example, using [`os.getenv`](https://docs.python.org/3.7/library/os.html#os.getenv).
 [PythonSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py)|Generally applicable, and can be used to control the Python packages and Python interpreter. For example, you can set the location of Python executable using `environment.python.interpreter_path`
-[DockerSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)|Generally applicable, and can be used to control the behavior of Docker execution. For example, you can enable or disable Docker execution using `environment.docker.enabled`, and pass additional arguments to Docker run command using `environment.docker.arguments`
+[DockerSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)|Generally applicable, and can be used to control the behavior of Docker execution. For example, you can enable or disable Docker execution using `environment.docker.enabled`, and pass additional arguments to Docker run command using `environment.docker.arguments`.
 [SparkSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py)|Relevant only when submitting PySpark training scripts.
 DatabricksSection|Relevant only when executing [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) in Machine Learning Pipeline.
 
@@ -64,22 +64,22 @@ DatabricksSection|Relevant only when executing [DatabricksStep](https://docs.mic
 
 ## Create an environment and add packages
 
-The below table lists the different ways to create an environment object with the Azure Machine Learning SDK.
+The table lists the different ways to create an environment object with the Azure Machine Learning SDK.
 
 Way| Description| Sample code
 ---|---|---
-[Environment](https://docs.microsoft.com/python/api/azureml-core/newazureml.core.environment.environment?view=azure-ml-py) object|Instantiate an environment|`Environment(name="myenv")`
+[Environment](https://docs.microsoft.com/python/api/azureml-core/newazureml.core.environment.environment?view=azure-ml-py) class|Instantiate an environment object.|`Environment(name="myenv")`
 [Estimator](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) run |  When you submit a run using an estimator object an environment is automatically created.|
-Existing Conda environment on your local computer| Create an environment from an existing Conda environment on your local computer. This makes it easy to reuse your local interactive environment in Azure ML remote runs. | if you've created conda environment using `conda create -n mycondaenv` you can create Azure ML environment out of that conda environment using `myenv = Environment.from_existing_conda_environment(name="myenv",conda_environment_name="mycondaenv")`.
-Conda specification file| With a conda specification file. | `myenv = Environment.from_conda_specification(name="myenv", file_path="path-to-conda-specification-file")`
+Existing Conda environment on your local computer| Create an environment from an existing Conda environment on your local computer. This makes it easy to reuse your local interactive environment on remote runs. | Create a Conda environment using <br> `conda create -n mycondaenv` <br> then create an environment object out of that conda environment using <br> `myenv = Environment.from_existing_conda_environment(name="myenv",conda_environment_name="mycondaenv")`.
+Conda specification file| Use a conda specification file. | `myenv = Environment.from_conda_specification(name="myenv", file_path="path-to-conda-specification-file")`
 Pip requirements file | Use a pip requirement file| `myenv = Environment.from_pip_requirements(name="myenv", file_path="path-to-pip-requirements-file")`
-Submit a run |Automatically creates an environment when submitting a run. When you submit a training run, the building of new environment can take several minutes depending on the size of the required dependencies.
+Submit a run |Submitting a run creates a default environment, when one is not defined. When you submit a training run, the building of new environment can take several minutes depending on the size of the required dependencies.
 
-### Adding packages
+### Add packages to an environment
 
-To add packages, specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py), and add it to the environment's PythonSection.
+Add packages to an environment with Conda, pip or private wheel files. Specify each package dependency using the [CondaDependency class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py), and add it to the environment's PythonSection.
 
-#### Using Conda and pip packages
+#### Conda and pip packages
 
 If a package is available in a Conda package repository, it is recommended to use the Conda over pip installation. The reason is that Conda packages typically come with pre-built binaries that make installation more reliable.
 
@@ -102,7 +102,7 @@ conda_dep.add_pip_package("pillow==5.4.1")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-#### Using private wheel files
+#### Private wheel files
 
 You can use private pip wheel files by first uploading it to your workspace storage by using static [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) method, then capturing the storage URL, and passing the URL to the `add_pip_package()` method
 
@@ -117,16 +117,19 @@ myenv.python.conda_dependencies=conda_dep
 
 ## Manage environments
 
-In this section, we show how to register your environment, so we can use it across compute targets, and share them with other workspace users. We also  retrieve existing environments by name, and explain how new versions are generated.
+In this section, we show how to register your environment, so we can use it across compute targets, and share them with other workspace users. We also retrieve existing environments by name, explain how new versions are generated, and show how to build an environment manually for debugging.
 
-### Register environment
+### Register environments
 
 The environment is automatically registered with your workspace when you submit a run or deploy a web service. You can also manually register the environment using the [Environment.register](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#register-workspace-) method. This
 operation makes the environment into an entity that is tracked and versioned in the cloud, and can be shared between workspace users.
 
 When used for the first time, in training or deployment, the environment is registered with the workspace, built, and deployed on the compute target. The environments are cached by the service, therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
 
-### Get existing environment
+### Get existing environments
+The Environment class offers methods that allow you to retrieve existing environments in your workspace by name, as a list or by specific training run.
+
+#### View list of environments
 
 View the environments in your workspace with [list()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#list-workspace-), and then select one to re-use.
 
@@ -135,60 +138,118 @@ from azureml.core import Environment
 list("workspace_name")
 ```
 
-The following code uses [get()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) to retrieve the version `1` of the environment, `myenv` on the `ws` workspace.
+#### Get environment by name
+
+You can also get a specific environment by name and version. 
+The following code uses the [get()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) method to retrieve version `1` of the environment, `myenv` on the `ws` workspace.
 
 ```python
 restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
 ```
 
-Also, registered environments appear as a dictionary under workspace object. You can use `env = ws.environments["my-env"]` to get a specific environment by name from workspace, `ws`.
+#### Training run specific environment
+
+To get the environment used for a specific run after training completes, use the [get_environment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--)method in the Run class.
+
+```python
+from azureml.core import Run
+Run.get_environment()
+```
 
 ### Update existing environment
 
 If you make changes to an existing environment, such as add a Python package, a new version of an environment is created when you either submit run, deploy model or manually register the environment. The versioning allows you to view changes to the environment over time.
 
+### Debug the image build
+
+In the following example, we [build()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#build-workspace-) an environment manually as a Docker image, and monitor the output logs from the image build using [wait_for_completion()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.image(class)?view=azure-ml-py#wait-for-creation-show-output-false-). The built image then appears under the workspace Azure Container Registry, which is helpful for debugging.
+
+```python
+from azureml.core import Image
+build = env.build()
+build.wait_for_completion(show_output=True)
+```
+
 ## Using environments for training
 
-To submit a training run, you need to combine environment, [compute target](concept-compute-target.md)
-and training Python script into run configuration: a wrapper object used for submitting runs. The following is a local script run example where you would use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py).
+To submit a training run, you need to combine your environment, [compute target](concept-compute-target.md)
+and training Python script into a run configuration; a wrapper object used for submitting runs.
+
+When you submit a training run, the building of a new environment can take several minutes depending on the size of the required dependencies. The environments are cached by the service, therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
+
+The following is a local script run example where you would use [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) as your wrapper object.
 
 ```python
 from azureml.core import Environment, ScriptRunConfig, Experiment
 
 exp = Experiment(name="myexp", workspace = ws)
+# Instantiate environment
 myenv = Environment(name="myenv")
+
+# Add training script to run config
 runconfig = ScriptRunConfig(source_directory=".", script="train.py")
+
+# Attach compute target to run config
 runconfig.compute_target = "local"
+
+# Attach environment to run config
 runconfig.environment = myenv
+
+# Submit run 
 run = exp.submit(runconfig)
 ```
 
-If you don't specify the environment in your run configuration, the service will create a default environment for you.
+> [!NOTE]
+> To disable run history or run snapshots, use the setting under `ScriptRunConfig.run_config.history`.
 
-To get the environment used for a specific run after training, use [Run.get_environment()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--) method.
+If you don't specify the environment in your run configuration, the service will create a default environment for you when you submit your run.
+
+### Train with an estimator
 
 If you are using an [estimator](how-to-train-ml-models.md) for training, you can simply submit the estimator instance directly, as it already encapsulates the environment and compute target.
 
-> [!NOTE]
-> To disable run history or run snapshots, use the setting under `ScriptRunConfig.run_config.history.
+The following uses an estimator for a single-node training run on a remote compute for a scikit-learn model, and assumes a  previously created compute target object, `compute_target` and datastore object, `ds`.
 
-When you submit a training run, the building of a new environment can take several minutes depending on the size of the required dependencies. The environments are cached by the service. Therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
+```python
+from azureml.train.estimator import Estimator
 
-## Using environment for web service deployment
+script_params = {
+    '--data-folder': ds.as_mount(),
+    '--regularization': 0.8
+}
+
+sk_est = Estimator(source_directory='./my-sklearn-proj',
+                   script_params=script_params,
+                   compute_target=compute_target,
+                   entry_script='train.py',
+                   conda_packages=['scikit-learn'])
+
+# Submit the run 
+run = experiment.submit(sk_est)
+```
+
+## Using environments for web service deployment
 
 You can use environments when deploying your model as a web service. This enables a reproducible, connected workflow where you can train, test, and deploy your model using the exact same libraries in both your training and inferencing computes.
 
-To deploy a web service, combine the environment, inference compute, scoring script and registered model in both your . For example, assume you have completed a training run which produced a model "outputs/model.pkl". To deploy that model to Azure Container Instance, you would use:
+To deploy a web service, combine the environment, inference compute, scoring script and registered model in your deployment object, [deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Learn more about [deploying web services](how-to-deploy-and-where.md).
+
+In this example, we assume you have completed a training run which produced a model "outputs/model.pkl", and deploy that model to Azure Container Instance (ACI). When building the web service, the model and scoring files are mounted on the image and the Azure Machine Learning inferencing stack is added to the image.
 
 ```python
 from azureml.core.model import InferenceConfig, Model
 from azureml.core.webservice import AciWebservice, Webservice
 
+# Regist the model we want to deploy
 model = run.register_model(model_name = "mymodel", model_path = "outputs/model.pkl")
 
+# Combine scoring script & environment in Inference configuration
 inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
+
+# Set deployment configuration
 deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)
 
+# Define the model, inference & deployment configuration and web service name and location to deploy 
 service = Model.deploy(
     workspace = ws,
     name = "my_web_service",
@@ -197,30 +258,15 @@ service = Model.deploy(
     deployment_config = deployment_config)
 ```
 
-When building the web service, the model and scoring files are mounted on the image, Azure Machine Learning inferencing stack is added on the image.
-
-Learn more about [deploying web services](how-to-deploy-and-where.md).
-
 ### Docker and environments
 
-Azure Machine Learning supports Docker when building environments which provides additional isolation and reproducibility.
+Azure Machine Learning supports Docker when building environments, which provides additional isolation and reproducibility.
 
-On local compute or virtual machine, you can choose between Docker-based and bare metal environments. However, for Machine Learning Compute clusters or web service deployments, the environment must be Docker-based.
+On local computes or virtual machines, you can choose between Docker-based and bare metal environments. However, for Azure Machine Learning Compute clusters or web service deployments, the environment must be Docker-based.
 
 By default, Azure Machine Learning service uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. You can specify the GPU image by turning the `Environment.docker.gpu_support` flag on.
 
-You can also specify your own custom Docker image, by specifying `Environment.docker.base_image` and `Environment.docker.base_image_registry` variables. The default for the image registry is Azure Container Registry of your Workspace. You can push custom images there to have authenticated access by default.
-
-### Build environment manually
-
-You can build an environment as Docker image and monitor the output logs from image build using
-
-```python
-build = env.build()
-build.wait_for_completion(show_output=True)
-```
-
-The built image then appears under the Workspace Azure Container Registry.
+You can also specify your own custom Docker image, by specifying `Environment.docker.base_image` and `Environment.docker.base_image_registry` variables. The default for the image registry is Azure Container Registry of your workspace. You can push custom images there to have authenticated access by default.
 
 ## Example notebooks
 
