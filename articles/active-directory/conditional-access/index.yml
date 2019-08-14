@@ -34,27 +34,19 @@ landingContent:
             url: location-condition.md
           - text: What are controls?
             url: controls.md
+          - text: Conditional Access service dependencies
+            url: service-dependencies.md
 
   # Card
   - title: Deploy Conditional Access
     linkLists:
       - linkListType: concept
         links:
-          - text: What are baseline policies?
-            url: concept-baseline-protection.md
-          - text: Password writeback
-            url: concept-sspr-writeback.md
-          - text: Azure AD password protection
-            url: concept-password-ban-bad.md
-      - linkListType: quickstart
+          - text: Plan a Conditional Access deployment
+            url: plan-conditional-access.md
+      - linkListType: how-to-guide
         links:
-          - text: Self-service password reset quickstart
-            url: quickstart-sspr.md
-      - linkListType: deploy
-        links:
-          - text: Deploy Azure AD self-service password reset
-            url: howto-sspr-deployment.md
-          - text: Enable password writeback
-            url: howto-sspr-writeback.md
-          - text: Enable password reset from the Windows login screen
-            url: howto-sspr-windows.md
+          - text: Block legacy authentication
+            url: block-legacy-authentication.md
+          - text: Troubleshooting using the What If tool
+            url: troubleshoot-conditional-access-what-if.md
