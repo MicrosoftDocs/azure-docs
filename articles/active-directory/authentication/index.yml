@@ -25,7 +25,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is authentication?
-            url: overview.md
+            url: overview-authentication.md
           - text: What are authentication methods?
             url: concept-authentication-methods.md
           - text: Combined security information registration
@@ -42,6 +42,8 @@ landingContent:
             url: concept-sspr-howitworks.md
           - text: Password writeback
             url: concept-sspr-writeback.md
+          - text: Azure AD password protection
+            url: concept-password-ban-bad.md
       - linkListType: quickstart
         links:
           - text: Self-service password reset quickstart
