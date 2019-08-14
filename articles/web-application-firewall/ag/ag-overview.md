@@ -33,7 +33,7 @@ This section describes the core benefits that Application Gateway and its WAF pr
 
 ### Monitoring
 
-* Monitor attacks against your web applications by using a real-time WAF log. The log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to track WAF alerts and easily monitor trends.
+* Monitor attacks against your web applications by using a real-time WAF log. The log is integrated with [Azure Monitor](../../azure-monitor/overview.md) to track WAF alerts and easily monitor trends.
 
 * The Application Gateway WAF is integrated with Azure Security Center. Security Center provides a central view of the security state of all your Azure resources.
 
