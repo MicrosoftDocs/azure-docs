@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/29/2017
-ms.author: mikkelhegn
+ms.author: mikhegn
 
 ---
 # Configure the upgrade of a Service Fabric application in Visual Studio

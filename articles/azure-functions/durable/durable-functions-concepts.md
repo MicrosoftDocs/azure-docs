@@ -370,7 +370,7 @@ module.exports = async function (context) {
 };
 ```
 
-## Pattern #6: Aggregator (preview)
+### <a name="aggregator"></a>Pattern #6: Aggregator (preview)
 
 The sixth pattern is about aggregating event data over a period of time into a single, addressable *entity*. In this pattern, the data being aggregated may come from multiple sources, may be delivered in batches, or may be scattered over long-periods of time. The aggregator might need to take action on event data as it arrives, and external clients may need to query the aggregated data.
 
@@ -381,27 +381,46 @@ The tricky thing about trying to implement this pattern with normal, stateless f
 Using a [Durable Entity function](durable-functions-preview.md#entity-functions), one can implement this pattern easily as a single function.
 
 ```csharp
-public static async Task Counter(
-    [EntityTrigger(EntityClassName = "Counter")] IDurableEntityContext ctx)
+[FunctionName("Counter")]
+public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 {
     int currentValue = ctx.GetState<int>();
-    int operand = ctx.GetInput<int>();
 
-    switch (ctx.OperationName)
+    switch (ctx.OperationName.ToLowerInvariant())
     {
         case "add":
+            int amount = ctx.GetInput<int>();
             currentValue += operand;
             break;
-        case "subtract":
-            currentValue -= operand;
-            break;
         case "reset":
-            await SendResetNotificationAsync();
             currentValue = 0;
+            break;
+        case "get":
+            ctx.Return(currentValue);
             break;
     }
 
     ctx.SetState(currentValue);
+}
+```
+
+Durable Entities can also be modeled as .NET classes. This can be useful if the list of operations becomes large and if it is mostly static. The following example is an equivalent implementation of the `Counter` entity using .NET classes and methods.
+
+```csharp
+public class Counter
+{
+    [JsonProperty("value")]
+    public int CurrentValue { get; set; }
+
+    public void Add(int amount) => this.CurrentValue += amount;
+    
+    public void Reset() => this.CurrentValue = 0;
+    
+    public int Get() => this.CurrentValue;
+
+    [FunctionName(nameof(Counter))]
+    public static Task Run([EntityTrigger] IDurableEntityContext ctx)
+        => ctx.DispatchAsync<Counter>();
 }
 ```
 
@@ -422,7 +441,7 @@ public static async Task Run(
 }
 ```
 
-Similarly, clients can query for the state of an entity function using methods on the `orchestrationClient` binding.
+Dynamically generated proxies are also available for signaling entities in a type-safe way. And in addition to signaling, clients can also query for the state of an entity function using methods on the `orchestrationClient` binding.
 
 > [!NOTE]
 > Entity functions are currently only available in the [Durable Functions 2.0 preview](durable-functions-preview.md).

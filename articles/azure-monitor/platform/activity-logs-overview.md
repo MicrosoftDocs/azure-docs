@@ -24,10 +24,10 @@ There is a single Activity Log for each Azure subscription. It provides data abo
 
 
 > [!NOTE]
-> The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track ugresources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log can be browsed in a separate section of the portal.
+> The Azure Activity Log is primarily for activities that occur in Azure Resource Manager. It does not track resources using the Classic/RDFE model. Some Classic resource types have a proxy resource provider in Azure Resource Manager (for example, Microsoft.ClassicCompute). If you interact with a Classic resource type through Azure Resource Manager using these proxy resource providers, the operations appear in the Activity Log. If you interact with a Classic resource type outside of the Azure Resource Manager proxies, your actions are only recorded in the Operation Log. The Operation Log can be browsed in a separate section of the portal.
 
 ## Activity Log retention
-Activity Log events are stored for 90 days. To store this data for longer periods, [collect it in Azure Monitor](activity-log-collect.md) or [export it to storage or Event Hubs](activity-log-export.md).
+Once created, Activity Log entries are not modified or deleted by the system. Also, you can't change them in the interface or programmatically. Activity Log events are stored for 90 days. To store this data for longer periods, [collect it in Azure Monitor](activity-log-collect.md) or [export it to storage or Event Hubs](activity-log-export.md).
 
 ## View the Activity Log
 View the Activity Log for all resources from the **Monitor** menu in the Azure portal. View the Activity Log for a particular resource from the **Activity Log** option in that resource's menu. You can also retrieve Activity Log records with PowerShell, CLI, or REST API.  See [View and retrieve Azure Activity log events](activity-log-view.md).

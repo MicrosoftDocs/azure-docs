@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Join a RHEL VM to a managed doma
 description: Join a Red Hat Enterprise Linux virtual machine to Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: MikeStephens-MS
+author: iainfoulds
 manager: daveba
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
-ms.author: mstephen
+ms.author: iainfou
 
 ---
 # Join a Red Hat Enterprise Linux 7 virtual machine to a managed domain
@@ -53,24 +53,25 @@ Follow the instructions in the article [How to log on to a virtual machine runni
 ## Configure the hosts file on the Linux virtual machine
 In your SSH terminal, edit the /etc/hosts file and update your machine’s IP address and hostname.
 
-```
+```console
 sudo vi /etc/hosts
 ```
 
 In the hosts file, enter the following value:
 
-```
+```console
 127.0.0.1 contoso-rhel.contoso100.com contoso-rhel
 ```
+
 Here, 'contoso100.com' is the DNS domain name of your managed domain. 'contoso-rhel' is the hostname of the RHEL virtual machine you are joining to the managed domain.
 
 
 ## Install required packages on the Linux virtual machine
 Next, install packages required for domain join on the virtual machine. In your SSH terminal, type the following command to install the required packages:
 
-    ```
-    sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
-    ```
+```console
+sudo yum install realmd sssd krb5-workstation krb5-libs samba-common-tools
+```
 
 
 ## Join the Linux virtual machine to the managed domain
@@ -78,7 +79,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
 1. Discover the AAD Domain Services managed domain. In your SSH terminal, type the following command:
 
-    ```
+    ```console
     sudo realm discover CONTOSO100.COM
     ```
 
@@ -94,9 +95,8 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > [!TIP]
     > * Ensure that you specify a user who belongs to the 'AAD DC Administrators' group.
     > * Specify the domain name in capital letters, else kinit fails.
-    >
 
-    ```
+    ```console
     kinit bob@CONTOSO100.COM
     ```
 
@@ -105,8 +105,9 @@ Now that the required packages are installed on the Linux virtual machine, the n
     > [!TIP]
     > Use the same user account you specified in the preceding step ('kinit').
     >
+    > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
-    ```
+    ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'
     ```
 
@@ -117,17 +118,20 @@ You should get a message ("Successfully enrolled machine in realm") when the mac
 Verify whether the machine has been successfully joined to the managed domain. Connect to the domain joined RHEL VM using a different SSH connection. Use a domain user account and then check to see if the user account is resolved correctly.
 
 1. In your SSH terminal, type the following command to connect to the domain joined RHEL virtual machine using SSH. Use a domain account that belongs to the managed domain (for example, 'bob@CONTOSO100.COM' in this case.)
-    ```
+    
+    ```console
     ssh -l bob@CONTOSO100.COM contoso-rhel.contoso100.com
     ```
 
 2. In your SSH terminal, type the following command to see if the home directory was initialized correctly.
-    ```
+    
+    ```console
     pwd
     ```
 
 3. In your SSH terminal, type the following command to see if the group memberships are being resolved correctly.
-    ```
+    
+    ```console
     id
     ```
 

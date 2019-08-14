@@ -32,7 +32,8 @@ Preserve the **Zones** value, it represents your availability zone and you will 
 |---------|---------|---------|---------|---------|---------|---------|
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
-If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
+> [!NOTE]
+> If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to get your first VMs deployed with ultra SSD.
 
@@ -57,7 +58,7 @@ To use ultra SSDs, you must create a VM that is capable of using ultra SSDs.
 Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-your-availability-zone). Then run the following CLI command to create an ultra enabled VM:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
 ```
 
 ### Create an ultra SSD using CLI

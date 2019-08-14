@@ -9,7 +9,8 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.author: tyleonha, glenga
+ms.author: tyleonha
+ms.reviewer: glenga
 # Customer intent: As a PowerShell developer, I want to learn how to debug my functions on my local computer so that I can publish higher quality code to Azure.
 ---
 
@@ -95,7 +96,7 @@ To debug your PowerShell functions in Visual Studio Code, you must have the foll
 
 * [PowerShell extension for Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
 * [Azure Functions extension for Visual Studio Code](functions-create-first-function-vs-code.md)
-* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell#powershell-core)
+* [PowerShell Core 6.2 or higher](/powershell/scripting/install/installing-powershell-core-on-windows)
 
 After installing these dependencies, load an existing PowerShell Functions project, or [create your first PowerShell Functions project](functions-create-first-function-powershell.md).
 

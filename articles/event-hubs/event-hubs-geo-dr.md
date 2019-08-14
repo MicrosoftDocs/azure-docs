@@ -81,7 +81,7 @@ If you made a mistake; for example, you paired the wrong regions during the init
 
 ## Samples
 
-The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
+The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) shows how to set up and initiate a failover. This sample demonstrates the following concepts:
 
 - Settings required in Azure Active Directory to use Azure Resource Manager with Event Hubs. 
 - Steps required to execute the sample code. 
@@ -95,7 +95,7 @@ Note the following considerations to keep in mind with this release:
  
 2. The fact that no data is replicated means that currently active sessions are not replicated. Additionally, duplicate detection and scheduled messages may not work. New sessions, scheduled messages, and new duplicates will work. 
 
-3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/resiliency/disaster-recovery-azure-applications#disaster-simulation) at least once. 
+3. Failing over a complex distributed infrastructure should be [rehearsed](/azure/architecture/reliability/disaster-recovery#disaster-recovery-plan) at least once. 
 
 4. Synchronizing entities can take some time, approximately 50-100 entities per minute.
 
@@ -112,7 +112,7 @@ You can enable Availability Zones on new namespaces only, using the Azure portal
 
 ## Next steps
 
-* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
+* The [sample on GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/GeoDRClient) walks through a simple workflow that creates a geo-pairing and initiates a failover for a disaster recovery scenario.
 * The [REST API reference](/rest/api/eventhub/disasterrecoveryconfigs) describes APIs for performing the Geo-disaster recovery configuration.
 
 For more information about Event Hubs, visit the following links:

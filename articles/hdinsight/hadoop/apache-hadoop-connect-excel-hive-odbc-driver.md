@@ -27,7 +27,7 @@ Before you begin this article, you must have the following items:
 * A workstation with Office 2010 Professional Plus or later, or Excel 2010 or later.
 
 ## Install Microsoft Hive ODBC driver
-Download and install the [Microsoft Hive ODBC Driver](https://go.microsoft.com/fwlink/?LinkID=286698) version that matches the version of the application where you will be using the ODBC driver.  For this tutorial, the driver is used for Office Excel.
+Download and install the [Microsoft Hive ODBC Driver](https://go.microsoft.com/fwlink/?LinkID=286698) version that matches the version of the application where you will be using the ODBC driver.  For this article, the driver is used for Office Excel.
 
 ## Create Apache Hive ODBC data source
 The following steps show you how to create a Hive ODBC Data Source.

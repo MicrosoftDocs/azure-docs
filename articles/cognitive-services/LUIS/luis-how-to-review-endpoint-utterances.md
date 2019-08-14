@@ -1,6 +1,6 @@
 ---
-title: Review user utterances
-titleSuffix: Language Understanding - Azure Cognitive Services
+title: Review user utterances - LUIS
+titleSuffix: Azure Cognitive Services
 description: Active learning captures endpoint queries and selects user's endpoint utterances that it is unsure of. You review these utterances to select the intent and mark entities for these read-world utterances. Accept these changes into your example utterances then train and publish. LUIS then identifies utterances more accurately.
 services: cognitive-services
 author: diberry
@@ -8,7 +8,7 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: diberry
 ---

@@ -7,7 +7,7 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
+manager: philmea
 ---
 
 # Device connectivity in Azure IoT Central

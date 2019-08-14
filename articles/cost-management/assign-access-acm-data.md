@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 05/14/2019
+ms.date: 06/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
@@ -165,6 +165,13 @@ Access to a resource group requires at least the Cost Management Reader (or Read
 7. Under **Assign access to**, select **Azure AD user, group, or application**.
 8. To assign access, search for and then select the user.
 9. Click **Save**.
+
+## Cross-tenant authentication issues
+
+Currently, Azure Cost Management has limited support for cross-tenant authentication. In some circumstances when you try to authenticate across tenants, you may receive an **Access denied** error in cost analysis. This issue might occur if you configure role-based access control (RBAC) to another tenant's subscription and then try to view cost data.
+
+*To work around the problem*: After you configure cross-tenant RBAC, wait an hour. Then, try to view costs in cost analysis or grant Cost Management access to users in both tenants.  
+
 
 ## Next steps
 

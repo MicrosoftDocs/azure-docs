@@ -4,15 +4,15 @@ description: This article describes source control integration with GitHub in Az
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Source control integration in Azure Automation
 
-Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
+Source control allows you to keep your runbooks in your Automation account up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
 
 Azure Automation supports three types of source control:
 
@@ -166,6 +166,13 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Encoding
 
 If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
+## Updating the access token
+
+Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
+
+* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps
 

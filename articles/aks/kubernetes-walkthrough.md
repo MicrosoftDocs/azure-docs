@@ -2,12 +2,12 @@
 title: Quickstart - Create an Azure Kubernetes Service (AKS) cluster
 description: Learn how to quickly create a Kubernetes cluster, deploy an application, and monitor performance in Azure Kubernetes Service (AKS) using the Azure CLI.
 services: container-service
-author: iainfoulds
+author: mlearned
 
 ms.service: container-service
 ms.topic: quickstart
 ms.date: 05/20/2019
-ms.author: iainfou
+ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter
 
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
@@ -91,7 +91,7 @@ kubectl get nodes
 
 The following example output shows the single node created in the previous steps. Make sure that the status of the node is *Ready*:
 
-```
+```output
 NAME                       STATUS   ROLES   AGE     VERSION
 aks-nodepool1-31718369-0   Ready    agent   6m44s   v1.12.8
 ```
@@ -198,7 +198,7 @@ kubectl apply -f azure-vote.yaml
 
 The following example output shows the Deployments and Services created successfully:
 
-```
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -217,14 +217,14 @@ kubectl get service azure-vote-front --watch
 
 Initially the *EXTERNAL-IP* for the *azure-vote-front* service is shown as *pending*.
 
-```
+```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   LoadBalancer   10.0.37.27   <pending>     80:30572/TCP   6s
 ```
 
 When the *EXTERNAL-IP* address changes from *pending* to an actual public IP address, use `CTRL-C` to stop the `kubectl` watch process. The following example output shows a valid public IP address assigned to the service:
 
-```
+```output
 azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 ```
 
@@ -236,24 +236,24 @@ To see the Azure Vote app in action, open a web browser to the external IP addre
 
 When the AKS cluster was created, Azure Monitor for containers was enabled to capture health metrics for both the cluster nodes and pods. These health metrics are available in the Azure portal.
 
-To see current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
+To see the current status, uptime, and resource usage for the Azure Vote pods, complete the following steps:
 
 1. Open a web browser to the Azure portal [https://portal.azure.com][azure-portal].
 1. Select your resource group, such as *myResourceGroup*, then select your AKS cluster, such as *myAKSCluster*.
-1. Under **Monitoring** on the left-hand side, choose **Insights**
-1. Across the top, choose to **+ Add Filter**
-1. Select *Namespace* as the property, then choose *\<All but kube-system\>*
-1. Choose to view the **Containers**.
+1. Under **Monitoring** on the left-hand side, select **Insights**.
+1. Across the top, select **+ Add Filter**.
+1. Select *Namespace* as the property, then choose *\<All but kube-system\>*.
+1. Select **Containers**.
 
 The *azure-vote-back* and *azure-vote-front* containers are displayed, as shown in the following example:
 
 ![View the health of running containers in AKS](media/kubernetes-walkthrough/monitor-containers.png)
 
-To see logs for the `azure-vote-front` pod, choose the option to **View in analytics**, then select **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
+To see logs for the `azure-vote-back` pod, choose the option to **View in analytics**, then select the **View container logs** link on the right-hand side of the containers list. These logs include the *stdout* and *stderr* streams from the container.
 
 ![View the containers logs in AKS](media/kubernetes-walkthrough/monitor-container-logs.png)
 
-## Delete cluster
+## Delete the cluster
 
 When the cluster is no longer needed, use the [az group delete][az-group-delete] command to remove the resource group, container service, and all related resources.
 

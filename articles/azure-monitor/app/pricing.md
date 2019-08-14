@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin    
-ms.date: 05/29/2019
+ms.date: 08/13/2019
 ms.author: dalek
 
 ---
@@ -22,7 +22,7 @@ ms.author: dalek
 > This article describes how to analyze data usage Application Insights.  Refer to the following articles for related information.
 > - [Monitoring usage and estimated costs](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) describes how to view usage and estimated costs across multiple Azure monitoring features for different pricing models. It also describes how to change your pricing model.
 
-If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights).
+If you have questions about how pricing works for Application Insights, you can post a question in our [forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
 
 ## Pricing model
 
@@ -34,11 +34,12 @@ Pricing for [Azure Application Insights][start] is based on data volume ingested
 * Your application's data volume charges are now reported on a new billing meter named **Data Ingestion** as of April 2018. This new meter is shared across monitoring technologies such as Applications Insights and Log Analytics and is currently under the service name **Log Analytics**. 
 * [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data isn't counted for pricing purposes.
 
-For current prices in your currency and region, see [Application Insights pricing][pricing].
+> [!NOTE]
+> All prices displayed in screenshots in this article are for example purposes only. For current prices in your currency and region, see [Application Insights pricing][pricing].
 
 ### Multi-step web tests
 
-[Multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
+[Multi-step web tests](../../azure-monitor/app/availability-multistep.md) incur an additional charge. Multi-step web tests are web tests that perform a sequence of actions.
 
 There's no separate charge for *ping tests* of a single page. Telemetry from ping tests and multi-step tests is charged the same as other telemetry from your app.
 
@@ -49,7 +50,7 @@ Application Insights makes it easy to understand what your costs are likely to b
 ![Choose pricing](./media/pricing/pricing-001.png)
 
 A. Review your data volume for the month. This includes all the data that's received and retained (after any [sampling](../../azure-monitor/app/sampling.md)) from your server and client apps, and from availability tests.  
-B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)  
+B. A separate charge is made for [multi-step web tests](../../azure-monitor/app/availability-multistep.md). (This doesn't include simple availability tests, which are included in the data volume charge.)  
 C. View data volume trends for the past month.  
 D. Enable data ingestion [sampling](../../azure-monitor/app/sampling.md).   
 E. Set the daily data volume cap.  
@@ -127,6 +128,14 @@ To discover the actual sampling rate, no matter where it's been applied, use an 
     | render areachart
 
 In each retained record, `itemCount` indicates the number of original records that it represents. It's equal to 1 + the number of previous discarded records. 
+
+## Change the data retention period
+
+Application Insights is now onboarding a limited number of Application Insights customers to our variable retention preview. Information on how to participate in this preview program is available [here](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031).
+
+The default retention for Application Insights resources is 90 days. Different retention periods can be selected for each Application Insights resource. The full set of available retention periods is 30, 60, 120, 180, 270, 365, 550 or 730 days. 
+
+When billing is enabled for longer retention, data kept longer than 90 days will be billed as the same rate as is currently billed for Azure Log Analytics data retention. Learn more at the [Azure Monitor Pricing page](https://azure.microsoft.com/pricing/details/monitor/).  Stay up-to-date on variable retention progress by [voting for this suggestion](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## Limits summary
 

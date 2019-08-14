@@ -52,7 +52,7 @@ Learn how to process and analyze JavaScript Object Notation (JSON) files by usin
 
 The file can be found at `wasb://processjson@hditutorialdata.blob.core.windows.net/`. For more information on how to use Azure Blob storage with HDInsight, see [Use HDFS-compatible Azure Blob storage with Apache Hadoop in HDInsight](../hdinsight-hadoop-use-blob-storage.md). You can copy the file to the default container of your cluster.
 
-In this tutorial, you use the Apache Hive console. For instructions on how to open the Hive console, see [Use Apache Ambari Hive View with Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
+In this article, you use the Apache Hive console. For instructions on how to open the Hive console, see [Use Apache Ambari Hive View with Apache Hadoop in HDInsight](apache-hadoop-use-hive-ambari-view.md).
 
 ## Flatten JSON documents
 The methods listed in the next section require that the JSON document be composed of a single row. So, you must flatten the JSON document to a string. If your JSON document is already flattened, you can skip this step and go straight to the next section on analyzing JSON data. To flatten the JSON document, run the following script:
@@ -146,5 +146,5 @@ In conclusion, the type of JSON operator in Hive that you choose depends on your
 For related articles, see:
 
 * [Use Apache Hive and HiveQL with Apache Hadoop in HDInsight to analyze a sample Apache log4j file](../hdinsight-use-hive.md)
-* [Analyze flight delay data by using Apache Hive in HDInsight](../hdinsight-analyze-flight-delay-data-linux.md)
+* [Analyze flight delay data by using Interactive Query in HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
 * [Analyze Twitter data by using Apache Hive in HDInsight](../hdinsight-analyze-twitter-data-linux.md)

@@ -5,6 +5,7 @@ manager: cgronlun
 author: LuisCabrer
 services: search
 ms.service: search
+ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/20/2019
@@ -28,6 +29,9 @@ We require that Azure Search and Azure Cognitive Services exist within the same 
 
 There is no way to move a service across regions. If you get this error, you should create a new Cognitive Services resource in the same region as Azure Search.
 
+> [!NOTE]
+> Some built-in skills are based on non-regional Cognitive Services (for example, the [Text Translation Skill](cognitive-search-skill-text-translation.md)). Be aware that if you add any of these skills to your skillset that your data is not guaranteed to stay in the same region as your Azure Search or Cognitive Services resource. See the [service status page](https://aka.ms/allinoneregioninfo) for more details.
+
 ## Use Free resources
 
 You can use a limited, free processing option to complete the cognitive search tutorial and quickstart exercises.
@@ -36,7 +40,7 @@ Free (Limited enrichments) resources are restricted to 20 documents per day, per
 
 1. Open the Import data wizard:
 
-   ![Open the Import data wizard](media/search-get-started-portal/import-data-cmd2.png "Open the Import data wizard")
+   ![Open the Import data wizard](media/search-get-started-portal/import-data-cmd.png "Open the Import data wizard")
 
 1. Choose a data source and continue to **Add cognitive search (Optional)**. For a step-by-step walkthrough of this wizard, see [Import, index, and query by using portal tools](search-get-started-portal.md).
 

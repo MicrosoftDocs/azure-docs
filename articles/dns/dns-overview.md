@@ -6,7 +6,7 @@ ms.service: dns
 ms.topic: overview
 ms.date: 3/21/2019
 ms.author: victorh
-#As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
+#Customer intent: As an administrator, I want to evaluate Azure DNS so I can determine if I want to use it instead of my current DNS service.
 ---
 
 # What is Azure DNS?

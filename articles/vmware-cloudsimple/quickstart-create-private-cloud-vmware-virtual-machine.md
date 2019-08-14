@@ -1,11 +1,11 @@
---- 
+---
 title: Quickstart - Create a VMware VM on a Private Cloud 
 description: Describes how to create and a VMware VM on CloudSimple Private Cloud 
 author: sharaths-cs
 ms.author: b-shsury 
-ms.date: 06/03/19 
+ms.date: 06/03/2019 
 ms.topic: article 
-ms.service: vmware 
+ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
 manager: dikamath 
 ---

@@ -68,7 +68,7 @@ For more information about these tokens, see [Azure Active Directory access toke
 
 HTTP Method
 
-`GET`
+`POST`
 
 *Request URL*
 

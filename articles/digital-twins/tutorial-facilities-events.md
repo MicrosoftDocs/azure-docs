@@ -2,12 +2,12 @@
 title: 'Tutorial: Capture events from an Azure Digital Twins space | Microsoft Docs'
 description: Learn how to receive notifications from your spaces by integrating Azure Digital Twins with Logic Apps, using the steps in this tutorial.
 services: digital-twins
-author: dsk-2015
+author: alinamstanciu
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 12/18/2018
-ms.author: dkshir
+ms.date: 08/05/2019
+ms.author: alinast
 ---
 
 # Tutorial: Receive notifications from your Azure Digital Twins spaces by using Logic Apps
@@ -71,16 +71,16 @@ An [event grid topic](../event-grid/concepts.md#topics) provides an interface to
       - SpaceChange
       - TopologyOperation
       - UdfCustom
-      connectionString: Primary_connection_string_for_your_Event_Grid
-      secondaryConnectionString: Secondary_connection_string_for_your_Event_Grid
-      path: Event_Grid_Topic_Path
+      connectionString: <Primary connection string for your Event Grid>
+      secondaryConnectionString: <Secondary connection string for your Event Grid>
+      path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. Replace the placeholder `Primary_connection_string_for_your_Event_Grid` with the value of **YOUR_KEY_1**.
+1. Replace the placeholder `<Primary connection string for your Event Grid>` with the value of **YOUR_KEY_1**.
 
-1. Replace the placeholder `Secondary_connection_string_for_your_Event_Grid` with the value of **YOUR_KEY_2**.
+1. Replace the placeholder `<Secondary connection string for your Event Grid>` with the value of **YOUR_KEY_2**.
 
-1. Replace the placeholder `Event_Grid_Topic_Path` with the path of the event grid topic. Get this path by removing **https://** and the trailing resource paths from the **Topic Endpoint** URL. It should look similar to this format: *yourEventGridName.yourLocation.eventgrid.azure.net*.
+1. Replace the placeholder for **path** with the path of the event grid topic. Get this path by removing **https://** and the trailing resource paths from the **Topic Endpoint** URL. It should look similar to this format: *yourEventGridName.yourLocation.eventgrid.azure.net*.
 
     > [!IMPORTANT]
     > Enter all values without any quotes. Make sure there's at least one space character after the colons in the YAML file. You can also validate your YAML file contents by using any online YAML validator such as [this tool](https://onlineyamltools.com/validate-yaml).
@@ -109,7 +109,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
 1. Open your Logic Apps resource when it's deployed, and then open the **Logic App Designer** pane. 
 
-1. Select the **When an Event Grid event occurs** trigger. Sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource when prompted. Select **Continue**.
+1. Select the **When an Event Grid resource event occurs** trigger. Sign in to your tenant with your Azure account when prompted. Select **Allow access** for your Event Grid resource if prompted. Select **Continue**.
 
 1. In the **When a resource event occurs (Preview)** window: 
    
@@ -129,7 +129,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    b. In the **Content** field, select **Body** from the **Dynamic content** list.
 
-   c. Select **Use sample to payload to generate schema**. Paste the following JSON payload, and then select **Done**.
+   c. Select **Use sample payload to generate schema**. Paste the following JSON payload, and then select **Done**.
 
     ```JSON
     {
@@ -169,7 +169,7 @@ You can use the [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service
 
    a. Select **Add an action**, and select **Office 365 Outlook**.
 
-   b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** when prompted.
+   b. From the **Actions** list, select **Send an email**. Select **Sign in** and use your email account credentials. Select **Allow access** if prompted.
 
    c. In the **To** box, enter your email ID to receive notifications. In **Subject**, enter the text **Digital Twins notification for poor air quality in space**. Then select **TopologyObjectId** from the **Dynamic content** list for **Parse JSON**.
 

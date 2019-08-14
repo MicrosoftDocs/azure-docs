@@ -11,6 +11,7 @@ ms.subservice: custom-decision-service
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: nolachar
+ROBOTS: NOINDEX
 ---
 
 # Custom Decision Service workflow

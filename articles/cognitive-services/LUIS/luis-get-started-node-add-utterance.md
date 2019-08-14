@@ -1,5 +1,5 @@
 ---
-title: Change, train app, Node.js
+title: Change, train app, Node.js - LUIS
 titleSuffix: Azure Cognitive Services
 description: In this Node.js quickstart, add example utterances to a Home Automation app and train the app. 
 services: cognitive-services

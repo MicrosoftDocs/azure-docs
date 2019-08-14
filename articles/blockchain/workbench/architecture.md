@@ -41,7 +41,7 @@ In the web application, authorized users can access the Administrator Console. T
 * Upload and deploy their own smart contracts.
 * Assign a user access to the smart contract in the context of a specific role.
 
-For more information, see the [Azure Blockchain Workbench sample client applications on GitHub](https://github.com/Azure-Samples/blockchain/tree/master/blockchain-development-kit/connect/mobile/blockchain-workbench/workbench-client).
+For more information, see the [Azure Blockchain Workbench sample client applications on GitHub](https://github.com/Azure-Samples/blockchain-devkit/tree/master/connect/mobile).
 
 ## Gateway service API
 

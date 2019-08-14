@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 06/28/2019
 ms.author: ryanwi
 
 ms.collection: M365-identity-device-management
@@ -25,15 +25,13 @@ Access to APIs require configuration of access scopes and roles. If you want to 
 
 ## Configuring a resource application to expose web APIs
 
-When you expose your web API, the API be displayed in the **Select an API** list when adding permissions to an app registration. To add access scopes, follow the steps outlined in [adding access scopes to your resource application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+When you expose your web API, the API be displayed in the **Select an API** list when adding permissions to an app registration. To add access scopes, follow the steps outlined in [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md).
 
 ## Configuring a client application to access web APIs
 
-When you add permissions to your app registration, you can **add API access** to exposed web APIs. To access web APIs, follow the steps outlined in [add credentials or permissions to access web APIs](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+When you add permissions to your app registration, you can **add API access** to exposed web APIs. To access web APIs, follow the steps outlined in [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md).
 
 ## Next steps
-
--   [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
 
 -   [Understanding the Azure Active Directory application manifest](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-manifest)
 

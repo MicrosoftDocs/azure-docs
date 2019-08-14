@@ -1,6 +1,6 @@
 ---
-title: Administrator role content for Microsoft 365 workloads - Azure AD | Microsoft Docs
-description: Find content and API references for administrator roles for Microsoft 365 workloads in Azure Active Directory
+title: Administrator role content for Microsoft 365 services - Azure AD | Microsoft Docs
+description: Find content and API references for administrator roles for Microsoft 365 services in Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -15,18 +15,18 @@ ms.date: 01/24/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-#As an Azure AD administrator, to delegate permissions across Microsoft 365 workloads quickly and accurately I want to know where the content is for admin roles.
+#As an Azure AD administrator, to delegate permissions across Microsoft 365 services quickly and accurately I want to know where the content is for admin roles.
 
 ms.collection: M365-identity-device-management
 ---
 
-# Administrator roles for Microsoft 365 workloads
+# Administrator roles for Microsoft 365 services
 
 All products in Microsoft 365 can be managed with administrative roles in Azure AD. Some products also provide additional roles that are specific to that product. For information on the roles supported by each product, see the table below. General discussions of delegation issues can be found in [Role delegation planning in Azure Active Directory](roles-concept-delegation.md).
 
 ## Where to find content
 
-Microsoft 365 workload | Role content | API content
+Microsoft 365 service | Role content | API content
 ---------------------- | ------------------ | -----------------
 Admin roles in Office 365 and Microsoft 365 business plans | [Office 365 admin roles](https://docs.microsoft.com/office365/admin/add-users/about-admin-roles?view=o365-worldwide) | Not available
 Azure Active Directory (Azure AD) and Azure AD Identity Protection| [Azure AD admin roles](directory-assign-admin-roles.md) | [Graph API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)<br>[Fetch role assignments](https://docs.microsoft.com/graph/api/directoryrole-list?view=graph-rest-1.0)

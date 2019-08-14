@@ -5,9 +5,10 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
-ms.date: 05/23/2019
+ms.topic: overview
+ms.date: 06/12/2019
 ms.author: hrasheed
+#Customer intent: As a developer new to Apache HBase and Apache HBase in Azure HDInsight, I want to have a basic understanding of Microsoft's implementation of Apache HBase in Azure HDInsight so I can decide if I want to use it rather than build my own cluster.
 ---
 
 # What is Apache HBase in Azure HDInsight
@@ -15,8 +16,6 @@ ms.author: hrasheed
 [Apache HBase](https://hbase.apache.org/) is an open-source, NoSQL database that is built on [Apache Hadoop](https://hadoop.apache.org/) and modeled after [Google BigTable](https://cloud.google.com/bigtable/). HBase provides random access and strong consistency for large amounts of unstructured and semistructured data in a schemaless database organized by column families.
 
 From user perspective, HBase is similar to a database. Data is stored in the rows and columns of a table, and data within a row is grouped by column family. HBase is a schemaless database in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
-
-[!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 
 ## How is Apache HBase implemented in Azure HDInsight?
 
@@ -46,13 +45,8 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
   
     Applications can run on top of HBase by using it as a datastore. Examples include Phoenix, [OpenTSDB](http://opentsdb.net/), Kiji, and Titan. Applications can also integrate with HBase. Examples include [Apache Hive](https://hive.apache.org/), [Apache Pig](https://pig.apache.org/), [Solr](https://lucene.apache.org/solr/), [Apache Storm](https://storm.apache.org/), [Apache Flume](https://flume.apache.org/), [Apache Impala](https://impala.apache.org/), [Apache Spark](https://spark.apache.org/) , [Ganglia](http://ganglia.info/), and [Apache Drill](https://drill.apache.org/).
 
-## <a name="next-steps"></a>Next steps
+## Next steps
+
 * [Get started using Apache HBase with Apache Hadoop in HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Create HDInsight clusters on Azure Virtual Network](./apache-hbase-provision-vnet.md)
 * [Configure Apache HBase replication in HDInsight](apache-hbase-replication.md)
-* [Use Apache Maven to build Java applications that use Apache HBase with HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md)
-
-## <a name="see-also"></a>See also
-* [Apache HBase](https://hbase.apache.org/)
-* [Apache HBase Reference Guide](https://hbase.apache.org/book.html)
-* [Bigtable: A Distributed Storage System for Structured Data](https://research.google.com/archive/bigtable.html)

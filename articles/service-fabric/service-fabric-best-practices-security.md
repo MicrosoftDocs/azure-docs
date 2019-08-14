@@ -18,7 +18,7 @@ ms.author: pepogors
 
 # Azure Service Fabric security 
 
-For more information about [Azure Security Best Practices](https://docs.microsoft.com/azure/security/), review [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/azure-service-fabric-security-best-practices)
+For more information about [Azure Security Best Practices](https://docs.microsoft.com/azure/security/), review [Azure Service Fabric security best practices](https://docs.microsoft.com/azure/security/fundamentals/service-fabric-best-practices)
 
 ## Key Vault
 
@@ -200,7 +200,13 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [We recommend that you implement an industry-standard configuration that is broadly known and well-tested, such as Microsoft security baselines, as opposed to creating a baseline yourself](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines); an option for provisioning these on your Virtual Machine Scale Sets is to use Azure Desired State Configuration (DSC) extension handler, to configure the VMs as they come online, so they are running the production software.
 
 ## Azure Firewall
-[Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.](https://docs.microsoft.com/azure/firewall/overview); this enables the ability to limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require SSL termination. Its recommended that you leverage [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) for Windows Updates, and to enable network traffic to Microsoft Windows Update endpoints can flow through your firewall. [Deploy Azure Firewall using a template](https://docs.microsoft.com/azure/firewall/deploy-template) provides a sample for Microsoft.Network/azureFirewalls resource template definition.
+[Azure Firewall is a managed, cloud-based network security service that protects your Azure Virtual Network resources. It is a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability.](https://docs.microsoft.com/azure/firewall/overview); this enables the ability to limit outbound HTTP/S traffic to a specified list of fully qualified domain names (FQDN) including wild cards. This feature does not require SSL termination. Its recommended that you leverage [Azure Firewall FQDN tags](https://docs.microsoft.com/azure/firewall/fqdn-tags) for Windows Updates, and to enable network traffic to Microsoft Windows Update endpoints can flow through your firewall. [Deploy Azure Firewall using a template](https://docs.microsoft.com/azure/firewall/deploy-template) provides a sample for Microsoft.Network/azureFirewalls resource template definition. Firewall rules common to Service Fabric Applications is to allow the following for your clusters virtual network:
+
+- *download.microsoft.com
+- *servicefabric.azure.com
+- *.core.windows.net
+
+These firewall rules complement your allowed outbound Network Security Groups, that would include ServiceFabric and Storage, as allowed destinations from your virtual network.
 
 ## TLS 1.2
 [TSG](https://github.com/Azure/Service-Fabric-Troubleshooting-Guides/blob/master/Security/TLS%20Configuration.md)
@@ -239,6 +245,18 @@ By default, Windows Defender antivirus is installed on Windows Server 2016. For 
 > [!NOTE]
 > Refer to your Antimalware documentation for configuration rules if you are not using Windows Defender. 
 > Windows Defender isn't supported on Linux.
+
+## Platform Isolation
+By default, Service Fabric applications are granted access to the Service Fabric runtime itself, which manifests itself in different forms: [environment variables](service-fabric-environment-variables-reference.md) pointing to file paths on the host corresponding to application and Fabric files, an inter-process communication endpoint which accepts application-specific requests, and the client certificate which Fabric expects the application to use to authenticate itself. In the eventuality that the service hosts itself untrusted code, it is advisable to disable this access to the SF runtime - unless explicitly needed. Access to the runtime is removed using the following declaration in the Policies section of the application manifest: 
+
+```xml
+<ServiceManifestImport>
+    <Policies>
+        <ServiceFabricRuntimeAccessPolicy RemoveServiceFabricRuntimeAccess="true"/>
+    </Policies>
+</ServiceManifestImport>
+
+```
 
 ## Next steps
 

@@ -49,8 +49,6 @@ See **Azure Data Factory Limits** section of the [Azure Subscription and Service
 ### What is the authoring/developer experience with Azure Data Factory service?
 You can author/create data factories using one of the following tools/SDKs:
 
-* **Azure portal**
-    The Data Factory blades in the Azure portal provide rich user interface for you to create data factories ad linked services. The **Data Factory Editor**, which is also part of the portal, allows you to easily create linked services, tables, data sets, and pipelines by specifying JSON definitions for these artifacts. See [Build your first data pipeline using Azure portal](data-factory-build-your-first-pipeline-using-editor.md) for an example of using the portal/editor to create and deploy a data factory.
 * **Visual Studio**
     You can use Visual Studio to create an Azure data factory. See [Build your first data pipeline using Visual Studio](data-factory-build-your-first-pipeline-using-vs.md) for details.
 * **Azure PowerShell**

@@ -3,6 +3,7 @@ title: Azure SQL Database Machine Learning Services with R (preview) overview
 description: This article describes Azure SQL Database Machine Learning Services (with R) and explains how it works.
 services: sql-database
 ms.service: sql-database
+ms.subservice: machine-learning
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual

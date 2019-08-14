@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Perform a news search - Bing News Search SDK for Java"
+title: "Quickstart: Perform a news search using the Bing News Search SDK for Java"
 titleSuffix: Azure Cognitive Services
 description: Use this quickstart to search for news using the Bing News Search SDK for Java, and process the response.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-news-search
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 06/18/2019
 ms.author: aahi
 ms.custom: seodec2018
 ---

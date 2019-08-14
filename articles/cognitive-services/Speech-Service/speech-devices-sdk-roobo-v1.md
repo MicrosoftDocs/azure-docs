@@ -1,5 +1,5 @@
 ---
-title: Speech Devices SDK Roobo Smart Audio Dev Kit v1 - Speech Services
+title: Speech Devices SDK Roobo Smart Audio Dev Kit v1 - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Prerequisites and instructions for getting started with the Speech Devices SDK, Roobo Smart Audio Dev Kit v1.
 services: cognitive-services
@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ---
 

@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: 
-manager: craigg
 ms.date: 03/25/2019
 ---
 # Quickstart: Use .NET and C# in Visual Studio to connect to and query an Azure SQL database

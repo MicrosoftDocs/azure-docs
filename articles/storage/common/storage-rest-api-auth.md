@@ -78,13 +78,13 @@ To use additional parameters, append them to the resource string with the value,
 This section lists the required and optional request headers. Three of the headers are required: an *Authorization* header, *x-ms-date* (contains the UTC time for the request), and *x-ms-version* (specifies the version of the REST API to use). Including *x-ms-client-request-id* in the headers is optional – you can set the value for this field to anything; it is written to the storage analytics logs when logging is enabled.
 
 [Request Body](/rest/api/storageservices/List-Containers2#request-body)**:**
-There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+There is no request body for ListContainers. Request Body is used on all of the PUT operations when uploading blobs, as well as SetContainerAccessPolicy, which allows you to send in an XML list of stored access policies to apply. Stored access policies are discussed in the article [Using Shared Access Signatures (SAS)](storage-sas-overview.md).
 
 [Response Status Code](/rest/api/storageservices/List-Containers2#status-code)**:**
 Tells of any status codes you need to know. In this example, an HTTP status code of 200 is ok. For a complete list of HTTP status codes, check out [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html). To see error codes specific to the Storage REST APIs, see [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes)
 
 [Response Headers](/rest/api/storageservices/List-Containers2#response-headers)**:**
-These include *Content Type*; *x-ms-request-id*, which is the request id you passed in; *x-ms-version*, which indicates the version of the Blob service used; and the *Date*, which is in UTC and tells what time the request was made.
+These include *Content Type*; *x-ms-request-id*, which is the request ID you passed in; *x-ms-version*, which indicates the version of the Blob service used; and the *Date*, which is in UTC and tells what time the request was made.
 
 [Response Body](/rest/api/storageservices/List-Containers2#response-body):
 This field is an XML structure providing the data requested. In this example, the response is a list of containers and their properties.

@@ -4,7 +4,7 @@ description: Create automated tests for a C# Function in Visual Studio and JavaS
 services: functions
 documentationcenter: na
 author: craigshoemaker
-manager: jeconnoc
+manager: gwallace
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, testing
 
 ms.service: azure-functions
@@ -308,7 +308,7 @@ module.exports = {
 ```
 This module implements the `IsPastDue` property to stand is as a fake timer instance.
 
-Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](https://docs.microsoft.com/azure/azure-functions/tutorial-javascript-vscode-get-started) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
+Next, use the VS Code Functions extension to [create a new JavaScript HTTP Function](https://code.visualstudio.com/tutorials/functions-extension/getting-started) and name it *HttpTrigger*. Once the function is created, add a new file in the same folder named **index.test.js**, and add the following code:
 
 ```javascript
 const httpFunction = require('./index');
