@@ -287,7 +287,7 @@ This activity pattern is indicative of a potential ransomware attack.
 
 ## Next steps
 
-Now you've learned more about advanced multi-stage attack detection, learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+Now you've learned more about advanced multi-stage attack detection, you might be interested in the following quickstart to learn how to get visibility into your data and potential threats: [Get started with Azure Sentinel](quickstart-get-visibility.md).
 
-- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).
+If you're ready to investigate the incidents that are created for you, see the following tutorial: [Investigate incidents with Azure Sentinel](tutorial-investigate-cases.md).
 
