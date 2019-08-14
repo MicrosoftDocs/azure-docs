@@ -1,5 +1,10 @@
 - name: SQL Database Documentation
   href: index.yml
+- name: New docs
+  items: 
+    - name: Single database + failover group
+    - name: Elastic pool + failover group
+    - name: Managed instance + failover group
 - name: SQL Database Service
   items:
   - name: What is SQL Database?
