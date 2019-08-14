@@ -61,35 +61,30 @@ acrloginservername=$(az acr show -n <your-kubernetes-cluster-name> -g <your-reso
 az acr login -n <your-acr-name>
 ```
 
-## Pull an image from docker hub
+## Pull an image from docker hub and push to your ACR
 
 ```
 docker pull nginx
-```
-
-```
 docker tag nginx $acrloginservername/nginx:v1
-```
-
-```
 docker push someacr1.azurecr.io/nginx:v1
 ```
 
-# Credentials heading TODO
+# Update the image property for teh nginx container
 ```
 az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
 ```
 
-# Update the state and verify pods
+Update the image property with your ACR login server, image, and tag.
+
+```
+cat acr-nginx.yaml
+```
+
+## Update the state and verify pods
 ```
 kubectl apply -f acr-nginx.yaml
-```
-
-```
 kubectl get pods
 ```
-
-
 
 <!-- LINKS - external -->
 [AKS AKS CLI]:  https://docs.microsoft.com/cli/azure/aks?view=azure-cli-latest#az-aks-create
