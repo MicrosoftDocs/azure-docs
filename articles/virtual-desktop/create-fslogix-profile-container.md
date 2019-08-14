@@ -13,7 +13,7 @@ ms.author: helohr
 
 We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop Preview service](https://aka.ms/wvdpreview). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
 
-You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Windows Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
+You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/en-us/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Windows Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction)
 
 This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Windows Virtual Desktop.
 
@@ -135,7 +135,7 @@ After you create the volume, configure the volume access parameters.
 
 4.  Select **Review + create** at the bottom of the page. This opens the validation page. After your volume is validated successfully, select **Create**.
 
-5.  At this point, a the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
+5.  At this point, the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
 
 6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
 
@@ -151,7 +151,7 @@ This section is based on [Set up a user profile share for a host pool](create-ho
 
 3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe**. The installation menu will open.
 
-4.  If you have a product key, enter it in the Product Key text box. If not, leave the box blank to start a 30 day trial.
+4.  If you have a product key, enter it in the Product Key text box. If not, leave the box blank to start a 30-day trial.
 
 5. Select the check box next to **I agree to the license terms and conditions**.
 
