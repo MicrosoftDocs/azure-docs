@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/13/2019
+ms.date: 08/14/2019
 ms.author: magoedte
 ---
 
@@ -33,7 +33,7 @@ Combined it delivers:
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-Azure Monitor for Storage is several Azure Monitor workbooks tied together, which combines text, [log queries](../log-query/query-language.md), metrics, and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+Azure Monitor for Storage is several Azure Monitor [workbooks](../app/usage-workbooks.md) tied together, which combines text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
 
 This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md). To learn more about the metrics collection configuration options in your storage account, review [Configure monitoring for a storage account](../../storage/common/storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account).
 
@@ -64,10 +64,17 @@ On the **Overview** workbook for the selected subscription, the table displays i
 
 The counter tile under the drop-down lists rolls-up the total number of storage accounts in the subscription and reflects how many of the total are selected. There is conditional color-coding or heatmaps for columns in the workbook that report transaction metrics or errors. The deepest color has the highest value and a lighter color is based on the lowest values. For the error-based columns, the value is in red and for the metric-based columns, the value is in blue.
 
-Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage KPI workbooks](#detailed-storage-kpi-workbooks) section below.
+Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage KPIs that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage KPI workbooks](#detailed-storage-kpi-workbooks) section below. 
 
 >[!NOTE]
 >For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+
+The default **Availability** threshold is:
+
+* Warning - 99%
+* Critical - 90%
+
+To set an availability threshold based on the results of your observation or requirements, review [modify the availability threshold](#modify-the-availability-threshold). 
 
 ### Capacity workbook
 
