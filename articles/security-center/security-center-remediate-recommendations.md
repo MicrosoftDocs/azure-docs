@@ -40,7 +40,7 @@ To implement one-click remediation:
 
 1. From the list of recommendations that have the **1-Click-fix** label, click on the recommendation.  
 
-   ![Select one-click fix](./media/security-center-remediate-recommendations/one-click-fix-select.png)
+   ![Select one-click fix](./media/security-center-remediate-recommendations/security-center-one-click-fix-select.png)
 
 2. From the **Unhealthy resources** tab, select the resources that you want to implement the recommendation on, and click **Remediate**. 
 
@@ -63,7 +63,7 @@ To implement one-click remediation:
 
 ## One-click remediation logging in the activity log <a name="activity-log"></a>
 
-The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit).
+The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit.md).
 
 
 ## Recommendations with one-click remediation
