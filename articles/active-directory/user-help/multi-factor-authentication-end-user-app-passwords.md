@@ -67,7 +67,7 @@ You can create and delete app passwords from the **Additional security verificat
 
      ![App passwords page, with new app shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
-5. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it.
+5. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it. You should only have to do this once per app.
 
 ### To delete an app password using the App passwords page
 
@@ -93,19 +93,19 @@ If you use two-step verification with your work or school account and your Offic
 
     ![App passwords page, with the App passwords tab highlighted](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-2. Select **Create**, type the name of the app that requires the app password, and then select **Next**.
+3. Select **Create**, type the name of the app that requires the app password, and then select **Next**.
 
     ![Create app passwords page, with name of app that needs password](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-3. Copy the password from the **Your app password** page, and then select **Close**.
+4. Copy the password from the **Your app password** page, and then select **Close**.
 
     ![Your app password page with the password for your specified app](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. From the **App passwords** page, make sure your app is listed.
+5. From the **App passwords** page, make sure your app is listed.
 
      ![App passwords page, with new app shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
-5. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it.
+6. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it. You should only have to do this once per app.
 
 ### To delete app passwords using the App passwords page
 
