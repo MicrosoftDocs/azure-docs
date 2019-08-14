@@ -73,6 +73,7 @@ Common mistakes when sending features include the following:
 * Sending personally identifiable information (PII). PII specific to one individual (such as name, phone number, credit card numbers, IP Addresses) should not be used with Personalizer. If your application needs to track users, use a non-identifying UUID or some other UserID number. In most scenarios this is also problematic.
 * With large numbers of users, it is unlikely that each user's interaction will weigh more than all the population's interaction, so sending user IDs (even if non-PII) will probably add more noise than value to the model.
 * Sending date-time fields as precise timestamps instead of featurized time values. Having features such as Context.TimeStamp.Day=Monday or "Context.TimeStamp.Hour"="13" is more useful. There will be at most 7 or 24 feature values for each. But "Context.TimeStamp":"1985-04-12T23:20:50.52Z" is so precise that there will be no way to learn from it because it will never happen again.
+* Sending Action features that are specific to only one action, such as the title of a movie, the URL of an article, or text of a summary paragraphs. Even if a Rank request only takes 50 actions, over time you'd have thousands or millions of title accumulating as machine learning features. 
 
 ## Next steps
 
