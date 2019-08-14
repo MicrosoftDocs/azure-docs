@@ -51,7 +51,7 @@ You'll also need to install some additional, language-specific tools to develop 
 
 To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
-- [Docker Desktop](https://docs.docker.com/install/) on your development machine.
+- [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
 
 - [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
 
