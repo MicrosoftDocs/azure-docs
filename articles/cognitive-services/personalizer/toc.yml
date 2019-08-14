@@ -11,6 +11,9 @@
   - name: Using C#
     href: csharp-quickstart-commandline-feedback-loop.md
     displayName: code, sample, quickstart, c#
+  - name: Using Node.js
+    href: quickstart-commandline-feedback-loop-nodejs-sdk.md
+    displayName: code, sample, quickstart, node, npm, sdk    
   - name: Using Python
     href: python-quickstart-commandline-feedback-loop.md
     displayName: code, sample, quickstart, python    
