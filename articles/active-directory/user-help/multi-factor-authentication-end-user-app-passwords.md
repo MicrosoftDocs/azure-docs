@@ -63,51 +63,63 @@ You can create and delete app passwords from the **Additional security verificat
 
     ![Your app password page with the password for your specified app](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-4. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it.
+4. From the **App passwords** page, make sure your app is listed.
 
-### To delete an app password using the MyApps portal
+     ![App passwords page, with new app shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
+
+5. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it.
+
+### To delete an app password using the App passwords page
 
 1. From the **App passwords** page, select **Delete** next to the app password you want to delete.
 
-   ![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)
+   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)
 
 2. Select **Yes** to confirm you want to delete the password, and then select **Close**.
 
+    The app password is successfully deleted.
+
 ## Create and delete app passwords using the Office 365 portal
 
-If you use two-step verification with your work or school account and your Office 365 apps, you can create and delete your app passwords using the Office 365 portal. You can have a maximum of 40 app passwords at any one time. If you need another app password after that limit, you'll have to delete one of your existing app passwords.
+If you use two-step verification with your work or school account and your Office 365 apps, you can create and delete your app passwords using the Office 365 portal.
 
 ### To create app passwords using the Office 365 portal
 
-1. Sign in to Office 365 and then go to the [My account page](https://portal.office.com), select **Manage security & privacy**, and then select **Additional security verification**.
+1. Sign in to Office 365 and then go to the [My account page](https://portal.office.com), select **Manage security & privacy**, and then expand **Additional security verification**.
 
-    ![Office portal showing expanded additional security verification area](media/security-info/security-info-o365password.png)
+    ![Office portal showing expanded additional security verification area](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 
-3. Select the text that says, **Create and manage app passwords** to open the **app passwords** page.
+2. Select the text that says, **Create and manage app passwords** to open the **App passwords** page.
 
-4. Select **Create**, type a friendly name for the app that needs the app password, and then select **Next**.
+    ![App passwords page, with the App passwords tab highlighted](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page.png)
 
-5. Select **Copy password to clipboard**, and then select **Close**.
+2. Select **Create**, type the name of the app that requires the app password, and then select **Next**.
 
-6. Use the copied app password to sign in to your non-browser app. You only need to enter this password once and it's remembered for the future.
+    ![Create app passwords page, with name of app that needs password](media/multi-factor-authentication-end-user-app-passwords/mfa-create-app-password-page.png)
 
-### To delete app passwords using the Office 365 portal
+3. Copy the password from the **Your app password** page, and then select **Close**.
 
-1. Sign in to your work or school account.
+    ![Your app password page with the password for your specified app](media/multi-factor-authentication-end-user-app-passwords/mfa-your-app-password-page.png)
 
-2. Go to [https://portal.office.com](https://portal.office.com), select the **Settings** icon from the upper right of the **Office 365 portal** page, and then select **Additional security verification**.
+4. From the **App passwords** page, make sure your app is listed.
 
-3. Select the text that says, **Create and manage app passwords** to open the **app passwords** page.
+     ![App passwords page, with new app shown in list](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)  
 
-4. Select **Delete** for the app password to delete, select **Yes** in the confirmation box, and then select **Close**.
+5. Open the app you created the app password for (for example, Outlook 2010), and then paste the app password when asked for it.
+
+### To delete app passwords using the App passwords page
+
+1. From the **App passwords** page, select **Delete** next to the app password you want to delete.
+
+   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)
+
+2. Select **Delete** for the app password to delete, select **Yes** in the confirmation box, and then select **Close**.
 
     The app password is successfully deleted.
 
-5. Follow the steps for creating an app password to create your new app password.
-
 ## If your app passwords aren't working properly
 
-Make sure you typed your password correctly. If you're sure you entered your password correctly, you can try to sign in again and create a new app password. If neither of those options fix your problem, contact your company support so they can delete your existing app passwords, letting you create brand-new ones. 
+Make sure you typed your password correctly. If you're sure you entered your password correctly, you can try to sign in again and create a new app password. If neither of those options fix your problem, contact your organization's Help desk so they can delete your existing app passwords, letting you create brand-new ones.
 
 ## Next steps
 
