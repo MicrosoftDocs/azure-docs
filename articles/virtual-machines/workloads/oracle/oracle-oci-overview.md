@@ -4,7 +4,7 @@ description: Learn about solutions that integrate Oracle apps running on Microso
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: 
 
 ms.assetid: 
@@ -24,7 +24,7 @@ Microsoft and Oracle have partnered to provide low latency, high throughput cros
 Using this cross-cloud connectivity, you can partition a multi-tier application to run your database tier on Oracle Cloud Infrastructure (OCI), and the application and other tiers on Microsoft Azure. The experience is similar to running the entire solution stack in a single cloud. 
 
 > [!IMPORTANT]
-> This cross-cloud capability is currently in preview, and some [limitations apply](#preview-limitations). Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> This cross-cloud capability is currently in preview, and some [limitations apply](#preview-limitations). To enable low latency connectivity between Azure and OCI, the Azure subscription must first be white-listed for this capability. You must enroll in the preview by sending an email to oracleconnect@microsoft.com with your subscription ID. You will receive an email back once your subscription has been enrolled. You aren't able to use the capability until you receive a confirmation email. You may also contact your Microsoft representative to be enabled for this preview. This preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for Microsoft Azure Previews for details. Some aspects of this feature may change prior to general availability (GA).
 
 If you are interested in deploying Oracle solutions entirely on Azure infrastructure, see [Oracle VM images and their deployment on Microsoft Azure](oracle-vm-solutions.md).
 
@@ -69,5 +69,7 @@ Identity is one of the core pillars of the partnership between Microsoft and Ora
 Currently, this integration allows you to manage in one central location, which is Azure Active Directory. Azure AD synchronizes any changes in the directory with the corresponding Oracle directory and is used for single sign-on to cross-cloud Oracle solutions.
 
 ## Next steps
+
+Get started with a [cross-cloud network](configure-azure-oci-networking.md) between Azure and OCI. 
 
 For more information and whitepapers about OCI, see the [Oracle Cloud](https://docs.cloud.oracle.com/iaas/Content/home.htm) documentation.

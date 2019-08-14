@@ -1,12 +1,12 @@
 ---
 title: Enable backup when you create an Azure VM with Azure Backup
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: raynew
+ms.author: dacurwin
 ---
 
 # Enable backup when you create an Azure VM
@@ -49,7 +49,8 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 
 > [!NOTE]
-> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.
+> Azure Backup service creates a separate resource group (other than the VM resource group) to store snapshot, with the naming format **AzureBackupRG_geography_number** (example: AzureBackupRG_northeurope_1). The data in this resource group will be retained for the duration in days as specified in *Retain instant recovery snapshot* section of the Azure Virtual Machine Backup policy.  Applying a lock to this resource group can cause backup failures.<br>
+This resource group should also be excluded from any name/tag restrictions as a restriction policy would block creation of Resource Point collections in it again causing backup failures.
 
 
 ## Start a backup after creating the VM

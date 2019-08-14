@@ -98,11 +98,11 @@ topologyBuilder.SetJavaBolt(
 
 ## Download the completed project
 
-You can download a complete version of the project created in this tutorial from [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this tutorial.
+You can download a complete version of the project created in this article from [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub). However, you still need to provide configuration settings by following the steps in this article.
 
 ### Prerequisites
 
-* An [Apache Storm on HDInsight cluster version 3.5 or 3.6](apache-storm-tutorial-get-started-linux.md).
+* An Apache Storm cluster on HDInsight. See [Create Apache Hadoop clusters using the Azure portal](../hdinsight-hadoop-create-linux-clusters-portal.md) and select **Storm** for **Cluster type**.
 
     > [!WARNING]  
     > The example used in this document requires Storm on HDInsight version 3.5 or 3.6. This does not work with older versions of HDInsight, due to breaking class name changes. For a version of this example that works with older clusters, see [GitHub](https://github.com/Azure-Samples/hdinsight-dotnet-java-storm-eventhub/releases).

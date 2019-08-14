@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Make sure you're using the directory that contains your subscription. Click the **Directory and subscription filter** in the top menu, then select the directory that contains your subscription. This directory is different from the one that will contain your Azure AD B2C tenant.
 
-    ![Switch to subscription directory](./media/tutorial-create-tenant/switch-directory-subscription.PNG)
+    ![Directory and Subscription filter with subscription tenant selected](./media/tutorial-create-tenant/switch-directory-subscription.PNG)
 
 3. Choose **Create a resource** in the top-left corner of the Azure portal.
 4. Search for and select **Active Directory B2C**, and then click **Create**.
@@ -40,7 +40,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     The initial domain name is used as part of your tenant name. In this example, the tenant name is *contoso0926Tenant.onmicrosoft.com*:
 
-    ![Create a tenant](./media/tutorial-create-tenant/create-tenant.PNG)
+    ![B2C tenant creation page in the Azure portal](./media/tutorial-create-tenant/create-tenant.PNG)
 
 6. On the **Create new B2C Tenant or Link to existing Tenant** page, choose **Link an existing Azure AD B2C Tenant to my Azure subscription**.
 
@@ -51,7 +51,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     If at first you don't see your new Azure B2C tenant in the list, refresh your browser window, then select the **Directory and subscription filter** again in the top menu.
 
-    ![Switch to tenant directory](./media/tutorial-create-tenant/switch-directories.PNG)
+    ![Directory and Subscription filter with B2C tenant selected](./media/tutorial-create-tenant/switch-directories.PNG)
 
 ## Next steps
 

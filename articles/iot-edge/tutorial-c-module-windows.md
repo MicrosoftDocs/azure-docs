@@ -60,7 +60,7 @@ Before beginning this tutorial, you should have gone through the previous tutori
    ```
    
 > [!TIP]
-> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools (Preview)](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
+> If you are using Visual Studio 2017 (version 15.7 or higher), please download and install [Azure IoT Edge Tools](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) for VS 2017 from the Visual Studio marketplace
 
 ## Create a module project
 

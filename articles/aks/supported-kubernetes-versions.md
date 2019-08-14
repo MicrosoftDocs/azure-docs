@@ -66,9 +66,16 @@ For details on communications regarding version changes and expectations, see "C
 When a new minor version is introduced, the oldest minor version and patch releases supported are deprecated and
 removed. For example if the current supported version list is:
 
-Supported Version List
-----------------------
-1.12.a, 1.12.b, 1.11.a, 1.11.b, 1.10.a, 1.10.b, 1.9.a, 1.9.b
+```
+1.12.a
+1.12.b
+1.11.a
+1.11.b
+1.10.a
+1.10.b
+1.9.a
+1.9.b
+```
 
 And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) will be removed and out of support.
 
@@ -81,16 +88,20 @@ And AKS releases 1.13.x, this means that the 1.9.x versions (all 1.9 versions) w
 In addition to the above on minor versions, AKS supports the two latest *patch** releases of a given minor version. For
 example, given the following supported versions:
 
-Supported Version List
-----------------------
+```
+Current Supported Version List
+------------------------------
 1.12.1, 1.12.2, 1.11.4, 1.11.5
+```
 
 If upstream Kubernetes released 1.12.3 and 1.11.6 and AKS releases those patch versions, the oldest patch versions
 are deprecated and removed, and the supported version list becomes:
 
-Supported Version List
+```
+New Supported Version List
 ----------------------
 1.12.*2*, 1.12.*3*, 1.11.*5*, 1.11.*6*
+```
 
 > [!NOTE]
 > Customers should not pin cluster creation, CI or other automated jobs to specific patch releases. 

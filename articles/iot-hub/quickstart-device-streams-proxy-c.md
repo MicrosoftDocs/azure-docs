@@ -1,15 +1,14 @@
 ---
 title: Azure IoT Hub device streams C quickstart for SSH and RDP (preview) | Microsoft Docs
 description: In this quickstart, you run a sample C application that acts as a proxy to enable SSH and RDP scenarios over IoT Hub device streams.
-author: rezasherafat
-manager: briz
+author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
-ms.author: rezas
+ms.author: robinsh
 ---
 
 # Quickstart: Enable SSH and RDP over an IoT Hub device stream by using a C proxy application (preview)
@@ -145,7 +144,7 @@ In this section, you establish an end-to-end stream to tunnel SSH traffic.
 
 ### Run the device-local proxy application
 
-1. Edit the source file *iothub_client_c2d_streaming_sample.c* in the folder *iothub_client/samples/iothub_client_c2d_streaming_sample*, and provide your device connection string, target device IP/hostname, and the SSH port 22:
+1. Edit the source file *iothub_client_c2d_streaming_proxy_sample.c* in the folder *iothub_client/samples/iothub_client_c2d_streaming_proxy_sample*, and provide your device connection string, target device IP/hostname, and the SSH port 22:
 
    ```C
    /* Paste in your iothub connection string  */

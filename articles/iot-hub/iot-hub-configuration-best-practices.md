@@ -3,7 +3,7 @@ title: Device configuration best practices for Azure IoT Hub | Microsoft Docs
 description: Learn about best practices for configuring IoT devices at scale
 author: chrisgre
 ms.author: chrisgre
-ms.date: 06/24/2018
+ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
@@ -59,9 +59,11 @@ The following are best practices for IoT solution developers who are building sy
 
 * **Organize devices using device twin tags:** The solution should allow the operator to define quality rings or other sets of devices based on various deployment strategies such as canary. Device organization can be implemented within your solution using device twin tags and [queries](iot-hub-devguide-query-language.md). Device organization is necessary to allow for configuration roll outs safely and accurately.
 
-* **Implement [automatic device configurations](iot-hub-auto-device-config.md):** Automatic device configurations deploy and monitor configuration changes to large sets of IoT devices via device twins. Automatic device configurations target sets of device twins via the **target condition,** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that will be set within the targeted device twins. The target content should align with the device twin structure defined by the IoT hardware manufacturer/integrator.
+* **Implement [automatic device configurations](iot-hub-auto-device-config.md):** Automatic device configurations deploy and monitor configuration changes to large sets of IoT devices via device twins.
 
-   The **metrics** are queries on device twin reported properties, and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator. Automatic device configurations also have the benefit of IoT Hub performing device twin operations at a rate that will never exceed the [throttling limits](iot-hub-devguide-quotas-throttling.md) for device twin reads and updates.
+   Automatic device configurations target sets of device twins via the **target condition,** which is a query on device twin tags or reported properties. The **target content** is the set of desired properties that will be set within the targeted device twins. The target content should align with the device twin structure defined by the IoT hardware manufacturer/integrator. The **metrics** are queries on device twin reported properties and should also align with the device twin structure defined by the IoT hardware manufacturer/integrator.
+
+   Automatic device configurations run for the first time shortly after the configuration is created and then at five minute intervals. They also benefit from the IoT Hub performing device twin operations at a rate that will never exceed the [throttling limits](iot-hub-devguide-quotas-throttling.md) for device twin reads and updates.
 
 * **Use the [Device Provisioning Service](../iot-dps/how-to-manage-enrollments.md):** Solution developers should use the Device Provisioning Service to assign device twin tags to new devices, such that they will be automatically configured by **automatic device configurations** that are targeted at twins with that tag. 
 

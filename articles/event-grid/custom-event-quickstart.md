@@ -80,10 +80,10 @@ The endpoint for your web app must include the suffix `/api/updates/`.
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
-  -g gridResourceGroup \
-  --topic-name $topicname \
-  --name demoViewerSub \
+  --source-resource-id "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventGrid/topics/$topicname" 
+  --name demoViewerSub 
   --endpoint $endpoint
+  
 ```
 
 View your web app again, and notice that a subscription validation event has been sent to it. Select the eye icon to expand the event data. Event Grid sends the validation event so the endpoint can verify that it wants to receive event data. The web app includes code to validate the subscription.

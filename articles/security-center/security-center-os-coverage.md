@@ -6,7 +6,6 @@ documentationcenter: na
 author: monhaber
 manager: barbkess
 editor: ''
-
 ms.assetid: 70c076ef-3ad4-4000-a0c1-0ac0c9796ff1
 ms.service: security-center
 ms.devlang: na
@@ -14,8 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 6/03/2019
-ms.author: monhaber
-
+ms.author: "v-mohabe"
 ---
 # Platforms and features supported by Azure Security Center
 
@@ -111,8 +109,10 @@ For information about when recommendations are generated for each of these prote
 | Trend Micro – All version | Windows Server Family  | No | Yes |
 | Symantec v12.1.1100+| Windows Server Family  | No | Yes |
 | McAfee v10+ | Windows Server Family  | No | Yes |
-| Kaspersky| Windows Server Family  | No | No  |
-| Sophos| Windows Server Family  | No | No  |
+| McAfee v10+ | Linux Server Family  | No | Yes **\*** |
+| Sophos V9+| Linux Server Family  | No | Yes  **\***  |
+
+ **\*** The coverage state and supporting data is currently available only in the Log Analytics workspace associated to your protected subscriptions, and is not reflected in Azure Security Center portal.
 
 > [!NOTE]
 > - Detection of System Center Endpoint Protection (SCEP) on a Windows Server 2008 R2 virtual machine requires SCEP to be installed after PowerShell 3.0 (or an upper version).

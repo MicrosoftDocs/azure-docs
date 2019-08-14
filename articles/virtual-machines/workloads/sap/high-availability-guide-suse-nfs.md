@@ -4,7 +4,7 @@ description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Ser
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: mssedusch
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 keywords: ''

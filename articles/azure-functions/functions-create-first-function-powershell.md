@@ -5,7 +5,8 @@ services: functions
 keywords:
 author: joeyaiello
 manager: jeconnoc
-ms.author: jaiello, glenga
+ms.author: jaiello
+ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
 ms.service: azure-functions

@@ -10,7 +10,8 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/21/2019
-ms.author: kumud;tyao
+ms.author: kumud
+ms.reviewer: tyao
 ---
 
 # Configure a web application firewall policy using Azure PowerShell
@@ -74,7 +75,7 @@ $URLOver100 = New-AzFrontDoorWafCustomRuleObject -Name "URLOver100" -RuleType Ma
 
 The following example creates a managed Default Rule Set using Azure PowerShell:
 ```powershell-interactive
-$managedRules = New-AzFrontDoorManagedRuleObject -Type DefaultRuleSet -Version "preview-0.1"
+$managedRules =  New-AzFrontDoorWafManagedRuleObject -Type DefaultRuleSet -Version 1.0
 ```
 ## Configure a security policy
 

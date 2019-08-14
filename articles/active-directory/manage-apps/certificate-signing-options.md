@@ -1,5 +1,5 @@
 ---
-title: Advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory | Microsoft Docs
+title: Advanced SAML token certificate signing options for pre-integrated Azure AD apps | Microsoft Docs
 description: Learn how to use advanced certificate signing options in the SAML token for pre-integrated apps in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -53,27 +53,21 @@ To change an application's SAML certificate signing options and the certificate 
 1. In the left pane, select **Enterprise applications**. A list of the enterprise applications in your account appears.
 1. Select an application. An overview page for the application appears.
 
-   ![Application overview page](./media/certificate-signing-options/application-overview-page.png)
+   ![Example: Application overview page](./media/certificate-signing-options/application-overview-page.png)
 
 Next, change the certificate signing options in the SAML token for that application:
 
 1. In the left pane of the application overview page, select **Single sign-on**.
+1. If the **Set up Single Sign-On with SAML - Preview** page appears, go to step 5.
+1. If the **Select a single sign-on method** page doesn't appear, select **Change single sign-on modes** to display that page.
+1. In the **Select a single sign-on method** page, select **SAML** if available. (If **SAML** isn't available, the application doesn't support SAML, and you may ignore the rest of this procedure and article.)
+1. In the **Set up Single Sign-On with SAML - Preview** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears.
 
-2. If the **Set up Single Sign-On with SAML - Preview** page appears, go to step 5.
+   ![Example: SAML signing certificate page](./media/certificate-signing-options/saml-signing-page.png)
 
-3. If the **Select a single sign-on method** page doesn't appear, select **Change single sign-on modes** to display that page.
-
-4. In the **Select a single sign-on method** page, select **SAML** if available. (If **SAML** isn't available, the application doesn't support SAML, and you may ignore the rest of this procedure and article.)
-
-5. In the **Set up Single Sign-On with SAML - Preview** page, find the **SAML Signing Certificate** heading and select the **Edit** icon (a pencil). The **SAML Signing Certificate** page appears.
-
-   ![SAML signing page](./media/certificate-signing-options/saml-signing-page.png)
-
-6. In the **Signing Option** drop-down list, choose **Sign SAML response**, **Sign SAML assertion**, or **Sign SAML response and assertion**. Descriptions of these options appear earlier in this article in the [Certificate signing options](#certificate-signing-options).
-
-7. In the **Signing Algorithm** drop-down list, choose **SHA-1** or **SHA-256**. Descriptions of these options appear earlier in this article in the [Certificate signing algorithms](#certificate-signing-algorithms) section.
-
-8. If you're satisfied with your choices, select **Save** to apply the new SAML signing certificate settings. Otherwise, select the **X** to discard the changes.
+1. In the **Signing Option** drop-down list, choose **Sign SAML response**, **Sign SAML assertion**, or **Sign SAML response and assertion**. Descriptions of these options appear earlier in this article in the [Certificate signing options](#certificate-signing-options).
+1. In the **Signing Algorithm** drop-down list, choose **SHA-1** or **SHA-256**. Descriptions of these options appear earlier in this article in the [Certificate signing algorithms](#certificate-signing-algorithms) section.
+1. If you're satisfied with your choices, select **Save** to apply the new SAML signing certificate settings. Otherwise, select the **X** to discard the changes.
 
 ## Next steps
 

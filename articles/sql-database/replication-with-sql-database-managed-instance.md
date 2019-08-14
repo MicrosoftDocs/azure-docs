@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
-manager: craigg
 ms.date: 02/07/2019
 ---
 # Configure replication in an Azure SQL Database managed instance database
@@ -54,7 +53,7 @@ Supports:
 The following features are not supported in a managed instance in Azure SQL Database:
 
 - [Updatable subscriptions](/sql/relational-databases/replication/transactional/updatable-subscriptions-for-transactional-replication).
-- [Active geo replication](sql-database-active-geo-replication.md) and [Auto-failover groups](sql-database-auto-failover-group.md) should not be used if the Transactional Replication is configured.
+- [Active geo-replication](sql-database-active-geo-replication.md) with Transactional replication. Instead of active geo-replication, use [Auto-failover groups](sql-database-auto-failover-group.md), but note that the publication has to be [manually deleted](sql-database-managed-instance-transact-sql-information.md#replication) from the primary managed instance and recreated on the secondary managed instance after failover.  
  
 ## 1 - Create a resource group
 
@@ -168,7 +167,7 @@ EXEC sp_adddistpublisher
   @login = N'$(username)',
   @password = N'$(password)',
   @working_directory = N'$(file_storage)',
-  @storage_connection_string = N'$(file_storage_key)';
+  @storage_connection_string = N'$(file_storage_key)'; -- Remove this parameter for on-premises publishers
 ```
 
 This script configures a local publisher on the managed instance, adds a linked server, and creates a set of jobs for the SQL Server Agent. 

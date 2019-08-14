@@ -10,13 +10,12 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
-manager: craigg
-ms.date: 01/25/2019
+ms.date: 06/25/2019
 ---
 
 # Dynamically scale database resources with minimal downtime
 
-Azure SQL Database enables you to dynamically add more resources to your database with minimal downtime.
+Azure SQL Database enables you to dynamically add more resources to your database with minimal [downtime](https://azure.microsoft.com/support/legal/sla/sql-database/v1_2/); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic.
 
 ## Overview
 

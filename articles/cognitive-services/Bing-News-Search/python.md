@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Perform a news search with Python and the Bing News Search REST API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description:  Use this quickstart to send a request to the Bing News Search REST API using Python, and receive a JSON response.
 services: cognitive-services
 author: aahill
@@ -73,7 +73,8 @@ These descriptions can then be rendered as a table with the search keyword highl
 
 ```python
 from IPython.display import HTML
-rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc) for desc in descriptions])
+rows = "\n".join(["<tr><td>{0}</td></tr>".format(desc)
+                  for desc in descriptions])
 HTML("<table>"+rows+"</table>")
 ```
 

@@ -115,6 +115,28 @@ Migration by using the Azure portal has the same logical flow as migrating by us
     The confirmation page appears when the migration is complete.
     ![Switch namespace - success][]
 
+## Caveats
+
+Some of the features provided by Azure Service Bus Standard tier are not supported by Azure Service Bus Premium tier. These are by design since the premium tier offers dedicated resources for predictable throughput and latency.
+
+Here is a list of features not supported by Premium and their mitigation - 
+
+### Express entities
+
+   Express entities that don't commit any message data to storage are not supported in Premium. Dedicated resources provided significant throughput improvement while ensuring that data is persisted, as is expected from any enterprise messaging system.
+   
+   During migration, any of your express entities in your Standard namespace will be created on the Premium namespace as a non-express entity.
+   
+   If you utilize Azure Resource Manager (ARM) templates, please ensure that you remove the 'enableExpress' flag from the deployment configuration so that your automated workflows execute without errors.
+
+### Partitioned entities
+
+   Partitioned entities were supported in the Standard tier to provide better availablility in a multi-tenant setup. With the provision of dedicated resources available per namespace in the Premium tier, this is no longer needed.
+   
+   During migration, any partitioned entity in the Standard namespace is created on the Premium namespace as a non-partitioned entity.
+   
+   If your ARM template sets 'enablePartitioning' to 'true' for a specific Queue or Topic, then it will be ignored by the broker.
+
 ## FAQs
 
 ### What happens when the migration is committed?

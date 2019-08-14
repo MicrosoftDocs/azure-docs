@@ -136,6 +136,9 @@ In the following example, the pipeline takes **inputPath** and **outputPath** pa
     }
 }
 ```
+#### Tutorial
+This [tutorial](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-data-factory-passing-parameters/Azure%20data%20Factory-Whitepaper-PassingParameters.pdf) walks you through how to pass parameters between a pipeline and activity as well as between the activities.
+
   
 ## Functions  
  You can call functions within expressions. The following sections provide information about the functions that can be used in an expression.  

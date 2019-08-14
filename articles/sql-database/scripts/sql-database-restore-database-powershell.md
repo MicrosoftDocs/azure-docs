@@ -10,7 +10,6 @@ ms.topic: sample
 author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 03/27/2019
 ---
 # Use PowerShell to restore an Azure SQL single database to an earlier point in time

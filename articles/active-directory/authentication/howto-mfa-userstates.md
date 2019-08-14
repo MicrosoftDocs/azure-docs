@@ -24,7 +24,7 @@ You can take one of two approaches for requiring two-step verification, both of 
 
 ## Choose how to enable
 
-**Enabled by changing user state** - This is the traditional method for requiring two-step verification and is discussed in this article. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides Conditional Access policies. This is the method used for those with either Office 365 or Microsoft 365 Business licenses as they do not include Conditional Access features.
+**Enabled by changing user state** - This is the traditional method for requiring two-step verification and is discussed in this article. It works with both Azure MFA in the cloud and Azure MFA Server. Using this method requires users to perform two-step verification **every time** they sign in and overrides Conditional Access policies.
 
 Enabled by Conditional Access policy - This is the most flexible means to enable two-step verification for your users. Enabling using Conditional Access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. More information on this method can be found in [Deploy cloud-based Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
 
@@ -139,11 +139,7 @@ The following PowerShell can assist you in making the conversion to Conditional 
 # Disable MFA for all users, keeping their MFA methods intact
 Get-MsolUser -All | Disable-MFA -KeepMethods
 
-# Enforce MFA for all users
-Get-MsolUser -All | Set-MfaState -State Enforced
-
-# Wrapper to disable MFA with the option to keep the MFA
-# methods (to avoid having to proof-up again later)
+# Wrapper to disable MFA with the option to keep the MFA methods (to avoid having to proof-up again later)
 function Disable-Mfa {
 
     [CmdletBinding()]

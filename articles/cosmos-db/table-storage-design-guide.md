@@ -256,7 +256,7 @@ Many designs must meet requirements to enable lookup of entities based on multip
 Query results returned by the Table service are sorted in ascending order based on **PartitionKey** and then by **RowKey**.
 
 > [!NOTE]
-> Query results returned by the Azure Table API in Azure DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Query results returned by the Azure Table API in Azure Cosmos DB are not sorted by partition key or row key. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 Keys in Azure Storage table are string values and to ensure that numeric values sort correctly, you should convert them to a fixed length and pad them with zeroes. For example, if the employee id value you use as the **RowKey** is an integer value, you should convert employee id **123** to **00000123**. 
 
@@ -728,7 +728,7 @@ The following patterns and guidance may also be relevant when implementing this 
 Retrieve the *n* entities most recently added to a partition by using a **RowKey** value that sorts in reverse date and time order.  
 
 > [!NOTE]
-> Query results returned by the Azure Table API in Azure DB aren't sorted by partition key or row key. Thus, this pattern is suitable for Azure Table Storage and not Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
+> Query results returned by the Azure Table API in Azure Cosmos DB aren't sorted by partition key or row key. Thus, this pattern is suitable for Azure Table Storage and not Azure Cosmos DB. For a detailed list of feature differences, see [differences between Table API in Azure Cosmos DB and Azure Table Storage](faq.md#where-is-table-api-not-identical-with-azure-table-storage-behavior).
 
 #### Context and problem
 A common requirement is to be able to retrieve the most recently created entities, for example the ten most recent expense claims submitted by an employee. Table queries support a **$top** query operation to return the first *n* entities from a set: there is no equivalent query operation to return the last n entities in a set.  

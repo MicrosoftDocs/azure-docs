@@ -1,13 +1,13 @@
 ---
 title: Manage Backups with Azure Role-Based Access Control'
 description: Use Role-based Access Control to manage access to backup management operations in Recovery Services vault.
-services: backup
-author: trinadhk
-manager: vijayts
+ms.reviewer: utraghuv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 04/17/2019
-ms.author: trinadhk
+ms.date: 06/24/2019
+ms.author: dacurwin
 ---
 
 # Use Role-Based Access Control to manage Azure Backup recovery points
@@ -18,7 +18,7 @@ Azure Role-Based Access Control (RBAC) enables fine-grained access management fo
 
 Azure Backup provides three built-in roles to control backup management operations. Learn more on [Azure RBAC built-in roles](../role-based-access-control/built-in-roles.md)
 
-* [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - This role has all permissions to create and manage backup except creating Recovery Services vault and giving access to others. Imagine this role as admin of backup management who can do every backup management operation.
+* [Backup Contributor](../role-based-access-control/built-in-roles.md#backup-contributor) - This role has all permissions to create and manage backup except deleting Recovery Services vault and giving access to others. Imagine this role as admin of backup management who can do every backup management operation.
 * [Backup Operator](../role-based-access-control/built-in-roles.md#backup-operator) - This role has permissions to everything a contributor does except removing backup and managing backup policies. This role is equivalent to contributor except it can't perform destructive operations such as stop backup with delete data or remove registration of on-premises resources.
 * [Backup Reader](../role-based-access-control/built-in-roles.md#backup-reader) - This role has permissions to view all backup management operations. Imagine this role to be a monitoring person.
 
@@ -31,7 +31,7 @@ The following table captures the Backup management actions and corresponding min
 
 | Management Operation | Minimum RBAC role required | Scope Required |
 | --- | --- | --- |
-| Create Recovery Services vault | Contributor | Resource group containing the vault |
+| Create Recovery Services vault | Backup Contributor | Resource group containing the vault |
 | Enable backup of Azure VMs | Backup Operator | Resource group containing the vault |
 | | Virtual Machine Contributor | VM resource |
 | On-demand backup of VM | Backup Operator | Recovery vault resource |

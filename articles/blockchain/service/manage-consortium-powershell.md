@@ -187,8 +187,10 @@ Use this cmdlet to set blockchain member attributes, including the display name 
 
 Consortium administrators can set **DisplayName** and **Role** for all members. A consortium member with the user role can change only their own member's display name.
 
-`Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
- -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <String>] [-Role <String>]
+ -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -213,8 +215,10 @@ Use the consortium member invitation management cmdlets to manage consortium mem
 
 Use this cmdlet to invite new members to the consortium.
 
-`New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -260,8 +264,10 @@ SubscriptionId                       Role CorrelationId
 
 Use this cmdlet to revoke a consortium member's invitation.
 
-`Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
- -Web3Client <IClient>`
+```
+Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> -Web3Account <IAccount>
+ -Web3Client <IClient>
+```
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|
@@ -280,8 +286,10 @@ $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscri
 
 Use this cmdlet to set the **Role** for an existing invitation. Only consortium administrators can change invitations.
 
-`Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
- -Web3Account <IAccount> -Web3Client <IClient>`
+```
+Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members <IContract>
+ -Web3Account <IAccount> -Web3Client <IClient>
+```
 
 | Parameter | Description | Required |
 |-----------|-------------|:--------:|

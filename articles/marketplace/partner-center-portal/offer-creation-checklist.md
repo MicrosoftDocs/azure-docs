@@ -33,12 +33,12 @@ Items you are required to provide or specify are noted below. Some areas are opt
 
 ## New offer modal 
 
-The first pieces of information you will be asked to provide are a name and an ID for your offer. 
+The first pieces of information you will be asked to provide are an ID and alias for your offer. 
 
 | **Field name**    | **Notes**   |  
 | :---------------- | :-----------| 
 | Offer ID  | Required, can’t be changed after creation. Max 50 characters and must consist only of lowercase, alphanumeric characters, dashes, or underscores. |
-| Offer name  | Required. |
+| Offer alias  | Required. |
 
 ## Offer setup page
 

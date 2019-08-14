@@ -145,7 +145,7 @@ To configure Azure AD single sign-on with Bonusly, perform the following steps:
 
     c. In the **IdP Issuer** textbox, paste the value of **Azure AD Identifier**, which you have copied from Azure portal.
     
-    d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
+    d. Paste the **Thumbprint** value copied from Azure portal into the **Cert Fingerprint** textbox.
     
     e. Click **Save**.
 

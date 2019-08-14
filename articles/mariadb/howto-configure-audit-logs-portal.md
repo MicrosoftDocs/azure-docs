@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 06/24/2019
 ---
 
 # Configure and access audit logs in the Azure portal
@@ -35,7 +35,7 @@ Enable and configure audit logging.
 1. Update the **audit_log_enabled** parameter to ON.
     ![Enable audit logs](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
-1. Select the events to be logged by updating the **audit_log_events** parameter.
+1. Select the [event types](concepts-audit-logs.md#configure-audit-logging) to be logged by updating the **audit_log_events** parameter.
     ![Audit log events](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. Add any MariaDB users to be excluded from logging by updating the **audit_log_exclude_users** parameter. Specify users by providing their MariaDB user name.

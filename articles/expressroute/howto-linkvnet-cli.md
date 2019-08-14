@@ -7,7 +7,8 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
-ms.author: anzaman,cherylmc
+ms.author: cherylmc
+ms.reviewer: anzaman
 ms.custom: seodec18
 
 ---

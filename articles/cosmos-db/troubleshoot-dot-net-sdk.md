@@ -5,7 +5,6 @@ author: j82w
 ms.service: cosmos-db
 ms.date: 05/28/2019
 ms.author: jawilley
-ms.devlang: c#
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun

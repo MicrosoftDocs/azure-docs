@@ -153,7 +153,7 @@ In this section, you add a new controller to the WebAPI backend to handle reques
 
 3. In the results list, select **Microsoft Azure Notification Hubs**, and then select **Install**. Complete the installation, and then close the NuGet Package Manager window.
 
-    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package](http://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
+    This action adds a reference to the Azure Notification Hubs SDK by using the [Microsoft.Azure.Notification Hubs NuGet package](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 
 4. Create a new class file that represents the connection with the notification hub that's used to send notifications. In Solution Explorer, right-click the **Models** folder, select **Add**, and then select **Class**. Name the new class **Notifications.cs**, and then select **Add** to generate the class.
 
@@ -165,7 +165,7 @@ In this section, you add a new controller to the WebAPI backend to handle reques
     using Microsoft.Azure.NotificationHubs;
     ```
 
-6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure portal](http://portal.azure.com)):
+6. Replace the `Notifications` class definition with the following code, and replace the two placeholders with the connection string (with full access) for your notification hub and the hub name (available at [Azure portal](https://portal.azure.com)):
 
     ```csharp
     public class Notifications

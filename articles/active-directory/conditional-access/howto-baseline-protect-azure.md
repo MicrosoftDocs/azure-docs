@@ -29,8 +29,6 @@ Using Azure Resource Manager to manage your services is a highly privileged acti
 
 Once this policy is enabled in a tenant, all users logging into Azure management resources will be challenged with multi-factor authentication. If the user is not registered for MFA, the user will be required to register using the Microsoft Authenticator App in order to proceed.
 
-![Require MFA for Azure Resource Manager](./media/howto-baseline-protect-azure/baseline-policy-require-mfa-for-service-management.png)
-
 To perform interactive sign-in using [Azure Powershell](https://docs.microsoft.com/powershell/azure/authenticate-azureps), use the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```PowerShell
@@ -51,17 +49,6 @@ If the CLI can open your default browser, it will do so and load a sign-in page.
 
 Because the **Require MFA for service management** policy applies to all Azure Resource Manager users, several considerations need to be made to ensure a smooth deployment. These considerations include identifying users and service principles in Azure AD that cannot or should not perform MFA, as well as applications and clients used by your organization that do not support modern authentication.
 
-### User exclusions
-
-This baseline policy provides you the option to exclude users. Before enabling the policy for your tenant, we recommend excluding the following accounts:
-
-* **Emergency access** or **break-glass** accounts to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant take steps to recover access.
-   * More information can be found in the article, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md).
-* **Service accounts** and **service principles**, such as the Azure AD Connect Sync Account. Service accounts are non-interactive accounts that are not tied to any particular user. They are normally used by back-end services and allow programmatic access to applications. Service accounts should be excluded since MFA can’t be completed programmatically.
-   * If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md). As a temporary workaround, you can exclude these specific accounts from the baseline policy.
-* Users who do not have or will not be able to use a smart phone.
-   * This policy requires users to register for MFA using the Microsoft Authenticator app.
-
 ## Enable the baseline policy
 
 The policy **Baseline policy: Require MFA for service management (preview)** comes pre-configured and will show up at the top when you navigate to the Conditional Access blade in Azure portal.
@@ -72,7 +59,6 @@ To enable this policy and protect your administrators:
 1. Browse to **Azure Active Directory** > **Conditional Access**.
 1. In the list of policies, select **Baseline policy: Require MFA for service management (preview)**.
 1. Set **Enable policy** to **Use policy immediately**.
-1. Add any user exclusions by clicking on **Users** > **Select excluded users** and choosing the users that need to be excluded. Click **Select** then **Done**.
 1. Click **Save**.
 
 ## Next steps
@@ -80,5 +66,5 @@ To enable this policy and protect your administrators:
 For more information, see:
 
 * [Conditional Access baseline protection policies](concept-baseline-protection.md)
-* [Five steps to securing your identity infrastructure](../../security/azure-ad-secure-steps.md)
+* [Five steps to securing your identity infrastructure](../../security/fundamentals/steps-secure-identity.md)
 * [What is Conditional Access in Azure Active Directory?](overview.md)

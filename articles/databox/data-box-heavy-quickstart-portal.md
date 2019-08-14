@@ -54,7 +54,7 @@ Before you begin, make sure that:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
+Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 
 ## Order
 
@@ -92,7 +92,7 @@ This step takes about 10-15 minutes to complete.
 
 This step takes about 5-7 minutes to complete.
 
-1. To get the device password, go to **General > Device details** in the [Azure portal](http://portal.azure.com). Same password is used for both nodes of the device.
+1. To get the device password, go to **General > Device details** in the [Azure portal](https://portal.azure.com). Same password is used for both nodes of the device.
 2. Assign a static IP address of 192.168.100.5 and subnet 255.255.255.0 to the Ethernet adapter on the computer you are using to connect to Data Box Heavy. Access the local web UI of the device at `https://192.168.100.10`. The connection could take up to 5 minutes after you turned on the device.
 3. Sign in using the password from the Azure portal. You see an error indicating a problem with the website’s security certificate. Follow the browser-specific instructions to proceed to the web page.
 4. By default, the network settings for the interfaces (excluding the MGMT) are configured as DHCP. If needed, you can configure these interfaces as static and provide an IP address.

@@ -7,26 +7,26 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 07/01/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
 
 # Choose a pricing tier for Azure Search
 
-When you create an Azure Search service, a [resource is created](search-create-service-portal.md) at a pricing tier or SKU that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
+When you create an Azure Search service, a [resource is created](search-create-service-portal.md) at a pricing tier (or SKU) that's fixed for the lifetime of the service. Tiers include Free, Basic, Standard, and Storage Optimized. Standard and Storage Optimized are available with several configurations and capacities.
 
-Most customers start with the Free tier so they can evaluate the service. They then upgrade to one of the higher tiers for development and production deployments. You can complete all quickstarts and tutorials by using the Free tier, including the ones for resource-intensive cognitive search.
+Most customers start with the Free tier so they can evaluate the service. Post-evaluation, it's common to create a second service at one of the higher tiers for development and production deployments. You can complete all quickstarts and tutorials by using the Free tier, including the ones for resource-intensive cognitive search.
 
 > [!NOTE]
-> Microsoft is currently providing the Storage Optimized service tiers in a preview at discounted pricing for testing and experimentation, with the goal of gathering feedback. Final pricing will be announced later when these tiers are generally available. We advise against using these tiers for production applications.
+> As of July 1, all tiers are generally available, including the Storage Optimized tier. All pricing can be found on the [Pricing Details](https://azure.microsoft.com/pricing/details/search/) page.
 
 Tiers reflect the characteristics of the hardware hosting the service (rather than features) and are differentiated by:
 
 + The number of indexes you can create.
 + The size and speed of partitions (physical storage).
 
-Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate a need for higher tiers. For example, [AI indexing with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
+Although all tiers, including the Free tier, generally offer feature parity, larger workloads can dictate a need for higher tiers. For example, [AI enrichment with Cognitive Services](cognitive-search-concept-intro.md) has long-running skills that time out on a free service unless the dataset is small.
 
 > [!NOTE] 
 > The exception to feature parity is [indexers](search-indexer-overview.md), which are not available on S3 HD.
@@ -55,7 +55,11 @@ The following table lists the available tiers. You can find out more about the v
 
 ## How billing works
 
-There are three ways to incur costs in Azure Search, and there are fixed and variable components. This section describes the three billing components: core service costs, data egress charges, and AI-enriched indexing.
+There are three ways to incur costs in Azure Search. This section describes the three billing components: 
+
++ core service cost
++ data egress (or bandwidth) charges
++ AI enrichments
 
 ### Core service costs (fixed and variable)
 
@@ -93,9 +97,9 @@ Using [Azure Search indexers](search-indexer-overview.md) might affect billing, 
 
 Charges do apply for outbound data if services are in different regions. These charges aren't actually part of your Azure Search bill. They're mentioned here because if you're using data or AI-enriched indexers to pull data from different regions, you'll see costs reflected in your overall bill.
 
-### AI-enriched indexing with Cognitive Services
+### AI enrichments with Cognitive Services
 
-For [AI indexing with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource, in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
+For [AI enrichment with Cognitive Services](cognitive-search-concept-intro.md), you should plan to attach a billable Azure Cognitive Services resource, in the same region as Azure Search, at the S0 pricing tier for pay-as-you-go processing. There's no fixed cost associated with attaching Cognitive Services. You pay only for the processing you need.
 
 Image extraction during document cracking is an Azure Search charge. It's billed according to the number of images extracted from your documents. Text extraction is currently free.
 

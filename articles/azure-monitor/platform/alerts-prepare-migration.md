@@ -46,7 +46,7 @@ Use the following table to map the webhook payload fields from the classic forma
 | Description of the alert rule | **context.description** | **data.context.description** |
 | Alert rule condition | **context.condition** | **data.context.condition** |
 | Metric name | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
-| Time aggregation (how the metric is aggregated over the evaluation window)| **data.context.condition.timeAggregation** | **data.context.condition.timeAggregation** |
+| Time aggregation (how the metric is aggregated over the evaluation window)| **context.condition.timeAggregation** | **context.condition.timeAggregation** |
 | Evaluation period | **context.condition.windowSize** | **data.context.condition.windowSize** |
 | Operator (how the aggregated metric value is compared against the threshold) | **context.condition.operator** | **data.context.condition.operator** |
 | Threshold | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |

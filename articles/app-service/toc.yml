@@ -63,8 +63,6 @@
     href: samples-resource-manager-templates.md
 - name: Concepts
   items:
-  - name: How App Service works
-    href: app-service-how-works-readme.md
   - name: App Service plans
     href: overview-hosting-plans.md
   - name: OS functionality
@@ -105,6 +103,10 @@
       href: web-sites-php-configure.md
     - name: Configure Java
       href: configure-language-java.md
+    - name: Connect to on-prem resources
+      href: web-sites-integrate-with-vnet.md
+    - name: Configure Azure Storage (container)
+      href: configure-connect-to-azure-storage.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app

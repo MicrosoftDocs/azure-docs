@@ -7,6 +7,7 @@
   - name: Integration with App Service Mobile Apps
     href: notification-hubs-app-service.md
 - name: Quickstarts
+  expanded: true
   items:
   - name: Create a notification hub - Azure portal
     href: create-notification-hub-portal.md  
@@ -50,10 +51,6 @@
       href: xamarin-notification-hubs-ios-push-notification-apns-get-started.md                
     - name: Push localized notifications to iOS devices
       href: notification-hubs-ios-xplat-localized-apns-push-notification.md
-  - name: Kindle
-    items:
-    - name: Push notifications using Amazon Device Messaging  
-      href: notification-hubs-kindle-amazon-adm-push-notification.md 
   - name: Windows Phone
     items:
     - name: Push notifications to apps
@@ -129,8 +126,6 @@
       href: configure-windows-push-notification-service.md
     - name: Configure Microsoft Push Notification Service
       href: configure-microsoft-push-notification-service.md
-    - name: Configure Android Device Messaging
-      href: configure-android-device-messaging.md            
     - name: Configure Baidu Cloud Push
       href: configure-baidu-cloud-push.md      
   - name: Register with application backend

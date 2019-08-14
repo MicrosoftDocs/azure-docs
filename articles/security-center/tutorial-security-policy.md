@@ -1,6 +1,6 @@
 ---
 title: Working with security policies | Microsoft Docs
-description: This article describes how to working with security policies in Azure Security Center.
+description: This article describes how to work with security policies in Azure Security Center.
 services: security-center
 documentationcenter: na
 author: monhaber
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 5/05/2019
+ms.date: 7/18/2019
 ms.author: v-mohabe
 ---
 
@@ -28,7 +28,7 @@ For instructions on how to set policies using PowerShell, see [Quickstart: Creat
 > Security Center started its integration with Azure Policy. Existing customers will be automatically migrated to the new built-in initiative in Azure Policy, instead of the previous security policies in Security Center. This change will not affect your resources or environment except the presence of the new initiative in Azure Policy.
 
 ## What are security policies?
-A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../governance/policy/overview.md).
+A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Policy, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personal data or customer data, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../governance/policy/overview.md).
 
 Your security policies drive the security recommendations you get in Azure Security Center. You can monitor compliance with them to help you identify potential vulnerabilities and mitigate threats. For more information about how to determine the option that is appropriate for you, see the list of [built-in security policies](security-center-policy-definitions.md).
 
@@ -67,15 +67,8 @@ To view your security policies in Security Center:
    In the **Policy management** screen, you can see the number of management groups, subscriptions, and workspaces as well as your management group structure.
 
    > [!NOTE]
-   > - The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
+   > The Security Center dashboard may show a higher number of subscriptions under **Subscription coverage** than the number of subscriptions shown under **Policy management**. Subscription coverage shows the number of Standard, Free, and “not covered” subscriptions. The “not covered” subscriptions do not have Security Center enabled and are not displayed under **Policy management**.
    >
-
-   The columns in the table display:
-
-   - **Policy initiative assignment** – Security Center [built-in policies](security-center-policy-definitions.md) and initiatives that are assigned to a subscription or management group.
-   - **Coverage** – Identifies the pricing tier, Free or Standard, that the management group, subscription, or workspace is running on.  See [Pricing](security-center-pricing.md) to learn more about Security Center's pricing tiers.
-   - **Settings** – Subscriptions have the link **Edit settings**. Selecting **Edit settings** lets you update your [Security Center settings](security-center-policies-overview.md) for each subscription or management group.
-   - **Secure score** - The [Secure score](security-center-secure-score.md) provides a measure of how secure your workload security posture and helps you prioritize recommendations for improvement.
 
 2. Select the subscription or management group whose policies you want to view.
 
@@ -87,10 +80,10 @@ To view your security policies in Security Center:
    ![policy screen](./media/security-center-policies/policy-screen.png)
 
 > [!NOTE]
-> - When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
+> When you view assigned policies, you can see multiple assignments and you can see how each assignment is configured on its own.
 
 ## Edit security policies
-You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, contributor, or security administrator of the subscription or the containing management group.
+You can edit the default security policy for each of your Azure subscriptions and management groups in [Azure Policy](../governance/policy/tutorials/create-and-manage.md). To modify a security policy, you must be an owner, or security administrator, of the subscription or the containing management group.
 
 For instructions on how to edit a security policy in Azure Policy, see and [Create and manage policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
@@ -128,11 +121,11 @@ As part of the native integration with Azure Policy, Azure Security Center enabl
 
 Important concepts in Azure Policy: 
 
-- A **policy definition** is a rule 
+- A **policy definition** is a rule 
 
-- An **initiative** is a collection of policy definitions (rules) 
+- An **initiative** is a collection of policy definitions (rules) 
 
-- An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
+- An **assignment** is an application of an initiative or a policy to a specific scope (management group, subscription, etc.) 
 
 Security Center has a built-in initiative that includes all of its security policies. In order to assess Security Center’s policies on your Azure resources, you should create an assignment on the management group, or subscription you want to assess.  
 
@@ -148,6 +141,7 @@ In the following examples, replace these variables:
 
 This example shows you how to assign the built-in Security Center initiative on a subscription or management group
  
+ ```
     PUT  
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
 
@@ -172,6 +166,7 @@ This example shows you how to assign the built-in Security Center initiative on 
     } 
 
     } 
+ ```
 
 This example shows you how to assign the built-in Security Center initiative on a subscription, with the following policies disabled: 
 
@@ -181,7 +176,7 @@ This example shows you how to assign the built-in Security Center initiative on 
 
 - Endpoint protection ("endpointProtectionMonitoringEffect") 
 
-
+ ```
     PUT https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
     
     Request Body (JSON) 
@@ -213,12 +208,12 @@ This example shows you how to assign the built-in Security Center initiative on 
      } 
     
     } 
-
+ ```
 This example shows you how to remove an assignment:
-
+ ```
     DELETE   
     https://management.azure.com/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}?api-version=2018-05-01 
-
+ ```
 
 ### Policy names reference <a name="policy-names"></a>
 

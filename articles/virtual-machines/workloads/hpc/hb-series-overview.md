@@ -4,7 +4,7 @@ description: Learn about the preview support for the HB-series VM size in Azure.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
-manager: jeconnoc
+manager: gwallace
 editor: ''
 tags: azure-resource-manager
 

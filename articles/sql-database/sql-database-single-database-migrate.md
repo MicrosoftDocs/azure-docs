@@ -11,7 +11,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-manager: craigg
 ms.date: 02/11/2019
 ---
 # SQL Server database migration to Azure SQL Database

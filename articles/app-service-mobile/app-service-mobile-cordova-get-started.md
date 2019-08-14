@@ -3,7 +3,7 @@ title: Create a Cordova app on Azure App Service Mobile Apps | Microsoft Docs
 description: Follow this tutorial to get started with using Azure mobile app backends for Apache Cordova development
 services: app-service\mobile
 documentationcenter: javascript
-author: conceptdev
+author: elamalani
 manager: crdun
 editor: ''
 tags: ''
@@ -15,12 +15,15 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
-
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Create an Apache Cordova app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
+
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started) today.
+>
 
 ## Overview
 This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using
@@ -49,6 +52,7 @@ the command line is not covered by this tutorial.
 
 ## Download and run the Apache Cordova app
 [!INCLUDE [app-service-mobile-cordova-run-app](../../includes/app-service-mobile-cordova-run-app.md)]
+
 <!-- URLs -->
 [Azure portal]: https://portal.azure.com/
 
