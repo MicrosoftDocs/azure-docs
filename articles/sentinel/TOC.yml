@@ -19,6 +19,11 @@
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md  
 
+name: Concepts 
+  items: 
+  - name: Advanced multi-stage attack detection 
+    href: fusion.md
+
 - name: How-to guides
   items:
   - name: Connect data sources
