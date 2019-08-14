@@ -27,7 +27,7 @@ Subscription contributors can create the AKS cluster and the ACR, but can't assi
 
 ## Install latest AKS CLI preview extension
 
-Ensure you have created and AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extension
+Ensure you have created an AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extension
 
 ```azurecli
 az extension remove --name aks-preview 
