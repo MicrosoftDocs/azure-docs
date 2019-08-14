@@ -1,15 +1,15 @@
 ---
 title: Reward score - Personalizer
 titleSuffix: Azure Cognitive Services
-description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains it's machine learning models by evaluating the rewards.
+description: The reward score indicates how well the personalization choice, RewardActionID, resulted for the user. The value of the reward score is determined by your business logic, based on observations of user behavior. Personalizer trains its machine learning models by evaluating the rewards.
 services: cognitive-services
-author: edjez
+author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
-ms.topic: overview
-ms.date: 05/13/2019
-ms.author: edjez
+ms.topic: conceptual
+ms.date: 06/07/2019
+ms.author: diberry
 ---
 
 # Reward scores indicate success of personalization
@@ -25,6 +25,18 @@ Rewards are sent to Personalizer by the [Reward API](https://docs.microsoft.com/
 Rewards are sent after the user behavior has happened, which could be days later. The maximum amount of time Personalizer will wait until an event is considered to have no reward or a default reward is configured with the [Reward Wait Time](#reward-wait-time) in the Azure portal.
 
 If the reward score for an event hasn't been received within the **Reward Wait Time**, then the **Default Reward** will be applied. Typically, the **[Default Reward](how-to-settings.md#configure-reward-settings-for-the-feedback-loop-based-on-use-case)** is configured to be zero.
+
+
+## Behaviors and data to consider for rewards
+
+Consider these signals and behaviors for the context of the reward score:
+
+* Direct user input for suggestions when options are involved ("Do you mean X?").
+* Session length.
+* Time between sessions.
+* Sentiment analysis of the user's interactions.
+* Direct questions and mini surveys where the bot asks the user for feedback about usefulness, accuracy.
+* Response to alerts, or delay to response to alerts.
 
 ## Composing reward scores
 

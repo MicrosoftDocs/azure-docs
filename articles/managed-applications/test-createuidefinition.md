@@ -4,12 +4,12 @@ description: Describes how to test the user experience for creating your Azure M
 author: tfitzmac
 ms.service: managed-applications
 ms.topic: conceptual
-ms.date: 05/26/2019
+ms.date: 08/06/2019
 ms.author: tomfitz
 ---
 # Test your portal interface for Azure Managed Applications
 
-After [creating the createUiDefinition.json file](create-uidefinition-overview.md) for your managed application, you need to test the user experience. To simplify testing, use a sandbox environment that loads your file in the portal. You don't need to actually deploy your managed application. The sandbox presents your user interface in the current, full-screen portal experience. Or, you can use a PowerShell script for testing the interface, but it uses a legacy view of the portal. Both approaches are shown in this article. The sandbox is the recommended way to preview the interface.
+After [creating the createUiDefinition.json file](create-uidefinition-overview.md) for your managed application, you need to test the user experience. To simplify testing, use a sandbox environment that loads your file in the portal. You don't need to actually deploy your managed application. The sandbox presents your user interface in the current, full-screen portal experience. Or, you can use a script for testing the interface. Both approaches are shown in this article. The sandbox is the recommended way to preview the interface.
 
 ## Prerequisites
 
@@ -45,7 +45,8 @@ If your form doesn't display, and instead you see an icon of a cloud with tear d
 
 To test your interface in the portal, copy one of the following scripts to your local machine:
 
-* [PowerShell side-load script](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
+* [PowerShell side-load script - Az Module](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-AzCreateUIDefinition.ps1)
+* [PowerShell side-load script - Azure Module](https://github.com/Azure/azure-quickstart-templates/blob/master/SideLoad-CreateUIDefinition.ps1)
 * [Azure CLI side-load script](https://github.com/Azure/azure-quickstart-templates/blob/master/sideload-createuidef.sh)
 
 To see your interface file in the portal, run your downloaded script. The script creates a storage account in your Azure subscription, and uploads your createUiDefinition.json file to the storage account. The storage account is created the first time you run the script or if the storage account has been deleted. If the storage account already exists in your Azure subscription, the script reuses it. The script opens the portal and loads your file from the storage account.
@@ -55,7 +56,7 @@ Provide a location for the storage account, and specify the folder that has your
 For PowerShell, use:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1 `
+.\SideLoad-AzCreateUIDefinition.ps1 `
   -StorageResourceGroupLocation southcentralus `
   -ArtifactsStagingDirectory .\100-Marketplace-Sample
 ```
@@ -73,7 +74,7 @@ If your createUiDefinition.json file is in the same folder as the script, and yo
 For PowerShell, use:
 
 ```powershell
-.\SideLoad-CreateUIDefinition.ps1
+.\SideLoad-AzCreateUIDefinition.ps1
 ```
 
 For Azure CLI, use:
@@ -83,8 +84,6 @@ For Azure CLI, use:
 ```
 
 The script opens a new tab in your browser. It displays the portal with your interface for creating the managed application.
-
-![View portal](./media/test-createuidefinition/view-portal.png)
 
 Provide values for the fields. When finished, you see the values that are passed to the template.
 

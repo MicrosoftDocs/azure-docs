@@ -3,7 +3,7 @@ title: Get started with Mobile Apps by using Xamarin.Forms
 description: Follow this tutorial to start using Mobile Apps for Xamarin.Forms development
 services: app-service\mobile
 documentationcenter: xamarin
-author: conceptdev
+author: elamalani
 manager: crdun
 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
@@ -12,13 +12,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 05/09/2019
-ms.author: crdun
+ms.date: 06/25/2019
+ms.author: emalani
 ---
 # Create a Xamarin.Forms app with Azure
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
+> [!NOTE]
+> Visual Studio App Center is investing in new and integrated services central to mobile app development. Developers can use **Build**, **Test** and **Distribute** services to set up Continuous Integration and Delivery pipeline. Once the app is deployed, developers can monitor the status and usage of their app using the **Analytics** and **Diagnostics** services, and engage with users using the **Push** service. Developers can also leverage **Auth** to authenticate their users and **Data** service to persist and sync app data in the cloud. Check out [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-forms-get-started) today.
+>
+
+## Overview
 This tutorial shows you how to add a cloud-based back-end service to a Xamarin.Forms mobile app by using the Mobile Apps feature of Azure App Service as the back end. You create both a new Mobile Apps back end and a simple to-do list Xamarin.Forms app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other Mobile Apps tutorials for Xamarin.Forms.
@@ -43,19 +48,7 @@ To complete this tutorial, you need the following:
 
 The Visual Studio Tools for Xamarin are required to open the solution, see the [Xamarin installation instructions][Install Xamarin]. If the tools are already installed, follow these steps to download and open the solution:
 
-### Visual Studio
-
-1. Go to the [Azure portal](https://portal.azure.com/).
-
-2. On the settings blade for your Mobile App, click **Quickstart** (under Deployment) > **Xamarin.Forms**. Under step 3, click  **Create a new app** if it's not already selected.  Next click the **Download** button.
-
-   This action downloads a project that contains a client application that's connected to your mobile app. Save the compressed project file to your local computer, and make a note of where you save it.
-
-3. Extract the project that you downloaded, and then open it in Visual Studio.
-
-4. Follow the instructions below to run the Android or Windows projects; and if there is a networked Mac computer available, the iOS project.
-
-### Visual Studio for Mac
+### Visual Studio (Windows and Mac)
 
 1. Go to the [Azure portal](https://portal.azure.com/) and navigate to the mobile app that you created. On the `Overview` blade, look for the URL which is the public endpoint for your mobile app. Example - the sitename for my app name "test123" will be https://test123.azurewebsites.net.
 

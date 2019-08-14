@@ -17,14 +17,14 @@ ms.subservice: B2C
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a [page contract](page-contract.md), and use [b2clogin.com](b2clogin.md) in your requests. This article describes how you can change your custom policy to enable script execution.
+You can add your own JavaScript client-side code to your Azure Active Directory (Azure AD) B2C applications. To enable JavaScript for your applications, you must add an element to your [custom policy](active-directory-b2c-overview-custom.md), select a [page layout](page-layout.md), and use [b2clogin.com](b2clogin.md) in your requests. This article describes how you can change your custom policy to enable script execution.
 
 > [!NOTE]
-> If you want to enable JavaScript for user flows, see [JavaScript and page contract versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
+> If you want to enable JavaScript for user flows, see [JavaScript and page layout versions in Azure Active Directory B2C](user-flow-javascript-overview.md).
 
 ## Prerequisites
 
-Select a page contract for the user interface elements of your application. If you intend to use JavaScript, you need to define a page contract version for all of your content definitions in your custom policy.
+Select a page layout for the user interface elements of your application. If you intend to use JavaScript, you need to define a page layout version for all of your content definitions in your custom policy.
 
 ## Add the ScriptExecution element
 

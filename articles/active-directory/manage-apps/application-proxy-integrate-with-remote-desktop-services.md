@@ -24,7 +24,7 @@ Remote Desktop Service and Azure AD Application Proxy work together to improve t
 
 The intended audience for this article is:
 - Current Application Proxy customers who want to offer more applications to their end users by publishing on-premises applications through Remote Desktop Services.
-- Current Remote Desktop Services customers who want to reduce the attack surface of their deployment by using Azure AD Application Proxy. This scenario gives a limited set of two-step verification and conditional access controls to RDS.
+- Current Remote Desktop Services customers who want to reduce the attack surface of their deployment by using Azure AD Application Proxy. This scenario gives a limited set of two-step verification and Conditional Access controls to RDS.
 
 ## How Application Proxy fits in the standard RDS deployment
 
@@ -52,6 +52,8 @@ In an RDS deployment, the RD Web role and the RD Gateway role run on Internet-fa
 - When publishing RD Web, it is recommended to use the same internal and external FQDN. If the internal and external FQDNs are different then you should disable Request Header Translation to avoid the client receiving invalid links. 
 
 - On Internet Explorer, enable the RDS ActiveX add-on.
+
+- For the Azure AD pre-authentication flow, users can only connect to resources published to them in the **RemoteApp and Desktops** pane. Users can't connect to a desktop using the **Connect to a remote PC** pane.
 
 ## Deploy the joint RDS and Application Proxy scenario
 
@@ -122,7 +124,7 @@ The configuration outlined in this article is for users on Windows 7 or 10, with
 | Pre-authentication    | Windows 7/10 using Internet Explorer + RDS ActiveX add-on |
 | Passthrough | Any other operating system that supports the Microsoft Remote Desktop application |
 
-The pre-authentication flow offers more security benefits than the passthrough flow. With pre-authentication you can use Azure AD authentication features like single sign-on, conditional access, and two-step verification for your on-premises resources. You also ensure that only authenticated traffic reaches your network.
+The pre-authentication flow offers more security benefits than the passthrough flow. With pre-authentication you can use Azure AD authentication features like single sign-on, Conditional Access, and two-step verification for your on-premises resources. You also ensure that only authenticated traffic reaches your network.
 
 To use passthrough authentication, there are just two modifications to the steps listed in this article:
 1. In [Publish the RD host endpoint](#publish-the-rd-host-endpoint) step 1, set the Preauthentication method to **Passthrough**.

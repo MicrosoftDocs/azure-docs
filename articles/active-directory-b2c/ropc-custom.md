@@ -251,7 +251,7 @@ Next, update the relying party file that initiates the user journey that you cre
     ```
 
 5. On the **Custom Policies** page in your Azure AD B2C tenant, select **Upload Policy**.
-6. Enable **Overwrite the policy if it exists**, and then browse to and select the *TrustFrameworkExtensions.xml* file.
+6. Enable **Overwrite the policy if it exists**, and then browse to and select the *ROPC_Auth.xml* file.
 7. Click **Upload**.
 
 ## Test the policy

@@ -5,14 +5,12 @@ metadata:
   title: Batch Documentation - Tutorials, API Reference | Microsoft Docs
   description: Use Batch to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Schedule compute-intensive tasks and dynamically add or remove compute resources based on your requirements. Learn how to use Azure Batch with our quickstarts, tutorials, and samples.
   services: batch
-  author: czeumault
-  manager: carolz
+  author: georgewallace
+  manager: gwallace
   ms.service: batch
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
   ms.date: 11/30/2017
-  ms.author: carolz
+  ms.author: gwallace
 abstract:
   description: Use Batch to run large-scale parallel and high-performance computing (HPC) applications efficiently in the cloud. Define the Azure compute resources to execute your applications in parallel or at scale without manually configuring or managing infrastructure. Schedule compute-intensive tasks and dynamically add or remove compute resources based on your requirements. Learn how to use Azure Batch with our quickstarts, tutorials, and samples.
 sections:

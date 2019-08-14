@@ -8,12 +8,12 @@ manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/17/2019
+ms.date: 06/21/2019
 ---
 
 # Understand and adjust Streaming Units
 
-Streaming Units (SUs) represents the computing resources that are allocated to execute a job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
+Streaming Units (SUs) represents the computing resources that are allocated to execute a Stream Analytics job. The higher the number of SUs, the more CPU and memory resources are allocated for your job. This capacity lets you focus on the query logic and abstracts the need to manage the hardware to run your Stream Analytics job in a timely manner.
 
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory. When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there is enough resource allocated to keep the jobs running 24/7.
 
@@ -54,7 +54,7 @@ Temporal (time-oriented) query elements are the core set of stateful operators p
 
 Note that a job with complex query logic could have high SU% utilization even when it is not continuously receiving input events. This can happen after a sudden spike in input and output events. The job might continue to maintain state in memory if the query is complex.
 
-SU% utilization may suddenly drop to 0 for a short period before coming back to expected levels. This happens due to transient errors or system initiated upgrades.
+SU% utilization may suddenly drop to 0 for a short period before coming back to expected levels. This happens due to transient errors or system initiated upgrades. Increasing number of streaming units for a job might not reduce SU% Utilization if your query is not [fully parallel](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
 
 ## Stateful query logic in temporal elements
 One of the unique capability of Azure Stream Analytics job is to perform stateful processing, such as windowed aggregates, temporal joins, and temporal analytic functions. Each of these operators keeps state information. The maximum window size for these query elements is seven days. 
@@ -80,7 +80,7 @@ For example, in the following query, the number associated with `clusterid` is t
    GROUP BY  clusterid, tumblingwindow (minutes, 5)
    ```
 
-In order to ameliorate issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by `clusterid`, and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
+In order to mitigate any issues caused by high cardinality in the previous query, you can send events to Event Hub partitioned by `clusterid`, and scale out the query by allowing the system to process each input partition separately using **PARTITION BY** as shown in the example below:
 
    ```sql
    SELECT count(*) 

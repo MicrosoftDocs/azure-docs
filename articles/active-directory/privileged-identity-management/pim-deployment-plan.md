@@ -139,7 +139,7 @@ Follow these steps to enforce the principle of least privilege for your Azure AD
 
 1. List who has privileged roles in your organization. You can use the [PIM wizard](pim-security-wizard.md#run-the-wizard) to get to a page like the following.
 
-    ![Discover privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
+    ![Discover privileged roles pane showing who has privileged roles](./media/pim-deployment-plan/discover-privileged-roles-users.png)
 
 1. For all Global Administrators in your organization, find out why they need the role. Based on reading the previous documentation, if the person’s job can be performed by one or more granular administrator roles, you should remove them from the Global Administrator role and make assignments accordingly inside Azure Active Directory (As a reference: Microsoft currently only has about 10 administrators with the Global Administrator role. Learn more at [how Microsoft uses PIM](https://www.microsoft.com/itshowcase/Article/Content/887/Using-Azure-AD-Privileged-Identity-Management-for-elevated-access)).
 
@@ -147,7 +147,7 @@ Follow these steps to enforce the principle of least privilege for your Azure AD
 
 To automate steps 3 and 4, you can utilize the access review function inside PIM. Following the steps in [start an access review for Azure AD roles in PIM](pim-how-to-start-security-review.md), you can set up an access review for every Azure AD role that has one or more members.
 
-![Create an access review](./media/pim-deployment-plan/create-access-review.png)
+![Create an access review pane for Azure AD roles](./media/pim-deployment-plan/create-access-review.png)
 
 You should set the reviewers to **Members (self)**. This will send out an email to all members in the role to get them to confirm whether they need the access. You should also turn on **Require reason on approval** in the advanced settings so that users can state why they need the role. Based on this information, you will be able to remove users from unnecessary roles and delegate more granular administrator roles in the case of Global Administrators.
 

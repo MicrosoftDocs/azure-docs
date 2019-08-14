@@ -4,7 +4,7 @@ description: This article provides information on web application firewall reque
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 5/15/2019
+ms.date: 7/17/2019
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -30,18 +30,18 @@ WAF also offers a configurable knob to turn the request body inspection on or of
 
 WAF exclusion lists allow you to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't considered by any configured and active WAF rule. Exclusion lists are global in scope.
 
-The following attributes can be added to exclusion lists:
+The following attributes can be added to exclusion lists by name. The values of the chosen field aren't evaluated against WAF rules, but their names still are (see Example 1 below, the value of the User-Agent header is excluded from WAF evaluation). The exclusion lists remove inspection of the field's value.
 
 * Request Headers
 * Request Cookies
-* Request attribute name (args)
+* Request attribute name (args) can be added as an exclusion element, such as:
 
-   * Form multi-part data
-   * XML
-   * JSON
-   * URL query args
+   * Form field name
+   * XML entity
+   * JSON entity
+   * URL query string args
 
-You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. The exclusion is always on a header field, never on its value. Exclusion rules are global in scope, and apply to all pages and all rules.
+You can specify an exact request header, body, cookie, or query string attribute match.  Or, you can optionally specify partial matches. Exclusion rules are global in scope, and apply to all pages and all rules.
 
 The following are the supported match criteria operators:
 
@@ -52,6 +52,9 @@ The following are the supported match criteria operators:
 - **Equals any**: This operator matches all request fields. * will be the selector value.
 
 In all cases matching is case insensitive and regular expression aren't allowed as selectors.
+
+> [!NOTE]
+> For more information and troubleshooting help, see [WAF troubleshooting](web-application-firewall-troubleshoot.md).
 
 ### Examples
 
@@ -83,10 +86,10 @@ The following Azure PowerShell cmdlet excludes the user parameter from evaluatio
 ```azurepowershell
 $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -MatchVariable "RequestArgNames" `
-   -SelectorMatchOperator "Equals" `
+   -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-So if the URL **http://www.contoso.com/?user=fdafdasfda** is passed to the WAF, it won't evaluate the string **fdafdasfda**.
+So if the URL **http://www.contoso.com/?user%281%29=fdafdasfda** is passed to the WAF, it won't evaluate the string **fdafdasfda**, but it will still evaluate the parameter name **user%281%29**. 
 
 ## Next steps
 

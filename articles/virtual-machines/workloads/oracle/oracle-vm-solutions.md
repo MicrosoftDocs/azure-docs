@@ -4,7 +4,7 @@ description: Learn about supported configurations and limitations of Oracle virt
 services: virtual-machines-linux
 documentationcenter: ''
 author: romitgirdhar
-manager: jeconnoc
+manager: gwallace
 tags: azure-resource-management
 
 ms.assetid: 
@@ -64,17 +64,29 @@ Oracle supports running Oracle DB 12.1 Standard and Enterprise editions in Azure
 
 Attached disks rely on the Azure Blob storage service. Each standard disk is capable of a theoretical maximum of approximately 500 input/output operations per second (IOPS). Our premium disk offering is preferred for high-performance database workloads and can achieve up to 5000 IOps per disk. You can use a single disk if that meets your performance needs. However, you can improve the effective IOPS performance if you use multiple attached disks, spread database data across them, and then use Oracle Automatic Storage Management (ASM). See [Oracle Automatic Storage overview](https://www.oracle.com/technetwork/database/index-100339.html) for more Oracle ASM specific information. For an example of how to install and configure Oracle ASM on a Linux Azure VM, see the [Installing and Configuring Oracle Automated Storage Management](configure-oracle-asm.md) tutorial.
 
+### Shared storage configuration options
+
+Azure NetApp Files was designed to meet the core requirements of running high-performance workloads like databases in the cloud, and provides;
+- Azure native shared NFS storage service for running Oracle workloads either through VM native NFS client, or Oracle dNFS
+- Scalable performance tiers that reflect the real-world range of IOPS demands
+- Low latency
+- High availability, high durability and manageability at scale, typically demanded by mission critical enterprise workloads (like SAP and Oracle)
+- Fast and efficient backup and recovery, to achieve the most aggressive RTO and RPO SLA’s
+
+These capabilities are possible because Azure NetApp Files is based on NetApp® ONTAP® all-flash systems running within Azure data center environment – as an Azure Native service. The result is an ideal database storage technology that can be provisioned and consumed just like other Azure storage options. See [Azure NetApp Files documentation](https://docs.microsoft.com/azure/azure-netapp-files/) for more information on how to deploy and access Azure NetApp Files NFS volumes. See [Oracle on Azure Deployment Best Practice Guide Using Azure NetApp Files](https://www.netapp.com/us/media/tr-4780.pdf) for best practice recommendations for operating an Oracle database on Azure NetApp Files.
+
+
 ## Oracle Real Application Cluster (Oracle RAC)
 Oracle RAC is designed to mitigate the failure of a single node in an on-premises multi-node cluster configuration. It relies on two on-premises technologies which are not native to hyper-scale public cloud environments: network multi-cast and shared disk. If your database solution requires Oracle RAC in Azure, you need third=party software to enable these technologies. For more information on Oracle RAC, see the [FlashGrid SkyCluster page](https://www.flashgrid.io/oracle-rac-in-azure/).
 
 ## High availability and disaster recovery considerations
 When using Oracle databases in Azure, you are responsible for implementing a high availability and disaster recovery solution to avoid any downtime. 
 
-High availability and disaster recovery for Oracle Database Enterprise Edition (without relying on Oracle RAC) can be achieved on Azure using [Data Guard, Active Data Guard](https://www.oracle.com/technetwork/articles/oem/dataguardoverview-083155.html), or [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), with two databases on two separate virtual machines. Both virtual machines should be in the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same availability set to allow Azure to place them into separate fault domains and upgrade domains. Should you want to have geo-redundancy, set up the two databases to replicate between two different regions and connect the two instances with a VPN Gateway.
+High availability and disaster recovery for Oracle Database Enterprise Edition (without relying on Oracle RAC) can be achieved on Azure using [Data Guard, Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html), or [Oracle GoldenGate](https://www.oracle.com/technetwork/middleware/goldengate), with two databases on two separate virtual machines. Both virtual machines should be in the same [virtual network](https://azure.microsoft.com/documentation/services/virtual-network/) to ensure they can access each other over the private persistent IP address.  Additionally, we recommend placing the virtual machines in the same availability set to allow Azure to place them into separate fault domains and upgrade domains. Should you want to have geo-redundancy, set up the two databases to replicate between two different regions and connect the two instances with a VPN Gateway.
 
 The tutorial [Implement Oracle Data Guard on Azure](configure-oracle-dataguard.md) walks you through the basic setup procedure on Azure.  
 
-With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](https://www.oracle.com/technetwork/database/features/availability/data-guard-documentation-152848.html) and [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
+With Oracle Data Guard, high availability can be achieved with a primary database in one virtual machine, a secondary (standby) database in another virtual machine, and one-way replication set up between them. The result is read access to the copy of the database. With Oracle GoldenGate, you can configure bi-directional replication between the two databases. To learn how to set up a high-availability solution for your databases using these tools, see [Active Data Guard](https://www.oracle.com/database/technologies/high-availability/dataguard.html) and [GoldenGate](https://docs.oracle.com/goldengate/1212/gg-winux/index.html) documentation at the Oracle website. If you need read-write access to the copy of the database, you can use [Oracle Active Data Guard](https://www.oracle.com/uk/products/database/options/active-data-guard/overview/index.html).
 
 The tutorial [Implement Oracle GoldenGate on Azure](configure-oracle-golden-gate.md) walks you through the basic setup procedure on Azure.
 

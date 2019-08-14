@@ -4,7 +4,7 @@ description: Reference for the simple query syntax used for full text search que
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 08/08/2019
 author: "brjohnstmsft"
 ms.author: "brjohnst"
 ms.manager: cgronlun
@@ -21,7 +21,7 @@ translation.priority.mt:
   - "zh-tw"
 ---
 # Simple query syntax in Azure Search
-Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/4_7_0/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.  
+Azure Search implements two Lucene-based query languages: [Simple Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/simple/SimpleQueryParser.html) and the [Lucene Query Parser](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html). In Azure Search, the simple query syntax excludes the fuzzy/slop options.  
 
 > [!NOTE]  
 >  Azure Search provides an alternative [Lucene Query Syntax](query-lucene-syntax.md) for more complex queries. To learn more about query parsing architecture and benefits of each syntax, see [How full text search works in Azure Search](search-lucene-query-architecture.md).

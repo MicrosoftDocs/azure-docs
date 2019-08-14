@@ -32,9 +32,9 @@ The first set of controls around balancing are a set of timers. These timers gov
 Each of these different types of corrections the Cluster Resource Manager can make is controlled by a different timer that governs its frequency. When each timer fires, the task is scheduled. By default the Resource Manager:
 
 * scans its state and applies updates (like recording that a node is down) every 1/10th of a second
-* sets the placement check flag 
+* sets the placement check flag every second
 * sets the constraint check flag every second
-* sets the balancing flag every five seconds.
+* sets the balancing flag every five seconds
 
 Examples of the configuration governing these timers are below:
 

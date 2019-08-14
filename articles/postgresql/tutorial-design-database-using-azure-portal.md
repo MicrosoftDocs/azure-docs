@@ -6,7 +6,7 @@ ms.author: raagyema
 ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
-ms.date: 5/16/2019
+ms.date: 06/25/2019
 ---
 # Tutorial: Design an Azure Database for PostgreSQL - Single Server using the Azure portal
 
@@ -82,7 +82,7 @@ The Azure Database for PostgreSQL service uses a firewall at the server-level. B
 
 2. In the server page, select **Connection security**. 
 
-3. Click in the text box under **Rule Name,** and add a new firewall rule to whitelist the IP range for connectivity. Enter your IP range. Click **Save**.
+3. Click in the text box under **Rule Name,** and add a new firewall rule to specify the IP range for connectivity. Enter your IP range. Click **Save**.
 
    ![Azure Database for PostgreSQL - Create Firewall Rule](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 
@@ -107,38 +107,36 @@ When you created the Azure Database for PostgreSQL server, the default **postgre
    ![Azure Database for PostgreSQL - Server Admin Login](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
 
 
-## Connect to PostgreSQL database using psql in Cloud Shell
+## Connect to PostgreSQL database using psql
+If your client computer has PostgreSQL installed, you can use a local instance of [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html), or the Azure Cloud Console to connect to an Azure PostgreSQL server. Let's now use the psql command-line utility to connect to the Azure Database for PostgreSQL server.
 
-Let's now use the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) command-line utility to connect to the Azure Database for PostgreSQL server. 
-1. Launch the Azure Cloud Shell via the terminal icon on the top navigation pane.
-
-   ![Azure Database for PostgreSQL - Azure Cloud Shell terminal icon](./media/tutorial-design-database-using-azure-portal/7-cloud-shell.png)
-
-2. The Azure Cloud Shell opens in your browser, enabling you to type bash commands.
-
-   ![Azure Database for PostgreSQL - Azure Shell Bash Prompt](./media/tutorial-design-database-using-azure-portal/8-bash.png)
-
-3. At the Cloud Shell prompt, connect to your Azure Database for PostgreSQL server using the psql commands. The following format is used to connect to an Azure Database for PostgreSQL server with the [psql](https://www.postgresql.org/docs/9.6/static/app-psql.html) utility:
-   ```bash
-   psql --host=<myserver> --port=<port> --username=<server admin login> --dbname=<database name>
+1. Run the following psql command to connect to an Azure Database for PostgreSQL database:
+   ```
+   psql --host=<servername> --port=<port> --username=<user@servername> --dbname=<dbname>
    ```
 
-   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter your server admin password when prompted.
-
-   ```bash
+   For example, the following command connects to the default database called **postgres** on your PostgreSQL server **mydemoserver.postgres.database.azure.com** using access credentials. Enter the `<server_admin_password>` you chose when prompted for password.
+  
+   ```
    psql --host=mydemoserver.postgres.database.azure.com --port=5432 --username=myadmin@mydemoserver --dbname=postgres
    ```
 
-## Create a new database
-Once you're connected to the server, create a blank database at the prompt.
-```bash
-CREATE DATABASE mypgsqldb;
-```
+   > [!TIP]
+   > If you prefer to use a URL path to connect to Postgres, URL encode the @ sign in the username with `%40`. For example the connection string for psql would be,
+   > ```
+   > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
+   > ```
 
-At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**.
-```bash
-\c mypgsqldb
-```
+2. Once you are connected to the server, create a blank database at the prompt:
+   ```sql
+   CREATE DATABASE mypgsqldb;
+   ```
+
+3. At the prompt, execute the following command to switch connection to the newly created database **mypgsqldb**:
+   ```sql
+   \c mypgsqldb
+   ```
+
 ## Create tables in the database
 Now that you know how to connect to the Azure Database for PostgreSQL, you can complete some basic tasks:
 

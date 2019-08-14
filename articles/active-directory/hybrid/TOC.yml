@@ -22,12 +22,14 @@
      items:
      - name: Cloud Governed Management for On-Premises Workloads
        href: cloud-governed-management-for-on-premises.md
+     - name: Four steps to a strong identity foundation
+       href: four-steps.md
    - name: Azure AD Connect and Connect Health
      items:
      - name: What is Azure AD Connect and Connect Health?
        href: whatis-azure-ad-connect.md
      - name: Choose the right authentication
-       href: https://docs.microsoft.com/azure/security/azure-ad-choose-authn
+       href: https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn
      - name: Identity synchronization and duplicate attribute resiliency
        href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
    - name: Password hash synchronization
@@ -68,6 +70,8 @@
      items:
      - name: What is Azure AD Connect Sync?
        href: how-to-connect-sync-whatis.md
+     - name: Azure ADSync service account
+       href: concept-adsync-service-account.md
      - name: Azure AD Connect Sync features
        href: how-to-connect-syncservice-features.md
      - name: What is the Azure AD Connect Sync service manager?

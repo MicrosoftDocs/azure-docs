@@ -112,8 +112,16 @@
       items:
       - name: Manage via Azure portal
         href: data-box-portal-ui-admin.md
-      - name: Troubleshoot Data Box Disk issues
-        href: data-box-disk-troubleshoot.md 
+      - name: Troubleshoot
+        items:
+        - name: Unlock issues
+          href: data-box-disk-troubleshoot-unlock.md
+        - name: Data copy issues
+          href: data-box-disk-troubleshoot-data-copy.md
+        - name: Validation issues
+          href: data-box-disk-troubleshoot.md
+        - name: Upload issues
+          href: data-box-disk-troubleshoot-upload.md 
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
 
@@ -137,10 +145,20 @@
         items:
         - name: Via SMB
           href: data-box-heavy-deploy-copy-data.md 
+        - name: Via NFS
+          href: data-box-heavy-deploy-copy-data-via-nfs.md 
+        - name: Via REST
+          href: data-box-heavy-deploy-copy-data-via-rest.md 
+        - name: Via data copy service
+          href: data-box-heavy-deploy-copy-data-via-copy-service.md 
+        - name: To managed disks
+          href: data-box-heavy-deploy-copy-data-from-vhds.md 
       - name: 4 - Return, upload, verify
         href: data-box-heavy-deploy-picked-up.md  
     - name: Concepts
       items:
+      - name: Read safety guidelines
+        href: data-box-heavy-safety.md
       - name: Review tracking and logging
         href: data-box-logs.md
       - name: Review requirements

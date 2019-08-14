@@ -195,7 +195,7 @@ In this step, you create a new pipeline with a Hive activity. The activity execu
 Note the following points:
 
 - **scriptPath** points to path to Hive script on the Azure Storage Account you used for MyStorageLinkedService. The path is case-sensitive.
-- **Output** is an argument used in the Hive script. Use the format of `wasb://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case-sensitive. 
+- **Output** is an argument used in the Hive script. Use the format of `wasbs://<Container>@<StorageAccount>.blob.core.windows.net/outputfolder/` to point it to an existing folder on your Azure Storage. The path is case-sensitive. 
 
 1. In the Data Factory UI, click **+ (plus)** in the left pane, and click **Pipeline**. 
 
@@ -220,7 +220,7 @@ Note the following points:
         ![Script settings](./media/tutorial-transform-data-using-hive-in-vnet-portal/confirm-hive-script-settings.png)
     5. In the **Script tab**, expand **Advanced** section. 
     6. Click **Auto-fill from script** for **Parameters**. 
-    7. Enter the value for the **Output** parameter in the following format: `wasb://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. For example: `wasb://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
+    7. Enter the value for the **Output** parameter in the following format: `wasbs://<Blob Container>@<StorageAccount>.blob.core.windows.net/outputfolder/`. For example: `wasbs://adftutorial@mystorageaccount.blob.core.windows.net/outputfolder/`.
  
         ![Script arguments](./media/tutorial-transform-data-using-hive-in-vnet-portal/script-arguments.png)
 1. To publish artifacts to Data Factory, click **Publish**.

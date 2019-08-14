@@ -1,16 +1,15 @@
 ---
-title: Speech translation with Azure Speech Services
-titlesuffix: Azure Cognitive Services
-description: The Speech Services let you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
+title: Speech translation with Speech Service
+titleSuffix: Azure Cognitive Services
+description: Speech Service lets you add end-to-end, real-time, multi-language translation of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 07/05/2019
 ms.author: erhopf
-ms.custom: seodec18
 ---
 
 # What is speech translation?
@@ -41,7 +40,7 @@ We offer quickstarts designed to have you running code in less than 10 minutes. 
 | [C#, .NET Framework](quickstart-translate-speech-dotnetframework-windows.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C#, UWP](quickstart-translate-speech-uwp.md) | Windows | [Browse](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-translate-speech-cpp-windows.md) | Windows | [Browse](https://aka.ms/csspeech/cppref)|
-| [Java](quickstart-translate-speech-java-jre.md) | Windows | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-translate-speech-java-jre.md) | Windows, Linux, macOS | [Browse](https://aka.ms/csspeech/javaref) |
 
 ## Sample code
 
@@ -51,10 +50,7 @@ Sample code for the Speech SDK is available on GitHub. These samples cover commo
 
 ## Migration guides
 
-> [!WARNING]
-> Translator Speech will be decommissioned on October 15, 2019.
-
-If your applications, tools, or products are using Translator Speech, we've created guides to help you migrate to the Speech Services.
+If your applications, tools, or products are using the [Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/overview), we've created guides to help you migrate to the Speech Services.
 
 * [Migrate from the Translator Speech API to the Speech Services](how-to-migrate-from-translator-speech-api.md)
 

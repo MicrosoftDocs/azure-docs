@@ -69,7 +69,7 @@ You have control over the Spark execution environment for your Data Flow activit
 
 ### Staging area
 
-If you are sinking your data into Azure Data Warehouse, you must choose a staging location for your Polybase batch load.
+If you are sinking your data into Azure Data Warehouse, you must choose a staging location for your Polybase batch load. The staging settings are only applicable to Azure Data Warehouse workloads.
 
 ## Parameterized datasets
 
@@ -77,11 +77,17 @@ If you are using parameterized datasets, be sure to set the parameter values.
 
 ![Execute Data Flow Parameters](media/data-flow/params.png "Parameters")
 
-### Debugging parameterized data flows
+## Parameterized data flows
 
-You can only debug data flows with parameterized datasets from the Pipeline Debug run using the execute data flow activity. Currently, interactive debug sessions in ADF Data Flow do not work with parameterized data sets. Pipeline executions and debug runs will work with parameters.
+If you have parameters inside of your data flow, you will set the dynamic values of your data flow parameters here in the Parameters section of the Execute Data Flow activity. You can use either the ADF Pipeline Expression language (only for String parameter types) or the Data Flow Expression language to set the parameter values with dynamic expressions or literal static values.
 
-A good practice is to build your data flow with a static dataset so that you have full metadata column propagation available at design-time. Then replace the static dataset with a dynamic parameterized dataset when you operationalize your data flow pipeline.
+![Execute Data Flow Parameter Example](media/data-flow/parameter-example.png "Parameter Example")
+
+### Debugging data flows with parameters
+
+At this current time, you can only debug data flows with parameters from the Pipeline Debug run using the execute data flow activity. Interactive debug sessions in ADF Data Flow is coming soon. Pipeline executions and debug runs, however, will work with parameters.
+
+A good practice is to build your data flow with static content so that you have full metadata column propagation available at design-time for trouble-shooting. Then replace the static dataset with a dynamic parameterized dataset when you operationalize your data flow pipeline.
 
 ## Next steps
 See other control flow activities supported by Data Factory: 

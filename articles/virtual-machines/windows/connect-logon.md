@@ -4,7 +4,7 @@ description: Learn how to connect and sign on to a Windows VM using the Azure po
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: jeconnoc
+manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
 

@@ -4,7 +4,7 @@ description: Learn about Red Hat Update Infrastructure for on-demand Red Hat Ent
 services: virtual-machines-linux
 documentationcenter: ''
 author: asinn826
-manager: jeconnoc
+manager: BorisB2015
 editor: ''
 
 ms.assetid: f495f1b4-ae24-46b9-8d26-c617ce3daf3a
@@ -122,6 +122,11 @@ Run the following as root:
     yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
 
+1. Configure RHEL VM
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+    
 1. Update your RHEL VM
     ```bash
     sudo yum update

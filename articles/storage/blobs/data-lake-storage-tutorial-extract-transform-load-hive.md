@@ -1,9 +1,7 @@
 ---
 title: 'Tutorial: Perform extract, transform, load (ETL) operations by using Apache Hive on Azure HDInsight'
 description: In this tutorial, you learn how to extract data from a raw CSV dataset, transform it by using Apache Hive on Azure HDInsight, and then load the transformed data into Azure SQL Database by using Sqoop.
-services: storage
 author: normesta
-
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
@@ -41,9 +39,6 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 * **Azure CLI**: If you haven't installed the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 * **A Secure Shell (SSH) client**: For more information, see [Connect to HDInsight (Hadoop) by using SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-
-> [!IMPORTANT]
-> The steps in this article require an HDInsight cluster that uses Linux. Linux is the only operating system that's used on Azure HDInsight version 3.4 or later. For more information, see [HDInsight retirement on Windows](../../hdinsight/hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 ## Download the flight data
 
@@ -237,7 +232,7 @@ You need the server name from your SQL database for this operation. Complete the
 
     ![Get Azure SQL server details](./media/data-lake-storage-tutorial-extract-transform-load-hive/get-azure-sql-server-details.png "Get Azure SQL server details")
 
-    There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](http://www.freetds.org/) from the HDInsight cluster.
+    There are many ways to connect to SQL Database and create a table. The following steps use [FreeTDS](https://www.freetds.org/) from the HDInsight cluster.
 
 5. To install FreeTDS, use the following command from an SSH connection to the cluster:
 

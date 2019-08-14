@@ -10,8 +10,7 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
-manager: craigg
-ms.date: 09/25/2018
+ms.date: 06/26/2019
 ---
 # Getting Started with Temporal Tables in Azure SQL Database
 
@@ -189,6 +188,7 @@ With system-versioned temporal tables, the history table may increase the databa
 * [Custom Cleanup Script](https://msdn.microsoft.com/library/mt637341.aspx#Anchor_3)
 
 ## Next steps
-For detailed information on Temporal Tables, check out [MSDN documentation](https://msdn.microsoft.com/library/dn935015.aspx).
-Visit Channel 9 to hear a [real customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
+
+- For more information on Temporal Tables, see check out [Temporal Tables](https://docs.microsoft.com/sql/relational-databases/tables/temporal-tables).
+- Visit Channel 9 to hear a [real customer temporal implementation success story](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) and watch a [live temporal demonstration](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 

@@ -10,34 +10,33 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 01/25/2019
 ---
 # Monitoring and performance tuning
 
-Azure SQL Database enables you to easily monitor usage, add or remove resources (CPU, memory, I/O), troubleshoot the potential issues, and find recommendations that can improve performance of your database. Azure SQL Database has many features that can automatically fix the issues in your databases if you want to let database adapt to your workload and automatically optimize performance. However, there are some custom issues that you might need to troubleshoot. This article explains some best practices and tools that you can use to troubleshoot the performance issues.
+Azure SQL Database provides tools and methods to easily monitor usage, add or remove resources (CPU, memory, I/O), troubleshoot the potential issues, and find recommendations that can improve performance of a database. Azure SQL Database has many features that can automatically fix the issues in the databases that will let a database adapt to the workload and automatically optimize performance. However, there are some custom issues that might need troubleshooting. This article explains some best practices and tools that can be used to troubleshoot the performance issues.
 
-There are two main activities that you need to do in order to ensure that you database is running without issues:
-- [Monitoring database performance](#monitoring-database-performance) in order to make sure that the resources assigned to your database can handle your workload. If you see that you are hitting the resource limits, you would need to identify top resource consuming queries and optimize them, or to add more resources by upgrading service tier.
-- [Troubleshoot performance issues](#troubleshoot-performance-issues) in order to identify why some potential issue happened, identify root cause of the issue and the action that will fix the issue.
+There are two main activities that should be done to ensure that a database is running without issues:
+- [Monitoring database performance](#monitoring-database-performance) to make sure that the resources assigned to the database can handle the workload. If you see that a database is hitting the resource limits, top resource consuming queries should be identified and optimized, or more resources should be added by upgrading service tier.
+- [Troubleshoot performance issues](#troubleshoot-performance-issues) to identify why some potential issue happened, identify root cause of the issue and perform action that will fix the issue.
 
 ## Monitoring database performance
 
-Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. You need to monitor the following resources:
- - **CPU usage** - you need to check are you reaching 100% of CPU usage in a longer period of time. This might indicate that you might need to upgrade you database or instance or identify and tune the queries that are using most of the compute power.
- - **Wait statistics** - you need to check what why your queries are waiting for some resources. Queriesmig wait for data to be fetched or saved to the database files, waiting because some resource limit is reached, etc.
- - **IO usage** - you need to check are you reaching the IO limits of the underlying storage.
- - **Memory usage** - the amount of memory available for your database or instance is proportional to the number of vCores, and you need to check is it enough for your workload. Page life expectancy is one of the parameters that can indicate are your pages quickly removed from the memory.
+Monitoring the performance of a SQL database in Azure starts with monitoring the resource utilization relative to the level of database performance you choose. Following resources should be monitored for the same:
+ - **CPU usage** - Check if the database is reaching 100% of CPU usage for an extended period of time. This might indicate that the database or instance must be upgraded to a higher service tier or the queries using most of the compute power should be identified and tuned.
+ - **Wait statistics** - Check why are queries waiting for some resources. Queries wait for data to be fetched or saved to the database files, waiting because some resource limit is reached, etc.
+ - **IO usage** - Check if the database is reaching the IO limits of the underlying storage.
+ - **Memory usage** - The amount of memory available for the database or instance is proportional to the number of vCores, and check if this is enough for the workload. Page life expectancy is one of the parameters that can indicate how quickly the pages are removed from the memory.
 
-Azure SQL Database **provides the advices that can help you troubleshoot and fix potential performance issues**. You can easily identify opportunities to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. You can apply these tuning recommendations to improve performance of your workload. You can also let Azure SQL database to [automatically optimize performance of your queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying that they improve database performance.
+Azure SQL Database service **includes the tools and resources to help troubleshoot and fix potential performance issues**. Opportunities can be easily identified to improve and optimize query performance without changing resources by reviewing [performance tuning recommendations](sql-database-advisor.md). Missing indexes and poorly optimized queries are common reasons for poor database performance. These tuning recommendations can be applied to improve performance of the workload. We can also let Azure SQL database to [automatically optimize performance of the queries](sql-database-automatic-tuning.md) by applying all identified recommendations and verifying this improves database performance.
 
-You have the following options for monitoring and troubleshooting database performance:
+Following options are available for monitoring and troubleshooting database performance:
 
-- In the [Azure portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
-- Tools such as SQL Server Management Studio provide many useful reports like a [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) where you can monitor resource utilization and identify top resource consuming queries, or [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) where you can identify the queries with regressed performance.
-- Use [Query Performance Insight](sql-database-query-performance.md) the [Azure portal](https://portal.azure.com) in  to identify the queries that spend the most of resources. This feature is available in Single Database and Elastic Pools only.
+- In the [Azure portal](https://portal.azure.com), click **SQL databases**, select the database, and then use the Monitoring chart to look for resources approaching their maximum utilization. DTU consumption is shown by default. Click **Edit** to change the time range and values shown.
+- Tools such as SQL Server Management Studio provide many useful reports like a [Performance Dashboard](https://docs.microsoft.com/sql/relational-databases/performance/performance-dashboard?view=sql-server-2017) to monitor resource utilization and identify top resource consuming queries, or [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store#Regressed) to identify the queries with regressed performance.
+- Use [Query Performance Insight](sql-database-query-performance.md) in the [Azure portal](https://portal.azure.com) to identify the queries that spend the most of the resources. This feature is available in Single Database and Elastic Pools only.
 - Use [SQL Database Advisor](sql-database-advisor-portal.md) to view recommendations for creating and dropping indexes, parameterizing queries, and fixing schema issues. This feature is available in Single Database and Elastic Pools only.
-- Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of your database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
+- Use [Azure SQL Intelligent Insights](sql-database-intelligent-insights.md) for automatic monitoring of the database performance. Once a performance issue is detected, a diagnostic log is generated with details and Root Cause Analysis (RCA) of the issue. Performance improvement recommendation is provided when possible.
 - [Enable automatic tuning](sql-database-automatic-tuning-enable.md) and let Azure SQL database automatically fix identified performance issues.
 - Use [dynamic management views (DMVs)](sql-database-monitoring-with-dmvs.md), [extended events](sql-database-xevent-db-diff-from-svr.md), and the [Query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) for more detailed troubleshooting of performance issues.
 
@@ -46,38 +45,38 @@ You have the following options for monitoring and troubleshooting database perfo
 
 ## Troubleshoot performance issues
 
-To diagnose and resolve performance issues, begin by understanding the state of each active query and the conditions that cause performance issues relevant to each workload state. To improve Azure SQL Database performance, understand that each active query request from your application is either in a running or a waiting state. When troubleshooting a performance issue in Azure SQL Database, keep the following chart in mind as you read through this article to diagnose and resolve performance issues.
+To diagnose and resolve performance issues, begin by understanding the state of each active query and the conditions that cause performance issues relevant to each workload state. To improve Azure SQL Database performance, understand that each active query request from the application is either in a running or a waiting state. When troubleshooting a performance issue in Azure SQL Database, keep the following chart in mind as we read through this article to diagnose and resolve performance issues.
 
 ![Workload states](./media/sql-database-monitor-tune-overview/workload-states.png)
 
 For a workload with performance issues, the performance issue may be due to CPU contention (a **running-related** condition) or individual queries are waiting on something (a **waiting-related** condition).
 
-The causes or **running-related** issues might be:
-- **Compilation issues** - SQL Query Optimizer might produce sub-optimal plan due to stale statistics, incorrect estimation of the number of rows that will be processed, or the estimate of required memory. If you know that query was executed faster in the past or on other instance (either Managed Instance or SQL Server instance), take the actual execution plans and compare them to see are they different. Try to apply query hints or rebuilds statistics or indexes to get the better plan. Enable Automatic plan correction in Azure SQL Database to automatically mitigate these issues.
-- **Execution issues** - if the query plan is optimal then it is probably hitting some resource limits in the database such as log write throughput or it might use defragmented indexes that should be rebuilt. A large number of concurrent queries that are spending the resources might also be the cause of execution issues. **Waiting-related** issues are in most of the cases related to the execution issues, because the queries that are not executing efficiently are probably waiting for some resources.
+The causes for **running-related** issues might be:
+- **Compilation issues** - SQL Query Optimizer might produce sub-optimal plan due to stale statistics, incorrect estimation of the number of rows that will be processed, or the estimate of required memory. If we know that query was executed faster in the past or on other instance (either Managed Instance or SQL Server instance), take the actual execution plans and compare them to see if they are different. Try to apply query hints or rebuild statistics or rebuild indexes to get the better plan. Enable Automatic plan correction in Azure SQL Database to automatically mitigate these issues.
+- **Execution issues** - If the query plan is optimal then it is probably hitting some resource limits in the database such as log write throughput or it is using defragmented indexes that should be rebuilt. A large number of concurrent queries that are spending the resources might also be the cause of execution issues. **Waiting-related** issues in most of the cases are related to the execution issues, because the queries that are not executing efficiently are probably waiting for some resources.
 
-The causes or **waiting-related** issues might be:
-- **Blocking** - one query might hold the lock on some objects in database while others are trying to access the same objects. You can easily identify the blocking queries using DMV or monitoring tools.
-- **IO issues** - queries might be waiting for the pages to be written to the data or log files. In this case you will see `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
-- **TempDB issues** - if you are using a lot of temporary tables or you see a lot of TempDB spills in your plans your queries you might have an issue with TempDB throughput. 
-- **Memory-related issues** - you might not have enough memory for your workload so your page life expectancy might drop, or your queries are getting less memory grant than needed. In some cases, built-in intelligence in Query Optimizer will fix these issues.
+The causes for **waiting-related** issues might be:
+- **Blocking** - One query might hold the lock on some objects in database while others are trying to access the same objects. Blocking queries can be easily identified using DMV or monitoring tools.
+- **IO issues** - Queries might be waiting for the pages to be written to the data or log files. In this case see `INSTANCE_LOG_RATE_GOVERNOR`, `WRITE_LOG`, or `PAGEIOLATCH_*` wait statistics in the DMV.
+- **TempDB issues** - If the workload uses a lot of temporary tables or there are a lot of TempDB spills in the plans the queries might have an issue with TempDB throughput. 
+- **Memory-related issues** - There may not be enough memory for the workload so the page life expectancy might drop, or the queries are getting less memory than needed. In some cases, built-in intelligence in Query Optimizer will fix these issues.
  
-In the following sections will be explained how to identify and troubleshoot some of these issues.
+ The following sections will explain how to identify and troubleshoot some of these issues.
 
 ## Running-related performance issues
 
-As a general guideline, if your CPU utilization is consistently at or above 80%, you have a running-related performance issue. If you have a running-related issue, it may be caused by insufficient CPU resources or it may be related to one of the following conditions:
+As a general guideline, if the CPU utilization is consistently at or above 80%, there is a running-related performance issue. If there is a running-related issue, it may be caused by insufficient CPU resources or it may be related to one of the following conditions:
 
 - Too many running queries
 - Too many compiling queries
 - One or more executing queries are using a sub-optimal query plan
 
-If you determine that you have a running-related performance issue, your goal is to identify the precise issue using one or more methods. The most common methods for identifying running-related issues are:
+If it is determined that there is a running-related performance issue, the goal is to identify the precise issue using one or more methods. The most common methods for identifying running-related issues are:
 
 - Use the [Azure portal](sql-database-manage-after-migration.md#monitor-databases-using-the-azure-portal) to monitor CPU percentage utilization.
 - Use the following [dynamic management views](sql-database-monitoring-with-dmvs.md):
 
-  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU, I/O, and memory consumption for an Azure SQL Database database. One row exists for every 15 seconds, even if there is no activity in the database. Historical data is maintained for one hour.
+  - [sys.dm_db_resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU, I/O, and memory consumption for an Azure SQL Database. One row exists for every 15 seconds interval, even if there is no activity in the database. Historical data is maintained for one hour.
   - [sys.resource_stats](sql-database-monitoring-with-dmvs.md#monitor-resource-use) returns CPU usage and storage data for an Azure SQL Database. The data is collected and aggregated within five-minute intervals.
 
 > [!IMPORTANT]
@@ -87,7 +86,7 @@ If you determine that you have a running-related performance issue, your goal is
 
 The parameter sensitive plan (PSP) problem refers to a scenario where the query optimizer generates a query execution plan that is optimal only for a specific parameter value (or set of values) and the cached plan is then non-optimal for parameter values used in consecutive executions. Non-optimal plans can then result in query performance issues and overall workload throughput degradation. For more information on parameter sniffing and query processing, see the [Query Processing Architecture Guide](/sql/relational-databases/query-processing-architecture-guide#ParamSniffing).
 
-There are several workarounds used to mitigate issues, each with associated tradeoffs and drawbacks:
+There are several workarounds used to mitigate these issues, each with associated tradeoffs and drawbacks:
 
 - Use the [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint at each query execution. This workaround trades compilation time and increased CPU for better plan quality. Using the `RECOMPILE` option is often not possible for workloads that require a high throughput.
 - Use the [OPTION (OPTIMIZE FOR…)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) query hint to override the actual parameter value with a typical parameter value that produces a good enough plan for most parameter value possibilities.   This option requires a good understanding of optimal parameter values and associated plan characteristics.
@@ -113,7 +112,7 @@ SELECT * FROM t1 JOIN t2 ON t1.c1 = t2.c1
 WHERE t1.c1 = @p1 AND t2.c2 = '961C3970-0E54-4E8E-82B6-5545BE897F8F'
 ```
 
-In the prior example, `t1.c1` takes `@p1` but `t2.c2` continues take GUID as literal. In this case, if you change value for `c2`, the query will be treated as a different query and a new compilation will occur. To reduce compilations in the prior example, the solution is to also parameterize the GUID.
+In the prior example, `t1.c1` takes `@p1` but `t2.c2` continues to take GUID as literal. In this case, if you change value for `c2`, the query will be treated as a different query and a new compilation will occur. To reduce compilations in the prior example, the solution is to also parameterize the GUID.
 
 The following query shows the count of queries by query hash to determine if a query is properly parameterized or not:
 
@@ -148,9 +147,9 @@ A compiled plan may be ejected from cache for a variety of reasons, including in
 
 A recompilation (or fresh compilation after cache eviction) can still result in the generation of an identical query execution plan from the one originally observed.  If, however, there are changes to the plan compared to the prior or original plan, the following are the most common explanations for why a query execution plan changed:
 
-- **Changed physical design**. For example, new indexes created that more effectively cover the requirements of a query may be used on a new compilation if the query optimizer decides it is more optimal to leverage that new index than use the data structure originally selected for the first version of the query execution.  Any physical changes to the referenced objects may result in a new plan choice at compile-time.
+- **Changed physical design**. For example, new indexes were created that more effectively cover the requirements of a query. These may be used on a new compilation if the query optimizer decides it is more optimal to leverage that new index than use the data structure originally selected for the first version of the query execution.  Any physical changes to the referenced objects may result in a new plan choice at compile-time.
 
-- **Server resource differences**. In a scenario where one plan differs on “system A” vs. “system B” – the availability of resources, such as number of available processors, can influence what plan gets generated.  For example, if one system has a higher number of processors, a parallel plan may be chosen. 
+- **Server resource differences**. In a scenario where one plan differs on “system A” vs. “system B” – the availability of resources, such as number of available processors, can influence which plan gets generated.  For example, if one system has a higher number of processors, a parallel plan may be chosen. 
 
 - **Different statistics**. The statistics associated with the referenced objects changed or are materially different from the original system’s statistics.  If the statistics change and a recompile occurs, the query optimizer will use statistics as of that specific point in time. The revised statistics may have significantly different data distributions and frequencies that were not the case in the original compilation.  These changes are used to estimate cardinality estimates (number of rows anticipated to flow through the logical query tree).  Changes to cardinality estimates can lead us to choose different physical operators and associated order-of-operations.  Even minor changes to statistics can result in a changed query execution plan.
 

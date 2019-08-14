@@ -4,9 +4,9 @@ description: This article describes how you can now update common Azure PowerShe
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 05/30/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -30,9 +30,7 @@ If you develop your scripts locally, it's recommended to have the same module ve
 
 The following are some considerations to take into account when using this process to update your Azure Modules:
 
-* This runbook supports updating only the **Azure** and **AzureRm** modules currently. [Azure PowerShell Az modules](/powershell/azure/new-azureps-module-az) are supported in Automation accounts, but cannot be updated with this runbook. There are important factors that you need to take into account when using the `Az` modules in your Automation Account, to learn more, see [Using Az modules in your Automation Account](az-modules.md).
-
-* Avoid starting this runbook on Automation accounts that contain Az modules.
+* This runbook supports updating the **Azure** and **AzureRm** modules by default. This runbook supports updating the **Az** modules as well. Review the [Update Azure modules runbook README](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) for more information on updating `Az` modules with this runbook. There are additional important factors that you need to take into account when using the `Az` modules in your Automation Account, to learn more, see [Using Az modules in your Automation Account](az-modules.md).
 
 * Before starting this runbook, make sure your Automation account has an [Azure Run As account credential](manage-runas-account.md) created.
 

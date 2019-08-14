@@ -63,7 +63,7 @@ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 The error you might see when you try to run the command looks like this:
 
 ```apache
-hdiuser@hn0-spark2:~$ hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
+hdfs dfs -D "fs.default.name=hdfs://mycluster/" -mkdir /temp
 17/04/05 16:20:52 WARN retry.RetryInvocationHandler: Exception while invoking ClientNamenodeProtocolTranslatorPB.mkdirs over hn0-spark2.2oyzcdm4sfjuzjmj5dnmvscjpg.dx.internal.cloudapp.net/10.0.0.22:8020. Not retrying because try once and fail.
 org.apache.hadoop.ipc.RemoteException(org.apache.hadoop.hdfs.server.namenode.SafeModeException): Cannot create directory /temp. Name node is in safe mode.
 It was turned on manually. Use "hdfs dfsadmin -safemode leave" to turn safe mode off.
@@ -127,7 +127,7 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
    ```
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
+   hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -report
    Safe mode is ON
    Configured Capacity: 3372381241344 (3.07 TB)
    Present Capacity: 3138625077248 (2.85 TB)
@@ -164,7 +164,7 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
 2. You also can check the integrity of the HDFS on the HDInsight cluster by using the following commands:
 
    ```apache
-   hdiuser@hn0-spark2:~$ hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
+   hdfs fsck -D "fs.default.name=hdfs://mycluster/" /
    ```
 
    ```apache

@@ -83,7 +83,7 @@
   - name: Plan
     items:
     - name: Web application architectures
-      href: https://docs.microsoft.com/azure/architecture/reference-architectures/managed-web-app/
+      href: https://docs.microsoft.com/azure/architecture/reference-architectures/app-service-web-app/basic-web-app
     - name: VM architectures
       href: https://docs.microsoft.com/azure/architecture/reference-architectures/virtual-machines-windows/
     - name: Connect to on-premises networks

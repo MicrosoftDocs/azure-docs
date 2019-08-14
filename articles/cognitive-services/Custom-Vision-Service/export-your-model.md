@@ -1,6 +1,6 @@
 ---
 title: Export your model to mobile - Custom Vision Service
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to export your model for use in creating mobile applications.
 services: cognitive-services
 author: anrothMSFT

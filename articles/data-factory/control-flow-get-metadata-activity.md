@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -42,27 +42,27 @@ The GetMetadata Activity takes a dataset as a required input, and outputs metada
 
 | Connector/Metadata | itemName<br>(file/folder) | itemType<br>(file/folder) | size<br>(file) | created<br>(file/folder) | lastModified<br>(file/folder) |childItems<br>(folder) |contentMD5<br>(file) | structure<br/>(file) | columnCount<br>(file) | exists<br>(file/folder) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
-| Amazon S3 | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Google Cloud Storage | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
-| Azure Blob | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
-| Azure Data Lake Storage Gen1 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Azure Data Lake Storage Gen2 | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| Azure File Storage | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| File System | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
-| SFTP | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| FTP | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
+| [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
+| [Azure Blob](connector-azure-blob-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | √ | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [Azure File Storage](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [File System](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
+| [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x	| √/√ | √ | x | √ | √ | √/√ |
 
-- For Amazon S3 and Google Sloud Storage, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
+- For Amazon S3 and Google Cloud Storage, the `lastModified` applies to bucket and key but not virtual folder; ; and the `exists` applies to bucket and key but not prefix or virtual folder.
 - For Azure Blob, the `lastModified` applies to container and blob but not virtual folder.
 
 **Relational database:**
 
 | Connector/Metadata | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
-| Azure SQL Database | √ | √ | √ |
-| Azure SQL Database Managed Instance | √ | √ | √ |
-| Azure SQL Data Warehouse | √ | √ | √ |
-| SQL Server | √ | √ | √ |
+| [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
+| [Azure SQL Database Managed Instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
+| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### Metadata options
 
@@ -83,6 +83,9 @@ The following metadata types can be specified in the GetMetadata activity field 
 
 >[!TIP]
 >When you want to validate if a file/folder/table exists or not, specify `exists` in the GetMetadata activity field list, then you can check the `exists: true/false` result from the activity output. If `exists` is not configured in the field list, the GetMetadata activity will fail when the object is not found.
+
+>[!NOTE]
+>When you get metadata from file stores and configure `modifiedDatetimeStart` and/or `modifiedDatetimeEnd`, the `childItems` in output only returns files under the given path with last modified time between the range, but no sub-folders.
 
 ## Syntax
 
@@ -132,6 +135,8 @@ Property | Description | Required
 -------- | ----------- | --------
 fieldList | Lists the types of metadata information required. See details in [Metadata options](#metadata-options) section on supported metadata. | Yes 
 dataset | The reference dataset whose metadata activity is to be retrieved by the GetMetadata Activity. See [Supported capabilities](#supported-capabilities) section on supported connectors, and refer to connector topic on dataset syntax details. | Yes
+formatSettings | Apply when using format type dataset. | No
+storeSettings | Apply when using format type dataset. | No
 
 ## Sample output
 

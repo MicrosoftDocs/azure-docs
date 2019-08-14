@@ -127,6 +127,28 @@
       href: sql-data-warehouse-overview-develop.md
     - name: Best practices
       href: sql-data-warehouse-best-practices-development.md
+    - name: JSON
+      items:
+      - name: JSON
+        href: /sql/t-sql/functions/json-functions-transact-sql?view=azure-sqldw-latest
+      - name: ISJSON
+        href: /sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest
+      - name: JSON_VALUE
+        href: /sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest
+      - name: JSON_QUERY
+        href: /sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest
+      - name: JSON_MODIFY
+        href: /sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest
+      - name: OPENJSON
+        href: /sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest
+    - name: Materialized view
+      items:
+      - name: Create
+        href: /sql/t-sql/statements/create-materialized-view-as-select-transact-sql
+      - name: Alter
+        href: /sql/t-sql/statements/alter-materialized-view-transact-sql
+    - name: Result set caching
+      href: /sql/t-sql/statements/set-result-set-caching-transact-sql  
     - name: Tables
       items:
       - name: Overview
@@ -215,7 +237,7 @@
     items:
     - name: Configure Azure AD auth
       href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json
-    - name: Conditional access
+    - name: Conditional Access
       href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json
     - name: Virtual network rules by PowerShell
       href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json
@@ -265,14 +287,22 @@
     items:
     - name: Upgrade to Gen2
       href: upgrade-to-latest-generation.md
-    - name: Restore your data warehouse
-      href: sql-data-warehouse-restore.md
     - name: Monitor your workload - Portal 
       href: sql-data-warehouse-monitor-workload-portal.md
     - name: Monitor your workload - DMVs 
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
       href: sql-data-warehouse-how-to-monitor-cache.md
+  - name: Backup and restore
+    items:
+    - name: Create restore points
+      href: sql-data-warehouse-restore-points.md
+    - name: Restore an existing data warehouse
+      href: sql-data-warehouse-restore-active-paused-dw.md
+    - name: Restore a deleted data warehouse 
+      href: sql-data-warehouse-restore-deleted-dw.md
+    - name: Restore from a geo-backup 
+      href: sql-data-warehouse-restore-from-geo-backup.md 
   - name: Integrate
     items:
     - name: Use machine learning
@@ -295,6 +325,8 @@
       href: sql-data-warehouse-troubleshoot-connectivity.md   
 - name: Reference
   items:
+  - name: Database collation types
+    href: sql-data-warehouse-reference-collation-types.md
   - name: T-SQL
     items:
     - name: Full reference

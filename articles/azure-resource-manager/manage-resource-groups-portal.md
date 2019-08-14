@@ -6,9 +6,6 @@ documentationcenter: ''
 author: mumian
 
 ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
@@ -105,14 +102,6 @@ You can apply tags to resource groups and resources to logically organize your a
 ## Export resource groups to templates
 
 For information about exporting templates, see [Single and multi-resource export to template - Portal](export-template-portal.md).
-
-### Fix export issues
-
-Not all resource types support the export template function. You only see export issues when exporting from a resource group rather than from your deployment history. If your last deployment accurately represents the current state of the resource group, you should export the template from the deployment history rather than from the resource group. Only export from a resource group when you have made changes to the resource group that aren't defined in a single template.
-
-To resolve export issues, manually add the missing resources back into your template. The error message includes the resource types that can't be exported. Find that resource type in [Template reference](/azure/templates/). For example, to manually add a virtual network gateway, see [Microsoft.Network/virtualNetworkGateways template reference](/azure/templates/microsoft.network/virtualnetworkgateways). The template reference gives you the JSON to add the resource to your template.
-
-After getting the JSON format for the resource, you need to get the resource values. You can see the values for the resource by using the GET operation in the REST API for the resource type. For example, to get the values for your virtual network gateway, see [Virtual Network Gateways - Get](/rest/api/network-gateway/virtualnetworkgateways/get).
 
 ## Manage access to resource groups
 

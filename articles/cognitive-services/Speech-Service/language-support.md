@@ -1,14 +1,14 @@
 ---
-title: Language support - Speech Services
+title: Language support - Speech Service
 titleSuffix: Azure Cognitive Services
-description: The Azure Speech Services support numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service.
+description: The Speech Service supports numerous languages for speech-to-text and text-to-speech conversion, along with speech translation. This article provides a comprehensive list of language support by service feature.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 07/05/2019
 ms.author: erhopf
 ms.custom: seodec18
 ---
@@ -19,19 +19,19 @@ Different languages are supported for different Speech Services functions. The f
 
 ## Speech-to-text
 
-The Microsoft speech recognition API supports the following languages. Different levels of customization are available for each language.
+Both the Microsoft speech recognition SDK and the REST API support the following languages (locales). Different levels of customization are available for each language.
 
   Code | Language | [Acoustic adaptation](how-to-customize-acoustic-models.md) | [Language adaptation](how-to-customize-language-model.md) | [Pronunciation adaptation](how-to-customize-pronunciation.md)
  ------|----------|---------------------|---------------------|-------------------------
  ar-EG | Arabic (Egypt), modern standard | No | Yes | No
  ca-ES | Catalan | No | No | No
  da-DK | Danish (Denmark) | No | No | No
- de-DE | German (Germany) | Yes | Yes | No
- en-AU | English (Australia) | No | Yes | Yes
- en-CA | English (Canada) | No | Yes | Yes
- en-GB | English (United Kingdom) | No | Yes | Yes
- en-IN | English (India) | Yes | Yes | Yes
- en-NZ | English (New Zealand) | No | Yes | Yes  
+ de-DE | German (Germany) | Yes | Yes | Yes
+ en-AU | English (Australia) | No | Yes | No
+ en-CA | English (Canada) | No | Yes | No
+ en-GB | English (United Kingdom) | No | Yes | No
+ en-IN | English (India) | Yes | Yes | No
+ en-NZ | English (New Zealand) | No | Yes | No 
  en-US | English (United States) | Yes | Yes | Yes
  es-ES | Spanish (Spain) | Yes | Yes | No
  es-MX | Spanish (Mexico) | No | Yes | No

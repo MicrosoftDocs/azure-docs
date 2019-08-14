@@ -1,15 +1,15 @@
 ---
-title: Develop apps with the Speech SDK - Speech Services
+title: Develop apps with the Speech SDK - Speech Service
 titleSuffix: Azure Cognitive Services
 description: Learn how to create apps using the Speech SDK.
 services: cognitive-services
-author: wolfma61
+author: jhakulin
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: wolfma
+ms.date: 07/23/2019
+ms.author: jhakulin
 ms.custom: seodec18
 ---
 
@@ -25,8 +25,8 @@ The Cognitive Services Speech SDK is tested on Windows 10 and on Windows Server 
 
 The Cognitive Services Speech SDK requires the [Microsoft Visual C++ Redistributable for Visual Studio 2019](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads) on the system. You can download installers for the latest version of the `Microsoft Visual C++ Redistributable for Visual Studio 2019` here:
 
-- [Win32](https://aka.ms/vs/15/release/vc_redist.x86.exe)
-- [x64](https://aka.ms/vs/15/release/vc_redist.x64.exe)
+- [Win32](https://aka.ms/vs/16/release/vc_redist.x86.exe)
+- [x64](https://aka.ms/vs/16/release/vc_redist.x64.exe)
 
 If your application uses managed code, the `.NET Framework 4.6.1` or later is required on the target machine.
 
@@ -41,6 +41,9 @@ The required Speech SDK files can be deployed in the same directory as your appl
 
 >[!NOTE]
 > Starting with the release 1.3.0 the file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (shipped in previous releases) isn't needed anymore. The functionality is now integrated in the core SDK.
+
+>[!NOTE]
+> For the Windows Forms App (.NET Framework) C# project, make sure the libraries are included in your project's deployment settings. You can check this under `Properties -> Publish Section`. Click the  `Application Files` button and find corresponding libraries from the scroll down list. Make sure the  value is set to `Included`. Visual Studio will include the file when project is published/deployed.
 
 ## Linux
 

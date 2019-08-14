@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 03/27/2019
+ms.date: 07/03/2019
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with the .NET SDK, so that I can build more complex scenarios later on.
 ---
@@ -57,13 +57,13 @@ Next, add the **Main** method of the **Program** class with the following code. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
-Also in the **Main** method, add the following code to use the newly-created Face client to detect faces in a remote and local image. The detection methods will be defined next. 
+Also in the **Main** method, add the following code to use the newly created Face client to detect faces in a remote and local image. The detection methods will be defined next. 
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### Detect faces
 
-Add the following method to the **Program** class. It uses the Face service client to detect faces in a remote image, referenced by a URL. Note that it uses the `faceAttributes` field&mdash;the **DetectedFace** objects added to `faceList` will have the specified attributes (in this case, age and gender).
+Add the following method to the **Program** class. It uses the Face service client to detect faces in a remote image, referenced by a URL. It uses the `faceAttributes` field&mdash;the **DetectedFace** objects added to `faceList` will have the specified attributes (in this case, age and gender).
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 

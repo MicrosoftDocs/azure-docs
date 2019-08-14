@@ -1,39 +1,35 @@
 ---
-title: Understand your Microsoft Customer Agreement invoice | Microsoft Docs
-description: Learn how to read and understand your MCA bill
-services: ''
-documentationcenter: ''
-author: jureid
+title: Understand your Microsoft Customer Agreement invoice in Azure
+description: Learn how to read and understand your Microsoft Customer Agreement bill in Azure
+author: bandersmsft
 manager: jureid
-editor: ''
 tags: billing
-
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/19/2019
+ms.date: 07/22/2019
 ms.author: banders
-
 ---
-# Understand terms on your Microsoft Customer Agreement invoice
 
-This article applies to a billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+# Terms in your Microsoft Customer Agreement invoice
+
+This article applies to an Azure billing account for a Microsoft Customer Agreement. [Check if you have access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 Your invoice provides a summary of your charges and instructions for payment. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com/) or can be sent via email. For more information, see [View and download your Microsoft Azure invoice](billing-download-azure-invoice.md).
 
-<!-- ## When am I billed?
+## Billing period
 
-You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**. -->
+You are invoiced on a monthly basis. You can find out which day of the month you receive invoices by checking *invoice date* under billing profile properties in the [Azure portal](https://portal.azure.com/). Charges that occur between the end of the billing period and the invoice date are included in the next month's invoice, since they are in the next billing period. The billing period start and end dates for each invoice are listed in the invoice PDF above **Billing Summary**.
 
 ## Invoice terms and descriptions
 
-The following sections list important terms that you see on your invoice and descriptions for each term.
+The following sections list important terms that you see on your invoice and provide descriptions for each term.
 
 ### Invoice summary
 
-The **Invoice Summary** is on the top of the first page and shows information about your billing profile and how you pay.
+The **Invoice Summary** is at the top of the first page and shows information about your billing profile and how you pay.
 
 ![Invoice summary section](./media/billing-understand-your-invoice-mca/invoicesummary.png)
 
@@ -74,7 +70,6 @@ The details show the cost for each invoice section broken down by product order.
 
 The total amount due for each service family is calculated by subtracting *Azure credits* from *Credits/charges* and adding *Tax*:
 
-<!-- `Total = Charges/Credits - Azure Credit + Tax` -->
 
 ![Details by invoice section](./media/billing-understand-your-invoice-mca/invoicesectiondetails.png)
 
@@ -90,7 +85,7 @@ The total amount due for each service family is calculated by subtracting *Azure
 
 ### How to pay
 
-At the bottom of the invoice, there are instructions for paying your bill. You can pay by check, wire, or online. If you pay online, you can use a credit/debit card or Azure credits, if applicable.
+At the bottom of the invoice, there are instructions for paying your bill. You can pay by check, wire, or online. If you pay online, you can use a credit card or Azure credits, if applicable.
 
 ### Publisher information
 
@@ -99,9 +94,9 @@ If you have third-party services in your bill, the name and address of each publ
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]
 
-## Need help? Contact us
+## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 

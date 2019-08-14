@@ -1,17 +1,17 @@
 ---
-title: Azure Web Application Firewall (WAF) custom rules 
-description: This article provides an overview of web application firewall (WAF) custom rules in Azure Application Gateway.
+title: Azure Web Application Firewall (WAF) v2 custom rules 
+description: This article provides an overview of Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
-ms.date: 6/5/2019
+ms.date: 6/18/2019
 ms.author: victorh
 ---
 
-# Custom rules for Web Application Firewall
+# Custom rules for Web Application Firewall v2
 
-The Azure Application Gateway web application firewall (WAF) comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write you own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
+The Azure Application Gateway Web Application Firewall (WAF) v2 comes with a pre-configured, platform-managed ruleset that offers protection from many different types of attacks. These attacks include cross site scripting, SQL injection, and others. If you're a WAF admin, you may want to write you own rules to augment the core rule set (CRS) rules. Your rules can either block or allow requested traffic based on matching criteria.
 
 Custom rules allow you to create your own rules that are evaluated for each request that passes through the WAF. These rules hold a higher priority than the rest of the rules in the managed rule sets. The custom rules contain a rule name, rule priority, and an array of matching conditions. If these conditions are met, an action is taken (to allow or block).
 
@@ -105,10 +105,10 @@ Must be one of the variables:
 - RemoteAddr – IP Address/hostname of the remote computer connection
 - RequestMethod – HTTP Request method (GET, POST, PUT, DELETE, and so on.)
 - QueryString – Variable in the URI
-- PostArgs – Arguments sent in the POST body
+- PostArgs – Arguments sent in the POST body. Custom Rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded' and 'multipart/form-data'.
 - RequestUri – URI of the request
 - RequestHeaders – Headers of the request
-- RequestBody – Body of the request
+- RequestBody – This contains the entire request body as a whole. Custom rules using this match variable are only applied if the 'Content-Type' header is set to 'application/x-www-form-urlencoded'. 
 - RequestCookies – Cookies of the request
 
 ### Selector [optional]

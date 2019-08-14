@@ -5,7 +5,7 @@ description: Learn how to configure the Azure AD Identity Protection multi-facto
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/01/2019
 
 author: MicrosoftGuyJFlo
@@ -17,7 +17,9 @@ ms.collection: M365-identity-device-management
 ---
 # How To: Configure the Azure Multi-Factor Authentication registration policy
 
-Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a conditional access policy to require MFA registration no matter what app you are signing in to. This article explains what the policy can be used for and how to configure it.
+Azure AD Identity Protection helps you manage the roll-out of multi-factor authentication (MFA) registration by configuring a Conditional Access policy to require MFA registration no matter what modern authentication app you are signing in to. This article explains what the policy can be used for and how to configure it.
+
+
 
 ## What is the Azure Multi-Factor Authentication registration policy?
 
@@ -55,6 +57,8 @@ When you configure the MFA registration policy, you need to make the following c
 - **Save** your policy
 
 ## User experience
+
+Azure Active Directory Identity Protection will prompt your users to register the next time they sign in interactively.
 
 For an overview of the related user experience, see:
 

@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -173,6 +173,8 @@ For a full list of sections and properties available for defining activities, se
 
 To copy data from SAP BW Open Hub, set the source type in the copy activity to **SapOpenHubSource**. There are no additional type-specific properties needed in the copy activity **source** section.
 
+To speed up the data loading, you can set [`parallelCopies`](copy-activity-performance.md#parallel-copy) on the copy activity to load data from SAP BW Open Hub in parallel. For example, if you set `parallelCopies` to four, Data Factory concurrently executes four RFC calls, and each RFC call retrieves a portion of data from your SAP BW Open Hub table partitioned by the DTP request ID and package ID. This applies when the number of unique DTP request ID + package ID is bigger than the value of `parallelCopies`.
+
 **Example:**
 
 ```json
@@ -198,7 +200,8 @@ To copy data from SAP BW Open Hub, set the source type in the copy activity to *
             },
             "sink": {
                 "type": "<sink type>"
-            }
+            },
+            "parallelCopies": 4
         }
     }
 ]
