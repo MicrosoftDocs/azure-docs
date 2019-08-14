@@ -97,7 +97,7 @@ Create a workspace object from the existing workspace. `Workspace.from_config()`
 ```python
 # load workspace configuration from the config.json file in the current folder.
 ws = Workspace.from_config()
-print(ws.name, ws.location, ws.resource_group, ws.location, sep='\t')
+print(ws.name, ws.location, ws.resource_group, sep='\t')
 ```
 
 ### Create an experiment
