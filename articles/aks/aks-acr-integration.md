@@ -98,7 +98,7 @@ spec:
         image: <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
-
+```
 
 
 ## Update the state and verify pods
