@@ -43,10 +43,9 @@ az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enabl
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
 
-## Verify the AKS and ACR integration
-Ensure you have created and AKS cluster and added the ACR integration with the steps above.
+## Install latest AKS CLI preview extension.
+Ensure you have created and AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extenstion
 
-Remove and update the AKS CLI preview extenstion
 ```
 az extension remove --name aks-preview 
 az extension add -y --name aks-preview
