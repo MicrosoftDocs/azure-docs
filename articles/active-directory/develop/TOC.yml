@@ -295,6 +295,8 @@
         href: v2-oauth2-device-code.md
       - name: OAuth 2.0 resource owner password credentials grant
         href: v2-oauth-ropc.md
+      - name: OAuth 2.0 SAML bearer assertion flow
+        href: v2-saml-bearer-assertion.md
       - name: Signing key rollover
         href: active-directory-signing-key-rollover.md
       - name: ID tokens
