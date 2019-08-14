@@ -24,7 +24,6 @@
   - name: Connect data sources
     href: connect-data-sources.md
     items:
-
     - name: Connect Microsoft services
       items:
       - name: Connect Azure AD
