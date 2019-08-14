@@ -21,7 +21,7 @@ You can set up the AKS to ACR integration in a few simple commands with the Azur
 
 * You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles required for the service principal
 * You also need the Azure CLI version 2.0.70 or later
-* You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [dockerhub](https://hub.docker.com/)
+* You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
 
 ## Create a new AKS cluster with ACR integration
 
@@ -37,7 +37,7 @@ az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enab
 
 ## Create ACR integration for existing AKS clusters
 
-For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
+For existing AKS clusters you can add integration with an existing ACR. The following commands do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 
 ```console
 az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr <your-acr-name>
@@ -45,7 +45,7 @@ az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enabl
 ```
 
 ## Install latest AKS CLI preview extension
-Ensure you have created and AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extenstion
+Ensure you have created and AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extension
 
 ```console
 az extension remove --name aks-preview 
