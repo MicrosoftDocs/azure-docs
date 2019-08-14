@@ -17,7 +17,6 @@ The following computer configuration was used for the steps below:
   |Computer| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
   |Dependencies| strongSwan |
 
-#### Install strongSwan
 
 Use the following commands to install the required strongSwan configuration:
 

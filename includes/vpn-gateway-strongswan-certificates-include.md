@@ -10,9 +10,6 @@
  ms.custom: include file
 ---
 
-
-#### Generate keys and certificate
-
 Generate the CA certificate.
 
   ```
