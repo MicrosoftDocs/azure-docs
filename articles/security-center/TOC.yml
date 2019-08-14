@@ -186,8 +186,6 @@
       href: security-center-search.md    
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
-    - name: UEBA for Azure resources and users
-      href: security-center-ueba-mcas.md
     - name: Customize security configurations
       href: security-center-customize-os-security-config.md
 
