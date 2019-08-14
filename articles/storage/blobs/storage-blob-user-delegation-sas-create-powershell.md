@@ -28,11 +28,6 @@ To use PowerShell to create a user delegation SAS, you must first install the Az
 
     - Remove any previous installations of Azure PowerShell from Windows using the **Apps & features** setting under **Settings**.
     - Remove all **Azure** modules from `%Program Files%\WindowsPowerShell\Modules`.
-    - Because PowerShell loads the latest Az.Storage module by default, you may need to explicitly load the 1.3.1-preview module when you start the console. To explicitly load the preview module, run the [Import-Module](/powershell/module/microsoft.powershell.core/import-module) command:
-
-        ```powershell
-        Import-Module Az.Storage -RequiredVersion 1.3.1
-        ```
 
 1. Make sure that you have the latest version of PowerShellGet installed. Open a Windows PowerShell window, and run the following command to install the latest version:
 
@@ -51,10 +46,21 @@ To use PowerShell to create a user delegation SAS, you must first install the Az
 1. Install an Azure Storage preview module that supports user delegation SAS:
 
     ```powershell
-    Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.3.1-preview –AllowPrerelease –AllowClobber –Force
+    Install-Module Az.Storage `
+        –Repository PSGallery `
+        -RequiredVersion 1.3.1-preview `
+        –AllowPrerelease `
+        –AllowClobber `
+        –Force
     ```
 
 1. Close and reopen the PowerShell window.
+
+Because PowerShell loads the latest Az.Storage module by default, you may need to explicitly load the 1.3.1-preview module when you start the console. To explicitly load the preview module, run the [Import-Module](/powershell/module/microsoft.powershell.core/import-module) command:
+
+```powershell
+Import-Module Az.Storage -RequiredVersion 1.3.1
+```
 
 For more information about installing Azure PowerShell, see [Install Azure PowerShell with PowerShellGet](/powershell/azure/install-az-ps).
 
@@ -156,7 +162,7 @@ Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `
     -StorageAccountName <storage-account>
 ```
 
-## See also
+## Next steps
 
 - [Create a user delegation SAS (REST API)](/rest/api/storageservices/create-a-user-delegation-sas)
 - [Get User Delegation Key operation](/rest/api/storageservices/get-user-delegation-key)
