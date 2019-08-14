@@ -91,7 +91,7 @@ In this tutorial, you learn the following tasks:
     Concurrency| Select **5** for the number of max concurrent iterations.
 
    >[!NOTE]
-   > For this experiment, we don't set a metric or max iterations threshold. We also don't block algorithms from being tested.
+   > For this experiment, we don't set a metric or max cores per iterations threshold. We also don't block algorithms from being tested.
 
 1. Select **Start** to run the experiment.
 
