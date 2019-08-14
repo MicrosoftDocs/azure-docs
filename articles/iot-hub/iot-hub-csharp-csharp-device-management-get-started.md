@@ -235,7 +235,7 @@ To create the simulated device app, follow these steps:
 1. Select **Build** > **Build Solution**.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 ## Run the apps
 
