@@ -78,7 +78,35 @@ View the yaml file, and edit the image property by replacing the value with your
 cat acr-nginx.yaml
 ```
 
+See snippet below:
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx0-deployment
+  labels:
+    app: nginx0-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx0
+  template:
+    metadata:
+      labels:
+        app: nginx0
+    spec:
+      containers:
+      - name: nginx
+        image: <replace this image property with you acr login server, image and tag>
+        ports:
+        - containerPort: 80
+
+
+
 ## Update the state and verify pods
+You should have 2 running pods.
+
 ```
 kubectl apply -f acr-nginx.yaml
 kubectl get pods
