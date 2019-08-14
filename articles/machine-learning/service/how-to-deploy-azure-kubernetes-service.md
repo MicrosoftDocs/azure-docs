@@ -224,6 +224,8 @@ To __disable__ authentication, set the `auth_enabled=False` parameter when creat
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
+For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
+
 ### Authentication with keys
 
 If key authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
