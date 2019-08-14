@@ -1,44 +1,76 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Azure AD Authentication Documentation
+### YamlMime:Landing
+
+title: Azure Active Directory Authentication Documentation
+summary: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
+
 metadata:
-  document_id: 
   title: Azure Active Directory Authentication Documentation
   description: Learn how to manage and deploy Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout.
   services: active-directory
-  ms.subservice: authentication
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: authentication
   ms.topic: landing-page
-  ms.date: 07/19/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: Learn how to deploy and manage Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout. These features come together to deliver strong authentication with a range of verification methods while providing a simple sign-in process to your organization.
-sections:
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to enable self-service password reset to reduce helpdesk calls from users.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: ./media/index/i_protect.png
-      text: Enable self-service password reset
-      href: https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr
+  ms.date: 07/03/2019
 
-- title: Step-by-Step Tutorials
-  items:
-  - type: paragraph
-    text: Learn how to enable a simple and secure sign-in process for your organization.
-  - type: list
-    style: unordered
-    items:
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-pilot">Enable a self-service password reset pilot</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-mfa-applications">Require MFA for the Azure portal</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-enable-writeback">Enable self-service password reset on-premises integration</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-sspr-windows">Enable Windows 10 password reset</a>
-    - html: <a href="/azure/active-directory/authentication/tutorial-risk-based-sspr-mfa">Integrate with Azure Identity Protection</a>
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About authentication
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is authentication?
+            url: overview.md
+          - text: What are authentication methods?
+            url: concept-authentication-methods.md
+          - text: Combined security information registration
+            url: concept-registration-mfa-sspr-combined.md
+          - text: What is passwordless?
+            url: concept-authentication-passwordless.md
+
+  # Card
+  - title: Deploy self-service password reset
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: How self-service password reset works
+            url: concept-sspr-howitworks.md
+          - text: Password writeback
+            url: concept-sspr-writeback.md
+      - linkListType: quickstart
+        links:
+          - text: Self-service password reset quickstart
+            url: quickstart-sspr.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Azure AD self-service password reset
+            url: howto-sspr-deployment.md
+          - text: Enable password writeback
+            url: howto-sspr-writeback.md
+          - text: Enable password reset from the Windows login screen
+            url: howto-sspr-windows.md
+
+  # Card
+  - title: Enable Azure Multi-Factor Authentication
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: How Azure Multi-Factor Authentication works
+            url: concept-mfa-howitworks.md
+      - linkListType: tutorial
+        links:
+          - text: Pilot Azure MFA for specific applications
+            url: tutorial-mfa-applications.md
+          - text: Use risk events to trigger Multi-Factor Authentication and password changes
+            url: tutorial-risk-based-sspr-mfa.md
+      - linkListType: deploy
+        links:
+          - text: Deploy Azure Multi-Factor Authentication
+            url: howto-mfa-getstarted.md
+          - text: Use NPS extension to integrate on-premises applications
+            url: howto-mfa-nps-extension.md
