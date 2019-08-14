@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/18/2019
+ms.date: 08/14/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to create a management VM and install the required tools to connect to and manage an Azure Active Directory Domain Services instance.
@@ -86,6 +86,8 @@ To get started, connect to the Windows Server VM as follows:
 
     ![Connect to Windows virtual machine in the Azure portal](./media/tutorial-create-management-vm/connect-vm.png)
 
+    You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+
 1. Select the option to *Download RDP File*. Save this RDP file in your web browser.
 1. To connect to your VM, open the downloaded RDP file. If prompted, select **Connect**.
 1. Enter the credentials of a user that's part of the *Azure AD DC administrators* group, such as *contoso\dee*
@@ -154,3 +156,4 @@ To safely interact with your Azure AD DS managed domain, enable secure Lightweig
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance]: tutorial-create-instance.md
 [create-join-windows-vm]: join-windows-vm.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md

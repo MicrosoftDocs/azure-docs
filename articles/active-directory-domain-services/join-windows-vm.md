@@ -37,6 +37,7 @@ To complete this tutorial, you need the following resources:
 * An Azure Active Directory Domain Services managed domain enabled and configured in your Azure AD tenant.
     * If needed, [create and configure an Azure Active Directory Domain Services instance][create-azure-ad-ds-instance].
 * A user account that's a member of the *Azure AD DC administrators* group in your Azure AD tenant.
+    * Make sure that Azure AD Connect password hash synchronization or self-service password reset has been performed so the account is able to sign in to Azure AD DS managed domain.
 
 If you already have a VM that you want to domain-join, skip to the section to [join the VM to the Azure AD DS managed domain](#join-the-vm-to-the-azure-ad-ds-managed-domain).
 
@@ -67,7 +68,9 @@ If you already have a VM that you want to domain-join, skip to the section to [j
 
 4. By default, VMs created in Azure aren't accessible from the Internet. This configuration helps improve the security of the VM and reduces the area for potential attack. In the next step of this tutorial, you need to connect to the VM using remote desktop protocol (RDP) and then join the Windows Server to the Azure AD DS managed domain.
 
-    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. Azure Just In Time VM access as part of Azure Security Center can enable these short-lived, restricted RDP sessions. For this tutorial, manually enable RDP connections to the VM.
+    When RDP is enabled, automated sign in attacks are likely to occur, which may disable accounts with common names such as *admin* or *administrator* due to multiple failed successive sign in attempts. RDP should only be enabled when required, and limited to a set of authorized IP ranges. [Azure Just In Time VM access][jit-access] as part of Azure Security Center can enable these short-lived, restricted RDP sessions. You can also [create and use an Azure Bastion host (currently in preview)][azure-bastion] to allow access only through the Azure portal over SSL.
+
+    For this tutorial, manually enable RDP connections to the VM.
 
     Under **Public inbound ports**, select the option to **Allow selected ports**. From the drop-down menu for **Select inbound ports**, choose *RDP*.
 
@@ -223,3 +226,5 @@ To administer your Azure AD DS managed domain, configure a management VM using t
 [vnet-peering]: ../virtual-network/virtual-network-peering-overview.md
 [password-sync]: active-directory-ds-getting-started-password-sync.md
 [add-computer]: /powershell/module/microsoft.powershell.management/add-computer
+[jit-access]: ../security-center/security-center-just-in-time.md
+[azure-bastion]: ../bastion/bastion-create-host-portal.md
