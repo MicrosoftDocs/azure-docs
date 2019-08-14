@@ -106,6 +106,7 @@ Key strengths include:
 + Azure data integration (crawlers) at the indexing layer
 + Azure portal for central management
 + Azure scale, reliability, and world-class availability
++ AI processing of raw data to make it more searchable, including text from images, or finding patterns in unstructured content.
 + Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
 + [Core features common to search-centric apps](#feature-drilldown): scoring, faceting, suggestions, synonyms, geo-search, and more.
 
