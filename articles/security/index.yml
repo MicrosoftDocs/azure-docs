@@ -82,7 +82,7 @@ conceptualContent:
           itemType: how-to-guide
           text: Security attributes for Azure services 
       footerLink: 
-        url: ./fundamentals/index.yml
+        url: ./fundamentals/index.md
         text: See More
 
     - title: Data security
