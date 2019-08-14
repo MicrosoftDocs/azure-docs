@@ -31,13 +31,13 @@ In Azure Machine Learning, [environment objects](https://docs.microsoft.com/pyth
 
 The following illustrates where environment objects fit in the Azure Machine Learing experiment creation, training and deployment workflow.
 
-![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.PNG)
+![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.png)
 
 ### Types of environments
 
 Environments can broadly be divided into two categories: user-managed  system-managed.
 
-For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. If your training environment is already configured, you can skip the setup step by setting `user_managed_dependencies=True` parameter in the [PythonSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py).
+For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. If your training environment is already configured, you can skip the setup step by setting `environment.python.user_managed_dependencies=True` parameter in the [PythonSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py).
 
 System managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
 
@@ -125,7 +125,7 @@ The environment is automatically registered with your workspace when you submit 
 operation makes the environment into an entity that is tracked and versioned in the cloud, and can be shared between workspace users.
 
 When used for the first time, in training or deployment, the environment is registered with the workspace, built, and deployed on the compute target. The environments are cached by the service, therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
-
+ 
 ### Get existing environments
 The Environment class offers methods that allow you to retrieve existing environments in your workspace by name, as a list or by specific training run.
 
@@ -159,6 +159,9 @@ Run.get_environment()
 ### Update existing environment
 
 If you make changes to an existing environment, such as add a Python package, a new version of an environment is created when you either submit run, deploy model or manually register the environment. The versioning allows you to view changes to the environment over time.
+
+> [!NOTE]
+> To update a Python package version of an existing environment, specify the exact version number for that package. Otherwise, the Azure Machine Learning will re-use the existing environment with package versions from when the environment was created.
 
 ### Debug the image build
 
@@ -267,6 +270,11 @@ On local computes or virtual machines, you can choose between Docker-based and b
 By default, Azure Machine Learning service uses one of the Ubuntu Linux-based [base images](https://github.com/Azure/AzureML-Containers), and installs the specified Python packages. The base image has CPU and GPU versions. You can specify the GPU image by turning the `Environment.docker.gpu_support` flag on.
 
 You can also specify your own custom Docker image, by specifying `Environment.docker.base_image` and `Environment.docker.base_image_registry` variables. The default for the image registry is Azure Container Registry of your workspace. You can push custom images there to have authenticated access by default.
+
+> [!NOTE]
+> If you specify `environment.python.user_managed_dependencies=False` while using custom Docker image, Azure ML service will build a Conda environment within the image and execute the run in that environment, instead of using Python libraries you may have installed on the base image. Set the parameter to `True` to use your own installed packages.
+
+Once built, the Docker image appears in the Azure Container Registy associated with the workspace, in repository named _azureml/azureml\_\<uuid\>_. The unique identifier part corresponds to a hash computed from environment configuration. This allows the Azure Machine Learning service to determine whether an image corresponding to given environment already exists and re-use it.
 
 ## Example notebooks
 
