@@ -94,7 +94,7 @@ In this section, you modify the device app you created in [Send cloud-to-device 
     ```
 
 > [!NOTE]
-> For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 ## Get the IoT hub connection string
 

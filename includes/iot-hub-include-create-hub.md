@@ -43,7 +43,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
     - **IoT Hub units**: The number of messages allowed per unit per day depends on your hub's pricing tier. For example, if you want the hub to support ingress of 700,000 messages, you choose two S1 tier units.
     For details about the other tier options, see [Choosing the right IoT Hub tier](../articles/iot-hub/iot-hub-scaling.md).
 
-    - **Advanced** > **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs only need four partitions.
+    - **Advanced Settings** > **Device-to-cloud partitions**: This property relates the device-to-cloud messages to the number of simultaneous readers of the messages. Most hubs only need four partitions.
 
 1. For this tutorial, accept the default choices, and then select **Review + create** to review your choices. You see something similar to this screen.
 

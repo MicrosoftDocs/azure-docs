@@ -235,7 +235,7 @@ To create the simulated device app, follow these steps:
 1. Select **Build** > **Build Solution**.
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 
 ## Run the apps
 
@@ -243,7 +243,7 @@ You are now ready to run the apps.
 
 1. To run the .NET device app **SimulateManagedDevice**, in Solution Explorer, right-click the **SimulateManagedDevice** project, select **Debug**, and then select **Start new instance**. The app should start listening for method calls from your IoT hub.
 
-1. After that the device is connected and waiting for method invocations, right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**. 
+1. After that the device is connected and waiting for method invocations, right-click the **TriggerReboot** project, select **Debug**, and then select **Start new instance**.
 
    You should see "Rebooting!" written in the **SimulatedManagedDevice** console and the reported properties of the device, which include the last reboot time,  written in the **TriggerReboot** console.
 
