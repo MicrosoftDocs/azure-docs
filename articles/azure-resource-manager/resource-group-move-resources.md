@@ -92,7 +92,7 @@ There are some important steps to do before moving a resource. By verifying thes
 
 1. **For a move across subscription, the resource and its dependent resources needs to be located within the same resource group and needs to be moved together.** Dependent resources are linked to the resource like disks/public IP attached to a VM.
 
-    If moving the resource to the new subscription, check if it has any dependent resources and are they located in the same resource group. If not, check if these resources could be consolidated into the same resource group. If so, bring all these resources to the source resource group using move operation across resource group.
+    If moving the resource to the new subscription, check if it has any dependent resources and are they located in the same resource group. If not, check if these resources could be consolidated into the same resource group. If so, bring all these resources to the same resource group using move operation across resource group.
     
     "For more information, see **Scenario for move across subscription.**
 
