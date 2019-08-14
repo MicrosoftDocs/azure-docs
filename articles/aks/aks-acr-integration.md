@@ -36,12 +36,12 @@ az extension add -y --name aks-preview
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```console
-az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr <your-acr-name>]
+az aks create -n myAKSCluster -g myResourceGroup -enable-acr [--acr <your-acr-name>]
 ```
 
 Optionally, you can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
 ```console
-az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enable-acr [--acr-resource-id <your-acr-resource-id>]
+az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-id <your-acr-resource-id>]
 ```
 
 ## Create ACR integration for existing AKS clusters
@@ -49,8 +49,8 @@ az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enab
 For existing AKS clusters you can add integration with an existing ACR. The following commands do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 
 ```console
-az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr <your-acr-name>
-az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-resource-id <your-acr-resource-id>
+az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <your-acr-name>
+az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
 
 ## Set variable and login to your ACR
@@ -58,7 +58,7 @@ az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enabl
 Login to your ACR.
 
 ```console
-acrloginservername=$(az acr show -n <your-kubernetes-cluster-name> -g <your-resource-group> --query loginServer -o tsv)
+acrloginservername=$(az acr show -n myAKSCluster -g myResourceGroup --query loginServer -o tsv)
 az acr login -n <your-acr-name>
 ```
 
@@ -82,7 +82,7 @@ v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af9
 ## Update the image property for the nginx container
 
 ```console
-az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
+az aks get-credentials -g myResourceGroup -n myAKSCluster
 ```
 
 View the yaml file, and edit the image property by replacing the value with your ACR login server, image, and tag.
