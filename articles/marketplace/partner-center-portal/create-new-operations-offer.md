@@ -19,7 +19,7 @@ To begin creating Dynamics 365 for Operations offers, ensure that you first [Cre
 
 ## Create a new offer
 
-Select the **+ New offer** button, then select the **Dynamics 365 for Customer Engagement & PowerApps** menu item. The **New offer** dialog box will appear.
+Select the **+ New offer** button, then select the **Dynamics 365 for Operations** menu item. The **New offer** dialog box will appear.
 
 ### Offer ID and alias
 
@@ -180,10 +180,6 @@ Enter the URL where customers can learn more about your offer.
 #### Privacy policy URL
 
 Enter the URL to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy.
-
-#### CSP program marketing materials
-
-You must provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer's reach to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
 
 ### Contacts
 
