@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-The following computer configuration was used for the steps below:
+The following configuration was used for the steps below:
 
   | | |
   |---|---|
