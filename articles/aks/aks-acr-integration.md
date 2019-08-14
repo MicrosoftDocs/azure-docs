@@ -27,7 +27,7 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```
-az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr <your-acr-name>]
+$ az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr <your-acr-name>]
 ```
 
 Optionally, you can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
@@ -75,7 +75,7 @@ az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name
 View the yaml file, and edit the image property by replacing the value with your ACR login server, image, and tag.
 
 ```
-cat acr-nginx.yaml
+$ cat acr-nginx.yaml
 
 apiVersion: apps/v1
 kind: Deployment
@@ -105,8 +105,8 @@ spec:
 You should have 2 running pods.
 
 ```
-kubectl apply -f acr-nginx.yaml
-kubectl get pods
+$ kubectl apply -f acr-nginx.yaml
+$ kubectl get pods
 
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
