@@ -142,7 +142,7 @@ Take a closer look at the rank and reward calls in the following sections.
 
 ## Request a rank
 
-To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](concepts-features#actions-represent-a-list-of-options.md), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 
+To complete the rank request, the program asks the user's preferences to create content choices. The process can create content to exclude from the rank, shown as `excludeActions`. The rank request needs the [actions](concepts-feature.md#actions-represent-a-list-of-options), currentContext, excludeActions, and a unique rank event ID (as a GUID), to receive the ranked response. 
 
 This quickstart has simple context features of time of day and user food preference. In production systems, determining and [evaluating](concept-feature-evaluation.md) [actions and features](concepts-features.md) can be a non-trivial matter.  
 
