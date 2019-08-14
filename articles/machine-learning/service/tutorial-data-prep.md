@@ -32,40 +32,12 @@ In this tutorial, you:
 
 ## Prerequisites
 
-Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
+* Complete the [Tutorial: Setup environment and workspace](../articles/machine-learning/service/tutorial-1st-experiment-sdk-setup.md) to create a workspace, create a notebook VM, and launch the notebook webpage.
 
-* A Python 3.6 notebook server with the following installed:
-    * The `azureml-dataprep` package from the Azure Machine Learning SDK
-* The tutorial notebook
+* After you launch the notebook webpage, open the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
-* Use a [cloud notebook server in your workspace](#azure) 
-* Use [your own notebook server](#server)
+This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed the `azureml-dataprep` package from the Azure Machine Learning SDK.
 
-### <a name="azure"></a>Use a cloud notebook server in your workspace
-
-It's easy to get started with your own cloud-based notebook server. The Azure Machine Learning SDK for Python is already installed and configured for you once you create this cloud resource.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* After you launch the notebook webpage, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
-
-### <a name="server"></a>Use your own Jupyter notebook server
-
-Use these steps to create a local Jupyter Notebook server on your computer.  After you complete the steps, run the **tutorials/regression-part1-data-prep.ipynb** notebook.
-
-1. Complete the installation steps in [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-1. The `azureml-dataprep` package is automatically installed when you install the SDK.
-1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
-
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Start the notebook server from your cloned directory.
-
-    ```shell
-    jupyter notebook
-    ```
 
 ## <a name="start"></a>Set up your development environment
 

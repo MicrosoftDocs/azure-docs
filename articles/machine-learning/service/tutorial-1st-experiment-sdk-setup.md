@@ -32,6 +32,8 @@ A workspace is a foundational resource in the cloud that you use to experiment, 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
+[!INCLUDE [aml-create-portal](../../../includes/aml-download-config.md)]
+
 ## <a name="azure"></a>Create a cloud notebook server
 
 This example uses the cloud notebook server in your workspace for an install-free and pre-configured experience. Use [your own environment](how-to-configure-environment.md#local) if you prefer to have control over your environment, packages and dependencies.

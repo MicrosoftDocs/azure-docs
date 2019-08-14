@@ -25,6 +25,8 @@ To create a workspace, you need an Azure subscription. If you don’t have an Az
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
+[!INCLUDE [aml-download-config](../../../includes/aml-download-config.md)]
+
 ## <a name="view"></a>View a workspace
 
 1. In top left corner of the portal, select **All services**.
