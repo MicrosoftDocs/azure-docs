@@ -74,7 +74,7 @@ docker push someacr1.azurecr.io/nginx:v1
 az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
 ```
 
-Update the image property with your ACR login server, image, and tag.
+View the yaml file, and edit the image property by replacing the value with your ACR login server, image, and tag.
 
 ```
 cat acr-nginx.yaml
