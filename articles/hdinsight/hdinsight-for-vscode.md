@@ -13,7 +13,7 @@ ms.date: 05/30/2019
 
 Learn how to use Spark & Hive Tools for Visual Studio Code to create and submit Apache Hive batch jobs, interactive Hive queries, and PySpark scripts for Apache Spark. First we'll describe how to install the Spark & Hive tools in Visual Studio Code, and then we'll walk through how to submit jobs to Spark & Hive.  
 
-Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. What follows are the prerequisites for different platforms.
+Spark & Hive Tools can be installed on platforms that are supported by Visual Studio Code, which include Windows, Linux, and macOS. Note the following prerequisites for different platforms.
 
 
 ## Prerequisites
