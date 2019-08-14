@@ -8,13 +8,13 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.custom: seodec18
+ms.custom: seodec18, seo-java-august2019
 ms.date: 04/15/2019
 ms.author: shvija
 
 ---
 
-# Send events to or receive events from Azure Event Hubs using Java
+# Use Java to send events to or receive events from Azure Event Hubs
 
 Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
