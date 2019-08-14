@@ -99,7 +99,7 @@ To configure single sign-on for an application, follow these steps:
 
 7. After the application loads, select **Single sign-on** from the application’s navigation menu on the left.
 
-8. Select the **Password-based Sign-on** mode.
+8. Select **Password-based Sign-on** mode.
 
 9. [Assign users to the application](#assign-a-user-to-an-application-directly).
 
@@ -135,7 +135,7 @@ To assign one or more users to an application directly, follow these steps:
 
 12. **Optional**: If you want to add more than one user, type  another full name or email address into the **Search by name or email address** box, and select the check box for that user to add them to the **Selected** list.
 
-13. When you're finished selecting users, select the **Select** button to add them to the list of users and groups to be assigned to the application.
+13. When you're finished selecting users, use the **Select** button to add them to the list of users and groups to be assigned to the application.
 
 14. **Optional**: select **Select Role** in the **Add Assignment** pane to select a role to assign to the users you've selected.
 
@@ -171,7 +171,7 @@ To assign one or more groups to an application directly, follow these steps:
 
 12. **Optional**: If you want to add more than one group, type another full group name into the **Search by name or email address** search box, and then select the corresponding check box to add this group to the **Selected** list.
 
-13. When you're finished selecting groups, select the **Select** button to add them to the list of users and groups to be assigned to the application.
+13. When you're finished selecting groups, use the **Select** button to add them to the list of users and groups to be assigned to the application.
 
 14. **Optional**: Select **Select Role** in the **Add Assignment** pane to select a role to assign to the groups you've selected.
 
