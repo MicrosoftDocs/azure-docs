@@ -49,7 +49,7 @@ To implement one-click remediation:
 
 3. In the confirmation box, read the remediation details and implications. 
 
-   ![One-click fix](./media/security-center-remediate-recommendations/security-center-one-click-fix.png)
+   ![One-click fix](./media/security-center-remediate-recommendations/security-center-one-click.png)
 
     > [!NOTE]
     > The implications are listed in the grey box in the **Remediate resources** window that opens after clicking **Remediate**. They list what changes happen when proceeding with the 1-click remediation.
