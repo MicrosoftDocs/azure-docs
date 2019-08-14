@@ -19,15 +19,11 @@
   - name: Respond to threats
     href: tutorial-respond-threats-playbook.md  
 
-name: Concepts 
-  items: 
-  - name: Advanced multi-stage attack detection 
-    href: fusion.md
-
 - name: How-to guides
   items:
   - name: Connect data sources
     href: connect-data-sources.md
+    items:
 
     - name: Connect Microsoft services
       items:
@@ -89,6 +85,8 @@ name: Concepts
       href: notebooks.md
     - name: Use bookmarks to hunt
       href: bookmarks.md
+  - name: Enable fusion
+    href: fusion.md
 
 - name: Resources
   items:
