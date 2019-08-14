@@ -1,7 +1,7 @@
 ### YamlMime:Hub 
 
-title: Azure Security Documentation 
-summary: Learn about Azure security 
+title: Azure security documentation 
+summary: Azure security helps protect your applications and data, support your compliance efforts, and provide cost-effective security for organizations of all sizes. 
 brand: azure
 
 metadata: 
@@ -38,9 +38,7 @@ highlightedContent:
       itemType: overview
       url: azure-security-disk-encryption-overview.md
 
-conceptualContent: 
-  title: Security content
-  summary: Security content
+conceptualContent:
   items: 
     - title: Fundamentals
       links: 
@@ -70,6 +68,21 @@ conceptualContent:
           text: Secure development resources 
       footerLink: 
         url: ./develop/index.yml
+        text: See More
+
+    - title: Security benchmarks
+      links: 
+        - url: https://azure.microsoft.com/resources/azure-cloud-security-benchmark-draft/
+          itemType: concept
+          text: Azure cloud security benchmark
+        - url: https://docs.microsoft.com/azure/security-center/security-center-using-recommendations
+          itemType: how-to-guide
+          text: Azure Security Center recommendations
+        - url: ./fundamentals/common-security-attributes.md
+          itemType: how-to-guide
+          text: Security attributes for Azure services 
+      footerLink: 
+        url: ./fundamentals/index.yml
         text: See More
 
     - title: Data security
