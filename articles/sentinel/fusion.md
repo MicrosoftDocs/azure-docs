@@ -45,7 +45,7 @@ Using advanced multi-stage attack detection, Sentinel supports the following sce
 - [Sign-in from anonymous IP address](#sign-in-from-anonymous-ip-address)
 - [Sign-in from user with leaked credentials](#sign-in-from-user-with-leaked-credentials)
 
-You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured. Optionally, for additional information, the [Palo Alto Networks](connect-paloalto.md) connector.
+You must have the [Azure AD Identity Protection data connector](connect-azure-ad-identity-protection.md) and the [Cloud App Security](connect-cloud-app-security.md) connectors configured. Optionally, for additional information, the [Palo Alto Networks](connect-paloalto.md) connector.
 
 ### Impossible travel to atypical location
 
