@@ -25,7 +25,7 @@
       - name: Java
         href: Quickstarts/create-new-kb-java.md
       - name: Node.js
-        href: Quickstarts/create-new-kb-nodejs.md
+        href: Quickstarts/create-knowledge-rest-api-nodejs.md
       - name: Python
         href: Quickstarts/create-new-kb-python.md
     - name: Publish a knowledge base
@@ -37,7 +37,7 @@
       - name: Java
         href: Quickstarts/publish-kb-java.md
       - name: Node.js
-        href: Quickstarts/publish-kb-nodejs.md
+        href: Quickstarts/create-knowledge-rest-api-nodejs.md##publish-a-knowledge-base
       - name: Python
         href: Quickstarts/publish-kb-python.md
     - name: Get answer from knowledge base
@@ -57,6 +57,10 @@
     items: 
     - name: C#
       href: ./Quickstarts/create-publish-kb-csharp-sdk.md
+    - name: Node.js
+      href: ./Quickstarts/create-publish-kb-nodejs-sdk.md
+    - name: Python
+      href: ./Quickstarts/python-sdk.md
 - name: Tutorials
   items: 
   - name: Create and answer from KB
@@ -71,6 +75,8 @@
   - name: Knowledge base
     href: Concepts/knowledge-base.md
     displayName: metadata, pair
+  - name: Using LUIS and QnA Maker
+    href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
   - name: Development lifecycle of a knowledge base
     href: Concepts/development-lifecycle-knowledge-base.md
   - name: Best practices
@@ -178,18 +184,32 @@
         href: https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet
       - name: NuGet package
         href: https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp
     - name: Go
       items:
+      - name: Reference Documentation
+        href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v4.0/qnamaker
       - name: SDK
         href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v4.0/qnamaker
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-qnamaker-go
     - name: Node.js
       items:
+      - name: Reference Documentation
+        href: https://docs.microsoft.com/en-us/javascript/api/%40azure/cognitiveservices-qnamaker/index?view=azure-node-latest      
       - name: NPM
         href: https://www.npmjs.com/package/azure-cognitiveservices-qnamaker
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs 
     - name: Python
       items: 
+      - name: Reference Documentation
+        href: https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-knowledge-qnamaker/azure.cognitiveservices.knowledge.qnamaker?view=azure-python
       - name: Pip
         href: https://pypi.org/project/azure-cognitiveservices-knowledge-qnamaker/
+      - name: Samples
+        href: https://github.com/Azure-Samples/cognitive-services-qnamaker-python
     - name: Ruby
       items: 
       - name: Gem

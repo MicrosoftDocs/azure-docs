@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
 ---

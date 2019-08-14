@@ -247,7 +247,44 @@ To see the `Microsoft.Azure.Services.AppAuthentication` library in action, pleas
 
 3. [Use .NET Core sample and a managed identity to call Azure services from an Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
-## Next steps
+## AppAuthentication Troubleshooting
+
+### Common issues during local development
+
+#### Azure CLI is not installed, you are not logged in, or you do not have the latest version
+
+Run **az account get-access-token** to see if Azure CLI shows a token for you. If it says no such program found, please install the [latest version of the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest). If you have installed it, you may be prompted to login. 
+ 
+#### AzureServiceTokenProvider cannot find the path for Azure CLI
+
+AzureServiceTokenProvider looks for Azure CLI at its default install locations. If it cannot find Azure CLI, please set environment variable **AzureCLIPath** to the Azure CLI installation folder. AzureServiceTokenProvider will add the environment variable to the Path environment variable.
+ 
+#### You are logged into Azure CLI using multiple accounts, the same account has access to subscriptions in multiple tenants, or you get an Access Denied error when trying to make calls during local development
+
+Using Azure CLI, set the default subscription to one which has the account you want use, and is in the same tenant as the resource you want to access: **az account set --subscription [subscription-id]**. If no output is seen, then it succeeded. Verify the right account is now the default using **az account list**.
+
+### Common issues across environments
+
+#### Unauthorized access, access denied, forbidden, etc. error
+ 
+The principal used does not have access to the resource it is trying to access. Grant either your user account or the App Service's MSI "Contributor" access to the desired resource, depending on whether you are running the sample on your local development machine or deployed in Azure to your App Service. Some resources, like key vaults, also have their own [access policies](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) that you use grant access to principals (users, apps, groups, etc.).
+
+### Common issues when deployed to Azure App Service
+
+#### Managed identity is not setup on the App Service
+ 
+Check the environment variables MSI_ENDPOINT and MSI_SECRET exist using [Kudu debug console](https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/). If these environment variables do not exist, Managed Identity is not enabled on the App Service. 
+ 
+### Common issues when deployed locally with IIS
+
+#### Can't retrieve tokens when debugging app in IIS
+
+By default, AppAuth runs in a different user context in IIS and therefore does not have access to use your developer identity to retrieve access tokens. You can configure IIS to run with your user context with the following two steps:
+- Configure the Application Pool for the web app to run as your current user account. See more information [here](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities)
+- Configure "setProfileEnvironment" to "True". See more information [here](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+
+    - Go to %windir%\System32\inetsrv\config\applicationHost.config
+    - Search for "setProfileEnvironment". If it is set to "False", change it to "True". If it is not present, add it as an attribute to the processModel element (/configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment), and set it to "True".
 
 - Learn more about [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/index.yml).
 - Learn more about [Azure AD authentication scenarios](../active-directory/develop/active-directory-authentication-scenarios.md).

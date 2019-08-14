@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -38,7 +38,7 @@ Specifically, this HDFS connector supports:
 
 ## Prerequisites
 
-To copy data from an HDFS that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](concepts-integration-runtime.md) article to learn details.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
 > [!NOTE]
 > Make sure the Integration Runtime can access to **ALL** the [name node server]:[name node port] and [data node servers]:[data node port] of the Hadoop cluster. Default [name node port] is 50070, and default [data node port] is 50075.
@@ -60,7 +60,7 @@ The following properties are supported for HDFS linked service:
 | authenticationType | Allowed values are: **Anonymous**, or **Windows**. <br><br> To use **Kerberos authentication** for HDFS connector, refer to [this section](#use-kerberos-authentication-for-hdfs-connector) to set up your on-premises environment accordingly. |Yes |
 | userName |Username for Windows authentication. For Kerberos authentication, specify `<username>@<domain>.com`. |Yes (for Windows Authentication) |
 | password |Password for Windows authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes (for Windows Authentication) |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 **Example: using Anonymous authentication**
 
@@ -110,12 +110,12 @@ The following properties are supported for HDFS linked service:
 
 For a full list of sections and properties available for defining datasets, see the [Datasets](concepts-datasets-linked-services.md) article. 
 
-- For **Parquet and delimited text format**, refer to [Parquet and delimited text format dataset](#parquet-and-delimited-text-format-dataset) section.
-- For other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format dataset](#other-format-dataset) section.
+- For **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format dataset](#format-based-dataset) section.
+- For other formats like **ORC/Avro/JSON format**, refer to [Other format dataset](#other-format-dataset) section.
 
-### Parquet and delimited text format dataset
+### <a name="format-based-dataset"></a> Parquet, delimited text and binary format dataset
 
-To copy data from HDFS in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based dataset and supported settings. The following properties are supported for HDFS under `location` settings in format-based dataset:
+To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based dataset and supported settings. The following properties are supported for HDFS under `location` settings in format-based dataset:
 
 | Property   | Description                                                  | Required |
 | ---------- | ------------------------------------------------------------ | -------- |
@@ -154,7 +154,7 @@ To copy data from HDFS in **Parquet or delimited text format**, refer to [Parque
 
 ### Other format dataset
 
-To copy data from HDFS in **ORC/Avro/JSON/Binary format**, the following properties are supported:
+To copy data from HDFS in **ORC/Avro/JSON format**, the following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -205,12 +205,12 @@ For a full list of sections and properties available for defining activities, se
 
 ### HDFS as source
 
-- For copy from **Parquet and delimited text format**, refer to [Parquet and delimited text format source](#parquet-and-delimited-text-format-source) section.
-- For copy from other formats like **ORC/Avro/JSON/Binary format**, refer to [Other format source](#other-format-source) section.
+- To copy from **Parquet, delimited text and binary format**, refer to [Parquet, delimited text and binary format source](#format-based-source) section.
+- To copy from other formats like **ORC/Avro/JSON format**, refer to [Other format source](#other-format-source) section.
 
-#### Parquet and delimited text format source
+#### <a name="format-based-source"></a> Parquet, delimited text and binary format source
 
-To copy data from HDFS in **Parquet or delimited text format**, refer to [Parquet format](format-parquet.md) and [Delimited text format](format-delimited-text.md) article on format-based copy activity source and supported settings. The following properties are supported for HDFS under `storeSettings` settings in format-based copy source:
+To copy data from **Parquet, delimited text or binary format**, refer to [Parquet format](format-parquet.md), [Delimited text format](format-delimited-text.md) and [Binary format](format-binary.md) article on format-based copy activity source and supported settings. The following properties are supported for HDFS under `storeSettings` settings in format-based copy source:
 
 | Property                 | Description                                                  | Required                                      |
 | ------------------------ | ------------------------------------------------------------ | --------------------------------------------- |
@@ -220,6 +220,10 @@ To copy data from HDFS in **Parquet or delimited text format**, refer to [Parque
 | wildcardFileName         | The file name with wildcard characters under the given folderPath/wildcardFolderPath to filter source files. <br>Allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character); use `^` to escape if your actual folder name has wildcard or this escape char inside.  See more examples in [Folder and file filter examples](#folder-and-file-filter-examples). | Yes if `fileName` is not specified in dataset |
 | modifiedDatetimeStart    | Files filter based on the attribute: Last Modified. The files will be selected if their last modified time are within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to UTC time zone in the format of "2018-12-01T05:00:00Z". <br> The properties can be NULL which mean no file attribute filter will be applied to the dataset.  When `modifiedDatetimeStart` has datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal with the datetime value will be selected.  When `modifiedDatetimeEnd` has datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value will be selected. | No                                            |
 | modifiedDatetimeEnd      | Same as above.                                               | No                                            |
+| distcpSettings | Property group when using HDFS DistCp. | No |
+| resourceManagerEndpoint | The Yarn Resource Manager endpoint | Yes if using DistCp |
+| tempScriptPath | A folder path used to store temp DistCp command script. The script file is generated by Data Factory and will be removed after Copy job finished. | Yes if using DistCp |
+| distcpOptions | Additional options provided to DistCp command. | No |
 | maxConcurrentConnections | The number of the connections to connect to storage store concurrently. Specify only when you want to limit the concurrent connection to the data store. | No                                            |
 
 > [!NOTE]
@@ -253,7 +257,12 @@ To copy data from HDFS in **Parquet or delimited text format**, refer to [Parque
                 },
                 "storeSettings":{
                     "type": "HdfsReadSetting",
-                    "recursive": true
+                    "recursive": true,
+                    "distcpSettings": {
+                        "resourceManagerEndpoint": "resourcemanagerendpoint:8088",
+                        "tempScriptPath": "/usr/hadoop/tempscript",
+                        "distcpOptions": "-m 100"
+                    }
                 }
             },
             "sink": {
@@ -266,7 +275,7 @@ To copy data from HDFS in **Parquet or delimited text format**, refer to [Parque
 
 #### Other format source
 
-To copy data from HDFS in **ORC/Avro/JSON/Binary format**, the following properties are supported in the copy activity **source** section:
+To copy data from HDFS in **ORC/Avro/JSON format**, the following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

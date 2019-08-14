@@ -26,7 +26,7 @@
         href: quickstarts/python.md
       - name: Ruby
         href: quickstarts/ruby.md
-    - name: SDK
+    - name: Client
       items:
       - name: C#
         href: quickstarts/csharp.md

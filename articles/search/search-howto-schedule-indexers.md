@@ -3,14 +3,13 @@ title: How to schedule indexers - Azure Search
 description: Schedule Azure Search indexers to index content periodically or at specific times.
 
 ms.date: 05/31/2019
-author: RobDixon22
+author: HeidiSteen
 manager: HeidiSteen
-ms.author: v-rodixo
+ms.author: heidist
 services: search
 ms.service: search
-ms.devlang: rest-api
+ms.devlang: 
 ms.topic: conceptual
-ms.custom: seodec2018
 ---
 
 # How to schedule indexers for Azure Search

@@ -134,7 +134,7 @@ To configure Azure AD single sign-on with PureCloud by Genesys, perform the foll
 	| `https://login.mypurecloud.ie` |
 	| `https://login.mypurecloud.com.au` |
 
-6. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
+6. PureCloud by Genesys application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click **Edit** icon to open **User Attributes** dialog.
 
 	![image](common/edit-attribute.png)
 

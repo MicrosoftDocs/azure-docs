@@ -27,13 +27,13 @@ Whether you're training a machine learning scikit-learn model from the ground-up
 Run this code on either of these environments:
  - Azure Machine Learning Notebook VM - no downloads or installation necessary
 
-    - Complete the [cloud-based notebook quickstart](quickstart-run-cloud-notebook.md) to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
+    - Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md)  to create a dedicated notebook server pre-loaded with the SDK and the sample repository.
     - In the samples training folder on the notebook server, find a completed and expanded notebook by navigating to this directory: **how-to-use-azureml > training > train-hyperparameter-tune-deploy-with-sklearn** folder.
 
  - Your own Jupyter Notebook server
 
-    - [Install the Azure Machine Learning SDK for Python](setup-create-workspace.md#sdk)
-    - [Create a workspace configuration file](setup-create-workspace.md#write-a-configuration-file)
+    - [Install the Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
+    - [Create a workspace configuration file](how-to-configure-environment.md#workspace).
     - Download the dataset and sample script file 
         - [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
@@ -130,7 +130,7 @@ For more information on compute targets, see the [what is a compute target](conc
 
 ## Create a scikit-learn estimator
 
-The [scikit-learn estimator](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) provides a simple way of launching a scikit-learn training job on a compute target. It is implemented through the [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class, which can be used to support single-node CPU training.
+The [scikit-learn estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn?view=azure-ml-py) provides a simple way of launching a scikit-learn training job on a compute target. It is implemented through the [`SKLearn`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) class, which can be used to support single-node CPU training.
 
 If your training script needs additional pip or conda packages to run, you can have the packages installed on the resulting docker image by passing their names through the `pip_packages` and `conda_packages` arguments.
 
@@ -189,12 +189,12 @@ model = run.register_model(model_name='sklearn-iris', model_path='model.joblib')
 
 ## Next steps
 
-In this article, you trained and registered a machine learning, classification model using scikit-learn on Azure Machine Learning service.
 
-* To learn how to deploy a model, continue on to our [model deployment](how-to-deploy-and-where.md) article.
+In this article, you trained and registered a Keras model on Azure Machine Learning service. To learn how to deploy a model, continue on to our model deployment article.
 
-* [Tune hyperparameters](how-to-tune-hyperparameters.md).
-
-* [Track run metrics during training](how-to-track-experiments.md).
-
-* Learn more about [deep learning vs machine learning](concept-deep-learning-vs-machine-learning.md).
+> [!div class="nextstepaction"]
+> [How and where to deploy models](how-to-deploy-and-where.md)
+* [Track run metrics during training](how-to-track-experiments.md)
+* [Tune hyperparameters](how-to-tune-hyperparameters.md)
+* [Deploy a trained model](how-to-deploy-and-where.md)
+* [Reference architecture for distributed deep learning training in Azure](/azure/architecture/reference-architectures/ai/training-deep-learning)

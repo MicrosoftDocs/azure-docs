@@ -189,7 +189,7 @@ Save the json below as simplestaticmetricalert.parameters.json and modify it as 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -442,7 +442,7 @@ Save the json below as simpledynamicmetricalert.parameters.json and modify it as
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -641,7 +641,7 @@ Save and modify the json below as advancedstaticmetricalert.parameters.json for 
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -853,7 +853,7 @@ Save and modify the json below as advanceddynamicmetricalert.parameters.json for
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -936,7 +936,7 @@ az group deployment create \
 
 ## Template for metric alert that monitors multiple resources
 
-The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This preview feature is currently available only via Azure Resource Manager templates and REST API and is only supported for virtual Machines.
+The previous sections described sample Azure Resource Manager templates to create metric alerts that monitor a single resource. Azure Monitor now supports monitoring multiple resources with a single metric alert rule. This feature is currently only supported in Azure public cloud and only for virtual Machines and Databox Edge Devices.
 
 Dynamic Thresholds alerts rule can also help create tailored thresholds for hundreds of metric series (even different types) at a time, which results in fewer alert rules to manage.
 
@@ -1171,7 +1171,7 @@ Save and modify the json below as all-vms-in-resource-group-static.parameters.js
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1488,7 +1488,7 @@ Save and modify the json below as all-vms-in-resource-group-dynamic.parameters.j
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -1790,7 +1790,7 @@ Save and modify the json below as all-vms-in-subscription-static.parameters.json
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2104,7 +2104,7 @@ Save and modify the json below as all-vms-in-subscription-dynamic.parameters.jso
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2403,7 +2403,7 @@ Save and modify the json below as list-of-vms-static.parameters.json for the pur
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {
@@ -2720,7 +2720,7 @@ Save and modify the json below as list-of-vms-dynamic.parameters.json for the pu
 
 ```json
 {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
         "alertName": {

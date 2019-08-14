@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/09/2019
+ms.date: 08/05/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -23,11 +23,13 @@ Multi-factor authentication (MFA) is a great way to secure your organization, bu
 | --- | --- | --- |
 | Passwordless | Phone or security key | Biometric or PIN |
 
-We recognize that each organization has different needs when it comes to authentication. Microsoft currently offers Windows Hello, our premier passwordless experience for the Windows PC. We are adding new credentials to the passwordless family: Microsoft Authenticator app and FIDO2 security keys.
+Each organization has different needs when it comes to authentication. Microsoft currently offers Windows Hello, our for Windows PCs. We are adding the Microsoft Authenticator app and FIDO2 security keys to the passwordless family.
 
 ## Microsoft Authenticator App
 
 Allow your employee’s phone to become a passwordless authentication method. You may already be using the Microsoft Authenticator App as a convenient multi-factor authentication option in addition to a password. But now, it’s available as a passwordless option.
+
+![Sign in to Microsoft Edge with the Microsoft Authenticator app](./media/concept-authentication-passwordless/concept-web-sign-in-microsoft-authenticator-app.png)
 
 It turns any iOS or Android phone into a strong, passwordless credential by allowing users to sign in to any platform or browser by getting a notification to their phone, matching a number displayed on the screen to the one on their phone and then using their biometric (touch or face) or PIN to confirm.
 
@@ -37,11 +39,13 @@ FIDO2 security keys are an unphishable standards-based passwordless authenticati
 
 For public preview, employees can use external security keys to sign in to their Azure Active Directory Joined Windows 10 machines (running version 1809 or higher) and get single-sign on to their cloud resources. They can also sign in to supported browsers.
 
+![Sign in to Microsoft Edge with a security key](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
+
 While there are many keys that are FIDO2 certified by the FIDO Alliance, Microsoft requires some optional extensions of the FIDO2 CTAP specification to be implemented by the vendor to ensure maximum security and the best experience.
 
 A security key **MUST** implement the following features and extensions from the FIDO2 CTAP protocol to be Microsoft-compatible:
 
-| # | Feature / Extension trust | Why is this required? |
+| # | Feature / Extension trust | Why is this feature or extension required? |
 | --- | --- | --- |
 | 1 | Resident key | This feature enables the security key to be portable, where your credential is stored on the security key. |
 | 2 | Client pin | This feature enables you to protect your credentials with a second factor and applies to security keys that do not have a user interface. |
@@ -64,16 +68,18 @@ FIDO2 security keys are a great option for enterprises who are very security sen
 
 ## What scenarios work with the preview?
 
-1. Administrators can enable passwordless authentication methods for their tenant
-1. Administrators can target all users or select users/groups within their tenant for each method
-1. End users can register and manage these passwordless authentication methods in their account portal
-1. End users can sign in with these passwordless authentication methods
-   1. Microsoft Authenticator App: Will work in every scenario where Azure AD authentication is used, including across all browsers, during Windows 10 Out Of Box (OOBE) setup, and with integrated mobile apps on any operating system.
-   1. Security keys: Will work on lock screen for Windows 10 version 1809 or higher and the web in supported browsers like Microsoft Edge.
+- Administrators can enable passwordless authentication methods for their tenant
+- Administrators can target all users or select users/groups within their tenant for each method
+- End users can register and manage these passwordless authentication methods in their account portal
+- End users can sign in with these passwordless authentication methods
+   - Microsoft Authenticator App: Will work in scenarios where Azure AD authentication is used, including across all browsers, during Windows 10 Out Of Box (OOBE) setup, and with integrated mobile apps on any operating system.
+   - Security keys: Will work on lock screen for Windows 10 version 1809 or higher and the web in supported browsers like Microsoft Edge.
 
 ## Next steps
 
-[Enable passwordless options in your organization](howto-authentication-passwordless-enable.md)
+[Enable FIDO2 security key passwordlesss options in your organization](howto-authentication-passwordless-security-key.md)
+
+[Enable phone-based passwordless options in your organization](howto-authentication-passwordless-phone.md)
 
 ### External Links
 

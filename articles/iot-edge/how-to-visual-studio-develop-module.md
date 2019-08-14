@@ -26,7 +26,7 @@ This article shows you how to use the Azure IoT Edge Tools for Visual Studio 201
   
 ## Prerequisites
 
-This article assumes that you use a computer or virtual machine running Windows as your development machine. Your IoT Edge device can be another physical device.
+This article assumes that you use a computer or virtual machine running Windows as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Because this article uses Visual Studio 2019 as the main development tool, install Visual Studio. Make sure you include the **Azure development** and **Desktop development with C++** workloads in your Visual Studio 2019 installation. You can [Modify Visual Studio 2019](https://docs.microsoft.com/visualstudio/install/modify-visual-studio?view=vs-2019) to add the required workloads.
 
@@ -100,13 +100,13 @@ The Azure IoT Edge project template in Visual Studio creates a project that can 
 
 1. Select **OK** to create the Azure IoT Edge solution with a module that uses either C# or C.
 
-Now you have an **AzureIoTEdgeApp1.Linux.Amd64** project or an **AzureIoTEdgeApp1.Windows.Amd64** project, and also an **IoTEdgeModule1** project in your solution. Each **AzureIoTEdgeApp1** project has a `deployment.template.json` file, which defines the modules you want to build and deploy for your IoT Edge solution, and also defines the routes between modules. The default solution has a **tempSensor** module and a **IoTEdgeModule1** module. The **tempSensor** module generates simulated data to the **IoTEdgeModule1** module, while the default code in the **IoTEdgeModule1** module directly pipes received messages to Azure IoT Hub.
+Now you have an **AzureIoTEdgeApp1.Linux.Amd64** project or an **AzureIoTEdgeApp1.Windows.Amd64** project, and also an **IoTEdgeModule1** project in your solution. Each **AzureIoTEdgeApp1** project has a `deployment.template.json` file, which defines the modules you want to build and deploy for your IoT Edge solution, and also defines the routes between modules. The default solution has a **SimulatedTemperatureSensor** module and a **IoTEdgeModule1** module. The **SimulatedTemperatureSensor** module generates simulated data to the **IoTEdgeModule1** module, while the default code in the **IoTEdgeModule1** module directly pipes received messages to Azure IoT Hub.
 
 The **IoTEdgeModule1** project is a .NET Core 2.1 console application if it's a C# module. It contains required Docker files you need for your IoT Edge device running with either a Windows container or Linux container. The `module.json` file describes the metadata of a module. The actual module code, which takes Azure IoT Device SDK as a dependency, is found in the `Program.cs` or `main.c` file.
 
 ## Develop your module
 
-The default module code that comes with the solution is located at **IoTEdgeModule1** > **Program.cs** (for C#) or **main.c** (C). The module and the `deployment.template.json` file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to take input from a source (in this case, the **tempSensor** module that simulates data) and pipe it to Azure IoT Hub.
+The default module code that comes with the solution is located at **IoTEdgeModule1** > **Program.cs** (for C#) or **main.c** (C). The module and the `deployment.template.json` file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to take input from a source (in this case, the **SimulatedTemperatureSensor** module that simulates data) and pipe it to Azure IoT Hub.
 
 When you're ready to customize the module template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
@@ -167,9 +167,9 @@ After you're done developing a single module, you might want to run and debug an
     ```json
         "routes": {
           "IoTEdgeModule1ToIoTHub": "FROM /messages/modules/IoTEdgeModule1/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule1": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
+          "sensorToIoTEdgeModule1": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule1/inputs/input1\")",
           "IoTEdgeModule2ToIoTHub": "FROM /messages/modules/IoTEdgeModule2/outputs/* INTO $upstream",
-          "sensorToIoTEdgeModule2": "FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
+          "sensorToIoTEdgeModule2": "FROM /messages/modules/SimulatedTemperatureSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/IoTEdgeModule2/inputs/input1\")"
         },
     ```
 
@@ -227,7 +227,7 @@ In the quickstart article that you used to set up your IoT Edge device, you depl
    > [!NOTE]
    > You must not select `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`
 
-1. Click the refresh button to see the new modules running along with the **TempSensor** module and **$edgeAgent** and **$edgeHub**.
+1. Click the refresh button to see the new modules running along with the **SimulatedTemperatureSensor** module and **$edgeAgent** and **$edgeHub**.
 
 ## View generated data
 

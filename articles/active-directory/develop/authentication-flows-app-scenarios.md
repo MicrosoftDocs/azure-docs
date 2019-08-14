@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/25/2019
 ms.author: jmprieur
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn about authentication flows and application scenarios so I can create applications protected by the Microsoft identity platform.
 ms.collection: M365-identity-device-management
 ---
@@ -40,7 +40,7 @@ Tokens can be acquired from a number of application types: Web applications, Mob
 
 Authentication scenarios involve two activities:
 
-- **Acquiring security tokens** for a protected Web API. Microsoft recommends that you use [authentication libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens, in particular the MicroSoft Authentication Libraries family (MSAL)
+- **Acquiring security tokens** for a protected Web API. Microsoft recommends that you use [authentication libraries](reference-v2-libraries.md#microsoft-supported-client-libraries) to acquire tokens, in particular the Microsoft Authentication Libraries family (MSAL)
 - **Protecting a Web API** (or a Web App). One of the challenges of protecting a resource (Web app or Web API) is to validate the security token. Microsoft offers, on some platforms, [middleware libraries](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries).
 
 ### With users or without users
@@ -140,7 +140,7 @@ For more information, read [Mobile app that calls web APIs](scenario-mobile-over
 
 ### Protected Web API
 
-You can use the Microsoft identity platform endpoint to secure web services, such as your app's RESTful Web API. A protected Web API is called with an access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request. If you want to protect you ASP.NET or ASP.NET Core Web API, you will need to validate the access token. For this, you'll use the ASP.NET JWT middleware. Under the hood, the validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library, not MSAL.NET
+You can use the Microsoft identity platform endpoint to secure web services, such as your app's RESTful Web API. A protected Web API is called with an access token to secure its data and to authenticate incoming requests. The caller of a Web API appends an access token in the authorization header of an HTTP request. If you want to protect your ASP.NET or ASP.NET Core Web API, you will need to validate the access token. For this, you'll use the ASP.NET JWT middleware. Under the hood, the validation is done by the [IdentityModel extensions for .NET](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) library, not MSAL.NET
 
 For more information, read [Protected Web API](scenario-protected-web-api-overview.md).
 

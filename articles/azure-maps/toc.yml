@@ -25,6 +25,8 @@
     items:
     - name: Set up a geofence
       href: tutorial-geofence.md
+    - name: Spatial analytics
+      href: tutorial-iot-hub-maps.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -91,21 +93,27 @@
         href: choose-map-style.md
       - name: Add controls to the map
         href: map-add-controls.md
+      - name: Create a data source
+        href: create-data-source-web-sdk.md
       - name: Add a symbol layer
-        href: map-add-pin.md
-      - name: Add a popup
-        href: map-add-popup.md      
+        href: map-add-pin.md    
       - name: Add a bubble layer
         href: map-add-bubble-layer.md
-      - name: Add shapes
+      - name: Add a line layer
+        href: map-add-line-layer.md
+      - name: Add a polygon layer
         href: map-add-shape.md
       - name: Add a heat map layer
-        href: map-add-heat-map-layer.md   
+        href: map-add-heat-map-layer.md  
+      - name: Add a popup
+        href: map-add-popup.md   
       - name: Cluster point data
         href: clustering-point-data-web-sdk.md
       - name: Use data-driven style expressions
         href: data-driven-style-expressions-web-sdk.md
-      - name: Overlay an image
+      - name: How to use image templates
+        href: how-to-use-image-templates-web-sdk.md
+      - name: Add an image layer
         href: map-add-image-layer.md
       - name: Add tile layers
         href: map-add-tile-layer.md
@@ -131,12 +139,16 @@
     items:
     - name: Getting started with Android map control
       href: how-to-use-android-map-control-library.md
+    - name: Change the style of the map
+      href: set-android-map-styles.md
     - name: Add a symbol layer
       href: how-to-add-symbol-to-android-map.md
     - name: Add shapes
       href: how-to-add-shapes-to-android-map.md
-    - name: Change the style of the map
-      href: set-android-map-styles.md
+    - name: Display feature information
+      href: display-feature-information-android.md
+    - name: Add a tile layer
+      href: how-to-add-tile-layer-android-map.md
 - name: Reference
   items:
   - name: API and parameter extensions

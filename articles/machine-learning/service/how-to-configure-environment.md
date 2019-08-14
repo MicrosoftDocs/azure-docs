@@ -23,7 +23,7 @@ The following table shows each development environment covered in this article, 
 | --- | --- | --- |
 | [Cloud-based notebook VM](#notebookvm) | Easiest way to get started. The entire SDK is already installed in your workspace VM, and notebook tutorials are pre-cloned and ready to run. | Lack of control over your development environment and dependencies. Additional cost incurred for Linux VM (VM can be stopped when not in use to avoid charges). See [pricing details](https://azure.microsoft.com/pricing/details/virtual-machines/linux/). |
 | [Local environment](#local) | Full control of your development environment and dependencies. Run with any build tool, environment, or IDE of your choice. | Takes longer to get started. Necessary SDK packages must be installed, and an environment must also be installed if you don't already have one. |
-| [Azure Databricks](#aml-databricks) | Ideal for running large-scale intensive machine learning workflows on the scaleable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
+| [Azure Databricks](#aml-databricks) | Ideal for running large-scale intensive machine learning workflows on the scalable Apache Spark platform. | Overkill for experimental machine learning, or smaller-scale experiments and workflows. Additional cost incurred for Azure Databricks. See [pricing details](https://azure.microsoft.com/pricing/details/databricks/). |
 | [The Data Science Virtual Machine (DSVM)](#dsvm) | Similar to the cloud-based notebook VM (Python and the SDK are pre-installed), but with additional popular data science and machine learning tools pre-installed. Easy to scale and combine with other custom tools and workflows. | A slower getting started experience compared to the cloud-based notebook VM. |
 | [Azure Notebooks](#aznotebooks) | Free and light weight getting started experience, with Python and the SDK pre-installed. | Less-powerful VM's available compared to cloud-based notebook VM. Isolated from workspace and other resources. |
 
@@ -35,7 +35,7 @@ This article also provides additional usage tips for the following tools:
 
 ## Prerequisites
 
-An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](setup-create-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#notebookvm), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
+An Azure Machine Learning service workspace. To create the workspace, see [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md). A workspace is all you need to get started with your own [cloud-based notebook server](#notebookvm), a [DSVM](#dsvm), [Azure Databricks](#aml-databricks), or [Azure Notebooks](#aznotebooks).
 
 To install the SDK environment for your [local computer](#local), [Jupyter Notebook server](#jupyter) or [Visual Studio Code](#vscode) you also need:
 
@@ -67,11 +67,11 @@ The notebook VM is:
 
   If you are into code, the VM includes tutorials and samples to help you explore and learn how to use Azure Machine Learning service. The sample notebooks are stored in the Azure Blob Storage account of your workspace making them shareable across VMs. When run, they also have access to the data stores and compute resources of your workspace.
 
-+ **Simple setup**: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify a Azure VM type. Try it now with this [Quickstart: Use a cloud-based notebook server to get started with Azure Machine Learning](quickstart-run-cloud-notebook.md).
++ **Simple setup**: Create one anytime from within your Azure Machine Learning workspace. Provide just a name and specify a Azure VM type. Try it now with this [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md).
 
 + **Customizable**. While a managed and secure VM offering, you retain full access to the hardware capabilities and customize it to your heart’s desire. For example, quickly create the latest NVidia V100 powered VM to perform step-by-step debugging of novel Neural Network architecture.
 
-To stop incurring notebook VM charges, [stop the notebook VM](quickstart-run-cloud-notebook.md#stop-the-notebook-vm).
+To stop incurring notebook VM charges, [stop the notebook VM](tutorial-1st-experiment-sdk-setup.md#stop-the-notebook-vm). 
 
 ## <a id="dsvm"></a>Data Science Virtual Machine
 
@@ -374,7 +374,7 @@ To use this file from your code, use `ws=Workspace.from_config()`. This code loa
 
 You can create the configuration file in three ways:
 
-* **Follow the steps in [Create an Azure Machine Learning service workspace](setup-create-workspace.md#sdk)**: A *config.json* file is created in your Azure Notebooks library. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
+* **Use  [ws.write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: to write a *config.json* file. The file contains the configuration information for your workspace. You can download or copy the *config.json* to other development environments.
 
 * **Download the file**: In the [Azure portal](https://ms.portal.azure.com), select  **Download config.json** from the **Overview** section of your workspace.
 

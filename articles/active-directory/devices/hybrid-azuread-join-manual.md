@@ -71,6 +71,8 @@ For Windows 10 devices on version 1703 or earlier, if your organization requires
 
 Beginning with Windows 10 1803, even if a hybrid Azure AD join attempt by a device in a federated domain through AD FS fails, and if Azure AD Connect is configured to sync the computer/device objects to Azure AD, the device will try to complete the hybrid Azure AD join by using the synced computer/device.
 
+To verify if the device is able to access the above Microsoft resources under the system account, you can use [Test Device Registration Connectivity](https://gallery.technet.microsoft.com/Test-Device-Registration-3dc944c0) script.
+
 ## Verify configuration steps
 
 You can configure hybrid Azure AD joined devices for various types of Windows device platforms. This topic includes the required steps for all typical configuration scenarios.  

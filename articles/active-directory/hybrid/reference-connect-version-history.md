@@ -504,7 +504,7 @@ Status: October 19 2017
 
 ### Azure AD Connect Sync
 > [!NOTE]
-> Note: The Synchronization Service has a WMI interface that lets you develop your own custom scheduler. This interface is now deprecated and will be removed from future versions of Azure AD Connect shipped after June 30, 2018. Customers who want to customize synchronization schedule should use the [built-in scheduler (https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
+> Note: The Synchronization Service has a WMI interface that lets you develop your own custom scheduler. This interface is now deprecated and will be removed from future versions of Azure AD Connect shipped after June 30, 2018. Customers who want to customize synchronization schedule should use the [built-in scheduler](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-feature-scheduler).
 
 #### Fixed issues
 * When Azure AD Connect wizard creates the AD Connector account required to synchronize changes from on-premises Active Directory, it does not correctly assign the account the permission required to read PublicFolder objects. This issue affects both Express installation and Custom installation. This change fixes the issue.
