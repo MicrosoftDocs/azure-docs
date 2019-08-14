@@ -52,10 +52,10 @@ When you've completed the guide, your application will accept sign-ins of person
 > 1. Navigate to the Microsoft identity platform for developers [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) page.
 > 1. Select **New registration**.
 > 1. When the **Register an application** page appears, enter your application's registration information:
->    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-webapp`.
+>    - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `java-webapp`
 >    - Leave **Redirect URI** blank for now, and select **Register**.
 > 1. Select the **Authentication** menu, and then add the following information:
->    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/users`,  and select **Save**.
+>    - In **Redirect URIs**, add `http://localhost:8080/msal4jsamples/secure/aad` and `https://localhost:8080/msal4jsamples/graph/users`
 >    - Select **Save**.
 > 1. On the left hand menu, choose **Certificates & secrets** and click on **New client secret** in the Client Secrets section:
 >     
@@ -122,7 +122,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ```
 
 
-###Msal initialization
+### Msal initialization
 You can add the reference for MSAL by adding the following code: 
 
 ```
