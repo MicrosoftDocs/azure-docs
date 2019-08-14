@@ -35,7 +35,7 @@ Create an Azure Front Door Service profile by following the instructions describ
 
 ### Create a WAF policy
 
-Create a WAF policy by using the [az network waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) command. 
+Create a WAF policy by using the [az network front-door waf-policy create](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-create) command. 
 In the example that follows, replace the policy name *IPAllowPolicyExampleCLI* with a unique policy name.
 
 ```azurecli-interactive 
@@ -46,13 +46,13 @@ az network front-door waf-policy create \
   ```
 ### Add a custom IP access control rule
 
-Use the [az network waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
+Use the [az network front-door waf-policy custom-rule create](/cli/azure/ext/front-door/network/front-door/waf-policy/rule?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-rule-create) command to add a custom IP access control rule for the WAF policy you just created.
 
 In the following examples:
 -  Replace *IPAllowPolicyExampleCLI* with your unique policy created earlier.
 -  Replace *ip-address-range-1*, *ip-address-range-2* with your own range.
 
-First, create an IP allow rule for the policy created from the previous step.
+First, create an IP allow rule for the policy created from the previous step. Note **--defer** is required because a rule must have a match condition to be added in the next step.
 
 ```azurecli
 az network front-door waf-policy rule create \
@@ -61,15 +61,15 @@ az network front-door waf-policy rule create \
   --rule-type MatchRule \
   --action Block \
   --resource-group <resource-group-name> \
-  --policy-name IPAllowPolicyExampleCLI
+  --policy-name IPAllowPolicyExampleCLI --defer
 ```
 Next, add match condition to the rule:
 
 ```azurecli
 az network front-door waf-policy rule match-condition add\
 --match-variable RemoteAddr \
---operator IPmatch
---values ("<ip-address-range-1>","<ip-address-range-2>")\
+--operator IPMatch
+--values "ip-address-range-1" "ip-address-range-2"
 --negate true\
 --name IPAllowListRule\
   --resource-group <resource-group-name> \
@@ -77,7 +77,7 @@ az network front-door waf-policy rule match-condition add\
   ```
                                                    
 ### Find the ID of a WAF policy 
-Find a WAF policy's ID by using the [az network waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
+Find a WAF policy's ID by using the [az network front-door waf-policy show](/cli/azure/ext/front-door/network/front-door/waf-policy?view=azure-cli-latest#ext-front-door-az-network-front-door-waf-policy-show) command. Replace *IPAllowPolicyExampleCLI* in the following example with your unique policy that you created earlier.
 
    ```azurecli
    az network front-door  waf-policy show \
@@ -135,7 +135,7 @@ $IPMatchCondition = New-AzFrontDoorWafMatchConditionObject `
 -MatchVariable  RemoteAddr `
 -OperatorProperty IPMatch `
 -MatchValue "ip-address-range-1", "ip-address-range-2"
--NegateCondition true
+-NegateCondition 1
 ```
      
 ### Create a custom IP allow rule
