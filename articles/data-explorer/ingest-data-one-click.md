@@ -6,7 +6,7 @@ ms.author: orspodek
 ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/14/2019
 ---
 
 # Use one-click ingestion to ingest data into Azure Data Explorer
@@ -18,7 +18,7 @@ This article shows how to perform one-click ingestion for quick ingestion of a n
 * If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 * Sign in to [the application](https://dataexplorer.azure.com/).
 * Create [an Azure Data Explorer cluster and database](create-cluster-database-portal.md)
-* Source of data.
+* Source of data in Azure Storage.
 
 ## Ingest new data
 
@@ -35,7 +35,8 @@ This article shows how to perform one-click ingestion for quick ingestion of a n
  
     ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
-1. In **Schema** tab, select **Data format** from drop-down > **JSON** or **CSV**. If select **CSV**: 
+1. In **Schema** tab, select **Data format** from drop-down > **JSON** or **CSV**. 
+   If select **CSV**:
 
     * Select checkbox **Ignore headline** to ignore heading row of csv file.    
     * **Mapping name** is set automatically but can be edited.
@@ -48,7 +49,7 @@ This article shows how to perform one-click ingestion for quick ingestion of a n
 
     ![one click ingestion json format schema](media/ingest-data-one-click/one-click-json-format.png)  
 
-1. In **Editor**, select **V** on right to open the editor. In the editor you can view the automatic queries generated from the information inputed. 
+1. In **Editor**, select **V** on right to open the editor. In the editor you can view and copy the automatic queries generated from your inputs. 
 
 1.	In table depicted on the bottom right: 
     * Select **V** on right of column to **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**
