@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Configure agent data collection for Azure Monitor for containers
 
-Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. This agent can also collect time series data (also referred to as metrics) from Prometheus using the containerized agent without having to setup and manage a Prometheus server and database. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
+Azure Monitor for containers collects stdout, stderr, and environmental variables from container workloads deployed to managed Kubernetes clusters hosted on Azure Kubernetes Service (AKS) from the containerized agent. This agent can also collect time series data (also referred to as metrics) from Prometheus using the containerized agent without having to set up and manage a Prometheus server and database. You can configure agent data collection settings by creating a custom Kubernetes ConfigMaps to control this experience. 
 
 This article demonstrates how to create ConfigMap and configure data collection based on your requirements.
 
@@ -29,7 +29,7 @@ This article demonstrates how to create ConfigMap and configure data collection 
 
 ![Container monitoring architecture for Prometheus](./media/container-insights-agent-config/monitoring-kubernetes-architecture.png)
 
-Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics by exposing a Prometheus endpoint. This endpoint is a HTTP interface that exposes a list of metrics with its current value, and scraped by Azure Monitor for containers. The metrics are collected through a set of settings specified in a single ConfigMap file, which is the same file used to configure collection of stdout, stderr, and environmental variables from container workloads. 
+Azure Monitor for containers provides a seamless experience to enable collection of Prometheus metrics by exposing a Prometheus endpoint. This endpoint is an HTTP interface that exposes a list of metrics with its current value, and scraped by Azure Monitor for containers. The metrics are collected through a set of settings specified in a single ConfigMap file, which is the same file used to configure collection of stdout, stderr, and environmental variables from container workloads. 
 
 Collection Settings are either cluster-wide or per-node, and the following table summarizes the metrics scraped from the endpoints.
 
@@ -65,7 +65,7 @@ The following are the settings that can be configured to control data collection
 
 ## Overview of configurable Prometheus scraping settings
 
-Active scraping of metrics from Prometheus are performed from one of two perspectives:
+Active scraping of metrics from Prometheus is performed from one of two perspectives:
 
 * Cluster-wide - HTTP URL and discover targets from listed endpoints of a service, k8s services such as kube-dns and kube-state-metrics, and pod annotations specific to an application. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus data_collection_settings.cluster]*.
 * Node-wide - HTTP URL and discover targets from listed endpoints of a service. Metrics collected in this context will be defined in the ConfigMap section *[Prometheus_data_collection_settings.node]*.
@@ -161,7 +161,7 @@ To verify the configuration was successfully applied, use the following command 
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Errors related to applying configuration changes for Prometheus are also available for review.  Either from the logs from an agent pod using the same `kubectl logs` command or from live logs. Live logs shows errors similar to the following:
+Errors related to applying configuration changes for Prometheus are also available for review.  Either from the logs from an agent pod using the same `kubectl logs` command or from live logs. Live logs show errors similar to the following:
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
