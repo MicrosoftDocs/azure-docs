@@ -31,46 +31,48 @@ In this tutorial, you will:
 
 ## Prerequisites
 
-- Make sure that the Azure VMs are in the Azure region from which you want to move.
-- Verify that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), and make an informed decision about the target region.
-- Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
-- Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
-- Verify account permissions. If you created your free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need. To enable replication for a VM and essentially copy data by using Azure Site Recovery, you must have:
+1. Make sure that the Azure VMs are in the Azure region from which you want to move.
+2. Verify that your choice of [source region - target region combination is supported](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support), and make an informed decision about the target region.
+3. Make sure that you understand the [scenario architecture and components](azure-to-azure-architecture.md).
+4. Review the [support limitations and requirements](azure-to-azure-support-matrix.md).
+5. Verify account permissions. If you created your free Azure account, you're the administrator of your subscription. If you're not the subscription administrator, work with the administrator to assign the permissions that you need. To enable replication for a VM and essentially copy data by using Azure Site Recovery, you must have:
 
-    * Permissions to create a VM in Azure resources. The Virtual Machine Contributor built-in role has these permissions, which include:
-        - Permission to create a VM in the selected resource group
-        - Permission to create a VM in the selected virtual network
-        - Permission to write to the selected storage account
+    a. * Permissions to create a VM in Azure resources. The Virtual Machine Contributor built-in role has these permissions, which include:
+    b. Permission to create a VM in the selected resource group
+    c. Permission to create a VM in the selected virtual network
+    d. Permission to write to the selected storage account
 
-    * Permissions to manage Azure Site Recovery operations. The Site Recovery Contributor role has all the permissions that are required to manage Site Recovery operations in a Recovery Services vault.
+    a. * Permissions to manage Azure Site Recovery operations. The Site Recovery Contributor role has all the permissions that are required to manage Site Recovery operations in a Recovery Services vault.
 
- - Make sure that all the latest root certificates are on the Azure VMs that you want to move. If the latest root certificates aren't on the VM, security constraints will prevent the data copy to the target region.
+    a. Make sure that all the latest root certificates are on the Azure VMs that you want to move. If the latest root certificates aren't on the VM, security constraints will prevent the data copy to the target region.
 
- - For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate update processes for your organization.
+    a. For Windows VMs, install all the latest Windows updates on the VM, so that all the trusted root certificates are on the machine. In a disconnected environment, follow the standard Windows Update and certificate update processes for your organization.
     
-- For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
- Make sure that you're not using an authentication proxy to control network connectivity for VMs that you want to move.
+1. For Linux VMs, follow the guidance provided by your Linux distributor to get the latest trusted root certificates and certificate revocation list on the VM.
+    a. Make sure that you're not using an authentication proxy to control network connectivity for VMs that you want to move.
 
-- If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
+1. If the VM that you're trying to move doesn't have access to the internet, or it's using a firewall proxy to control outbound access, [check the requirements](azure-to-azure-tutorial-enable-replication.md#set-up-outbound-network-connectivity-for-vms).
 
-- Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
+1. Identify the source networking layout and all the resources that you're currently using. This includes but isn't limited to load balancers, network security groups (NSGs), and public IPs.
 
-- Verify that your Azure subscription allows you to create VMs in the target region that's used for disaster recovery. Contact support to enable the required quota.
+1. Verify that your Azure subscription allows you to create VMs in the target region that's used for disaster recovery. Contact support to enable the required quota.
 
-- Make sure that your subscription has enough resources to support VMs with sizes that match your source VMs. If you're using Site Recovery to copy data to the target, Site Recovery chooses the same size or the closest possible size for the target VM.
+1. Make sure that your subscription has enough resources to support VMs with sizes that match your source VMs. If you're using Site Recovery to copy data to the target, Site Recovery chooses the same size or the closest possible size for the target VM.
 
-- Make sure that you create a target resource for every component that's identified in the source networking layout. This step is important to ensure that your VMs have all the functionality and features in the target region that you had in the source region.
+1. Make sure that you create a target resource for every component that's identified in the source networking layout. This step is important to ensure that your VMs have all the functionality and features in the target region that you had in the source region.
 
-    > [!NOTE]
-    > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM. You can also pre-create a network and assign it to the VM in the user flow for enable replication. As mentioned later, you need to manually create any other resources in the target region.
+     > [!NOTE] 
+     > Azure Site Recovery automatically discovers and creates a virtual network when you enable replication for the source VM. You can also pre-create a network and assign it to the VM in the user flow for enable replication. As mentioned later, you need to manually create any other resources in the target region.
 
- - To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
+    To create the most commonly used network resources that are relevant for you based on the source VM configuration, see the following documentation:
 
-    - [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
-    - [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
-    - [Public IP](../virtual-network/virtual-network-public-ip-address.md)
-    
-    - For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
+    a. [Network security groups](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
+
+    b. [Load balancers](https://docs.microsoft.com/azure/load-balancer/#step-by-step-tutorials)
+
+    c.  [Public IP](../virtual-network/virtual-network-public-ip-address.md)
+
+    d. For any other networking components, see the [networking documentation](https://docs.microsoft.com/azure/#pivot=products&panel=network).
 
 
 
@@ -132,7 +134,7 @@ The following steps will guide you through how to clean up the source region as 
 
 If you have no plans to reuse any of the source resources, follow these steps:
 
-2. . Delete all the relevant network resources in the source region that you listed out as part of step 4 in [Prepare the source VMs](#prepare-the-source-vms).
+2. Delete all the relevant network resources in the source region that you listed out as part of step 8 in [prerequisites](#prerequisites).
 1. Delete the corresponding storage account in the source region.
 
 ## Next steps
