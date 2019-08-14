@@ -68,6 +68,11 @@ Automated machine learning supports data that resides on your local desktop or i
 * Numpy arrays X (features) and y (target variable or also known as label)
 * Pandas dataframe
 
+>[!Important]
+> Requirements for training data:
+>* Data must be in tabular form.
+>* The value you want to predict (target column) must be present in the data.
+
 Examples:
 
 *	Numpy arrays
