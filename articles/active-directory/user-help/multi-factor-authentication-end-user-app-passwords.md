@@ -113,7 +113,7 @@ If you use two-step verification with your work or school account and your Offic
 
    ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
-2. Select **Delete** for the app password to delete, select **Yes** in the confirmation box, and then select **Close**.
+2. Select **Yes** in the confirmation box, and then select **Close**.
 
     The app password is successfully deleted.
 
