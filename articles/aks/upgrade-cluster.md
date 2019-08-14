@@ -32,26 +32,26 @@ az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster --outpu
 ```
 
 > [!NOTE]
-> When you upgrade an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.11.x* -> *1.12.x* or *1.12.x* -> *1.13.x* are allowed, however *1.11.x* -> *1.13.x* is not.
+> When you upgrade an AKS cluster, Kubernetes minor versions cannot be skipped. For example, upgrades between *1.12.x* -> *1.13.x* or *1.13.x* -> *1.14.x* are allowed, however *1.12.x* -> *1.14.x* is not.
 >
-> To upgrade, from *1.11.x* -> *1.13.x*, first upgrade from *1.11.x* -> *1.12.x*, then upgrade from *1.12.x* -> *1.13.x*.
+> To upgrade, from *1.12.x* -> *1.14.x*, first upgrade from *1.12.x* -> *1.13.x*, then upgrade from *1.13.x* -> *1.14.x*.
 
-The following example output shows that the cluster can be upgraded to version *1.12.7* or *1.12.8*:
+The following example output shows that the cluster can be upgraded to version *1.13.9*:
 
 ```console
-Name     ResourceGroup    MasterVersion  NodePoolVersion  Upgrades
--------  ---------------  -------------  ---------------  --------------
-default  myResourceGroup  1.11.9         1.11.9           1.12.7, 1.12.8
+Name     ResourceGroup    MasterVersion    NodePoolVersion    Upgrades
+-------  ---------------  ---------------  -----------------  --------------
+default  myResourceGroup  1.12.8           1.12.8             1.13.9
 ```
 
 ## Upgrade an AKS cluster
 
 With a list of available versions for your AKS cluster, use the [az aks upgrade][az-aks-upgrade] command to upgrade. During the upgrade process, AKS adds a new node to the cluster that runs the specified Kubernetes version, then carefully [cordon and drains][kubernetes-drain] one of the old nodes to minimize disruption to running applications. When the new node is confirmed as running application pods, the old node is deleted. This process repeats until all nodes in the cluster have been upgraded.
 
-The following example upgrades a cluster to version *1.12.8*:
+The following example upgrades a cluster to version *1.13.9*:
 
 ```azurecli-interactive
-az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.12.8
+az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.13.9
 ```
 
 It takes a few minutes to upgrade the cluster, depending on how many nodes you have.
@@ -62,12 +62,12 @@ To confirm that the upgrade was successful, use the [az aks show][az-aks-show] c
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-The following example output shows that the cluster now runs *1.12.8*:
+The following example output shows that the cluster now runs *1.13.9*:
 
 ```json
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn
 ------------  ----------  ---------------  -------------------  -------------------  ---------------------------------------------------------------
-myAKSCluster  eastus      myResourceGroup  1.12.8               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
+myAKSCluster  eastus      myResourceGroup  1.13.9               Succeeded            myaksclust-myresourcegroup-19da35-90efab95.hcp.eastus.azmk8s.io
 ```
 
 ## Next steps
