@@ -158,7 +158,7 @@ In the preceding scenarios, we recommend that you trigger a re-register operatio
 
 The total string size of files depends not only on the number of files but also on their names and paths. For each database file, get the logical file name and physical path. You can use this SQL query:
 
-```
+```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
                WHERE db.name = N'<Database Name>'"
@@ -166,13 +166,13 @@ SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files m
 
 Now arrange them in the following format:
 
-```
+```json
 [{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
 ```
 
 Here's an example:
 
-```
+```json
 [{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
 ```
 
@@ -183,7 +183,7 @@ If the string size of the content exceeds 20,000 bytes, the database files are s
 You can override the target restore file path during the restore operation by placing a JSON file that contains the mapping of the database file to the target restore path. Create a `database_name.json` file and place it in the location *C:\Program Files\Azure Workload Backup\bin\plugins\SQL*.
 
 The content of the file should be in this format:
-```
+```json
 [
   {
     "Path": "<Restore_Path>",
@@ -200,7 +200,7 @@ The content of the file should be in this format:
 
 Here's an example:
 
-```
+```json
 [
   {
    "Path": "F:\\Data\\testdb2_1546408741449456.mdf",
@@ -217,7 +217,7 @@ Here's an example:
 
 In the preceding content, you can get the logical name of the database file by using the following SQL query:
 
-```
+```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
                 WHERE db.name = N'<Database Name>'"
