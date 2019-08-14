@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Signagelive    for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Signagelive   .
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Signagelive.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -20,7 +20,7 @@ ms.author: Zhchia
 
 # Tutorial: Configure Signagelive  for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Signagelive  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Signagelive .
+The objective of this tutorial is to demonstrate the steps to be performed in Signagelive  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Signagelive.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
