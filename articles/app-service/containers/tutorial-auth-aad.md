@@ -283,7 +283,7 @@ Save your settings by clicking **PUT**.
 
 Your apps are now configured. The front end is now ready to access the back end with a proper access token.
 
-For information on how to configure this for other providers, see [Refresh identity provider tokens](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens).
+For information on how to configure the access token for other providers, see [Refresh identity provider tokens](../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#refresh-identity-provider-tokens).
 
 ## Call API securely from server code
 
