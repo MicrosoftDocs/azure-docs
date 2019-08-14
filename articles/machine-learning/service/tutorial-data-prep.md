@@ -34,7 +34,7 @@ In this tutorial, you:
 
 * Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
-    * create a cloud notebook server
+    * Create a cloud notebook server
     * Launch the Jupyter web interface
 
 * After you launch the Jupyter web interface, open the **tutorials/regression-part1-data-prep.ipynb** notebook.
