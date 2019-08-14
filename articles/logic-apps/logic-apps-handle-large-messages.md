@@ -212,7 +212,7 @@ includes this information about the content that your logic app wants to upload 
 4. After each PATCH request, the endpoint confirms the receipt 
 for each chunk by responding with the "200" status code and the following response headers:
 
-| Endpoint response header field | Type | Required | Description |
+   | Endpoint response header field | Type | Required | Description |
    |--------------------------------|------|----------|-------------|
    | **Range** | String | Yes | The byte range for content that has been received by the endpoint, for example: "bytes=0-1023" |   
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
