@@ -142,7 +142,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. Check the box labeled **Provision new users to be SSO enabled by default?**
 
-	b.
+	b. Enter `myapps.microsoft.com` in the **SSO URL** textbox.
 
 ### Create Vocoli test user
 
@@ -164,7 +164,7 @@ To enable Azure AD users, sign in to Vocoli, they must be provisioned into Vocol
 
 	![Vocoli configuration](./media/vocoli-tutorial/config07.png)
 
-1. The new user slide out will be displayed as below. Fill the required fields like **First Name**, **Last Name**, **Email** etc, then Choose **CREATE NEW USER**.
+1. The new user slide out will be displayed as below. Fill the required fields like **First Name**, **Last Name**, **Email** etc., then Choose **CREATE NEW USER**.
 
 	![Vocoli configuration](./media/vocoli-tutorial/config08.png)
 
