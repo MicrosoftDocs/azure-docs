@@ -17,7 +17,7 @@ ms.author: assafi
 
 Get started with the Text Analytics client library for .NET. Follow these steps to install the package and try out the example code for basic tasks. 
 
-Use the Text Analytics client library for Python to perform:
+Use the Text Analytics client library for .NET to perform:
 
 * Sentiment analysis
 * Language detection
