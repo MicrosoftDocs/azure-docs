@@ -37,7 +37,14 @@ To complete this tutorial, the following are required:
 
 ## Import a watcher runbook
 
-This tutorial uses a watcher runbook called **Watch-NewFile** to look for new files in a directory. The watcher runbook retrieves the last known write time to the files in a folder and looks at any files newer than that watermark. In this step, you import this runbook into your automation account.
+This tutorial uses a watcher runbook called **Watch-NewFile** to look for new files in a directory. The watcher runbook retrieves the last known write time to the files in a folder and looks at any files newer than that watermark.
+
+This import process can be done through the [PowerShell Gallery](https://www.powershellgallery.com).
+
+1. Navigate to the gallery page for [Watch-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-runbook-that-looks-36fc82cd).
+2. Under the **Azure Automation** tab, click **Deploy to Azure Automation**.
+
+You can also import this runbook into your automation account from the portal using the following steps.
 
 1. Open your Automation account, and click on the **Runbooks** page.
 2. Click on the **Browse gallery** button.
@@ -57,7 +64,14 @@ An [automation variable](automation-variables.md) is used to store the timestamp
 
 ## Create an action runbook
 
-An action runbook is used in a watcher task to act on the data passed to it from a watcher runbook. PowerShell Workflow runbooks are not supported by watcher tasks, you must use PowerShell runbooks. In this step, you update import a pre-defined action runbook called "Process-NewFile".
+An action runbook is used in a watcher task to act on the data passed to it from a watcher runbook. PowerShell Workflow runbooks are not supported by watcher tasks, you must use PowerShell runbooks. You must import a pre-defined action runbook called **Process-NewFile**.
+
+This import process can be done through the [PowerShell Gallery](https://www.powershellgallery.com).
+
+1. Navigate to the gallery page for [Process-NewFile.ps1](https://gallery.technet.microsoft.com/scriptcenter/Watcher-action-that-b4ff7cdf).
+2. Under the **Azure Automation** tab, click **Deploy to Azure Automation**.
+
+You can also import this runbook into your automation account from the portal using the following steps.
 
 1. Navigate to your automation account and select **Runbooks** under the **PROCESS AUTOMATION** category.
 1. Click on the **Browse gallery** button.
@@ -87,7 +101,7 @@ The watcher task contains two parts. The watcher and the action. The watcher run
 1. Select **Configure action** and select "Process-NewFile" runbook.
 1. Enter the following values for parameters:
 
-   * **EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.  
+   * **EVENTDATA** - Leave blank. Data is passed in from the watcher runbook.
    * **Run Settings** - Leave as Azure as this runbook runs in the Automation service.
 
 1. Click **OK**, and then Select to return to the watcher page.
@@ -100,7 +114,7 @@ The watcher task contains two parts. The watcher and the action. The watcher run
 To test the watcher is working as expected, you need to create a test file.
 
 Remote into the hybrid worker. Open **PowerShell** and create a test file in the folder.
-  
+
 ```azurepowerShell-interactive
 New-Item -Name ExampleFile1.txt
 ```

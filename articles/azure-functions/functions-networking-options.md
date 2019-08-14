@@ -28,53 +28,80 @@ You can host function apps in a couple of ways:
 
 |                |[Consumption plan](functions-scale.md#consumption-plan)|[Premium plan (preview)](functions-scale.md#premium-plan)|[App Service plan](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[Inbound IP restrictions](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[Outbound IP Restrictions](#private-site-access)|❌No| ❌No|❌No|✅Yes|
-|[Virtual network integration](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
-|[Preview virtual network integration (Azure ExpressRoute and service endpoints outbound)](#preview-version-of-virtual-network-integration)|❌No|✅Yes|✅Yes|✅Yes|
+|[Inbound IP restrictions & private site access](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Virtual network integration](#virtual-network-integration)|❌No|✅Yes (Regional)|✅Yes (Regional and Gateway)|✅Yes|
+|[Virtual network triggers (non-HTTP)](#virtual-network-triggers-non-http)|❌No| ❌No|✅Yes|✅Yes|
 |[Hybrid Connections](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[Private site access](#private-site-access)|❌No| ✅Yes|✅Yes|✅Yes|
+|[Outbound IP Restrictions](#outbound-ip-restrictions)|❌No| ❌No|❌No|✅Yes|
+
 
 ## Inbound IP restrictions
 
 You can use IP restrictions to define a priority-ordered list of IP addresses that are allowed/denied access to your app. The list can include IPv4 and IPv6 addresses. When there's one or more entries, an implicit "deny all" exists at the end of the list. IP restrictions work with all function-hosting options.
 
 > [!NOTE]
-> To use the Azure portal editor, the portal must be able to directly access your running function app. Also, the device that you're using to access the portal must have its IP whitelisted. With network restrictions in place, you can still access any features on the **Platform features** tab.
+> With network restrictions in place, you can only use the portal editor from within your virtual network or when you have whitelisted the IP of the machine you are using to access the Azure portal. However, you can still access any features on the **Platform features** tab from any machine.
 
 To learn more, see [Azure App Service static access restrictions](../app-service/app-service-ip-restrictions.md).
 
-## Outbound IP restrictions
+## Private site access
 
-Outbound IP restrictions are only available for functions deployed to an App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
+Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
+* Private site access is available in the [Premium](./functions-premium-plan.md) and [App Service plan](functions-scale.md#app-service-plan) when **Service Endpoints** are configured. For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
+    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with virtual network integration configured.
+* Private site access is also available with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
 ## Virtual network integration
 
 Virtual network integration allows your function app to access resources inside a virtual network. This feature is available in both the Premium plan and the App Service plan. If your app is in an App Service Environment, it's already in a virtual network and doesn't require the use of virtual network integration to reach resources in the same virtual network.
 
-Virtual network integration gives your function app access to resources in your virtual network but doesn't grant [private site access](#private-site-access) to your function app from the virtual network.
-
 You can use virtual network integration to enable access from apps to databases and web services running in your virtual network. With virtual network integration, you don't need to expose a public endpoint for applications on your VM. You can use the private, non-internet routable addresses instead.
 
-The generally available version of virtual network integration relies on a VPN gateway to connect function apps to a virtual network. It's available in functions hosted in an App Service plan. To learn how to configure this feature, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
+There are two forms to the virtual network Integration feature
 
-### Preview version of virtual network integration
+1. Regional virtual network integration enables integration with virtual networks in the same region. This form of the feature requires a subnet in a virtual network in the same region. This feature is still in preview but is supported for Windows app production workloads with some caveats noted below.
+2. Gateway required virtual network integration enables integration with virtual networks in remote regions, or with Classic virtual networks. This version of the feature requires deployment of a Virtual Network Gateway into your VNet. This is the point-to-site VPN-based feature and is only supported with Windows apps.
 
-A new version of the virtual network integration feature is in preview. It doesn't depend on point-to-site VPN. It supports accessing resources across ExpressRoute or service endpoints. It's available in the Premium plan and in App Service plans scaled to PremiumV2.
+An app can only use one form of the VNet Integration feature at a time. The question then is which feature should you use. You can use either for many things. The clear differentiators though are:
 
-Here are some characteristics of this version:
+| Problem  | Solution | 
+|----------|----------|
+| Want to reach an RFC 1918 address (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16) in the same region | regional VNet Integration |
+| Want to reach resources in a Classic VNet or a VNet in another region | gateway required VNet Integration |
+| Want to reach RFC 1918 endpoints across ExpressRoute | regional VNet Integration |
+| Want to reach resources across service endpoints | regional VNet Integration |
 
-* You don't need a gateway to use it.
-* You can access resources across ExpressRoute connections without any additional configuration beyond integrating with the ExpressRoute-connected virtual network.
-* You can consume service-endpoint-secured resources from running functions. To do so, enable service endpoints on the subnet used for virtual network integration.
-* You can't configure triggers to use service-endpoint-secured resources. 
-* Both the function app and the virtual network must be in the same region.
-* The new feature requires an unused subnet in the virtual network that you deployed through Azure Resource Manager.
-* Production workloads are not supported while the feature is in preview.
-* Route tables and global peering are not yet available with the feature.
-* One address is used for each potential instance of a function app. Because you can't change subnet size after assignment, use a subnet that can easily support your maximum scale size. For example, to support a Premium plan that can be scaled to 80 instances, we recommend a `/25` subnet that provides 126 host addresses.
+Neither feature will enable you to reach non-RFC 1918 addresses across ExpressRoute. To do that you need to use an ASE for now.
 
-To learn more about using the preview version of virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+Using the regional VNet Integration does not connect your VNet to on-premises or configure service endpoints. That is separate networking configuration. The regional VNet Integration simply enables your app to make calls across those connection types.
+
+Regardless of the version used, VNet Integration gives your function app access to resources in your virtual network but doesn't grant private site access to your function app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. VNet Integration is only for making outbound calls from your app into your VNet. 
+
+The VNet Integration feature:
+
+* Requires a Standard, Premium, or PremiumV2 App Service plan
+* Supports TCP and UDP
+* Works with App Service apps, and Function apps
+
+There are some things that VNet Integration doesn't support including:
+
+* Mounting a drive
+* AD integration 
+* NetBios
+
+Virtual network integration in Functions uses shared infrastructure with App Service web apps. To read more about the two types of virtual network integration see:
+* [Regional VNET Integration](../app-service/web-sites-integrate-with-vnet.md#regional-vnet-integration)
+* [Gateway required VNet Integration](../app-service/web-sites-integrate-with-vnet.md#gateway-required-vnet-integration)
+
+To learn more about using virtual network integration, see [Integrate a function app with an Azure virtual network](functions-create-vnet.md).
+
+## Virtual network triggers (non-HTTP)
+
+Currently, to be able to use Function triggers other than HTTP from within a virtual network, you must run your function app in an App Service plan or in an App Service Environment.
+
+To give an example, if you were to configure Azure Cosmos DB to only accept traffic from a virtual network, you would need to deploy your function app in an app service plan with virtual network integration with that virtual network to configure Azure Cosmos DB triggers from that resource. While in preview, configuring VNET integration will not allow the Premium plan to trigger off of that Azure Cosmos DB resource.
+
+Check [this list for all non-HTTP triggers](./functions-triggers-bindings.md#supported-bindings) to double check what is supported.
 
 ## Hybrid Connections
 
@@ -84,14 +111,11 @@ As used in Azure Functions, each hybrid connection correlates to a single TCP ho
 
 To learn more, see the [App Service documentation for Hybrid Connections](../app-service/app-service-hybrid-connections.md), which supports Functions in an App Service plan.
 
-## Private site access
+## Outbound IP restrictions
 
-Private site access refers to making your app accessible only from a private network such as from within an Azure virtual network. 
-* Private site access is available in the Premium and App Service plan when **Service Endpoints** are configured. For more information, see [virtual network service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md)
-    * Keep in mind that with Service Endpoints, your function still has full outbound access to the internet, even with VNET integration configured.
-* Private site access is available only with an App Service Environment configured with an internal load balancer (ILB). For more information, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
+Outbound IP restrictions are only available for functions deployed to an App Service Environment. You can configure outbound restrictions for the virtual network where your App Service Environment is deployed.
 
-There are many ways to access virtual network resources in other hosting options. But an App Service Environment is the only way to allow triggers for a function to occur over a virtual network.
+When integrating a Function app in a Premium plan or App Service plan with a virtual network, the app is still able to make outbound calls to the internet.
 
 ## Next steps
 To learn more about networking and Azure Functions: 
