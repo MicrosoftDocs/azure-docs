@@ -37,8 +37,8 @@ When you provision an ultra disk, you can independently configure the capacity a
 Some key capabilities of ultra disks are:
 
 - Disk capacity: Ultra disks capacity ranges from 4 GiB up to 64 TiB.
-- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum IOPS per disk is 2 IOPS per GiB, with an overall baseline minimum of 100 IOPS. For example, if you had a 2 GiB ultra disk, you will have a minimum of 100 IOPS, instead of 4 IOPS.
-- Disk throughput: With ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum throughput per disk is 4KiB/s for each provisioned IOPS, with an overall minimum of 1 MBps.
+- Disk IOPS: Ultra disks support IOPS limits of 300 IOPS/GiB, up to a maximum of 160 K IOPS per disk. To achieve the IOPS that you provisioned, ensure that the selected Disk IOPS are less than the VM IOPS limit. The minimum IOPS per disk is 2 IOPS/GiB, with an overall baseline minimum of 100 IOPS. For example, if you had a 4 GiB ultra disk, you will have a minimum of 100 IOPS, instead of 8 IOPS.
+- Disk throughput: With ultra disks, the throughput limit of a single disk is 256 KiB/s for each provisioned IOPS, up to a maximum of 2000 MBps per disk (where MBps = 10^6 Bytes per second). The minimum throughput per disk is 4KiB/s for each provisioned IOPS, with an overall baseline minimum of 1 MBps.
 - Ultra disks support adjusting the disk performance attributes (IOPS and throughput) at runtime without detaching the disk from the virtual machine. Once a disk performance resize operation has been issued on a disk, it can take up to an hour for the change to actually take effect.
 
 ### Disk size
@@ -64,5 +64,5 @@ For now, ultra disks have additional limitations, they are as follows:
 - Are only supported on ES/DS v3 VMs
 - Are only available as data disks and only support 4k physical sector size  
 - Can only be created as empty disks  
-- Does not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption.
-- Does not yet support integration with Azure Backup or Azure Site Recovery.
+- Do not yet support disk snapshots, VM images, availability sets, virtual machine scale sets, and Azure disk encryption
+- Do not yet support integration with Azure Backup or Azure Site Recovery

@@ -142,9 +142,6 @@ Premium SSD, standard SSD, and standard HDD support snapshots. For these three d
 
 ## Ultra disks
 
-**How do I create an ultra disk?**
-You can create an ultra disk using Azure Resource Manager templates, the Azure portal, Azure SDKs, PowerShell, or CLI.
-
 **What regions currently support ultra disks?**
 - East US 2
 - SouthEast Asia

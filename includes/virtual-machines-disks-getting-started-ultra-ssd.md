@@ -10,21 +10,34 @@
  ms.custom: include file
 ---
 
-# Deploy Azure ultra disks
+# Using Azure ultra disks
 
 Azure ultra disks offer high throughput, high IOPS, and consistent low latency disk storage for Azure IaaS virtual machines (VMs). This new offering provides top of the line performance at the same availability levels as our existing disks offerings. One major benefit of ultra disks is the ability to dynamically change the performance of the SSD along with your workloads without the need to restart your VMs. Ultra disks are suited for data-intensive workloads such as SAP HANA, top tier databases, and transaction-heavy workloads.
+
+## Check if your subscription has access
+
+If you already signed up for ultra disks and you want to check if your subscription is enabled for ultra disks, use either of the following commands: 
+
+CLI: `az feature show --namespace Microsoft.Compute --name UltraSSD`
+
+PowerShell: `Get-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName UltraSSD`
+
+If your subscription is enabled, then your output should look something like this:
+
+```bash
+{
+  "id": "/subscriptions/<yoursubID>/providers/Microsoft.Features/providers/Microsoft.Compute/features/UltraSSD",
+  "name": "Microsoft.Compute/UltraSSD",
+  "properties": {
+    "state": "Registered"
+  },
+  "type": "Microsoft.Features/providers/features"
+}
+```
 
 ## Determine your availability zone
 
 Once approved, you need to determine which availability zone you are in, in order to use ultra disks. Run either of the following commands to determine which zone to deploy your ultra disk to, make sure to replace the **region**, **vmSize**, and **subscription** values first:
-
-PowerShell:
-
-```powershell
-$region = "southeastasia"
-$vmSize = "Standard_E64s_v3"
-(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
-```
 
 CLI:
 
@@ -35,6 +48,15 @@ $vmSize = "<yourVMSize>, example value is Standard_E64s_v3"
 
 az vm list-skus --resource-type virtualMachines  --location $region --query "[?name=='$vmSize'].locationInfo[0].zoneDetails[0].Name" --subscription $subscription
 ```
+
+PowerShell:
+
+```powershell
+$region = "southeastasia"
+$vmSize = "Standard_E64s_v3"
+(Get-AzComputeResourceSku | where {$_.Locations.Contains($region) -and ($_.Name -eq $vmSize) -and $_.LocationInfo[0].ZoneDetails.Count -gt 0})[0].LocationInfo[0].ZoneDetails
+```
+
 The response will be similar to the form below, where X is the zone to use for deploying in your chosen region. X could be either 1, 2, or 3. Currently, only three regions support ultra disks, they are: East US 2, SouthEast Asia, and North Europe.
 
 Preserve the **Zones** value, it represents your availability zone and you will need it in order to deploy an Ultra disk.
@@ -69,7 +91,7 @@ You must create a VM that is capable of using ultra disks, in order to attach an
 Replace or set the **$vmname**, **$rgname**, **$diskname**, **$location**, **$password**, **$user** variables with your own values. Set **$zone**  to the value of your availability zone that you got from the [start of this article](#determine-your-availability-zone). Then run the following CLI command to create an ultra enabled VM:
 
 ```azurecli-interactive
-az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --attach-data-disks $diskname --size Standard_D4s_v3 --location $location
+az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016Datacenter --ultra-ssd-enabled true --zone $zone --authentication-type password --admin-password $password --admin-username $user --size Standard_D4s_v3 --location $location
 ```
 
 ### Create an ultra disk using CLI
@@ -97,7 +119,7 @@ az disk create `
 --disk-mbps-read-write 50
 ```
 
-## Attach an ultra disk to an existing VM using CLI
+## Attach an ultra disk to a VM using CLI
 
 Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
 
@@ -160,7 +182,7 @@ New-AzDisk `
 -Disk $diskconfig;
 ```
 
-## Attach an ultra disk to an existing VM using PowerShell
+## Attach an ultra disk to a VM using PowerShell
 
 Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
 
