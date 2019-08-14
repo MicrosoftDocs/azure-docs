@@ -108,7 +108,7 @@ To give your lab users **Contributor** role so they can edit the resources in th
    
 1. In the **Lab settings** pane, select **Contributor**, and then select **Save** to grant write permissions to lab users.
    
-   ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/configure-access-rights.png)
+   ![Configure lab user access rights](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
 
 The next section walks through creating environments from an Azure Resource Manager template.
 
