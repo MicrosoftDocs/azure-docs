@@ -1,5 +1,5 @@
 ---
-title: "Classification: Predict credit risk"
+title: "Visual interface example #3: Classification to predict credit risk"
 titleSuffix: Azure Machine Learning service
 description: Learn how to build a machine learning classifier without writing a single line of code using the visual interface.
 services: machine-learning

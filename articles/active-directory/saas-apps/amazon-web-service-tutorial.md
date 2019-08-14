@@ -102,7 +102,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	`https://signin.aws.amazon.com/saml#2`
 
-6. The AWS application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Select the pen icon to open the User Attributes dialog box.
+6. The AWS application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Select the pen icon to open the User Attributes dialog box.
 
 	![Screenshot of User Attributes dialog box, with the pen icon highlighted](common/edit-attribute.png)
 

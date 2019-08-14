@@ -12,7 +12,7 @@ ms.author: danlep
 ---
 # Run an ACR task on a defined schedule
 
-This article shows you how to run an [ACR task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*. 
+This article shows you how to run an [ACR task](container-registry-tasks-overview.md) on a schedule. Schedule a task by setting up one or more *timer triggers*.
 
 Scheduling a task is useful for scenarios like the following:
 
@@ -24,18 +24,18 @@ You can use the Azure Cloud Shell or a local installation of the Azure CLI to ru
 
 ## About scheduling a task
 
-* **Trigger with cron expression** - The timer trigger for a task uses a *cron expression*. The expression is a string with five fields specifying the minute, hour, day, month, and day of week to trigger the task. Frequencies of up to once per minute are supported. 
+* **Trigger with cron expression** - The timer trigger for a task uses a *cron expression*. The expression is a string with five fields specifying the minute, hour, day, month, and day of week to trigger the task. Frequencies of up to once per minute are supported.
 
   For example, the expression `"0 12 * * Mon-Fri"` triggers a task at noon UTC on each weekday. See [details](#cron-expressions) later in this article.
-* **Multiple timer triggers** - Adding multiple timers to a task is allowed, as long as the schedules differ. 
+* **Multiple timer triggers** - Adding multiple timers to a task is allowed, as long as the schedules differ.
     * Specify multiple timer triggers when you create the task, or add them later.
     * Optionally name the triggers for easier management, or ACR Tasks will provide default trigger names.
-    * If timer schedules overlap at a time, ACR Tasks triggers the task at the scheduled time for each timer. 
+    * If timer schedules overlap at a time, ACR Tasks triggers the task at the scheduled time for each timer.
 * **Other task triggers** - In a timer-triggered task, you can also enable triggers based on [source code commit](container-registry-tutorial-build-task.md) or [base image updates](container-registry-tutorial-base-image-update.md). Like other ACR tasks, you can also [manually trigger][az-acr-task-run] a scheduled task.
 
 ## Create a task with a timer trigger
 
-When you create a task with the [az acr task create][az-acr-task-create] command, you can optionally add a timer trigger. Add the `--schedule` parameter and pass a cron expression for the timer. 
+When you create a task with the [az acr task create][az-acr-task-create] command, you can optionally add a timer trigger. Add the `--schedule` parameter and pass a cron expression for the timer.
 
 As a simple example, the following command triggers running the `hello-world` image from Docker Hub every day at 21:00 UTC. The task runs without a source code context.
 
@@ -81,8 +81,8 @@ This message shows that your installation appears to be working correctly.
 After the scheduled time, run the [az acr task list-runs][az-acr-task-list-runs] command to verify that the timer triggered the task as expected:
 
 ```azurecli
-az acr task list runs --name mytask --registry myregistry --output table
-``` 
+az acr task list-runs --name mytask --registry myregistry --output table
+```
 
 When the timer is successful, output is similar to the following:
 
@@ -93,7 +93,7 @@ RUN ID    TASK     PLATFORM    STATUS     TRIGGER    STARTED               DURAT
 cf2b      mytask   linux       Succeeded  Timer      2019-06-28T21:00:23Z  00:00:06
 cf2a      mytask   linux       Succeeded  Manual     2019-06-28T20:53:23Z  00:00:06
 ```
-            
+
 ## Manage timer triggers
 
 Use the [az acr task timer][az-acr-task-timer] commands to manage the timer triggers for an ACR task.
@@ -145,7 +145,7 @@ Example output:
 ]
 ```
 
-### Remove a timer trigger 
+### Remove a timer trigger
 
 Use the [az acr task timer remove][az-acr-task-timer-remove] command to remove a timer trigger from a task. The following example removes the *timer2* trigger from *mytask*:
 
@@ -173,7 +173,7 @@ Each field can have one of the following types of values:
 |---------|---------|---------|
 |A specific value |<nobr>"5 * * * *"</nobr>|every hour at 5 minutes past the hour|
 |All values (`*`)|<nobr>"* 5 * * *"</nobr>|every minute of the hour beginning 5:00 UTC (60 times a day)|
-|A range (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 times per day, at 1:00, 2:00, and 3:00 UTC|  
+|A range (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 times per day, at 1:00, 2:00, and 3:00 UTC|
 |A set of values (`,` operator)|<nobr>"20,30,40 * * * *"</nobr>|3 times per hour, at 20 minutes, 30 minutes, and 40 minutes past the hour|
 |An interval value (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 times per hour, at 10 minutes, 20 minutes, and so on, past the hour
 

@@ -58,6 +58,8 @@
       href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
       href: access-cloudsimple-portal.md
+    - name: On-premises firewall configuration
+      href: on-premises-firewall-configuration.md
     - name: Manage nodes
       items:
       - name: Provision nodes
@@ -81,7 +83,7 @@
       - name: Delete a private cloud
         href: delete-private-cloud.md
     - name: Monitor CloudSimple activity
-      href: https://docs.azure.cloudsimple.com/activity/
+      href: monitor-activity.md
     - name: Set up private cloud networking
       items: 
       - name: Create and manage VLANs and subnets

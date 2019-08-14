@@ -3,7 +3,7 @@ title: Install Azure AD Power BI content pack | Microsoft Docs
 description: Learn how to install Azure AD Power BI content pack
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 
 ms.assetid: fd5604eb-1334-4bd8-bfb5-41280883e2b5
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to install Active Directory Power BI content pack so I can use the pre-configured reports to get insights about my environment.
 ms.collection: M365-identity-device-management
