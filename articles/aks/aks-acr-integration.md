@@ -52,6 +52,11 @@ az extension remove --name aks-preview
 az extension add -y --name aks-preview
 ```
 
+Set variable
+```
+acrloginservername=$(az acr show -n <your-kubernetes-cluster-name> -g <your-resource-group> --query loginServer -o tsv)
+```
+
 Login to your ACR
 ```
 az acr login -n <your-acr-name>
