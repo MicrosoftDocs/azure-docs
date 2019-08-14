@@ -54,7 +54,7 @@ When you create a Service Bus namespace, a policy rule named **RootManageSharedA
 
 ## Configuration for Shared Access Signature authentication
 
-You can configure the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) rule on Service Bus namespaces, queues, or topics. Configuring a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. For a working sample that illustrates this procedure, see the [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) sample.
+You can configure the [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) rule on Service Bus namespaces, queues, or topics. Configuring a [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) on a Service Bus subscription is currently not supported, but you can use rules configured on a namespace or topic to secure access to subscriptions. For a working sample that illustrates this procedure, see the [Managing Azure Service Bus queues](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule) sample.
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
@@ -85,7 +85,7 @@ The token contains the non-hashed values so that the recipient can recompute the
 
 The resource URI is the full URI of the Service Bus resource to which access is claimed. For example, `http://<namespace>.servicebus.windows.net/<entityPath>` or `sb://<namespace>.servicebus.windows.net/<entityPath>`; that is, `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**The URI must be [percent-encoded](https://msdn.microsoft.com/library/4fkewx0t.aspx).**
+**The URI must be [percent-encoded](/dotnet/api/system.web.httputility.urlencode?view=netframework-4.8).**
 
 The shared access authorization rule used for signing must be configured on the entity specified by this URI, or by one of its hierarchical parents. For example, `http://contoso.servicebus.windows.net/contosoTopics/T1` or `http://contoso.servicebus.windows.net` in the previous example.
 
@@ -101,8 +101,8 @@ If you know or suspect that a key is compromised and you have to revoke the keys
 
 The scenarios described as follows include configuration of authorization rules, generation of SAS tokens, and client authorization.
 
-For a full working sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see [Shared Access Signature authentication with Service Bus](https://code.msdn.microsoft.com/Shared-Access-Signature-0a88adf8). A related sample that illustrates the use of SAS authorization rules configured on namespaces or topics to secure Service Bus subscriptions is available here: [Using Shared Access Signature (SAS) authentication with Service Bus Subscriptions](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c).
-
+For a full working sample of a Service Bus application that illustrates the configuration and uses SAS authorization, see the following sample in our GitHub repository: [Managing Azure Service Bus queues](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/ManagingEntities/SASAuthorizationRule).
+ 
 ## Access Shared Access Authorization rules on an entity
 
 With Service Bus .NET Framework libraries, you can access a [Microsoft.ServiceBus.Messaging.SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) object configured on a Service Bus queue or topic through the [AuthorizationRules](/dotnet/api/microsoft.servicebus.messaging.authorizationrules) collection in the corresponding [QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription) or [TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription).

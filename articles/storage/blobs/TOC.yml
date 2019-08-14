@@ -106,12 +106,12 @@
       - name: Authorization
         href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         items:
-        - name: Authenticate with Azure AD
+        - name: Authorize with Azure AD
           href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Shared Key
           href: /rest/api/storageservices/authorize-with-shared-key
-        - name: Authorize with SAS
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Delegate access with shared access signatures (SAS)
+          href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Anonymous access to blobs
           href: storage-manage-access-to-resources.md
       - name: Immutable blobs
@@ -129,6 +129,8 @@
         href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Geo-redundant storage
         href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Geo-zone-redundant storage
+        href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Disaster recovery and failover
         href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Designing HA Apps using RA-GRS
@@ -137,6 +139,8 @@
       items:
       - name: Access tiers
         href: storage-blob-storage-tiers.md
+      - name: Rehydrate data from Archive Storage
+        href: storage-blob-rehydration.md
       - name: Managing the Azure Blob Storage Lifecycle
         href: storage-lifecycle-management-concepts.md
     - name: Performance and scaling
@@ -292,6 +296,8 @@
         href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Upgrade a storage account
         href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Get account type and SKU name (.NET)
+        href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
       - name: Create or delete a container (.NET)
@@ -318,11 +324,11 @@
             href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Azure CLI
             href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-        - name: Authenticate with Azure AD
+        - name: Authenticate and authorize with Azure AD
           items:
-            - name: Authenticate with a managed identity
+            - name: Authorize with a managed identity
               href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Authenticate from an application
+            - name: Authorize from an application
               href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Authorize with Shared Key
           items:
@@ -330,6 +336,22 @@
             href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Use the Azure Storage REST API
             href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Delegate access with shared access signatures (SAS)
+          items:
+          - name: Create a user delegation SAS
+            items:
+            - name: PowerShell
+              href: storage-blob-user-delegation-sas-create-powershell.md
+            - name: Azure CLI
+              href: storage-blob-user-delegation-sas-create-cli.md
+            - name: .NET
+              href: storage-blob-user-delegation-sas-create-dotnet.md
+          - name: Create a service SAS (.NET)
+            href: storage-blob-service-sas-create-dotnet.md
+          - name: Create an account SAS (.NET)
+            href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Define a stored access policy
+            href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json      
       - name: Configure customer-managed keys for service encryption
         items:
         - name: Portal

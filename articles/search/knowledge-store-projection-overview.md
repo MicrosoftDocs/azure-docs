@@ -9,7 +9,7 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: vikurpad
-ms.custom: seomay2019
+ms.subservice: cognitive-search
 ---
 # Working with projections in a knowledge store in Azure Search
 

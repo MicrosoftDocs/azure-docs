@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
+    - name: Automate onboarding of Automation Services
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
     href: automation-hybrid-runbook-worker.md
+  - name: Runbook gallery
+    href: automation-runbook-gallery.md
   - name: Concepts
     items:
     - name: Runbook types
@@ -234,7 +238,7 @@
     - name: Getting Started
       href: automation-dsc-getting-started.md
       displayName: DSC
-    - name: Create a DSC configuration
+    - name: Manage a Linux configuration
       href: automation-quickstart-dsc-configuration.md
       displayName: DSC, state configuration, config, node configuration, node
   - name: Onboarding
@@ -297,8 +301,6 @@
   items:
     - name: Send an email from a Runbook using SendGrid
       href: automation-send-email.md
-    - name: Runbook gallery
-      href: automation-runbook-gallery.md
     - name: Monitor runbooks with metric alerts
       href: automation-alert-metric.md
     - name: Start a runbook from Azure alerts

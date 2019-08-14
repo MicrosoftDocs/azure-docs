@@ -6,7 +6,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: cgronlun
+ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
@@ -24,7 +24,7 @@ ms.date: 08/02/2019
 
 * An Azure subscription. If you don’t have an Azure subscription, create a free account before you begin. Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree) today.
 
-* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](https://docs.microsoft.com/azure/machine-learning/service/setup-create-workspace).
+* An Azure Machine Learning service workspace. See [Create an Azure Machine Learning service workspace](how-to-manage-workspace.md).
 
 ## Get started
 
@@ -62,6 +62,10 @@ Select **Create Experiment** and populate the **Create a new automated machine l
 1. Select a storage container.
 
 1. Select a data file from your storage container, or upload a file from your local computer to the container. Public preview only supports local file uploads and Azure Blob Storage accounts.
+    >[!Important]
+    > Requirements for training data:
+    >* Data must be in tabular form.
+    >* The value you want to predict (target column) must be present in the data.
 
     [![Select data file](media/tutorial-1st-experiment-automated-ml/select-data-file.png)](media/tutorial-1st-experiment-automated-ml/select-data-file-expanded.png#lightbox)
 

@@ -38,12 +38,12 @@
     - name: Authorization
       href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       items:
-      - name: Authenticate with Azure AD
+      - name: Authenticate and authorize with Azure AD
         href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Authorize with Shared Key
         href: /rest/api/storageservices/authorize-with-shared-key
       - name: Authorize with SAS
-        href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        href: ../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Advanced threat protection
       href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Azure common security attributes
@@ -57,6 +57,8 @@
       href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Geo-redundant storage
       href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Geo-zone-redundant storage
+      href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Disaster recovery and failover
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Designing HA Apps using RA-GRS
@@ -118,11 +120,11 @@
           href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Azure CLI
           href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Authenticate with Azure AD
+      - name: Authenticate and authorize with Azure AD
         items:
-          - name: Authenticate with a managed identity
+          - name: Authorize with a managed identity
             href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-          - name: Authenticate from an application
+          - name: Authorize from an application
             href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
       - name: Authorize with Shared Key
         items:
