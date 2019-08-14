@@ -9,7 +9,7 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 08/13/2019
 ms.author: cynthn
-
+---
 
 <1-- Is it limited to isolated VM types for public preview? What does "--maintenanceScope Host" do - does it make all VMs on that host have the same maintenance config? -->
 
