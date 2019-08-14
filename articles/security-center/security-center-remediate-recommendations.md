@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2019
+ms.date: 08/14/2019
 ms.author: v-mohabe
 
 ---
@@ -32,7 +32,7 @@ After reviewing all the recommendations, decide which one to remediate first. We
 
 1. Once completed, a notification appears informing you if the remediation succeeded.
 
-## One-click fix remediation <a name="one-click"></a>
+## One-click fix remediation (Preview) <a name="one-click"></a>
 
 One-click fix enables you to remediate a recommendation on a bulk of resources, with a single click. It is an option only available for specific recommendations. One-click fix simplifies remediation and enables you to quickly improve your secure score and increase the security in your environment.
 
@@ -57,32 +57,36 @@ To implement one-click remediation:
 4. Insert the relevant parameters if necessary, and approve the remediation.
 
     > [!NOTE]
-    > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the activity log where they are logged.
+    > -It can take several minutes after remediation completes to see the resources in the **Healthy resources** tab. To view the the remediation actions, check the [activity log](#activity-log).
 
 5. Once completed, a notification appears informing you if the remediation succeeded.
 
-### Recommendations with one-click remediation
+## One-click remediation logging in the activity log <a name="activity-log"></a>
+
+The remediation operation uses a template deployment or REST PATCH API call to apply the configuration on the resource. These operations are logged in [Azure activity log](../azure-resource-manager/resource-group-audit).
+
+
+## Recommendations with one-click remediation
 
 |Recommendation|Implication|
 |---|---|
-|1. Enable auditing on SQL servers|This action will enable SQL auditing on these servers and their databases. **Note**: <ul><li>For each region of the selected SQL servers, a storage account for saving audit logs will be created and shared by all the servers in that region.</li><li>To ensure proper auditing, do not delete or rename the resource group or the storage accounts.</li></ul>|
-|2. Audit SQL managed instances without Advanced Data Security|This action will enable SQL Advanced Data Security (ADS) on the selected SQL managed instances. **Note**: <ul><li>For each region and resource group of the selected SQL managed instances, a storage account for saving scan results will be created and shared by all the instances in that region.</li><li> ADS is charged at $15 per SQL managed instance.</li></ul>|
-|3. Audit SQL managed instances without Vulnerability Assessment|This action will enable SQL Vulnerability Assessment on the selected SQL managed instances. **Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS is not enabled already it will automatically be enabled on the managed instance.</li><li>For each region and resource group of the selected SQL managed instances, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|4. Audit SQL servers without Advanced Data Security|This action will enable Advanced Data Security (ADS) on these selected servers and their databases. **Note**:<ul><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the servers in that region.<</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|5. Audit SQL servers without Vulnerability Assessment|This action will enable SQL Vulnerability Assessment on these selected servers and their databases.**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS is not enabled already, it will automatically be enabled on the SQL server.</li><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
-|6. Enable transparent data encryption on SQL databases|This action enables SQL Database Transparent Data Encryption (TDE) on the selected databases. Note: By default, service-managed TDE keys will be used. 
-|7. Require secure transfer to storage account|This action updates your storage account security to only allow requests by secure connections. (HTTPS). **Note**:<ul><li>Any requests using HTTP will be rejected.</li><li>When you are using the Azure files service, connection without encryption will fail, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client.  Learn more.</li></ul>|
+|1. Auditing on SQL servers should be enabled|This action will enable SQL auditing on these servers and their databases. **Note**: <ul><li>For each region of the selected SQL servers, a storage account for saving audit logs will be created and shared by all the servers in that region.</li><li>To ensure proper auditing, do not delete or rename the resource group or the storage accounts.</li></ul>|
+|2. Advanced data security should be enabled on your SQL managed instances|This action will enable SQL Advanced Data Security (ADS) on the selected SQL managed instances. **Note**: <ul><li>For each region and resource group of the selected SQL managed instances, a storage account for saving scan results will be created and shared by all the instances in that region.</li><li> ADS is charged at $15 per SQL managed instance.</li></ul>|
+|3. Vulnerability assessment should be enabled on your SQL managed instances|This action will enable SQL Vulnerability Assessment on the selected SQL managed instances. **Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS is not enabled already it will automatically be enabled on the managed instance.</li><li>For each region and resource group of the selected SQL managed instances, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
+|4. Advanced Data Security should be enabled on your SQL servers|This action will enable Advanced Data Security (ADS) on these selected servers and their databases. **Note**:<ul><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the servers in that region.<</li><li>ADS is charged at $15 per SQL server.</li></ul>||
+|5. Vulnerability Assessment should be enabled on your SQL servers|This action will enable SQL Vulnerability Assessment on these selected servers and their databases.**Note**:<ul><li>SQL Vulnerability Assessment is part of the SQL Advanced Data Security (ADS) package. If ADS is not enabled already, it will automatically be enabled on the SQL server.</li><li>For each region and resource group of the selected SQL servers, a storage account for storing scan results will be created and shared by all the instances in that region.</li><li>ADS is charged at $15 per SQL server.</li></ul>||
+|6. Transparent data encryption on SQL databases should be enabled|This action enables SQL Database Transparent Data Encryption (TDE) on the selected databases. Note: By default, service-managed TDE keys will be used. 
+|7. Secure transfer to storage accounts should be enabled|This action updates your storage account security to only allow requests by secure connections. (HTTPS). **Note**:<ul><li>Any requests using HTTP will be rejected.</li><li>When you are using the Azure files service, connection without encryption will fail, including scenarios using SMB 2.1, SMB 3.0 without encryption, and some flavors of the Linux SMB client.  Learn more.</li></ul>|
 |8. Web Application should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. **Note**:<ul><li>An HTTPS endpoint which doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. Therefore, users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
 |9. Function App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. **Note**:<ul><li>An HTTPS endpoint which doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. Therefore, users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
 |10. API App should only be accessible over HTTPS|This action will redirect all traffic from HTTP to HTTPS, on the selected resources. **Note**:<ul><li>An HTTPS endpoint which doesn’t have an SSL certificate will show up in the browser with a ‘Privacy Error’. Therefore, users who have a custom domain need to verify they have set up an SSL certificate.</li><li>Make sure packet and web application firewalls protecting the app service, allow HTTPS sessions forwarding.</li></ul>|
-|11. Remote debugging should be turned off for WebApp|This action disables remote debugging.|
+|11. Remote debugging should be turned off for Web Application|This action disables remote debugging.|
 |12. Remote debugging should be turned off for Function App|This action disables remote debugging.|
 |13. Remote debugging should be turned off for API App|This action disables remote debugging.|
-|14. CORS should not allow every resource to access your Web Application||This action blocks other domains from accessing your Web Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). Note: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
+|14. CORS should not allow every resource to access your Web Application|This action blocks other domains from accessing your Web Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). Note: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
 |15. CORS should not allow every resource to access your Function App|This action blocks other domains from accessing your Function Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). Note: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
 |16. CORS should not allow every resource to access your API App|This action blocks other domains from accessing your API Application. To allow specific domains, enter them in the Allowed origins field (separated by commas). Note: Leaving the field empty will block all cross-origin calls.’Param field title: ‘Allowed origins’|
-|17. Install monitoring agent|This action installs a monitoring agent on the selected virtual machines.Select a workspace for the agent to report to.|
-|18. Disk encryption |This action will enable disk encryption, learn moreThe key vaults you can select:Reside in the same Azure region and subscription as the VMenabled with disk encryption on the key vault , learn more  if remediation failed, check for failure details in the activity log ||
+|17. Monitoring agent should be enabled on your virtual machines|This action installs a monitoring agent on the selected virtual machines.Select a workspace for the agent to report to.||
 
 ## Next steps
 
