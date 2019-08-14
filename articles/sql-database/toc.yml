@@ -582,6 +582,8 @@
       href: sql-database-ssms-mfa-authentication.md
     - name: Configure multi-factor auth
       href: sql-database-ssms-mfa-authentication-configure.md
+    - name: Configure a failover group
+      href: sql-database-configure-failover-group.md
     - name: Configure temporal retention policy
       href: sql-database-temporal-tables-retention-policy.md
     - name: Configure TDE with BYOK
