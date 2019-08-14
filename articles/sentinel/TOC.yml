@@ -28,7 +28,6 @@ name: Concepts
   items:
   - name: Connect data sources
     href: connect-data-sources.md
-    items:
 
     - name: Connect Microsoft services
       items:
