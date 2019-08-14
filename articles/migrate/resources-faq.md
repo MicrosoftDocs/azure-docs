@@ -46,42 +46,42 @@ The Azure Migrate appliance profiles on-premises machines continuously to measur
 
 ### Where is the collected data stored, and for how long?
 
-The data collected by the Azure Migrate appliance is stored in the Azure location that you specify when creating the migration project. The data is securely stored in a Microsoft subscription, and is deleted when you delete the Azure Migrate project.
+The data collected by the Azure Migrate appliance is stored in the Azure location that you choose when you create the migration project. The data is securely stored in a Microsoft subscription and is deleted when you delete the Azure Migrate project.
 
-For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US, in a Log Analytics workspace created in the Azure subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. [Learn more](concepts-dependency-visualization.md).
+For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US, in a Log Analytics workspace created in the Azure subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. For more information, see [Dependency visualization](concepts-dependency-visualization.md).
 
-### What is the volume of data uploaded by Azure Migrate appliance during continuous profiling?
+### What volume of data is uploaded by the Azure Migrate appliance during continuous profiling?
 
-The volume of data sent to Azure Migrate varies based on several parameters. To give an indicative number, an Azure Migrate project with 10 machines (each with one disk and one NIC), sends around 50 MB per day. This is an approximate value, that changes based on the number of data points for the NICs and disks (the data sent is non-linear if the number of machines, NICs, or disks increase).
+The volume of data sent to Azure Migrate varies based on several parameters. To give you a sense of the volume: an Azure Migrate project with 10 machines (each with one disk and one NIC), sends around 50 MB per day. This is an approximate value. It changes based on the number of data points for the NICs and disks. (The increase in data sent is nonlinear if the number of machines, NICs, or disks increases.)
 
-### Is the data encrypted at-rest and in-transit?
+### Is the data encrypted at rest and in transit?
 
-Yes for both. The metadata is securely sent to the Azure Migrate service over the internet, via https. The metadata is stored in a [Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest), and in [Azure blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription, and is encrypted at-rest.
+Yes, for both. The metadata is securely sent to the Azure Migrate service over the internet, via HTTPS. The metadata is stored in an [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription. The metadata is encrypted at rest.
 
-The data collected by the dependency agents is also encrypted in transit (secure HTTPS), and is stored in a Log Analytics workspace in the user subscription. It is also encrypted at-rest.
+The data collected by the dependency agents is also encrypted in transit (secure HTTPS). It's stored in a Log Analytics workspace in your subscription. It's also encrypted at rest.
 
 ### How does the Azure Migrate appliance communicate with the vCenter Server and the Azure Migrate service?
 
-The appliance connects to the vCenter Server (port 443) using the credentials provided when you set up the appliance. It queries the vCenter Server using VMware PowerCLI, to collect metadata about the VMs managed by vCenter Server. It collects both configuration data about VMs (cores, memory, disks, NIC etc.), as well as performance history of each VM for the last month. The collected metadata is then sent to the Azure Migrate Server Assessment (over the internet via HTTPS) for assessment.
+The appliance connects to the vCenter Server (port 443) by using the credentials you provided when you set up the appliance. It uses VMware PowerCLI to query the vCenter Server to collect metadata about the VMs managed by vCenter Server. It collects configuration data about VMs (cores, memory, disks, NICs, and so on) and also the performance history of each VM for the past month. The collected metadata is then sent to Azure Migrate Server Assessment (over the internet via HTTPS) for assessment.
 
-### Can I connect the same appliance to multiple vCenter servers?
+### Can I connect the same appliance to multiple vCenter Server instances?
 
-No. There's a one-to-one mapping between an appliance and vCenter Server. If you have to discover VMs on multiple vCenter Servers, you need to deploy multiple appliances. 
+No. There's a one-to-one mapping between an appliance and vCenter Server. If you have to discover VMs on multiple vCenter Server instances, you need to deploy multiple appliances.
 
 
-### I changed my machine size. Can I rerun an assessment?
+### I changed my machine size. Can I run the assessment again?
 
-The Azure Migrate appliance continuously collects information about the on-premises environment. However, an assessment is a point-in-time snapshot of on-premises VMs. If you change the settings on a VM you want to assess, use the 'Recalculate' option to update the assessment with the latest changes.
+The Azure Migrate appliance continuously collects information about the on-premises environment. But an assessment is a point-in-time snapshot of on-premises VMs. If you change the settings on a VM that you want to assess, use the Recalculate option to update the assessment with the latest changes.
 
-### How can I discover a multi-tenant environment in Azure Migrate Server Assessment?
+### How can I perform discovery in a multitenant environment in Azure Migrate Server Assessment?
 
-For VMware, if you have an environment that is shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials with access only to those VMs that you want to discover. Then use the credentials when kicking off discovery in the Azure Migrate appliance.
+For VMware, if you have an environment that's shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that can access only to the VMs that you want to discover. Then use those credentials when you start discovery in the Azure Migrate appliance.
 
-For Hyper-V, the discovery uses Hyper-V host credentials, if the VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
+For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
-### How many VMs can be discovered using a single migration appliance?
+### How many VMs can I discover with a single migration appliance?
 
-You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs using a single migration appliance.  If you have more machines in your on-premises environment, learn how to scale [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
+You can discover up to 10,000 VMware VMs and up to 5,000 Hyper-V VMs with a single migration appliance. If you have more machines in your on-premises environment, learn how to scale [Hyper-V](scale-hyper-v-assessment.md) and [VMware](scale-vmware-assessment.md) assessment.
 
 ## Azure Migrate: Server Assessment
 
