@@ -83,11 +83,11 @@ Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 re
         });
 ```
 
-`TraceWriter` is also mocked:
+`ILogger` is also mocked:
 
 ```csharp
-    // Mock TraceWriter
-    var traceWriterMock = new Mock<TraceWriter>(TraceLevel.Info);
+    // Mock ILogger
+    var loggerMock = new Mock<ILogger>();
 
 ```  
 
@@ -103,7 +103,7 @@ Now the `Run` method is called from the unit test:
         },
         durableOrchestrationClientBaseMock.Object,
         functionName,
-        traceWriterMock.Object);
+        loggerMock.Object);
  ```
 
  The last step is to compare the output with the expected value:

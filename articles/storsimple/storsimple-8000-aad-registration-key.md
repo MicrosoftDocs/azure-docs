@@ -19,6 +19,8 @@ ms.author: alkohli
 ---
 # Use the new authentication for your StorSimple
 
+[!INCLUDE [storsimple-8000-eol-banner](../../includes/storsimple-8000-eol-banner.md)]
+
 ## Overview
 
 The StorSimple Device Manager service runs in Microsoft Azure and connects to multiple StorSimple devices. To date, StorSimple Device Manager service has used an Access Control service (ACS) to authenticate the service to your StorSimple device. The ACS mechanism will be deprecated soon and replaced by an Azure Active Directory (AAD) authentication. For more information, go to the following announcements for ACS deprecation and use of AAD authentication.
