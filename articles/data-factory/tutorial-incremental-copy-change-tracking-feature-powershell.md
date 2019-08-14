@@ -366,7 +366,7 @@ In this step, you create a dataset for storing the change tracking version.
     ```
 
     You create the table table_store_ChangeTracking_version as part of the prerequisites.
-2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: WatermarkDataset
+2.  Run the Set-AzDataFactoryV2Dataset cmdlet to create the dataset: ChangeTrackingDataset
     
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "ChangeTrackingDataset" -File ".\ChangeTrackingDataset.json"

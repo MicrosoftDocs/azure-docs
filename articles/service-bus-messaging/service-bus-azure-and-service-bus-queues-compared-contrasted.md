@@ -48,7 +48,7 @@ As a solution architect/developer, **you should consider using Service Bus queue
 * You want your application to process messages as parallel long-running streams (messages are associated with a stream using the [SessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sessionid) property on the message). In this model, each node in the consuming application competes for streams, as opposed to messages. When a stream is given to a consuming node, the node can examine the state of the application stream state using transactions.
 * Your solution requires transactional behavior and atomicity when sending or receiving multiple messages from a queue.
 * Your application handles messages that can exceed 64 KB but will not likely approach the 256 KB limit.
-* You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers.
+* You deal with a requirement to provide a role-based access model to the queues, and different rights/permissions for senders and receivers. For more information, see [Active Directory Role-Based Access Control (preview)](service-bus-role-based-access-control.md)
 * Your queue size will not grow larger than 80 GB.
 * You want to use the AMQP 1.0 standards-based messaging protocol. For more information about AMQP, see [Service Bus AMQP Overview](service-bus-amqp-overview.md).
 * You can envision an eventual migration from queue-based point-to-point communication to a message exchange pattern that enables seamless integration of additional receivers (subscribers), each of which receives independent copies of either some or all messages sent to the queue. The latter refers to the publish/subscribe capability natively provided by Service Bus.

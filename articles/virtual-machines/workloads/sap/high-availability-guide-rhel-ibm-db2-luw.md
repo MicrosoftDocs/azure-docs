@@ -524,11 +524,11 @@ If you performed the installation before you created the Db2 HADR configuration,
 Use the J2EE Config tool to check or update the JDBC URL. Because the J2EE Config tool is a graphical tool, you need to have X server installed:
  
 1. Sign in to the primary application server of the J2EE instance and execute:
-	 <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>
+	 <pre><code>sudo /usr/sap/*SID*/*Instance*/j2ee/configtool/configtool.sh</code></pre>  
 1. In the left frame, choose **security store**.
 1. In the right frame, choose the key jdbc/pool/\<SAPSID>/url.
 1. Change the host name in the JDBC URL to the virtual host name.
-	 <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>
+	 <pre><code>jdbc:db2://db-virt-hostname:5912/TSP:deferPrepares=0</code></pre>  
 1. Select **Add**.
 1. To save your changes, select the disk icon at the upper left.
 1. Close the configuration tool.
