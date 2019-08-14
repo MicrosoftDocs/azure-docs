@@ -374,10 +374,6 @@ To register your application and add your application registration information t
 
 [!INCLUDE [5. Test and Validate](../../../includes/active-directory-develop-guidedsetup-windesktop-test.md)]
 
-## Help and support
-
-[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
-
 Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
 
 > [!div class="nextstepaction"]
