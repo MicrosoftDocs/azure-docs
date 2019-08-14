@@ -1,9 +1,9 @@
 ---
 title: Deploy a Docker app on Linux - Azure App Service
 description: How to deploy a Docker image to Azure App Services for Linux
-author: KarlErickson
-ms.author: karler
-ms.date: 08/13/2019
+author: msangapu
+ms.author: msangapu
+ms.date: 08/15/2019
 ms.topic: quickstart
 ms.service: app-service
 ---
