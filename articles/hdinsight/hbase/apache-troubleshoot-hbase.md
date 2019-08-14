@@ -5,8 +5,8 @@ ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
-ms.topic: conceptual
-ms.date: 12/06/2018
+ms.topic: troubleshooting
+ms.date: 08/14/2019
 ---
 
 # Troubleshoot Apache HBase by using Azure HDInsight
@@ -200,58 +200,6 @@ The HDInsight cluster has been scaled down to a very few nodes. The number of no
    hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
    ```
 
-
-## How do I fix JDBC or SQLLine connectivity issues with Apache Phoenix?
-
-### Resolution steps
-
-To connect with Apache Phoenix, you must provide the IP address of an active Apache ZooKeeper node. Ensure that the ZooKeeper service to which sqlline.py is trying to connect is up and running.
-1. Sign in to the HDInsight cluster by using SSH.
-2. Enter the following command:
-                
-   ```apache
-           "/usr/hdp/current/phoenix-client/bin/sqlline.py <IP of machine where Active Zookeeper is running"
-   ```
-
-   > [!Note] 
-   > You can get the IP address of the active ZooKeeper node from the Ambari UI. Go to **HBase** > **Quick Links** > **ZK\* (Active)** > **Zookeeper Info**. 
-
-3. If the sqlline.py connects to Phoenix and does not timeout, run the following command to validate the availability and health of Phoenix:
-
-   ```apache
-           !tables
-           !quit
-   ```      
-4. If this command works, there is no issue. The IP address provided by the user might be incorrect. However, if the command pauses for an extended time and then displays the following error, continue to step 5.
-
-   ```apache
-           Error while connecting to sqlline.py (Hbase - phoenix) Setting property: [isolation, TRANSACTION_READ_COMMITTED] issuing: !connect jdbc:phoenix:10.2.0.7 none none org.apache.phoenix.jdbc.PhoenixDriver Connecting to jdbc:phoenix:10.2.0.7 SLF4J: Class path contains multiple SLF4J bindings. 
-   ```
-
-5. Run the following commands from the head node (hn0) to diagnose the condition of the Phoenix SYSTEM.CATALOG table:
-
-   ```apache
-            hbase shell
-                
-           count 'SYSTEM.CATALOG'
-   ```
-
-   The command should return an error similar to the following: 
-
-   ```apache
-           ERROR: org.apache.hadoop.hbase.NotServingRegionException: Region SYSTEM.CATALOG,,1485464083256.c0568c94033870c517ed36c45da98129. is not online on 10.2.0.5,16020,1489466172189) 
-   ```
-6. In the Apache Ambari UI, complete the following steps to restart the HMaster service on all ZooKeeper nodes:
-
-    1. In the **Summary** section of HBase, go to **HBase** > **Active HBase Master**. 
-    2. In the **Components** section, restart the HBase Master service.
-    3. Repeat these steps for all remaining **Standby HBase Master** services. 
-
-It can take up to five minutes for the HBase Master service to stabilize and finish the recovery process. After a few minutes, repeat the sqlline.py commands to confirm that the SYSTEM.CATALOG table is up, and that it can be queried. 
-
-When the SYSTEM.CATALOG table is back to normal, the connectivity issue to Phoenix should be automatically resolved.
-
-
 ## What causes a master server to fail to start?
 
 ### Error 
@@ -411,5 +359,12 @@ Here's what's happening behind the scenes:
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### See Also
-[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+## Next steps
+
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
+
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
