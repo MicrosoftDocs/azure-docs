@@ -32,4 +32,3 @@ Audit logs keep track of user operations. Audit logs contain the parameters prov
 ## Next steps
 
 * [View the account summary](account.md)
-* [View the usage log](usage.md)

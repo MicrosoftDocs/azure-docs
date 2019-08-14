@@ -104,8 +104,6 @@
         href:  https://docs.azure.cloudsimple.com/account/
       - name: View the users list
         href:  https://docs.azure.cloudsimple.com/users/
-      - name: View the usage log
-        href:  https://docs.azure.cloudsimple.com/usage/
       - name: Set up a virtual network connection to the private cloud
         href: https://docs.azure.cloudsimple.com/virtual-network-connection/
       - name: Edit your user profile
