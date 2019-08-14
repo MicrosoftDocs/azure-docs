@@ -20,31 +20,31 @@ You can find the list for [VMware here](https://docs.microsoft.com/azure/migrate
 
 ### How is Azure Migrate different from Azure Site Recovery?
 
-Azure Migrate provides a centralized hub to start, execute and track discovery, assessment, and migration of machines and workloads to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) is a disaster recovery solution. Azure Migrate Server Migration leverages Azure Site Recovery in the backend to enable migration scenarios for lift-and-shift migration of on-premises machines.
+Azure Migrate provides a centralized hub to start your migration, execute and track discovery and assessment of machines and workloads, and execute and track the migration of machines and workloads to Azure. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/migrate-tutorial-on-premises-azure) is a disaster recovery solution. Azure Migrate Server Migration uses Azure Site Recovery on the backend to enable migration scenarios for lift-and-shift migration of on-premises machines.
 
 ## Azure Migrate appliance (VMware/physical servers)
 
 ### How does the Azure Migrate appliance connect to Azure?
 
-The connection can be over the internet, or you can use ExpressRoute with public/Microsoft peering.
+The connection can be over the internet, or you can use Azure ExpressRoute with public/Microsoft peering.
 
-### What network connectivity requirements are needed for Azure Migrate Server Assessment and Migration
+### What are the network connectivity requirements for Azure Migrate server assessment and migration?
 
-For the URLs and ports needed for Azure Migrate to communicate with Azure, review the [VMWare](migrate-support-matrix-vmware.md) and [Hyper-V](migrate-support-matrix-hyper-v.md) support matrices.
+See the [VMware](migrate-support-matrix-vmware.md) and [Hyper-V](migrate-support-matrix-hyper-v.md) support matrices for information about the URLs and ports needed to enable Azure Migrate to communicate with Azure.
 
-### Can I harden the appliance VM I set up with the template?
+### Can I harden the appliance VM that I set up with the template?
 
-Additional components (for example anti-virus) can be added into the template, as long as the communication and firewall rules required for the Azure Migrate appliance are left as is.   
+You can add components (for example, antivirus) to the template, as long as you leave the communication and firewall rules required for the Azure Migrate appliance as is.
 
-### What data is collected by Azure Migrate appliance?
+### What data is collected by the Azure Migrate appliance?
 
-You can details about the data collected by Azure Migrate appliance [here](https://docs.microsoft.com/azure/migrate/migrate-appliance#collected-performance-data-vmware).
+You can view details about the data collected by the Azure Migrate appliance [in the Azure Migrate documentation](https://docs.microsoft.com/azure/migrate/migrate-appliance#collected-performance-data-vmware).
 
 ### Is there any performance impact on the analyzed VMware or Hyper-V environment?
 
-With continuous profiling of performance data, the Azure Migrate appliance profiles on-premises machines to measure VM performance data. This has almost zero performance impact on the Hyper-V/ESXi hosts, as well as on the vCenter Server.
+The Azure Migrate appliance profiles on-premises machines continuously to measure VM performance data. This profiling has almost no performance impact on the Hyper-V/ESXi hosts or on the vCenter Server.
 
-### Where is the collected data stored and for how long?
+### Where is the collected data stored, and for how long?
 
 The data collected by the Azure Migrate appliance is stored in the Azure location that you specify when creating the migration project. The data is securely stored in a Microsoft subscription, and is deleted when you delete the Azure Migrate project.
 
