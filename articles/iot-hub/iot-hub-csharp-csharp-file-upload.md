@@ -94,7 +94,7 @@ In this section, you modify the device app you created in [Send cloud-to-device 
     ```
 
 > [!NOTE]
-> For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
+> For simplicity's sake, this tutorial does not implement any retry policy. In production code, you should implement retry policies, such as exponential backoff, as suggested in [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 
 ## Get the IoT hub connection string
 
@@ -124,14 +124,14 @@ In this section, you write a .NET console app that receives file upload notifica
     using Microsoft.Azure.Devices;
     ```
 
-5. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
+1. Add the following fields to the **Program** class. Replace the `{iot hub connection string}` placeholder value with the IoT hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string):
 
     ```csharp
     static ServiceClient serviceClient;
     static string connectionString = "{iot hub connection string}";
     ```
 
-6. Add the following method to the **Program** class:
+1. Add the following method to the **Program** class:
 
     ```csharp
     private async static void ReceiveFileUploadNotificationAsync()
@@ -156,7 +156,7 @@ In this section, you write a .NET console app that receives file upload notifica
 
     Note this receive pattern is the same one used to receive cloud-to-device messages from the device app.
 
-7. Finally, add the following lines to the **Main** method:
+1. Finally, add the following lines to the **Main** method:
 
     ```csharp
     Console.WriteLine("Receive file upload notifications\n");
