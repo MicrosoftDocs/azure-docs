@@ -35,9 +35,9 @@ There are several modifications you might need to make to migrate your applicati
 
 ## Change identity provider redirect URLs
 
-On each identity provider's website in which you've created an application, change all trusted URLs to redirect to *b2clogin.com*. If you've configured the redirect with a *login.microsoftonline.com* URL, modify it so that `your-tenant-name.b2clogin.com` is authorized instead.
+On each identity provider's website in which you've created an application, change all trusted URLs to redirect to `your-tenant-name.b2clogin.com` instead of *login.microsoftonline.com*.
 
-There are two formats you can use for your redirect URLs. The first provides the benefit of not having "Microsoft" appear anywhere in the URL. This format uses the Tenant ID (a GUID) in place of your tenant domain name:
+There are two formats you can use for your b2clogin.com redirect URLs. The first provides the benefit of not having "Microsoft" appear anywhere in the URL by using the Tenant ID (a GUID) in place of your tenant domain name:
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
