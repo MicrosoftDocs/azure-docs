@@ -19,11 +19,12 @@ The lowest possible latency is achieved by ensuring the calling application is l
 ## Check consistency level
 [Consistency level](consistency-levels.md) can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](consistency-levels-choosing.md).
 
-## Log executed Sql API query in storage account or Diagnostic log table
-[Sql API query logs through diagnostic logs](logging.md#turn-on-logging-in-the-azure-portal) allows to log the obfuscated query in a storage account of your choice. This allows you to look at the Diagnostic logs and find query using more RUs and use the activity id to match in the QueryRuntimeStatistics. You can use logging to storage account for keeping long term retention of the executed queries. The  logged query is obfuscated - implying parameter names and their values in where clauses are different than actual names and values to respect the security requirements. 
+## Log the executed SQL query 
 
+You can log the executed SQL query in a storage account or the diagnostic log table. [SQL query logs through diagnostic logs](logging.md#turn-on-logging-in-the-azure-portal) allows you to log the obfuscated query in a storage account of your choice. This allows you to look at the logs and find query that is using higher RUs. Later you can use the activity id to match the actual query in the QueryRuntimeStatistics. The query is obfuscated for security purpose and the query parameter names, and their values in where clauses are different than actual names and values. You can use logging to storage account to keep the long term retention of the executed queries.  
 
 ## Log query metrics
+
 Use `QueryMetrics` to troubleshoot slow or expensive queries. 
 
   * Set `FeedOptions.PopulateQueryMetrics = true` to have `QueryMetrics` in the response.
