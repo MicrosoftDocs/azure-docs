@@ -11,7 +11,7 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 08/14/2019
 ms.author: magoedte
 ---
 
@@ -67,28 +67,34 @@ In the following procedure, you grant the *Contributor* role in your Log Analyti
 
 Review the article [Connect Windows computers to Azure Monitor in Azure](agent-windows.md) to understand the methods available for installing the Log Analytics agent for Windows on the computer hosting the Configuration Manager service connection point site system role.  
 
-## Add a Log Analytics connection to Configuration Manager
+## Connect Configuration Manager to Log Analytics workspace
 
-In order to add a Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://docs.microsoft.com/sccm/core/servers/deploy/configure/about-the-service-connection-point) configured for online mode.
+>[!NOTE]
+> In order to add a Log Analytics connection, your Configuration Manager environment must have a [service connection point](https://docs.microsoft.com/sccm/core/servers/deploy/configure/about-the-service-connection-point) configured for online mode.
 
-1. In the **Administration** workspace of Configuration Manager, select **OMS Connector**. This opens the **Add Log Analytics Connection Wizard**. Select **Next**.
+> [!NOTE]
+> You must connect the top-tier site in your hierarchy to Azure Monitor. If you connect a standalone primary site to Azure Monitor and then add a central administration site to your environment, you have to delete and recreate the connection within the new hierarchy.
 
-   >[!NOTE]
-   >OMS is now referred to as Log Analytics which is a feature of Azure Monitor.
+1. In the **Administration** workspace of Configuration Manager, select **Clouds Services** and then select **Azure Services**. 
+
+2. Right-click **Azure Services** and then select **Configure Azure Services**. The **Configure Azure Services** page appears. 
    
-2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
+3. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
 
-3. On the Azure Services page of the Azure Services Wizard:
+4. On the Azure Services page of the Azure Services Wizard:
 
     1. Specify a **Name** for the object in Configuration Manager.
     2. Specify an optional **Description** to help you identify the service.
     3. Select the Azure service **OMS Connector**.
 
-4. Select **Next** to continue to the Azure app properties page of the Azure Services Wizard.
+    >[!NOTE]
+    >OMS is now referred to as Log Analytics which is a feature of Azure Monitor.
 
-5. On the **App** page of the Azure Services Wizard, first select the Azure environment from the list and then click **Import**.
+5. Select **Next** to continue to the Azure app properties page of the Azure Services Wizard.
 
-6. On the **Import Apps** page, specify the following information:
+6. On the **App** page of the Azure Services Wizard, first select the Azure environment from the list and then click **Import**.
+
+7. On the **Import Apps** page, specify the following information:
 
     1. Specify the **Azure AD Tenant Name** for the app.
 
@@ -104,39 +110,25 @@ In order to add a Log Analytics connection, your Configuration Manager environme
 
     7. Specify for **App ID URI**, the App ID URI of the created Azure AD app created earlier.
 
-   
+    8. Select **Verify** and to the right the results should show **Successfully verified!**.
 
+8. On the **Configuration** page, review the information to verify the **Azure subscriptions**, **Azure resource group**, and **Operations Management Suite workspace** fields are pre-populated indicating the Azure AD application has sufficient permissions in the resource group. If the fields are empty, it indicates your application does not have the rights required. Select the device collections to collect and forward to the workspace and then select **Add**.
 
+9. Review the options on the **Confirm the settings** page, and select **Next** to begin creating and configuring the connection.
 
-
-
-
-1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../../active-directory/develop/quickstart-register-app.md).
-   2. In the Azure portal, you've created an app secret key for the registered app in Azure Active Directory.  
-   3. In the Azure portal, you've provided the registered web app with permission to access to the Log Analytics workspace in Azure Monitor.  
-      ![Connection to Log Analytics Wizard General page](./media/collect-sccm/sccm-console-general01.png)
-3. On the **Azure Active Directory** screen, configure your connection settings to the Log Analytics workspace by providing your **Tenant**, **Client ID**, and **Client Secret Key**, then select **Next**.  
-   ![Connection to Log Analytics Wizard Azure Active Directory page](./media/collect-sccm/sccm-wizard-tenant-filled03.png)
-4. If you accomplished all the other procedures successfully, then the information on the **OMS Connection Configuration** screen will automatically appear on this page. Information for the connection settings should appear for your **Azure subscription**, **Azure resource group**, and **Operations Management Suite Workspace**.  
-   ![Connection to Log Analytics Wizard Log Analytics Connection page](./media/collect-sccm/sccm-wizard-configure04.png)
-5. The wizard connects to the Log Analytics workspace using the information you've input. Select the device collections that you want to sync with the service and then click **Add**.  
-   ![Select Collections](./media/collect-sccm/sccm-wizard-add-collections05.png)
-6. Verify your connection settings on the **Summary** screen, then select **Next**. The **Progress** screen shows the connection status, then should **Complete**.
-
-> [!NOTE]
-> You must connect the top-tier site in your hierarchy to Azure Monitor. If you connect a standalone primary site to Azure Monitor and then add a central administration site to your environment, you have to delete and recreate the connection within the new hierarchy.
->
->
+10. When configuration is finished, the **Completion** page appears. Select **Close**. 
 
 After you have linked Configuration Manager to Azure Monitor, you can add or remove collections, and view the properties of the connection.
 
 ## Update Log Analytics workspace connection properties
-If a password or client secret key ever expires or is lost, you'll need to manually update the Log Analytics connection properties.
 
-1. In Configuration Manager, navigate to **Cloud Services**, then select **OMS Connector** to open the **OMS Connection Properties** page.
+If a password or client secret key expires or is lost, you'll need to manually update the Log Analytics connection properties.
+
+1. In the **Administration** workspace of Configuration Manager, select **Cloud Services** and then select **OMS Connector** to open the **OMS Connection Properties** page.
 2. On this page, click the **Azure Active Directory** tab to view your **Tenant**, **Client ID**, **Client secret key expiration**. **Verify** your **Client secret key** if it has expired.
 
 ## Import collections
+
 After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, the next step is to import collections from Configuration Manager in Azure Monitor as computer groups.
 
 After you have completed initial configuration to import device collections from your hierarchy, the collection membership information is retrieved every 3 hours to keep the membership current. You can choose to disable this at any time.
@@ -146,9 +138,11 @@ After you have completed initial configuration to import device collections from
 3. Select **Advanced settings**.
 4. Select **Computer Groups** and then select **SCCM**.  
 5. Select **Import Configuration Manager collection memberships** and then click **Save**.  
-   ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups01.png)
+   
+    ![Computer Groups - SCCM tab](./media/collect-sccm/sccm-computer-groups01.png)
 
 ## View data from Configuration Manager
+
 After you've added a Log Analytics connection to Configuration Manager and installed the agent on the computer running the Configuration Manager service connection point site system role, data from the agent is sent to the Log Analytics workspace in Azure Monitor. In Azure Monitor, your Configuration Manager collections appear as [computer groups](../../azure-monitor/platform/computer-groups.md). You can view the groups from the **Configuration Manager** page under **Settings\Computer Groups**.
 
 After the collections are imported, you can see how many computers with collection memberships have been detected. You can also see the number of collections that have been imported.
@@ -158,4 +152,5 @@ After the collections are imported, you can see how many computers with collecti
 When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](../../azure-monitor/log-query/log-query-overview.md), you can start in-depth analysis of Configuration Manager data.
 
 ## Next steps
-* Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information about your Configuration Manager data.
+
+Use [Log Search](../../azure-monitor/log-query/log-query-overview.md) to view detailed information about your Configuration Manager data.
