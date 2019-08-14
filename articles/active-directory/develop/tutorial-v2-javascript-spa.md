@@ -44,7 +44,7 @@ This guide uses the following library:
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Microsoft Authentication Library for JavaScript Preview|
 
 > [!NOTE]
-> *msal.js* targets the *Microsoft identity platform endpoint* which enables personal, school and work accounts to sign in and acquire tokens. The *Microsoft identity platform endpoint* has [some limitations](azure-ad-endpoint-comparison#limitations).
+> *msal.js* targets the *Microsoft identity platform endpoint* which enables personal, school and work accounts to sign in and acquire tokens. The *Microsoft identity platform endpoint* has [some limitations](azure-ad-endpoint-comparison.md#limitations).
 > To understand differences between the v1.0 and v2.0 endpoints read the [Endpoint comparison guide](azure-ad-endpoint-comparison.md).
 
 <!--end-collapse-->
