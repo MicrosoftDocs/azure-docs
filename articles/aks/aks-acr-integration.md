@@ -26,32 +26,39 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 ## Create a new AKS cluster with ACR integration
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  The following CLI command creates an ACR in the resource group you specify with **acrpull** permissions. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
-```azurecli-interactive
+```
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr-name <your-acr-name>]
 ```
 
 Optionally, you can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
-```azurecli-interactive
+```
 az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enable-acr [--acr-resource-id <your-acr-resource-id>]
 ```
 
 ## Create ACR integration for existing AKS clusters
 
 For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
-```azurecli-interactive
+```
 az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-name <your-acr-name>
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
 
 ## Verify the AKS and ACR integration
+Ensure you have created and AKS cluster and added the ACR integration with the steps above.
+
+Remove and update the AKS CLI preview extenstion
+```
+az extension remove --name aks-preview 
+az extension add -y --name aks-preview
+```
 
 Login to your ACR
 ```
 az acr login -n <your-acr-name>
 ```
 
+Pull an image from docker hub
 ```
-# Pull an image from docker hub
 docker pull nginx
 ```
 
@@ -65,12 +72,12 @@ Push the docker image to ACR
 docker push someacr1.azurecr.io/nginx:v1
 ```
 
-Credentials TODO
+Credentials heading TODO
 ```
 az aks get-credentials -g <your-resource-group> -n <your-kubernetes-cluster-name>
 ```
 
-heading TODO
+Update the state
 ```
 kubectl apply -f acr-nginx.yaml
 ```
