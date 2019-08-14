@@ -72,8 +72,7 @@ Datasets stored in visual interface are automatically converted to an R data fra
 
 1.  Add the **Execute R Script** module to your experiment.
 
-    > [!NOTE]
-    > All data passed to the **Execute R Script** module is converted to the R `data.frame` format.
+  
 
 1. Connect any inputs needed by the script. Inputs are optional and can include data and additional R code.
 
@@ -86,10 +85,33 @@ Datasets stored in visual interface are automatically converted to an R data fra
 1. In the **R script** text box, type or paste valid R script.
 
     To help you get started, the **R Script** text box is pre-populated with sample code, which you can edit or replace.
+    
+```R
+# R version: 3.5.1
+# The script MUST contain a function named azureml_main
+# which is the entry point for this module.
 
-    * The script must contain a function named `azureml_main`, which is the entry point for this module.
+# The entry point function can contain up to two input arguments:
+#   Param<dataframe1>: a R DataFrame
+#   Param<dataframe2>: a R DataFrame
+azureml_main <- function(dataframe1, dataframe2){
+  print("R script run.")
 
-    * The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
+  # If a zip file is connected to the third input port, it is
+  # unzipped under "./Script Bundle". This directory is added
+  # to sys.path.
+
+  # Return datasets as a Named List
+  return(list(dataset1=dataframe1, dataset2=dataframe2))
+}
+```
+
+ * The script must contain a function named `azureml_main`, which is the entry point for this module.
+
+ * The entry point function can contain up to two input arguments: `Param<dataframe1>` and `Param<dataframe2>`
+ 
+   > [!NOTE]
+    > The data passed to the **Execute R Script** module is referenced as `dataframe1` and `dataframe2`, which is different from Azure Machine Learning Studio (Studio reference as `dataset1`, `dataset2`). Please check to make sure input data is referneced correctly in your script.  
  
     > [!NOTE]
     >  Existing R code may need minor changes to run in a visual interface experiment. For example, input data that you provide in CSV format should be explicitly converted to a dataset before you can use it in your code. Data and column types used in the R language also differ in some ways from the data and column types used in the visual interface.
