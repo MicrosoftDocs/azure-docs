@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2019
+ms.date: 08/14/2019
 ms.author: rkarlin
 
 ---
@@ -25,23 +25,22 @@ ms.author: rkarlin
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-You can stream logs from [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) into Azure Sentinel with a single click. Azure Information Protection helps protect your data whether it’s stored in the cloud or in on-premises infrastructures and control and help secure email, documents, and sensitive data that you share outside your company. From easy classification to embedded labels and permissions, enhance data protection at all times with Azure Information Protection. When you connect Azure Information Protection to Azure Sentinel, you stream all the alerts from Azure Information Protection into Azure Sentinel.
+You can stream logs from [Azure Information Protection](https://azure.microsoft.com/en-us/services/information-protection/) into Azure Sentinel with a single click. Azure Information Protection helps you control and secure your sensitive data, whether it’s stored in the cloud or on-premises. When you connect Azure Information Protection to Azure Sentinel, you stream all the [central reporting information from Azure Information Protection](https://docs.microsoft.com/azure/information-protection/reports-aip) into Azure Sentinel.
 
 
 ## Prerequisites
 
 - User with global administrator, security administrator, or information protection permissions
 
+- A Log Analytics workspace configured for Azure Information Protection. For instructions, see [Configure a Log Analytics workspace for the reports](/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports) from the Azure Information Protection documentation.
 
 ## Connect to Azure Information Protection
 
-If you already have Azure Information Protection, make sure it is [enabled on your network](https://docs.microsoft.com/azure/information-protection/activate-service).
-If Azure Information Protection is deployed and getting data, the alert data can easily be streamed into Azure Sentinel.
+To get reporting information from Azure Information Protection, you need to identify the preconfigured Log Analytics workspace from the Azure Information Protection blade in the Azure portal. Then, the data from that workspace can be streamed into your Azure Sentinel workspace.
 
+1. In Azure Sentinel, select **Data connectors**, and then **Azure Information Protection**.
 
-1. In Azure Sentinel, select **Data connectors** and then click the **Azure Information Protection** tile.
-
-2. Go to the [Azure Information Protection portal](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
+2. Go to the [Azure Information Protection blade](https://portal.azure.com/?ScannerConfiguration=true&EndpointDiscovery=true#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/quickstartBlade) 
 
 3. Under **Connection**, set up streaming of logs from Azure Information Protection to Azure Sentinel by clicking [Configure analytics](https://portal.azure.com/#blade/Microsoft_Azure_InformationProtection/DataClassGroupEditBlade/analyticsOnboardBlade)
 
@@ -49,9 +48,7 @@ If Azure Information Protection is deployed and getting data, the alert data can
 
 5. Click **OK**.
 
-6. To use the relevant schema in Log Analytics for the Azure Information Protection alerts, search for **InformationProtectionLogs_CL**.
-
-
+6. To use the relevant schema in Log Analytics for the Azure Information Protection reporting data, search for **InformationProtectionLogs_CL**.
 
 
 ## Next steps
