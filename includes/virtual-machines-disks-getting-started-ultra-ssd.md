@@ -5,7 +5,7 @@
  author: roygara
  ms.service: virtual-machines
  ms.topic: include
- ms.date: 05/10/2019
+ ms.date: 08/15/2019
  ms.author: rogarana
  ms.custom: include file
 ---
@@ -46,9 +46,9 @@ Preserve the **Zones** value, it represents your availability zone and you will 
 > [!NOTE]
 > If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
 
-Now that you know which zone to deploy to, follow the deployment steps in this article to deploy a VM with an ultra disk attached.
+Now that you know which zone to deploy to, follow the deployment steps in this article to either deploy a VM with an ultra disk attached or attach an ultra disk to an existing VM.
 
-## Deploy an Ultra disk using Azure Resource Manager
+## Deploy an ultra disk using Azure Resource Manager
 
 First, determine the VM size to deploy. For now, only DsV3 and EsV3 VM families support ultra disks. Refer to the second table on this [blog](https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/) for additional details about these VM sizes.
 
@@ -77,12 +77,12 @@ az vm create --subscription $subscription -n $vmname -g $rgname --image Win2016D
 Now that you have a VM that is capable of attaching ultra disks, you can create and attach an ultra disk to it.
 
 ```azurecli-interactive
-location="eastus2"
-subscription="xxx"
-rgname="ultraRG"
-diskname="ssd1"
-vmname="ultravm1"
-zone=123
+$location="eastus2"
+$subscription="xxx"
+$rgname="ultraRG"
+$diskname="ssd1"
+$vmname="ultravm1"
+$zone=123
 
 #create an ultra disk
 az disk create `
@@ -95,6 +95,19 @@ az disk create `
 --sku UltraSSD_LRS `
 --disk-iops-read-write 1000 `
 --disk-mbps-read-write 50
+```
+
+## Attach an ultra disk to an existing VM using CLI
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+
+```bash
+$rgName = "<yourResourceGroupName>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$subscriptionId = "<yourSubscriptionID>"
+
+az vm disk attach -g $rgName --vm-name $vmName --disk $diskName --subscription $subscriptionId
 ```
 
 ### Adjust the performance of an ultra disk using CLI
@@ -145,6 +158,24 @@ New-AzDisk `
 -ResourceGroupName $resourceGroup `
 -DiskName 'Disk02' `
 -Disk $diskconfig;
+```
+
+## Attach an ultra disk to an existing VM using PowerShell
+
+Alternatively, if your existing VM is in a region/availability zone that is capable of using ultra disks, you can make use of ultra disks without having to create a new VM.
+
+```powershell
+# add disk to VM
+$subscription = "<yourSubscriptionID>"
+$resourceGroup = "<yourResourceGroup>"
+$vmName = "<yourVMName>"
+$diskName = "<yourDiskName>"
+$lun = 1
+Login-AzureRMAccount -SubscriptionId $subscription
+$vm = Get-AzVM -ResourceGroupName $resourceGroup -Name $vmName
+$disk = Get-AzDisk -ResourceGroupName $resourceGroup -Name $diskName
+$vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Attach -ManagedDiskId $disk.Id -Lun $lun
+Update-AzVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
 ### Adjust the performance of an ultra disk using PowerShell
