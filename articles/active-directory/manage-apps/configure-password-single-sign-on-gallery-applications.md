@@ -137,7 +137,7 @@ To assign one or more users to an application directly, follow these steps:
 
 13. When you're finished selecting users, use the **Select** button to add them to the list of users and groups to be assigned to the application.
 
-14. **Optional**: select **Select Role** in the **Add Assignment** pane to select a role to assign to the users you've selected.
+14. **Optional**: Use the **Select Role** command in the **Add Assignment** pane to select a role to assign to the users you've selected.
 
 15. Select **Assign** to assign the application to the selected users.
 
@@ -173,7 +173,7 @@ To assign one or more groups to an application directly, follow these steps:
 
 13. When you're finished selecting groups, use the **Select** button to add them to the list of users and groups to be assigned to the application.
 
-14. **Optional**: Select **Select Role** in the **Add Assignment** pane to select a role to assign to the groups you've selected.
+14. **Optional**: Use the **Select Role** command in the **Add Assignment** pane to select a role to assign to the groups you've selected.
 
 15. Select **Assign** to assign the application to the selected groups.
 
