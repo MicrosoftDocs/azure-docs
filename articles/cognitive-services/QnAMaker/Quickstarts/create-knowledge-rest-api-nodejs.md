@@ -68,7 +68,7 @@ These code snippets show you how to do the following with the QnA Maker REST API
 * [Replace a knowledge base](#replace-a-knowledge-base)
 * [Publish a knowledge base](#publish-a-knowledge-base)
 * [Delete a knowledge base](#delete-a-knowledge-base)
-* [Download a knowledge base](#download-a-knowledge-base)
+* [Download a knowledge base](#download-the-knowledge-base)
 * [Get status of an operation](#get-status-of-an-operation)
 
 ## Add the dependencies
