@@ -2,13 +2,13 @@
 title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
 
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: raynew
+ms.author: dacurwin
 ms.custom: mvc
 ---
 
@@ -100,7 +100,6 @@ Enable backup as follows:
         -Policy $policy
     ```
 
-
 ## Start a backup job
 
 Backups run in accordance with the schedule specified in the backup policy. You can also run an ad hoc backup:
@@ -154,7 +153,7 @@ Run an ad hoc backup job as follows:
 ## Clean up the deployment
 
 If you no longer need to back up the VM, you can clean it up.
-- If you want to try out restoring the VM, skip the clean up.
+- If you want to try out restoring the VM, skip the clean-up.
 - If you used an existing VM, you can skip the final [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) cmdlet to leave the resource group and VM in place.
 
 Disable protection, remove the restore points and vault. Then delete the resource group and associated VM resources, as follows:

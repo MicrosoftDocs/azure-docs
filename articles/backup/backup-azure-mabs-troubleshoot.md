@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Azure Backup Server
 description: Troubleshoot installation, registration of Azure Backup Server, and backup and restore of application workloads.
-
-author: srinathvasireddy
-manager: sivan
+ms.reviewer: srinathv
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: srinathv
+ms.author: dacurwin
 ---
 
 # Troubleshoot Azure Backup Server
@@ -20,7 +20,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 - [Ensure Microsoft Azure Recovery Services (MARS) Agent is up to date](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
 - [Ensure there is network connectivity between MARS agent and Azure](https://aka.ms/AB-A4dp50)
-- Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary restart and retry the operation
+- Ensure Microsoft Azure Recovery Services is running (in Service console). If necessary, restart and retry the operation
 - [Ensure 5-10% free volume space is available on scratch folder location](https://aka.ms/AB-AA4dwtt)
 - If registration is failing, then ensure the server on which you are trying to install Azure Backup Server is not already registered with another vault
 - If Push install fails, check if DPM agent is already present. If yes, then uninstall the agent and retry the installation
@@ -50,13 +50,13 @@ We recommend you perform the below validation, before you start troubleshooting 
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The vault credentials provided are different from the vault the server is registered | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server which is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
+| Restore | **Error code**: CBPServerRegisteredVaultDontMatchWithCurrent/Vault Credentials Error: 100110 <br/> <br/>**Error message**: The vault credentials provided are different from the vault the server is registered | **Cause**: This issue occurs when you are trying to restore files to the alternate server from the original server using External DPM recovery option and if the server that is being recovered and the original server from where the data is backed-up are not associated with the same Recovery Service vault.<br/> <br/>**Workaround** To resolve this issue ensure both the original and alternate server is registered to the same vault.|
 
 ## Online recovery point creation jobs for VMware VM fail
 
 | Operation | Error details | Workaround |
 | --- | --- | --- |
-| Backup | Online recovery point creation jobs for VMware VM fail. DPM encountered an error from VMware while trying to get ChangeTracking information. ErrorCode - FileFaultFault (ID 33621 ) |  <ol><li> Reset the CTK on VMware for the affected VMs.</li> <li>Check that independent disk is not in place on VMware.</li> <li>Stop protection for the affected VMs and re-protect with the **Refresh** button. </li><li>Run a CC for the affected VMs.</li></ol>|
+| Backup | Online recovery point creation jobs for VMware VM fail. DPM encountered an error from VMware while trying to get ChangeTracking information. ErrorCode - FileFaultFault (ID 33621) |  <ol><li> Reset the CTK on VMware for the affected VMs.</li> <li>Check that independent disk is not in place on VMware.</li> <li>Stop protection for the affected VMs and reprotect with the **Refresh** button. </li><li>Run a CC for the affected VMs.</li></ol>|
 
 
 ## The agent operation failed because of a communication error with the DPM agent coordinator service on the server
@@ -97,7 +97,7 @@ We recommend you perform the below validation, before you start troubleshooting 
 | Backup | An unexpected error occurred while the job was running. The device is not ready. | **If the recommended action that's shown in the product doesn't work, take the following steps:** <br> <ul><li>Set the Shadow Copy Storage space to unlimited on the items in the protection group, and then run the consistency check.<br></li> (OR) <li>Try deleting the existing protection group and creating multiple new groups. Each new protection group should have an individual item in it.</li></ul> |
 | Backup | If you are backing up only system state, verify that there is enough free space on the protected computer to store the system state backup. | <ol><li>Verify that Windows Server Backup is installed on the protected machine.</li><li>Verify that there is enough space on the protected computer for the system state. The easiest way to verify this is to go to the protected computer, open Windows Server Backup, click through the selections, and then select BMR. The UI then tells you how much space is required. Open **WSB** > **Local backup** > **Backup schedule** > **Select Backup Configuration** > **Full server** (size is displayed). Use this size for verification.</li></ol>
 | Backup | Back up failure for BMR | If the BMR size is large, move some application files to the OS drive and retry. |
-| Backup | The option to re-protect a VMware VM on a new Microsoft Azure Backup Server does not show as available to add. | VMware properties are pointed at an old, retired instance of Microsoft Azure Backup Server. To resolve this issue:<br><ol><li>In VCenter (SC-VMM equivalent), go to the **Summary** tab, and then to **Custom Attributes**.</li>  <li>Delete the old Microsoft Azure Backup Server name from the **DPMServer** value.</li>  <li>Go back to the new Microsoft Azure Backup Server and modify the PG.  After you select the **Refresh** button, the VM appears with a check box as available to add to protection.</li></ol> |
+| Backup | The option to reprotect a VMware VM on a new Microsoft Azure Backup Server does not show as available to add. | VMware properties are pointed at an old, retired instance of Microsoft Azure Backup Server. To resolve this issue:<br><ol><li>In VCenter (SC-VMM equivalent), go to the **Summary** tab, and then to **Custom Attributes**.</li>  <li>Delete the old Microsoft Azure Backup Server name from the **DPMServer** value.</li>  <li>Go back to the new Microsoft Azure Backup Server and modify the PG.  After you select the **Refresh** button, the VM appears with a check box as available to add to protection.</li></ol> |
 | Backup | Error while accessing files/shared folders | Try modifying the antivirus settings as suggested in the TechNet article [Run antivirus software on the DPM server](https://technet.microsoft.com/library/hh757911.aspx).|
 
 

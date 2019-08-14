@@ -23,11 +23,11 @@ To complete the procedures in this article, you first need to [create an Azure M
 
 ### Download Android Studio
 
-You need to download Android Studio and create a project with an empty activity before you install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) for free from Google. 
+Download Android Studio and create a project with an empty activity before you install the Azure Maps Android SDK. You can [download Android Studio](https://developer.android.com/studio/) for free from Google. 
 
 ## Create a project in Android Studio
 
-First, you need to create a new project with an empty activity. Complete these steps to create an Android Studio project:
+First, create a new project with an empty activity. Complete these steps to create an Android Studio project:
 
 1. Under **Choose your project**, select **Phone and Tablet**. Your application will run on this form factor.
 2. On the **Phone and Tablet** tab, select **Empty  Activity**, and then select **Next**.
@@ -50,7 +50,7 @@ You can learn more about setting up an AVD in the [Android Studio documentation]
 
 The next step in building your application is to install the Azure Maps Android SDK. Complete these steps to install the SDK:
 
-1. Open the top level **build.gradle** file and add the following code to the **all projects**, **repositories** block section:
+1. Open the top-level **build.gradle** file and add the following code to the **all projects**, **repositories** block section:
 
     ```
     maven {
@@ -79,7 +79,7 @@ The next step in building your application is to install the Azure Maps Android 
     > [!Note]
     > The Azure Maps Android SDK is regularly being upgraded and enhanced. You can see the [Getting started with Android map control](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) documentation, to get the latest Azure Maps implementation version number. Also, you can set the version number from “0.2” to “0+” to have it always point to the latest version.
 
-3. Edit **res** > **layout** > **activity_main.xml** and replace it with the following:
+3. Edit **res** > **layout** > **activity_main.xml** and replace it with the code:
     
     ```XML
     <?xml version="1.0" encoding="utf-8"?>
@@ -104,7 +104,7 @@ The next step in building your application is to install the Azure Maps Android 
     * set your Azure Maps authentication information
     * get the map control instance in the **onCreate** method
 
-    Setting the authentication information on the AzureMaps class globally using the setSubscriptionKey or setAadProperties methods makes it so you won’t have to add your authentication information on every view. The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly, call the map control ‘s lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
+    Setting the authentication information on the AzureMaps class globally using the setSubscriptionKey or setAadProperties methods makes it so you won’t have to add your authentication information on every view. The map control contains its own lifecycle methods for managing Android's OpenGL lifecycle, which must be called directly from the containing Activity. In order for your app to correctly, call the map control's lifecycle methods, you must override the following lifecycle methods in the Activity that contains the map control and call the respective map control method. 
 
     Edit the **MainActivity.java** file as follows:
     
@@ -193,6 +193,55 @@ Android Studio will take a few seconds to build the application. After the build
 <center>
 
 ![Android map](./media/how-to-use-android-map-control-library/android-map.png)</center>
+
+## Localizing the map
+
+The Azure Maps Android SDK provides three different ways of setting the language and regional view of the map. The following code shows how to set the language to French ("fr-FR") and the regional view to "auto". 
+
+The first option is to pass the language and view regional information into the `AzureMaps` class using the static `setLanguage` and `setView` methods globally. This will set the default language and regional view across all Azure Maps controls loaded in your app.
+
+```Java
+static {
+    //Set your Azure Maps Key.
+    AzureMaps.setSubscriptionKey("<Your Azure Maps Key>");
+
+    //Set the language to be used by Azure Maps.
+    AzureMaps.setLanguage("fr-FR");
+
+    //Set the regional view to be used by Azure Maps.
+    AzureMaps.setView("auto");
+}
+```
+
+The second option is to pass the language and view information into the map control XML.
+
+```XML
+<com.microsoft.azure.maps.mapcontrol.MapControl
+    android:id="@+id/myMap"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:mapcontrol_language="fr-FR"
+    app:mapcontrol_view="auto"
+    />
+```
+
+The third option is to programmatically set the language and regional view of the map using the maps `setStyle` method. This can be done at any time to change the language and regional view of the map.
+
+```Java
+mapControl.onReady(map -> {
+    map.setStyle(StyleOptions.language("fr-FR"));
+    map.setStyle(StyleOptions.view("auto"));
+});
+```
+
+Here is an example of Azure Maps with the language set to "fr-FR" and regional view set to "auto".
+
+<center>
+
+![Map image showing labels in French](./media/how-to-use-android-map-control-library/android-localization.png)
+</center>
+
+A complete list of supported languages and regional views is documented [here](supported-languages.md).
 
 ## Next steps
 

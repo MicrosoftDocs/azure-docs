@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 02/26/2019
+ms.date: 07/30/2019
 ms.author: aahi
 ---
 
@@ -77,7 +77,7 @@ For more information on request definition, see [Call the Text Analytics API](te
 
 + Set the HTTP endpoint for sentiment analysis by using either a Text Analytics resource on Azure or an instantiated [Text Analytics container](text-analytics-how-to-install-containers.md). It must include the `/sentiment` resource: `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`.
 
-+ Set a request header to include the access key for Text Analytics operations. For more information, see [Find endpoints and access keys](text-analytics-how-to-access-key.md).
++ Set a request header to include the [access key](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) for Text Analytics operations.
 
 + In the request body, provide the JSON documents collection you prepared for this analysis.
 
@@ -260,7 +260,7 @@ In this article, you learned concepts and workflow for sentiment analysis by usi
 
 + The [Sentiment Analysis API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9) is available for selected languages.
 + JSON documents in the request body include an ID, text, and language code.
-+ The POST request is to a `/sentiment` endpoint by using a personalized [access key and an endpoint](text-analytics-how-to-access-key.md) that's valid for your subscription.
++ The POST request is to a `/sentiment` endpoint by using a personalized [access key and an endpoint](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) that's valid for your subscription.
 + Response output, which consists of a sentiment score for each document ID, can be streamed to any app that accepts JSON. Example apps include Excel and Power BI, to name a few.
 
 ## See also

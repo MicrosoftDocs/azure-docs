@@ -2,9 +2,9 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: What is SQL Database
+  - name: What is SQL Database?
     href: sql-database-technical-overview.md
-  - name: Choose a version of Azure SQL
+  - name: Which SQL option should I choose?
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Release notes
     href: sql-database-release-notes.md
@@ -107,6 +107,8 @@
     items:
     - name: Migrate online using DMS
       href: ../dms/tutorial-sql-server-to-managed-instance.md?toc=/azure/sql-database/toc.json
+    - name: Add to a failover group
+      href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Configure transactional replication
       href: replication-with-sql-database-managed-instance.md
   - name: Security in SQL Database
@@ -175,7 +177,7 @@
       href: sql-database-service-tier-hyperscale-faq.md
   - name: Single databases
     items:
-    - name: Single database overview
+    - name: Single database documentation
       href: sql-database-single-index.yml
     - name: Single database capabilities
       href: sql-database-single-database.md  
@@ -215,7 +217,7 @@
       href: sql-database-elastic-pool-manage.md
   - name: Managed instances
     items:
-    - name: Managed instances overview
+    - name: Managed instance documentation
       href: sql-database-managed-instance-index.yml
     - name: Managed instance capabilities
       href: sql-database-managed-instance.md
@@ -235,7 +237,7 @@
       href: sql-database-managed-instance-public-endpoint-securely.md
   - name: Platform as a Service
     items:
-    - name: Platform as a Service overview
+    - name: Platform as a Service documentation
       href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
@@ -280,14 +282,18 @@
         href: sql-vulnerability-assessment.md
       - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
-    - name: Server-level IP firewall rules
+    - name: Network security
       items:
-      - name: Create and manage
+      - name: Network access controls overview
+        href: sql-database-networkaccess-overview.md
+      - name: IP based firewall
         href: sql-database-firewall-configure.md      
-      - name: Virtual network endpoints
-        href: sql-database-vnet-service-endpoint-rule-overview.md
-      - name: Virtual network endpoints - PowerShell
-        href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Virtual network firewall rules
+        items:
+        - name: Virtual network endpoints
+          href: sql-database-vnet-service-endpoint-rule-overview.md
+        - name: Virtual network endpoints - PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Access control
       items:
       - name: Access control
@@ -324,7 +330,7 @@
       href: sql-database-feature-restrictions.md
   - name: Scalability
     items:
-    - name: Scalability overview
+    - name: Scalability documentation
       href: sql-database-scalability-index.yml
     - name: Scale Up/Down
       href: sql-database-scale-resources.md
@@ -354,7 +360,7 @@
       href: sql-database-elastic-transactions-overview.md
   - name: Monitoring and tuning
     items:
-    - name: Monitoring and tuning overview
+    - name: Monitor and tuning documentation
       href: sql-database-monitoring-tuning-index.yml
     - name: Monitoring and performance tuning
       href: sql-database-monitor-tune-overview.md
@@ -378,7 +384,7 @@
         href: sql-database-advisor.md
   - name: Databases features
     items:
-    - name: Overview
+    - name: SQL Database feature documentation
       href: sql-database-features-index.yml
     - name: SQL features comparison
       href: sql-database-features.md

@@ -42,7 +42,7 @@ The first step is to sign in to the My Access portal where you can request acces
 
 1. Sign in to the My Access portal.
 
-    Be sure you use your organizational account. If you unsure, check with your project or business manager.
+    Be sure you use your organizational (work or school) account. If you're unsure, check with your project or business manager.
 
 ## Request an access package
 

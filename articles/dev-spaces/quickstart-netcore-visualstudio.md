@@ -1,5 +1,5 @@
 ---
-title: "Develop with .NET Core on AKS with Azure Dev Spaces and Visual Studio"
+title: "Debug and iterate with Visual Studio and .NET Core on AKS with Azure Dev Spaces"
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
@@ -13,7 +13,7 @@ manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
 ---
-# Quickstart: Develop with .NET Core on Kubernetes with Azure Dev Spaces (Visual Studio)
+# Quickstart: Debug and iterate with Visual Studio and .NET Core on Kubernetes with Azure Dev Spaces
 
 In this guide, you will learn how to:
 

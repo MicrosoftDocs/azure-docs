@@ -8,7 +8,7 @@ editor: tysonn
 ms.service:  azure-monitor
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 04/17/2019
+ms.date: 08/02/2019
 ms.author: magoedte
 
 ---
@@ -16,6 +16,10 @@ ms.author: magoedte
 # Azure Monitor for containers Frequently Asked Questions
 
 This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for containers. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+
+## Can I monitor my AKS-engine cluster with Azure Monitor for containers?
+
+Azure Monitor for containers supports monitoring container workloads deployed to AKS-engine (formerly known as ACS-engine) cluster(s) hosted on Azure. For further details and an overview of steps required to enable monitoring for this scenario, see [Using Azure Monitor for containers for AKS-engine](https://github.com/microsoft/OMS-docker/tree/aks-engine).
 
 ## Why don't I see data in my Log Analytics workspace?
 

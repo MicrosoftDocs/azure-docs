@@ -53,6 +53,8 @@
     href: use-editor-create-project.md
   - name: Embed widgets into your application
     href: video-indexer-embed-widgets.md
+  - name: Disaster recovery
+    href: video-indexer-disaster-recovery.md        
   - name: Customize content models
     items:
     - name: Person
@@ -72,7 +74,7 @@
       - name: using Video Indexer website
         href: customize-language-model-with-website.md
       - name: using Video Indexer API
-        href: customize-language-model-with-api.md             
+        href: customize-language-model-with-api.md        
 - name: Reference
   items:
   - name: Video Indexer API

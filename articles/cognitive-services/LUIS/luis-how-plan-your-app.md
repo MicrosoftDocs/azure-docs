@@ -9,13 +9,13 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
 # Plan your LUIS app with subject domain, intents and entities
 
-It is important to plan your app. Identify your domain, including possible intents and entities that are relevant to your application.  
+To plan your app, identify your subject-area domain. This includes possible intents and entities that are relevant to your application.  
 
 ## Identify your domain
 
@@ -34,11 +34,13 @@ Think about the [intents](luis-concept-intent.md) that are important to your app
 
 ## Create example utterances for each intent
 
-Once you have determined the intents, create 10 or 15 example utterances for each intent. To begin with, do not have fewer than this number or create many utterances for each intent. Each utterance should be different from the previous utterance. A good variety in the utterances includes overall word count, word choice, verb tense, and punctuation. 
+Once you have determined the intents, create 15 to 30 example utterances for each intent. To begin with, do not have fewer than this number or create too many utterances for each intent. Each utterance should be different from the previous utterance. A good variety in the utterances includes overall word count, word choice, verb tense, and punctuation. 
+
+Review [utterances](luis-concept-utterance.md) for more information.
 
 ## Identify your entities
 
-In the example utterances, identify the entities you want extracted. To book a flight, you need some information like the destination, date, airline, ticket category, and travel class. You create entities for these data types and then mark the [entities](luis-concept-entity-types.md) in the example utterances because they are important for accomplishing an intent. 
+In the example utterances, identify the entities you want extracted. To book a flight, you need information like the destination, date, airline, ticket category, and travel class. Create entities for these data types and then mark the [entities](luis-concept-entity-types.md) in the example utterances because they are important for accomplishing an intent. 
 
 When you determine which entities to use in your app, keep in mind that there are different types of entities for capturing relationships between types of objects. [Entities in LUIS](luis-concept-entity-types.md) provides more detail about the different types.
 

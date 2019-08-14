@@ -21,9 +21,8 @@
   items:
   - name: Adopting Conditional Access
     href: howto-conditional-access-adoption-kit.md
-  - name: 
+  - name: Common Conditional Access policies
     href: concept-conditional-access-policy-common.md
-  - name: Baseline protection policies
     href: concept-baseline-protection.md
   - name: Conditions
     href: conditions.md
@@ -35,6 +34,8 @@
     href: service-dependencies.md
   - name: What if tool
     href: what-if-tool.md
+  - name: Baseline protection policies
+    href: concept-baseline-protection.md
 - name: How-to guides
   expanded: true
   items:
@@ -58,16 +59,6 @@
       href: howto-conditional-access-policy-location.md
     - name: Require compliant devices
       href: howto-conditional-access-policy-compliant-device.md
-  - name: Baseline policies
-    items:
-    - name: Require MFA for admins
-      href: howto-baseline-protect-administrators.md
-    - name: End-user protection
-      href: howto-baseline-protect-end-users.md
-    - name: Block legacy authentication
-      href: howto-baseline-protect-legacy-auth.md
-    - name: Require MFA for service management
-      href: howto-baseline-protect-azure.md
   - name: Block legacy authentication
     href: block-legacy-authentication.md
   - name: Conditional Access for MFA registration
@@ -86,6 +77,18 @@
     href: howto-conditional-access-session-lifetime.md
   - name: Migrate classic policies
     href: policy-migration.md
+  - name: Baseline policies
+    items:
+    - name: Require MFA for admins
+      href: howto-baseline-protect-administrators.md
+    - name: End-user protection
+      href: howto-baseline-protect-end-users.md
+    - name: Block legacy authentication
+      href: howto-baseline-protect-legacy-auth.md
+    - name: Require MFA for service management
+      href: howto-baseline-protect-azure.md
+  - name: Adopting Conditional Access
+    href: howto-conditional-access-adoption-kit.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot using the What If tool 

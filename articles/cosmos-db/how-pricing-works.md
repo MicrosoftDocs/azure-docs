@@ -4,7 +4,7 @@ description: This article explains the pricing model of Azure Cosmos DB and how 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 08/01/2019
 ms.author: rimman
 ---
 

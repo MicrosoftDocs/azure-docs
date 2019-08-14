@@ -14,33 +14,31 @@ ms.reviewer: tyao
 ---
 
 #  Custom rules for web application firewall with Azure Front Door
-Azure web application firewall (WAF) with Front Door service allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, a rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration. This article discusses match rules that are based on http parameters.
+Azure web application firewall (WAF) with Front Door service allows you to control access to your web applications based on the conditions you define. A custom WAF rule consists of a priority number, rule type, match conditions, and an action. There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions while a rate limit rule controls access based on matching conditions and the rates of incoming requests. You may disable a custom rule to prevent it from being evaluated, but still keep the configuration. 
 
 ## Priority, match conditions, and action types
-You can control access with a custom WAf rule that defines a priority number, a rule type, match conditions, and an action. 
+You can control access with a custom WAf rule that defines a priority number, a rule type, an array of match conditions, and an action. 
 
-- **Priority:** is an unique integer that describes the order of evaluation of WAF rules. Rules with lower values are evaluated before rules with higher values
+- **Priority:** is an unique integer that describes the order of evaluation of WAF rules. Rules with lower priority values are evaluated before rules with higher values. Priority numbers must be unique amongst all custom rules.
 
 - **Action:** defines how to route a request if a  WAF rule is matched. You can choose one of the below actions to apply when a request matches a custom rule.
 
     - *Allow* - WAF forwards the quest to the back-end, logs an entry in WAF logs and exits.
     - *Block* - Request is blocked, WAF sends response to client without forwarding the request to the back-end. WAF logs an entry in WAF logs.
-    - *Log* - WAF logs an entry in WAF logs and continues evaluate the next rule.
+    - *Log* - WAF logs an entry in WAF logs and continues to evaluate the next rule.
     - *Redirect* - WAF redirects request to a specified URI, logs an entry in WAF logs, and exits.
 
-- **Match condition:** defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on the below *match variables*:
-    - RemoteAddr (client IP)
+- **Match condition:** defines a match variable, an operator, and match value. Each rule may contain multiple match conditions. A match condition may be based on geo location, client IP addresses (CIDR), size or string match. String match can be against a list of match variables.
+  - **Match variable:**
     - RequestMethod
     - QueryString
     - PostArgs
     - RequestUri
     - RequestHeader
     - RequestBody
-
-- **Operator:** list includes the following:
+    - Cookies
+  - **Operator:**
     - Any: is often used to define default action if no rules are matched. Any is a match all operator.
-    - IPMatch: define IP restriction for RemoteAddr variable
-    - GeoMatch: define geo filtering for RemoteAddr variable
     - Equal
     - Contains
     - LessThan: size constraint
@@ -48,26 +46,49 @@ You can control access with a custom WAf rule that defines a priority number, a 
     - LessThanOrEqual: size constraint
     - GreaterThanOrEqual: size constraint
     - BeginsWith
-     - EndsWith
+    - EndsWith
+    - Regex
+  
+  - **Regex** do not support below operations: 
+    - Backreferences and capturing subexpressions
+    - Arbitrary zero-width assertions
+    - Subroutine references and recursive patterns
+    - Conditional patterns
+    - Backtracking control verbs
+    - The \C single-byte directive
+    - The \R newline match directive
+    - The \K start of match reset directive
+    - Callouts and embedded code
+    - Atomic grouping and possessive quantifiers
 
-You can set *negate* condition to be true if the result of a condition should be negated.
-
-*Match value* defines the list of possible match values.
- Supported HTTP request method values include:
-- GET
-- POST
-- PUT
-- HEAD
-- DELETE
-- LOCK
-- UNLOCK
-- PROFILE
-- OPTIONS
-- PROPFIND
-- PROPPATCH
-- MKCOL
-- COPY
-- MOVE
+  - **Negate [optional]:**
+    You can set *negate* condition to be true if the result of a condition should be negated.
+      
+  - **Transform [optional]:**
+    A list of strings with names of transformations to do before the match is attempted. These can be the following transformations:
+     - Uppercase 
+     - Lowercase
+     - Trim
+     - RemoveNulls
+     - UrlDecode
+     - UrlEncode
+     
+   - **Match value:**
+     Supported HTTP request method values include:
+     - GET
+     - POST
+     - PUT
+     - HEAD
+     - DELETE
+     - LOCK
+     - UNLOCK
+     - PROFILE
+     - OPTIONS
+     - PROPFIND
+     - PROPPATCH
+     - MKCOL
+     - COPY
+     - MOVE
 
 ## Examples
 

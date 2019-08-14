@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/03/2019
+ms.date: 08/08/2019
 ms.author: alkohli
 ---
 
@@ -24,7 +24,7 @@ The following table shows a summary of the Data Box or Data Box Heavy order step
 | Set up device              | Device credentials access logged in [Activity logs](#query-activity-logs-during-setup)                                              |
 | Data copy to device        | [View *error.xml* files](#view-error-log-during-data-copy) for data copy                                                             |
 | Prepare to ship            | [Inspect the BOM files](#inspect-bom-during-prepare-to-ship) or the manifest files on the device                                      |
-| Data upload to Azure       | [Review *copylogs*](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
+| Data upload to Azure       | [Review copy logs](#review-copy-log-during-upload-to-azure) for errors during data upload at Azure datacenter                         |
 | Data erasure from device   | [View chain of custody logs](#get-chain-of-custody-logs-after-data-erasure) including audit logs and order history                |
 
 This article describes in detail the various mechanisms or tools available to track and audit Data Box or Data Box Heavy order. The information in this article applies to both, Data Box and Data Box Heavy. In the subsequent sections, any references to Data Box also apply to Data Box Heavy.
@@ -191,11 +191,11 @@ The BOM or manifest files are also copied to the Azure storage account. You can 
 
 ## Review copy log during upload to Azure
 
-During the data upload to Azure, a *copylog* is created.
+During the data upload to Azure, a copy log is created.
 
-### Copylog
+### Copy log
 
-For each order that is processed, the Data Box service creates *copylog* in the associated storage account. The *copylog* has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
+For each order that is processed, the Data Box service creates copy log in the associated storage account. The copy log has the total number of files that were uploaded and the number of files that errored out during the data copy from Data Box to your Azure storage account.
 
 A Cyclic Redundancy Check (CRC) computation is done during the upload to Azure. The CRCs from the data copy and after the data upload are compared. A CRC mismatch indicates that the corresponding files failed to upload.
 
@@ -203,11 +203,13 @@ By default, logs are written to a container named `copylog`. The logs are store
 
 `storage-account-name/databoxcopylog/ordername_device-serial-number_CopyLog_guid.xml`.
 
-The copylog path is also displayed on the **Overview** blade for the portal.
+The copy log path is also displayed on the **Overview** blade for the portal.
 
-![Path to copylog in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
+![Path to copy log in Overview blade when completed](media/data-box-logs/copy-log-path-1.png)
 
-The following sample describes the general format of a copylog file for a Data Box upload that completed successfully:
+### Upload completed successfully 
+
+The following sample describes the general format of a copy log for a Data Box upload that completed successfully:
 
 ```
 <?xml version="1.0"?>
@@ -218,11 +220,13 @@ The following sample describes the general format of a copylog file for a Data B
 </CopyLog>
 ```
 
+### Upload completed with errors 
+
 Upload to Azure may also complete with errors.
 
-![Path to copylog in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
+![Path to copy log in Overview blade when completed with errors](media/data-box-logs/copy-log-path-2.png)
 
-Here is an example of a copylog where the upload completed with errors:
+Here is an example of a copy log where the upload completed with errors:
 
 ```xml
 <ErroredEntity Path="iso\samsungssd.iso">
@@ -241,9 +245,15 @@ Here is an example of a copylog where the upload completed with errors:
   <FilesErrored>2</FilesErrored>
 </CopyLog>
 ```
-Here is an example of a `copylog` where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
+### Upload completed with warnings
 
-The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The `copylog` specifies the old and the new container name for container.
+Upload to Azure completes with warnings if your data had container/blob/file names that didn't conform to Azure naming conventions and the names were modified to upload the data to Azure.
+
+![Path to copy log in Overview blade when completed with warnings](media/data-box-logs/copy-log-path-3.png)
+
+Here is an example of a copy log where the containers that did not conform to Azure naming conventions were renamed during the data upload to Azure.
+
+The new unique names for containers are in the format `DataBox-GUID` and the data for the container are put into the new renamed container. The copy log specifies the old and the new container name for container.
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -254,7 +264,7 @@ The new unique names for containers are in the format `DataBox-GUID` and the dat
 </ErroredEntity>
 ```
 
-Here is an example of a `copylog` where the blobs or files that did not conform to Azure naming conventions, were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to path based on destination type. The destination can be block blobs, page blobs, or Azure Files.
+Here is an example of a copy log where the blobs or files that did not conform to Azure naming conventions, were renamed during the data upload to Azure. The new blob or file names are converted to SHA256 digest of relative path to container and are uploaded to path based on destination type. The destination can be block blobs, page blobs, or Azure Files.
 
 The `copylog` specifies the old and the new blob or file name and the path in Azure.
 
@@ -283,7 +293,7 @@ After the data is erased from the Data Box disks as per the NIST SP 800-88 Revis
 
 ### Audit logs
 
-Audit logs contain information on power-on and share access on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
+Audit logs contain information on how to power on and access shares on the Data Box or Data Box Heavy when it is outside of Azure datacenter. These logs are located at: `storage-account/azuredatabox-chainofcustodylogs`
 
 Here is a sample of the audit log from a Data Box:
 
@@ -346,7 +356,7 @@ If you scroll through the order history, you see:
 
 - Carrier tracking information for your device.
 - Events with *SecureErase* activity. These events correspond to the erasure of the data on the disk.
-- Data Box log links. The paths for the *audit logs*, *copylogs*, and *BOM* files are presented.
+- Data Box log links. The paths for the *audit logs*, *copy logs*, and *BOM* files are presented.
 
 Here is a sample of the order history log from Azure portal:
 

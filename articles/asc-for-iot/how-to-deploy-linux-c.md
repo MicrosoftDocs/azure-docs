@@ -44,7 +44,7 @@ To install and deploy the security agent, use the following workflow:
 
 1. Download the most recent version to your machine from [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Extract the contents of the package and navigate to the _/Install_ folder.
+1. Extract the contents of the package and navigate to the _/src/installation_ folder.
 
 1. Add running permissions to the **InstallSecurityAgent script** by running the following command:
     

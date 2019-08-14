@@ -19,7 +19,7 @@ In Kubernetes, the API server receives requests to perform actions in the cluste
 This article shows you how to use API server authorized IP address ranges to limit requests to control plane. This feature is currently in preview.
 
 > [!IMPORTANT]
-> AKS preview features are self-service, opt-in. They are provided to gather feedback and bugs from our community. In preview, these features aren't meant for production use. Features in public preview fall under 'best effort' support. Assistance from the AKS technical support teams is available during business hours Pacific timezone (PST) only. For additional information, please see the following support articles:
+> AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
 > * [AKS Support Policies][aks-support-policies]
 > * [Azure Support FAQ][aks-faq]
@@ -216,13 +216,13 @@ To enable API server authorized IP ranges, you provide a list of authorized IP a
 
 Use [az aks update][az-aks-update] command and specify the *--api-server-authorized-ip-ranges* to allow. These IP address ranges are usually address ranges used by your on-premises networks. Add the public IP address of your own Azure firewall obtained in the previous step, such as *20.42.25.196/32*.
 
-The following example enables API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to authorize are *20.42.25.196/32* (the Azure firewall public IP address), then *172.0.0.10/16* and *168.10.0.10/18*:
+The following example enables API server authorized IP ranges on the cluster named *myAKSCluster* in the resource group named *myResourceGroup*. The IP address ranges to authorize are *20.42.25.196/32* (the Azure firewall public IP address), then *172.0.0.0/16* and *168.10.0.0/18*:
 
 ```azurecli-interactive
 az aks update \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.10/16,168.10.0.10/18
+    --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
 
 ## Update or disable authorized IP ranges

@@ -4,11 +4,11 @@ description: Assign analyzers to searchable text fields in an index to replace d
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/27/2019
+ms.date: 08/08/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
-ms.custom: seodec2018
+
 ---
 
 # Analyzers for text processing in Azure Search
@@ -26,7 +26,7 @@ Language analyzers convert a text input into primitive or root forms that are ef
 
 ## Default analyzer  
 
-Azure Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/4_10_3/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default, which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
+Azure Search uses the [Apache Lucene Standard analyzer (standard lucene)](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) as the default, which breaks text into elements following the ["Unicode Text Segmentation"](https://unicode.org/reports/tr29/) rules. Additionally, the standard analyzer converts all characters to their lower case form. Both indexed documents and search terms go through the analysis during indexing and query processing.  
 
 It's used automatically on every searchable field. You can override the default on a field-by-field basis. Alternative analyzers can be a [language analyzer](index-add-language-analyzers.md), [custom analyzer](index-add-custom-analyzers.md), or a predefined analyzer from the [list of available analyzers](index-add-custom-analyzers.md#AnalyzerTable).
 
@@ -37,7 +37,7 @@ The following list describes which analyzers are available in Azure Search.
 
 | Category | Description |
 |----------|-------------|
-| [Standard Lucene analyzer](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
+| [Standard Lucene analyzer](https://lucene.apache.org/core/6_6_1/core/org/apache/lucene/analysis/standard/StandardAnalyzer.html) | Default. No specification or configuration is required. This general-purpose analyzer performs well for most languages and scenarios.|
 | Predefined analyzers | Offered as a finished product intended to be used as-is. <br/>There are two types: specialized and language. What makes them "predefined" is that you reference them by name, with no configuration or customization. <br/><br/>[Specialized (language-agnostic) analyzers](index-add-custom-analyzers.md#AnalyzerTable) are used when text inputs require specialized processing or minimal processing. Non-language predefined analyzers include **Asciifolding**, **Keyword**, **Pattern**, **Simple**, **Stop**, **Whitespace**.<br/><br/>[Language analyzers](index-add-language-analyzers.md) are used when you need rich linguistic support for individual languages. Azure Search supports 35 Lucene language analyzers and 50 Microsoft natural language processing analyzers. |
 |[Custom analyzers](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search) | Refers to a user-defined configuration of a combination of existing elements, consisting of one tokenizer (required) and optional filters (char or token).|
 

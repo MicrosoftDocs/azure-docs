@@ -4,7 +4,6 @@
   items:
   - name: What is Interactive Query in HDInsight?
     href: ./apache-interactive-query-get-started.md
-    maintainContext: true
 - name: Quickstarts
   expanded: true
   items:
@@ -17,161 +16,117 @@
 - name: Concepts
   items:
   - name: Install HDInsight apps
-    href: ../hdinsight-apps-install-applications.md
-    maintainContext: true
+    href: ../hdinsight-apps-install-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Capacity planning
-    href: ../hdinsight-capacity-planning.md
-    maintainContext: true
+    href: ../hdinsight-capacity-planning.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
 - name: How to
   items:
   - name: Migrate Hive workloads to HDInsight 4.0
     href: apache-hive-migrate-workloads.md
-    maintainContext: true
   - name: Use cluster storage
     items:
     - name: Using Azure Storage
-      href: ../hdinsight-hadoop-use-blob-storage.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-use-blob-storage.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Using Azure Data Lake Storage
-      href: ../hdinsight-hadoop-use-data-lake-store.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-use-data-lake-store.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Use Apache Hadoop for interactive queries
     items:
     - name: Apache Hive with Apache Spark
       href: apache-hive-warehouse-connector.md
-      maintainContext: true
     - name: Apache Hive with Hadoop
-      href: ../hadoop/hdinsight-use-hive.md
-      maintainContext: true
+      href: ../hadoop/hdinsight-use-hive.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
       - name: Tools for Visual Studio
-        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-visual-studio-tools-get-started.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Tools for VSCode
-        href: ../hdinsight-for-vscode.md
-        maintainContext: true
+        href: ../hdinsight-for-vscode.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Data Lake Tools with Hortonworks Sandbox
-        href: ../hdinsight-hadoop-emulator-visual-studio.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-emulator-visual-studio.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use the Apache Hive View
-        href: ../hadoop/apache-hadoop-use-hive-ambari-view.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-use-hive-ambari-view.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use Apache Hive Beeline
-        href: ../hadoop/apache-hadoop-use-hive-beeline.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-use-hive-beeline.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use REST API
-        href: ../hadoop/apache-hadoop-use-hive-curl.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-use-hive-curl.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use Azure PowerShell
-        href: ../hadoop/apache-hadoop-use-hive-powershell.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-use-hive-powershell.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use SDK for .NET
-        href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-use-hive-dotnet-sdk.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use the HDInsight tools for Visual Studio
-        href: ../hadoop/apache-hadoop-use-hive-visual-studio.md
-        maintainContext: true
+        href: ../hadoop/apache-hadoop-use-hive-visual-studio.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use a Java UDF with Apache Hive
-      href: ../hadoop/apache-hadoop-hive-java-udf.md
-      maintainContext: true
+      href: ../hadoop/apache-hadoop-hive-java-udf.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Submit Apache Hadoop jobs
-      href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md
-      maintainContext: true
+      href: ../hadoop/submit-apache-hadoop-jobs-programmatically.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Develop
     items:
     - name: Use empty edge nodes
-      href: ../hdinsight-apps-use-edge-node.md
-      maintainContext: true
+      href: ../hdinsight-apps-use-edge-node.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Process and analyze JSON documents
-      href: ../hadoop/using-json-in-hive.md
-      maintainContext: true
+      href: ../hadoop/using-json-in-hive.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use C# user-defined functions
-      href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md
-      maintainContext: true
+      href: ../hadoop/apache-hadoop-hive-pig-udf-dotnet-csharp.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use Python with Apache Hive and Apache Pig
-      href: ../hadoop/python-udf-hdinsight.md
-      maintainContext: true
+      href: ../hadoop/python-udf-hdinsight.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Create non-interactive authentication .NET HDInsight applications
-      href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md
-      maintainContext: true
+      href: ../hdinsight-create-non-interactive-authentication-dotnet-applications.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Analyze big data
     items:
     - name: Analyze using Power Query
-      href: ../hadoop/apache-hadoop-connect-excel-power-query.md
-      maintainContext: true
+      href: ../hadoop/apache-hadoop-connect-excel-power-query.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Connect Power BI to Interactive Query
       href: ./apache-hadoop-connect-hive-power-bi-directquery.md
     - name: Connect Power BI to Apache Hadoop
-      href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
-      maintainContext: true
+      href: ../hadoop/apache-hadoop-connect-hive-power-bi.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Query Hive with PowerShell and ODBC
       href: apache-hive-query-odbc-driver-powershell.md
-      maintainContext: true
     - name: Connect Excel to Apache Hadoop
-      href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
-      maintainContext: true
+      href: ../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Connect using the Apache Hive JDBC driver
-      href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md
-      maintainContext: true
+      href: ../hadoop/apache-hadoop-connect-hive-jdbc-driver.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Analyze stored tweets
-      href: ../hdinsight-analyze-twitter-data-linux.md
-      maintainContext: true
+      href: ../hdinsight-analyze-twitter-data-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Extend clusters
     items:
     - name: Customize clusters using Bootstrap
-      href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-customize-cluster-bootstrap.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Customize clusters using Script Action
-      href: ../hdinsight-hadoop-customize-cluster-linux.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-customize-cluster-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Develop script actions
-      href: ../hdinsight-hadoop-script-actions-linux.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-script-actions-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Add Apache Hive libraries
-      href: ../hdinsight-hadoop-add-hive-libraries.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-add-hive-libraries.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use Apache Zeppelin
-      href: ../hdinsight-apache-spark-zeppelin-notebook.md
-      maintainContext: true
+      href: ../hdinsight-apache-spark-zeppelin-notebook.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use Grafana
       href: ./hdinsight-grafana.md
     - name: Build HDInsight applications
       items:
       - name: Install custom apps
-        href: ../hdinsight-apps-install-custom-applications.md
-        maintainContext: true
       - name: Use REST to install apps
         href: https://msdn.microsoft.com/library/mt706515.aspx
       - name: Publish HDInsight apps to Azure Marketplace
         href: ../hdinsight-apps-publish-applications.md
-        maintainContext: true
   - name: Secure
     items:
     - name: Use SSH with HDInsight
-      href: ../hdinsight-hadoop-linux-use-ssh-unix.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-linux-use-ssh-unix.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use SSH tunneling
-      href: ../hdinsight-linux-ambari-ssh-tunnel.md
-      maintainContext: true
+      href: ../hdinsight-linux-ambari-ssh-tunnel.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Restrict access to data
-      href: ../hdinsight-storage-sharedaccesssignature-permissions.md
-      maintainContext: true
+      href: ../hdinsight-storage-sharedaccesssignature-permissions.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Authorize users for Apache Ambari Views
-      href: ../hdinsight-authorize-users-to-ambari.md
-      maintainContext: true
+      href: ../hdinsight-authorize-users-to-ambari.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Manage
     items:
     - name: Create HDInsight clusters
-      href: ../hdinsight-hadoop-provision-linux-clusters.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-provision-linux-clusters.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
       - name: Use the Azure portal
-        href: ../hdinsight-hadoop-create-linux-clusters-portal.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-create-linux-clusters-portal.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use Azure Resource Manager templates
         displayName: resource manager template, arm template, resource manager group
-        href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-create-linux-clusters-arm-templates.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use SDK for .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#create-a-cluster
       - name: Use SDK for Python
@@ -179,23 +134,17 @@
       - name: Use SDK for Java
         href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable#create-a-cluster
       - name: Use Azure PowerShell
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-powershell.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use cURL and the Azure REST API
-        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
-        maintainContext: true      
+        href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use the Azure CLI
-        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Create on-demand clusters
-        href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-create-linux-clusters-adf.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Create on-demand clusters
-      href: ../hdinsight-hadoop-create-linux-clusters-adf.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-create-linux-clusters-adf.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Manage HDInsight clusters
-      href: ../hdinsight-administer-use-portal-linux.md
-      maintainContext: true
+      href: ../hdinsight-administer-use-portal-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
       - name: Use SDK for .NET
         href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet#management
@@ -206,142 +155,135 @@
       - name: Use SDK for Go (Preview)
         href: https://docs.microsoft.com/azure/hdinsight/hdinsight-go-sdk-overview
       - name: Use Azure PowerShell
-        href: ../hdinsight-administer-use-powershell.md
-        maintainContext: true
+        href: ../hdinsight-administer-use-powershell.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use the Azure CLI
-        href: ../hdinsight-administer-use-command-line.md
-        maintainContext: true
+        href: ../hdinsight-administer-use-command-line.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Manage clusters using the Apache Ambari web UI
-      href: ../hdinsight-hadoop-manage-ambari.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-manage-ambari.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       items:
       - name: Optimize clusters with the Apache Ambari web UI
-        href: ../hdinsight-changing-configs-via-ambari.md
-        maintainContext: true
+        href: ../hdinsight-changing-configs-via-ambari.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Use Apache Ambari REST API
-        href: ../hdinsight-hadoop-manage-ambari-rest-api.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-manage-ambari-rest-api.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Scale an HDInsight cluster
-      href: ../hdinsight-scaling-best-practices.md
-      maintainContext: true
+      href: ../hdinsight-scaling-best-practices.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use external metadata stores
-      href: ../hdinsight-use-external-metadata-stores.md
+      href: ../hdinsight-use-external-metadata-stores.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       maintainContext: true   
     - name: Manage logs for an HDInsight cluster
-      href: ../hdinsight-log-management.md
-      maintainContext: true
+      href: ../hdinsight-log-management.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Add storage accounts
-      href: ../hdinsight-hadoop-add-storage.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-add-storage.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Upload data for Apache Hadoop jobs
-      href: ../hdinsight-upload-data.md
-      maintainContext: true
+      href: ../hdinsight-upload-data.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Multiple HDInsight clusters with Data Lake Store
-      href: ../hdinsight-multiple-clusters-data-lake-store.md
-      maintainContext: true
+      href: ../hdinsight-multiple-clusters-data-lake-store.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Cluster and service ports and URIs
-      href: ../hdinsight-hadoop-port-settings-for-services.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-port-settings-for-services.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Migrate to Resource Manager development tools
-      href: ../hdinsight-hadoop-development-using-azure-resource-manager.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-development-using-azure-resource-manager.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Availability and reliability
-      href: ../hdinsight-high-availability-linux.md
-      maintainContext: true
+      href: ../hdinsight-high-availability-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Upgrade HDInsight cluster to newer version
-      href: ../hdinsight-upgrade-cluster.md
-      maintainContext: true
+      href: ../hdinsight-upgrade-cluster.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: OS patching for HDInsight cluster
-      href: ../hdinsight-os-patching.md
-      maintainContext: true
+      href: ../hdinsight-os-patching.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Troubleshoot
-    href: ../hdinsight-troubleshoot-guide.md
-    maintainContext: true
+    href: ../hdinsight-troubleshoot-guide.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     items:
+    - name: Apache Tez application hangs
+      href: ./interactive-query-troubleshoot-tez-hangs.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
+    - name: Slow reducer
+      href: ./interactive-query-troubleshoot-slow-reducer.md
+    - name: Apache Hive View time out
+      href: ./interactive-query-troubleshoot-view-time-out.md
+    - name: Permission error creating table
+      href: ./interactive-query-troubleshoot-permission-error-create-table.md
+    - name: GC overhead limit exceeded
+      href: ./interactive-query-troubleshoot-outofmemory-overhead-exceeded.md
+    - name: Apache Ambari Tez View loads slowly
+      href: ./interactive-query-troubleshoot-tez-view-slow.md
+    - name: Error message not shown in Apache Hive View
+      href: ./interactive-query-troubleshoot-error-message-hive-view.md
+    - name: Inaccessible Apache Hive View 
+      href: ./interactive-query-troubleshoot-inaccessible-hive-view.md
+    - name: ZooKeeperHiveClientException - HiveServer2 configs
+      href: ./interactive-query-troubleshoot-zookeeperhiveclientexception-hiveserver-configs.md
+    - name: Apache Hive LLAP query performance
+      href: ./interactive-query-troubleshoot-query-performance.md
     - name: Troubleshoot a slow or failing HDInsight cluster
       href: ../hdinsight-troubleshoot-failed-cluster.md
-      maintainContext: true
     - name: Apache Hadoop HDFS troubleshooting
       href: ../hdinsight-troubleshoot-hdfs.md
-      maintainContext: true
     - name: Apache HIVE troubleshooting
       href: ../hdinsight-troubleshoot-hive.md
-      maintainContext: true
     - name: Apache Hadoop YARN troubleshooting
       href: ../hdinsight-troubleshoot-yarn.md
-      maintainContext: true
+    - name: Apache Hadoop HDFS troubleshooting
+      href: ../hdinsight-troubleshoot-hdfs.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
+    - name: Apache HIVE troubleshooting
+      href: ../hdinsight-troubleshoot-hive.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
+    - name: Apache Hadoop YARN troubleshooting
+      href: ../hdinsight-troubleshoot-yarn.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Resources
       items:
       - name: Information about using HDInsight on Linux
-        href: ../hdinsight-hadoop-linux-information.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-linux-information.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Apache Hadoop memory and performance
-        href: ../hdinsight-hadoop-stack-trace-error-messages.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-stack-trace-error-messages.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Access Apache Hadoop YARN application logs on Linux
-        href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-access-yarn-app-logs-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Enable heap dumps for Apache Hadoop services
-        href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Understand and resolve WebHCat errors
-        href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-templeton-webhcat-debug-errors.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Apache Hive settings fix Out of Memory error
-        href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-hive-out-of-memory-error-oom.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       - name: Optimize Apache Hive queries
-        href: ../hdinsight-hadoop-optimize-hive-query.md
-        maintainContext: true
+        href: ../hdinsight-hadoop-optimize-hive-query.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
 - name: Enterprise readiness
   items:
   - name: Enterprise security
     items:
     - name: Overview
-      href: ../domain-joined/hdinsight-security-overview.md
-      maintainContext: true
+      href: ../domain-joined/hdinsight-security-overview.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Plan for enterprise security
-      href: ../domain-joined/apache-domain-joined-architecture.md
-      maintainContext: true
+      href: ../domain-joined/apache-domain-joined-architecture.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Configure enterprise security in HDInsight
-      href: ../domain-joined/apache-domain-joined-configure.md
-      maintainContext: true
+      href: ../domain-joined/apache-domain-joined-configure.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Configure enterprise security in HDInsight using Azure AD DS
-      href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md
-      maintainContext: true
+      href: ../domain-joined/apache-domain-joined-configure-using-azure-adds.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Configure Apache Hive policies
-      href: ../domain-joined/apache-domain-joined-run-hive.md
-      maintainContext: true
+      href: ../domain-joined/apache-domain-joined-run-hive.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Manage clusters with enterprise security
-      href: ../domain-joined/apache-domain-joined-manage.md
-      maintainContext: true
+      href: ../domain-joined/apache-domain-joined-manage.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Securing data
-    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+    href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     maintainContext: true
   - name: Network access
     items:
     - name: HDInsight virtual network architecture
-      href: ../hdinsight-virtual-network-architecture.md
+      href: ../hdinsight-virtual-network-architecture.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Plan VNETs for HDInsight
-      href: ../hdinsight-plan-virtual-network-deployment.md
+      href: ../hdinsight-plan-virtual-network-deployment.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Create VNETs for HDInsight
-      href: ../hdinsight-create-virtual-network.md
+      href: ../hdinsight-create-virtual-network.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Required IP Addresses for NSGs and UDRs
-      href: ../hdinsight-management-ip-addresses.md
+      href: ../hdinsight-management-ip-addresses.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use firewall to restrict outbound traffic
-      href: ../hdinsight-restrict-outbound-traffic.md
+      href: ../hdinsight-restrict-outbound-traffic.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Connect HDInsight with on-premises network
-      href: ../connect-on-premises-network.md
+      href: ../connect-on-premises-network.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Monitoring using Azure Monitor logs
     items:
     - name: Use Azure Monitor logs
-      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Use queries with Azure Monitor logs
-      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-      maintainContext: true
+      href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Monitor cluster performance
-      href: ../hdinsight-key-scenarios-to-monitor.md
+      href: ../hdinsight-key-scenarios-to-monitor.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
       maintainContext: true 
 - name: Reference
   items:
@@ -356,7 +298,7 @@
   - name: SDK for Java
     href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-stable
   - name: SDK for Go
-    href: ../hdinsight-go-sdk-overview.md
+    href: ../hdinsight-go-sdk-overview.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: .NET (Apache HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: REST
@@ -371,13 +313,11 @@
   - name: Release notes
     items:
     - name: Current release notes
-      href: ../hdinsight-release-notes.md
-      maintainContext: true
+      href: ../hdinsight-release-notes.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Archived release notes
-      href: ../hdinsight-release-notes-archive.md
-      maintainContext: true
+      href: ../hdinsight-release-notes-archive.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
     - name: Migrate to granular role-based access for cluster configurations
-      href: ../hdinsight-migrate-granular-access-cluster-configurations.md
+      href: ../hdinsight-migrate-granular-access-cluster-configurations.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=intelligence-analytics
   - name: Get help on the forum
@@ -389,5 +329,4 @@
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Windows tools for HDInsight
-    href: ../hdinsight-hadoop-windows-tools.md
-    maintainContext: true
+    href: ../hdinsight-hadoop-windows-tools.md?toc=/azure/hdinsight/interactive-query/toc.json&bc=/azure/hdinsight/interactive-query/breadcrumb/toc.json

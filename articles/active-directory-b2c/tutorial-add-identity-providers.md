@@ -94,7 +94,7 @@ After you create the application for the identity provider that you want to add,
 1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
 1. Select **Identity providers**, and then select **Add**.
 1. Enter a **Name**. For example, enter *Contoso Azure AD*.
-1. Select **Identity provider type**, select **Open ID Connect (Preview)**, and then click **OK**.
+1. Select **Identity provider type**, select **OpenID Connect (Preview)**, and then click **OK**.
 1. Click **Set up this identity provider**
 1. For **Metadata url**, enter the following URL, replacing `your-AD-tenant-domain` with the domain name of your Azure AD tenant.
 

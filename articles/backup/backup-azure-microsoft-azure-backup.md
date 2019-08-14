@@ -1,13 +1,13 @@
 ---
 title: Use Azure Backup Server to back up workloads to Azure
 description: Use Azure Backup Server to protect or back up workloads to the Azure portal.
-
-author: kasinh
-manager: vvithal
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: kasinh
+ms.author: dacurwin
 ---
 
 # Install and upgrade Azure Backup Server
@@ -24,7 +24,7 @@ This article explains how to prepare your environment to back up workloads using
 >
 >
 
-MABS deployed in an Azure VM can backup VM's in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation see [DPM as an Azure virtual machine](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
+MABS deployed in an Azure VM can back up VMs in Azure but they should be in same domain to enable backup operation. The process to back an Azure VM remains same as backing up VMs on premises, however deploying MABS in Azure has some limitations. For more information on limitation, see [DPM as an Azure virtual machine](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites)
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
@@ -37,12 +37,12 @@ Azure Backup Server inherits much of the workload backup functionality from Data
 The first step towards getting the Azure Backup Server up and running is to set up a Windows Server. Your server can be in Azure or on-premises.
 
 ### Using a server in Azure
-When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8 GB RAM.
+When choosing a server for running Azure Backup Server, it is recommended you start with a gallery image of Windows Server 2012 R2 Datacenter, Windows Server 2016 Datacenter, or Windows Server 2019 Datacenter. The article, [Create your first Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), provides a tutorial for getting started with the recommended virtual machine in Azure, even if you've never used Azure before. The recommended minimum requirements for the server virtual machine (VM) should be: Standard_A4_v2  with four cores and 8-GB RAM.
 
 Protecting workloads with Azure Backup Server has many nuances. The article, [Install DPM as an Azure virtual machine](https://technet.microsoft.com/library/jj852163.aspx), helps explain these nuances. Before deploying the machine, read this article completely.
 
 ### Using an on-premises server
-If you do not want to run the base server in Azure, you can run the server on a Hyper-V VM, a VMware VM, or a physical host. The recommended minimum requirements for the server hardware are two cores and 8 GB RAM. The supported operating systems are listed in the following table:
+If you do not want to run the base server in Azure, you can run the server on a Hyper-V VM, a VMware VM, or a physical host. The recommended minimum requirements for the server hardware are two cores and 8-GB RAM. The supported operating systems are listed in the following table:
 
 | Operating System | Platform | SKU |
 |:--- | --- |:--- |
@@ -73,12 +73,14 @@ The storage replication option allows you to choose between geo-redundant storag
 
 To edit the storage replication setting:
 
-1. Select your vault to open the vault dashboard and the Settings menu. If the **Settings** menu doesn't open, click **All settings** in the vault dashboard.
-2. On the **Settings** menu, click **Backup Infrastructure** > **Backup Configuration** to open the **Backup Configuration** blade. On the **Backup Configuration** menu, choose the storage replication option for your vault.
+1. From the **Recovery Services vaults** blade, click the new vault. Under the **Settings** section, click  **Properties**.
+2. In **Properties**, under **Backup Configuration**, click **Update**.
 
-    ![List of backup vaults](./media/backup-azure-vms-first-look-arm/choose-storage-configuration-rs-vault.png)
+3. Select the storage replication type, and click **Save**.
 
-    After choosing the storage option for your vault, you are ready to associate the VM with the vault. To begin the association, you should discover and register the Azure virtual machines.
+     ![Set the storage configuration for new vault](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+
+ 
 
 ## Software package
 ### Downloading the software package
@@ -111,7 +113,7 @@ To edit the storage replication setting:
 
     ![on-premises and workloads as goals](./media/backup-azure-microsoft-azure-backup/backup-goals-azure-backup-server.png)
 
-    From the **What do you want to backup?** drop-down menu, select the workloads you want to protect using Azure Backup Server, and then click **OK**.
+    From the **What do you want to back up?** drop-down menu, select the workloads you want to protect using Azure Backup Server, and then click **OK**.
 
     The **Getting Started with backup** wizard switches the **Prepare infrastructure** option to back up workloads to Azure.
 
@@ -130,7 +132,7 @@ To edit the storage replication setting:
 
     ![Download center 1](./media/backup-azure-microsoft-azure-backup/downloadcenter.png)
 
-    Since the download size of all the files together is > 3G, on a 10Mbps download link it may take up to 60 minutes for the download to complete.
+    Since the download size of all the files together is > 3G, on a 10-Mbps download link it may take up to 60 minutes for the download to complete.
 
 ### Extracting the software package
 After you've downloaded all the files, click **MicrosoftAzureBackupInstaller.exe**. This will start the **Microsoft Azure Backup Setup Wizard** to extract the setup files to a location specified by you. Continue through the wizard and click on the **Extract** button to begin the extraction process.
@@ -148,14 +150,14 @@ Once the extraction process complete, check the box to launch the freshly extrac
 1. Click **Microsoft Azure Backup** to launch the setup wizard.
 
     ![Microsoft Azure Backup Setup Wizard](./media/backup-azure-microsoft-azure-backup/launch-screen2.png)
-2. On the Welcome screen click the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, click **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you will see a message indicating that the machine meets the requirements. Click on the **Next** button.
+2. On the Welcome screen, click the **Next** button. This takes you to the *Prerequisite Checks* section. On this screen, click **Check** to determine if the hardware and software prerequisites for Azure Backup Server have been met. If all prerequisites are met successfully, you will see a message indicating that the machine meets the requirements. Click on the **Next** button.
 
     ![Azure Backup Server - Welcome and Prerequisites check](./media/backup-azure-microsoft-azure-backup/prereq/prereq-screen2.png)
 3. Microsoft Azure Backup Server requires SQL Server Enterprise. Further, the Azure Backup Server installation package comes bundled with the appropriate SQL Server binaries needed if you do not wish to use your own SQL. When starting with a new Azure Backup Server installation, you should pick the option **Install new Instance of SQL Server with this Setup** and click the **Check and Install** button. Once the prerequisites are successfully installed, click **Next**.
 
     ![Azure Backup Server - SQL check](./media/backup-azure-microsoft-azure-backup/sql/01.png)
 
-    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. In case of any SQL configuration issues, reconfigure SQL as per the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
+    If a failure occurs with a recommendation to restart the machine, do so and click **Check Again**. If there are any SQL configuration issues, reconfigure SQL as per the SQL guidelines and retry to install/upgrade MABS using the existing instance of SQL.
 
    > [!NOTE]
    > Azure Backup Server will not work with a remote SQL Server instance. The instance being used by Azure Backup Server needs to be local. In case you are using an existing SQL server for MABS, MABS setup only supports the use of *named instances* of SQL server.
@@ -166,9 +168,9 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
     **SSRS Configuration with SQL 2017**
 
-    When you are using own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
+    When you are using your own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
-    Use the following values for SSRS configuration:
+    Use the following values for SSRS configuration: 
 
         - Service Account: ‘Use built-in account’ should be Network Service
         - Web Service URL: ‘Virtual Directory’ should be ReportServer_<SQLInstanceName>
@@ -196,7 +198,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 7. Review the *Summary of Settings* and click **Install**.
 
     ![Microsoft Azure Backup PreReq2](./media/backup-azure-microsoft-azure-backup/summary-screen.png)
-8. The installation happens in phases. In the first phase the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available you can proceed with installation, if not, you need to provide proxy details to connect to the Internet.
+8. The installation happens in phases. In the first phase, the Microsoft Azure Recovery Services Agent is installed on the server. The wizard also checks for Internet connectivity. If Internet connectivity is available you can proceed with installation, if not, you need to provide proxy details to connect to the Internet.
 
     The next step is to configure the Microsoft Azure Recovery Services Agent. As a part of the configuration, you will have to provide your vault credentials to register the machine to the recovery services vault. You will also provide a passphrase to encrypt/decrypt the data sent between Azure and your premises. You can automatically generate a passphrase or provide your own minimum 16-character passphrase. Continue with the wizard until the agent has been configured.
 
@@ -246,7 +248,7 @@ Here are the steps if you need to move MABS to a new server, while retaining the
   > - You must have a backup of the MABS Database (DPMDB). You'll need to restore the database.
 
 1. In the display pane, select the client computers for which you want to update the protection agent.
-2. Shutdown the original Azure backup server or take it off the wire.
+2. Shut down the original Azure backup server or take it off the wire.
 3. Reset the machine account in active directory.
 4. Install Server 2016 on new machine and name it the same machine name as the original Azure Backup server.
 5. Join the Domain
@@ -264,7 +266,7 @@ Here are the steps if you need to move MABS to a new server, while retaining the
     If you have added NEW disks to the DPM Storage pool instead of moving the old ones, then run DPMSYNC -Reallocatereplica
 
 ## Network connectivity
-Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE then connectivity exists, else there is no connectivity.
+Azure Backup Server requires connectivity to the Azure Backup service for the product to work successfully. To validate whether the machine has the connectivity to Azure, use the ```Get-DPMCloudConnection``` cmdlet in the Azure Backup Server PowerShell console. If the output of the cmdlet is TRUE, then connectivity exists, else there is no connectivity.
 
 At the same time, the Azure subscription needs to be in a healthy state. To find out the state of your subscription and to manage it, sign in to the [subscription portal](https://account.windowsazure.com/Subscriptions).
 
@@ -291,7 +293,7 @@ If you have a firewall or a proxy that is preventing access to Azure, you need t
 Once connectivity to Azure has been restored to the Azure Backup Server machine, the operations that can be performed are determined by the Azure subscription state. The table above has details about the operations allowed once the machine is "Connected".
 
 ### Handling subscription states
-It is possible to take an Azure subscription from an *Expired* or *Deprovisioned* state to the *Active* state. However this has some implications on the product behavior while the state is not *Active*:
+It is possible to take an Azure subscription from an *Expired* or *Deprovisioned* state to the *Active* state. However, this has some implications on the product behavior while the state is not *Active*:
 
 * A *Deprovisioned* subscription loses functionality for the period that it is deprovisioned. On turning *Active*, the product functionality of backup/restore is revived. The backup data on the local disk also can be retrieved if it was kept with a sufficiently large retention period. However, the backup data in Azure is irretrievably lost once the subscription enters the *Deprovisioned* state.
 * An *Expired* subscription only loses functionality for until it has been made *Active* again. Any backups scheduled for the period that the subscription was *Expired* will not run.

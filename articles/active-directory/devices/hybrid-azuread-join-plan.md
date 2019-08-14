@@ -98,7 +98,7 @@ Organizations may want to do a controlled validation of hybrid Azure AD join bef
 
 ## Select your scenario based on your identity infrastructure
 
-Hybrid Azure AD join works with both, managed and federated environments.  
+Hybrid Azure AD join works with both, managed and federated environments depending on whether the UPN is routable or non-routable. See bottom of the page for table on supported scenarios.  
 
 ### Managed environment
 
@@ -108,12 +108,20 @@ These scenarios don't require you to configure a federation server for authentic
 
 ### Federated environment
 
-A federated environment should have an identity provider that supports the following requirements:
+A federated environment should have an identity provider that supports the following requirements. If you have a federated environment using Active Directory Federation Services (AD FS), then the below requirements are already supported.
 
-- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD.
 - **WIAORMULTIAUTHN claim:** This claim is required to do hybrid Azure AD join for Windows down-level devices.
+- **WS-Trust protocol:** This protocol is required to authenticate Windows current hybrid Azure AD joined devices with Azure AD. 
+When you're using AD FS, you need to enable the following WS-Trust endpoints: 
+  `/adfs/services/trust/2005/windowstransport`  
+  `/adfs/services/trust/13/windowstransport`  
+  `/adfs/services/trust/2005/usernamemixed` 
+  `/adfs/services/trust/13/usernamemixed`
+  `/adfs/services/trust/2005/certificatemixed` 
+  `/adfs/services/trust/13/certificatemixed` 
 
-If you have a federated environment using Active Directory Federation Services (AD FS), then the above requirements are already supported.
+> [!WARNING] 
+> Both **adfs/services/trust/2005/windowstransport** or **adfs/services/trust/13/windowstransport** should be enabled as intranet facing endpoints only and must NOT be exposed as extranet facing endpoints through the Web Application Proxy. To learn more on how to disable WS-Trust WIndows endpoints, see [Disable WS-Trust Windows endpoints on the proxy](https://docs.microsoft.com/en-us/windows-server/identity/ad-fs/deployment/best-practices-securing-ad-fs#disable-ws-trust-windows-endpoints-on-the-proxy-ie-from-extranet). You can see what endpoints are enabled through the AD FS management console under **Service** > **Endpoints**.
 
 > [!NOTE]
 > Azure AD does not support smartcards or certificates in managed domains.
@@ -127,7 +135,7 @@ Based on the scenario that matches your identity infrastructure, see:
 
 ## Review on-premises AD UPN support for Hybrid Azure AD join
 
-Sometimes, your on-premises AD UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), domain type and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
+Sometimes, your on-premises AD UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the [authentication method](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), domain type and Windows 10 version. There are two types of on-premises AD UPNs that can exist in your environment:
 
 - Routable UPN: A routable UPN has a valid verified domain, that is registered with a domain registrar. For example, if contoso.com is the primary domain in Azure AD, contoso.org is the primary domain in on-premises AD owned by Contoso and [verified in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
 - Non-routable UPN: A non-routable UPN does not have a verified domain. It is applicable only within your organization's private network. For example, if contoso.com is the primary domain in Azure AD, contoso.local is the primary domain in on-premises AD but is not a verifiable domain in the internet and only used within Contoso's network.

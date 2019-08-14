@@ -51,6 +51,5 @@ ms.author: mbullwin
 * [Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)
 * [Stream Analytics](../../azure-monitor/app/export-power-bi.md)
 
-## Unsupported community SDKs
-
-There are a number of community Application Insights SDKs. Community SDKs aren't officially supported/maintained by Microsoft. We are unable to provide support for any SDK that isn't on the officially supported list. 
+## Unsupported SDKs
+We're aware that several other community-supported SDKs exist. However, Azure Monitor only provides support when using the supported SDKs listed on this page. We’re constantly assessing opportunities to expand our support for other languages, so follow our [GitHub Announcements](https://github.com/microsoft/ApplicationInsights-Announcements/issues) page to receive the latest SDK news. 

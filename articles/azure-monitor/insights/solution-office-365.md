@@ -565,12 +565,12 @@ These records are created when an Active Directory user attempts to log on.
 
 | Property | Description |
 |:--- |:--- |
-| OfficeWorkload | AzureActiveDirectory |
-| RecordType     | AzureActiveDirectoryAccountLogon |
-| Application | The application that triggers the account login event, such as Office 15. |
-| Client | Details about the client device, device OS, and device browser that was used for the of the account login event. |
-| LoginStatus | This property is from OrgIdLogon.LoginStatus directly. The mapping of various interesting logon failures could be done by alerting algorithms. |
-| UserDomain | The Tenant Identity Information (TII). | 
+| `OfficeWorkload` | AzureActiveDirectory |
+| `RecordType`     | AzureActiveDirectoryAccountLogon |
+| `Application` | The application that triggers the account login event, such as Office 15. |
+| `Client` | Details about the client device, device OS, and device browser that was used for the of the account login event. |
+| `LoginStatus` | This property is from OrgIdLogon.LoginStatus directly. The mapping of various interesting logon failures could be done by alerting algorithms. |
+| `UserDomain` | The Tenant Identity Information (TII). | 
 
 
 ### Azure Active Directory

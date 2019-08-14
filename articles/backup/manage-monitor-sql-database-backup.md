@@ -1,13 +1,12 @@
 ---
-title: Manage and monitor SQL Server databases on an Azure VM that's backed up by Azure Backup | Microsoft Docs
+title: Manage and monitor SQL Server databases on an Azure VM with Azure Backup
 description: This article describes how to manage and monitor SQL Server databases that are running on an Azure VM.
-
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
-ms.author: raynew
+ms.author: dacurwin
 
 
 ---
@@ -89,9 +88,9 @@ To stop protection for a database:
 
 > [!NOTE]
 >
-Refer the below FAQ for more information on delete data option:
-* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
-* [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
+>For more information about the delete data option, see the FAQ below:
+>* [If I delete a database from an autoprotected instance, what will happen to the backups?](faq-backup-sql-server.md#if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups)
+>* [If I do stop backup operation of an autoprotected database what will be its behavior?](faq-backup-sql-server.md#if-i-change-the-name-of-the-database-after-it-has-been-protected-what-will-be-the-behavior)
 >
 >
 
@@ -117,7 +116,7 @@ You can run different types of on-demand backups:
 * Differential backup
 * Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for other backup types is automatically set to 30 days from current time. <br/>
+While you need to specify the retention duration for Copy-only full backup, the retention range for ad-hoc full backup will automatically be set to 45 days from current time. <br/>
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
 ## Unregister a SQL Server instance
@@ -142,7 +141,7 @@ Unregister a SQL Server instance after you disable protection but before you del
 
 Sometimes, the workload extension on the VM may get impacted for one reason or the other. In such cases, all the operations triggered on the VM will begin to fail. You may then need to re-register the extension on the VM. **Re-register** operation reinstalls the workload backup extension on the VM for operations to continue.  <br>
 
-It is advised to use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
+Use this option with caution; when triggered on a VM with an already healthy extension, this operation will cause the extension to get restarted. This may result in all the in-progress jobs to fail. Kindly check for one or more of the [symptoms](backup-sql-server-azure-troubleshoot.md#re-registration-failures) before triggering the re-register operation.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
 title: 'Azure Backup: Restore System State to a Windows Server'
 description: Step by step explanation for restoring Windows Server System State from a backup in Azure.
-
-author: saurabhsensharma
-manager: shivamg
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
-ms.author: saurse
+ms.author: dacurwin
 ---
 # Restore System State to Windows Server
 
@@ -118,9 +118,9 @@ Once you have recovered System State as files using Azure Recovery Services Agen
 
 1. Use the following commands to reboot your server in *Directory Services Repair Mode*. In an elevated command prompt:
 
-    ```
-    PS C:\> Bcdedit /set safeboot dsrepair
-    PS C:\> Shutdown /r /t 0
+    ```cmd
+    Bcdedit /set safeboot dsrepair
+    Shutdown /r /t 0
     ```
 
 2. After the reboot, open the Windows Server Backup snap-in. If you don't know where the snap-in was installed, search the computer or server for **Windows Server Backup**.
@@ -165,7 +165,7 @@ System State backup includes Active Directory data. Use the following steps to r
 
 ## Troubleshoot failed System State restore
 
-If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use This option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution.
+If the previous process of applying System State does not complete successfully, use the Windows Recovery Environment (Win RE) to recover your Windows Server. The following steps explain how to recover using Win RE. Use this option only if Windows Server does not boot normally after a System State restore. The following process erases non-system data, use caution.
 
 1. Boot your Windows Server into the Windows Recovery Environment (Win RE).
 
@@ -183,14 +183,14 @@ If the previous process of applying System State does not complete successfully,
 
 5. When you open the command prompt in administrator mode, run following command to get the System State backup versions.
 
-    ```
+    ```cmd
     Wbadmin get versions -backuptarget:<Volume where WindowsImageBackup folder is copied>:
     ```
     ![get System State backup versions](./media/backup-azure-restore-system-state/winre-4.png)
 
 6. Run the following command to get all volumes available in the backup.
 
-    ```
+    ```cmd
     Wbadmin get items -version:<copy version from above step> -backuptarget:<Backup volume>
     ```
 
@@ -198,7 +198,7 @@ If the previous process of applying System State does not complete successfully,
 
 7. The following command recovers all volumes that are part of the System State Backup. Note that this step recovers only the critical volumes that are part of the System State. All non-System data is erased.
 
-    ```
+    ```cmd
     Wbadmin start recovery -items:C: -itemtype:Volume -version:<Backupversion> -backuptarget:<backup target volume>
     ```
      ![get System State backup versions](./media/backup-azure-restore-system-state/winre-6.png)

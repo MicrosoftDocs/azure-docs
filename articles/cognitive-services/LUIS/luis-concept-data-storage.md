@@ -9,7 +9,7 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 07/29/2019
 ms.author: diberry
 ---
 
@@ -29,6 +29,7 @@ Utterances can be stored in two different places.
 <a name="utterances-in-an-intent"></a>
 
 ### Delete example utterances from an intent
+
 Delete example utterances used for training [LUIS](luis-reference-regions.md). If you delete an example utterance from your LUIS app, it is removed from the LUIS web service and is unavailable for export.
 
 <a name="utterances-in-review"></a>

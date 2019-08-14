@@ -28,6 +28,9 @@ The general workflow for creating a client that uses a machine learning web serv
 1. Determine the type of request data used by the model.
 1. Create an application that calls the web service.
 
+> [!TIP]
+> The examples in this document are manually created without the use of OpenAPI (Swagger) specifications. If you've enabled an OpenAPI specification for your deployment, you can use tools such as [swagger-codegen](https://github.com/swagger-api/swagger-codegen) to create client libraries for your service.
+
 ## Connection information
 
 > [!NOTE]
@@ -35,8 +38,10 @@ The general workflow for creating a client that uses a machine learning web serv
 
 The [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information you need to create a client. The following `Webservice` properties are useful for creating a client application:
 
-* `auth_enabled` - If authentication is enabled, `True`; otherwise, `False`.
+* `auth_enabled` - If key authentication is enabled, `True`; otherwise, `False`.
+* `token_auth_enabled` - If token authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
+
 
 There are a three ways to retrieve this information for deployed web services:
 
@@ -65,7 +70,16 @@ There are a three ways to retrieve this information for deployed web services:
     print(service.scoring_uri)
     ```
 
-### Authentication key
+### Authentication for services
+
+Azure Machine Learning provides two ways to control access to your web services. 
+
+|Authentication Method|ACI|AKS|
+|---|---|---|
+|Key|Disabled by default| Enabled by default|
+|Token| Not Available| Disabled by default |
+
+#### Authentication with keys
 
 When you enable authentication for a deployment, you automatically create authentication keys.
 
@@ -83,6 +97,25 @@ print(primary)
 
 > [!IMPORTANT]
 > If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py).
+
+#### Authentication with tokens
+
+When you enable token authentication for a web service, a user must provide an Azure Machine Learning JWT token to the web service to access it. 
+
+* Token authentication is disabled by default when you are deploying to Azure Kubernetes Service.
+* Token authentication is not supported when you are deploying to Azure Container Instances.
+
+To control token authentication, use the `token_auth_enabled` parameter when you are creating or updating a deployment.
+
+If token authentication is enabled, you can use the `get_token` method to retrieve a bearer token and that tokens expiration time:
+
+```python
+token, refresh_by = service.get_tokens()
+print(token)
+```
+
+> [!IMPORTANT]
+> You will need to request a new token after the token's `refresh_by` time. 
 
 ## Request data
 
@@ -120,50 +153,17 @@ For example, the model in the [Train within notebook](https://github.com/Azure/M
             ]
         ]
 }
-``` 
+```
 
 The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
 
 ### Binary data
 
-If your model accepts binary data, such as an image, you must modify the `score.py` file used for your deployment to accept raw HTTP requests. Here's an example of a `score.py` that accepts binary data:
+For information on how to enable support for binary data in your service, see [Binary data](how-to-deploy-and-where.md#binary).
 
-```python
-from azureml.contrib.services.aml_request import AMLRequest, rawhttp
-from azureml.contrib.services.aml_response import AMLResponse
+### Cross-origin resource sharing (CORS)
 
-
-def init():
-    print("This is init()")
-
-
-@rawhttp
-def run(request):
-    print("This is run()")
-    print("Request: [{0}]".format(request))
-    if request.method == 'GET':
-        # For this example, just return the URL for GETs
-        respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
-    elif request.method == 'POST':
-        reqBody = request.get_data(False)
-        # For a real world solution, you would load the data from reqBody
-        # and send to the model. Then return the response.
-
-        # For demonstration purposes, this example just returns the posted data as the response.
-        return AMLResponse(reqBody, 200)
-    else:
-        return AMLResponse("bad request", 500)
-```
-
-> [!IMPORTANT]
-> The `azureml.contrib` namespace changes frequently, as we work to improve the service. As such, anything in this namespace should be considered as a preview, and not fully supported by Microsoft.
->
-> If you need to test this on your local development environment, you can install the components in the `contrib` namespace by using the following command:
-> 
-> ```shell
-> pip install azureml-contrib-services
-> ```
+For information on enabling CORS support in your service, see [Cross-origin resource sharing](how-to-deploy-and-where.md#cors).
 
 ## Call the service (C#)
 
@@ -493,3 +493,7 @@ Power BI supports consumption of Azure Machine Learning web services to enrich t
 To generate a web service that's supported for consumption in Power BI, the schema must support the format that's required by Power BI. [Learn how to create a Power BI-supported schema](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where#example-script-with-dictionary-input-support-consumption-from-power-bi).
 
 Once the web service is deployed, it's consumable from Power BI dataflows. [Learn how to consume an Azure Machine Learning web service from Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+
+## Next steps
+
+To view a reference architecture for real-time scoring of Python and deep learning models, go to the [Azure architecture center](/azure/architecture/reference-architectures/ai/realtime-scoring-python).

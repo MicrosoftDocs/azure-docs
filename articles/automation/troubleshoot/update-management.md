@@ -292,6 +292,27 @@ If you can't resolve a patching issue, make a copy of the following log file and
 /var/opt/microsoft/omsagent/run/automationworker/omsupdatemgmt.log
 ```
 
+### <a name="other"></a>Scenario: My problem isn't listed above
+
+### Issue
+
+You have an issue that is not resolved by the other scenarios listed.
+
+### Cause
+
+Misconfigured or missing registry keys can cause issues with Update Management.
+
+### Resolution
+
+Delete the registry key `HKLM:\SOFTWARE\Microsoft\HybridRunbookWorker` and restart the **HealthService**.
+
+You can also use the following PowerShell commands.
+
+```powershell
+Remove-Item -Path "HKLM:\software\microsoft\hybridrunbookworker" -Recurse -Force
+Restart-Service healthservice
+```
+
 ## Next steps
 
 If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:

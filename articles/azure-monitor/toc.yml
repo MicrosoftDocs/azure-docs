@@ -16,8 +16,6 @@
       href: learn/dotnetcore-quick-start.md
     - name: Node.js application
       href: learn/nodejs-quick-start.md
-    - name: Java application
-      href: learn/java-quick-start.md
     - name: Mobile application
       href: learn/mobile-center-quickstart.md
     - name: Web application
@@ -131,6 +129,8 @@
   items:
   - name: Manage Azure Monitor
     items:
+    - name: Design a workspace deployment
+      href: platform/design-logs-deployment.md
     - name: Roles permissions and security
       href: platform/roles-permissions-security.md
     - name: IP addresses

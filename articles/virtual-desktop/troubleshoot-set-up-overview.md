@@ -2,12 +2,12 @@
 title: Windows Virtual Desktop troubleshooting overview, feedback, and support - Azure
 description: An overview for troubleshooting issues while setting up a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
-author: ChJenk
+author: Heidilohr
 
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
-ms.author: v-chjenk
+ms.author: helohr
 ---
 # Troubleshooting overview, feedback, and support
 

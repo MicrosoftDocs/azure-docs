@@ -11,7 +11,7 @@ ms.date: 09/15/2017
 ms.author: robinsh
 ---
 
-# Get started with device management (.NET/.NET)
+# Get started with device management (.NET)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 

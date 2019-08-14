@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: reference
-ms.date: 08/15/2018
+ms.date: 07/27/2019
 ---
 
 # Functions reference for Workflow Definition Language in Azure Logic Apps and Microsoft Flow
@@ -272,7 +272,7 @@ For the full reference about each function, see the
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Return the current action's output at runtime, or values from other JSON name-and-value pairs. See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Return an action's `body` output at runtime. See also [body](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Return an action's output at runtime. See [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
+| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Return an action's output at runtime. See [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) and [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Return an action's output at runtime, or values from other JSON name-and-value pairs. See also [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
 | [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
@@ -282,6 +282,7 @@ For the full reference about each function, see the
 | [iterationIndexes](../logic-apps/workflow-definition-language-functions-reference.md#iterationIndexes) | When inside an Until loop, return the index value for the current iteration. You can use this function inside nested Until loops. |
 | [listCallbackUrl](../logic-apps/workflow-definition-language-functions-reference.md#listCallbackUrl) | Return the "callback URL" that calls a trigger or action. |
 | [multipartBody](../logic-apps/workflow-definition-language-functions-reference.md#multipartBody) | Return the body for a specific part in an action's output that has multiple parts. |
+| [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) | Return an action's output at runtime. |
 | [parameters](../logic-apps/workflow-definition-language-functions-reference.md#parameters) | Return the value for a parameter that is described in your workflow definition. |
 | [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger) | Return a trigger's output at runtime, or from other JSON name-and-value pairs. See also [triggerOutputs](#triggerOutputs) and [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody). |
 | [triggerBody](../logic-apps/workflow-definition-language-functions-reference.md#triggerBody) | Return a trigger's `body` output at runtime. See [trigger](../logic-apps/workflow-definition-language-functions-reference.md#trigger). |
@@ -420,9 +421,7 @@ And returns this result:
 
 ### actionOutputs
 
-Return an action's output at runtime.
-Shorthand for `actions('<actionName>').outputs`.
-See [actions()](#actions).
+Return an action's output at runtime.  and is shorthand for `actions('<actionName>').outputs`. See [actions()](#actions). The `actionOutputs()` function resolves to `outputs()` in the Logic App Designer, so consider using [outputs()](#outputs), rather than `actionOutputs()`. Although both functions work the same way, `outputs()` is preferred.
 
 ```
 actionOutputs('<actionName>')
@@ -3073,6 +3072,69 @@ And return these results:
 
 * First example: At least one expression is true, so the function returns `true`.
 * Second example: Both expressions are false, so the function returns `false`.
+
+<a name="outputs"></a>
+
+### outputs
+
+Return an action's outputs at runtime. Use this function, rather than `actionOutputs()`, which resolves to `outputs()` in the Logic App Designer. Although both functions work the same way, `outputs()` is preferred.
+
+```
+outputs('<actionName>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*actionName*> | Yes | String | The name for the action's output that you want |
+|||||
+
+| Return value | Type | Description |
+| ------------ | -----| ----------- |
+| <*output*> | String | The output from the specified action |
+||||
+
+*Example*
+
+This example gets the output from the Twitter action `Get user`:
+
+```
+outputs('Get_user')
+```
+
+And returns this result:
+
+```json
+{
+  "statusCode": 200,
+  "headers": {
+    "Pragma": "no-cache",
+    "Vary": "Accept-Encoding",
+    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
+    "X-Content-Type-Options": "nosniff",
+    "Timing-Allow-Origin": "*",
+    "Cache-Control": "no-cache",
+    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
+    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
+    "X-AspNet-Version": "4.0.30319",
+    "X-Powered-By": "ASP.NET",
+    "Content-Type": "application/json; charset=utf-8",
+    "Expires": "-1",
+    "Content-Length": "339"
+  },
+  "body": {
+    "FullName": "Contoso Corporation",
+    "Location": "Generic Town, USA",
+    "Id": 283541717,
+    "UserName": "ContosoInc",
+    "FollowersCount": 172,
+    "Description": "Leading the way in transforming the digital workplace.",
+    "StatusesCount": 93,
+    "FriendsCount": 126,
+    "FavouritesCount": 46,
+    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
+  }
+}
+```
 
 <a name="parameters"></a>
 

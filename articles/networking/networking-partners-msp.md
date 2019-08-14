@@ -20,13 +20,15 @@ Azure Networking MSPs are a specialized set of managed service providers that ad
 
 Customers can purchase MSP-managed services offers in the Azure Marketplace, or directly from the MSP. MSPs can deploy and manage Azure networking resources in the customers' subscriptions and resource groups by using Azure Lighthouse.
 
-## <a name="msp"></a>MSP partners
+## <a name="msp"></a>Azure Networking MSP partners
 
 Use the links in this section for more information about managed cloud networking services offered by Azure Networking MSP partners. If your cloud network services partner is not listed in the section below, have the provider contact us. They can contact us by sending an email to ManagedVirtualWAN@microsoft.com. 
 
+[ANS Group UK](https://www.ans.co.uk/)
+
 [Aryaka Networks](https://www.aryaka.com/)
 
-[BT](https://www.bt.com/)
+[BT](https://www.globalservices.bt.com/en/aboutus/news-press/bt-named-one-of-the-first-global-managed-service-providers-for-a-new-microsoft-azure-networking-virtual-wan-services/)
 
 [Dimension Data](https://www.dimensiondata.com/)
 
@@ -36,7 +38,11 @@ Use the links in this section for more information about managed cloud networkin
 
 [IIJ](https://www.iij.ad.jp/en/)
 
+[ixreach](https://www.ixreach.com/)
+
 [Megaport](https://www.megaport.com/)
+
+[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)
 
 [Tata Communications](https://www.tatacommunications.com/)
 

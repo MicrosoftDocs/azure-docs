@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev 
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018

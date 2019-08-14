@@ -96,7 +96,7 @@ Yes. See [Modifications to a request](https://docs.microsoft.com/azure/applicati
 
 New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
 
-Deployments that use the v2 SKU can take up to 6 minutes to provision.
+Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. 
 
 ### Can I use Exchange Server as a backend with Application Gateway?
 
