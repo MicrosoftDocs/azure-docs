@@ -33,15 +33,13 @@ The following steps summarize the steps to configure Configuration Manager integ
 
 2. In Azure Active Directory, [grant Configuration Manager (the registered web app) with permission to access Azure Monitor](#grant-configuration-manager-with-permissions-to-log-analytics).
 
-3. In Configuration Manager, add a connection using the Add OMS Connection Wizard.
+3. In Configuration Manager, add a connection using the **Azure Services** wizard.
 
-4. In Configuration Manager, update the connection properties if the password or client secret key ever expires or is lost.
+4. [Download and install the Log Analytics agent for Windows](#download-and-install-the-agent) on the computer running the Configuration Manager service connection point site system role. The agent sends Configuration Manager data to the Log Analytics workspace in Azure Monitor.
 
-5. [Download and install the Log Analytics agent for Windows](#download-and-install-the-agent) on the computer running the Configuration Manager service connection point site system role. The agent sends Configuration Manager data to the Log Analytics workspace in Azure Monitor.
+5. In Azure Monitor, [import collections from Configuration Manager](#import-collections) as computer groups.
 
-6. In Azure Monitor, [import collections from Configuration Manager](#import-collections) as computer groups.
-
-7. In Azure Monitor, view data from Configuration Manager as [computer groups](computer-groups.md).
+6. In Azure Monitor, view data from Configuration Manager as [computer groups](computer-groups.md).
 
 ## Grant Configuration Manager with permissions to Log Analytics
 
