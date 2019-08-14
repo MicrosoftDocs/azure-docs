@@ -172,7 +172,8 @@ Service Fabric provides scaffolding tools that help you to create a Service Fabr
     ```
 
     >[!TIP]
-    > Be sure to verify you have the correct version of JDK installed. 
+    > Current versions of `brew cask install java` may install a more recent version of the JDK.
+    > Be sure to install JDK 8.
 
 ## Deploy your application on your Mac from the terminal
 
