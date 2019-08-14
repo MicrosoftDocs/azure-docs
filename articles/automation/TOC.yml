@@ -20,6 +20,8 @@
       displayName: RBAC
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
+    - name: Automate onboarding of Automation Services
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
@@ -43,6 +45,7 @@
       href: automation-onboard-solutions-from-vm.md
     - name: Onboard from Automation account
       href: automation-onboard-solutions-from-automation-account.md
+    - name:
   - name: How-to Guides
     items:
     - name: Manage runbooks
