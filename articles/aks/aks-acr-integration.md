@@ -45,6 +45,7 @@ az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enabl
 ```
 
 ## Install latest AKS CLI preview extension
+
 Ensure you have created and AKS cluster and added the ACR integration with the steps above.  Remove and update the AKS CLI preview extension
 
 ```console
@@ -53,6 +54,7 @@ az extension add -y --name aks-preview
 ```
 
 ## Set variable and login to your ACR
+
 Login to your ACR.
 
 ```console
@@ -113,6 +115,7 @@ spec:
 
 
 ## Update the state and verify pods
+
 You should have 2 running pods.
 
 ```
