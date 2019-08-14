@@ -72,8 +72,8 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Added a `map_partition` function to `azureml.dataprep.Dataflow` which can transform the contents of a Dataflow by invoking a callable object on each partition.
     + Lists of strings can now be passed in as input to read_* methods in azureml.dataprep.
   + **azureml-explain-model**
-    + Added parameter to add a model ID to explanations on upload. Related work items: #479933
-    + Added `is_raw` tagging to explanations in memory and uploaded. Related work items: #479014
+    + Added parameter to add a model ID to explanations on upload.
+    + Added `is_raw` tagging to explanations in memory and upload.
     + Adding pytorch support and tests for azureml-explain-model package
   + **azureml-opendatasets**
     + Support detecting and logging auto test environment.
