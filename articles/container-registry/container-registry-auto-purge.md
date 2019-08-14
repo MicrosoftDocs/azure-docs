@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 08/13/2019
+ms.date: 08/14/2019
 ms.author: danlep
 ---
 
@@ -58,7 +58,7 @@ The following example uses the [az acr run][az-acr-run] command to run the `purg
 ```azurecli
 # Environment variable for container command line
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter \"hello-world:.*\" --untagged --ago 1d"
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --untagged --ago 1d"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -73,7 +73,7 @@ The following example uses the [az acr task create][az-acr-task-create] command 
 ```azurecli
 # Environment variable for container command line
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter \"hello-world:.*\"  --ago 7d"
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 7d"
 
 az acr task create --name purgeTask \
   --cmd "$PURGE_CMD" \
@@ -93,7 +93,7 @@ For example, the following on-demand task sets a timeout time of 3600 seconds (1
 ```azurecli
 # Environment variable for container command line
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter \"hello-world:.*\" --untagged --ago 1d"
+  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 1d --untagged"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -116,7 +116,7 @@ In the following example, the filter in each repository selects all tags. The `-
 # Environment variable for container command line
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
   --registry {{.Run.Registry}} \
-  --filter \"samples/devimage1:.*\" --filter \"samples/devimage2:.*\" \
+  --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
 az acr run \
@@ -157,7 +157,7 @@ After you've verified the dry run, create a scheduled task to automate the purge
 # Environment variable for container command line
 PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
   --registry {{.Run.Registry}} \
-  --filter \"samples/devimage1:.*\" --filter \"samples/devimage2:.*\" \
+  --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
 az acr task create --name weeklyPurgeTask \
