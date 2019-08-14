@@ -186,8 +186,6 @@
       href: security-center-search.md    
     - name: Planning and operations
       href: security-center-planning-and-operations-guide.md
-    - name: Understanding security alerts 
-      href: security-center-alerts-type.md
     - name: UEBA for Azure resources and users
       href: security-center-ueba-mcas.md
     - name: Customize security configurations
