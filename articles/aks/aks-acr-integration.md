@@ -21,13 +21,13 @@ You can set up the AKS to ACR authentication with the Azure CLI.  See [AKS with 
 
 * You must currently be an **owner** of the **Azure subscription** to assign the appropriate roles required for the service principal
 * You also need the Azure CLI version 2.0.70 or later
-* [docker installed](https://docs.docker.com/install/) on your client, and access to [docker hub](https://hub.docker.com/)
+* You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [dockerhub](https://hub.docker.com/)
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the initial creation of your AKS cluster.  The following CLI command creates an ACR in the resource group you specify with **acrpull** permissions. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
+You can set up AKS and ACR integration during the initial creation of your AKS cluster.  The following CLI command creates an ACR in the resource group you specify and configures the appropriate **acrpull** permissions for the service principal. If the *acr-name* does not exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
 ```
-az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr-name <your-acr-name>]
+az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> -enable-acr [--acr <your-acr-name>]
 ```
 
 Optionally, you can also specify **acr-resource-id** instead of **acr-name** with the following command.  Supply your valid values for the parameters below.
@@ -39,7 +39,7 @@ az aks create -n <your-Kubernetes-cluster-name>  -g <your-resource-group> --enab
 
 For exisitng AKS clusters you can add integration with an existing ACR. The following commans do <TODO>  You must supply valid values for **acr-name** and **acr-resource-id** or the commands will fail.
 ```
-az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-name <your-acr-name>
+az aks update -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr <your-acr-name>
 az aks create -n <your-kubernetes-cluster-name> -g <your-resource-group> --enable-acr --acr-resource-id <your-acr-resource-id>
 ```
 
