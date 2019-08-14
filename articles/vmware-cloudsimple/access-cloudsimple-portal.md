@@ -16,7 +16,16 @@ Single sign-on is supported for access to the CloudSimple portal. After you sign
 
 ## Before you begin
 
-Only users with built-in **Owner** and **Contributor** roles can access the CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
+Users with builtin **Owner** and **Contributor** roles can access CloudSimple portal.  The roles must be configured on the resource group where CloudSimple service is deployed.  The roles can also be configured on the CloudSimple service object.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article. Only users with built-in **Owner** and **Contributor** roles can access the CloudSimple portal.  The roles must be configured on the subscription.  For more information on checking your role, see [View role assignments](https://docs.microsoft.com/azure/role-based-access-control/check-access) article.
+
+If you are using custom roles, the role should have any of the following operations under ```Actions```.  For more information on custom roles, see [Custom roles for Azure resources](https://docs.microsoft.com/azure/role-based-access-control/custom-roles).  If any of the operations is a part of ```NotActions```, the user cannot access CloudSimple portal.
+
+```
+Microsoft.VMwareCloudSimple/*
+Microsoft.VMwareCloudSimple/*/write
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*
+Microsoft.VMwareCloudSimple/dedicatedCloudServices/*/write
+```
 
 ## Sign in to Azure
 
@@ -43,7 +52,7 @@ In the CloudSimple portal, select **Home** on the side menu to display summary i
 
 ## Consent to CloudSimple Service Authorization application
 
-Launching the CloudSimple portal from the Azure portal for the first time requires your consent for the CloudSimple Service Authorization application.  Select **Accept** to grant requested permissions and access the CloudSimple portal. 
+Launching the CloudSimple portal from the Azure portal for the first time requires your consent for the CloudSimple Service Authorization application.  Select **Accept** to grant requested permissions and access the CloudSimple portal.
 
 ![Consent to CloudSimple Service Authorization - administrators](media/cloudsimple-azure-consent.png)
 
