@@ -12,9 +12,9 @@ ms.author: atsenthi
 
 # Managed Identity for Service Fabric Application (Preview)
 
-A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping the credentials secure is an important task, since they never appear on developer workstations and aren't checked into source control. The Managed Identity for Azure resources feature in Azure Active Directory (Azure AD) solves this problem. The feature provides Azure services with an automatically-managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
+A common challenge when building cloud applications is how to manage the credentials in your code for authenticating to cloud services. Keeping credentials secure is an important task, since they never appear on developer workstations and are not checked into source control. The Managed Identity feature for Azure resources in Azure Active Directory (Azure AD) solves this problem. The feature provides Azure services with an automatically-managed identity in Azure AD. You can use the identity to authenticate to any service that supports Azure AD authentication, including Key Vault, without any credentials in your code.
 
-Managed Identity for Azure resources feature is free with Azure AD for Azure subscriptions. There's no additional cost.
+The Managed Identity feature for Azure resources is free with Azure AD for Azure subscriptions. There is no additional cost.
 
 > [!NOTE]
 > Managed Identity for Azure resources is the new name for the service formerly known as Managed Service Identity (MSI).
@@ -41,13 +41,13 @@ The following terms are used throughout the Managed Identity for Azure resources
 
 ## Supported scenarios for Service Fabric applications
 
-It is important to clarify that managed identities for Service Fabric applications are only supported in Azure Service Fabric clusters, and only for applications deployed as Azure resources; applications deployed directly to a cluster may not and cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
+Managed identities for Service Fabric is only supported in Azure deployed Service Fabric clusters, and only for applications deployed as Azure resources; applications which are not deployed as an Azure resource cannot be assigned an identity. Conceptually speaking, support for managed identities in Azure Service Fabric cluster consists of two phases:
 
 1. Assign one or more managed identities to the application resource; an application may be assigned a single system-assigned identity, and/or up to 32 user-assigned identities, respectively.
 
 2. Within the application's definition, map one of the identities assigned to the application to any individual service comprising the application.
 
-The system-assigned identity of an application is unique to that application; a user-assigned identity is a standalone resource, which may be assigned to multiple applications. Within an application, a single identity (whether system-assigned or user-assigned) can be assigned to multiple services of the application, but at most one identity can be assigned to an individual service. Lastly, a service must be assigned an identity explicitly in order to have access to this feature. In effect, the mapping of an application's identities to its constituent services allows for an in-application isolation - a service may only use the identity mapped to it (and none at all if it was not explicitly assigned one.)  
+The system-assigned identity of an application is unique to that application; a user-assigned identity is a standalone resource, which may be assigned to multiple applications. Within an application, a single identity (whether system-assigned or user-assigned) can be assigned to multiple services of the application, but each individual service can only be assigned one identity. Lastly, a service must be assigned an identity explicitly to have access to this feature. In effect, the mapping of an application's identities to its constituent services allows for an in-application isolation - a service may only use the identity mapped to it (and none at all if it was not explicitly assigned one.)  
 
 The list of supported scenarios for the preview release is as follows:
 
@@ -58,7 +58,7 @@ The list of supported scenarios for the preview release is as follows:
 
 The following scenarios are not supported or not recommended; note these actions may not be blocked, but can lead to outages in your applications:
 
-   - Remove or change the identities assigned to an application; if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in an unupgradeable state. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
+   - Remove or change the identities assigned to an application;if you must make changes, submit separate deployments to first add a new identity assignment, and then to remove a previously assigned one. Removal of an identity from an existing application can have undesirable effects, including leaving your application in a state which is not upgradeable. It is safe to delete the application altogether if the removal of an identity is necessary; note this will delete the system-assigned identity (if so defined) associated with the application, and will remove any associations with the user-assigned identities assigned to the application.
 
    - It is not recommended to mix system-assigned and user-assigned identities in the same application.
 >

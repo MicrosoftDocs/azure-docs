@@ -67,7 +67,7 @@ For information on how to register your application and implement these protocol
 
 Security Assertion Markup Language (SAML) is usually used for web applications. See [How Azure uses the SAML protocol](../develop/active-directory-saml-protocol-reference.md) for an overview. 
 
-Web Services Federation (WSFed) is an [industry standard](http://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
+Web Services Federation (WSFed) is an [industry standard](https://docs.oasis-open.org/wsfed/federation/v1.2/ws-federation.html) generally used for web applications that are developed using the .Net platform.
 
 ### Benefits
 

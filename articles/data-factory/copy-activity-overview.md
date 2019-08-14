@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -30,7 +30,7 @@ In Azure Data Factory, you can use Copy Activity to copy data among data stores 
 
 Copy Activity is executed on an [Integration Runtime](concepts-integration-runtime.md). For different data copy scenario, different flavors of Integration Runtime can be leveraged:
 
-* When copying data between data stores that both are publicly accessible, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
+* When copying data between data stores that both are publicly accessible through the internet from any IPs, copy activity can be empowered by **Azure Integration Runtime**, which is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When copying data from/to data stores located on-premises or in a network with access control (for example, Azure Virtual Network), you need to set up a **self-hosted Integrated Runtime** to empower data copy.
 
 Integration Runtime needs to be associated with each source and sink data store. Learn details on how copy activity [determines which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
@@ -190,7 +190,7 @@ Copy activity execution details and performance characteristics are also returne
 | usedDataIntegrationUnits | The effective Data Integration Units during copy. | Int32 value |
 | usedParallelCopies | The effective parallelCopies during copy. | Int32 value |
 | redirectRowPath | Path to the log of skipped incompatible rows in the blob storage you configure under "redirectIncompatibleRowSettings". See below example. | Text (string) |
-| executionDetails | More details on the stages copy activity goes through, and the corresponding steps, duration, used configurations, etc. It's not recommended to parse this section as it may change.<br/><br/>ADF also reports the detailed durations (in seconds) spent on respective steps under `detailedDurations`:<br/>- **Queuing duration** (`queuingDuration`): The time until the copy activity actually starts on integration runtime. If you use Self-hosted IR and this value is large, suggest to check the IR capacity and usage, and scale up/out according to your workload. <br/>- **Pre-copy script duration** (`preCopyScriptDuration`): The time spent on executing the pre-copy script in sink data store. Apply when you configure the pre-copy script. <br/>- **Time-to-first-byte** (`timeToFirstByte`): The time that integration runtime receives the first byte from the source data store. Apply to non-file-based source. If this value is large, suggest to check and optimize the query or server.<br/>- **Transfer duration** (`transferDuration`): The time for integration runtime to transfer all the data from source to sink after getting the first byte. | Array |
+| executionDetails | More details on the stages copy activity goes through, and the corresponding steps, duration, used configurations, etc. It's not recommended to parse this section as it may change.<br/><br/>ADF also reports the detailed durations (in seconds) spent on respective steps under `detailedDurations`. The durations of these steps are exclusive and only those that apply to the given copy activity run would show up:<br/>- **Queuing duration** (`queuingDuration`): The elapsed time until the copy activity actually starts on the integration runtime. If you use Self-hosted IR and this value is large, suggest to check the IR capacity and usage, and scale up/out according to your workload. <br/>- **Pre-copy script duration** (`preCopyScriptDuration`): The elapsed time between copy activity starting on IR and copy activity finishing executing the pre-copy script in sink data store. Apply when you configure the pre-copy script. <br/>- **Time-to-first-byte** (`timeToFirstByte`): The elapsed time between the end of the previous step and the IR receiving the first byte from the source data store. Apply to non-file-based source. If this value is large, suggest to check and optimize the query or server.<br/>- **Transfer duration** (`transferDuration`): The elapsed time between the end of the previous step and the IR transferring all the data from source to sink. | Array |
 | perfRecommendation | Copy performance tuning tips. See [Performance and tuning](#performance-and-tuning) section on details. | Array |
 
 ```json
