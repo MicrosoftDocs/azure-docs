@@ -11,7 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: cmacdo
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 #	Text Translation cognitive skill
 

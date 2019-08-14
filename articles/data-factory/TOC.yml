@@ -166,6 +166,8 @@
     items:
     - name: Visually author data factories
       href: author-visually.md
+    - name: Source control
+      href: source-control.md
     - name: Continuous integration and delivery
       href: continuous-integration-deployment.md
     - name: Iterative development and debugging
@@ -208,6 +210,8 @@
       href: connector-azure-sql-data-warehouse.md
     - name: Azure Table Storage
       href: connector-azure-table-storage.md
+    - name: Binary format
+      href: format-binary.md
     - name: Cassandra
       href: connector-cassandra.md
     - name: Common Data Service for Apps

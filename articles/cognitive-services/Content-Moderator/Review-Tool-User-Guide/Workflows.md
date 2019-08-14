@@ -8,7 +8,7 @@ manager: mikemcca
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: sajagtap
 #Customer intent: use workflows from the Review tool

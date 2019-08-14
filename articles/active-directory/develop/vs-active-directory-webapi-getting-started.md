@@ -1,13 +1,10 @@
 ---
 title: Get Started with Azure AD in Visual Studio WebApi projects
 description: How to get started using Azure Active Directory in WebApi projects after connecting to or creating an Azure AD using Visual Studio connected services
-services: active-directory
-ms.service: active-directory
-ms.subservice: develop
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: bf1eb32d-25cd-4abf-8679-2ead299fedaa
-ms.prod: visual-studio-dev15
+ms.prod: visual-studio-windows
 ms.technology: vs-azure
 ms.workload: azure-vs
 ms.topic: conceptual

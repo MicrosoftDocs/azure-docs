@@ -136,9 +136,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **Don't forget the additional configuration steps after provisioning your managed domain.**
 > After your managed domain is provisioned, you still need to complete the following tasks:
-> * **[Update DNS settings](active-directory-ds-getting-started-dns.md)** for the virtual network so virtual machines can find the managed domain for domain join or authentication.
+> * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication. To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+> * Create the required network security group rules to restrict traffic inbound for the managed domain. To create the network security group rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create the appropriate network security group rules.
 > * **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end users can sign in to the managed domain using their corporate credentials.
-
 
 ## PowerShell script
 The PowerShell script used to perform all tasks listed in this article is below. Copy the script and save it to a file with a '.ps1' extension. Execute the script in PowerShell or using the PowerShell Integrated Scripting Environment (ISE).
@@ -221,8 +221,9 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > [!WARNING]
 > **Don't forget the additional configuration steps after provisioning your managed domain.**
 > After your managed domain is provisioned, you still need to complete the following tasks:
-> * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication.
-> * Enable password synchronization to Azure AD Domain Services so end users can sign in to the managed domain using their corporate credentials.
+> * Update DNS settings for the virtual network so virtual machines can find the managed domain for domain join or authentication. To configure DNS, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically configure these DNS settings.
+> * Create the required network security group rules to restrict traffic inbound for the managed domain. To create the network security group rules, select your Azure AD DS managed domain in the portal. On the **Overview** window, you are prompted to automatically create the appropriate network security group rules.
+> * **[Enable password synchronization to Azure AD Domain Services](active-directory-ds-getting-started-password-sync.md)**, so end users can sign in to the managed domain using their corporate credentials.
 
 ## Next steps
 After your managed domain is created, perform the following configuration tasks so you can use the managed domain:

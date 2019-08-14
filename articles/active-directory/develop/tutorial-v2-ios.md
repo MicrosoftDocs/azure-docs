@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
 ---
 

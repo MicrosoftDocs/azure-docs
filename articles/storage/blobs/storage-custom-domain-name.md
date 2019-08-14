@@ -1,14 +1,12 @@
 ---
 title: Configure a custom domain name for your Azure storage account | Microsoft Docs
 description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage or web endpoint in an Azure storage account.
-services: storage
 author: normesta
-
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: normesta
-ms.reviewer: seguler
+ms.reviewer: dineshm
 ms.subservice: blobs
 ---
 
