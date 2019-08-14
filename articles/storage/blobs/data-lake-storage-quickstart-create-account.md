@@ -120,7 +120,7 @@ Start by opening a PowerShell session with elevated permissions.
 Install the Az.Storage module
 
 ```powershell
-Install-Module Az.Storage -Repository PSGallery -AllowPrerelease -AllowClobber -Force
+Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
 ```
 
 ### Sign in to your Azure Subscription

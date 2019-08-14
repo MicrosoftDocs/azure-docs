@@ -1246,6 +1246,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/immersive-reader/ios-picture-immersive-reader-tutorial.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-ios-picture-immersive-reader",
+      "redirect_document_id": true
+    },
+    {
+      "source_path": "articles/cognitive-services/immersive-reader/tutorial.md",
+      "redirect_url": "/azure/cognitive-services/immersive-reader/tutorial-nodejs",
+      "redirect_document_id": true
+    },
+    {
       "source_path": "articles/active-directory/active-directory-licensing-ps-examples.md",
       "redirect_url": "/azure/active-directory/users-groups-roles/licensing-ps-examples",
       "redirect_document_id": true
@@ -7484,6 +7494,11 @@
       "source_path": "articles/active-directory/active-directory-saas-cisco-spark-provisioning-tutorial.md",
       "redirect_url": "/azure/active-directory/saas-apps/cisco-spark-provisioning-tutorial",
       "redirect_document_id": true
+    },
+	{
+      "source_path": "articles/active-directory/saas-apps/cisco-spark-provisioning-tutorial.md",
+      "redirect_url": "/azure/active-directory/saas-apps/cisco-webex-provisioning-tutorial",
+      "redirect_document_id": false
     },
     {
       "source_path": "articles/active-directory/active-directory-saas-cisco-webex-tutorial.md",
@@ -31004,6 +31019,16 @@
       "redirect_url": "https://github.com/AzureADQuickStarts/AppModelv2-WebApp-OpenIDConnect-nodejs",
       "redirect_document_id": false
     },
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
