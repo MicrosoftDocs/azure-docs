@@ -86,8 +86,6 @@ Active scraping of metrics from Prometheus are performed from one of two perspec
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
-
-
 ### Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
