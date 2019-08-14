@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/13/2019
+ms.date: 08/14/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -171,7 +171,7 @@ In this section, you'll enable B.Simon to use Azure Single Sign-On by granting a
 
 	![Configure Single Sign-On](./media/servicenow-tutorial/tutorial_servicenow_configure.png)
 
-7. Enter your ServiceNow instance name, admin username, and admin password in the **Configure sign-on** form and click **Configure Now**. Note that the admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, click **Manually configure Single Sign-On** and copy the **Logout URL, Azure AD Identifier, and Login URL** from the Quick Reference section.
+7. Enter your ServiceNow instance name, admin username, and admin password in the **Configure sign-on** form and click **Configure Now**. Make sure that the admin username provided must have the **security_admin** role assigned in ServiceNow for this to work. Otherwise, to manually configure ServiceNow to use Azure AD as a SAML Identity Provider, click **Manually configure Single Sign-On** and copy the **Logout URL, Azure AD Identifier, and Login URL** from the Quick Reference section.
 
 	![Configure app URL](./media/servicenow-tutorial/configure.png "Configure app URL")
 
