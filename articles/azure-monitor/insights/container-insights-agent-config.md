@@ -108,7 +108,7 @@ Perform the following steps to configure and deploy your ConfigMap configuration
          [prometheus_data_collection_settings.cluster] ​
          interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. ​
 ​
-         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass thru ​
+         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through ​
          fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting 
 
          urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from. ​
@@ -171,7 +171,7 @@ Errors prevent omsagent from parsing the file, causing it to restart and use the
 
 ## Applying updated ConfigMap
 
-If you have already deployed a ConfigMap to your cluster and you want to update it with a newer configuration, you can simply edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`.
+If you have already deployed a ConfigMap to your cluster and you want to update it with a newer configuration, you can edit the ConfigMap file you've previously used and then apply using the same command as before, `kubectl apply -f <configmap_yaml_file.yaml`.
 
 The configuration change can take a few minutes to finish before taking effect, and all omsagent pods in the cluster will restart. The restart is a rolling restart for all omsagent pods, not all restart at the same time. When the restarts are finished, a message is displayed that's similar to the following and includes the result: `configmap "container-azm-ms-agentconfig" updated`.
 
