@@ -33390,6 +33390,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/multi-factor-authentication/end-user/user-help-my-apps-overview.md",
+      "redirect_url": "/azure/active-directory/user-help/myapps-portal-end-user-overview",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/active-directory/user-help/microsoft-authenticator-app-backup-and-recovery.md",
       "redirect_url": "/azure/active-directory/user-help/user-help-auth-app-backup-recovery",
       "redirect_document_id": false
