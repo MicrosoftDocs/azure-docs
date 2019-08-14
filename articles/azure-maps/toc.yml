@@ -25,6 +25,8 @@
     items:
     - name: Set up a geofence
       href: tutorial-geofence.md
+    - name: Spatial analytics
+      href: tutorial-iot-hub-maps.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
