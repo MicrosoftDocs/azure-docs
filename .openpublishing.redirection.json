@@ -30990,6 +30990,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/create-new-kb-nodejs.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs",
+      "redirect_document_id": false
+    },    
+    {
       "source_path": "articles/cognitive-services/QnAMaker/faqs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/troubleshooting",
       "redirect_document_id": false
