@@ -85,7 +85,6 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. In the **Storage account** window, select **Access keys**.
 
-
 1. In the **Storage account name** and **key1** boxes, copy the values, and then paste them into Notepad or another editor for later use in the tutorial. 
 
 #### Create the adftutorial container 
@@ -141,7 +140,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
    ![Let's get started page](./media/doc-common-process/get-started-page.png)
 
-1. On the **General** tab at the bottom of the **Properties** window, under **Name**, enter **SQLServerToBlobPipeline**.
+1. On the **General** tab at the bottom of the **Properties** window, for **Name**, enter **SQLServerToBlobPipeline**.
 
    ![Pipeline name](./media/tutorial-hybrid-copy-portal/pipeline-name.png)
 
@@ -149,17 +148,13 @@ In this step, you create a data factory and start the Data Factory UI to create 
 
 1. In the **Properties** window, go to the **Source** tab, and select **+ New**.
 
-
 1. In the **New Dataset** dialog box, search for **SQL Server**. Select **SQL Server**, and then select **Continue**. 
 
 1. In the **Set Properties** dialog box, under **Name**, enter **SqlServerDataset**. Under **Linked service**, select **+ New**. You create a connection to the source data store (SQL Server database) in this step. 
 
-
-1. In the **New Linked Service** dialog box, add **Name** as **SqlServerLinkedService**. Select **+New** under **Connect via integration runtime**. In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Blob storage. 
+1. In the **New Linked Service** dialog box, add **Name** as **SqlServerLinkedService**. Under **Connect via integration runtime**, select **+New**.  In this section, you create a self-hosted integration runtime and associate it with an on-premises machine with the SQL Server database. The self-hosted integration runtime is the component that copies data from the SQL Server database on your machine to Blob storage. 
 
 1. In the **Integration Runtime Setup** dialog box, select **Self-Hosted**, and then select **Next**. 
-
-   ![Private network selection](./media/tutorial-hybrid-copy-portal/select-self-hosted-network.png)
 
 1. Under name, enter **TutorialIntegrationRuntime**. Then select **Next**.
 
@@ -208,16 +203,15 @@ In this step, you create a data factory and start the Data Factory UI to create 
 1. You should be back in the window with the sink dataset open. On the **Connection** tab, take the following steps: 
 
     a. In **Linked service**, confirm that **AzureStorageLinkedService** is selected.
-
+    
     b. In **File path**, enter **adftutorial/fromonprem** for the **Container/ Directory** part. If the output folder doesn't exist in the adftutorial container, Data Factory automatically creates the output folder.
-
-    c. For the **File** part, select **Add dynamic content**.   
-
-    ![dynamic file name value](./media/tutorial-hybrid-copy-portal/file-name.png)
+    
+    c. For the **File** part, select Add dynamic content.
+    ![dynamic expression for resolving file name](./media/tutorial-hybrid-copy-portal/file-name.png)
 
     d. Add `@CONCAT(pipeline().RunId, '.txt')`, and then select **Finish**. This action will rename the file with PipelineRunID.txt. 
 
-1. Go to the tab with the pipeline opened, or select the pipeline in the tree view. In **Sink Dataset**, confirm that **AzureBlobDataset** is selected. 
+1. Go to the tab with the pipeline opened, or select the pipeline in the tree view. In **Sink Dataset**, confirm that **AzureBlobDataset** is selected.
 
 1. To validate the pipeline settings, select **Validate** on the toolbar for the pipeline. To close the **Pipe Validation Report**, select **Close**. 
 
@@ -234,8 +228,7 @@ Select **Add Trigger** on the toolbar for the pipeline, and then select **Trigge
 1. Go to the **Monitor** tab. You see the pipeline that you manually triggered in the previous step. 
 
     ![Monitor pipeline runs](./media/tutorial-hybrid-copy-portal/pipeline-runs.png)
-1. To view activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. You see only activity runs because there is only one activity in the pipeline. To see details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the **Pipeline Runs** view, select **Pipelines** at the top.
-
+1. To view activity runs associated with the pipeline run, select the **View Activity Runs** link in the **Actions** column. You see only activity runs because there's only one activity in the pipeline. To see details about the copy operation, select the **Details** link (eyeglasses icon) in the **Actions** column. To go back to the Pipeline Runs view, select **Pipeline Runs** at the top.
 
 ## Verify the output
 The pipeline automatically creates the output folder named *fromonprem* in the `adftutorial` blob container. Confirm that you see the *[pipeline().RunId].txt* file in the output folder. 
