@@ -116,7 +116,7 @@ You can run different types of on-demand backups:
 * Differential backup
 * Log backup
 
-While you need to specify the retention duration for Copy-only full backup, the retention range for other backup types is automatically set to 30 days from current time. <br/>
+While you need to specify the retention duration for Copy-only full backup, the retention range for ad-hoc full backup will automatically be set to 45 days from current time. <br/>
 For more information, see [SQL Server backup types](backup-architecture.md#sql-server-backup-types).
 
 ## Unregister a SQL Server instance

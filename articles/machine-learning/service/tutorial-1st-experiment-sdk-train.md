@@ -18,6 +18,7 @@ This tutorial is **part two of a two-part tutorial series**. In the previous tut
 
 In this tutorial, you learn the following tasks:
 
+> [!div class="checklist"]
 > * Connect your workspace and create an experiment
 > * Load data and train scikit-learn models
 > * View training results in the portal
@@ -106,7 +107,7 @@ After the training has completed, call the `experiment` variable to fetch a link
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td><a href="" target="_blank" rel="noopener">Link to Azure Portal</a></td><td><a href="" target="_blank" rel="noopener">Link to Documentation</a></td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Workspace</th><th>Report Page</th><th>Docs Page</th></tr><tr><td>diabetes-experiment</td><td>your-workspace-name</td><td>Link to Azure Portal</td><td>Link to Documentation</td></tr></table>
 
 ## View training results in portal
 
@@ -176,7 +177,7 @@ If you used a cloud notebook server, stop the VM when you are not using it to re
 
 1. In your workspace, select **Notebook VMs**.
 
-   ![Stop the VM server](./media/quickstart-run-cloud-notebook/stop-server.png)
+   ![Stop the VM server](./media/tutorial-1st-experiment-sdk-setup/stop-server.png)
 
 1. From the list, select the VM.
 

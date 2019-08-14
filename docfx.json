@@ -191,7 +191,15 @@
     "fileMetadata": {
       "feedback_system": {
         "articles/virtual-machines/windows/classic/**/*": "None",
-        "articles/virtual-machines/linux/classic/**/*": "None"
+        "articles/virtual-machines/linux/classic/**/*": "None",
+        "articles/cognitive-services/Academic-Knowledge/**/*.md": "None",
+        "articles/cognitive-services/custom-decision-service/**/*.md": "None",
+        "articles/cognitive-services/Emotion/**/*.md": "None",
+        "articles/cognitive-services/EntityLinking/**/*.md": "None",
+        "articles/cognitive-services/KES/**/*.md": "None",
+        "articles/cognitive-services/LinguisticAnalysisAPI/**/*.md": "None",
+        "articles/cognitive-services/Recommendations/**/*.md": "None",
+        "articles/cognitive-services/Web-Language-Model/**/*.md": "None"
       },
       "feedback_product_url": {
         "articles/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
@@ -259,8 +267,11 @@
         "articles/cognitive-services/text-analytics/**/*.md": "https://cognitive.uservoice.com/forums/555922-text-analytics",
         "articles/cognitive-services/Translator/**/*.md": "https://cognitive.uservoice.com/forums/558796-translator",
         "articles/cognitive-services/translator-speech/**/*.md": "https://cognitive.uservoice.com/forums/558796-translator",
-        "articles/cognitive-services/video-indexer/**/*.md": "https://cognitive.uservoice.com/forums/598144-video-indexer",
+        "articles/media-services/video-indexer/**/*.md": "https://cognitive.uservoice.com/forums/598144-video-indexer",
         "articles/cognitive-services/Web-Language-Model/**/*.md": "https://cognitive.uservoice.com/forums/555943-weblm",
+        "articles/cognitive-services/form-recognizer/**/*.md": "https://cognitive.uservoice.com/forums/921556-form-recognizer",
+        "articles/cognitive-services/Ink-Recognizer/**/*.md": "https://cognitive.uservoice.com/forums/921559-ink-recognizer",
+        "articles/cognitive-services/speech-service/**/*.md": "https://cognitive.uservoice.com/forums/912208-speech-service",
         "articles/connectors/**/*.md": "https://feedback.azure.com/forums/34192--general-feedback",
         "articles/container-instances/**/*.md": "https://feedback.azure.com/forums/602224-azure-container-instances",
         "articles/container-registry/**/*.md": "https://feedback.azure.com/forums/903958-azure-container-registry",
@@ -357,31 +368,16 @@
         "articles/firewall/**/*.md": "https://feedback.azure.com/forums/217313-networking?category_id=345022"
       },
       "searchScope": {
-        "articles/data-lake-analytics/**/*.md": [
-          "Azure",
-          "Azure Data Lake Analytics"
-        ],
-        "articles/postgresql/**.md": [
-          "Azure",
-          "Azure Database for PostgreSQL",
-          "PostgreSQL"
-        ],
-        "articles/mysql/**.md": [
-          "Azure",
-          "Azure Database for MySQL",
-          "MySQL"
-        ],
-        "articles/stream-analytics/**/*.md": [
-          "Azure",
-          "Stream Analytics"
-        ],
-        "articles/data-explorer/**/*.md": [
-          "Azure",
-          "Data Explorer",
-          "Azure Data Explorer",
-          "Kusto",
-          "kusto"
-        ]
+        "articles/azure-databricks/**/*.md": ["Azure","Azure Databricks"],
+        "articles/cosmos-db/**/*.md": ["Azure","Azure Cosmos DB"],
+        "articles/data-catalog/**/*.md": ["Azure","Azure Data Catalog"],
+        "articles/data-explorer/**/*.md": ["Azure","Kusto","Azure Data Explorer"],
+        "articles/data-lake-analytics/**/*.md": ["Azure","Azure Data Lake Analytics"],
+        "articles/data-share/**/*.md": ["Azure","Azure Data Share"],
+        "articles/mariadb/**.md": ["Azure","Azure Database for MariaDB"],
+        "articles/mysql/**.md": ["Azure","Azure Database for MySQL"],
+        "articles/postgresql/**.md": ["Azure","Azure Database for PostgreSQL"],
+        "articles/stream-analytics/**/*.md": ["Azure","Stream Analytics"]
       },
       "titleSuffix": {
         "articles/governance/blueprints/**/*.md": "Azure Blueprints",

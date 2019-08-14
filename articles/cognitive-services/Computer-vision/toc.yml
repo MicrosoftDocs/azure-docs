@@ -99,35 +99,37 @@
       href: quickstarts-sdk/csharp-hand-text-sdk.md
   - name: Using the Python SDK
     href: quickstarts-sdk/python-sdk.md
+  - name: Using the Java SDK
+    href: quickstarts-sdk/java-sdk.md
 - name: Tutorials
   items:
   - name: Generate metadata for images
     href: Tutorials/storage-lab-tutorial.md
 - name: Concepts
   items:
-  - name: Tagging images
+  - name: Content tags
     href: concept-tagging-images.md
-  - name: Detecting objects
+  - name: Object detection
     href: concept-object-detection.md
-  - name: Detecting brands
+  - name: Brand detection
     href: concept-brand-detection.md
-  - name: Categorizing images
+  - name: Image categorization
     href: concept-categorizing-images.md
-  - name: Describing images
+  - name: Image descriptions
     href: concept-describing-images.md
-  - name: Detecting faces
+  - name: Face detection
     href: concept-detecting-faces.md
-  - name: Detecting image types
+  - name: Image type detection
     href: concept-detecting-image-types.md
-  - name: Detecting domain-specific content
+  - name: Domain-specific content
     href: concept-detecting-domain-content.md
-  - name: Detecting color schemes
+  - name: Color scheme detection
     href: concept-detecting-color-schemes.md
-  - name: Generating thumbnails
+  - name: Smart-cropped thumbnails
     href: concept-generating-thumbnails.md
-  - name: Recognize printed and handwritten text
+  - name: Printed and handwritten text recognition
     href: concept-recognizing-text.md
-  - name: Detecting adult and racy content
+  - name: Adult and racy content detection
     href: concept-detecting-adult-content.md
 - name: How-to guides
   items:
@@ -171,7 +173,7 @@
       href: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python
     - name: Go
       href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision
-    - name: Android (Java)
+    - name: Java
       href: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable
     - name: Swift
       href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK

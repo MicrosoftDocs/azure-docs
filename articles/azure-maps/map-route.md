@@ -1,6 +1,6 @@
 ---
 title: Show directions with Azure Maps | Microsoft Docs
-description: How to display directions between two locations on a Javascript map
+description: How to display directions between two locations on a map with the Azure Maps Web SDK.
 author: jingjing-z
 ms.author: jinzh
 ms.date: 07/29/2019
@@ -34,7 +34,7 @@ A line is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-contr
 
 A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map. The fifth block of code creates and adds a symbol layer to the map.
 
-The sixth block of code queries the Azure Maps routing service, which is part of the [service module](how-to-use-services-module.md). The [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) method of the RouteURL is used to get a route between the start and end points. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and is added to the datasource. It then renders the response as a route on the map. For more information about adding a line to the map, see [add a line on the map](./map-add-shape.md#addALine).
+The sixth block of code queries the Azure Maps routing service, which is part of the [service module](how-to-use-services-module.md). The [calculateRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.routeurl?view=azure-iot-typescript-latest#methods) method of the RouteURL is used to get a route between the start and end points. A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and is added to the datasource. It then renders the response as a route on the map. For more information about adding a line to the map, see [add a line on the map](map-add-line-layer.md).
 
 The last block of code sets the bounds of the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
@@ -57,7 +57,7 @@ A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/at
 
 The next code block creates `SouthWest` and `NorthEast` points from the start and destination points and sets the bounds of the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
-The last block of code uses the [Fetch API](https://fetch.spec.whatwg.org/) to make a search request to the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). The response is then parsed. If the response was successful, the latitude and longitude information is used to create an array a line by connecting those points. The line data is then added to data source to render the route on the map. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
+The last block of code uses the [Fetch API](https://fetch.spec.whatwg.org/) to make a search request to the [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections). The response is then parsed. If the response was successful, the latitude and longitude information is used to create an array a line by connecting those points. The line data is then added to data source to render the route on the map. You can see [add a line on the map](map-add-line-layer.md) for instructions.
 
 The route query, data source, symbol, and line layers and the camera bounds are created and set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the results are displayed after the map loads fully.
 
