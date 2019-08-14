@@ -32,7 +32,7 @@ A workspace is a foundational resource in the cloud that you use to experiment, 
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
-[!INCLUDE [aml-create-portal](../../../includes/aml-download-config.md)]
+[!INCLUDE [aml-download-config](../../../includes/aml-download-config.md)]
 
 ## <a name="azure"></a>Create a cloud notebook server
 
