@@ -91,7 +91,7 @@ To verify and turn on this setting, go to your Azure SQL server > Security > Fir
 1. Click **Author & Monitor** tile to launch the Data Factory UI application in a separate tab.
 1. In the **get started** page, switch to the **Author** tab in the left panel as shown in the following image:  
 
-     ![Get started page](./media/tutorial-bulk-copy-portal/get-started-page.png)
+     ![Get started page](./media/doc-common-process/get-started-page-author-button.png)
 
 ## Create linked services
 You create linked services to link your data stores and computes to a data factory. A linked service has the connection information that the Data Factory service uses to connect to the data store at runtime. 
@@ -185,8 +185,6 @@ In this tutorial, the source and destination SQL tables are not hard-coded in th
 1. Switch to the **Connection** tab, 
 
     a. For **Table**, check the **Edit** option, click into the table name input box, then click the **Add dynamic content** link below. 
-    
-    ![Parameter name](./media/tutorial-bulk-copy-portal/table-name-parameter.png)
 
     b. In the **Add Dynamic Content** page, click the **DWTAbleName** under **Parameters**, which will automatically populate the top expression text box `@dataset().DWTableName`, then click **Finish**. The **tableName** property of the dataset is set to the value that's passed as an argument for the **DWTableName** parameter. The ForEach activity iterates through a list of tables, and passes one by one to the Copy activity. 
 
@@ -223,7 +221,6 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 
     b. Switch to the **Settings** tab, click the input box for **Items**, then click the **Add dynamic content** link below. 
 
-
     c. In the **Add Dynamic Content** page, collapse the **System Variables** and **Functions** sections, click the **tableList** under **Parameters**, which will automatically populate the top expression text box as `@pipeline().parameter.tableList`. Then click **Finish**. 
 
     ![Foreach parameter builder](./media/tutorial-bulk-copy-portal/for-each-parameter-builder.png)
@@ -233,36 +230,35 @@ The  **IterateAndCopySQLTables** pipeline takes a list of tables as a parameter.
 1. In the **Activities** toolbox, expand **Move & Transfer**, and drag-drop **Copy Data** activity into the pipeline designer surface. Notice the breadcrumb menu at the top. The **IterateAndCopySQLTable** is the pipeline name and **IterateSQLTables** is the ForEach activity name. The designer is in the activity scope. To switch back to the pipeline editor from the ForEach editor, you can click the link in the breadcrumb menu. 
 
     ![Copy in ForEach](./media/tutorial-bulk-copy-portal/copy-in-for-each.png)
-1. Switch to the **Source** tab, and do the following actions:
 
-    a. Select **AzureSqlDatabaseDataset** for **Source Dataset**.
-    
-    b. Select **Query** for **User Query**. 
-    
-    c. Click the **Query** input box -> select the **Add dynamic content** below -> enter the following expression for **Query** -> select **Finish**.
+1. Switch to the **Source** tab, and do the following steps:
+
+    1. Select **AzureSqlDatabaseDataset** for **Source Dataset**. 
+    1. Select **Query** option for **Use Query**. 
+    1. Click the **Query** input box -> select the **Add dynamic content** below -> enter the following expression for **Query** -> select **Finish**.
 
         ```sql
         SELECT * FROM [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ``` 
 
-1. Switch to the **Sink** tab, and do the following actions: 
 
-    a. Select **AzureSqlDWDataset** for **Sink Dataset**.
-    
-    b. Select correct procedure for **Stored Procedure Name**. 
-    
-    c. Click input box for the **Table type parameter name** -> select **Add dynamic content** below -> enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script -> select **Finish**.
-    
-    d. Click the **Pre-copy Script** input box -> select **Add dynamic content** below -> enter the following expression as script -> select **Finish**.
+1. Switch to the **Sink** tab, and do the following steps: 
+
+    1. Select **AzureSqlDWDataset** for **Sink Dataset**.
+    1. Click the input box for the VALUE of DWTableName parameter -> select the **Add dynamic content** below, enter `[@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]` expression as script, -> select **Finish**.
+    1. Select the checkbox for **Allow PolyBase**. 
+    1. Clear the **Use Type default** option. 
+    1. Click the **Pre-copy Script** input box -> select the **Add dynamic content** below -> enter the following expression as script -> select **Finish**. 
 
         ```sql
         TRUNCATE TABLE [@{item().TABLE_SCHEMA}].[@{item().TABLE_NAME}]
         ```
+
+        ![Copy sink settings](./media/tutorial-bulk-copy-portal/copy-sink-settings.png)
 1. Switch to the **Settings** tab, and do the following steps: 
 
-    a. Select **True** for **Enable Staging**.
-    
-    b. Select **AzureStorageLinkedService** for **Store Account Linked Service**.
+    1. Select the checkbox for **Enable Staging**.
+    1. Select **AzureStorageLinkedService** for **Store Account Linked Service**.
 
 1. To validate the pipeline settings, click **Validate** on the top pipeline tool bar. Make sure that there's no validation error. To close the **Pipeline Validation Report**, click **>>**.
 
@@ -278,40 +274,33 @@ This pipeline does two actions:
 
 1. In the **Activities** toolbox, expand **General**, and drag-drop **Lookup** activity to the pipeline designer surface, and do the following steps:
 
-    a. Enter **LookupTableList** for **Name**. 
-    
-    b. Enter **Retrieve the table list from Azure SQL database** for **Description**.
+    1. Enter **LookupTableList** for **Name**. 
+    1. Enter **Retrieve the table list from Azure SQL database** for **Description**.
 
 1. Switch to the **Settings** tab, and do the following steps:
 
-    a. Select **AzureSqlDatabaseDataset** for **Source Dataset**. 
-    
-    b. Select **Query** for **Use Query**. 
-    
-    c. Enter the following SQL query for **Query**.
+    1. Select **AzureSqlDatabaseDataset** for **Source Dataset**. 
+    1. Select **Query** for **Use Query**. 
+    1. Enter the following SQL query for **Query**.
 
         ```sql
         SELECT TABLE_SCHEMA, TABLE_NAME FROM information_schema.TABLES WHERE TABLE_TYPE = 'BASE TABLE' and TABLE_SCHEMA = 'SalesLT' and TABLE_NAME <> 'ProductModel'
         ```
-    d. Clear the checkbox for the **First row only** field.
+    1. Clear the checkbox for the **First row only** field.
 
-    ![Lookup activity - settings page](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
-
+        ![Lookup activity - settings page](./media/tutorial-bulk-copy-portal/lookup-settings-page.png)
 1. Drag-drop **Execute Pipeline** activity from the Activities toolbox to the pipeline designer surface, and set the name to **TriggerCopy**.
 
-1. Switch to the **Settings** tab, and do the following actions: 
+1. Switch to the **Settings** tab, and do the following steps: 
 
-    a. Select **IterateAndCopySQLTables** for **Invoked pipeline**. 
-    
-    b. Expand the **Advanced** section. 
-    
-    c. Click **+ New** in the **Parameters** section. 
-    
-    d. Enter **tableList** for parameter **name**.
-    
-    e. Click VALUE input box -> select **Add dynamic content** below -> enter `@activity('LookupTableList').output.value` as table name value -> select **Finish**. You're setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination.
+    1. Select **IterateAndCopySQLTables** for **Invoked pipeline**. 
+    1. Expand the **Advanced** section. 
+    1. Click **+ New** in the **Parameters** section. 
+    1. Enter **tableList** for parameter **name**.
+    1. Click VALUE input box -> select the **Add dynamic content** below -> enter `@activity('LookupTableList').output.value` as table name value -> select **Finish**. You're setting the result list from the Lookup activity as an input to the second pipeline. The result list contains the list of tables whose data needs to be copied to the destination. 
 
-1. **Connect** the **Lookup** activity to the **Execute Pipeline** activity by dragging the **green box** attached to the Lookup activity to the left of Execute Pipeline activity.
+        ![Execute pipeline activity - settings page](./media/tutorial-bulk-copy-portal/execute-pipeline-settings-page.png)
+1. To **Connect** the **Lookup** activity to the **Execute Pipeline** activity, drag the **green box** attached to the Lookup activity to the left of Execute Pipeline activity.
 
     ![Connect Lookup and Execute Pipeline activities](./media/tutorial-bulk-copy-portal/connect-lookup-execute-pipeline.png)
 1. To validate the pipeline, click **Validate** on the toolbar. Confirm that there are no validation errors. To close the **Pipeline Validation Report**, click **>>**.
