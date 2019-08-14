@@ -107,6 +107,10 @@ You should have 2 running pods.
 ```
 kubectl apply -f acr-nginx.yaml
 kubectl get pods
+
+NAME                                 READY   STATUS    RESTARTS   AGE
+nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
+nginx0-deployment-669dfc4d4b-xdpd6   1/1     Running   0          20s
 ```
 
 <!-- LINKS - external -->
