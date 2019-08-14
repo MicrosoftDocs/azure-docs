@@ -21,22 +21,22 @@ highlightedContent:
   items: 
     - title: What is Azure security?
       itemType: overview 
-      url: ./fundamentals/azure-security.md
+      url: ./fundamentals/overview.md
     - title: How does Microsoft share security responsibilities with my organization? 
       itemType: overview 
       url: https://aka.ms/sharedresponsibility
     - title: Secure PaaS deployments
       itemType: concept
-      url: ./fundamentals/security-paas-deployments.md
+      url: ./fundamentals/paas-deployments.md
     - title: What monitoring and auditing options are available in Azure? 
       itemType: concept
-      url: ./fundamentals/security-management-and-monitoring-overview.md
+      url: ./fundamentals/management-monitoring-overview.md
     - title: How does Azure secure my data at rest?
       itemType: concept
-      url: ./fundamentals/azure-security-encryption-atrest.md
+      url: ./fundamentals/encryption-atrest.md
     - title: How do I encrypt Azure virtual machines?
       itemType: overview
-      url: ./fundamentals/azure-security-disk-encryption-overview.md
+      url: azure-security-disk-encryption-overview.md
 
 conceptualContent: 
   title: Security content
@@ -44,13 +44,13 @@ conceptualContent:
   items: 
     - title: Fundamentals
       links: 
-        - url: ./fundamentals/azure-security.md
+        - url: ./fundamentals/overview.md
           itemType: overview
           text: Introduction to Azure security
-        - url: ./fundamentals/security-best-practices-and-patterns.md
+        - url: ./fundamentals/best-practices-and-patterns.md
           itemType: concept
           text: Security best practices
-        - url: ./fundamentals/azure-threat-detection.md
+        - url: ./fundamentals/threat-detection.md
           itemType: overview
           text: Advanced threat detection
       footerLink: 
@@ -65,7 +65,7 @@ conceptualContent:
         - url: ./develop/secure-web-app.md
           itemType: how-to-guide
           text: Secure sample apps
-        - url: ./develop/azure-security-threat-modeling-tool.md
+        - url: ./develop/threat-modeling-tool.md
           itemType: how-to-guide
           text: Secure development resources 
       footerLink: 
@@ -80,19 +80,19 @@ conceptualContent:
         - url: https://docs.microsoft.com/azure/dedicated-hsm/
           itemType: overview
           text:  Azure Dedicated HSM
-        - url: ./fundamentals/security-storage-overview.md
+        - url: ./fundamentals/storage-overview.md
           itemType: overview
           text:  Azure Storage security
       footerLink: 
-        url: ./fundamentals/security-azure-encryption-overview.md
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Encryption
       links: 
-        - url: azure-security-data-encryption-best-practices.md
+        - url: ./fundamentals/data-encryption-best-practices.md
           itemType: overview
           text:  Best practices
-        - url: azure-security-encryption-atrest.md
+        - url: ./fundamentals/encryption-atrest.md
           itemType: concept
           text:  Data Encryption-at-Rest
         - url: azure-security-disk-encryption-overview.md
@@ -104,13 +104,13 @@ conceptualContent:
 
     - title: Identity management
       links: 
-        - url: ./fundamentals/security-identity-management-overview.md
+        - url: ./fundamentals/identity-management-overview.md
           itemType: overview
           text:  Security overview
-        - url: ./fundamentals/azure-ad-choose-authn.md
+        - url: ./fundamentals/choose-ad-authn.md
           itemType: concept
           text:  Authentication for hybrid identity solution
-        - url: ./fundamentals/azure-security-global-admin.md
+        - url: ./fundamentals/global-admin.md
           itemType: concept
           text:  Enforce MFA for subscription admins
       footerLink: 
@@ -119,22 +119,22 @@ conceptualContent:
 
     - title: Compliance
       links: 
-        - url: https://docs.microsoft.com/azure/security/blueprints/au-protected-iaaswa-overview
+        - url: ./blueprints/au-protected-iaaswa-overview.md
           itemType: overview
           text:  Compliance solutions
       footerLink: 
-        url: https://docs.microsoft.com/azure/security/blueprints/au-protected-iaaswa-overview
+        url: ./fundamentals/index.md
         text: See more
 
     - title: Monitor, log & audit
       links: 
-        - url: ./fundamentals/security-management-and-monitoring-overview.md
+        - url: ./fundamentals/management-and-monitoring-overview.md
           itemType: overview
           text:  Monitoring overivew
-        - url: ./fundamentals/azure-log-audit.md
+        - url: ./fundamentals/log-audit.md
           itemType: overview
           text:  What is Azure logging & auditing?
-        - url: ./fundamentals/security-azure-log-integration-overview.md
+        - url: ./fundamentals/azure-log-integration-overview.md
           itemType: overview
           text:  Azure Log Integration
       footerLink: 
@@ -143,13 +143,13 @@ conceptualContent:
 
     - title: Network security
       links: 
-        - url: ./fundamentals/security-network-overview.md
+        - url: ./fundamentals/network-overview.md
           itemType: overview
           text:  Security overview
-        - url: ./fundamentals/azure-security-network-security-best-practices.md
+        - url: ./fundamentals/network-security-best-practices.md
           itemType: concept
           text:  Best practices
-        - url: ./fundamentals/azure-ddos-best-practices.md
+        - url: ./fundamentals/ddos-best-practices.md
           itemType: concept
           text:  DDoS Protection
       footerLink: 
@@ -158,13 +158,13 @@ conceptualContent:
 
     - title: Virtual machine security
       links: 
-        - url: ./fundamentals/security-virtual-machines-overview.md
+        - url: ./fundamentals/virtual-machines-overview.md
           itemType: overview
           text:  Security overview
-        - url: ./fundamentals/azure-security-iaas.md
+        - url: ./fundamentals/iaas.md
           itemType: concept
           text:  Best practices
-        - url: ./fundamentals/security-recommendations-azure-marketplace-images.md
+        - url: ./fundamentals/azure-marketplace-images.md
           itemType: how-to-guide
           text:  Security configuration recommendations
       footerLink: 
@@ -173,7 +173,7 @@ conceptualContent:
 
     - title: Threat detection and protection
       links: 
-        - url: ./fundamentals/azure-security-antimalware.md
+        - url: ./fundamentals/antimalware.md
           itemType: concept
           text:  Microsoft Antimalware
         - url: https://docs.microsoft.com/azure/security-center/
@@ -183,18 +183,18 @@ conceptualContent:
           itemType: overview
           text:  Azure Sentinel
       footerLink: 
-        url: ./fundamentals/azure-threat-detection.md
+        url: ./fundamentals/threat-detection.md
         text: See more
 
     - title: Database security
       links: 
-        - url: ./fundamentals/azure-database-security-overview.md
+        - url: ./fundamentals/database-security-overview.md
           itemType: overview
           text:  Security overview
-        - url: ./fundamentals/azure-database-security-best-practices.md
+        - url: ./fundamentals/database-best-practices.md
           itemType: concept
           text:  Best practices
-        - url: ./fundamentals/azure-database-security-checklist.md
+        - url: ./fundamentals/database-security-checklist.md
           itemType: concept
           text:  Security checklist
       footerLink: 
