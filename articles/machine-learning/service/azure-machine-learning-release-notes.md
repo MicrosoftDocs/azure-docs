@@ -52,13 +52,17 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Fixed issue with blob_cache_timeout parameter ordering.
     + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/tabular-dataset.
     + Adding external fit and transform exception types to system errors.
-    + Add a azureml.core.secrets module to add, get and retrieve secrets from the keyvault assosciated with your worksapce.
-    + Supported operations are:
-      + azureml.core.secrets.add_secret(name, value, workspace=None)
-      + azureml.core.secrets.add_secrets(secrets_dict, workspace=None)
-      + azureml.core.secrets.get_secret(name, workspace=None)
-      + azureml.core.secrets.get_secrets(secrets_list, workspace=None)
-      + azureml.core.secrets.list_secrets(workspace=None)
+    + Support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get and list secrets from the keyvault associated with your workspace. Supported operations are:
+      + azureml.core.workspace.Workspace.get_default_keyvault()
+      + azureml.core.keyvault.Keyvault.set_secret(name, value)
+      + azureml.core.keyvault.Keyvault.set_secrets(secrets_dict)
+      + azureml.core.keyvault.Keyvault.get_secret(name)
+      + azureml.core.keyvault.Keyvault.get_secrets(secrets_list)
+      + azureml.core.keyvault.Keyvault.list_secrets()
+    + Additional methods to obtain default keyvault and get secrets during remote run:
+      + azureml.core.workspace.Workspace.get_default_keyvault()
+      + azureml.core.run.Run.get_secret(name)
+      + azureml.core.run.Run.get_secrets(secrets_list)
     + Added additional override parameters to submit-hyperdrive CLI command.
     + Improve reliability of API calls be expanding retries to common requests library exceptions.
     + Add support for submitting runs from a submitted run.
