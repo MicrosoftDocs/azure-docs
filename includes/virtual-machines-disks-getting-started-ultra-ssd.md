@@ -44,7 +44,7 @@ Preserve the **Zones** value, it represents your availability zone and you will 
 |disks     |UltraSSD_LRS         |eastus2         |X         |         |         |         |
 
 > [!NOTE]
-> If there was no response from the command, then your registration to the feature is either still pending, or not approved yet.
+> If there was no response from the command, then your registration to the feature is either still pending, or you are using an old version of CLI or PowerShell.
 
 Now that you know which zone to deploy to, follow the deployment steps in this article to either deploy a VM with an ultra disk attached or attach an ultra disk to an existing VM.
 
