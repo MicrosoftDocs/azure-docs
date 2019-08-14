@@ -60,7 +60,7 @@ To open a work folder and to create a file in Visual Studio Code, follow these s
 For a national cloud user, follow these steps to set the Azure environment first, and then use the **Azure: Sign In** command to sign into Azure:
    
 1. Select **File\Preferences\Settings**.
-2. Search on **Azure: Cloud**.
+2. Search on the following string: **Azure: Cloud**
 3. Select the national cloud from the list.
 
    ![Set default login entry configuration](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
