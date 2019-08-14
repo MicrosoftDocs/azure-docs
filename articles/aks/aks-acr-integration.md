@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/14/2018
 ms.author: mlearned
 ---
 
