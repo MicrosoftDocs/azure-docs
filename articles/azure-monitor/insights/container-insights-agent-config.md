@@ -25,7 +25,7 @@ This article demonstrates how to create ConfigMap and configure data collection 
 >Support for Prometheus is a feature in public preview at this time.
 >
 
-## Configure your cluster with custom data collection settings
+## ConfigMap file overview
 
 A template ConfigMap file is provided that allows you to easily edit it with your customizations without having to create it from scratch. Before starting, you should review the Kubernetes documentation about [ConfigMaps](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/) and familiarize yourself with how to create, configure, and deploy ConfigMaps. This will allow you to filter stderr and stdout per namespace or across the entire cluster, and environment variables for any container running across all pods/nodes in the cluster.
 
@@ -81,7 +81,7 @@ When a URL is specified, Azure Monitor for containers only scrapes the endpoint.
 
 ConfigMap is a global list and there can be only one ConfigMap applied to the agent. You cannot have another ConfigMap overruling the collections.
 
-### Configure and deploy ConfigMaps
+## Configure and deploy ConfigMaps
 
 Perform the following steps to configure and deploy your ConfigMap configuration file to your cluster.
 
