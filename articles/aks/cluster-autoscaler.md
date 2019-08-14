@@ -175,7 +175,7 @@ az aks nodepool update \
   --max-count 3
 ```
 
-The cluster autoscaler can be disabled with `az aks nodepool update`[az-aks-nodepool-update] and passing the `--disable-cluster-autoscaler` parameter.
+The cluster autoscaler can be disabled with [az aks nodepool update][az-aks-nodepool-update] and passing the `--disable-cluster-autoscaler` parameter.
 
 ## Next steps
 
