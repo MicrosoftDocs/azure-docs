@@ -73,7 +73,7 @@ You can create and delete app passwords from the **Additional security verificat
 
 1. From the **App passwords** page, select **Delete** next to the app password you want to delete.
 
-   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)
+   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Select **Yes** to confirm you want to delete the password, and then select **Close**.
 
@@ -111,7 +111,7 @@ If you use two-step verification with your work or school account and your Offic
 
 1. From the **App passwords** page, select **Delete** next to the app password you want to delete.
 
-   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-with-new-password.png)
+   ![Delete an app password](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-page-delete.png)
 
 2. Select **Delete** for the app password to delete, select **Yes** in the confirmation box, and then select **Close**.
 
