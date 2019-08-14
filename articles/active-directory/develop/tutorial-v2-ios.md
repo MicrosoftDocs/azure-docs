@@ -94,8 +94,8 @@ github "AzureAD/microsoft-authentication-library-for-objc" "master"
 
 From a terminal window, in the same directory as the updated `Cartfile`,  run the following command to have Carthage update the dependencies in your project:
 
-```
-carthage update --platform iOS`
+```bash
+carthage update --platform iOS
 ```
 
 ### Manually
