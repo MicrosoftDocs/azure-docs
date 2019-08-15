@@ -11,16 +11,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/11/2019
+ms.date: 08/14/2019
 ms.author: allensu
 ---
 
 # Metrics and health diagnostics for Standard Load Balancer
 
 Azure Standard Load Balancer exposes Azure Standard Load Balancer gives your resources the following diagnostic capabilities:
+
 * **Multi-dimensional metrics**: Provides new multi-dimensional diagnostic capabilities through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for both public and internal load balancer configurations. You can monitor, manage, and troubleshoot your load balancer resources.
 
-* **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for the public load balancer configuration of Standard Load Balancer.
+* **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for Standard Load Balancer.
 
 This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer.
 
@@ -167,9 +168,6 @@ The chart allows customers to troubleshoot the deployment on their own without h
 
 Health status for the Standard Load Balancer resources is exposed via the existing **Resource health** under **Monitor > Service Health**.
 
->[!NOTE]
->Resource health status for Load Balancer is currently available for public configuration of Standard Load Balancer only. Internal load balancer resources or Basic SKUs of Load Balancer resources do not expose resource health.
-
 To view the health of your public Standard Load Balancer resources:
 1. Select  **Monitor** > **Service Health**.
 
@@ -197,15 +195,9 @@ The various resource health statuses and their descriptions are listed in the fo
 | Unavailable | Your public standard load balancer resource is not healthy. Diagnose the health by selecting **Azure Monitor** > **Metrics**.<br>(*Unavailable* status might also mean that the resource is not connected with your public standard load balancer.) |
 | Unknown | Resource health status for your public standard load balancer resource has not been updated yet.<br>(*Unknown* status might also mean that the resource is not connected with your public standard load balancer.)  |
 
-## Limitations 
-
-- Data path availability (VIP availability) is not available for internal Load Balancer frontends.
-
 ## Next steps
 
 - Learn more about [Standard Load Balancer](load-balancer-standard-overview.md).
 - Learn more about your [Load balancer outbound connectivity](https://aka.ms/lboutbound).
 - Learn about [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
 - Learn about the [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/) and [how to retrieve metrics via REST API](/rest/api/monitor/metrics/list).
-
-
