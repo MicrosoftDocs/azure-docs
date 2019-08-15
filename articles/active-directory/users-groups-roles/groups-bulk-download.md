@@ -6,7 +6,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: mtillman
-ms.date: 07/15/2019
+ms.date: 08/15/2019
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -16,9 +16,9 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Download a list of groups in the Azure Active Directory portal
+# Download a list of groups in Azure Active Directory
 
-Azure Active Directory (Azure AD) supports bulk user create and delete operations, bulk invite for guests, and supports downloading lists of users, groups, and group members.
+Azure Active Directory (Azure AD) supports bulk group list download, bulk import for group members, and bulk removal of group members.
 
 ## To download a list of groups
 
@@ -40,6 +40,6 @@ Guidance 2
 
 ## Next steps
 
-[Bulk add users](users-bulk-add.md)
-[Bulk delete users](users-bulk-delete.md)
-[Download list of groups](groups-bulk-download.md)
+- [Bulk remove group members](groups-bulk-remove-members.md)
+- [Download members of a group](groups-bulk-download-members.md)
+
