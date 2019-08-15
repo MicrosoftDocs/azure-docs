@@ -1,5 +1,5 @@
 --- 
-title: Configure VPN between on-premises and CloudSimple Private Cloud 
+title: Azure VMware Solution by CloudSimple - Configure VPN between on-premises and Private Cloud
 description: Describes how to configure a Site-to-Site or Point-to-Site VPN connection between your on-premises network and your CloudSimple Private Cloud
 author: sharaths-cs
 ms.author: b-shsury 
