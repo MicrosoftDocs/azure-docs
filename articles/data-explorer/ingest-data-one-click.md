@@ -11,7 +11,7 @@ ms.date: 08/14/2019
 
 # Use one-click ingestion to ingest data into Azure Data Explorer
 
-This article shows how to perform one-click ingestion for quick ingestion of a new table in json or csv formats from storage into Azure Data Explorer. Once the data is ingested, you can edit the table and run queries using the Web UI.
+This article shows how to use one-click ingestion for quick ingestion of a new table in json or csv formats from storage into Azure Data Explorer. Once the data is ingested, you can edit the table and run queries using the Web UI.
 
 ## Prerequisites
 
@@ -28,7 +28,7 @@ This article shows how to perform one-click ingestion for quick ingestion of a n
  
 1. In the **Data Ingestion (Preview)** window, in **Source** tab, complete the **Project Details**:
 
-    * Enter new **Table name**. Existing table name is not supported yet.
+    * Enter new **Table name**. 
 	* Select **Ingestion type** > **from storage**.
 	* Enter **Link to storage** Add url to storage. Use Blob SAS URL for private storage accounts. 
     * Select **Edit schema**
@@ -44,19 +44,19 @@ This article shows how to perform one-click ingestion for quick ingestion of a n
     ![one click ingestion csv format schema.png](media/ingest-data-one-click/one-click-csv-format.png)
 
    In the **Schema** tab > **Data format**, if select **JSON**:
-    * Select **JSON levels**: 1-10 from drop-down. The levels in the json file are depicted in the table on the bottom right. 
+    * Select **JSON levels**: 1-10 from drop-down. The levels in the json file are shown in the table on the bottom right. 
     * **Mapping name** is set automatically but can be edited.
 
     ![one click ingestion json format schema](media/ingest-data-one-click/one-click-json-format.png)  
 
-1. In **Editor**, select **V** on right to open the editor. In the editor you can view and copy the automatic queries generated from your inputs. 
+1. In **Editor**, select **V** on right to open the editor. In the editor, you can view and copy the automatic queries generated from your inputs. 
 
-1.	In table depicted on the bottom right: 
+1.	In table on the bottom right: 
     * Select **V** on right of column to **Rename column**, **Delete column**, **Sort ascending**, or **Sort descending**
     * Double-click on column name to edit.
     * Select the icon to the left of the column name to change the data type. 
 
-1. Select **Start ingestion**. This will start the process to create table, create mapping, and data ingestion.
+1. Select **Start ingestion** to create table, create mapping, and data ingestion.
  
 ## Query data
 
