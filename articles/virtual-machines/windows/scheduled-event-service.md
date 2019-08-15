@@ -22,13 +22,13 @@ In this article, we will show how you can use scheduled events to be notified ab
 
 ## Routing scheduled events to Log Analytics
 
-Scheduled Events is available as part of the [Azure Instance Metadata Service](instance-metadata-service.md), which is available on every Azure virtual machine. Customers can write automation to query the endpoint of their virtual machines to find scheduled maintenance notificatoins and perform mitigations, like saving the state and taking the virtual machine out of rotation. We recommend building automation to record the Scheduled Events so you can have an auditing log of Azure maintenance events. 
+Scheduled Events is available as part of the [Azure Instance Metadata Service](instance-metadata-service.md), which is available on every Azure virtual machine. Customers can write automation to query the endpoint of their virtual machines to find scheduled maintenance notifications and perform mitigations, like saving the state and taking the virtual machine out of rotation. We recommend building automation to record the Scheduled Events so you can have an auditing log of Azure maintenance events. 
 
 In this article, we will walk you through how to capture maintenance Scheduled Events to Log Analytics. Then, we will trigger some basic notification actions, like sending an email to your team and getting a historical view of all events that have affected your virtual machines. For the event aggregation and automation we will use [Log Analytics](/azure/azure-monitor/learn/quick-create-workspace), but you can use any monitoring solution to collect these logs and trigger automation.
 
 ![Diagram showing the event lifecycle](./media/notifications/events.png)
 
-## Prerequistes
+## Prerequisites
 
 For this example, you will need to create a [Windows Virtual Machine in an Availability Set](tutorial-availability-sets.md). Scheduled Events provide notifications about changes that can affect any of the virtual machines in your availability set, Cloud Service, Virtual Machine Scale Set or standalone VMs. We will be running a [service](https://github.com/microsoft/AzureScheduledEventsService) that polls for scheduled events on one of the VMs that will act as a collector, to get events for all of the other VMs in the availability set.    
 
@@ -154,10 +154,10 @@ Event
 	![Save the query](./media/save-query.png)
 
 1. Select **New alert rule**. 
-1. In the **Create rule** page, leave *collectorworkspace* as the **Resource**.
-1. Under **Condition**, select the entry *Whenever the customer log seatch is <login undefined>*. The **Configure signal logic** page will open.
+1. In the **Create rule** page, leave `collectorworkspace` as the **Resource**.
+1. Under **Condition**, select the entry *Whenever the customer log search is <login undefined>*. The **Configure signal logic** page will open.
 1. Under **Threshold value**, enter *0* and then select **Done**.
-1. Under **Actions**, select **Create action group**. The *8Add action group** page will open.
+1. Under **Actions**, select **Create action group**. The **Add action group** page will open.
 1. In **Action group name**, type *myActionGroup*.
 1. In **Short name**, type **myActionGroup**.
 1. In **Resource group**, select *myResourceGroupAvailability**.
