@@ -3,14 +3,15 @@ title: Project Acoustics Quickstart With Unity
 titlesuffix: Azure Cognitive Services
 description: Using sample content, experiment with Project Acoustics design controls in Unity and deploy to Windows Desktop.
 services: cognitive-services
-author: kegodin
+author: NoelCross
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.author: kegodin
+ms.author: noelc
+ROBOTS: NOINDEX
 ---
 
 # Project Acoustics Unity Quickstart
@@ -33,16 +34,35 @@ Import the sample package to a new Unity project.
 
 * Choose **ProjectAcoustics.unitypackage**
 
+* Click on the **Import** button to integrate the Unity package into your project  
+  
+    ![Screenshot of Unity Import Package dialog](media/import-dialog.png)  
+
 If you're importing the package into an existing project, see [Unity integration](unity-integration.md) for additional steps and notes.
+
+>[!NOTE] 
+>Several errors will be displayed in the console log after importing has completed.  Continue to the next step and restart Unity.
 
 ## Restart Unity
 The bake portion of the acoustics toolkit requires the .NET 4.x scripting runtime version. Package import will update your Unity player settings. Restart Unity for this setting to take effect.
 
 You can verify this setting took effect by opening the **Player Settings**:
 
-![Screenshot of Unity Player Settings panel](media/player-settings.png)
+![Screenshot of Unity Player Settings panel](media/player-settings.png)  
 
-![Screenshot of Unity Player Settings panel with .NET 4.5 selected](media/net45.png)
+![Screenshot of Unity Player Settings panel with .NET 4.5 selected](media/net45.png)  
+
+>[!NOTE]
+>Screenshot is taken from Unity 2018.x. Newer versions of Unity may vary.
+
+## Open the Project Acoustics bake window
+Choose **Window > Acoustics** from the Unity menu:
+
+![Screenshot of Unity editor with Acoustics window menu option highlighted](media/window-acoustics.png)
+
+A new floating window named **Acoustics** will appear.  This window is where the properties of the acoustic simulation are set.
+
+![Screenshot of Unity editor with Acoustics window opened](media/unity-editor-plugin-window.png)  
 
 ## Experiment with design controls
 Open the sample scene in the **ProjectAcousticsSample** folder, and click the play button in the Unity editor. Use W, A, S, D and the mouse to move around. To compare how the scene sounds with and without acoustics, press the **R** button until the overlay text turns red and says "Acoustics: Disabled." To see keyboard shortcuts for more controls, press **F1**. Controls are also useable by right-clicking to select the action to perform, then left clicking to perform the action.
@@ -51,7 +71,7 @@ The script **AcousticsAdjust** is attached to the sound sources in the sample sc
 
 ![Screenshot of Unity AcousticsAdjust script](media/acoustics-adjust.png)
 
-The following explores some of the effects that can be produced with the provided controls. For detailed information about each control, see the [Project Acoustics Unity Design Tutorial](unreal-workflow.md).
+The following explores some of the effects that can be produced with the provided controls. For detailed information about each control, see the [Project Acoustics Unity Design Tutorial](unity-workflow.md).
 
 ### Modify distance-based attenuation
 The audio DSP provided by the **Project Acoustics** Unity spatializer plugin respects the per-source distance-based attenuation built into the Unity Editor. Controls for distance-based attenuation are in the **Audio Source** component found in the **Inspector** panel of sound sources, under **3D Sound Settings**:

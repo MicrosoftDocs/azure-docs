@@ -4,7 +4,7 @@ description: Learn how to manage indexing policies in Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 05/06/2019
+ms.date: 06/27/2019
 ms.author: thweiss
 ---
 
@@ -150,7 +150,8 @@ container = client.ReadContainer(containerPath)
 # set the indexing mode to Consistent
 container['indexingPolicy']['indexingMode'] = 'consistent'
 # add an excluded path
-container['indexingPolicy']['excludedPaths'] = [{"path" : "/headquarters/employees/?"}]
+container['indexingPolicy']['excludedPaths'] = [
+    {"path": "/headquarters/employees/?"}]
 # update the container with our changes
 response = client.ReplaceContainer(containerPath, container)
 ```
@@ -162,7 +163,7 @@ Here are some examples of indexing policies shown in their JSON format, which is
 ### Opt-out policy to selectively exclude some property paths
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -196,7 +197,7 @@ Here are some examples of indexing policies shown in their JSON format, which is
 ### Opt-in policy to selectively include some property paths
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/path/to/included/property/?",
@@ -230,7 +231,7 @@ Note: It is generally recommended to use an **opt-out** indexing policy to let A
 ### Using a spatial index on a specific property path only
 ```
     {
-        "indexingPolicy": "consistent",
+        "indexingMode": "consistent",
         "includedPaths": [
             {
                 "path": "/*",
@@ -275,7 +276,7 @@ This policy can be used in situations where the [Time-to-Live (TTL) feature](tim
 ### No indexing
 ```
     {
-        "indexingPolicy": "none"
+        "indexingMode": "none"
     }
 ```
 
@@ -352,7 +353,7 @@ You can define multiple different composite indexes within the same indexing pol
                     "path":"/age",
                     "order":"ascending"
                 }
-            ]
+            ],
             [  
                 {  
                     "path":"/name",

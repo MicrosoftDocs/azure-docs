@@ -7,12 +7,11 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 04/23/2019
+ms.date: 06/03/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Data Box Edge so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Prepare to deploy Azure Data Box Edge  
-
 
 This is the first tutorial in the series of deployment tutorials that are required to completely deploy Azure Data Box Edge. This tutorial describes how to prepare the Azure portal to deploy a Data Box Edge resource.
 
@@ -26,7 +25,6 @@ In this tutorial, you learn how to:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-
 ### Get started
 
 To deploy Data Box Edge, refer to the following tutorials in the prescribed sequence.
@@ -37,7 +35,7 @@ To deploy Data Box Edge, refer to the following tutorials in the prescribed sequ
 | 2. |**[Install Data Box Edge](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Data Box Edge physical device.  |
 | 3. |**[Connect, set up, and activate Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
 | 4. |**[Transfer data with Data Box Edge](data-box-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
-| 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure Edge modules on the device to transform the data as it moves to Azure. |
+| 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure compute modules on the device to transform the data as it moves to Azure. |
 
 You can now begin to set up the Azure portal.
 
@@ -50,7 +48,11 @@ Following are the configuration prerequisites for your Data Box Edge resource, y
 Before you begin, make sure that:
 
 - Your Microsoft Azure subscription is enabled for a Data Box Edge resource. Pay-as-you-go subscriptions are not supported.
-- You have owner or contributor access to your subscription.
+- You have owner or contributor access at resource group level for the Data Box Edge/Data Box Gateway, IoT Hub, and Azure Storage resources.
+
+    - To create any Data Box Edge/ Data Box Gateway resource, you should have permissions as a contributor (or higher) scoped at resource group level. You also need to make sure that the `Microsoft.DataBoxEdge` provider is registered. For information on how to register, go to [Register resource provider](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - To create any IoT Hub resource, make sure that Microsoft.Devices provider is registered. For information on how to register, go to [Register resource provider](data-box-edge-manage-access-power-connectivity-mode.md#register-resource-providers).
+    - To create a Storage account resource, again you need contributor or higher access scoped at the resource group level. Azure Storage is by default a registered resource provider.
 - You have admin or user access to Azure Active Directory Graph API. For more information, see [Azure Active Directory Graph API](https://docs.microsoft.com/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#default-access-for-administrators-users-and-guest-users-).
 - You have your Microsoft Azure storage account with access credentials.
 
@@ -59,7 +61,7 @@ Before you begin, make sure that:
 Before you deploy a physical device, make sure that:
 
 - You've reviewed the safety information that was included in the shipment package.
-- You have a 1 U slot available in a standard 19” rack in your datacenter for rack mounting the device. 
+- You have a 1U slot available in a standard 19” rack in your datacenter for rack mounting the device.
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.

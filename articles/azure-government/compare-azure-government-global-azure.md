@@ -4,7 +4,7 @@ description: This article compares Azure Government and global Azure.
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: Juliako
+author: dumartinmsft
 manager: femila
 
 ms.service: azure-government
@@ -12,8 +12,8 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 4/1/2019
-ms.author: juliako
+ms.date: 5/19/2019
+ms.author: dumartin
 
 #Customer intent: As the chairman of the municipal council, I want to find out if Azure Government will meet our security and compliance requirements.
 ---
@@ -103,7 +103,7 @@ For the most current list of services, see the [Products available by region](ht
 
 ## Security + Identity
 
-* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center) (Preview)
+* [Azure Security Center](documentation-government-services-securityandidentity.md#azure-security-center)
 * [Azure Active Directory](documentation-government-services-securityandidentity.md#azure-active-directory)
 * [Azure Active Directory Premium](documentation-government-services-securityandidentity.md#azure-active-directory-premium-p1-and-p2)
 * [Key Vault](documentation-government-services-securityandidentity.md#key-vault)

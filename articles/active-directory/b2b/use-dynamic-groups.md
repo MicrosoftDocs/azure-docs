@@ -10,8 +10,8 @@ ms.date: 12/14/2017
 
 ms.author: mimart
 author: msmimart
-manager: daveba
-ms.reviewer: sasubram
+manager: celestedg
+ms.reviewer: mal
 
 ms.collection: M365-identity-device-management
 ---
@@ -43,5 +43,5 @@ What such a group might look like:
 
 - [B2B collaboration user properties](user-properties.md)
 - [Adding a B2B collaboration user to a role](add-guest-to-role.md)
-- [Conditional access for B2B collaboration users](conditional-access.md)
+- [Conditional Access for B2B collaboration users](conditional-access.md)
 

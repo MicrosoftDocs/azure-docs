@@ -7,7 +7,7 @@ ms.subservice: cosmosdb-mongo
 
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 12/26/2018
+ms.date: 05/21/2019
 ms.author: rimman
 ---
 
@@ -30,7 +30,7 @@ This quickstart demonstrates how to create a Cosmos account with [Azure Cosmos D
 
 To run the sample, you'll need [Visual Studio](https://www.visualstudio.com/downloads/) and a valid Azure Cosmos DB account.
 
-If you don't already have Visual Studio, download [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
+If you don't already have Visual Studio, download [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** workload installed with setup.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 

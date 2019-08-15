@@ -3,8 +3,8 @@ title: Single sign-on with Application Proxy | Microsoft Docs
 description: Covers how to provide single sign-on using Azure AD Application Proxy.
 services: active-directory
 documentationcenter: ''
-author: CelesteDG
-manager: mtillman
+author: msmimart
+manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: app-mgmt
@@ -12,8 +12,8 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/24/2018
-ms.author: celested
+ms.date: 08/13/2019
+ms.author: mimart
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 
@@ -56,7 +56,8 @@ The Active Directory configuration varies, depending on whether your Application
 2. Select the server running the connector.
 3. Right-click and select **Properties** > **Delegation**.
 4. Select **Trust this computer for delegation to specified services only**. 
-5. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
+5. Select **Use any authentication protocol**.
+6. Under **Services to which this account can present delegated credentials** add the value for the SPN identity of the application server. This enables the Application Proxy Connector to impersonate users in AD against the applications defined in the list.
 
    ![Connector-SVR Properties window screenshot](./media/application-proxy-configure-single-sign-on-with-kcd/Properties.jpg)
 
@@ -108,7 +109,7 @@ For more information about Kerberos, see [All you want to know about Kerberos Co
 Non-Windows apps typically user usernames or SAM account names instead of domain email addresses. If that situation applies to your applications, you need to configure the delegated login identity field to connect your cloud identities to your application identities. 
 
 ## Working with different on-premises and cloud identities
-Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. If that's not the case, you can still use KCD for single sign-on. Configure a **Delegated login identity** for each application to specify which identity should be used when performing single sign-on.  
+Application Proxy assumes that users have exactly the same identity in the cloud and on-premises. But in some environments, due to corporate policies or application dependencies, organizations might have to use alternate IDs for sign-in. In such cases, you can still use KCD for single sign-on. Configure a **Delegated login identity** for each application to specify which identity should be used when performing single sign-on.  
 
 This capability allows many organizations that have different on-premises and cloud identities to have SSO from the cloud to on-premises apps without requiring the users to enter different usernames and passwords. This includes organizations that:
 

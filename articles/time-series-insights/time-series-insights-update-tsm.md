@@ -2,13 +2,13 @@
 title: 'Time Series Model in Azure Time Series Insights Preview | Microsoft Docs'
 description: Understanding Azure Time Series Insights Time Series Model.
 author: ashannon7
-ms.author: anshan
+ms.author: dpalled
 ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 

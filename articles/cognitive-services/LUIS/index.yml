@@ -6,7 +6,7 @@ metadata:
   title: Language Understanding (LUIS) - Tutorials, Quickstarts, API Reference
   description: Learn how to use Language Understanding service to allow your application to understand what a person wants in their own words. 
   author: nitinme
-  manager: cgronlun
+  manager: nitinme
   ms.service: cognitive-services
   ms.tgt_pltfrm: na
   ms.devlang: na

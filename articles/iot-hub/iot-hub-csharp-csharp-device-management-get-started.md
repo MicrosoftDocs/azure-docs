@@ -11,7 +11,7 @@ ms.date: 09/15/2017
 ms.author: robinsh
 ---
 
-# Get started with device management (.NET/.NET)
+# Get started with device management (.NET)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 
@@ -31,7 +31,7 @@ At the end of this tutorial, you have two .NET console apps:
 
 To complete this tutorial, you need the following:
 
-* Visual Studio 2017.
+* Visual Studio.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
@@ -39,13 +39,15 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-find-include-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
-
 ## Register a new device in the IoT hub
 
 [!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
+
+## Get the IoT hub connection string
+
+[!INCLUDE [iot-hub-howto-device-management-shared-access-policy-text](../../includes/iot-hub-howto-device-management-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-service-connection-string](../../includes/iot-hub-include-find-service-connection-string.md)]
 
 ## Trigger a remote reboot on the device using a direct method
 
@@ -68,7 +70,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    using Microsoft.Azure.Devices.Shared;
    ```
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the section "Create an IoT hub." 
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string).
    
    ```csharp
    static RegistryManager registryManager;

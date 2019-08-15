@@ -5,7 +5,6 @@ services: active-directory
 documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 
 ms.service: active-directory
 ms.subservice: develop
@@ -84,7 +83,7 @@ Claims are present only if a value exists to fill it. So, your app shouldn't tak
 
 | Claim | Format | Description |
 |-----|--------|-------------|
-| `aud` | String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match. |
+| `aud` | String, an App ID URI | Identifies the intended recipient of the token. In id tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match. |
 | `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`idp`| String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim isn't present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
@@ -202,7 +201,7 @@ Your application's business logic will dictate this step, some common authorizat
 * Validate the authentication status of the calling client using `appidacr` - it shouldn't be 0 if public clients aren't allowed to call your API.
 * Check against a list of past `nonce` claims to verify the token isn't being replayed.
 * Check that the `tid` matches a tenant that is allowed to call your API.
-* Use the `acr` claim to verify the user has performed MFA. This should be enforced using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
+* Use the `acr` claim to verify the user has performed MFA. This should be enforced using [Conditional Access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to do this action.
   * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token.
 

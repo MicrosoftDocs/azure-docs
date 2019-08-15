@@ -102,8 +102,8 @@ Log Analytics can collect events that you specify from the Windows event log and
 ## View collected data
 Now that you've enabled data collection, let's run a simple log search to see some data from the target computer.  
 
-1. In the Azure portal, in the selected workspace, select the **Log Search** tile.  
-2. On the **Log Search** pane, in the query box, enter **Perf** and then select Enter or select the search button to the right of the query box:
+1. In the Azure portal, in the selected workspace, select the **Logs** tile.  
+2. On the **Log Search** pane, in the query box, enter **Perf** and click **Run** on the top of query box:
  
     ![Log Analytics log search](media/quick-collect-windows-computer/log-analytics-portal-queryexample.png)
 

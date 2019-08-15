@@ -32,6 +32,8 @@ In this topic, you learn how to:
 > * Create a flow to send email if a repair is cost-effective.
 > * Run the flow.
 
+[!INCLUDE [functions-openapi-note](../../includes/functions-openapi-note.md)]
+
 ## Prerequisites
 
 + An active [Microsoft Flow account](https://flow.microsoft.com/documentation/sign-up-sign-in/) with the same sign in credentials as your Azure account. 

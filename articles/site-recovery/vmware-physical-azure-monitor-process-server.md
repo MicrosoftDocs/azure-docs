@@ -5,8 +5,8 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/24/2019
-ms.author: rayne
+ms.date: 05/30/2019
+ms.author: raynew
 
 ---
 # Monitor the process server

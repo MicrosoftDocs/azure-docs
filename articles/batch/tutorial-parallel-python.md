@@ -3,7 +3,7 @@ title: Run a parallel workload - Azure Batch Python
 description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
 services: batch
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 
 ms.service: batch
 ms.devlang: python
@@ -131,7 +131,7 @@ The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclien
 
 ```python
 credentials = batchauth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+                                             _BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
@@ -146,13 +146,14 @@ The app uses the `blob_client` reference create a storage container for the inpu
 blob_client.create_container(input_container_name, fail_on_exist=False)
 blob_client.create_container(output_container_name, fail_on_exist=False)
 input_file_paths = []
-    
-for folder, subs, files in os.walk(os.path.join(sys.path[0],'./InputFiles/')):
+
+for folder, subs, files in os.walk(os.path.join(sys.path[0], './InputFiles/')):
     for filename in files:
         if filename.endswith(".mp4"):
-            input_file_paths.append(os.path.abspath(os.path.join(folder, filename)))
+            input_file_paths.append(os.path.abspath(
+                os.path.join(folder, filename)))
 
-# Upload the input files. This is the collection of files that are to be processed by the tasks. 
+# Upload the input files. This is the collection of files that are to be processed by the tasks.
 input_files = [
     upload_file_to_container(blob_client, input_container_name, file_path)
     for file_path in input_file_paths]
@@ -177,7 +178,7 @@ new_pool = batch.models.PoolAddParameter(
             offer="UbuntuServer",
             sku="18.04-LTS",
             version="latest"
-            ),
+        ),
         node_agent_sku_id="batch.node.ubuntu 18.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
@@ -217,10 +218,11 @@ Then, the app adds tasks to the job with the [task.add_collection](/python/api/a
 ```python
 tasks = list()
 
-for idx, input_file in enumerate(input_files): 
-    input_file_path=input_file.file_path
-    output_file_path="".join((input_file_path).split('.')[:-1]) + '.mp3'
-    command = "/bin/bash -c \"ffmpeg -i {} {} \"".format(input_file_path, output_file_path)
+for idx, input_file in enumerate(input_files):
+    input_file_path = input_file.file_path
+    output_file_path = "".join((input_file_path).split('.')[:-1]) + '.mp3'
+    command = "/bin/bash -c \"ffmpeg -i {} {} \"".format(
+        input_file_path, output_file_path)
     tasks.append(batch.models.TaskAddParameter(
         id='Task{}'.format(idx),
         command_line=command,
@@ -232,10 +234,10 @@ for idx, input_file in enumerate(input_files):
                     container_url=output_container_sas_url)),
             upload_options=batchmodels.OutputFileUploadOptions(
                 upload_condition=batchmodels.OutputFileUploadCondition.task_success))]
-        )
+    )
     )
 batch_service_client.task.add_collection(job_id, tasks)
-```    
+```
 
 ### Monitor tasks
 
@@ -250,7 +252,7 @@ while datetime.datetime.now() < timeout_expiration:
     tasks = batch_service_client.task.list(job_id)
 
     incomplete_tasks = [task for task in tasks if
-                         task.state != batchmodels.TaskState.completed]
+                        task.state != batchmodels.TaskState.completed]
     if not incomplete_tasks:
         print()
         return True

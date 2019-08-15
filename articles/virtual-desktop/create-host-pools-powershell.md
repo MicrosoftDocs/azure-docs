@@ -5,7 +5,7 @@ services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: helohr
 ---
@@ -73,6 +73,9 @@ To successfully domain-join, do the following things on each virtual machine:
 3. Select **Computer name**, select **Change settings**, and then select **Change…**
 4. Select **Domain** and then enter the Active Directory domain on the virtual network.
 5. Authenticate with a domain account that has privileges to domain-join machines.
+
+    >[!NOTE]
+    > If you're joining your VMs to an Azure AD Domain Services environment, ensure that your domain join user is also a member of the [AAD DC Administrators group](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-admingroup#task-3-configure-administrative-group).
 
 ## Register the virtual machines to the Windows Virtual Desktop Preview host pool
 

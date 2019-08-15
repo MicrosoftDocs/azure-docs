@@ -10,7 +10,6 @@ ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, carlrab, bonova
-manager: craigg
 ms.date: 12/14/2018
 ---
 # Quickstart: Restore a database to a Managed Instance

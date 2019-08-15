@@ -11,7 +11,7 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2019
+ms.date: 07/22/2019
 ms.author: magoedte
 ---
 
@@ -22,25 +22,22 @@ This article will help you understand the experience between the two perspective
 
 For information about enabling Azure Monitor for containers, see [Onboard Azure Monitor for containers](container-insights-onboard.md).
 
-> [!IMPORTANT]
-> Azure Monitor for containers support to monitor an AKS cluster running Windows Server 2019 is currently in public preview.
-> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 Azure Monitor provides a multi-cluster view showing the health status of all monitored AKS clusters running Linux and Windows Server 2019 deployed across resource groups in your subscriptions.  It shows AKS clusters discovered that are not monitored by the solution. Immediately you can understand cluster health, and from here you can drill down to the node and controller performance page, or navigate to see performance charts for the cluster.  For AKS clusters discovered and identified as unmonitored, you can enable monitoring for that cluster at any time.  
 
 The main differences monitoring a Windows Server cluster with Azure Monitor for containers compared to a Linux cluster are the following:
 
-- Memory RSS metric is not available for Windows node and containers 
-- Disk storage capacity information is not available for Windows nodes
+- Memory RSS metric is not available for Windows node and containers.
+- Disk storage capacity information is not available for Windows nodes.
 - Live logs support is available with the exception of Windows container logs.
 - Only pod environments are monitored, not Docker environments.
 - With the preview release, a maximum of 30 Windows Server containers are supported. This limitation does not apply to Linux containers.  
 
 ## Sign in to the Azure portal
+
 Sign in to the [Azure portal](https://portal.azure.com). 
 
-## Multi-cluster view from Azure Monitor 
+## Multi-cluster view from Azure Monitor
+
 To view the health status of all AKS clusters deployed, select **Monitor** from the left-hand pane in the Azure portal.  Under the **Insights** section, select **Containers**.  
 
 ![Azure Monitor multi-cluster dashboard example](./media/container-insights-analyze/azmon-containers-multiview.png)
@@ -61,7 +58,7 @@ The health statuses included are:
 * **Not found** - Either the workspace, the resource group, or subscription containing the workspace for this solution has been deleted.
 * **Unauthorized** - User doesn’t have required permissions to read the data in the workspace.
 * **Error** - Error occurred while attempting to read data from the workspace.
-* **Mis configured** - Azure Monitor for containers was not configured correctly in the specified workspace.
+* **Misconfigured** - Azure Monitor for containers was not configured correctly in the specified workspace.
 * **No data** - Data has not reported to the workspace in the last 30 minutes.
 
 Health state calculates overall cluster status as *worst of* the three states with one exception – if any of the three states is *unknown*, overall cluster state will show **Unknown**.  
@@ -89,6 +86,7 @@ The following table provides a breakdown of the calculation controlling the heal
 From the list of clusters, you can drill down to the **Cluster** page by clicking on the name of the cluster, to the **Nodes** performance page by clicking on the rollup of nodes in the **Nodes** column for that specific cluster, or drill down to the **Controllers** performance page by clicking on the rollup of **User pods** or **System pods** column.   ​
 
 ## View performance directly from an AKS cluster
+
 Access to Azure Monitor for containers is available directly from an AKS cluster by selecting **Insights** from the left-hand pane. Viewing information about your AKS cluster is organized into four perspectives:
 
 - Cluster
@@ -107,11 +105,12 @@ The performance chart displays four performance metrics:
 - **Node count**: A node count and status from Kubernetes. Statuses of the cluster nodes represented are *All*, *Ready*, and *Not Ready* and can be filtered individually or combined in the selector above the chart. 
 - **Activity pod count**: A pod count and status from Kubernetes. Statuses of the pods represented are *All*, *Pending*, *Running*, and *Unknown* and can be filtered individually or combined in the selector above the chart. 
 
-You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines.
+You can use the left/right arrow keys to cycle through each data point on the chart and the up/down arrow keys to cycle through the percentile lines. Clicking on the pin icon at the upper right-hand corner of any one of the charts will pin the selected chart to the last Azure dashboard you last viewed. From the dashboard, you can resize and reposition the chart. Selecting the chart from the dashboard will redirect you to Azure Monitor for containers and load the correct scope and view.
 
 Azure Monitor for containers also supports Azure Monitor [metrics explorer](../platform/metrics-getting-started.md), where you can create your own plot charts, correlate and investigate trends, and pin to dashboards. From metrics explorer, you can also use the criteria you have set to visualize your metrics as the basis of a [metric based alert rule](../platform/alerts-metric.md).  
 
 ## View container metrics in metrics explorer
+
 In metrics explorer, you can view aggregated node and pod utilization metrics from Azure Monitor for containers. The following table summarizes the details to help you understand how to use the metric charts to visualize container metrics.
 
 |Namespace | Metric |
@@ -163,7 +162,9 @@ Azure Container Instances Virtual Nodes running the Linux OS are shown after the
 From an expanded node, you can drill down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
 ![Example drill-down from node to controller in the performance view](./media/container-insights-analyze/drill-down-node-controller.png)
 
-You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
+You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value.
+
+Memory working set shows both the resident memory and virtual memory (cache) included, and is a total of what the application is using. Memory RSS shows only main memory, which is the resident memory. This metric is showing the actual capacity of available memory.
 
 ![Container nodes performance view](./media/container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -200,7 +201,7 @@ In the selector, select **Controllers**.
 
 Here you can view the performance health of your controllers and ACI Virtual Node controllers or Virtual Node pods not connected to a controller.
 
-![<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
+![\<Name> controllers performance view](./media/container-insights-analyze/containers-controllers-view.png)
 
 The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill down to the node it is running on to view performance data filtered for that node. ACI pods not connected to a controller are listed last in the list.
 
@@ -241,7 +242,7 @@ In the selector, select **Containers**.
 
 Here you can view the performance health of your Azure Kubernetes and Azure Container Instances containers.  
 
-![<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
+![\<Name> controllers performance view](./media/container-insights-analyze/containers-containers-view.png)
 
 From a container, you can drill down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
 
@@ -271,6 +272,36 @@ The icons in the status field indicate the online statuses of pods, as described
 | ![Terminated status icon](./media/container-insights-analyze/containers-terminated-icon.png) | Successfully stopped or failed to stop|  
 | ![Failed status icon](./media/container-insights-analyze/containers-failed-icon.png) | Failed state |  
 
+## Workbooks
+
+Workbooks combine text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
+
+Azure Monitor for containers includes four workbooks to get you started:
+
+- **Disk capacity**: Presents interactive disk usage charts for each disk presented to the node within a container by the following perspectives:
+
+    - Disk % usage for all disks
+    - Free disk space for all disks
+    - A grid showing for each nodes disk, its % used space, trend of % used space, free disk space (GiB), and trend of free disk space (GiB). When a row is selected in the table, % used space and free disk space (GiB) is shown below 
+
+- **Disk IO**: Presents interactive disk utilization charts for each disk presented to the node within a container by the following perspectives:
+
+    - Disk I/O summarized across all disks by read bytes/sec, writes bytes/sec, and read and write bytes/sec trends 
+    - Eight performance charts showing key performance indicators to help measure and identify disk I/O bottlenecks.
+
+- **Kubelet**: Includes two grids that show key node operating statistics:
+
+    - Overview by node grid summarizes total operation, total errors, and successful operations by percent and trend for each node.
+    - Overview by operation type summarizes for each operation the total operation, total errors, and successful operations by percent and trend.
+
+- **Network**: Presents interactive network utilization charts for each nodes network adapter and a grid presenting the key performance indicators to help measure the performance of your network adapters.  
+
+You access these workbooks by selecting each one from the **View Workbooks** drop-down list.  
+
+![View Workbooks drop-down list](./media/container-insights-analyze/view-workbooks-dropdown-list.png)
+
 ## Next steps
+
 - Review the [Create performance alerts with Azure Monitor for containers](container-insights-alerts.md) to learn how to create alerts for high CPU and memory utilization to support your DevOps or operational processes and procedures. 
+
 - View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see pre-defined queries and examples to evaluate or customize for alerting, visualizing, or analyzing your clusters.

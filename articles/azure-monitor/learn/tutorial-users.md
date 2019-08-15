@@ -54,11 +54,11 @@ The **Users** panel allows you to understand important details about your users 
 
 	![Change Time Range](media/tutorial-users/TimeRange.png)
 
-4. Click the **Split by** dropdown to add a breakdown by a user property to the graph.  Select **Country or region**.  The graph includes the same data but allows you to view a breakdown of the number of users for each country.
+4. Click the **Split by** dropdown to add a breakdown by a user property to the graph.  Select **Country or region**.  The graph includes the same data but allows you to view a breakdown of the number of users for each country/region.
 
 	![Country or Region graph](media/tutorial-users/CountryorRegion.png)
 
-5. Position the cursor over different bars in the chart and note that the count for each country reflects only the time window represented by that bar.
+5. Position the cursor over different bars in the chart and note that the count for each country/region reflects only the time window represented by that bar.
 6. Have a look at the **Insights** column at the right that perform analysis on your user data.  This provides information such as the number of unique sessions over the time period and records with common properties that make up significant of the user data 
 
 	![Insights column](media/tutorial-users/insights.png)

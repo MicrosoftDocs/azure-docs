@@ -22,7 +22,7 @@ A virtual network lets Azure resources, like virtual machines (VMs), communicate
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-powershell.md)]
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 If you decide to install and use PowerShell locally instead, this quickstart requires you to use Azure PowerShell module version 1.0.0 or later. To find the installed version, run `Get-Module -ListAvailable Az`. See [Install Azure PowerShell module](/powershell/azure/install-az-ps) for install and upgrade info.
 
@@ -135,9 +135,6 @@ Open a command prompt on your local computer. Run the `mstsc` command. Replace `
 ```cmd
 mstsc /v:<publicIpAddress>
 ```
-
-A Remote Desktop Protocol (*.rdp*) file downloads to your computer and a Remote Desktop opens.
-
 1. If prompted, select **Connect**.
 
 1. Enter the user name and password you specified when creating the VM.

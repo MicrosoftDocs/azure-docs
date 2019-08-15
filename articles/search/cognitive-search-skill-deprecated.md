@@ -11,7 +11,7 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 ---
 
 # Deprecated cognitive search skills
@@ -27,7 +27,7 @@ This document describes cognitive skills that are considered deprecated. Use the
 
 ### Last available api version
 
-2019-05-06-Preview
+2017-11-11-Preview
 
 ### End of support
 

@@ -3,7 +3,7 @@ title: Automation scenarios for Azure billing and cost management | Microsoft Do
 description: Learn how common billing and cost management scenarios are mapped to different APIs.
 services: 'billing'
 documentationcenter: ''
-author: Erikre
+author: bandersmsft
 manager: dougeby
 editor: ''
 tags: billing
@@ -15,7 +15,7 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
-ms.author: erikre
+ms.author: banders
  
 ---
 

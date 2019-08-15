@@ -3,6 +3,7 @@ title: Use Azure Container Instances as a Jenkins build agent
 description: Learn how to use Azure Container Instances as a Jenkins build agent.
 services: container-instances
 author: dlepow
+manager: gwallace
 
 ms.service: container-instances
 ms.topic: article

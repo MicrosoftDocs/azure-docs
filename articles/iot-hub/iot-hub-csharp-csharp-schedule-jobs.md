@@ -10,7 +10,7 @@ ms.date: 03/06/2018
 ms.author: robinsh
 ---
 
-# Schedule and broadcast jobs (.NET/.NET)
+# Schedule and broadcast jobs (.NET)
 
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
@@ -44,16 +44,12 @@ At the end of this tutorial, you have two .NET (C#) console apps:
 
 To complete this tutorial, you need the following:
 
-* Visual Studio 2017.
+* Visual Studio.
 * An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
 ## Create an IoT hub
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
-
-### Retrieve connection string for IoT hub
-
-[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## Register a new device in the IoT hub
 
@@ -146,6 +142,12 @@ In this section, you create a .NET console app that responds to a direct method 
 > To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 > 
 
+## Get the IoT hub connection string
+
+[!INCLUDE [iot-hub-howto-schedule-jobs-shared-access-policy-text](../../includes/iot-hub-howto-schedule-jobs-shared-access-policy-text.md)]
+
+[!INCLUDE [iot-hub-include-find-registryrw-connection-string](../../includes/iot-hub-include-find-registryrw-connection-string.md)]
+
 ## Schedule jobs for calling a direct method and sending device twin updates
 
 In this section, you create a .NET console app (using C#) that uses jobs to call the **LockDoor** direct method and send desired property updates to multiple devices.
@@ -174,7 +176,7 @@ In this section, you create a .NET console app (using C#) that uses jobs to call
     using System.Threading.Tasks;
     ```
 
-6. Add the following fields to the **Program** class. Replace the placeholders with the IoT Hub connection string for the hub that you created in the previous section and the name of your device.
+6. Add the following fields to the **Program** class. Replace the placeholders with the IoT Hub connection string that you copied previously in [Get the IoT hub connection string](#get-the-iot-hub-connection-string) and the name of your device.
 
     ```csharp
     static JobClient jobClient;

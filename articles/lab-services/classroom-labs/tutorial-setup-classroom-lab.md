@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 04/24/2019
+ms.date: 06/11/2019
 ms.author: spelluru
 
 ---
@@ -39,12 +39,12 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 2. Select **Sign in** and enter your credentials. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decreate the number of VMs after creating the lab or in an existing lab. For more information, see [Update number of VMs in a lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
+    2. Specify the maximum **number of virtual machines** in the lab. You can increase or decrease the number of VMs after creating the lab or in an existing lab. For more information, see [Update number of VMs in a lab](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. On the **Select virtual machine specifications** page, do the following steps:
-    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **large**, and **GPU** sizes are allowed.
+    1. Select a **size** for virtual machines (VMs) created in the lab. Currently, **small**, **medium**, **medium (virtualization)**, **large**, and **GPU** sizes are allowed.
     3. Select the **VM image** to be used to create VMs in the lab. If you select a Linux image, you see an option to enable remote desktop connection for it. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
     4. Select **Next**.
 
@@ -65,9 +65,11 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Configure template page after it's done](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. On the **Configure template** page, do the following steps: These steps are **optional** for the tutorial.
-    1. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
-    2. Install and configure software on your template VM.     
-    3. Enter a **description** for the template
+    2. Connect to the template VM by selecting **Connect**. If it's a Linux template VM, you choose whether you want to connect using SSH or RDP (if RDP is enabled).
+    1. Select **Reset password** to reset the password for the VM. 
+    1. Install and configure software on your template VM. 
+    1. **Stop** the VM.  
+    1. Enter a **description** for the template
 9. Select **Next** on the template page. 
 10. On **Publish the template** page, do the following actions. 
     1. To publish the template immediately, select **Publish**.  
@@ -103,6 +105,40 @@ A lab owner can add other users to the **Lab Creator** role. For example, a lab 
 
     ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
 
+## Set quotas for users
+You can set quotas per user by using the following steps: 
+
+1. Select **Users** on the left menu if the page isn't already active. 
+2. Select **Quota per user: 10 hours** on the toolbar. 
+3. On the **Quota per user** page, specify the number of hours you want to give to each user (student): 
+    1. **Total number of lab hours per user**. Users can use their VMs for the set number of hours (specified for this field) **in addition to the scheduled time**. If you select this option, enter the **number of hours** in the text box. 
+
+        ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
+    1. **0 hours (schedule only)**. Users can use their VMs only during the scheduled time or when you as the lab owner turns on VMs for them.
+
+        ![Zero hours - only scheduled time](../media/how-to-configure-student-usage/zero-hours.png)
+    4. Select **Save**. 
+5. You see the changed values on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
+
+    ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
+
+## Set a schedule for the lab
+If you configured the quota setting to **0 hours (schedule only)**, you must set a schedule for the lab. In this tutorial, you set the schedule to be a recurring weekly schedule.
+
+1. Switch to the **Schedules** page, and select **Add schedule** on the toolbar. 
+
+    ![Add schedule button on the Schedules page](../media/how-to-create-schedules/add-schedule-button.png)
+2. On the **Add schedule** page, switch to **Weekly** at the top. 
+3. For **Schedule days (required)**, select the days on which you want the schedule to take effect. In the following example, Monday-Friday is selected. 
+4. For the **From** field, enter the **schedule start date** or pick a date by selecting the **calendar** button. This field is required. 
+5. For **Schedule end date**, enter or select an end date on which the VMs are to be shut down. 
+6. For **Start time**, select the time at which you want the VMs to be started. The start time is required if the stop time is not set. Select **Remove start event** if you want to specify only the stop time. if the **Start time** is disabled, select **Add start event** next to the drop-down list to enable it. 
+7. For **Stop time**, select the time at which you want the VMs to be shut down. The stop time is required if the start time is not set. Select **Remove stop event** if you want to specify only the start time. if the **Stop time** is disabled, select **Add stop event** next to the drop-down list to enable it.
+8. For **Time zone (required)**, select the time zone for the start and stop times you specified.  
+9. For **Notes**, enter any description or notes for the schedule. 
+10. Select **Save**. 
+
+    ![Weekly schedule](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
 ## Send an email with the registration link
 

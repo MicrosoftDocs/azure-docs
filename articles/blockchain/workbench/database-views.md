@@ -5,7 +5,7 @@ services: azure-blockchain
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 02/21/2019
+ms.date: 05/28/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri

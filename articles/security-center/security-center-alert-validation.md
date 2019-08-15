@@ -1,5 +1,5 @@
 ---
-title: Alerts Validation in Azure Security Center | Microsoft Docs
+title: Alert validation (EICAR test file) in Azure Security Center | Microsoft Docs
 description: This document helps you to validate the security alerts in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -13,33 +13,51 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2018
+ms.date:  7/02/2019
 ms.author: rkarlin
 
 ---
-# Alerts Validation in Azure Security Center
+# Alert validation (EICAR test file) in Azure Security Center
 This document helps you learn how to verify if your system is properly configured for Azure Security Center alerts.
 
 ## What are security alerts?
-Security Center automatically collects, analyzes, and integrates log data from your Azure resources, the network, and connected partner solutions, like firewall and endpoint protection solutions, to detect and alert you to threats. Read [Managing and responding to security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) for more information about security alerts, and read [Understanding security alerts in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) to learn more about the different types of alerts.
+Alerts are the notifications that Security Center generates when it detects threats on your resources. It prioritizes and lists the alerts along with the information needed for you to quickly investigate the problem. Security Center also provides recommendations for how you can remediate an attack.
+For more information, see [Security Alerts in Azure Security Center](security-center-alerts-overview.md) and [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md)
 
 ## Alert validation
-After Security Center agent is installed on your computer, follow the steps below from the computer where you want to be the attacked resource of the alert:
 
-1. Copy an executable (for example calc.exe) to the computer’s desktop, or other directory of your convenience.
-2. Rename this file to **ASC_AlertTest_662jfi039N.exe**.
-3. Open the command prompt and execute this file with an argument (just a fake argument name), such as: *ASC_AlertTest_662jfi039N.exe -foo*
-4. Wait 5 to 10 minutes and open Security Center Alerts. There you should find an alert similar to following one:
+* [Windows](#validate-windows)
+* [Linux](#validate-linux)
 
-    ![Alert Validation](./media/security-center-alert-validation/security-center-alert-validation-fig2.png)
+## Validate alert on Windows VM <a name="validate-windows"></a>
 
-When reviewing this alert, make sure the field Arguments Auditing Enabled appears as true. If it shows false, you need to enable command-line arguments auditing. You can enable this option using the following command line:
+After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
 
-*reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"*
-
+1. Copy an executable (for example **calc.exe**) to the computer’s desktop, or other directory of your convenience, and rename it as **ASC_AlertTest_662jfi039N.exe**.
+1. Open the command prompt and execute this file with an argument (just a fake argument name), such as: ```ASC_AlertTest_662jfi039N.exe -foo```
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
 
 > [!NOTE]
-> Watch [Alert Validation in Azure Security Center](https://channel9.msdn.com/Blogs/Azure-Security-Videos/Alert-Validation-in-Azure-Security-Center) video, to see a demonstration of this feature.
+> When reviewing this test alert for Windows, make sure the field **Arguments Auditing Enabled** is **true**. If it is **false**, then you need to enable command-line arguments auditing. To enable it, use the following command line:
+>
+>```reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\system\Audit" /f /v "ProcessCreationIncludeCmdLine_Enabled"```
+
+## Validate alert on Linux VM <a name="validate-linux"></a>
+
+After Security Center agent is installed on your computer, follow these steps from the computer where you want to be the attacked resource of the alert:
+1. Copy an executable to a convenient location and rename it to **./asc_alerttest_662jfi039n**, for example:
+
+    ```cp /bin/echo ./asc_alerttest_662jfi039n```
+
+1. Open the command prompt and execute this file:
+
+    ```./asc_alerttest_662jfi039n testing eicar pipe```
+
+1. Wait 5 to 10 minutes and open Security Center Alerts. An alert similar to the [example](#alert-validate) below should be displayed:
+
+### Alert example <a name="alert-validate"></a>
+
+![Alert validation example](./media/security-center-alert-validation/security-center-alert-validation-fig2.png) 
 
 ## See also
 This article introduced you to the alerts validation process. Now that you're familiar with this validation, try the following articles:

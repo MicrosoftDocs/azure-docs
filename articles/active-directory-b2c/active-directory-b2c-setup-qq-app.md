@@ -2,14 +2,14 @@
 title: Set up sign-up and sign-in with a QQ account using Azure Active Directory B2C | Microsoft Docs
 description: Provide sign-up and sign-in to customers with QQ accounts in your applications using Azure Active Directory B2C.
 services: active-directory-b2c
-author: davidmu1
+author: mmacy
 manager: celestedg
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/11/2018
-ms.author: davidmu
+ms.author: marsma
 ms.subservice: B2C
 ---
 
@@ -26,7 +26,7 @@ To use a QQ account as an identity provider in Azure Active Directory (Azure AD)
 ### Register for the QQ developer program
 
 1. Sign in to the [QQ developer portal](http://open.qq.com) with your QQ account credentials.
-2. After signing in, go to [http://open.qq.com/reg](http://open.qq.com/reg) to register yourself as a developer.
+2. After signing in, go to [https://open.qq.com/reg](https://open.qq.com/reg) to register yourself as a developer.
 3. Select **个人** (individual developer).
 4. Enter the required information and select **下一步** (next step).
 5. Complete the email verification process. You will need to wait a few days to be approved after registering as a developer. 
