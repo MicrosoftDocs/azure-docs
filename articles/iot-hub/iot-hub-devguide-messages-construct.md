@@ -44,7 +44,7 @@ For more information about how to encode and decode messages sent using differen
 
 ## System Properties of **D2C** IoT Hub messages
 
-| Property | Description  |User Settable?|Keyword for routing query|
+| Property | Description  |User Settable?|Keyword for </br>routing query|
 | --- | --- | --- | --- |
 | message-id |A user-settable identifier for the message used for request-reply patterns. Format: A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`.  | Yes | messageId |
 | iothub-enqueuedtime |Date and time the [Device-to-Cloud](iot-hub-devguide-d2c-guidance.md) message was received by IoT Hub. | No | enqueuedTime |
