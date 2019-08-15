@@ -14,7 +14,7 @@ This article addresses some common questions about using Apache Kafka on Azure H
 
 ## What Kafka versions are supported by HDInsight?
 
-Our officially supported component versions can be found [here](../hdinsight-component-versioning.md#supported-hdinsight-versions). We recommend always using the latest version to ensure the best possible performance and user experience.
+Find more information about HDInsight officially supported component versions in [What are the Apache Hadoop components and versions available with HDInsight?](../hdinsight-component-versioning.md#supported-hdinsight-versions). We recommend always using the latest version to ensure the best possible performance and user experience.
 
 ## What resources are provided in an HDInsight Kafka cluster and what resources am I charged for?
 
@@ -40,11 +40,11 @@ Yes, through the Ambari portal. Each component in the portal has a **configs** s
 
 ## What type of authentication does HDInsight support for Apache Kafka?
 
-Using [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md), customers can get topic-level security for their Kafka clusters. See [Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)](../domain-joined/apache-domain-joined-run-kafka.md), for more information.
+Using [Enterprise Security Package (ESP)](../domain-joined/apache-domain-joined-architecture.md), you can get topic-level security for their Kafka clusters. See [Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package (Preview)](../domain-joined/apache-domain-joined-run-kafka.md), for more information.
 
 ## Is my data encrypted? Can I use my own keys?
 
-All Kafka messages on the managed disks are encrypted with [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (for example, data being transmitted from clients to brokers and the other way around) isn't encrypted by default. It's possible to encrypt such traffic by [setting up SSL on your own](./apache-kafka-ssl-encryption-authentication.md). Additionally, HDInsight allows customers to manage their own keys to encrypt the data at rest. See [Bring your own key for Apache Kafka on Azure HDInsight](apache-kafka-byok.md), for more information.
+All Kafka messages on the managed disks are encrypted with [Azure Storage Service Encryption (SSE)](../../storage/common/storage-service-encryption.md). Data-in-transit (for example, data being transmitted from clients to brokers and the other way around) isn't encrypted by default. It's possible to encrypt such traffic by [setting up SSL on your own](./apache-kafka-ssl-encryption-authentication.md). Additionally, HDInsight allows you to manage their own keys to encrypt the data at rest. See [Bring your own key for Apache Kafka on Azure HDInsight](apache-kafka-byok.md), for more information.
 
 ## How do I connect clients to my cluster?
 
@@ -52,7 +52,7 @@ For Kafka clients to communicate with Kafka brokers, they must be able to reach 
 
 * Connecting clients in a different Azure VNet – Peer the cluster VNet and the client VNet and configure the cluster for [IP Advertising](apache-kafka-connect-vpn-gateway.md#configure-kafka-for-ip-advertising). When using IP advertising, Kafka clients must use Broker IP addresses to connect with the brokers, instead of Fully Qualified Domain Names (FQDNs).
 
-* Connecting on-premises clients – Using a VPN network and setting up custom DNS servers as described [here](../hdinsight-plan-virtual-network-deployment.md).
+* Connecting on-premises clients – Using a VPN network and setting up custom DNS servers as described in [Plan a virtual network for Azure HDInsight](../hdinsight-plan-virtual-network-deployment.md).
 
 * Creating a public endpoint for your Kafka service – If your enterprise security requirements allow it, you can deploy a public endpoint for your Kafka brokers, or a self-managed open-source REST end point with a public endpoint.
 
@@ -74,7 +74,7 @@ Configuring Kafka for higher data consistency affects the availability of broker
 
 ## Can I replicate my data to multiple clusters?
 
-Yes, data can be replicated to multiple clusters using Kafka MirrorMaker. Details on setting up MirrorMaker can be found [here](apache-kafka-mirroring.md). Additionally, there are other self-managed open-source technologies and vendors that can help achieve replication to multiple clusters such as [Brooklin](https://github.com/linkedin/Brooklin/).
+Yes, data can be replicated to multiple clusters using Kafka MirrorMaker. See details on setting up MirrorMaker can be found in [Mirror Apache Kafka topics](apache-kafka-mirroring.md). Additionally, there are other self-managed open-source technologies and vendors that can help achieve replication to multiple clusters such as [Brooklin](https://github.com/linkedin/Brooklin/).
 
 ## Can I upgrade my cluster? How should I upgrade my cluster?
 
