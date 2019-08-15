@@ -10,7 +10,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Create Configurations from Servers
+# Create configurations from servers
 
 > Applies To: Windows PowerShell 5.1
 
