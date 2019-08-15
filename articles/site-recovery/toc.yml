@@ -23,7 +23,7 @@
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Run failback
       href: azure-to-azure-tutorial-failback.md
-  - name: Move Azure VMs
+  - name: Move 
     items:
     - name: Move Azure VMs to another region
       href: azure-to-azure-tutorial-migrate.md 
@@ -31,6 +31,8 @@
       href: move-Azure-VMs-AVset-Azone.md
     - name: Move Azure VMs between Government & Public regions
       href: region-move-cross-geos.md
+    - name: Move a vault to a different region
+      href: move-vaults-across-regions.md
   - name: VMware VM disaster recovery to Azure
     items:
     - name: Prepare Azure
@@ -153,6 +155,8 @@
       items:
       - name: Prepare networking for Azure VM disaster recovery
         href: azure-to-azure-about-networking.md
+      - name: Customize networking configurations of the target Azure VM
+        href: azure-to-azure-customize-networking.md
       - name: Set up network mapping and retain IP addresses after failover
         href: azure-to-azure-network-mapping.md
       - name: Examples for retaining IP addresses after failover
@@ -365,8 +369,7 @@
         href: service-updates-how-to.md
       - name: Delete a vault
         href: delete-vault.md
-      - name: Move a vault to a different region
-        href: move-vaults-across-regions.md
+      
   - name: Disaster recovery for apps
     items:
     - name: Set up disaster recovery to Azure for on-premises apps
@@ -441,6 +444,8 @@
     items:
     - name: Troubleshoot Azure VM replication
       href: azure-to-azure-troubleshoot-errors.md
+    - name: Troubleshoot Azure VM connectivity issues
+      href: azure-to-azure-troubleshoot-network-connectivity.md
     - name: Troubleshoot ongoing replication
       href: azure-to-azure-troubleshoot-replication.md
     - name: Troubleshoot Mobility service issues

@@ -129,6 +129,12 @@ RHEL-SAP-HANA | 6.7      | RAW    | Linux Agent | RHEL 6.7 for SAP HANA
 |             | 7.3      | LVM    | Linux Agent | RHEL 7.3 for SAP HANA
 RHEL-SAP-APPS | 6.8      | RAW    | Linux Agent | RHEL 6.8 for SAP Business Applications
 |             | 7.3      | LVM    | Linux Agent | RHEL 7.3 for SAP Business Applications
+RHEL-HA       | 7.4      | RAW    | Linux Agent | RHEL 7.4 with HA Add-On
+|             | 7.5      | RAW    | Linux Agent | RHEL 7.5 with HA Add-On
+|             | 7.6      | RAW    | Linux Agent | RHEL 7.6 with HA Add-On
+RHEL-SAP-HA   | 7.4      | RAW    | Linux Agent | RHEL 7.4 for SAP with HA Add-On
+|             | 7.5      | RAW    | Linux Agent | RHEL 7.5 for SAP with HA Add-On
+|             | 7.6      | RAW    | Linux Agent | RHEL 7.6 for SAP with HA Add-On
 
 ### Old naming convention
 The RHEL 7 family of images and the RHEL 6 family of images used specific versions in their SKUs up until the naming convention change explained above.

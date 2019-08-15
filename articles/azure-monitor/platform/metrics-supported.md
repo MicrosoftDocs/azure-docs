@@ -72,22 +72,23 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|Dimensions|
 |---|---|---|---|---|---|
-|TotalRequests|Total Gateway Requests|Count|Total|Number of gateway requests|Location, Hostname|
-|SuccessfulRequests|Successful Gateway Requests|Count|Total|Number of successful gateway requests|Location, Hostname|
-|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total|Number of unauthorized gateway requests|Location, Hostname|
-|FailedRequests|Failed Gateway Requests|Count|Total|Number of failures in gateway requests|Location, Hostname|
-|OtherRequests|Other Gateway Requests|Count|Total|Number of other gateway requests|Location, Hostname|
-|Duration|Overall Duration of Gateway Requests|Milliseconds|Average|Overall Duration of Gateway Requests in milliseconds|Location, Hostname|
-|Capacity|Capacity|Percent|Average|Utilization metric for ApiManagement service|Location|
-|EventHubTotalEvents|Total EventHub Events|Count|Total|Number of events sent to EventHub|Location|
-|EventHubSuccessfulEvents|Successful EventHub Events|Count|Total|Number of successful EventHub events|Location|
-|EventHubTotalFailedEvents|Failed EventHub Events|Count|Total|Number of failed EventHub events|Location|
-|EventHubRejectedEvents|Rejected EventHub Events|Count|Total|Number of rejected EventHub events (wrong configuration or unauthorized)|Location|
-|EventHubThrottledEvents|Throttled EventHub Events|Count|Total|Number of throttled EventHub events|Location|
-|EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|Number of timed out EventHub events|Location|
-|EventHubDroppedEvents|Dropped EventHub Events|Count|Total|Number of events skipped because of queue size limit reached|Location|
-|EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|Total size of EventHub events in bytes|Location|
-|Requests|Requests|Count|Total|Gateway requests|Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
+|Requests|Requests|Count|Total|The total number of gateway requests in a given period. It can be sliced by various dimensions to help you diagnose issues. |Location, BackendResponseCode, LastErrorReason, GatewayResponseCode|
+|TotalRequests|Total Gateway Requests|Count|Total|The total number of gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric. |Location, Hostname|
+|SuccessfulRequests|Successful Gateway Requests|Count|Total|The total number of successful gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|UnauthorizedRequests|Unauthorized Gateway Requests|Count|Total| The total number of unauthorized gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|FailedRequests|Failed Gateway Requests|Count|Total|The total number of failed gateway requests in a given period. This metric has been deprecated, we recommend using the new `Requests` metric.|Location, Hostname|
+|OtherRequests|Other Gateway Requests|Count|Total|The total number of gateway requests in a given period that do not fall into the successful, unauthorized, or failed categories. This metric has been deprecated, we recommend using the new `Requests` metric. |Location, Hostname|
+|Duration|Overall Duration of Gateway Requests|Milliseconds|Average|The time between when API Management receives a request from a client and when it returns a response to the client.|Location, Hostname|
+|Capacity|Capacity|Percent|Average|Indicator of load on an API Management instance for making informed decisions whether to scale the instance to accommodate more load.|Location|
+|EventHubTotalEvents|Total EventHub Events|Count|Total|The total number of events sent to EventHub from API Management in a given period.|Location|
+|EventHubSuccessfulEvents|Successful EventHub Events|Count|Total|The total number of successful EventHub events in a given period.|Location|
+|EventHubTotalFailedEvents|Failed EventHub Events|Count|Total|The total number of failed EventHub events in a given period.|Location|
+|EventHubRejectedEvents|Rejected EventHub Events|Count|Total|The total number of rejected EventHub events (wrong configuration or unauthorized) in a given period.|Location|
+|EventHubThrottledEvents|Throttled EventHub Events|Count|Total|The total number of throttled EventHub events in a given period.|Location|
+|EventHubTimedoutEvents|Timed Out EventHub Events|Count|Total|The total number of timed out EventHub events in a given period.|Location|
+|EventHubDroppedEvents|Dropped EventHub Events|Count|Total|The total number of events skipped because of queue size limit reached in a given period.|Location|
+|EventHubTotalBytesSent|Size of EventHub Events|Bytes|Total|The total size of EventHub events in bytes in a given period.|Location|
+
 
 ## Microsoft.Automation/automationAccounts
 

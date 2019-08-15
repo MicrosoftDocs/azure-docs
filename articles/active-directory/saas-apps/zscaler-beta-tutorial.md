@@ -108,9 +108,9 @@ To configure Azure AD single sign-on with Zscaler Beta, follow these steps.
 	> [!NOTE]
 	> The value isn't real. Update the value with the actual Sign on URL value. To get the value, contact the [Zscaler Beta client support team](https://www.zscaler.com/company/contact).
 
-5. The Zscaler Beta application expects the SAML assertions in a specific format. You must add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Select **Edit** to open the **User Attributes** dialog box.
+5. The Zscaler Beta application expects the SAML assertions in a specific format. You must add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Select **Edit** to open the **User Attributes** dialog box.
 
-	![User Attributes dialog box](common/edit-attribute.png)
+	![User Attributes dialog box](common/edit-attribute.png)
 
 6. The Zscaler Beta application expects a few more attributes to be passed back in SAML response. In the **User claims** section in the **User Attributes** dialog box, follow these steps to add the SAML token attribute, as shown in the following table.
     
@@ -291,7 +291,7 @@ Enable Britta Simon to use Azure single sign-on by granting access to Zscaler Be
 In this section, the user Britta Simon is created in Zscaler Beta. Zscaler Beta supports **just-in-time user provisioning**, which is enabled by default. There's nothing for you to do in this section. If a user doesn't already exist in Zscaler Beta, a new one is created after authentication.
 
 >[!Note]
->To create a user manually, contact the [Zscaler Beta support team](https://www.zscaler.com/company/contact).
+>To create a user manually, contact the [Zscaler Beta support team](https://www.zscaler.com/company/contact).
 
 ### Test single sign-on 
 

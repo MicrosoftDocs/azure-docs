@@ -1,6 +1,6 @@
 ---
-title: Persist files for Bash in Azure Cloud Shell | Microsoft Docs
-description: Walkthrough of how Bash in Azure Cloud Shell persists files.
+title: Persist files in Azure Cloud Shell | Microsoft Docs
+description: Walkthrough of how Azure Cloud Shell persists files.
 services: azure
 documentationcenter: ''
 author: maertendMSFT

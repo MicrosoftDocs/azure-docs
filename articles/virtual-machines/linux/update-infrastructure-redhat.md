@@ -93,6 +93,11 @@ Run the following as root:
     yum --disablerepo='*' remove 'rhui-azure-rhel7-eus'
    ```
 
+1. Configure RHEL VM
+    ```bash
+    yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7.config' install 'rhui-azure-rhel7'
+    ```
+    
 1. Update your RHEL VM
     ```bash
     sudo yum update

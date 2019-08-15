@@ -34,6 +34,8 @@ To complete this tutorial you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+## Register a new device in the IoT hub
+
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Get the IoT hub connection string

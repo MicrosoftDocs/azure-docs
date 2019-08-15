@@ -2,7 +2,7 @@
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 11/09/2018	
+ms.date: 08/09/2019
 ms.author: jroth
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v2) | Isolated </th> |
@@ -30,7 +30,7 @@ ms.author: jroth
 | [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) support | |X |X |X |X |X |
 | [Endpoint monitoring](../articles/app-service/web-sites-monitor.md) | | |X |X |X |X |
 | [Staging slots](../articles/app-service/deploy-staging-slots.md) | | | |5 |20 |20 |
-| SLA | |  |99.9% |99.95%|99.95%|99.95%|  
+| SLA | |  |99.95%|99.95%|99.95%|99.95%|  
 
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
@@ -38,7 +38,7 @@ ms.author: jroth
 <sup>4</sup>More are allowed upon request.  
 <sup>5</sup>The storage limit is the total content size across all apps in the same App Service plan.  
 <sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).  
-<sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.  
+<sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances. For Standard tier and above, there are no theoretical limits to web sockets, but other factors can limit the number of web sockets. For example, maximum concurrent requests allowed (defined by `maxConcurrentRequestsPerCpu`) are: 7,500 per small VM, 15,000 per medium VM (7,500 x 2 cores), and 75,000 per large VM (18,750 x 4 cores).  
 <sup>8</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There's no predefined limit on the number of WebJobs that can run in an App Service instance. There are practical limits that depend on what the application code is trying to do.  
-<sup>9</sup>App Service Isolated SKUs have the ability to be internally load balanced (ILB) with Azure Load Balancer, so there's no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.  
+<sup>9</sup>App Service Isolated SKUs can be internally load balanced (ILB) with Azure Load Balancer, so there's no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.  
 <sup>10</sup>The App Service Certificate quota limit per subscription can be increased via a support request to a maximum limit of 200.  

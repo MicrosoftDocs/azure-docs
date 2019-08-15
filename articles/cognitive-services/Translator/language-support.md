@@ -77,7 +77,7 @@ The V3 Translator API is neural by default and statistical systems are only avai
 |Malay|	`ms`	|Statistical only	|Statistical|
 |Maltese|	`mt`	|Statistical only|	Statistical|
 |Norwegian|	`nb`	|Neural available|	Neural|
-|Persian|	`fa`	|Statistical only|	Statistical|
+|Persian|	`fa`	|Neural available|	Neural|
 |Polish|	`pl`	|Neural available|	Neural|
 |Portuguese|	`pt`	|Neural available|	Neural|
 |Queretaro Otomi|	`otq`	|Statistical only|	Statistical|

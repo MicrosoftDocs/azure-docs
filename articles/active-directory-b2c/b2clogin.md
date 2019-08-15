@@ -17,12 +17,15 @@ ms.subservice: B2C
 
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory (Azure AD) B2C application, you need to specify a redirect URL. In the past, login.microsoftonline.com was used, now you should be using b2clogin.com.
 
+> [!NOTE]
+> You can use JavaScript client-side code (currently in preview) in b2clogin.com. Your JavaScript code will be removed from your custom page if you use login.microsoftonline.com. Additional security restrictions are also applied to login.microsoftonline.com, such as removing HTML form elements from your custom page. 
+
 Using b2clogin.com gives you additional benefits, such as:
 
 - Space consumed in the cookie header by Microsoft services is reduced.
 - Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
 
->[!NOTE]
+> [!NOTE]
 > You can use both the tenant name and the tenant GUID as follows:
 > * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (which still refers to `onmicrosoft.com`)
 > * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (in which case there is no reference to Microsoft at all)

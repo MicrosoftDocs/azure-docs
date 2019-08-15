@@ -54,7 +54,7 @@ Flow logs include the following properties:
 			* **flows** - a collection of flows
 				* **mac** - The MAC address of the NIC for the VM where the flow was collected
 				* **flowTuples** - A string that contains multiple properties for the flow tuple in comma-separated format
-					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX EPOCH format
+					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX epoch format
 					* **Source IP** - The source IP
 					* **Destination IP** - The destination IP
 					* **Source Port** - The source port

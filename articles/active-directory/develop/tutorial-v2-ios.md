@@ -3,7 +3,7 @@ title: Getting started with iOS - Microsoft identity platform | Azure
 description: How iOS (Swift) applications can call an API that requires access tokens using Microsoft identity platform
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: tylermsft
 manager: CelesteDG
 
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 07/15/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
-ms.custom: aaddev 
+ms.custom: aaddev, identityplatformtop40 
 ms.collection: M365-identity-device-management
 ---
 

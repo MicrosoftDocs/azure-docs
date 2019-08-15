@@ -245,4 +245,4 @@ When they are no longer needed, you can delete the virtual machine and your key 
 ## Next steps
 
 >[!div class="nextstepaction"]
->[Azure Key Vault Developer's Guide](https://docs.microsoft.com/azure/key-vault/key-vault-developers-guide)
+>[Azure Key Vault Developer's Guide](key-vault-developers-guide.md)

@@ -19,6 +19,10 @@ The lowest possible latency is achieved by ensuring the calling application is l
 ## Check consistency level
 [Consistency level](consistency-levels.md) can impact performance and charges. Make sure your consistency level is appropriate for the given scenario. For more details see [Choosing Consistency Level](consistency-levels-choosing.md).
 
+## Log Sql query in storage account
+[Sql API query logs through diagnostic logs](logging.md#turn-on-logging-in-the-azure-portal) allows to log the obfuscated query in a storage account of your choice. This allow you to look at the Diagnostic logs and find query using more RUs and use the activity id to match in the QueryRuntimeStatistics. 
+
+
 ## Log query metrics
 Use `QueryMetrics` to troubleshoot slow or expensive queries. 
 

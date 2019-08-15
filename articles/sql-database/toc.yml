@@ -2,9 +2,9 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: What is SQL Database
+  - name: What is SQL Database?
     href: sql-database-technical-overview.md
-  - name: Choose a version of Azure SQL
+  - name: Which SQL option should I choose?
     href: sql-database-paas-vs-sql-server-iaas.md
   - name: Release notes
     href: sql-database-release-notes.md
@@ -280,14 +280,18 @@
         href: sql-vulnerability-assessment.md
       - name: Advanced Threat Protection
         href: sql-database-threat-detection-overview.md
-    - name: Server-level IP firewall rules
+    - name: Network security
       items:
-      - name: Create and manage
+      - name: Network access controls overview
+        href: sql-database-networkaccess-overview.md
+      - name: IP based firewall
         href: sql-database-firewall-configure.md      
-      - name: Virtual network endpoints
-        href: sql-database-vnet-service-endpoint-rule-overview.md
-      - name: Virtual network endpoints - PowerShell
-        href: sql-database-vnet-service-endpoint-rule-powershell.md
+      - name: Virtual network firewall rules
+        items:
+        - name: Virtual network endpoints
+          href: sql-database-vnet-service-endpoint-rule-overview.md
+        - name: Virtual network endpoints - PowerShell
+          href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Access control
       items:
       - name: Access control

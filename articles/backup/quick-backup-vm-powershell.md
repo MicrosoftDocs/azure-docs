@@ -100,7 +100,6 @@ Enable backup as follows:
         -Policy $policy
     ```
 
-
 ## Start a backup job
 
 Backups run in accordance with the schedule specified in the backup policy. You can also run an ad hoc backup:

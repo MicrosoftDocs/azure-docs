@@ -68,7 +68,7 @@ Here's a basic deployment manifest with one module as an example:
              }
            },
            "modules": {
-             "tempSensor": {
+             "SimulatedTemperatureSensor": {
                "version": "1.0",
                "type": "docker",
                "status": "running",
@@ -92,7 +92,7 @@ Here's a basic deployment manifest with one module as an example:
            }
          }
        },
-       "tempSensor": {
+       "SimulatedTemperatureSensor": {
          "properties.desired": {}
        }
      }

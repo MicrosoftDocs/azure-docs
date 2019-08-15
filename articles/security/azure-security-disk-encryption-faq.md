@@ -136,4 +136,4 @@ In this document, you learned more about the most frequent questions related to 
 
 - [Azure Disk Encryption Overview](azure-security-disk-encryption-overview.md)
 - [Apply disk encryption in Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Azure data encryption at rest](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Azure data encryption at rest](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)
