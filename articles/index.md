@@ -1638,9 +1638,9 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/bastion/">
-                                                <img src="media/index/web_connect.svg" alt="" />
-                                                <p>Azure Bastion</p>
+                                            <a href="/azure/web-application-firewall/">
+                                                <img src="media/index/web_app_firewall.svg" alt="" />
+                                                <p>Web Application Firewall</p>
                                             </a>
                                         </li>
                                     </ul>
