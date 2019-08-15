@@ -568,6 +568,7 @@ Create connections between the two gateways using the Az CLI.
 
 
 !!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
+
 ---
 
 ### Create the failover group 

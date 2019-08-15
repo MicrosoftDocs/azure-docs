@@ -368,7 +368,7 @@ Create the failover group using PowerShell.
 # [Azure CLI](#tab/azure-cli)
 Create the failover group using the Az CLI. 
 
-!!!!!!! Need AZ CLI commands to create the failover group !!!!!!!!!!!
+!!!!!!! Need AZ CLI commands to create the failover group
 
 ---
 
