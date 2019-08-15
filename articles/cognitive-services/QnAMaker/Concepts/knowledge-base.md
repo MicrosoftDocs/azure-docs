@@ -55,11 +55,60 @@ The process is explained in the following table:
 Features used include but are not limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
 
 ## HTTP request and response with endpoint
-A REST-based HTTP **endpoint** servicing your knowledge base content that can be integrated into your application, commonly a chat bot. 
+When you publish your knowledge base, the service creates a REST-based HTTP **endpoint** that can be integrated into your application, commonly a chat bot. 
 
-A **user query** is the question that the end-user or tester asks of the knowledge base. The query is often in a natural language format or a few keywords that represent the question. The query is sent to your knowledge from an HTTP **request** in your client application.
+### The user query request to generate an answer
 
-The HTTP **response** is the answer retrieved from the knowledge base, based on the best match for a given user query.
+A **user query** is the question that the end user asks of the knowledge base, such as, `How do I add a collaborator to my app?`. The query is often in a natural language format or a few keywords that represent the question, such as, `help with collaborators`. The query is sent to your knowledge from an HTTP **request** in your client application.
+
+```json
+{
+    "question": "qna maker and luis",
+    "top": 6,
+    "isTest": true,
+    "scoreThreshold": 20,
+    "strictFilters": [
+    {
+        "name": "category",
+        "value": "api"
+    }],
+    "userId": "sd53lsY="
+}
+```
+
+You control the response by setting properties such as [scoreThreshold](confidence-score.md#choose-a-score-threshold), [top](how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [stringFilters](metadata-generateanswer-usage.md#filter-results-with-strictfilters-for-metadata-tags).
+
+Use [conversation content](how-to/metadata-generateanswer-usage.md#use-question-and-answer-results-to-keep-conversation-context) with [multi-turn functionality](how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
+
+### The response from a call to generate answer
+
+The HTTP **response** is the answer retrieved from the knowledge base, based on the best match for a given user query. The response includes the answer and the prediction score. If you asked for more than one top answer, with the `top` property, you get more than one top answer, each with a score. 
+
+```json
+{
+    "answers": [
+        {
+            "questions": [
+                "What is the closing time?"
+            ],
+            "answer": "10.30 PM",
+            "score": 100,
+            "id": 1,
+            "source": "Editorial",
+            "metadata": [
+                {
+                    "name": "restaurant",
+                    "value": "paradise"
+                },
+                {
+                    "name": "location",
+                    "value": "secunderabad"
+                }
+            ]
+        }
+    ]
+}
+```
 
 ### Test and production knowledge base
 A Knowledge base is the repository of questions and answers created, maintained, and used through QnA Maker. Each QnA Maker tier can be used for multiple Knowledge bases.
@@ -78,3 +127,11 @@ The **published knowledge base** is the version that is used in your chat bot/ap
 ## See also
 
 [QnA Maker overview](../Overview/overview.md)
+
+Create and edit knowledge base with: 
+* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamaker/knowledgebase)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.knowledgebase?view=azure-dotnet)
+
+Generate answer with: 
+* [REST API](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/qnamakerruntime/runtime/generateanswer)
+* [.Net SDK](https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.runtime?view=azure-dotnet)

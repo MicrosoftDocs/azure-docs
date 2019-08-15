@@ -31040,6 +31040,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/http-response-codes.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/how-to/metadata-generateanswer-usage",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Concepts/glossary.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
