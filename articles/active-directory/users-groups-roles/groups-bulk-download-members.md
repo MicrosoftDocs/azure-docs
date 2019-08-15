@@ -15,7 +15,7 @@ ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ---
 
-# Bulk dlownload the membership list for a group in Azure Active Directory
+# Bulk download the membership list for a group in Azure Active Directory
 
 Azure Active Directory (Azure AD) supports bulk group list download, bulk import for group members, and bulk removal of group members.
 
