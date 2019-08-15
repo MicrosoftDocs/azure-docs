@@ -22,7 +22,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
 
 ### Azure Machine Learning SDK for Python v1.0.56
 + **New features**
-  + [Insert new features below. Reference articles and/or doc pages]
+  + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/tabular-dataset.
   
   + **Preview features**
     + [Contrib features below] 
@@ -50,7 +50,6 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
   + **azureml-core**
     + Fixed issue with blob_cache_timeout parameter ordering.
-    + Enabled `TabularDataset` to be consumed by AutomatedML. To learn more about `TabularDataset`, please visit https://aka.ms/tabular-dataset.
     + Adding external fit and transform exception types to system errors.
     + Support for Key Vault secrets for remote runs. Add a azureml.core.keyvault.Keyvault class to add, get and list secrets from the keyvault associated with your workspace. Supported operations are:
       + azureml.core.workspace.Workspace.get_default_keyvault()
