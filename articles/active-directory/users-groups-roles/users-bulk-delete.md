@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 1. On the **Bulk delete user** page, select **Download** to receive a valid CSV file of user properties, and then add the users you want to delete.
 1. When you finish editing the CSV file or if you have one of your own ready to upload, select the file under **Upload your CSV file** to be validated.
 
-   ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-delete/upload-button.png)
+   ![Select a local CSV file in which you list the users you want to delete](./media/users-bulk-delete/bulk-delete.png)
 
 1. When the file contents are validated, you must fix any errors before the job is submitted.
 1. When your file passes validation, select **Submit** to start the Azure batch job that deletes the users.

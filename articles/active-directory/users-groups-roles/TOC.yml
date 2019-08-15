@@ -88,7 +88,7 @@
       href: groups-settings-cmdlets.md
     - name: Manage group members    
       href: /azure/active-directory/fundamentals/active-directory-groups-members-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
-    - name: Manage group owners    
+    - name: Manage group owners
       href: /azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Manage groups in groups    
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
@@ -100,8 +100,6 @@
       href: groups-lifecycle.md
     - name: Restore expired or deleted groups   
       href: groups-restore-deleted.md
-    - name: Download group list
-      href: groups-bulk-download.md
     - name: Manage group settings
       href: /azure/active-directory/fundamentals/active-directory-groups-settings-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context 
     - name: Set up group self-service    
