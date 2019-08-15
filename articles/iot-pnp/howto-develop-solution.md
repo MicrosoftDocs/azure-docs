@@ -45,19 +45,16 @@ Use the following samples to explore the capabilities of the Node.js service SDK
 
 ### Connect to the global repository and retrieve a model definition using the Node service SDK
 
-Using the same instructions as for the service and device samples, you need to set the following four environment variables:
+Using the same instructions as for the service and device samples, you need to set the following environment variable:
 
-* `AZURE_IOT_MODEL_REPO_ID`
-* `AZURE_IOT_MODEL_REPO_KEY_ID`
-* `AZURE_IOT_MODEL_REPO_KEY_SECRET`
-* `AZURE_IOT_MODEL_REPO_HOSTNAME`
+* `AZURE_IOT_MODEL_REPOSITORY_CONNECTION_STRING`
 
-You can get these values from your company model repository connection string. You can find this connection string in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) on the **Connection strings** tab for your **Company repository**.
+You can find this connection string in the [Azure Certified for IoT portal](https://preview.catalog.azureiotsolutions.com) on the **Connection strings** tab for your **Company repository**.
 
 The connection string looks like the following example:
 
 ```text
-HostName=https://{repo host name};RepositoryId={repo ID};SharedAccessKeyName={repo key ID};SharedAccessKey={repo key secret}
+HostName={repo host name};RepositoryId={repo ID};SharedAccessKeyName={repo key ID};SharedAccessKey={repo key secret}
 ```
 
 After you've set these four environment variables, run the sample the same way you ran the other samples:
