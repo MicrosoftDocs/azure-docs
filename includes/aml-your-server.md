@@ -11,19 +11,25 @@ ms.topic: "include"
 ms.date: 01/25/2019
 ---
 
-1. Use the instructions at [Create a Azure Machine Learning service workspace](../articles/machine-learning/service/setup-create-workspace.md#portal) to create a Miniconda environment, create a workspace, and write a workspace configuration file (**aml_config/config.json**).
+- The Azure Machine Learning SDK for Python installed. Use the instructions at [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  to do the following:
+
+
+1. Use the instructions at [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)  to do the following:
+    * Create a Miniconda environment[Create and manage Azure Machine Learning service workspaces]
+    * Install the Azure Machine Learning SDK for Python
+
+1. Create an [Azure Machine Learning service workspace](../articles/machine-learning/service/how-to-manage-workspace.md).
+
+1. Write a  [configuration file](../articles/machine-learning/service/how-to-configure-environment.md#workspace) file (**aml_config/config.json**).
 
 1. Clone [the GitHub repository](https://aka.ms/aml-notebooks).
 
-    ```
+    ```CLI
     git clone https://github.com/Azure/MachineLearningNotebooks.git
     ```
 
-1. Add a workspace configuration file using either of these methods:
-    * Copy the **aml_config/config.json** file you created using the prerequisite quickstart into the cloned directory.
-    * Create a new workspace using code in the [configuration.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/configuration.ipynb).
 1. Start the notebook server from your cloned directory.
-    
+
     ```shell
     jupyter notebook
     ```

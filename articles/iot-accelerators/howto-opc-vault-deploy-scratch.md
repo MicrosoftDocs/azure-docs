@@ -1,18 +1,18 @@
 ---
-title: How to deploy Azure IoT OPC UA certificate management module from scratch | Microsoft Docs
+title: How to deploy OPC Vault module from scratch - Azure | Microsoft Docs
 description: How to deploy OPC Vault from scratch.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: conceptual
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
 
 # Deploy OPC Vault from scratch
 
-Azure IoT OPC UA certificate management, also know as OPC Vault, is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. This article shows you how to deploy OPC Vault from scratch.
+OPC Vault is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. This article shows you how to deploy OPC Vault from scratch.
 
 ## Configuration and environment variables
 
@@ -46,7 +46,7 @@ the IDE, there are several ways to manage environment variables:
 Visual Studio lets you quickly open the application without using a command
 prompt, without configuring anything outside of the IDE.
 
-Steps using Visual Studio 2017:
+To run and debug the application using Visual Studio:
 
 1. Open the solution using the `iot-opc-gds-service.sln` file.
 

@@ -9,11 +9,12 @@ ms.reviewer: barbkess
 
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
@@ -65,7 +66,7 @@ To configure the integration of GoodPractice Toolkit into Azure AD, you need to 
 4. In the search box, type **GoodPractice Toolkit**, select **GoodPractice Toolkit** from result panel then click **Add** button to add the application.
 
 	 ![GoodPractice Toolkit in the results list](common/search-new-app.png)
-   ## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on
 
 In this section, you configure and test Azure AD single sign-on with GoodPractice Toolkit based on a test user called **Britta Simon**.
 For single sign-on to work, a link relationship between an Azure AD user and the related user in GoodPractice Toolkit needs to be established.
@@ -75,8 +76,8 @@ To configure and test Azure AD single sign-on with GoodPractice Toolkit, you nee
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Configure GoodPractice Toolkit Single Sign-On](#configure-goodpractice-toolkit-single-sign-on)** - to configure the Single Sign-On settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Create GoodPractice Toolkit test user](#create-goodpractice-toolkit-test-user)** - to have a counterpart of Britta Simon in GoodPractice Toolkit that is linked to the Azure AD representation of user.
-5. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create GoodPractice Toolkit test user](#create-goodpractice-toolkit-test-user)** - to have a counterpart of Britta Simon in GoodPractice Toolkit that is linked to the Azure AD representation of user.
 6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
@@ -102,7 +103,7 @@ To configure Azure AD single sign-on with GoodPractice Toolkit, perform the foll
 	![GoodPractice Toolkit Domain and URLs single sign-on information](common/sp-intiated.png)
 
 	In the **Sign-on URL** text box, type a URL using the following pattern:
-    `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
 	> [!Note]
 	> The Sign-on URL value is not real. Update the value with the actual Sign-On URL. Contact [GoodPractice Toolkit Client support team](mailto:support@goodpractice.com) to get the value.
@@ -117,7 +118,7 @@ To configure Azure AD single sign-on with GoodPractice Toolkit, perform the foll
 
 	a. Login URL
 
-	b. Azure Ad Identifier
+	b. Azure AD Identifier
 
 	c. Logout URL
 
@@ -143,8 +144,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
     a. In the **Name** field enter **BrittaSimon**.
   
-    b. In the **User name** field type **brittasimon\@yourcompanydomain.extension**  
-    For example, BrittaSimon@contoso.com
+    b. In the **User name** field type `brittasimon\@yourcompanydomain.extension`. For example, BrittaSimon@contoso.com.
 
     c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
@@ -192,5 +192,5 @@ When you click the GoodPractice Toolkit tile in the Access Panel, you should be 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

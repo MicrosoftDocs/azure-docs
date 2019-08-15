@@ -42,7 +42,7 @@ To get event grid subscriptions for an Azure subscription, provide the topic typ
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.Subscriptions" --location global
 ```
 
 For PowerShell, use:
@@ -56,7 +56,7 @@ To get event grid subscriptions for all resource groups within an Azure subscrip
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups"
+az eventgrid event-subscription list --topic-type-name "Microsoft.Resources.ResourceGroups" --location global
 ```
 
 For PowerShell, use:
@@ -70,7 +70,7 @@ To get event grid subscriptions for a specified resource group, provide the name
 For Azure CLI, use:
 
 ```azurecli-interactive
-az eventgrid event-subscription list --resource-group myResourceGroup
+az eventgrid event-subscription list --resource-group myResourceGroup --location global
 ```
 
 For PowerShell, use:

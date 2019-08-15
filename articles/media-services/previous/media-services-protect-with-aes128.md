@@ -131,13 +131,13 @@ Get a test token based on the token restriction that was used for the key author
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-You can use the [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html) to test your stream.
+You can use the [Azure Media Services Player](https://aka.ms/azuremediaplayer) to test your stream.
 
 ## <a id="client_request"></a>How can your client request a key from the key delivery service?
 In the previous step, you constructed the URL that points to a manifest file. Your client needs to extract the necessary information from the streaming manifest files to make a request to the key delivery service.
 
 ### Manifest files
-The client needs to extract the URL (that also contains content key ID [kid]) value from the manifest file. The client then tries to get the encryption key from the key delivery service. The client also needs to extract the IV value and use it to decrypt the stream. The following snippet shows the <Protection> element of the Smooth Streaming manifest:
+The client needs to extract the URL (that also contains content key ID [kid]) value from the manifest file. The client then tries to get the encryption key from the key delivery service. The client also needs to extract the IV value and use it to decrypt the stream. The following snippet shows the `<Protection>` element of the Smooth Streaming manifest:
 
 ```xml
     <Protection>

@@ -1,14 +1,14 @@
 ---
 title: 'Troubleshoot Azure Backup failure: Guest Agent Status Unavailable'
 description: 'Symptoms, causes, and resolutions of Azure Backup failures related to agent, extension, and disks.'
-services: backup
-author: genlin
-manager: cshepard
+ms.reviewer: saurse
+author: dcurwin
+manager: carmonm
 keywords: Azure backup; VM agent; Network connectivity;
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 12/03/2018
-ms.author: genli
+ms.date: 07/05/2019
+ms.author: dacurwin
 ---
 
 # Troubleshoot Azure Backup failure: Issues with the agent or extension
@@ -24,12 +24,10 @@ This article provides troubleshooting steps that can help you resolve Azure Back
 **Error code**: UserErrorGuestAgentStatusUnavailable <br>
 **Error message**: VM Agent unable to communicate with Azure Backup<br>
 
-After you register and schedule a VM for the Backup service, Backup initiates the job by communicating with the VM agent to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. When a snapshot isn't triggered, the backup might fail. Complete the following troubleshooting steps in the order listed, and then retry your operation:<br>
-**Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**    
-**Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
-**Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
-**Cause 5: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
+The Azure VM agent might be stopped, outdated, in an inconsistent state, or not installed and prevent Azure Backup service to trigger snapshots.  
+	
+- If the VM agent is stopped or is in an inconsistent state, **Restart the Agent** and retry the backup operation (try an ad-hoc backup). For steps to restart the agent, see [Windows VMs](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). 
+- If the VM agent is not installed or is outdated, install/update the VM agent and retry the backup operation. For steps to install/update the agent, see [Windows VMs](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) or [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent).  
 
 ## GuestAgentSnapshotTaskStatusError - Could not communicate with the VM agent for snapshot status
 
@@ -39,14 +37,15 @@ After you register and schedule a VM for the Backup service, Backup initiates th
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
 **Cause 1: [The agent is installed in the VM, but it's unresponsive (for Windows VMs)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
-**Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
+**Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**    
+**Cause 4: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)** 
 
 ## UserErrorRpCollectionLimitReached - The Restore Point collection max limit has reached
 
 **Error code**: UserErrorRpCollectionLimitReached <br>
 **Error message**: The Restore Point collection max limit has reached. <br>
 * This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery point.
-* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
+* This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant restore points are retained for 1-5 days as per the configured snapshot retention and only 18 instant RPs can be associated with a VM at any given time. <br>
 
 Recommended Action:<br>
 To resolve this issue, remove the lock on the resource group of the VM, and retry the operation to trigger clean-up.
@@ -73,9 +72,9 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot extension operation failed
+## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
-**Error code**: ExtentionOperationFailedForManagedDisks <br>
+**Error code**: ExtensionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
 
 After you register and schedule a VM for the Azure Backup service, Backup initiates the job by communicating with the VM backup extension to take a point-in-time snapshot. Any of the following conditions might prevent the snapshot from being triggered. If the snapshot isn't triggered, a backup failure might occur. Complete the following troubleshooting steps in the order listed, and then retry your operation:  
@@ -102,7 +101,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 4095GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 4095GB. Support for large disks is coming soon.  
+Your backup operation could fail when backing up a VM with a disk size greater than 4,095 GB. To sign up for a limited public preview of Azure Backup large disk support for disks greater than 4 TB and up to 30 TB in size, see [An overview of Azure VM backup](backup-azure-vms-introduction.md#limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb).
 
 ## UserErrorBackupOperationInProgress - Unable to initiate backup as another backup operation is currently in progress
 
@@ -116,9 +115,9 @@ Your recent backup job failed because there is an existing backup job in progres
 3. On the vault dashboard menu, click **Backup Jobs** it displays all the backup jobs.
 
 	* If a backup job is in progress, wait for it to complete or cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0).
 	* If you have reconfigured the backup in a different vault, then ensure there are no backup jobs running in the old vault. If it exists then cancel the backup job.
-		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/en-us/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
+		* To cancel the backup job right-click on the backup job and click **Cancel** or use [PowerShell](https://docs.microsoft.com/powershell/module/az.recoveryservices/stop-azrecoveryservicesbackupjob?view=azps-1.4.0)
 4. Retry backup operation.
 
 If the scheduled backup operation is taking longer time conflicting with the next backup configuration then review the [Best Practices](backup-azure-vms-introduction.md#best-practices), [Backup Performance](backup-azure-vms-introduction.md#backup-performance) and [Restore consideration](backup-azure-vms-introduction.md#backup-and-restore-considerations).

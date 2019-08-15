@@ -75,7 +75,7 @@ Heartbeat
 ```
 
 ### Evaluating subgroups
-To perform a count or other aggregations on subgroups in your data, use the `by` keyword. For example, to count the number of distinct Linux computers that sent heartbeats in each country:
+To perform a count or other aggregations on subgroups in your data, use the `by` keyword. For example, to count the number of distinct Linux computers that sent heartbeats in each country/region:
 
 ```Kusto
 Heartbeat 
@@ -92,7 +92,7 @@ Heartbeat
 |Netherlands	  | 2  					|
 
 
-To analyze even smaller subgroups of your data, add additional column names to the `by` section. For example, you might want to count the distinct computers from each country per OSType:
+To analyze even smaller subgroups of your data, add additional column names to the `by` section. For example, you might want to count the distinct computers from each country/region per OSType:
 
 ```Kusto
 Heartbeat 

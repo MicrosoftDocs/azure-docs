@@ -30,13 +30,7 @@ To complete this tutorial, you need the following:
 
 * A C development environment. This tutorial assumes the gcc stack on an Azure Linux VM with Ubuntu 14.04.
 * [Microsoft Visual Studio](https://www.visualstudio.com/).
-
-## Create an Event Hubs namespace and an event hub
-The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md).
-
-Get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
-
-Now,  proceed with the following steps in this tutorial.
+* **Create an Event Hubs namespace and an event hub**. Use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md). Get the value of access key for the event hub by following instructions from the article: [Get connection string](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). You use the access key in the code you write later in this tutorial. The default key name is: **RootManageSharedAccessKey**.
 
 ## Write code to send messages to Event Hubs
 In this section shows how to write a C app to send events to your event hub. The code uses the Proton AMQP library from the [Apache Qpid project](https://qpid.apache.org/). This is analogous to using Service Bus queues and topics with AMQP from C as shown [in this sample](https://code.msdn.microsoft.com/Using-Apache-Qpid-Proton-C-afd76504). For more information, see the [Qpid Proton documentation](https://qpid.apache.org/proton/index.html).
@@ -157,7 +151,10 @@ Run the application to send messages to the event hub.
 Congratulations! You have now sent messages to an event hub.
 
 ## Next steps
-To learn about receiving events from the event hub, click the appropriate receiving language under **Receive events from an event hub** node in the table of contents.
+Read the following articles:
+
+- [EventProcessorHost](event-hubs-event-processor-host.md)
+- [Features and terminology in Azure Event Hubs](event-hubs-features.md).
 
 
 <!-- Images. -->

@@ -23,7 +23,7 @@ This feature requires no special setup, other than [configuring your app to send
 There are three types of security issues that are detected:
 1. Insecure URL access: a URL in the application is being accessed via both HTTP and HTTPS. Typically, a URL that accepts HTTPS requests should not accept HTTP requests. This may indicate a bug or security issue in your application.
 2. Insecure form: a form (or other "POST" request) in the application uses HTTP instead of HTTPS. Using HTTP can compromise the user data that is sent by the form.
-3. Suspicious user activity: the application is being accessed from multiple countries by the same user at approximately the same time. For example, the same user accessed the application from Spain and the United States within the same hour. This detection indicates a potentially malicious access attempt to your application.
+3. Suspicious user activity: the application is being accessed from multiple countries/regions by the same user at approximately the same time. For example, the same user accessed the application from Spain and the United States within the same hour. This detection indicates a potentially malicious access attempt to your application.
 
 ## Does my app definitely have a security issue?
 No, a notification doesn't mean that your app definitely has a security issue. A detection of any of the scenarios above can, in many cases, indicate a security issue. However, the detection may have a natural business justification, and can be ignored.
@@ -40,5 +40,5 @@ No, a notification doesn't mean that your app definitely has a security issue. A
 
 ## How do I fix the "Suspicious user activity" detection?
 1. **Triage.** The notification provides the number of different users that exhibited the suspicious behavior. This can help you assign a priority to the problem.
-2. **Scope.** From which countries did the suspicious requests originate? Which user was the most suspicious? This information can be obtained from the notification.
-3. **Diagnose.** The detection provides the list of suspicious users and the list of countries for each user, to help you further diagnose the issue.
+2. **Scope.** From which countries/regions did the suspicious requests originate? Which user was the most suspicious? This information can be obtained from the notification.
+3. **Diagnose.** The detection provides the list of suspicious users and the list of countries/regions for each user, to help you further diagnose the issue.

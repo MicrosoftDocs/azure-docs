@@ -8,7 +8,6 @@ manager: chackdan
 editor: 
 ms.assetid: 
 ms.service: service-fabric
-ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
@@ -3133,7 +3132,7 @@ Declares configuration settings in a service manifest to be overridden. It consi
 
 <a id="FileStoreElementFileStoreETWTypeComplexTypeDefinedInDestinationselement"></a>
 ## FileStore element (type FileStoreETWType) 
-Describes a file store destination for ETW events. Works only in on-premise environment.
+Describes a file store destination for ETW events. Works only in on-premises environment.
 
 |Attribute|Value|
 |---|---|

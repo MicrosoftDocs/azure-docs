@@ -4,7 +4,8 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 03f1e128-5bcb-4e49-b6a3-fe22eedc6d5e
 ms.service: active-directory
@@ -12,210 +13,184 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/21/2017
+ms.topic: tutorial
+ms.date: 03/29/2019
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
+
 # Tutorial: Azure Active Directory integration with TigerText Secure Messenger
 
 In this tutorial, you learn how to integrate TigerText Secure Messenger with Azure Active Directory (Azure AD).
 
 Integrating TigerText Secure Messenger with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to TigerText Secure Messenger
-- You can enable your users to automatically get signed-on to TigerText Secure Messenger (Single Sign-On) with their Azure AD accounts
-- You can manage your accounts in one central location - the Azure portal
+* You can control in Azure AD who has access to TigerText Secure Messenger.
+* You can enable your users to be automatically signed in to TigerText Secure Messenger (single sign-on) with their Azure AD accounts.
+* You can manage your accounts in one central location: the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+For details about software as a service (SaaS) app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
 ## Prerequisites
 
 To configure Azure AD integration with TigerText Secure Messenger, you need the following items:
 
-- An Azure AD subscription
-- A TigerText Secure Messenger single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* A TigerText Secure Messenger subscription with single sign-on enabled.
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Add TigerText Secure Messenger from the gallery
-1. Configure and test Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment and integrate TigerText Secure Messenger with Azure AD.
 
-## Add TigerText Secure Messenger from the gallery
-To configure the integration of TigerText Secure Messenger into Azure AD, you need to add TigerText Secure Messenger from the gallery to your list of managed SaaS apps.
+TigerText Secure Messenger supports SP-initiated single sign-on (SSO).
 
-**To add TigerText Secure Messenger from the gallery, perform the following steps:**
+## Add TigerText Secure Messenger from the Azure Marketplace
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+To configure the integration of TigerText Secure Messenger into Azure AD, you need to add TigerText Secure Messenger from the Azure Marketplace to your list of managed SaaS apps:
 
-	![Active Directory][1]
+1. Sign in to the [Azure portal](https://portal.azure.com?azure-portal=true).
+1. In the left pane, select **Azure Active Directory**.
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+    ![The Azure Active Directory option](common/select-azuread.png)
 
-	![Applications][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+1. Go to **Enterprise Applications**, and then select **All Applications**.
 
-	![Applications][3]
+    ![The Enterprise applications pane](common/enterprise-applications.png)
 
-1. In the search box, type **TigerText Secure Messenger**, select **TigerText Secure Messenger** from result panel then click **Add** button to add the application.
+1. To add a new application, select **+ New application** at the top of the pane.
 
-	![Add from gallery](./media/tigertext-tutorial/tutorial_tigertext_addfromgallery.png)
+    ![The New application option](common/add-new-app.png)
 
-##  Configure and test Azure AD single sign-on
-In this section, you configure and test Azure AD single sign-on with TigerText Secure Messenger based on a test user called "Britta Simon".
+1. In the search box, enter **TigerText Secure Messenger**. In the search results, select **TigerText Secure Messenger**, and then select **Add** to add the application.
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in TigerText Secure Messenger is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in TigerText Secure Messenger needs to be established.
+    ![TigerText Secure Messenger in the results list](common/search-new-app.png)
 
-In TigerText Secure Messenger, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+## Configure and test Azure AD single sign-on
+
+In this section, you configure and test Azure AD single sign-on with TigerText Secure Messenger based on a test user named **Britta Simon**. For single sign-on to work, you must establish a link between an Azure AD user and the related user in TigerText Secure Messenger.
 
 To configure and test Azure AD single sign-on with TigerText Secure Messenger, you need to complete the following building blocks:
 
-1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a TigerText Secure Messenger test user](#create-a-tigertext-secure-messenger-test-user)** - to have a counterpart of Britta Simon in TigerText Secure Messenger that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test Single Sign-On](#test-single-sign-on)** - to verify whether the configuration works.
+1. **[Configure Azure AD single sign-on](#configure-azure-ad-single-sign-on)** to enable your users to use this feature.
+1. **[Configure TigerText Secure Messenger single sign-on](#configure-tigertext-secure-messenger-single-sign-on)** to configure the single sign-on settings on the application side.
+1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** to test Azure AD single sign-on with Britta Simon.
+1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** to enable Britta Simon to use Azure AD single sign-on.
+1. **[Create a TigerText Secure Messenger test user](#create-a-tigertext-secure-messenger-test-user)** so that there's a user named Britta Simon in TigerText Secure Messenger who's linked to the Azure AD user named Britta Simon.
+1. **[Test single sign-on](#test-single-sign-on)** to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your TigerText Secure Messenger application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with TigerText Secure Messenger, perform the following steps:**
+To configure Azure AD single sign-on with TigerText Secure Messenger, take the following steps:
 
-1. In the Azure portal, on the **TigerText Secure Messenger** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **TigerText Secure Messenger** application integration page, select **Single sign-on**.
 
-	![Configure Single Sign-On][4]
+    ![Configure single sign-on option](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![SAML-based Sign-on](./media/tigertext-tutorial/tutorial_tigertext_samlbase.png)
+1. On the **Select a single sign-on method** pane, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **TigerText Secure Messenger Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![TigerText Secure Messenger Domain and URLs section](./media/tigertext-tutorial/tutorial_tigertext_url.png)
+1. On the **Set up Single Sign-On with SAML** pane, select **Edit** (the pencil icon) to open the **Basic SAML Configuration** pane.
 
-    a. In the **Sign-on URL** textbox, type URL as: `https://home.tigertext.com`
+    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://saml-lb.tigertext.me/v1/organization/<instance Id>`
+1. In the **Basic SAML Configuration** pane, take the following steps:
 
-	> [!NOTE] 
-	> This value is not real. Update this value with the actual Identifier. Contact [TigerText Secure Messenger Client support team](mailTo:prosupport@tigertext.com) to get this value. 
- 
-1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
+    ![TigerText Secure Messenger domain and URLs single sign-on information](common/sp-identifier.png)
 
-	![SAML Signing Certificate section](./media/tigertext-tutorial/tutorial_tigertext_certificate.png) 
+    1. In the **Sign on URL** box, enter a URL:
 
-1. Click **Save** button.
+       `https://home.tigertext.com`
 
-	![Save Button](./media/tigertext-tutorial/tutorial_general_400.png)
+    1. In the **Identifier (Entity ID)** box, type a URL by using the following pattern:
 
-1. To get single sign-on configured for your application, contact [TigerText Secure Messenger support team](mailTo:prosupport@tigertext.com) and provide them the **Downloaded metadata**.
+       `https://saml-lb.tigertext.me/v1/organization/<instance ID>`
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+    > [!NOTE]
+    > The **Identifier (Entity ID)** value isn't real. Update this value with the actual identifier. To get the value, contact the [TigerText Secure Messenger support team](mailto:prosupport@tigertext.com). You can also refer to the patterns shown in the **Basic SAML Configuration** pane in the Azure portal.
+
+1. On the **Set up Single Sign-On with SAML** pane, in the **SAML Signing Certificate** section, select **Download** to download the **Federation Metadata XML** from the given options and save it on your computer.
+
+    ![The Federation Metadata XML download option](common/metadataxml.png)
+
+1. In the **Set up TigerText Secure Messenger** section, copy the URL or URLs that you need:
+
+   * **Login URL**
+   * **Azure AD Identifier**
+   * **Logout URL**
+
+    ![Copy configuration URLs](common/copy-configuration-urls.png)
+
+### Configure TigerText Secure Messenger single sign-on
+
+To configure single sign-on on the TigerText Secure Messenger side, you need to send the downloaded Federation Metadata XML and the appropriate copied URLs from the Azure portal to the [TigerText Secure Messenger support team](mailto:prosupport@tigertext.com). The TigerText Secure Messenger team will make sure the SAML SSO connection is set properly on both sides.
 
 ### Create an Azure AD test user
-The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-![Create Azure AD User][100]
+In this section, you create a test user named Britta Simon in the Azure portal.
 
-**To create a test user in Azure AD, perform the following steps:**
+1. In the Azure portal, in the left pane, select **Azure Active Directory**   > **Users** > **All users**.
 
-1. In the **Azure portal**, on the left navigation pane, click **Azure Active Directory** icon.
+    ![The Users and "All users" options](common/users.png)
 
-	![Creating an Azure AD test user](./media/tigertext-tutorial/create_aaduser_01.png) 
+1. At the top of the screen, select **+ New user**.
 
-1. To display the list of users, go to **Users and groups** and click **All users**.
-	
-	![Users and groups->All users](./media/tigertext-tutorial/create_aaduser_02.png) 
+    ![New user option](common/new-user.png)
 
-1. To open the **User** dialog, click **Add** on the top of the dialog.
- 
-	![Add Button](./media/tigertext-tutorial/create_aaduser_03.png) 
+1. In the **User** pane, do the following steps:
 
-1. On the **User** dialog page, perform the following steps:
- 
-	![User dialog](./media/tigertext-tutorial/create_aaduser_04.png) 
+    ![The User pane](common/user-properties.png)
 
-    a. In the **Name** textbox, type **BrittaSimon**.
+    1. In the **Name** box, enter **BrittaSimon**.
+  
+    1. In the **User name** box, enter **BrittaSimon\@\<yourcompanydomain>.\<extension>**. For example, **BrittaSimon\@contoso.com**.
 
-    b. In the **User name** textbox, type the **email address** of BrittaSimon.
+    1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
 
-	c. Select **Show Password** and write down the value of the **Password**.
-
-    d. Click **Create**.
- 
-### Create a TigerText Secure Messenger test user
-
-In this section, you create a user called Britta Simon in TigerText. Please reach out to [TigerText Secure Messenger Client support team](mailTo:prosupport@tigertext.com) to add the users in the TigerText platform.
+    1. Select **Create**.
 
 ### Assign the Azure AD test user
 
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to TigerText Secure Messenger.
+In this section, you enable Britta Simon to use Azure single sign-on by granting them access to TigerText Secure Messenger.
 
-![Assign User][200] 
+1. In the Azure portal, select **Enterprise applications** > **All applications** > **TigerText Secure Messenger**.
 
-**To assign Britta Simon to TigerText Secure Messenger, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
+    ![Enterprise applications pane](common/enterprise-applications.png)
 
 1. In the applications list, select **TigerText Secure Messenger**.
 
-	![TigerText Secure Messenger in app list](./media/tigertext-tutorial/tutorial_tigertext_app.png) 
+    ![TigerText Secure Messenger in the applications list](common/all-applications.png)
 
-1. In the menu on the left, click **Users and groups**.
+1. In the left pane, under **MANAGE**, select **Users and groups**.
 
-	![Assign User][202] 
+    ![The "Users and groups" option](common/users-groups-blade.png)
 
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
+1. Select **+ Add user**, and then select **Users and groups** in the **Add Assignment** pane.
 
-	![Assign User][203]
+    ![The Add Assignment pane](common/add-assign-user.png)
 
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
+1. In the **Users and groups** pane, select **Britta Simon** in the **Users** list, and then choose **Select** at the bottom of the pane.
 
-1. Click **Select** button on **Users and groups** dialog.
+1. If you're expecting a role value in the SAML assertion, then in the **Select Role** pane, select the appropriate role for the user from the list. At the bottom of the pane, choose **Select**.
 
-1. Click **Assign** button on **Add Assignment** dialog.
-	
+1. In the **Add Assignment** pane, select **Assign**.
+
+### Create a TigerText Secure Messenger test user
+
+In this section, you create a user called Britta Simon in TigerText Secure Messenger. Work with the [TigerText Secure Messenger support team](mailto:prosupport@tigertext.com) to add Britta Simon as a user in TigerText Secure Messenger. Users must be created and activated before you use single sign-on.
+
 ### Test single sign-on
 
-In this section, you test your Azure AD single sign-on configuration using the Access Panel.
+In this section, you test your Azure AD single sign-on configuration by using the My Apps portal.
 
-When you click the TigerText tile in the Access Panel, you should get automatically signed-on to your TigerText application. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+When you select **TigerText Secure Messenger** in the My Apps portal, you should be automatically signed in to the TigerText Secure Messenger subscription for which you set up single sign-on. For more information about the My Apps portal, see [Access and use apps on the My Apps portal](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## Additional resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [List of tutorials for integrating SaaS apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+* [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/tigertext-tutorial/tutorial_general_01.png
-[2]: ./media/tigertext-tutorial/tutorial_general_02.png
-[3]: ./media/tigertext-tutorial/tutorial_general_03.png
-[4]: ./media/tigertext-tutorial/tutorial_general_04.png
-
-[100]: ./media/tigertext-tutorial/tutorial_general_100.png
-
-[200]: ./media/tigertext-tutorial/tutorial_general_200.png
-[201]: ./media/tigertext-tutorial/tutorial_general_201.png
-[202]: ./media/tigertext-tutorial/tutorial_general_202.png
-[203]: ./media/tigertext-tutorial/tutorial_general_203.png
-
+* [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

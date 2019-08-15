@@ -5,7 +5,7 @@ services: azure-resource-manager
 documentationcenter: ''
 author: mumian
 manager: dougeby
-editor: 
+editor:
 
 ms.service: azure-resource-manager
 ms.workload: multiple
@@ -72,7 +72,7 @@ Download the [BACPAC file](https://armtutorials.blob.core.windows.net/sqlextensi
 
     * **Subscription**: Select your Azure subscription.
     * **Resource Group**: Select **Create new** and give it a name. A resource group is a container for Azure resources for the management purpose. In this tutorial, you can use the same resource group for the storage account and the Azure SQL Database. Make a note of this resource group name, you need it when you create the Azure SQL Database later in the tutorials.
-    * **Location**: Select a region. For example, **Central US**. 
+    * **Location**: Select a region. For example, **Central US**.
     * **Storage Account Type**: use the default value, which is **Standard_LRS**.
     * **Location**: Use the default value, which is **[resourceGroup().location]**. That means you use the resource group location for the storage account.
     * **I agree to the terms and conditions started above**: (selected)
@@ -84,7 +84,7 @@ Download the [BACPAC file](https://armtutorials.blob.core.windows.net/sqlextensi
 
 ### Create a Blob container
 
-A Blob container is needed before you can upload any files. 
+A Blob container is needed before you can upload any files.
 
 1. Select the storage account to open it. You shall see only one storage account listed in the resource group. Your storage account name is different from the one shown in the following screenshot.
 
@@ -96,7 +96,7 @@ A Blob container is needed before you can upload any files.
 3. Select **+ Container** from the top to create a new container.
 4. Enter the following values:
 
-    * **Name**: enter **sqlbacpac**. 
+    * **Name**: enter **sqlbacpac**.
     * **Public access level**: use the default value, **Private (no anonymous access)**.
 5. Select **OK**.
 6. Select **sqlbacpac** to open the newly created container.
@@ -234,7 +234,7 @@ When the Azure resources are no longer needed, clean up the resources you deploy
 
 ## Next steps
 
-In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file using SAS token. To learn how to deploy Azure resources across multiple regions, and how to use safe deployment practices, see
+In this tutorial, you deployed a SQL Server, a SQL Database, and imported a BACPAC file using SAS token. To learn how to create an Azure Pipeline to continuously develop and deploy Resource Manager templates, see
 
 > [!div class="nextstepaction"]
-> [Use Azure Deployment Manager](./resource-manager-tutorial-deploy-vm-extensions.md)
+> [Continuous integration with Azure Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)

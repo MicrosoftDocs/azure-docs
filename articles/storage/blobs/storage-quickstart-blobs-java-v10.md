@@ -1,19 +1,20 @@
 ---
-title: 'Azure quickstart: Create a blob in object storage by using Java Storage SDK V10 | Microsoft Docs'
+title: 'Quickstart: Use the Java Storage SDK to create a blob'
 description: In this quickstart, you create a container in object (Azure Blob) storage, upload a file, list objects, and download by using the Java Storage SDK. 
-services: storage
-author: roygara
+author: mhopkins-msft
 
-ms.custom: mvc
+ms.author: mhopkins
+ms.date: 11/14/2018
 ms.service: storage
 ms.topic: quickstart
-ms.date: 11/14/2018
-ms.author: rogarana
+ms.custom: seo-java-july2019
 ---
 
 # Quickstart: Upload, download, and list blobs by using the Java Storage SDK V10
 
 In this quickstart, you learn how to use the new Java Storage SDK to upload, download, and list block blobs in a container in Azure Blob storage. The new Java SDK uses the reactive programming model with RxJava, which provides asynchronous operations. Learn more about RxJava [reactive extensions for the Java VM](https://github.com/ReactiveX/RxJava). 
+
+[!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 ## Prerequisites
 
@@ -45,14 +46,14 @@ This solution requires that you securely store the name and key of your storage 
 
 ### Linux example
 
-```
+```bash
 export AZURE_STORAGE_ACCOUNT="<youraccountname>"
 export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 ```
 
 ### Windows example
 
-```
+```CMD
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
@@ -69,7 +70,7 @@ If you want to run the sample using Maven at the command line, open a shell and 
 
 This example shows your output if you run the application on Windows.
 
-```
+```Output
 Created quickstart container
 Enter a command
 (P)utBlob | (L)istBlobs | (G)etBlob | (D)eleteBlobs | (E)xitSample

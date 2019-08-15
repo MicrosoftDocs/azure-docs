@@ -33,7 +33,7 @@ For more information about the current status of each runtime library, see [addi
 | .NET Standard | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs.Processor/) | [GitHub](https://github.com/azure/azure-event-hubs-dotnet) |
 | .NET Framework | [NuGet](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | [NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/) | N/A |
 | Java | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22) | [Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs-eph%22) | [GitHub](https://github.com/Azure/azure-event-hubs-java) |
-| Node | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-node) |
+| Node | [NPM](https://www.npmjs.com/package/azure-event-hubs) | N/A | [GitHub](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) |
 | C | N/A | N/A | [GitHub](https://github.com/Azure/azure-event-hubs-c) |
 
 ### Additional information
@@ -44,7 +44,7 @@ The .NET ecosystem has multiple runtimes, so there are multiple .NET libraries f
 
 #### Node
 
-The [Node.js library](https://github.com/Azure/azure-event-hubs-node) is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
+The [Node.js library](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs) is currently in preview and is maintained as a side project by Microsoft employees and external contributors. All contributions including source code are welcome and will be reviewed.
 
 ## Management APIs
 

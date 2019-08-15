@@ -2,16 +2,13 @@
 title: Tutorial - Use Azure Key Vault with a Windows virtual machine in Python | Microsoft Docs
 description: In this tutorial, you configure an ASP.NET core application to read a secret from your key vault.
 services: key-vault
-documentationcenter: 
-author: prashanthyv
+author: msmbaldwin
 manager: rajvijan
 
-ms.assetid: 0e57f5c7-6f5a-46b7-a18a-043da8ca0d83
 ms.service: key-vault
-ms.workload: key-vault
 ms.topic: tutorial
 ms.date: 09/05/2018
-ms.author: pryerram
+ms.author: mbaldwin
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
@@ -103,9 +100,9 @@ This secret stores the value **MySecret**.
 ## Create a virtual machine
 You can create a virtual machine by using one of the following methods:
 
-* [The Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
-* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [The Azure portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [The Azure CLI](../virtual-machines/windows/quick-create-cli.md)
+* [PowerShell](../virtual-machines/windows/quick-create-powershell.md)
+* [The Azure portal](../virtual-machines/windows/quick-create-portal.md)
 
 ## Assign an identity to the VM
 In this step, you create a system-assigned identity for the virtual machine by running the following command in the Azure CLI:
@@ -132,7 +129,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## Log on to the virtual machine
 
-To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
+To log on to the virtual machine, follow the instructions in [Connect and log on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
 
 ## Create and run a sample Python app
 

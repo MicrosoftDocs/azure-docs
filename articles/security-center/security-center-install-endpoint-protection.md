@@ -43,7 +43,7 @@ In this example, we will use **Compute**.  We will look at how to install antima
 
 ## Install antimalware on Azure VMs
 
-1. Select **Compute** under the Security Center main menu or **Overview**.
+1. Select **Compute & apps** under the Security Center main menu or **Overview**.
 
    ![Select Compute][1]
 
@@ -96,7 +96,7 @@ Another search result opens with information filtered only for that computer.
 ## Next steps
 This article showed you how to implement the Security Center recommendation "Install Endpoint Protection." To learn more about enabling Microsoft Antimalware in Azure, see the following document:
 
-* [Microsoft Antimalware for Cloud Services and Virtual Machines](../security/azure-security-antimalware.md) -- Learn how to deploy Microsoft Antimalware.
+* [Microsoft Antimalware for Cloud Services and Virtual Machines](../security/fundamentals/antimalware.md) -- Learn how to deploy Microsoft Antimalware.
 
 To learn more about Security Center, see the following documents:
 

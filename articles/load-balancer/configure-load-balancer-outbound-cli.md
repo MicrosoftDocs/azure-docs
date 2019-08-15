@@ -4,7 +4,7 @@ titlesuffix: Azure Load Balancer
 description: This article shows how to configure load balancing and outbound rules in a Standard Load Balancer using the Azure CLI.
 services: load-balancer
 documentationcenter: na
-author: KumudD
+author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -12,7 +12,7 @@ ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
-ms.author: kumud
+ms.author: allensu
 
 ---
 # Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI
@@ -94,7 +94,7 @@ Create a Load Balancer with the inbound IP address using [az network lb create](
 Create an additional backend address pool to define outbound connectivity for a pool of VMs with [az network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) with the name *bepooloutbound*.  Creating a separate outbound pool provides maximum flexibility, but you can omit this step and only use the inbound *bepoolinbound* as well.
 
 ```azurecli-interactive
-  az network lb address-pool \
+  az network lb address-pool create \
     --resource-group myresourcegroupoutbound \
     --lb-name lb \
     --name bepooloutbound

@@ -32,7 +32,7 @@ This article describes how to access a classroom lab, connect to the VM in the l
 ## View all the classroom labs
 After you register to the labs, you can view all the classroom labs by taking the following steps: 
 
-1. Navigate to [https://labs.azure.com](https://labs.azure.com). 
+1. Navigate to [https://labs.azure.com](https://labs.azure.com). Note that Internet Explorer 11 is not supported yet. 
 2. Sign in to the service by using the user account that you used to register to the lab. 
 3. Confirm that you see all the labs you have access to. 
 

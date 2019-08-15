@@ -19,7 +19,8 @@ ms.author: juliako
 ---
 # Get started with delivering content on demand using REST  
 
-[!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
+> [!NOTE]
+> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Also, see [migration guidance from v2 to v3](../latest/migrate-from-v2-to-v3.md)
 
 This quickstart walks you through the steps of implementing a Video-on-Demand (VoD) content delivery application using Azure Media Services (AMS) REST APIs.
 
@@ -556,7 +557,7 @@ If successful, the following response is returned:
 There are a few important things to note in any Job request:
 
 * TaskBody properties MUST use literal XML to define the number of input, or output assets that are used by the Task. The Task article contains the XML Schema Definition for the XML.
-* In the TaskBody definition, each inner value for <inputAsset> and <outputAsset> must be set as JobInputAsset(value) or JobOutputAsset(value).
+* In the TaskBody definition, each inner value for `<inputAsset>` and `<outputAsset>` must be set as JobInputAsset(value) or JobOutputAsset(value).
 * A task can have multiple output assets. One JobOutputAsset(x) can only be used once as an output of a task in a job.
 * You can specify JobInputAsset or JobOutputAsset as an input asset of a task.
 * Tasks must not form a cycle.
@@ -568,7 +569,7 @@ There are a few important things to note in any Job request:
 >
 
 * InputMediaAssets maps to one or more Assets you have created in Media Services. OutputMediaAssets are created by the system. They do not reference an existing asset.
-* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the <outputAsset> element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
+* OutputMediaAssets can be named using the assetName attribute. If this attribute is not present, then the name of the OutputMediaAsset is whatever the inner text value of the `<outputAsset>` element is with a suffix of either the Job Name value, or the Job Id value (in the case where the Name property isn't defined). For example, if you set a value for assetName to "Sample", then the OutputMediaAsset Name property would be set to "Sample". However, if you did not set a value for assetName, but did set the job name to "NewJob", then the OutputMediaAsset Name would be "JobOutputAsset(value)_NewJob".
 
     The following example shows how to set the assetName attribute:
 
@@ -906,7 +907,7 @@ To stream MPEG DASH, append (format=mpd-time-csf) after the "/manifest".
 
 
 ## <a id="play"></a>Play your content
-To stream you video, use [Azure Media Services Player](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
+To stream you video, use [Azure Media Services Player](https://aka.ms/azuremediaplayer).
 
 To test progressive download, paste a URL into a browser (for example, IE, Chrome, Safari).
 

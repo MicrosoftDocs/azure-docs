@@ -3,19 +3,20 @@ title: Migrate from the Azure Access Control Service | Microsoft Docs
 description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
-author: CelesteDG
-manager: mtillman
+author: rwike77
+manager: CelesteDG
 editor: ''
 
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
+ms.custom: aaddev 
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
-ms.author: celested
+ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ---
@@ -148,7 +149,7 @@ SharePoint 2013, 2016, and SharePoint Online customers have long used ACS for au
 
 | Feature | Guidance |
 | ------- | -------- |
-| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatible with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premise app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Authenticating users from Azure AD | Previously, Azure AD did not support SAML 1.1 tokens required by SharePoint for authentication, and ACS was used as an intermediary that made SharePoint compatible with Azure AD token formats. Now, you can [connect SharePoint directly to Azure AD using Azure AD App Gallery SharePoint on premises app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [App authentication & server-to-server authentication in SharePoint on premises](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Not affected by ACS retirement; no changes necessary. | 
 | [Low trust authorization for SharePoint add-ins (provider hosted and SharePoint hosted)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Not affected by ACS retirement; no changes necessary. |
 | [SharePoint cloud hybrid search](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Not affected by ACS retirement; no changes necessary. |
@@ -279,10 +280,10 @@ In some cases, you might find that Azure AD and Azure AD B2C aren't sufficient t
 
 In these cases, you might want to consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-|     |     | 
+|     |     |
 | --- | --- |
-| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
+| ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
+| ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 
@@ -341,10 +342,10 @@ In some cases, you might find that the Azure AD client credentials and the OAuth
 
 In these cases, you might consider migrating your web application to another cloud authentication service. We recommend exploring the following options. Each of the following options offer capabilities similar to Access Control:
 
-|     |     | 
+|     |     |
 | --- | --- |
-| ![Auth0](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
-| ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
+| ![This image shows the Auth0 logo](./media/active-directory-acs-migration/rsz_auth0.png) | [Auth0](https://auth0.com/acs) is a flexible cloud identity service that has created [high-level migration guidance for customers of Access Control](https://auth0.com/acs), and supports nearly every feature that ACS does. |
+| ![This image shows the Ping Identity logo](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) offers two solutions similar to ACS. PingOne is a cloud identity service that supports many of the same features as ACS, and PingFederate is a similar on premises identity product that offers more flexibility. Refer to [Ping's ACS retirement guidance](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html) for more details on using these products. |
 
 Our aim in working with Ping Identity and Auth0 is to ensure that all Access Control customers have a migration path for their apps and services that minimizes the amount of work required to move from Access Control.
 

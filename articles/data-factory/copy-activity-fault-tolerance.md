@@ -3,7 +3,7 @@ title: Fault tolerance of copy activity in Azure Data Factory | Microsoft Docs
 description: 'Learn about how to add fault tolerance to copy activity in Azure Data Factory by skipping the incompatible rows.'
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.author: jingwang
+ms.author: yexu
 
 ---
 #  Fault tolerance of copy activity in Azure Data Factory
@@ -44,7 +44,7 @@ Copy Activity supports three scenarios for detecting, skipping, and logging inco
 >[!NOTE]
 >- For loading data into SQL Data Warehouse using PolyBase, configure PolyBase's native fault tolerance settings by specifying reject policies via "[polyBaseSettings](connector-azure-sql-data-warehouse.md#azure-sql-data-warehouse-as-sink)" in copy activity. You can still enable redirecting PolyBase incompatible rows to Blob or ADLS as normal as shown below.
 >- This feature doesn't apply when copy activity is configured to invoke [Amazon Redshift Unload](connector-amazon-redshift.md#use-unload-to-copy-data-from-amazon-redshift).
-
+>- This feature doesn't apply when copy activity is configured to invoke a [stored procedure from a SQL sink](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database#invoke-a-stored-procedure-from-a-sql-sink).
 
 ## Configuration
 The following example provides a JSON definition to configure skipping the incompatible rows in Copy Activity:

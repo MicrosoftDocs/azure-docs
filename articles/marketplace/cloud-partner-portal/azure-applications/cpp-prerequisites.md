@@ -1,20 +1,12 @@
 ---
-title: Azure Application offer prerequisites | Microsoft Docs
+title: Azure Application offer prerequisites | Azure Marketplace 
 description: The prerequisites for publishing an Azure application offer on the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: v-miclar
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: conceptual
 ms.date: 03/13/2019
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Azure application prerequisites
@@ -34,7 +26,7 @@ For more information, see  [Understand the structure and syntax of Azure Resourc
 For more information, see:
 
   * [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates/). Deploy Azure resources through the Azure Resource Manager with community contributed templates to get more done. Azure Resource Manager allows you to provision your applications using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application during every stage of the application lifecycle.
-  * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). This repo contains all the currently available Azure Resource Manager templates contributed by the community. A searchable template index is maintained at https://azure.microsoft.com/en-us/documentation/templates/.
+  * [GitHub: Azure Resource Manager Quickstart Templates](https://github.com/azure/azure-quickstart-templates). This repo contains all the currently available Azure Resource Manager templates contributed by the community. A searchable template index is maintained at https://azure.microsoft.com/documentation/templates/.
 * Create UI Definition<br>
 For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview). This article introduces the core concepts of the createUiDefinition.json file. The Azure portal uses this file to generate the user interface for creating a managed application.
 
@@ -43,12 +35,13 @@ For more information, see [Create Azure portal user interface for your managed a
 
 The business requirements include the following procedural, contractual, and legal obligations:
 
-* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](../../become-publisher.md).
+* You must be a registered Cloud Marketplace Publisher. If you’re not registered, follow the steps in the article [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher
+).
 
 >[!NOTE]
 >You should use the same Microsoft Developer Center registration account to sign in to the Cloud Partner Portal. You should have only one Microsoft account for your Azure Marketplace offerings. This account shouldn’t be specific to individual services or offers.
 
-* Your company (or its subsidiary) must be in a sell-from-country supported by the Azure Marketplace. For a current list of these countries, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
+* Your company (or its subsidiary) must be in a sell-from-country/region supported by the Azure Marketplace. For a current list of these countries/regions, see [Microsoft Azure Marketplace Participation Policies](https://azure.microsoft.com/support/legal/marketplace/participation-policies/).
 * Your product must be licensed in a way that’s compatible with billing models supported by the Azure Marketplace. For more information, see [billing options](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations) in the Azure Marketplace.
 * You’re responsible for making technical support available to customers in a commercially reasonable manner. This support can be free, paid, or through community approaches.
 * You’re responsible for licensing your software and any third-party software dependencies.

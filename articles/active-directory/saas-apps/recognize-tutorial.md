@@ -97,7 +97,7 @@ To configure Azure AD single sign-on with Recognize, perform the following steps
 
 	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+4. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
 
 	>[!NOTE]
 	>You will get the **Service Provider metadata file** from the **Configure Recognize Single Sign-On** section of the tutorial.
@@ -252,9 +252,9 @@ When you click the Recognize tile in the Access Panel, you should be automatical
 
 ## Additional Resources
 
-- [ List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [What is application access and single sign-on with Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

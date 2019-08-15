@@ -104,7 +104,7 @@ choose **Create**, and then save your logic app:
 
 | Property | Required | Description |
 |----------|----------|-------------|
-| **Connect via on-premise gateway** | No | Applies only for on-premises connections. |
+| **Connect via on-premises gateway** | No | Applies only for on-premises connections. |
 | **Connection Name** | Yes | The name for your connection, for example, "MyLogicApp-DB2-connection" |
 | **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "myDB2server.cloudapp.net:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
 | **Database** | Yes | The name for your database <p><p>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <p>- DB2 for z/OS accepts a 16-byte string where the database is known as an "IBM DB2 for z/OS" location. <br>- DB2 for i accepts an 18-byte string where the database is known as an "IBM DB2 for i" relational database. <br>- DB2 for LUW accepts an 8-byte string. |
@@ -126,7 +126,7 @@ continue with providing these connection details, and then choose **Create**.
 
 | Property | Required | Description |
 |----------|----------|-------------|
-| **Connect via on-premise gateway** | Yes | Applies when you want an on-premises connection and shows the on-premises connection properties. |
+| **Connect via on-premises gateway** | Yes | Applies when you want an on-premises connection and shows the on-premises connection properties. |
 | **Connection Name** | Yes | The name for your connection, for example, "MyLogicApp-DB2-connection" | 
 | **Server** | Yes | The address or alias colon port number for your DB2 server, for example, "myDB2server:50000" <p><p>**Note**: This value is a string that represents a TCP/IP address or alias, either in IPv4 or IPv6 format, followed by a colon and a TCP/IP port number. |
 | **Database** | Yes | The name for your database <p><p>**Note**: This value is a string that represents a DRDA Relational Database Name (RDBNAM): <p>- DB2 for z/OS accepts a 16-byte string where the database is known as an "IBM DB2 for z/OS" location. <br>- DB2 for i accepts an 18-byte string where the database is known as an "IBM DB2 for i" relational database. <br>- DB2 for LUW accepts an 8-byte string. |

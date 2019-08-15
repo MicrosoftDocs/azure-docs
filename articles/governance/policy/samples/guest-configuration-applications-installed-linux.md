@@ -1,18 +1,17 @@
 ---
 title: Sample - Audit if applications aren't installed inside Linux VMs
 description: This sample Policy Guest Configuration initiative and definitions audit if the specified applications are not installed inside Linux virtual machines.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
-ms.date: 03/18/2019
+ms.date: 05/02/2019
 ms.author: dacoulte
 ---
-# Sample - Audit if specified applications are not installed inside Linux VMs
+# Sample - Audit if specified applications aren't installed inside Linux VMs
 
-This Policy Guest Configuration initiative audits that the specified application is installed inside
-Linux virtual machines. The ID of this built-in initiative is
+This Policy Guest Configuration initiative creates an audit event when the specified applications
+aren't installed inside Linux virtual machines. The ID of this built-in initiative is
 `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
@@ -32,10 +31,10 @@ You can assign this sample using:
 This [Guest Configuration](../concepts/guest-configuration.md) initiative is made up of the
 following policies:
 
-- [audit](#audit-definition) - Audit that an application is installed inside Linux VMs
+- [audit](#audit-definition) - Audit when applications aren't installed inside Linux VMs
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) - Deploy VM extension to audit that an
-  application is installed inside Linux VMs
+- [deployIfNotExists](#deployIfNotExists-definition) - Deploy VM extension to audit when
+  applications aren't installed inside Linux VMs
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### Initiative definition
@@ -47,9 +46,9 @@ and the [initiative Parameters](#initiative-parameters). This is the JSON of the
 
 ### Initiative parameters
 
-|Name |Type ||Description |
-|---|---||---|
-|applicationName |String |Application names. Example: 'python', 'powershell', or a comma-separated list such as 'python,powershell'. Use \* for wildcard matching, like 'power\*'.|
+|Name |Type |Description |
+|---|---|---|
+|applicationName |String |Application names. Example: 'python', 'powershell', or a comma-separated list such as 'python,powershell'. Use \* for wildcard matching, like 'power\*'. |
 
 When creating an assignment via PowerShell or Azure CLI, the parameter values can be passed as JSON
 in either a string or via a file using `-PolicyParameter` (PowerShell) or `--params` (Azure CLI).
@@ -118,7 +117,7 @@ assignment.
 
 ### Create copy of audit definition
 
-[![Deploy the Policy sample to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 [![Deploy the Policy sample to Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Using these buttons to deploy via the portal creates a copy of the **audit** policy definition.
@@ -127,7 +126,7 @@ correctly.
 
 ### Create copy of deployIfNotExists definition
 
-[![Deploy the Policy sample to Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Deploy the Policy sample to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 [![Deploy the Policy sample to Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Using these buttons to deploy via the portal creates a copy of the **deployIfNotExists** policy

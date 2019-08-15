@@ -25,7 +25,7 @@ In this quickstart, you create an event hub using the [Azure portal](https://por
 To complete this quickstart, make sure that you have:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
+- [Visual Studio 2019)](https://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Create a resource group
@@ -55,7 +55,7 @@ An Event Hubs namespace provides a unique scoping container, referenced by its f
    ![Search for Event Hubs](./media/event-hubs-quickstart-portal/select-event-hubs-menu.png)
 3. Select **Event Hubs** under **FAVORITES** in the left navigational menu, and select **Add** on the toolbar.
 
-   ![Add toolbar button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
+   ![Add button](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. On the **Create namespace** page, take the following steps:
     1. Enter a name for the namespace. The system immediately checks to see if the name is available.
     2. Choose the pricing tier (Basic or Standard).
@@ -90,10 +90,16 @@ Congratulations! You have used the portal to create an Event Hubs namespace, and
 
 ## Next steps
 
-In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the following tutorials:  
+In this article, you created a resource group, an Event Hubs namespace, and an event hub. For step-by-step instructions to send events to (or) receive events from an event hub, see the **Send and receive events** tutorials: 
 
-- **Send events to an event hub**: [.NET Core](event-hubs-dotnet-standard-getstarted-send.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md), [Java](event-hubs-java-get-started-send.md), [Python](event-hubs-python-get-started-send.md), [Node.js](event-hubs-node-get-started-send.md), [Go](event-hubs-go-get-started-send.md), [C](event-hubs-c-getstarted-send.md)
-- **Receive events from an event hub**: [.NET Core](event-hubs-dotnet-standard-getstarted-receive-eph.md), [.NET Framework](event-hubs-dotnet-framework-getstarted-receive-eph.md), [Java](event-hubs-java-get-started-receive-eph.md), [Python](event-hubs-python-get-started-receive.md), [Node.js](event-hubs-node-get-started-receive.md), [Go](event-hubs-go-get-started-receive-eph.md), [Apache Storm](event-hubs-storm-getstarted-receive.md)
+- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
+- [Java](event-hubs-java-get-started-send.md)
+- [Python](event-hubs-python-get-started-send.md)
+- [Node.js](event-hubs-node-get-started-send.md)
+- [Go](event-hubs-go-get-started-send.md)
+- [C (send only)](event-hubs-c-getstarted-send.md)
+- [Apache Storm (reecive only)](event-hubs-storm-getstarted-receive.md)
 
 
 [Azure portal]: https://portal.azure.com/

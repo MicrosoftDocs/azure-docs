@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 08/01/2019
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: "it-pro;seo-update-azuread-jan"
@@ -33,7 +33,7 @@ During the process of admin takeover, you can prove ownership as described in [A
 
 Some products that include SharePoint and OneDrive, such as Office 365, do not support external takeover. If that is your scenario, or if you are an admin and want to take over an unmanaged or "shadow" tenant create by users who used self-service sign-up, you can do this with an internal admin takeover.
 
-1. Create a user context in the unmanaged tenant through signing up with such as Power BI. For convenience of example, these steps assume that path.
+1. Create a user context in the unmanaged tenant through signing up for Power BI. For convenience of example, these steps assume that path.
 
 2. Open the [Power BI site](https://powerbi.com) and select **Start Free**. Enter a user account that uses the domain name for the organization; for example, `admin@fourthcoffee.xyz`. After you enter in the verification code, check your email for the confirmation code.
 
@@ -98,7 +98,7 @@ The supported service plans include:
 - Microsoft Stream
 - Dynamics 365 free trial
 
-External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription or the Office Basic SKU. You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. This ForceTakeover option will not move over users, or retain access to the subscription. Instead, this option only moves the domain name. 
+External admin takeover is not supported for any service that has service plans that include SharePoint, OneDrive, or Skype For Business; for example, through an Office free subscription. You can optionally use the [**ForceTakeover** option](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) for removing the domain name from the unmanaged tenant and verifying it on the desired tenant. This ForceTakeover option will not move over users, or retain access to the subscription. Instead, this option only moves the domain name. 
 
 #### More information about RMS for individuals
 

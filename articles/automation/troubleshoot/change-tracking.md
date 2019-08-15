@@ -4,8 +4,8 @@ description: This article provides information on troubleshooting Change Trackin
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: georgewallace
-ms.author: gwallace
+author: bobbytreed
+ms.author: robreed
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
@@ -45,7 +45,7 @@ If these solutions don't resolve your problem and you contact support, you can r
 On the agent machine, navigate to `C:\Program Files\Microsoft Monitoring Agent\Agent\Tools` and run the following commands:
 
 ```cmd
-set stop healthservice
+net stop healthservice
 StopTracing.cmd
 StartTracing.cmd VER
 net start healthservice

@@ -131,7 +131,6 @@ For an example, let's assume that your compute environments such as Azure HDInsi
 ## Get started with creating a pipeline
 You can use one of these tools or APIs to create data pipelines in Azure Data Factory: 
 
-- Azure portal
 - Visual Studio
 - PowerShell
 - .NET API

@@ -4,9 +4,9 @@ description: Describes the details of how a runbook in Azure Automation is proce
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/18/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -37,14 +37,16 @@ Runbooks in Azure Automation can run on either a sandbox in Azure or a [Hybrid R
 |Monitor a file or folder with a runbook|Hybrid Runbook Worker|Use a [Watcher task](automation-watchers-tutorial.md) on a Hybrid Runbook worker|
 |Resource intensive script|Hybrid Runbook Worker| Azure sandboxes have [limitation on resources](../azure-subscription-service-limits.md#automation-limits)|
 |Using modules with specific requirements| Hybrid Runbook Worker|Some examples are:</br> **WinSCP** - dependency on winscp.exe </br> **IISAdministration** - Needs IIS to be enabled|
-|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be xcopyable|
+|Install module that requires installer|Hybrid Runbook Worker|Modules for sandbox must be copiable|
 |Using runbooks or modules that require .NET Framework different from 4.7.2|Hybrid Runbook Worker|Automation sandboxes have .NET Framework 4.7.2, and there is no way to upgrade it|
 |Scripts that require elevation|Hybrid Runbook Worker|Sandboxes do not allow elevation. To solve this, use a Hybrid Runbook Worker and you can turn off UAC and use `Invoke-Command` when running the command that requires elevation|
-|Scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes the cloud [do not have access the WMI](#device-and-application-characteristics)|
+|Scripts that require access to WMI|Hybrid Runbook Worker|Jobs running in sandboxes in the cloud [do not have access to the WMI](#device-and-application-characteristics)|
 
 ## Runbook behavior
 
 Runbooks execute based on the logic that is defined inside them. If a runbook is interrupted, the runbook restarts at the beginning. This behavior requires runbooks to be written in a way where they support being restarted if there were transient issues.
+
+PowerShell jobs started from a Runbook ran in an Azure sandbox may not run in the Full language mode. To learn more about PowerShell language modes, see [PowerShell language modes](/powershell/module/microsoft.powershell.core/about/about_language_modes). For additional details on how to interact with jobs in Azure Automation, see [Retrieving job status with PowerShell](#retrieving-job-status-using-powershell)
 
 ### Creating resources
 
@@ -70,6 +72,9 @@ else
 ### Time dependant scripts
 
 Careful consideration should be made when authoring runbooks. As mentioned earlier, runbooks need to be authored in a way that they're robust and can handle transient errors that may cause the runbook to restart or fail. If a runbook fails, it is retried. If a runbook normally runs within a time constraint, logic to check the execution time should be implemented in the runbook to ensure operations like start up, shut down or scale out are run only during specific times.
+
+> [!NOTE]
+> The local time on the Azure sandbox process is set to UTC time. Calculations for date and time in your runbooks need to take this into consideration.
 
 ### Tracking progress
 
@@ -184,7 +189,7 @@ Runbooks run in Azure sandboxes do not support calling processes (such as an .ex
 
 ### Device and application characteristics
 
-Runbook jobs run in Azure sandboxes do not have access to any device or application characteristics. The most common API used to query performance metrics on Windows is WMI. Some of these common metrics are memory and CPU usage. However, it does not matter what API is used. Jobs running in the cloud do not have access the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
+Runbook jobs run in Azure sandboxes do not have access to any device or application characteristics. The most common API used to query performance metrics on Windows is WMI. Some of these common metrics are memory and CPU usage. However, it does not matter what API is used. Jobs running in the cloud do not have access to the Microsoft implementation of Web Based Enterprise Management (WBEM), which is built on the Common Information Model (CIM), which are the industry standards for defining device and application characteristics.
 
 ## Job statuses
 
@@ -240,9 +245,9 @@ You can use the following steps to view the jobs for a runbook.
 3. On the page for the selected runbook, click the **Jobs** tile.
 4. Click one of the jobs in the list and on the runbook job details page you can view its detail and output.
 
-## Retrieving job status using Windows PowerShell
+## Retrieving job status using PowerShell
 
-You can use the [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), then it returns the resulting job. Use [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) to get a job’s output.
+You can use the [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with PowerShell using [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook), then it returns the resulting job. Use [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) to get a job’s output.
 
 The following sample commands retrieve the last job for a sample runbook and display its status, the values provided for the runbook parameters, and the output from the job.
 
@@ -279,11 +284,30 @@ Other details such as the person or account that started the runbook can be retr
 
 ```powershell-interactive
 $SubID = "00000000-0000-0000-0000-000000000000"
-$rg = "ResourceGroup01"
-$AutomationAccount = "MyAutomationAccount"
-$JobResourceID = "/subscriptions/$subid/resourcegroups/$rg/providers/Microsoft.Automation/automationAccounts/$AutomationAccount/jobs"
+$AutomationResourceGroupName = "MyResourceGroup"
+$AutomationAccountName = "MyAutomationAccount"
+$RunbookName = "MyRunbook"
+$StartTime = (Get-Date).AddDays(-1)
+$JobActivityLogs = Get-AzureRmLog -ResourceGroupName $AutomationResourceGroupName -StartTime $StartTime `
+                                | Where-Object {$_.Authorization.Action -eq "Microsoft.Automation/automationAccounts/jobs/write"}
 
-Get-AzureRmLog -ResourceId $JobResourceID -MaxRecord 1 | Select Caller
+$JobInfo = @{}
+foreach ($log in $JobActivityLogs)
+{
+    # Get job resource
+    $JobResource = Get-AzureRmResource -ResourceId $log.ResourceId
+
+    if ($JobInfo[$log.SubmissionTimestamp] -eq $null -and $JobResource.Properties.runbook.name -eq $RunbookName)
+    {
+        # Get runbook
+        $Runbook = Get-AzureRmAutomationJob -ResourceGroupName $AutomationResourceGroupName -AutomationAccountName $AutomationAccountName `
+                                            -Id $JobResource.Properties.jobId | ? {$_.RunbookName -eq $RunbookName}
+
+        # Add job information to hash table
+        $JobInfo.Add($log.SubmissionTimestamp, @($Runbook.RunbookName,$Log.Caller, $JobResource.Properties.jobId))
+    }
+}
+$JobInfo.GetEnumerator() | sort key -Descending | Select-Object -First 1
 ```
 
 ## Fair share
@@ -297,4 +321,4 @@ Another option is to optimize the runbook by using child runbooks. If your runbo
 ## Next steps
 
 * To learn more about the different methods that can be used to start a runbook in Azure Automation, see [Starting a runbook in Azure Automation](automation-starting-a-runbook.md)
-
+* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/en-us/powershell/scripting/overview).

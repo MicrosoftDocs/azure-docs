@@ -4,9 +4,9 @@ description: Automation schedules are used to schedule runbooks in Azure Automat
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/22/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -151,6 +151,9 @@ When you disable a schedule, any runbook linked to it no longer runs on that sch
 1. In the Azure portal, from your Automation account, select **Schedules** under the section **Shared Resources** on the left.
 2. Click the name of a schedule to open the details pane.
 3. Change **Enabled** to **No**.
+
+> [!NOTE]
+> If you want to disable a schedule that has a start time in the past, you must change the start date to a time in the future before saving it.
 
 ### To disable a schedule with PowerShell
 

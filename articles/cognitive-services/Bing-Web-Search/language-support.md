@@ -7,8 +7,8 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
-ms.topic: article
-ms.date: 09/25/2018
+ms.topic: conceptual
+ms.date: 05/15/2019
 ms.author: aahi
 ---
 
@@ -16,7 +16,7 @@ ms.author: aahi
 
 The Bing Web Search API supports over three dozen countries or regions, many with more than one language. Specifying a country or region with a query helps refine search results based on that country or regions interests. The results may include links to Bing, and these links may localize the Bing user experience according to the specified country/region or language.
 
-You can specify a country or region using the `cc` query parameter. When a country or region is specified, you must specify one or more language codes with the [`Accept-Language` header](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Use the [Markets table](#markets) for a list of languages supported in each market.
+You can specify a country or region using the `cc` query parameter. When a country or region is specified, you must specify one or more language codes with the [`Accept-Language` header](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Use the [Markets table](#markets) for a list of languages supported in each market.
 
 Alternatively, you can specify the market with the `mkt` query parameter, and a code from the **Markets** table. Specifying a market simultaneously specifies a country or region and a preferred language. You can explicitly set the language with the `setLang` query parameter.
 
@@ -35,7 +35,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |Finland|FI|
 |France|FR|
 |Germany|DE|
-|Hong Kong|HK|
+|Hong Kong SAR|HK|
 |India|IN|
 |Indonesia|ID|
 |Italy|IT|
@@ -78,7 +78,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |Finland|Finnish|fi-FI|
 |France|French|fr-FR|
 |Germany|German|de-DE|
-|Hong Kong|Traditional Chinese|zh-HK|
+|Hong Kong SAR|Traditional Chinese|zh-HK|
 |India|English|en-IN|
 |Indonesia|English|en-ID|
 |Italy|Italian|it-IT|
@@ -105,3 +105,7 @@ Alternatively, you can specify the market with the `mkt` query parameter, and a 
 |United Kingdom|English|en-GB|
 |United States|English|en-US|
 |United States|Spanish|es-US|
+
+## Next steps
+
+* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

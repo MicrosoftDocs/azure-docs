@@ -9,7 +9,6 @@ editor: ''
 
 ms.assetid: 
 ms.service: service-fabric-mesh
-ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
@@ -224,8 +223,8 @@ Here is what a full Gateway resource config looks like (this is adapted from the
 ```
 
 This gateway is configured for a Linux application, "meshAppLinux", that consists of at least two services, "helloWorldService" and "counterService", which listens on port 80. Depending on the URL structure of the incoming request, it will route the request to one of these services. 
-* "<IPAddress>:80/helloWorld/\<request\>" would result in a request being directed to the "helloWorldListener" in the helloWorldService. 
-* "<IPAddress>:80/counter/\<request\>" would result in a request being directed to the "counterListener" in the counterService. 
+* "\<IPAddress>:80/helloWorld/\<request\>" would result in a request being directed to the "helloWorldListener" in the helloWorldService. 
+* "\<IPAddress>:80/counter/\<request\>" would result in a request being directed to the "counterListener" in the counterService. 
 
 ## Next steps
 * Deploy the [Ingress sample](https://github.com/Azure-Samples/service-fabric-mesh/tree/2018-09-01-preview/templates/ingress) to see gateways in action

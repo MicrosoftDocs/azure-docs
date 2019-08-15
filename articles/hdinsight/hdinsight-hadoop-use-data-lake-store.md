@@ -1,14 +1,13 @@
 ---
 title: Use Data Lake Storage Gen1 with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Storage Gen1 and to store results of your analysis.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 05/10/2019
 ---
 # Use Data Lake Storage Gen1 with Azure HDInsight clusters
 
@@ -37,6 +36,7 @@ As of now, only some of the HDInsight cluster types/versions support using Data 
 
 | HDInsight cluster type | Data Lake Storage Gen1 as default storage | Data Lake Storage Gen1 as additional storage| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
+| HDInsight version 4.0 | No | No |ADLS Gen1 is not supported with HDInsight 4.0 |
 | HDInsight version 3.6 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.5 | Yes | Yes | With the exception of HBase|
 | HDInsight version 3.4 | No | Yes | |
@@ -176,6 +176,9 @@ $certPassword = Read-Host "Enter Certificate Password"
 # 2 - read cert from key vault
 $certSource = 0
 
+Login-AzAccount
+Select-AzSubscription -SubscriptionId $subscriptionId
+
 if($certSource -eq 0)
 {
     Write-Host "Generating new SelfSigned certificate"
@@ -206,16 +209,13 @@ elseif($certSource -eq 2)
     $certString =[System.Convert]::ToBase64String($certBytes)
 }
 
-Login-AzAccount
-Select-AzSubscription -SubscriptionId $subscriptionId
-
 if($addNewCertKeyCredential)
 {
     Write-Host "Creating new KeyCredential for the app"
     $keyValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
     New-AzADAppCredential -ApplicationId $appId -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
-    Write-Host "Waiting for 30 seconds for the permissions to get propagated"
-    Start-Sleep -s 30
+    Write-Host "Waiting for 7 minutes for the permissions to get propagated"
+    Start-Sleep -s 420 #7 minutes
 }
 
 Write-Host "Updating the certificate on HDInsight cluster..."

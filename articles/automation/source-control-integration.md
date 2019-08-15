@@ -4,15 +4,15 @@ description: This article describes source control integration with GitHub in Az
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: georgewallace
-ms.author: gwallace
-ms.date: 03/21/2019
+author: bobbytreed
+ms.author: robreed
+ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
 ---
 # Source control integration in Azure Automation
 
-Source control allows you to keep your runbooks in your Automation account are up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
+Source control allows you to keep your runbooks in your Automation account up-to-date with your scripts in your GitHub or Azure Repos source control repository. Source control allows you to easily collaborate with your team, track changes, and roll back to earlier versions of your runbooks. For example, source control allows you to sync different branches in source control to your development, test or production Automation accounts. This makes it easy to promote code that has been tested in your development environment to your production Automation account. Source control integration with automation supports single direction syncing from your source control repository.
 
 Azure Automation supports three types of source control:
 
@@ -41,19 +41,21 @@ On the **Source Control Summary** page, fill out the information and click **Sav
 
 |Property  |Description  |
 |---------|---------|
-|Source control name     | A friendly name for the source control        |
+|Source control name     | A friendly name for the source control. *This name must contain only letters and numbers.*        |
 |Source control type     | The type of source control source. Available options are:</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |Repository     | The name of the repository or project. The first 200 repositories are returned. To search for a repository, type the name in the field and click **Search on GitHub**.|
 |Branch     | The branch to pull the source files from. Branch targeting isn't available for the TFVC source control type.          |
 |Folder path     | The folder that contains the runbooks to sync. Example: /Runbooks </br>*Only runbooks in the folder specified are synced. Recursion isn't supported.*        |
-|Auto Sync     | Turns on or off automatic sync when a commit is made in the source control repository         |
+|Auto Sync<sup>1</sup>     | Turns on or off automatic sync when a commit is made in the source control repository         |
 |Publish Runbook     | If set to **On**, after runbooks are synced from source control they'll be automatically published.         |
 |Description     | A text field to provide additional details        |
+
+<sup>1</sup> To enable Auto Sync when configuring source control integration with Azure Repos, you must be a Project Administrator.
 
 ![Source control summary](./media/source-control-integration/source-control-summary.png)
 
 > [!NOTE]
-> Ensure you are logged in with the correct account when configuring source control. If there is a doubt, open a new tab in your browser and log out from visualstudio.com or github.com and try connecting source control again.
+> Your login for your source control repository may be different than your login for the Azure portal. Ensure you are logged in with the correct account for your source control repository when configuring source control. If there is a doubt, open a new tab in your browser and log out from visualstudio.com or github.com and try connecting source control again.
 
 ## Configure source control - PowerShell
 
@@ -164,6 +166,13 @@ Select the source control you want to remove. On the **Source Control Summary** 
 ## Encoding
 
 If multiple people are editing runbooks in your source control repository with different editors, there's a chance to run into encoding issues. This situation can lead to incorrect characters in your runbook. To learn more about this, see [Common causes of encoding issues](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+
+## Updating the access token
+
+Currently, there is no way to update the access token in Source Control from the portal. After your personal access token is expired or revoked, you can update Source Control with a new access token in the following ways:
+
+* Through the [REST Api](https://docs.microsoft.com/en-us/rest/api/automation/sourcecontrol/update).
+* By using the [Update-AzAutomationSourceControl](/powershell/module/az.automation/update-azautomationsourcecontrol) cmdlet.
 
 ## Next steps
 

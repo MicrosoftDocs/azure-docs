@@ -175,7 +175,7 @@ See an XML example at the end of this article: [XML example](media-services-inpu
 | **Lyrics**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track contains lyrics. |
 | **Karaoke**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this represents the karaoke track (background music, no vocals). |
 | **Forced**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this is the forced presentation. |
-| **HearingImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for the hearing impaired. |
+| **HearingImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for people who are hard of hearing. |
 | **VisualImpaired**<br /><br /> Required |**xs:int** |Set this attribute to 1 to indicate this track is for the visually impaired. |
 | **CleanEffects**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this track has clean effects. |
 | **AttachedPic**<br /><br /> Required |**xs: int** |Set this attribute to 1 to indicate this track has pictures. |

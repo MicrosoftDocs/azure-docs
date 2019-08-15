@@ -7,8 +7,9 @@ author: Juliako
 manager: femila
 
 ms.service: media-services
+ms.subservice: video-indexer
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 05/15/2019
 ms.author: juliako
 ---
 
@@ -45,7 +46,7 @@ This topic shows you the search options that enable you to find exact moments wi
 
 Once you find the video you want to work with, you can continue processing the video, as described in one of these topics: 
 
-- [Create new video insights based on existing video](video-indexer-create-new.md)
+- [Use your videos' deep insights](use-editor-create-project.md)
 - [Process content with Video Indexer REST API](video-indexer-use-apis.md)
 - [Embed visual widgets in your application](video-indexer-embed-widgets.md)
 

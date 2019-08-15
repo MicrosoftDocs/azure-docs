@@ -22,17 +22,20 @@ ms.author: mikerou
 
 Service Fabric clusters running in Azure are built on top of virtual machine scale sets.  [Cluster scaling](./service-fabric-cluster-scale-up-down.md) describes how Service Fabric clusters can be scaled either manually or with auto-scale rules. This article describes how to manage credentials and scale a cluster in or out using the fluent Azure compute SDK, which is a more advanced scenario. For an overview, read [programmatic methods of coordinating Azure scaling operations](service-fabric-cluster-scaling.md#programmatic-scaling). 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## Manage credentials
-One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To log in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI](https://github.com/azure/azure-cli).
+One challenge of writing a service to handle scaling is that the service must be able to access virtual machine scale set resources without an interactive login. Accessing the Service Fabric cluster is easy if the scaling service is modifying its own Service Fabric application, but credentials are needed to access the scale set. To sign in, you can use a [service principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) created with the [Azure CLI](https://github.com/azure/azure-cli).
 
 A service principal can be created with the following steps:
 
-1. Log in to the Azure CLI (`az login`) as a user with access to the virtual machine scale set
+1. Sign in to the Azure CLI (`az login`) as a user with access to the virtual machine scale set
 2. Create the service principal with `az ad sp create-for-rbac`
 	1. Make note of the appId (called 'client ID' elsewhere), name, password, and tenant for later use.
 	2. You will also need your subscription ID, which can be viewed with `az account list`
 
-The fluent compute library can log in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
+The fluent compute library can sign in using these credentials as follows (note that core fluent Azure types like `IAzure` are in the [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/) package):
 
 ```csharp
 var credentials = new AzureCredentials(new ServicePrincipalLoginInformation {
@@ -62,7 +65,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Alternatively, virtual machine scale set size can also be managed with PowerShell cmdlets. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) can retrieve the virtual machine scale set object. The current capacity is available through the `.sku.capacity` property. After changing the capacity to the desired value, the virtual machine scale set in Azure can be updated with the [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss) command.
+Alternatively, virtual machine scale set size can also be managed with PowerShell cmdlets. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) can retrieve the virtual machine scale set object. The current capacity is available through the `.sku.capacity` property. After changing the capacity to the desired value, the virtual machine scale set in Azure can be updated with the [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss) command.
 
 As when adding a node manually, adding a scale set instance should be all that's needed to start a new Service Fabric node since the scale set template includes extensions to automatically join new instances to the Service Fabric cluster. 
 

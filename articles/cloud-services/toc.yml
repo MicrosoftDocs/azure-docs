@@ -147,6 +147,8 @@
       href: cloud-services-troubleshoot-roles-that-fail-start.md
     - name: Recovery guidance
       href: cloud-services-disaster-recovery-guidance.md
+    - name: Workflow of classic VM architecture
+      href: cloud-services-workflow-process.md
     - name: Cloud Services FAQ
       items:
       - name: Application and service availability FAQ

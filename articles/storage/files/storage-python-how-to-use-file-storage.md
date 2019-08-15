@@ -1,14 +1,11 @@
 ---
 title: Develop for Azure Files with Python | Microsoft Docs
 description: Learn how to develop Python applications and services that use Azure Files to store file data.
-services: storage
-author: wmgries
+author: roygara
 ms.service: storage
-
-ms.devlang: python
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2018
-ms.author: tamram
+ms.author: rogarana
 ms.subservice: files
 ---
 
@@ -100,7 +97,7 @@ The following example uploads the contents of the **sunset.png** file into the *
 from azure.storage.file import ContentSettings
 file_service.create_file_from_path(
     'myshare',
-    None, # We want to create this blob in the root directory, so we specify None for the directory_name
+    None,  # We want to create this blob in the root directory, so we specify None for the directory_name
     'myfile',
     'sunset.png',
     content_settings=ContentSettings(content_type='image/png'))
@@ -148,7 +145,8 @@ shares = list(file_service.list_shares(include_snapshots=True))
 You can browse content of each share snapshot to retrieve files and directories from that point in time.
 
 ```python
-directories_and_files = list(file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
+directories_and_files = list(
+    file_service.list_directories_and_files(share_name, snapshot=snapshot_id))
 ```
 
 ## Get file from share snapshot
@@ -156,7 +154,8 @@ You can download a file from a share snapshot for your restore scenario.
 
 ```python
 with open(FILE_PATH, 'wb') as stream:
-    file = file_service.get_file_to_stream(share_name, directory_name, file_name, stream, snapshot=snapshot_id)
+    file = file_service.get_file_to_stream(
+        share_name, directory_name, file_name, stream, snapshot=snapshot_id)
 ```
 
 ## Delete a single share snapshot  

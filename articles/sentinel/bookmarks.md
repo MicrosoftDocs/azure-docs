@@ -4,11 +4,12 @@ description: This article describes how to use the Azure Sentinel hunting bookma
 services: sentinel
 documentationcenter: na
 author: rkarlin
-manager: barbkess
+manager: rkarlin
 editor: ''
 
 ms.assetid: 320ccdad-8767-41f3-b083-0bc48f1eeb37
-ms.service: sentinel
+ms.service: azure-sentinel
+ms.subservice: azure-sentinel
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc

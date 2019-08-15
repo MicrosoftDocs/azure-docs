@@ -114,9 +114,9 @@ azure vm extension get myVM1
 ```
 Extension execution output is logged to files found in the following directory:
 
-`
+```
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-`
+```
 
 The following example shows the deployment state of the NetworkWatcherAgentLinux extension for a VM deployed through Resource Manager, using the Azure CLI:
 

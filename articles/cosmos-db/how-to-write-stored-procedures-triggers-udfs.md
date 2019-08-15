@@ -4,7 +4,7 @@ description: Learn how to define stored procedures, triggers, and user-defined f
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 12/11/2018
+ms.date: 05/21/2019
 ms.author: mjbrown
 ---
 
@@ -43,7 +43,7 @@ Once written, the stored procedure must be registered with a collection. To lear
 
 ### <a id="create-an-item"></a>Create an item using stored procedure
 
-When you create an item by using stored procedure, the item is inserted into the Azure Cosmos DB container and an id for the newly created item it returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
+When you create an item by using stored procedure, the item is inserted into the Azure Cosmos DB container and an id for the newly created item is returned. Creating an item is an asynchronous operation and depends on the JavaScript callback functions. The callback function has two parameters - one for the error object in case the operation fails and another for a return value; in this case, the created object. Inside the callback, you can either handle the exception or throw an error. In case a callback is not provided and there is an error, the Azure Cosmos DB runtime will throw an error. 
 
 The stored procedure also includes a parameter to set the description, it's a boolean value. When the parameter is set to true and the description is missing, the stored procedure will throw an exception. Otherwise, the rest of the stored procedure continues to run.
 
@@ -274,7 +274,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. This post-trigger runs as part of the same transaction that is used by the create Azure Cosmos DB item. Therefore, if you get an exception during the post-trigger execution, for example, if you are unable to update the metadata item, the whole transaction will fail and it is rolled back. So the Azure Cosmos DB item is created and an exception is returned.
+One thing that is important to note is the transactional execution of triggers in Azure Cosmos DB. The post-trigger runs as part of the same transaction for the underlying item itself. An exception during the post-trigger execution will fail the whole transaction. Anything committed will be rolled back and an exception returned.
 
 For examples of how to register and call a pre-trigger, see [pre-triggers](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) and [post-triggers](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) articles. 
 

@@ -1,6 +1,6 @@
 ---
 title: Define and use content workflows through the Review tool - Content Moderator
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: You can use the Azure Content Moderator workflow designer to define custom workflows and thresholds based on your content policies.
 services: cognitive-services
 author: sanjeev3
@@ -8,8 +8,8 @@ manager: mikemcca
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: article
-ms.date: 03/14/2019
+ms.topic: conceptual
+ms.date: 04/04/2019
 ms.author: sajagtap
 #Customer intent: use workflows from the Review tool
 ---
@@ -62,9 +62,9 @@ Now that you have defined a custom workflow, test it with sample content. Go to 
 
 ![Workflow test](images/image-workflow-execute.PNG)
 
-Save this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample3.png) to your local drive. Then select **Choose File(s)** and upload the image to the workflow.
+Save this [sample image](https://moderatorsampleimages.blob.core.windows.net/samples/sample2.jpg) to your local drive. Then select **Choose File(s)** and upload the image to the workflow.
 
-![a woman in a bathing suit](images/sample-racy.PNG)
+![A runner with a quote superimposed on the image](images/sample-text.jpg)
 
 ### Track progress
 

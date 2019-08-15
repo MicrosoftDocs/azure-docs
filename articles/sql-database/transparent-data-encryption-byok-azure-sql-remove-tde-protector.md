@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
-manager: craigg
 ms.date: 03/12/2019
 ---
 # Remove a Transparent Data Encryption (TDE) protector using PowerShell
@@ -34,6 +33,19 @@ The following procedures should only be done in extreme cases or in test environ
 If a key is ever suspected to be compromised, such that a service or user had unauthorized access to the key, it’s best to delete the key.
 
 Keep in mind that once the TDE protector is deleted in Key Vault, **all connections to the encrypted databases under the server are blocked, and these databases go offline and get dropped within 24 hours**. Old backups encrypted with the compromised key are no longer accessible.
+
+The following steps outline how to check the TDE Protector thumbprints still in use by Virtual Log Files (VLF) of a given database. 
+The thumbprint of the current TDE protector of the database, and the database ID can be found by running: 
+SELECT [database_id], 
+       [encryption_state], 
+       [encryptor_type], /*asymmetric key means AKV, certificate means service-managed keys*/ 
+       [encryptor_thumbprint], 
+ FROM [sys].[dm_database_encryption_keys] 
+ 
+The following query returns the VLFs and the encryptor respective thumbprints in use. Each different thumbprint refers to different key in Azure Key Vault (AKV): 
+SELECT * FROM sys.dm_db_log_info (database_id) 
+
+The PowerShell command Get-AzureRmSqlServerKeyVaultKey provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
 
 This how-to guide goes over two approaches depending on the desired result after the incident response:
 

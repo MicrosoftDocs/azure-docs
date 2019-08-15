@@ -93,7 +93,7 @@ These instructions are for building the sample on Windows. For other environment
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    The size of this repository is currently around 220 MB. You should expect this operation to take several minutes to complete.
+    You should expect this operation to take several minutes to complete.
 
 1. Create a `cmake` subdirectory in the root directory of the git repository, and navigate to that folder.
 

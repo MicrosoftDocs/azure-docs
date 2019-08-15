@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
-manager: craigg
 ms.date: 11/02/2018
 ---
 # Create alerts for Azure SQL Database and Data Warehouse using Azure portal

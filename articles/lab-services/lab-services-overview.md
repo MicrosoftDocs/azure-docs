@@ -35,7 +35,7 @@ Azure Lab Services supports the following key capabilities/features:
 - **Integration into your workflows and tools**. Azure Lab Services allows you to integrate the labs into your organization’s website and management systems. You can automatically provision environments from within your continuous integration/continuous deployment (CI/CD) tools. (currently available in DevTest Labs only)
 
 > [!NOTE]
-> Currently Azure Lab Services supports only VMs created from Azure Marketplace images. If you want to use custom images or create other PaaS resources in a lab environment, use DevTest Labs. For more information, see [Create a custom image in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create lab envionrments using Resource Manager templates](devtest-lab-create-environment-from-arm.md).
+> Currently Azure Lab Services supports only VMs created from Azure Marketplace images. If you want to use custom images or create other PaaS resources in a lab environment, use DevTest Labs. For more information, see [Create a custom image in DevTest Labs](devtest-lab-create-custom-image-from-vm-using-portal.md) and [Create lab environments using Resource Manager templates](devtest-lab-create-environment-from-arm.md).
 
 ## Scenarios
 
@@ -116,5 +116,5 @@ The following table compares two types of labs that are supported by Azure Lab S
 
 See the following articles: 
 
-- [About Classroom Labs ](./classroom-labs/classroom-labs-overview.md)
+- [About Classroom Labs](./classroom-labs/classroom-labs-overview.md)
 - [About DevTest Labs](devtest-lab-overview.md)

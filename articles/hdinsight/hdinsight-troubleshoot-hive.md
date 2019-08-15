@@ -2,10 +2,9 @@
 title: Troubleshoot Hive by using Azure HDInsight 
 description: Get answers to common questions about working with Apache Hive and Azure HDInsight.
 keywords: Azure HDInsight, Hive, FAQ, troubleshooting guide, common questions
-services: hdinsight
 ms.service: hdinsight
 author: dharmeshkakadia
-ms.author: dharmeshkakadia
+ms.author: dkakadia
 ms.topic: conceptual
 ms.date: 11/2/2017
 ---

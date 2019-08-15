@@ -1,12 +1,11 @@
 ---
 title: Add additional Azure storage accounts to HDInsight 
 description: Learn how to add additional Azure storage accounts to an existing HDInsight cluster.
-services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/08/2019
 ms.author: hrasheed
 ---
 
@@ -102,6 +101,10 @@ See [Apply a script action to a running cluster](hdinsight-hadoop-customize-clus
 
 ## Known issues
 
+### Storage firewall
+
+If you choose to secure your storage account with the **Firewalls and virtual networks** restrictions on **Selected networks**, be sure to enable the exception **Allow trusted Microsoft services...** so that HDInsight can access your storage account.
+
 ### Storage accounts not displayed in Azure portal or tools
 
 When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ does not display storage accounts added through this script action. Azure PowerShell and Azure CLI do not display the additional storage account either.
@@ -188,6 +191,9 @@ If you change the key for a storage account, HDInsight can no longer access the 
 Running the script action again does __not__ update the key, as the script checks to see if an entry for the storage account already exists. If an entry already exists, it does not make any changes.
 
 To work around this problem, you must remove the existing entry for the storage account. Use the following steps to remove the existing entry:
+
+> [!IMPORTANT]  
+> Rotating the storage key for the primary storage account attached to a cluster is not supported.
 
 1. In a web browser, open the Ambari Web UI for your HDInsight cluster. The URI is `https://CLUSTERNAME.azurehdinsight.net`. Replace `CLUSTERNAME` with the name of your cluster.
 

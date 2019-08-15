@@ -4,8 +4,8 @@ description: Learn how to configure single sign-on between Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 
 ms.assetid: 684a405b-8932-46f6-b43a-4d97a42b6b87
 ms.service: active-directory
@@ -13,202 +13,220 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/21/2017
+ms.topic: tutorial
+ms.date: 03/29/2019
 ms.author: jeedes
 
-ms.collection: M365-identity-device-management
 ---
 # Tutorial: Azure Active Directory integration with UserVoice
 
 In this tutorial, you learn how to integrate UserVoice with Azure Active Directory (Azure AD).
-
 Integrating UserVoice with Azure AD provides you with the following benefits:
 
-- You can control in Azure AD who has access to UserVoice.
-- You can enable your users to automatically get signed-on to UserVoice (Single Sign-On) with their Azure AD accounts.
-- You can manage your accounts in one central location - the Azure portal.
+* You can control in Azure AD who has access to UserVoice.
+* You can enable your users to be automatically signed-in to UserVoice (Single Sign-On) with their Azure AD accounts.
+* You can manage your accounts in one central location - the Azure portal.
 
-If you want to know more details about SaaS app integration with Azure AD, see [what is application access and single sign-on with Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Prerequisites
 
 To configure Azure AD integration with UserVoice, you need the following items:
 
-- An Azure AD subscription
-- A UserVoice single sign-on enabled subscription
-
-> [!NOTE]
-> To test the steps in this tutorial, we do not recommend using a production environment.
-
-To test the steps in this tutorial, you should follow these recommendations:
-
-- Do not use your production environment, unless it is necessary.
-- If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
+* An Azure AD subscription. If you don't have an Azure AD environment, you can get a [free account](https://azure.microsoft.com/free/)
+* UserVoice single sign-on enabled subscription
 
 ## Scenario description
-In this tutorial, you test Azure AD single sign-on in a test environment. 
-The scenario outlined in this tutorial consists of two main building blocks:
 
-1. Adding UserVoice from the gallery
-1. Configuring and testing Azure AD single sign-on
+In this tutorial, you configure and test Azure AD single sign-on in a test environment.
+
+* UserVoice supports **SP** initiated SSO
 
 ## Adding UserVoice from the gallery
+
 To configure the integration of UserVoice into Azure AD, you need to add UserVoice from the gallery to your list of managed SaaS apps.
 
 **To add UserVoice from the gallery, perform the following steps:**
 
-1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon. 
+1. In the **[Azure portal](https://portal.azure.com)**, on the left navigation panel, click **Azure Active Directory** icon.
 
-	![The Azure Active Directory button][1]
+	![The Azure Active Directory button](common/select-azuread.png)
 
-1. Navigate to **Enterprise applications**. Then go to **All applications**.
+2. Navigate to **Enterprise Applications** and then select the **All Applications** option.
 
-	![The Enterprise applications blade][2]
-	
-1. To add new application, click **New application** button on the top of dialog.
+	![The Enterprise applications blade](common/enterprise-applications.png)
 
-	![The New application button][3]
+3. To add new application, click **New application** button on the top of dialog.
 
-1. In the search box, type **UserVoice**, select **UserVoice** from result panel then click **Add** button to add the application.
+	![The New application button](common/add-new-app.png)
 
-	![UserVoice in the results list](./media/uservoice-tutorial/tutorial_uservoice_addfromgallery.png)
+4. In the search box, type **UserVoice**, select **UserVoice** from result panel then click **Add** button to add the application.
+
+	 ![UserVoice in the results list](common/search-new-app.png)
 
 ## Configure and test Azure AD single sign-on
 
-In this section, you configure and test Azure AD single sign-on with UserVoice based on a test user called "Britta Simon".
-
-For single sign-on to work, Azure AD needs to know what the counterpart user in UserVoice is to a user in Azure AD. In other words, a link relationship between an Azure AD user and the related user in UserVoice needs to be established.
-
-In UserVoice, assign the value of the **user name** in Azure AD as the value of the **Username** to establish the link relationship.
+In this section, you configure and test Azure AD single sign-on with UserVoice based on a test user called **Britta Simon**.
+For single sign-on to work, a link relationship between an Azure AD user and the related user in UserVoice needs to be established.
 
 To configure and test Azure AD single sign-on with UserVoice, you need to complete the following building blocks:
 
 1. **[Configure Azure AD Single Sign-On](#configure-azure-ad-single-sign-on)** - to enable your users to use this feature.
-1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-1. **[Create a UserVoice test user](#create-a-uservoice-test-user)** - to have a counterpart of Britta Simon in UserVoice that is linked to the Azure AD representation of user.
-1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-1. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
+2. **[Configure UserVoice Single Sign-On](#configure-uservoice-single-sign-on)** - to configure the Single Sign-On settings on application side.
+3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
+4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Create UserVoice test user](#create-uservoice-test-user)** - to have a counterpart of Britta Simon in UserVoice that is linked to the Azure AD representation of user.
+6. **[Test single sign-on](#test-single-sign-on)** - to verify whether the configuration works.
 
 ### Configure Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the Azure portal and configure single sign-on in your UserVoice application.
+In this section, you enable Azure AD single sign-on in the Azure portal.
 
-**To configure Azure AD single sign-on with UserVoice, perform the following steps:**
+To configure Azure AD single sign-on with UserVoice, perform the following steps:
 
-1. In the Azure portal, on the **UserVoice** application integration page, click **Single sign-on**.
+1. In the [Azure portal](https://portal.azure.com/), on the **UserVoice** application integration page, select **Single sign-on**.
 
-	![Configure single sign-on link][4]
+    ![Configure single sign-on link](common/select-sso.png)
 
-1. On the **Single sign-on** dialog, select **Mode** as	**SAML-based Sign-on** to enable single sign-on.
- 
-	![Single sign-on dialog box](./media/uservoice-tutorial/tutorial_uservoice_samlbase.png)
+2. On the **Select a Single sign-on method** dialog, select **SAML/WS-Fed** mode to enable single sign-on.
 
-1. On the **UserVoice Domain and URLs** section, perform the following steps:
+    ![Single sign-on select mode](common/select-saml-option.png)
 
-	![UserVoice Domain and URLs single sign-on information](./media/uservoice-tutorial/tutorial_uservoice_url.png)
+3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenantname>.UserVoice.com`
+	![Edit Basic SAML Configuration](common/edit-urls.png)
 
-	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<tenantname>.UserVoice.com`
+4. On the **Basic SAML Configuration** section, perform the following steps:
 
-	> [!NOTE] 
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [UserVoice Client support team](https://www.uservoice.com/) to get these values.
+    ![UserVoice Domain and URLs single sign-on information](common/sp-identifier.png)
 
-1. On the **SAML Signing Certificate** section, copy the **THUMBPRINT** value of certificate.
+	a. In the **Sign on URL** text box, type a URL using the following pattern:
+    `https://<tenantname>.UserVoice.com`
 
-	![The Certificate download link](./media/uservoice-tutorial/tutorial_uservoice_certificate.png) 
+    b. In the **Identifier (Entity ID)** text box, type a URL using the following pattern:
+    `https://<tenantname>.UserVoice.com`
 
-1. Click **Save** button.
+	> [!NOTE]
+	> These values are not real. Update these values with the actual Sign on URL and Identifier. Contact [UserVoice Client support team](https://www.uservoice.com/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-	![Configure Single Sign-On Save button](./media/uservoice-tutorial/tutorial_general_400.png)
+5. In the **SAML Signing Certificate** section, click **Edit** button to open **SAML Signing Certificate** dialog.
 
-1. On the **UserVoice Configuration** section, click **Configure UserVoice** to open **Configure sign-on** window. Copy the **Sign-Out URL, and SAML Single Sign-On Service URL** from the **Quick Reference section.**
+	![Edit SAML Signing Certificate](common/edit-certificate.png)
 
-	![UserVoice Configuration](./media/uservoice-tutorial/tutorial_uservoice_configure.png) 
+6. In the **SAML Signing Certificate** section, copy the **Thumbprint** and save it on your computer.
 
-1. In a different web browser window, log in to your UserVoice company site as an administrator.
+    ![Copy Thumbprint value](common/copy-thumbprint.png)
 
-1. In the toolbar on the top, click **Settings**, and then select **Web portal** from the menu.
+7. On the **Set up UserVoice** section, copy the appropriate URL(s) as per your requirement.
+
+	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	a. Login URL
+
+	b. Azure AD Identifier
+
+	c. Logout URL
+
+### Configure UserVoice Single Sign-On
+
+1. In a different web browser window, sign in to your UserVoice company site as an administrator.
+
+2. In the toolbar on the top, click **Settings**, and then select **Web portal** from the menu.
    
     ![Settings Section On App Side](./media/uservoice-tutorial/ic777519.png "Settings")
 
-1. On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page.
+3. On the **Web portal** tab, in the **User authentication** section, click **Edit** to open the **Edit User Authentication** dialog page.
    
     ![Web portal Tab](./media/uservoice-tutorial/ic777520.png "Web portal")
 
-1. On the **Edit User Authentication** dialog page, perform the following steps:
+4. On the **Edit User Authentication** dialog page, perform the following steps:
    
     ![Edit user authentication](./media/uservoice-tutorial/ic777521.png "Edit user authentication")
    
     a. Click **Single Sign-On (SSO)**.
  
-    b. Paste the **SAML Single Sign-On Service URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-In** textbox.
+    b. Paste the **Login URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-In** textbox.
 
-    c. Paste the **Sign-Out URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-Out textbox**.
+    c. Paste the **Logout URL** value, which you have copied from the Azure portal into the **SSO Remote Sign-Out textbox**.
  
-    d. Paste the **Thumbprint** value , which you have copied from Azure portal  into the **Current certificate SHA1 fingerprint** textbox.
+    d. Paste the **Thumbprint** value , which you have copied from Azure portal  into the **Current certificate SHA1 fingerprint** textbox.
 	
 	e. Click **Save authentication settings**.
 
-> [!TIP]
-> You can now read a concise version of these instructions inside the [Azure portal](https://portal.azure.com), while you are setting up the app!  After adding this app from the **Active Directory > Enterprise Applications** section, simply click the **Single Sign-On** tab and access the embedded documentation through the **Configuration** section at the bottom. You can read more about the embedded documentation feature here: [Azure AD embedded documentation]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
-
-### Create an Azure AD test user
+### Create an Azure AD test user 
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
 
-   ![Create an Azure AD test user][100]
+1. In the Azure portal, in the left pane, select **Azure Active Directory**, select **Users**, and then select **All users**.
 
-**To create a test user in Azure AD, perform the following steps:**
+    ![The "Users and groups" and "All users" links](common/users.png)
 
-1. In the Azure portal, in the left pane, click the **Azure Active Directory** button.
+2. Select **New user** at the top of the screen.
 
-    ![The Azure Active Directory button](./media/uservoice-tutorial/create_aaduser_01.png)
+    ![New user Button](common/new-user.png)
 
-1. To display the list of users, go to **Users and groups**, and then click **All users**.
+3. In the User properties, perform the following steps.
 
-    ![The "Users and groups" and "All users" links](./media/uservoice-tutorial/create_aaduser_02.png)
+    ![The User dialog box](common/user-properties.png)
 
-1. To open the **User** dialog box, click **Add** at the top of the **All Users** dialog box.
+    a. In the **Name** field enter **BrittaSimon**.
+  
+    b. In the **User name** field type brittasimon@yourcompanydomain.extension. For example, BrittaSimon@contoso.com
 
-    ![The Add button](./media/uservoice-tutorial/create_aaduser_03.png)
-
-1. In the **User** dialog box, perform the following steps:
-
-    ![The User dialog box](./media/uservoice-tutorial/create_aaduser_04.png)
-
-    a. In the **Name** box, type **BrittaSimon**.
-
-    b. In the **User name** box, type the email address of user Britta Simon.
-
-    c. Select the **Show Password** check box, and then write down the value that's displayed in the **Password** box.
+    c. Select **Show password** check box, and then write down the value that's displayed in the Password box.
 
     d. Click **Create**.
- 
-### Create a UserVoice test user
 
-To enable Azure AD users to log in to UserVoice, they must be provisioned into UserVoice. In the case of UserVoice, provisioning is a manual task.
+### Assign the Azure AD test user
+
+In this section, you enable Britta Simon to use Azure single sign-on by granting access to UserVoice.
+
+1. In the Azure portal, select **Enterprise Applications**, select **All applications**, then select **UserVoice**.
+
+	![Enterprise applications blade](common/enterprise-applications.png)
+
+2. In the applications list, select **UserVoice**.
+
+	![The UserVoice link in the Applications list](common/all-applications.png)
+
+3. In the menu on the left, select **Users and groups**.
+
+    ![The "Users and groups" link](common/users-groups-blade.png)
+
+4. Click the **Add user** button, then select **Users and groups** in the **Add Assignment** dialog.
+
+    ![The Add Assignment pane](common/add-assign-user.png)
+
+5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
+
+6. If you are expecting any role value in the SAML assertion then in the **Select Role** dialog select the appropriate role for the user from the list, then click the **Select** button at the bottom of the screen.
+
+7. In the **Add Assignment** dialog click the **Assign** button.
+
+### Create UserVoice test user
+
+To enable Azure AD users to sign in to UserVoice, they must be provisioned into UserVoice. In the case of UserVoice, provisioning is a manual task.
 
 ### To provision a user account, perform the following steps:
-1. Log in to your **UserVoice** tenant.
 
-1. Go to **Settings**.
+1. Sign in to your **UserVoice** tenant.
+
+2. Go to **Settings**.
    
     ![Settings](./media/uservoice-tutorial/ic777811.png "Settings")
 
-1. Click **General**.
+3. Click **General**.
 
-1. Click **Agents and permissions**.
+4. Click **Agents and permissions**.
    
     ![Agents and permissions](./media/uservoice-tutorial/ic777812.png "Agents and permissions")
 
-1. Click **Add admins**.
+5. Click **Add admins**.
    
     ![Add admins](./media/uservoice-tutorial/ic777813.png "Add admins")
 
-1. On the **Invite admins** dialog, perform the following steps:
+6. On the **Invite admins** dialog, perform the following steps:
    
     ![Invite admins](./media/uservoice-tutorial/ic777814.png "Invite admins")
    
@@ -219,61 +237,17 @@ To enable Azure AD users to log in to UserVoice, they must be provisioned into U
 > [!NOTE]
 > You can use any other UserVoice user account creation tools or APIs provided by UserVoice to provision AAD user accounts.
 
-### Assign the Azure AD test user
-
-In this section, you enable Britta Simon to use Azure single sign-on by granting access to UserVoice.
-
-![Assign the user role][200] 
-
-**To assign Britta Simon to UserVoice, perform the following steps:**
-
-1. In the Azure portal, open the applications view, and then navigate to the directory view and go to **Enterprise applications** then click **All applications**.
-
-	![Assign User][201] 
-
-1. In the applications list, select **UserVoice**.
-
-	![The UserVoice link in the Applications list](./media/uservoice-tutorial/tutorial_uservoice_app.png)  
-
-1. In the menu on the left, click **Users and groups**.
-
-	![The "Users and groups" link][202]
-
-1. Click **Add** button. Then select **Users and groups** on **Add Assignment** dialog.
-
-	![The Add Assignment pane][203]
-
-1. On **Users and groups** dialog, select **Britta Simon** in the Users list.
-
-1. Click **Select** button on **Users and groups** dialog.
-
-1. Click **Assign** button on **Add Assignment** dialog.
-	
-### Test single sign-on
+### Test single sign-on 
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the UserVoice tile in the Access Panel, you should get automatically signed-on to your UserVoice application.
-For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md). 
+When you click the UserVoice tile in the Access Panel, you should be automatically signed in to the UserVoice for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
-## Additional resources
+## Additional Resources
 
-* [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](tutorial-list.md)
-* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/uservoice-tutorial/tutorial_general_01.png
-[2]: ./media/uservoice-tutorial/tutorial_general_02.png
-[3]: ./media/uservoice-tutorial/tutorial_general_03.png
-[4]: ./media/uservoice-tutorial/tutorial_general_04.png
-
-[100]: ./media/uservoice-tutorial/tutorial_general_100.png
-
-[200]: ./media/uservoice-tutorial/tutorial_general_200.png
-[201]: ./media/uservoice-tutorial/tutorial_general_201.png
-[202]: ./media/uservoice-tutorial/tutorial_general_202.png
-[203]: ./media/uservoice-tutorial/tutorial_general_203.png
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

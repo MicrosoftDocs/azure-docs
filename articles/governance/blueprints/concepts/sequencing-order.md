@@ -1,7 +1,6 @@
 ---
 title: Understand the deployment sequence order
 description: Learn about the life-cycle that a blueprint definition goes through and details about each stage.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -39,6 +38,10 @@ created within that resource group:
 - Resource group child **role assignment** artifacts sorted by artifact name
 - Resource group child **policy assignment** artifacts sorted by artifact name
 - Resource group child **Azure Resource Manager template** artifacts sorted by artifact name
+
+> [!NOTE]
+> Use of [artifacts()](../reference/blueprint-functions.md#artifacts) creates an implicit dependency
+> on the artifact being referred to.
 
 ## Customizing the sequencing order
 

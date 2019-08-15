@@ -25,7 +25,7 @@ The following steps are supported on a Mac, Windows, or Linux computer. This art
 
 Before running this sample, you must have the following:
 
-+ Install [Azure Core Tools version 2.x](functions-run-local.md#v2).
+- Install [Azure Functions Core Tools](./functions-run-local.md#v2) version 2.6.666 or above.
 
 + Install the [Azure CLI]( /cli/azure/install-azure-cli). This article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. You can also use the [Azure Cloud Shell](https://shell.azure.com/bash).
 
@@ -33,38 +33,13 @@ Before running this sample, you must have the following:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## Create the local function app project
+[!INCLUDE [functions-create-function-app-cli](../../includes/functions-create-function-app-cli.md)]
 
-Run the following command from the command line to create a function app project in the `MyFunctionProj` folder of the current local directory. A GitHub repo is also created in `MyFunctionProj`.
+## Enable extension bundles
 
-```bash
-func init MyFunctionProj
-```
-
-When prompted, use the arrow keys to select a worker runtime from the following language choices:
-
-+ `dotnet`: creates a .NET class library project (.csproj).
-+ `node`: creates a JavaScript or TypeScript project. When prompted, choose `JavaScript`.
-+ `python`: creates a Python project. For Python functions, see the [Python quickstart](functions-create-first-function-python.md).
-
-When the command executes, you see something like the following output:
-
-```output
-Writing .gitignore
-Writing host.json
-Writing local.settings.json
-Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
-```
-
-Use the following command to navigate to the new `MyFunctionProj` project folder.
-
-```bash
-cd MyFunctionProj
-```
+[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
-
-[!INCLUDE [functions-update-function-code](../../includes/functions-update-function-code.md)]
 
 [!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
 

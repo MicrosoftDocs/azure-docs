@@ -171,7 +171,7 @@ To configure Azure AD single sign-on with Domo, perform the following steps:
 
 ### Configure Domo Single Sign-On
 
-To configure single sign-on on **Domo** side, please navigate to Domo's Knowledge Base article found [here](http://knowledge.domo.com?cid=azuread), and follow the instructions.
+To configure single sign-on on **Domo** side, please navigate to Domo's Knowledge Base article found [here](https://knowledge.domo.com?cid=azuread), and follow the instructions.
 
 ### Create an Azure AD test user 
 
@@ -240,5 +240,5 @@ When you click the Domo tile in the Access Panel, you should be automatically si
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

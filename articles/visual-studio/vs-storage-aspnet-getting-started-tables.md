@@ -3,7 +3,7 @@ title: Get started with Azure table storage and Visual Studio Connected Services
 description: How to get started using Azure table storage in an ASP.NET project in Visual Studio after connecting to a storage account using Visual Studio Connected Services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: af81a326-18f4-4449-bc0d-e96fba27c1f8
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -543,7 +543,7 @@ specified partition.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a all entities where the **PartitionKey** (customer's last name) has a value of "Smith":
+1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for all entities where the **PartitionKey** (customer's last name) has a value of "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 

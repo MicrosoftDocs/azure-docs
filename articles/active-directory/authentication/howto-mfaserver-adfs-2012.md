@@ -21,6 +21,9 @@ If you use Active Directory Federation Services (AD FS) and want to secure cloud
 
 In this article, we discuss using Azure Multi-Factor Authentication Server with AD FS in Windows Server 2012 R2 or Windows Server 2016. For more information, read about how to [secure cloud and on-premises resources by using Azure Multi-Factor Authentication Server with AD FS 2.0](howto-mfaserver-adfs-2.md).
 
+> [!IMPORTANT]
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+
 ## Secure Windows Server AD FS with Azure Multi-Factor Authentication Server
 
 When you install Azure Multi-Factor Authentication Server, you have the following options:
@@ -78,7 +81,7 @@ At this point, Multi-Factor Authentication Server is set up to be an additional 
 Follow these steps to edit the MultiFactorAuthenticationAdfsAdapter.config file:
 
 1. Set the **UseWebServiceSdk** node to **true**.  
-2. Set the value for **WebServiceSdkUrl** to the URL of the Multi-Factor Authentication Web Service SDK. For example: *<https://contoso.com/&lt;certificatename&gt;/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx>*, Where *certificatename* is the name of your certificate.  
+2. Set the value for **WebServiceSdkUrl** to the URL of the Multi-Factor Authentication Web Service SDK. For example: *https:\/\/contoso.com/\<certificatename>/MultiFactorAuthWebServiceSdk/PfWsSdk.asmx*, Where *\<certificatename>* is the name of your certificate.  
 3. Edit the Register-MultiFactorAuthenticationAdfsAdapter.ps1 script by adding `-ConfigurationFilePath &lt;path&gt;` to the end of the `Register-AdfsAuthenticationProvider` command, where *&lt;path&gt;* is the full path to the MultiFactorAuthenticationAdfsAdapter.config file.
 
 ### Configure the Web Service SDK with a username and password

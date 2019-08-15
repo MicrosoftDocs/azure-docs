@@ -2,8 +2,8 @@
 title: How to change, delete, or manage your management groups - Azure Governance
 description: Learn how to view, maintain, update, and delete your management group hierarchy.
 author: rthorn17
-ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.service: governance
+ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
 ---
@@ -29,6 +29,8 @@ You can change the name of the management group by using the portal, PowerShell,
 1. Select **All services** > **Management groups**.
 
 1. Select the management group you would like to rename.
+
+1. Select **details**.
 
 1. Select the **Rename group** option at the top of the page.
 
@@ -76,6 +78,8 @@ To delete a management group, the following requirements must be met:
 1. Select **All services** > **Management groups**.
 
 1. Select the management group you would like to delete.
+
+1. Select **details**.
 
 1. Select **Delete**
 
@@ -200,10 +204,12 @@ management group inherits all user access and policies from the parent managemen
 To move the subscription, all of the following RBAC permissions need to be true:
 
 - "Owner" role on the child subscription.
-- "Owner", "Contributor", or "Management Group Contributor" role on the target parent management group.*
-- "Owner", "Contributor", or "Management Group Contributor" role on the existing parent management group.*
+- "Owner", "Contributor", or "Management Group Contributor" role on the target parent management group.
+- "Owner", "Contributor", or "Management Group Contributor" role on the existing parent management group.
 
-*: Unless the target or the existing parent management group is the Root management group. Since the Root management group is the default landing spot for all new management groups and subscriptions, users don't need permissions on it to move an item.
+If the target or the existing parent management group is the Root management group, the permissions requirements don't apply. Since the Root management group is the default landing spot for all new management groups and subscriptions, you don't need permissions on it to move an item.
+
+If the Owner role on the subscription is inherited from the current management group, your move targets are limited. You can only move the subscription to another management group where you have the Owner role. You can't move it to a management group where you're a contributor because you would lose ownership of the subscription. If you're directly assigned to the Owner role for the subscription (not inherited from the management group), you can move it to any management group where you're a contributor.
 
 To see what permissions you have in the Azure portal, select the management group and then select **IAM**. To learn more on RBAC Roles, see [Manage access and permissions with RBAC](../../role-based-access-control/overview.md).
 
@@ -275,7 +281,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
 
 ## Move management groups in the hierarchy  
 
-When you move a parent management group, the hierarchy under that group moves with it.
+When you move a parent management group, the hierarchy under that group moves with it. For the access you need to move management groups, see [Management group access](index.md#management-group-access).
 
 ### Move management groups in the portal
 
@@ -302,7 +308,8 @@ Use the Update-AzManagementGroup command in PowerShell to move a management grou
 different group.
 
 ```azurepowershell-interactive
-Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoIT'
+$parentGroup = Get-AzManagementGroup -GroupName ContosoIT
+Update-AzManagementGroup -GroupName 'Contoso' -ParentId $parentGroup.id
 ```  
 
 ### Move management groups in Azure CLI
@@ -310,7 +317,7 @@ Update-AzManagementGroup -GroupName 'Contoso' -ParentId '/providers/Microsoft.Ma
 Use the update command to move a management group with Azure CLI.
 
 ```azurecli-interactive
-az account management-group update --name 'Contoso' --parent-id '/providers/Microsoft.Management/managementGroups/ContosoIT'
+az account management-group update --name 'Contoso' --parent ContosoIT
 ```
 
 ## Audit management groups using activity logs
@@ -329,7 +336,7 @@ When referencing management groups from other Resource Provider's actions, use t
 
 An example of using this path is when assigning a new role assignment to a management group in PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 

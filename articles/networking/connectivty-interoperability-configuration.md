@@ -24,7 +24,7 @@ The following figure shows the Azure Virtual Network peering details of a spoke 
 
 [![1]][1]
 
-The following figure shows the VNet peering details of the hub VNet. If you want the spoke VNet to use the hub VNet gateways, select **Use remote gateways**.
+The following figure shows the VNet peering details of the hub VNet. If you want the hub VNet to permit the spoke VNet to use the hub's gateways, select **Allow gateway transit**.
 
 [![2]][2]
 

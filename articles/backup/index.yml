@@ -1,17 +1,17 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Backup Documentation
+title: Documentation for the Azure Backup service
 metadata:
   title: Azure Backup Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Backup allows you to back up the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
   services: backup
-  author: rayne-wiselman
+  author: dcurwin
   manager: carmonm
   ms.service: backup
   ms.tgt_pltfrm: na
   ms.topic: landing-page
   ms.date: 05/22/2018
-  ms.author: raynew
+  ms.author: dacurwin
 abstract:
   description: Use Azure Backup to protect the data for on-premises servers, virtual machines, virtualized workloads, SQL server, SharePoint server, and more. Learn how to back up and restore your data with our quickstarts, tutorials and samples.
 sections:

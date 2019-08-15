@@ -117,7 +117,7 @@ To configure Azure AD single sign-on with Slack, perform the following steps:
 	![image](common/edit-attribute.png)
 
 	> [!NOTE] 
-	> If you have users who’s assigned **email address** is not on a Office365 license, the **User.Email** claim will not appear in the SAML Token. In these cases, we suggest using **user.userprincipalname** as the **User.Email** attribute value to map as **Unique Identifier** instead.
+	> If you have users who’s assigned **email address** is not on an Office365 license, the **User.Email** claim will not appear in the SAML Token. In these cases, we suggest using **user.userprincipalname** as the **User.Email** attribute value to map as **Unique Identifier** instead.
 
 6. In the **User Claims** section on the **User Attributes** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
 
@@ -245,7 +245,7 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 > If you need to create a user manually, you need to contact [Slack support team](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect is the synchronization tool which can sync on premise Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
+> Azure AD Connect is the synchronization tool which can sync on premises Active Directory Identities to Azure AD and then these synced users can also use the applications as like other cloud users.
 
 ### Test single sign-on 
 
@@ -259,6 +259,6 @@ When you click the Slack tile in the Access Panel, you should be automatically s
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Configure User Provisioning](slack-provisioning-tutorial.md)

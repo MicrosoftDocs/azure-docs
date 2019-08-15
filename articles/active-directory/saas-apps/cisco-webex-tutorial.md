@@ -118,7 +118,7 @@ To configure Azure AD single sign-on with Cisco Webex Meetings, perform the foll
 
 	In the **Sign on URL** textbox, paste the value of **Reply URL** which gets auto-filled by SP metadata file upload.
 
-5. Cisco Webex Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
+5. Cisco Webex Meetings application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your SAML token attributes configuration. The following screenshot shows the list of default attributes. Click on **Edit** icon to add the attributes.
 
 	![image](common/edit-attribute.png)
 
@@ -257,5 +257,5 @@ When you click the Cisco Webex Meetings tile in the Access Panel, you should be 
 
 - [What is application access and single sign-on with Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [What is conditional access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [What is Conditional Access in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -33,7 +33,8 @@ To take the steps in this article, the prerequisites are as follows:
 1. Select **Subscriptions** in the menu on the left.
 2. Select **Add subscription**.
 3. Provide a name of the subscription and select the scope.
-4. Select **Save**.
+4. Optionally, choose if the subscription should be associated with a user.
+5. Select **Save**.
 
 ![Flexible subscriptions](./media/api-management-subscriptions/flexible-subscription.png)
 

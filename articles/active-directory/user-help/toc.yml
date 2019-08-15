@@ -28,9 +28,10 @@
     href: user-help-auth-app-overview.md
   - name: Download and install the app
     href: user-help-auth-app-download-install.md
-  - name: Add accounts overview
-    href: user-help-auth-app-add-account-overview.md
+  - name: Add accounts
     items:
+      - name: Overview
+        href: user-help-auth-app-add-account-overview.md
       - name: Add a work or school account
         href: user-help-auth-app-add-work-school-account.md
       - name: Add a personal Microsoft account
@@ -63,15 +64,18 @@
     href: user-help-security-info-overview.md
   - name: Add security info during sign-in
     href: security-info-setup-signin.md
-  - name: Add or update security info methods overview
-    href: security-info-add-update-methods-overview.md
+  - name: Add or update security info methods
     items:
+    - name: Overview
+      href: security-info-add-update-methods-overview.md
     - name: Set up an authenticator app 
       href: security-info-setup-auth-app.md
     - name: Set up text messaging        
       href: security-info-setup-text-msg.md
     - name: Set up phone calls
       href: security-info-setup-phone-number.md
+    - name: Set up security key
+      href: security-info-setup-security-key.md      
     - name: Set up email
       href: security-info-setup-email.md
     - name: Set up security questions

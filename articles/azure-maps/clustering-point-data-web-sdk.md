@@ -3,7 +3,7 @@ title: Clustering point data in Azure Maps | Microsoft Docs
 description: How to cluster point data in the Web SDK
 author: rbrundritt
 ms.author: richbrun
-ms.date: 03/27/2019
+ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -28,9 +28,9 @@ var datasource = new atlas.source.DataSource(null, {
 	//The radius in pixels to cluster points together.
 	clusterRadius: 45,
 
-	//The maximium zoom level in which clustering occurs.
+	//The maximum zoom level in which clustering occurs.
 	//If you zoom in more than this, all points are rendered as symbols.
-	clusterMaxZoom: 15 
+	clusterMaxZoom: 15
 });
 ```
 
@@ -41,9 +41,9 @@ The `DataSource` class also has the following methods related to clustering:
 
 | Method | Return type | Description |
 |--------|-------------|-------------|
-| getClusterChildren(clusterId: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
+| getClusterChildren(clusterId: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves the children of the given cluster on the next zoom level. These children may be a combination of shapes and subclusters. The subclusters will be features with properties matching ClusteredProperties. |
 | getClusterExpansionZoom(clusterId: number) | Promise&lt;number&gt; | Calculates a zoom level at which the cluster will start expanding or break apart. |
-| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Feature&lt;Geometry, any&gt; \| Shape&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
+| getClusterLeaves(clusterId: number, limit: number, offset: number) | Promise&lt;Array&lt;Feature&lt;Geometry, any&gt; \| Shape&gt;&gt; | Retrieves all points in a cluster. Set the `limit` to return a subset of the points, and use the `offset` to page through the points. |
 
 ## Display clusters using a bubble layer
 
@@ -87,7 +87,7 @@ When mouse events occur on a layer that contain clustered data points, the clust
 | cluster | boolean | Indicates if feature represents a cluster. |
 | cluster_id | string | A unique ID for the cluster that can be used with the DataSource `getClusterExpansionZoom`, `getClusterChildren`, and `getClusterLeaves` methods. |
 | point_count | number | The number of points the cluster contains. |
-| point_count_abbreviated | string | A string that abbreviates the point_count value if it is long. (for example, 4,000 becomes 4K) |
+| point_count_abbreviated | string | A string that abbreviates the `point_count` value if it is long. (for example, 4,000 becomes 4K) |
 
 This example takes a bubble layer that renders cluster points and adds a click event that when triggered, calculate, and zoom the map to the next zoom level at which the cluster will break apart using the `getClusterExpansionZoom` method of the `DataSource` class and the `cluster_id` property of the clicked clustered data point. 
 
@@ -106,6 +106,17 @@ The point data that a cluster represents is spread over an area. In this sample 
 
  <iframe height="500" style="width: 100%;" scrolling="no" title="Cluster area convex hull" src="//codepen.io/azuremaps/embed/QoXqWJ/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
   See the Pen <a href='https://codepen.io/azuremaps/pen/QoXqWJ/'>Cluster area convex hull</a> by Azure Maps
+  (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
+## Aggregating data in clusters
+
+Often clusters are represented using a symbol with the number of points that are within the cluster, however sometimes it is desirable to further customize the style of clusters based on some metric, like the total revenue of all points within a cluster. With cluster aggregates custom properties can be created and populated using an [aggregate expression](data-driven-style-expressions-web-sdk.md#aggregate-expression) calculation.  Cluster aggregates can be defined in `clusterProperties` option of the `DataSource`.
+
+The following sample uses an aggregate expression to calculate a count based on the entity type property of each data point in a cluster.
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Cluster aggregates" src="//codepen.io/azuremaps/embed/jgYyRL/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+  See the Pen <a href='https://codepen.io/azuremaps/pen/jgYyRL/'>Cluster aggregates</a> by Azure Maps
   (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 

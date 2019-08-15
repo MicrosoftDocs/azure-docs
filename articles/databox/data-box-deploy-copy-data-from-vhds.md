@@ -1,5 +1,5 @@
 ---
-title: Import data from VHDs and copy to managed disks with Microsoft Azure Data Box| Microsoft Docs
+title: Tutorial to copy data from VHDs to managed disks with Azure Data Box| Microsoft Docs
 description: Learn how to copy data from VHDs from on-premises VM workloads to your Azure Data Box
 services: databox
 author: alkohli
@@ -41,7 +41,7 @@ Based on the resource groups specified, Data Box creates one share for each asso
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Within each share, the following four folders are created which correspond to containers in your storage account.
+Within each share, the following three folders are created which correspond to containers in your storage account.
 
 - Premium SSD
 - Standard HDD

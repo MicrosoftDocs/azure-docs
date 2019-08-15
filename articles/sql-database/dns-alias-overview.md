@@ -9,9 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: oslake
 ms.author: moslake
-ms.reviewer: genemi,ayolubek, jrasnick
-manager: craigg
-ms.date: 03/12/2019
+ms.reviewer: genemi, ayolubek, jrasnick
+ms.date: 06/26/2019
 ---
 # DNS alias for Azure SQL Database
 
@@ -24,6 +23,7 @@ Common uses for a DNS alias include the following cases:
 - Create an easy to remember name for an Azure SQL Server.
 - During initial development, your alias can refer to a test SQL Database server. When the application goes live, you can modify the alias to refer to the production server. The transition from test to production does not require any modification to the configurations several clients that connect to the database server.
 - Suppose the only database in your application is moved to another SQL Database server. Here you can modify the alias without having to modify the configurations of several clients.
+- During a regional outage you use geo-restore to recover your database in a different server and region. You can modify your existing alias to point to the new server so that the existing client application could re-connect to it. 
 
 ## Domain Name System (DNS) of the Internet
 
@@ -43,7 +43,7 @@ Later when the new system goes live in production, you can update the properties
 
 ### Cross-region support
 
-A disaster recovery might shift your SQL Database server to a different geographic region. For a system than was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
+A disaster recovery might shift your SQL Database server to a different geographic region. For a system that was using a DNS alias, the need to find and update all the connection strings for all clients can be avoided. Instead, you can update an alias to refer to the new SQL Database server that now hosts your database.
 
 ## Properties of a DNS alias
 
@@ -61,13 +61,6 @@ The following properties apply to each DNS alias for your SQL Database server:
 Both REST APIs and PowerShell cmdlets are available to enable you to programmatically manage your DNS aliases.
 
 ### REST APIs for managing your DNS aliases
-
-<!-- TODO
-??2 "soon" in the following live sentence, is not the best situation.
-TODO update this subsection very soon after REST API docu goes live.
-Dev = Magda Bojarska
-Comment as of:  2018-01-26
--->
 
 The documentation for the REST APIs is available near the following web location:
 
@@ -105,7 +98,7 @@ Presently, a DNS alias has the following limitations:
 - *Delay of up to 2 minutes:* It takes up to 2 minutes for a DNS alias to be updated or removed.
   - Regardless of any brief delay, the alias immediately stops referring client connections to the legacy server.
 - *DNS lookup:* For now, the only authoritative way to check what server a given DNS alias refers to is by performing a [DNS lookup](https://docs.microsoft.com/windows-server/administration/windows-commands/nslookup).
-- *[Table auditing is not supported](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md):* You cannot use a DNS alias on an Azure SQL Database server that has *table auditing* enabled on a database.
+- _Table auditing is not supported:_ You cannot use a DNS alias on an Azure SQL Database server that has *table auditing* enabled on a database.
   - Table auditing is deprecated.
   - We recommend that you move to [Blob Auditing](sql-database-auditing.md).
 

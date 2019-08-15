@@ -4,10 +4,9 @@ description: Use Visual Studio Code to develop, build, and debug a module for Az
 services: iot-edge
 keywords: 
 author: shizn
-manager: philmea
 
 ms.author: xshi
-ms.date: 02/20/2019
+ms.date: 08/07/2019
 ms.topic: article
 ms.service: iot-edge
 
@@ -17,14 +16,18 @@ ms.service: iot-edge
 
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code as the main tool to develop and debug modules.
 
+There are two ways to debug modules written in C#, Node.js, or Java in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. To debug modules written in Python or C, you can only attach to a process in Linux amd64 containers.
+
+If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+
+This article provides instructions for developing and debugging modules in multiple languages for multiple architectures. Currently, Visual Studio Code provides support for modules written in C#, C, Python, Node.js, and Java. The supported device architectures are X64 and ARM32. For more information about supported operating systems, languages, and architectures, see [Language and architecture support](module-development.md#language-and-architecture-support).
+
+>[!NOTE]
+>Develop and debugging support for Linux ARM64 devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). For more information, see [Develop and debug ARM64 IoT Edge modules in Visual Studio Code (preview)](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview).
+
 ## Prerequisites
 
-You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. An IoT Edge device can be another physical device.
-
-For modules written in C#, Node.js, or Java, there are two ways to debug your module in Visual Studio Code: You can either attach a process in a module container or launch the module code in debug mode. For modules written in Python or C, they can only be debugged by attaching to a process in Linux amd64 containers.
-
-> [!TIP]
-> If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
+You can use a computer or a virtual machine running Windows, macOS, or Linux as your development machine. On Windows computers you can develop either Windows or Linux modules. To develop Windows modules, use a Windows computer running version 1809/build 17763 or newer. To develop Linux modules, use a Windows computer that meets the [requirements for Docker Desktop](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install). 
 
 Install [Visual Studio Code](https://code.visualstudio.com/) first and then add the following extensions:
 
@@ -36,21 +39,17 @@ Install [Visual Studio Code](https://code.visualstudio.com/) first and then add 
   - Java: [Java Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)
   - C: [C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 
-You'll also need to install some additional, language-specific tools in order to develop your module:
+You'll also need to install some additional, language-specific tools to develop your module:
 
 - C#, including Azure Functions: [.NET Core 2.1 SDK](https://www.microsoft.com/net/download)
 
-- Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation). Once Pip is installed, install the **Cookiecutter** package with the following command:
-
-    ```cmd/sh
-    pip install --upgrade --user cookiecutter
-    ```
+- Python: [Python](https://www.python.org/downloads/) and [Pip](https://pip.pypa.io/en/stable/installing/#installation) for installing Python packages (typically included with your Python installation).
 
 - Node.js: [Node.js](https://nodejs.org). You'll also want to install [Yeoman](https://www.npmjs.com/package/yo) and the [Azure IoT Edge Node.js Module Generator](https://www.npmjs.com/package/generator-azure-iot-edge-module).
 
 - Java: [Java SE Development Kit 10](https://aka.ms/azure-jdks) and [Maven](https://maven.apache.org/). You'll need to [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 
-In order to build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
+To build and deploy your module image, you need Docker to build the module image and a container registry to hold the module image:
 
 - [Docker Community Edition](https://docs.docker.com/install/) on your development machine.
 
@@ -64,9 +63,10 @@ Unless you're developing your module in C, you also need the Python-based [Azure
    ```cmd
    pip install --upgrade iotedgehubdev
    ```
-
 > [!NOTE]
-> To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
+> If you have multiple Python including pre-installed python 2.7 (for example, on Ubuntu or macOS), make sure you are using the correct `pip` or `pip3` to install **iotedgehubdev**
+
+To test your module on a device, you'll need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows](quickstart.md). If you are running IoT Edge daemon on your development machine, you might need to stop EdgeHub and EdgeAgent before you move to next step.
 
 ## Create a new solution template
 
@@ -96,14 +96,14 @@ There are four items within the solution:
 
 - A **.vscode** folder contains debug configurations.
 
-- A **modules** folder has subfolders for each module. At this point, you only have one. But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
+- A **modules** folder has subfolders for each module.  Within the folder for each module there is a file, **module.json**, that controls how modules are built and deployed.  This file would need to be modified to change the module deployment container registry from localhost to a remote registry. At this point, you only have one module.  But you can add more in the command palette with the command **Azure IoT Edge: Add IoT Edge Module**.
 
 - An **.env** file lists your environment variables. If Azure Container Registry is your registry, you'll have an Azure Container Registry username and password in it.
 
   > [!NOTE]
   > The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables.
 
-- A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
+- A **deployment.template.json** file lists your new module along with a sample **SimulatedTemperatureSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md).
 
 ## Add additional modules
 
@@ -120,7 +120,7 @@ The default module code that comes with the solution is located at the following
 - Java: **modules > *&lt;your module name&gt;* > src > main > java > com > edgemodulemodules > App.java**
 - C: **modules > *&lt;your module name&gt;* > main.c**
 
-The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub.
+The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the SimulatedTemperatureSensor module that simulates data) and pipe it to IoT Hub.
 
 When you're ready to customize the template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability.
 
@@ -223,7 +223,7 @@ In your development machine, you can start an IoT Edge simulator instead of inst
 
 1. In the Visual Studio Code Explorer view, right-click the `deployment.debug.template.json` file for your solution and then select **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to the Docker view to watch container status.
 
-   ![Watch Variables](media/how-to-develop-csharp-module/view-log.png)
+   ![Watch Variables](media/how-to-vs-code-develop-module/view-log.png)
 
 1. Navigate to the Visual Studio Code Debug view and select the debug configuration file for your module. The debug option name should be similar to ***&lt;your module name&gt;* Remote Debug**
 

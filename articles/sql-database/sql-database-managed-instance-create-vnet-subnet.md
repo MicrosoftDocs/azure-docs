@@ -9,8 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
-manager: craigg
+ms.reviewer: sstein, bonova, carlrab
 ms.date: 01/15/2019
 ---
 # Create a virtual network for Azure SQL Database Managed Instance
@@ -28,6 +27,9 @@ Azure SQL Database Managed Instance must be deployed within an Azure [virtual ne
 > You should [determine the size of the subnet for Managed Instance](sql-database-managed-instance-determine-size-vnet-subnet.md) before you deploy the first instance. You can't resize the subnet after you put the resources inside.
 >
 > If you plan to use an existing virtual network, you need to modify that network configuration to accommodate your Managed Instance. For more information, see [Modify an existing virtual network for Managed Instance](sql-database-managed-instance-configure-vnet-subnet.md).
+>
+> After a managed instance is created, moving the managed instance or VNet to another resource group or subscription is not supported.
+
 
 ## Create a virtual network
 

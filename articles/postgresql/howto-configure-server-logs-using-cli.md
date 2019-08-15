@@ -1,12 +1,12 @@
 ---
-title: Configure and access server logs for PostgreSQL by using Azure CLI
-description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL by using the Azure CLI command line.
+title: Configure and access server logs for PostgreSQL - Single Server by using Azure CLI
+description: This article describes how to configure and access the server logs in Azure Database for PostgreSQL - Single Server by using the Azure CLI command line.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
+ms.date: 5/6/2019
 ---
 # Configure and access server logs by using Azure CLI
 You can download the PostgreSQL server error logs by using the command-line interface (Azure CLI). However, access to transaction logs isn't supported. 
@@ -16,7 +16,7 @@ To step through this how-to guide, you need:
 - [Azure Database for PostgreSQL server](quickstart-create-server-database-azure-cli.md)
 - The [Azure CLI](/cli/azure/install-azure-cli) command-line utility or Azure Cloud Shell in the browser
 
-## Configure logging for Azure Database for PostgreSQL
+## Configure logging
 You can configure the server to access query logs and error logs. Error logs can have auto-vacuum, connection, and checkpoint information.
 1. Turn on logging.
 2. To enable query logging, update **log\_statement** and **log\_min\_duration\_statement**.
@@ -24,7 +24,7 @@ You can configure the server to access query logs and error logs. Error logs can
 
 For more information, see [Customizing server configuration parameters](howto-configure-server-parameters-using-cli.md).
 
-## List logs for Azure Database for PostgreSQL server
+## List logs
 To list the available log files for your server, run the [az postgres server-logs list](/cli/azure/postgres/server-logs) command.
 
 You can list the log files for server **mydemoserver.postgres.database.azure.com** under the resource group **myresourcegroup**. Then direct the list of log files to a text file called **log\_files\_list.txt**.

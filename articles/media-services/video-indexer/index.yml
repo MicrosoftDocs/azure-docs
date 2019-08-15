@@ -1,21 +1,22 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Video Indexer Documentation
+title: Azure Media Services Video Indexer Documentation
 metadata:
   document_id: 
-  title: Video Indexer Documentation | Microsoft Docs
+  title: Azure Media Services Video Indexer Documentation | Microsoft Docs
   meta.description: Learn about Video Indexer.
   services: media-services
   author: juliako
   manager: femila
   ms.service: media-services
+  ms.subservice: video-indexer
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
   ms.date: 03/11/2019
   ms.author: juliako
 abstract:
-  description: Azure Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.<br/>To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">comparison document</a>.
+  description: Azure Media Services Video Indexer is a cloud application built on Azure Media Analytics, Azure Search, Cognitive Services (such as the Face API, Microsoft Translator, the Computer Vision API, and Custom Speech Service). It enables you to extract the insights from your videos using Video Indexer video and audio models.<br/>To understand when you would want to use Video Indexer vs. Media Services analyzer presets, check out the <a href="/azure/media-services/video-indexer/compare-video-indexer-with-media-services-presets">comparison document</a>.
 sections:
 
   - items:
@@ -25,10 +26,10 @@ sections:
       columns: 2
       items:
         - href: video-indexer-overview.md
-          html: <p>Video indexer incorporates media AI technologies to make it easier to extract insights from videos.</p>
+          html: <p>Video Indexer incorporates media AI technologies to make it easier to extract insights from videos.</p>
           image:
             src: media/index/AMSIcons-media_servicesV3.svg
-          title: What is Video Indexer?
+          title: What is Azure Media Services Video Indexer?
 
   - title: 5-Minute Quickstarts
     items:

@@ -3,14 +3,14 @@ title: "Quickstart: Bing Visual Search SDK, Python"
 titleSuffix: Azure Cognitive Services
 description: Setup for Visual search SDK Python console application.
 services: cognitive-services
-author: mikedodaro
+author: aahill
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 06/11/2018
-ms.author: v-gedod
+ms.date: 06/18/2019
+ms.author: aahi
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search SDK for Python
@@ -20,7 +20,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 ## Prerequisites
 
 * [Python](https://www.python.org/) 2.x or 3.x
-* It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv). Install virtualenv for Python 2.7.
+* It is recommended to use a [virtual environment](https://docs.python.org/3/tutorial/venv.html). Install and initialize the virtual environment with the [venv module](https://pypi.python.org/pypi/virtualenv).
 * The Bing Visual Search SDK for Python. You can install it with the following commands:
     1. `cd mytestenv`
     2. `python -m pip install azure-cognitiveservices-search-visualsearch`
@@ -46,6 +46,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
         Filters,
         KnowledgeRequest,
     )
+    from msrest.authentication import CognitiveServicesCredentials
     ```
 2. Create variables for your subscription key, Custom Configuration ID, and the image you want to upload. 
     
@@ -59,7 +60,7 @@ Use this quickstart to begin getting image insights from the Bing Visual Search 
 3. Instantiate the client
 
     ```python
-    var client = new VisualSearchClient(new ApiKeyServiceClientCredentials("YOUR-ACCESS-KEY"))
+    client = VisualSearchClient(endpoint="https://api.cognitive.microsoft.com", credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 ## Send the search request

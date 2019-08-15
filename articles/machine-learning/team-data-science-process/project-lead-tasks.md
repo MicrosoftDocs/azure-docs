@@ -14,7 +14,7 @@ ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 
 # Tasks for the project lead in the Team Data Science Process
 
-This tutorial outlines the tasks that a project lead is expected to complete for his/her project team. The objective is to establish collaborative team environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to execute cloud-based, predictive analytics solutions efficiently. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
+This tutorial outlines the tasks that a project lead is expected to complete for their project team. The objective is to establish collaborative team environment that standardizes on the [Team Data Science Process](overview.md) (TDSP). The TDSP is a framework developed by Microsoft that provides a structured sequence of activities to execute cloud-based, predictive analytics solutions efficiently. For an outline of the personnel roles and their associated tasks that are handled by a data science team standardizing on this process, see [Team Data Science Process roles and tasks](roles-tasks.md).
 
 A **Project Lead** manages the daily activities of individual data scientists on a specific data science project. The workflow for the tasks to be completed by project leads to set up this environment are depicted in the following figure:
 
@@ -145,7 +145,7 @@ If you are using Azure DevOps as the code-hosting platform, typically, the _HTTP
 
 ![10](./media/project-lead-tasks/project-leads-10-clone-project-repository-linux.png)
 
-If you are using Azure DevOps as the code-hosting platform, typically, the _SSH URL of the project repository_ is _ssh://<Azure DevOps Services Name\>@<Azure DevOps Services Name\>.visualstudio.com:22/<Your Project Name>/\_git/<Your project repository name\>. In this example, we have ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
+If you are using Azure DevOps as the code-hosting platform, typically, the _SSH URL of the project repository_ is _ssh://<Azure DevOps Services Name\>@<Azure DevOps Services Name\>.visualstudio.com:22/<Your Project Name\>/\_git/<Your project repository name\>. In this example, we have ***ssh://mysamplegroup\@mysamplegroup.visualstudio.com:22/MyTeam/_git/DSProject1***.
 
 ### Copy contents of D3 to D5 
 

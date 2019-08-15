@@ -2,14 +2,14 @@
 title: Metrics and Alerts in Azure Traffic Manager
 description: This article describes metrics available for Traffic Manager in Azure.
 services: traffic-manager
-author: KumudD
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
-ms.author: kumud
+ms.author: allensu
 ---
 
 # Traffic Manager metrics and alerts
@@ -53,11 +53,11 @@ This metric can be shown either as an aggregate value representing the status of
 
 *Figure 4: Split view of endpoint status metrics*
 
-You can consume these metrics through [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)’s portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), and [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), or through the metrics section of Traffic Manager’s portal experience.
+You can consume these metrics through [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)’s portal, [REST API](https://docs.microsoft.com/rest/api/monitor/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor), and [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), or through the metrics section of Traffic Manager’s portal experience.
 
 ## Alerts on Traffic Manager metrics
 In addition to processing and displaying metrics from Traffic Manager, Azure Monitor enables customers to configure and receive alerts associated with these metrics. You can choose what conditions need to be met in these metrics for an alert to occur, how often those conditions need to be monitored, and how the alerts should be sent to you. For more information, see [Azure Monitor alerts documentation](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
 
 ## Next steps
 - Learn more about [Azure Monitor service](../azure-monitor/platform/metrics-supported.md)
-- Learn how to [create a chart using Azure Monitor](../azure-monitor/platform/metrics-charts.md#create-a-new-chart)
+- Learn how to [create a chart using Azure Monitor](../azure-monitor/platform/metrics-getting-started.md#create-your-first-metric-chart)

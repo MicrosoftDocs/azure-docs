@@ -5,8 +5,8 @@ metadata:
   title: Azure Logic Apps Documentation - Tutorials, API Reference | Microsoft Docs
   description: Azure Logic Apps simplifies how you build automated scalable workflows that integrate apps and data across cloud services and on-premises systems. Learn how to create, design, and deploy logic apps that automate business processes with our quickstarts, tutorials, templates, and APIs.
   services: logic-apps
-  author: czeumault
-  manager: estfan
+  author: ecfan
+  manager: carmonm
   ms.service: logic-apps
   ms.tgt_pltfrm: na
   ms.devlang: na
@@ -19,7 +19,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to create a logic app in Azure.
+    text: Learn how to create a logic app that runs in Azure.
   - type: list
     style: icon48
     items: 
@@ -27,7 +27,15 @@ sections:
         src: https://docs.microsoft.com/media/common/i_portal.svg
       text: Azure portal
       href: /azure/logic-apps/quickstart-create-first-logic-app-workflow
-- title: Step-by-step Tutorials
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
+      text: Visual Studio
+      href: /azure/logic-apps/quickstart-create-logic-apps-with-visual-studio
+    - image: 
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
+      text: Visual Studio Code
+      href: /azure/logic-apps/quickstart-create-logic-apps-visual-studio-code
+- title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: Learn how to build logic apps that run on a schedule and integrate data across Azure services, Microsoft services, and other software-as-a-service (SaaS) apps. 

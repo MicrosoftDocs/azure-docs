@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: rest-api
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 05/28/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 
@@ -24,7 +24,7 @@ ms.reviewer: bagovind
 
 ## List access
 
-In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter. To call the API, you must have access to the `Microsoft.Authorization/roleAssignments/read` operation at the specified scope. Several [built-in roles for Azure resources](built-in-roles.md) are granted access to this operation.
+In RBAC, to list access, you list the role assignments. To list role assignments, use one of the [Role Assignments - List](/rest/api/authorization/roleassignments/list) REST APIs. To refine your results, you specify a scope and an optional filter.
 
 1. Start with the following request:
 
@@ -39,14 +39,18 @@ In RBAC, to list access, you list the role assignments. To list role assignments
     | `subscriptions/{subscriptionId}` | Subscription |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
     | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
-
+    
+       
+     > [!NOTE]
+     > In the above example Microsoft.web is the resource provider is used which refers to App service instance. Similarly you can use any other resource provider and build the Scope URI. In order to understand more please refer to [Azure Resource providers and types](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) and supported [Azure RM resource provider operations](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations).  
+     
 1. Replace *{filter}* with the condition that you want to apply to filter the role assignment list.
 
     | Filter | Description |
     | --- | --- |
-    | `$filter=atScope()` | List role assignments for only the specified scope, not including the role assignments at subscopes. |
-    | `$filter=principalId%20eq%20'{objectId}'` | List role assignments for a specified user, group, or service principal. |
-    | `$filter=assignedTo('{objectId}')` | List role assignments for a specified user, including ones inherited from groups. |
+    | `$filter=atScope()` | Lists role assignments for only the specified scope, not including the role assignments at subscopes. |
+    | `$filter=principalId%20eq%20'{objectId}'` | Lists role assignments for a specified user, group, or service principal. |
+    | `$filter=assignedTo('{objectId}')` | Lists role assignments for a specified user or service principal. If the user is a member of a group that has a role assignment, that role assignment is also listed. This filter is transitive for groups which means that if the user is a member of a group and that group is a member of another group that has a role assignment, that role assignment is also listed. This filter only accepts an object id for a user or a service principal. You cannot pass an object id for a group. |
 
 ## Grant access
 

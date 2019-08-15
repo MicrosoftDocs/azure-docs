@@ -1,7 +1,6 @@
 ---
 title: Overview of Azure Policy
 description: Azure Policy is a service in Azure, that you use to create, assign and, manage policy definitions in your Azure environment.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
@@ -11,8 +10,8 @@ manager: carmonm
 ---
 # Overview of the Azure Policy service
 
-Governance validates that your organization can achieve its goals through an effective and
-efficient use of IT. It meets this need by creating clarity between business goals and IT projects.
+Governance validates that your organization can achieve its goals through effective and efficient
+use of IT. It meets this need by creating clarity between business goals and IT projects.
 
 Does your company experience a significant number of IT issues that never seem to get resolved?
 Good IT governance involves planning your initiatives and setting priorities on a strategic level
@@ -32,13 +31,16 @@ over more details on how to create and implement policies with Azure Policy.
 > regardless of pricing tier. If your assignments do not show the compliance data, please ensure that
 > the subscription is registered with the Microsoft.PolicyInsights resource provider.
 
+[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+
 ## How is it different from RBAC?
 
-There are a few key differences between Policy and role-based access control (RBAC). RBAC focuses
-on user actions at different scopes. You might be added to the contributor role for a resource
-group, allowing you to make changes to that resource group. Policy focuses on resource properties
-during deployment and for already existing resources. Policy controls properties such as the types
-or locations of resources. Unlike RBAC, Policy is a default allow and explicit deny system.
+There are a few key differences between Azure Policy and role-based access control (RBAC). RBAC
+focuses on user actions at different scopes. You might be added to the contributor role for a
+resource group, allowing you to make changes to that resource group. Azure Policy focuses on
+resource properties during deployment and for already existing resources. Azure Policy controls
+properties such as the types or locations of resources. Unlike RBAC, Azure Policy is a default allow
+and explicit deny system.
 
 ### RBAC Permissions in Azure Policy
 
@@ -48,9 +50,9 @@ Azure Policy has several permissions, known as operations, in two Resource Provi
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
 Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor
-(Preview)** role includes most Policy operations. **Owner** has full rights. Both **Contributor**
-and **Reader** can use all read Policy operations, but **Contributor** can also trigger
-remediation.
+(Preview)** role includes most Azure Policy operations. **Owner** has full rights. Both
+**Contributor** and **Reader** can use all read Azure Policy operations, but **Contributor** can
+also trigger remediation.
 
 If none of the Built-in roles have the permissions required, create a [custom role](../../role-based-access-control/custom-roles.md).
 
@@ -94,7 +96,7 @@ networking resources. You could exclude a resource group in that subscription th
 networking infrastructure. You then grant access to this networking resource group to users that
 you trust with creating networking resources.
 
-In another example, you might want to assign a resource type whitelist policy at the management
+In another example, you might want to assign a resource type allow list policy at the management
 group level. And then assign a more permissive policy (allowing more resource types) on a child
 management group or even directly on subscriptions. However, this example wouldn't work because
 policy is an explicit deny system. Instead, you need to exclude the child management group or
@@ -168,7 +170,7 @@ options:
 When creating value options in an initiative definition, you're unable to input a different value
 during the initiative assignment because it's not part of the list.
 
-## Maximum count of Policy objects
+## Maximum count of Azure Policy objects
 
 [!INCLUDE [policy-limits](../../../includes/azure-policy-limits.md)]
 
@@ -209,8 +211,8 @@ visit [Govern your Azure environment through Azure Policy](https://channel9.msdn
 Now that you have an overview of Azure Policy and some of the key concepts, here are the suggested
 next steps:
 
-- [Assign a policy definition using the portal](assign-policy-portal.md)
-- [Assign a policy definition using the Azure CLI](assign-policy-azurecli.md)
-- [Assign a policy definition using PowerShell](assign-policy-powershell.md)
-- Review what a management group is with [Organize your resources with Azure management groups](..//management-groups/overview.md)
-- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9
+- [Assign a policy definition using the portal](assign-policy-portal.md).
+- [Assign a policy definition using the Azure CLI](assign-policy-azurecli.md).
+- [Assign a policy definition using PowerShell](assign-policy-powershell.md).
+- Review what a management group is with [Organize your resources with Azure management groups](..//management-groups/overview.md).
+- View [Govern your Azure environment through Azure Policy](https://channel9.msdn.com/events/Build/2018/THR2030) on Channel 9.

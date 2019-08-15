@@ -10,7 +10,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 08/09/2019
 ms.author: mbullwin
 ---
 # Monitoring usage and performance in Classic Windows Desktop apps
@@ -31,10 +31,11 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
    
     If you use ApplicationInsights.config, make sure its properties in Solution Explorer are set to **Build Action = Content, Copy to Output Directory = Copy**.
 5. [Use the API](../../azure-monitor/app/api-custom-events-metrics.md) to send telemetry.
-6. Run your app, and see the telemetry in the resource you created in the Azure Portal.
+6. Run your app, and see the telemetry in the resource you created in the Azure portal.
 
 ## <a name="telemetry"></a>Example code
 ```csharp
+using Microsoft.ApplicationInsights;
 
     public partial class Form1 : Form
     {
@@ -46,7 +47,6 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
             tc.InstrumentationKey = "key copied from portal";
 
             // Set session data:
-            tc.Context.User.Id = Environment.UserName;
             tc.Context.Session.Id = Guid.NewGuid().ToString();
             tc.Context.Device.OperatingSystem = Environment.OSVersion.ToString();
 
@@ -55,9 +55,10 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
             ...
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
-            stop = true;
+            e.Cancel = true;
+
             if (tc != null)
             {
                 tc.Flush(); // only for desktop apps
@@ -71,7 +72,7 @@ Applications hosted on premises, in Azure, and in other clouds can all take adva
 ```
 
 ## Next steps
-* [Create a dashboard](../../azure-monitor/app/app-insights-dashboards.md)
+* [Create a dashboard](../../azure-monitor/app/overview-dashboard.md)
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
 * [Explore metrics](../../azure-monitor/app/metrics-explorer.md)
 * [Write Analytics queries](../../azure-monitor/app/analytics.md)

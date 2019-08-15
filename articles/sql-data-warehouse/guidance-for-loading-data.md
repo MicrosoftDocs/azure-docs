@@ -1,25 +1,24 @@
 ---
 title: Data loading best practices - Azure SQL Data Warehouse | Microsoft Docs
-description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
+description: Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: kevinvngo 
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.subservice: load-data
+ms.date: 08/08/2019
+ms.author: kevin
 ms.reviewer: igorstan
+ms.custom: seoapril2019
 ---
 
 # Best practices for loading data into Azure SQL Data Warehouse
-Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse. 
 
-- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
-- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
-
+Recommendations and performance optimizations for loading data into Azure SQL Data Warehouse.
 
 ## Preparing data in Azure Storage
+
 To minimize latency, co-locate your storage layer and your data warehouse.
 
 When exporting data into an ORC File Format, you might get Java out-of-memory errors when there are large text columns. To work around this limitation, export only a subset of the columns.
@@ -34,15 +33,17 @@ Split large compressed files into smaller compressed files.
 
 For fastest loading speed, run only one load job at a time. If that is not feasible, run a minimal number of loads concurrently. If you expect a large loading job, consider scaling up your data warehouse before the load.
 
-To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, log in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
+To run loads with appropriate compute resources, create loading users designated for running loads. Assign each loading user to a specific resource class. To run a load, sign in as one of the loading users, and then run the load. The load runs with the user's resource class.  This method is simpler than trying to change a user's resource class to fit the current resource class need.
 
 ### Example of creating a loading user
+
 This example creates a loading user for the staticrc20 resource class. The first step is to **connect to master** and create a login.
 
 ```sql
    -- Connect to master
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
+
 Connect to the data warehouse and create a user. The following code assumes you are connected to the database called mySampleDataWarehouse. It shows how to create a user called LoaderRC20, give the user control permission on a database. It then adds the user as a member of the staticrc20 database role.  
 
 ```sql
@@ -51,7 +52,8 @@ Connect to the data warehouse and create a user. The following code assumes you 
    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
-To run a load with resources for the staticRC20 resource classes, simply log in as LoaderRC20 and run the load.
+
+To run a load with resources for the staticRC20 resource classes, sign in as LoaderRC20 and run the load.
 
 Run loads under static rather than dynamic resource classes. Using the static resource classes guarantees the same resources regardless of your [data warehouse units](what-is-a-data-warehouse-unit-dwu-cdwu.md). If you use a dynamic resource class, the resources vary according to your service level. For dynamic classes, a lower service level means you probably need to use a larger resource class for your loading user.
 
@@ -62,12 +64,11 @@ There is often a need to have multiple users load data into a data warehouse. Lo
 For example, consider database schemas, schema_A for dept A, and schema_B for dept B. Let database users user_A and user_B be users for PolyBase loading in dept A and B, respectively. They both have been granted CONTROL database permissions. The creators of schema A and B now lock down their schemas using DENY:
 
 ```sql
-   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
-   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
+   DENY CONTROL ON SCHEMA :: schema_A TO user_B;
+   DENY CONTROL ON SCHEMA :: schema_B TO user_A;
 ```
 
 User_A and user_B are now locked out from the other dept’s schema.
-
 
 ## Loading to a staging table
 
@@ -82,6 +83,8 @@ Columnstore indexes require large amounts of memory to compress data into high-q
 - To ensure the loading user has enough memory to achieve maximum compression rates, use loading users that are a member of a medium or large resource class. 
 - Load enough rows to completely fill new rowgroups. During a bulk load, every 1,048,576 rows get compressed directly into the columnstore as a full rowgroup. Loads with fewer than 102,400 rows send the rows to the deltastore where rows are held in a b-tree index. If you load too few rows, they might all go to the deltastore and not get compressed immediately into columnstore format.
 
+## Increase batch size when using SQLBulkCopy API or BCP
+As mentioned before, loading with PolyBase will provide the highest throughput with SQL Data Warehouse. If you cannot use PolyBase to load and must use the SQLBulkCopy API (or BCP) you should consider increasing batch size for better throughput. 
 
 ## Handling loading failures
 
@@ -90,13 +93,16 @@ A load using an external table can fail with the error *"Query aborted-- the max
 To fix the dirty records, ensure that your external table and external file format definitions are correct and your external data conforms to these definitions. In case a subset of external data records are dirty, you can choose to reject these records for your queries by using the reject options in CREATE EXTERNAL TABLE.
 
 ## Inserting data into a production table
+
 A one-time load to a small table with an [INSERT statement](/sql/t-sql/statements/insert-transact-sql), or even a periodic reload of a look-up might perform good enough with a statement like `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  However, singleton inserts are not as efficient as performing a bulk load. 
 
 If you have thousands or more single inserts throughout the day, batch the inserts so you can bulk load them.  Develop your processes to append the single inserts to a file, and then create another process that periodically loads the file.
 
 ## Creating statistics after the load
 
-To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example creates statistics on five columns of the Customer_Speed table.
+To improve query performance, it's important to create statistics on all columns of all tables after the first load, or substantial changes occur in the data.  This can be done manually or you can enable [auto-create statistics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic).
+
+For a detailed explanation of statistics, see [Statistics](sql-data-warehouse-tables-statistics.md). The following example shows how to manually create statistics on five columns of the Customer_Speed table.
 
 ```sql
 create statistics [SensorKey] on [Customer_Speed] ([SensorKey]);
@@ -107,6 +113,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## Rotate storage keys
+
 It is good security practice to change the access key to your blob storage on a regular basis. You have two storage keys for your blob storage account, which enables you to transition the keys.
 
 To rotate Azure Storage account keys:
@@ -119,7 +126,7 @@ Original key is created
 
 ```sql
 CREATE DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SECRET = 'key1'
-``` 
+```
 
 Rotate key from key 1 to key 2
 
@@ -129,9 +136,8 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 No other changes to underlying external data sources are needed.
 
-
 ## Next steps
-To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).
 
-
-
+- To learn more about PolyBase and designing an Extract, Load, and Transform (ELT) process, see [Design ELT for SQL Data Warehouse](design-elt-data-loading.md).
+- For a loading tutorial, [Use PolyBase to load data from Azure blob storage to Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- To monitor data loads, see [Monitor your workload using DMVs](sql-data-warehouse-manage-monitor.md).

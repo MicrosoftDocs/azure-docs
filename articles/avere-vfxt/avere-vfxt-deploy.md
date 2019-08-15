@@ -4,7 +4,7 @@ description: Steps to deploy the Avere vFXT cluster in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
 ---
 
@@ -26,18 +26,17 @@ Before using the creation template, make sure you have addressed these prerequis
 1. [New subscription](avere-vfxt-prereqs.md#create-a-new-subscription)
 1. [Subscription owner permissions](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota for the vFXT cluster](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Custom access roles](avere-vfxt-prereqs.md#create-access-roles) - You must create a role-based access control role to assign to the cluster nodes. You have the option to also create a custom access role for the cluster controller, but most users will take the default Owner role, which gives the controller privileges corresponding to a resource group owner. Read [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md#owner) for more detail.
 1. [Storage service endpoint (if needed)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) - Required for deploys using an existing virtual network and creating blob storage
 
 For more information about cluster deployment steps and planning, read [Plan your Avere vFXT system](avere-vfxt-deploy-plan.md) and [Deployment overview](avere-vfxt-deploy-overview.md).
 
 ## Create the Avere vFXT for Azure
 
-Access the creation template in the Azure portal by searching for Avere and selecting "Avere vFXT ARM Deployment". 
+Access the creation template in the Azure portal by searching for Avere and selecting "Avere vFXT for Azure ARM Template". 
 
-![Browser window showing the Azure portal with bread crumbs "New > Marketplace > Everything". In the Everything page, the search field has the term "avere" and the second result, "Avere vFXT ARM Deployment" is outlined in red to highlight it.](media/avere-vfxt-template-choose.png)
+![Browser window showing the Azure portal with bread crumbs "New > Marketplace > Everything". In the Everything page, the search field has the term "avere" and the second result, "Avere vFXT for Azure ARM Template" is outlined in red to highlight it.](media/avere-vfxt-template-choose.png)
 
-After reading the details on the Avere vFXT ARM Deployment page, click **Create** to begin. 
+After reading the details on the Avere vFXT for Azure ARM Template page, click **Create** to begin. 
 
 ![Azure marketplace with the first page of the deployment template showing](media/avere-vfxt-deploy-first.png)
 
@@ -64,14 +63,6 @@ Fill in the following information:
 
 * **Password** or **SSH public key** - Depending on the authentication type you selected, you must provide an RSA public key or a password in the next fields. This credential is used with the username provided earlier.
 
-* **Avere cluster create role ID** - Use this field to specify the access control role for the cluster controller. The default value is the built-in role [Owner](../role-based-access-control/built-in-roles.md#owner). Owner privileges for the cluster controller are restricted to the cluster's resource group. 
-
-  You must use the globally unique identifier that corresponds to the role. For the default value (Owner), the GUID is 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. To find the GUID for a custom role, use this command: 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **Subscription** - Select the subscription for the Avere vFXT. 
 
 * **Resource group** - Select an existing empty resource group for the Avere vFXT cluster, or click "Create new" and enter a new resource group name. 
@@ -92,10 +83,6 @@ The second page of the deployment template allows you to set the cluster size, n
 * **Avere vFXT cluster node count** - Choose the number of nodes to use in the cluster. The minimum is three nodes and the maximum is twelve. 
 
 * **Cluster administration password** - Create the password for cluster administration. This password will be used with the username ```admin``` to sign in to the cluster control panel to monitor the cluster and to configure settings.
-
-* **Avere cluster operations role** - Specify the name of the access control role for the cluster nodes. This is a custom role that was created as a prerequisite step. 
-
-  The example described in [Create the cluster node access role](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) saves the file as ```avere-operator.json``` and the corresponding role name is ```avere-operator```.
 
 * **Avere vFXT cluster name** - Give the cluster a unique name. 
 
@@ -133,7 +120,7 @@ Page three summarizes the configuration and validates the parameters. After vali
 
 ![Third page of the deployment template - validation](media/avere-vfxt-deploy-3.png)
 
-On page four, click the **Create** button to accept the terms and create the Avere vFXT for Azure cluster. 
+On page four, enter any required contact information and click the **Create** button to accept the terms and create the Avere vFXT for Azure cluster. 
 
 ![Fourth page of the deployment template - terms and conditions, create button](media/avere-vfxt-deploy-4.png)
 

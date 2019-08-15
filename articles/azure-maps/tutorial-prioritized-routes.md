@@ -41,11 +41,11 @@ The following steps show you how to create a static HTML page embedded with the 
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+        <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -77,7 +77,7 @@ The following steps show you how to create a static HTML page embedded with the 
 
     Notice that the HTML header includes the CSS and JavaScript resource files hosted by the Azure Map Control library. Note the `onload` event on the body of the page, which will call the `GetMap` function when the body of the page has loaded. This function will contain the inline JavaScript code to access the Azure Maps APIs.
 
-3. Add the following JavaScript code to the `GetMap` function. Replace the string **\<Your Azure Maps Key\>** with the primary key that you copied from your Maps account.
+3. Add the following JavaScript code to the `GetMap` function. Replace the string `<Your Azure Maps Key>` with the primary key that you copied from your Maps account.
 
     ```JavaScript
     //Instantiate a map object
@@ -90,7 +90,7 @@ The following steps show you how to create a static HTML page embedded with the 
     });
     ```
 
-    The **atlas.Map** provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
+    The `atlas.Map` class provides the control for a visual and interactive web map, and is a component of the Azure Map Control API.
 
 4. Save the file and open it in your browser. At this point, you have a basic map that you can develop further.
 
@@ -98,10 +98,10 @@ The following steps show you how to create a static HTML page embedded with the 
 
 ## Visualize traffic flow
 
-1. Add the traffic flow display to the map. The `map.events.add` ensures that all maps functions added to the map are loaded after the map is loaded fully.
+1. Add the traffic flow display to the map. The maps `ready` event waits until the maps resources are loaded and ready to safely interact with it.
 
-    ```JavaScript
-    map.events.add("load", function() {
+    ```javascript
+    map.events.add("ready", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -109,9 +109,9 @@ The following steps show you how to create a static HTML page embedded with the 
     });
     ```
 
-    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler,  the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road or `relative-delay`, which displays the relative speed where it differs from free-flow.
+    In the map `ready` event handler,  the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow. You could also set it to `absolute` speed of the road or `relative-delay`, which displays the relative speed where it differs from free-flow.
 
-2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles you should see the streets with the current traffic data.
+2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you interact with the map and zoom in to Los Angeles, you should see the streets with the current traffic data.
 
    ![View traffic map](./media/tutorial-prioritized-routes/traffic-map.png)
 
@@ -121,39 +121,42 @@ The following steps show you how to create a static HTML page embedded with the 
 
 In this tutorial, two routes will be calculated and rendered on the map. One route using roads accessible to cars and the other accessible to trucks. When rendered we will display a symbol icon for the start and end of the route, and different colored lines for each route path.
 
-1. After initializing the map, add the following JavaScript code in the map load event.
+1. After initializing the map, add the following JavaScript code in the maps `ready` event handler.
 
     ```JavaScript
-    //Create a data source and add it to the map.
-    datasource = new atlas.source.DataSource();
-    map.sources.add(datasource);
+    //Wait until the map resources have fully loaded.
+    map.events.add('ready', function () {
 
-    //Add a layer for rendering the route lines and have it render under the map labels.
-    map.layers.add(new atlas.layer.LineLayer(datasource, null, {
-        strokeColor: ['get', 'strokeColor'],
-        strokeWidth: ['get', 'strokeWidth'],
-        lineJoin: 'round',
-        lineCap: 'round',
-        filter: ['==', '$type', 'LineString']
-    }), 'labels');
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
 
-    //Add a layer for rendering point data.
-    map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
-        iconOptions: {
-            image: ['get', 'icon'],
-            allowOverlap: true
-        },
-        textOptions: {
-            textField: ['get', 'title'],
-            offset: [0, 1.2]
-        },
-        filter: ['==', '$type', 'Point']
-    }));
+        //Add a layer for rendering the route lines and have it render under the map labels.
+        map.layers.add(new atlas.layer.LineLayer(datasource, null, {
+            strokeColor: ['get', 'strokeColor'],
+            strokeWidth: ['get', 'strokeWidth'],
+            lineJoin: 'round',
+            lineCap: 'round'
+        }), 'labels');
+
+        //Add a layer for rendering point data.
+        map.layers.add(new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: ['get', 'icon'],
+                allowOverlap: true
+            },
+            textOptions: {
+                textField: ['get', 'title'],
+                offset: [0, 1.2]
+            },
+            filter: ['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']] //Only render Point or MultiPoints in this layer.
+        }));
+    });
     ```
-
-    A load event is added to the map, which will fire when the map resources have been fully loaded. In the map load event handler, a data source is created to store the route lines as well as the start and end points. A line layer is created and attached to the data source to define how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. A filter is added ensure this layer only renders GeoJSON LineString data. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object.
-
-2. For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the end point as a building in Microsoft headquarters. In the map load event handler, add the following code.
+    
+    In the maps `ready` event handler, a data source is created to store the route lines as well as the start and end points. A line layer is created and attached to the data source to defined how the route line will be rendered. Expressions are used to retrieve the line width and color from properties on the route line feature. When adding the layer to the map a second parameter with the value of `'labels'` is passed in which specifies to render this layer below the map labels. This will ensure that the route line doesn't cover up the road labels. A symbol layer is created and attached to the data source. This layer specifies how the start and end points will be rendered, in this case expressions have been added to retrieve the icon image and text label information from properties on each point object. 
+    
+2. For this tutorial, set the start point as a fictitious company in Seattle called Fabrikam, and the destination point as a Microsoft office. In the maps `ready` event handler, add the following code.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end point of the route.
@@ -208,7 +211,7 @@ This section shows how to use the Maps route service API to find multiple routes
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   The **SubscriptionKeyCredential** creates a **SubscriptionKeyCredentialPolicy** to authenticate HTTP requests to Azure Maps with the subscription key. The **atlas.service.MapsURL.newPipeline()** takes in the **SubscriptionKeyCredential** policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instance. The **routeURL** represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
+   The `SubscriptionKeyCredential` creates a `SubscriptionKeyCredentialPolicy` to authenticate HTTP requests to Azure Maps with the subscription key. The `atlas.service.MapsURL.newPipeline()` takes in the `SubscriptionKeyCredential` policy and creates a [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest) instance. The `routeURL` represents a URL to Azure Maps [Route](https://docs.microsoft.com/rest/api/maps/route) operations.
 
 2. After setting up credentials and the URL, add the following JavaScript code to construct a route from start to end point for a truck carrying USHazmatClass2 classed cargo and display the results.
 
@@ -237,7 +240,7 @@ This section shows how to use the Maps route service API to find multiple routes
     });
     ```
 
-    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response which is extracted using the **geojson.getFeatures()** method. The route line is then added to the data source. It also adds an index of 0 to ensure that it is rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation and if the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of 9 pixels.
+    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. The route line is then added to the data source. It also adds an index of 0 to ensure that it is rendered before any other lines in the data source. This is done as the truck route calculation will often be slower than a car route calculation and if the truck route line is added to the data source after the car route, it will render above it. Two properties are added to the truck route line, a stroke color that is a nice shade of blue, and a stroke width of nine pixels.
 
 3. Add the following JavaScript code to construct a route for a car and display the results.
 
@@ -257,7 +260,7 @@ This section shows how to use the Maps route service API to find multiple routes
     });
     ```
 
-    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-iot-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response which is extracted using the **geojson.getFeatures()** method. The route line is then added to the data source. Two properties are added to the car route line, a stroke color that is a shade of purple, and a stroke width of 5 pixels.  
+    This code snippet above queries the Azure Maps routing service through the [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) method. The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method. The route line is then added to the data source. Two properties are added to the car route line, a stroke color that is a shade of purple, and a stroke width of  five pixels.  
 
 4. Save the **MapTruckRoute.html** file and refresh your browser to observe the result. For a successful connection with the Maps' APIs, you should see a map similar to the following.
 
@@ -275,13 +278,16 @@ In this tutorial, you learned how to:
 > * Create route queries that declare mode of travel
 > * Display multiple routes on your map
 
-You can access the code sample for this tutorial here:
+> [!div class="nextstepaction"]
+> [View full source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
 
-> [Multiple routes with Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html)
-
-[See the sample live here](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
+> [!div class="nextstepaction"]
+> [View live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel)
 
 The next tutorial demonstrates the process of creating a simple store locator by using Azure Maps.
 
 > [!div class="nextstepaction"]
 > [Create a store locator using Azure Maps](./tutorial-create-store-locator.md)
+
+> [!div class="nextstepaction"]
+> [Use data-driven style expressions](data-driven-style-expressions-web-sdk.md)

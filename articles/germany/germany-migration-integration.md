@@ -25,6 +25,8 @@ Azure Service Bus services don't have data export or import capabilities. To mig
 > [!IMPORTANT]
 > Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ### Service Bus metadata
 
 The following Service Bus metadata elements are re-created when you export a Resource Manager template:
@@ -38,20 +40,20 @@ The following Service Bus metadata elements are re-created when you export a Res
 
 ### Keys
 
-The preceding steps to export and re-create don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzureRmServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in the [PowerShell Gallery release 6.4.0 (July 2018)](https://www.powershellgallery.com/packages/AzureRM/6.4.0) or on [GitHub](https://github.com/Azure/azure-powershell/releases/tag/v6.4.0-July2018).
+The preceding steps to export and re-create don't copy the shared access signature keys that are associated with authorization rules. If you need to preserve the shared access signature keys, use the `New-AzServiceBuskey` cmdlet with the optional parameter `-Keyvalue` to accept the key as a string. The updated cmdlet is available in [Azure PowerShell Az module](/powershell/azure/install-az-ps).
 
 ### Usage example
 
 ```powershell
-New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 ```powershell
-New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Queue <queuename> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Queue <queuename> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 ```powershell
-New-AzureRmServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Topic <topicname> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
+New-AzServiceBuskey -ResourceGroupName <resourcegroupname> -Namespace <namespace> -Topic <topicname> -Name <name of Authorization rule> -RegenerateKey <PrimaryKey/SecondaryKey> -KeyValue <string - key value>
 ```
 
 > [!NOTE]

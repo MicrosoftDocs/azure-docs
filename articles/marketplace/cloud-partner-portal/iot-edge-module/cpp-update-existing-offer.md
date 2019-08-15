@@ -1,20 +1,12 @@
 ---
-title: Update an existing Azure IoT Edge module offer | Microsoft Docs
+title: Update an existing Azure IoT Edge module offer | Azure Marketplace
 description: How to update an existing IoT Edge module offer on Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
-documentationcenter:
 author: dan-wesley
-manager: Patrick.Butler  
-editor:
-
-ms.assetid: 
 ms.service: marketplace
-ms.workload: 
-ms.tgt_pltfrm: 
-ms.devlang: 
 ms.topic: article
 ms.date: 10/18/2018
-ms.author: pbutlerm
+ms.author: pabutler
 ---
 
 # Update an existing IoT Edge module offer

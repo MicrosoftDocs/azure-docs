@@ -1,18 +1,18 @@
 ---
-title: What is Azure IoT OPC UA certificate management | Microsoft Docs
+title: What is OPC Vault - Azure | Microsoft Docs
 description: Overview of OPC Vault
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
 ms.topic: overview
-ms.service: iot-industrialiot
+ms.service: industrial-iot
 services: iot-industrialiot
 manager: philmea
 ---
 
-# What is Azure IoT Open Platform Communications (OPC) UA certificate management?
+# What is OPC Vault?
 
-Azure IoT OPC UA certificate management, also know as OPC Vault, is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. This article describes the OPC Vault's simple use cases.
+OPC Vault is a microservice that can configure, register, and manage certificate lifecycle for OPC UA server and client applications in the cloud. This article describes the OPC Vault's simple use cases.
 
 ## Certificate management
 ​

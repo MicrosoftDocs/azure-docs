@@ -1,6 +1,6 @@
 ---
 title: "Check text against a custom term list in C# - Content Moderator"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: How to moderate text with custom term lists using the Content Moderator SDK for C#.
 services: cognitive-services
 author: sanjeev3
@@ -8,13 +8,13 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 07/03/2019
 ms.author: sajagtap
 #As a C# developer of content-providing software, I want to analyze text content for terms that are particular to my product, so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Check text against a custom term list in C#
+# Check text against a custom term list in C#
 
 The default global list of terms in Azure Content Moderator is sufficient for most content moderation needs. However, you might need to screen for terms that are specific to your organization. For example, you might want to tag competitor names for further review. 
 
@@ -373,7 +373,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 }
 ```
 
-## Putting it all together
+## Compose the Main method
 
 Add the **Main** method definition to namespace **TermLists**, class **Program**. Finally, close the **Program** class and the **TermLists** namespace.
 
@@ -415,9 +415,9 @@ static void Main(string[] args)
 
 ## Run the application to see the output
 
-Your output will be on the following lines but the data may vary.
+Your console output will look like the following:
 
-```
+```console
 Creating term list.
 Term list created. ID: 252.
 Updating information for term list with ID 252.

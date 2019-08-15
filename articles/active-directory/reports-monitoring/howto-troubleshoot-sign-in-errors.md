@@ -4,7 +4,7 @@ title: How to troubleshoot sign-in errors using Azure Active Directory reports |
 description: Learn how to troubleshoot sign-in errors using Azure Active Directory reports in the Azure portal
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: cawrites
 manager: daveba
 editor: ''
 
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: markvi
+ms.author: chadam
 ms.reviewer: dhanyahk 
 
 ms.collection: M365-identity-device-management
@@ -53,7 +53,7 @@ You need:
 
     ![Troubleshooting and support](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. The failure reason describes the error. For example, in the above scenario, the failure reason is **Invalid username or password or Invalid on-premise username or password**. The fix is to simply sign-in again with the correct username and password.
+6. The failure reason describes the error. For example, in the above scenario, the failure reason is **Invalid username or password or Invalid on-premises username or password**. The fix is to simply sign-in again with the correct username and password.
 
 7. You can get additional information, including ideas for remediation, by searching for the error code, **50126** in this example, in the [sign-ins error codes reference](reference-sign-ins-error-codes.md). 
 

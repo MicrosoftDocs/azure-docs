@@ -1,18 +1,17 @@
 ---
-title: 'Analyze data using Jupyter Notebook and Kqlmagic'
-description: This topic will show you how to analyze data using Jupyter Notebook and KQLmagic
-services: data-explorer
+title: Use a Jupyter Notebook to analyze data in Azure Data Explorer
+description: This topic shows you how to analyze data in Azure Data Explorer using a Jupyter Notebook and the Kqlmagic extension.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 12/19/2018
+ms.date: 07/10/2019
 
-#Customer intent: I want to analyze data using Jupyter Notebooks and KQL magic.
+# Customer intent: I want to analyze data using Jupyter Notebooks and KQL magic.
 ---
 
-# Analyze data using Jupyter Notebook and KQL magic
+# Use a Jupyter Notebook and Kqlmagic extension to analyze data in Azure Data Explorer
 
 Jupyter Notebook is an open-source web application that allows you to create and share documents containing live code, equations, visualizations, and narrative text. Usage includes data cleaning and transformation, numerical simulation, statistical modeling, data visualization, and machine learning.
 [Jupyter Notebook](https://jupyter.org/) supports magic functions that extend the capabilities of the kernel by supporting additional commands. KQL magic is a command that extends the capabilities of the Python kernel in Jupyter Notebook so you can run Kusto language queries natively. You can easily combine Python and Kusto query language to query and visualize data using rich Plot.ly library integrated with `render` commands. Data sources for running queries are supported. These data sources include Azure Data Explorer, a fast and highly scalable data exploration service for log and telemetry data, as well as Azure Monitor logs and Application Insights. KQL magic also works with Azure Notebooks, Jupyter Lab, and Visual Studio Code Jupyter extension.
@@ -35,9 +34,11 @@ Jupyter Notebook is an open-source web application that allows you to create and
 1. Load KQL magic:
 
     ```python
-    reload_ext Kqlmagic
+    %reload_ext Kqlmagic
     ```
-
+    > [!NOTE]
+    > Change the Kernel version to Python 3.6 by clicking on Kernel > Change Kernel > Python 3.6
+    
 ## Connect to the Azure Data Explorer Help cluster
 
 Use the following command to connect to the *Samples* database hosted on the *Help* cluster. For non-Microsoft AAD users, replace the tenant name `Microsoft.com` with your AAD Tenant.
@@ -162,6 +163,9 @@ In many analytics scenarios, you may want to create reusable notebooks that cont
     ```python
     %kql --help "help"
     ```
+
+> [!TIP]
+> To receive information about all available configurations use `%config KQLmagic`. To troubleshoot and capture Kusto errors, such as connection issues and incorrect queries, use `%config Kqlmagic.short_errors=False`
 
 ## Next steps
 

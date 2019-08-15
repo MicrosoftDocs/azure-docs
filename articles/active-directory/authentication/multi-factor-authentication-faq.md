@@ -56,7 +56,7 @@ In Canada Microsoft uses the following SMS short codes:
    * 759731 
    * 673801
 
-Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries besides the United States and Canada
+Microsoft does not guarantee consistent SMS or Voice-based Multi-Factor Authentication prompt delivery by the same number. In the interest of our users, Microsoft may add or remove Short codes at any time as we make route adjustments to improve SMS deliverability. Microsoft does not support short codes for countries/regions besides the United States and Canada.
 
 ## Billing
 
@@ -90,9 +90,7 @@ Multi-Factor Authentication for Office 365 users offers a subset of Azure MFA fe
 
 **Q: Can my organization switch between per-user and per-authentication consumption billing models at any time?**
 
-If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. However, you can delete the MFA provider and then create one with a different billing model.
-
-When an MFA provider is created, it can be linked to an Azure Active Directory (aka “Azure AD tenant”). If the current MFA Provider is linked to an Azure AD tenant, you can safely delete the MFA provider and create one that is linked to the same Azure AD tenant. Alternatively, if you purchased enough MFA, Azure AD Premium, or Enterprise Mobility + Security (EMS) licenses to cover all users that are enabled for MFA, you can delete the MFA provider altogether.
+If your organization purchases MFA as a standalone service with consumption-based billing, you choose a billing model when you create an MFA provider. You cannot change the billing model after an MFA provider is created. 
 
 If your MFA provider is *not* linked to an Azure AD tenant, or you link the new MFA provider to a different Azure AD tenant, user settings and configuration options are not transferred. Also, existing Azure MFA Servers need to be reactivated using activation credentials generated through the new MFA Provider. Reactivating the MFA Servers to link them to the new MFA Provider doesn't impact phone call and text message authentication, but mobile app notifications will stop working for all users until they reactivate the mobile app.
 
@@ -139,15 +137,15 @@ If your organization doesn't have legacy clients, you should not allow your user
 > [!NOTE]
 > Modern authentication for Office 2013 clients
 >
-> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Newer Office clients automatically support modern authentication protocols. For more information, see the [Office 2013 modern authentication public preview announcement](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+> App passwords are only necessary for apps that don't support modern authentication. Office 2013 clients support modern authentication protocols, but need to be configured. Now modern authentication is available to any customer running the March 2015 or later update for Office 2013. For more information, see the blog post [Updated Office 365 modern authentication](https://www.microsoft.com/microsoft-365/blog/2015/11/19/updated-office-365-modern-authentication-public-preview/).
 
 **Q: My users say that sometimes they don't receive the text message, or they reply to two-way text messages but the verification times out.**
 
-Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country, the mobile phone carrier, and the signal strength.
+Delivery of text messages and receipt of replies in two-way SMS are not guaranteed because there are uncontrollable factors that might affect the reliability of the service. These factors include the destination country/region, the mobile phone carrier, and the signal strength.
 
 If your users often have problems with reliably receiving text messages, tell them to use the mobile app or phone call method instead. The mobile app can receive notifications both over cellular and Wi-Fi connections. In addition, the mobile app can generate verification codes even when the device has no signal at all. The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?Linkid=825072), [IOS](https://go.microsoft.com/fwlink/?Linkid=825073), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071).
 
-If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country.
+If you must use text messages, we recommend using one-way SMS rather than two-way SMS when possible. One-way SMS is more reliable and it prevents users from incurring global SMS charges from replying to a text message that was sent from another country/region.
 
 **Q: Can I change the amount of time my users have to enter the verification code from a text message before the system times out?**
 

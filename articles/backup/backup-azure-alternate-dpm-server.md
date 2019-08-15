@@ -1,13 +1,13 @@
 ---
 title: Recover data from an Azure Backup Server
 description: Recover the data you've protected to a Recovery Services vault from any Azure Backup Server registered to that vault.
-services: backup
-author: kasinh
-manager: vijayts
+ms.reviewer: kasinh
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 08/18/2017
-ms.author: kasinh
+ms.date: 07/09/2019
+ms.author: dacurwin
 ---
 # Recover data from Azure Backup Server
 You can use Azure Backup Server to recover the data you've backed up to a Recovery Services vault. The process for doing so is integrated into the Azure Backup Server management console, and is similar to the recovery workflow for other Azure Backup components.
@@ -39,7 +39,7 @@ To recover data from an Azure Backup Server:
     A list of files and folders appears in the bottom pane, which can be browsed and recovered to any location.
 
     ![External DPM Server Recovery Points](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Right click the appropriate item and click **Recover**.
+5. Right-click the appropriate item and click **Recover**.
 
     ![External DPM recovery](./media/backup-azure-alternate-dpm-server/recover.png)
 6. Review the **Recover Selection**. Verify the data and time of the backup copy being recovered, as well as the source from which the backup copy was created. If the selection is incorrect, click **Cancel** to navigate back to recovery tab to select appropriate recovery point. If the selection is correct, click **Next**.
@@ -51,7 +51,7 @@ To recover data from an Azure Backup Server:
 8. Choose the option related to **create copy**, **Skip**, or **Overwrite**.
 
    * **Create copy** - creates a copy of the file if there is a name collision.
-   * **Skip** - if there is a name collision, does not recover the file which leaves the original file.
+   * **Skip** - if there is a name collision, does not recover the file, which leaves the original file.
    * **Overwrite** - if there is a name collision, overwrites the existing copy of the file.
 
      Choose the appropriate option to **Restore security**. You can apply the security settings of the destination computer where the data is being recovered or the security settings that were applicable to product at the time the recovery point was created.
@@ -77,21 +77,13 @@ To recover data from an Azure Backup Server:
 | No. | Error Message | Troubleshooting steps |
 |:---:|:--- |:--- |
 | 1. |This server is not registered to the vault specified by the vault credential. |**Cause:** This error appears when the vault credential file selected does not belong to the Recovery Services vault associated with Azure Backup Server on which the recovery is attempted. <br> **Resolution:** Download the vault credential file from the Recovery Services vault to which the Azure Backup Server is registered. |
-| 2. |Either the recoverable data is not available or the selected server is not a DPM server. |**Cause:** There are no other Azure Backup Servers registered to the Recovery Services vault, or the servers have not yet uploaded the metadata, or the selected server is not an Azure Backup Server (aka Windows Server or Windows Client). <br> **Resolution:** If there are other Azure Backup Servers registered to the Recovery Services vault, ensure that the latest Azure Backup agent is installed. <br>If there are other Azure Backup Servers registered to the Recovery Services vault, wait for a day after installation to start the recovery process. The nightly job will upload the metadata for all the protected backups to cloud. The data will be available for recovery. |
+| 2. |Either the recoverable data is not available or the selected server is not a DPM server. |**Cause:** There are no other Azure Backup Servers registered to the Recovery Services vault, or the servers have not yet uploaded the metadata, or the selected server is not an Azure Backup Server (using Windows Server or Windows Client). <br> **Resolution:** If there are other Azure Backup Servers registered to the Recovery Services vault, ensure that the latest Azure Backup agent is installed. <br>If there are other Azure Backup Servers registered to the Recovery Services vault, wait for a day after installation to start the recovery process. The nightly job will upload the metadata for all the protected backups to cloud. The data will be available for recovery. |
 | 3. |No other DPM server is registered to this vault. |**Cause:** There are no other Azure Backup Servers  that are registered to the vault from which the recovery is being attempted.<br>**Resolution:** If there are other Azure Backup Servers registered to the Recovery Services vault, ensure that the latest Azure Backup agent is installed.<br>If there are other Azure Backup Servers registered to the Recovery Services vault, wait for a day after installation to start the recovery process. The nightly job uploads the metadata for all protected backups to cloud. The data will be available for recovery. |
-| 4. |The encryption passphrase provided does not match with passphrase associated with the following server: **<server name>** |**Cause:** The encryption passphrase used in the process of encrypting the data from the Azure Backup Server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the Azure Backup Server whose data is being recovered. |
+| 4. |The encryption passphrase provided does not match with passphrase associated with the following server: **\<server name>** |**Cause:** The encryption passphrase used in the process of encrypting the data from the Azure Backup Server’s data that is being recovered does not match the encryption passphrase provided. The agent is unable to decrypt the data. Hence the recovery fails.<br>**Resolution:** Please provide the exact same encryption passphrase associated with the Azure Backup Server whose data is being recovered. |
 
-## Frequently asked questions
+## Next steps
 
-### Why can’t I add an external DPM server after installing UR7 and latest Azure Backup agent?
+Read the other FAQs:
 
-For the DPM servers with data sources that are protected to the cloud (by using an update rollup earlier than Update Rollup 7), you must wait at least one day after installing the UR7 and latest Azure Backup agent, to start **Add External DPM server**. The one-day time period is needed to upload the metadata of the DPM protection groups to Azure. Protection group metadata is uploaded the first time through a nightly job.
-
-### What is the minimum version of the Microsoft Azure Recovery Services agent needed?
-
-The minimum version of the Microsoft Azure Recovery Services agent, or Azure Backup agent, required to enable this feature is 2.0.8719.0.  To view the agent's version: open Control Panel **>** All Control Panel items **>** Programs and features **>** Microsoft Azure Recovery Services Agent. If the version is less than 2.0.8719.0, download and install the [latest Azure Backup agent](https://go.microsoft.com/fwLink/?LinkID=288905).
-
-![Clear External DPM](./media/backup-azure-alternate-dpm-server/external-dpm-azurebackupagentversion.png)
-
-## Next steps:
-•    [Azure Backup FAQ](backup-azure-backup-faq.md)
+- [Common questions](backup-azure-vm-backup-faq.md) about Azure VM backups
+- [Common questions](backup-azure-file-folder-backup-faq.md) about the Azure Backup agent
