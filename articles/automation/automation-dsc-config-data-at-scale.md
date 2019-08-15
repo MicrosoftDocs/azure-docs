@@ -12,7 +12,7 @@ ms.topic: conceptual
 manager: carmonm
 ---
 
-# Configuration Data at Scale
+# Configuration data at scale
 
 > Applies To: Windows PowerShell 5.1
 
