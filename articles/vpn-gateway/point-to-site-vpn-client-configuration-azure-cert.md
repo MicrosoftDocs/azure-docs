@@ -123,7 +123,7 @@ If you have not already generated certificates, use the following steps:
 
 The following instructions were created on Ubuntu 18.0.4. Ubuntu 16.0.10 does not support strongSwan GUI. If you want to use Ubuntu 16.0.10, you will have to use the [command line](#linuxinstallcli). The examples below may not match screens that you see, depending on your version of Linux and strongSwan.
 
-1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example. If you receive an error that's related to *libcharon-extra-plugins*, replace it with 'strongswan-plugin-eap-mschapv2'.
+1. Open the **Terminal** to install **strongSwan** and its Network Manager by running the command in the example.
 
    ```
    sudo apt install network-manager-strongswan
