@@ -78,8 +78,10 @@ landingContent:
             url: data-box-deploy-ordered.md
           - text: Cable 
             url: data-box-deploy-set-up.md
-          - text: Connect and copy data
+          - text: Connect, copy data via SMB
             url: data-box-deploy-copy-data.md
+          - text: Connect, copy data via NFS
+            url: data-box-deploy-copy-data-NFS.md
           - text: Return, upload, verify Azure data
             url: data-box-deploy-picked-up.md
 
@@ -93,7 +95,7 @@ landingContent:
             url: data-box-disk-deploy-ordered.md
           - text: Unlock and connect
             url: data-box-disk-deploy-set-up.md
-          - text: Connect, copy, validate data
+          - text: Copy, validate data
             url: data-box-disk-deploy-copy-data.md
           - text: Return, upload, verify Azure data
             url: data-box-disk-deploy-picked-up.md
@@ -107,10 +109,35 @@ landingContent:
             url: data-box-heavy-deploy-ordered.md
           - text: Cable 
             url: data-box-heavy-deploy-set-up.md
-          - text: Connect and copy data
+          - text: Connect, copy data via SMB
             url: data-box-heavy-deploy-copy-data.md
+          - text: Connect, copy data via NFS
+            url: data-box-heavy-deploy-copy-data-NFS.md
           - text: Return, upload, verify Azure data
             url: data-box-heavy-deploy-picked-up.md
+
+  # Card
+  - title: Manage device
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Data Box, Data Box Heavy in Azure
+            url: data-box-portal-ui-admin.md
+          - text: Data Box, Data Box Heavy via local web UI
+            url: data-box-local-web-ui-admin.md
+          - text: Data Box Disk in Azure
+            url: data-box-portal-ui.md
+
+
+  # Card
+  - title: FAQs
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: FAQ - Data Box
+            url: data-box-disk-faq.md
+          - text: FAQ - Data Box Disk
+            url: data-box-faq.md
 
   # Card
   - title: Troubleshoot issues
@@ -125,9 +152,3 @@ landingContent:
             url: data-box-disk-troubleshoot.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
-      - linkListType: concept
-        links:
-          - text: FAQ - Data Box
-            url: data-box-disk-faq.md
-          - text: FAQ - Data Box Disk
-            url: data-box-faq.md
