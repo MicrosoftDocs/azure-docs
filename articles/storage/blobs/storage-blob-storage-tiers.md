@@ -161,13 +161,13 @@ In this section, the following scenarios are demonstrated using the Azure portal
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. To navigate to your blob in your storage account, select **All Resources**, select your storage account, select your container, and then select your blob.
+1. To navigate to your blob in your storage account, select All Resources, select your storage account, select your container, and then select your blob.
 
-1. In the **Blob properties** blade, select the **Change tier** button to open the tier blade
+1. In the **Blob properties** blade, select the **Change tier** button to open the tier blade.
 
-1. Select the **Hot**, **Cool**, or **Archive** access tier. If your blob is currently in Archive and you want to rehydrate to an online tier, you may also select a Rehydrate Priority of **Standard** or **High**
+1. Select the **Hot**, **Cool**, or **Archive** access tier. If your blob is currently in Archive and you want to rehydrate to an online tier, you may also select a Rehydrate Priority of **Standard** or **High**.
 
-1. Click **Save** at the top of the blade.
+1. Click **OK** at the bottom of the blade.
 
 ## Pricing and billing
 
