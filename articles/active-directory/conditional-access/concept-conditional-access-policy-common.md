@@ -21,6 +21,10 @@ Baseline protection policies are great but many organizations need more flexibil
 
 ![Conditional Access policies in the Azure portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
+## Emergency access accounts
+
+More inforamtion about emergency access accounts and why they are important can be found in the articles, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md) and [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md).
+
 ## Typical policies deployed by organizations
 
 * [Require MFA for administrators](howto-conditional-access-policy-admin-mfa.md)
