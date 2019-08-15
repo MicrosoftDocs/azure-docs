@@ -19,9 +19,9 @@ ms.author: allensu
 
 Azure Standard Load Balancer exposes Azure Standard Load Balancer gives your resources the following diagnostic capabilities:
 
-* **Multi-dimensional metrics**: Provides new multi-dimensional diagnostic capabilities through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for both public and internal load balancer configurations. You can monitor, manage, and troubleshoot your load balancer resources.
+* **Multi-dimensional metrics**: Provides new multi-dimensional diagnostic capabilities through [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) for standard load balancer configurations. You can monitor, manage, and troubleshoot your standard load balancer resources.
 
-* **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for Standard Load Balancer.
+* **Resource health**: The Load Balancer page in the Azure portal and the Resource Health page (under Monitor) expose the Resource Health section for Standard Load Balancer. 
 
 This article provides a quick tour of these capabilities, and it offers ways to use them for Standard Load Balancer.
 
