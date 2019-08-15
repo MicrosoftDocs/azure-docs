@@ -72,7 +72,7 @@ You can optionally configure other Azure AD features.  These are not required fo
     4. If Internet access to the Azure AD domain services is required, enable the 'Allow secure access to LDAP over internet' option.
     5. Add the inbound security rule for the Azure AD Domain services NSG for TCP port 636.
 
-## How to set up an identity source on your Private Cloud vCenter
+## Set up an identity source on your Private Cloud vCenter
 
 1. [Escalate privileges](escalate-private-cloud-privileges.md) for your Private Cloud vCenter.
 2. Collect the configuration parameters required for setting up of identity source.
