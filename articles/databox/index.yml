@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Data Box Documentation - Offline Transfer # < 60 chars
-summary: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost.<p>Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy. For each device, transfer to Azure occurs in 4 easy steps – order, receive, copy data to device, and return device to Azure. In the Azure datacenter, data is uploaded and then erased.</p><p>Learn how to leverage Data Box for your offline data transfer with our quickstarts and tutorials.</p> # < 160 chars
+summary: The Azure Data Box family lets you transfer hundreds of terabytes of data to Azure in a quick, inexpensive, and reliable manner. Use the Data Box devices for offline data transfer when you are limited by time, network, or cost. Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy.  # < 160 chars
 
 metadata:
   title: Azure Data Box Documentation - Offline Transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
@@ -21,7 +21,7 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: About Data Box for offline transfer
+  - title: About Data Box family
     linkLists:
       - linkListType: overview
         links:
