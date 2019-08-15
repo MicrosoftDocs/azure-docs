@@ -100,7 +100,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. In the list of containers, select **adftutorial**.
 
-1. Keep the **container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
+1. Keep the **container** window for **adftutorial** open. You use it to verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
 ## Create a data factory
 In this step, you create a data factory and start the Data Factory UI to create a pipeline in the data factory. 
@@ -218,11 +218,7 @@ In this step, you create a data factory and start the Data Factory UI to create 
     c. For the **File** part, select **Add dynamic content**.
     ![dynamic expression for resolving file name](./media/tutorial-hybrid-copy-portal/file-name.png)
 
-<<<<<<< HEAD
     d. Add `@CONCAT(pipeline().RunId, '.txt')`, and then select **Finish**. This action will rename the file with PipelineRunID.txt. 
-=======
-    d. Add `@CONCAT(pipeline().RunId, '.txt')`, and then select **Finish**. This step will rename the file with PipelineRunID.txt. 
->>>>>>> Update Tutorial-Copy on-premises data to cloud-UI
 
 1. Go to the tab with the pipeline opened, or select the pipeline in the tree view. In **Sink Dataset**, confirm that **AzureBlobDataset** is selected.
 
