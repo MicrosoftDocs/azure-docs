@@ -136,15 +136,15 @@ landingContent:
             url: data-box-disk-faq.md
 
   # Card
-  - title: Troubleshoot issues
+  - title: Troubleshoot
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: For Data Box, Data Box Heavy
+          - text: Data Box, Data Box Heavy
             url: data-box-troubleshoot.md
-          - text: For Data Box Blob storage
+          - text: Data Box Blob storage
             url: data-box-troubleshoot-rest.md
-          - text: For Data Box Disk
+          - text: Data Box Disk
             url: data-box-disk-troubleshoot.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
