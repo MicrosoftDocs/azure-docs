@@ -138,7 +138,7 @@ GPT partitioning can be used only on data disks, not OS disks. OS disks must use
 
 **What disk types support snapshots?**
 
-Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). Ultra SSDs do not support snapshots.
+Premium SSD, standard SSD, and standard HDD support snapshots. For these three disk types, snapshots are supported for all disk sizes (including disks up to 32 TiB in size). ultra disks do not support snapshots.
 
 ## Ultra disks
 
