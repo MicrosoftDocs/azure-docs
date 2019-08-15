@@ -57,6 +57,8 @@ Data transformation activity | Compute environment
 [U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Code](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
+[Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
+[Databricks Python Activity](transform-data-databricks-python.md) | Azure Databricks
 
 For more information, see the [data transformation activities](transform-data.md) article.
 
