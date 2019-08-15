@@ -186,47 +186,7 @@ helm install -f text-recognizer/config-values.yaml text-recognizer-1.0.0.tgz
     --name text-recognizer
 ```
 
-Here is an example output you might expect to see from a successful install execution:
-
-```console
-NAME:   onprem-speech
-LAST DEPLOYED: Tue Jul  2 12:51:42 2019
-NAMESPACE: default
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/Pod(related)
-NAME                             READY  STATUS             RESTARTS  AGE
-speech-to-text-7664f5f465-87w2d  0/1    Pending            0         0s
-speech-to-text-7664f5f465-klbr8  0/1    ContainerCreating  0         0s
-text-to-speech-56f8fb685b-4jtzh  0/1    ContainerCreating  0         0s
-text-to-speech-56f8fb685b-frwxf  0/1    Pending            0         0s
-
-==> v1/Service
-NAME            TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)       AGE
-speech-to-text  LoadBalancer  10.0.252.106  <pending>    80:31811/TCP  1s
-text-to-speech  LoadBalancer  10.0.125.187  <pending>    80:31247/TCP  0s
-
-==> v1beta1/PodDisruptionBudget
-NAME                                MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
-speech-to-text-poddisruptionbudget  N/A            20%              0                    1s
-text-to-speech-poddisruptionbudget  N/A            20%              0                    1s
-
-==> v1beta2/Deployment
-NAME            READY  UP-TO-DATE  AVAILABLE  AGE
-speech-to-text  0/2    2           0          0s
-text-to-speech  0/2    2           0          0s
-
-==> v2beta2/HorizontalPodAutoscaler
-NAME                       REFERENCE                  TARGETS        MINPODS  MAXPODS  REPLICAS  AGE
-speech-to-text-autoscaler  Deployment/speech-to-text  <unknown>/50%  2        10       0         0s
-text-to-speech-autoscaler  Deployment/text-to-speech  <unknown>/50%  2        10       0         0s
-
-
-NOTES:
-cognitive-services-speech-onpremise has been installed!
-Release is named onprem-speech
-```
+Here is an example output you might expect to see from a successful install execution
 
 The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
 
@@ -237,28 +197,7 @@ kubectl get all
 You should expect to see something similar to the following output:
 
 ```console
-NAME                                  READY     STATUS    RESTARTS   AGE
-pod/speech-to-text-7664f5f465-87w2d   1/1       Running   0          34m
-pod/speech-to-text-7664f5f465-klbr8   1/1       Running   0          34m
-pod/text-to-speech-56f8fb685b-4jtzh   1/1       Running   0          34m
-pod/text-to-speech-56f8fb685b-frwxf   1/1       Running   0          34m
-
-NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)        AGE
-service/kubernetes       ClusterIP      10.0.0.1       <none>           443/TCP        3h
-service/speech-to-text   LoadBalancer   10.0.252.106   52.162.123.151   80:31811/TCP   34m
-service/text-to-speech   LoadBalancer   10.0.125.187   65.52.233.162    80:31247/TCP   34m
-
-NAME                             DESIRED   CURRENT   UP-TO-DATE   AVAILABLE   AGE
-deployment.apps/speech-to-text   2         2         2            2           34m
-deployment.apps/text-to-speech   2         2         2            2           34m
-
-NAME                                        DESIRED   CURRENT   READY     AGE
-replicaset.apps/speech-to-text-7664f5f465   2         2         2         34m
-replicaset.apps/text-to-speech-56f8fb685b   2         2         2         34m
-
-NAME                                                            REFERENCE                   TARGETS   MINPODS   MAXPODS   REPLICAS   AGE
-horizontalpodautoscaler.autoscaling/speech-to-text-autoscaler   Deployment/speech-to-text   1%/50%    2         10        2          34m
-horizontalpodautoscaler.autoscaling/text-to-speech-autoscaler   Deployment/text-to-speech   0%/50%    2         10        2          34m
+// TODO : Add output
 ```
 
 ### Verify Helm deployment with Helm tests
