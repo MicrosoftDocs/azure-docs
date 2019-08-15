@@ -43,9 +43,9 @@ As a simple example, the following command triggers running the `hello-world` im
 az acr task create \
   --name mytask \
   --registry myregistry \
-  --context /dev/null \
   --cmd hello-world \
-  --schedule "0 21 * * *"
+  --schedule "0 21 * * *" \
+  --context /dev/null
 ```
 
 Run the [az acr task show][az-acr-task-show] command to see that the timer trigger is configured. By default, the base image update trigger is also enabled.
@@ -171,11 +171,11 @@ Each field can have one of the following types of values:
 
 |Type  |Example  |When triggered  |
 |---------|---------|---------|
-|A specific value |<nobr>"5 * * * *"</nobr>|every hour at 5 minutes past the hour|
-|All values (`*`)|<nobr>"* 5 * * *"</nobr>|every minute of the hour beginning 5:00 UTC (60 times a day)|
-|A range (`-` operator)|<nobr>"0 1-3 * * *"</nobr>|3 times per day, at 1:00, 2:00, and 3:00 UTC|
-|A set of values (`,` operator)|<nobr>"20,30,40 * * * *"</nobr>|3 times per hour, at 20 minutes, 30 minutes, and 40 minutes past the hour|
-|An interval value (`/` operator)|<nobr>"*/10 * * * *"</nobr>|6 times per hour, at 10 minutes, 20 minutes, and so on, past the hour
+|A specific value |<nobr>`"5 * * * *"`</nobr>|every hour at 5 minutes past the hour|
+|All values (`*`)|<nobr>`"* 5 * * *"`</nobr>|every minute of the hour beginning 5:00 UTC (60 times a day)|
+|A range (`-` operator)|<nobr>`"0 1-3 * * *"`</nobr>|3 times per day, at 1:00, 2:00, and 3:00 UTC|
+|A set of values (`,` operator)|<nobr>`"20,30,40 * * * *"`</nobr>|3 times per hour, at 20 minutes, 30 minutes, and 40 minutes past the hour|
+|An interval value (`/` operator)|<nobr>`"*/10 * * * *"`</nobr>|6 times per hour, at 10 minutes, 20 minutes, and so on, past the hour
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -193,6 +193,8 @@ Each field can have one of the following types of values:
 
 
 ## Next steps
+
+For an example of using a scheduled task to clean up repositories in a registry, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
 
 For examples of tasks triggered by source code commits or base image updates, check out the [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
