@@ -3,11 +3,14 @@ title: Smartsheet and Azure Active Directory
 description: Learn about the capabilities supported and how to get started.
 services: active-directory
 documentationCenter: na
+ms.service: active-directory
+ms.workload: identity
 author: ArvindHarinder1
 ms.author: arvinh
 ms.reviewer: celested
 ROBOTS: NOINDEX
-ms.collection: M365-identity-device-management
+ms.date: 08/17/2019
+ms.topic: conceptual
 ---
 
 # Smartsheet and Azure Active Directory

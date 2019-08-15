@@ -3,11 +3,14 @@ title: Workday and Azure Active Directory
 description: Learn about the capabilities supported and how to get started.
 services: active-directory
 documentationCenter: na
+ms.service: active-directory
+ms.workload: identity
 author: ArvindHarinder1
 ms.author: arvinh
 ms.reviewer: celested
+ms.date: 08/17/2019
 ROBOTS: NOINDEX
-ms.collection: M365-identity-device-management
+ms.topic: conceptual
 ---
 
 # Workday and Azure Active Directory

@@ -2,11 +2,15 @@
 title: Box and Azure Active Directory
 description: Learn about the capabilities supported and how to get started.
 services: active-directory
+ms.service: active-directory
+ms.workload: identity
 documentationCenter: na
 author: ArvindHarinder1
 ms.author: arvinh
 ms.reviewer: celested
 ROBOTS: NOINDEX
+ms.date: 08/17/2019
+ms.topic: conceptual
 ---
 
 # Box and Azure Active Directory
