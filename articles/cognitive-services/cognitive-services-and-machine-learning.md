@@ -128,7 +128,7 @@ Cognitive Services that provide exported models for other machine learning tools
 ## Learn more
 
 * [Architecture Guide - What are the machine learning products at Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
-* [Machine learning - Introduction to deep learning vs. machine learning](https://docs.microsoft.com/azure/machine-learning/service/concept-deep-learning-vs-machine-learning)
+* [Machine learning - Introduction to deep learning vs. machine learning](../machine-learning/service/concept-deep-learning-vs-machine-learning)
 
 ## Next steps
 
