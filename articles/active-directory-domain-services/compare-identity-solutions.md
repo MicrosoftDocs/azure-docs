@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 07/30/2019
+ms.date: 08/14/2019
 ms.author: iainfou
 
 #Customer intent: As an IT administrator or decision maker, I want to understand the differences between Active Directory Domain Services (AD DS), Azure AD, and Azure AD DS so I can choose the most appropriate identity solution for my organization.
@@ -63,7 +63,7 @@ The following table outlines some of the features you may need for your organiza
 | **AD domain / forest trusts**                     | **&#x2715;** | **&#x2713;** |
 | **Secure LDAP (LDAPS)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP read**                                     | **&#x2713;** | **&#x2713;** |
-| **LDAP write**                                    | **&#x2715;** | **&#x2713;** |
+| **LDAP write**                                    | **&#x2713;** (within the managed domain) | **&#x2713;** |
 | **Geo-distributed deployments**                   | **&#x2715;** | **&#x2713;** |
 
 ## Azure AD DS and Azure AD

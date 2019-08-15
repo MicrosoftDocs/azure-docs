@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/08/2019
+ms.date: 08/14/2019
 ms.author: iainfou
 
 #Customer intent: As an identity administrator, I want to secure access to an Azure Active Directory Domain Services managed domain using secure lightweight directory access protocol (LDAPS)
@@ -53,7 +53,7 @@ To use secure LDAP, a digital certificate is used to encrypt the communication. 
 
 * A certificate from a public certificate authority (CA) or an enterprise CA.
     * If your organization gets certificates from a public CA, get the secure LDAP certificate from that public CA. If you use an enterprise CA in your organization, get the secure LDAP certificate from the enterprise CA.
-    * A public CA only works when you use a custom DNS name with your Azure AD DS managed domain. If the DNS domain name of your managed domain ends in *.onmicrosoft.com*, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a public Certificate Authority (CA) won't issue a certificate. In this scenario, create a self-signed certificate and use that to configure secure LDAP.
+    * A public CA only works when you use a custom DNS name with your Azure AD DS managed domain. If the DNS domain name of your managed domain ends in *.onmicrosoft.com*, you can't create a digital certificate to secure the connection with this default domain. Microsoft owns the *.onmicrosoft.com* domain, so a public CA won't issue a certificate. In this scenario, create a self-signed certificate and use that to configure secure LDAP.
 * A self-signed certificate that you create yourself.
     * This approach is good for testing purposes, and is what this tutorial shows.
 
@@ -97,20 +97,20 @@ Thumbprint                                Subject
 
 ## Understand and export required certificates
 
-To use secure LDAP, the network traffic is encrypted using public key infrastructure (PKI). A pair of digital certificates secures this network traffic:
+To use secure LDAP, the network traffic is encrypted using public key infrastructure (PKI).
 
-* A **private** certificate is applied to the Azure AD DS managed domain.
-    * This private certificate is used to *encrypt* the secure LDAP traffic. The private certificate should only be applied to the Azure AD DS managed domain and not widely distributed to client computers.
-    * The private certificate uses the *.PFX* file format.
-* A **public** certificate is applied to the client computers.
-    * This public certificate is used to *decrypt* the secure LDAP traffic. The public certificate can be distributed to client computers, as it can only be used to decrypt the specific traffic that was initially encrypted using the private certificate.
-    * The public certificate uses the *.CER* file format.
+* A **private** key is applied to the Azure AD DS managed domain.
+    * This private key is used to *decrypt* the secure LDAP traffic. The private key should only be applied to the Azure AD DS managed domain and not widely distributed to client computers.
+    * A certificate that includes the private key uses the *.PFX* file format.
+* A **public** key is applied to the client computers.
+    * This public key is used to *encrypt* the secure LDAP traffic. The public key can be distributed to client computers.
+    * Certificates without the private key use the *.CER* file format.
 
-These two certificates, the *private* and *public* part, make sure that only the appropriate computers can successfully communicate with each other. If you use a public CA or enterprise CA, you are issued with the private certificate that can be applied to an Azure AD DS managed domain. The public certificate should already be known and trusted by client computers. In this tutorial, you created a self-signed certificate, so you need to export the appropriate private and public certificates.
+These two keys, the *private* and *public* keys, make sure that only the appropriate computers can successfully communicate with each other. If you use a public CA or enterprise CA, you are issued with a certificate that includes the private key and can be applied to an Azure AD DS managed domain. The public key should already be known and trusted by client computers. In this tutorial, you created a self-signed certificate with the private key, so you need to export the appropriate private and public components.
 
-### Export a private certificate for Azure AD DS
+### Export a certificate for Azure AD DS
 
-Before you can use the digital certificate created in the previous step with your Azure AD DS managed domain, export the certificate to a private *.PFX* certificate file.
+Before you can use the digital certificate created in the previous step with your Azure AD DS managed domain, export the certificate to a *.PFX* certificate file that includes the private key.
 
 1. To open the *Run* dialog, select the **Windows** and **R** keys.
 1. Open the Microsoft Management Console (MMC) by entering **mmc** in the *Run* dialog, then select **OK**.
@@ -128,51 +128,51 @@ Before you can use the digital certificate created in the previous step with you
     ![Export certificate in the Microsoft Management Console](./media/tutorial-configure-ldaps/export-cert.png)
 
 1. In the **Certificate Export Wizard**, select **Next**.
-1. As you want to create the private part of the certificate, the private key for with the certificate must be exported. If the private *.PFX* certificate file that doesn't contain the private key for the certificate, the action to enable secure LDAP for your managed domain fails.
+1. The private key for the certificate must be exported. If the private key is not included in the exported certificate, the action to enable secure LDAP for your managed domain fails.
 
     On the **Export Private Key** page, choose **Yes, export the private key**, then select **Next**.
-1. Azure AD DS managed domains only support the private *.PFX* certificate file format. Don't export the certificate as public *.CER* certificate file format.
-    
-    On the **Export File Format** page, select **Personal Information Exchange - PKCS #12 (.PFX)** as the file format for the exported private certificate. Check the box for *Include all certificates in the certification path if possible*:
+1. Azure AD DS managed domains only support the *.PFX* certificate file format that includes the private key. Don't export the certificate as *.CER* certificate file format without the private key.
 
-    ![Choose the option to export the private certificate in the PKCS 12 (.PFX) file format](./media/tutorial-configure-ldaps/export-cert-to-pfx.png)
+    On the **Export File Format** page, select **Personal Information Exchange - PKCS #12 (.PFX)** as the file format for the exported certificate. Check the box for *Include all certificates in the certification path if possible*:
 
-1. As the private certificate is used to encrypt data, you should carefully control access. A password can be used to protect the use of the private certificate. Without the correct password, the private certificate can't be applied to a service.
+    ![Choose the option to export the certificate in the PKCS 12 (.PFX) file format](./media/tutorial-configure-ldaps/export-cert-to-pfx.png)
 
-    On the **Security** page, choose the option for **Password** to protect the private *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your Azure AD DS managed domain.
-1. On the **File to Export** page, specify the file name and location where you'd like to export the private certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*.
-1. On the review page, select **Finish** to export the certificate to a private *.PFX* certificate file. A confirmation dialog is displayed when the private certificate has been successfully exported.
+1. As this certificate is used to decrypt data, you should carefully control access. A password can be used to protect the use of the certificate. Without the correct password, the certificate can't be applied to a service.
+
+    On the **Security** page, choose the option for **Password** to protect the *.PFX* certificate file. Enter and confirm a password, then select **Next**. This password is used in the next section to enable secure LDAP for your Azure AD DS managed domain.
+1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds.pfx*.
+1. On the review page, select **Finish** to export the certificate to a *.PFX* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 1. Leave the MMC open for use in the following section.
 
-### Export a public certificate for client computers
+### Export a certificate for client computers
 
-Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a public certificate to successfully decrypt data encrypted by the private certificate. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding public certificate. In this tutorial you use a self-signed certificate, and generated a private certificate in the previous step. Now let's export and then install the public part of the self-signed certificate into the trusted certificate store on the client computer:
+Client computers must trust the issuer of the secure LDAP certificate to be able to connect successfully to the managed domain using LDAPS. The client computers need a certificate to successfully encrypt data that is decrypted by Azure AD DS. If you use a public CA, the computer should automatically trust these certificate issuers and have a corresponding certificate. In this tutorial you use a self-signed certificate, and generated a certificate that includes the private key in the previous step. Now let's export and then install the self-signed certificate into the trusted certificate store on the client computer:
 
 1. Go back to the MMC for *Certificates (Local Computer) > Personal > Certificates* store. The self-signed certificate created in a previous step is shown, such as *contoso.com*. Right-select this certificate, then choose **All Tasks > Export...**
 1. In the **Certificate Export Wizard**, select **Next**.
-1. As you need the public part of the certificate, on the **Export Private Key** page choose **No, do not export the private key**, then select **Next**.
+1. As you don't need the private key for clients, on the **Export Private Key** page choose **No, do not export the private key**, then select **Next**.
 1. On the **Export File Format** page, select **Base-64 encoded X.509 (.CER)** as the file format for the exported certificate:
 
     ![Choose the option to export the certificate in the Base-64 encoded X.509 (.CER) file format](./media/tutorial-configure-ldaps/export-cert-to-cer-file.png)
 
-1. On the **File to Export** page, specify the file name and location where you'd like to export the public certificate, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
-1. On the review page, select **Finish** to export the certificate to a public *.CER* certificate file. A confirmation dialog is displayed when the public certificate has been successfully exported.
+1. On the **File to Export** page, specify the file name and location where you'd like to export the certificate, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
+1. On the review page, select **Finish** to export the certificate to a *.CER* certificate file. A confirmation dialog is displayed when the certificate has been successfully exported.
 
-The *.CER* public certificate file can now be distributed to client computers that need to trust the secure LDAP connection to the Azure AD DS managed domain. Let's install the public certificate on the local computer.
+The *.CER* certificate file can now be distributed to client computers that need to trust the secure LDAP connection to the Azure AD DS managed domain. Let's install the certificate on the local computer.
 
-1. Open File Explorer and browse to the location where you saved the public *.CER* certificate file, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
-1. Right-select the public *.CER* certificate file, then choose **Install Certificate**.
+1. Open File Explorer and browse to the location where you saved the *.CER* certificate file, such as *C:\Users\accountname\azure-ad-ds-client.cer*.
+1. Right-select the *.CER* certificate file, then choose **Install Certificate**.
 1. In the **Certificate Import Wizard**, choose to store the certificate in the *Local machine*, then select **Next**:
 
     ![Choose the option to import the certificate into the local machine store](./media/tutorial-configure-ldaps/import-cer-file.png)
 
 1. When prompted, choose **Yes** to allow the computer to make changes.
 1. Choose to **Automatically select the certificate store based on the type of certificate**, then select **Next**.
-1. On the review page, select **Finish** to import the public *.CER* certificate. file A confirmation dialog is displayed when the public certificate has been successfully imported.
+1. On the review page, select **Finish** to import the *.CER* certificate. file A confirmation dialog is displayed when the certificate has been successfully imported.
 
 ## Enable secure LDAP for Azure AD DS
 
-With a digital certificate created and exported to the correct format, and the client computer set to trust the connection, now enable secure LDAP on your Azure AD DS managed domain. To enable secure LDAP on an Azure AD DS managed domain, perform the following configuration steps:
+With a digital certificate created and exported that includes the private key, and the client computer set to trust the connection, now enable secure LDAP on your Azure AD DS managed domain. To enable secure LDAP on an Azure AD DS managed domain, perform the following configuration steps:
 
 1. In the [Azure portal](https://portal.azure.com), search for *domain services* in the **Search resources** box. Select **Azure AD Domain Services** from the search result.
 
@@ -185,11 +185,11 @@ With a digital certificate created and exported to the correct format, and the c
 
     Toggle **Allow secure LDAP access over the internet** to **Enable**.
 
-1. Select the folder icon next to **.PFX file with secure LDAP certificate**. Browse to the path of the private *.PFX* file, then select the private certificate created in a previous step.
+1. Select the folder icon next to **.PFX file with secure LDAP certificate**. Browse to the path of the *.PFX* file, then select the certificate created in a previous step that includes the private key.
 
-    As noted in the previous section on certificate requirements, you can't use a certificate from a public CA with the default *.onmicrosoft.com* domain. Microsoft owns the *.onmicrosoft.com* domain, so a public Certificate Authority (CA) won't issue a certificate. Make sure your certificate is in the appropriate format. If it's not, the Azure platform generates certificate validation errors when you enable secure LDAP.
+    As noted in the previous section on certificate requirements, you can't use a certificate from a public CA with the default *.onmicrosoft.com* domain. Microsoft owns the *.onmicrosoft.com* domain, so a public CA won't issue a certificate. Make sure your certificate is in the appropriate format. If it's not, the Azure platform generates certificate validation errors when you enable secure LDAP.
 
-1. Enter the **Password to decrypt .PFX file** set in a previous step when the private certificate was exported to a *.PFX* file.
+1. Enter the **Password to decrypt .PFX file** set in a previous step when the certificate was exported to a *.PFX* file.
 1. Select **Save** to enable secure LDAP.
 
     ![Enable secure LDAP for an Azure AD DS managed domain in the Azure portal](./media/tutorial-configure-ldaps/enable-ldaps.png)
