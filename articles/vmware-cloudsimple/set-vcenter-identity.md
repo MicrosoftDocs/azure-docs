@@ -37,7 +37,7 @@ Before [adding an identity source](#add-an-identity-source-on-vcenter), temporar
 
 To set up your on-premises Active Directory as a Single Sign-On identity source, you need:
 
-* [Site-to-Site VPN connection](vpn-gateway.md/#set-up-Site-to-Site-vpn-communication) from your on-premises datacenter to your Private Cloud.
+* [Site-to-Site VPN connection](vpn-gateway.md/#set-up-a-site-to-site-vpn-gateway) from your on-premises datacenter to your Private Cloud.
 * On-premises DNS server IP added to vCenter and Platform Services Controller (PSC).
 
 Use the information in the following table when setting up your Active Directory domain.
