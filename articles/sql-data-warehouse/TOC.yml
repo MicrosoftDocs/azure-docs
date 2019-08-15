@@ -293,6 +293,8 @@
       href: sql-data-warehouse-manage-monitor.md
     - name: Monitor Gen2 cache
       href: sql-data-warehouse-how-to-monitor-cache.md
+    - name: Manage Compute
+      href: manage-compute-with-azure-functions.md
   - name: Backup and restore
     items:
     - name: Create restore points
