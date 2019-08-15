@@ -6,9 +6,9 @@ localization_priority: Normal
 
 # Reserve a name for your add-in
 
-To create a submission in Partner Center, the first step is to reserve a name. Names must be unique throughout AppSource.
+To create a submission in Partner Center, the first step is to reserve a name. Names must be unique throughout the Office catalog.
 
-We recommend that you reserve your name even if you haven't developed your add-in yet, so that another developer doesn't use your name. Note, however, that you'll need to submit your add-in within three months in order to keep the name that you reserved.
+We recommend that you reserve a name for your solution even if you haven't developed it yet, so that another developer doesn't use your name. Note, however, that you'll need to submit your solution within three months in order to keep the name that you reserved.
 
 ## Reserve your add-in name
 

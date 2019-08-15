@@ -19,7 +19,7 @@ If your add-in requires the additional purchase of a service, either through a t
 
 ## Authorization
 
-If your add-in requires Azure Active Directory (Azure AD), you must check the box in the Authorization section and specify your target Office 365 plan. Your add-in requires Azure AD if it targes a specific national cloud, or if it uses single sign-on (SSO) or Microsoft Graph. 
+If your add-in requires Azure Active Directory (Azure AD), you must check the box in the Authorization section and specify your target Office 365 plan. Your add-in requires Azure AD if it targets a specific national cloud, or if it uses single sign-on (SSO) or Microsoft Graph. 
 
 When you select the check box, you must select one of the following target plans:
 - Office 365 or Office 365 Education

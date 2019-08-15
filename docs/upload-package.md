@@ -7,7 +7,7 @@ localization_priority: Normal
 
 # Upload your package to AppSource
 
-On the **Packages** page in Partner Center, drag or select your add-in manifest file for your Office or SharePoint add-in to upload it.
+On the **Packages** page in Partner Center, drag or select your add-in manifest file or app package to upload it.
 
 To remove or replace your add-in package, choose **Remove** in the **Action** column.
 

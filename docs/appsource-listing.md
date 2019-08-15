@@ -6,22 +6,22 @@ localization_priority: Normal
 
 # Create your AppSource listing
 
-You enter the AppSource listing information on the Store listings page in Partner Center. For Office Add-ins, this is also the listing that appears in the in-product experience. Your AppSource listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the listing information for each language; you must complete a store listing page for at least one language.
+You enter the AppSource listing information on the Marketplace listings page in Partner Center. For Office Add-ins, this is also the listing that appears in the in-product experience. Your AppSource listing is where you communicate to customers what your solution does and how it can provide value to them. The details are specified per language. You can add multiple languages and localize the listing information for each language; you must complete an AppSource listing page for at least one language.
 
-If you're adding AppSource listings for multiple languages, it might be convenient to use the **Export** and **Import** feature and add your store listing information in an offline .csv file. You can then make updates to multiple listings at one time.
+If you're adding AppSource listings for multiple languages, it might be convenient to use the **Export** and **Import** feature and add your listing information in an offline .csv file. You can then make updates to multiple listings at one time.
 
 > [!NOTE]
 > We recommend that you follow the guidelines in [Create effective AppSource listings](create-effective-office-store-listings.md) when you create your AppSource listing.
 
 ## Manage languages
 
-You can select the languages in which your add-in will be available. Choose **Manage additional languages** and select the check box next to the languages you want. After you select your languages, you can provide store listing information for each language.
+You can select the languages in which your add-in will be available. Choose **Manage additional languages** and select the check box next to the languages you want. After you select your languages, you can provide AppSource listing information for each language.
 
 For details about offering add-ins in multiple languages, see [Prepare localized add-ins](prepare-localized-apps-and-add-ins.md).
 
-## Create your store listing
+## Create your listing
 
-Select a language to add the store listing information for that language. Alternatively, you can use the **Export** and **Import** feature to upload listings for multiple languages at once. Your store listing includes the following information.
+Select a language to add the AppSource listing information for that language. Your listing includes the following information.
 
 ### Display name
 In the **Display name** field, specify the name of the add-in that will be displayed in AppSource. For details, see [Manage add-in names](manage-add-in-names.md).
@@ -61,7 +61,7 @@ You can upload a logo that you would like to associate with your AppSource listi
 
 ### Additional information
 
-You can provide a link to a video about your add-in. The format of your URL should include https:// or http://.
+You can provide up to three links to a video about your solution. Your URL must include https://. AppSource supports YouTube and Vimeo video links.
 
 ## See also
 
