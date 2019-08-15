@@ -28,7 +28,7 @@ A Site-to-Site VPN gateway connection is used to connect your on-premises networ
 
 ![Site-to-Site VPN Gateway cross-premises connection diagram](./media/vpn-gateway-howto-site-to-site-classic-portal/site-to-site-diagram.png)
 
-## Before you begin
+## <a name="before"></a>Before you begin
 
 Verify that you have met the following criteria before beginning configuration:
 
@@ -76,11 +76,7 @@ When you create a virtual network to use for a S2S connection, you need to make 
 6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Next, select the **Location** settings for your VNet. The location determines where the resources that you deploy to this VNet will reside.
 8. Click **Create** to create your VNet.
-
-   ![Pin to dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
 9. After clicking 'Create', a tile appears on the dashboard that reflects the progress of your VNet. The tile changes as the VNet is being created.
-
-   ![Creating virtual network tile](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/deploying150.png "Creating virtual network")
 
 ## <a name="additionaladdress"></a>2. Add additional address space
 
@@ -155,7 +151,7 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 In this step, you set the shared key and create the connection. The key you set is must be the same key that was used in your VPN device configuration.
 
 > [!NOTE]
-> Currently, this step is not available in the Azure portal. You must use the Service Management (SM) version of the Azure PowerShell cmdlets.
+> Currently, this step is not available in the Azure portal. You must use the Service Management (SM) version of the Azure PowerShell cmdlets locally on your desktop, not in Azure Cloud Shell. See [Before you Begin](#before) for information about installing these cmdlets.
 >
 
 ### Step 1. Connect to your Azure account
