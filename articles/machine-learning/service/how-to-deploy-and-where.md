@@ -161,7 +161,7 @@ Deploying the model requires several things:
 
 * **Dependencies**, such as helper scripts or Python/Conda packages required to run the entry script or model
 
-* The __deployment configuration__ for the compute target that hosts the deployed model. This describes things like memory and CPU requirements needed to run the model.
+* The __deployment configuration__ for the compute target that hosts the deployed model. This configuration describes things like memory and CPU requirements needed to run the model.
 
 These entities are encapsulated into an __inference configuration__, and a __deployment configuration__. The inference configuration references the entry script and other dependencies. These configurations are defined programmatically when using the SDK, and as JSON files when using the CLI to perform the deployment.
 
