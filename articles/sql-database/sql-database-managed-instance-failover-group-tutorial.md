@@ -30,7 +30,7 @@ Add a SQL Database managed instance to a failover group. In this article, you wi
 
 To complete this tutorial, make sure you have: 
 
-- An Azure subscription, [create a free account](https://azure.microsoft.com/free/) if you don't already have one. 
+- An Azure subscription, [create a free account](https://azure.microsoft.com/free/) if you don"t already have one. 
 
 
 ## 1 -  Create resource group and primary managed instance
@@ -51,7 +51,7 @@ In this step, you will create the resource group and the primary managed instanc
 1. Select **Create** to create your primary managed instance. 
 
 
-## 2 - Create a virtual network
+## 2 - Create secondary virtual network
 In this step, you will create a virtual network for the secondary managed instance. This step is necessary because there is a requirement that the subnet of the primary and secondary managed instances have non-overlapping address ranges. 
 
 To verify the subnet range of your primary virtual network, follow these steps:
@@ -121,9 +121,12 @@ To create your secondary managed instance, follow these steps:
 1. Select **Create** to create your secondary managed instance. 
 
 
-## 4 - Create primary virtual network gateway 
+## 4 - Create primary gateway 
+For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal, PowerShell, and Az CLI. 
 
-For two managed instances to participate in a failover group, there must be a gateway configured between the virtual networks of the two managed instances to allow network communication. You can create the gateway for the primary managed instance using the Azure portal:
+# [Portal](#tab/azure-portal)
+
+Create the gateway for the virtual network of your primary managed instance using the Azure portal. 
 
 1. In the [Azure portal](https://portal.azure.com), go to your resource group and select the **Virtual network** resource for your primary managed instance. 
 1. Select **Subnets** under **Settings** and then select to add a new **Gateway subnet**. Leave the default values. 
@@ -151,15 +154,57 @@ For two managed instances to participate in a failover group, there must be a ga
     | **Public IP address**| Select **Create new**. |
     | **Public IP address name**| Enter a name for your IP address, such as `primary-gateway-IP`. |
     | &nbsp; | &nbsp; |
+
 1. Leave the other values as default, and then select **Review + create** to review the settings for your virtual network gateway.
 
    ![Primary gateway settings](media/sql-database-managed-instance-failover-group-tutorial/settings-for-primary-gateway.png)
 
 1. Select **Create** to create your new virtual network gateway. 
 
-## 5 - Configure secondary virtual network gateway 
+# [PowerShell](#tab/azure-powershell)
 
-Repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
+Create the gateway for the virtual network of your primary managed instance using PowerShell. 
+
+    ```powershell-interactive
+    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    $primaryVnetName = "vnet-sql-mi-primary"
+    $primaryGWName = "Primary-Gateway"
+    $primaryGWPublicIPAddress = $primaryGWName + "-ip"
+    $primaryGWIPConfig = $primaryGWName + "-ipc"
+    $primaryGWAsn = 61000
+    
+    
+    # Get the primary virtual network
+    $vnet1 = Get-AzVirtualNetwork -Name $primaryVnetName -ResourceGroupName $primaryResourceGroupName
+    $primaryLocation = $vnet1.Location
+    
+    # Create primary gateway
+    Write-host "Creating primary gateway..."
+    $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet1
+    $gwpip1= New-AzPublicIpAddress -Name $primaryGWPublicIPAddress -ResourceGroupName $primaryResourceGroupName `
+             -Location $primaryLocation -AllocationMethod Dynamic
+    $gwipconfig1 = New-AzVirtualNetworkGatewayIpConfig -Name $primaryGWIPConfig `
+             -SubnetId $subnet1.Id -PublicIpAddressId $gwpip1.Id
+     
+    $gw1 = New-AzVirtualNetworkGateway -Name $primaryGWName -ResourceGroupName $primaryResourceGroupName `
+        -Location $primaryLocation -IpConfigurations $gwipconfig1 -GatewayType Vpn `
+        -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
+    $gw1
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+Create the gateway for the virtual network of your primary managed instance using the Az CLI. 
+
+!!!!!! Need Az CLI commands !!!!
+
+---
+
+## 5 - Create secondary gateway 
+In this step, create the gateway for the virtual network of your secondary managed instance using the Azure Portal, PowerShell, or Az CLI. 
+
+# [Portal](#tab/azure-portal)
+Using the Azure portal, repeat the steps in the previous section to create the virtual network subnet and gateway for the secondary managed instance. Fill out the required fields to configure the gateway for your secondary managed instance. 
 
    The following table shows the values necessary for the gateway for the secondary managed instance:
 
@@ -179,10 +224,50 @@ Repeat the steps in the previous section to create the virtual network subnet an
 
    ![Secondary gateway settings](media/sql-database-managed-instance-failover-group-tutorial/settings-for-secondary-gateway.png)
 
+# [PowerShell](#tab/azure-powershell)
+
+Create the gateway for the virtual network of the secondary managed instance using PowerShell. 
+
+    ```powershell-interactive
+    # $secondaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    $secondaryVnetName = "vnet-sql-mi-secondary"
+    $secondaryGWName = "Secondary-Gateway"
+    $secondaryGWPublicIPAddress = $secondaryGWName + "-IP"
+    $secondaryGWIPConfig = $secondaryGWName + "-ipc"
+    $secondaryGWAsn = 62000
+    
+    # Get the secondary virtual network
+    $vnet2 = Get-AzVirtualNetwork -Name $secondaryVnetName -ResourceGroupName $secondaryResourceGroupName
+    $secondaryLocation = $vnet2.Location
+     
+    # Create the secondary gateway
+    Write-host "Creating secondary gateway..."
+    $subnet2 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet2
+    $gwpip2= New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $secondaryResourceGroupName `
+             -Location $secondaryLocation -AllocationMethod Dynamic
+    $gwipconfig2 = New-AzVirtualNetworkGatewayIpConfig -Name $secondaryGWIPConfig `
+             -SubnetId $subnet2.Id -PublicIpAddressId $gwpip2.Id
+     
+    $gw2 = New-AzVirtualNetworkGateway -Name $secondaryGWName -ResourceGroupName $secondaryResourceGroupName `
+        -Location $secondaryLocation -IpConfigurations $gwipconfig2 -GatewayType Vpn `
+        -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $secondaryGWAsn
+    
+    $gw2
+    ```
+# [Azure CLI](#tab/azure-cli)
+
+Create the gateway for the virtual network of the secondary managed instance using Az CLI. 
+
+!!!!!! Need Az CLI commands !!!!!!!
+
+---
+
 ## 6 - Connect the gateways
 In this step, create a connection between gateways. A connection must be established from the primary to the secondary gateway, and then a separate connection must be established between the secondary to the primary gateway. Be sure to use the same **Shared key** when configuring connectivity between both gateways. 
 
-To configure connectivity, follow these steps:
+# [Portal](#tab/azure-portal)
+
+Connect the two gateways using the Azure portal. 
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com) and select the primary gateway you created in Step 4. 
 1. Select **Connections** under **Settings** and then select **Add** to create a new connection. 
@@ -199,9 +284,50 @@ To configure connectivity, follow these steps:
 
    ![Create secondary to primary connection](media/sql-database-managed-instance-failover-group-tutorial/create-secondary-to-primary-connection.png)
 
+# [PowerShell](#tab/azure-powershell)
+
+Connect the two gateways using PowerShell. 
+
+    ```powershell-interactive
+    $vpnSharedKey = "mi1mi2psk"
+     
+    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    $primaryGWConnection = "Primary-connection"
+    $primaryLocation = "West US"
+     
+    # $secondaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    $secondaryGWConnection = "Secondary-connection"
+    $secondaryLocation = "East US"    
+   
+    # Connect the primary to secondary gateway
+    Write-host "Connecting the primary gateway"
+    New-AzVirtualNetworkGatewayConnection -Name $primaryGWConnection -ResourceGroupName $primaryResourceGroupName `
+        -VirtualNetworkGateway1 $gw1 -VirtualNetworkGateway2 $gw2 -Location $primaryLocation `
+        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
+    $primaryGWConnection
+    
+    # Connect the secondary to primary gateway
+    Write-host "Connecting the secondary gateway"
+    
+    New-AzVirtualNetworkGatewayConnection -Name $secondaryGWConnection -ResourceGroupName $secondaryResourceGroupName `
+        -VirtualNetworkGateway1 $gw2 -VirtualNetworkGateway2 $gw1 -Location $secondaryLocation `
+        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
+    $secondaryGWConnection 
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+
+Connect the two gateways using the Az CLI. 
+
+!!!!!! Need Az CLI commands  !!!!!!!!!!!!
+
+---
 
 ## 7 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
+
+# [Portal](#tab/azure-portal)
+Create the failover group using the Azure portal. 
 
 1. In the [Azure portal](https://portal.azure.com), go to **All services** and type in `managed instance` in the search box. 
 1. (Optional) Select the star next to **SQL managed instances** to add managed instances as shortcut to your left-hand navigation bar. 
@@ -216,8 +342,37 @@ In this step, you will create the failover group and add both managed instances 
 
 1. Once failover group deployment is complete, you will be taken back to the **Failover group** page. 
 
+# [PowerShell](#tab/azure-powershell)
+Create the failover group using PowerShell. 
+
+    ```powershell-interactive
+    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    $failoverGroupName = "failovergrouptutorial"
+    # $primaryLocation = "East US"
+    # $secondaryLocation = "West US"
+    # $primaryManagedInstance = "sql-mi-primary"
+    # $secondaryManagedInstance = "sql-mi-secondary"
+    
+    # Create failover group
+    Write-host "Creating the failover group..."
+    $failoverGroup = New-AzSqlDatabaseInstanceFailoverGroup -Name $failoverGroupName `
+         -Location $primaryLocation -ResourceGroupName $primaryResourceGroupName -PrimaryManagedInstanceName $primaryManagedInstance `
+         -PartnerRegion $secondaryLocation -PartnerManagedInstanceName $secondaryManagedInstance `
+         -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
+    $failoverGroup
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+Create the failover group using the Az CLI. 
+
+--- 
+
+
 ## 8 - Test failover
 In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal. 
+
+# [Portal](#tab/azure-portal)
+Test failover using the Azure portal. 
 
 1. Navigate to your managed instance within the [Azure portal](https://portal.azure.com) and select **Instance Failover Groups** under settings. 
 1. Review which managed instance is the primary, and which managed instance is the secondary. 
@@ -231,15 +386,62 @@ In this step, you will fail your failover group over to the secondary server, an
 
 1. Select **Failover** once again to fail the primary instance back to the primary role. 
 
+# [PowerShell](#tab/azure-powershell)
+Test failover using PowerShell. 
+
+    ```powershell-interactive
+    # $primaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    # $secondaryResourceGroupName = "myResourceGroup-$(Get-Random)"
+    # $failoverGroupName = "failovergrouptutorial"
+    # $primaryLocation = "East US"
+    # $secondaryLocation = "West US"
+    # $primaryManagedInstance = "sql-mi-primary"
+    # $secondaryManagedInstance = ""sql-mi-secondary"
+    
+    # Verify the current primary role
+    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+        -Location $secondaryLocation -Name $failoverGroupName
+    
+    # Failover the primary managed instance to the secondary role
+    Write-host "Failing primary over to the secondary location"
+    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
+        -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+    ```
+
+Revert failover group back to the primary server:
+
+    ```powershell-interactive
+    # Verify the current primary role
+    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+        -Location $secondaryLocation -Name $failoverGroupName
+    
+    # Fail primary managed instance back to primary role
+    Write-host "Failing primary back to primary role"
+    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+        -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+    
+    # Verify the current primary role
+    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+        -Location $secondaryLocation -Name $failoverGroupName
+    ```
+
+# [Azure CLI](#tab/azure-cli)
+Create the failover group using the Az CLI. 
+
+!!!!!! Need Az CLI commands  !!!!!!!!!!!!
+
+---
+
 
 ## Clean up resources
 Clean up resources by first deleting the managed instance, then the virtual cluster, then any remaining resources, and finally the resource group. 
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com). 
-1. Select the managed instance and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it's done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
+1. Select the managed instance and then select **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. This process may take some time to complete in the background, and until it"s done, you will not be able to delete the *Virtual cluster* or any other dependent resources. Monitor the delete in the Activity tab to confirm your managed instance has been deleted. 
 1. Once the managed instance is deleted, delete the *Virtual cluster* by selecting it in your resource group, and then choosing **Delete**. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
 1. Delete any remaining resources. Type `yes` in the text box to confirm you want to delete the resource and then select **Delete**. 
 1. Delete the resource group by selecting **Delete resource group**, typing in the name of the resource group, `myResourceGroup`, and then selecting **Delete**. 
+---
 
 ## Next steps
 
