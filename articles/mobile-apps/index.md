@@ -9,13 +9,13 @@ ms.topic: landing-page
 ms.date: 08/06/2019
 ms.author: emalani
 ---
-# Mobile Apps Documentation
+# Mobile App Development in Microsoft
 
-Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, or Windows apps, or cross-platform apps using Xamarin or Cordova. Tutorials, videos, client SDK documentation, and more show you how to build and host the backend for any mobile app.
+Learn how to use Microsoft services, tools, and technolgies to build a high quality native or cross platform mobile application.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-value-prop">
+        <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Mobile Apps</h3>
+                        <h3>Overview of Mobile Apps</h3>
                     </div>
                 </div>
             </div>
@@ -33,17 +33,17 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
+        <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/common/i_video.svg" alt="Videos" />
+                            <img src="https://docs.microsoft.com/media/common/i_learn-about.svg" alt="Plan and Design" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>App Service Video Library</h3>
+                        <h3>Plan and Design Mobile app backend architecture</h3>
                     </div>
                 </div>
             </div>
@@ -51,17 +51,17 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-android-get-started">
+        <a href="/azure/mobile-apps/host-source-code">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/logos/logo_android.svg" alt="Android" />
+                            <img src="https://docs.microsoft.com/media/common/i_learn-about.svg" alt="Source code in the cloud" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating an Android app</h3>
+                        <h3>Host the source code in the cloud</h3>
                     </div>
                 </div>
             </div>
@@ -69,17 +69,17 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-cordova-get-started">
+        <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/logos/logo_cordova.svg" alt="Cordova" />
+                            <img src="https://docs.microsoft.com/media/common/i_mobileapp.svg" alt="Continuous Integration" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating an Apache Cordova app</h3>
+                        <h3>Set up Continuous Integration</h3>
                     </div>
                 </div>
             </div>
@@ -87,89 +87,17 @@ Learn how to use Mobile Apps in Azure App Service to build native iOS, Android, 
         </a>
     </li>
     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-ios-get-started">
+        <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/logos/logo_ios.svg" alt="iOS" />
+                            <img src="https://docs.microsoft.com/media/common/i_mobileapp.svg" alt="Continuous Delivery" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started creating an iOS app</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-windows-store-dotnet-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/logos/logo_Windows.svg" alt="Windows" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started creating a Windows app</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-android-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/common/i_mobileapp.svg" alt="Xamarin.Android" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started creating a Xamarin.Android app</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-forms-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/logos/logo_xamarin.svg" alt="Xamarin.Forms" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started creating a Xamarin.Forms app</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-     <li>
-        <a href="/azure/app-service-mobile/app-service-mobile-xamarin-ios-get-started">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="https://docs.microsoft.com/media/common/i_mobile-app-developement.svg" alt="Xamarin.iOS" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started creating a Xamarin.iOS app</h3>
+                        <h3>Set up Continuous Delivery</h3>
                     </div>
                 </div>
             </div>
