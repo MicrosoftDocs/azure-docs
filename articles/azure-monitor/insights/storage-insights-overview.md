@@ -17,7 +17,7 @@ ms.author: magoedte
 
 # Monitoring your storage service with Azure Monitor for Storage (preview)
 
-Azure Monitor for Storage (preview) provides a comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage health, capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
+Azure Monitor for Storage (preview) provides a comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
 
 This article will help you understand the experience Azure Monitor for Storage (preview) delivers to derive actionable knowledge on the health and performance of Storage accounts at scale, with a capability to focus on hotspots and diagnose latency, throttling, and availability issues.
 
@@ -29,7 +29,7 @@ Combined it delivers:
 
 * **At scale perspective** showing a snapshot view of their availability based on the health of the storage service or the API operation, utilization showing total number of requests that the storage service receives, and latency showing the average time the storage service or API operation type is taking to process requests. You can also view capacity by blob, file, table, and queues.
 
-* **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics tailored and delivered in a child workbook.  
+* **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics.  
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
@@ -42,7 +42,7 @@ This feature does not require you to enable or configure anything, the storage m
 
 ## View from Azure Monitor
 
-From Azure Monitor, you can view utilization and capacity details for multiple storage accounts in your subscription, and help identify performance, capacity problems, and failures quickly before they affect your applications.
+From Azure Monitor, you can view transaction, latency, and capacity details from multiple storage accounts in your subscription, and help identify performance, capacity problems, and failures.
 
 To view the utilization and availability of your storage accounts across all of your subscriptions, perform the following steps.
 
