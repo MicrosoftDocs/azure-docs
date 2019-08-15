@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Configure Workteam  for automatic user provisioning with Azure Active Directory | Microsoft Docs'
-description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workteam .
+description: Learn how to configure Azure Active Directory to automatically provision and de-provision user accounts to Workteam.
 services: active-directory
 documentationcenter: ''
 author: zchia
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/2/2019
+ms.date: 08/17/2019
 ms.author: Zhchia
 ---
 
 # Tutorial: Configure Workteam  for automatic user provisioning
 
-The objective of this tutorial is to demonstrate the steps to be performed in Workteam  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Workteam .
+The objective of this tutorial is to demonstrate the steps to be performed in Workteam  and Azure Active Directory (Azure AD) to configure Azure AD to automatically provision and de-provision users and/or groups to Workteam.
 
 > [!NOTE]
 > This tutorial describes a connector built on top of the Azure AD User Provisioning Service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -50,17 +50,17 @@ Before configuring and enabling automatic user provisioning, you should decide w
 
 ## Setup Workteam  for provisioning
 
-Before configuring Workteam  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Workteam .
+Before configuring Workteam  for automatic user provisioning with Azure AD, you will need to enable SCIM provisioning on Workteam.
 
-1. Login into [Workteam](https://app.workte.am/account/signin). Click **Organization settings** > **SETTINGS**.
+1. Log in into [Workteam](https://app.workte.am/account/signin). Click **Organization settings** > **SETTINGS**.
 
 	![Workteam](media/workteam-provisioning-tutorial/settings.png)
 
-2. Scroll to bottom and  Turn on the **SCIM User Provisioning**. > **Setting Icon**.
+2. Scroll to bottom and enable the provisioning capabilities of Workteam.
 
 	![Workteam](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copy the **base Url** and **Bearer Token**. These values will be entered in the **Tenant URL**and **Secret Token** field in the Provisioning tab of your Workteam application in the Azure portal.
+3. Copy the **BASE URL** and **Bearer Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Workteam application in the Azure portal.
 
 	![Workteam](media/workteam-provisioning-tutorial/scim.png)
 
@@ -92,7 +92,7 @@ To configure Workteam  for automatic user provisioning with Azure AD, you need t
 This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in Workteam  based on user and/or group assignments in Azure AD.
 
 > [!TIP]
-> You may also choose to enable SAML-based single sign-on for Workteam  , following the instructions provided in the [Workteam  Single sign-on tutorial](Workteam -tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other
+> You may also choose to enable SAML-based single sign-on for Workteam, following the instructions provided in the [Workteam  Single sign-on tutorial](Workteam -tutorial.md). Single sign-on can be configured independently of automatic user provisioning, though these two features compliment each other.
 
 ### To configure automatic user provisioning for Workteam  in Azure AD:
 
@@ -144,12 +144,9 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Workteam .
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. For more information on how long it will take for users and/or groups to provision, see [How long will it take to provision users](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
-
-## Connector Limitations
-
+You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Azure AD provisioning service on Workteam. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
