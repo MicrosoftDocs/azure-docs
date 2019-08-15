@@ -57,6 +57,8 @@
     href: ../networking/disaster-recovery-dns-traffic-manager.md  
   - name: How Traffic Manager works
     href: traffic-manager-how-it-works.md
+  - name: Traffic Manager subnet override
+    href: traffic-manager-subnet-override.md
   - name: FAQs
     href: traffic-manager-FAQs.md
 - name: How To
