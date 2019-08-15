@@ -55,6 +55,21 @@ landingContent:
 
 
   # Card
+  - title: View requirements
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: For Data Box
+            url: data-box-system-requirements.md
+          - text: For Data Box Blob storage
+            url: data-box-system-requirements-rest.md
+          - text: For Data Box Disk
+            url: data-box-disk-system-requirements.md
+          - text: For Data Box Heavy
+            url: data-box-heavy-system-requirements.md
+
+
+  # Card
   - title: Deploy Data Box
     linkLists:
       - linkListType: tutorial
