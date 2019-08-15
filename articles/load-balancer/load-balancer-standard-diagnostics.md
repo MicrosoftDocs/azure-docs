@@ -1,7 +1,7 @@
 ---
-title: Azure Standard Load Balancer diagnostics
+title: Azure Standard Load Balancer diagnostics with metrics, alerts, and resource health
 titlesuffix: Azure Load Balancer
-description: Use the available metrics and health information for diagnostics for Azure Standard Load Balancer.
+description: Use the available metrics, alerts, and resource health information to diagnose your Azure Standard Load Balancer.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -15,7 +15,7 @@ ms.date: 08/14/2019
 ms.author: allensu
 ---
 
-# Metrics and health diagnostics for Standard Load Balancer
+# Standard Load Balancer diagnostics with metrics, alerts and resource health
 
 Azure Standard Load Balancer exposes the following diagnostic capabilities:
 
