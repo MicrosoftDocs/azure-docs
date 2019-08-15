@@ -26,7 +26,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_overview.svg" alt="" />
+                                    <img src="media/index/i_overview.svg" alt="Learn about Azure Cognitive Services and how to use the different APIs to build intelligent apps." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -45,7 +45,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_get-started.svg" alt="" />
+                                    <img src="/media/common/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -64,7 +64,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_get-started.svg" alt="" />
+                                    <img src="/media/common/i_account-management.svg" alt="Learn how to create an Azure Cognitive Services account." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -83,7 +83,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                    <img src="/media/common/i_api.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -102,7 +102,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                    <img src="/media/common/i_library.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -121,7 +121,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                    <img src="media/index/i_guidelines.svg" alt="Learn how to use Azure Cognitive Services in Containers." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -135,11 +135,6 @@ ms.topic: hub-page
         </li>
 </ul>
 
-<h2>h2</h2>
-<h3>h3</h3>
-<h4>h4</h4>
-<h5>h5</h5>
-<h6>h6</h6>
 
 
 <h2>Cognitive Services APIs</h2>
@@ -274,3 +269,9 @@ ms.topic: hub-page
 </ul>
 </div>
 
+
+<h2>h2</h2>
+<h3>h3</h3>
+<h4>h4</h4>
+<h5>h5</h5>
+<h6>h6</h6>
