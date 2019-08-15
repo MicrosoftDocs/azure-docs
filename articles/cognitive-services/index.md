@@ -140,7 +140,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_account-management.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                    <img src="media/index/i_library.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -247,6 +247,176 @@ ms.topic: hub-page
     </li>
 </ul>
 </div>
+
+<h2>5-Minute Quickstarts</h2>
+<ul class="cardsF panelContent singlePanelContent cols cols3" style="display:flex!important;">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Analyze image using Computer Vision</h3>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/csharp-analyze-sdk">Using C#</a></p>
+                        <p><a href="/azure/cognitive-services/bing-visual-search/quickstarts/java">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/Quickstarts/node-analyze">Using Node.js</a></p>
+                        <p><a href="/azure/cognitive-services/Computer-vision/quickstarts-sdk/python-sdk">Using Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Recognize speech using Speech Service</h3>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-csharp-windows/">Using C#</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-js-browser">Using JavaScript</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-python">Using Python</a></p>
+                        <p><a href="/azure/cognitive-services/speech-service/quickstart-java-jre">Using Java</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get intent using LUIS</h3>
+                        <p><a href="/azure/cognitive-services/luis/luis-get-started-cs-get-intent">Using C#</a></p>
+                        <p><a href="/azure/cognitive-services/luis/luis-get-started-java-get-intent">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/luis/luis-get-started-node-get-intent">Using Node.js</a></p>
+                        <p><a href="/azure/cognitive-services/luis/luis-get-started-python-get-intent">Using Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Detect language, analyze sentiment using Text Analytics</h3>
+                        <p><a href="/azure/cognitive-services/Text-Analytics/quickstarts/csharp">Using C#</a></p>
+                        <p><a href="/azure/cognitive-services/Text-Analytics/quickstarts/java">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/Text-Analytics/quickstarts/nodejs">Using Node.js</a></p>
+                        <p><a href="/azure/cognitive-services/Text-Analytics/quickstarts/python">Using Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get relevant web queries using Bing Web Search</h3>
+                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/csharp">Using C#</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/java">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/quickstarts/nodejs">Using Node.js</a></p>
+                        <p><a href="/azure/cognitive-services/bing-web-search/web-sdk-python-quickstart">Using Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/i_quick-start.svg" alt="">
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get relevant image queries using Bing Image Search</h3>
+                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/csharp">Using C#</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/java">Using Java</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/quickstarts/nodejs">Using Node.js</a></p>
+                        <p><a href="/azure/cognitive-services/bing-image-search/image-sdk-python-quickstart">Using Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
+
+<h2>Step-by-Step Tutorials</h2>
+<ul class="cardsM panelContent singlePanelContent cols cols3" style="display:flex!important;">
+    <li>
+        <a class="card" href="/azure/cognitive-services/Computer-vision/tutorials/csharptutorial" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>Create an app using Computer Vision API</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a class="card" href="/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText" >
+                <h3>Recognize intents using Speech SDK and LUIS</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a class="card" href="/azure/cognitive-services/luis/luis-quickstart-intents-only" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>Build a LUIS app</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a class="card" href="/azure/cognitive-services/Text-Analytics/tutorials/tutorial-power-bi-key-phrases" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>Use Text Analytics with Power BI</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a class="card" href="/azure/cognitive-services/bing-web-search/tutorial-bing-web-search-single-page-app" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>Create a Bing Web Search app</h3>
+            </div>
+        </a>
+    </li>
+    <li>
+        <a class="card" href="/azure/cognitive-services/bing-image-search/tutorial-bing-image-search-single-page-app" data-linktype="external"><img class="cardImage" alt="" src="media/index/i_tasks.svg" data-linktype="external">
+            <div class="cardText">
+                <h3>Create a Bing Image Search app</h3>
+            </div>
+        </a>
+    </li>
+</ul>
 
 <h2>Additional resources</h2>
 <ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
