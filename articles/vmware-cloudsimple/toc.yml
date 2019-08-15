@@ -29,7 +29,7 @@
     - name: Virtual machines
       href: cloudsimple-virtual-machines.md
     - name: VLANs and subnets
-      href: cloudsimple-vlans-subnets.md
+      href: cloudsimple-vlans-subnet.md
     - name: Firewall tables
       href: cloudsimple-firewall-tables.md
     - name: VPN gateways
