@@ -145,12 +145,22 @@ ms.topic: hub-page
 <h2>Cognitive Services APIs</h2>
 <ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
     <li>
+        <h3>Vision</h3>
+        <h4 style="font-size: 1.12rem;">Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
+        <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
+        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
+        <p><a href="/azure/cognitive-services/face/">Face API</a></p>
+        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
+        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
+    </li>
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>Vision</h3>
-                        <h4>Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
+                        <h4 style="font-size: 1.12rem;">Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
