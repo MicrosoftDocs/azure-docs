@@ -27,13 +27,13 @@ Before diving into the experience, you should understand how it presents and vis
 
 Combined it delivers:
 
-* **At scale perspective** showing a snapshot view of their availability based on the health of the storage service or the API operation, utilization showing total number of requests that the storage service receives, and latency showing the average time the storage service or API operation type is taking to process requests. You can also view capacity by blob, file, table, and queues.
+* **At scale perspective** showing a snapshot view of their availability based on the health of the storage service or the API operation, utilization showing total number of requests that the storage service receives, and latency showing the average time the storage service or API operation type is taking to process requests. You can also view capacity by blob, file, table, and queue.
 
 * **Drill down analysis** of a particular storage account to help diagnose issues or perform detailed analysis by category - availability, performance, failures, and capacity. Selecting any one of those options provides an in-depth view of metrics.  
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md). To learn more about the metrics collection configuration options in your storage account, review [Configure monitoring for a storage account](../../storage/common/storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account).
+This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md).
 
 >[!NOTE]
 >There is no charge to access this feature and you will only be charged for the Azure Monitor essential features you configure or enable, as described on the [Azure Monitor pricing details](https://azure.microsoft.com/pricing/details/monitor/) page.
@@ -65,7 +65,7 @@ The counter tile under the drop-down lists rolls-up the total number of storage 
 Select a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** directs you to a report tailored to the specific type of storage metrics that match the column selected for that storage account. For more information about the workbooks for each category, see the [Detailed storage workbooks](#detailed-storage-workbooks) section below. 
 
 >[!NOTE]
->For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for transaction types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
+>For details on which errors can be shown in the report, see [Response Type schema](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) and look for response types such as **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. Depending on the storage accounts selected, if there are more than three types of errors reported, all other errors are represented under the category of **Other**.
 
 The default **Availability** threshold is:
 
@@ -122,7 +122,7 @@ Whether you selected a value in the columns **Availability**, **E2E Latency**, *
 
    ![Failure report example](./media/storage-insights-overview/storage-account-failures-01.png)
 
-* **Capacity** opens the **Capacity** workbook. It shows the total amount of storage used for each storage data object in the account in the tiles and the chart, and how many data objects are defined in the account.  
+* **Capacity** opens the **Capacity** workbook. It shows the total amount of storage used for each storage data object in the account in the tiles and the chart, and how many data objects are stored in the account.  
 
     ![Selected storage account Capacity page](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
