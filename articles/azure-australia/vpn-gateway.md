@@ -1,6 +1,6 @@
 ---
 title: Azure VPN Gateway in Azure Australia
-description: Implementing VPN Gateway in Azure Australia to be compliant with the ISM and effectively protect Australian government agencies
+description: Implementing VPN Gateway in Azure Australia to be compliant with the ISM and effectively protect Australian Government agencies
 author: galey801
 ms.service: azure-australia
 ms.topic: article
@@ -18,20 +18,21 @@ A VPN gateway is used to send encrypted traffic between a virtual network in Azu
 - Point-to-site (P2S)
 - Network-to-network
 
-This article focuses on S2S VPN gateways. The following diagram shows an example S2S VPN gateway configuration.
+This article focuses on S2S VPN gateways. Diagram 1 shows an example S2S VPN gateway configuration.
 
 ![VPN gateway with multi-site connections](media/vpngateway-multisite-connection-diagram.png)
 
+*Diagram 1 – Azure S2S VPN Gateway*
 
 ## Key design considerations
 
-There are three networking options to connect Azure to Australian government customers:
+There are three networking options to connect Azure to Australian Government customers:
 
 - ICON
 - Azure ExpressRoute
 - Public internet
 
-The Australian Cyber Security Centre’s [Consumer Guide for Azure](https://servicetrust.microsoft.com/viewpage/Australia) recommends that VPN Gateway (or an equivalent *protected* certified third-party service) is used in conjunction with the three networking options. This recommendation is to ensure that the connections comply with the ISM controls for encryption and integrity.
+The Australian Cyber Security Centre’s [Consumer Guide for Azure](https://servicetrust.microsoft.com/viewpage/Australia) recommends that VPN Gateway (or an equivalent PROTECTED certified third-party service) is used in conjunction with the three networking options. This recommendation is to ensure that the connections comply with the ISM controls for encryption and integrity.
 
 ### Encryption and integrity
 
@@ -47,31 +48,32 @@ Access to Owner, Contributor, and Network Contributor roles is tightly controlle
 
 ### High availability
 
-Azure VPN gateways can have multiple connections and support multiple on-premises VPN devices to the same on-premises environment. See the previous diagram.
+Azure VPN gateways can have multiple connections and support multiple on-premises VPN devices to the same on-premises environment. See Diagram 1.
 
 Virtual networks in Azure can have multiple VPN gateways that can be deployed in independent, active-passive, or active-active configurations.
 
-We recommend that you deploy all VPN gateways in a [highly available configuration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable). An example is two on-premises VPN devices connected to two VPN gateways in either active-passive or active-active mode. The following diagram shows active-active VPN gateways and two VPN devices.
+We recommend that you deploy all VPN gateways in a [highly available configuration](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-highlyavailable). An example is two on-premises VPN devices connected to two VPN gateways in either active-passive or active-active mode. See Diagram 2.
 
 ![VPN gateway redundant connections](media/dual-redundancy.png)
 
+*Diagram 2 – Active-active VPN gateways and two VPN devices*
 
 ### Forced tunneling
 
-Forced tunneling redirects, or forces, all Internet-bound traffic back to the on-premises environment via the VPN gateway for inspection and auditing. Without forced tunneling, Internet-bound traffic from VMs in Azure traverses the Azure network infrastructure directly out to the public internet, without the option to inspect or audit the traffic. Forced tunneling is critical when an organization is required to use a secure internet gateway (SIG) for an environment.
+Forced tunneling redirects, or forces, all Internet-bound traffic back to the on-premises environment via the VPN gateway for inspection and auditing. Without forced tunneling, Internet-bound traffic from VMs in Azure traverses the Azure network infrastructure directly out to the public internet, without the option to inspect or audit the traffic. Forced tunneling is critical when an organization is required to use a Secure Internet Gateway (SIG) for an environment.
 
 ## Detailed configuration
 
 ### Service attributes
 
-VPN gateways for S2S connections configured for the Australian government must have the following attributes:
+VPN gateways for S2S connections configured for the Australian Government must have the following attributes:
 
 |Attribute | Must|
 |--- | --- |
 |gatewayType | “VPN”|
 |
 
-Attribute settings required to comply with the ISM controls for *protected* are:
+Attribute settings required to comply with the ISM controls for PROTECTED are:
 
 |Attribute | Must|
 |--- |---|
@@ -79,7 +81,7 @@ Attribute settings required to comply with the ISM controls for *protected* are:
 |vpnClientConfiguration/vpnClientProtocols | “IkeV2”|
 |
 
-Azure VPN gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards. The default policy sets maximize interoperability with a wide range of third-party VPN devices. As a result, it's possible that during the IKE handshake a noncompliant configuration is negotiated. We highly recommend that you apply [custom IPsec/IKE policy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters to vpnClientConfiguration in VPN gateways to ensure the connections meet the ISM controls for on-premises environment connections to Azure. The key attributes are shown in the following table.
+Azure VPN gateways support a range of cryptographic algorithms from the IPsec and IKE protocol standards. The default policy sets maximum interoperability with a wide range of third-party VPN devices. As a result, it's possible that during the IKE handshake a noncompliant configuration might be negotiated. We highly recommend that you apply [custom IPsec/IKE policy](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell) parameters to vpnClientConfiguration in VPN gateways to ensure the connections meet the ISM controls for on-premises environment connections to Azure. The key attributes are shown in the following table.
 
 |Attribute|Should|Must|
 |---|---|---|
@@ -147,7 +149,7 @@ After you create the VPN gateway:
 
 ### Example PowerShell script
 
-An example of PowerShell script used to create a custom IPsec/IKE policy complies with ISM controls for Australian *protected* security classification.
+An example of PowerShell script used to create a custom IPsec/IKE policy complies with ISM controls for Australian PROTECTED security classification.
 
 It assumes that the virtual network, VPN gateway, and local gateways exist.
 
@@ -193,7 +195,7 @@ New-AzVirtualNetworkGatewayConnection `
 
 ## Next steps
 
-This article covered the specific configuration of VPN Gateway to meet the requirements specified in the Information Security Manual for securing Australian government *protected* data while in transit. For steps on how to configure your VPN gateway, see:
+This article covered the specific configuration of VPN Gateway to meet the requirements specified in the Information Security Manual for securing Australian Government PROTECTED data while in transit. For steps on how to configure your VPN gateway, see:
 
 - [Azure virtual network gateway overview](https://docs.microsoft.com/azure/vpn-gateway/)  
 - [What is VPN Gateway?](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)  
