@@ -117,7 +117,7 @@
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
     - name: Create an ACR with an AKS cluster (preview)
-      href: aks-acr-integration
+      href: aks-acr-integration.md
     - name: Create virtual nodes
       items:
       - name: Use the Azure CLI
