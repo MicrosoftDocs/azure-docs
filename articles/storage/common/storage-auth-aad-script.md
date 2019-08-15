@@ -78,15 +78,17 @@ The environment variable associated with the `--auth-mode` parameter is `AZURE_S
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-To use Azure PowerShell to sign in and run subsequent operations against Azure Storage using Azure AD credentials, create a storage context to reference the storage account, and including the `-UseConnectedAccount` parameter.
+To use Azure PowerShell to sign in and run subsequent operations against Azure Storage using Azure AD credentials, create a storage context to reference the storage account, and include the `-UseConnectedAccount` parameter.
 
 The following example shows how to create a container in a new storage account from Azure PowerShell using your Azure AD credentials. Remember to replace placeholder values in angle brackets with your own values:
 
-1. Sign in to your Azure subscription with the `Connect-AzAccount` command and follow the on-screen directions to enter your Azure AD credentials: 
+1. Sign in to your Azure account with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command:
 
     ```powershell
     Connect-AzAccount
     ```
+
+    For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 1. Create an Azure resource group by calling [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
 

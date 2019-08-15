@@ -37,7 +37,7 @@ DPM runs as a LocalSystem account. To back up SQL Server databases, DPM needs sy
 If the SharePoint farm has SQL Server databases that are configured with SQL Server aliases, install the SQL Server client components on the front-end Web server that DPM will protect.
 
 ### SharePoint Server
-While performance depends on many factors such as size of SharePoint farm, as general guidance one DPM server can protect a 25 TB SharePoint farm.
+While performance depends on many factors such as size of SharePoint farm, as general guidance one DPM server can protect a 25-TB SharePoint farm.
 
 ### DPM Update Rollup 5
 To begin protection of a SharePoint farm to Azure, you need to install DPM Update Rollup 5 or later. Update Rollup 5 provides the ability to protect a SharePoint farm to Azure if the farm is configured by using SQL AlwaysOn.
