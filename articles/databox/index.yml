@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Azure Data Box Documentation - Offline Transfer # < 60 chars
+title: Azure Data Box documentation - Offline transfer # < 60 chars
 summary: Use the Azure Data Box devices for offline data transfer when you are limited by time, network, or cost. Depending on your data size, choose from Data Box Disk, Data Box, or Data Box Heavy.  # < 160 chars
 
 metadata:
