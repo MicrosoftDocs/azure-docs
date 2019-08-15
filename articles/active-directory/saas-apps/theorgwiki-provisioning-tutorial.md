@@ -143,39 +143,37 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Tenant URL + Token](common/provisioning-testconnection-tenanturltoken.png)
 
-
-
-6. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
+7. In the **Notification Email** field, enter the email address of a person or group who should receive the provisioning error notifications and check the checkbox - **Send an email notification when a failure occurs**.
 
 	![Notification Email](common/provisioning-notification-email.png)
 
-7. Click **Save**.
+8. Click **Save**.
 
-8. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to TheOrgWiki**.
+9. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to TheOrgWiki**.
 
 	![TheOrgWiki User Mappings](media/theorgwiki-provisioning-tutorial/usermapping.png)
 
-9. Review the user attributes that are synchronized from Azure AD to TheOrgWiki in the **Attribute- Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in TheOrgWiki for update operations. Select the **Save** button to commit any changes.
+10. Review the user attributes that are synchronized from Azure AD to TheOrgWiki in the **Attribute- Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in TheOrgWiki for update operations. Select the **Save** button to commit any changes.
 
 	![TheOrgWiki User Attributes](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
-10. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
+11. To configure scoping filters, refer to the following instructions provided in the [Scoping filter tutorial](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
-11. To enable the Azure AD provisioning service for TheOrgWiki, change the **Provisioning Status** to **On** in the **Settings** section.
+12. To enable the Azure AD provisioning service for TheOrgWiki, change the **Provisioning Status** to **On** in the **Settings** section.
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-12. Define the users and/or groups that you would like to provision to OrgWiki by choosing the desired values in **Scope** in the **Settings** section.
+13. Define the users and/or groups that you would like to provision to OrgWiki by choosing the desired values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-13. When you are ready to provision, click **Save**.
+14. When you are ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. You can use the **Synchronization Details** section to monitor progress and follow links to provisioning activity report, which describes all actions performed by the Azure AD provisioning service on TheOrgWiki.
+This operation starts the initial synchronization of all users and/or groups defined in **Scope** in the **Settings** section. The initial sync takes longer to perform than subsequent syncs. For more information on how long it will take for users and/or groups to provision, see [How long will it take to provision users](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users).
 
-For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
+You can use the **Current Status** section to monitor progress and follow links to your provisioning activity report, which describes all actions performed by the Azure AD provisioning service on TheOrgWiki. For more information, see [Check the status of user provisioning](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md). To read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
 ## Additional resources
 
