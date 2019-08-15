@@ -47,7 +47,7 @@ sections:
   items:
   - type: paragraph
     text: |
-      You can use the Speech SDK (<a href="releasenotes.md">release notes</a>) to add the following capabilities (and more) to your apps&colon; 
+      You can use the Speech SDK (<a href="releasenotes.md">release notes</a>) to add the following capabilities (and more) to your apps&colon;
       <div class="row"><div class="column"><ul>
       <li><b><a href="speech-to-text.md">speech-to-text</a></b> (speech-recognition/SR)</li>
       <li><b><a href="speech-devices-sdk-create-kws.md">custom wake-word</a></b> (keyword-spotter/KWS)</li>
@@ -62,7 +62,7 @@ sections:
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
-    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to a speech-to-text quickstart. From there, you can select other quickstarts (<a href="scenario-availability.md">where available</a>) like text-to-speech or voice-first virtual assistant. 
+    text: Learn how to download, install, and use the SDK by selecting an arrow link <img src="media/index/link.jpg" height="15" width="15"></img>.<br/>All of the arrow links <img src="media/index/link.jpg" height="15" width="15"></img> default to a speech-to-text quickstart. From there, you can select other quickstarts (<a href="scenario-availability.md">where available</a>) like text-to-speech or voice-first virtual assistant.
   - type: table
     style: dataMatrix
     columns:
@@ -83,7 +83,7 @@ sections:
       - image:
           src: media/index/logo_objc.jpg
       - image:
-          src: media/index/logo_swift.jpg          
+          src: media/index/logo_swift.jpg
       - image:
           src: media/index/logo_nodejs.svg
       - image:
@@ -255,10 +255,9 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="speech-to-text-sample.md">Speech-to-text (SR)</a><br/>
-    - html: <a href="intent.md">Intent Recognition</a><br/>
-    - html: <a href="translation.md">Translation</a>
-    - html: <a href="quickstart-text-to-speech-dotnet-windows.md">Text-to-speech</a><br/>
+    - html: <a href="how-to-recognize-intents-from-speech-csharp.md">Recognize speech intents with LUIS, C#</a><br/>
+    - html: <a href="tutorial-voice-enable-your-bot-speech-sdk.md">Voice enable your bot with the Speech SDK, C#</a><br/>
+    - html: <a href="../translator/tutorial-build-flask-app-translation-synthesis.md?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json">Build a Flask app to translate text and synthesize speech, REST</a><br/>
 - title: Samples
   items:
   - type: paragraph

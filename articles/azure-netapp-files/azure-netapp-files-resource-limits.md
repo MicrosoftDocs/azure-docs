@@ -35,11 +35,8 @@ The following table describes resource limits for Azure NetApp Files:
 |  Minimum size of a single capacity pool   |  4 TiB     |    No  |
 |  Maximum size of a single capacity pool    |  500 TiB   |   No   |
 |  Minimum size of a single volume    |    100 GiB    |    No    |
-|  Maximum assigned quota of a single volume*   |   92 TiB   |    No   |
-|  Maximum size of a single volume*     |    100 TiB    |    No       |
+|  Maximum size of a single volume     |    100 TiB    |    No       |
 |  Maximum number of files (inodes) per volume     |    50 million    |    No    |    
-
-*A volume can be manually created or resized to maximally 92 TiB. However, a volume can grow up to 100 TiB in an overage scenario. See [Cost model for Azure NetApp Files](azure-netapp-files-cost-model.md) for details on capacity overage. 
 
 ## Request limit increase 
 

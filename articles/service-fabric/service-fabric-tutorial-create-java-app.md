@@ -1,5 +1,5 @@
 ---
-title: Create a Java app on Service Fabric in Azure | Microsoft Docs
+title: 'Tutorial: Create a Java app on Azure Service Fabric'
 description: In this tutorial, learn how to create a reliable service Java application with a front-end, create a reliable services stateful back-end, and deploy the application to a cluster.
 services: service-fabric
 documentationcenter: java
@@ -16,7 +16,6 @@ ms.workload: NA
 ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc, seo-java-july2019, seo-java-august2019
-
 ---
 # Tutorial: Create an application with a Java API front-end service and a stateful back-end service on Azure Service Fabric
 
