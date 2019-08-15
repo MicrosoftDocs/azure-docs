@@ -168,7 +168,9 @@ Event
 1. When you are finished, select **Create alert rule**.
 1. Restart one of the VMs in the availability set. Within a few minutes, you should get an e-mail that the alert has been triggered.
 
+To manage your alert rules, go to the resource group, select **Alerts** from the left menu, and then select **Manage alert rules** from the top of the page.
+
      
 ## Next steps
 
-To learn more, see the [Scehduled events service](https://github.com/microsoft/AzureScheduledEventsService) page on GitHub.
+To learn more, see the [Scheduled events service](https://github.com/microsoft/AzureScheduledEventsService) page on GitHub.
