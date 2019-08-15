@@ -45,7 +45,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
+                                    <img src="media/common/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -64,7 +64,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_account-management.svg" alt="Learn how to create an Azure Cognitive Services account." />
+                                    <img src="media/common/i_account-management.svg" alt="Learn how to create an Azure Cognitive Services account." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -83,7 +83,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_api.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                    <img src="media/common/i_api.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -102,7 +102,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="/media/common/i_library.svg" alt="" />
+                                    <img src="media/common/i_library.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
