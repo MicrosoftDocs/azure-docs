@@ -51,7 +51,7 @@ landingContent:
       - linkListType: learn
         links:
           - text: Import data offline with Data Box 
-            url: /learn/modules/move-data-with-azure-data-box
+            url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
 
 
   # Card
@@ -78,7 +78,7 @@ landingContent:
             url: data-box-disk-deploy-ordered.md
           - text: Unlock and connect
             url: data-box-disk-deploy-set-up.md
-          - text: Connect and copy data
+          - text: Connect, copy, validate data
             url: data-box-disk-deploy-copy-data.md
           - text: Return, upload, verify Azure data
             url: data-box-disk-deploy-picked-up.md
@@ -89,7 +89,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Order 
-            url: data-box-deploy-ordered.md
+            url: data-box-heavy-deploy-ordered.md
           - text: Cable 
             url: data-box-heavy-deploy-set-up.md
           - text: Connect and copy data
@@ -97,4 +97,22 @@ landingContent:
           - text: Return, upload, verify Azure data
             url: data-box-heavy-deploy-picked-up.md
 
-
+  # Card
+  - title: Troubleshoot issues
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: For Data Box, Data Box Heavy
+            url: data-box-troubleshoot.md
+          - text: For Data Box Blob storage
+            url: data-box-troubleshoot-rest.md
+          - text: For Data Box Disk
+            url: data-box-disk-troubleshoot.md
+          - text: Open Support ticket
+            url: data-box-disk-contact-microsoft-support.md
+      - linkListType: concept
+        links:
+          - text: FAQ - Data Box
+            url: data-box-disk-faq.md
+          - text: FAQ - Data Box Disk
+            url: data-box-faq.md
