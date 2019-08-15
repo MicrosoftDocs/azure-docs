@@ -96,89 +96,6 @@ It can take up to five minutes for the HBase Master service to stabilize and fin
 
 When the SYSTEM.CATALOG table is back to normal, the connectivity issue to Phoenix should be automatically resolved.
 
-
-## What causes a master server to fail to start?
-
-### Error 
-
-An atomic renaming failure occurs.
-
-### Detailed description
-
-During the startup process, HMaster completes many initialization steps. These include moving data from the scratch (.tmp) folder to the data folder. HMaster also looks at the write-ahead logs (WALs) folder to see if there are any unresponsive region servers, and so on. 
-
-During startup, HMaster does a basic `list` command on these folders. If at any time, HMaster sees an unexpected file in any of these folders, it throws an exception and doesn't start.  
-
-### Probable cause
-
-In the region server logs, try to identify the timeline of the file creation, and then see if there was a process crash around the time the file was created. (Contact HBase support to assist you in doing this.) This helps us provide more robust mechanisms, so that you can avoid hitting this bug, and ensure graceful process shutdowns.
-
-### Resolution steps
-
-Check the call stack and try to determine which folder might be causing the problem (for instance, it might be the WALs folder or the .tmp folder). Then, in Cloud Explorer or by using HDFS commands, try to locate the problem file. Usually, this is a \*-renamePending.json file. (The \*-renamePending.json file is a journal file that's used to implement the atomic rename operation in the WASB driver. Due to bugs in this implementation, these files can be left over after process crashes, and so on.) Force-delete this file either in Cloud Explorer or by using HDFS commands. 
-
-Sometimes, there might also be a temporary file named something like *$$$.$$$* at this location. You have to use HDFS `ls` command to see this file; you cannot see the file in Cloud Explorer. To delete this file, use the HDFS command `hdfs dfs -rm /\<path>\/\$\$\$.\$\$\$`.  
-
-After you've run these commands, HMaster should start immediately. 
-
-### Error
-
-No server address is listed in *hbase: meta* for region xxx.
-
-### Detailed description
-
-You might see a message on your Linux cluster that indicates that the *hbase: meta* table is not online. Running `hbck` might report that "hbase: meta table replicaId 0 is not found on any region." The problem might be that HMaster could not initialize after you restarted HBase. In the HMaster logs, you might see the message: "No server address listed in hbase: meta for region hbase: backup \<region name\>".  
-
-### Resolution steps
-
-1. In the HBase shell, enter the following commands (change actual values as applicable):  
-
-   ```apache
-   > scan 'hbase:meta'  
-   ```
-
-   ```apache
-   > delete 'hbase:meta','hbase:backup <region name>','<column name>'  
-   ```
-
-2. Delete the *hbase: namespace* entry. This entry might be the same error that's being reported when the *hbase: namespace* table is scanned.
-
-3. To bring up HBase in a running state, in the Ambari UI, restart the Active HMaster service.  
-
-4. In the HBase shell, to bring up all offline tables, run the following command:
-
-   ```apache 
-   hbase hbck -ignorePreCheckPermission -fixAssignments 
-   ```
-
-### Additional reading
-
-[Unable to process the HBase table](https://stackoverflow.com/questions/4794092/unable-to-access-hbase-table)
-
-
-### Error
-
-HMaster times out with a fatal exception similar to "java.io.IOException: Timedout 300000ms waiting for namespace table to be assigned."
-
-### Detailed description
-
-You might experience this issue if you have many tables and regions that have not been flushed when you restart your HMaster services. Restart might fail, and you'll see the preceding error message.  
-
-### Probable cause
-
-This is a known issue with the HMaster service. General cluster startup tasks can take a long time. HMaster shuts down because the namespace table isn’t yet assigned. This occurs only in scenarios in which large amount of unflushed data exists, and a timeout of five minutes is not sufficient.
-  
-### Resolution steps
-
-1. In the Apache Ambari UI, go to **HBase** > **Configs**. In the custom hbase-site.xml file, add the following setting: 
-
-   ```apache
-   Key: hbase.master.namespace.init.timeout Value: 2400000  
-   ```
-
-2. Restart the required services (HMaster, and possibly other HBase services).  
-
-
 ## What causes a restart failure on a region server?
 
 ### Issue
@@ -256,5 +173,12 @@ Here's what's happening behind the scenes:
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### See also
-[Troubleshoot by using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+## Next steps
+
+If you didn't see your problem or are unable to solve your issue, visit one of the following channels for more support:
+
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
+
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).
