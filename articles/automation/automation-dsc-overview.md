@@ -64,6 +64,10 @@ For nodes running Windows, the following versions are supported:
 - Windows 8.1
 - Windows 7
 
+The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016)
+standalone product sku does not contain an implementation of Desired State Configuraion
+so it cannot be managed by PowerShell DSC or Azure Automation State Configuration.
+
 For nodes running Linux, the following distros/versions are supported:
 
 The DSC Linux extension supports all the Linux distributions
