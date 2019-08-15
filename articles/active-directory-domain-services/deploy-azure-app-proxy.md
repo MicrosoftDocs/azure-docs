@@ -32,7 +32,7 @@ To perform the tasks listed in this article, you need:
 
 1. A valid **Azure subscription**.
 2. An **Azure AD directory** - either synchronized with an on-premises directory or a cloud-only directory.
-3. An **Azure AD Basic or Premium license** is required to use the Azure AD Application Proxy.
+3. An **Azure AD Premium license** is required to use the Azure AD Application Proxy.
 4. **Azure AD Domain Services** must be enabled for the Azure AD directory. If you haven't done so, follow all the tasks outlined in the [Getting Started guide](tutorial-create-instance.md).
 
 <br>
