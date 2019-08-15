@@ -17,10 +17,10 @@ ms.topic: conceptual
 
 Connect Workday with Azure Active Directory (Azure AD) using our pre-built integration and automatically provision or de-provision user accounts when employees join, move, or leave.
 
-![Shows the Workday app logo](./media/workday.png)
-
 > [!div class="nextstepaction"]
 > [Try Workday with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+
+![Shows the Workday app logo](./media/workday.png)
 
 ## What can you do with Box and Azure AD?
 

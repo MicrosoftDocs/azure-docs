@@ -17,10 +17,10 @@ ms.topic: conceptual
 
 Accelerate adoption of Smartsheet across your organization and increase user adoption with our pre-built integration. Enable users to collaborate quickly by connecting Smartsheet to Azure Active Directory (Azure AD).
 
-![Shows the Smartsheet app logo](./media/smartsheet.png)
-
 > [!div class="nextstepaction"]
 > [Try Smartsheet with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+
+![Shows the Smartsheet app logo](./media/smartsheet.png)
 
 ## What can you do with Smartsheet and Azure AD?
 

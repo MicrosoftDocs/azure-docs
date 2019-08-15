@@ -17,10 +17,10 @@ ms.topic: conceptual
 
 Accelerate adoption of ServiceNow across your organization and increase user adoption with our pre-built integration. Streamline your IT service management by connecting ServiceNow to Azure Active Directory (Azure AD).
 
-![Shows the ServiceNow app logo](./media/servicenow.png)
-
 > [!div class="nextstepaction"]
 > [Try ServiceNow with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
+
+![Shows the ServiceNow app logo](./media/servicenow.png)
 
 ## What can you do with Azure AD + ServiceNow?
 
