@@ -43,15 +43,14 @@ landingContent:
             url: concept-primary-refresh-token.md
 
   # Card
-  - title: Deploy Conditional Access
+  - title: Configure and manage Azure AD joined devices
     linkLists:
-      - linkListType: concept
-        links:
-          - text: Plan a Conditional Access deployment
-            url: plan-conditional-access.md
       - linkListType: how-to-guide
         links:
-          - text: Block legacy authentication
-            url: block-legacy-authentication.md
-          - text: Troubleshooting using the What If tool
-            url: troubleshoot-conditional-access-what-if.md
+          - text: Plan your Azure AD join implementation
+            url: azureadjoin-plan.md
+          - text: Manage the local administrators group on Azure AD joined devices
+            url: assign-local-admin.md
+          - text: Find and manage stale devices in Azure AD
+            url: manage-stale-devices.md
+
