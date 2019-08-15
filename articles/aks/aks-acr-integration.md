@@ -27,7 +27,7 @@ Subscription contributors can create the AKS cluster and the ACR, but you can't 
 
 ## Install latest AKS CLI preview extension
 
-You need the **aks-preview 0.4.8** extension or later.  Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+You need the **aks-preview 0.4.8** extension or later.
 
 ```azurecli
 az extension remove --name aks-preview 
