@@ -5,7 +5,7 @@
  author: laurenhughes
  ms.service: multiple
  ms.topic: include
- ms.date: 04/11/2019
+ ms.date: 08/15/2019
  ms.author: lahugh
  ms.custom: include file
 ---
@@ -179,7 +179,7 @@ Premium Storage caching:  Supported
 
 <br>
 
-## Ls-series
+### Ls-series
 
 The Ls-series offers up to 32 vCPUs, using the [Intel® Xeon® processor E5 v3 family](https://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). The Ls-series gets the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per vCPU.
 
