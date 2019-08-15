@@ -756,10 +756,21 @@ The `SearchPlus` method creates the search query URL, makes the search request, 
         client.searchPlus("boutique", options5);
 
 ```
+
+There are two [ways of matching terms in a query](search-query-overview.md#types-of-queries): full-text search, and filters. A full-text search query searches for one or more terms in `IsSearchable` fields in your index. A filter is a boolean expression that is evaluated over `IsFilterable` fields in an index. You can use full-text search and filters together or separately.
+
 1. Open the maven panel, and execute the following maven goal: `verify exec:java`. 
 
 Each query and it's results should appear in the console window, and the process should exit with a 0 exit code.
 
-## Clean up
+When you're working in your own subscription, it's a good idea at the end of a project to identify whether you still need the resources you created. Resources left running can cost you money. You can delete resources individually or delete the resource group to delete the entire set of resources.
+
+You can find and manage resources in the portal, using the **All resources** or **Resource groups** link in the left-navigation pane.
+
+If you are using a free service, remember that you are limited to three indexes, indexers, and data sources. You can delete individual items in the portal to stay under the limit. 
 
 ## Next steps
+
+In this Java quickstart, you worked through a series of tasks to create an index, load it with documents, and run queries. If you are comfortable with the basic concepts, we recommend the following articles for an exploration of alternative approaches and concepts that will deepen your knowledge.
+
+[Create a basic index in Azure Search](https://docs.microsoft.com/en-us/azure/search/search-what-is-an-index)
