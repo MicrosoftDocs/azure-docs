@@ -153,7 +153,7 @@ Users may have a combination of up to five OATH hardware tokens or authenticator
 
 ## OATH hardware tokens (public preview)
 
-OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens.
+OATH is an open standard that specifies how one-time password (OTP) codes are generated. Azure AD will support the use of OATH-TOTP SHA-1 tokens of the 30-second or 60-second variety. Customers can procure these tokens from the vendor of their choice. Secret keys are limited to 128 characters, which may not be compatible with all tokens. The secret keys need to be encoded in Base32.
 
 ![Uploading OATH tokens to the MFA Server OATH tokens blade](media/concept-authentication-methods/oath-tokens-azure-ad.png)
 
