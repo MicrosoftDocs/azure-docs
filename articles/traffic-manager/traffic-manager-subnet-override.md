@@ -16,7 +16,7 @@ ms.author: allensu
 
 # Traffic Manager subnet override
 
-Traffic Manager subnet override allows you to alter the routing method of a profile.  Adding a override will direct traffic based upon the end-user's IP address with a predefined IP range to endpoint mapping. 
+Traffic Manager subnet override allows you to alter the routing method of a profile.  The addition of an override will direct traffic based upon the end user's IP address with a predefined IP or IP range to endpoint mapping. 
 
 ## How subnet override works
 
