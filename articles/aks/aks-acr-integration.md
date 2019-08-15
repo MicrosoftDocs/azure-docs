@@ -20,8 +20,8 @@ You can set up the AKS to ACR integration in a few simple commands with the Azur
 > [!IMPORTANT]
 > AKS preview features are self-service opt-in. Previews are provided "as-is" and "as available" and are excluded from the service level agreements and limited warranty. AKS Previews are partially covered by customer support on best effort basis. As such, these features are not meant for production use. For additional infromation, please see the following support articles:
 >
-> * [AKS Support Policies][support-policies]
-> * [Azure Support FAQ][faq]
+> * [AKS Support Policies](support-policies.md)
+> * [Azure Support FAQ](faq.md)
 
 ## Before you begin
 
