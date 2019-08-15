@@ -29,7 +29,7 @@
     - name: Virtual machines
       href: cloudsimple-virtual-machines.md
     - name: VLANs and subnets
-      href: cloudsimple-vlans-subnet.md
+      href: cloudsimple-vlans-subnets.md
     - name: Firewall tables
       href: cloudsimple-firewall-tables.md
     - name: VPN gateways
@@ -87,7 +87,7 @@
     - name: Set up private cloud networking
       items: 
       - name: Create and manage VLANs and subnets
-        href:  https://docs.azure.cloudsimple.com/create-vlan-subnet/
+        href:  create-vlan-subnet.md
       - name: Set up firewall tables and rules
         href: firewall.md
       - name: Allocate public IP addresses
