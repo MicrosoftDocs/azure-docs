@@ -120,12 +120,8 @@
     - name: Deploy - REST API
       displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
-    - name: Secure templates with SAS token
-      items:
-      - name: Use the Azure CLI
-        href: resource-manager-cli-sas-token.md
-      - name: Use Azure PowerShell
-        href: resource-manager-powershell-sas-token.md
+    - name: Secure template with SAS token
+      href: secure-template-with-sas-token.md
     - name: Deploy to multiple resource groups or subscriptions
       href: resource-manager-cross-resource-group-deployment.md
   - name: CI/CD
