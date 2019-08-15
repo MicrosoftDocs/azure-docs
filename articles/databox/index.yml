@@ -80,8 +80,6 @@ landingContent:
             url: data-box-deploy-set-up.md
           - text: Connect, copy data via SMB
             url: data-box-deploy-copy-data.md
-          - text: Connect, copy data via NFS
-            url: data-box-deploy-copy-data-NFS.md
           - text: Return, upload, verify Azure data
             url: data-box-deploy-picked-up.md
 
@@ -111,8 +109,6 @@ landingContent:
             url: data-box-heavy-deploy-set-up.md
           - text: Connect, copy data via SMB
             url: data-box-heavy-deploy-copy-data.md
-          - text: Connect, copy data via NFS
-            url: data-box-heavy-deploy-copy-data-NFS.md
           - text: Return, upload, verify Azure data
             url: data-box-heavy-deploy-picked-up.md
 
@@ -123,7 +119,7 @@ landingContent:
         links:
           - text: Data Box, Data Box Heavy in Azure
             url: data-box-portal-ui-admin.md
-          - text: Data Box, Data Box Heavy via local web UI
+          - text: Data Box, Data Box Heavy via local UI
             url: data-box-local-web-ui-admin.md
           - text: Data Box Disk in Azure
             url: data-box-portal-ui.md
