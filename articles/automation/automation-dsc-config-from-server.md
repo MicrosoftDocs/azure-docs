@@ -20,6 +20,12 @@ just those that you care about.
 Even then you need to know in what order the settings
 must be applied in order for the configuration to apply successfully.
 
+> Note!
+> This article refers to a solution that is maintained by the Open Source community.
+> Support is only available in the form of GitHub collaboration, not from Microsoft.
+
+## Community project: ReverseDSC
+
 A community maintained solution named
 [ReverseDSC](https://github.com/microsoft/reversedsc)
 has been created to work in this area starting SharePoint.
