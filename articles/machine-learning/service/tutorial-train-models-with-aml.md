@@ -37,12 +37,12 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-* Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to:
+* Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Create a cloud notebook server
-    * Launch the Jupyter web interface
+    * Launch the Jupyter notebook dashboard
 
-* After you launch the Jupyter web interface, open the **tutorials/img-classification-part1-training.ipynb** notebook.
+* After you launch the Jupyter notebook dashboard, open the **tutorials/img-classification-part1-training.ipynb** notebook.
 
 The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment.
 

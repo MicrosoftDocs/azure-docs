@@ -32,12 +32,12 @@ In this tutorial, you:
 
 ## Prerequisites
 
-* Complete the [Tutorial: Setup environment and workspace](tutorial-1st-experiment-sdk-setup.md) to:
+** Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Create a cloud notebook server
-    * Launch the Jupyter web interface
+    * Launch the Jupyter notebook dashboard
 
-* After you launch the Jupyter web interface, open the **tutorials/regression-part1-data-prep.ipynb** notebook.
+* After you launch the Jupyter notebook dashboard, open the **tutorials/regression-part1-data-prep.ipynb** notebook.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed the `azureml-dataprep` package from the Azure Machine Learning SDK.
 
