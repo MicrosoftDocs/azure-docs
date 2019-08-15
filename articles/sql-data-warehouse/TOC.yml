@@ -267,14 +267,14 @@
       href: sql-data-warehouse-connect-overview.md
     - name: Connection strings
       href: sql-data-warehouse-connection-strings.md
-    - name: sqlcmd
-      href: sql-data-warehouse-get-started-connect-sqlcmd.md
+    - name: Install Visual Studio SSDT
+      href: sql-data-warehouse-install-visual-studio.md
+    - name: Query with Visual Studio SSDT
+      href: sql-data-warehouse-query-visual-studio.md
     - name: Query with SSMS
       href: sql-data-warehouse-query-ssms.md
-    - name: Query with Visual Studio
-      href: sql-data-warehouse-query-visual-studio.md
-    - name: Install Visual studio
-      href: sql-data-warehouse-install-visual-studio.md
+    - name: Connect and query with sqlcmd
+      href: sql-data-warehouse-get-started-connect-sqlcmd.md
   - name: Workload management
     items:
     - name: Analyze your workload
