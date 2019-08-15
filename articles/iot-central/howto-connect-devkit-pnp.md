@@ -57,7 +57,7 @@ To complete the steps in this article, you need the following resources:
 
    ![IoT Central device connection info](media/howto-connect-devkit-pnp/device-connection.png)
 
-## Prepare th DevKit device
+## Prepare the DevKit device
 
 1. Download the latest [pre-built Azure IoT Central Plug and Play firmware](https://github.com/MXCHIP/IoTDevKit/raw/master/pnp/iotc_devkit/bin/iotc_devkit.bin) for the MXChip from GitHub.
 
