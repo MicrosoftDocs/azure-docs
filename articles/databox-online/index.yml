@@ -46,7 +46,7 @@ landingContent:
           - text: For Data Box Gateway
             url: data-box-gateway-system-requirements.md
           - text: For Data Box Edge
-            url: data-box-edge-system-requirements-rest.md
+            url: data-box-edge-system-requirements.md
 
   # Card
   - title: Deploy Data Box Gateway
@@ -109,4 +109,4 @@ landingContent:
           - text: Data Box Edge
             url: data-box-edge-troubleshoot.md
           - text: Open Support ticket
-            url: data-box-disk-contact-microsoft-support.md
+            url: data-box-edge-contact-microsoft-support.md
