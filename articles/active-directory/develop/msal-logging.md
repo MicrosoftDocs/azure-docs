@@ -37,6 +37,10 @@ MSAL's logger allows for several levels of detail to be capture:
 By default, the MSAL logger does not capture any highly sensitive personal or organizational data. The library provides you the option to enable logging personal and organizational data if you decide to do so.
 
 ## Logging in MSAL.NET
+
+ > [!NOTE]
+ > For more information about MSAL.NET, check out the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Get samples of MSAL.NET logging and more. 
+ 
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
 - *Level* enables you to decide which level of logging you want. Setting it to Errors will only get errors

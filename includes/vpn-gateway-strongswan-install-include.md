@@ -14,20 +14,28 @@ The following configuration was used for the steps below:
 
   | | |
   |---|---|
-  |Computer| Ubuntu Server 16.04<br>ID_LIKE=debian<br>PRETTY_NAME="Ubuntu 16.04.4 LTS"<br>VERSION_ID="16.04" |
+  |Computer| Ubuntu Server 18.04|
   |Dependencies| strongSwan |
 
 
 Use the following commands to install the required strongSwan configuration:
 
 ```
-apt-get install strongswan-ikev2 strongswan-plugin-eap-tls
+sudo apt install strongswan
 ```
 
 ```
-apt-get install libstrongswan-standard-plugins
+sudo apt install strongswan-pki
 ```
 
 ```
-apt-get install strongswan-pki
+sudo apt install libstrongswan-extra-plugins
 ```
+
+Use the following command to install the Azure command-line interface:
+
+```
+curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+```
+
+[Additional instructions on how to install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli-apt?view=azure-cli-latest)
