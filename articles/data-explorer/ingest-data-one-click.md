@@ -36,14 +36,14 @@ This article shows how to use one-click ingestion for quick ingestion of a new t
     ![one click ingestion source details](media/ingest-data-one-click/one-click-ingestion-source.png) 
 
 1. In **Schema** tab, select **Data format** from drop-down > **JSON** or **CSV**. 
+   
    If select **CSV**:
-
     * Select checkbox **Ignore headline** to ignore heading row of csv file.    
     * **Mapping name** is set automatically but can be edited.
 
     ![one click ingestion csv format schema.png](media/ingest-data-one-click/one-click-csv-format.png)
 
-   In the **Schema** tab > **Data format**, if select **JSON**:
+   If select **JSON**:
     * Select **JSON levels**: 1-10 from drop-down. The levels in the json file are shown in the table on the bottom right. 
     * **Mapping name** is set automatically but can be edited.
 
