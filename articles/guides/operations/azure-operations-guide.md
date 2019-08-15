@@ -1,8 +1,8 @@
 ---
 title: Get started guide for Azure IT operators | Microsoft Docs
 description: Get started guide for Azure IT operators
-author: tbd
-ms.author: tbd
+author: RicksterCDN
+ms.author: rclaus
 tags: azure-resource-manager
 ms.service: azure
 ms.topic: overview
