@@ -17,7 +17,7 @@ This article describes how to connect MXChip IoT DevKit as a certified IoT Plug 
 ## What you learn
 
 - Add and configure a real device in Azure IoT Central application.
-- Prepare the device connect to Azure IoT Central.
+- Prepare the device and connect to Azure IoT Central.
 - View the telemetry and properties from the device, write properties (settings) and send commands to the device.
 
 ## What you need
@@ -25,7 +25,7 @@ This article describes how to connect MXChip IoT DevKit as a certified IoT Plug 
 To complete the steps in this article, you need the following resources:
 
 1. An MXChip IoT DevKit. [Get it now](https://aka.ms/iot-devkit-purchase).
-1. An IoT Central application created from the **PnP application template**. You can follow the steps in [Create an IoT Plug and Play application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central).
+1. An IoT Central application created from the **Preview application**. You can follow the steps in [Create an IoT Plug and Play application](https://docs.microsoft.com/azure/iot-central/quick-deploy-iot-central-pnp).
 
 ## Add a real device
 
@@ -93,23 +93,7 @@ To complete the steps in this article, you need the following resources:
 
     ![DevKit running](media/howto-connect-devkit-pnp/devkit-running.jpg)
 
-Now the DevKit starts sending data to your IoT Central application. You can open a serial monitor to see the device output log.
-
-1. Download a serial client such as [Tera Term](https://tera-term.en.lo4d.com/windows).
-
-1. Connect the DevKit to your computer by USB.
-
-1. Open Tera Term, select **serial**, and then expand the port. The device should appear as an STMicroelectronics device. Choose **STMicroelectronics STLink Virtual COM Port**. Click OK.
-
-   ![Select COM poart](media/howto-connect-devkit-pnp/select-port.png)
-
-1. Click **Setup** on the menu bar, select **serial port**, and configure the connection speed to **115200** baud. Then choose **OK** to open the serial monitor.
-
-   ![Select COM speed](media/howto-connect-devkit-pnp/configure-speed.png)
-
-1. You can see the output log in the Window.
-
-    ![Serial monitor output](media/howto-connect-devkit-pnp/serial-message.png)
+Now the DevKit starts sending data to your IoT Central application.
 
 ## View the telemetry in IoT Central
 
@@ -127,18 +111,14 @@ In this step, you view the telemetry and reported property values, and send comm
 
    ![IoT Central device form](media/howto-connect-devkit-pnp/form-page.png)
 
-    > [!NOTE]
-    > It may take a few seconds for the dashboard in About tab to be refreshed.
-
 1. In the **Commands** page, you can call the commands to execute actions on the DevKit. For example, you run **turnOnLED** command.
 
    ![Turn on LED](media/howto-connect-devkit-pnp/turn-on-LED.png)
 
-   On the device, view command executed successfully log in the serial monitor. To confirm, see the **User LED** on DevKit board on.
-
-   ![Turn on LED output](media/howto-connect-devkit-pnp/turnon-output.png)
-
 ## Review the code
+
+> [!NOTE]
+> From this section, it is for advanced users who want to understand and modify the code.
 
 If you want to explore and modify the device code, you can download it from GitHub.
 
@@ -188,7 +168,7 @@ If you plan to modify the code, you should follow these instructions to [prepare
 
 1. In the board manager page, choose **Refresh Package Indexes**.
 
-1. After the refresh completed, enter **AZ3166** in the search bar. Select and install latest version >= **1.9.3**.
+1. After the refresh completed, enter **AZ3166** in the search bar. Select and install latest version (>= 1.9.6).
 
     ![Select DevKit SDK version](media/howto-connect-devkit-pnp/select-version.png)
 
@@ -267,6 +247,26 @@ turnOnLed|/|/
 turnOffLed|/|/
 echo|text|string
 countdown|number|integer
+
+## Troubleshooting
+
+You can open a serial monitor to see the device output log.
+
+1. Download a serial client such as [Tera Term](https://tera-term.en.lo4d.com/windows).
+
+1. Connect the DevKit to your computer by USB.
+
+1. Open Tera Term, select **serial**, and then expand the port. The device should appear as an STMicroelectronics device. Choose **STMicroelectronics STLink Virtual COM Port**. Click OK.
+
+   ![Select COM poart](media/howto-connect-devkit-pnp/select-port.png)
+
+1. Click **Setup** on the menu bar, select **serial port**, and configure the connection speed to **115200** baud. Then choose **OK** to open the serial monitor.
+
+   ![Select COM speed](media/howto-connect-devkit-pnp/configure-speed.png)
+
+1. You can see the output log in the Window.
+
+    ![Serial monitor output](media/howto-connect-devkit-pnp/serial-message.png)
 
 ## Next steps
 
