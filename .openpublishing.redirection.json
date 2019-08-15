@@ -31040,6 +31040,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/cognitive-services/QnAMaker/Concepts/glossary.md",
+      "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
+      "redirect_document_id": false
+    }, 
+    {
       "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/publish-kb-nodejs.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/create-knowledge-rest-api-nodejs#publish-a-knowledge-base",
       "redirect_document_id": false

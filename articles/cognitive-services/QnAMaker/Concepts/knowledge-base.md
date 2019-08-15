@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ms.custom: seodec18
 ---
@@ -54,6 +54,21 @@ The process is explained in the following table:
 
 Features used include but are not limited to word-level semantics, term-level importance in a corpus, and deep learned semantic models to determine similarity and relevance between two text strings.
 
+## HTTP request and response with endpoint
+A REST-based HTTP **endpoint** servicing your knowledge base content that can be integrated into your application, commonly a chat bot. 
+
+A **user query** is the question that the end-user or tester asks of the knowledge base. The query is often in a natural language format or a few keywords that represent the question. The query is sent to your knowledge from an HTTP **request** in your client application.
+
+The HTTP **response** is the answer retrieved from the knowledge base, based on the best match for a given user query.
+
+### Test and production knowledge base
+A Knowledge base is the repository of questions and answers created, maintained, and used through QnA Maker. Each QnA Maker tier can be used for multiple Knowledge bases.
+
+A knowledge base has two states - Test and published. 
+
+The **test knowledge base** is the version that is being edited, saved, and tested for accuracy and completeness of responses. Changes made to the test knowledge base do not affect the end user of your application/chat bot. The test knowledge base is known as `test` in the HTTP request. 
+
+The **published knowledge base** is the version that is used in your chat bot/application. The action of publishing a knowledge base puts the content of the Test knowledge base in the Published version of the knowledge base. Since the published knowledge base is the version that the application uses through the endpoint, care should be taken to ensure that the content is correct and well-tested. The published knowledge base is known as `prod` in the HTTP request. 
 
 ## Next steps
 

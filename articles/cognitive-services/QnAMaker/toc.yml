@@ -167,8 +167,6 @@
     href: troubleshooting.md
   - name: Limits
     href: limits.md
-  - name: Glossary
-    href: glossary.md
   - name: HTTP response codes
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
