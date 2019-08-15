@@ -77,25 +77,6 @@ ms.topic: hub-page
             </a>
         </li>
         <li>
-            <a href="/azure/cognitive-services/authentication/">
-                <div class="cardSize">
-                    <div class="cardPadding">
-                        <div class="card">
-                            <div class="cardImageOuter">
-                                <div class="cardImage">
-                                    <img src="media/index/i_account-management.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
-                                </div>
-                            </div>
-                            <div class="cardText">
-                                <h3>Authenticate a request</h3>
-                                <p>Learn how to authenticate requests to Azure Cognitive Services.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </li>
-        <li>
             <a href="/azure/cognitive-services/language-support/">
                 <div class="cardSize">
                     <div class="cardPadding">
@@ -127,6 +108,44 @@ ms.topic: hub-page
                             <div class="cardText">
                                 <h3>Using Cognitive Services in Containers</h3>
                                 <p>Learn how to use Azure Cognitive Services in Containers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="/azure/cognitive-services/authentication/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_account-management.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Authenticate a request</h3>
+                                <p>Learn how to authenticate requests to Azure Cognitive Services.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_account-management.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Learn via role or path with Microsoft Learn</h3>
+                                <p>Learn via role or path.</p>
                             </div>
                         </div>
                     </div>
@@ -231,17 +250,6 @@ ms.topic: hub-page
 
 <h2>Additional resources</h2>
 <ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <p><a href="https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services">Microsoft Learn</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
     <li>
         <div class="cardSize">
             <div class="cardPadding">
