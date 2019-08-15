@@ -134,7 +134,7 @@ To authenticate with a service principal, you need to assign RBAC to your applic
 1. In the **Settings** section of the Batch account, select **Access Control (IAM)**.
 1. Select the **Role assignments** tab.
 1. Select **Add role assignment**.
-1. From the **Role** drop-down, choose either the _Contributor_ or _Reader_ role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
+1. From the **Role** drop-down, choose either the *Contributor* or *Reader* role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
 1. In the **Select** field, enter the name of your application. Select your application from the list, and then select **Save**.
 
 Your application should now appear in your access control settings with an RBAC role assigned.
@@ -146,7 +146,7 @@ Your application should now appear in your access control settings with an RBAC 
 The tenant ID identifies the Azure AD tenant that provides authentication services to your application. To get the tenant ID, follow these steps:
 
 1. In the Azure portal, select your Active Directory.
-1. Click **Properties**.
+1. Select **Properties**.
 1. Copy the GUID value provided for the **Directory ID**. This value is also called the tenant ID.
 
 ![Copy the directory ID](./media/batch-aad-auth/aad-directory-id.png)
