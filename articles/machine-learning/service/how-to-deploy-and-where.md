@@ -413,6 +413,8 @@ The inference configuration describes how to configure the model to make predict
 The following example demonstrates how to create an inference configuration. This configuration specifies the runtime, the entry script, and (optionally) the conda environment file:
 
 ```python
+from azureml.core.model import InferenceConfig
+
 inference_config = InferenceConfig(runtime="python",
                                    entry_script="x/y/score.py",
                                    conda_file="env/myenv.yml")
@@ -454,6 +456,12 @@ The following table provides an example of creating a deployment configuration f
 | Azure Container Instance | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
+Each of these classes for local, ACI, and AKS web services can be imported from `azureml.core.webservice`:
+
+```python
+from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
+```
+
 > [!TIP]
 > Prior to deploying your model as a service, you may want to profile it to determine optimal CPU and memory requirements. You can profile your model using either the SDK or CLI. For more information, see the [profile()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-) and [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile) reference.
 >
@@ -470,6 +478,8 @@ To deploy locally, you need to have Docker installed on your local machine.
 #### Using the SDK
 
 ```python
+from azureml.core.webservice import LocalWebservice, Webservice
+
 deployment_config = LocalWebservice.deploy_configuration(port=8890)
 service = Model.deploy(ws, "myservice", [model], inference_config, deployment_config)
 service.wait_for_deployment(show_output = True)
