@@ -37,33 +37,15 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server.  To run the notebook you will need:
+* Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
+    * Create a workspace
+    * Create a cloud notebook server
+    * Launch the Jupyter notebook dashboard
 
-* A Python 3.6 notebook server with the following installed:
-    * The Azure Machine Learning SDK for Python
-    * `matplotlib` and `scikit-learn`
-* The tutorial notebook and the file **utils.py**
-* A machine learning workspace
-* The configuration file for the workspace in the same directory as the notebook
+* After you launch the Jupyter notebook dashboard, open the **tutorials/img-classification-part1-training.ipynb** notebook.
 
-Get all these prerequisites from either of the sections below.
+The tutorial and accompanying **utils.py** file is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment.
 
-* Use a [cloud notebook server in your workspace](#azure)
-* Use [your own notebook server](#server)
-
-### <a name="azure"></a>Use a cloud notebook server in your workspace
-
-It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* After you launch the notebook webpage, open the **tutorials/img-classification-part1-training.ipynb** notebook.
-
-### <a name="server"></a>Use your own Jupyter notebook server
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
- After you complete the steps, run the **tutorials/img-classification-part1-training.ipynb** notebook from your cloned directory.
 
 ## <a name="start"></a>Set up your development environment
 
