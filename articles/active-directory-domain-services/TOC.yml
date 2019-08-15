@@ -106,6 +106,8 @@
           href: troubleshoot-domain-join.md
         - name: Account lockouts
           href: troubleshoot-account-lockout.md
+        - name: Sign-in problems
+          href: troubleshoot-sign-in.md
         - name: Resolve mismatched tenant errors
           href: mismatched-tenant-error.md
         - name: Suspended domains
