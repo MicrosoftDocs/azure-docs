@@ -430,7 +430,6 @@ This section contains the following subsections:
 - [Install modules and dependencies](#install-modules-and-dependencies)
 - [Configure data sources](#configure-data-sources)
 - [Enable messaging providers](#enable-messaging-providers)
-- [Configure session management caching](#configure-session-management-caching)
 
 ### Scale with App Service
 
@@ -648,18 +647,11 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 
 4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
 
-## Configure session management caching
+## Use Redis as a session cache with Tomcat
 
-By default App Service on Linux will use session affinity cookies to ensure that client requests with existing sessions are routed the same instance of your application. This default behavior requires no configuration but has some limitations:
+You can configure Tomcat to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). This enables you to preserve user session state (such as shopping cart data) when a user is transferred to another instance of your app, for example when autoscaling, restart, or failover occurs.
 
-- If an application instance is restarted or scaled down, the user session state in the application server will be lost.
-- If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
-
-You can configure Tomcat or WildFly to use an external session store such as [Azure Cache for Redis](/azure/azure-cache-for-redis/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured session store to operate without interference.
-
-### Use Redis as a session cache with Tomcat
-
-To use Tomcat with [Azure Cache for Redis](/azure/azure-cache-for-redis/), you must configure your app to use a [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementation. The following steps explain this process using [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) as an example.
+To use Tomcat with Redis, you must configure your app to use a [PersistentManager](http://tomcat.apache.org/tomcat-8.5-doc/config/manager.html) implementation. The following steps explain this process using [Pivotal Session Manager: redis-store](https://github.com/pivotalsoftware/session-managers/tree/master/redis-store) as an example.
 
 1. Open a Bash terminal and use `export <variable>=<value>` to set each of the following environment variables.
 
@@ -702,17 +694,23 @@ To use Tomcat with [Azure Cache for Redis](/azure/azure-cache-for-redis/), you m
 
 4. Disable the [session affinity cookie](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) for your App Service instance. You can do this from the Azure portal by navigating to your instance and then setting **Configuration > General settings > ARR affinity** to **Off**.
 
+    By default, App Service will use session affinity cookies to ensure that client requests with existing sessions are routed to the same instance of your application. This default behavior requires no configuration but it can't preserve user session state when your app instance is restarted or when traffic is rerouted to another instance. When you [disable the existing ARR Instance Affinity](https://azure.microsoft.com/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing, you allow the configured session store to operate without interference.
+
 5. Navigate to the **Properties** section of your App Service instance and find **Additional Outbound IP Addresses**. These represent all possible outbound IP addresses for your app. Copy these for use in the next step.
 
 6. For each IP address, create a firewall rule in your Azure Cache for Redis instance. You can do this on the Azure portal from the **Firewall** section of your   Redis instance. Provide a unique name for each rule, and set the **Start IP address** and **End IP address** values to the same IP address.
 
-7. Update the `azure-webapp-maven-plugin` configuration in your app's *pom.xml* file to refer to your Redis account info. This file uses the environment variables you set previously to keep your account information out of your source files.
+7. Navigate to the **Advanced settings** section of your Redis instance and set **Allow access only via SSL** to **No**. This enables your App Service instance to communicate with your Redis cache via the Azure infrastructure.
+
+8. Update the `azure-webapp-maven-plugin` configuration in your app's *pom.xml* file to refer to your Redis account info. This file uses the environment variables you set previously to keep your account information out of your source files.
+
+    If necessary, change `1.7.0` to the current version of the [Maven Plugin for Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme).
 
     ```xml
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
-        <version>1.5.3</version>
+        <version>1.7.0</version>
         <configuration>
 
             <!-- Web App information -->
@@ -750,7 +748,7 @@ To use Tomcat with [Azure Cache for Redis](/azure/azure-cache-for-redis/), you m
     </plugin>
     ```
 
-8. Rebuild and redeploy your app.
+9. Rebuild and redeploy your app.
 
     ```bash
     mvn package
@@ -758,6 +756,8 @@ To use Tomcat with [Azure Cache for Redis](/azure/azure-cache-for-redis/), you m
     ```
 
 Your app will now use your Redis cache for session management.
+
+For a sample that you can use to test these instructions, see the [scaling-stateful-java-web-app-on-azure](https://github.com/Azure-Samples/scaling-stateful-java-web-app-on-azure) repo on GitHub.
 
 ## Docker containers
 
