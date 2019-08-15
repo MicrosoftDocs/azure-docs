@@ -1,6 +1,6 @@
 ---
 keywords:  dsc,powershell,configuration,setup
-title:  Configuration Based On STIG
+title:  Configuration Based On STIG for use in Azure State Configuration
 services: automation
 ms.service: automation
 ms.subservice: dsc
