@@ -17,13 +17,16 @@ ms.collection: M365-identity-device-management
 ---
 # Common Conditional Access policies
 
-Baseline protection policies are great but many organizations need more flexibility than they offer. For example, many organizations need the ability to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies requiring multi-factor authentication. For those organizations the common policies referenced in this article can be of use.
+Baseline protection policies are great but many organizations need more flexibility than they offer. For example, many organizations need the ability to exclude specific accounts like their emergency access or break-glass administration accounts from Conditional Access policies requiring multi-factor authentication. For those organizations, the common policies referenced in this article can be of use.
 
 ![Conditional Access policies in the Azure portal](./media/concept-conditional-access-policy-common/conditional-access-policies-azure-ad-listing.png)
 
 ## Emergency access accounts
 
-More inforamtion about emergency access accounts and why they are important can be found in the articles, [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md) and [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md).
+More information about emergency access accounts and why they are important can be found in the following articles: 
+
+* [Manage emergency access accounts in Azure AD](../users-groups-roles/directory-emergency-access.md)
+* [Create a resilient access control management strategy with Azure Active Directory](../authentication/concept-resilient-controls.md)
 
 ## Typical policies deployed by organizations
 

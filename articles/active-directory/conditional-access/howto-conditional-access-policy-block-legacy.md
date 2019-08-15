@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Conditional Access: Block legacy authentication
 
-Due to the increased risk associated with legacy authentication protocols Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication.
+Due to the increased risk associated with legacy authentication protocols, Microsoft recommends that organizations block authentication requests using these protocols and require modern authentication.
 
 ## Create a Conditional Access policy
 
@@ -32,7 +32,7 @@ The following steps will help create a Conditional Access policy to require thos
    1. Under **Exclude**, select **Users and groups** and choose any accounts that must maintain the ability to use legacy authentication. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-   1. If you must exclude specific applications from your policy you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
+   1. If you must exclude specific applications from your policy, you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
    1. Select **Done**.
 1. Under **Conditions** > **Client apps (preview)**, set **Configure** to **Yes**.
    1. Check only the boxes **Mobile apps and desktop clients** > **Other clients**.

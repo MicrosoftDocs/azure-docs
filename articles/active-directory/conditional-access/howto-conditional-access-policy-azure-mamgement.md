@@ -23,7 +23,7 @@ Organizations use a variety of Azure services and manage them from Azure Resourc
 * Azure PowerShell
 * Azure CLI
 
-These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources Microsoft recommends requiring multi-factor authentication for any user accessing these resources.
+These tools can provide highly privileged access to resources, that can alter subscription-wide configurations, service settings, and subscription billing. To protect these privileged resources, Microsoft recommends requiring multi-factor authentication for any user accessing these resources.
 
 ## User exclusions
 
@@ -46,7 +46,7 @@ The following steps will help create a Conditional Access policy to require thos
    1. Under **Include**, select **All users**.
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
-1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management** and select **Select** then **Done**.
+1. Under **Cloud apps or actions** > **Include**, select **Select apps**, choose **Microsoft Azure Management**, and select **Select** then **Done**.
 1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.

@@ -22,13 +22,13 @@ Organizations who have deployed Microsoft Intune can use the information returne
 * Requiring a PIN to unlock
 * Requiring device encryption
 * Requiring a minimum or maximum operating system version
-* Requiring a device not be jailbroken or rooted
+* Requiring a device is not jailbroken or rooted
 
-This policy compiance information is forwarded to Azure AD where Conditional Access can make decisions to grant or block access to resources.
+This policy compliance information is forwarded to Azure AD where Conditional Access can make decisions to grant or block access to resources.
 
 ## Create a Conditional Access policy
 
-The following steps will help create a Conditional Access policy to require devices accessing resources be marked as compliant with your organization's Intune complaince policies.
+The following steps will help create a Conditional Access policy to require devices accessing resources be marked as compliant with your organization's Intune compliance policies.
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
 1. Browse to **Azure Active Directory** > **Conditional Access**.
@@ -39,7 +39,7 @@ The following steps will help create a Conditional Access policy to require devi
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-   1. If you must exclude specific applications from your policy you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
+   1. If you must exclude specific applications from your policy, you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
    1. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Require device to be marked as compliant**.
    1. Select **Select**.
