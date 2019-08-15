@@ -110,6 +110,17 @@ PowerShell modules can be imported into Azure Automation to make their cmdlets a
 
 We recommend you consider the following when you author a PowerShell module for use in Azure Automation:
 
+* Do NOT include a version folder within the .zip package.  This is less of a concern for runbooks but will cause an issue with the State Configuration service.  Azure Automation will create this automatically when the module is distributed to nodes managed by DSC, and if a version folder exists you will end up with two instances.  Example folder structure for a  DSC module:
+
+```powershell
+myModule
+  - DSCResources
+    - myResourceFolder
+      myResourceModule.psm1
+      myResourceSchema.mof
+  myModuleManifest.psd1
+```
+
 * Include a synopsis, description, and help URI for every cmdlet in the module. In PowerShell, you can define certain help information for cmdlets to allow the user to receive help on using them with the **Get-Help** cmdlet. The following example shows how to define a synopsis and help URI for in a .psm1 module file:
 
   ```powershell
