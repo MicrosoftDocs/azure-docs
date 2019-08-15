@@ -1,6 +1,7 @@
 ---
 title: How to search efficiently using the Azure Maps Search service  | Microsoft Docs 
 description: Learn how to use best practices for search using the Azure Maps Search service
+author: walsehgal
 ms.author: v-musehg
 ms.date: 04/08/2019
 ms.topic: conceptual
@@ -260,7 +261,7 @@ encodeURIComponent(query)
 ```
 
 C#/VB:
-```C#
+```csharp
 Uri.EscapeDataString(query)
 ```
 

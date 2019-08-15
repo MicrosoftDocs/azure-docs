@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 06/19/2019
+ms.date: 07/19/2019
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -180,14 +180,30 @@ Here are the limits for custom connectors that you can create from web APIs.
 
 ## Integration account limits
 
+Each Azure subscription has these integration account limits:
+
+* One [Free tier](../logic-apps/logic-apps-pricing.md#integration-accounts) integration account per Azure region
+
+* 1,000 total integration accounts, including integration accounts in any [integration service environments (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) across both [Developer and Premium SKUs](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level).
+
+* Each ISE, whether [Developer or Premium](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level), is limited to 5 total integration accounts:
+
+  | ISE SKU | Limit |
+  |---------|-------|
+  | **Premium** | 5 total - [Standard](../logic-apps/logic-apps-pricing.md#integration-accounts) only, no Free or Basic |
+  | **Developer** | 5 total - Free (limited to 1), Standard, or both, but no Basic |
+  |||
+
+Additional costs apply to integration accounts that you add beyond the integration accounts that are included with an ISE. To learn how pricing and billing work for ISEs, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#fixed-pricing). For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+
 <a name="artifact-number-limits"></a>
 
 ### Artifact limits per integration account
 
-Here are the limits on the number of artifacts for each integration account. 
-For more information, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/).
+Here are the limits on the number of artifacts for each integration account tier. 
+For pricing rates, see [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/). To learn how pricing and billing work for integration accounts, see the [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts).
 
-> [!NOTE] 
+> [!NOTE]
 > Use the Free tier only for exploratory scenarios, 
 > not production scenarios. This tier restricts 
 > throughput and usage, and has no service-level agreement (SLA).

@@ -8,7 +8,7 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/11/2019
+ms.date: 07/08/2019
 ms.author: marsma
 ms.subservice: B2C
 ---
@@ -17,11 +17,12 @@ ms.subservice: B2C
 
 ## Create a Microsoft account application
 
-To use a Microsoft account as an [identity provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in your tenant that represents it. If you don’t already have a Microsoft account, you can get it at [https://www.live.com/](https://www.live.com/).
+To use a Microsoft account as an [identity provider](active-directory-b2c-reference-oidc.md) in Azure Active Directory (Azure AD) B2C, you need to create an application in the Azure AD tenant. The Azure AD tenant is not the same as your Azure AD B2C tenant. If you don’t already have a Microsoft account, you can get one at [https://www.live.com/](https://www.live.com/).
 
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-1. Select **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
-1. Select **New registration**
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Make sure you're using the directory that contains your Azure AD tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your Azure AD tenant.
+1. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **App registrations**.
+1. Select **New registration**.
 1. Enter a **Name** for your application. For example, *MSAapp1*.
 1. Under **Supported account types**, select **Accounts in any organizational directory and personal Microsoft accounts (e.g. Skype, Xbox, Outlook.com)**. This option targets the widest set of Microsoft identities.
 

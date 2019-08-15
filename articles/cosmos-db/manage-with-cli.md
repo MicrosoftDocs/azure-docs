@@ -4,7 +4,7 @@ description: Use Azure CLI to manage your Azure Cosmos DB account, database and 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 08/05/2019
 ms.author: mjbrown
 
 ---
@@ -22,7 +22,7 @@ To create an Azure Cosmos DB account with SQL API, Session consistency in East U
 
 ```azurecli-interactive
 az cosmosdb create \
-   --name mycosmosdbaccount \
+   --name mycosmosdbaccount # must be lowercase and < 31 characters \
    --resource-group myResourceGroup \
    --kind GlobalDocumentDB \
    --default-consistency-level Session \
@@ -80,7 +80,7 @@ To get the keys for your Cosmos account, run the following command:
 
 ```azurecli-interactive
 # List account keys
-az cosmosdb list-keys \
+az cosmosdb keys list \
    --name  mycosmosdbaccount \
    --resource-group myResourceGroup
 ```

@@ -1,11 +1,11 @@
 ---
 title: What are Azure Reservations?
-description: Learn about Azure Reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB and other resource costs.
+description: Learn about Azure Reservations and pricing to save on your virtual machines, SQL databases, Azure Cosmos DB, and other resource costs.
 author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 08/06/2019
 ms.author: banders
 ---
 
@@ -17,7 +17,7 @@ You can buy a reservation in the [Azure portal](https://ms.portal.azure.com/?mic
 
 ## Why buy a reservation?
 
-If you have virtual machines, Azure Cosmos DB, or SQL databases that run for long periods of time, buying a reservation gives you the most cost-effective option. For example, when you continuously run four instances of a service without a reservation, you're charged at pay-as-you-go rates. If you buy a reservation for those resources, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
+If you have virtual machines, Azure Cosmos DB, or SQL databases that run for long periods of time, buying a reservation gives you the most cost-effective option. For example, when you continuously run four instances of a service without a reservation, you're charged at pay-as-you-go rates. When you buy a reservation for those resources, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
 
 ## Charges covered by reservation
 
@@ -33,21 +33,57 @@ For Windows virtual machines and SQL Database, you can cover the licensing costs
 
 To buy a plan, you must have a subscription owner role in an Enterprise (MS-AZR-0017P or MS-AZR-0148P) or Pay-As-You-Go subscription (MS-AZR-003P or MS-AZR-0023P). Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations.
 
-EA customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. EA admins must be a subscription owner for at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations for different cost centers. After the purchase, centralized teams can add cost center owners to the reservations. Owners can then scope the reservation to their subscriptions. The central team doesn't need to have subscription owner access where the reservation is purchased.
+Enterprise Agreement (EA) customers can limit purchases to EA admins by disabling the **Add Reserved Instances** option in the EA Portal. EA admins must be a subscription owner for at least one EA subscription to purchase a reservation. The option is useful for enterprises that want a centralized team to purchase reservations for different cost centers. After the purchase, centralized teams can add cost center owners to the reservations. Owners can then scope the reservation to their subscriptions. The central team doesn't need to have subscription owner access where the reservation is purchased.
 
-A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, CSP, and individual plans with pay-as-you-go rates.
+A reservation discount only applies to resources associated with subscriptions purchased through Enterprise, Cloud Solution Provider (CSP), and individual plans with pay-as-you-go rates.
 
-## Reservation scope
+## Scope reservations
 
-A reservation scope determines the resources to which the reservation discount applies. A reservation scope can have following values:
+You can scope a reservation to a subscription or resource groups. Setting the scope for a reservation selects where the reservation savings apply. When you scope the reservation to a resource group, reservation discounts apply only to the resource group — not the entire subscription.
 
-**Shared scope** - The reservation discount is applied to the matching resources in eligible subscriptions within the billing context.
+### Reservation scoping options
 
-- For Enterprise Agreement customers, the billing context is the enrollment. For customers that have individual plans with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
+With resource group scoping you have three options to scope a reservation, depending on your needs:
 
-**Single subscription** - The reservation discount is applied to the matching resources in the selected subscription.
+- **Single resource group scope** — Applies the reservation discount to the matching resources in the selected resource group only.
+- **Single subscription scope** — Applies the reservation discount to the matching resources in the selected subscription.
+- **Shared scope** — Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For Enterprise Agreement customers, the billing context is the enrollment. For individual subscriptions with pay-as-you-go rates, the billing scope is all eligible subscriptions created by the account administrator.
 
-You can [update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+While applying reservation discounts on your usage, Azure processes the reservation in the following order:
+
+1. Reservations that are scoped to a resource group
+2. Single scope reservations
+3. Shared scope reservations
+
+A single resource group can get reservation discounts from multiple reservations, depending on how you scope your reservations.
+
+### Scope a reservation to a resource group
+
+You can scope the reservation to a resource group when you buy the reservation, or you set the scope after purchase. You must be a subscription owner to scope the reservation to a resource group.
+
+To set the scope, go to the [Purchase reservation](https://ms.portal.azure.com/#blade/Microsoft\_Azure\_Reservations/CreateBlade/referrer/Browse\_AddCommand) page in the Azure portal. Select the reservation type that you want to buy. On the **Select the product that you want to purchase** selection form, change the Scope value to Single resource group. Then, select a resource group.
+
+![Example showing VM reservation purchase selection](./media/billing-save-compute-costs-reservations/select-product-to-purchase.png)
+
+Purchase recommendations for the resource group in the virtual machine reservation are shown. Recommendations are calculated by analyzing your usage over the last 30 days. A purchase recommendation is made if the cost of running resources with reserved instances is cheaper than the cost of running resources with pay-as-you-go rates. For more information about reservation purchase recommendations, see [Get Reserved Instance purchase recommendations based on usage pattern](https://azure.microsoft.com/blog/get-usage-based-reserved-instance-recommendations).
+
+You can always update the scope after you buy a reservation. To do so, go to the reservation, click **Configuration**, and rescope the reservation. Rescoping a reservation isn't a commercial transaction. Your reservation term isn't changed. For more information about updating the scope, see [Update the scope after you purchase a reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope).
+
+![Example showing a reservation scope change](./media/billing-save-compute-costs-reservations/rescope-reservation-resource-group.png)
+
+### Monitor and optimize reservation usage
+
+You can monitor your reservation usage in multiple ways – through Azure portal, through APIs, or through usage data. To see all the reservations that you have access to, go to **Reservations** in the Azure portal. The reservations grid shows the last recorded utilization percentage for the reservation. Click the reservation to see long-term utilization of the reservation.
+
+You can also get reservation utilization using [APIs](billing-reservation-apis.md#see-reservation-usage) and from your [usage data](billing-understand-reserved-instance-usage-ea.md#common-cost-and-usage-tasks) if you are an enterprise agreement customer.
+
+If you notice that the utilization of your resource group scoped reservation is low, then you can update the reservation scope to single subscription or share it across the billing context. You can also split the reservation and apply the resulting reservations to different resource groups.
+
+### Other considerations
+
+If you don't have matching resources in a resource group, then the reservation will be underutilized. The reservation doesn't automatically apply to a different resource group or subscription where there's low utilization.
+
+A reservation scope doesn't automatically update if you move the resource group from one subscription to another. The scope doesn't update if you delete the resource group. You will have to [rescope the reservation](billing-manage-reserved-vm-instance.md#change-the-reservation-scope). Otherwise, the reservation will be underutilized.
 
 ## Discounted subscription and offer types
 
@@ -61,17 +97,17 @@ Resources that run in a subscription with other offer types don't receive the re
 
 ## How is a reservation billed?
 
-The reservation is charged to the payment method tied to the subscription. If you have an Enterprise subscription, the reservation cost is deducted from your monetary commitment balance. If your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately. If you're billed by invoice, you see the charges on your next invoice.
+The reservation is charged to the payment method tied to the subscription. If you have an Enterprise subscription, the reservation cost is deducted from your monetary commitment balance. When your monetary commitment balance doesn't cover the cost of the reservation, you're billed the overage. If you have a subscription from an individual plan with pay-as-you-go rates, the credit card you have on your account is billed immediately. When you're billed by invoice, you see the charges on your next invoice.
 
 ## How reservation discount is applied
 
-The reservation discount applies to the resource usage matching the attributes you select when you buy the reservation. The attributes include the scope where the matching VMs, SQL databases, Azure Cosmos DB, or other resources run. For example, if you want a reservation discount for four Standard D2 virtual machines in the West US region, then select the subscription where the VMs are running.
+The reservation discount applies to the resource usage matching the attributes you select when you buy the reservation. Attributes include the scope where the matching VMs, SQL databases, Azure Cosmos DB, or other resources run. For example, if you want a reservation discount for four Standard D2 virtual machines in the West US region, then select the subscription where the VMs are running.
 
 A reservation discount is "*use-it-or-lose-it*". If you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 
 When you shut down a resource, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are *lost*.
 
-For example, you might later create a resource and have a matching reservation that is underutilized. In this example, the reservation discount automatically applies to the new matching resource.
+For example, you might later create a resource and have a matching reservation that is underutilized. The reservation discount automatically applies to the new matching resource.
 
 If the virtual machines are running in different subscriptions within your enrollment/account, then select the scope as shared. Shared scope allows the reservation discount to be applied across subscriptions. You can change the scope after you buy a reservation. For more information, see [Manage Azure Reservations](billing-manage-reserved-vm-instance.md).
 
@@ -79,7 +115,7 @@ A reservation discount only applies to resources associated with Enterprise, CSP
 
 ## When the reservation term expires
 
-At the end of the reservation term, the billing discount expires, and the virtual machine, SQL database, Azure Cosmos DB, or other resource is billed at the pay-as-you go price. Azure Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
+At the end of the reservation term, the billing discount expires. The virtual machine, SQL database, Azure Cosmos DB, or other resource is billed at the pay-as-you go price. Azure Reservations don't automatically renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
 
 ## Discount applies to different sizes
 
@@ -87,9 +123,31 @@ When you buy a reservation, the discount can apply to other instances with attri
 
 Service plans:
 
-- Reserved VM Instances: When you buy the reservation and select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Reserved VM Instances: When you buy the reservation and select **Optimized for instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - SQL Database reserved capacity: The discount coverage depends on the performance tier you pick. For more information, see [Understand how an Azure reservation discount is applied](billing-understand-reservation-charges.md).
 - Azure Cosmos DB reserved capacity: The discount coverage depends on the provisioned throughput. For more information, see [Understand how an Azure Cosmos DB reservation discount is applied](billing-understand-cosmosdb-reservation-charges.md).
+
+## Reservation notifications
+
+Depending on how you pay for your Azure subscription, we email reservation  notifications to the following users in your organization. Notifications are sent for various events including:
+
+- Purchase
+- Upcoming reservation expiration
+- Expiry
+- Renewal
+- Cancellation
+- Scope change
+
+For customers with EA subscriptions:
+- A purchase notification is sent to the purchaser and the EA notification contacts.
+- Other reservation lifecycle notifications are sent only to the EA notification contacts.
+- Users added to a reservation using RBAC (IAM) permission don't receive any email notifications.
+
+For customers with individual subscriptions:
+- The purchaser receives a purchase notification.
+- At the time of purchase, the subscription billing account owner receives a purchase notification.
+- The account owner receives all other notifications.
+
 
 ## Need help? Contact us.
 

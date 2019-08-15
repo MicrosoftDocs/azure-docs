@@ -19,7 +19,7 @@ By using connectors in your logic apps, you expand the capabilities for
 your cloud and on-premises apps to perform tasks with the data that you 
 create and already have.
 
-While Logic Apps offers [~200+ connectors](https://docs.microsoft.com/connectors), 
+While Logic Apps offers [hundreds of connectors](https://docs.microsoft.com/connectors), 
 this article describes popular and more commonly used connectors that are successfully 
 used by thousands of apps and millions of executions for processing data and information. 
 To find the full list of connectors and each connector's reference information, 
@@ -34,6 +34,8 @@ and [Logic Apps pricing details](https://azure.microsoft.com/pricing/details/log
 > as HTTP or create a [custom connector](#custom).
 
 Connectors are available either as built-in triggers and actions or as managed connectors:
+
+<a name="built-in"></a>
 
 * [**Built-ins**](#built-ins): These built-in triggers and actions are "native" 
 to Azure Logic Apps and help you create logic apps that run on custom schedules, 
@@ -52,9 +54,11 @@ logic app's workflow, and also work with data.
   > ISE use a pricing plan different from the consumption-based pricing plan.
   >
   > For more information about creating ISEs, see 
-  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment). 
+  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md). 
   > For more information about pricing, see 
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
+
+<a name="managed-connectors"></a>
 
 * **Managed connectors**: Deployed and managed by Microsoft, 
 these connectors provide triggers and actions for accessing 
@@ -104,7 +108,7 @@ you might have to first create connections, which are managed by Azure Logic App
   > the consumption-based pricing plan. 
   >
   > For more information about creating ISEs, see 
-  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+  > [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
   > For more information about pricing, see 
   > [Logic Apps pricing model](../logic-apps/logic-apps-pricing.md).
 
@@ -314,7 +318,7 @@ you can [submit connectors for Microsoft certification](../logic-apps/custom-con
 > the data gateway when communicating with those resources.
 >
 > For more information about creating ISEs, see 
-> [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-logic-apps-environment).
+> [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md).
 
 ## Next steps
 

@@ -8,7 +8,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/17/2019
-ms.author: tylerfox
+ms.author: tyfox
 ---
 
 # Manage Apache Hadoop clusters in HDInsight by using Azure PowerShell

@@ -27,7 +27,7 @@
     href: tutorial-rendering-batchexplorer-blender.md
   - name: Parallel R simulation
     href: tutorial-r-doazureparallel.md
-  - name: OCR with Batch and Azure Functions
+  - name: OCR with Batch and Functions
     href: tutorial-batch-functions.md
 - name: Samples
   items:
@@ -61,6 +61,8 @@
       href: batch-account-create-portal.md
     - name: Manage Batch accounts with Batch Management .NET
       href: batch-management-dotnet.md
+    - name: Cost analysis and budgets
+      href: budget.md
   - name: Authenticate with Azure AD
     items:
     - name: Azure AD with Batch service
@@ -77,10 +79,12 @@
       href: batch-pool-vm-sizes.md
     - name: Configure access to compute nodes
       href: pool-endpoint-configuration.md
-    - name: Create a pool with a custom image
+    - name: Create a pool with the Shared Image Gallery
       href: batch-custom-images.md
     - name: Create a pool in a virtual network
       href: batch-virtual-network.md
+    - name: Mount a virtual file system
+      href: virtual-file-mount.md
     - name: Mount an Azure file share
       href: pool-file-shares.md
     - name: Use RDMA or GPU instances

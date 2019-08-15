@@ -3,7 +3,7 @@ title: Azure PowerShell script - Azure Cosmos DB create Cassandra API keyspace a
 description:  Azure PowerShell script - Azure Cosmos DB create Cassandra API keyspace and table
 author: markjbrown
 ms.service: cosmos-db
-ms.topic: samples
+ms.topic: sample
 ms.date: 05/18/2019
 ms.author: mjbrown
 ---

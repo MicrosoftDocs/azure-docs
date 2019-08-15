@@ -43,6 +43,7 @@ AIB will support Azure Marketplace base OS images:
 - Ubuntu 16.04
 - RHEL 7.6
 - CentOS 7.6
+- Windows 10 RS5 Enterprize/Professional/Enterprise for Virtual Desktop (EVD) 
 - Windows 2016
 - Windows 2019
 
@@ -51,7 +52,7 @@ AIB will support RHEL ISO's, as a source for:
 - RHEL 7.4
 - RHEL 7.5
 
-RHEL 7.6 is not supported, but being tested.
+RHEL 7.6 ISOs are not supported, but are being tested.
 
 ## How it works
 

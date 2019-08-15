@@ -1,5 +1,5 @@
 ---
-ms.title: Retrieve Azure Kinect IMU samples
+title: Retrieve Azure Kinect IMU samples
 description: Retrieve IMU samples using Azure Kinect 
 author: qm13
 ms.author: cedmonds

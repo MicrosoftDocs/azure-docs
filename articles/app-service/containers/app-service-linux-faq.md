@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: msangapu-msft
+ms.author: msangapu
 ms.custom: seodec18
 ---
 # Azure App Service on Linux FAQ

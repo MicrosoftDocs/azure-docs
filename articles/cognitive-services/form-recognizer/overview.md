@@ -6,9 +6,9 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 07/01/2019
+ms.date: 07/25/2019
 ms.author: pafarley
 #Customer intent: As a developer of form-processing software, I want to learn what the Form Recognizer service does so I can determine if I should use it.
 ---
@@ -23,17 +23,28 @@ The Form Recognizer custom model trains to your own data, and you only need five
 
 Unsupervised learning allows the model to understand the layout and relationships between fields and entries without manual data labeling or intensive coding and maintenance. By contrast, pre-trained machine learning models require standardized data. They're less accurate with input material that deviates from traditional formats, like industry-specific forms.
 
-## Pre-built receipt model
+## Prebuilt receipt model
 
-Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the pre-built receipts model is trained to recognize and return all of the text on a receipt.
+Form Recognizer also includes a model for reading sales receipts. This model extracts key information such as the time and date of the transaction, merchant information, amounts of taxes and totals and more. In addition, the prebuilt receipt model is trained to recognize and return all of the text on a receipt.
 
 ## What it includes
 
-Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the pre-built model by invoking these APIs. If you want, you can train and run custom models in a local Docker container.
+Form Recognizer is available as a REST API. You can create, train, and score a custom model or access the prebuilt model by invoking these APIs. If you want, you can train and run custom models in a local Docker container.
 
-## Input requirements (custom model)
+## Input requirements
+### Custom model
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
+
+### Prebuilt receipt model
+
+The input requirements for the receipt model are slightly different.
+
+* Format must be JPEG, PNG, BMP, PDF (text or scanned) or TIFF.
+* File size must be less than 20 MB.
+* Image dimensions must be between 50 x 50 pixels and 10000 x 10000 pixels. 
+* PDF dimensions must be at most 17 x 17 inches, corresponding to Legal or A3 paper sizes and smaller.
+* For PDF and TIFF, only the first 200 pages are processed (with a free tier subscription, only the first two pages are processed).
 
 ## Request access
 

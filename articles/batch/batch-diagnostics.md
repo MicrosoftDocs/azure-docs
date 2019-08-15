@@ -4,7 +4,7 @@ description: Record and analyze diagnostic log events for Azure Batch account re
 services: batch
 documentationcenter: ''
 author: laurenhughes
-manager: jeconnoc
+manager: gwallace
 editor: ''
 
 ms.assetid: 

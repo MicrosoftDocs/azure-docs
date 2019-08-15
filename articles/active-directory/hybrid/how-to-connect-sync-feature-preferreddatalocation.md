@@ -27,7 +27,7 @@ By default, Office 365 resources for your users are located in the same geo as y
 By setting the attribute **preferredDataLocation**, you can define a user's geo. You can have the user's Office 365 resources, such as the mailbox and OneDrive, in the same geo as the user, and still have one tenant for your entire organization.
 
 > [!IMPORTANT]
-> Multi-Geo is currently available to customers with a minimum of 2,500 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
+> Multi-Geo is currently available to customers with a minimum of 500 Office 365 Services subscriptions. Please talk to your Microsoft representative for details.
 >
 >
 
@@ -45,6 +45,8 @@ The geos in Office 365 available for Multi-Geo are:
 | India | IND |
 | Japan | JPN |
 | Korea | KOR |
+| South Africa | ZAF |
+| United Arab Emirates | ARE |
 | United Kingdom | GBR |
 | United States | NAM |
 

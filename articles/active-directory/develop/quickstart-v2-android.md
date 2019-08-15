@@ -3,7 +3,7 @@ title: Microsoft identity platform Android quickstart | Azure
 description: Learn how Android applications can call an API that require access tokens by Microsoft identity platform endpoint.
 services: active-directory
 documentationcenter: dev-center-name
-author: danieldobalian
+author: rwike77
 manager: CelesteDG
 editor: ''
 
@@ -14,9 +14,9 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/26/2019
-ms.author: dadobali
-ms.custom: aaddev 
+ms.date: 07/17/2019
+ms.author: ryanwi
+ms.custom: aaddev, identityplatformtop40
 #Customer intent: As an application developer, I want to learn how Android native apps can call an API that requires access tokens by Microsoft identity platform endpoint.
 ms.collection: M365-identity-device-management
 ---
@@ -101,6 +101,8 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >          }
 >       ]
 >    }
+>    ```
+> 
 > 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 > 1. Paste the following activity to the **manifest\application** node:	
 >    ```xml
@@ -117,7 +119,11 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 >        </intent-filter>
 >    </activity>
 >    ```
-> > 1. Run the app! 
+> 1. Run the app! 
+
+> [!div class="sxs-lookup" renderon="portal"]
+> > [!NOTE]
+> > This quickstart supports Enter_the_Supported_Account_Info_Here.
 
 > [!div renderon="docs"]
 > 1. Extract and open the Project in Android Studio.
@@ -244,3 +250,8 @@ Read more information about MSAL library for Android:
 > [MSAL for Android library wiki](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
+
+Help us improve the Microsoft identity platform. Tell us what you think by completing a short two-question survey.
+
+> [!div class="nextstepaction"]
+> [Microsoft identity platform survey](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyKrNDMV_xBIiPGgSvnbQZdUQjFIUUFGUE1SMEVFTkdaVU5YT0EyOEtJVi4u)

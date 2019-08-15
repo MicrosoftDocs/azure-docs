@@ -1,47 +1,47 @@
 ---
-title: Troubleshooting errors while backing up SAP HANA databases using Azure Backup | Microsoft Docs
-description: This guide explains how to troubleshoot common errors while trying to backup SAP HANA databases using Azure Backup.
-services: backup
-author: pvrk
-manager: vijayts
+title: Troubleshoot errors while backing up SAP HANA databases by using Azure Backup | Microsoft Docs
+description: Describes how to troubleshoot common errors that might occur when you use Azure Backup to back up SAP HANA databases.
+ms.reviewer: pullabhk
+author: dcurwin
+manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 06/28/2019
-ms.author: pullabhk
+ms.date: 08/03/2019
+ms.author: dacurwin
 ---
 
-# Troubleshoot back up of SAP HANA Server on Azure
+# Troubleshoot backup of SAP HANA databases on Azure
 
-This article provides troubleshooting information for protecting SAP HANA databases on Azure Virtual Machines. Before proceeding to troubleshooting, let's understand few key points about permissions and settings.
+This article provides troubleshooting information for backing up SAP HANA databases on Azure virtual machines. The following section covers important conceptual data required to diagnose common error in SAP HANA backup.
 
-## Understanding pre-requisites
+## Prerequisites
 
-As part of [pre-requisites](backup-azure-sap-hana-database.md#prerequisites), the pre-registration script should be run on the virtual machine where HANA is installed to set up the right permissions.
+As part of the [prerequisites](backup-azure-sap-hana-database.md#prerequisites), make sure the preregistration script has been run on the virtual machine where HANA is installed.
 
 ### Setting up permissions
 
-What the pre-registration script does:
+What the preregistration script does:
 
-1. Creates AZUREWLBACKUPHANAUSER in HANA System and adds required Roles and Permissions as listed below:
-    - DATABASE ADMIN  - To create new DBs during restore
-    - CATALOG READ – To read the backup catalog
-    - SAP_INTERNAL_HANA_SUPPORT – To access few private tables
-2. Adds key to Hdbuserstore for HANA plugin to do all operations (inquiry of database, configuring backup, doing backup, doing restore)
+1. Creates AZUREWLBACKUPHANAUSER in the HANA system and adds these required roles and permissions:
+    - DATABASE ADMIN: to create new DBs during restore.
+    - CATALOG READ: to read the backup catalog.
+    - SAP_INTERNAL_HANA_SUPPORT: to access a few private tables.
+2. Adds a key to Hdbuserstore for the HANA plug-in to handle all operations (database queries, restore operations, configuring and running backup).
    
-   - To confirm the key creation, run the HDBSQL command within the HANA machine with SIDADM credentials:
+   To confirm the key creation, run the HDBSQL command on the HANA machine with SIDADM credentials:
 
     ``` hdbsql
     hdbuserstore list
     ```
     
-    The command output should display the key {SID}{DBNAME} with the user as ‘AZUREWLBACKUPHANAUSER’.
+    The command output should display the {SID}{DBNAME} key, with the user shown as AZUREWLBACKUPHANAUSER.
 
 > [!NOTE]
-> Make sure you have a unique set of SSFS files under the path “/usr/sap/{SID}/home/.hdb/”. There should be only one folder under this path.
+> Make sure you have a unique set of SSFS files under **/usr/sap/{SID}/home/.hdb/**. There should be only one folder in this path.
 
 ### Setting up BackInt parameters
 
-Once a database is chosen for backup, the Azure Backup service will configure backInt parameters at DATABASE level.
+After a database is chosen for backup, the Azure Backup service  configures backInt parameters at DATABASE level:
 
 - [catalog_backup_using_backint:true]
 - [enable_accumulated_catalog_backup:false]
@@ -50,18 +50,38 @@ Once a database is chosen for backup, the Azure Backup service will configure ba
 - [backint_response_timeout:7200]
 
 > [!NOTE]
-> Make sure these parameters are NOT present at HOST level. Host level parameters will override these parameters and may cause different behavior than expected.
+> Make sure these parameters are *not* present at HOST level. Host-level parameters will override these parameters and might cause unexpected behavior.
 
-## Understanding common user errors
+## Restore checks
+
+### Single Container Database (SDC) restore
+
+Take care of inputs while restoring a single container database (SDC) for HANA to another SDC machine. The database name should be given with lowercase and with "sdc" appended in brackets. The HANA instance will be displayed in capitals.
+
+Assume an SDC HANA instance "H21" is backed up. The backup items page will show the backup item name as **"h21(sdc)"**. If you attempt to restore this database to another target SDC, say H11, then following inputs need to be provided.
+
+![SDC restore inputs](media/backup-azure-sap-hana-database/hana-sdc-restore.png)
+
+Note the following
+- By default, the restored db name will be populated with the backup item name i.e., h21(sdc)
+- Selecting the target as H11 will NOT change the restored db name automatically. **It should be edited to h11(sdc)**. In case of SDC, the restored db name will be the target instance ID with lowercase letters and 'sdc' appended in brackets.
+- Since SDC can have only single database, you also need to click the checkbox to allow override of the existing database data with the recovery point data.
+- Linux is case-sensitive and hence make sure to preserve the case.
+
+### Multiple Container Database (MDC) restore
+
+In multiple container databases for HANA, the standard configuration is SYSTEMDB + 1 or more Tenant DBs. Restoring an entire SAP HANA instance means to restore both SYSTEMDB and Tenant DBs. One restores SYSTEMDB first and then proceeds for Tenant DB. System DB essentially means to override the system information on the selected target. This also overrides the BackInt related information in the target instance. Therefore, after the system DB is restored to a target instance, one needs to run the pre-registration script again. Only then the subsequent tenant DB restores will succeed.
+
+## Common user errors
 
 ### UserErrorInOpeningHanaOdbcConnection
 
-| Error message | Possible causes | Recommended action |
+data| Error message | Possible causes | Recommended action |
 |---|---|---|
-| Failed to connect to HANA system.check your system is up and running.| Azure Backup service is not able to connect to HANA because HANA DB is down. Or HANA is running but not allowing Azure Backup service to connect | Check if the HANA DB/service is down. If HANA DB/service is up and running, check if all permissions are set up as mentioned [here](#setting-up-permissions). If the key is missing, rerun the pre-registration script to create a new key. |
+| Failed to connect to HANA system. Verify that your system is up and running.| The Azure Backup service can't connect to HANA because the HANA database is down. Or HANA is running but not allowing the Azure Backup service to connect. | Check whether the HANA database or service is down. If the HANA database or service is up and running, check whether [all permissions are set](#setting-up-permissions). If the key is missing, rerun the preregistration script to create a new key. |
 
 ### UserErrorInvalidBackintConfiguration
 
 | Error message | Possible causes | Recommended action |
 |---|---|---|
-| Detected Invalid Backint Configuration. Stop protection and reconfigure the database.| The backInt parameters are incorrectly specified for Azure Backup. | Check the parameters are as mentioned [here](#setting-up-backint-parameters). If backInt based parameters are present in HOST, then remove them. If parameters are not present at HOST but have been manually modified at a database level, then revert them to the appropriate values as mentioned above. Or 'stop protection with retain data' from Azure portal and 'resume backup' once again.|
+| Detected Invalid Backint Configuration. Stop protection and reconfigure the database.| The backInt parameters are incorrectly specified for Azure Backup. | Check whether [the parameters are set](#setting-up-backint-parameters). If backInt-based parameters are present in HOST, remove them. If parameters are not present at HOST level but have been manually modified at a database level, revert them to the appropriate values as described earlier. Or, run **Stop protection and retain backup data** from the Azure portal, and then select **Resume backup**.|

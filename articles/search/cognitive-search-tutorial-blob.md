@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Call Cognitive Services REST APIs in an indexing pipeline - Azure Search'
+title: 'REST Tutorial: Call Cognitive Services in an AI enrichment pipeline - Azure Search'
 description: Step through an example of data extraction, natural language, and image AI processing in Azure Search indexing for data extraction and transformation over JSON blobs using Postman and the REST API. 
 manager: pablocas
 author: luiscabrer
@@ -9,7 +9,7 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: luisca
-ms.custom: seodec2018
+ms.subservice: cognitive-search
 #Customer intent: As a developer, I want an introduction to the core APIs.
 ---
 
@@ -484,4 +484,4 @@ The fastest way to clean up after a tutorial is by deleting the resource group c
 Customize or extend the pipeline with custom skills. Creating a custom skill and adding it to a skillset allows you to onboard text or image analysis that you write yourself. 
 
 > [!div class="nextstepaction"]
-> [Example: create a custom skill](cognitive-search-create-custom-skill-example.md)
+> [Example: Creating a custom skill for cognitive search](cognitive-search-create-custom-skill-example.md)

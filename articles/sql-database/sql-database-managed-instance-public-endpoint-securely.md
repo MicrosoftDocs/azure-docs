@@ -9,7 +9,6 @@ ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto, carlrab
-manager: craigg
 ms.date: 05/08/2019
 ---
 # Use an Azure SQL Database managed instance securely with public endpoints

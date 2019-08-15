@@ -6,8 +6,8 @@ author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.subservice: load data
-ms.date: 04/17/2018
+ms.subservice: load-data
+ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ---
@@ -73,9 +73,9 @@ Follow these steps to create a blank SQL data warehouse.
 
 5. Click **Select**.
 
-6. Click **Performance tier** to specify whether the data warehouse is optimized for elasticity or compute, and the number of data warehouse units. 
+6. Click **Performance tier** to specify whether the data warehouse is Gen1 or Gen2, and the number of data warehouse units. 
 
-7. For this tutorial, select the **Optimized for Elasticity** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
+7. For this tutorial, select the **Gen1** service tier. The slider, by default, is set to **DW400**.  Try moving it up and down to see how it works. 
 
     ![configure performance](media/load-data-wideworldimportersdw/configure-performance.png)
 

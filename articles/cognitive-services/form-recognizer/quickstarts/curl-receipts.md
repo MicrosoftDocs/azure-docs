@@ -6,11 +6,11 @@ author: PatrickFarley
 manager: nitinme
 
 ms.service: cognitive-services
-ms.subservice: form-recognizer
+ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-#Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use a pre-built Form Recognizer model to extract my receipt data.
+#Customer intent: As a developer or data scientist familiar with cURL, I want to learn how to use a prebuilt Form Recognizer model to extract my receipt data.
 ---
 
 # Quickstart: Extract receipt data using the Form Recognizer REST API with cURL
@@ -55,7 +55,7 @@ After you've called the **Analyze Receipt** API, you call the **Get Receipt Resu
 1. Replace `<subscription key>` with your subscription key.
 
 ```bash
-curl -X POST "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/operations/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
+curl -X GET "https://<Endpoint>/formrecognizer/v1.0-preview/prebuilt/receipt/operations/<operationId>" -H "Ocp-Apim-Subscription-Key: <subscription key>"
 ```
 
 ### Examine the response

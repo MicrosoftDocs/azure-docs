@@ -6,7 +6,7 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/0/2019
+ms.date: 07/03/2019
 ms.author: ramamill
 ---
 

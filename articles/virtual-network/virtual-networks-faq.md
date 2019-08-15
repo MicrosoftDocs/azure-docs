@@ -66,9 +66,11 @@ Yes. For more information about public IP address ranges, see [Create a virtual 
 Yes. See [Azure limits](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) for details. Subnet address spaces cannot overlap one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
-Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet.    
-- x.x.x.0 and the last address of the subnet is reserved for protocol conformance.
-- x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.
+Yes. Azure reserves 5 IP addresses within each subnet. These are x.x.x.0-x.x.x.3 and the last address of the subnet. x.x.x.1-x.x.x.3 is reserved in each subnet for Azure services.   
+- x.x.x.0: Network address
+- x.x.x.1: Reserved by Azure for the default gateway
+- x.x.x.2, x.x.x.3: Reserved by Azure to map the Azure DNS IPs to the VNet space
+- x.x.x.255: Network broadcast address
 
 ### How small and how large can VNets and subnets be?
 The smallest supported subnet is /29, and the largest is /8 (using CIDR subnet definitions).
@@ -214,7 +216,7 @@ Yes. You can apply [Network Security Groups](security-overview.md) to individual
 Yes. You can deploy a [firewall network virtual appliance](https://azure.microsoft.com/marketplace/?term=firewall) from several vendors through the Azure Marketplace.
 
 ### Is there information available about securing VNets?
-Yes. For details, see [Azure Network Security Overview](../security/security-network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Yes. For details, see [Azure Network Security Overview](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## APIs, schemas, and tools
 

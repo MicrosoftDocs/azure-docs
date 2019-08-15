@@ -16,7 +16,7 @@ Because Azure SignalR Service and Azure Functions are both fully managed, highly
 
 ## Integrate real-time communications with Azure services
 
-Azure Functions allow you to write code in [several languages](../azure-functions/supported-languages.md), including JavaScript, C#, and Java, that triggers whenever events occur in the cloud. Examples of these events include:
+Azure Functions allow you to write code in [several languages](../azure-functions/supported-languages.md), including JavaScript, Python, C#, and Java, that triggers whenever events occur in the cloud. Examples of these events include:
 
 * HTTP and webhook requests
 * Periodic timers

@@ -6,7 +6,7 @@ author: jimzim
 ms.author: jzim
 manager: jeconnoc
 ms.topic: tutorial
-ms.service: openshift
+ms.service: container-service
 ms.date: 05/14/2019
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
@@ -139,8 +139,7 @@ az openshift create --resource-group $CLUSTER_NAME --name $CLUSTER_NAME -l $LOCA
 > [!NOTE]
 > If you get an error that the host name is not available, it may be because your
 > cluster name is not unique. Try deleting your original app registration and
-> redoing the steps with a different cluster name in [Create a new app registration]
-> (howto-aad-app-configuration.md#create-a-new-app-registration), omitting the
+> redoing the steps with a different cluster name in [Create a new app registration](howto-aad-app-configuration.md#create-an-azure-ad-app-registration), omitting the
 > step of creating a new user and security group.
 
 After a few minutes, `az openshift create` will complete.

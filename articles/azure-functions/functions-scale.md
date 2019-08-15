@@ -48,7 +48,7 @@ The following table indicates the current level of support for the three hosting
 | | Consumption plan | Premium plan | Dedicated plan |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | preview | GA |
-| Linux | preview | N/A | GA |
+| Linux | preview | preview | GA |
 
 ## Consumption plan
 
@@ -84,9 +84,6 @@ Consider the Azure Functions premium plan in the following situations:
 * You need more CPU or memory options than what is provided by the Consumption plan.
 * Your code needs to run longer than the [maximum execution time allowed](#timeout) on the Consumption plan.
 * You require features that are only available on a Premium plan, such as VNET/VPN connectivity.
-
-> [!NOTE]
-> The premium plan preview currently only supports Azure Functions on Windows.
 
 When running JavaScript functions on a Premium plan, you should choose an instance that has fewer vCPUs. For more information, see the [Choose single-core Premium plans](functions-reference-node.md#considerations-for-javascript-functions).  
 

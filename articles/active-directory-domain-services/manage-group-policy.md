@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Administer Group Policy on managed domains | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Administer Group Policy | Microsoft Docs'
 description: Administer Group Policy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''

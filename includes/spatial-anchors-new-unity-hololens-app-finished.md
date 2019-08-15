@@ -24,7 +24,12 @@ using UnityEngine.XR.WSA;
 using UnityEngine.XR.WSA.Input;
 
 public class AzureSpatialAnchorsScript : MonoBehaviour
-{
+{   
+    /// <summary>
+    /// The sphere prefab.
+    /// </summary>
+    public GameObject spherePrefab;
+
     /// <summary>
     /// Set this string to the Spatial Anchors account id provided in the Spatial Anchors resource.
     /// </summary>
@@ -167,7 +172,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     }
 
     /// <summary>
-    /// Initializes a new CloudSpatialAnchorSessions.
+    /// Initializes a new CloudSpatialAnchorSession.
     /// </summary>
     void InitializeSession()
     {
@@ -229,9 +234,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
                 QueueOnUpdate(() =>
                 {
                     // Create a green sphere.
-                    GameObject spherePrimitive = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-                    sphere = GameObject.Instantiate(spherePrimitive, Vector3.zero, Quaternion.identity);
-                    sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
+                    sphere = GameObject.Instantiate(spherePrefab, Vector3.zero, Quaternion.identity) as GameObject;
                     sphere.AddComponent<WorldAnchor>();
                     sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
                     sphereMaterial.color = Color.green;
@@ -315,9 +318,7 @@ public class AzureSpatialAnchorsScript : MonoBehaviour
     protected virtual void CreateAndSaveSphere(Vector3 hitPoint)
     {
         // Create a white sphere.
-        sphere = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        sphere.transform.position = hitPoint;
-        sphere.transform.localScale = new Vector3(0.25F, 0.25F, 0.25F);
+        sphere = GameObject.Instantiate(spherePrefab, hitPoint, Quaternion.identity) as GameObject;
         sphere.AddComponent<WorldAnchor>();
         sphereMaterial = sphere.GetComponent<MeshRenderer>().material;
         sphereMaterial.color = Color.white;

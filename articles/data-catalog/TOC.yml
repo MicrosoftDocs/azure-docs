@@ -55,7 +55,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/resources/samples/?service=data-catalog
+    href: data-catalog-samples.md
   - name: REST
     href: /rest/api/datacatalog/
   - name: Search syntax reference

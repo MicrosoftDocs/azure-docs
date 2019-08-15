@@ -168,7 +168,7 @@ Restart-AzureVM -InitiateMaintenance -ServiceName <service name> -Name <VM name>
 
 **A:** Virtual machines deployed in an availability set or virtual machine scale sets have the notion of Update Domains (UD). When performing maintenance, Azure honors the UD constraint and will not reboot virtual machines from different UD (within the same availability set).  Azure also waits for at least 30 minutes before moving to the next group of virtual machines. 
 
-For more information about high availability, see [Regions and availability for virtual machines in Azure](regions-and-availability.MD).
+For more information about high availability, see [Availability for virtual machines in Azure](availability.MD).
 
 **Q: How do I get notified about planned maintenance?**
 

@@ -118,8 +118,7 @@ Retrieve the provisioning information from your virtual machine, and use that to
 
 When you create an enrollment in DPS, you have the opportunity to declare an **Initial Device Twin State**. In the device twin, you can set tags to group devices by any metric you need in your solution, like region, environment, location, or device type. These tags are used to create [automatic deployments](how-to-deploy-monitor.md). 
 
-
-1. In the [Azure portal](https://portal.azure.com), and navigate to your instance of IoT Hub Device Provisioning Service. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service. 
 
 2. Under **Settings**, select **Manage enrollments**. 
 
@@ -158,8 +157,7 @@ The IoT Edge runtime is deployed on all IoT Edge devices. Its components run in 
 
 Know your DPS **ID Scope** and device **Registration ID** before beginning the article that matches your device type. If you installed the example Ubuntu server, use the **x64** instructions. Make sure to configure the IoT Edge runtime for automatic, not manual, provisioning. 
 
-* [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md)
-* [Install the Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 ## Give IoT Edge access to the TPM
 

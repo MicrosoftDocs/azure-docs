@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2019
 ms.author: ryanwi
-ms.custom: aaddev
+ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
 #Customer intent: As an enterprise developer and software-as-a-service provider, I want to know how to add and register my application with the Microsoft identity platform.
 ms.collection: M365-identity-device-management
@@ -47,7 +47,7 @@ This quickstart shows you how to add and register an application using the **App
        - For web applications, provide the base URL of your app. For example, `http://localhost:31544` might be the URL for a web app running on your local machine. Users would use this URL to sign in to a web client application.
        - For public client applications, provide the URI used by Azure AD to return token responses. Enter a value specific to your application, such as `myapp://auth`.
 
-     To see specific examples for web applications or native applications, check out our [quickstarts](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     To see specific examples for web applications or native applications, check out our [quickstarts](https://docs.microsoft.com/azure/active-directory/develop).
 
 1. When finished, select **Register**.
 
@@ -64,6 +64,6 @@ Azure AD assigns a unique application (client) ID to your app, and you're taken 
     - [Configure a client application to access web APIs](quickstart-configure-app-access-web-apis.md)
     - [Configure an application to expose web APIs](quickstart-configure-app-expose-web-apis.md)
     - [Modify the accounts supported by an application](quickstart-modify-supported-accounts.md)
-- Choose a [quickstart](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts) to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.
+- Choose a [quickstart](https://docs.microsoft.com/azure/active-directory/develop) to quickly build an app and add functionality like getting tokens, refreshing tokens, signing in a user, displaying some user info, and more.
 - Learn more about the two Azure AD objects that represent a registered application and the relationship between them, see [Application objects and service principal objects](app-objects-and-service-principals.md).
 - Learn more about the branding guidelines you should use when developing apps, see [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).

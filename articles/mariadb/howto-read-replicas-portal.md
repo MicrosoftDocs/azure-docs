@@ -5,7 +5,7 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 07/12/2019
 ---
 
 # How to create and manage read replicas in Azure Database for MariaDB using the Azure portal
@@ -13,7 +13,7 @@ ms.date: 06/10/2019
 In this article, you will learn how to create and manage read replicas in the Azure Database for MariaDB service using the Azure portal.
 
 > [!IMPORTANT]
-> Same region read replicas is currently in public preview.
+> You can create a read replica in the same region as your master server, or in any other Azure region of your choice. Read replicas (same region and cross-region) are currently in public preview.
 
 ## Prerequisites
 
@@ -40,7 +40,11 @@ A read replica server can be created using the following steps:
 
     ![Azure Database for MariaDB - Replica name](./media/howto-read-replica-portal/replica-name.png)
 
-6. Select **OK** to confirm creation of the replica.
+6. Select the location for the replica server. You can create a replica in any Azure region. The default location is the same as the master server.
+
+    ![Azure Database for MariaDB - Replica location](./media/howto-read-replica-portal/replica-location.png)
+
+7. Select **OK** to confirm creation of the replica.
 
 > [!NOTE]
 > Read replicas are created with the same server configuration as the master. The replica server configuration can be changed after it has been created. It is recommended that the replica server's configuration should be kept at equal or greater values than the master to ensure the replica is able to keep up with the master.

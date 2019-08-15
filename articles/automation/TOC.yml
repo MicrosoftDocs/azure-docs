@@ -20,10 +20,14 @@
       displayName: RBAC
     - name: Move your Automation Account to another Subscription
       href: how-to/move-account.md
+    - name: Automate onboarding of Automation Services
+      href: /azure/architecture/cloud-adoption/operations/azure-server-management/onboarding-automation
 - name: Process Automation
   items:
   - name: Hybrid Runbook Worker Overview
     href: automation-hybrid-runbook-worker.md
+  - name: Runbook gallery
+    href: automation-runbook-gallery.md
   - name: Concepts
     items:
     - name: Runbook types
@@ -124,6 +128,8 @@
     - name: Troubleshoot Runbooks
       href: troubleshoot/runbooks.md
       displayName: troubleshoot
+    - name: Start/Stop VMs
+      href: troubleshoot/start-stop-vm.md
 - name: Update Management
   items:
   - name: Update Management overview
@@ -232,7 +238,7 @@
     - name: Getting Started
       href: automation-dsc-getting-started.md
       displayName: DSC
-    - name: Create a DSC configuration
+    - name: Manage a Linux configuration
       href: automation-quickstart-dsc-configuration.md
       displayName: DSC, state configuration, config, node configuration, node
   - name: Onboarding
@@ -251,6 +257,9 @@
     - name: Compiling DSC configurations
       href: automation-dsc-compile.md
       displayName: state configuration, composite resources, configurationData
+    - name: Remediate non-compliant DSC servers
+      href: automation-dsc-remediate.md
+      displayName: state configuration, DSC, remediate
     - name: Composing DSC Configurations using Composite Resources
       href: compose-configurationwithcompositeresources.md
     - name: Continuous deployment using Chocolatey
@@ -290,8 +299,8 @@
       displayName: module, import
 - name: Cross-Component Scenarios
   items:
-    - name: Runbook gallery
-      href: automation-runbook-gallery.md
+    - name: Send an email from a Runbook using SendGrid
+      href: automation-send-email.md
     - name: Monitor runbooks with metric alerts
       href: automation-alert-metric.md
     - name: Start a runbook from Azure alerts
@@ -313,6 +322,8 @@
   items:
   - name: Forward Azure Automation job data to Log Analytics
     href: automation-manage-send-joblogs-log-analytics.md
+  - name: Supported Regions for Log Analytics Workspace Mappings
+    href: how-to/region-mappings.md
 - name: Migrate
   items:
   - name: Migrate from Orchestrator

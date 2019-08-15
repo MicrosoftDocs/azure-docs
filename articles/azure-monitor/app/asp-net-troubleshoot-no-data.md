@@ -24,13 +24,13 @@ ms.author: mbullwin
 
 *I'm experiencing data loss randomly.*
 
-* Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-applicationinsights-channel-offer-guaranteed-telemetry-delivery-or-what-are-the-scenarios-where-telemetry-can-be-lost)
+* Check if you are experiencing data loss at [Telemetry Channel](telemetry-channels.md#does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost)
 
 * Check for any known issues in Telemetry Channel [Github repo](https://github.com/Microsoft/ApplicationInsights-dotnet/issues)
 
 *I'm experiencing data loss in Console App or on Web App when app is about to stop.*
 
-* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetrychannels) used.
+* SDK channel keeps telemetry in buffer, and sends them in batches. If the application is shutting down, you may need to explicitly call [Flush()](api-custom-events-metrics.md#flushing-data). Behavior of `Flush()` depends on the actual [channel](telemetry-channels.md#built-in-telemetry-channels) used.
 
 ## No data from my server
 *I installed my app on my web server, and now I don't see any telemetry from it. It worked OK on my dev machine.*

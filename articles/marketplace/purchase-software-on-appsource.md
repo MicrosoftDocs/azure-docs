@@ -5,7 +5,7 @@ author: qianw211
 manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace 
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 06/05/2019
 ---
 

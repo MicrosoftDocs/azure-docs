@@ -112,7 +112,7 @@ For more information about index properties, see [Create Index &#40;Azure Search
 |Urdu|ur.microsoft||  
 |Vietnamese|vi.microsoft||  
 
- All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/4_9_0/core/overview-summary.html ).
+ All analyzers with names annotated with **Lucene** are powered by [Apache Lucene's language analyzers](https://lucene.apache.org/core/6_6_1/core/overview-summary.html ).
 
 ## See also  
  [Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  

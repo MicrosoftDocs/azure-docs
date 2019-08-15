@@ -47,4 +47,4 @@ By using Azure Stream Analytics, you can sample data from inputs or upload sampl
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Azure Stream Analytics Query Language Reference](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+> [Azure Stream Analytics Query Language Reference](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)

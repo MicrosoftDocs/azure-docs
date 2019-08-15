@@ -1,6 +1,6 @@
 ---
 title: "Sending requests to the Bing Autosuggest API"
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to send requests to Bing Autosuggest API.
 services: cognitive-services
 author: swhite-msft
@@ -8,14 +8,14 @@ manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
-ms.topic: quickstart
-ms.date: 06/25/2019
+ms.topic: conceptual
+ms.date: 06/27/2019
 ms.author: scottwhi
 ---
 
 # Sending requests to the Bing Autosuggest API.
 
-If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into a search box in your application, you can display suggestions in a drop-down list. Use this article to learn more about sending requests to this API.
+If your application sends queries to any of the Bing Search APIs, you can use the Bing Autosuggest API to improve your users' search experience. The Bing Autosuggest API returns a list of suggested queries based on the partial query string in the search box. As characters are entered into a search box in your application, you can display suggestions in a drop-down list. Use this article to learn more about sending requests to this API. 
 
 ## Bing Autosuggest API Endpoint
 
@@ -40,7 +40,7 @@ For examples of basic requests using the Autosuggest API, see [Autosuggest Quick
 ## Bing Autosuggest API requests
 
 > [!NOTE]
-> Requests to the Bing Autosuggest API must use the HTTPS protocol.
+> * Requests to the Bing Autosuggest API must use the HTTPS protocol.
 
 We recommend that all requests originate from a server. Distributing the key as part of a client application provides more opportunity malicious third-party access. Additionally, making calls from a server provides a single upgrade point for future updates.
 
@@ -96,6 +96,8 @@ The following web suggestion group is a response to the above request. The group
 The `displayText` field contains the suggested query that you'd use to populate your search box's drop-down list. You must display all suggestions that the response includes, and in the given order.  
 
 If the user selects a query from the drop-down list, you can use it to call the one of the [Bing Search APIs](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) and display the results yourself, or send the user to the Bing results page using the returned `url` field.
+
+[!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
 ```json
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC

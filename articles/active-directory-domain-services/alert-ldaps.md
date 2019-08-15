@@ -1,5 +1,5 @@
 ---
-title: 'Azure Active Directory Domain Services: Troubleshooting Secure LDAP configuration | Microsoft Docs'
+title: 'Azure Active Directory Domain Services: Troubleshoot secure LDAP | Microsoft Docs'
 description: Troubleshooting Secure LDAP for Azure AD Domain Services
 services: active-directory-ds
 documentationcenter: ''

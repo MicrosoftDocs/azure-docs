@@ -55,7 +55,7 @@ IoT Edge hub facilitates module to module communication. Using IoT Edge hub as a
 To send data to the IoT Edge hub, a module calls the SendEventAsync method. The first argument specifies on which output to send the message. The following pseudocode sends a message on **output1**:
 
    ```csharp
-   ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
+   ModuleClient client = await ModuleClient.CreateFromEnvironmentAsync(transportSettings); 
    await client.OpenAsync(); 
    await client.SendEventAsync(“output1”, message); 
    ```

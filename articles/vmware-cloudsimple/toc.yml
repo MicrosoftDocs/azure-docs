@@ -54,16 +54,18 @@
       href: cloudsimple-faq.md
   - name: Tutorials
     items:
-    - name: Enable resource provider
-      href: enable-cloudsimple-service.md
     - name: Create the CloudSimple Service
       href: create-cloudsimple-service.md 
     - name: Access the CloudSimple portal
       href: access-cloudsimple-portal.md
+    - name: On-premises firewall configuration
+      href: on-premises-firewall-configuration.md
     - name: Manage nodes
       items:
       - name: Provision nodes
         href: create-nodes.md
+      - name: Delete nodes
+        href: delete-nodes.md
     - name: Manage private cloud resources
       items: 
       - name: Create a private cloud
@@ -72,12 +74,16 @@
         href: manage-private-cloud.md
       - name: Expand a private cloud
         href: expand-private-cloud.md
+      - name: Shrink a private cloud
+        href: shrink-private-cloud.md
       - name: Map your Azure subscription
         href: azure-subscription-mapping.md
       - name: Escalate privileges
         href: escalate-private-cloud-privileges.md
+      - name: Delete a private cloud
+        href: delete-private-cloud.md
     - name: Monitor CloudSimple activity
-      href: https://docs.azure.cloudsimple.com/activity/
+      href: monitor-activity.md
     - name: Set up private cloud networking
       items: 
       - name: Create and manage VLANs and subnets
@@ -87,9 +93,9 @@
       - name: Allocate public IP addresses
         href: https://docs.azure.cloudsimple.com/public-ips/
       - name: Set up VPN connections
-        href: https://docs.azure.cloudsimple.com/vpn-gateway/
+        href: vpn-gateway.md
       - name: Obtain peer information for virtual network connection to CloudSimple
-        href: https://docs.azure.cloudsimple.com/virtual-network-connection/
+        href: virtual-network-connection.md
       - name: Access vSphere client escalation privileges for admin tasks
         href: https://docs.azure.cloudsimple.com/vsphere-access/
     - name: Manage CloudSimple portal accounts
@@ -121,11 +127,11 @@
     - name: Private cloud networking
       items:
       - name: VPN connection between on-premises and private cloud
-        href: https://docs.azure.cloudsimple.com/set-up-vpn/
+        href: set-up-vpn.md
       - name: On-premises network connection with ExpressRoute
         href: https://docs.azure.cloudsimple.com/on-premises-connection/
       - name: Azure virtual network connection with ExpressRoute
-        href: https://docs.azure.cloudsimple.com/azure-expressroute-connection/
+        href: azure-expressroute-connection.md
     - name: VMware platform
       items:
       - name: Learn private cloud permission model
