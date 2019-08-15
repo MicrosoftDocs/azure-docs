@@ -21,6 +21,12 @@ Customers have provided feedback that the most difficult aspect is actually mana
 [configuration data](/powershell/dsc/configurations/configdata).
 Organizing information across logical constructs like location, type, and environment.
 
+> Note!
+> This article refers to a solution that is maintained by the Open Source community.
+> Support is only available in the form of GitHub collaboration, not from Microsoft.
+
+## Datum
+
 A community maintained solution named
 [Datum](https://github.com/gaelcolas/Datum)
 has been created to resolve this challenge.
