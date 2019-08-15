@@ -17,10 +17,10 @@ ms.topic: conceptual
 
 Accelerate adoption of Box across your organization and increase user adoption with our pre-built integration. Enable users to collaborate quickly by connecting Box to Azure Active Directory (Azure AD).
 
+![Shows the Box app logo](./media/box.png)
+
 > [!div class="nextstepaction"]
 > [Try Box with Azure AD >](https://portal.azure.com/#blade/Microsoft_AAD_IAM/AppGalleryApplicationsBlade/category/topapps)
-
-![Shows the Box app logo](./media/box.png)
 
 ## What can you do with Box and Azure AD?
 
