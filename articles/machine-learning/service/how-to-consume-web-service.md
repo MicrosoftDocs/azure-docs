@@ -79,7 +79,7 @@ Azure Machine Learning provides two ways to control access to your web services.
 |Key|Disabled by default| Enabled by default|
 |Token| Not Available| Disabled by default |
 
-When sending a request to a service that is secured with a key or token, use the __Authorization__ header to pass the key or token. The key or token must be formated as `Bearer <key-or-token>`, where `<key-or-token>` is your key or token value.
+When sending a request to a service that is secured with a key or token, use the __Authorization__ header to pass the key or token. The key or token must be formatted as `Bearer <key-or-token>`, where `<key-or-token>` is your key or token value.
 
 #### Authentication with keys
 
