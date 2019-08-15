@@ -122,6 +122,9 @@ It takes a few minutes to create the cluster and configure the cluster autoscale
 
 ## Change the cluster autoscaler settings
 
+> [!IMPORTANT]
+> If you have the *multiple agent pools* feature enabled on your subscription, skip to the [autoscale with multiple agent pools section](##use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Clusters with multiple agent pools enabled require use of the `az aks nodepool` command set to change node pool specific properties instead of `az aks`. The below instructions assume you have not enabled multiple node pools. To check if you have it enabled, run `az feature  list -o table` and look for `Microsoft.ContainerService/multiagentpoolpreview`.
+
 In the previous step to create an AKS cluster or update an existing node pool, the cluster autoscaler minimum node count was set to *1*, and the maximum node count was set to *3*. As your application demands change, you may need to adjust the cluster autoscaler node count.
 
 To change the node count, use the [az aks update][az-aks-update] command.
@@ -163,7 +166,7 @@ If you wish to re-enable the cluster autoscaler on an existing cluster, you can 
 
 The cluster autoscaler can be used together with the [multiple node pools preview feature](use-multiple-node-pools.md) enabled. Follow that document to learn how to enable multiple node pools and add additional node pools to an existing cluster. When using both features together, you enable the cluster autoscaler on each individual node pool in the cluster and can pass unique autoscaling rules to each.
 
-Use the [az aks nodepool update][az-aks-nodepool-update] command to update an existing nodepool and turn on the cluster autoscaler.
+The below command assumes you followed the [initial instructions](##create-an-AKS-cluster-and-enable-the-cluster-autoscaler) earlier in this document and you want to update an existing node pool's max-count from *3* to *5*. Use the [az aks nodepool update][az-aks-nodepool-update] command to update an existing node pool's settings.
 
 ```azurecli-interactive
 az aks nodepool update \
@@ -172,10 +175,18 @@ az aks nodepool update \
   --name mynodepool \
   --enable-cluster-autoscaler \
   --min-count 1 \
-  --max-count 3
+  --max-count 5
 ```
 
 The cluster autoscaler can be disabled with [az aks nodepool update][az-aks-nodepool-update] and passing the `--disable-cluster-autoscaler` parameter.
+
+```azurecli-interactive
+az aks nodepool update \
+  --resource-group myResourceGroup \
+  --cluster-name multipoolcluster \
+  --name mynodepool \
+  --disable-cluster-autoscaler
+```
 
 ## Next steps
 
