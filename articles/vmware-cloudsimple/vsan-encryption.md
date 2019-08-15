@@ -23,7 +23,7 @@ This KMS solution requires you to:
 * Provide your own licenses for the KMS tool.
 * Configure and manage vSAN encryption in your Private Cloud using the third-party KMS tool running in your Azure virtual network.
 
-## KMS Deployment scenario
+## KMS deployment scenario
 
 The KMS server cluster runs in your Azure virtual network and is IP reachable from the Private Cloud vCenter over the configured Azure ExpressRoute connection.
 

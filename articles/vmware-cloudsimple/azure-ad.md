@@ -31,11 +31,11 @@ To use Azure AD as an identity source with vCenter, you must set up Azure AD and
 1. [How to set up Azure AD and Azure AD domain services](#how-to-set-up-azure-ad-and-azure-ad-domain-services)
 2. [How to set up an identity source on your Private Cloud vCenter](#how-to-set-up-an-identity-source-on-your-private-cloud-vcenter)
 
-## How to set up Azure AD and Azure AD domain services
+## Set up Azure AD and Azure AD domain services
 
 Before you get started, you will need access to your Azure subscription with Global Administrator privileges.  The following steps give general guidelines. Details are contained in the Azure documentation.
 
-### How to set up Azure AD
+### Azure AD
 
 > [!NOTE]
 > If you already have Azure AD, you can skip this section.
@@ -48,7 +48,7 @@ Before you get started, you will need access to your Azure subscription with Glo
 
 You can optionally configure other Azure AD features.  These are not required for enabling vCenter authentication with Azure AD.
 
-### How to set up Azure AD domain services
+### Azure AD domain services
 
 > [!NOTE]
 > This is an important step for enabling Azure AD as an identity source for vCenter.  To avoid any issues, ensure that all steps are performed correctly.

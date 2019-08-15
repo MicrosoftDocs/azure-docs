@@ -29,7 +29,7 @@ Firewall tables and the associated rules allow you to specify restrictions on tr
 5. A default rule for the table is listed. Click **Create New Rule** to create an additional rule. See the following procedure for details.
 6. Click **Done** to save the firewall table.
 
-## Firewall Rules
+## Firewall rules
 
 Firewall rules determine how the firewall treats specific types of traffic. The **Rules** tab for a selected firewall table lists all the associated rules.
 
