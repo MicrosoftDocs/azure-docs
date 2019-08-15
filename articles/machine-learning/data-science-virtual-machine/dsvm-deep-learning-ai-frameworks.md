@@ -142,7 +142,7 @@ Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 ac
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Distribued deep learning framework for TensorFlow      |
+| What is it?   | Distributed deep learning framework for TensorFlow      |
 | Supported DSVM Editions      | Ubuntu     |
 | How is it configured / installed on the DSVM?  | Horovod is installed in Python 3.5 on [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
 | Links to Samples      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
