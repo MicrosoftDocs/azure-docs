@@ -3,7 +3,7 @@ title: Getting Started with Azure storage and Visual Studio connected services (
 description: How to get started using Azure Table storage in an Azure WebJobs project in Visual Studio after connecting to a storage account using Visual Studio connected services
 services: storage
 author: ghogen
-manager: douge
+manager: jillfra
 ms.assetid: 061a6c46-0592-4e5d-aced-ab7498481cde
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure

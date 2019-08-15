@@ -216,27 +216,27 @@
       href: how-to-deploy-and-where.md
     - name: Notebook VMs
       href: how-to-deploy-local-container-notebook-vm.md
-    - name: Azure Container Instances
+    - name: Deploy to Azure Container Instances
       displayName: aci
       href: how-to-deploy-azure-container-instance.md
-    - name: Azure Kubernetes Service
+    - name: Deploy to Azure Kubernetes Service
       displayName: aks, aad, authentication, azure active directory
       href: how-to-deploy-azure-kubernetes-service.md
-    - name: GPU inference
-      href: how-to-deploy-inferencing-gpus.md
-    - name: FPGAs inference
-      href: how-to-deploy-fpga-web-service.md
-    - name: IoT Edge
+    - name: Deploy to IoT Edge
       href: /azure/iot-edge/tutorial-deploy-machine-learning?context=azure/machine-learning/service/context/ml-context
-    - name: Azure App Service
+    - name: Deploy to Azure App Service
       displayName: web app
       href: how-to-deploy-app-service.md
-    - name: Custom Docker image
-      href: how-to-deploy-custom-docker-image.md
+    - name: Deploy for GPU inference
+      href: how-to-deploy-inferencing-gpus.md
+    - name: Deploy for FPGAs inference
+      href: how-to-deploy-fpga-web-service.md
     - name: Deploy existing models
       displayName: publish existing model
       href: how-to-deploy-existing-model.md
-    - name: Troubleshoot & Debug
+    - name: Use custom Docker image
+      href: how-to-deploy-custom-docker-image.md
+    - name: Troubleshoot & debug deployments
       href: how-to-troubleshoot-deployment.md
   - name: Consume web services
     items:

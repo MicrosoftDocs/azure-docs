@@ -109,7 +109,7 @@ The following snippets are all taken from the Program.java file.
 
 Now go back to the Azure portal to get your connection string information and copy it into the app.
 
-1. From the Account, select **Quick Start**, select Java, then copy the connection string to your clipboard
+1. From the Account, select **Quick Start**, select **Java**, then copy the connection string to your clipboard.
 
 2. Open the `Program.java` file, replace the argument to the MongoClientURI constructor with the connection string. You've now updated your app with all the info it needs to communicate with Azure Cosmos DB. 
     
