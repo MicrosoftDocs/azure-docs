@@ -50,12 +50,13 @@ You can optionally configure other Azure AD features.  These are not required fo
 
 ### How to set up Azure AD domain services
 
-> [!NOTE] This is an important step for enabling Azure AD as an identity source for vCenter.  To avoid any issues, ensure that all steps are performed correctly.
+> [!NOTE]
+> This is an important step for enabling Azure AD as an identity source for vCenter.  To avoid any issues, ensure that all steps are performed correctly.
 
 1. Enable Azure AD domain services as described in [Enable Azure Active Directory domain services using the Azure portal](../active-directory-domain-services/active-directory-ds-getting-started.md).
 2. Set up the network that will be used by Azure AD domain services as described in the Azure topic <a href="https://docs.microsoft.com/en-us/azure/active-directory-domain-services/active-directory-ds-getting-started-network" target="_blank">Enable Azure Active Directory Domain Services using the Azure portal</a>.
 3. Configure Administrator Group for managing Azure AD Domain Services as described in [Enable Azure Active Directory Domain Services using the Azure portal](../active-directory-domain-services/active-directory-ds-getting-started-admingroup.md).
-4. Update DNS settings for your Azure AD Domain Services as described in [Enable Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns).  If you want to connect to AD over the Internet, set up the DNS record for the public IP address of the Azure AD domain services to the domain name.
+4. Update DNS settings for your Azure AD Domain Services as described in [Enable Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-dns.md).  If you want to connect to AD over the Internet, set up the DNS record for the public IP address of the Azure AD domain services to the domain name.
 5. Enable password hash synchronization for users.  This step enables synchronization of password hashes required for NT LAN Manager (NTLM) and Kerberos authentication to Azure AD Domain Services. After you've set up password hash synchronization, users can sign in to the managed domain with their corporate credentials. See [Enable password hash synchronization to Azure Active Directory Domain Services](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md).
     1. If cloud-only users are present, they must change their password using <a href="http://myapps.microsoft.com/" target="_blank">Azure AD access panel</a> to ensure password hashes are stored in the format required by NTLM or Kerberos.  Follow instructions in [Enable password hash synchronization to your managed domain for cloud-only user accounts](../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md#task-5-enable-password-hash-synchronization-to-your-managed-domain-for-cloud-only-user-accounts).  This step must be done for individual users and any new user who is created in your Azure AD directory using the Azure portal or Azure AD PowerShell cmdlets. Users who require access to Azure AD domain services must use the <a href="http://myapps.microsoft.com/" target="_blank">Azure AD access panel</a> and access their profile to change the password.
 
@@ -90,5 +91,5 @@ You can optionally configure other Azure AD features.  These are not required fo
     | **Password** | Password of the user who is specified by Username. |
 
 3. Sign in to your Private Cloud vCenter after the privileges are escalated.
-4. Follow the instructions in [Add an identity source on vCenter](set-vcenter-identity.md/#add-an-identity-source-on-vcenter) using the values from the previous step to set up Azure Active Directory as an identity source.
+4. Follow the instructions in [Add an identity source on vCenter](set-vcenter-identity.md#add-an-identity-source-on-vcenter) using the values from the previous step to set up Azure Active Directory as an identity source.
 5. Add users/groups from Azure AD to vCenter groups as described in the VMware topic <a href="https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html" target="_blank">Add Members to a vCenter Single Sign-On Group</a>.
