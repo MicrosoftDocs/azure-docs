@@ -28,18 +28,13 @@ Azure Active Directory (Azure AD) supports bulk group list download, bulk import
 
    ![The download groups command is on the All groups page](./media/groups-bulk-download/bulk-download.png)
 
-## Troubleshoot group list download
+## Check download status
 
-The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many  potential error states during the list download process.
+You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
 
-Validation error Message 1
-guidance 1
-
-Batch job failure Message 2
-Guidance 2
+   ![The Bulk operations results page shows you bulk request status](./media/groups-bulk-download/bulk-center.png)
 
 ## Next steps
 
 - [Bulk remove group members](groups-bulk-remove-members.md)
 - [Download members of a group](groups-bulk-download-members.md)
-
