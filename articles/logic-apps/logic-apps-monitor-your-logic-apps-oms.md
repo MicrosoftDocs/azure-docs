@@ -97,18 +97,15 @@ skip this step. You already have the Logic Apps Management solution installed.
 
 After your logic app runs, you can view the status and count for those runs on the **Logic Apps Management** tile.
 
-1. Go to your Log Analytics workspace, and select **Overview**. > **Logic Apps Management**.
+1. Go to your Log Analytics workspace, and select **Workspace summary** > **Logic Apps Management**.
 
-   ![Logic app run status and count](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Logic app run status and count](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary.png)
 
-   Here, your logic app runs are grouped by name or by execution status. 
-   This page also shows details about failures in actions or triggers 
-   for the logic app runs.
+   Here, your logic app runs are grouped by name or by execution status. This page also shows details about failures in actions or triggers for the logic app runs.
 
-   ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
+   ![Status summary for your logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-runs-summary-details.png)
 
-1. To view all the runs for a specific logic app or status, 
-select the row for a logic app or a status.
+1. To view all the runs for a specific logic app or status, select the row for a logic app or a status.
 
    Here is an example that shows all the runs for a specific logic app:
 
@@ -118,60 +115,47 @@ select the row for a logic app or a status.
 
    * **Tracked properties:**
 
-     This column shows tracked properties, which are grouped by actions, 
-     for the logic app. To view the tracked properties, choose **View**. 
-     To search the tracked properties, use the column filter.
+     This column shows tracked properties, which are grouped by actions, for the logic app. To view the tracked properties, select **View**. To search the tracked properties, use the column filter.
 
      ![View tracked properties for a logic app](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
 
-     Any newly added tracked properties might take 
-     10-15 minutes before they appear first time. Learn 
-     [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+     Any newly added tracked properties might take 10-15 minutes before they appear first time. Learn [how to add tracked properties to your logic app](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
 
-   * **Resubmit:** You can resubmit one or more logic app runs that failed, 
-   succeeded, or are still running. Select the checkboxes for the runs 
-   that you want to resubmit, and choose **Resubmit**. 
+   * **Resubmit:** You can resubmit one or more logic app runs that failed, succeeded, or are still running. Select the check boxes for the runs that you want to resubmit, and select **Resubmit**.
 
      ![Resubmit logic app runs](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 1. To filter these results, you can perform both client-side and server-side filtering.
 
-   * **Client-side filter**: For each column, choose the filters that you want, for example:
+   * **Client-side filter**: For each column, select the filters that you want, for example:
 
      ![Example column filters](media/logic-apps-monitor-your-logic-apps-oms/filters.png)
 
-   * **Server-side filter**: To choose a specific time window or to limit the number of runs that appear, 
-   use the scope control at the top of the page. By default, only 1,000 records appear at a time.
-   
+   * **Server-side filter**: To select a specific time window or to limit the number of runs that appear, use the scope control at the top of the page. By default, only 1,000 records appear at a time.
+
      ![Change the time window](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
- 
-1. To view all the actions and their details for a specific run, 
-select a row for a logic app run.
+
+1. To view all the actions and their details for a specific run, select a row for a logic app run.
 
    Here is an example that shows all the actions for a specific logic app run:
 
    ![View actions for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
-   
-1. On any results page, to view the query behind the results or to see all results, 
-choose **See All**, which opens the Log Search page.
-   
+
+1. On any results page, to view the query behind the results or to see all results, select **See All**, which opens the Log Search page.
+
    ![See All on Results pages](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
-   
-   On the Log Search page,
 
-   * To view the query results in a table, choose **Table**.
+   On the Log Search page, you can choose these options:
 
-   * To change the query, you can edit the query string in the search bar. 
-   For a better experience, choose **Advanced Analytics**.
+   * To view the query results in a table, select **Table**.
+
+   * To change the query, you can edit the query string in the search bar. For a better experience, select **Advanced Analytics**.
 
      ![View actions and details for a logic app run](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-     
-     On the log analytics page, you can update queries and 
-     view the results from the table. This query uses 
-     [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), 
-     which you can edit if you want to view different results. 
 
-     ![log analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
+     On the log analytics page, you can update queries and view the results from the table. This query uses [Kusto query language](https://aka.ms/LogAnalyticsLanguageReference), which you can edit if you want to view different results.
+
+     ![Log Analytics - query view](media/logic-apps-monitor-your-logic-apps-oms/query.png)
 
 ## Next steps
 
