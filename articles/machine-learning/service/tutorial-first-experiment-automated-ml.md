@@ -33,7 +33,7 @@ In this tutorial, you learn the following tasks:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* Download the [**bankmarketing_train.csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column in this tutorial. 
+* Download the [**bankmarketing_train.csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column for predictions in this tutorial. 
 
 ## Create a workspace
 
@@ -41,13 +41,14 @@ In this tutorial, you learn the following tasks:
 
 ## Create an experiment
 
-The portal walks you through configuring your experiment from data selection to prediction variable identification.
+These steps walk you through experiment set up from data selection to choosing your primary metric and model type. 
 
 1. Go to the left pane of your workspace. Select **Automated machine learning** under the **Authoring (Preview)** section.
+You'll see the **Welcome to Automated Machine Learning** screen, since this is your first experiment with Automated Machine Learning.
 
     ![Azure portal navigation pane](media/tutorial-1st-experiment-automated-ml/nav-pane.png)
 
-    Because this is your first experiment with Automated Machine Learning, you'll see the **Welcome to Automated Machine Learning** screen. 
+
 
 1. Select **Create experiment**. Then enter **my-1st-automl-experiment** as the experiment name.
 
@@ -115,7 +116,7 @@ As the experiment progresses, the **Run Detail** screen updates the iteration ch
 
 ## Deploy the model
 
-By using automated machine learning in the Azure portal, we can deploy the best model as a web service to predict on new data and identifying potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable mechanism to identify potential fixed term deposit customers and area of business growth. 
+By using automated machine learning in the Azure portal, we can deploy the best model as a web service to predict on new data and identify potential areas of opportunity. For this experiment, deployment means that the financial institution now has an iterative and scalable solution for identifying potential fixed term deposit customers.
 
 In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
 
