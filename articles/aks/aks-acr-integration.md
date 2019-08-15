@@ -45,7 +45,7 @@ Integrate ACR with existing ACR clusters by supplying valid values for **acr-nam
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
-az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <your-acr-resource-id>
+az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <--acr>
 ```
 
 ## Log in to your ACR
