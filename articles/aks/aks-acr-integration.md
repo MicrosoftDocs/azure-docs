@@ -62,6 +62,8 @@ az acr login -n <acrName>
 
 ## Pull an image from docker hub and push to your ACR
 
+Pull an image from docker hub, tag the image, and push to your ACR.
+
 ```console
 acrloginservername=$(az acr show -n <acrname> -g <myResourceGroup> --query loginServer -o tsv)
 docker pull nginx
@@ -69,7 +71,7 @@ docker pull nginx
 
 ```
 $ docker tag nginx $acrloginservername/nginx:v1
-$ docker push someacr1.azurecr.io/nginx:v1
+$ docker push $acrloginservername/nginx:v1
 
 The push refers to repository [someacr1.azurecr.io/nginx]
 fe6a7a3b3f27: Pushed
@@ -109,7 +111,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: TODO <replace this image property with you acr login server, image and tag>
+        image: <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
 
