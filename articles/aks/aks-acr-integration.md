@@ -72,7 +72,9 @@ d8a33133e477: Pushed
 v1: digest: sha256:dc85890ba9763fe38b178b337d4ccc802874afe3c02e6c98c304f65b08af958f size: 948
 ```
 
-## Update the image property for the nginx container
+## Update the state and verify pods
+
+Perform the following steps to verify your deployment.
 
 ```azurecli
 az aks get-credentials -g myResourceGroup -n myAKSCluster
@@ -104,14 +106,7 @@ spec:
         image: TODO <replace this image property with you acr login server, image and tag>
         ports:
         - containerPort: 80
-```
 
-
-## Update the state and verify pods
-
-Use kubectl to check your pods deployment.
-
-```
 $ kubectl apply -f acr-nginx.yaml
 $ kubectl get pods
 
