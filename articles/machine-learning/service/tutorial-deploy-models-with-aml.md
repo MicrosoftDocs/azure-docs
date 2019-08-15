@@ -36,7 +36,7 @@ Container Instances is a great solution for testing and understanding the workfl
 
 ## Prerequisites
 
-To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model with Azure Machine Learning service](tutorial-train-models-with-aml.md).   Then open the  **tutorials/img-classification-part2-deploy.ipynb** notebook using the same notebook server.
+To run the notebook, first complete the model training in [Tutorial (part 1): Train an image classification model](tutorial-train-models-with-aml.md).   Then open the  **tutorials/img-classification-part2-deploy.ipynb** notebook using the same notebook server.
 
 This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and `scikit-learn` in your environment. 
 
