@@ -19,7 +19,7 @@ ms.date: 08/14/2019
 [How do I fix timeout issues when using hbck commands for region assignments?](hbase/apache-troubleshoot-hbase.md#how-do-i-fix-timeout-issues-with-hbck-commands-for-region-assignments)<br><br>
 [How do I fix JDBC or SQLLine connectivity issues with Apache Phoenix?](hbase/hbase-troubleshoot-phoenix-connectivity.md#cause-systemcatalog-table-offline)<br><br>
 [What causes a master server to fail to start?](hbase/hbase-troubleshoot-start-fails.md)<br><br>
-[What causes a restart failure on a region server?](hbase/apache-troubleshoot-hbase.md#what-causes-a-restart-failure-on-a-region-server)|
+[BindException - Address already in use in Azure HDInsight](hbase/hbase-troubleshoot-bindexception-address-use.md)|
 |![HDFS](./media/hdinsight-troubleshoot-guide/HDFS.png)<br>
 [Troubleshoot Apache Hadoop HDFS](hdinsight-troubleshoot-hdfs.md)|<br>
 [How do I access a local HDFS from inside a cluster?](hdinsight-troubleshoot-hdfs.md#how-do-i-access-local-hdfs-from-inside-a-cluster)<br><br>
