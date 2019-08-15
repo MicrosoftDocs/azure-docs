@@ -67,6 +67,8 @@
       items:
        - name: Automatic provisioning for SCIM-enabled apps
          href: use-scim-to-provision-users-and-groups.md
+       - name: Choosing a provisioning solution 
+         href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: Application Proxy for on-premises apps
       items:
        - name: Application Proxy
@@ -218,8 +220,6 @@
         items:
         - name: User provisioning for gallery apps
           href: application-provisioning-config-how-to.md
-        - name: Enable automatic user provisioning for multi-tenant apps
-          href: isv-automatic-provisioning-multi-tenant-apps.md
         - name: Configure automatic user provisioning
           href: configure-automatic-user-provisioning-portal.md
         - name: Customize application attributes
