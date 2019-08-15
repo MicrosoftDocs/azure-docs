@@ -127,7 +127,7 @@ Most configuration fields are named such that they can be defaulted to false. Al
 | isStorageUseDisabled | false | If true, the SDK will not store or read any data from local and session storage. Default is false. |
 | isBeaconApiDisabled | true | If false, the SDK will send all telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
 | sdkExtension | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (for example, 'ext_javascript:2.0.0'). Default is null. |
-| isBrowserLinkTrackingEnabled | false | Default is false. If true, the SDK will track all [Browser Link](https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink) requests. |
+| isBrowserLinkTrackingEnabled | false | Default is false. If true, the SDK will track all [Browser Link](https://docs.microsoft.com/aspnet/core/client-side/using-browserlink) requests. |
 | appId | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it cannot be used automatically, but can be set manually in the configuration. Default is null |
 | enableCorsCorrelation | false | If true, the SDK will add two headers ('Request-Id' and 'Request-Context') to all CORS requests to correlate outgoing AJAX dependencies with corresponding requests on the server side. Default is false |
 | namePrefix | undefined | An optional value that will be used as name postfix for localStorage and cookie name.
@@ -213,22 +213,22 @@ Breaking changes in the SDK V2 version:
 - Moved `context.operation` to `context.telemetryTrace`. Some fields were also changed (`operation.id` --> `telemetryTrace.traceID`)
   - If you want to manually refresh the current pageview ID (for example, in SPA apps) this can be done with `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
 
-If you are using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update URL depending on your current SDK loading scenario:
+If you're using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update the URL depending on your current SDK loading scenario.
 
-**a)** Download via CDN scenario:
-	Update code snippet that you currently use to point to the following URL:
-	```
-	"https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
-	```
+- Download via CDN scenario: Update the code snippet that you currently use to point to the following URL:
+   ```
+   "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
+   ```
 
-**b)** NPM scenario:
-	Call downloadAndSetup to download full ApplicationInsights script from CDN and initialize it with instrumentation key.
-```ts
-appInsights.downloadAndSetup({
-    instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
-    url: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
-});
-```
+- NPM scenario: Call `downloadAndSetup` to download the full ApplicationInsights script from CDN and initialize it with instrumentation key:
+
+   ```ts
+   appInsights.downloadAndSetup({
+     instrumentationKey: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx",
+     url: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
+     });
+   ```
+
 Test in internal environment to verify monitoring telemetry is working as expected. If all works, update your API signatures appropriately to SDK V2 version and deploy in your production environments.
 
 ## SDK performance/overhead
