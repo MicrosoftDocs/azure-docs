@@ -406,6 +406,7 @@ Test failover using PowerShell.
     Write-host "Failing primary over to the secondary location"
     Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
         -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+    Write-host "Successfully failed failover group to secondary location"
     ```
 
 Revert failover group back to the primary server:
@@ -419,6 +420,7 @@ Revert failover group back to the primary server:
     Write-host "Failing primary back to primary role"
     Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
         -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   Write-host "Successfully failed failover group to primary location"
     
     # Verify the current primary role
     Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `

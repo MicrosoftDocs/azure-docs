@@ -470,32 +470,32 @@ Repeat the steps in the previous section to create the virtual network subnet an
 
 Create the secondary virtual network gateway using PowerShell. 
 
-    ```powershell-interactive
-    $secondaryResourceGroupName = "<Secondary-Resource-Group>"
-    $secondaryVnetName = "<Secondary-Virtual-Network-Name>"
-    $secondaryGWName = "<Secondary-Gateway-Name>"
-    $secondaryGWPublicIPAddress = $secondaryGWName + "-IP"
-    $secondaryGWIPConfig = $secondaryGWName + "-ipc"
-    $secondaryGWAsn = 62000
+   ```powershell-interactive
+   $secondaryResourceGroupName = "<Secondary-Resource-Group>"
+   $secondaryVnetName = "<Secondary-Virtual-Network-Name>"
+   $secondaryGWName = "<Secondary-Gateway-Name>"
+   $secondaryGWPublicIPAddress = $secondaryGWName + "-IP"
+   $secondaryGWIPConfig = $secondaryGWName + "-ipc"
+   $secondaryGWAsn = 62000
+   
+   # Get the secondary virtual network
+   $vnet2 = Get-AzVirtualNetwork -Name $secondaryVnetName -ResourceGroupName $secondaryResourceGroupName
+   $secondaryLocation = $vnet2.Location
     
-    # Get the secondary virtual network
-    $vnet2 = Get-AzVirtualNetwork -Name $secondaryVnetName -ResourceGroupName $secondaryResourceGroupName
-    $secondaryLocation = $vnet2.Location
-     
-    # Create the secondary gateway
-    Write-host "Creating secondary gateway..."
-    $subnet2 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet2
-    $gwpip2= New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $secondaryResourceGroupName `
-             -Location $secondaryLocation -AllocationMethod Dynamic
-    $gwipconfig2 = New-AzVirtualNetworkGatewayIpConfig -Name $secondaryGWIPConfig `
-             -SubnetId $subnet2.Id -PublicIpAddressId $gwpip2.Id
-     
-    $gw2 = New-AzVirtualNetworkGateway -Name $secondaryGWName -ResourceGroupName $secondaryResourceGroupName `
-        -Location $secondaryLocation -IpConfigurations $gwipconfig2 -GatewayType Vpn `
-        -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $secondaryGWAsn
+   # Create the secondary gateway
+   Write-host "Creating secondary gateway..."
+   $subnet2 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet2
+   $gwpip2= New-AzPublicIpAddress -Name $secondaryGWPublicIPAddress -ResourceGroupName $secondaryResourceGroupName `
+            -Location $secondaryLocation -AllocationMethod Dynamic
+   $gwipconfig2 = New-AzVirtualNetworkGatewayIpConfig -Name $secondaryGWIPConfig `
+            -SubnetId $subnet2.Id -PublicIpAddressId $gwpip2.Id
     
-    $gw2
-    ```
+   $gw2 = New-AzVirtualNetworkGateway -Name $secondaryGWName -ResourceGroupName $secondaryResourceGroupName `
+       -Location $secondaryLocation -IpConfigurations $gwipconfig2 -GatewayType Vpn `
+       -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $secondaryGWAsn
+   
+   $gw2
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -645,8 +645,8 @@ Test failover of your failover group using the Azure portal.
 Test failover of your failover group using PowerShell. 
 
    ```powershell-interactive
-   $primaryResourceGroupName = <Primary-Resource-Group>
-   $secondaryResourceGroupName = <Secondary-Resource-Group>
+   $primaryResourceGroupName = "<Primary-Resource-Group>"
+   $secondaryResourceGroupName = "<Secondary-Resource-Group>"
    $failoverGroupName = "<Failover-Group-Name>"
    $primaryLocation = "<Primary-Region>"
    $secondaryLocation = "<Secondary-Region>"
@@ -661,6 +661,7 @@ Test failover of your failover group using PowerShell.
    Write-host "Failing primary over to the secondary location"
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
        -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   Write-host "Successfully failed failover group to secondary location"
    
    # Verify the current primary role
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
@@ -670,6 +671,7 @@ Test failover of your failover group using PowerShell.
    Write-host "Failing primary back to primary role"
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
        -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   Write-host "Successfully failed failover group to primary location"
    
    # Verify the current primary role
    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
