@@ -1,5 +1,5 @@
 ---
-title: Deployment Best Practices - Azure App Service | Microsoft Docs 
+title: Deployment best practices - Azure App Service | Microsoft Docs 
 description: Learn about the key components of deploying to Azure App Service.
 keywords: azure app service, web app, deploy, deployment, pipelines, build
 services: app-service
@@ -50,11 +50,11 @@ Use the Kudu [zipdeploy/](deploy-zip.md) API for deploying JAR applications, and
 
 ### Node
 
-By default, Kudu executes the build steps for your Node application (`npm install`). If you are using a build service such as Azure Devops, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
+By default, Kudu executes the build steps for your Node application (`npm install`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ### .NET 
 
-By default, Kudu executes the build steps for your .Net application (`dotnet build`). If you are using a build service such as Azure Devops, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
+By default, Kudu executes the build steps for your .Net application (`dotnet build`). If you are using a build service such as Azure DevOps, then the Kudu build is unnecessary. To disable the Kudu build, create an app setting, `SCM_DO_BUILD_DURING_DEPLOYMENT`, with a value of `false`.
 
 ## Other Deployment Considerations
 
