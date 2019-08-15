@@ -82,7 +82,7 @@ and download the solution or click "Project Site"
 to view the
 [documentation](https://github.com/microsoft/compositeresource).
 
-## See Also
+## Next steps
 
 - [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview/overview)
 - [DSC Resources](/powershell/dsc/resources/resources)
