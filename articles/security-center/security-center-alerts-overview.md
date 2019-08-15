@@ -33,7 +33,7 @@ Security Center monitors the resources in whatever environment they might be. To
 
 The following topics guide you through the different alerts, according to resource types:
 
-* [IaaS VMs & servers alerts](security-center-alerts-iaas.md)
+* [IaaS VMs and servers alerts](security-center-alerts-iaas.md)
 * [Native compute alerts](security-center-alerts-compute.md)
 * [Data services alerts](security-center-alerts-data-services.md)
 
@@ -46,7 +46,7 @@ The following topics explain how Security Center uses the different telemetry th
 
 A security incident is a collection of related alerts, instead of listing each alert individually. Security Center uses fusion to correlate different alerts and low fidelity signals into security incidents.
 
-Using incidents, Security Center provides you with a single view of an attack campaign and all of the related alerts. This view enables you to quickly understand what actions the attacker took, and what resources were impacted. For more information, see [Cloud smart alert correlation](security-center-alerts-cloud-smart.md).
+Using incidents, Security Center provides you with a single view of an attack campaign and all of the related alerts. This view enables you to quickly understand what actions the attacker took, and what resources were affected. For more information, see [Cloud smart alert correlation](security-center-alerts-cloud-smart.md).
 
 ## Get started with alerts
 

@@ -18,7 +18,7 @@ ms.author: "v-mohabe"
 
 # Threat detection for the Azure service layer in Azure Security Center
 
-This topic presents the Security Center alerts available when monitoring the following Azure service layers:
+This topic presents the Azure Security Center alerts available when monitoring the following Azure service layers:
 
 * [Azure network layer](#network-layer)
 * [Azure management layer (Azure Resource Manager) (Preview)](#management-layer)

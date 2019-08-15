@@ -1,5 +1,5 @@
 ---
-title: Threat detection for VMs & servers in Azure Security Center | Microsoft Docs
+title: Threat detection for VMs and servers in Azure Security Center | Microsoft Docs
 description: This topic presents the VM and server alerts available in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -15,7 +15,7 @@ ms.workload: na
 ms.date: 7/02/2019
 ms.author: "v-mohabe"
 ---
-# Threat detection for VMs & servers in Azure Security Center
+# Threat detection for VMs and servers in Azure Security Center
 
 This topic presents the different types of detection methods and alerts available for VMs and servers with the following operating systems. 
 For a list of supported versions, see [Platforms and features supported by Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-os-coverage).
@@ -82,7 +82,7 @@ Security Center collects audit records from Linux machines by using **auditd**, 
 
 ### Linux auditd alerts and Microsoft Monitoring Agent (MMA) integration <a name="linux-auditd"></a>
 
-The auditd system consists of a kernel-level subsystem, which is responsible for monitoring system calls. It filters them by a given rule set, and writes messages for them to a socket. Security Center integrates functionalities from the auditd package within the Microsoft Monitoring Agent (MMA). This integration enables collection of auditd events in all supported Linux distributions, without any prerequisites.  
+The auditd system consists of a kernel-level subsystem, which is responsible for monitoring system calls. It filters them by a specified rule set, and writes messages for them to a socket. Security Center integrates functionalities from the auditd package within the Microsoft Monitoring Agent (MMA). This integration enables collection of auditd events in all supported Linux distributions, without any prerequisites.  
 
 auditd records are collected, enriched, and aggregated into events by using the Linux MMA agent. Security Center continuously adds new analytics that use Linux signals to detect malicious behaviors on cloud and on-premises Linux machines. Similar to Windows capabilities, these analytics span across suspicious processes, dubious sign-in attempts, kernel module loading, and other activities. These activities can indicate a machine is either under attack or has been breached.  
 
@@ -92,7 +92,7 @@ The following are several examples of analytics that span across different stage
 
 |Alert|Description|
 |---|---|
-|**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access could indicate that an attacker is attempting to gain persistent access to a machine.|
+|**Process seen accessing the SSH authorized keys file in an unusual way**|An SSH authorized keys file has been accessed in a method similar to known malware campaigns. This access can indicate that an attacker is attempting to gain persistent access to a machine.|
 |**Detected Persistence Attempt**|Host data analysis has detected that a startup script for single-user mode has been installed. <br/>Because it's rare that any legitimate process would be required to run in that mode, this might indicate that an attacker has added a malicious process to every run-level to guarantee persistence.|
 |**Manipulation of scheduled tasks detected**|Host data analysis has detected possible manipulation of scheduled tasks. Attackers often add scheduled tasks to machines they've compromised to gain persistence.|
 |**Suspicious file timestamp modification**|Host data analysis detected a suspicious timestamp modification. Attackers often copy timestamps from existing, legitimate files to new tools to avoid detection of these newly dropped files.|
