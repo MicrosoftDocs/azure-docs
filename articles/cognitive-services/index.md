@@ -64,7 +64,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/common/i_account-management.svg" alt="Learn how to create an Azure Cognitive Services account." />
+                                    <img src="media/index/i_account-management.svg" alt="Learn how to create an Azure Cognitive Services account." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -83,7 +83,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/common/i_api.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                    <img src="media/index/i_api.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -102,7 +102,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/common/i_library.svg" alt="" />
+                                    <img src="media/index/i_library.svg" alt="" />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -139,16 +139,6 @@ ms.topic: hub-page
 
 <h2>Cognitive Services APIs</h2>
 <ul class="cardsF panelContent singlePanelContent" style="display:flex!important;">
-    <li>
-        <h3>Vision</h3>
-        <h4 style="font-size: 1.12rem;">Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
-        <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
-        <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
-        <p><a href="/azure/cognitive-services/face/">Face API</a></p>
-        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088514"><span>Form Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-        <p><a href="https://go.microsoft.com/fwlink/?linkid=2088323"><span>Ink Recognizer&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
-        <p><a href="/azure/cognitive-services/video-indexer/video-indexer-overview">Video Indexer</a></p>
-    </li>
     <li>
         <div class="cardSize">
             <div class="cardPadding">
@@ -261,6 +251,8 @@ ms.topic: hub-page
 						<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">REST APIs</a></p>
                         <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet">.Net</a></p>
                         <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client?view=azure-java-stable">Java</a></p>
+                        <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest">Node.js</a></p>
+                        <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python">Python</a></p>
                      </div>
                 </div>
             </div>
