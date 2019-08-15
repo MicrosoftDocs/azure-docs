@@ -199,7 +199,7 @@ For a lightweight experience, you can instead install the basic version of Appli
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-This version comes with the bare minimum number of features and functionalities and relies on you to build it up as you see fit. For example, it performs no autocollection (uncaught exceptions, AJAX, etc.). The APIs to send certain telemetry types, like `trackTrace`, `trackException`, etc., are not included in this version, so you will need to provide your own wrapper. The only api that is available is `track`. A [sample](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) is located here.
+This version comes with the bare minimum number of features and functionalities and relies on you to build it up as you see fit. For example, it performs no autocollection (uncaught exceptions, AJAX, etc.). The APIs to send certain telemetry types, like `trackTrace`, `trackException`, etc., are not included in this version, so you will need to provide your own wrapper. The only API that is available is `track`. A [sample](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) is located here.
 
 ## Examples
 
@@ -208,7 +208,7 @@ For runnable examples, see [Application Insights Javascript SDK Samples](https:/
 ## Upgrading from the old Version of Application Insights
 
 Breaking changes in the SDK V2 version:
-- To allow for better API signatures, some of the apis such as trackPageView, trackException have been updated. Running in IE8 or lower versions of the browser is not supported.
+- To allow for better API signatures, some of the API calls such as trackPageView, trackException have been updated. Running in IE8 or lower versions of the browser is not supported.
 - Telemetry envelope has field name and structure changes due to data schema updates.
 - Moved `context.operation` to `context.telemetryTrace`. Some fields were also changed (`operation.id` --> `telemetryTrace.traceID`)
   - If you want to manually refresh the current pageview ID (for example, in SPA apps) this can be done with `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
@@ -229,7 +229,7 @@ appInsights.downloadAndSetup({
     url: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
 });
 ```
-Test in internal environment to verify monitoring telemetry is working as expected. If all works, update your api signatures appropriately to SDK V2 version and deploy in your production environments.
+Test in internal environment to verify monitoring telemetry is working as expected. If all works, update your API signatures appropriately to SDK V2 version and deploy in your production environments.
 
 ## SDK performance/overhead
 
