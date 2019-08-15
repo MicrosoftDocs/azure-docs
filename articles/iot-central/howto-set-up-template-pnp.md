@@ -98,7 +98,7 @@ To create an interface:
 1. On the **Select an Interface** page, you can:
 
     - Create a custom interface from scratch.
-    - Import an existing interface. A device builder may have used Visual Studio Code to author an interface for your device.
+    - Import an existing interface from a file. A device builder may have used Visual Studio Code to author an interface for your device.
     - Choose one of the standard interfaces such as the **Device Information** interface. Standard interfaces specify the capabilities common to many devices. These standard interfaces are published by Microsoft Azure IoT and cannot be versioned or edited.
 
 1. After you create an interface, choose **Edit Identity** to change the display name of the interface.
