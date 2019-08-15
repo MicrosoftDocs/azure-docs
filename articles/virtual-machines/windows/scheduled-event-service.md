@@ -106,7 +106,7 @@ We now want to connect a Log Analytics Workspace to the collector VM. The Log An
 1. Open the page for the workspace you created.
 1. Under **Connect to a data source** select **Azure virtual machines (VMs)**.
 
-	![Connect to a VM as a data source](connect-to-data-source.png)
+	![Connect to a VM as a data source](./media/connect-to-data-source.png)
 
 1. Search for and select **myCollectorVM**. 
 1. On the new page for **myCollectorVM**, select **Connect**.
@@ -119,7 +119,7 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 1. Select **Data** from the left menu, then select **Windows Event Logs**.
 1. In **Collect from the following event logs**, start typing *application* and then select **Application** from the list.
 
-	![Select Advanced settings](advanced.png)
+	![Select Advanced settings](./media/advanced.png)
 
 1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
 
@@ -151,7 +151,7 @@ Event
 
 1. Select **Save**, and then type *logQuery* for the name, leave **Query** as the type, type *VMLogs* as the **Category**, and then select **Save**. 
 
-	![Save the query](save-query.png)
+	![Save the query](./media/save-query.png)
 
 1. Select **New alert rule**. 
 1. In the **Create rule** page, leave *collectorworkspace* as the **Resource**.
