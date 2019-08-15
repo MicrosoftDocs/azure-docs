@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/machine-learning/data-science-virtual-machine/provision-deep-learning-dsvm.md",
+      "redirect_url": "/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro",
+      "redirect_document_id": false
+    },
+    {
         "source_path": "articles/azure-government/documentation-government-get-started-connect-with-vs.md",
         "redirect_url": "/azure/azure-government/documentation-government-welcome",
         "redirect_document_id": false
@@ -25872,6 +25877,26 @@
     {
       "source_path": "articles/security-center/security-center-ueba-mcas.md",
       "redirect_url": "/azure/security-center/security-center-alerts-service-layer#azure-management-layer-azure-resource-manager-preview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-encryption-for-storage-account.md",
+      "redirect_url": "/azure/storage/common/storage-service-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-enable-vm-agent.md",
+      "redirect_url": "/azure/security-center/security-center-enable-data-collection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-remediate-os-vulnerabilities.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/security-center/security-center-update-os-version.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
       "redirect_document_id": false
     },
     {
