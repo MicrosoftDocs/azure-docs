@@ -61,7 +61,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
 1. Select the dataset, **Automobile price data (raw)**, and drag it onto the canvas.
 
-   ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.png)
+   ![Drag data to canvas](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
 
 1. Select which columns of data to work with. Type **Select** in the Search box at the top of the palette to find the **Select Columns in Dataset** module.
 
@@ -83,7 +83,7 @@ Machine learning depends on data. Luckily, there are several sample datasets inc
 
     In the **Select columns** dialog, select **ALL COLUMNS** and include **all features**. The dialog should look like this:
 
-     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.png)
+     ![column-selector](./media/ui-tutorial-automobile-price-train-score/select-all.gif)
 
 1. On the lower right, select **OK** to close the column selector.
 
@@ -106,9 +106,9 @@ Now that you have run your initial experiment, you can visualize the data to und
 
     In this dataset, each row represents an automobile, and the variables associated with each automobile appear as columns. There are 205 rows and 26 columns in this dataset.
 
-     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left. For example, when you click on **num-of-doors** you see it has two unique values and two missing values. Scroll down to see the values: two and four doors.
+    Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left.
 
-     ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
 
 1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
