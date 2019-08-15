@@ -21,7 +21,7 @@ For information about how to submit Power BI custom visuals to AppSource, see [P
 <a name="bk_approval"> </a>
 ## Approval process
 
-After your account is approved, you can submit your solution to Partner Center. You can make changes at any point before you submit for approval, but during the approval process, you won't be able to make any changes.
+After your account is approved, you can submit your solution to Partner Center. You can make changes at any point before you submit your solution for approval, but during the approval process, you won't be able to make any changes.
 
 In order for your submission to be approved:
 
@@ -35,7 +35,7 @@ In order for your submission to be approved:
 For more details about AppSource requirements, see the [Validation policies](validation-policies.md).
 
 <a name="bk_Validation"> </a>
-## Validation process
+## Certification process
 
 After you submit your solution:
 
@@ -64,7 +64,7 @@ After you submit your solution:
       - Published
 
         > [!NOTE]
-        > After your submission is certified, there might be a delay before it is published. After certification, a submission typically appears in the AppSource within one hour.
+        > After your submission is certified, there might be a delay before it is published. After certification, a submission typically appears in AppSource within one hour.
 
       - If the status is **changes requested**, your submission needs changes to be approved. Choose your submission, and then on the summary page, select **View the add-in report** for details about the required changes.
 
@@ -76,3 +76,5 @@ If you have questions about policies or requirements in your report, you can eng
 
 - [Office Add-ins](/office/dev/add-ins/overview/office-add-ins)  
 - [SharePoint Add-ins](/sharepoint/dev/sp-add-ins/sharepoint-add-ins)
+- [Microsoft Teams developer platform](https://docs.microsoft.com/microsoftteams/platform/overview)
+- [Visuals in Power BI](https://docs.microsoft.com/power-bi/power-bi-custom-visuals)

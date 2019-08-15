@@ -9,7 +9,7 @@ localization_priority: Priority
 
 If you want your Office or SharePoint add-in to appear in AppSource, you need to submit it to [Partner Center](https://partner.microsoft-int.com/en-us/dashboard/office/products) for approval. First, familiarize yourself with the [AppSource validation policies](validation-policies.md). 
 
-If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, you can add a client ID and client secret before you add your add-in. For more information, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
+If your SharePoint Add-in requires an Open Authorization (OAuth) client ID and client secret, see [Create or update client IDs and secrets in Partner Center](create-or-update-client-ids-and-secrets.md).
 
 For information about the AppSource approval process, see [Make your solutions available in AppSource](submit-to-the-office-store.md).
 
@@ -21,8 +21,10 @@ Submitting your add-in involves specifying your add-in name and adding your add-
 
 On the [Office Products](https://partner.microsoft-int.com/en-us/dashboard/office/products) page in Partner Center, select **Create a new...**, and select the type of solution that you are submitting:
 
-- Office Extension
-- SharePoint Add-in
+- Office add-in
+- SharePoint solution
+- Power BI visual
+- Microsoft Teams app
 
 In the dialog box, provide a name for your solution and choose **Check availability** to verify that the name is available. For details, see [Reserve a name](reserve-add-in-name.md).
 
@@ -34,8 +36,8 @@ On the Product overview page, add the details associated with your submission. T
 
 |**Task**|**More information**|
 |:-------------|:-------|
-|Upload your add-in manifest|[Upload your submission package](upload-package.md)|
 |Add setup details|[Add-in setup](add-in-setup.md)|
+|Upload your add-in manifest or app package|[Upload your submission package](upload-package.md)|
 |Define your Store settings|[Define add-in properties](define-add-in-properties.md) and [Create your AppSource listing](appsource-listing.md)|
 |Define your pricing and availability|[Set pricing and availability](set-pricing-and-availability.md)|
 
