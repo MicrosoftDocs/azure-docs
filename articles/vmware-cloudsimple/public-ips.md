@@ -20,7 +20,7 @@ Open the Public IPs tab on the Network page to allocate public IP addresses for 
 2. Select **Public IPs**.
 3. Click **New Public IP**.
 
-    ![Public IPs page](../media/public-ips-page.png)
+    ![Public IPs page](media/public-ips-page.png)
 
 4. Enter a name to identify the IP address entry.
 5. Keep the default location.
