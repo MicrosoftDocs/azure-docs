@@ -58,7 +58,7 @@ This property declares (to Azure Resource Manager, and the Managed Identity and 
       </ManagedIdentities>
     </Principals>
     ```
-    This maps the identity assigned to the application as a resource to a friendly name, for further assignment to the services comprising the application. 
+    **Principals** should be a child of **ApplicationManifest** and lower in the manifest than **ServiceManifestImport**. This maps the identity assigned to the application as a resource to a friendly name, for further assignment to the services comprising the application. 
 
 2. In the **ServiceManifestImport** section corresponding to the service that is being assigned the managed identity, add an **IdentityBindingPolicy** element, as indicated below:
 
