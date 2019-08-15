@@ -1637,6 +1637,12 @@ featureFlags:
                                                 <p>Azure Bastion</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/bastion/">
+                                                <img src="media/index/web_connect.svg" alt="" />
+                                                <p>Azure Bastion</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Security</h3>
                                     <ul>
@@ -5456,6 +5462,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Azure Bastion</h3>
                                                     <p>Secure seamless connectivity to virtual machines over SSL via the Azure portal without a public IP address</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/web-application-firewall/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/web_app_firewall.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Web Application Firewall</h3>
+                                                    <p>Provide centralized protection for your web applications from common exploits and vulnerabilities</p>
                                                 </div>
                                             </div>
                                         </div>
