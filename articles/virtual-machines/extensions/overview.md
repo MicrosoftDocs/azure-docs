@@ -63,7 +63,7 @@ Troubleshooting information for each extension can be found in the **Troubleshoo
 | Microsoft.HpcCompute/NvidiaGpuDriverLinux | [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
 | Microsoft.HpcCompute/NvidiaGpuDriverWindows | [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
 | Microsoft.Azure.Security/IaaSAntimalware | [Antimalware Extension for Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
-| Microsoft.EnterpriseCloud.Monitoring/OmsAgentForLinux [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
+| Microsoft.EnterpriseCloud.Monitoring/OmsAgentForLinux | [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
 | Microsoft.EnterpriseCloud.Monitoring/OmsAgentForWindows | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
 | Stackify.LinuxAgent.Extension/StackifyLinuxAgentExtension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
 | VMAccessForLinux/Microsoft.OSTCExtensions | [VMAccess for Linux](vmaccess.md#troubleshoot-and-support) |
