@@ -51,22 +51,24 @@ Extensions install applications, like any applications there are some requiremen
 
 Troubleshooting information for each extension can be found in the **Troubleshoot and support** section in the overview for the extension. Here is a list of the troubleshooting information available:
 
-- [Azure Monitor Dependency for Linux](agent-dependency-linux.md#troubleshoot-and-support)
-- [Azure Monitor Dependency for Windows](agent-dependency-windows.md#troubleshoot-and-support)
-- [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support)
-- [Azure Disk Encryption for Windows](azure-disk-enc-windows.md#troubleshoot-and-support)
-- [Custom Script for Windows](custom-script-windows.md#troubleshoot-and-support)
-- [Desired State Configuation for Linux](dsc-linux.md#troubleshoot-and-support)
-- [Desired State Configuation for Windows](dsc-windows.md#troubleshoot-and-support)
-- [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support)
-- [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support)
-- [Antimalware Extension for Windows](iaas-antimalware-windows.md#troubleshoot-and-support)
-- [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
-- [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support)
-- [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support)
-- [VMAccess for Linux](vmaccess.md#troubleshoot-and-support)
-- [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support)
-- [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support)
+| Namespace | Troubleshooting |
+|-----------|-----------------|
+| Microsoft.Azure.Monitoring.DependencyAgent | [Azure Monitor Dependency for Linux](agent-dependency-linux.md#troubleshoot-and-support) |
+| Microsoft.Azure.Monitoring.DependencyAgent | [Azure Monitor Dependency for Windows](agent-dependency-windows.md#troubleshoot-and-support) |
+| AzureDiskEncryptionForLinux | [Azure Disk Encryption for Linux](azure-disk-enc-linux.md#troubleshoot-and-support) |
+| AzureDiskEncryption | [Azure Disk Encryption for Windows](azure-disk-enc-windows.md#troubleshoot-and-support) |
+| Microsoft.Compute.CustomScriptExtension | [Custom Script for Windows](custom-script-windows.md#troubleshoot-and-support) |
+| Microsoft.OSTCExtensions/DSCForLinux | [Desired State Configuration for Linux](dsc-linux.md#troubleshoot-and-support) |
+| Microsoft.Powershell.DSC | [Desired State Configuration for Windows](dsc-windows.md#troubleshoot-and-support) |
+| Microsoft.HpcCompute/NvidiaGpuDriverLinux | [NVIDIA GPU Driver Extension for Linux](hpccompute-gpu-linux.md#troubleshoot-and-support) |
+| Microsoft.HpcCompute/NvidiaGpuDriverWindows | [NVIDIA GPU Driver Extension for Windows](hpccompute-gpu-windows.md#troubleshoot-and-support) |
+| Microsoft.Azure.Security/IaaSAntimalware | [Antimalware Extension for Windows](iaas-antimalware-windows.md#troubleshoot-and-support) |
+| Microsoft.EnterpriseCloud.Monitoring/OmsAgentForLinux [Azure Monitor for Linux](oms-linux.md#troubleshoot-and-support)
+| Microsoft.EnterpriseCloud.Monitoring/OmsAgentForWindows | [Azure Monitor for Windows](oms-windows.md#troubleshoot-and-support) |
+| Stackify.LinuxAgent.Extension/StackifyLinuxAgentExtension | [Stackify Retrace for Linux](stackify-retrace-linux.md#troubleshoot-and-support) |
+| VMAccessForLinux/Microsoft.OSTCExtensions | [VMAccess for Linux](vmaccess.md#troubleshoot-and-support) |
+| Microsoft.RecoveryServices/VMSnapshot | [Snapshot for Linux](vmsnapshot-linux.md#troubleshoot-and-support) |
+| Microsoft.RecoveryServices/VMSnapshot | [Snapshot for Windows](vmsnapshot-windows.md#troubleshoot-and-support) |
 
 
 ## Next steps
