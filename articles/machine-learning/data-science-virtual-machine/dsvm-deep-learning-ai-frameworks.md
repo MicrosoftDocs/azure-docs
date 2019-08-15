@@ -15,26 +15,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/11/2017
+ms.date: 08/11/2019
 ms.author: vijetaj
 
 ---
 
 # Deep Learning and AI frameworks
-The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](https://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding.
+The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding.
 
 Here are the details on all the deep learning frameworks available on the DSVM.
 
-## Microsoft Cognitive Toolkit
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | The Microsoft Cognitive Toolkit (CNTK) is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
-| Links to Samples      | Sample Jupyter notebooks are included.     |
-| Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the CNTK directory for samples. |
 
 ## TensorFlow
 
@@ -47,16 +37,16 @@ Here are the details on all the deep learning frameworks available on the DSVM.
 | Related Tools on the DSVM      | Keras      |
 | How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the TensorFlow directory for samples.  |
 
-## Horovod
+## PyTorch
 
 |    |           |
 | ------------- | ------------- |
-| What is it?   | Distribued deep learning framework for TensorFlow      |
-| Supported DSVM Editions      | Ubuntu     |
-| How is it configured / installed on the DSVM?  | Horovod is installed in Python 3.5 on [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
-| Links to Samples      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
-| Related Tools on the DSVM      | TensorFlow      |
-| How to use / run it?    | At a terminal: activate the correct environment, then run Python. |
+| What is it?   | Deep learning framework      |
+| Supported DSVM Editions      | Linux     |
+| How is it configured / installed on the DSVM?  | PyTorch is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
+| Links to Samples      | Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.      |
+| Related Tools on the DSVM      | Torch      |
+| How to use / run it |* At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
 
 ## Keras
 
@@ -108,6 +98,70 @@ Installed version of Caffe requires Python 2.7 and won't work with Python 3.5 ac
 | How to use / run it?    | * At the terminal: activate the [root Python environment](dsvm-languages.md#python-linux-and-windows-server-2012-edition), start Python, and import caffe2. <br/> * In JupyterHub: [connect to JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then navigate to the Caffe2 directory to find sample notebooks. Some notebooks require the Caffe2 root to be set in the Python code; enter /opt/caffe2. |
 | Build notes | Caffe2 is built from source on Linux and includes CUDA, cuDNN, and Intel MKL. The current commit is 0d9c0d48c6f20143d6404b99cc568efd29d5a4be, which was chosen for stability on all GPUs and samples tested. |
 
+## Torch
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Deep learning framework      |
+| Supported DSVM Editions      | Ubuntu     |
+| How is it configured / installed on the DSVM?  | Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
+| Links to Samples      | Torch samples are located at `/dsvm/samples/torch`. PyTorch samples are located at `/dsvm/samples/pytorch`.      |
+
+
+
+
+## MXNet Model Server
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | A server to create HTTP endpoints for MXNet and ONNX models      |
+| Supported DSVM Editions      | Linux     |
+| How is it configured / installed on the DSVM?  | _mxnet-model-server_ is available on at the terminal.   |
+| Links to Samples      | Look for up-to-date samples on the [MXNet Model Server page](https://github.com/awslabs/mxnet-model-server).    |
+| Related Tools on the DSVM      | MXNet      |
+
+
+## MXNet
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Deep learning framework      |
+| Supported DSVM Editions      | Windows, Linux     |
+| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Linux. Python bindings are installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R bindings are also installed on Ubuntu.   |
+| Links to Samples      | Sample Jupyter notebooks are included.    |
+| Related Tools on the DSVM      | Keras      |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the mxnet directory for samples.  |
+ | Build notes | MXNet is built from source on Linux. This build includes CUDA, cuDNN, NCCL, and MKL. |
+
+
+
+
+
+
+## Horovod
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Distributed deep learning framework for TensorFlow      |
+| Supported DSVM Editions      | Ubuntu     |
+| How is it configured / installed on the DSVM?  | Horovod is installed in Python 3.5 on [Ubuntu](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
+| Links to Samples      | [https://github.com/uber/horovod/tree/master/examples](https://github.com/uber/horovod/tree/master/examples)     |
+| Related Tools on the DSVM      | TensorFlow      |
+| How to use / run it?    | At a terminal: activate the correct environment, then run Python. |
+
+
+
+## Theano
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Deep learning framework      |
+| Supported DSVM Editions      | Ubuntu     |
+| How is it configured / installed on the DSVM?  | Theano is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
+| Related Tools on the DSVM      | Keras      |
+| How to use / run it?    | * At a terminal, activate the Python version you want (root or py35), run python, then import theano. <br/> * In Jupyter, select the Python 2.7 or 3.5 kernel, then import theano.  <br/>To work around a recent MKL bug, you need to first set the MKL threading layer:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
+
+
 ## Chainer
 
 |    |           |
@@ -143,17 +197,6 @@ To use Deep Water:
 * At the terminal: activate the [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition) environment, then run _python_. <br/>
 * In JupyterHub: [connect to JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then navigate to the deep_water directory to find sample notebooks.
 
-## MXNet
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Windows, Linux     |
-| How is it configured / installed on the DSVM?  | MXNet is installed in `C:\dsvm\tools\mxnet` on Windows and `/dsvm/tools/mxnet` on Linux. Python bindings are installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition). R bindings are also installed on Ubuntu.   |
-| Links to Samples      | Sample Jupyter notebooks are included.    |
-| Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the mxnet directory for samples.  |
- | Build notes | MXNet is built from source on Linux. This build includes CUDA, cuDNN, NCCL, and MKL. |
 
 ## NVIDIA DIGITS
 
@@ -184,48 +227,6 @@ The service takes about one minute to start. Start a web browser and navigate to
 
 
 
-## Theano
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Ubuntu     |
-| How is it configured / installed on the DSVM?  | Theano is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
-| Related Tools on the DSVM      | Keras      |
-| How to use / run it?    | * At a terminal, activate the Python version you want (root or py35), run python, then import theano. <br/> * In Jupyter, select the Python 2.7 or 3.5 kernel, then import theano.  <br/>To work around a recent MKL bug, you need to first set the MKL threading layer:<br/><br/>_export MKL_THREADING_LAYER=GNU_|
-
-
-
-## Torch
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Ubuntu     |
-| How is it configured / installed on the DSVM?  | Torch is installed in `/dsvm/tools/torch`. PyTorch is installed in Python 2.7 (_root_), as well as Python 3.5 (_py35_) environment.   |
-| Links to Samples      | Torch samples are located at `/dsvm/samples/torch`. PyTorch samples are located at `/dsvm/samples/pytorch`.      |
-
-
-## PyTorch
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | Deep learning framework      |
-| Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | PyTorch is installed in [Python 3.5](dsvm-languages.md#python-linux-and-windows-server-2012-edition).  |
-| Links to Samples      | Sample Jupyter notebooks are included, and samples can also be found in /dsvm/samples/pytorch.      |
-| Related Tools on the DSVM      | Torch      |
-| How to use / run it |* At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the PyTorch directory for samples.  |
-
-## MXNet Model Server
-
-|    |           |
-| ------------- | ------------- |
-| What is it?   | A server to create HTTP endpoints for MXNet and ONNX models      |
-| Supported DSVM Editions      | Linux     |
-| How is it configured / installed on the DSVM?  | _mxnet-model-server_ is available on at the terminal.   |
-| Links to Samples      | Look for up-to-date samples on the [MXNet Model Server page](https://github.com/awslabs/mxnet-model-server).    |
-| Related Tools on the DSVM      | MXNet      |
 
 ## TensorFlow Serving
 
@@ -248,4 +249,14 @@ The service takes about one minute to start. Start a web browser and navigate to
 | Related Tools on the DSVM      | TensorFlow Serving, MXNet Model Server  |
 
 
+## Microsoft Cognitive Toolkit
+
+|    |           |
+| ------------- | ------------- |
+| What is it?   | Deep learning framework      |
+| Supported DSVM Editions      | Windows, Linux     |
+| How is it configured / installed on the DSVM?  | The Microsoft Cognitive Toolkit (CNTK) is installed in Python 3.5 on [Linux and Windows 2012](dsvm-languages.md#python-linux-and-windows-server-2012-edition) and Python 3.6 on [Windows 2016](dsvm-languages.md#python-windows-server-2016-edition).   |
+| Links to Samples      | Sample Jupyter notebooks are included.     |
+| Related Tools on the DSVM      | Keras      |
+| How to use / run it?    | * At a terminal: activate the correct environment, then run Python. <br/> * In Jupyter: Connect to [Jupyter](provision-vm.md#tools-installed-on-the-microsoft-data-science-virtual-machine) or [JupyterHub](dsvm-ubuntu-intro.md#how-to-access-the-data-science-virtual-machine-for-linux), then open the CNTK directory for samples. |
 
