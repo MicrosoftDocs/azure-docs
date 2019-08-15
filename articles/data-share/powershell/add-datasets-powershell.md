@@ -18,9 +18,9 @@ ms.author: t-roupa
 This PowerShell script adds a blob dataset to an existing Data Share.
 
 ## Prerequisites
-* **Azure Resource Group**. If you don't have an Azure resource group, see [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) on creating one.
-* **Azure Data Share Account**. If you don't have an Azure Data Share account, see [Create a Data Share account](/create-new-share-account-powershell.md) on creating one.
-* **Azure Data Share**. If you don't have an Azure Data Share, see [Create a Data Share account](/create-new-share-account-powershell.md) on creating one.
+* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) page on creating one.
+* **Azure Data Share Account**. If you don't have an Azure Data Share account, see the [Create a Data Share account](/create-new-share-account-powershell.md) page on creating one.
+* **Azure Data Share**. If you don't have an Azure Data Share, see the [Create a Data Share account](/create-new-share-account-powershell.md) page on creating one.
 
 
 ## Sample script

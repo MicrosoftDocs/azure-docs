@@ -16,9 +16,9 @@ ms.author: t-roupa
 This PowerShell script sets and gets share synchronization settings.
 
 ## Prerequisites
-* **Azure Resource Group**. If you don't have an Azure resource group, see [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) on creating one.
-* **Azure Data Share Account**. If you don't have an Azure data share account, see [Create a data share account](/create-new-share-account.md) on creating one.
-* **Azure Data Share**. If you don't have an Azure data share, see [Create a data share](/create-new-share.md) on creating one.
+* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) page on creating one.
+* **Azure Data Share Account**. If you don't have an Azure data share account, see the [Create a data share account](/create-new-share-account.md) page on creating one.
+* **Azure Data Share**. If you don't have an Azure data share, see the [Create a data share](/create-new-share.md) page on creating one.
 
 ## Sample script
 

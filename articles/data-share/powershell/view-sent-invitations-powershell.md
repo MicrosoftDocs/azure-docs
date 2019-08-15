@@ -18,8 +18,8 @@ ms.author: t-roupa
 This PowerShell script gets invitations sent to a consumer.
 
 ## Prerequisites
-* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) on creating one.
-* **Azure Data Share Account**. If you don't have an Azure data share account, see the [Create a data share account](/create-new-share.md) on creating one.
+* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md) page on creating one.
+* **Azure Data Share Account**. If you don't have an Azure data share account, see the [Create a data share account](/create-new-share.md) page on creating one.
 
 ## Sample script
 ```powershell

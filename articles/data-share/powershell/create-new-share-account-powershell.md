@@ -16,7 +16,7 @@ ms.author: t-roupa
 This PowerShell script creates a new Data Share account. 
 
 ## Prerequisites
-* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md)  on creating one.
+* **Azure Resource Group**. If you don't have an Azure resource group, see the [Create a resource group](../../azure-resource-manager/deploy-to-subscription.md)  page on creating one.
 
 ## Sample script
 
