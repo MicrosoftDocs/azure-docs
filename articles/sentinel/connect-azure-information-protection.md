@@ -30,7 +30,8 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Prerequisites
 
-- User with Global administrator, Security administrator, or Azure Information Protection Azure AD roles, and permissions to read the Log Analytics workspace that is configured for Azure Information Protection.
+- User with Global administrator, Security administrator, or Azure Information Protection Azure AD roles
+- Permissions to read the Log Analytics workspace that is configured for Azure Information Protection
 
 ## Connect to Azure Information Protection
 
@@ -42,11 +43,13 @@ If a workspace isn't yet configured for Azure Information Protection analytics, 
 
 2. On the **Azure Information Protection** blade, you see the **STATUS** displays **Not connected**. Select **Open connector page**.
 
-3. On the next blade, in the **Configuration** section, select **Azure Information Protection** to go to Azure Information Protection analytics. 
+3. On the next blade, in the **Configuration** section, select **Azure Information Protection** to go to Azure Information Protection analytics.
 
 4. If a workspace is already configured for Azure Information Protection analytics, select it.
     
     If a workspace isn't yet configured for Azure Information Protection analytics, you can configure it now by selecting an existing workspace, or by creating a new one and then selecting it.
+    
+    If you need help creating a new workspace, see the information for [Create a workspace](/azure/azure-monitor/learn/quick-create-workspace) from the Azure Monitor documentation.
 
 5. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
 
