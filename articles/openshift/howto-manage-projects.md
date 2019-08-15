@@ -1,6 +1,6 @@
 ---
-title: Managing Resources | Microsoft Docs
-description: Managing projects, templates, image-streams in an Azure Red Hat OpenShift cluster
+title: Manage resources in Azure Red Hat OpenShift | Microsoft Docs
+description: Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster
 services: openshift
 keywords:  red hat openshift projects requests self-provisioner
 author: mjudeikis
@@ -11,7 +11,7 @@ ms.service: container-service
 #Customer intent: As a developer, I need to understand how to manage Openshift projects and development resources
 ---
 
-# Managing projects, templates, image-streams in an Azure Red Hat OpenShift cluster 
+# Manage projects, templates, image-streams in an Azure Red Hat OpenShift cluster 
 
 In OpenShift Container Platform, projects are used to group and isolate related objects. As an administrator you can give developers access to specific projects, allow them to create their own projects, and grant them administrative rights to individual projects.
 
@@ -35,7 +35,7 @@ Access to the API is granted to developers with the self-provisioners cluster ro
 
 1. Log in as a user with `customer-admin` privileges.
 
-2. Edit the default project-request template
+2. Edit the default project-request template.
 ```
 oc edit template project-request -n openshift
 ```
@@ -64,7 +64,7 @@ You can prevent an authenticated user group from self-provisioning new projects.
 oc edit clusterrolebinding self-provisioners
 ```
 
-Remove the role from the ARO update process by adding the following annotation: `openshift.io/reconcile-protect: "true"`
+Remove the role from the ARO update process by adding the following annotation: `openshift.io/reconcile-protect: "true"`.
 ```
 ...
 metadata:
@@ -97,7 +97,7 @@ subjects:
 In Azure Red Hat OpenShift you can disable updates for any default templates and image streams inside `openshift` namespace.
 To disable updates for ALL `Templates` and `ImageStreams` in `openshift` namespace:
 
-1. Log in as a user with `customer-admin` privileges
+1. Log in as a user with `customer-admin` privileges.
 
 2. Edit `openshift` namespace:
 ```
