@@ -5,7 +5,7 @@ summary: Use Azure Data Box Gateway and Azure Data Box Edge devices for over-the
 
 metadata:
   title: Azure Data Box documentation - Online transfer # Required; page title displayed in search results. Include the brand. < 60 chars.
-  description: Data Box Gateway, Data Box Edge Documentation for over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
+  description: Data Box Gateway, Data Box Edge Documentation for high performance over the network data transfer to Azure. # Required; article description that is displayed in search results. < 160 chars.
   services: databox
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: edge
