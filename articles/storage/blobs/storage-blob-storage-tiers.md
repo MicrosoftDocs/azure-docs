@@ -245,7 +245,7 @@ Data storage along with other limits are set at the account level and not per ac
 
 [Manage the Azure Blob storage lifecycle](storage-lifecycle-management-concepts.md)
 
-[Learn about Rehydrating blob data from the archive tier](storage-blob-rehydration.md)
+[Learn about rehydrating blob data from the archive tier](storage-blob-rehydration.md)
 
 [Evaluate usage of your current storage accounts by enabling Azure Storage metrics](../common/storage-enable-and-view-metrics.md)
 
