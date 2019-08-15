@@ -12,17 +12,20 @@
     items:
     - name: Web Application Firewall on Azure Front Door
       href: .\afds\afds-overview.md
-    
 - name: Quickstarts
-  
 - name: Tutorials
-  
-- name: Samples
-  
-- name: Concepts
-  
+  items:
+  - name: Application Gateway
+    items:
+     - name: Enable Web Application Firewall
+       href: ./ag/application-gateway-web-application-firewall-portal.md
+  - name: Front Door
+    items:
+    - name: Configure WAF policy - portal
+      href: ./afds/waf-front-door-create-portal.md
+- name: Samples  
+- name: Concepts 
 - name: How-to guides
-  
 - name: Reference
   items:
   - name: Azure CLI
