@@ -256,5 +256,5 @@ Here's what's happening behind the scenes:
    sudo su - hbase -c "/usr/hdp/current/hbase-regionserver/bin/hbase-daemon.sh start regionserver"   
    ```
 
-### See Also
-[Troubleshoot by Using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
+### See also
+[Troubleshoot by using Azure HDInsight](../../hdinsight/hdinsight-troubleshoot-guide.md)
