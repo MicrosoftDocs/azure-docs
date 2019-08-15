@@ -202,7 +202,7 @@ You should expect to see something similar to the following output:
 
 ### Verify Helm deployment with Helm tests
 
-The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **speech-to-text** and **text-to-speech** services, we'll execute the [Helm test][helm-test] command.
+The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **recognize text** services, we'll execute the [Helm test][helm-test] command.
 
 ```console
 // TODO: Probably remove this section
