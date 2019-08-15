@@ -127,7 +127,7 @@ Error scenarios are categorized in internal to the service and external to Windo
 The following table lists common errors your admins might run into.
 
 >[!NOTE]
->This preview doesn't include a complete categorization of errors and will be updated on a regular basis. To ensure you have the most up-to-date information, be sure to check back on this article at least once a month.
+>This list includes most common errors and is updated on a regular cadence. To ensure you have the most up-to-date information, be sure to check back on this article at least once a month.
 
 ### External management error codes
 
