@@ -108,7 +108,7 @@ Selecting any one of buttons for **Failures**, **Performance**, **Availability**
 
 ![Selected storage account Overview page](./media/storage-insights-overview/storage-account-capacity-01.png)
 
-## Detailed storage KPI workbooks
+## Detailed storage workbooks
 
 Whether you selected a value in the columns **Availability**, **E2E Latency**, **Server Latency**, and **transaction error type/Errors** from the multiple storage account **Overview** workbook, or selecting any one of buttons for **Failures**, **Performance**, **Availability**, and **Capacity** from the **Overview** workbook from a specific storage account, each deliver a set of interactive storage-related information tailored to that category.  
 
