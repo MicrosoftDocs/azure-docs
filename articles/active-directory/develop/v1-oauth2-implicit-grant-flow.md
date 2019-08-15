@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
@@ -31,7 +31,7 @@ The OAuth2 implicit grant is notorious for being the grant with the longest list
 
 The quintessential [OAuth2 authorization code grant](https://tools.ietf.org/html/rfc6749#section-1.3.1) is the authorization grant that uses two separate endpoints. The authorization endpoint is used for the user interaction phase, which results in an authorization code. The token endpoint is then used by the client for exchanging the code for an access token, and often a refresh token as well. Web applications are required to present their own application credentials to the token endpoint, so that the authorization server can authenticate the client.
 
-The [OAuth2 implicit grant](https://tools.ietf.org/html/rfc6749#section-1.3.2) is a variant of other authorization grants. It allows a client to obtain an access token (and id_token, when using [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) directly from the authorization endpoint, without contacting the token endpoint nor authenticating the client. This variant was designed for JavaScript based applications running in a Web browser: in the original OAuth2 specification, tokens are returned in a URI fragment. That makes the token bits available to the JavaScript code in the client, but it guarantees they won’t be included in redirects toward the server. Returning tokens via browser redirects directly from the authorization endpoint. It also has the advantage of eliminating any requirements for cross origin calls, which are necessary if the JavaScript application is required to contact the token endpoint.
+The [OAuth2 implicit grant](https://tools.ietf.org/html/rfc6749#section-1.3.2) is a variant of other authorization grants. It allows a client to obtain an access token (and id_token, when using [OpenId Connect](https://openid.net/specs/openid-connect-core-1_0.html)) directly from the authorization endpoint, without contacting the token endpoint nor authenticating the client. This variant was designed for JavaScript based applications running in a Web browser: in the original OAuth2 specification, tokens are returned in a URI fragment. That makes the token bits available to the JavaScript code in the client, but it guarantees they won’t be included in redirects toward the server. In OAuth2 implicit grant, the authorization endpoint issues access tokens directly to the client using a redirect URI that was previously supplied. It also has the advantage of eliminating any requirements for cross origin calls, which are necessary if the JavaScript application is required to contact the token endpoint.
 
 An important characteristic of the OAuth2 implicit grant is the fact that such flows never return refresh tokens to the client. The next section shows how this isn’t necessary and would in fact be a security issue.
 
