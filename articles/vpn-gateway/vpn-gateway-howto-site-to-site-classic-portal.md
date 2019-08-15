@@ -12,9 +12,8 @@ ms.author: cherylmc
 ---
 # Create a Site-to-Site connection using the Azure portal (classic)
 
-[!INCLUDE [deployment models](../../includes/vpn-gateway-classic-deployment-model-include.md)]
 
-This article shows you how to use the Azure portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+This article shows you how to use the Azure portal to create a Site-to-Site VPN gateway connection from your on-premises network to the VNet. The steps in this article apply to the classic deployment model and do not apply to the current deployment model, Resource Manager. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
 
 > [!div class="op_single_selector"]
 > * [Azure portal](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
@@ -158,23 +157,23 @@ In this step, you set the shared key and create the connection. The key you set 
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-   ```azurepowershell-interactive
+   ```powershell
    Add-AzureAccount
    ```
 2. Check the subscriptions for the account.
 
-   ```azurepowershell-interactive
+   ```powershell
    Get-AzureSubscription
    ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
-   ```azurepowershell-interactive
+   ```powershell
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
 
 ### Step 2. Set the shared key and create the connection
 
-When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. The following steps help you export the network configuration file to obtain the exact values for the names. You must run these commands locally using the PowerShell service management module. To switch to service managment, use this command:
+When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. The following steps help you export the network configuration file to obtain the exact values for the names. You must run these commands locally using the PowerShell service management module. To switch to service management, use this command:
 
 ```powershell
 azure config mode asm
