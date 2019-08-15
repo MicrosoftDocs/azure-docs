@@ -1,6 +1,6 @@
 ---
 title: Azure Traffic Manager subnet override | Microsoft Docs
-description: This article will help you understand how Traffic Manager subnet override can be used to override the routing method of a Traffic Manager profile to direct traffic to an endpoint based upon the end user IP address via predefined IP range to endpoint mappings.
+description: This article will help you understand how Traffic Manager subnet override can be used to override the routing method of a Traffic Manager profile to direct traffic to an endpoint based upon the end-user IP address via predefined IP range to endpoint mappings.
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
@@ -16,20 +16,20 @@ ms.author: allensu
 
 # Traffic Manager subnet override
 
-Traffic Manager subnet overrides allow you to override the routing method of a profile and route traffic based upon the end user IP address via predefined IP Range to Endpoint mappings. 
+Traffic Manager subnet override allows you to alter the routing method of a profile and direct traffic based upon the end-user IP address via predefined IP range to endpoint mappings. 
 
 ## How subnet override works
 
-If subnet overrides are added to a traffic manager profile, then for every DNS query, Traffic Manager will first check if there is a subnet override for the end user’s IP address. If one is found, the user’s DNS query will be directed to the corresponding endpoint, otherwise Traffic Manager will fall back to the profile’s original routing method to route the DNS query. 
+When subnet overrides are added to a traffic manager profile, Traffic Manager will first check if there's a subnet override for the end user’s IP address. If one is found, the user’s DNS query will be directed to the corresponding endpoint, otherwise Traffic Manager will fall back to the profile’s original routing method. 
 
 There are two types of routing profiles that support subnet overrides:
 
-* **Geographic** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will route the query to the endpoint regardless of the health of the endpoint.
-* **Performance** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will only route the traffic to the endpoint if it is healthy.  Traffic Manager will fall back to the performance routing heuristic if the subnet override endpoint is not healthy.
+* **Geographic** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will route the query to the endpoint whatever the health of the endpoint is.
+* **Performance** - If Traffic Manager finds a subnet override for the DNS query's IP address, it will only route the traffic to the endpoint if it's healthy.  Traffic Manager will fall back to the performance routing heuristic if the subnet override endpoint isn't healthy.
 
 ## Create a Traffic Manager subnet override
 
-To create a Traffic Manager subnet override you can use Azure PowerShell or Azure CLI to add the subnets for the override to the Traffic Manager endpoint.
+To create a Traffic Manager subnet override, you can use Azure PowerShell or Azure CLI to add the subnets for the override to the Traffic Manager endpoint.
 
 ## Azure PowerShell
 
@@ -41,9 +41,9 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
 1. **Retrieve the Traffic Manager endpoint:**
 
-    To enable the subnet override, you must first retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+    To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
 
-    Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you are changing.
+    Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you're changing.
 
     ```powershell
 
@@ -52,7 +52,7 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
     ```
 2. **Add the IP address range to the endpoint:**
     
-    To add the IP address range to the endpoint, you will use [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) to add the range.
+    To add the IP address range to the endpoint, you'll use [Add-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/add-aztrafficmanageripaddressrange?view=azps-2.5.0&viewFallbackFrom=azps-2.4.0) to add the range.
 
     ```powershell
 
