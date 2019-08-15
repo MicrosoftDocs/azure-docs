@@ -1,6 +1,6 @@
 ---
 keywords:  dsc,powershell,configuration,setup
-title:  Convert Configurations to Composite Resources
+title:  Convert Configurations to Composite Resources for use in Azure State Configuration
 services: automation
 ms.service: automation
 ms.subservice: dsc
