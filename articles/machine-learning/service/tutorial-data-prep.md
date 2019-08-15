@@ -32,7 +32,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-** Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
+* Complete the [Tutorial: Get started creating your first ML experiment](tutorial-1st-experiment-sdk-setup.md) to:
     * Create a workspace
     * Create a cloud notebook server
     * Launch the Jupyter notebook dashboard
