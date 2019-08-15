@@ -206,7 +206,7 @@ Resetting an Azure VPN gateway is helpful if you lose cross-premises VPN connect
 
 ## <a name="changesku"></a>How to change a gateway SKU
 
-For the steps to change a gateway SKU, see [Resize a gateway SKU](vpn-gateway-about-SKUS-legacy.md).
+For the steps to change a gateway SKU, see [Resize a gateway SKU](vpn-gateway-about-SKUS-legacy.md#classicresize).
 
 ## Next steps
 
