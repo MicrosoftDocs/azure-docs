@@ -8,14 +8,14 @@ manager: gwallace
 
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
-ms.date: 07/16/2019
+ms.date: 08/15/2019
 ms.author: cynthn
 ms.topic: conceptual
 ---
 
 # Set up notifications about maintenance affecting your VM
 
-Updates are applied to different parts of Azure every day, to keep the services running on them secure and up to date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance and enables you to gracefully handle the maintenance. 
+Updates are applied to different parts of Azure every day, to keep the services running on them secure and up to date. In addition to planned updates, unplanned events may also occur. For example, if any hardware degradation or fault is detected, Azure services may need to perform unplanned maintenance. Using live migration, memory preserving updates and generally keeping a strict bar on the impact of updates, in most cases these events are almost transparent to customers, and they have no impact or at most cause a few seconds of virtual machine freeze. However, for some applications, even a few seconds of virtual machine freeze could cause an impact. Knowing in advance about upcoming Azure maintenance is important, to ensure the best experience for those applications. [Scheduled Events service](scheduled-events.md) provides you a programmatic interface to be notified about upcoming maintenance and enables you to gracefully handle the maintenance. 
 
 In this article, we will show how you can use scheduled events to be notified about maintenance events that could be affecting your VMs and build some basic automation that can help with monitoring and analysis.
 
@@ -124,17 +124,16 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
 
 
-
-
 !{NOTE}
 >There will be some delay, and it may take up to 10 minutes before the log is available. You can use any monitoring solution to collect these events and fire an alert to trigger automation.  
 
 
-
-
 ## Creating an alert rule with Azure Monitor 
 
+
 Once the events are pushed to Log Analytics, you can run the following [query](/azure/azure-monitor/log-query/get-started-portal) to look for the schedule Events.
+
+1. At the top of the page, select **Logs** and paste the following into the text box. .
 
 ```
 Event
@@ -150,13 +149,26 @@ Event
 | project-away RenderedDescription,ReqJson
 ```
 
-The query will display a table similar to this:
+1. Select **Save**, and then type *logQuery* for the name, leave **Query** as the type, type *VMLogs* as the **Category**, and then select **Save**. 
 
-![](./media/notifications/query-output.png)
+	![Save the query](save-query.png)
 
+1. Select **New alert rule**. 
+1. In the **Create rule** page, leave *collectorworkspace* as the **Resource**.
+1. Under **Condition**, select the entry *Whenever the customer log seatch is <login undefined>*. The **Configure signal logic** page will open.
+1. Under **Threshold value**, enter *0* and then select **Done**.
+1. Under **Actions**, select **Create action group**. The *8Add action group** page will open.
+1. In **Action group name**, type *myActionGroup*.
+1. In **Short name**, type **myActionGroup**.
+1. In **Resource group**, select *myResourceGroupAvailability**.
+1. Under Actions, in **ACTION NAME** type **Email**, and then select **Email/SMS/Push/Voice**. The **Email/SMS/Push/Voice** page will open.
+1. Select **Email**, type in your e-mail address, then select **OK**.
+1. In the **Add action group** page, select **OK**. 
+1. In the **Create rule** page, under **ALERT DETAILS**, type *myAlert* for the **Alert rule name**, and then type *Email alert rule* for the **Description**.
+1. When you are finished, select **Create alert rule**.
+1. Restart one of the VMs in the availability set. Within a few minutes, you should get an e-mail that the alert has been triggered.
 
- 
-You can use the same query to create an alert rule. To create an alert rule, you need an [action group](/azure/azure-monitor/platform/action-groups). An action group is used to define an action for an alert. You can use this to send an Email or SMS message to your team, or wire up other automation using Webhooks or a Logic App.
      
 ## Next steps
 
+To learn more, see the [Scehduled events service](https://github.com/microsoft/AzureScheduledEventsService) page on GitHub.
