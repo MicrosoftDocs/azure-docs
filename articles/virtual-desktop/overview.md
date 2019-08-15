@@ -1,6 +1,6 @@
 ---
-title: What is Windows Virtual Desktop Preview?  - Azure
-description: An overview of Windows Virtual Desktop Preview.
+title: What is Windows Virtual Desktop?  - Azure
+description: An overview of Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -9,9 +9,9 @@ ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
 ---
-# What is Windows Virtual Desktop Preview? 
+# What is Windows Virtual Desktop? 
 
-Now available in public preview, Windows Virtual Desktop Preview is a desktop and app virtualization service that runs on the cloud.
+Windows Virtual Desktop is a desktop and app virtualization service that runs on the cloud.
 
 Here’s what you can do when you run Windows Virtual Desktop on Azure:
 
@@ -108,4 +108,4 @@ Windows Virtual Desktop supports the following OS images:
 To get started, you'll need to create a tenant. To learn more about how to create a tenant, continue to the tenant creation tutorial.
 
 > [!div class="nextstepaction"]
-> [Create a tenant in Windows Virtual Desktop Preview](tenant-setup-azure-active-directory.md)
+> [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

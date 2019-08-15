@@ -1,6 +1,6 @@
 ---
-title: Set up a user profile share for a Windows Virtual Desktop Preview host pool  - Azure
-description: How to set up an FSLogix profile container for a Windows Virtual Desktop Preview host pool.
+title: Set up a user profile share for a Windows Virtual Desktop host pool  - Azure
+description: How to set up an FSLogix profile container for a Windows Virtual Desktop host pool.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Set up a user profile share for a host pool
 
-The Windows Virtual Desktop Preview service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
+The Windows Virtual Desktop service offers FSLogix profile containers as the recommended user profile solution. We don't recommend using the User Profile Disk (UPD) solution, which will be deprecated in future versions of Windows Virtual Desktop.
 
 This section will tell you how to set up a FSLogix profile container share for a host pool. For general documentation regarding FSLogix, see the [FSLogix site](https://docs.fslogix.com/).
 
