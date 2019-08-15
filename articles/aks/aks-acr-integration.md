@@ -38,7 +38,7 @@ az extension add -y --name aks-preview
 
 You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* doesn't exist, a default ACR name of `aks<resource-group>acr` is automatically created.  Supply valid values for your parameters below.
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup -enable-acr [acr <acr-name-or-resource-id>]
+az aks create -n myAKSCluster -g myResourceGroup --enable-acr [--acr <acr-name-or-resource-id>]
 ```
 
 ## Create ACR integration for existing AKS clusters
@@ -47,7 +47,7 @@ Integrate ACR with existing ACR clusters by supplying valid values for **acr-nam
 
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acrName>
-az aks create -n myAKSCluster -g myResourceGroup --enable-acr --acr-resource-id <--acr>
+az aks update -n myAKSCluster -g myResourceGroup --enable-acr --acr <acr-resource-id>
 ```
 
 ## Log in to your ACR
