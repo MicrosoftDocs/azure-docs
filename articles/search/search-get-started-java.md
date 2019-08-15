@@ -15,8 +15,6 @@ ms.date: 07/11/2019
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
-> 
-> 
 
 Create a Java console application that creates, load and queries an Azure search index using [IntelliJ] (https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable) and the [Azure Search Service REST API](https://msdn.microsoft.com/library/dn798935.aspx).This article explains how to create the application step by step. Alternatively, you can [download and run the complete application](https://github.com/Azure-Samples/azure-search-java-samples/tree/master/Quickstart).
 
@@ -104,12 +102,16 @@ public class App {
                     config.getProperty("ApiVersion"),
                     config.getProperty("IndexName")
             );
+//Uncomment the next 3 lines in the 1 - Create Index section of the quickstart
 //            if(client.indexExists()){ client.deleteIndex();}
 //            client.createIndex("index.json");
 //            Thread.sleep(1000L); // wait a second to create the index
+
+//Uncomment the next 2 lines in the 2 - Load Documents section of the quickstart
 //            client.uploadDocuments();
 //            Thread.sleep(2000L); // wait 2 seconds for data to upload
-//
+
+//Uncomment the following 5 search querys in the 3 - Search an index of the quickstart
 //            // Query 1
 //            client.logMessage("\n*QUERY 1****************************************************************");
 //            client.logMessage("Search for: Atlanta'");
