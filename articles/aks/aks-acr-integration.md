@@ -63,6 +63,7 @@ az acr login -n <acrName>
 ## Pull an image from docker hub and push to your ACR
 
 ```console
+acrloginservername=$(az acr show -n <acrname> -g <myResourceGroup> --query loginServer -o tsv)
 docker pull nginx
 ```
 
