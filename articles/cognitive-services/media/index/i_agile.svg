@@ -1,0 +1,37 @@
+<svg id="ICONS-64x" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #556a8a;
+        stroke-miterlimit: 10;
+        stroke-width: 2px;
+      }
+
+      .cls-2 {
+        fill: #556a8a;
+      }
+
+      .cls-3 {
+        fill: #2bc7f4;
+      }
+
+      .cls-4 {
+        fill: #55d2f6;
+      }
+    </style>
+  </defs>
+  <title>i_agile</title>
+  <g>
+    <path class="cls-1" d="M7,61H46a13,13,0,0,0,0-26H19A13,13,0,0,1,19,9H52.83"/>
+    <polygon class="cls-2" points="46.2 17.18 44.84 15.71 52.06 9 44.84 2.29 46.2 0.82 55 9 46.2 17.18"/>
+  </g>
+  <g>
+    <path class="cls-3" d="M25,21.5a6.5,6.5,0,0,1-13,0,6.5,6.5,0,0,1,13,0Z"/>
+    <path class="cls-4" d="M25,21.5a6.53,6.53,0,0,1-2.24,4.92l-9.17-9.17A6.43,6.43,0,0,1,18.5,15,6.5,6.5,0,0,1,25,21.5Z"/>
+  </g>
+  <g>
+    <path class="cls-3" d="M54,48.5a6.5,6.5,0,0,1-13,0,6.5,6.5,0,0,1,13,0Z"/>
+    <path class="cls-4" d="M54,48.5a6.53,6.53,0,0,1-2.24,4.92l-9.17-9.17A6.43,6.43,0,0,1,47.5,42,6.5,6.5,0,0,1,54,48.5Z"/>
+  </g>
+</svg>

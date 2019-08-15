@@ -102,7 +102,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_library.svg" alt="" />
+                                    <img src="media/index/i_agile.svg" alt="Learn about the human languages supported by Cognitive Services APIs." />
                                 </div>
                             </div>
                             <div class="cardText">
@@ -121,7 +121,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/i_guidelines.svg" alt="Learn how to use Azure Cognitive Services in Containers." />
+                                    <img src="media/index/i_method.svg" alt="Learn how to use Azure Cognitive Services in Containers." />
                                 </div>
                             </div>
                             <div class="cardText">
