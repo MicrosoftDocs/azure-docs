@@ -1,35 +1,57 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
+
 title: Azure AD Device Identity Documentation
+summary: Learn how to configure and manage device identities in Azure AD.
+
 metadata:
-  document_id: 
-  title: Azure Active Directory Device Identity Management Documentation - Tutorials, concepts, references | Microsoft Docs
+  title: Azure AD Device Identity Documentation
   description: Learn how to configure and manage device identities in Azure AD.
   services: active-directory
-  ms.subservice: devices
-  author: MicrosoftGuyJFlo
-  manager: daveba
   ms.service: active-directory
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: devices
   ms.topic: landing-page
-  ms.date: 08/14/2018
+  author: MicrosoftGuyJFlo
   ms.author: joflore
-abstract:
-  description: "Through devices in Azure AD, your users are getting access to your corporate assets. To protect your corporate assets, as an IT administrator, you want to manage these device identities in Azure AD. This enables you to make sure that your users are accessing your resources from devices that meet your standards for security and compliance.<br>Device Identity management is also the foundation for device-based Conditional Access. With device-based Conditional Access, you can ensure that access to resources in your environment is only possible with managed devices."
-sections:
-- title: Step-by-step tutorials
-  items:
-  - type: paragraph
-    text: 'Learn how to integrate your on-premises AD-joined devices with Azure AD.'
-  - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Managed domains
-      href: hybrid-azuread-join-managed-domains.md
-    - image: 
-        src: ./media/index/i_security-management.png
-      text: Federated domains
-      href: hybrid-azuread-join-federated-domains.md
+  ms.date: 08/14/2019
+  ms.collection: M365-identity-device-management
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
+
+landingContent:
+# Cards and links should be based on top customer tasks or top subjects
+# Start card title with a verb
+  # Card
+  - title: About Device Identity
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is a device identity?
+            url: overview.md
+          - text: What is enterprise state roaming?
+            url: enterprise-state-roaming-overview.md
+      - linkListType: concept
+        links:
+          - text: Azure AD registered devices
+            url: concept-azure-ad-register.md
+          - text: Azure AD joined devices
+            url: concept-azure-ad-join.md
+          - text: Hybrid Azure AD joined devices
+            url: concept-azure-ad-join-hybrid.md
+          - text: SSO to on-premises resources
+            url: azuread-join-sso.md
+          - text: Primary Refresh Tokens
+            url: concept-primary-refresh-token.md
+
+  # Card
+  - title: Deploy Conditional Access
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Plan a Conditional Access deployment
+            url: plan-conditional-access.md
+      - linkListType: how-to-guide
+        links:
+          - text: Block legacy authentication
+            url: block-legacy-authentication.md
+          - text: Troubleshooting using the What If tool
+            url: troubleshoot-conditional-access-what-if.md
