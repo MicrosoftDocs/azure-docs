@@ -34,7 +34,7 @@ Open the VLANs/Subnets tab on the Network page to create and manage VLANs/subnet
 
 To create a distributed port group in vSphere, follow the instructions in the VMware topic 'Add a distributed port group' in the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">vSphere Networking Guide</a>. When setting up the distributed port group, provide the VLAN information from the CloudSimple configuration.
 
-![Distributed Port Group](media/distributedPortGroup.png)
+![Distributed Port Group](media/distributed-port-group.png)
 
 ## Select a Firewall Table
 
