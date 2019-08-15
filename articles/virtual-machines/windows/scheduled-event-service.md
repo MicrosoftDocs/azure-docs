@@ -89,10 +89,10 @@ Once the service is setup and started, it will log events in the Windows Applica
 
 When events are captured by the Schedule Event service, it will get logged in the application even log with Event Status, Event Type, Resources (VM name) and NotBefore (minimum notice period). You can locate the events with ID 1234 in the Application Event Log.
 
->![NOTE] 
->In this example, the virtual machines were are in an availability set, which enabled us to designate a single virtual machine as the collector to listen and route scheduled events to our log analytics works space. If you have standalone virtual machines, you can run the service on every virtual machine, and then connect them individually to your log analytics workspace.
+> [!NOTE] 
+> In this example, the virtual machines were are in an availability set, which enabled us to designate a single virtual machine as the collector to listen and route scheduled events to our log analytics works space. If you have standalone virtual machines, you can run the service on every virtual machine, and then connect them individually to your log analytics workspace.
 >
->For our setup, we chose Windows, but you can design a similar solution on Linux as schedule events is also supported on Linux
+> For our setup, we chose Windows, but you can design a similar solution on Linux as schedule events is also supported on Linux
 
 At any point you can stop/remove the Scheduled Event Service by using the switches `–stop` and `–remove`.
 
@@ -124,7 +124,7 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
 
 
-> !{NOTE}
+> [!NOTE]
 > There will be some delay, and it may take up to 10 minutes before the log is available. 
 
 
