@@ -15,14 +15,14 @@ ms.author: spelluru
 # Configure customer-managed keys for encrypting Azure Event Hubs data at rest by using the Azure portal
 Azure Event Hubs provides encryption of data at rest with Azure Storage Service Encryption (Azure SSE). Event Hubs relies on Azure Storage to store the data and by default, all the data that is stored with Azure Storage is encrypted using Microsoft-managed keys. 
 
-Azure Event Hubs now supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys (Bring Your Own Key – BYOK). This feature enables you to create, rotate, disable, and revoke access controls.
+Azure Event Hubs now supports the option of encrypting data at rest with either Microsoft-managed keys or customer-managed keys (Bring Your Own Key – BYOK). This feature enables you to create, rotate, disable, and revoke access to the customer-managed keys that are used for encrypting Azure Event Hubs data at rest.
 
 Enabling the BYOK feature is a one time setup process on your namespace.
 
 > [!NOTE]
 > The BYOK capability is supported by [Event Hubs dedicated single-tenant](event-hubs-dedicated-overview.md) clusters. It can't be enabled for standard Event Hubs namespaces.
 
-You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. The Event Hubs namespace and the key vault must be in the same region but can be in different subscriptions. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
+You can use Azure Key Vault to manage your keys and audit your key usage. You can either create your own keys and store them in a key vault, or you can use the Azure Key Vault APIs to generate keys. For more information about Azure Key Vault, see [What is Azure Key Vault?](../key-vault/key-vault-overview.md)
 
 This article shows how to configure a key vault with customer-managed keys by using the Azure portal. To learn how to create a key vault using the Azure portal, see[] Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/quick-create-portal.md).
 
@@ -98,6 +98,7 @@ Follow these steps to enable logs for customer-managed keys.
     ![Select customer-managed key user logs option](./media/configure-customer-managed-key/select-customer-managed-key-user-logs.png)
 
 ## CustomerManagedKeyUserLogs logs schema 
+All logs are stored in JavaScript Object Notation (JSON) format. Each entry has string fields that use the format described in the following table. 
 
 | Name | Description |
 | ---- | ----------- | 
