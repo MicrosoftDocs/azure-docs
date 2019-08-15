@@ -27,13 +27,13 @@ This guide explains the tasks to set up Active Directory domain and domain contr
 
 Before [adding an identity source](#add-an-identity-source-on-vcenter), temporarily [escalate your vCenter privileges](escalate-private-cloud-privileges.md).
 
-### Identity Source Options
+## Identity Source Options
 
 * [Add On-Premises Active Directory as a Single Sign-On Identity Source](#add-on-premises-active-directory-as-a-single-sign-on-identity-source)
 * [Set Up New Active Directory on a Private Cloud](#set-up-new-active-directory-on-a-private-cloud)
 * [Set Up Active Directory on Azure](#set-up-active-directory-on-azure)
 
-### Add On-Premises Active Directory as a Single Sign-On Identity Source
+## Add On-Premises Active Directory as a Single Sign-On Identity Source
 
 To set up your on-premises Active Directory as a Single Sign-On identity source, you need:
 
@@ -60,11 +60,11 @@ When you have the information in the previous table, you can add your on-premise
 > [!TIP]
 > You'll find more information on Single Sign-On identity sources on the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.psc.doc/GUID-B23B1360-8838-4FF2-B074-71643C4CB040.html" target="_blank">VMware Documentation page</a>.
 
-### Set Up New Active Directory on a Private Cloud
+## Set Up New Active Directory on a Private Cloud
 
 You can set up a new Active Directory domain on your Private Cloud and use it as an identity source for Single Sign-On.  The Active Directory domain can be a part of an existing Active Directory forest or can be set up as an independent forest.
 
-#### New Active Directory Forest and Domain
+### New Active Directory Forest and Domain
 
 To set up a new Active Directory forest and domain, you need:
 
@@ -78,7 +78,7 @@ See [Install a New Windows Server 2012 Active Directory Forest](https://docs.mic
 
 After setting up the Active Directory forest and domain, you can [add an identity source on vCenter](#add-an-identity-source-on-vcenter) for your new Active Directory.
 
-#### New Active Directory Domain in an Existing Active Directory Forest
+### New Active Directory Domain in an Existing Active Directory Forest
 
 To set up a new Active Directory domain in an existing Active Directory forest, you need:
 
@@ -89,13 +89,13 @@ See [Install a New Windows Server 2012 Active Directory Child or Tree Domain](ht
 
 After setting up the Active Directory domain, you can [add an identity source on vCenter](#add-an-identity-source-on-vcenter) for your new Active Directory.
 
-### Set Up Active Directory on Azure
+## Set Up Active Directory on Azure
 
 Active Directory running on Azure is similar to Active Directory running on-premises.  To set up Active Directory running on Azure as a Single Sign-On identity source on vCenter, the vCenter server and PSC must have network connectivity to the Azure Virtual Network where Active Directory services are running.  You can establish this connectivity using [Azure Virtual Network Connection using ExpressRoute](azure-expressroute-connection.md) from the Azure virtual network where Active Directory Services are running to CloudSimple Private Cloud.
 
 After the network connection is established, follow the steps in [Add On-Premises Active Directory as a Single Sign-On Identity Source](#add-on-premises-active-directory-as-a-single-sign-on-identity-source) to add it as an Identity Source.  
 
-### Add an Identity Source on vCenter
+## Add an Identity Source on vCenter
 
 1. [Escalate privileges](escalate-private-cloud-privileges.md) on your Private Cloud.
 
