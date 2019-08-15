@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 08/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -41,9 +41,6 @@ The following steps will help create a Conditional Access policy to require devi
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
    1. If you must exclude specific applications from your policy you can choose them from the **Exclude** tab under **Select excluded cloud apps** and choose **Select**.
    1. Select **Done**.
-1. Under **Conditions** > **Client apps (preview)**, set **Configure** to **Yes**.
-   1. Check only the boxes **Mobile apps and desktop clients** > **Other clients**.
-   2. Select **Done**.
 1. Under **Access controls** > **Grant**, select **Require device to be marked as compliant**.
    1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.

@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 08/16/2019
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -70,6 +70,6 @@ The following steps will help create a Conditional Access policy to require thos
 
 ## Next steps
 
-[Conditional Access common policies](howto-conditional-access-policy-common.md)
+[Conditional Access common policies](concept-conditional-access-policy-common.md)
 
 [Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)
