@@ -16,7 +16,7 @@ ms.author: allensu
 
 # Traffic Manager subnet override
 
-Traffic Manager subnet override allows you to alter the routing method of a profile.  The addition of an override will direct traffic based upon the end user's IP address with a predefined IP or IP range to endpoint mapping. 
+Traffic Manager subnet override allows you to alter the routing method of a profile.  The addition of an override will direct traffic based upon the end user's IP address with a predefined IP range to endpoint mapping. 
 
 ## How subnet override works
 
@@ -64,12 +64,43 @@ If you run PowerShell from your computer, you need the Azure PowerShell module, 
 
     ### Add a range of IPs with a subnet ###
     Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
-
-    ### Add a single IP address ###
-    Add-AzTrafficManagerIPAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "15.16.17.18"
-
+ 
     ```
     Once the ranges are added, use [Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) to update the endpoint.
+
+    ```powershell
+
+    Set-AzTrafficManagerEndpoint -TrafficManagerEndpoint $TrafficManagerEndpoint
+
+    ```
+Removal of the IP address range can be completed by using [Remove-AzTrafficManagerIpAddressRange](https://docs.microsoft.com/powershell/module/az.trafficmanager/remove-aztrafficmanageripaddressrange?view=azps-2.5.0).
+
+1.  **Retrieve the Traffic Manager endpoint:**
+
+    To enable the subnet override, retrieve the endpoint you wish to add the override to and store it in a variable using [Get-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/get-aztrafficmanagerendpoint?view=azps-2.5.0).
+
+    Replace the Name, ProfileName, and ResourceGroupName with the values of the endpoint that you're changing.
+
+    ```powershell
+
+    $TrafficManagerEndpoint = Get-AzTrafficManagerEndpoint -Name "contoso" -ProfileName "ContosoProfile" -ResourceGroupName "ResourceGroup" -Type AzureEndpoints
+
+    ```
+2. **Remove the IP address range from the endpoint:**
+
+    ```powershell
+    
+    ### Remove a range of IPs ###
+    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "1.2.3.4" -Last "5.6.7.8"
+
+    ### Remove a subnet ###
+    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "9.10.11.0" -Scope 24
+
+    ### Remove a range of IPs with a subnet ###
+    Remove-AzTrafficManagerIpAddressRange -TrafficManagerEndpoint $TrafficManagerEndpoint -First "12.13.14.0" -Last "12.13.14.31" -Scope 27
+
+    ```
+     Once the ranges are removed, use [Set-AzTrafficManagerEndpoint](https://docs.microsoft.com/powershell/module/az.trafficmanager/set-aztrafficmanagerendpoint?view=azps-2.5.0) to update the endpoint.
 
     ```powershell
 
@@ -94,14 +125,6 @@ az network traffic-manager endpoint update \
     --profile-name MyTmProfile \
     --resource-group MyResourceGroup \
     --subnets 1.2.3.4-5.6.7.8 \
-    --type AzureEndpoints
-
-### Add a single IP ###
-az network traffic-manager endpoint update \
-    --name MyEndpoint \
-    --profile-name MyTmProfile \
-    --resource-group MyResourceGroup \
-    --subnets 15.16.17.18 \
     --type AzureEndpoints
 
 ```
