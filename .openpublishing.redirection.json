@@ -25890,8 +25890,8 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/security-center/security-center-enable-vm-agent.md",
-      "redirect_url": "/azure/security-center/security-center-update-os-version",
+      "source_path": "articles/security-center/security-center-update-os-version.md",
+      "redirect_url": "/azure/security-center/security-center-virtual-machine-protection",
       "redirect_document_id": false
     },
     {
