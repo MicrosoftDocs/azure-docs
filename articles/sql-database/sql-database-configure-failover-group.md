@@ -205,7 +205,7 @@ Revert failover group back to the primary server:
       -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FailoverGroupName $failoverGroupName
-   Write-host "Failed failover group to successfully to back to" $serverName
+   Write-host "Failed failover group successfully to back to" $serverName
    ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -357,7 +357,7 @@ Consider the following prerequisites:
 
 - The secondary managed instance must be empty.
 - The secondary managed instance must be in a [paired region](/azure/best-practices-availability-paired-regions) to the primary instance. 
-- The subnet range for the secondary virtual network must not overlap the subnet of the primary virtual network. 
+- The subnet range for the secondary virtual network must not overlap the subnet range of the primary virtual network. 
 - The collation and timezone of the secondary instance must match that of the primary instance. 
 - When connecting the two gateways, the **Shared Key** should be the same for both connections. 
 
@@ -406,37 +406,38 @@ Create the primary virtual network gateway using the Azure portal.
 
 Create the primary virtual network gateway using PowerShell. 
 
-    ```powershell-interactive
-    $primaryResourceGroupName = "<Primary-Resource-Group>"
-    $primaryVnetName = "<Primary-Virtual-Network-Name>"
-    $primaryGWName = "<Primary-Gateway-Name>"
-    $primaryGWPublicIPAddress = $primaryGWName + "-ip"
-    $primaryGWIPConfig = $primaryGWName + "-ipc"
-    $primaryGWAsn = 61000
+   ```powershell-interactive
+   $primaryResourceGroupName = "<Primary-Resource-Group>"
+   $primaryVnetName = "<Primary-Virtual-Network-Name>"
+   $primaryGWName = "<Primary-Gateway-Name>"
+   $primaryGWPublicIPAddress = $primaryGWName + "-ip"
+   $primaryGWIPConfig = $primaryGWName + "-ipc"
+   $primaryGWAsn = 61000
+   
+   # Get the primary virtual network
+   $vnet1 = Get-AzVirtualNetwork -Name $primaryVnetName -ResourceGroupName $primaryResourceGroupName
+   $primaryLocation = $vnet1.Location
+   
+   # Create primary gateway
+   Write-host "Creating primary gateway..."
+   $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet1
+   $gwpip1= New-AzPublicIpAddress -Name $primaryGWPublicIPAddress -ResourceGroupName $primaryResourceGroupName `
+            -Location $primaryLocation -AllocationMethod Dynamic
+   $gwipconfig1 = New-AzVirtualNetworkGatewayIpConfig -Name $primaryGWIPConfig `
+            -SubnetId $subnet1.Id -PublicIpAddressId $gwpip1.Id
     
-    # Get the primary virtual network
-    $vnet1 = Get-AzVirtualNetwork -Name $primaryVnetName -ResourceGroupName $primaryResourceGroupName
-    $primaryLocation = $vnet1.Location
-    
-    # Create primary gateway
-    Write-host "Creating primary gateway..."
-    $subnet1 = Get-AzVirtualNetworkSubnetConfig -Name GatewaySubnet -VirtualNetwork $vnet1
-    $gwpip1= New-AzPublicIpAddress -Name $primaryGWPublicIPAddress -ResourceGroupName $primaryResourceGroupName `
-             -Location $primaryLocation -AllocationMethod Dynamic
-    $gwipconfig1 = New-AzVirtualNetworkGatewayIpConfig -Name $primaryGWIPConfig `
-             -SubnetId $subnet1.Id -PublicIpAddressId $gwpip1.Id
-     
-    $gw1 = New-AzVirtualNetworkGateway -Name $primaryGWName -ResourceGroupName $primaryResourceGroupName `
-        -Location $primaryLocation -IpConfigurations $gwipconfig1 -GatewayType Vpn `
-        -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
-    $gw1
-    ```
+   $gw1 = New-AzVirtualNetworkGateway -Name $primaryGWName -ResourceGroupName $primaryResourceGroupName `
+       -Location $primaryLocation -IpConfigurations $gwipconfig1 -GatewayType Vpn `
+       -VpnType RouteBased -GatewaySku VpnGw1 -EnableBgp $true -Asn $primaryGWAsn
+   $gw1
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
 Create the primary virtual network gateway using the Az CLI.
 
-!!!!! NEED AZ CLI CODE FOR ADDING MI TO FAILOVER GROUP !!!!!!!!!!!!
+!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
+
 
 ---
 
@@ -500,7 +501,7 @@ Create the secondary virtual network gateway using PowerShell.
 
 Create the secondary virtual network gateway using the Az CLI. 
 
-!!!!! NEED AZ CLI CODE FOR ADDING MI TO FAILOVER GROUP !!!!!!!!!!!!
+!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
 
 ---
 
@@ -521,7 +522,7 @@ Create connections between the two gateways using the Azure portal.
    ![Add connection to primary gateway](media/sql-database-managed-instance-failover-group-tutorial/add-primary-gateway-connection.png)
 
 1. Enter a name for your connection, and type in a value for the **Shared Key**. 
-1. Select the **Second virtual network gateway** and then select the gateway for the secondary managed instance, such as `secondary-mi-gateway`. 
+1. Select the **Second virtual network gateway** and then select the gateway for the secondary managed instance. 
 
    ![Create primary to secondary connection](media/sql-database-managed-instance-failover-group-tutorial/create-primary-to-secondary-connection.png)
 
@@ -534,39 +535,39 @@ Create connections between the two gateways using the Azure portal.
 
 Create connections between the two gateways using PowerShell. 
 
-    ```powershell-interactive
-    $vpnSharedKey = "mi1mi2psk"
-     
-    $primaryResourceGroupName = "<Primary-Resource-Group>"
-    $primaryGWConnection = "<Primary-connection-name>"
-    $primaryLocation = "<Primary-Region>"
-     
-    $secondaryResourceGroupName = "<Secondary-Resource-Group>"
-    $secondaryGWConnection = "<Secondary-connection-name>"
-    $secondaryLocation = "<Secondary-Region>"    
+   ```powershell-interactive
+   $vpnSharedKey = "mi1mi2psk"
+    
+   $primaryResourceGroupName = "<Primary-Resource-Group>"
+   $primaryGWConnection = "<Primary-connection-name>"
+   $primaryLocation = "<Primary-Region>"
+    
+   $secondaryResourceGroupName = "<Secondary-Resource-Group>"
+   $secondaryGWConnection = "<Secondary-connection-name>"
+   $secondaryLocation = "<Secondary-Region>"    
+  
+   # Connect the primary to secondary gateway
+   Write-host "Connecting the primary gateway"
+   New-AzVirtualNetworkGatewayConnection -Name $primaryGWConnection -ResourceGroupName $primaryResourceGroupName `
+       -VirtualNetworkGateway1 $gw1 -VirtualNetworkGateway2 $gw2 -Location $primaryLocation `
+       -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
+   $primaryGWConnection
    
-    # Connect the primary to secondary gateway
-    Write-host "Connecting the primary gateway"
-    New-AzVirtualNetworkGatewayConnection -Name $primaryGWConnection -ResourceGroupName $primaryResourceGroupName `
-        -VirtualNetworkGateway1 $gw1 -VirtualNetworkGateway2 $gw2 -Location $primaryLocation `
-        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
-    $primaryGWConnection
-    
-    # Connect the secondary to primary gateway
-    Write-host "Connecting the secondary gateway"
-    
-    New-AzVirtualNetworkGatewayConnection -Name $secondaryGWConnection -ResourceGroupName $secondaryResourceGroupName `
-        -VirtualNetworkGateway1 $gw2 -VirtualNetworkGateway2 $gw1 -Location $secondaryLocation `
-        -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
-    $secondaryGWConnection 
-    ```
+   # Connect the secondary to primary gateway
+   Write-host "Connecting the secondary gateway"
+   
+   New-AzVirtualNetworkGatewayConnection -Name $secondaryGWConnection -ResourceGroupName $secondaryResourceGroupName `
+       -VirtualNetworkGateway1 $gw2 -VirtualNetworkGateway2 $gw1 -Location $secondaryLocation `
+       -ConnectionType Vnet2Vnet -SharedKey $vpnSharedKey -EnableBgp $true
+   $secondaryGWConnection 
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
 Create connections between the two gateways using the Az CLI. 
 
-!!!!! NEED AZ CLI CODE FOR ADDING MI TO FAILOVER GROUP !!!!!!!!!!!!
 
+!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
 ---
 
 ### Create the failover group 
@@ -593,29 +594,29 @@ Create the failover group for your managed instances using Azure portal.
 
 Create the failover group for your managed instances using PowerShell. 
 
-    ```powershell-interactive
-    $primaryResourceGroupName = "<Primary-Resource-Group>"
-    $failoverGroupName = "<Failover-Group-Name>"
-    $primaryLocation = "<Primary-Region>"
-    $secondaryLocation = "<Secondary-Region>"
-    $primaryManagedInstance = "<Primary-Managed-Instance-Name>"
-    $secondaryManagedInstance = "<Secondary-Managed-Instance-Name>"
-    
-    # Create failover group
-    Write-host "Creating the failover group..."
-    $failoverGroup = New-AzSqlDatabaseInstanceFailoverGroup -Name $failoverGroupName `
-         -Location $primaryLocation -ResourceGroupName $primaryResourceGroupName -PrimaryManagedInstanceName $primaryManagedInstance `
-         -PartnerRegion $secondaryLocation -PartnerManagedInstanceName $secondaryManagedInstance `
-         -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
-    $failoverGroup
-    ```
+   ```powershell-interactive
+   $primaryResourceGroupName = "<Primary-Resource-Group>"
+   $failoverGroupName = "<Failover-Group-Name>"
+   $primaryLocation = "<Primary-Region>"
+   $secondaryLocation = "<Secondary-Region>"
+   $primaryManagedInstance = "<Primary-Managed-Instance-Name>"
+   $secondaryManagedInstance = "<Secondary-Managed-Instance-Name>"
+   
+   # Create failover group
+   Write-host "Creating the failover group..."
+   $failoverGroup = New-AzSqlDatabaseInstanceFailoverGroup -Name $failoverGroupName `
+        -Location $primaryLocation -ResourceGroupName $primaryResourceGroupName -PrimaryManagedInstanceName $primaryManagedInstance `
+        -PartnerRegion $secondaryLocation -PartnerManagedInstanceName $secondaryManagedInstance `
+        -FailoverPolicy Automatic -GracePeriodWithDataLossHours 1
+   $failoverGroup
+   ```
 
 
 # [Azure CLI](#tab/azure-cli)
 
 Create the failover group for your managed instances using the Az CLI. 
 
-!!!!! NEED AZ CLI CODE FOR ADDING MI TO FAILOVER GROUP !!!!!!!!!!!!
+!!!!! Need AZ CLI code for adding MI to failover group !!!!!!!!!!!!
 
 ---
 
@@ -643,51 +644,51 @@ Test failover of your failover group using the Azure portal.
 
 Test failover of your failover group using PowerShell. 
 
-    ```powershell-interactive
-    $primaryResourceGroupName = <Primary-Resource-Group>
-    $secondaryResourceGroupName = <Secondary-Resource-Group>
-    $failoverGroupName = "<Failover-Group-Name>"
-    $primaryLocation = "<Primary-Region>"
-    $secondaryLocation = "<Secondary-Region>"
-    $primaryManagedInstance = "<Primary-Managed-Instance-Name>"
-    $secondaryManagedInstance = "<Secondary-Managed-Instance-Name>"
-    
-    # Verify the current primary role
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName
-    
-    # Failover the primary managed instance to the secondary role
-    Write-host "Failing primary over to the secondary location"
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
-    
-    # Verify the current primary role
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName
-    
-    # Fail primary managed instance back to primary role
-    Write-host "Failing primary back to primary role"
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
-    
-    # Verify the current primary role
-    Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
-        -Location $secondaryLocation -Name $failoverGroupName
-    ```
+   ```powershell-interactive
+   $primaryResourceGroupName = <Primary-Resource-Group>
+   $secondaryResourceGroupName = <Secondary-Resource-Group>
+   $failoverGroupName = "<Failover-Group-Name>"
+   $primaryLocation = "<Primary-Region>"
+   $secondaryLocation = "<Secondary-Region>"
+   $primaryManagedInstance = "<Primary-Managed-Instance-Name>"
+   $secondaryManagedInstance = "<Secondary-Managed-Instance-Name>"
+   
+   # Verify the current primary role
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+       -Location $secondaryLocation -Name $failoverGroupName
+   
+   # Failover the primary managed instance to the secondary role
+   Write-host "Failing primary over to the secondary location"
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $secondaryResourceGroupName `
+       -Location $secondaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   
+   # Verify the current primary role
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+       -Location $secondaryLocation -Name $failoverGroupName
+   
+   # Fail primary managed instance back to primary role
+   Write-host "Failing primary back to primary role"
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+       -Location $primaryLocation -Name $failoverGroupName | Switch-AzSqlDatabaseInstanceFailoverGroup
+   
+   # Verify the current primary role
+   Get-AzSqlDatabaseInstanceFailoverGroup -ResourceGroupName $primaryResourceGroupName `
+       -Location $secondaryLocation -Name $failoverGroupName
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
 Test failover of your failover group using the Az CLI. 
 
-!!!!! NEED AZ CLI CODE FOR TESTING FAILOVER FOR AN MI !!!!!!!!!!!!
+!!!!! Need AZ CLI code for testing failover for an MI !!!!!!!!!!!!
 
 ---
 
 ## Update connection string
 
-Once your failover group is configured, update the connection string so that your application connects to the failover group listener rather than the primary database, elastic pool, or managed instance. That way, you don"t have to manually update the connection string every time your Azure SQL database entity fails over. 
+Once your failover group is configured, update the connection string so that your application connects to the failover group listener rather than the primary database, elastic pool, or managed instance. That way, you don"t have to manually update the connection string every time your Azure SQL database entity fails over, and traffic is routed to whichever entity is currently primary. 
 
-The connection string to the failover group is in the form of `fog-name.`
+The connection string to the failover group is in the form of `fog-name.?????????????.?????????????.??????????????`
 
 ## Next steps
 

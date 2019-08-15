@@ -237,7 +237,7 @@ Fail over to the secondary server:
       -ResourceGroupName $resourceGroupName `
       -ServerName $drServerName `
       -FailoverGroupName $failoverGroupName
-   Write-host "Failed failover group to successfully to" $drServerName 
+   Write-host "Failed failover group successfully to" $drServerName 
    ```
 
 Revert failover group back to the primary server:
@@ -254,7 +254,7 @@ Revert failover group back to the primary server:
       -ResourceGroupName $resourceGroupName `
       -ServerName $serverName `
       -FailoverGroupName $failoverGroupName
-   Write-host "Failed failover group to successfully to back to" $serverName
+   Write-host "Failed failover group successfully back to" $serverName
    ```
 
 # [Azure CLI](#tab/azure-cli)
