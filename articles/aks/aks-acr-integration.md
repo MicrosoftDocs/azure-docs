@@ -25,7 +25,7 @@ Subscription contributors can create the AKS cluster and the ACR, but you can't 
 * You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.8 extension
 * You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
 
-## Install latest AKS CLI preview extension
+## Install latest AKS CLI preview extensionTo use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.8 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli
 az extension remove --name aks-preview 
@@ -34,14 +34,9 @@ az extension add -y --name aks-preview
 
 ## Create a new AKS cluster with ACR integration
 
-You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* doesn't exist, a default ACR name of `aks-<cluster-name>-acr` is automatically created.  Supply valid values for your parameters below.
+You can set up AKS and ACR integration during the initial creation of your AKS cluster.  To allow an AKS cluster to interact with ACR, an Azure Active Directory **service principal** is used. The following CLI command creates an ACR in the resource group you specify and configures the appropriate **ACRPull** role for the service principal. If the *acr-name* doesn't exist, a default ACR name of `aks<resource-group>acr` is automatically created.  Supply valid values for your parameters below.
 ```azurecli
-az aks create -n myAKSCluster -g myResourceGroup -enable-acr [--acr <acrName>]
-```
-
-Optionally, you can also specify **acr-resource-id** of an existing acr in the resource group you specified for the aks cluster with the following command.  Supply your valid values for the parameters below.
-```azurecli
-az aks create -n myAKSCluster  -g myResourceGroup --enable-acr [--acr-resource-id <your-acr-resource-id>]
+az aks create -n myAKSCluster -g myResourceGroup -enable-acr [acr <acr-name-or-resource-id>]
 ```
 
 ## Create ACR integration for existing AKS clusters
@@ -114,11 +109,13 @@ spec:
 
 ## Update the state and verify pods
 
-You should have two running pods.
+Use kubectl to check your pods deployment.
 
 ```
 $ kubectl apply -f acr-nginx.yaml
 $ kubectl get pods
+
+You should have two running pods.
 
 NAME                                 READY   STATUS    RESTARTS   AGE
 nginx0-deployment-669dfc4d4b-x74kr   1/1     Running   0          20s
