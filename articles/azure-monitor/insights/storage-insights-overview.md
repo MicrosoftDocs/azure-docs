@@ -33,8 +33,6 @@ Combined it delivers:
 
 * **Customizable** where you can change which metrics you want to see, modify or set thresholds that align with your limits, and save as your own workbook. Charts in the workbook can be pinned to Azure dashboard.  
 
-Azure Monitor for Storage is several Azure Monitor [workbooks](../app/usage-workbooks.md) tied together, which combines text, [log queries](../log-query/query-language.md), [metrics](../platform/data-platform-metrics.md), and parameters into rich interactive reports. Workbooks are editable by any other team members who have access to the same Azure resources.
-
 This feature does not require you to enable or configure anything, the storage metrics from your storage accounts are collected by default. If you are unfamiliar with metrics available on Azure Storage, view the description and definition in Azure Storage metrics by reviewing [Azure storage metrics](../../storage/common/storage-metrics-in-azure-monitor.md). To learn more about the metrics collection configuration options in your storage account, review [Configure monitoring for a storage account](../../storage/common/storage-monitor-storage-account.md#configure-monitoring-for-a-storage-account).
 
 >[!NOTE]
