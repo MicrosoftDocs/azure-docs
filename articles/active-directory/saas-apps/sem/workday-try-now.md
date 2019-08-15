@@ -12,7 +12,7 @@ ms.collection: M365-identity-device-management
 
 # Workday and Azure Active Directory
 
-Connect Workday with Azure Active Directory (Azure AD) using our pre-built integration and automatically provision or de-provision user accounts when employees join, move or leave.
+Connect Workday with Azure Active Directory (Azure AD) using our pre-built integration and automatically provision or de-provision user accounts when employees join, move, or leave.
 
 ![Shows the Workday app logo](./media/workday.png)
 
@@ -21,8 +21,8 @@ Connect Workday with Azure Active Directory (Azure AD) using our pre-built integ
 
 ## What can you do with Box and Azure AD?
 
-- **Automate user provisioning** - Automatically assign applications to employees based on their group, role or other attributes in Workday.
-- **Synchronize employee profiles** - Ensure employee data stays up to date between Azure AD and Workday.
+- **Automate user provisioning** - Automatically assign applications to employees based on their group, role, or other attributes in Workday.
+- **Synchronize employee profiles** - Ensure employee data stays up-to-date between Azure AD and Workday.
 - **Simplify onboarding and offboarding** - Automatically provision user accounts for new hires so they can be productive on day one and decrease security risks by automatically de-provisioning user accounts when employees leave.
 - **Easy single sign-on** Eliminate username and passwords and allow users to sign in using their organizational accounts hosted in Azure AD.
 
