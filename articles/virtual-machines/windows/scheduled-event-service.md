@@ -124,8 +124,8 @@ This will install the [Microsoft Monitoring agent](/azure/virtual-machines/exten
 1. Leave **ERROR**, **WARNING**, and **INFORMATION** selected and then select **Save** to save the settings.
 
 
-!{NOTE}
->There will be some delay, and it may take up to 10 minutes before the log is available. You can use any monitoring solution to collect these events and fire an alert to trigger automation.  
+> !{NOTE}
+> There will be some delay, and it may take up to 10 minutes before the log is available. 
 
 
 ## Creating an alert rule with Azure Monitor 
