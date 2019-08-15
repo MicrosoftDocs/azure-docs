@@ -164,8 +164,6 @@ When you train a model, you have to do something about the data that is missing.
 1. In the Properties pane, select **Remove entire row** under **Cleaning mode**.
 
 1. Double-click the module and type the comment "Remove missing value rows."
- 
-    ![Remove rows](./media/ui-tutorial-automobile-price-train-score/remove-rows.png)
 
     Your experiment should now look something like this:
     
@@ -186,8 +184,6 @@ Use your data for both training the model and testing it by splitting the data i
 1. Type **split data** in the search box to find the **Split Data** module and connect it to the left port of the **Clean Missing Data** module.
 
 1. Select the **Split Data** module. In the Properties pane, set the Fraction of rows in the first output dataset to 0.7. This way, we'll use 70 percent of the data to train the model, and hold back 30 percent for testing.
-
-    ![Screenshot showing the correct configuration of the properties pane. Values of "Split Data" should be "Split Rows", 0.7, Randomized split, 0, False.](./media/ui-tutorial-automobile-price-train-score/split-data.png)
 
 1. Double-click the **Split Data** and type the comment "Split the dataset into training set(0.7) and test set(0.3)"
 
