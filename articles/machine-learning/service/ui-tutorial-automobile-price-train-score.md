@@ -108,7 +108,7 @@ Now that you have run your initial experiment, you can visualize the data to und
 
     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left.
 
-    ![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
 
 1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
