@@ -321,9 +321,10 @@ Connect the two gateways using the Az CLI.
 
 !!!!!! Need Az CLI commands  !!!!!!!!!!!!
 
----
+
 
 ---
+
 
 ## 7 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
@@ -367,7 +368,9 @@ Create the failover group using PowerShell.
 # [Azure CLI](#tab/azure-cli)
 Create the failover group using the Az CLI. 
 
---- 
+!!!!!!! Need AZ CLI commands to create the failover group !!!!!!!!!!!
+
+---
 
 
 ## 8 - Test failover
