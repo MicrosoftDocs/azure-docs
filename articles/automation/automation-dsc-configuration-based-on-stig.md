@@ -10,7 +10,7 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
 ---
-# Configuration Based On STIG
+# Configuration based on STIG
 
 > Applies To: Windows PowerShell 5.1
 
