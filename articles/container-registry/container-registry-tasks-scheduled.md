@@ -194,6 +194,8 @@ Each field can have one of the following types of values:
 
 ## Next steps
 
+For an example of using a scheduled task to clean up repositories in a registry, see [Automatically purge images from an Azure container registry](container-registry-auto-purge.md).
+
 For examples of tasks triggered by source code commits or base image updates, check out the [ACR Tasks tutorial series](container-registry-tutorial-quick-task.md).
 
 
