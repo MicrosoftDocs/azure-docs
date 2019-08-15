@@ -45,7 +45,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/common/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
+                                    <img src="media/index/i_guidelines.svg" alt="Learn where Azure Cognitive Services fits in with other Azure offerings for machine learning." />
                                 </div>
                             </div>
                             <div class="cardText">
