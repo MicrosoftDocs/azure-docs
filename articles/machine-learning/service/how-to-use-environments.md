@@ -29,33 +29,17 @@ In this article learn to
 
 In Azure Machine Learning, [environment objects](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) specify the Python packages, environment variables, and software settings around your training and scoring scripts, and run times, such as Python, Spark, or Docker. They are managed and versioned entities within your Azure Machine Learning workspace that enable reproducible, auditable and portable machine learning workflows across different compute targets. You can use an environment object on your local compute to develop your training script, re-use that same environment on Azure Machine Learning Compute for model training at scale, and finally deploy your model using that same environment.
 
-The following illustrates where environment objects fit in the Azure Machine Learing experiment creation, training and deployment workflow.
+The following illustrates where environment objects fit in the Azure Machine Learning experiment creation, training and deployment workflow.
 
 ![Diagram of environment in machine learning workflow](./media/how-to-use-environments/ml-environment.png)
 
 ### Types of environments
 
-Environments can broadly be divided into two categories: user-managed  system-managed.
+Environments can broadly be divided into two categories: **user-managed** and **system-managed**.
 
 For a user-managed environment, you're responsible for setting up your environment and installing every package your training script needs on the compute target. Conda will not check your environment or install anything for you. If your training environment is already configured, you can skip the setup step by setting `environment.python.user_managed_dependencies=True` parameter in the [PythonSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py).
 
-System managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
-
-### Attributes of an environment
-
-The [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py) class contains a name, a version and a dictionary of environment variables you want to pass to your training run.
-
-Furthermore, Environment class contains sections, which are applicable depending on where your script executes. The sections are automatically created and populated with default values when you create the environment. You can change the properties under each section to control the behavior of training or scoring.
-
-Attributes| Description
----|---
-Name| Unique name of your new environment.
-Version| System-assigned version number for the environment.
-Variables dictionary| A dictionary of environment variables to pass to remote run. They are accessible from remote run, for example, using [`os.getenv`](https://docs.python.org/3.7/library/os.html#os.getenv).
-[PythonSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.pythonsection?view=azure-ml-py)|Generally applicable, and can be used to control the Python packages and Python interpreter. For example, you can set the location of Python executable using `environment.python.interpreter_path`
-[DockerSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py)|Generally applicable, and can be used to control the behavior of Docker execution. For example, you can enable or disable Docker execution using `environment.docker.enabled`, and pass additional arguments to Docker run command using `environment.docker.arguments`.
-[SparkSection](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.sparksection?view=azure-ml-py)|Relevant only when submitting PySpark training scripts.
-DatabricksSection|Relevant only when executing [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricksstep?view=azure-ml-py) in Machine Learning Pipeline.
+System-managed environments are used when you want [Conda](https://conda.io/docs/) to manage the Python environment and the script dependencies for you. The service assumes this type of environment by default, due to its usefulness on remote compute targets that are not manually configurable.
 
 ## Prerequisites
 
@@ -66,14 +50,29 @@ DatabricksSection|Relevant only when executing [DatabricksStep](https://docs.mic
 
 The table lists the different ways to create an environment object with the Azure Machine Learning SDK.
 
-Way| Description| Sample code
----|---|---
-[Environment](https://docs.microsoft.com/python/api/azureml-core/newazureml.core.environment.environment?view=azure-ml-py) class|Instantiate an environment object.|`Environment(name="myenv")`
-[Estimator](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) run |  When you submit a run using an estimator object an environment is automatically created.|
-Existing Conda environment on your local computer| Create an environment from an existing Conda environment on your local computer. This makes it easy to reuse your local interactive environment on remote runs. | Create a Conda environment using <br> `conda create -n mycondaenv` <br> then create an environment object out of that conda environment using <br> `myenv = Environment.from_existing_conda_environment(name="myenv",conda_environment_name="mycondaenv")`.
-Conda specification file| Use a conda specification file. | `myenv = Environment.from_conda_specification(name="myenv", file_path="path-to-conda-specification-file")`
-Pip requirements file | Use a pip requirement file| `myenv = Environment.from_pip_requirements(name="myenv", file_path="path-to-pip-requirements-file")`
+### Instantiate an environment object
+
+`Environment(name="myenv")`
+
+### Conda and pip specification files
+
+Conda specification file| Use a conda specification file. 
+`myenv = Environment.from_conda_specification(name="myenv", file_path="path-to-conda-specification-file")`
+
+Pip requirements file | Use a pip requirement file
+`myenv = Environment.from_pip_requirements(name="myenv", file_path="path-to-pip-requirements-file")`
+
+### Automatically create environments
+
+ When you submit a run using an estimator object an environment is automatically created. [Estimator](https://docs.microsoft.com//python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) run
+
 Submit a run |Submitting a run creates a default environment, when one is not defined. When you submit a training run, the building of new environment can take several minutes depending on the size of the required dependencies.
+
+### Existing Conda environment
+
+Existing Conda environment on your local computer. Create an environment from an existing Conda environment on your local computer. This makes it easy to reuse your local interactive environment on remote runs. 
+
+Create a Conda environment using <br> `conda create -n mycondaenv` <br> then create an environment object out of that conda environment using <br> `myenv = Environment.from_existing_conda_environment(name="myenv",conda_environment_name="mycondaenv")`.
 
 ### Add packages to an environment
 
@@ -92,11 +91,8 @@ from azureml.core.environment import CondaDependencies
 myenv = Environment(name="myenv")
 conda_dep = CondaDependencies()
 
-# Install scikit learn conda package
-conda_dep.add_conda_package("scikit-learn")
-
-# Install pillow version 5.4.1 pip package
-conda_dep.add_pip_package("pillow==5.4.1")
+# Installs scikit-learn version 0.21.3 conda package
+conda_dep.add_conda_package("scikit-learn==0.21.3")
 
 # Adds dependencies to PythonSection of myenv
 myenv.python.conda_dependencies=conda_dep
@@ -117,7 +113,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ## Manage environments
 
-In this section, we show how to register your environment, so we can use it across compute targets, and share them with other workspace users. We also retrieve existing environments by name, explain how new versions are generated, and show how to build an environment manually for debugging.
+Managing environments In this section, we show how to register your environment, so we can use it across compute targets, and share them with other workspace users. We also retrieve existing environments by name, explain how new versions are generated, and show how to build an environment manually for debugging.
 
 ### Register environments
 
@@ -125,8 +121,9 @@ The environment is automatically registered with your workspace when you submit 
 operation makes the environment into an entity that is tracked and versioned in the cloud, and can be shared between workspace users.
 
 When used for the first time, in training or deployment, the environment is registered with the workspace, built, and deployed on the compute target. The environments are cached by the service, therefore as long as the environment definition remains unchanged, the full setup time is incurred only once.
- 
+
 ### Get existing environments
+
 The Environment class offers methods that allow you to retrieve existing environments in your workspace by name, as a list or by specific training run.
 
 #### View list of environments
@@ -140,7 +137,7 @@ list("workspace_name")
 
 #### Get environment by name
 
-You can also get a specific environment by name and version. 
+You can also get a specific environment by name and version.
 The following code uses the [get()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) method to retrieve version `1` of the environment, `myenv` on the `ws` workspace.
 
 ```python
