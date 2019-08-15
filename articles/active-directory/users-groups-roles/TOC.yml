@@ -87,11 +87,11 @@
     - name: Bulk import members
       href: groups-bulk-import-members.md
     - name: Bulk download members
-      href: groups-bulk-import-members.md
+      href: groups-bulk-download-members.md
     - name: Bulk remove members
-      href: groups-bulk-import-members.md
+      href: groups-bulk-remove-members.md
     - name: Download a list of groups
-      href: groups-bulk-import-members.md
+      href: groups-bulk-download.md
     - name: Manage groups in groups
       href: /azure/active-directory/fundamentals/active-directory-groups-membership-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
     - name: Add group access to SaaS apps    
