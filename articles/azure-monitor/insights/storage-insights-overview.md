@@ -233,7 +233,7 @@ When viewing any of the charts or grids in Azure Monitor for Storage (preview) i
 * Storage account is inactive
 * Metric collection has been disabled on the account
 
-Refer to the following article for [missing data troubleshooting](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance).
+Refer to the following article for [configuring data collection]().
 
 ## Next steps
 
