@@ -143,8 +143,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Vision API</h3>
-                        <p>explanation</p>
+                        <h3>Vision</h3>
+                        <h4>Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
@@ -161,7 +161,8 @@ ms.topic: hub-page
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Speech API</h3>
+                        <h3>Speech</h3>
+                        <h4>Add Bing Search APIs to your apps and harness the ability to comb billions of webpages, images, videos, and news with a single API call.</h4>
 						<p><a href="/azure/cognitive-services/speech-service">Speech Services</a></p>
                         <p><a href="/azure/cognitive-services/speaker-recognition/home"><span>Speaker Recognition&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                         <p><a href="/azure/cognitive-services/speech/home"><span>Bing Speech API&nbsp;<sup style="font-size:70%">RETIRING</sup></span></a></p>
