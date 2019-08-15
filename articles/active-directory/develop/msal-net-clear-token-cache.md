@@ -3,7 +3,7 @@ title: Clear the token cache by using Microsoft Authentication Library for .NET 
 description: Learn how to clear the token cache using the Microsoft Authentication Library for .NET (MSAL.NET).
 services: active-directory
 documentationcenter: dev-center-name
-author: rwike77
+author: TylerMSFT
 manager: CelesteDG
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: ryanwi
+ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to learn how how to clear the token cache so I can .
