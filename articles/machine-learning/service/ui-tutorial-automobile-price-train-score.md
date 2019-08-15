@@ -108,7 +108,7 @@ Now that you have run your initial experiment, you can visualize the data to und
 
     Each time you click a column of data, the **Statistics** information and **Visualization** image of that column appears on the left.
 
-    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)
+    [![Preview the data](./media/ui-tutorial-automobile-price-train-score/preview-data.gif)](./media/ui-tutorial-automobile-price-train-score/preview-data.gif#lightbox)
 
 1. Click each column to understand more about your dataset, and think about whether these columns will be useful to predict the price of an automobile.
 
@@ -236,26 +236,6 @@ The following statistics are shown for your model:
 * **Coefficient of Determination**: Also known as the R squared value, this is a statistical metric indicating how well a model fits the data.
 
 For each of the error statistics, smaller is better. A smaller value indicates that the predictions more closely match the actual values. For Coefficient of Determination, the closer its value is to one (1.0), the better the predictions.
-
-## Manage experiments in Azure Machine Learning service workspace
-
-The experiments you create in the visual interface can be managed from the Azure Machine Learning service workspace. Use the workspace to see more detailed information such as individuals experiment runs, diagnostic logs, execution graphs, and more.
-
-1. Open your workspace in the [Azure portal](https://portal.azure.com/).  
-
-1. In your workspace, select **Experiments**. Then select the experiment you created.
-
-    ![Screenshot showing how to navigate to experiments in the Azure portal](./media/ui-tutorial-automobile-price-train-score/portal-experiments.png)
-
-    On this page, you'll see an overview of the experiment and its latest runs.
-
-    ![Screenshot showing overview of experiment statistics in the Azure portal](./media/ui-tutorial-automobile-price-train-score/experiment-overview.png)
-
-1. Select a run number to see more details about a specific execution.
-
-    ![Screenshot detailed run report](./media/ui-tutorial-automobile-price-train-score/run-details.png)
-
-    The run report is updated in real time. If you used an **Execute Python Script** or **Execute R Script** module in your experiment, you can specify script logs to output in the **Logs** tab.
 
 ## Clean up resources
 
