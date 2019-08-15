@@ -19,4 +19,4 @@ ms.date: 08/14/2019
 
    ![Download config.json](./media/aml-download-config/configure.png)
    
-   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to correct directory on the VM for you.
+   Place the file into  the directory structure with your Python scripts or Jupyter Notebooks. It can be in the same directory, a subdirectory named *.azureml*, or in a parent directory. When you create a Notebook VM, this file is added to the correct directory on the VM for you.
