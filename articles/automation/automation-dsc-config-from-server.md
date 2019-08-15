@@ -1,6 +1,6 @@
 ---
 keywords:  dsc,powershell,configuration,setup
-title:  Create Configurations from Servers
+title:  Create Configurations from Servers for use in Azure State Configuration
 services: automation
 ms.service: automation
 ms.subservice: dsc
