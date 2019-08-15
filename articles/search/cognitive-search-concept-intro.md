@@ -8,7 +8,7 @@ ms.service: search
 ms.subservice: cognitive-search
 ms.devlang: NA
 ms.topic: overview
-ms.date: 05/28/2019
+ms.date: 08/15/2019
 ms.author: heidist
 ms.custom: seodec2018
 ---
@@ -30,6 +30,22 @@ Natural language and image processing is applied during the data ingestion phase
 > As you expand scope by increasing the frequency of processing, adding more documents, or adding more AI algorithms, you will need to [attach a billable Cognitive Services resource](cognitive-search-attach-cognitive-services.md). Charges accrue when calling APIs in Cognitive Services, and for image extraction as part of the document-cracking stage in Azure Search. There are no charges for text extraction from documents.
 >
 > Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/). Image extraction pricing is described on the [Azure Search pricing page](https://go.microsoft.com/fwlink/?linkid=2042400).
+
+## When to use cognitive search
+
+Cognitive search, using pre-built skills, is well suited for the following application scenarios:
+
++ Scanned documents (JPEG) that you want to make full-text searchable. You can attach optical character recognition (OCR) to identify, extract, and ingest text from JPEG files.
+
++ PDFs with combined image and text. Text in PDFs can be extracted during Azure Search indexing without the use of cognitive search, but the addition of image and natural language processing can frequently produce a better outcome than standard indexing provides.
+
++ Unstructured or semi-structured documents containing content that has a specific meaning or context. Natural language processing can often identify entities, key phrases, or sentiment. By attaching skills that can find patterns and analyze content, you can extract and store content elements alongside the larger doc
+
++ Multi-lingual content against which you want to apply language detection and posisbly text trnaslation.
+
+Custom skills can support more complex scenarios, such as recognitizing forms
+
+
 ## Components of cognitive search
 
 A cognitive search pipeline is based on [Azure Search *indexers*](search-indexer-overview.md) that crawl data sources and provide end-to-end index processing. Skills are now attached to indexers, intercepting and enriching documents according to the skillset you define. Once indexed, you can access content via search requests through all [query types supported by Azure Search](search-query-overview.md).  If you are new to indexers, this section walks you through the steps.
