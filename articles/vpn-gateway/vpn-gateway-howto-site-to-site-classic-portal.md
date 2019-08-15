@@ -36,7 +36,7 @@ Verify that you have met the following criteria before beginning configuration:
 * Make sure you have a compatible VPN device and someone who is able to configure it. For more information about compatible VPN devices and device configuration, see [About VPN Devices](vpn-gateway-about-vpn-devices.md).
 * Verify that you have an externally facing public IPv4 address for your VPN device.
 * If you are unfamiliar with the IP address ranges located in your on-premises network configuration, you need to coordinate with someone who can provide those details for you. When you create this configuration, you must specify the IP address range prefixes that Azure will route to your on-premises location. None of the subnets of your on-premises network can over lap with the virtual network subnets that you want to connect to.
-* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator. 
+* Currently, PowerShell is required to specify the shared key and create the VPN gateway connection. Install the latest version of the Azure Service Management (SM) PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/overview). When working with PowerShell for this configuration, make sure that you are running as administrator.
 
 ### <a name="values"></a>Sample configuration values for this exercise
 
@@ -151,30 +151,34 @@ Site-to-Site connections to an on-premises network require a VPN device. In this
 In this step, you set the shared key and create the connection. The key you set is must be the same key that was used in your VPN device configuration.
 
 > [!NOTE]
-> Currently, this step is not available in the Azure portal. You must use the Service Management (SM) version of the Azure PowerShell cmdlets locally on your desktop, not in Azure Cloud Shell. See [Before you Begin](#before) for information about installing these cmdlets.
+> Currently, this step is not available in the Azure portal. You must use the Service Management (SM) version of the Azure PowerShell cmdlets. See [Before you Begin](#before) for information about installing these cmdlets.
 >
 
 ### Step 1. Connect to your Azure account
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-   ```powershell
+   ```azurepowershell-interactive
    Add-AzureAccount
    ```
 2. Check the subscriptions for the account.
 
-   ```powershell
+   ```azurepowershell-interactive
    Get-AzureSubscription
    ```
 3. If you have more than one subscription, select the subscription that you want to use.
 
-   ```powershell
+   ```azurepowershell-interactive
    Select-AzureSubscription -SubscriptionId "Replace_with_your_subscription_ID"
    ```
 
 ### Step 2. Set the shared key and create the connection
 
-When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. The following steps help you export the network configuration file to obtain the exact values for the names.
+When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. The following steps help you export the network configuration file to obtain the exact values for the names. You must run these commands locally using the PowerShell service management module. To switch to service managment, use this command:
+
+```powershell
+azure config mode asm
+```
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 
