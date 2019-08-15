@@ -23,8 +23,8 @@ Azure Active Directory (Azure AD) supports bulk group list download, bulk import
 
 1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with a User administrator account in the organization.
 1. In Azure AD, select **Groups** > **All groups**.
-1. Open the group to which you're adding members and then select **Members**.
-1. On the **Members** page, select **Remove members** to download, update, and upload a CSV file listing the members that you want to import into the group.
+1. Open the group from which you want to dowlonad membership, and then select **Members**.
+1. On the **Members** page, select **Download members** to download a CSV file listing the group members.
 
    ![The Download Members command is on the profile page for the group](./media/groups-bulk-download-members/download-panel.png)
 

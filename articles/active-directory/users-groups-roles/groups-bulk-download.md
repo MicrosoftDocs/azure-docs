@@ -22,7 +22,7 @@ Azure Active Directory (Azure AD) supports bulk group list download, bulk import
 
 ## To download a list of groups
 
-1. Sign in to your Azure AD organization with a User administrator account in the organization.
+1. Sign in to your Azure AD organization with an administrator account in the organization.
 1. In Azure AD, select **Groups** > **Download groups**.
 1. On the **Groups download** page, select **Start** to receive a CSV file listing your groups.
 
