@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/20/2019
-ms.author: rkarlin
+ms.date: 08/15/2019
+ms.author: v-mohabe
 
 ---
 
@@ -314,4 +314,4 @@ This article discussed how to customize OS security configuration assessments in
 
 - [Security Center common configuration identifiers and baseline rules](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
 - Security Center uses common configuration enumeration (CCE) to assign unique identifiers to configuration rules. For more information, see [CCE](https://nvd.nist.gov/config/cce/index).
-- To resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules, see [Remediate security configurations](security-center-remediate-os-vulnerabilities.md).
+- To resolve vulnerabilities when your OS configuration does not match the recommended security configuration rules, see [Remediate security configurations](security-center-virtual-machine-protection.md).
