@@ -191,9 +191,9 @@ The various resource health statuses and their descriptions are listed in the fo
 
 | Resource health status | Description |
 | --- | --- |
-| Available | Your public standard load balancer resource is healthy and available. |
-| Unavailable | Your public standard load balancer resource is not healthy. Diagnose the health by selecting **Azure Monitor** > **Metrics**.<br>(*Unavailable* status might also mean that the resource is not connected with your public standard load balancer.) |
-| Unknown | Resource health status for your public standard load balancer resource has not been updated yet.<br>(*Unknown* status might also mean that the resource is not connected with your public standard load balancer.)  |
+| Available | Your standard load balancer resource is healthy and available. |
+| Unavailable | Your standard load balancer resource is not healthy. Diagnose the health by selecting **Azure Monitor** > **Metrics**.<br>(*Unavailable* status might also mean that the resource is not connected with your standard load balancer.) |
+| Unknown | Resource health status for your standard load balancer resource has not been updated yet.<br>(*Unknown* status might also mean that the resource is not connected with your standard load balancer.)  |
 
 ## Next steps
 
