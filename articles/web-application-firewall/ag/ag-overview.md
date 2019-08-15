@@ -57,7 +57,7 @@ This section describes the core benefits that Application Gateway and its WAF pr
 
 Application Gateway supports two rule sets, CRS 3.0 and CRS 2.2.9. These rules protect your web applications from malicious activity.
 
-The Application Gateway WAF comes preconfigured with CRS 3.0 by default. But you can choose to use CRS 2.2.9 instead. CRS 3.0 offers reduced false positives compared with CRS 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
+The Application Gateway WAF cobmes preconfigured with CRS 3.0 by default. But you can choose to use CRS 2.2.9 instead. CRS 3.0 offers reduced false positives compared with CRS 2.2.9. You can also [customize rules to suit your needs](application-gateway-customize-waf-rules-portal.md).
 
 The WAF protects against the following web vulnerabilities:
 
@@ -139,11 +139,11 @@ Monitoring the health of your application gateway is important. Monitoring the h
 
 #### Azure Monitor
 
-Application Gateway logs are integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md). This allows you to track diagnostic information, including WAF alerts and logs. You can access this capability on the **Diagnostics** tab in the Application Gateway resource in the portal or directly through Azure Monitor. To learn more about enabling logs, see [Application Gateway diagnostics](application-gateway-diagnostics.md).
+Application Gateway logs are integrated with [Azure Monitor](../../azure-monitor/overview.md). This allows you to track diagnostic information, including WAF alerts and logs. You can access this capability on the **Diagnostics** tab in the Application Gateway resource in the portal or directly through Azure Monitor. To learn more about enabling logs, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md).
 
 #### Azure Security Center
 
-[Security Center](../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway is [integrated with Security Center](application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You create the firewalls directly from Security Center. These WAF instances are integrated with Security Center. They send alerts and health information to Security Center for reporting.
+[Security Center](../../security-center/security-center-intro.md) helps you prevent, detect, and respond to threats. It provides increased visibility into and control over the security of your Azure resources. Application Gateway is [integrated with Security Center](../../application-gateway/application-gateway-integration-security-center.md). Security Center scans your environment to detect unprotected web applications. It can recommend Application Gateway WAF to protect these vulnerable resources. You create the firewalls directly from Security Center. These WAF instances are integrated with Security Center. They send alerts and health information to Security Center for reporting.
 
 ![Security Center overview window](../media/ag-overview/figure1.png)
 
