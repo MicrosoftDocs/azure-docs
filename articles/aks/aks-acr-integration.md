@@ -7,7 +7,7 @@ manager: gwallace
 
 ms.service: container-service
 ms.topic: article
-ms.date: 08/14/2018
+ms.date: 08/15/2018
 ms.author: mlearned
 ---
 
@@ -15,7 +15,7 @@ ms.author: mlearned
 
 When you're using Azure Container Registry (ACR) with Azure Kubernetes Service (AKS), an authentication mechanism needs to be established. This article details the recommended configurations for authentication between these two Azure services.
 
-You can set up the AKS to ACR integration in a few simple commands with the Azure CLI and the aks-preview 0.4.8 extension.
+You can set up the AKS to ACR integration in a few simple commands with the Azure CLI.
 
 ## Before you begin
 
@@ -25,9 +25,9 @@ Subscription contributors can create the AKS cluster and the ACR, but you can't 
 * You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.8 extension
 * You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
 
-## Install latest AKS CLI preview extensionTo use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.8 or higher. 
+## Install latest AKS CLI preview extension
 
-Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+You need the **aks-preview 0.4.8** extension or later.  Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli
 az extension remove --name aks-preview 
