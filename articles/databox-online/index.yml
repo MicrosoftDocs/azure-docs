@@ -106,11 +106,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Data Box, Data Box Heavy
-            url: data-box-troubleshoot.md
-          - text: Data Box Blob storage
-            url: data-box-troubleshoot-rest.md
-          - text: Data Box Disk
-            url: data-box-disk-troubleshoot.md
+          - text: Data Box Gateway
+            url: data-box-gateway-troubleshoot.md
+          - text: Data Box Edge
+            url: data-box-edge-troubleshoot.md
           - text: Open Support ticket
             url: data-box-disk-contact-microsoft-support.md
