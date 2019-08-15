@@ -22,9 +22,9 @@ Virtual network connection allows you to:
 
 [![Azure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)](media/cloudsimple-azure-network-connection.png)
 
-## How to set up virtual network connection
+## Set up a virtual network connection
 
-To set up the virtual network connection to your Private Cloud, you need your authorization key, peer circuit URI, and access to your Azure subscription. This information is available on the Virtual Network Connection page in the CloudSimple portal. For instructions, see [Obtain peering information for Azure virtual network to CloudSimple connection](virtual-network-connection). If you have any trouble obtaining the information, submit a <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">support request</a>.
+To set up the virtual network connection to your Private Cloud, you need your authorization key, peer circuit URI, and access to your Azure subscription. This information is available on the Virtual Network Connection page in the CloudSimple portal. For instructions, see [Obtain peering information for Azure virtual network to CloudSimple connection](virtual-network-connection.md). If you have any trouble obtaining the information, submit a <a href="https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest" target="_blank">support request</a>.
 
 > [!TIP]
 > If you already have a Azure virtual network, gateway subnet, and virtual network gateway, you can skip to step 4.
@@ -37,7 +37,7 @@ To set up the virtual network connection to your Private Cloud, you need your au
 > [!WARNING]
 > If you are using an existing virtual network gateway and it has an ExpressRoute connection to the same location as the CloudSimple ExpressRoute circuit, the connection will not be established.  Create a new virtual network and follow the previous steps.
 
-## Testing the Virtual Network Connection
+## Test the virtual network connection
 
 After the connection is created, you can check the status of the connection by selecting **Properties** under **Settings**.  Status and Provisioning State should show **Succeeded**.
 
