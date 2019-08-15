@@ -11,17 +11,17 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 08/15/2019
 ms.author: magoedte
 ---
 
-# Monitoring your storage service with Azure Monitor for Storage (Preview)
+# Monitoring your storage service with Azure Monitor for Storage (preview)
 
 Azure Monitor for Storage (preview) provides a comprehensive monitoring of your Azure Storage accounts by delivering a unified view of your Azure Storage services performance, capacity, and availability. You can observe storage health, capacity, and performance in two ways, view directly from a storage account or view from Azure Monitor to see across groups of storage accounts. 
 
 This article will help you understand the experience Azure Monitor for Storage (preview) delivers to derive actionable knowledge on the health and performance of Storage accounts at scale, with a capability to focus on hotspots and diagnose latency, throttling, and availability issues.
 
-## Introduction to Azure Monitor for Storage
+## Introduction to Azure Monitor for Storage (preview)
 
 Before diving into the experience, you should understand how it presents and visualizes information. Whether you select the Storage feature directly from a storage account or from Azure Monitor, Azure Monitor for Storage presents a consistent experience. The only difference is that from Azure Monitor, you can see all storage accounts in your subscriptions.
 
