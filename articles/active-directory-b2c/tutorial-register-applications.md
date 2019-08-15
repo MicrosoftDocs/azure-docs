@@ -42,7 +42,9 @@ If you haven't already created your own [Azure AD B2C Tenant](tutorial-create-te
 
     The reply URL must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, if the application has a reply URL of `https://login.contoso.com`, you can add to it like this URL `https://login.contoso.com/new`. Or, you can refer to a DNS subdomain of `login.contoso.com`, such as `https://new.login.contoso.com`. If you want to have an application with `login-east.contoso.com` and `login-west.contoso.com` as reply URLs, you must add those reply URLs in this order: `https://contoso.com`, `https://login-east.contoso.com`, `https://login-west.contoso.com`. You can add the latter two because they're subdomains of the first reply URL, `contoso.com`.
 
-7. Click **Create**.
+7.  Please note that reply URL requirements are case sensitive (i.e. if the app is running on a path ".../abc/response-oidc" and RedirectUri is set to ".../ABC/signin-oidc," the browser treats the path as case sensitive, and on the return path cookies associated with ".../abc/response-oidc" may be excluded.
+
+8. Click **Create**.
 
 ## Create a client secret
 
