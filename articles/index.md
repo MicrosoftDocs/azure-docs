@@ -1639,7 +1639,7 @@ featureFlags:
                                         </li>
                                         <li>
                                             <a href="/azure/web-application-firewall/">
-                                                <img src="media/index/web_app_firewall.svg" alt="" />
+                                                <img src="media/index/web-app-firewall.svg" alt="" />
                                                 <p>Web Application Firewall</p>
                                             </a>
                                         </li>
@@ -5475,7 +5475,7 @@ featureFlags:
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/web_app_firewall.svg" alt="" />
+                                                        <img src="media/index/web-app-firewall.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
