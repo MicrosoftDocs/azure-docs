@@ -31045,7 +31045,7 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/cognitive-services/QnAMaker/Concepts/glossary.md",
+      "source_path": "articles/cognitive-services/QnAMaker/glossary.md",
       "redirect_url": "/azure/cognitive-services/QnAMaker/concepts/knowledge-base",
       "redirect_document_id": false
     }, 
