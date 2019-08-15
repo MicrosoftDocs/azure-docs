@@ -23,7 +23,7 @@ This article will help you understand the experience Azure Monitor for Storage (
 
 ## Introduction to Azure Monitor for Storage (preview)
 
-Before diving into the experience, you should understand how it presents and visualizes information. Whether you select the Storage feature directly from a storage account or from Azure Monitor, Azure Monitor for Storage presents a consistent experience. The only difference is that from Azure Monitor, you can see all storage accounts in your subscriptions.
+Before diving into the experience, you should understand how it presents and visualizes information. Whether you select the Storage feature directly from a storage account or from Azure Monitor, Azure Monitor for Storage presents a consistent experience. 
 
 Combined it delivers:
 
@@ -52,7 +52,7 @@ To view the utilization and availability of your storage accounts across all of 
 
 ### Overview workbook
 
-On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service health state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
+On the **Overview** workbook for the selected subscription, the table displays interactive storage metrics and service availability state for up to 10 storage accounts grouped within the subscription. You can filter the results based on the options you select from the following drop-down lists:
 
 * **Subscriptions** - only subscriptions that have storage accounts are listed.  
 
