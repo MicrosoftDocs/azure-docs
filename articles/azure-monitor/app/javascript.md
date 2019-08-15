@@ -15,13 +15,13 @@ ms.author: mbullwin
 ---
 # Application Insights for web pages
 
-Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
+Find out about the performance and usage of your web page or app. If you add [Application Insights](app-insights-overview.md) to your page script, you get timings of page loads and AJAX calls, counts, and details of browser exceptions and AJAX failures, as well as users and session counts. All these can be segmented by page, client OS and browser version, geo location, and other dimensions. You can set alerts on failure counts or slow page loading. And by inserting trace calls in your JavaScript code, you can track how the different features of your web page application are used.
 
-Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs in conjunction with the client-side JavaScript SDK to get a end-to-end understanding of your app's performance.
+Application Insights can be used with any web pages - you just add a short piece of JavaScript. If your web service is [Java](java-get-started.md) or [ASP.NET](asp-net.md), you can use the server-side SDKs in conjunction with the client-side JavaScript SDK to get an end-to-end understanding of your app's performance.
 
 ## Adding Javascript SDK
 
-1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key follow the [create a new resource instructions](create-new-resource.md).
+1. First you need an Application Insights resource. If you don't already have a resource and instrumentation key, follow the [create a new resource instructions](create-new-resource.md).
 2. Copy the instrumentation key from the resource where you want your JavaScript telemetry to be sent.
 3. Add the Application Insights JavaScript SDK to your web page or app via one of the following two options:
     * [NPM Setup](#npm-based-setup)
@@ -30,7 +30,7 @@ Application Insights can be used with any web pages - you just add a short piece
 > [!IMPORTANT]
 > You only need to use one of the methods below for adding the Application Insights JavaScript SDK to your application. If you use the NPM based setup, don't use the snippet based setup. The same goes for the reverse scenario when using the snippet based approach, don't also use the NPM based setup. 
 
-### NPM based setup 
+### NPM-based setup 
 
 ```js
 import { ApplicationInsights } from '@microsoft/applicationinsights-web'
@@ -42,7 +42,7 @@ const appInsights = new ApplicationInsights({ config: {
 appInsights.loadAppInsights();
 ```
 
-### Snippet based setup
+### Snippet-based setup
 
 If your app does not use NPM, you can directly instrument your webpages with Application Insights by pasting this snippet at the top of each your pages. Preferably, it should be the first script in your `<head>` section so that it can monitor any potential issues with all of your dependencies.
 
@@ -56,9 +56,9 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 </script>
 ```
 
-### Sending telemetry to the Azure Portal
+### Sending telemetry to the Azure portal
 
-By default the Application Insights JavaScript SDK auto-collects a number of telemetry items that are helpful in determining the health of your application and the underlying user experience. These include:
+By default the Application Insights JavaScript SDK autocollects a number of telemetry items that are helpful in determining the health of your application and the underlying user experience. These include:
 
 - **Uncaught exceptions** in your app, including information on
 	- Stack trace
@@ -72,8 +72,8 @@ By default the Application Insights JavaScript SDK auto-collects a number of tel
 	- Result code and success status of the request
 	- ID (if any) of user making the request
 	- Correlation context (if any) where request is made
-- **User information** (e.g. Location, network, IP)
-- **Device information** (e.g. Browser, OS, version, language, resolution, model)
+- **User information** (for example, Location, network, IP)
+- **Device information** (for example, Browser, OS, version, language, resolution, model)
 - **Session information**
 
 ### Telemetry Initializers
@@ -93,12 +93,12 @@ appInsights.addTelemetryInitializer(() => false); // Nothing is sent after this 
 appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ```
 ## Configuration
-Most configuration fields are named such that they can be defaulted to falsey. All fields are optional except for `instrumentationKey`.
+Most configuration fields are named such that they can be defaulted to false. All fields are optional except for `instrumentationKey`.
 
 | Name | Default | Description |
 |------|---------|-------------|
-| instrumentationKey | null | **Required**<br>Instrumentation key that you obtained from the Azure Portal. |
-| accountId | null | An optional account id, if your app groups users into accounts. No spaces, commas, semicolons, equals, or vertical bars |
+| instrumentationKey | null | **Required**<br>Instrumentation key that you obtained from the Azure portal. |
+| accountId | null | An optional account ID, if your app groups users into accounts. No spaces, commas, semicolons, equals, or vertical bars |
 | sessionRenewalMs | 1800000 | A session is logged if the user is inactive for this amount of time in milliseconds. Default is 30 minutes |
 | sessionExpirationMs | 86400000 | A session is logged if it has continued for this amount of time in milliseconds. Default is 24 hours |
 | maxBatchSizeInBytes | 10000 | Max size of telemetry batch. If a batch exceeds this limit, it is immediately sent and a new batch is started |
@@ -109,12 +109,12 @@ Most configuration fields are named such that they can be defaulted to falsey. A
 | loggingLevelConsole | 0 | Logs **internal** Application Insights errors to console. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) |
 | loggingLevelTelemetry | 1 | Sends **internal** Application Insights errors as telemetry. <br>0: off, <br>1: Critical errors only, <br>2: Everything (errors & warnings) |
 | diagnosticLogInterval | 10000 | (internal) Polling interval (in ms) for internal logging queue |
-| samplingPercentage | 100 | Percentage of events that will be sent. Default is 100, meaning all events are sent. Set this if you wish to preserve your datacap for large-scale applications. |
-| autoTrackPageVisitTime | false | If true, on a pageview,the previous instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. Default is false. |
+| samplingPercentage | 100 | Percentage of events that will be sent. Default is 100, meaning all events are sent. Set this if you wish to preserve your data cap for large-scale applications. |
+| autoTrackPageVisitTime | false | If true, on a pageview, the previous instrumented page's view time is tracked and sent as telemetry and a new timer is started for the current pageview. Default is false. |
 | disableAjaxTracking | false | If true, Ajax calls are not autocollected. Default is false. |
 | disableFetchTracking | true | If true, Fetch requests are not autocollected. Default is true |
 | overridePageViewDuration | false | If true, default behavior of trackPageView is changed to record end of page view duration interval when trackPageView is called. If false and no custom duration is provided to trackPageView, the page view performance is calculated using the navigation timing API. Default is false. |
-| maxAjaxCallsPerView | 500 | Default 500 - controls how many ajax calls will be monitored per page view. Set to -1 to monitor all (unlimited) ajax calls on the page. |
+| maxAjaxCallsPerView | 500 | Default 500 - controls how many AJAX calls will be monitored per page view. Set to -1 to monitor all (unlimited) AJAX calls on the page. |
 | disableDataLossAnalysis | true | If false, internal telemetry sender buffers will be checked at startup for items not yet sent. |
 | disableCorrelationHeaders | false | If false, the SDK will add two headers ('Request-Id' and 'Request-Context') to all dependency requests to correlate them with corresponding requests on the server side. Default is false. |
 | correlationHeaderExcludedDomains |  | Disable correlation headers for specific domains |
@@ -126,16 +126,16 @@ Most configuration fields are named such that they can be defaulted to falsey. A
 | isRetryDisabled | false | Default false. If false, retry on 206 (partial success), 408 (timeout), 429 (too many requests), 500 (internal server error), 503 (service unavailable), and 0 (offline, only if detected) |
 | isStorageUseDisabled | false | If true, the SDK will not store or read any data from local and session storage. Default is false. |
 | isBeaconApiDisabled | true | If false, the SDK will send all telemetry using the [Beacon API](https://www.w3.org/TR/beacon) |
-| sdkExtension | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (e.g. 'ext_javascript:2.0.0'). Default is null. |
+| sdkExtension | null | Sets the sdk extension name. Only alphabetic characters are allowed. The extension name is added as a prefix to the 'ai.internal.sdkVersion' tag (for example, 'ext_javascript:2.0.0'). Default is null. |
 | isBrowserLinkTrackingEnabled | false | Default is false. If true, the SDK will track all [Browser Link](https://docs.microsoft.com/en-us/aspnet/core/client-side/using-browserlink) requests. |
 | appId | null | AppId is used for the correlation between AJAX dependencies happening on the client-side with the server-side requests. When Beacon API is enabled, it cannot be used automatically, but can be set manually in the configuration. Default is null |
-| enableCorsCorrelation | false | If true, the SDK will add two headers ('Request-Id' and 'Request-Context') to all CORS requests tocorrelate outgoing AJAX dependencies with corresponding requests on the server side. Default is false |
+| enableCorsCorrelation | false | If true, the SDK will add two headers ('Request-Id' and 'Request-Context') to all CORS requests to correlate outgoing AJAX dependencies with corresponding requests on the server side. Default is false |
 | namePrefix | undefined | An optional value that will be used as name postfix for localStorage and cookie name.
-| enableAutoRouteTracking | false | Automatically track route changes in Single Page Applications (SPA). If true, each route change will send a new Pageview to Application Insights. Hash route changes changes (`example.com/foo#bar`) are also recorded as new page views.
+| enableAutoRouteTracking | false | Automatically track route changes in Single Page Applications (SPA). If true, each route change will send a new Pageview to Application Insights. Hash route changes (`example.com/foo#bar`) are also recorded as new page views.
 
 ## Single Page Applications
 
-By default, this SDK will **not** handle state based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
+By default, this SDK will **not** handle state-based route changing that occurs in single page applications. To enable automatic route change tracking for your single page application, you can add `enableAutoRouteTracking: true` to your setup configuration.
 
 Currently, we support a separate [React plugin](#available-extensions-for-the-sdk) which you can initialize with this SDK. It will also accomplish route change tracking for you, as well as collect [other React specific telemetry](./vNext/extensions/applicationinsights-react-js).
 
@@ -161,7 +161,7 @@ Select **Browser** and then choose **Failures** or **Performance**.
 
 ### Analytics 
 
-To query your telemetry collected by the JavaScript SDK select  the **View in Logs (Analytics)** button. By adding a where statement of `client_Type == "Browser"` you will only see data from the JavaScript SDK and any server-side telemetry collected by other SDKs will be excluded.
+To query your telemetry collected by the JavaScript SDK, select the **View in Logs (Analytics)** button. By adding a `where` statement of `client_Type == "Browser"`, you will only see data from the JavaScript SDK and any server-side telemetry collected by other SDKs will be excluded.
  
 ```kusto
 // average pageView duration by name
@@ -180,10 +180,10 @@ dataset
 
 ### Source Map Support
 
-The minified callstack of your exception telemetry can be unminified in the Azure Portal. All existing integrations on the Exception Details panel will work with the newly unminified callstack. Drag and drop source map unminifying supports all existing and future JS SDKs (+Node.JS), so you do not need to upgrade your SDK version. To view your unminified callstack,
-1. Select an Exception Telemetry item in the Azure Portal to view its "End-to-end transaction details"
+The minified callstack of your exception telemetry can be unminified in the Azure portal. All existing integrations on the Exception Details panel will work with the newly unminified callstack. Drag and drop source map unminifying supports all existing and future JS SDKs (+Node.JS), so you do not need to upgrade your SDK version. To view your unminified callstack,
+1. Select an Exception Telemetry item in the Azure portal to view its "End-to-end transaction details"
 2. Identify which source maps correspond to this call stack. The source map must match a stack frame's source file, but suffixed with `.map`
-3. Drag and drop the source maps onto the call stack in the Azure Portal
+3. Drag and drop the source maps onto the call stack in the Azure portal
 ![](https://i.imgur.com/Efue9nU.gif)
 
 ## Application Insights Web Basic
@@ -192,7 +192,7 @@ For a lightweight experience, you can instead install the basic version of Appli
 ```
 npm i --save @microsoft/applicationinsights-web-basic
 ```
-This version comes with the bare minimum amount of features and functionalities and relies on you to build it up as you see fit. For example, it performs no auto-collection (uncaught exceptions, ajax, etc). The APIs to send certain telemetry types, like `trackTrace`, `trackException`, etc, are not included in this version, so you will need to provide your own wrapper. The only api that is available is `track`. A [sample](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) is located here.
+This version comes with the bare minimum number of features and functionalities and relies on you to build it up as you see fit. For example, it performs no autocollection (uncaught exceptions, AJAX, etc.). The APIs to send certain telemetry types, like `trackTrace`, `trackException`, etc., are not included in this version, so you will need to provide your own wrapper. The only api that is available is `track`. A [sample](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) is located here.
 
 ## Examples
 
@@ -203,9 +203,9 @@ Breaking changes in the SDK V2 version:
 - To allow for better API signatures, some of the apis such as trackPageView, trackException have been updated. Running in IE8 or lower versions of the browser is not supported.
 - Telemetry envelope has field name and structure changes due to data schema updates.
 - Moved `context.operation` to `context.telemetryTrace`. Some fields were also changed (`operation.id` --> `telemetryTrace.traceID`)
-  - If you want to maunally refresh the current pageview id (e.g. in SPA apps) this can be done with `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
+  - If you want to manually refresh the current pageview ID (for example, in SPA apps) this can be done with `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`
 
-If you are using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, please update URL depending on your current SDK loading scenario:
+If you are using the current application insights PRODUCTION SDK (1.0.20) and want to see if the new SDK works in runtime, update URL depending on your current SDK loading scenario:
 
 **a)** Download via CDN scenario:
 	Update code snippet that you currently use to point to the following URL:
@@ -221,7 +221,7 @@ appInsights.downloadAndSetup({
     url: "https://az416426.vo.msecnd.net/scripts/b/ai.2.min.js"
 });
 ```
-Test in internal environment to verify monitoring telemetry is working as expected. If all works, please update your api signatures appropriately to SDK V2 version and deploy in your production environments.
+Test in internal environment to verify monitoring telemetry is working as expected. If all works, update your api signatures appropriately to SDK V2 version and deploy in your production environments.
 
 ## SDK performance/overhead
 
@@ -241,8 +241,7 @@ Latest ✔ | Latest ✔ | 9+ ✔ | Latest ✔ | Latest ✔ |
 
 ## Open-source SDK
 
-
-
+The Application Insights JavaScript SDK is open-source to view the source code or to contribute to the project visit the [official GitHub repository](https://github.com/Microsoft/ApplicationInsights-JS).
 
 ## <a name="next"></a> Next steps
 * [Track usage](usage-overview.md)
