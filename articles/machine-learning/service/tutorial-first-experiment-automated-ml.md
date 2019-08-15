@@ -5,19 +5,20 @@ description: Learn how to train and deploy a classification model with automated
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: tutorial
 ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
-ms.date: 07/23/2019
+ms.date: 08/14/2019
 
+# Customer intent:As a non-coding data scientist, I want to use automated machine learning techniques so that I can build a classification model.
 ---
 
-# Tutorial: Use automated machine learning to train and deploy your first classification model (preview)
+# Tutorial: Create your first classification model with automated machine learning
 
-In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal. This example creates a classification model to predict whether a client will subscribe to a term deposit with the bank.
+In this tutorial, you learn how to create your first automated machine learning experiment in the Azure portal (preview) without writing a single line of code. This example creates a classification model to predict if a client will subscribe to a fixed term deposit with a financial institution.
 
-By using the automated machine learning capabilities of the service and the Azure portal, you begin the automated machine learning process. The algorithm selection and hyperparameter tuning is done for you. The automated machine learning technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion, all without you writing a single line of code.
+By using the automated machine learning capabilities of the Azure Machine Learning  service and the Azure portal, you begin the automated machine learning process. The algorithm selection and hyperparameter tuning is done for you. The automated machine learning technique iterates over many combinations of algorithms and hyperparameters until it finds the best model based on your criterion.
 
 In this tutorial, you learn the following tasks:
 
@@ -32,13 +33,15 @@ In this tutorial, you learn the following tasks:
 
 * An Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLFree).
 
-* The **bankmarketing_train.csv** data file. [Download it](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv).
+* Download the [**bankmarketing_train.csv** ](https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/bankmarketing_train.csv) data file. The **y** column indicates if a customer subscribed to a fixed term deposit, which is later identified as the target column in this tutorial. 
 
 ## Create a workspace
 
 [!INCLUDE [aml-create-portal](../../../includes/aml-create-in-portal.md)]
 
 ## Create an experiment
+
+The portal walks you through configuring your experiment from data selection to prediction variable identification.
 
 1. Go to the left pane of your workspace. Select **Automated machine learning** under the **Authoring (Preview)** section.
 
@@ -60,7 +63,7 @@ In this tutorial, you learn the following tasks:
 
     When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
-1. For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
+    >[!NOTE]For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
 
 1. Select **Upload** and choose the **bankmarketing_train.csv** file from your local computer to upload it to the default container. Public preview supports only local file uploads and Azure Blob storage accounts. When the upload is complete, select the file from the list. 
 
@@ -112,7 +115,9 @@ As the experiment progresses, the **Run Detail** screen updates the iteration ch
 
 ## Deploy the model
 
-For this experiment, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric. By using automated machine learning in the Azure portal, we can deploy this model as a web service to predict on new data. 
+By using automated machine learning in the Azure portal, we can deploy the best model as a web service to predict on new data and identifying potential areas of opportunity. For this experiment, deployment to a web service means that the financial institution now has an iterative and scalable mechanism to identify potential fixed term deposit customers and area of business growth. 
+
+In this experiment context, **VotingEnsemble** is considered the best model, based on the **AUC_weighted** metric.  We deploy this model, but be advised, deployment takes about 20 minutes to complete.
 
 1. On the **Run Detail** page, select the **Deploy Best Model** button.
 
@@ -125,13 +130,13 @@ For this experiment, **VotingEnsemble** is considered the best model, based on t
     Scoring script| Autogenerate
     Environment script| Autogenerate
     
-1. Select **Deploy**. Deployment takes about 20 minutes to complete.
+1. Select **Deploy**.
 
     The following message appears when deployment successfully finishes:
 
     ![Deployment complete](media/tutorial-1st-experiment-automated-ml/deploy-complete-status.png)
     
-    That's it! You have an operational web service to generate predictions.
+    Now you have an operational web service to generate predictions.
 
 ## Clean up resources
 
@@ -155,7 +160,10 @@ Delete just the deployment instance from the Azure portal, if you want to keep t
 
 In this automated machine learning tutorial, you used the Azure portal to create and deploy a classification model. See these articles for more information and next steps:
 
-+ Learn how to [consume a web service](how-to-consume-web-service.md).
+> [!div class="nextstepaction"]
+> [Consume a web service](how-to-consume-web-service.md)
+
+
 + Learn more about [preprocessing](how-to-create-portal-experiments.md#preprocess).
 + Learn more about [data profiling](how-to-create-portal-experiments.md#profile).
 + Learn more about [automated machine learning](concept-automated-ml.md).
