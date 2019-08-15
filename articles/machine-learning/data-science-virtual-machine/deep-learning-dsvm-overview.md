@@ -22,6 +22,9 @@ ms.author: vijetaj
 
 # Introduction to the Deep Learning Virtual Machine
 
+> [!NOTE]
+> All Deep Learning VM (DLVM) tools have now been folded into [Data Science VM (DSVM)](dsvm-tools-overview.md). DLVM and DSVM are now the same. Please consider creating a DSVM instead of DLVM.
+
 ## Why Deep Learning Virtual Machine? 
 
 Increasingly,  deep learning algorithms / deep neural networks are becoming one of the popular methods employed in many machine learning problems. They are especially good at machine cognition tasks like image, text, audio/video understanding often approaching human cognitive levels in some specific domains with advanced deep neural network architectures and access to large set of data to train models. Deep learning requires large amount of computational power to train models with these large datasets. With the cloud and availability of Graphical Processing Units (GPUs),  it is becoming possible to build sophisticated deep neural architectures and train them on a large data set on powerful computing infrastructure on the cloud.  The [Data Science Virtual Machine](overview.md) has provided a rich set of tools and samples for data preparation, machine learning, and deep learning. But one of the challenges faced by the users is to discover the tools and samples for specific scenarios like deep learning easily and also more easily provision GPU-based VM instances. This Deep Learning Virtual Machine (DLVM) addresses these challenges. 
@@ -33,7 +36,6 @@ The Deep Learning Virtual Machine is a specially configured variant of the [Data
 
 Get started with the Deep Learning Virtual Machine with the following steps:
 
-* [Provision a Deep Learning Virtual Machine](provision-deep-learning-dsvm.md)
-* [Use the Deep Learning Virtual Machine](use-deep-learning-dsvm.md)
-* [Tool Reference](dsvm-deep-learning-ai-frameworks.md)
-* [Samples](dsvm-samples-and-walkthroughs.md)
+* [Provision a Windows Data Science Virtual Machine](provision-vm.md)
+* [Provision an Ubuntu Data Science Virtual Machine](dsvm-ubuntu-intro.md)
+

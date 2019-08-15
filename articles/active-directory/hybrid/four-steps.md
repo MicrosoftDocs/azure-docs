@@ -70,7 +70,7 @@ Azure AD Application Proxy offers the following benefits:
 * No components in the perimeter network such as VPN and traditional reverse proxy solutions
 * No inbound connections required
 * Single sign-on (SSO) across devices, resources, and apps in the cloud and on-premises
-* Empowers end users to be productive anytime and anywhere
+* Empowers end users to be productive anytime and anywhere
 
 ### Discover Shadow IT with Microsoft Cloud App Security
 

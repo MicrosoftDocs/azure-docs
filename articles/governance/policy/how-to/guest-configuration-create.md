@@ -15,6 +15,10 @@ create the configuration for auditing of the Azure virtual machines. The DSC con
 the condition that the virtual machine should be in. If the evaluation of the configuration fails,
 the Policy effect **audit** is triggered and the virtual machine is considered **non-compliant**.
 
+[Azure Policy Guest Configuration](/azure/governance/policy/concepts/guest-configuration)
+can only be used to audit settings inside virtual machines. Remediation
+of settings inside virtual machines is not yet available.
+
 Use the following actions to create your own configuration for validating the state of an Azure
 virtual machine.
 
