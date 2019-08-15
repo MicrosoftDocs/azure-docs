@@ -36,5 +36,5 @@ You can see the status of all of your pending bulk requests in the **Bulk operat
 
 ## Next steps
 
-- [Bulk remove group members](groups-bulk-remove-members.md)
+- [Bulk import group members](groups-bulk-import-members.md)
 - [Download members of a group](groups-bulk-download-members.md)
