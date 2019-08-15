@@ -32,12 +32,12 @@ If you choose not to make your solution discoverable in AppSource, you have the 
 
 ## Schedule
 
-By default, your solution will be made available in AppSource as soon as possible. If you want to schedule the day and time on which your solution will be made available, choose **Show options** to specify at release schedule. You have the following options:
+By default, your solution will be made available and discoverable in AppSource as soon as possible. If you want to schedule the day and time on which your solution will be discoverable in AppSource, choose **Show options** to specify a release schedule. You have the following options:
 
 - **as soon as possible** - Your solution will be available as soon as it is validated and published.
-- **at** - Your solution will be available on the day and time that you specify. You must select the time in UTC. Your solution will be made available at the same time in all markets; you can't customize the availability for different markets.
+- **at** - Your solution will be discoverable on the day and time that you specify. You must select the time in UTC. Your solution will be made available at the same time in all markets; you can't customize the availability for different markets.
 
-If you choose not to make your solution discoverable in AppSource, you can't choose to schedule when it will be published.
+If you choose not to make your solution discoverable in AppSource, you can't choose a schedule option.
 
 ## Pricing
 
