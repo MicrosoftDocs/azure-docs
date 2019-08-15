@@ -21,20 +21,52 @@ landingContent:
 # Cards and links should be based on top customer tasks or top subjects
 # Start card title with a verb
   # Card
-  - title: cardtitle1
+  - title: Build ASP.NET apps
     linkLists:
-      - linkListType: linkListType
+      - linkListType: quickstart
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-web-app.md
+      - linkListType: tutorial
         links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+          - text: Create a tenant
+            url: tutorial-create-tenant.md
+          - text: Authenticate users
+            url: active-directory-b2c-tutorials-web-app.md
+          - text: Grant API access
+            url: active-directory-b2c-tutorials-web-api.md
+
+  # Card
+  - title: Build single-page apps (SPA)
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-desktop-app.md
+      - linkListType: tutorial
+        links:
+          - text: Create a tenant
+            url: tutorial-create-tenant.md
+          - text: Authenticate users
+            url: active-directory-b2c-tutorials-spa.md
+          - text: Grant API access
+            url: active-directory-b2c-tutorials-spa-webapi.md
+
+  # Card
+  - title: Build desktop apps
+    linkLists:
+      - linkListType: quickstart
+        links:
+          - text: Set up sign-in
+            url: active-directory-b2c-quickstarts-desktop-app.md
+      - linkListType: tutorial
+        links:
+          - text: Create a tenant
+            url: tutorial-create-tenant.md
+          - text: Authenticate users
+            url: active-directory-b2c-tutorials-desktop-app.md
+          - text: Grant API access
+            url: active-directory-b2c-tutorials-desktop-app-webapi.md
 
   # Card
   - title: cardtitle2
@@ -67,68 +99,3 @@ landingContent:
             url: file1.md
           - text: linktext2
             url: file2.md
-
-sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
-    items:
-    - href: /azure/active-directory-b2c/active-directory-b2c-overview
-      html: <p>Learn more about Azure AD B2C and its features and capabilities.</p>
-      image:
-        src: ./media/index/i_get-started.svg
-      title: About Azure AD B2C
-    - href: /azure/active-directory-b2c/solution-articles
-      html: <p>Investigate solution and training opportunities using Azure AD B2C.</p>
-      image:
-        src: ./media/index/i_advanced.svg
-      title: Solutions and training
-    - href: /azure/active-directory-b2c/trustframeworkpolicy
-      html: <p>Create advanced sign-up and sign-in scenarios using custom policies in Azure AD B2C.</p>
-      image:
-        src: ./media/index/i_investigate.svg
-      title: Identity Experience Framework
-- title: 5-Minute Quickstarts
-  items:
-  - type: paragraph
-    text: 'Learn how to set up identity management for the customers that use your application:'
-  - type: list
-    style: icon48
-    items:
-    - image:
-        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_NET.svg
-      text: .NET
-      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-web-app
-    - image:
-        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_windows.svg
-      text: Desktop
-      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-desktop-app
-    - image:
-        src: https://docs.microsoft.com/azure/active-directory-b2c/media/index/logo_nodejs.svg
-      text: Single-page
-      href: https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-quickstarts-spa
-- title: Step-by-Step Tutorials
-  items:
-    - type: paragraph
-      text: Learn how to manage sign-up, sign-in, and customer profiles in your ASP.NET, desktop, or single-page Node.js applications.
-    - type: list
-      style: cards
-      className: cardsD
-      items:
-      - title: ASP.NET
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-web-api">Grant API access</a></p>
-      - title: Desktop
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-desktop-app-webapi">Grant API access</a></p>
-      - title: Single-page
-        html: <p>1. <a href="/azure/active-directory-b2c/tutorial-create-tenant">Create a tenant</a></p><p>2. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa">Authenticate users</a></p><p>3. <a href="/azure/active-directory-b2c/active-directory-b2c-tutorials-spa-webapi">Grant API access</a></p>
-- title: Samples
-  items:
-  - type: paragraph
-    text: Find samples that show you how to manage customer identities in your application.
-  - type: list
-    style: unordered
-    className: spaced noBullet
-    items:
-    - html: <a href="/azure/active-directory-b2c/code-samples">Mobile, desktop, web, and single-page apps</a>
