@@ -36,9 +36,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Updated interface to create a `RawDataContext` to only require the data and the `AutoMLBaseSettings` object.
     +  Allow AutoML users to drop training series that are not long enough when forecasting. - Allow AutoML users to drop grains from the test set that do not exist in the training set when forecasting.
   + **azure-cli-ml**
-    + Adds a new API to update the AKS Cluster with SSL configuration.
-    + Added a new command in CLI to update AKS cluster with SSL configuration.
-    + Added additional options in CLI to create AKS cluster for auto-generated certificates.
+    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-automl-core**
     + Fixed an issue in AutoML where rows with missing labels were not removed properly.
     + Improved error logging in AutoML; full error messages will now always be written to the log file.
@@ -69,6 +67,7 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
     + Supported importing HTTP csv/tsv files in dataset python SDK.
     + Deprecated the Workspace.setup() method. Warning message shown to users suggests to use create() or get()/from_config() instead.
     + Added Environment.add_private_pip_wheel(), which enables uploading private custom python packages (.whl) to the workspace and securely using them to build/materialize the environment.
+    + You can now update the SSL certificate for the scoring endpoint deployed on AKS cluster both for Microsoft generated and customer certificate.
   + **azureml-explain-model**
     + Added parameter to add a model ID to explanations on upload.
     + Added `is_raw` tagging to explanations in memory and upload.
