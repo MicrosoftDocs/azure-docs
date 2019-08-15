@@ -68,34 +68,18 @@ landingContent:
           - text: Grant API access
             url: active-directory-b2c-tutorials-desktop-app-webapi.md
 
-  # Card
-  - title: cardtitle2
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-
-  # Card
-  - title: cardtitle3
-    linkLists:
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
-      - linkListType: linkListType
-        links:
-          - text: linktext1
-            url: file1.md
-          - text: linktext2
-            url: file2.md
+#  # Card
+#  - title: cardtitle2
+#    linkLists:
+#      - linkListType: linkListType
+#        links:
+#          - text: linktext1
+#            url: file1.md
+#          - text: linktext2
+#            url: file2.md
+#      - linkListType: linkListType
+#        links:
+#          - text: linktext1
+#            url: file1.md
+#          - text: linktext2
+#            url: file2.md
