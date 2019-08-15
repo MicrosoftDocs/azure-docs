@@ -25,7 +25,9 @@ Subscription contributors can create the AKS cluster and the ACR, but you can't 
 * You also need the Azure CLI version 2.0.70 or later and the aks-preview 0.4.8 extension
 * You need [Docker installed](https://docs.docker.com/install/) on your client, and you need access to [docker hub](https://hub.docker.com/)
 
-## Install latest AKS CLI preview extensionTo use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.8 or higher. Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
+## Install latest AKS CLI preview extensionTo use Windows Server containers, you need the *aks-preview* CLI extension version 0.4.8 or higher. 
+
+Install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, then check for any available updates using the [az extension update][az-extension-update] command::
 
 ```azurecli
 az extension remove --name aks-preview 
