@@ -140,6 +140,9 @@ Below is an example of a structured QnA *.xls* file, with several alternate ques
 
  ![Example of alternate questions for single answer in Excel file](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
 
+After the file is imported, the question-and-answer pair is in the knowledge base as shown below:
+
+ ![Screenshot of alternate questions for single answer imported into knowledge base](../media/qnamaker-concepts-datasources/xls-alternate-question-example-after-import.png)
 
 ## Structured data format through import
 
