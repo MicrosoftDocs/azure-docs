@@ -28,7 +28,7 @@ Azure Active Directory (Azure AD) supports bulk group list download, bulk import
 
    ![The Download Members command is on the profile page for the group](./media/groups-bulk-download-members/download-panel.png)
 
-## Check import status
+## Check download status
 
 You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
 
