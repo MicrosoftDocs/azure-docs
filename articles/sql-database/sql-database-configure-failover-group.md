@@ -501,7 +501,9 @@ Create the secondary virtual network gateway using PowerShell.
 Create the secondary virtual network gateway using the Az CLI. 
 
 !!!!! NEED AZ CLI CODE FOR ADDING MI TO FAILOVER GROUP !!!!!!!!!!!!
+
 ---
+
 
 ### Connect the gateways 
 Create connections between the two gateways using the Azure portal, PowerShell, and Az CLI. 
