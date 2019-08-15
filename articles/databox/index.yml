@@ -131,9 +131,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: FAQ - Data Box
-            url: data-box-disk-faq.md
-          - text: FAQ - Data Box Disk
             url: data-box-faq.md
+          - text: FAQ - Data Box Disk
+            url: data-box-disk-faq.md
 
   # Card
   - title: Troubleshoot issues
