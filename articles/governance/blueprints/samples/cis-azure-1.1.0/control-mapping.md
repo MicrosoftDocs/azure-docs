@@ -100,7 +100,7 @@ this CIS recommendation.
 This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition that aligns with
 this CIS recommendation.
 
-- Monitor unencrypted SQL databases in Azure Security Center
+- Transparent Data Encryption on SQL databases should be enabled
 
 ## 3.1 Ensure that 'Secure transfer required' is set to 'Enabled'
 
