@@ -96,15 +96,15 @@ In the linked service settings, you specified the Azure storage account that con
 1. On the **New Dataset** page, select **Azure Blob Storage**, and then select **Continue**. 
 
    ![Selecting "Azure Blob Storage"](./media/quickstart-create-data-factory-portal/select-azure-blob-dataset.png)
-1. On the **Select Format** page, choose the format type of your data, and then select **Continue**.
+1. On the **Select Format** page, choose the format type of your data, and then select **Continue**. In this case, select **Binary** when copy files as-is without parsing the content.
 
-    ![Data format type](./media/doc-common-process/select-data-format.png)
+    ![Data format type](./media/doc-common-process/select-binary.png)
 
 1. On the **Set Properties** page, complete following steps:
 
-    a.Under **Name**, enter **InputDataset**. 
+    a. Under **Name**, enter **InputDataset**. 
 
-    b.For **Linked service**, select **AzureStorageLinkedService**.
+    b. For **Linked service**, select **AzureStorageLinkedService**.
 
     c. For **File path**, select the **Browse** button.
 
@@ -119,11 +119,11 @@ In the linked service settings, you specified the Azure storage account that con
 
     b. On the **New Dataset** page, select **Azure Blob Storage**, and then select **Continue**.
 
-    c.  On the **Select Format** page, choose the format type of your data, and then select **Continue**.
+    c. On the **Select Format** page, choose the format type of your data, and then select **Continue**.
 
     d. On the **Set Properties** page, specify **OutputDataset** for the name. Select **AzureStorageLinkedService** as linked service.
 
-    e. Under **File path**, enter **adftutorial/output**. Under **Import schema**, select **None**. If the **output** folder doesn't exist, the copy activity creates it at runtime.
+    e. Under **File path**, enter **adftutorial/output**. If the **output** folder doesn't exist, the copy activity creates it at runtime.
 
     f. Select **Continue**.   
 
@@ -183,7 +183,7 @@ This procedure is optional in this tutorial. You can create a *scheduler trigger
 
 1. On the **New Trigger** page, under **End**, select **On Date**, specify an end time a few minutes after the current time, and then select **Apply**. 
 
-   A cost is associated with each pipeline run, so specify the end time only minutes apart from the start time. Ensure that it's the same day. However, ensure that there is enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI. 
+   A cost is associated with each pipeline run, so specify the end time only minutes apart from the start time. Ensure that it's the same day. However, ensure that there's enough time for the pipeline to run between the publish time and the end time. The trigger comes into effect only after you publish the solution to Data Factory, not when you save the trigger in the UI. 
 
 1. On the **New Trigger** page, select the **Activated** check box, and then select **Save**. 
 
