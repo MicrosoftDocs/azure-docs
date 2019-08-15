@@ -46,7 +46,7 @@ By default, CloudSimple VPN gateways are configured in IKEv1 mode along with the
 Complete the following tasks before you configure the on-premises firewall.
 
 1. Verify that your organization has [purchased](create-nodes.md) or [reserved](reserve-nodes.md) the required nodes and created at least one CloudSimple Private Cloud.
-2. [Configure a Site-to-Site VPN gateway](vpn-gateway.md/#set-up-a-vpn-gateway-for-Site-to-Site-connection) between your on-premises network and your CloudSimple Private Cloud.
+2. [Configure a Site-to-Site VPN gateway](vpn-gateway.md/#set-up-a-site-to-site-vpn-gateway) between your on-premises network and your CloudSimple Private Cloud.
 
 ## Configure on-premises Cisco ASA firewall
 
@@ -75,7 +75,7 @@ lifetime 28800
 
 ### 3. Create a tunnel group
 
-Create a tunnel group under the IPsec attributes. Configure the peer IP address and the tunnel pre-shared key, which you set when [configuring your Site-to-Site VPN gateway](vpn-gateway/#set-up-a-vpn-gateway-for-Site-to-Site-connection).
+Create a tunnel group under the IPsec attributes. Configure the peer IP address and the tunnel pre-shared key, which you set when [configuring your Site-to-Site VPN gateway](vpn-gateway.md/#set-up-a-site-to-site-vpn-gateway).
 
 ```
 tunnel-group <primary peer ip> type ipsec-l2l

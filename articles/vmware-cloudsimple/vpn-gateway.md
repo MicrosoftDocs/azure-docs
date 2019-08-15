@@ -76,7 +76,7 @@ A Point-to-Site VPN gateway allows you to define an automatic addition policy fo
 
 ## Create Point-to-Site VPN gateway
 
-1. [Access the CloudSimple portal](access-cloudsimple-portal) and select **Network**.
+1. [Access the CloudSimple portal](access-cloudsimple-portal.md) and select **Network**.
 2. Select **VPN Gateway**.
 3. Click **New VPN Gateway**.
 
@@ -117,4 +117,4 @@ The following table lists the number of concurrent client connections for prefix
 | Number of concurrent TCP connections | 124 | 60 | 28 | 12 | 4 |
 | Number of concurrent UDP connections | 124 | 60 | 28 | 12 | 4 |
 
-To connect using Point-to-Site VPN, see [Connect to CloudSimple using Point-to-Site VPN](set-up-vpn.md/#connect-to-cloudsimple-using-Point-to-Site-vpn).
+To connect using Point-to-Site VPN, see [Connect to CloudSimple using Point-to-Site VPN](set-up-vpn.md/#connect-to-cloudsimple-using-point-to-site-vpn).

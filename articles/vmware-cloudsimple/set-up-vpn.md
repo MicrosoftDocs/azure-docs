@@ -23,7 +23,7 @@ In a region, you can create one Site-to-Site VPN gateway and one Point-to-Site V
 
 ## Point-to-site VPN
 
-To create a Point-to-Site VPN gateway, see [Create Point-to-Site VPN gateway](vpn-gateway/#create-Point-to-Site-vpn-gateway).
+To create a Point-to-Site VPN gateway, see [Create Point-to-Site VPN gateway](vpn-gateway.md/#create-point-to-site-vpn-gateway).
 
 ### Connect to CloudSimple using Point-to-Site VPN
 
@@ -101,7 +101,7 @@ A Point-to-Site VPN connection resolves the DNS names of the first Private Cloud
 
 ## Site-to-Site VPN
 
-To create a Site-to-Site VPN gateway, see [Create Site-to-Site VPN gateway](vpn-gateway/#set-up-Site-to-Site-vpn-gateway).  Site-to-Site VPN connection from your on-premises network to your Private Cloud provides these benefits.  
+To create a Site-to-Site VPN gateway, see [Create Site-to-Site VPN gateway](vpn-gateway.md/#set-up-a-site-to-site-vpn-gateway).  Site-to-Site VPN connection from your on-premises network to your Private Cloud provides these benefits.  
 
 * Accessibility of your Private Cloud vCenter from any workstation in your on-premises network
 * Use of your on-premises Active Directory as a vCenter identity source
