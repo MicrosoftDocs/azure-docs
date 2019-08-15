@@ -20,7 +20,7 @@ Virtual network connection allows you to:
 * Deploy KMS servers in your Azure subscription to encrypt your Private Cloud vSAN datastore.
 * Use hybrid applications where the web tier of the application runs in the public cloud while the application and database tiers run in your Private Cloud.
 
-[![Azure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)](media/cloudsimple-azure-network-connection.png)
+![Azure ExpressRoute Connection to virtual network](media/cloudsimple-azure-network-connection.png)
 
 ## Set up a virtual network connection
 
@@ -29,10 +29,10 @@ To set up the virtual network connection to your Private Cloud, you need your au
 > [!TIP]
 > If you already have a Azure virtual network, gateway subnet, and virtual network gateway, you can skip to step 4.
 
-1. Create a virtual network on your Azure subscription and verify that the address space you select is different from the address space of your Private Cloud.  If you already have an Azure virtual network, you can use the existing one.  For details, see [Create a virtual network using the Azure portal](..\virtual-network\quick-create-portal.md).
-2. Create the gateway subnet on your Azure virtual network.  If you already have a gateway subnet in your Azure virtual network, you can use the existing one. For details, see [Create the gateway subnet](..\expressroute\expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
-3. Create the virtual network gateway on your virtual network.  If you have an existing virtual network gateway, you can use the existing one. For details, see [Create the virtual network gateway](..\expressroute\expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
-4. Create the connection between your virtual network and your Private Cloud by redeeming the authorization key as described in [Connect a virtual network to a circuit - different subscription](..\expressroute\expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
+1. Create a virtual network on your Azure subscription and verify that the address space you select is different from the address space of your Private Cloud.  If you already have an Azure virtual network, you can use the existing one.  For details, see [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+2. Create the gateway subnet on your Azure virtual network.  If you already have a gateway subnet in your Azure virtual network, you can use the existing one. For details, see [Create the gateway subnet](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
+3. Create the virtual network gateway on your virtual network.  If you have an existing virtual network gateway, you can use the existing one. For details, see [Create the virtual network gateway](../expressroute/expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway).
+4. Create the connection between your virtual network and your Private Cloud by redeeming the authorization key as described in [Connect a virtual network to a circuit - different subscription](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md#connect-a-vnet-to-a-circuit---different-subscription).
 
 > [!WARNING]
 > If you are using an existing virtual network gateway and it has an ExpressRoute connection to the same location as the CloudSimple ExpressRoute circuit, the connection will not be established.  Create a new virtual network and follow the previous steps.
