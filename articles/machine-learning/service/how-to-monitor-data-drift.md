@@ -157,9 +157,9 @@ The configuration of the data drift detector can be seen on the model details pa
 
 ![Azure portal Data Drift Config](media/how-to-monitor-data-drift/drift_config.png)
 
-## View results in Azure ML Workspace UI
+## View results in Azure portal
 
-To view results in the Azure ML Workspace UI, navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
+To view results in your workspace in [Azure portal](https://portal.azure.com), navigate to the model page. On the details tab of the model, the data drift configuration is shown. A 'Data Drift (Preview)' tab is now available visualizing the data drift metrics. 
 
 ![Azure portal Data Drift](media/how-to-monitor-data-drift/drift_ui.png)
 

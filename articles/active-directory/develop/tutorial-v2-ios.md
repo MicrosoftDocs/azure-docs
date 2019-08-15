@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 07/15/2019
+ms.date: 08/14/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev, identityplatformtop40 
@@ -90,6 +90,12 @@ If you're using [Carthage](https://github.com/Carthage/Carthage), install `MSAL`
 
 ```
 github "AzureAD/microsoft-authentication-library-for-objc" "master"
+```
+
+From a terminal window, in the same directory as the updated `Cartfile`,  run the following command to have Carthage update the dependencies in your project:
+
+```bash
+carthage update --platform iOS
 ```
 
 ### Manually

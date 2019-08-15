@@ -49,6 +49,8 @@ To perform the steps described in this article, you must have:
     ![Virtual network menu of API Management][api-management-using-vnet-menu]
 4. Select the desired access type:
 
+   * **Off**: this is the default. API Management is not deployed into a virtual network.
+
    * **External**: the API Management gateway and developer portal are accessible from the public internet via an external load balancer. The gateway can access resources within the virtual network.
 
      ![Public peering][api-management-vnet-public]
@@ -58,11 +60,6 @@ To perform the steps described in this article, you must have:
      ![Private peering][api-management-vnet-private]
 
      You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
-
-     > [!NOTE]
-     > **Service Endpoint** in the above diagram includes Gateway/Proxy, the Azure portal, the Developer portal, GIT, and the Direct Management Endpoint.
-     > **Management Endpoint** in the above diagram is the endpoint hosted on the service to manage configuration via Azure portal and Powershell.
-     > Also, note, that, even though, the diagram shows IP Addresses for its various endpoints, API Management service **only** responds on its configured Hostnames.
 
      > [!IMPORTANT]
      > When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.

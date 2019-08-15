@@ -146,7 +146,7 @@ New-AzResourceGroup -Name myResourceGroup -Location EastUS
 # Deploy template into resource group
 New-AzResourceGroupDeployment `
     -ResourceGroupName myResourceGroup `
-    -TemplateFile https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
+    -TemplateURI https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vmss-windows-webapp-dsc-autoscale/azuredeploy.json
 
 # Update the scale set and apply the extension
 Update-AzVmss `
