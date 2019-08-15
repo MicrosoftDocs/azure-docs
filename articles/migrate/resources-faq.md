@@ -42,7 +42,7 @@ You can view details about the data collected by the Azure Migrate appliance [in
 
 ### Is there any performance impact on the analyzed VMware or Hyper-V environment?
 
-The Azure Migrate appliance profiles on-premises machines continuously to measure VM performance data. This profiling has almost no performance impact on the Hyper-V/ESXi hosts or on the vCenter Server.
+The Azure Migrate appliance profiles on-premises machines continuously to measure VM performance data. This profiling has almost no performance impact on the Hyper-V/ESXi hosts or on vCenter Server.
 
 ### Where is the collected data stored, and for how long?
 
@@ -52,17 +52,17 @@ For dependency visualization, if you install agents on the VMs, the data collect
 
 ### What volume of data is uploaded by the Azure Migrate appliance during continuous profiling?
 
-The volume of data sent to Azure Migrate varies based on several parameters. To give you a sense of the volume: an Azure Migrate project with 10 machines (each with one disk and one NIC), sends around 50 MB per day. This is an approximate value. It changes based on the number of data points for the NICs and disks. (The increase in data sent is nonlinear if the number of machines, NICs, or disks increases.)
+The volume of data sent to Azure Migrate varies depending on several parameters. To give you a sense of the volume: an Azure Migrate project with 10 machines (each with one disk and one NIC) sends around 50 MB per day. This value is an approximation. It changes based on the number of data points for the NICs and disks. (The increase in data sent is nonlinear if the number of machines, NICs, or disks increases.)
 
 ### Is the data encrypted at rest and in transit?
 
-Yes, for both. The metadata is securely sent to the Azure Migrate service over the internet, via HTTPS. The metadata is stored in an [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription. The metadata is encrypted at rest.
+Yes, both. The metadata is securely sent to the Azure Migrate service over the internet, via HTTPS. The metadata is stored in an [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/database-encryption-at-rest) database and in [Azure Blob storage](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) in a Microsoft subscription. The metadata is encrypted at rest.
 
 The data collected by the dependency agents is also encrypted in transit (secure HTTPS). It's stored in a Log Analytics workspace in your subscription. It's also encrypted at rest.
 
-### How does the Azure Migrate appliance communicate with the vCenter Server and the Azure Migrate service?
+### How does the Azure Migrate appliance communicate with vCenter Server and the Azure Migrate service?
 
-The appliance connects to the vCenter Server (port 443) by using the credentials you provided when you set up the appliance. It uses VMware PowerCLI to query the vCenter Server to collect metadata about the VMs managed by vCenter Server. It collects configuration data about VMs (cores, memory, disks, NICs, and so on) and also the performance history of each VM for the past month. The collected metadata is then sent to Azure Migrate Server Assessment (over the internet via HTTPS) for assessment.
+The appliance connects to vCenter Server (port 443) by using the credentials you provided when you set up the appliance. It uses VMware PowerCLI to query vCenter Server to collect metadata about the VMs managed by vCenter Server. It collects configuration data about VMs (cores, memory, disks, NICs, and so on) and also the performance history of each VM for the past month. The collected metadata is then sent to Azure Migrate Server Assessment (over the internet via HTTPS) for assessment.
 
 ### Can I connect the same appliance to multiple vCenter Server instances?
 
@@ -75,7 +75,7 @@ The Azure Migrate appliance continuously collects information about the on-premi
 
 ### How can I perform discovery in a multitenant environment in Azure Migrate Server Assessment?
 
-For VMware, if you have an environment that's shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that can access only to the VMs that you want to discover. Then use those credentials when you start discovery in the Azure Migrate appliance.
+For VMware, if you have an environment that's shared across tenants, and you don't want to discover the VMs of one tenant in another tenant's subscription, create vCenter Server credentials that can access only to the VMs you want to discover. Then use those credentials when you start discovery in the Azure Migrate appliance.
 
 For Hyper-V, discovery uses Hyper-V host credentials. If VMs share the same Hyper-V host, there's currently no way to separate the discovery.  
 
@@ -95,7 +95,7 @@ Yes, Azure Migrate needs vCenter Server to perform discovery in a VMware environ
 
 ### What's the difference between Azure Migrate Server Assessment and the MAP Toolkit?
 
-Azure Migrate Server Assessment provides migration assessment to help with migration readiness, and evaluation of workloads for migration into Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/download/details.aspx?id=7826) helps with other tasks, like migration planning for newer versions of Windows client and server operating systems and software usage tracking. For those scenarios, continue to use the MAP Toolkit.
+Azure Migrate Server Assessment provides migration assessment to help with migration readiness, and evaluation of workloads for migration to Azure. [Microsoft Assessment and Planning (MAP) Toolkit](https://www.microsoft.com/download/details.aspx?id=7826) helps with other tasks, like migration planning for newer versions of Windows client and server operating systems and software usage tracking. For those scenarios, continue to use the MAP Toolkit.
 
 ### What's the difference between Azure Migrate Server Assessment and the Azure Site Recovery Deployment Planner?
 
@@ -117,7 +117,7 @@ With as-on-premises sizing, Azure Migrate doesn't consider VM performance data. 
 
 For example, consider an on-premises VM that has 4 cores and 8 GB of memory at 50% CPU utilization and 50% memory utilization. For this VM, as-on-premises sizing recommends an Azure VM SKU that has four cores and 8 GB of memory. Performance-based sizing recommends a VM SKU that has two cores and 4 GB of memory, because the utilization percentage is considered.
 
-Similarly, disk sizing depends on two assessment properties: sizing criteria and storage type. If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes into account the IOPS and throughput values of the disk when identifying the target disk type (standard or premium).
+Similarly, disk sizing depends on two assessment properties: sizing criteria and storage type. If the sizing criteria is performance-based and the storage type is automatic, Azure Migrate takes into account the IOPS and throughput values of the disk when it identifies the target disk type (standard or premium).
 
 If the sizing criteria is performance-based and the storage type is premium, Azure Migrate recommends a premium disk. The premium disk SKU is selected based on the size of the on-premises disk. The same logic is used to do disk sizing when the sizing criteria is as-on-premises sizing and the storage type is standard or premium.
 
@@ -133,7 +133,7 @@ When you create an assessment in Azure (based on the performance duration and pe
 
 For example, assume you set the performance duration to one day and the percentile value to 95 percentile. Azure Migrate sorts the 15-minute sample points sent by collector for the past day in ascending order and picks the 95th percentile value as the effective utilization.
 
-The 95th percentile value ensures that you're ignoring any outliers, which could be taken into account if you use the 99th percentile. If you want to pick the peak usage for the period and don't want to miss any outliers, you should select the 99th percentile.
+The 95th percentile value ensures you're ignoring any outliers. Outliers could be included if you use the 99th percentile. If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile.
 
 ### What is dependency visualization?
 
@@ -183,9 +183,9 @@ In addition to scripts, you can also use deployment tools like System Center Con
 - View the list of [Linux operating systems supported by the Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
 
 ### Can I visualize dependencies in Azure Migrate for more than an hour?
-No. You can visualize dependencies for up to an hour. You can go back to a particular date in history, as far back as a month, but the maximum duration for visualization is an hour. For example, you can use the time duration in the dependency map to view dependencies for yesterday, but can only view it for a one-hour window. But you can use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
+No. You can visualize dependencies for up to an hour. You can go back to a particular date in history, as far back as a month, but the maximum duration for visualization is an hour. For example, you can use the time duration in the dependency map to view dependencies for yesterday, but you can view it only for a one-hour window. However, you can use Azure Monitor logs to [query dependency data](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) over a longer duration.
 
-### Is dependency visualization supported for groups that contain more than 10 VMs?
+### Can I use dependency visualization for groups that contain more than 10 VMs?
 You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that contain up to 10 VMs. If you have a group with more than 10 VMs, we recommend that you split the group into smaller groups and then visualize the dependencies.
 
 ## Azure Migrate Server Migration
