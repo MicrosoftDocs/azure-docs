@@ -26,11 +26,11 @@ Identifying this scenario helps understand if we need to scale our change feed p
 
 Like the [change feed processor](./change-feed-processor.md), the change feed estimator works as a push model. The estimator will measure the difference between the last processed item (defined by the state of the leases container) and the latest change in the container, and push this value to a delegate. The interval at which the measurement is taken can also be customized, with a default value of 5 seconds.
 
-As an example, if your change feed processor is defined and started like this:
+As an example, if your change feed processor is defined like this:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
 
-The correct way to initialize an estimator to measure that processor would be:
+The correct way to initialize an estimator to measure that processor would be using `GetChangeFeedEstimatorBuilder` like so:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
 
@@ -45,7 +45,7 @@ An example of a delegate that receives the estimation is:
 You can send this estimation to your monitoring solution and use it to understand how is your progress behaving over time.
 
 > [!NOTE]
-> The change feed estimator does not need to be deployed as part of your change feed processor. It can be independent, running in a completely different instance.
+> The change feed estimator does not need to be deployed as part of your change feed processor, nor be part of the same project. It can be independent, running in a completely different instance. It just needs to use the same name and lease configuration.
 
 ## Additional resources
 
