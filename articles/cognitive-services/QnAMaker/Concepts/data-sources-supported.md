@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 07/25/2019
+ms.date: 08/15/2019
 ms.author: diberry
 ---
 
@@ -128,9 +128,18 @@ QnAs in the form of structured *.txt*, *.tsv* or *.xls* files can also be upload
 
 Any additional columns in the source file are ignored.
 
+### Example of structured Excel file
+
 Below is an example of a structured QnA *.xls* file, with HTML content:
 
  ![Structured QnA excel example for a knowledge base](../media/qnamaker-concepts-datasources/structured-qna-xls.png)
+
+### Example of alternate questions for single answer in Excel file
+
+Below is an example of a structured QnA *.xls* file, with several alternate questions for a single answer:
+
+ ![Example of alternate questions for single answer in Excel file](../media/qnamaker-concepts-datasources/xls-alternate-question-example.png)
+
 
 ## Structured data format through import
 
