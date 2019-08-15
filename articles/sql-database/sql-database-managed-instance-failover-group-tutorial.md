@@ -323,6 +323,8 @@ Connect the two gateways using the Az CLI.
 
 ---
 
+---
+
 ## 7 - Create a failover group
 In this step, you will create the failover group and add both managed instances to it. 
 
