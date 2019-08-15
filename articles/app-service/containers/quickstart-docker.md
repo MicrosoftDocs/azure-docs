@@ -20,7 +20,7 @@ You need [Visual Studio Code](https://code.visualstudio.com/) installed along wi
 
 You will also need to install the following extensions:
 
-* [Docker extension](vscode:extension/PeterJausovec.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
+* [Docker extension](vscode:extension/ms-azuretools.vscode-docker). You can use this extension to simplify the management of local Docker images and commands and to deploy built app images to Azure.
 * [Azure App Service extension](vscode:extension/ms-azuretools.vscode-azureappservice). You can use this extension to create, manage, and deploy Linux Web Apps on the Azure Platform as a Service (PaaS).
 
 ### Sign in
