@@ -1,17 +1,17 @@
 ---
-title: Provision Azure Batch pool from a custom image | Microsoft Docs
-description: Create a Batch pool from a custom image to provision compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
+title: Use the Shared Image Gallery to create a pool - Azure Batch | Microsoft Docs
+description: Create a Batch pool with the Shared Image Gallery to provision custom images to compute nodes that contain the software and data that you need for your application. Custom images are an efficient way to configure compute nodes to run your Batch workloads.
 services: batch
 author: laurenhughes
 manager: gwallace
 
 ms.service: batch
 ms.topic: article
-ms.date: 08/07/2019
+ms.date: 08/14/2019
 ms.author: lahugh
 ---
 
-# Use a custom image to create a pool of virtual machines
+# Use the Shared Image Gallery to create a pool
 
 When you create an Azure Batch pool using the Virtual Machine Configuration, you specify a VM image that provides the operating system for each compute node in the pool. You can create a pool of virtual machines either with a supported Azure Marketplace image or create a custom image with the [Shared Image Gallery](../virtual-machines/windows/shared-image-galleries.md).
 
