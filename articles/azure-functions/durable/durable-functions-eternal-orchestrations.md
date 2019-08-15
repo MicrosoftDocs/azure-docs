@@ -77,12 +77,13 @@ Triggering an eternal orchestration is no different from any other orchestration
 
 ```csharp
 [FunctionName("Trigger_Eternal_Orchestration")]
-public static async Task OrchestrationTrigger(
-    [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequest req,
-    [OrchestrationClient] DurableOrchestrationClientBase orchestrationClient)
+public static async Task<HttpResponseMessage> OrchestrationTrigger(
+    [HttpTrigger(AuthorizationLevel.Function, "post", Route = null)] HttpRequestMessage request,
+    [OrchestrationClient] DurableOrchestrationClientBase client)
 {
-    string myId = "StaticId";
-    await functionOrchestrator.StartNewAsync("Periodic_Cleanup_Loop"), myId, null);  // Note: null was added as the input, since there is no input in "Periodic_Cleanup_Loop"
+    string instanceId = "StaticId";
+    await client.StartNewAsync("Periodic_Cleanup_Loop"), instanceId, null);  // Note: null was added as the input, since there is no input in "Periodic_Cleanup_Loop"
+    return client.CreateCheckStatusResponse(request, instanceId);
 }
 ```
 
