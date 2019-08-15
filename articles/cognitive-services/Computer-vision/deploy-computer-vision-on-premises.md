@@ -205,7 +205,7 @@ You should expect to see something similar to the following output:
 The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **speech-to-text** and **text-to-speech** services, we'll execute the [Helm test][helm-test] command.
 
 ```console
-helm test onprem-speech
+// TODO: Probably remove this section
 ```
 
 > [!IMPORTANT]
@@ -214,10 +214,7 @@ helm test onprem-speech
 These tests will output various status results:
 
 ```console
-RUNNING: speech-to-text-readiness-test
-PASSED: speech-to-text-readiness-test
-RUNNING: text-to-speech-readiness-test
-PASSED: text-to-speech-readiness-test
+// TODO: Probably remove this section
 ```
 
 As an alternative to executing the *helm tests*, you could collect the *External IP* addresses and corresponding ports from the `kubectl get all` command. Using the IP and port, open a web browser and navigate to `http://<external-ip>:<port>:/swagger/index.html` to view the API swagger page(s).
