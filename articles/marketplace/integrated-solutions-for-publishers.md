@@ -12,7 +12,7 @@ ms.author: v-qiwe
 ---
 # Publishing Integrated Solutions
 
-An Integrated Solution brings multiple ISV point solution technologies together, along with the deployment and services of an SI, into a single bundled offer to be listed in the marketplace as a consulting services offer.
+An Integrated Solution brings multiple ISV point solution technologies together, along with the deployment and services of an systems integrator (SI), into a single bundled offer to be listed in the marketplace as a consulting services offer.
 
 These solutions are built to address a specific customer need or scenario, which begins with an understanding of the industry challenge or pain points. Two or more best-of-breed technologies are then integrated by an SI to create a unified and repeatable deployment experience for customers, to get them up and running rapidly. The systems integrator also provides a single point of contact for the customer, providing relevant customization and consulting, and support around the solution. The outcome is an integrated solution, including technology and services.
 
