@@ -118,11 +118,11 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Data Box, Data Box Heavy in Azure
-            url: data-box-portal-ui-admin.md
+            url: data-box-portal-admin.md
           - text: Data Box, Data Box Heavy via local UI
             url: data-box-local-web-ui-admin.md
           - text: Data Box Disk in Azure
-            url: data-box-portal-ui.md
+            url: data-box-portal-ui-admin.md
 
 
   # Card
