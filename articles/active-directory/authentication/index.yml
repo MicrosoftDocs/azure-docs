@@ -28,7 +28,7 @@ landingContent:
             url: overview-authentication.md
           - text: What are authentication methods?
             url: concept-authentication-methods.md
-          - text: Combined security information registration
+          - text: Security information registration
             url: concept-registration-mfa-sspr-combined.md
           - text: What is passwordless?
             url: concept-authentication-passwordless.md
@@ -42,8 +42,6 @@ landingContent:
             url: concept-sspr-howitworks.md
           - text: Password writeback
             url: concept-sspr-writeback.md
-          - text: Azure AD password protection
-            url: concept-password-ban-bad.md
       - linkListType: quickstart
         links:
           - text: Self-service password reset quickstart
@@ -76,3 +74,21 @@ landingContent:
             url: howto-mfa-getstarted.md
           - text: Use NPS extension to integrate on-premises applications
             url: howto-mfa-nps-extension.md
+
+  # Card
+  - title: Deploy Azure AD password protection
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Eliminate weak passwords in the cloud
+            url: concept-password-ban-bad.md
+          - text: Eliminate weak passwords on-premises
+            url: concept-password-ban-bad-on-premises.md
+      - linkListType: get-started
+        links:
+          - text: Configure the banned password list
+            url: howto-password-ban-bad-configure.md
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy Azure AD password protection
+            url: howto-password-ban-bad-on-premises-deploy.md
