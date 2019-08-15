@@ -2,6 +2,7 @@
   href: index.yml
   items:
 - name: Overview
+  expanded: true
   items:
   - name: What is the Data Science VM?
     href: overview.md
