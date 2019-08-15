@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: MicrosoftGuyJFlo
   ms.author: joflore
-  ms.date: 08/14/2019
+  ms.date: 08/16/2019
   ms.collection: M365-identity-device-management
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -51,3 +51,27 @@ landingContent:
             url: block-legacy-authentication.md
           - text: Troubleshooting using the What If tool
             url: troubleshoot-conditional-access-what-if.md
+
+  # Card
+  - title: Common Conditional Access policies
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Common Conditional Access policies
+            url: concept-conditional-access-policy-common.md
+      - linkListType: how-to-guide
+        links:
+          - text: Require MFA for administrators
+            url: howto-conditional-access-policy-admin-mfa.md
+          - text: Require MFA for Azure management
+            url: howto-conditional-access-policy-azure-mamgement.md
+          - text: Block legacy authentication
+            url: howto-conditional-access-policy-block-legacy.md
+          - text: Risk-based Conditional Access (Requires Azure AD Premium P2)
+            url: howto-conditional-access-policy-risk.md
+          - text: Require trusted location for MFA registration
+            url: howto-conditional-access-policy-registration.md
+          - text: Block access by location
+            url: howto-conditional-access-policy-location.md
+          - text: Require compliant device
+            url: howto-conditional-access-policy-compliant-device.md
