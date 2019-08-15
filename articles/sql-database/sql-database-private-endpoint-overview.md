@@ -8,21 +8,10 @@ ms.topic: overview
 ms.date: 08/07/2019
 ---
 
-<!---Recommended: Remove all the comments in this template before you sign-off or merge to master.--->
-
-<!---overview articles are for new customers and explain the service from a technical point of view.
-They are not intended to define benefits or value prop; that would be in marketing content.
---->
-
 # What is Private Link?
-<!---Required: 
-For the H1 - that's the primary heading at the top of the article - use the format "What is <service>?"
-You can also use this in the TOC if your service name doesn’t cause the phrase to wrap.
---->
+Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. For a list to PaaS services that support Private Link functionality go to http://aka.ms/privatelink. A private endpoint is essentially a private IP address within a specific Vnet and Subnet. 
 
-Private Link allows you to connect to various PaaS services in Azure via a **private endpoint**. More information is available at http://aka.ms/privatelink. A private endpoint is essentially a private IP address within a specific Vnet and Subnet. 
-
-For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention,  on-premises connectivity via private peering and force tunneling.
+For Azure SQL Database, we have traditionally provided [network access controls](sql-database-networkaccess-overview.md) to limit the options for connecting via public endpoint. However these controls failed to properly address customers concerns around data exfiltration prevention and  on-premises connectivity via private peering.
 
 ## Data Exfiltration prevention
 Data exfiltration - in context of Azure SQL Database - is when an authorized user e.g. database admin is able extract data from one system - SQL Database owned by their organization - and move it another location/system outside the organization e.g. SQL Database or storage account owned by a third party.
@@ -35,49 +24,37 @@ Next on the Azure VM , we shall narrow down the scope of outgoing connection bys
 - Specify an NSG rule to allow traffic for  Service Tag = SQL.WestUs
 - Specify an NSG rule to deny traffic for  Service Tag = SQL ( This will deny all other regions)
 
-At the end of this setup, the Azure VM can connect only to SQL Database in the West US region. However. note that the connectivity is not restricted to a single SQL Database;rather it can connect to any SQL Database in the West US region ; including those that are not part of the subscription. Note that while we have reduced teh scope of data exfiltration to a specific region, we have not eliminated it altogether. 
+At the end of this setup, the Azure VM can connect only to SQL Database in the West US region. However. note that the connectivity is not restricted to a single SQL Database;rather it can connect to any SQL Database in the West US region ; including those that are not part of the subscription. Note that while we have reduced the scope of data exfiltration to a specific region, we have not eliminated it altogether. 
 
-With Private Link, you can now setup standard network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to the private endpoints instead of Azure Service. Hence a malicious insider can only access the mapped account and no other account thus eliminating the data exfil threat. 
+With Private Link, customers can now setup standard network access controls like NSGs to restrict access to the private endpoint. Individual Azure PaaS resources are mapped to specific private endpoints. Hence a malicious insider can only access the mapped PaaS resource () for example a SQL Database) and no other resource - thereby providing data exfiltration prevention capability
 
-
-
-**TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD**
-
-## On-premises connectivity over peering
-**TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD**
-**Open Question - Will this be covered by Azure Networking docs?** 
-
-## Force tunnelling
-**TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD**
-**Open Question - Will this be covered by Azure Networking docs?** 
+## On-premises connectivity over private peering
+When customers connect to the public endpoint from on-premises machines, their IP address needs to be added to the IP based firewall via a [Server-level firewall rule](sql-database-server-level-firewall-rule.md). While this model works well for whitelisting individual machines for dev/test workloads, it is difficult to manage in a production environment. 
+With Private Link, customers can enable cros-premises access to the private endpoint using ER private peering or VPN tunnel.They can subsequently disable all access via public endpoint and not use the IP based firewall to whitelist any IP addresses.
 
 
-## How to setup Private Link for Azure SQL Database 
-**TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD**
-###Approval Rrocess
+# How to setup Private Link for Azure SQL Database 
 Describe the approval process and SoD for network admin ( create PE) vs database admin ( approve PE)
-**Open Question Will the network admin create PE workflow & required RBAC permissions be covered by Azure Networking docs?**
+## Creation Process
+*TBD Azure Networking docs TBD*
+## Approval Process
 
-###DNS configuration process
-**TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD TBD**
-**Open Question - Will this be covered by Azure Networking docs?** 
+## DNS configuration process
+*TBD Azure Networking docs TBD*
 
+# Use cases of Private Link for Azure SQL Database 
+## Connect – From Azure VM 
 
-## Use cases of Private Link for Azure SQL Database 
-**Open Question - Will this be covered by Azure Networking docs?** 
-###Connect – From Azure VM 
+## Connect – From Azure VM Peered Vnet
 
-###Connect – From Azure VM Peered Vnet
+## Connect – From Azure VM Vnet2Vnet
 
-###Connect – From Azure VM Vnet2Vnet
+## Connect – From on-premises over VPN
 
-###Connect – From on-premises over VPN
-
-
-## Troubleshoot  Private Link for Azure SQL Database 
-###Check Connectivity – Nmap 
-###Check Connectivity - Telnet
-###Check Connectivity – SSMS
+# Troubleshoot  Private Link for Azure SQL Database 
+## Check Connectivity – Nmap 
+## Check Connectivity - Telnet
+## Check Connectivity – SSMS
 
 
 <!---
