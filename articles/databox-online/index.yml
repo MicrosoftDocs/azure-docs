@@ -28,12 +28,15 @@ landingContent:
           - text: What is Data Box Gateway?
             url: data-box-gateway-overview.md
           - text: What is Data Box Edge?
-            url: data-box-edge-overview.md
+            url: data-box-edge-overview.md  
       - linkListType: architecture
         links:
           - text: Choose Azure data transfer options
             url: /azure/storage/common/storage-choose-data-transfer-solution
-
+      - linkListType: learn
+        links:
+          - text: Import data online with Data Box 
+            url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
 
   # Card
   - title: View requirements
@@ -44,11 +47,6 @@ landingContent:
             url: data-box-gateway-system-requirements.md
           - text: For Data Box Edge
             url: data-box-edge-system-requirements-rest.md
-      - linkListType: learn
-        links:
-          - text: Import data online with Data Box 
-            url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
-
 
   # Card
   - title: Deploy Data Box Gateway
@@ -91,14 +89,14 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Data Box Gateway in Azure
-            url: data-box-portal-admin.md
-          - text: Data Box Edge in Azure
-            url: data-box-portal-admin.md
+          - text: Data Box Gateway shares
+            url: data-box-gateway-manage-shares.md
+          - text: Data Box Edge shares
+            url: data-box-edge-manage-shares.md
           - text: Data Box Gateway via PowerShell
-            url: data-box-local-web-ui-admin.md
+            url: data-box-gateway-connect-powershell-interface.md
           - text: Data Box Edge via PowerShell
-            url: data-box-portal-ui-admin.md
+            url: data-box-edge-connect-powershell-interface.md
 
 
   # Card
