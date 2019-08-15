@@ -39,7 +39,7 @@ By default, the MSAL logger does not capture any highly sensitive personal or or
 ## Logging in MSAL.NET
 
  > [!NOTE]
- > For more information on MSAL .Net, please check out the MSAL .Net Wiki here : https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki. There you can find samples of MSAL .Net logging and more. 
+ > For more information about MSAL.NET, check out the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Get samples of MSAL.NET logging and more. 
  
 In MSAL 3.x, logging is set per application at app creation using the `.WithLogging` builder modifier. This method takes optional parameters:
 
