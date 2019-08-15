@@ -64,7 +64,8 @@ You'll see the **Welcome to Automated Machine Learning** screen, since this is y
 
     When creation is complete, select your new compute from the drop-down list, and then select **Next**.
 
-    >[!NOTE]For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
+    >[!NOTE]
+    >For this tutorial, we use the default storage account and container created with your new compute. They automatically populate in the form.
 
 1. Select **Upload** and choose the **bankmarketing_train.csv** file from your local computer to upload it to the default container. Public preview supports only local file uploads and Azure Blob storage accounts. When the upload is complete, select the file from the list. 
 
