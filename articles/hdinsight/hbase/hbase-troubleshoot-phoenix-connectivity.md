@@ -22,7 +22,7 @@ Incorrect IP of active Zookeeper node.
 
 ### Resolution
 
-The IP of active Zookeeper node can be identified from Ambari UI, by following the links to **HBase -> Quick Links -> ZK*** **(Active) -> Zookeeper Info**. Correct as needed.
+The IP of the active Zookeeper node can be identified from the Ambari UI by following the links to **HBase** > **Quick Links** > **ZK (Active)** > **Zookeeper Info**. Correct the IP as needed.
 
 ---
 
@@ -50,7 +50,7 @@ From the Apache Ambari UI, complete the following steps to restart the HMaster s
 
 1. Repeat these steps for all remaining **Standby HBase Master** services.
 
-It can take up-to 5 minutes for HBase Master service to stabilize and finish the recovery. Once the `SYSTEM.CATALOG` table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
+It can take up to five minutes for the HBase Master service to stabilize and finish the recovery. After the `SYSTEM.CATALOG` table is back to normal, the connectivity issue to Apache Phoenix should get resolved automatically.
 
 ## Next steps
 
