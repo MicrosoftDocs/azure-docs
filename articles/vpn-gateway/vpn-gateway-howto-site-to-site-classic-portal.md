@@ -3,11 +3,10 @@ title: 'Connect your on-premises network to an Azure virtual network: Site-to-Si
 description: Create an IPsec connection from your on-premises network to classic Azure virtual network over the public Internet.
 services: vpn-gateway
 author: cherylmc
-manager: jpconnock
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/14/2018
+ms.date: 08/15/2019
 ms.author: cherylmc
 
 ---
@@ -68,19 +67,15 @@ When you create a virtual network to use for a S2S connection, you need to make 
 ### To create a virtual network
 
 1. From a browser, navigate to the [Azure portal](https://portal.azure.com) and, if necessary, sign in with your Azure account.
-2. Click **+**. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** page.
-
-   ![Search for virtual network page](./media/vpn-gateway-howto-site-to-site-classic-portal/newvnetportal700.png)
-3. Near the bottom of the Virtual Network page, from the **Select a deployment model** dropdown list, select **Classic**, and then click **Create**.
-
-   ![Select deployment model](./media/vpn-gateway-howto-site-to-site-classic-portal/selectmodel.png)
+2. Click **+Create a resource*. In the **Search the marketplace** field, type 'Virtual Network'. Locate **Virtual Network** from the returned list and click to open the **Virtual Network** page.
+3. click **(change to Classic)**, and then click **Create**.
 4. On the **Create virtual network(classic)** page, configure the VNet settings. On this page, you add your first address space and a single subnet address range. After you finish creating the VNet, you can go back and add additional subnets and address spaces.
 
    ![Create virtual network page](./media/vpn-gateway-howto-site-to-site-classic-portal/createvnet.png "Create virtual network page")
 5. Verify that the **Subscription** is the correct one. You can change subscriptions by using the drop-down.
 6. Click **Resource group** and either select an existing resource group, or create a new one by typing a name. For more information about resource groups, visit [Azure Resource Manager Overview](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Next, select the **Location** settings for your VNet. The location determines where the resources that you deploy to this VNet will reside.
-8. If you want to be able to find your VNet easily on the dashboard, select **Pin to dashboard**. Click **Create** to create your VNet.
+8. Click **Create** to create your VNet.
 
    ![Pin to dashboard](./media/vpn-gateway-howto-site-to-site-classic-portal/pintodashboard150.png "Pin to dashboard")
 9. After clicking 'Create', a tile appears on the dashboard that reflects the progress of your VNet. The tile changes as the VNet is being created.
@@ -91,7 +86,7 @@ When you create a virtual network to use for a S2S connection, you need to make 
 
 After you create your virtual network, you can add additional address space. Adding additional address space is not a required part of a S2S configuration, but if you require multiple address spaces, use the following steps:
 
-1. Locate the virtual networks in the portal.
+1. Locate the virtual network in the portal.
 2. On the page for your virtual network, under the **Settings** section, click **Address space**.
 3. On the Address space page, click **+Add** and enter additional address space.
 
@@ -101,7 +96,7 @@ DNS settings are not a required part of a S2S configuration, but DNS is necessar
 
 After you create your virtual network, you can add the IP address of a DNS server to handle name resolution. Open the settings for your virtual network, click DNS servers, and add the IP address of the DNS server that you want to use for name resolution.
 
-1. Locate the virtual networks in the portal.
+1. Locate the virtual network in the portal.
 2. On the page for your virtual network, under the **Settings** section, click **DNS servers**.
 3. Add a DNS server.
 4. To save your settings, click **Save** at the top of the page.
@@ -110,11 +105,9 @@ After you create your virtual network, you can add the IP address of a DNS serve
 
 The local site typically refers to your on-premises location. It contains the IP address of the VPN device to which you will create a connection, and the IP address ranges that will be routed through the VPN gateway to the VPN device.
 
-1. In the portal, navigate to the virtual network for which you want to create a gateway.
-2. On the page for your virtual network, on the **Overview** page, in the VPN connections section, click **Gateway** to open the **New VPN Connection** page.
-
-   ![Click to configure gateway settings](./media/vpn-gateway-howto-site-to-site-classic-portal/beforegw125.png "Click to configure gateway settings")
-3. On the **New VPN Connection** page, select **Site-to-site**.
+1. On the page for your VNet, under **Settings**, click **Diagram**.
+1. On the **VPN connections** page, click **You don't have any existing VPN connections. Click here to get started**.
+1. For **Connection type**, leave **Site-to-site** selected.
 4. Click **Local site - Configure required settings** to open the **Local site** page. Configure the settings, and then click **OK** to save the settings.
    - **Name:** Create a name for your local site to make it easy for you to identify.
    - **VPN gateway IP address:** This is the public IP address of the VPN device for your on-premises network. The VPN device requires an IPv4 public IP address. Specify a valid public IP address for the VPN device to which you want to connect. It must be reachable by Azure. If you don't know the IP address of your VPN device, you can always put in a placeholder value (as long as it is in the format of a valid public IP address) and then change it later.
@@ -122,15 +115,18 @@ The local site typically refers to your on-premises location. It contains the IP
 
    ![Local site](./media/vpn-gateway-howto-site-to-site-classic-portal/localnetworksite.png "Configure local site")
 
+Click **OK** to close the Local site page. **Do not click OK to close the New VPN Connection page**.
+
 ## <a name="gatewaysubnet"></a>5. Configure the gateway subnet
 
 You must create a gateway subnet for your VPN gateway. The gateway subnet contains the IP addresses that the VPN gateway services use.
+
 
 1. On the **New VPN Connection** page, select the checkbox **Create gateway immediately**. The 'Optional gateway configuration' page appears. If you don't select the checkbox, you won't see the page to configure the gateway subnet.
 
    ![Gateway configuration - Subnet, size, routing type](./media/vpn-gateway-howto-site-to-site-classic-portal/optional.png "Gateway configuration - Subnet, size, routing type")
 2. To open the **Gateway configuration** page, click **Optional gateway configuration - Subnet, size, and routing type**.
-3. On the **Gateway Configuration** page, click **Subnet - Configure required settings** to open the **Add subnet** page.
+3. On the **Gateway Configuration** page, click **Subnet - Configure required settings** to open the **Add subnet** page. When you are finished configuring these settings, click **OK**.
 
    ![Gateway configuration - gateway subnet](./media/vpn-gateway-howto-site-to-site-classic-portal/subnetrequired.png "Gateway configuration - gateway subnet")
 4. On the **Add subnet** page, add the gateway subnet. The size of the gateway subnet that you specify depends on the VPN gateway configuration that you want to create. While it is possible to create a gateway subnet as small as /29, we recommend that you use /27 or /28. This creates a larger subnet that includes more addresses. Using a larger gateway subnet allows for enough IP addresses to accommodate possible future configurations.
@@ -139,12 +135,12 @@ You must create a gateway subnet for your VPN gateway. The gateway subnet contai
 
 ## <a name="sku"></a>6. Specify the SKU and VPN type
 
-1. Select the gateway **Size**. This is the gateway SKU that you use to create your virtual network gateway. In the portal, the 'Default SKU' = **Basic**. Classic VPN gateways use the old (legacy) gateway SKUs. For more information about the legacy gateway SKUs, see [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md).
+1. Select the gateway **Size**. This is the gateway SKU that you use to create your virtual network gateway. Classic VPN gateways use the old (legacy) gateway SKUs. For more information about the legacy gateway SKUs, see [Working with virtual network gateway SKUs (old SKUs)](vpn-gateway-about-skus-legacy.md).
 
    ![Select SKUL and VPN type](./media/vpn-gateway-howto-site-to-site-classic-portal/sku.png "Select SKU and VPN type")
-2. Select the **Routing Type** for your gateway. This is also known as the VPN type. It's important to select the correct gateway type because you cannot convert the gateway from one type to another. Your VPN device must be compatible with the routing type you select. For more information about VPN type, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype). You may see articles referring to 'RouteBased' and 'PolicyBased' VPN types. 'Dynamic' corresponds to 'RouteBased', and 'Static' corresponds to' PolicyBased'.
+2. Select the **Routing Type** for your gateway. This is also known as the VPN type. It's important to select the correct type because you cannot convert the gateway from one type to another. Your VPN device must be compatible with the routing type you select. For more information about Routing Type, see [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype). You may see articles referring to 'RouteBased' and 'PolicyBased' VPN types. 'Dynamic' corresponds to 'RouteBased', and 'Static' corresponds to' PolicyBased'.
 3. Click **OK** to save the settings.
-4. On the **New VPN Connection** page, click **OK** at the bottom of the page to begin creating your virtual network gateway. Depending on the SKU you select, it can take up to 45 minutes to create a virtual network gateway.
+4. On the **New VPN Connection** page, click **OK** at the bottom of the page to begin deploying your virtual network gateway. Depending on the SKU you select, it can take up to 45 minutes to create a virtual network gateway.
 
 ## <a name="vpndevice"></a>7. Configure your VPN device
 
