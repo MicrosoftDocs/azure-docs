@@ -90,22 +90,22 @@ There are some important steps to do before moving a resource. By verifying thes
 1. Before moving the resources, check the subscription quotas for the subscription you're moving the resources to. If moving the resources means the subscription will exceed its limits, you need to review whether you can request an increase in the quota. For a list of limits and how to request an increase, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
 
-1. **For a move across subscription, the resource and its dependent resources needs to be located within the same resource group and needs to be moved together.** Dependent resources are linked to the resource like disks/public IP attached to a VM.
+1. **For a move across subscription, the resource and its dependent resources need to be located within the same resource group and need to be moved together.** For example, a VM with managed disks would require the VM and the managed disks to be moved together, along with other dependent resources.
 
     If moving the resource to the new subscription, check if it has any dependent resources and are they located in the same resource group. If not, check if these resources could be consolidated into the same resource group. If so, bring all these resources to the same resource group using move operation across resource group.
     
-    "For more information, see **Scenario for move across subscription.**
+    For more information, see **Scenario for move across subscription.**
 
 
 ## Scenario for move across subscription
-Moving resources from one subscription to another is a 3 step process.
+Moving resources from one subscription to another is a three step process.
 
 ![cross subscription move scenario](./media/resource-group-move-resources/cross-subscription-move-scenario.png)
 
 
 For illustration purposes, we only have one dependent resource.
 
-* Step 1: Move all dependent resources distributed across different resource groups into one resource group.
+* Step 1: If dependent resources are distributed across different resource groups, first move them into one resource group.
 * Step 2: Move resource and dependent resources together from source subscription to target subscription.
 * Step 3: Optionally redistribute the dependent resources to different resource groups within the target subscription. 
 
