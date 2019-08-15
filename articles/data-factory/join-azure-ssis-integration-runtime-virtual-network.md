@@ -128,7 +128,7 @@ The solution is to define one (or more) user-defined routes (UDRs) on the subnet
 
 ![Add a route](media/join-azure-ssis-integration-runtime-virtual-network/add-route-for-vnet.png)
 - If you're concerned about losing the ability to inspect outbound Internet traffic from that subnet. You can define specific UDRs to only route traffic between Azure Batch management services and Azure-SSIS IR with next hop type as **Internet**.
-E.g. if your Azure-SSIS IR is located at *UK South*, you will need to get IP range list of service tag *BatchNodeManagement.UKSouth* from [Service tags IP range download link](https://www.microsoft.com/en-us/download/details.aspx?id=56519) or through [Service Tag Discovery API](https://aka.ms/discoveryapi). Then apply below UDRs of related ip range route with the next hop type as **Internet**.
+E.g. if your Azure-SSIS IR is located at `UK South`, you will need to get IP range list of service tag `BatchNodeManagement.UKSouth` from [Service tags IP range download link](https://www.microsoft.com/en-us/download/details.aspx?id=56519) or through [Service Tag Discovery API](https://aka.ms/discoveryapi). Then apply below UDRs of related ip range route with the next hop type as **Internet**.
 
 ![AzureBatch UDR Settings](media/join-azure-ssis-integration-runtime-virtual-network/azurebatch-udr-settings.png)
 > [!NOTE]
