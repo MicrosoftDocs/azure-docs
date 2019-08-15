@@ -140,7 +140,7 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/dynamics-training1.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                    <img src="media/index/grad-hat.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
                                 </div>
                             </div>
                             <div class="cardText">
