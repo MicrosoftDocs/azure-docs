@@ -141,5 +141,4 @@ EndpointSuffix=core.chinacloudapi.cn;
 
 * [Use the Azure storage emulator for development and testing](storage-use-emulator.md)
 * [Azure Storage explorers](storage-explorers.md)
-* [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
-
+* [Using Shared Access Signatures (SAS)](storage-sas-overview.md)

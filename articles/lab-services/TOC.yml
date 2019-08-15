@@ -247,11 +247,11 @@
         href: devtest-lab-mandatory-artifacts.md
     - name: Integrate with CI/CD
       items:
-      - name: Integrate labs into your Azure DevOps CI/CD pipeline
-        href: devtest-lab-integrate-ci-cd-vsts.md
-      - name: Integrate environments into your Azure DevOps CI/CD pipeline
+      - name: Integrate labs into your Azure Pipelines CI/CD pipeline
+        href: devtest-lab-integrate-ci-cd.md
+      - name: Integrate environments into your Azure Pipelines CI/CD pipeline
         href: integrate-environments-devops-pipeline.md
-      - name: Use DevTest Labs in Azure DevOps build and release pipelines
+      - name: Use DevTest Labs in Azure Pipelines build and release pipelines
         href: use-devtest-labs-build-release-pipelines.md
     - name: Report usage of labs
       href: report-usage-across-multiple-labs-subscriptions.md        

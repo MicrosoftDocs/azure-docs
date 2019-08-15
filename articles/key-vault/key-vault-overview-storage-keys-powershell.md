@@ -12,7 +12,7 @@ ms.date: 03/01/2019
 # Azure Key Vault managed storage account - PowerShell
 
 > [!NOTE]
-> [Azure storage integration with Azure Active Directory (Azure AD) is now in preview](https://docs.microsoft.com/azure/storage/common/storage-auth-aad). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
+> [Azure storage integration with Azure Active Directory (Azure AD) is now in preview](../storage/common/storage-auth-aad.md). We recommend using Azure AD for authentication and authorization, which provides OAuth2 token-based access to Azure storage, just like Azure Key Vault. This allows you to:
 > - Authenticate your client application using an application or user identity, instead of storage account credentials. 
 > - Use an [Azure AD managed identity](/azure/active-directory/managed-identities-azure-resources/) when running on Azure. Managed identities remove the need for client authentication all together, and storing credentials in or with your application.
 > - Use Role Based Access Control (RBAC) for managing authorization, which is also supported by Key Vault.

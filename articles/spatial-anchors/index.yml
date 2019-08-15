@@ -54,6 +54,16 @@ sections:
         alt:
       text: Unity iOS
       href: quickstarts/get-started-unity-ios.md
+    - image:
+        src: /media/logos/logo_xamarin.svg
+        alt:
+      text: Xamarin Android
+      href: quickstarts/get-started-xamarin-android.md
+    - image:
+        src: /media/logos/logo_xamarin.svg
+        alt:
+      text: Xamarin iOS
+      href: quickstarts/get-started-xamarin-ios.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
