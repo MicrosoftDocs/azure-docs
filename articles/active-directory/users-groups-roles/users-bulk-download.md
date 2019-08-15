@@ -22,19 +22,17 @@ Azure Active Directory (Azure AD) supports bulk user create and delete operation
 
 ## To download a list of users
 
-1. Sign in to your Azure AD organization with a User administrator account in the organization.
+1. [Sign in to your Azure AD organization](https://aad.portal.azure.com) with a User administrator account in the organization.
 1. In Azure AD, select **Users** > **Download users**.
 1. On the **Download users** page, select **Start** to receive a CSV file listing user profile properties.
 
-## Troubleshoot bulk user list download
+   ![Select where you want the list the users you want to download](./media/users-bulk-download/bulk-download.png)
 
-The causes of your troubles are many. Let us make them few. Specific actions can address the causes of many potential error states during the list download process.
+## Check status
 
-Validation error Message 1
-guidance 1
+You can see the status of all of your pending bulk requests in the **Bulk operation results (preview)** page.
 
-Batch job failure Message 2
-Guidance 2
+   ![Check upload status in the Bulk Operations Results page](./media/users-bulk-download/bulk-center.png)
 
 ## Next steps
 
