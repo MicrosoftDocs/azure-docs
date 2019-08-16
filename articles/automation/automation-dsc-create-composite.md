@@ -31,7 +31,7 @@ the best option is to package the configuration as a
 [Composite Resource](/powershell/dsc/resources/authoringresourcecomposite).
 Creating composite resources for the first time can be overwhelming.
 
-> [Note!]
+> [!NOTE]
 > This article refers to a solution that is maintained by the Open Source community.
 > Support is only available in the form of GitHub collaboration, not from Microsoft.
 
