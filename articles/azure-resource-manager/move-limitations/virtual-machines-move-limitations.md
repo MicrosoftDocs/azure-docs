@@ -20,7 +20,7 @@ The following scenarios aren't yet supported:
 * Virtual Machine Scale Sets with Standard SKU Load Balancer or Standard SKU Public IP can't be moved.
 * Virtual machines created from Marketplace resources with plans attached can't be moved across resource groups or subscriptions. De-provision the virtual machine in the current subscription, and deploy again in the new subscription.
 * Virtual machines in an existing virtual network but you aren't moving all resources in the virtual network.
-* Virtual machine scale set, its virtual machines and standalone virtual machines cannot be moved to a different resource group or subscription.
+* Low priority virtual machines and low priority virtual machine scale sets cannot be moved across resource groups or subscriptions.
 
 ## Virtual machines with Azure Backup
 
