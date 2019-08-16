@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with ProNovos Analytics | Microsoft Docs'
+title: 'Tutorial: Tutorial: Azure Active Directory single sign-on (SSO) integration with ProNovos Analytics | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ProNovos Analytics.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Tutorial: Azure Active Directory Single sign-on (SSO) integration with ProNovos Analytics
+# Tutorial: Tutorial: Azure Active Directory single sign-on (SSO) integration with ProNovos Analytics
 
 In this tutorial, you'll learn how to integrate ProNovos Analytics with Azure Active Directory (Azure AD). When you integrate ProNovos Analytics with Azure AD, you can:
 
@@ -56,7 +56,7 @@ To configure the integration of ProNovos Analytics into Azure AD, you need to ad
 1. Select **ProNovos Analytics** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
 
-## Configure and test Azure AD single sign-on for ProNovos Analytics
+## Configure and test Azure AD SSO for ProNovos Analytics
 
 Configure and test Azure AD SSO with ProNovos Analytics using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ProNovos Analytics.
 
