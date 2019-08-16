@@ -101,11 +101,9 @@
     - name: Manage CloudSimple portal accounts
       items: 
       - name: View the account summary
-        href:  https://docs.azure.cloudsimple.com/account/
+        href: account.md
       - name: View the users list
-        href:  https://docs.azure.cloudsimple.com/users/
-      - name: View the usage log
-        href:  https://docs.azure.cloudsimple.com/usage/
+        href: users.md
       - name: Set up a virtual network connection to the private cloud
         href: https://docs.azure.cloudsimple.com/virtual-network-connection/
       - name: Edit your user profile
@@ -129,7 +127,7 @@
       - name: VPN connection between on-premises and private cloud
         href: set-up-vpn.md
       - name: On-premises network connection with ExpressRoute
-        href: https://docs.azure.cloudsimple.com/on-premises-connection/
+        href: on-premises-connection.md
       - name: Azure virtual network connection with ExpressRoute
         href: azure-expressroute-connection.md
     - name: VMware platform
