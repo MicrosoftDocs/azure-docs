@@ -92,7 +92,7 @@ For more information about the `BlobTrigger` attribute, see [Trigger - attribute
 
 # [C# Script](#tab/csharp-script)
 
-The following example shows a blob trigger binding in a *function.json* file and [Python code](functions-reference-python.md) that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
+The following example shows a blob trigger binding in a *function.json* file and code that uses the binding. The function writes a log when a blob is added or updated in the `samples-workitems` [container](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources).
 
 Here's the binding data in the *function.json* file:
 
@@ -349,11 +349,13 @@ The following table explains the binding configuration properties that you set i
 
 # [JavaScript](#tab/javascript)
 
-In JavaScript, access the input blob data using `context.bindings.<name from function.json>`.
+Access blob data using `context.bindings.<name from function.json>`.
 
 # [Python](#tab/python)
 
-??
+Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python).
+
+For instance through parameter like `myblob: func.InputStream`.
 
 # [Java](#tab/java)
 
@@ -410,28 +412,8 @@ If the blob is named *{20140101}-soundfile.mp3*, the `name` variable value in th
 
 # [C# Script](#tab/csharp-script)
 
-<!--
-    This info is the same as in the C# section. If you make a change here,
-    make it for C# as well.
--->
+[!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-The blob trigger provides several metadata properties. These properties can be used as part of binding expressions in other bindings or as parameters in your code. These values have the same semantics as the [Cloud​Blob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblob?view=azure-dotnet) type.
-
-|Property  |Type  |Description  |
-|---------|---------|---------|
-|`BlobTrigger`|`string`|The path to the triggering blob.|
-|`Uri`|`System.Uri`|The blob's URI for the primary location.|
-|`Properties` |[BlobProperties](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobproperties)|The blob's system properties. |
-|`Metadata` |`IDictionary<string,string>`|The user-defined metadata for the blob.|
-
-For example, the following C# script and JavaScript examples log the path to the triggering blob, including the container:
-
-```csharp
-public static void Run(string myBlob, string blobTrigger, ILogger log)
-{
-    log.LogInformation($"Full blob path: {blobTrigger}");
-} 
-```
 # [JavaScript](#tab/javascript)
 
 ```javascript
@@ -442,7 +424,7 @@ module.exports = function (context, myBlob) {
 ```
 # [Python](#tab/python)
 
-??
+Access function context data via a property declared as `context: func.Context`.
 
 # [Java](#tab/java)
 
@@ -807,7 +789,9 @@ Access the blob data using `context.bindings.<name from function.json>`.
 
 # [Python](#tab/python)
 
-??
+Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python).
+
+For instance through parameter like `myblob: func.InputStream`.
 
 # [Java](#tab/java)
 
@@ -1174,7 +1158,36 @@ In JavaScript, access the blob data using `context.bindings.<name from function.
 
 # [Python](#tab/python)
 
-??
+To write out to a blob, add an output binding to *function.json*.
+
+```json
+{
+  "name": "outblob",
+  "type": "blob",
+  "direction": "out",
+  "path": "output/{name}",
+  "connection": "AzureWebJobsStorage"
+}
+```
+
+In your function, declare a parameter as `outblob: func.Out[str]` and call in the body of your `outblob.set("data")` to write data to the blob.
+
+```python
+import logging
+import azure.functions as func
+
+def main(myblob: func.InputStream, outblob: func.Out[str]):
+
+    output = "test"
+    outblob.set(output)
+
+    logging.info(f"Python blob trigger function processed blob \n"
+                 f"Name: {myblob.name}\n"
+                 f"Blob Size: {myblob.length} bytes")
+
+```
+
+With this configuration, a new blob is created at the `path` location defined in *function.json* with the same name as the file that triggered the function.
 
 # [Java](#tab/java)
 
