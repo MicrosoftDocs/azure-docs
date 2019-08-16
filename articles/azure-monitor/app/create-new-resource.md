@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 06/10/2019
+ms.date: 08/16/2019
 ms.author: mbullwin
 
 ---
@@ -56,7 +56,59 @@ Use the instrumentation key to configure [the SDK that you install in your appli
 The SDK includes standard modules that send telemetry without you having to write any additional code. To track user actions or diagnose issues in more detail, [use the API][api] to send your own telemetry.
 
 ## Creating a resource automatically
-You can write a [PowerShell script](../../azure-monitor/app/powershell.md) to create a resource automatically.
+
+### PowerShell
+
+Create a new Application Insights resource
+
+```powershell
+New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Location] <String> [-Kind <String>]
+ [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
+```
+
+### Example
+
+```powershell
+PS C:\>  New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
+Id                 : /subscriptions/{subid}/resourceGroups/testgroup/providers/microsoft.insights/components/test1027
+ResourceGroupName  : testgroup
+Name               : test1027
+Kind               : web
+Location           : eastus
+Type               : microsoft.insights/components
+AppId              : 8323fb13-32aa-46af-b467-8355cf4f8f98
+ApplicationType    : web
+Tags               : {}
+CreationDate       : 10/27/2017 4:56:40 PM
+FlowType           :
+HockeyAppId        :
+HockeyAppToken     :
+InstrumentationKey : 083112ed-ed9b-464e-a9b0-8cf126fbfced
+ProvisioningState  : Succeeded
+RequestSource      : AzurePowerShell
+SamplingPercentage :
+TenantId           : {subid}
+```
+
+For the full PowerShell documentation for this cmdlet consult the [Azure PowerShell documentation](https://docs.microsoft.com/en-us/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+
+### Azure CLI
+
+```azurecli
+az monitor app-insights component create --app
+                                         --location
+                                         --resource-group
+                                         [--application-type]
+                                         [--kind]
+                                         [--tags]
+```
+
+### Example
+
+```azurecli
+az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
+```
+For the full Azure CLI documentation for this command consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
 
 ## Next steps
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
