@@ -123,3 +123,7 @@ Service Fabric supports using tokens as credentials to download images for your 
 
     > [!NOTE]
     > The flag `UseDefaultRepositoryCredentials` set to true while `UseTokenAuthenticationCredentials` is true will cause an error during deployment.
+
+## Next Steps
+
+* See more about [Container registry authentication](/azure/container-registry/container-registry-authentication).
