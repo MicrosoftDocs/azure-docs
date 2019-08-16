@@ -15,7 +15,9 @@ ms.author: iainfou
 ---
 # Tutorial: Enable password synchronization in Azure Active Directory Domain Services for hybrid environments
 
-For hybrid environments, an Azure Active Directory (Azure AD) tenant can be configured to synchronize with an on-premises Active Directory Domain Services (AD DS) environment using Azure AD Connect. By default, Azure AD Connect doesn't synchronize legacy NTLM and Kerberos credential hashes to Azure AD. To use Azure Active Directory Domain Services (Azure AD DS) with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize the password hashes required for NTLM and Kerberos authentication. You don't need to perform these steps if you use cloud-only accounts and don't have an on-premises AD DS environment.
+For hybrid environments, an Azure Active Directory (Azure AD) tenant can be configured to synchronize with an on-premises Active Directory Domain Services (AD DS) environment using Azure AD Connect. By default, Azure AD Connect doesn't synchronize legacy NTLM and Kerberos credential hashes to Azure AD.
+
+To use Azure Active Directory Domain Services (Azure AD DS) with accounts synchronized from an on-premises AD DS environment, you need to configure Azure AD Connect to synchronize the password hashes required for NTLM and Kerberos authentication. You don't need to perform these steps if you use cloud-only accounts and don't have an on-premises AD DS environment.
 
 In this tutorial, you learn:
 
@@ -44,7 +46,9 @@ Azure AD Connect is used to synchronize objects like user accounts and groups fr
 
 To authenticate users on the managed domain, Azure AD DS needs password hashes in a format that's suitable for NT LAN Manager (NTLM) and Kerberos authentication. Azure AD doesn't generate or store password hashes in the format that's required for NTLM or Kerberos authentication until you enable Azure AD DS for your tenant. For security reasons, Azure AD also doesn't store any password credentials in clear-text form. Therefore, Azure AD can't automatically generate these NTLM or Kerberos password hashes based on users' existing credentials.
 
-As prerequisite to configuring Azure AD Connect to generate the required NTLM or Kerberos password hashes for Azure AD DS, you need to first [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect]. Make sure that you [download and install the latest available release of Azure AD Connect][azure-ad-connect-download]. If you have an existing instance of Azure AD Connect, update to the latest version to make sure you can generate the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. A minimum of Azure AD Connect of version *1.1.614.0* is required.
+As prerequisite to configuring Azure AD Connect to generate the required NTLM or Kerberos password hashes for Azure AD DS, you need to first [enable Azure AD Connect for password hash synchronization][enable-azure-ad-connect]. Make sure that you [download and install the latest available release of Azure AD Connect][azure-ad-connect-download].
+
+If you have an existing instance of Azure AD Connect, update to the latest version to make sure you can generate the legacy password hashes for NTLM and Kerberos. This functionality isn't available in early releases of Azure AD Connect or with the legacy DirSync tool. Azure AD Connect version *1.1.614.0* or later is required.
 
 ## Enable synchronization of NTLM and Kerberos credential hashes
 
