@@ -1,6 +1,7 @@
 ---
-keywords:  dsc,powershell,configuration,setup
-title:  Create Configurations from Existing Servers for use in Azure State Configuration
+title: Create configurations from existing servers - Azure Automation
+description: Learn how to create configurations from existing servers for Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
