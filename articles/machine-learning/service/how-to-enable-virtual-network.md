@@ -1,7 +1,7 @@
 ---
-title: Run experiments and inference in a virtual network
+title: Secure experiments and inference in a virtual network
 titleSuffix: Azure Machine Learning service
-description: learn how to set up an Azure Virtual Network so users can securely run Azure Machine Learning experiments and score models (inference). 
+description: learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network. 
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -13,9 +13,9 @@ author: aashishb
 ms.date: 08/05/2019
 ---
 
-# Run experiments and inference securely within an Azure virtual network
+# Secure Azure ML experimentation and inference jobs within an Azure Virtual Network
 
-In this article, you'll learn how to set up an Azure Virtual Network so users can securely run Azure Machine Learning experiments and score models (inference). 
+In this article, you'll learn how to secure experimentation/training jobs and inference/scoring jobs in Azure Machine Learning within an Azure Virtual Network (vnet). 
 
 A **virtual network** acts as a security boundary, isolating your Azure resources from the public internet. You can also join an Azure virtual network to your on-premises network. By joining networks, you can securely train your models and access your deployed models for inference.
 
