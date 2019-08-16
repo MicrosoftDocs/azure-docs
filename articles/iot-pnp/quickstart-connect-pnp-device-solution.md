@@ -74,7 +74,7 @@ In this quickstart, you use a sample environmental sensor that's written in Node
 
 1. Run the sample with the following command:
 
-    ```cmd/she
+    ```cmd/sh
     node sample_device.js
     ```
 
@@ -114,7 +114,7 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
 
 1. In the output, under the _environmentalSensor_ component, you see the same state has been reported:
 
-    ```
+    ```JSON
     reported state property as online
     ```
 
@@ -169,6 +169,20 @@ In this quickstart, you use a sample IoT solution in Node.js to interact with th
     ```cmd/sh
     Received an update for brightness: 60
     updated the property
+    ```
+2. Go back to your _service_ terminal, run below command again to confirm the property has been updated.
+    
+    ```cmd/sh
+    node get_digital_twin.js
+    ```
+3. In the output, under the environmentalSensor component, you see the updated brightness value has been reported. Note: it might take a while for the device to finish the update. You can repeat this step until the device has actually processed the property update.
+    
+    ```json
+      "brightness": {
+        "reported": {
+          "value": 60,
+          }
+       }
     ```
 
 ### Invoke a command
