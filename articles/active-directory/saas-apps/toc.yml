@@ -1141,6 +1141,8 @@
         href: signagelive-tutorial.md
       - name: SignalFx
         href: signalfx-tutorial.md
+      - name: Sigstr
+        href: sigstr-tutorial.md
       - name: SilkRoad Life Suite
         href: silkroad-life-suite-tutorial.md
       - name: Silverback
