@@ -96,7 +96,9 @@ See [the list of known issues](resource-known-issues.md) to learn about known bu
   + **azureml-widgets**
     + Improved confusion matrix charts for classification training.
 
-
+### Azure Portal
++ **Preview Feature**
+  + Log and output file streaming is now available for run details pages. The files will stream updates in real time when the preview toggle is turned on.
 
 ## 2019-08-05
 
