@@ -376,7 +376,7 @@ To register your application and add the app's registration information to your 
 1. Select **New registration**.
 1. When the **Register an application** page appears, enter your application's registration information:
    1. In the **Name** section, enter a meaningful application name that will be displayed to users of the app, like **ASPNET-Tutorial**.
-   1. Add the SSL URL you copied from Visual Studio in step 1 (for expample, `https://localhost:44368/`) in **Reply URL**, and select **Register**.
+   1. Add the SSL URL you copied from Visual Studio in step 1 (for example, `https://localhost:44368/`) in **Reply URL**, and select **Register**.
 1. Select the **Authentication** menu, select **ID tokens** under **Implicit Grant**, and then select **Save**.
 1. Add the following in the web.config file, located in the root folder in the `configuration\appSettings` section:
 
