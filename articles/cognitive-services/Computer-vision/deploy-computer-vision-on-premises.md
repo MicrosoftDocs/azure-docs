@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 8/14/2019
+ms.date: 8/16/2019
 ms.author: dapine
 ---
 
@@ -94,7 +94,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-recognize-text to a Kubernetes cluster
 ```
 
-Next, we'll configure our Helm chart values. Copy and paste the following YAML into a file named `config-values.yaml`. For more information on customizing the **Cognitive Services Speech On-Premises Helm Chart**, see [customize helm charts](#customize-helm-charts). Replace the `billing` and `apikey` values with your own.
+Next, we'll configure our Helm chart default values. Copy and paste the following YAML into a file named `values.yaml`. Replace the **{ENDPOINT_URI}** and **{API_KEY}** values with your own.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -116,7 +116,9 @@ recognizeText:
 > [!IMPORTANT]
 > If the `billing` and `apikey` values are not provided, the services will expire after 15 min. Likewise, verification will fail as the services will not be available.
 
-Finally, we need to create a *templates* folder under the *text-recognizer* folder. Copy and paste the following YAML into a file named `deployments.yaml`.
+Create a *templates* folder under the *text-recognizer* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
+
+> Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. -[Helm Chart Template Guide][chart-template-guide]
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -130,19 +132,19 @@ spec:
         app: text-recognizer-app
     spec:
       containers:
-      - name: {{ .Values.recognizeText.image.name}}
+      - name: {{.Values.recognizeText.image.name}}
         image: {{.Values.recognizeText.image.registry}}{{.Values.recognizeText.image.repository}}
         ports:
         - containerPort: 5000
         env:
         - name: EULA
-          value: {{ .Values.recognizeText.image.args.eula }}
+          value: {{.Values.recognizeText.image.args.eula}}
         - name: billing
-          value: {{ .Values.recognizeText.image.args.billing }}
+          value: {{.Values.recognizeText.image.args.billing}}
         - name: apikey
-          value: {{ .Values.recognizeText.image.args.apikey }}
+          value: {{.Values.recognizeText.image.args.apikey}}
       imagePullSecrets:
-      - name: {{ .Values.recognizeText.image.pullSecret }}
+      - name: {{.Values.recognizeText.image.pullSecret}}
 
 --- 
 apiVersion: v1
@@ -179,10 +181,10 @@ Here is the expected output from a successful package execution:
 Successfully packaged chart and saved it to: .\text-recognizer-1.0.0.tgz
 ```
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command, replacing the `<config-values.yaml>` with the appropriate path and file name argument.
+To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command. Please ensure to execute the install command from the directory containing the `text-recognizer-1.0.0.tgz` TAR archive file.
 
 ```console
-helm install -f text-recognizer/config-values.yaml \
+helm install -f text-recognizer/values.yaml \
     text-recognizer-1.0.0.tgz --name text-recognizer
 ```
 
@@ -190,22 +192,22 @@ Here is an example output you might expect to see from a successful install exec
 
 ```console
 NAME:   text-recognizer
-LAST DEPLOYED: Thu Aug 15 13:11:47 2019
+LAST DEPLOYED: Fri Aug 16 13:24:06 2019
 NAMESPACE: default
 STATUS: DEPLOYED
 
 RESOURCES:
 ==> v1/Pod(related)
-NAME                              READY  STATUS   RESTARTS  AGE
-text-recognizer-669c747754-2qh5w  0/1    Pending  0         0s
+NAME                              READY  STATUS             RESTARTS  AGE
+text-recognizer-57cb76bcf7-45sdh  0/1    ContainerCreating  0         0s
 
 ==> v1/Service
-NAME             TYPE          CLUSTER-IP     EXTERNAL-IP  PORT(S)         AGE
-text-recognizer  LoadBalancer  10.102.195.88  localhost    5000:30842/TCP  0s
+NAME             TYPE          CLUSTER-IP    EXTERNAL-IP  PORT(S)         AGE
+text-recognizer  LoadBalancer  10.110.44.86  localhost    5000:31301/TCP  0s
 
 ==> v1beta1/Deployment
 NAME             READY  UP-TO-DATE  AVAILABLE  AGE
-text-recognizer  0/1    0           0          0s
+text-recognizer  0/1    1           0          0s
 ```
 
 The Kubernetes deployment can take over several minutes to complete. To confirm that both pods and services are properly deployed and available, execute the following command:
@@ -217,35 +219,24 @@ kubectl get all
 You should expect to see something similar to the following output:
 
 ```console
-// TODO : Add output
+λ kubectl get all
+NAME                                   READY   STATUS    RESTARTS   AGE
+pod/text-recognizer-57cb76bcf7-45sdh   1/1     Running   0          17s
+
+NAME                      TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
+service/kubernetes        ClusterIP      10.96.0.1      <none>        443/TCP          45h
+service/text-recognizer   LoadBalancer   10.110.44.86   localhost     5000:31301/TCP   17s
+
+NAME                              READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/text-recognizer   1/1     1            1           17s
+
+NAME                                         DESIRED   CURRENT   READY   AGE
+replicaset.apps/text-recognizer-57cb76bcf7   1         1         1       17s
 ```
 
-### Verify Helm deployment with Helm tests
+<!--  ## Validate container is running -->
 
-The installed Helm charts define *Helm tests*, which serve as a convenience for verification. These tests validate service readiness. To verify both **recognize text** services, we'll execute the [Helm test][helm-test] command.
-
-```console
-// TODO: Probably remove this section
-```
-
-> [!IMPORTANT]
-> These tests will fail if the POD status is not `Running` or if the deployment is not listed under the `AVAILABLE` column. Be patient as this can take over ten minutes to complete.
-
-These tests will output various status results:
-
-```console
-// TODO: Probably remove this section
-```
-
-As an alternative to executing the *helm tests*, you could collect the *External IP* addresses and corresponding ports from the `kubectl get all` command. Using the IP and port, open a web browser and navigate to `http://<external-ip>:<port>:/swagger/index.html` to view the API swagger page(s).
-
-## Customize Helm charts
-
-Helm charts are hierarchical. Being hierarchical allows for chart inheritance, it also caters to the concept of specificity, where settings that are more specific override inherited rules.
-
-```
-TODO: Include all the Helm Chart configuration values here
-```
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## Next steps
 
@@ -268,6 +259,7 @@ For more details on installing applications with Helm in Azure Kubernetes Servic
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [helm-test]: https://helm.sh/docs/helm/#helm-test
+[chart-template-guide]: https://helm.sh/docs/chart_template_guide
 
 <!-- LINKS - internal -->
 [vision-preview-access]: computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry
