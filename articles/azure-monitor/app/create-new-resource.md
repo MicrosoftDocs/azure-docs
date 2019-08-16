@@ -90,9 +90,19 @@ SamplingPercentage :
 TenantId           : {subid}
 ```
 
-For the full PowerShell documentation for this cmdlet, consult the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
+For the full PowerShell documentation for this cmdlet, and to learn how to retrieve the instrumentation key consult the [Azure PowerShell documentation](https://docs.microsoft.com/powershell/module/az.applicationinsights/new-azapplicationinsights?view=azps-2.5.0).
 
-### Azure CLI
+### Azure CLI (preview)
+
+To access the Application Insights Azure CLI commands you first need to run:
+
+```azurecli
+ az extension add -n application-insights
+```
+
+If you don't run the `az extension add` command you will see an error message that states: `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+
+Now you can run the following to create your Application Insights resource:
 
 ```azurecli
 az monitor app-insights component create --app
@@ -108,7 +118,7 @@ az monitor app-insights component create --app
 ```azurecli
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web
 ```
-For the full Azure CLI documentation for this command, consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
+For the full Azure CLI documentation for this command, and to learn how to retrieve the instrumentation key consult the [Azure CLI documentation](https://docs.microsoft.com/cli/azure/ext/application-insights/monitor/app-insights/component?view=azure-cli-latest#ext-application-insights-az-monitor-app-insights-component-create)
 
 ## Next steps
 * [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)
