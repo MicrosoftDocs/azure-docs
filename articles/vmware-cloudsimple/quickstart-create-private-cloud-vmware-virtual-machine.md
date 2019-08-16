@@ -3,7 +3,7 @@ title: Quickstart - Create a VMware VM on Private Cloud
 description: Describes how to create and a VMware VM on CloudSimple Private Cloud 
 author: sharaths-cs
 ms.author: b-shsury 
-ms.date: 4/2/19 
+ms.date: 08/16/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 
@@ -91,7 +91,7 @@ The following sections contain optional information about setting up DNS and DHC
 
 ## Add Users and Identity Sources to vCenter (Optional)
 
-CloudSimple assigns a default vCenter user account with username **cloudowner@cloudsimple.local**. No additional account setup is required for you to get started.  CloudSimple normally assigns administrators the privileges they need to perform normal operations.  Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity) on your Private Cloud.
+CloudSimple assigns a default vCenter user account with username **cloudowner@cloudsimple.local**. No additional account setup is required for you to get started.  CloudSimple normally assigns administrators the privileges they need to perform normal operations.  Set up your on-premises active directory or Azure AD  as an [additional identity source](set-vcenter-identity.md) on your Private Cloud.
 
 ## Create a DNS and DHCP Server (Optional)
 Applications and workloads running in a Private Cloud environment require name resolution and DHCP services for lookup and IP address assignment. A proper DHCP and DNS infrastructure is required to provide these services. You can configure a virtual machine in vCenter to provide these services in your Private Cloud environment.
@@ -143,8 +143,8 @@ The task of allocating the public IP address begins. You can check the status of
 
 The VM to which this IP address must be mapped needs to be configured with the local address specified above. The procedure to configure an IP address is specific to the VM operating system. Consult the documentation for your VM operating system for the correct procedure.
 
-
 #### Example
+
 For example, here are the details for Ubuntu 16.04.
 
 Add the static method to the inet address family configuration in the file /etc/network/interfaces. Change the address, netmask, and gateway values. For this example, we are using the eth0 interface, internal IP address 192.168.24.10, gateway address 192.168.24.1, and netmask 255.255.255.0. For your environment, the available subnet information is provided in the welcome email.
@@ -152,6 +152,7 @@ Add the static method to the inet address family configuration in the file /etc/
 ```
 sudo vi /etc/network/interfaces
 ```
+
 ```
 auto eth0
 Iface eth0 inet static
@@ -174,7 +175,7 @@ Manually enable the interface again.
 sudo ifup eth0
 ```
 
-By default, all incoming traffic from the Internet is **denied**. If you would like to open any other port, create a [firewall table](firewall).
+By default, all incoming traffic from the Internet is **denied**. If you would like to open any other port, create a [firewall table](firewall.md).
 
 After configuring an internal IP address as the static IP address, verify that you can reach the Internet from within the VM.
 
@@ -207,18 +208,18 @@ Start a browser on your desktop and point it to port 80 for the public IP addres
 * VPN traffic: All traffic between (from/to) the VPN and all the workload networks and management network is allowed.
 * Private cloud internal traffic: All east-west traffic between (from/to) workload networks and the management network (shown above) is allowed.
 * Internet traffic:
-    * All incoming traffic from the Internet is denied to workload networks and the management network.
-    * All outgoing traffic to the Internet from workload networks or the management network is allowed.
+  * All incoming traffic from the Internet is denied to workload networks and the management network.
+  * All outgoing traffic to the Internet from workload networks or the management network is allowed.
 
-You can also modify the way your traffic is secured, using the Firewall Rules feature. For more information, see [Set up firewall tables and rules](firewall).
+You can also modify the way your traffic is secured, using the Firewall Rules feature. For more information, see [Set up firewall tables and rules](firewall.md).
 
 ## Install Solutions (Optional)
 You can install solutions on your CloudSimple Private Cloud to take full advantage of your Private Cloud vCenter environment. You can set up backup, disaster recovery, replication, and other functions to protect your virtual machines. Examples include VMware Site Recovery Manager (VMware SRM) and Veeam Backup & Replication.
 
-To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](escalate-private-cloud-privileges).
+To install a solution, you must request additional privileges for a limited period. See [Escalate privileges](escalate-private-cloud-privileges.md).
 
 ## Next steps
 
-* [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine)
-* [Connect to on-premises network using Azure ExpressRoute](on-premises-connection)
-* [Set up VPN gateways on CloudSimple network](vpn-gateway)
+* [Consume VMware VMs on Azure](quickstart-create-vmware-virtual-machine.md)
+* [Connect to on-premises network using Azure ExpressRoute](on-premises-connection.md)
+* [Set up VPN gateways on CloudSimple network](vpn-gateway.md)
