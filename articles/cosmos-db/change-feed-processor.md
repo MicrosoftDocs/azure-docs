@@ -90,5 +90,5 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 You can now proceed to learn more about change feed processor in the following articles:
 
 * [Overview of change feed](change-feed.md)
-* [Using the change feed estimator](how-to-use-change-feed-estimator)
+* [Using the change feed estimator](how-to-use-change-feed-estimator.md)
 * [Change feed processor start time](how-to-configure-change-feed-start-time.md)
