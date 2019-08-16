@@ -17,7 +17,7 @@ ms.author: takamath
 
 ---
 
-# Delivering a proof of concept 
+# Deliver a proof of concept 
 
 One of the key scenarios for Azure DevTest Labs is enabling development and testing environments in the cloud. Examples include:
 
@@ -96,7 +96,7 @@ When building a proof of concept, we focus first on the outcomes (what are we tr
 * Do we have an Azure AD tenant and an Azure AD global admin identified who can provide help and guidance for Azure AD-related questions? 
 * Do we have a place to collaborate for the individuals working on the project? 
 
-   * Source code and scripts (like Azure repos) 
+   * Source code and scripts (like Azure Repos) 
    * Documents (like Microsoft Teams or SharePoint)  
    * Conversations (like Microsoft Teams) 
    * Work items (like Azure Boards) 
