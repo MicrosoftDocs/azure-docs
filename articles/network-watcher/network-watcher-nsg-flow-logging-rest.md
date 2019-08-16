@@ -215,6 +215,9 @@ If a storage account is specified, packet capture files are saved to a storage a
 https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 ```
 
+> [!IMPORTANT]
+> Retention policies on NSG flow logs were recently turned off. As a result, storage blobs created by NSG Flow logs will no longer be automatically deleted. If you have an existing non-zero retention policy, we recommend that you periodically delete the storage blobs that are past their retention period to avoid any incurring charges. For more information about how to delete the NSG flow log storage blog, see [](network-watcher-delete-nsg-flow-log-blobs.md).
+
 ## Next steps
 
 Learn how to [Visualize your NSG flow logs with PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md)
