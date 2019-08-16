@@ -69,9 +69,9 @@ landingContent:
           - text: Data Box Edge users
             url: data-box-edge-manage-users.md
           - text: Data Box Gateway power, access, connectivity
-            url: data-box-gateway-manage-access-power-connectivity.md
+            url: data-box-gateway-manage-access-power-connectivity-mode.md
           - text: Data Box Edge power, access, connectivity
-            url: data-box-edge-manage-access-power-connectivity.md
+            url: data-box-edge-manage-access-power-connectivity-mode.md
 
 
   # Card
@@ -89,7 +89,6 @@ landingContent:
         links:
           - text: "Samples - C# for Data Box Edge"
             url: https://docs.microsoft.com/samples/azure-samples/data-box-edge-csharp-modules/data-box-edge-csharp-modules/
-
 
   # Card
   - title: Troubleshoot
