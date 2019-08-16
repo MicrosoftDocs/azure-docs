@@ -37,36 +37,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ## Prerequisites
 
-Skip to [Set up your development environment](#start) to read through the notebook steps, or use the instructions below to get the notebook and run it on Azure Notebooks or your own notebook server. To run the notebook you will need:
+* Complete part one, the [data preparation tutorial](tutorial-data-prep.md).
 
-* [Run the data preparation tutorial](tutorial-data-prep.md).
-* A Python 3.6 notebook server with the following installed:
-    * The Azure Machine Learning SDK for Python with `automl` and `notebooks` extras
-    * `matplotlib`
-* The tutorial notebook
-* A machine learning workspace
-* The configuration file for the workspace in the same directory as the notebook
+* After you complete part one, open the **tutorials/regression-part2-automated-ml.ipynb** notebook using the same notebook server.
 
-Get all these prerequisites from either of the sections below.
-
-* Use a [cloud notebook server in your workspace](#azure)
-* Use [your own notebook server](#server)
-
-### <a name="azure"></a>Use a cloud notebook server in your workspace
-
-It's easy to get started with your own cloud-based notebook server. The [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk) is already installed and configured for you once you create this cloud resource.
-
-[!INCLUDE [aml-azure-notebooks](../../../includes/aml-azure-notebooks.md)]
-
-* After you launch the notebook webpage, run the **tutorials/regression-part2-automated-ml.ipynb** notebook.
-
-### <a name="server"></a>Use your own Jupyter notebook server
-
-Use these steps to create a local Jupyter Notebook server on your computer.  Make sure that you install `matplotlib` and the `automl` and `notebooks` extras in your environment.
-
-[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
-
-After you complete the steps, run the **tutorials/regression-part2-automated-ml.ipynb** notebook.
+This tutorial is also available on [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials) if you wish to use it on your own [local environment](how-to-configure-environment.md#local).  Make sure you have installed `matplotlib` and the `automl` and `notebooks` extras from the Azure Machine Learning SDK.
 
 ## <a name="start"></a>Set up your development environment
 
