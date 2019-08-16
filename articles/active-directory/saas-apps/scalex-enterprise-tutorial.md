@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with ScaleX Enterprise | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with ScaleX Enterprise | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ScaleX Enterprise.
 services: active-directory
 documentationCenter: na
@@ -14,13 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/07/2019
+ms.date: 08/16/2019
 ms.author: jeedes
 
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate ScaleX Enterprise with Azure Active Directory
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with ScaleX Enterprise
 
 In this tutorial, you'll learn how to integrate ScaleX Enterprise with Azure Active Directory (Azure AD). When you integrate ScaleX Enterprise with Azure AD, you can:
 
@@ -54,15 +54,14 @@ To configure the integration of ScaleX Enterprise into Azure AD, you need to add
 1. In the **Add from the gallery** section, type **ScaleX Enterprise** in the search box.
 1. Select **ScaleX Enterprise** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-
-## Configure and test Azure AD single sign-on
+## Configure and test Azure AD single sign-on for ScaleX Enterprise
 
 Configure and test Azure AD SSO with ScaleX Enterprise using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in ScaleX Enterprise.
 
 To configure and test Azure AD SSO with ScaleX Enterprise, complete the following building blocks:
 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-2. **[Configure ScaleX Enterprise SSO](#configure-scalex-enterprise-sso)** - to configure the Single Sign-On settings on application side.
+2. **[Configure ScaleX Enterprise SSO](#configure-scalex-enterprise-sso)** - to configure the single sign-on settings on application side.
 3. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
 4. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
 5. **[Create ScaleX Enterprise test user](#create-scalex-enterprise-test-user)** - to have a counterpart of B.Simon in ScaleX Enterprise that is linked to the Azure AD representation of user.
@@ -72,9 +71,9 @@ To configure and test Azure AD SSO with ScaleX Enterprise, complete the followin
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **ScaleX Enterprise** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. In the [Azure portal](https://portal.azure.com/), on the **ScaleX Enterprise** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
@@ -98,7 +97,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![image](common/edit-attribute.png)
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
 	![The Certificate download link](common/certificatebase64.png)
 
@@ -115,15 +114,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> Contoso is just an example. This should be your actual Company Name.
 
-	![Configure Single Sign-On](./media/scalex-enterprise-tutorial/Test_Admin.png)
+	![Configure single sign-on](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
-1. Select **Integrations** from the top menu and select **Single Sign-On**.
+1. Select **Integrations** from the top menu and select **single sign-on**.
 
-	![Configure Single Sign-On](./media/scalex-enterprise-tutorial/admin_sso.png) 
+	![Configure single sign-on](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Complete the form as follows:
 
-	![Configure Single Sign-On](./media/scalex-enterprise-tutorial/scalex_admin_save.png)
+	![Configure single sign-on](./media/scalex-enterprise-tutorial/scalex_admin_save.png)
 
 	a. Select **Create any user who can authenticate with SSO**
 
