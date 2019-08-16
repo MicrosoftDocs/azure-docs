@@ -1,6 +1,6 @@
 ---
 title: Routing using Azure Maps | Microsoft Docs
-description: Search for multiple viable routes using Azure Maps Matrix routing APIs.
+description: Search for multiple viable routes using Azure Maps routing APIs.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/15/2019
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Routing using Azure Maps
+# Routing with Azure Maps
 
 Azure Maps offers a robust set of routing APIs that allows you to calculate routes between the desired set of points based on various conditions. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to time.
 
