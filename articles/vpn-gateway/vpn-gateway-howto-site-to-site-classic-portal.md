@@ -155,6 +155,12 @@ In this step, you set the shared key and create the connection. The key you set 
 
 ### Step 1. Connect to your Azure account
 
+You must run these commands locally using the PowerShell service management module. To switch to service management, use this command:
+
+```powershell
+azure config mode asm
+```
+
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
    ```powershell
@@ -173,18 +179,14 @@ In this step, you set the shared key and create the connection. The key you set 
 
 ### Step 2. Set the shared key and create the connection
 
-When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. The following steps help you export the network configuration file to obtain the exact values for the names. You must run these commands locally using the PowerShell service management module. To switch to service management, use this command:
-
-```powershell
-azure config mode asm
-```
+When working with PowerShell and the classic deployment model, sometimes the names of resources in the portal are not the names the Azure expects to see when using PowerShell. For example, the name of the VNet that you created for this exercise would show up as something similar to "Groupt TestRG1 TestVNet1", rather than just "TestVNet1". The following steps help you export the network configuration file to obtain the exact values for the names. 
 
 1. Create a directory on your computer and then export the network configuration file to the directory. In this example, the network configuration file is exported to C:\AzureNet.
 
    ```powershell
    Get-AzureVNetConfig -ExportToFile C:\AzureNet\NetworkConfig.xml
    ```
-2. Open the network configuration file with an xml editor and check the values for 'LocalNetworkSite name' and 'VirtualNetworkSite name'. Modify the example to reflect the values that you need. When specifying a name that contains spaces, use single quotation marks around the value.
+2. Open the network configuration file with an xml editor and check the values for 'LocalNetworkSite name' and 'VirtualNetworkSite name'. Modify the example for this exercise to reflect the values in the xml. When specifying a name that contains spaces, use single quotation marks around the value.
 
 3. Set the shared key and create the connection. The '-SharedKey' is a value that you generate and specify. In the example, we used 'abc123', but you can generate (and should) use something more complex. The important thing is that the value you specify here must be the same value that you specified when configuring your VPN device.
 
