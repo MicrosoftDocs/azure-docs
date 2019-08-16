@@ -20,7 +20,7 @@ just those that you care about.
 Even then you need to know in what order the settings
 must be applied in order for the configuration to apply successfully.
 
-> [Note!]
+> [!NOTE]
 > This article refers to a solution that is maintained by the Open Source community.
 > Support is only available in the form of GitHub collaboration, not from Microsoft.
 
