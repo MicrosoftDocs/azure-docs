@@ -1,6 +1,7 @@
 ---
-keywords:  dsc,powershell,configuration,setup
-title:  Configuration Based On STIG for use in Azure State Configuration
+title: Configuration based on STIG to use in state configuration - Azure Automation
+description: Learn about configurations based on STIG for state configuration in Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
