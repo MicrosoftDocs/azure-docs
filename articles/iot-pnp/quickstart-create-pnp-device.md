@@ -96,7 +96,7 @@ In this quickstart, you prepare a development environment you can use to clone a
 
 In this quickstart, you use an existing sample device capability model and associated interfaces.
 
-1. Download the [device capability model](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/azure-iot-sdk-c/blob/public-preview/digitaltwin_client/samples/digitaltwin_sample_environmental_sensor/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
+1. Download the [device capability model](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) and [interface sample](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json) and save files into `pnp_app` folder.
 
     > [!TIP]
     > To download a file from GitHub, navigate to the file, right-click on **Raw**, and then select **Save link as**.
@@ -211,7 +211,8 @@ To validate the device code with **Azure IoT Explorer**, you need to publish the
 
 1. Select the **Properties(writable)** page to view the writable properties you can update.
 
-1. Expand property **name**, update with a new name and select **update writable property**. The status of the update is shown in the **Status** column. When the update is done, the new name shows up in the **Reported Property** column.
+1. Expand property **name**, update with a new name and select **update writable property**. 
+2. To see the new name shows up in the **Reported Property** column, click the **Refresh** button on top of the page.
 
 1. Select the **Command** page to view all the commands the device supports.
 
