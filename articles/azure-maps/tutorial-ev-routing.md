@@ -1,5 +1,5 @@
 ---
-title: EV routing in Azure Maps | Microsoft Docs
+title: EV routing with Azure Maps | Microsoft Docs
 description: EV Routing with limited range using Azure Maps routing APIs.
 author: walsehgal
 ms.author: v-musehg
@@ -11,7 +11,7 @@ manager: philmea
 ms.custom: mvc
 ---
 
-# Routing with Azure Maps
+# EV routing with Azure Maps
 
 Azure Maps offers a robust set of routing APIs that allows you to calculate routes between the desired set of points based on various conditions such as vehicle type and or reachable area. In this tutorial, we will implement a scenario consisting of an electric vehicle with low charge and its driver who needs to find the closest possible charging station with respect to drive time.
 
