@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory Single sign-on (SSO) integration with Vocoli | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Vocoli | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Vocoli.
 services: active-directory
 documentationCenter: na
@@ -20,7 +20,7 @@ ms.author: jeedes
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Azure Active Directory Single sign-on (SSO) integration with Vocoli
+# Tutorial: Azure Active Directory single sign-on (SSO) integration with Vocoli
 
 In this tutorial, you'll learn how to integrate Vocoli with Azure Active Directory (Azure AD). When you integrate Vocoli with Azure AD, you can:
 
@@ -63,7 +63,7 @@ To configure and test Azure AD SSO with Vocoli, complete the following building 
 1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
     1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
     1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Vocoli SSO](#configure-vocoli-sso)** - to configure the Single Sign-On settings on application side.
+1. **[Configure Vocoli SSO](#configure-vocoli-sso)** - to configure the single sign-on settings on application side.
     1. **[Create Vocoli test user](#create-vocoli-test-user)** - to have a counterpart of B.Simon in Vocoli that is linked to the Azure AD representation of user.
 1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
 
@@ -71,17 +71,17 @@ To configure and test Azure AD SSO with Vocoli, complete the following building 
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the [Azure portal](https://portal.azure.com/), on the **Vocoli** application integration page, find the **Manage** section and select **Single sign-on**.
-1. On the **Select a Single sign-on method** page, select **SAML**.
-1. On the **Set up Single Sign-On with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
+1. In the [Azure portal](https://portal.azure.com/), on the **Vocoli** application integration page, find the **Manage** section and select **single sign-on**.
+1. On the **Select a single sign-on method** page, select **SAML**.
+1. On the **Set up single sign-on with SAML** page, click the edit/pen icon for **Basic SAML Configuration** to edit the settings.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, the user does not have to perform any step as the app is already pre-integrated with Azure.
+1. On the **Basic SAML Configuration** section, the application is pre-configured and the necessary URLs are already pre-populated with Azure. The user needs to save the configuration by clicking the **Save** button.
 
-1. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Raw)** and select **Download** to download the certificate and save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
-	![The Certificate download link](common/certificateraw.png)
+	![The Certificate download link](common/certificatebase64.png)
 
 1. On the **Set up Vocoli** section, copy the appropriate URL(s) based on your requirement.
 
@@ -119,63 +119,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Vocoli SSO
 
-1. Open a new web browser window and sign into your Vocoli company site as an administrator.
-
-1. Click **settings** menu by clicking on your **profile picture** in the upper left of the screen.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config04.png)
-
-1. Click the **cog** at the top of the slide out to to show the **settings** menu and click **Company Settings**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config01.png)
-
-1. Click the **ACCESS** tab from the Company Settings view.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config02.png)
-
-1. On the **SINGLE SIGN-ON** page, perform the following steps:
-
-	![Vocoli configuration](./media/vocoli-tutorial/config03.png)
-
-	a. Check the box labeled **Provision new users to be SSO enabled by default?**
-
-	b. Enter `myapps.microsoft.com` in the **SSO URL** textbox.
+To configure single sign-on on **Vocoli** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Vocoli support team](mailto:inbox@vocoli.com). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Vocoli test user
 
-To enable Azure AD users, sign in to Vocoli, they must be provisioned into Vocoli. In Vocoli, provisioning is a manual task.
-
-**To provision a user account, perform the following steps:**
-
-1. In a different web browser window, sign in to Vocoli as a Security Administrator.
-
-1. Click on the **profile** picture in the upper-left of your screen.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config04.png)
-
-1. From the left menu, click the **cog** at the top to show the **settings** menu and click **Manage Users**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config05.png)
-
-1. Choose the **Floating Action** button in the lower right, and choose **CREATE A USER**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config07.png)
-
-1. The new user slide out will be displayed as below. Fill the required fields like **First Name**, **Last Name**, **Email** etc., then Choose **CREATE NEW USER**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config08.png)
-
-1. To turn on SSO for this user, choose **Configure user account here**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config09.png)
-
-1. The user configuration slide out will be displayed as below, then choose **SSO USER**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config10.png)
-
-1. You’ll be prompted to confirm that you want to turn SSO on for this user. Choose **OK**.
-
-	![Vocoli configuration](./media/vocoli-tutorial/config11.png)
+In this section, you create a user called B.Simon in Vocoli. Work with [Vocoli support team](mailto:inbox@vocoli.com) to add the users in the Vocoli platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO
 
