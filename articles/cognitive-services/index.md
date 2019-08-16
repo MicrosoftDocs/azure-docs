@@ -164,7 +164,7 @@ ms.topic: hub-page
                 <div class="card">
                     <div class="cardText">
                         <h3>Vision</h3>
-                        <h4 style="font-size: 0.80rem;margin-left: 1.0rem;margin-bottom: 1rem;">Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
+                        <h4 style="font-color: #666666;font-size: 0.80rem;margin-left: 1.0rem;margin-bottom: 1rem;">Recognize, identify, caption, index, and moderate your pictures, videos, and digital ink content.</h4>
                         <p><a href="/azure/cognitive-services/computer-vision/">Computer Vision</a></p>
                         <p><a href="/azure/cognitive-services/Custom-Vision-Service/">Custom Vision Service</a></p>
                         <p><a href="/azure/cognitive-services/face/">Face API</a></p>
