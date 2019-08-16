@@ -28,7 +28,7 @@ Azure Functions supports cross-platform local development and hosting on Windows
 
 Each plan has different behaviors. Not all deployment technologies are available for each flavor of Azure Functions. The following chart shows which deployment technologies are supported for each combination of operating system and hosting plan:
 
-| Deployment technology | Windows Consumption | Windows Premium (preview) | Windows Dedicated  | Linux Consumption (preview) | Linux Dedicated |
+| Deployment technology | Windows Consumption | Windows Premium (preview) | Windows Dedicated  | Linux Consumption | Linux Dedicated |
 |-----------------------|:-------------------:|:-------------------------:|:-----------------:|:---------------------------:|:---------------:|
 | External package URL<sup>1</sup> |✔|✔|✔|✔|✔|
 | Zip deploy |✔|✔|✔| |✔|
@@ -67,7 +67,7 @@ You can use an external package URL to reference a remote package (.zip) file th
 >
 >If you use Azure Blob storage, use a private container with a [shared access signature (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer) to give Functions access to the package. Any time the application restarts, it fetches a copy of the content. Your reference must be valid for the lifetime of the application.
 
->__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan (Preview). When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
+>__When to use it:__ External package URL is the only supported deployment method for Azure Functions running on Linux in the Consumption plan. When you update the package file that a function app references, you must [manually sync triggers](#trigger-syncing) to tell Azure that your application has changed.
 
 ### Zip deploy
 
@@ -148,7 +148,7 @@ In the portal-based editor, you can directly edit the files that are in your fun
 
 The following table shows the operating systems and languages that support portal editing:
 
-| | Windows Consumption | Windows Premium (preview) | Windows Dedicated | Linux Consumption (preview) | Linux Premium (preview)| Linux Dedicated |
+| | Windows Consumption | Windows Premium (preview) | Windows Dedicated | Linux Consumption | Linux Premium (preview)| Linux Dedicated |
 |-|:-----------------: |:-------------------------:|:-----------------:|:---------------------------:|:---------------:|:---------------:|
 | C# | | | | | |
 | C# Script |✔|✔|✔| |✔<sup>\*</sup> |✔<sup>\*</sup>|
