@@ -104,7 +104,7 @@ Minor version |EUS Image example              |EUS status                       
 RHEL 7.4      |RedHat:RHEL:7.4:7.4.2019041718 | Images published April 2019 and later will be EUS by default|
 RHEL 7.5      |RedHat:RHEL:7.5:7.5.2019060305 | Images published June 2019 and later will be EUS by default |
 RHEL 7.6      |RedHat:RHEL:7.6:7.6.2019052206 | Images published May 2019 and later will be EUS by default  |
-RHEL 8.0      |N/A                            | No EUS available                                            |
+RHEL 8.0      |N/A                            | No EUS available from Red Hat                               |
 
 
 ## List of RHEL images available
