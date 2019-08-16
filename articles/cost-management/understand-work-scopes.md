@@ -138,6 +138,18 @@ Azure subscriptions are nested under invoice sections, like how they are under E
 
 Billing users don't have access to management groups because they don't explicitly fall under the billing account. However, when management groups are enabled for the organization, all subscription costs are rolled-up to the billing account and to the root management group because they are both constrained to a single directory. Management groups only include purchases that are usage-based. Purchases like reservations and third-party Marketplace offerings aren't included in management groups. So, the billing account and root management group may report different totals. To view these costs, use the billing account or respective billing profile.
 
+## AWS scopes
+
+After AWS integration is complete, see [setup and configure AWS integration](aws-integration-set-up-configure.md). The following scopes are available:
+
+- **External Billing account** - Represents a customer agreement with a third-party vendor. This is similar to the EA billing account.
+
+    Resource type: `Microsoft.CostManagement/externalBillingAccounts`
+    
+- **External subscription** - Represents a customer operational account with a third-party vendor. This is similar to an Azure subscription.
+
+    Resource type: `Microsoft.CostManagement/externalSubscriptions`
+
 ## Cloud Solution Provider (CSP) scopes
 
 Cloud Solution Provider (CSP) partners aren't supported in Cost Management today. Instead, you can use [Partner Center](https://docs.microsoft.com/azure/cloud-solution-provider/overview/partner-center-overview).

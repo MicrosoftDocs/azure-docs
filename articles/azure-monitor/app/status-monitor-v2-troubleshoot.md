@@ -72,12 +72,12 @@ After you run the Enable command, complete these steps:
 
 ### IIS Nested Applications
 
-We don't instrument nested applications in IIS in version 1.0
+We don't instrument nested applications in IIS in version 1.0.
 We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/369).
 
 ### Advanced SDK Configuration isn't available.
 
-The SDK configuration isn't exposed to the end user in version 1.0
+The SDK configuration isn't exposed to the end user in version 1.0.
 We're tracking this issue [here](https://github.com/microsoft/ApplicationInsights-Home/issues/375).
 
 	
@@ -112,7 +112,7 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 ```
 
 #### Determine the current version of the Status Monitor v2 module
-Run the `Get-ApplicationInsightsMonitoringStatus` command to display the following information about the module:
+Run the `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` command to display the following information about the module:
    - PowerShell module version
    - Application Insights SDK version
    - File paths of the PowerShell module

@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/14/2019
+ms.date: 07/31/2019
 ms.author: cherylmc
 
 ---
@@ -119,7 +119,7 @@ Use the steps in this section if you already have a virtual network, but need to
 1. Set the variables.
 
    ```azurepowershell-interactive
-   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name TestVet1
+   $vnet = Get-AzVirtualNetwork -ResourceGroupName TestRG1 -Name VNet1
    ```
 2. Create the gateway subnet.
 

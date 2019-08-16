@@ -50,15 +50,15 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later |.NET Framework 4.5.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 and later |.NET Framework 4.6.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
-### .NET 4.5.1
+### .NET 4.6.1+
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.5.1](https://www.microsoft.com/download/details.aspx?id=30653) installed.
+The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981) installed.
 
 ### WMF 5.1
 
-The WMF check verifies that the system has the required version of the Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the earliest supported version. We recommend that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) to increase reliability of the Hybrid Runbook Worker.
+The WMF check verifies that the system has the required version of the Windows Management Framework (WMF) - [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### TLS 1.2
 
@@ -139,7 +139,7 @@ RuleId                      : AutomationAgentServiceConnectivityCheck1
 RuleGroupId                 : connectivity
 RuleName                    : Registration endpoint
 RuleGroupName               : connectivity
-RuleDescription             : 
+RuleDescription             :
 CheckResult                 : Failed
 CheckResultMessage          : Unable to find Workspace registration information in registry
 CheckResultMessageId        : AutomationAgentServiceConnectivityCheck1.Failed.NoRegistrationFound

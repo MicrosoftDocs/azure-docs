@@ -25,7 +25,7 @@ This article covers registering as a cloud marketplace publisher. Depending on y
 
 |  | Registration step | Duration | Details |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#register-for-an-account-using-the-enrollment-page) |  
+| 1 | Register in Microsoft Partner Network | 15 min | [Register in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 2 | Create a Microsoft Account <ul>(required for Azure Marketplace transact offers; recommended for others)</ul> | 15 min | [Create a Microsoft ID](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) |  
 | 3 | Create a Partner Center account | 15 min | [Create a Partner Center account](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) |  
 | 4 |  Sign into Cloud Partner Portal | 1-3 days | [Sign into Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account#sign-in-with-a-work-account) |  

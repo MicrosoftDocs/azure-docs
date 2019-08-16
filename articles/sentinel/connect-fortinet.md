@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/17/2019
+ms.date: 07/31/2019
 ms.author: rkarlin
 
 ---
@@ -32,70 +32,38 @@ You can connect Azure Sentinel to any Fortinet appliance by saving the log files
 
 ## Step 1: Connect your Fortinet appliance by using an agent
 
-To connect your Fortinet appliance to Azure Sentinel, deploy an agent on a dedicated VM or on-premises machine to support the communication between the appliance and Azure Sentinel. You can deploy the agent automatically or manually. Automatic deployment is only available if your dedicated machine is a new VM that you create in Azure.
+To connect your Fortinet appliance to Azure Sentinel, deploy an agent on a dedicated VM or on-premises machine to support the communication between the appliance and Azure Sentinel. 
 
 You also can deploy the agent manually on an existing Azure VM, on a VM in another cloud, or on an on-premises machine.
 
+> [!NOTE]
+> Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. 
+
 To see a network diagram of both options, see [Connect data sources](connect-data-sources.md#agent-options).
 
-### Deploy the agent in Azure
+### Deploy the agent
 
-1. In the Azure Sentinel portal, select **Data connectors** and select your appliance type.
+1. In the Azure Sentinel portal, click **Data connectors** and select **Fortinet** and then **Open connector page**. 
 
-1. Under **Linux Syslog agent configuration**:
-   - Choose **Automatic deployment** if you want to create a new machine that's preinstalled with the Azure Sentinel agent and includes all the configuration necessary, as previously described. Select **Automatic deployment** > **Automatic agent deployment**. The purchase page for a dedicated VM that's automatically connected to your workspace appears. The VM is a **standard D2s v3 (2 vCPUs, 8 GB memory)** and has a public IP address.
-      1. On the **Custom deployment** page, provide your details, enter a username and a password, and if you agree to the terms and conditions, purchase the VM.
-      1. Configure your appliance to send logs by using the settings listed on the connection page. For the Generic Common Event Format connector, use these settings:
-         - Protocol = UDP
-         - Port = 514
-         - Facility = Local-4
-         - Format = CEF
-   - Choose **Manual deployment** if you want to use an existing VM as the dedicated Linux machine onto which the Azure Sentinel agent is installed. 
-      1. Under **Download and install the Syslog agent**, select **Azure Linux virtual machine**. 
-      1. On the **Virtual machines** screen, select the machine you want to use and select **Connect**.
-      1. On the connector screen, under **Configure and forward Syslog**, set whether your Syslog daemon is **rsyslog.d** or **syslog-ng**. 
-      1. Copy these commands and run them on your appliance:
-          - If you selected rsyslog.d:
-              
-            1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent by using port 25226. Use this command: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
-            1. Restart the syslog daemon by using this command: `sudo service rsyslog restart`
-             
-          - If you selected syslog-ng:
+1. Under **Download and install the Syslog agent**, select your machine type, either Azure or on-premises. 
+1. In the **Virtual machines** screen that opens, select the machine you want to use and click **Connect**.
+1. If you choose **Download and install agent for Azure Linux virtual machines**, select the machine and click **Connect**. If you chose **Download and install agent for non-Azure Linux virtual machines**, in the **Direct Agent** screen, run the script under **Download and onboard agent for Linux**.
+1. On the connector screen, under **Configure and forward Syslog**, set whether your Syslog daemon is **rsyslog.d** or **syslog-ng**. 
+1. Copy these commands and run them on your appliance:
+   - If you selected rsyslog.d:
+            
+     1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent by using port 25226. Use this command: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
+     1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
+     1. Restart the syslog daemon by using this command: `sudo service rsyslog restart`
+            
+   - If you selected syslog-ng:
 
-              1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent by using port 25226. Use this command: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-              1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
-              1. Restart the syslog daemon by using this command: `sudo service syslog-ng restart`
-      1. Restart the Syslog agent by using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
+      1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent by using port 25226. Use this command: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
+      1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
+      1. Restart the syslog daemon by using this command: `sudo service syslog-ng restart`
+1. Restart the Syslog agent by using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
+1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
 
-### Deploy the agent on an on-premises Linux server
-
-If you aren't using Azure, manually deploy the Azure Sentinel agent to run on a dedicated Linux server.
-
-1. In the Azure Sentinel portal, select **Data connectors** and select your appliance type.
-1. To create a dedicated Linux VM, under **Linux Syslog agent configuration** select **Manual deployment**.
-
-    1. Under **Download and install the Syslog agent**, select **Non-Azure Linux machine**.
-    1. In the **Direct agent** screen that opens, select **Agent for Linux** to download the agent or run this command to download it on your Linux machine: `wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w {workspace GUID} -s gehIk/GvZHJmqlgewMsIcth8H6VqXLM9YXEpu0BymnZEJb6mEjZzCHhZgCx5jrMB1pVjRCMhn+XTQgDTU3DVtQ== -d opinsights.azure.com`
-
-       1. In the connector screen, under **Configure and forward Syslog**, set whether your Syslog daemon is **rsyslog.d** or **syslog-ng**.
-       1. Copy these commands and run them on your appliance:
-
-          - If you selected rsyslog:
-
-            1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent using port 25226. Use this command: `sudo bash -c "printf 'local4.debug  @127.0.0.1:25226\n\n:msg, contains, \"Fortinet\"  @127.0.0.1:25226' > /etc/rsyslog.d/security-config-omsagent.conf"`
-            1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
-            1. Restart the syslog daemon by using this command: `sudo service rsyslog restart`
-
-          - If you selected syslog-ng:
-
-            1. Tell the Syslog daemon to listen on facility local_4 and to send the Syslog messages to the Azure Sentinel agent by using port 25226. Use this command: `sudo bash -c "printf 'filter f_local4_oms { facility(local4); };\n  destination security_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_local4_oms); destination(security_oms); };\n\nfilter f_msg_oms { match(\"Fortinet\" value(\"MESSAGE\")); };\n  destination security_msg_oms { tcp(\"127.0.0.1\" port(25226)); };\n  log { source(src); filter(f_msg_oms); destination(security_msg_oms); };' > /etc/syslog-ng/security-config-omsagent.conf"`
-            1. Download and install the [security_events config file](https://aka.ms/asi-syslog-config-file-linux) that configures the Syslog agent to listen on port 25226. Use this command: `sudo wget -O /etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` where {0} should be replaced with your workspace GUID.
-            1. Restart the syslog daemon by using this command: `sudo service syslog-ng restart`
-
-      1. Restart the Syslog agent by using this command: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
-      1. Confirm that there are no errors in the agent log by running this command: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
 ## Step 2: Forward Fortinet logs to the Syslog agent
 
@@ -131,7 +99,7 @@ It might take up to 20 minutes until your logs start to appear in Log Analytics.
 
 2. Make sure that your logs are getting to the right port in the Syslog agent. Run this command on the Syslog agent machine: `tcpdump -A -ni any  port 514 -vv`. This command shows you the logs that stream from the device to the Syslog machine. Make sure that logs are being received from the source appliance on the right port and the right facility.
 
-3. Make sure that the logs you send comply with [RFC 5424](https://tools.ietf.org/html/rfc542).
+3. Make sure that the logs you send comply with [RFC 3164](https://tools.ietf.org/html/rfc3164).
 
 4. On the computer running the Syslog agent, make sure the ports 514 and 25226 are open and listening by using the command `netstat -a -n:`. For more information about using this command, see [netstat(8) - Linux man page](https://linux.die.net/man/8/netstat). If it’s listening properly, you see:
 

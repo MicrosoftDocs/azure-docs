@@ -40,7 +40,7 @@ Azure SQL Database is commonly managed through SQL Server Management Studio (SSM
 ![Analytics for FedRAMP reference architecture diagram](images/fedramp-analytics-reference-architecture.png?raw=true "Analytics for FedRAMP reference architecture diagram")
 
 ### Roles
-The analytics blueprint outlines a scenario with three general user types: the Operational User, the SQL/Data Admin, and the Systems Engineer. Azure Role-based Access Control (RBAC) enables the implementation of precise access management through built-in custom roles. Resources are available for configuring [Role-based Access Control](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) and outlining and implementing [pre-defined roles](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+The analytics blueprint outlines a scenario with three general user types: the Operational User, the SQL/Data Admin, and the Systems Engineer. Azure Role-based Access Control (RBAC) enables the implementation of precise access management through built-in custom roles. Resources are available for configuring [Role-based Access Control](../../role-based-access-control/role-assignments-portal.md) and outlining and implementing [pre-defined roles](../../role-based-access-control/built-in-roles.md).
 
 #### Systems engineer
 The Systems Engineer owns the customer subscription for Azure and configures the deployment of the solution through the Azure Portal.
@@ -76,11 +76,11 @@ The following section details the development and implementation elements.
 **Power BI**: [Power BI](https://docs.microsoft.com/power-bi/service-azure-and-power-bi) provides analytics and reporting functionality for customers trying to pull greater insight out of their data processing efforts.
 
 ### Networking
-**Network security groups**: [NSGs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) are set up to manage traffic directed at deployed resources and services. Network Security Groups are set to a deny-by-default scheme and only permit traffic that is contained in the pre-configured Access Control List (ACL).
+**Network security groups**: [NSGs](../../virtual-network/virtual-network-vnet-plan-design-arm.md) are set up to manage traffic directed at deployed resources and services. Network Security Groups are set to a deny-by-default scheme and only permit traffic that is contained in the pre-configured Access Control List (ACL).
 
 Each of the NSGs have specific ports and protocols open so that the solution can work securely and correctly. In addition, the following configurations are enabled for each NSG:
   -	[Diagnostic logs and events](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) are enabled and stored in a storage account
-  -	[Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics) is connected to the NSG's diagnostic logs.
+  -	[Azure Monitor logs](../../azure-monitor/insights/azure-networking-analytics.md) is connected to the NSG's diagnostic logs.
 
 ### Data at rest
 The architecture protects data at rest through encryption, database auditing, and other measures.
@@ -91,40 +91,40 @@ Azure Government has two options for [data replication](https://docs.microsoft.c
  - **Locally Redundant Storage (LRS)** can alternatively be configured via the Azure Storage Account. LRS replicates data within a storage scale unit, which is hosted in the same region in which the customer creates their account. All data is replicated concurrently, ensuring that no backup data is lost in a primary storage scale unit failure.
 
 **Azure Storage**
-To meet encrypted data at rest requirements, all services deployed in this reference architecture leverage [Azure Storage](https://azure.microsoft.com/services/storage/), which stores data with [Storage Service Encryption](https://docs.microsoft.com/azure/storage/storage-service-encryption).
+To meet encrypted data at rest requirements, all services deployed in this reference architecture leverage [Azure Storage](https://azure.microsoft.com/services/storage/), which stores data with [Storage Service Encryption](../../storage/common/storage-service-encryption.md).
 
 **Azure Disk Encryption**
-[Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
+[Azure Disk Encryption](../azure-security-disk-encryption-overview.md) leverages the BitLocker feature of Windows to provide volume encryption for OS and data disks. The solution integrates with Azure Key Vault to help control and manage the disk-encryption keys.
 
 **Azure SQL Database**
 The Azure SQL Database instance uses the following database security measures:
 -	[AD authentication and authorization](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication) enables identity management of database users and other Microsoft services in one central location.
--	[SQL database auditing](https://docs.microsoft.com/azure/sql-database/sql-database-auditing-get-started) tracks database events and writes them to an audit log in an Azure storage account.
+-	[SQL database auditing](../../sql-database/sql-database-auditing.md) tracks database events and writes them to an audit log in an Azure storage account.
 -	SQL Database is configured to use [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), which performs real-time encryption and decryption of data and log files to protect information at rest. TDE provides assurance that stored data has not been subject to unauthorized access.
 -	[Firewall rules](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) prevent all access to database servers until proper permissions are granted. The firewall grants access to databases based on the originating IP address of each request.
--	[SQL Threat Detection](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-get-started) enables the detection and response to potential threats as they occur by providing security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
+-	[SQL Threat Detection](../../sql-database/sql-database-threat-detection.md) enables the detection and response to potential threats as they occur by providing security alerts for suspicious database activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns.
 -	[Always Encrypted columns](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault) ensure that sensitive data never appears as plaintext inside the database system. After enabling data encryption, only client applications or app servers with access to the keys can access plaintext data.
 -	[SQL Database dynamic data masking](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) can be done after the reference architecture deploys. Customers will need to adjust dynamic data masking settings to adhere to their database schema.
 
 ### Logging and audit
-[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-get-started)
+[Azure Monitor](../../azure-monitor/overview.md)
 generates an all-up display of monitoring data including activity logs, metrics, and diagnostic data, enabling customers to create a complete picture of system health.  
-[Azure Monitor logs](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) provides extensive logging of system and user activity, as well as system health. It collects and analyzes data generated by resources in Azure and on-premises environments.
-- **Activity Logs**: [Activity logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) provide insight into operations performed on resources in a subscription.
-- **Diagnostic Logs**: [Diagnostic logs](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) include all logs emitted by every resource. These logs include Windows event system logs and Azure Blob storage, tables, and queue logs.
+[Azure Monitor logs](../azure-security-disk-encryption-overview.md) provides extensive logging of system and user activity, as well as system health. It collects and analyzes data generated by resources in Azure and on-premises environments.
+- **Activity Logs**: [Activity logs](../../azure-monitor/platform/activity-logs-overview.md) provide insight into operations performed on resources in a subscription.
+- **Diagnostic Logs**: [Diagnostic logs](../../azure-monitor/platform/diagnostic-logs-overview.md) include all logs emitted by every resource. These logs include Windows event system logs and Azure Blob storage, tables, and queue logs.
 - **Firewall Logs**: The Application Gateway provides full diagnostic and access logs. Firewall logs are available for WAF-enabled Application Gateway resources.
 - **Log Archiving**: All diagnostic logs write to a centralized and encrypted Azure storage account for archival with a defined retention period of 2 days. These logs connect to Azure Monitor logs for processing, storing, and dashboard reporting.
 
 Additionally, the following monitoring solutions are included as a part of this architecture:
 -	[Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker): The Azure Automation solution stores, runs, and manages runbooks.
--	[Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started): The Security and Audit dashboard provides a high-level insight into the security state of resources by providing metrics on security domains, notable issues, detections, threat intelligence, and common security queries.
--	[SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment): The SQL Health Check solution assesses the risk and health of server environments on a regular interval and provides customers with a prioritized list of recommendations specific to the deployed server infrastructure.
--	[Azure Activity Logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
+-	[Security and Audit](../../security-center/security-center-intro.md): The Security and Audit dashboard provides a high-level insight into the security state of resources by providing metrics on security domains, notable issues, detections, threat intelligence, and common security queries.
+-	[SQL Assessment](../../azure-monitor/insights/sql-assessment.md): The SQL Health Check solution assesses the risk and health of server environments on a regular interval and provides customers with a prioritized list of recommendations specific to the deployed server infrastructure.
+-	[Azure Activity Logs](../../azure-monitor/platform/collect-activity-logs.md): The Activity Log Analytics solution assists with analysis of the Azure activity logs across all Azure subscriptions for a customer.
 
 ### Identity management
--	Authentication to the application is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications). Additionally, the database column encryption uses Azure AD to authenticate the application to Azure SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
--	[Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) detects potential vulnerabilities affecting an organization’s identities, configures automated responses to detected suspicious actions related to an organization’s identities, and investigates suspicious incidents to take appropriate action to resolve them.
--	[Azure Role-based Access Control (RBAC)](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) enables focused access management for Azure. Subscription access is limited to the subscription administrator.
+-	Authentication to the application is performed using Azure AD. For more information, see [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md). Additionally, the database column encryption uses Azure AD to authenticate the application to Azure SQL Database. For more information, see how to [protect sensitive data in SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azure-key-vault).
+-	[Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview.md) detects potential vulnerabilities affecting an organization’s identities, configures automated responses to detected suspicious actions related to an organization’s identities, and investigates suspicious incidents to take appropriate action to resolve them.
+-	[Azure Role-based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) enables focused access management for Azure. Subscription access is limited to the subscription administrator.
 
 To learn more about using the security features of Azure SQL Database, see the [Contoso Clinic Demo Application](https://github.com/Microsoft/azure-sql-security-sample) sample.
 
@@ -137,7 +137,7 @@ To learn more about using the security features of Azure SQL Database, see the [
 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or a secure VPN tunnel needs to be configured to securely establish a connection to the resources deployed as a part of this data analytics reference architecture. As ExpressRoute connections do not go over the Internet, these connections offer more reliability, faster speeds, lower latencies, and higher security than typical connections over the Internet. By appropriately setting up ExpressRoute or a VPN, customers can add a layer of protection for data in transit.
 
 ### Azure Active Directory setup
-[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essential to managing the deployment and provisioning access to personnel interacting with the environment. An existing Windows Server Active Directory can be integrated with AAD in [four clicks](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Customers can also tie the deployed Active Directory infrastructure (domain controllers) to an existing AAD by making the deployed Active Directory infrastructure a subdomain of an AAD forest.
+[Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) is essential to managing the deployment and provisioning access to personnel interacting with the environment. An existing Windows Server Active Directory can be integrated with AAD in [four clicks](../../active-directory/hybrid/how-to-connect-install-express.md). Customers can also tie the deployed Active Directory infrastructure (domain controllers) to an existing AAD by making the deployed Active Directory infrastructure a subdomain of an AAD forest.
 
 ### Additional services
 #### IaaS - VM considerations
@@ -149,14 +149,14 @@ This PaaS solution does not incorporate any Azure IaaS VMs. A customer could cre
 - **Recovery Services Vault**: The [Recovery Services Vault](https://docs.microsoft.com/azure/backup/backup-azure-recovery-services-vault-overview) houses backup data and protects all configurations of Azure Virtual Machines in this architecture. With a Recovery Services Vault, customers can restore files and folders from an IaaS VM without restoring the entire VM, enabling faster restore times.
 
 ##### Monitoring solutions
--	[AD Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
--	[Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware): The Antimalware solution reports on malware, threats, and protection status.
--	[Update Management](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): The Update Management solution allows customer management of operating system security updates, including a status of available updates and the process of installing required updates.
--	[Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
--	[Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking): The Change Tracking solution allows customers to easily identify changes in the environment.
+-	[AD Assessment](../../azure-monitor/insights/ad-assessment.md): The Active Directory Health Check solution assesses the risk and health of server environments on a regular interval and provides a prioritized list of recommendations specific to the deployed server infrastructure.
+-	[Antimalware Assessment](../../security-center/security-center-install-endpoint-protection.md): The Antimalware solution reports on malware, threats, and protection status.
+-	[Update Management](../../automation/automation-update-management.md): The Update Management solution allows customer management of operating system security updates, including a status of available updates and the process of installing required updates.
+-	[Agent Health](../../monitoring/monitoring-solution-agenthealth.md): The Agent Health solution reports how many agents are deployed and their geographic distribution, as well as how many agents which are unresponsive and the number of agents which are submitting operational data.
+-	[Change Tracking](../../automation/change-tracking.md): The Change Tracking solution allows customers to easily identify changes in the environment.
 
 ##### Security
-- **Malware protection**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) for Virtual Machines provides real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install or run on protected virtual machines.
+- **Malware protection**: [Microsoft Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware) for Virtual Machines provides real-time protection capability that helps identify and remove viruses, spyware, and other malicious software, with configurable alerts when known malicious or unwanted software attempts to install or run on protected virtual machines.
 - **Patch management**: Windows virtual machines deployed as part of this reference architecture are configured by default to receive automatic updates from Windows Update Service. This solution also includes the [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) service through which updated deployments can be created to patch virtual machines when needed.
 
 #### Azure Commercial

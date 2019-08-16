@@ -69,14 +69,17 @@ Use the following example to create a Group Policy Object (GPO) to deploy a regi
       1. Key Path: **SOFTWARE\Microsoft\Windows\CurrentVersion\CDJ\AAD**
       1. Value name: **TenantName**
       1. Value type: **REG_SZ**
-      1. Value data: Your verified **domain name** in Azure AD (for example, `contoso.onmicrosoft.com` or any other verified domain name in your directory)
+      1. Value data: Your verified **domain name** if you are using federated environment such as AD FS. Your verified **domain name** or your onmicrosoft.com domain name for example, `contoso.onmicrosoft.com` if you are using managed environment
    1. Click **OK**
 1. Close the editor for the newly created GPO
 1. Link the newly created GPO to the desired OU containing domain-joined computers that belong to your controlled rollout population
 
 ### Configure AD FS settings
 
-If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. This configuration is needed for AD FS to establish the source for device identities as Azure AD.
+If you are using AD FS, you first need to configure client-side SCP using the instructions mentioned above but linking the GPO to your AD FS servers. The SCP object defines the source of authority for device objects. It can be on-premises or Azure AD. When this is configured for AD FS, the source for device objects is established as Azure AD.
+
+> [!NOTE]
+> If you failed to configure client-side SCP on your AD FS servers, the source for device identities would be considered as on-premises, and AD FS would start deleting device objects from on-premises directory after a stipulated period.
 
 ## Controlled validation of hybrid Azure AD join on Windows down-level devices
 

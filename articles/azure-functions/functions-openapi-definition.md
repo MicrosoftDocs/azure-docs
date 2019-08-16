@@ -1,10 +1,9 @@
 ---
-title: Create an OpenAPI definition for a function with Azure API Management
+title: Create an OpenAPI definition for a serverless API using Azure API Management
 description: Create an OpenAPI definition that enables other apps and services to call your function in Azure.
-services: functions
 keywords: OpenAPI, Swagger, cloud apps, cloud services,
 author: ggailey777
-manager: jeconnoc
+manager: gwallace
 ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
@@ -13,7 +12,7 @@ ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
 ---
 
-# Create an OpenAPI definition for a function with Azure API Management
+# Create an OpenAPI definition for a serverless API using Azure API Management
 
 REST APIs are often described using an OpenAPI definition. This definition contains information about what operations are available in an API and how the request and response data for the API should be structured.
 

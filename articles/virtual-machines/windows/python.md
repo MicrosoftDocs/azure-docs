@@ -107,15 +107,15 @@ Management clients are needed to create and manage resources using the Python SD
 
 ```python
 resource_group_client = ResourceManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 network_client = NetworkManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 compute_client = ComputeManagementClient(
-    credentials, 
+    credentials,
     SUBSCRIPTION_ID
 )
 ```

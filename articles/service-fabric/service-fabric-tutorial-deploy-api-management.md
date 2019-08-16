@@ -3,7 +3,7 @@ title: Integrate API Management with Service Fabric in Azure | Microsoft Docs
 description: Learn how to quickly get started with Azure API Management and route traffic to a back-end service in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: aljo-microsoft
+author: athinanthny
 manager: chackdan
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2019
-ms.author: aljo
+ms.author: atsenthi
 ms.custom: mvc
 ---
 # Integrate API Management with Service Fabric in Azure

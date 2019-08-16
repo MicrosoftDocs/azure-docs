@@ -104,6 +104,8 @@ Now that the required packages are installed on the Linux virtual machine, the n
 
     > [!TIP]
     > Use the same user account you specified in the preceding step ('kinit').
+    >
+    > If your VM is unable to join the domain, make sure that the VM's network security group allows outbound Kerberos traffic on TCP + UDP port 464 to the virtual network subnet for your Azure AD DS managed domain.
 
     ```console
     sudo realm join --verbose CONTOSO100.COM -U 'bob@CONTOSO100.COM'

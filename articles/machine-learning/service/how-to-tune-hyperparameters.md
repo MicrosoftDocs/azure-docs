@@ -1,7 +1,7 @@
 ---
 title: Tune hyperparameters for your model
 titleSuffix: Azure Machine Learning service
-description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will learn how to define the parameter search space, specify a primary metric to optimize and early terminate poorly performing runs. 
+description: Efficiently tune hyperparameters for your deep learning / machine learning model using Azure Machine Learning service. You will learn how to define the parameter search space, specify a primary metric to optimize, and early terminate poorly performing runs. 
 ms.author: swatig
 author: swatig007
 ms.reviewer: sgilley 
@@ -41,7 +41,8 @@ Automatically tune hyperparameters by exploring the range of values defined for 
 
 ### Types of hyperparameters
 
-Each hyperparameter can either be discrete or continuous.
+Each hyperparameter can either be discrete or continuous and has a distribution of values described by a
+[parameter expression](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.parameter_expressions?view=azure-ml-py).
 
 #### Discrete hyperparameters 
 
@@ -125,7 +126,7 @@ param_sampling = GridParameterSampling( {
 
 When you use Bayesian sampling, the number of concurrent runs has an impact on the effectiveness of the tuning process. Typically, a smaller number of concurrent runs can lead to better sampling convergence, since the smaller degree of parallelism increases the number of runs that benefit from previously completed runs.
 
-Bayesian sampling supports only `choice` and `uniform` distributions over the search space. 
+Bayesian sampling only supports `choice`, `uniform`, and `quniform` distributions over the search space.
 
 ```Python
 from azureml.train.hyperdrive import BayesianParameterSampling
@@ -175,7 +176,7 @@ The training script calculates the `val_accuracy` and logs it as "accuracy", whi
 
 ## Specify early termination policy
 
-Terminate poorly performing runs automatically with an [early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
+Terminate poorly performing runs automatically with an early termination policy. Termination reduces wastage of resources and instead uses these resources for exploring other parameter configurations.
 
 When using an early termination policy, you can configure the following parameters that control when a policy is applied:
 
@@ -230,7 +231,7 @@ from azureml.train.hyperdrive import TruncationSelectionPolicy
 early_termination_policy = TruncationSelectionPolicy(evaluation_interval=1, truncation_percentage=20, delay_evaluation=5)
 ```
 
-In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5, if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
+In this example, the early termination policy is applied at every interval starting at evaluation interval 5. A run will be terminated at interval 5 if its performance at interval 5 is in the lowest 20% of performance of all runs at interval 5.
 
 ### No termination policy
 
@@ -242,7 +243,7 @@ policy=None
 
 ### Default policy
 
-If no policy is specified, the hyperparameter tuning service will let all training runs run to completion.
+If no policy is specified, the hyperparameter tuning service will let all training runs execute to completion.
 
 >[!NOTE] 
 >If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
@@ -271,7 +272,7 @@ max_total_runs=20,
 max_concurrent_runs=4
 ```
 
-This code configures the hyperparameter tuning experiment to use a maximum of 20 total runs, running 4 configurations at a time.
+This code configures the hyperparameter tuning experiment to use a maximum of 20 total runs, running four configurations at a time.
 
 ## Configure experiment
 

@@ -1,6 +1,6 @@
 ---
-title: "Create a Custom Voice - Speech Services"
-titlesuffix: Azure Cognitive Services
+title: "Create a Custom Voice - Speech Service"
+titleSuffix: Azure Cognitive Services
 description: "When you're ready to upload your data, go to the Custom Voice portal. Create or select a Custom Voice project. The project must share the right language/locale and the gender properties as the data you intent to use for your voice training."
 services: cognitive-services
 author: erhopf

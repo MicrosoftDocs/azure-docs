@@ -359,7 +359,6 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
                       ('classifier', LogisticRegression(solver='lbfgs'))])
 
 
-
 # append classifier to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', preprocessor),
@@ -369,11 +368,11 @@ clf = Pipeline(steps=[('preprocessor', preprocessor),
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                    initialization_examples=x_train, 
-                                    features=dataset_feature_names, 
-                                    classes=dataset_classes, 
-                                    transformations=preprocessor) 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
+                                     transformations=preprocessor)
 ```
 
 In case you want to run the example with the list of fitted transformer tuples, use the following code: 
@@ -386,24 +385,26 @@ from sklearn_pandas import DataFrameMapper
 
 # assume that we have created two arrays, numerical and categorical, which holds the numerical and categorical feature names
 
-numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
+numeric_transformations = [([f], Pipeline(steps=[('imputer', SimpleImputer(
+    strategy='median')), ('scaler', StandardScaler())])) for f in numerical]
 
-categorical_transformations = [([f], OneHotEncoder(handle_unknown='ignore', sparse=False)) for f in categorical]
+categorical_transformations = [([f], OneHotEncoder(
+    handle_unknown='ignore', sparse=False)) for f in categorical]
 
 transformations = numeric_transformations + categorical_transformations
 
 # append model to preprocessing pipeline.
 # now we have a full prediction pipeline.
 clf = Pipeline(steps=[('preprocessor', DataFrameMapper(transformations)),
-                    ('classifier', LogisticRegression(solver='lbfgs'))])
+                      ('classifier', LogisticRegression(solver='lbfgs'))])
 
 # clf.steps[-1][1] returns the trained classification model
 # pass transformation as an input to create the explanation object
 # "features" and "classes" fields are optional
-tabular_explainer = TabularExplainer(clf.steps[-1][1], 
-                                     initialization_examples=x_train, 
-                                     features=dataset_feature_names, 
-                                     classes=dataset_classes, 
+tabular_explainer = TabularExplainer(clf.steps[-1][1],
+                                     initialization_examples=x_train,
+                                     features=dataset_feature_names,
+                                     classes=dataset_classes,
                                      transformations=transformations)
 ```
 
@@ -593,29 +594,8 @@ The explainer can be deployed along with the original model and can be used at s
 
 1. Clean up: To delete a deployed web service, use `service.delete()`.
 
-## Interpretability in automated ML
 
-Automated machine learning contains packages for interpreting feature importance in auto-trained models. Additionally, classification scenarios allow you to retrieve class-level feature importance. There are two methods to enable this behavior within automated machine learning:
 
-* To enable feature importance for a trained ensemble model, use the [`explain_model()`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
-
-    ```python
-    from azureml.train.automl.automlexplainer import explain_model
-
-    shap_values, expected_values, overall_summary, overall_imp, \
-        per_class_summary, per_class_imp = explain_model(fitted_model, X_train, X_test)
-    ```
-
-* To enable feature importance for each individual run prior to training, set the `model_explainability` parameter to `True` in the `AutoMLConfig` object, along with providing validation data. Then use the [`retrieve_model_explanation()`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlexplainer?view=azure-ml-py) function.
-
-    ```python
-    from azureml.train.automl.automlexplainer import retrieve_model_explanation
-
-    shap_values, expected_values, overall_summary, overall_imp, per_class_summary, \
-        per_class_imp = retrieve_model_explanation(best_run)
-    ```
-
-For more information, see the [how-to](how-to-configure-auto-train.md#explain-the-model-interpretability) on enabling interpretability features in automated machine learning.
 
 ## Next steps
 

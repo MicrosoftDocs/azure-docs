@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 
 ms.topic: conceptual
-ms.date: 06/07/2018
+ms.date: 08/12/2019
 ms.author: jingwang
 
 ---
@@ -37,7 +37,9 @@ Specifically, this Cassandra connector supports:
 
 ## Prerequisites
 
-To copy data from a Cassandra database that is not publicly accessible, you need to set up a Self-hosted Integration Runtime. See [Self-hosted Integration Runtime](create-self-hosted-integration-runtime.md) article to learn details. The Integration Runtime provides a built-in Cassandra driver, therefore you don't need to manually install any driver when copying data from/to Cassandra.
+[!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
+
+The Integration Runtime provides a built-in Cassandra driver, therefore you don't need to manually install any driver when copying data from/to Cassandra.
 
 ## Getting started
 
@@ -57,7 +59,7 @@ The following properties are supported for Cassandra linked service:
 | authenticationType | Type of authentication used to connect to the Cassandra database.<br/>Allowed values are: **Basic**, and **Anonymous**. |Yes |
 | username |Specify user name for the user account. |Yes, if authenticationType is set to Basic. |
 | password |Specify password for the user account. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). |Yes, if authenticationType is set to Basic. |
-| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
+| connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
 
 >[!NOTE]
 >Currently connection to Cassandra using SSL is not supported.
@@ -105,13 +107,14 @@ To copy data from Cassandra, set the type property of the dataset to **Cassandra
     "name": "CassandraDataset",
     "properties": {
         "type": "CassandraTable",
-        "linkedServiceName": {
-            "referenceName": "<Cassandra linked service name>",
-            "type": "LinkedServiceReference"
-        },
         "typeProperties": {
             "keySpace": "<keyspace name>",
             "tableName": "<table name>"
+        },
+        "schema": [],
+        "linkedServiceName": {
+            "referenceName": "<Cassandra linked service name>",
+            "type": "LinkedServiceReference"
         }
     }
 }

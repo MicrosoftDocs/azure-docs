@@ -169,7 +169,8 @@ Next, we’re changing the Description property to the new value “Intune Devic
 
 Now, if we find the group again, we see the Description property is updated to reflect the new value:
 
-```powershell    PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
+```powershell
+    PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
 
     DeletionTimeStamp            :
     ObjectId                     : 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df

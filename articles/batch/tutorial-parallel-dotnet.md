@@ -171,7 +171,7 @@ Then, files are uploaded to the input container from the local `InputFiles` fold
 
 Two methods in `Program.cs` are involved in uploading the files:
 
-* `UploadResourceFilesToContainerAsync`: Returns a collection of ResourceFile objects and internally calls `UploadResourceFileToContainerAsync` to upload each file that is passed in the `inputFilePaths` parameter.
+* `UploadFilesToContainerAsync`: Returns a collection of ResourceFile objects and internally calls `UploadResourceFileToContainerAsync` to upload each file that is passed in the `inputFilePaths` parameter.
 * `UploadResourceFileToContainerAsync`: Uploads each file as a blob to the input container. After uploading the file, it obtains a shared access signature (SAS) for the blob and returns a ResourceFile object to represent it.
 
 ```csharp
@@ -180,7 +180,7 @@ string inputPath = Path.Combine(Environment.CurrentDirectory, "InputFiles");
 List<string> inputFilePaths = new List<string>(Directory.GetFileSystemEntries(inputPath, "*.mp4",
     SearchOption.TopDirectoryOnly));
 
-List<ResourceFile> inputFiles = await UploadResourceFilesToContainerAsync(
+List<ResourceFile> inputFiles = await UploadFilesToContainerAsync(
   blobClient,
   inputContainerName,
   inputFilePaths);

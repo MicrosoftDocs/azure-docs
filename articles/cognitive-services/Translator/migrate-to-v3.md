@@ -1,6 +1,6 @@
 ---
 title: Migrate to V3 - Translator Text API
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Learn how to migrate from V2 to V3 of the Translator Text API.
 services: cognitive-services
 author: swmachan

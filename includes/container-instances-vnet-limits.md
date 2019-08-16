@@ -12,5 +12,5 @@ ms.author: danlep
 | North Europe, Southeast Asia, Central US, East US, East US 2, West US 2 | Linux | 4 | 16 |
 | West Europe | Linux | 4 | 14 |
 | Japan East | Linux | 2 | 8 |
-| South India, North Central US, West US | Linux | 2 | 3.5 |
+| South India, West US | Linux | 2 | 3.5 |
 | Australia East, West Central US | Linux | 1 | 1.5 |

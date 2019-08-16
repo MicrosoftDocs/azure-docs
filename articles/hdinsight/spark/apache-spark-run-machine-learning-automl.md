@@ -35,16 +35,16 @@ The following code snippet creates an authentication token using an **Azure AD a
 ```python
 from azureml.core.authentication import ServicePrincipalAuthentication
 auth_sp = ServicePrincipalAuthentication(
-				tenant_id = '<Azure Tenant ID>',
-				service_principal_id = '<Azure AD Application ID>',
-				service_principal_password = '<Azure AD Application Key>'
-				)
+    tenant_id='<Azure Tenant ID>',
+    service_principal_id='<Azure AD Application ID>',
+    service_principal_password='<Azure AD Application Key>'
+)
 ```
 The following code snippet creates an authentication token using an **Azure AD user**.
 
 ```python
 from azure.common.credentials import UserPassCredentials
-credentials = UserPassCredentials('user@domain.com','my_smart_password')
+credentials = UserPassCredentials('user@domain.com', 'my_smart_password')
 ```
 
 ## Loading dataset
@@ -54,9 +54,11 @@ Automated machine learning on Spark uses **Dataflows**, which are lazily evaluat
 ```python
 import azureml.dataprep as dprep
 
-dataflow_public = dprep.read_csv(path='https://commonartifacts.blob.core.windows.net/automl/UCI_Adult_train.csv')
+dataflow_public = dprep.read_csv(
+    path='https://commonartifacts.blob.core.windows.net/automl/UCI_Adult_train.csv')
 
-dataflow_with_token = dprep.read_csv(path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
+dataflow_with_token = dprep.read_csv(
+    path='https://dpreptestfiles.blob.core.windows.net/testfiles/read_csv_duplicate_headers.csv?st=2018-06-15T23%3A01%3A42Z&se=2019-06-16T23%3A01%3A00Z&sp=r&sv=2017-04-17&sr=b&sig=ugQQCmeC2eBamm6ynM7wnI%2BI3TTDTM6z9RPKj4a%2FU6g%3D')
 ```
 
 You can also register the datastore with the workspace using a one-time registration.

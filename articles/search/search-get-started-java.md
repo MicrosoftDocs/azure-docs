@@ -1,5 +1,5 @@
 ---
-title: 'Java Quickstart: Create, load, and query indexes using Azure Search REST APIs - Azure Search'
+title: 'Quickstart: Create an Azure Search index in Java'
 description: Explains how to create an index, load data, and run queries using Java and the Azure Search REST APIs.
 services: search
 author: jj09
@@ -8,7 +8,7 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/26/2018
 ms.author: jjed
-ms.custom: seodec2018
+ms.custom: seodec2018, seo-java-july2019
 ---
 # Quickstart: Create an Azure Search index in Java
 > [!div class="op_single_selector"]
@@ -54,68 +54,68 @@ The following list describes the files that are relevant to this sample.
 All REST API calls into Azure Search require that you provide the service URL and an `api-key`. 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the jump bar, click **Search service** to list all of the Azure Search services provisioned for your subscription.
+2. In the jump bar, select **Search service** to list all of the Azure Search services provisioned for your subscription.
 3. Select the service you want to use.
 4. On the service dashboard, you'll see tiles for essential information as well as the key icon for accessing the admin keys.
    
-      ![][3]
+      ![Screenshot showing how to access the admin keys from the service dashboard][3]
 5. Copy the service URL and an admin key. You will need them later, when you add them to the **config.properties** file.
 
 ## Download the sample files
 1. Go to [search-java-indexer-demo](https://github.com/Azure-Samples/search-java-indexer-demo) on GitHub.
-2. Click **Download ZIP**, save the .zip file to disk, and then extract all the files it contains. Consider extracting the files into your Java workspace to make it easier to find the project later.
+2. Select **Download ZIP**, save the .zip file to disk, and then extract all the files it contains. Consider extracting the files into your Java workspace to make it easier to find the project later.
 3. The sample files are read-only. Right-click folder properties and clear the read-only attribute.
 
 All subsequent file modifications and run statements will be made against files in this folder.  
 
 ## Import project
-1. In Eclipse, choose **File** > **Import** > **General** > **Existing Projects into Workspace**.
+1. In Eclipse, select **File** > **Import** > **General** > **Existing Projects into Workspace**.
    
-    ![][4]
+    ![Screenshot showing how to import an existing project][4]
 2. In **Select root directory**, browse to the folder containing sample files. Select the folder that contains the .project folder. The project should appear in the **Projects** list as a selected item.
    
-    ![][12]
-3. Click **Finish**.
-4. Use **Project Explorer** to view and edit the files. If it's not already open, click **Window** > **Show View** > **Project Explorer** or use the shortcut to open it.
+    ![Screenshot showing the Projects list in the Import Projects window][12]
+3. Select **Finish**.
+4. Use **Project Explorer** to view and edit the files. If it's not already open, select **Window** > **Show View** > **Project Explorer** or use the shortcut to open it.
 
 ## Configure the service URL and `api-key`
 1. In **Project Explorer**, double-click **config.properties** to edit the configuration settings containing the server name and `api-key`.
 2. Refer to the steps earlier in this article, where you found the service URL and `api-key` in the [Azure portal](https://portal.azure.com), to get the values you will now enter into **config.properties**.
 3. In **config.properties**, replace "API Key" with the `api-key` for your service. Next, service name (the first component of the URL https://servicename.search.windows.net) replaces "service name" in the same file.
    
-    ![][5]
+    ![Screenshot showing how to replace the API key][5]
 
 ## Configure the project, build and runtime environments
 1. In Eclipse, in Project Explorer, right-click the project > **Properties** > **Project Facets**.
 2. Select **Dynamic Web Module**, **Java**, and **JavaScript**.
    
-    ![][6]
-3. Click **Apply**.
+    ![Screenshot showing how to select the Project Facets for your project][6]
+3. Select **Apply**.
 4. Select **Window** > **Preferences** > **Server** > **Runtime Environments** > **Add..**.
 5. Expand Apache and select the version of the Apache Tomcat server you previously installed. On our system, we installed version 8.
    
-    ![][7]
+    ![Screenshot showing where in the Runtime Environment window you can select your version of Apache Tomcat][7]
 6. On the next page, specify the Tomcat installation directory. On a Windows computer, this will most likely be C:\Program Files\Apache Software Foundation\Tomcat *version*.
-7. Click **Finish**.
+7. Select **Finish**.
 8. Select **Window** > **Preferences** > **Java** > **Installed JREs** > **Add**.
 9. In **Add JRE**, select **Standard VM**.
-10. Click **Next**.
-11. In JRE Definition, in JRE home, click **Directory**.
+10. Select **Next**.
+11. In JRE Definition, in JRE home, select **Directory**.
 12. Navigate to **Program Files** > **Java** and select the JDK you previously installed. It's important to select the JDK as the JRE.
-13. In Installed JREs, choose the **JDK**. Your settings should look similar to the following screenshot.
+13. In Installed JREs, select the **JDK**. Your settings should look similar to the following screenshot.
     
-    ![][9]
+    ![Screenshot showing how to select JDK as the Installed JRE][9]
 14. Optionally, select **Window** > **Web Browser** > **Internet Explorer** to open the application in an external browser window. Using an external browser gives you a better Web application experience.
     
-    ![][8]
+    ![Screenshot showing how to select Internet Explorer as an external browsing window][8]
 
 You have now completed the configuration tasks. Next, you'll build and run the project.
 
 ## Build the project
-1. In Project Explorer, right-click the project name and choose **Run As** > **Maven build...** to configure the project.
+1. In Project Explorer, right-click the project name and select **Run As** > **Maven build** to configure the project.
    
-    ![][10]
-2. In Edit Configuration, in Goals, type "clean install", and then click **Run**.
+    ![Screenshot showing how to select Maven build in the Project Explorer window][10]
+2. In Edit Configuration, in Goals, enter "clean install", and then select **Run**.
 
 Status messages are output to the console window. You should see BUILD SUCCESS indicating the project built without errors.
 
@@ -125,23 +125,23 @@ In this last step, you will run the application in a local server runtime enviro
 If you haven't yet specified a server runtime environment in Eclipse, you'll need to do that first.
 
 1. In Project Explorer, expand **WebContent**.
-2. Right-click **Search.jsp** > **Run As** > **Run on Server**. Select the Apache Tomcat server, and then click **Run**.
+2. Right-click **Search.jsp** > **Run As** > **Run on Server**. Select the Apache Tomcat server, and then select **Run**.
 
 > [!TIP]
-> If you used a non-default workspace to store your project, you'll need to modify **Run Configuration** to point to the project location to avoid a server start-up error. In Project Explorer, right-click **Search.jsp** > **Run As** > **Run Configurations**. Select the Apache Tomcat server. Click **Arguments**. Click **Workspace** or **File System** to set the folder containing the project.
+> If you used a non-default workspace to store your project, you'll need to modify **Run Configuration** to point to the project location to avoid a server start-up error. In Project Explorer, right-click **Search.jsp** > **Run As** > **Run Configurations**. Select the Apache Tomcat server. Select **Arguments**. Select **Workspace** or **File System** to set the folder containing the project.
 > 
 > 
 
 When you run the application, you should see a browser window, providing a search box for entering terms.
 
-Wait about one minute before clicking **Search** to give the service time to create and load the index. If you get an HTTP 404 error, you just need to wait a little bit longer before trying again.
+Wait about one minute before selecting **Search** to give the service time to create and load the index. If you get an HTTP 404 error, you just need to wait a little bit longer before trying again.
 
 ## Search on USGS data
-The USGS data set includes records that are relevant to the state of Rhode Island. If you click **Search** on an empty search box, you will get the top 50 entries, which is the default.
+The USGS data set includes records that are relevant to the state of Rhode Island. If you select **Search** on an empty search box, you will get the top 50 entries, which is the default.
 
 Entering a search term will give the search engine something to go on. Try entering a regional name. "Roger Williams" was the first governor of Rhode Island. Numerous parks, buildings, and schools are named after him.
 
-![][11]
+![Screenshot showing how to search on USGS data][11]
 
 You could also try any of these terms:
 

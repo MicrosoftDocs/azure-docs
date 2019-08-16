@@ -178,9 +178,7 @@ in your BizTalk Server.
 
 ### Write once, reuse often
 
-Create your logic apps as templates so that you can 
-[deploy and reconfigure your apps](../logic-apps/logic-apps-create-deploy-template.md) 
-across multiple environments and regions.
+Create your logic apps as Azure Resource Manager templates so that you can [automate logic app deployment](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) across multiple environments and regions.
 
 ### Built-in extensibility
 

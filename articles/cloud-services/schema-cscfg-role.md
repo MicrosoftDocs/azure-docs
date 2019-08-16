@@ -3,16 +3,11 @@ title: "Azure Cloud Services Role Schema | Microsoft Docs"
 ms.custom: ""
 ms.date: "12/07/2016"
 services: cloud-services
-ms.reviewer: ""
 ms.service: "cloud-services"
-ms.suite: ""
-ms.tgt_pltfrm: ""
 ms.topic: "reference"
-ms.assetid: e4fbffc1-98eb-449c-971c-de415e45ab34
 caps.latest.revision: 12
-author: "jpconnock"
-ms.author: "jeconnoc"
-manager: "timlt"
+author: "georgewallace"
+ms.author: "gwallace"
 ---
 
 # Azure Cloud Services Config Role Schema

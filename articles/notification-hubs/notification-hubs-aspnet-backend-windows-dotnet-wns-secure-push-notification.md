@@ -53,12 +53,12 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
 
 1. In the **NotifyUserWindowsPhone** project, add the following code to App.xaml.cs to register the push background task. Add the following line of code at the end of the `OnLaunched()` method:
 
-    ```c#
+    ```csharp
     RegisterBackgroundTask();
     ```
 2. Still in App.xaml.cs, add the following code immediately after the `OnLaunched()` method:
 
-    ```c#
+    ```csharp
     private async void RegisterBackgroundTask()
     {
         if (!Windows.ApplicationModel.Background.BackgroundTaskRegistration.AllTasks.Any(i => i.Value.Name == "PushBackgroundTask"))
@@ -75,7 +75,7 @@ This Secure Push tutorial shows how to send a push notification securely. The tu
     ```
 3. Add the following `using` statements at the top of the App.xaml.cs file:
 
-    ```c#
+    ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
@@ -143,7 +143,7 @@ The next step is to create the push background component.
 9. Back in the NuGet **Search** box, type **Json.net**. Install the **Json.NET** package, then close the NuGet Package Manager window.
 10. Add the following `using` statements at the top of the `PushBackgroundTask.cs` file:
 
-    ```c#
+    ```csharp
     using Windows.ApplicationModel.Background;
     using Windows.Networking.PushNotifications;
     using System.Net.Http;

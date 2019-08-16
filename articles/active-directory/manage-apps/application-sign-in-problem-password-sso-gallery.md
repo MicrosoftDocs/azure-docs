@@ -1,5 +1,5 @@
 ---
-title: Problem signing in to an Azure AD gallery app configured for password SSO | Microsoft Docs
+title: Problem signing in to Azure AD gallery app configured for SSO | Microsoft Docs
 description: How to troubleshoot issues with an Azure AD Gallery application that's configured for password single sign-on.
 documentationcenter: ''
 author: msmimart
