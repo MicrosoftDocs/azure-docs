@@ -64,12 +64,12 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/account-management.svg" alt="Learn how to create an Azure Cognitive Services account." />
+                                    <img src="media/index/account-management.svg" alt="Learn how to create an Azure Cognitive Services resource." />
                                 </div>
                             </div>
                             <div class="cardText">
-                                <h3>Create a Cognitive Services account</h3>
-                                <p>Learn how to create an Azure Cognitive Services account.</p>
+                                <h3>Create a Cognitive Services resource</h3>
+                                <p>Learn how to create an Azure Cognitive Services resource.</p>
                             </div>
                         </div>
                     </div>
@@ -121,12 +121,12 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/account-management.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                    <img src="media/index/account-management.svg" alt="Learn how to authenticate API requests to Azure Cognitive Services." />
                                 </div>
                             </div>
                             <div class="cardText">
                                 <h3>Authenticate a request</h3>
-                                <p>Learn how to authenticate requests to Azure Cognitive Services.</p>
+                                <p>Learn how to authenticate API requests to Azure Cognitive Services.</p>
                             </div>
                         </div>
                     </div>
@@ -140,12 +140,12 @@ ms.topic: hub-page
                         <div class="card">
                             <div class="cardImageOuter">
                                 <div class="cardImage">
-                                    <img src="media/index/grad-hat.svg" alt="Learn how to authenticate requests to Azure Cognitive Services." />
+                                    <img src="media/index/grad-hat.svg" alt="Up your game with a module or learning path tailored to today's developer and technology masterminds and designed to prepare you for industry-recognized Microsoft certifications." />
                                 </div>
                             </div>
                             <div class="cardText">
                                 <h3>Microsoft Learn</h3>
-                                <p>Structured learning following a role or path.</p>
+                                <p>Up your game with a module or learning path tailored to today's developer and technology masterminds and designed to prepare you for industry-recognized Microsoft certifications.</p>
                             </div>
                         </div>
                     </div>
