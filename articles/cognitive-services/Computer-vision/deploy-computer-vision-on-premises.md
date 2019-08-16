@@ -14,7 +14,7 @@ ms.author: dapine
 
 # Use with Kubernetes and Helm
 
-One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the Recognize Text container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services and various configuration options. For more information about running Docker containers without Kubernetes orchestration, see [install and run Recognize Text containers](computer-vision-how-to-install-containers.md).
+One option to manage your Computer Vision containers on-premises is to use Kubernetes and Helm. Using Kubernetes and Helm to define the Recognize Text container image, we'll create a Kubernetes package. This package will be deployed to a Kubernetes cluster on-premises. Finally, we'll explore how to test the deployed services. For more information about running Docker containers without Kubernetes orchestration, see [install and run Recognize Text containers](computer-vision-how-to-install-containers.md).
 
 ## Prerequisites
 
@@ -85,7 +85,7 @@ containerpreview      kubernetes.io/dockerconfigjson        1         30s
 
 ## Configure Helm chart values for deployment
 
-Start by creating a folder named *text-recognizer*, copy and paste the following YAML content into a new file named `Chart.yml`.
+Start by creating a folder named *text-recognizer*, copy, and paste the following YAML content into a new file named `Chart.yml`.
 
 ```yaml
 apiVersion: v1
@@ -94,7 +94,7 @@ version: 1.0.0
 description: A Helm chart to deploy the microsoft/cognitive-services-recognize-text to a Kubernetes cluster
 ```
 
-Next, we'll configure our Helm chart default values. Copy and paste the following YAML into a file named `values.yaml`. Replace the **{ENDPOINT_URI}** and **{API_KEY}** values with your own.
+Next, we'll configure our Helm chart default values. Copy and paste the following YAML into a file named `values.yaml`. Replace the `# {ENDPOINT_URI}` and `# {API_KEY}` comments with your own values.
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
@@ -118,7 +118,7 @@ recognizeText:
 
 Create a *templates* folder under the *text-recognizer* directory. Copy and paste the following YAML into a file named `deployment.yaml`. The `deployment.yaml` file will serve as a Helm template.
 
-> Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. -[Helm Chart Template Guide][chart-template-guide]
+> Templates generate manifest files, which are YAML-formatted resource descriptions that Kubernetes can understand. [- Helm Chart Template Guide][chart-template-guide]
 
 ```yaml
 apiVersion: apps/v1beta1
@@ -159,17 +159,19 @@ spec:
     app: text-recognizer-app
 ```
 
+The template specifies a load balancer service and the deployment of your container/image for text recognition.
+
 ### The Kubernetes package (Helm chart)
 
 The *Helm chart* contains the configuration of which docker image(s) to pull from the `containerpreview.azurecr.io` container registry.
 
 > A [Helm chart][helm-charts] is a collection of files that describe a related set of Kubernetes resources. A single chart might be used to deploy something simple, like a memcached pod, or something complex, like a full web app stack with HTTP servers, databases, caches, and so on.
 
-The provided *Helm charts* pull the docker images of the Speech Service, both text-to-speech and the speech-to-text services from the `containerpreview.azurecr.io` container registry.
+The provided *Helm charts* pull the docker images of the Computer Vision Service, and the recognize text services from the `containerpreview.azurecr.io` container registry.
 
 ## Package and Install the Helm chart on the Kubernetes cluster
 
-To package the Helm chart use the [`helm package`][helm-package-cmd] command, given the chart name.
+To package the Helm chart, use the [`helm package`][helm-package-cmd] command, given the chart name.
 
 ```console
 helm package text-recognizer
@@ -181,7 +183,7 @@ Here is the expected output from a successful package execution:
 Successfully packaged chart and saved it to: .\text-recognizer-1.0.0.tgz
 ```
 
-To install the *helm chart* we'll need to execute the [`helm install`][helm-install-cmd] command. Please ensure to execute the install command from the directory containing the `text-recognizer-1.0.0.tgz` TAR archive file.
+To install the *helm chart*, we'll need to execute the [`helm install`][helm-install-cmd] command. Ensure to execute the install command from the directory containing the `text-recognizer-1.0.0.tgz` TAR archive file.
 
 ```console
 helm install -f text-recognizer/values.yaml \
