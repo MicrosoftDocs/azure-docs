@@ -32420,6 +32420,16 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-security.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "articles/cognitive-services/LUIS/luis-concept-collaborator.md",
+      "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-keys",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/cognitive-services/LUIS/luis-tutorial-function-appinsights.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-tutorial-bot-nodejs-appinsights",
       "redirect_document_id": false

@@ -130,13 +130,13 @@
   - name: Plan your app
     displayName: simple, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
-  - name: Author App
+  - name: Authoring and runtime keys
+    displayName: shared, transfer, ownership, author, access, import
+    href: luis-concept-keys.md    
+  - name: Author app's model
     items:
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
-    - name: Collaboration
-      displayName: shared, transfer, ownership, author, access, import
-      href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
       displayName: import
@@ -186,13 +186,6 @@
     - name: Design strategies
       href: luis-concept-enterprise.md
       displayName: import
-  - name: Security
-    items:
-    - name: App access
-      displayName: public, public app, AAD, compliance, ISO, certification, trust center, import
-      href: luis-concept-security.md
-    - name: Authoring and endpoint keys
-      href: luis-concept-keys.md
 - name: How-to guides
   items:
   - name: Start a new app

@@ -47,4 +47,4 @@ Consider [cloning](luis-concept-version.md#clone-a-version) the current version 
 
 ## Next steps
 
-Learn concepts about [collaboration](luis-concept-collaborator.md).
+Learn concepts about [collaboration](luis-concept-keys.md).

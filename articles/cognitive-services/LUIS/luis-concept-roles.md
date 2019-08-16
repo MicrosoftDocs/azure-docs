@@ -87,7 +87,7 @@ The entity and role are surrounded in parentheses, `{}`. The entity and the role
 
 ## Entity roles versus collaborator roles
 
-Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concept-collaborator.md) roles apply to levels of authoring access. 
+Entity roles apply to the data model of the LUIS app. [Collaborator](luis-concept-keys.md) roles apply to levels of authoring access. 
 
 [!INCLUDE [Entity roles in batch testing - currently not supported](../../../includes/cognitive-services-luis-roles-not-supported-in-batch-testing.md)]
 
