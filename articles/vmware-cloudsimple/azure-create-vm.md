@@ -16,7 +16,7 @@ You can create a virtual machine in the Azure portal by using VM templates on th
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at <a href="https://portal.azure.com" target="_blank">https://portal.azure.com</a>.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create CloudSimple virtual machine
 
@@ -30,8 +30,8 @@ Sign in to the Azure portal at <a href="https://portal.azure.com" target="_blank
 
 4. Enter basic information click **Next:Size**.
 
-    !!! Note
-        CloudSimple virtual machine creation on Azure requires a VM template.  This VM template should exist on your Private Cloud vCenter.  Create a virtual machine on your Private Cloud from vCenter UI with desired operating system and configurations.  Using instructions in <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE_copy.html" target="_blank">Clone a Virtual Machine to a Template in the vSphere Web Client</a>, create a template.
+    > [!NOTE]
+    > CloudSimple virtual machine creation on Azure requires a VM template.  This VM template should exist on your Private Cloud vCenter.  Create a virtual machine on your Private Cloud from vCenter UI with desired operating system and configurations.  Using instructions in [Clone a Virtual Machine to a Template in the vSphere Web Client](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-FE6DE4DF-FAD0-4BB0-A1FD-AFE9A40F4BFE_copy.html), create a template.
 
     ![Create CloudSimple virtual machine - basics](media/create-cloudsimple-virtual-machine-basic-info.png)
 
@@ -47,7 +47,7 @@ Sign in to the Azure portal at <a href="https://portal.azure.com" target="_blank
     | User name | User name of the VM administrator (for Windows templates)|
     | Password <br>Confirm password | Password for the VM administrator (for Windows templates).  |
 
-5. Select the number of cores and memory capacity for the VM and click **Next:Configurations**. Select the checkbox if you want to expose full CPU virtualization to the guest operating system so that applications that require hardware virtualization can run on virtual machines without binary translation or paravirtualization. For more information, see the VMware article <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html" target="_blank">Expose VMware Hardware Assisted Virtualization</a>.
+5. Select the number of cores and memory capacity for the VM and click **Next:Configurations**. Select the checkbox if you want to expose full CPU virtualization to the guest operating system so that applications that require hardware virtualization can run on virtual machines without binary translation or paravirtualization. For more information, see the VMware article [Expose VMware Hardware Assisted Virtualization](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-2A98801C-68E8-47AF-99ED-00C63E4857F6.html).
 
     ![Create CloudSimple virtual machine - size](media/create-cloudsimple-virtual-machine-size.png)
 
@@ -61,7 +61,7 @@ Sign in to the Azure portal at <a href="https://portal.azure.com" target="_blank
     | ------------ | ------------- |
     | Name | Enter a name to identify the interface.  |
     | Network | Select from the list of configured distributed port group in your Private Cloud vSphere.  |
-    | Adapter | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware knowledge base article <a href="https://kb.vmware.com/s/article/1001805" target="_blank">Choosing a network adapter for your virtual machine</a>. |
+    | Adapter | Select a vSphere adaptor from the list of available types configured for the VM. For more information, see the VMware knowledge base article [Choosing a network adapter for your virtual machine](https://kb.vmware.com/s/article/1001805). |
     | Power on at Boot | Choose whether to enable the NIC hardware when the VM is booted. The default is **Enable**. |
 
     For disks, click **Add disk** and configure the following settings.
@@ -71,7 +71,7 @@ Sign in to the Azure portal at <a href="https://portal.azure.com" target="_blank
     | Name | Enter a name to identify the disk.  |
     | Size | Select one of the available sizes.  |
     | SCSI Controller | Select a SCSI controller for the disk.  |
-    | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine.  Independent non-persistent mode allows you to always restart the VM in the same state. For more information, see the <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html" target="_blank">VMware documentation</a>.
+    | Mode | Determines how the disk participates in snapshots. Choose one of these options: <br> - Independent persistent: All data written to the disk is written permanently.<br> - Independent non-persistent: Changes written to the disk are discarded when you power off or reset the virtual machine.  Independent non-persistent mode allows you to always restart the VM in the same state. For more information, see the [VMware documentation](https://docs.vmware.com/en/VMware-vSphere/6.5/com.vmware.vsphere.vm_admin.doc/GUID-8B6174E6-36A8-42DA-ACF7-0DA4D8C5B084.html).
 
 7. Once validation completes, review the settings and click **Create**. To make any changes, click the tabs at the top or click.
 
