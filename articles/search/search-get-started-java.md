@@ -46,7 +46,7 @@ Calls to the service require a URL endpoint and an access key on every request. 
 
    Get the query key as well. It's a best practice to issue query requests with read-only access.
 
-![Get the service name and admin and query keys](media/search-get-started-nodejs/service-name-and-keys.png)
+![Get the service name and admin and query keys](media/search-get-started-java/search-get-started-nodejs/service-name-and-keys.png)
 
 All requests require an api-key on every request sent to your service. Having a valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
@@ -59,7 +59,7 @@ Begin by opening IntelliJ IDEA and creating a new project.
 1. Open IntelliJ IDEA, and select **Create New Project**.
 1. Select **Maven**.
 1. In the **Project SDK** list, select the Java 11 SDK.
-![Create a maven project](media/java-quickstart-create-new-maven-project.png)
+![Create a maven project](media/search-get-started-java/java-quickstart-create-new-maven-project.png)
 1. For `GroupId` and `ArtifactId`, enter `AzureSearchQuickstart`.
 1. Accept the remaining defaults to open the project.
 1. Select **File** > **Settings**, and select the **Import Maven projects automatically** check box, and click **OK**. This option appears under **Build, Execution, Deployment** > **Build Tools** > **Maven** > **Importaing**.
@@ -67,8 +67,8 @@ Begin by opening IntelliJ IDEA and creating a new project.
 1. In the `java` folder, add  `app` and `service` packages. To do this, select the `java` folder, press Alt + Insert, and select **Package**.
 1. In the `resources` folder, add `app` and `service` directories. To do this, select the `resources` folder, press Alt + Insert, and select **Directory**
 
-When you're done, the project tree should look like the picture.
-![Project directory structure](media/java-quickstart-basic-code-tree.png)
+    When you're done, the project tree should look like the picture.
+    ![Project directory structure](media/search-get-started-java/java-quickstart-basic-code-tree.png)
 
 ### Add Azure Search service information
 
@@ -527,7 +527,7 @@ The hotels index consists of simple fields and one complex field. Examples of a 
 1. Uncomment the following code in the `App` class. This code deletes the "hotels-quickstart" index, if it exists, and creates a new index based on the index definition in the "index.json" file. 
 
     A one-second pause is inserted after the index creation request. This pause ensures that the index is created before you upload documents.
-    
+
     ```java
         if(client.indexExists()){ client.deleteIndex();}
           client.createIndex("index.json");
