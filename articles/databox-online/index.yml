@@ -39,14 +39,22 @@ landingContent:
             url: https://docs.microsoft.com/learn/modules/move-data-with-azure-data-box/
 
   # Card
-  - title: View requirements
+  - title: Deploy Data Box Edge
     linkLists:
-      - linkListType: concept
+      - linkListType: tutorial
         links:
-          - text: For Data Box Gateway
-            url: data-box-gateway-system-requirements.md
-          - text: For Data Box Edge
-            url: data-box-edge-system-requirements.md
+          - text: Prepare
+            url: data-box-edge-deploy-prep.md
+          - text: Install
+            url: data-box-edge-deploy-install.md
+          - text: Connect, set up, activate
+            url: data-box-edge-deploy-connect-setup-activate.md
+          - text: Add, connect to shares
+            url: data-box-edge-deploy-add-shares.md
+          - text: Configure compute (simple)
+            url: data-box-edge-deploy-configure-compute.md
+          - text: Configure compute (advanced)
+            url: data-box-edge-deploy-configure-compute-advanced.md
 
   # Card
   - title: Deploy Data Box Gateway
@@ -66,22 +74,14 @@ landingContent:
 
 
   # Card
-  - title: Deploy Data Box Edge
+  - title: View requirements
     linkLists:
-      - linkListType: tutorial
+      - linkListType: concept
         links:
-          - text: Prepare
-            url: data-box-edge-deploy-prep.md
-          - text: Install
-            url: data-box-edge-deploy-install.md
-          - text: Connect, set up, activate
-            url: data-box-edge-deploy-connect-setup-activate.md
-          - text: Add, connect to shares
-            url: data-box-edge-deploy-add-shares.md
-          - text: Configure compute (simple)
-            url: data-box-edge-deploy-configure-compute.md
-          - text: Configure compute (advanced)
-            url: data-box-edge-deploy-configure-compute-advanced.md
+          - text: For Data Box Gateway
+            url: data-box-gateway-system-requirements.md
+          - text: For Data Box Edge
+            url: data-box-edge-system-requirements.md
 
 
   # Card
