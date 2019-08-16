@@ -33,15 +33,15 @@ The copy activity is executed on an [integration runtime](concepts-integration-r
 * When you're copying data between two data stores that are publicly accessible through the internet from any IP, you can use the Azure integration runtime for the copy activity. This integration runtime is secure, reliable, scalable, and [globally available](concepts-integration-runtime.md#integration-runtime-location).
 * When you're copying data to and from data stores that are located on-premises or in a network with access control (for example, an Azure virtual network), you need to set up a self-hosted integration runtime.
 
-An integration runtime needs to be associated with each source and sink data store. Learn details on how copy activity [determines which integration runtime to use](concepts-integration-runtime.md#determining-which-ir-to-use).
+An integration runtime needs to be associated with each source and sink data store. For information about how the copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
-Copy Activity goes through the following stages to copy data from a source to a sink. The service that powers Copy Activity:
+To copy data from a source to a sink, the service that runs the copy activity performs these steps:
 
 1. Reads data from a source data store.
-2. Performs serialization/deserialization, compression/decompression, column mapping, etc. It does these operations based on the configurations of the input dataset, output dataset, and Copy Activity.
+2. Performs serialization/deserialization, compression/decompression, column mapping, and so on. It does these operations based on the configurations of the input dataset, output dataset, and copy activity.
 3. Writes data to the sink/destination data store.
 
-![Copy Activity Overview](media/copy-activity-overview/copy-activity-overview.png)
+![Copy activity overview](media/copy-activity-overview/copy-activity-overview.png)
 
 ## Supported data stores and formats
 
@@ -49,33 +49,45 @@ Copy Activity goes through the following stages to copy data from a source to a 
 
 ### Supported file formats
 
-You can use Copy Activity to **copy files as-is** between two file-based data stores, in which case the data is copied efficiently without any serialization/deserialization.
+You can use the copy activity to copy files as is between two file-based data stores. In this case, the data is copied efficiently without any serialization or deserialization.
 
-Copy Activity also supports reading from and writing to files in specified formats: **Text, JSON, Avro, ORC, and Parquet**, and compressing and decompressing files with the following codecs: **GZip, Deflate, BZip2, and ZipDeflate**. See [Supported file and compression formats](supported-file-formats-and-compression-codecs.md) with details.
+The copy activity can also read from and write to files in these formats:
+- Text
+- JSON
+- Avro
+- ORC
+- Parquet
+
+The copy activity can compress and decompress files with these codecs: 
+- Gzip
+- Deflate
+- Bzip2
+- ZipDeflate
+For more information, see [Supported file and compression formats](supported-file-formats-and-compression-codecs.md).
 
 For example, you can do the following copy activities:
 
-* Copy data in on-premises SQL Server and write to Azure Data Lake Storage Gen2 in Parquet format.
-* Copy files in text (CSV) format from on-premises File System and write to Azure Blob in Avro format.
-* Copy zipped files from on-premises File System and decompress then land to Azure Data Lake Storage Gen2.
-* Copy data in GZip compressed text (CSV) format from Azure Blob and write to Azure SQL Database.
-* And many more cases with serialization/deserialization or compression/decompression need.
+* Copy data from an on-premises SQL Server database and write the data to Azure Data Lake Storage Gen2 in Parquet format.
+* Copy files in text (CSV) format from an on-premises file system and write to Azure Blob storage in Avro format.
+* Copy zipped files from an on-premises file system, decompress them, and write them to Azure Data Lake Storage Gen2.
+* Copy data in Gzip compressed-text (CSV) format from Azure Blob storage and write it to Azure SQL Database.
+* Many more activities that require serialization/deserialization or compression/decompression.
 
 ## Supported regions
 
-The service that powers Copy Activity is available globally in the regions and geographies listed in [Azure Integration Runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Services by region](https://azure.microsoft.com/regions/#services) for availability of Data Factory and Data Movement in a region.
+The service that enables the copy activity is available globally in the regions and geographies listed in [Azure integration runtime locations](concepts-integration-runtime.md#integration-runtime-location). The globally available topology ensures efficient data movement that usually avoids cross-region hops. See [Products by region](https://azure.microsoft.com/regions/#services) to check the availability of Data Factory and data movement in a specific region.
 
 ## Configuration
 
-To use copy activity in Azure Data Factory, you need to:
+To use the copy activity in Azure Data Factory, you need to:
 
-1. **Create linked services for source data store and sink data store.** Refer to the connector article's "Linked service properties" section on how to configure and the supported properties. You can find the supported connector list in [Supported data stores and formats](#supported-data-stores-and-formats) section.
-2. **Create datasets for source and sink.** Refer to the source and sink connector articles' "Dataset properties" section on how to configure and its supported properties.
-3. **Create a pipeline with copy activity.** The next section provides an example.
+1. **Create linked services for the source data store and the sink data store.** Refer to the connector article's "Linked service properties" section for configuration information and supported properties. You can find the list of supported connectors in the [Supported data stores and formats](#supported-data-stores-and-formats) section of this article.
+2. **Create datasets for the source and sink.** Refer to the "Dataset properties" sections of the source and sink connector articles for configuration information and supported properties.
+3. **Create a pipeline with the copy activity.** The next section provides an example.
 
 ### Syntax
 
-The following template of a copy activity contains an exhaustive list of supported properties. Specify the ones that fit your scenario.
+The following template of a copy activity contains a complete list of supported properties. Specify the ones that fit your scenario.
 
 ```json
 "activities":[
@@ -123,25 +135,25 @@ The following template of a copy activity contains an exhaustive list of support
 ]
 ```
 
-### Syntax details
+#### Syntax details
 
-| Property | Description | Required |
+| Property | Description | Required? |
 |:--- |:--- |:--- |
-| type | The type property of a copy activity must be set to: **Copy** | Yes |
-| inputs | Specify the dataset you created which points to the source data. Copy activity supports only a single input. | Yes |
-| outputs | Specify the dataset you created which points to the sink data. Copy activity supports only a single output. | Yes |
-| typeProperties | A group of properties to configure copy activity. | Yes |
-| source | Specify the copy source type and the corresponding properties on how to retrieve data.<br/><br/>Learn details from the "Copy activity properties" section in connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
-| sink | Specify the copy sink type and the corresponding properties on how to write data.<br/><br/>Learn details from the "Copy activity properties" section in connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
-| translator | Specify explicit column mappings from source to sink. Applies when the default copy behavior cannot fulfill your need.<br/><br/>Learn details from [Schema and data type mapping](copy-activity-schema-and-type-mapping.md). | No |
-| dataIntegrationUnits | Specify the powerfulness of [Azure Integration Runtime](concepts-integration-runtime.md) to empower data copy. Formerly known as cloud Data Movement Units (DMU). <br/><br/>Learn details from [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
-| parallelCopies | Specify the parallelism that you want Copy Activity to use when reading data from source and writing data to sink.<br/><br/>Learn details from [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
-| enableStaging<br/>stagingSettings | Choose to stage the interim data in a blob storage instead of directly copy data from source to sink.<br/><br/>Learn the useful scenarios and configuration details from [Staged copy](copy-activity-performance.md#staged-copy). | No |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when copying data from source to sink.<br/><br/>Learn details from [Fault tolerance](copy-activity-fault-tolerance.md). | No |
+| type | For a copy activity, set to `Copy` | Yes |
+| inputs | Specify the dataset that you created that points to the source data. The copy activity supports only a single input. | Yes |
+| outputs | Specify the dataset that you created that points to the sink data. The copy activity supports only a single output. | Yes |
+| typeProperties | Specify properties to configure the copy activity. | Yes |
+| source | Specify the copy source type and the corresponding properties for retrieving data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
+| sink | Specify the copy sink type and the corresponding properties for writing data.<br/><br/>For more information, see the "Copy activity properties" section in the connector article listed in [Supported data stores and formats](#supported-data-stores-and-formats). | Yes |
+| translator | Specify explicit column mappings from source to sink. This property applies when the default copy behavior doesn't meet your needs.<br/><br/>For more information, see [Schema mapping in copy activity](copy-activity-schema-and-type-mapping.md). | No |
+| dataIntegrationUnits | Specify a measure that represents the amount of power that [Azure integration runtime](concepts-integration-runtime.md) uses for data copy. These units were formerly known as cloud Data Movement Units (DMU). <br/><br/>For more information, see [Data Integration Units](copy-activity-performance.md#data-integration-units). | No |
+| parallelCopies | Specify the parallelism that you want the copy activity to use when reading data from the source and writing data to the sink.<br/><br/>For more information, see [Parallel copy](copy-activity-performance.md#parallel-copy). | No |
+| enableStaging<br/>stagingSettings | Specify whether to stage the interim data in Blob storage instead of directly copying data from source to sink.<br/><br/>For information about useful scenarios and configuration details, see [Staged copy](copy-activity-performance.md#staged-copy). | No |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| Choose how to handle incompatible rows when you copy data from source to sink.<br/><br/>For more information, see [Fault tolerance](copy-activity-fault-tolerance.md). | No |
 
 ## Monitoring
 
-You can monitor the copy activity run on Azure Data Factory "Author & Monitor" UI or programmatically. You can then compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
+You can monitor the copy activity run in the Azure Data Factory **Author & Monitor** UI or programmatically. You can then compare the performance and configuration of your scenario to Copy Activity's [performance reference](copy-activity-performance.md#performance-reference) from in-house testing.
 
 ### Monitor visually
 
