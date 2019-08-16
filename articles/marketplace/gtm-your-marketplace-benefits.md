@@ -40,7 +40,7 @@ To access these benefits, you will need to:
 2. The team reaches out to the “owner” or “primary contact” per marketplace offer. It is a best practice to enter either an individual or an alias you check regularly: messages sent to aliases such as info@company.com often get lost.
 
 >[!Note]
->If your offer has been live for more than 3 weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublisher_support(??).
+>If your offer has been live for more than 3 weeks and you have not received a message, please check within your organization who is the owner of the offer in question, either by looking in Cloud Partner Portal or in Partner Center. They should have the communication and next steps. <br> <br> If you cannot determine the owner, or if the owner has left your company, you can raise a support ticket at https://aka.ms/marketplacepublishersupport.
 
 The scope of the activities available to you expands as you grow your offerings in the marketplace. All listings receive a base level of optimization recommendations and promotion as part of a self-serve email of resources and best practices.
 
