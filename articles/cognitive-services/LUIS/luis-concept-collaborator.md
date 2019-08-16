@@ -14,37 +14,23 @@ ms.author: diberry
 ---
 # Collaborating with other authors
 
-LUIS apps use Active Directory authentication with roles to provide access for app authoring. This allows multiple people to author a single app.
-
 Please [migrated]() any apps, which use the older non-Active Directory authentication before continuing.
 
-## LUIS account
-A LUIS account is associated with a single [Microsoft Live](https://login.live.com/) account. Each LUIS 
-
-## LUIS app owner
-
-## Authorization roles
-
-## Transfer ownership
-
-
-## LUIS app collaborators
+After a one-time migration of authoring to Active Directory, LUIS apps use Active Directory authentication with Active Directory roles to provide access for app authoring. This allows multiple people to author a single app.
 
 ## Managing multiple authors
 
-## Manage multiple versions inside the same app
-Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version), from a base version, for each author. 
+All users that author a LUIS app, need to be added to ROLENAME role on the resource. This is [completed]() from the Azure portal.
 
-Each author makes changes to their own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
+## Moving or changing ownership of your LUIS app
 
-Exported apps are JSON-formatted files, which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app. 
+An app is defined by its Azure resource, which is determined by the app's subscription. 
 
-This method allows you to have one active version, one stage version, and one published version. You can compare the results in the interactive testing pane across the three versions.
+You can move your LUIS app. Use the following documentation resources to learn more:
 
-## Manage multiple versions as apps
-[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
-
-Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+* [Move resource to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md)
+* [Move resource within same subscription or across subscriptions](../azure-resource-manager/move-limitations/app-service-move-limitations.md)
+* [Transfer ownership](../billing/billing-subscription-transfer.md) of your subscription 
 
 ## Collaborator roles vs entity roles
 

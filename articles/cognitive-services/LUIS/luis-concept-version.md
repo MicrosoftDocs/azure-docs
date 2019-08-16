@@ -54,6 +54,20 @@ You can delete all versions except the active version from the Versions list on 
 ## Version availability at the endpoint
 Trained versions are not automatically available at your app [endpoint](luis-glossary.md#endpoint). You must [publish](luis-how-to-publish-app.md) or republish a version in order for it to be available at your app endpoint. You can publish to **Staging** and **Production**, giving you up to two versions of the app available at the endpoint. If you need more versions of the app available at an endpoint, you should export the version and reimport to a new app. The new app has a different app ID.
 
+## Manage multiple versions inside the same app
+Begin by [cloning](luis-how-to-manage-versions.md#clone-a-version), from a base version, for each author. 
+
+Each author makes changes to their own version of the app. Once each author is satisfied with the model, export the new versions to JSON files.  
+
+Exported apps are JSON-formatted files, which can be compared for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app. 
+
+This method allows you to have one active version, one stage version, and one published version. You can compare the results in the interactive testing pane across the three versions.
+
+## Manage multiple versions as apps
+[Export](luis-how-to-manage-versions.md#export-version) the base version. Each author imports the version. The person that imports the app is the owner of the version. When they are done modifying the app, export the version. 
+
+Exported apps are JSON-formatted files, which can be compared with the base export for changes. Combine the files to create a single JSON file of the new version. Change the **versionId** property in the JSON to signify the new merged version. Import that version into the original app.
+
 ## Collaborators
 Learn more about authoring [collaborators](luis-how-to-collaborate.md).
 
