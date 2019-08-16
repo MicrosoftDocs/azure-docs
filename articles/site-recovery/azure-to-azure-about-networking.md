@@ -104,6 +104,11 @@ Site Recovery IP address ranges are as follows:
    US Gov Texas | 52.238.119.218 | 52.238.116.60
    US DoD East | 52.181.164.103 | 52.181.162.129
    US DoD Central | 52.182.95.237 | 52.182.90.133
+   China North | 40.125.202.254 | 42.159.4.151
+   China North 2 | 40.73.35.193 | 40.73.33.230
+   China East | 42.159.205.45 | 42.159.132.40
+   China East 2 | 40.73.118.52| 40.73.100.125
+  
 ## Example NSG configuration
 
 This example shows how to configure NSG rules for a VM to replicate.

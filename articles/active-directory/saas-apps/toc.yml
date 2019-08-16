@@ -1082,7 +1082,7 @@
       - name: Sauce Labs - Mobile and Web Testing
         href: saucelabs-mobileandwebtesting-tutorial.md
       - name: ScaleX Enterprise
-        href: scalexenterprise-tutorial.md
+        href: scalex-enterprise-tutorial.md
       - name: SCC LifeCycle
         href: scclifecycle-tutorial.md
       - name: Screencast-O-Matic

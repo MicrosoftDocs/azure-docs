@@ -1,5 +1,5 @@
 ---
-title: Build a custom image and  for Web App for Containers - Azure App Service | Microsoft Docs
+title: Build a custom image and run in App Service from a private registry
 description: How to use a custom Docker image for Web App for Containers.
 keywords: azure app service, web app, linux, docker, container
 services: app-service
@@ -288,9 +288,9 @@ SSH enables secure communication between a container and a client. To enable SSH
 
 * The [entry script](https://github.com/Azure-Samples/docker-django-webapp-linux/blob/master/init.sh#L5) starts the SSH server.
 
-	  ```bash
-	  #!/bin/bash
-	  service ssh start
+    ```bash
+    #!/bin/bash
+    service ssh start
     ```
 
 ### Open SSH connection to container

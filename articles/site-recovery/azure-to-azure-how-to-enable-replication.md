@@ -120,6 +120,6 @@ You can modify the default target settings used by Site Recovery.
 >During initial replication the status might take some time to refresh, without progress. Click the **Refresh** button, to get the latest status.
 >
 
-# Next steps
+## Next steps
 
 [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
