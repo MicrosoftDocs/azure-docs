@@ -39,5 +39,5 @@ Azure Lighthouse includes multiple ways to help streamline customer engagement a
 
 ## Next steps
 
-- Learn about [Azure delegated resource management](azure-delegated-resource-management.md).
-- Learn about [cross-tenant management experiences](cross-tenant-management-experience.md).
+- Learn about [Azure delegated resource management](concepts/azure-delegated-resource-management.md).
+- Learn about [cross-tenant management experiences](concepts/cross-tenant-management-experience.md).
