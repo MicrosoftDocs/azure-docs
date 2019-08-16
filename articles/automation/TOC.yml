@@ -273,16 +273,16 @@
     items:
     - name: Community Solutions
       items:
-      - name: Configuration Data at Scale
+      - name: Configuration data at scale
         href: automation-dsc-config-data-at-scale.md
         displayName: DSC, Configuration Data, ConfigData
-      - name: Create Configurations from Servers
+      - name: Create configurations from servers
         href: automation-dsc-config-from-server.md
         displayName: DSC, ReverseDSC
-      - name: Configuration Based On STIG
+      - name: Configuration based on STIG
         href: automation-dsc-configuration-based-on-stig.md
         displayName: DSC, Configuration
-      - name: Convert Configurations to Composite Resources
+      - name: Convert configurations to composite resources
         href: automation-dsc-create-composite.md
         displayName: DSC, composite
 - name: Manage Shared Resources
