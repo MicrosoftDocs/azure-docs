@@ -31,7 +31,7 @@ Version 10 of the Azure Search .NET SDK targets the latest generally available v
 
 * Introduction of two new skills - [Conditional skill](cognitive-search-skill-conditional.md) and [Text Translation skill](cognitive-search-skill-text-translation.md).
 * [Shaper skill](cognitive-search-skill-shaper.md) inputs have been restructured to accommodate consolidation from nested contexts. For more information, see this [example JSON definition](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
-* Addition of 2 new [field mapping functions](search-indexer-field-mappings.md):
+* Addition of two new [field mapping functions](search-indexer-field-mappings.md):
     - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
     - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
 * On certain occasions, errors and warnings that show up in [indexer execution status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) can have additional details that help in debugging. `IndexerExecutionResult` has been updated to reflect this behavior.
@@ -63,7 +63,7 @@ There are several breaking changes in version 10 that may require code changes i
 
 The definition of the [Custom Web API skill](cognitive-search-custom-skill-web-api.md) was incorrectly specified in version 9 and older. 
 
-The model for `WebApiSkill` specified `HttpHeaders` as an object property that _contains_ a dictionary. Creating a skillset with a `WebApiSkill` constructed in this manner would result in an exception because the REST API would consider the request badly formed. This has been corrected, by making `HttpHeaders` **a top-level dictionary property** on the `WebApiSkill` model itself - which is considered a valid request from the REST API.
+The model for `WebApiSkill` specified `HttpHeaders` as an object property that _contains_ a dictionary. Creating a skillset with a `WebApiSkill` constructed in this manner would result in an exception because the REST API would consider the request badly formed. This issue has been corrected, by making `HttpHeaders` **a top-level dictionary property** on the `WebApiSkill` model itself - which is considered a valid request from the REST API.
 
 For example, if you previously attempted to instantiate a `WebApiSkill` as follows:
 
@@ -136,13 +136,13 @@ var skillset = new Skillset()
 
 `SentimentSkill` is assigned a name `#1`, `WebApiSkill` is assigned `#2`, `ShaperSkill` is assigned `#3` and so on.
 
-If you choose to identify skills by a custom name, make sure to update all instances of your clients to version 10 of the SDK first. Otherwise, there is a possibility that a client using an older version of the SDK could possibly `null` out the `Name` property of a skill, causing the client to fall back on the default naming scheme.
+If you choose to identify skills by a custom name, make sure to update all instances of your clients to version 10 of the SDK first. Otherwise, there is a possibility that a client using an older version of the SDK could `null` out the `Name` property of a skill, causing the client to fall back on the default naming scheme.
 
 ## Additional details for errors and warnings as part of indexer execution status
 
 `ItemError` and `ItemWarning` models that encapsulate details of errors and warnings (respectively) that occur during an indexer execution have been modified to include 3 new properties, with the objective to aid in debugging the indexer. These properties are:
 
-- `Name`: The name of the source at which the error originated. For example, this could refer to a particular skill in the attached skillset.
+- `Name`: The name of the source at which the error originated. For example, it could refer to a particular skill in the attached skillset.
 - `Details`: Additional verbose details about the error or warning.
 - `DocumentationLink`: A link to a troubleshooting guide for the specific error or warning.
 
