@@ -319,7 +319,7 @@ Attributes are a feature of C# class libraries and therefore do not apply to Pyt
 
 # [Java](#tab/java)
 
-Attributes are a feature of C# class libraries and therefore do not apply to Java.
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
 
 ---
 
@@ -357,7 +357,7 @@ Access blob data via the parameter typed as [InputStream](https://docs.microsoft
 
 # [Java](#tab/java)
 
-The [@BlobTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.blobtrigger?view=azure-java-stable) attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
+The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
 
 ---
 
@@ -656,7 +656,7 @@ This section contains the following examples:
 
 #### HTTP trigger, look up blob name from query string
 
- The following example shows a Java function that uses the ```HttpTrigger``` annotation to receive a parameter containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```.
+ The following example shows a Java function that uses the `HttpTrigger` annotation to receive a parameter containing the name of a file in a blob storage container. The `BlobInput` annotation then reads the file and passes its contents to the function as a `byte[]`.
 
 ```java
   @FunctionName("getBlobSizeHttp")
@@ -681,7 +681,7 @@ This section contains the following examples:
 
 #### Queue trigger, receive blob name from queue message
 
- The following example shows a Java function that uses the ```QueueTrigger``` annotation to receive a message containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```.
+ The following example shows a Java function that uses the `QueueTrigger` annotation to receive a message containing the name of a file in a blob storage container. The `BlobInput` annotation then reads the file and passes its contents to the function as a `byte[]`.
 
 ```java
   @FunctionName("getBlobSize")
@@ -754,7 +754,7 @@ Attributes are a feature of C# class libraries and therefore do not apply to Pyt
 
 # [Java](#tab/java)
 
-Attributes are a feature of C# class libraries and therefore do not apply to Java.
+The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`.
 
 ---
 
@@ -1018,7 +1018,7 @@ This section contains the following examples:
 
 #### HTTP trigger, using OutputBinding (Java)
 
- The following example shows a Java function that uses the ```HttpTrigger``` annotation to receive a parameter containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```. The ```BlobOutput``` annotation binds to ```OutputBinding outputItem```, which is then used by the function to write the contents of the input blob to the configured storage container.
+ The following example shows a Java function that uses the `HttpTrigger` annotation to receive a parameter containing the name of a file in a blob storage container. The `BlobInput` annotation then reads the file and passes its contents to the function as a `byte[]`. The `BlobOutput` annotation binds to `OutputBinding outputItem`, which is then used by the function to write the contents of the input blob to the configured storage container.
 
 ```java
   @FunctionName("copyBlobHttp")
@@ -1050,7 +1050,7 @@ This section contains the following examples:
 
 #### Queue trigger, using function return value (Java)
 
- The following example shows a Java function that uses the ```QueueTrigger``` annotation to receive a message containing the name of a file in a blob storage container. The ```BlobInput``` annotation then reads the file and passes its contents to the function as a ```byte[]```. The ```BlobOutput``` annotation binds to the function return value, which is then used by the runtime to write the contents of the input blob to the configured storage container.
+ The following example shows a Java function that uses the `QueueTrigger` annotation to receive a message containing the name of a file in a blob storage container. The `BlobInput` annotation then reads the file and passes its contents to the function as a `byte[]`. The `BlobOutput` annotation binds to the function return value, which is then used by the runtime to write the contents of the input blob to the configured storage container.
 
 ```java
   @FunctionName("copyBlobQueueTrigger")
