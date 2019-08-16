@@ -35,7 +35,7 @@ You can stream logs from [Azure Information Protection](https://azure.microsoft.
 
 ## Connect to Azure Information Protection
 
-Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. If this has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), select that workspace when you configure the data connector. If you select a different workspace, Sentinel won't be able to get the logging information from Azure Information Protection.
+Azure Information Protection uses a Log Analytics workspace to centrally collect logging information. If this workspace has already been [configured for Azure Information Protection analytics](https://docs.microsoft.com/azure//information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports), select that workspace when you configure the data connector. If you select a different workspace, Sentinel won't be able to get the logging information from Azure Information Protection.
 
 If a workspace isn't yet configured for Azure Information Protection analytics, you can configure it when you configure the data connector.
 
@@ -49,7 +49,7 @@ If a workspace isn't yet configured for Azure Information Protection analytics, 
     
     If a workspace isn't yet configured for Azure Information Protection analytics, you can configure it now by selecting an existing workspace, or by creating a new one and then selecting it.
     
-    If you need help creating a new workspace, see the information for [Create a workspace](/azure/azure-monitor/learn/quick-create-workspace) from the Azure Monitor documentation.
+    If you need help with creating a new workspace, see the information for [Create a workspace](/azure/azure-monitor/learn/quick-create-workspace) from the Azure Monitor documentation.
 
 5. When you have selected a workspace, select **OK** and the connector **STATUS** should now change to **Connected**.
 
