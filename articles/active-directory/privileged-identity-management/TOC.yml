@@ -53,6 +53,16 @@
       href: pim-how-to-change-default-settings.md
     - name: Configure alerts
       href: pim-how-to-configure-security-alerts.md
+    - name: Custom roles preview
+      items:
+      - name: Activate a custom role
+        href: azure-ad-custom-roles-activate.md
+      - name: Assign a custom role
+        href: azure-ad-custom-roles-assign.md
+      - name: Remove a role assignment
+        href: azure-ad-custom-roles-update-remove.md
+      - name: Configure custom roles
+        href: azure-ad-custom-roles-configure.md
     - name: View audit history
       href: pim-how-to-use-audit-log.md
   - name: Manage Azure resource roles

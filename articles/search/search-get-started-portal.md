@@ -6,10 +6,9 @@ manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: laobri
-ms.custom: seodec2018
 #Customer intent: As a developer, I want a low-impact introduction to index design.
 ---
 # Quickstart: Create an Azure Search index using the Azure portal

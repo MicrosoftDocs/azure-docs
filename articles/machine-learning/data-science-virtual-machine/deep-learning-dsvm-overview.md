@@ -4,7 +4,7 @@ description: Key analytics scenarios and components for Deep Learning  Virtual M
 keywords: deep learning, AI, data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
 documentationcenter: ''
-author: gopitk
+author: vijetajo
 manager: cgronlun
 
 
@@ -14,13 +14,16 @@ ms.subservice: data-science-vm
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/16/2018
-ms.author: gokuma
+ms.author: vijetaj
 
 ---
 
 # Introduction to the Deep Learning Virtual Machine
+
+> [!NOTE]
+> All Deep Learning VM (DLVM) tools have now been folded into [Data Science VM (DSVM)](dsvm-tools-overview.md). DLVM and DSVM are now the same. Please consider creating a DSVM instead of DLVM.
 
 ## Why Deep Learning Virtual Machine? 
 
@@ -33,7 +36,6 @@ The Deep Learning Virtual Machine is a specially configured variant of the [Data
 
 Get started with the Deep Learning Virtual Machine with the following steps:
 
-* [Provision a Deep Learning Virtual Machine](provision-deep-learning-dsvm.md)
-* [Use the Deep Learning Virtual Machine](use-deep-learning-dsvm.md)
-* [Tool Reference](dsvm-deep-learning-ai-frameworks.md)
-* [Samples](dsvm-samples-and-walkthroughs.md)
+* [Provision a Windows Data Science Virtual Machine](provision-vm.md)
+* [Provision an Ubuntu Data Science Virtual Machine](dsvm-ubuntu-intro.md)
+

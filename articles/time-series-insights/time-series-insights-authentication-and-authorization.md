@@ -10,7 +10,7 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 06/29/2019
+ms.date: 08/08/2019
 ms.custom: seodec18
 ---
 
@@ -102,6 +102,6 @@ Per **step 3**, separating your application's and your user credentials allows y
 
 - For Preview Time Series Insights API code samples, see [Query Preview data using C#](./time-series-insights-update-query-data-csharp.md).
 
-- For API reference information, see [Query API reference](/rest/api/time-series-insights/ga-query-api).
+- For API reference information, see [Query API reference](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api).
 
 - Learn how to [create a service principal](../active-directory/develop/howto-create-service-principal-portal.md).

@@ -1,12 +1,12 @@
 ---
 title: Back up and recover Azure VMs using Azure Backup with PowerShell
 description: Describes how to back up and recover Azure VMs using Azure Backup with PowerShell
-author: rayne-wiselman
+author: dcurwin
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/04/2019
-ms.author: raynew
+ms.date: 07/31/2019
+ms.author: dacurwin
 ---
 
 # Back up and restore Azure VMs with PowerShell
@@ -190,6 +190,9 @@ $UtcTime = $UtcTime.ToUniversalTime()
 $schpol.ScheduleRunTimes[0] = $UtcTime
 ```
 
+> [!IMPORTANT]
+> You need to provide the start time in 30 minute multiples only. In the above example, it can be only "01:00:00" or "02:30:00". The start time cannot be "01:15:00"
+
 The following example stores the schedule policy and the retention policy in variables. The example uses those variables to define the parameters when creating a protection policy, *NewPolicy*.
 
 ```powershell
@@ -208,6 +211,9 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ### Enable protection
 
 Once you've defined the protection policy, you still must enable the policy for an item. Use [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) to enable protection. Enabling protection requires two objects - the item and the policy. Once the policy has been associated with the vault, the backup workflow is triggered at the time defined in the policy schedule.
+
+> [!IMPORTANT]
+> While using PS to enable backup for multiple VMs at once, ensure that a single policy doesn't have more than 100 VMs associated with it. This is a [recommended best practice](https://docs.microsoft.com/azure/backup/backup-azure-vm-backup-faq#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-a-same-backup-policy). Currently, the PS client doesn't explicitly block if there are more than 100 VMs but the check is planned to be added in the future.
 
 The following examples enable protection for the item, V2VM, using the policy, NewPolicy. The examples differ based on whether the VM is encrypted, and what type of encryption.
 
@@ -269,7 +275,7 @@ To modify the protection policy, use [Set-AzRecoveryServicesBackupProtectionPoli
 
 #### Modifying scheduled time
 
-When you create a protection policy, it is assigned a start-time by default. The following examples shows how to modify the start time of a protection policy.
+When you create a protection policy, it is assigned a start-time by default. The following examples show how to modify the start time of a protection policy.
 
 ````powershell
 $SchPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
@@ -302,7 +308,7 @@ $bkpPol.SnapshotRetentionInDays=7
 PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ````
 
-The default value will be 2, user can set the value with a min of 1 and max of 5. For weekly backup polices, the period is set to 5 and cannot be changed.
+The default value will be 2, user can set the value with a min of 1 and max of 5. For weekly backup policies, the period is set to 5 and cannot be changed.
 
 ### Trigger a backup
 
@@ -330,7 +336,7 @@ V2VM              Backup              InProgress          4/23/2016             
 
 ### Change policy for backup items
 
-User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, simply fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
+User can either modify existing policy or change the policy of the backed-up item from Policy1 to Policy2. To switch policies for a backed-up item, fetch the relevant policy and back up item and use the [Enable-AzRecoveryServices](https://docs.microsoft.com/powershell/module/az.recoveryservices/Enable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) command with backup item as the parameter.
 
 ````powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>
@@ -501,7 +507,7 @@ After you restore the disks, use the following steps to create and configure the
 > [!NOTE]
 > After restoring disks, you can now get a deployment template which you can directly use to create a new VM. No more different PS cmdlets to create managed/unmanaged VMs which are encrypted/unencrypted.
 
-The resultant job details gives the template URI which can be queried and deployed.
+The resultant job details give the template URI that can be queried and deployed.
 
 ```powershell
    $properties = $details.properties
@@ -643,7 +649,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
 
    * **Managed and encrypted VMs with Azure AD (BEK and KEK)** - For managed encrypted VMs with Azure AD (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Managed and encrypted VMs without Azure AD (BEK only)** -For managed, encrypted VMs without Azure AD (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md).Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl can be fetched from the restored keyVault.
+   * **Managed and encrypted VMs without Azure AD (BEK only)** -For managed, encrypted VMs without Azure AD (encrypted using BEK only), if source **keyVault/secret are not available** restore the secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl can be fetched from the restored keyVault.
 
      The below script needs to be executed only when the source keyVault/secret is not available.  
 
@@ -657,7 +663,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
 
      After the secrets are available and the encryption details are set on the OS disk, to attach the restored managed disks, see [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-   * **Managed and encrypted VMs without Azure AD (BEK and KEK)** - For managed, encrypted VMs without Azure AD (encrypted using BEK & KEK),if source **keyVault/key/secret are not available** restore the key and secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl and $kekurl can be fetched from the restored keyVault.
+   * **Managed and encrypted VMs without Azure AD (BEK and KEK)** - For managed, encrypted VMs without Azure AD (encrypted using BEK & KEK), if source **keyVault/key/secret are not available** restore the key and secrets to key vault using the procedure in [Restore an non-encrypted virtual machine from an Azure Backup recovery point](backup-azure-restore-key-secret.md). Then execute the following scripts to set encryption details on the restored OS disk (this step is not required for data disk). The $dekurl and $kekurl can be fetched from the restored keyVault.
 
    The below script needs to be executed only when the source keyVault/key/secret is not available.
 
@@ -710,7 +716,7 @@ The following section lists steps necessary to create a VM using "VMConfig" file
 
    * **For VM without Azure AD** - Use the following command to manually enable encryption for the data disks.
 
-     If incase during the command execution it asks for AADClientID, then you need to update your Azure PowerShell.
+     If during the command execution it asks for AADClientID, then you need to update your Azure PowerShell.
 
      **BEK only**
 
@@ -796,7 +802,7 @@ OsType  Password        Filename
 Windows e3632984e51f496 V2VM_wus2_8287309959960546283_451516692429_cbd6061f7fc543c489f1974d33659fed07a6e0c2e08740.exe
 ```
 
-Run the script on the machine where you want to recover the files. To execute the script, you must enter the password provided. After the disks are attached, use Windows File Explorer to browse the new volumes and files. For more information, refer to the Backup article, [Recover files from Azure virtual machine backup](backup-azure-restore-files-from-vm.md).
+Run the script on the machine where you want to recover the files. To execute the script, you must enter the password provided. After the disks are attached, use Windows File Explorer to browse the new volumes and files. For more information, see the Backup article, [Recover files from Azure virtual machine backup](backup-azure-restore-files-from-vm.md).
 
 ### Unmount the disks
 

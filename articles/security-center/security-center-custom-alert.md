@@ -17,15 +17,15 @@ ms.date: 06/29/2018
 ms.author: rkarlin
 
 ---
-# Custom Alert Rules in Azure Security Center (Preview)
-This document helps you to create custom alert rules in Azure Security Center.
+# Custom Alert Rules in Azure Security Center (Retired)
+This document helps you to create custom alert rules (Preview) in Azure Security Center.
 
 > [!NOTE]
-> Custom alerts has been retired from Security Center. 
+> Custom alerts were retired from Azure Security Center on June 30, 2019. 
 
 ## Retirement of Custom Alert rules in Azure Security Center
 
-The custom alerts experience has been retired on June 30th, 2019, due to retirement of the underlying infrastructure it relied on. any custom alerts defined prior to retriement are not taking effect and security alerts based on those custom alerts rules are not being generated. You can still view your custom alert rules' queries in Security Center in order to re-create them in the alternatives mentioned below:
+The custom alerts experience were retired on June 30, 2019, due to retirement of the underlying infrastructure it relied on. Any custom alerts defined prior to retriement are not taking effect and security alerts based on those custom alerts rules are not being generated. You can still view your custom alert rules' queries in Security Center in order to re-create them in the alternatives mentioned below:
 
 Users are advised to either:
 - Enable [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) and use its built-in [analytics](https://docs.microsoft.com/azure/sentinel/tutorial-detect-threats) functionality to re-create their alert rules
@@ -36,7 +36,7 @@ To keep your existing alerts and re-create them in Azure Sentinel, please [launc
 > [!NOTE]
 > Custom alerts using [Search](https://docs.microsoft.com/azure/azure-monitor/log-query/search-queries) or [Union](https://docs-analytics-eus.azurewebsites.net/queryLanguage/query_language_unionoperator.html) statements queries are not supported in Azure Sentinel. Please edit these alerts before performing the migration.
 
-To re-create your alerts using Azure Monitor log alerts, please see: [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) for instructions on how to create log alerts. For general overview of log alerts in Azure Monitor, click [here](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
+To learn how to re-create your alerts by using Azure Monitor log alerts, see [Create, view, and manage log alerts using Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log). For a general overview, see [Log alerts in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log).
 
 ## What are custom alert rules in Security Center?
 

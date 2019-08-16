@@ -62,7 +62,7 @@ New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
-  -AllocationMethod Static
+  -AllocationMethod Static `
   -Sku Standard
 ```
 ### Backend servers

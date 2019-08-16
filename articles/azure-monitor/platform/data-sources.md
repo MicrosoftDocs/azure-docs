@@ -98,7 +98,7 @@ Most Azure services will send [platform metrics](data-platform-metrics.md) that 
 | Destination | Description | Reference |
 |:---|:---|:---|
 | Azure Monitor Metrics | Platform metrics will write to the Azure Monitor metrics database with no configuration. Access platform metrics from Metrics Explorer.  | [Getting started with Azure Metrics Explorer](metrics-getting-started.md)<br>[Supported metrics with Azure Monitor](metrics-supported.md) |
-| Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](collect-azure-metrics-logs.md#azure-diagnostics-direct-to-log-analytics) |
+| Azure Monitor Logs | Copy platform metrics to Logs for trending and other analysis using Log Analytics. | [Azure diagnostics direct to Log Analytics](diagnostic-logs-stream-log-store.md) |
 | Event Hubs | Stream metrics to other locations using Event Hubs. |[Stream Azure monitoring data to an event hub for consumption by an external tool](stream-monitoring-data-event-hubs.md) |
 
 ### Diagnostic logs

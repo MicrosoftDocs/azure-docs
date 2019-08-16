@@ -54,7 +54,7 @@ Flow logs include the following properties:
 			* **flows** - a collection of flows
 				* **mac** - The MAC address of the NIC for the VM where the flow was collected
 				* **flowTuples** - A string that contains multiple properties for the flow tuple in comma-separated format
-					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX EPOCH format
+					* **Time Stamp** - This value is the time stamp of when the flow occurred in UNIX epoch format
 					* **Source IP** - The source IP
 					* **Destination IP** - The destination IP
 					* **Source Port** - The source port
@@ -73,8 +73,6 @@ Flow logs include the following properties:
 Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive. To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
 
 Flow state *B* is recorded when a flow is initiated. Flow state *C* and flow state *E* are states that mark the continuation of a flow and flow termination, respectively. Both *C* and *E* states contain traffic bandwidth information.
-
-For continuation *C* and end *E* flow states, byte and packet counts are aggregate counts from the time of the previous flow tuple record. Referencing the previous example conversation, the total number of packets transferred is 1021+52+8005+47 = 9125. The total number of bytes transferred is 588096+29952+4610880+27072 = 5256000.
 
 **Example**: Flow tuples from a TCP conversation between 185.170.185.105:35370 and 10.2.0.4:23:
 

@@ -131,7 +131,7 @@ No, Azure AD Connect does not support on-premises forests or domains where the N
 No, Azure AD Connect does not support a pure IPv6 environment.
 
 **Q:I have a multi-forest environment and the network between the two forests is using NAT (Network Address Translation). Is using Azure AD Connect between these two forests supported?**</br>
- No, using Azure AD Connect over NAT is not supported. 
+No, using Azure AD Connect over NAT is not supported. 
 
 ## Federation
 **Q: What do I do if I receive an email that asks me to renew my Office 365 certificate?**  
@@ -146,6 +146,12 @@ No. Changing the server name renders the sync engine unable to connect to the SQ
 
 **Q: Are Next Generation Cryptographic (NGC) sync rules supported on a FIPS-enabled machine?**  
 No.  They are not supported.
+
+**Q. If I disabled a synced device (for example: HAADJ) in the Azure portal, why it is re-enabled?**<br>
+Synced devices might be authored or mastered on premises. If a synced device is enabled on premises, it might be re-enabled in the Azure portal even if was previously disabled by an administrator. To disable a synced device, use the on-premises Active Directory to disable the computer account.
+
+**Q. If I block user sign-in at the Office 365 or Azure AD portal for synced users, why it is unblocked upon signing in again?**<br>
+Synced users might be authored or mastered on premises. If the account is enabled on premises, it can unblock the sign-in block placed by administrator.
 
 ## Identity data
 **Q: Why doesn't the userPrincipalName (UPN) attribute in Azure AD match the on-premises UPN?**  

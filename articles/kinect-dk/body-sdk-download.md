@@ -23,12 +23,35 @@ This document provides links to install each version of the Azure Kinect Body Tr
 
 Version       | Download
 --------------|----------
-0.9.0 | [msi](https://download.microsoft.com/download/F/D/E/FDE380A1-6E63-4571-94F3-F3744E9EE85A/Azure%20Kinect%20Body%20Tracking%20SDK%200.9.0.msi)
+0.9.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100063) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.1)
+0.9.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=58402) [nuget](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/0.9.0)
+
+## Linux installation instructions
+
+Currently, the only supported distribution is Ubuntu 18.04. To request support for other distributions, see [this page](https://aka.ms/azurekinectfeedback).
+
+First, you'll need to configure [Microsoft's Package Repository](https://packages.microsoft.com/), following the instructions [here](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+
+The `libk4abt<major>.<minor>-dev` package contains the headers and CMake files to build against `libk4abt`.
+The `libk4abt<major>.<minor>` package contains the shared objects needed to run executables that depend on `libk4abt` as well as the example viewer.
+
+The basic tutorials require the `libk4abt<major>.<minor>-dev` package. To install it, run
+
+`sudo apt install libk4abt0.9-dev`
+
+If the command succeeds, the SDK is ready for use.
 
 > [!NOTE]
-> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.0". You will find the samples referenced in articles in this path.
+> When installing the SDK, remember the path you install to. For example, "C:\Program Files\Azure Kinect Body Tracking SDK 0.9.1". You will find the samples referenced in articles in this path.
 
 ## Change log
+
+### v0.9.1
+* [Bug Fix] Fix memory leak when destoroying tracker
+* [Bug Fix] Better error messages for missing dependencies
+* [Bug Fix] Fail without crashing when creating a second tracker instance
+* [Bug Fix] Logger environmental variables now work correctly
+* Linux support
 
 ### v0.9.0
 

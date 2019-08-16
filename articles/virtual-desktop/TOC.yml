@@ -48,6 +48,8 @@
     href: customize-feed-for-virtual-desktop-users.md
   - name: Customize RDP Properties
     href: customize-rdp-properties.md
+  - name: Deploy the diagnostics tool
+    href: deploy-diagnostics.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
@@ -80,6 +82,8 @@
   items:
   - name: PowerShell
     href: /powershell/windows-virtual-desktop/overview
+  - name: REST API
+    href: /rest/api/virtual-desktop/
 - name: Resources
   items:
   - name: Tech Community support group 

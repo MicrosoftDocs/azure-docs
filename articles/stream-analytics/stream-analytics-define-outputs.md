@@ -65,7 +65,7 @@ The following table lists the property names and their description for creating 
 
 ## Blob storage and Azure Data Lake Gen2
 
-Egress to Azure Data Lake Gen2 is offered as a public preview feature.
+Egress to Azure Data Lake Gen2 is offered as a preview feature in limited regions worldwide. You may request access to the preview by providing additional details in our [request form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u).
 
 Azure Blob storage offers a cost-effective and scalable solution for storing large amounts of unstructured data in the cloud. For an introduction on Blob storage and its usage, see [Upload, download, and list blobs with the Azure portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 

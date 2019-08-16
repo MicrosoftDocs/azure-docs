@@ -10,7 +10,6 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer:
-manager: craigg
 ms.date: 03/19/2019
 ---
 # Optimize performance by using In-Memory technologies in SQL Database
