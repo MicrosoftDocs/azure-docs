@@ -1,5 +1,5 @@
 ---
-title: FAQ - VMware Solution by CloudSimple 
+title: FAQ - Azure VMware Solution by CloudSimple 
 description: Frequently asked questions for Azure VMware Solution by CloudSimple 
 author: sharaths-cs
 ms.author: b-shsury 
@@ -70,7 +70,7 @@ There is no CloudSimple charge for network egress.  Azure standard rates apply t
 
 **What networking features are available for my Private Cloud?**
 
-You can provision VLANs (and their subnets) and firewall tables, and assign public IP addresses that map to a virtual machine running in your Private Cloud. For details on networking features, see [VLANs and subnets overview](cloudsimple-vlans-subnet.md), [Firewall tables overview](cloudsimple-firewall-tables.md), and [Public IP address overview](cloudsimple-public-ip-address.md).
+You can provision VLANs (and their subnets) and firewall tables, and assign public IP addresses that map to a virtual machine running in your Private Cloud. For details on networking features, see [VLANs and subnets overview](cloudsimple-vlans-subnets.md), [Firewall tables overview](cloudsimple-firewall-tables.md), and [Public IP address overview](cloudsimple-public-ip-address.md).
 
 **How do I set up different subnets for my applications in my Private Cloud?**
 
@@ -111,7 +111,7 @@ All CloudSimple infrastructure is continuously monitored by the CloudSimple plat
 
 **What type of storage is supported on a Private Cloud?**
 
-CloudSimple offers all-flash VMware vSAN storage with every Private Cloud.  Each vSphere is created with its own vSAN datastore.  For details, see [Private Cloud VMware components - vSAN storage](vmware-components.md/#vsan-storage).
+CloudSimple offers all-flash VMware vSAN storage with every Private Cloud.  Each vSphere is created with its own vSAN datastore.  For details, see [Private Cloud VMware components - vSAN storage](vmware-components.md#vsan-storage).
 
 **Is encryption of data supported?**
 Yes.  You can set up the vSAN storage on your Private Cloud to use a key management server (KMS) that is deployed on-premises or on Azure to encrypt data stored on vSAN.

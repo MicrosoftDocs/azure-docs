@@ -3,7 +3,7 @@ title: Account management - VMware Solution by CloudSimple portal
 description: Describes how to manage accounts on the VMware Solution by CloudSimple portal 
 author: sharaths-cs
 ms.author: b-shsury 
-ms.date: 08/14/19 
+ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 
 ms.reviewer: cynthn 

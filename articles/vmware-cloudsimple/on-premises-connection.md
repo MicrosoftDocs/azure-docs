@@ -1,7 +1,7 @@
 --- 
 title: On-premises connection using ExpressRoute 
 description: Describes how to request an on-premises connection using ExpressRoute from CloudSimple region network 
-author: b-shsury 
+author: sharaths-cs
 ms.author: b-shsury 
 ms.date: 08/14/2019 
 ms.topic: article 
